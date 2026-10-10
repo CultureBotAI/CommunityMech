@@ -574,7 +574,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Variovorax-Cryptococcus Vitamin Cross-Feeding Microcosm</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding, mutualism.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -596,15 +596,17 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Variovorax Thiamine Provision to Auxotrophs</h3>
+                    <h3>Variovorax thiamine provision to Cryptococcus</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">A Variovorax species produces thiamine at high levels and supports growth of correlated thiamine auxotrophs in the laboratory consortium.</p>
+                <p class="prewrap interaction-description">The isolated Variovorax produces extracellular thiamine, and the tested Cryptococcus grows better with thiamine supplementation and in coculture. Together these experiments support thiamine cross-feeding to this yeast. They do not validate every correlated auxotroph as a recipient. Cryptococcus was not included in the correlation network. The up-to-100 mg/L measurement belongs to a separate spent-medium-supplemented assay, not a measured concentration in the two-member coculture.</p>
 
 
                 <p><strong>Source Taxon:</strong> Variovorax species</p>
 
 
+
+                <p><strong>Target Taxon:</strong> Cryptococcus yeast</p>
 
 
 
@@ -642,7 +644,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Bidirectional Vitamin Mutualism in Coculture
-                        <p class="prewrap causal-description">Variovorax thiamine production supplies one half of the reciprocal vitamin exchange that increases fitness when Variovorax and Cryptococcus are grown together.</p>
+                        <p class="prewrap causal-description">Thiamine production and yeast thiamine responsiveness support one resource route contributing to the observed coculture benefit. This does not establish all correlated recipients or vitamin exchange as the only cause of that benefit.</p>
                     </div>
 
                 </div>
@@ -674,7 +676,7 @@
                     <h3>Cryptococcus Pantothenate Provision to Variovorax</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">A Cryptococcus yeast produces pantothenate that is required for growth of Variovorax, making the vitamin exchange bidirectional.</p>
+                <p class="prewrap interaction-description">Cryptococcus spent medium contains pantothenate, Variovorax requires pantothenate for substantial growth, and supplementation supports its growth. These controls and coculture benefit support reciprocal vitamin provisioning. They do not isolate pantothenate as the sole growth-promoting component of spent medium or resolve every in-coculture flux.</p>
 
 
                 <p><strong>Source Taxon:</strong> Cryptococcus yeast</p>
@@ -719,7 +721,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Bidirectional Vitamin Mutualism in Coculture
-                        <p class="prewrap causal-description">Cryptococcus pantothenate production supplies the reciprocal vitamin needed by Variovorax, completing the experimentally validated bidirectional cross-feeding system.</p>
+                        <p class="prewrap causal-description">Yeast pantothenate production and bacterial supplementation response support the reciprocal resource route contributing to coculture benefit. The controls do not exclude other spent-medium components or establish exclusive mediation.</p>
                     </div>
 
                 </div>
@@ -764,7 +766,7 @@
                     <h3>Bidirectional Vitamin Mutualism in Coculture</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Co-culturing Variovorax and Cryptococcus yields large fitness gains for both organisms, demonstrating an experimentally validated mutualistic vitamin exchange.</p>
+                <p class="prewrap interaction-description">Both isolates achieve higher viable cell densities in coculture than in monoculture over the reported serial-passage assay, supporting MUTUALISM under those conditions. Auxotrophy, supplementation and extracellular vitamin measurements support a vitamin-exchange mechanism, without proving vitamin-only mediation or direct interaction in the original mixed bioreactors. Quantitative fold-change statements differ within the paper, so no reconciled fold increase is assigned here.</p>
 
 
                 <p><strong>Source Taxon:</strong> Variovorax species</p>
@@ -829,6 +831,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How much of the coculture benefit is mediated by each vitamin, and which quantitative values are reconciled?
+                </h3>
+                <p class="prewrap">The abstract/discussion report 90-130-fold increases; the Fig.6 caption gives about 50-fold for yeast, while the bacterial Results densities imply a different ratio. Results describe Cryptococcus monoculture spent medium, whereas Methods describe final-passage coculture spent medium for quantification. No corrected value or uniquely resolved medium source is invented. Raw data and supplementary files were not audited. The controls support vitamin-dependent mutualism without establishing vitamin-only mediation or native bioreactor pairing. Supplementation/network metadata remains issue #1912.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Variovorax thiamine provision to Cryptococcus</code>, <code>ecological_interactions#Cryptococcus Pantothenate Provision to Variovorax</code>, <code>ecological_interactions#Bidirectional Vitamin Mutualism in Coculture</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/37553333/" rel="nofollow noreferrer">PMID:37553333</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">co-culturing with Variovorax leads to a 90-130-fold fitness increase for both organisms</p>
+                        <p class="muted small prewrap">The abstract supports positive effects on both partners. Its 90-130-fold figure differs from the Fig.6 caption and from the ratio implied by the Results bacterial densities; retain qualitative benefit, not a corrected numerical claim.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1037,7 +1078,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1050,7 +1090,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1123,7 +1162,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Variovorax Thiamine Provision to Auxotrophs",
+                label: "Variovorax thiamine provision to Cryptococcus",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1138,6 +1177,11 @@
             }
 
 
+
+            var tgtKey = "Cryptococcus yeast";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
 
         })();
 

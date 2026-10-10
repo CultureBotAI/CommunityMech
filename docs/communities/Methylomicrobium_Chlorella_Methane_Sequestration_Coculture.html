@@ -585,16 +585,11 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Methylomicrobium-Chlorella Methane Sequestration Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for mutualism. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -603,8 +598,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -615,8 +610,7 @@
                     <h3>Methane Removal and Mutualistic Growth</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">M. alcaliphilum 20Z and Chlorella sp. HS2 form a mutualistic coculture in which methane removal and growth of both organisms increase relative to the tested controls.
-</p>
+                <p class="prewrap interaction-description">The M. alcaliphilum 20Z/Chlorella sp. HS2 coculture enhanced growth of both members under saline conditions (&gt;3.0%), supporting the authors&#39; mutualistic-growth interpretation. Increased methane provision in enclosed bottles led to saturated methane removal. Positive growth and removal are retained, without assigning all benefits to measured reciprocal O2/CO2 transfer or implying obligatory dependence.</p>
 
 
                 <p><strong>Source Taxon:</strong> Chlorella sp. HS2</p>
@@ -671,7 +665,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Methane and Carbon Dioxide Mitigation
-                        <p class="prewrap causal-description">The mutualistic O2/CO2 exchange that increases growth of both partners under methane feeds the downstream methane removal and biomass carbon-sequestration phenotype.</p>
+                        <p class="prewrap causal-description">PARTIAL - enhanced partner growth and methane utilization contribute to greater whole-coculture biomass carbon sequestration. The exact-pair abstract supports these positive outcomes but does not isolate reciprocal gas exchange as their sole mediator; it explicitly implicates factors beyond gaseous exchange.</p>
                     </div>
 
                 </div>
@@ -690,7 +684,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Increased CH4 removal and growth of both microbes were observed in co-cultures."</div>
+                        <div class="snippet">"Co-culture significantly enhanced the growth of both microbes"</div>
 
                     </li>
 
@@ -703,7 +697,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Co-culture significantly enhanced the growth of both microbes"</div>
+                        <div class="snippet">"increased methane provision in enclosed serum bottles led to saturated methane removal"</div>
 
                     </li>
 
@@ -714,17 +708,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Methane and Carbon Dioxide Mitigation</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The methanotroph-microalga consortium was proposed as a halotolerant platform for simultaneous methane and carbon dioxide mitigation, with methane-fed cocultures increasing carbon sequestered in biomass.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Methylomicrobium alcaliphilum 20Z</p>
+                <p class="prewrap interaction-description">Methane-fed cocultures showed nearly an order of magnitude more carbon sequestered in biomass in the reported analyses. This is a whole-culture carbon endpoint and supports the proposed halotolerant CH4/CO2 mitigation platform, not a quantified methanotroph-to-Chlorella carbon flux or demonstrated operation on real wastewater.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Chlorella sp. HS2</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Methylomicrobium alcaliphilum 20Z,
+
+                    Chlorella sp. HS2
+
+                </p>
 
 
 
@@ -798,19 +794,6 @@
 
                     </li>
 
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.1016/j.mex.2022.101652"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1016/j.mex.2022.101652</a>
-
-                            - PARTIAL (COMPUTATIONAL)
-                        </div>
-
-                        <div class="snippet">"Explicitly models the exchange of in situ produced O2 and CO2 within the coculture"</div>
-
-                    </li>
-
                 </ul>
 
             </div>
@@ -818,17 +801,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Saline Metabolic Coupling and pH Recovery</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">The coculture showed robust metabolic coupling under saline conditions and maintained culture pH suitable for methanotrophic growth.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Chlorella sp. HS2</p>
+                <p class="prewrap interaction-description">Methane-fed saline cocultures maintained pH suitable for methanotrophic growth, alongside enhanced growth and carbon sequestration. This culture-level observation supports a favorable chemical environment; it does not establish colonization facilitation or selectively demonstrate that Chlorella-driven pH recovery causes the growth benefit.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Methylomicrobium alcaliphilum 20Z</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Methylomicrobium alcaliphilum 20Z,
+
+                    Chlorella sp. HS2
+
+                </p>
 
 
 
@@ -852,8 +837,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Methane and Carbon Dioxide Mitigation
-                        <p class="prewrap causal-description">Saline pH recovery and robust methanotroph-alga metabolic coupling sustain methane-fed coculture conditions that increase methane removal and biomass carbon sequestration.
-</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED - maintaining a suitable pH could sustain methanotrophic activity and thereby biomass carbon sequestration. The available exact-pair abstract reports the association, not a selective pH perturbation establishing its contribution independently of gas supply or other interactions.</p>
                     </div>
 
                 </div>
@@ -872,7 +856,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"robust metabolic coupling between the two microbes"</div>
+                        <div class="snippet">"maintained a suitable cultural pH suitable for methanotrophic growth"</div>
 
                     </li>
 
@@ -882,23 +866,10 @@
                             <a href="https://doi.org/10.1016/j.biortech.2024.130607"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1016/j.biortech.2024.130607</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"pH recovery above mild alkaline level was observed in co-cultures."</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.20517/mrr.2023.70"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.20517/mrr.2023.70</a>
-
-                            - PARTIAL (COMPUTATIONAL)
-                        </div>
-
-                        <div class="snippet">"the metabolic interactions within the coculture, how they contribute to the enhanced growth observed in the coculture"</div>
+                        <div class="snippet">"robust metabolic coupling between the two microbes"</div>
 
                     </li>
 
@@ -911,6 +882,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which processes mediate the positive growth, pH and biomass-carbon effects in the exact 20Z/HS2 pair?
+                </h3>
+                <p class="prewrap">Preserve mutual growth enhancement, methane removal and biomass carbon sequestration. The exact-pair primary abstract was read; publisher full text returned 403, so no absence-of-controls claim is made. Both cited model papers (doi:10.1016/j.mex.2022.101652 and doi:10.20517/mrr.2023.70) actually study M. buryatense 5GB1/A. platensis. Their complete main texts support kinetic/computational context, not independent exact-pair evidence. DynamiCom nitrogen exchange is a prediction awaiting experimental validation, not an HS2 mechanism. Remove those graph evidence items without inventing new nitrogen-exchange structure. #1608 addresses graph scope.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Methane Removal and Mutualistic Growth</code>, <code>ecological_interactions#Methane and Carbon Dioxide Mitigation</code>, <code>ecological_interactions#Saline Metabolic Coupling and pH Recovery</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1289,7 +1279,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1302,7 +1291,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1404,7 +1392,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1423,7 +1411,7 @@
             processes.push("photosynthesis");
 
 
-            var evidenceCount = 3;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1436,23 +1424,26 @@
             });
 
 
-            var srcKey = "Methylomicrobium alcaliphilum 20Z";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Chlorella sp. HS2";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Methylomicrobium alcaliphilum 20Z",
+
+                "Chlorella sp. HS2"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1461,7 +1452,7 @@
             processes.push("biological process involved in interspecies interaction between organisms");
 
 
-            var evidenceCount = 3;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1474,17 +1465,20 @@
             });
 
 
-            var srcKey = "Chlorella sp. HS2";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Methylomicrobium alcaliphilum 20Z";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Methylomicrobium alcaliphilum 20Z",
+
+                "Chlorella sp. HS2"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

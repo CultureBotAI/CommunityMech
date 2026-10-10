@@ -561,7 +561,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Staged Ensifer-Bacillus Cattle-Manure Wastewater SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -580,7 +580,7 @@
                 <div class="interaction-header">
                     <h3>Staged cattle-manure wastewater valorization</h3>
                 </div>
-                <p class="prewrap interaction-description">The staged two-member SYC consortium converted cattle manure wastewater into stable bioactive fermentation broth and maintained stronger viable bacterial density than the S2-8-1 monoculture or simultaneous co-culture.</p>
+                <p class="prewrap interaction-description">Among the tested S2-8-1 monoculture, simultaneous co-culture and staged SYC systems, SYC maintained the highest viable bacterial density. The source describes the resulting cattle-manure wastewater broth as stable and bioactive; this is bounded to the reported experiment, not demonstrated reciprocal benefit or universal functional stability.</p>
 
 
 
@@ -630,7 +630,7 @@
                 <div class="interaction-header">
                     <h3>SYC rhizosphere nitrification and maize promotion</h3>
                 </div>
-                <p class="prewrap interaction-description">Fermentation broth from SYC increased rhizosphere nitrification, nitrate availability, photosynthetic performance, cytokinin accumulation, and maize whole-plant dry matter in a soil-maize pot experiment.</p>
+                <p class="prewrap interaction-description">In a soil-maize pot experiment, SYC enhanced rhizosphere nitrification, nitrate availability, photosynthetic performance and cytokinin accumulation. Whole-plant dry matter increased by 41.4% versus the water control, not the monoculture or simultaneous-culture comparator used for broth density. The accessible abstract does not isolate cytokinin accumulation or the transcript response as the cause of plant growth.</p>
 
 
 
@@ -680,6 +680,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42341825/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42341825</a>
+
+                            - SUPPORT (IN_VIVO)
+                        </div>
+
+                        <div class="snippet">"The consortium also improved photosynthetic performance and cytokinin accumulation."</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -688,10 +701,16 @@
                 <div class="interaction-header">
                     <h3>S2-8-1 nitrogen and cytokinin-related gene upregulation</h3>
                 </div>
-                <p class="prewrap interaction-description">Comparative metatranscriptomics under SYC conditions found significant upregulation of S2-8-1 heterotrophic ammonia oxidation-related genes and cytokinin-related genes.</p>
+                <p class="prewrap interaction-description">Comparative metatranscriptomics under SYC conditions found significant upregulation of S2-8-1 heterotrophic ammonia oxidation-related and cytokinin-related genes. This is a member-specific transcript observation, not demonstrated protein activity, metabolic flux, or a proven mediator of the broth-density or maize-growth outcomes.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Ensifer sp. S2-8-1
+
+                </p>
 
 
 
@@ -727,7 +746,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -740,6 +759,41 @@
                 <p class="muted small">Attaches to: <code>growth_media#cattle manure wastewater</code>, <code>environmental_factors#staged consortium assembly</code></p>
 
 
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Does the S2-8-1 transcript response causally mediate the separately reported broth and maize endpoints?
+                </h3>
+                <p class="prewrap">The accessible abstract reports comparative transcript abundance and suggests coordinated pathway activation. It does not isolate the transcript changes as causal mediators. Keep the observed endpoints separate, the transcript node scoped only to Ensifer, and no downstream arrows. Exact full-text methods were not read.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Staged cattle-manure wastewater valorization</code>, <code>ecological_interactions#SYC rhizosphere nitrification and maize promotion</code>, <code>ecological_interactions#S2-8-1 nitrogen and cytokinin-related gene upregulation</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42341825/" rel="nofollow noreferrer">PMID:42341825</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Comparative metatranscriptomic analysis revealed significant upregulation of heterotrophic ammonia oxidation-related genes (CYP450) and cytokinin-related genes (miaA and LOG) in S2-8-1 under SYC conditions</p>
+                        <p class="muted small prewrap">Supports reported transcript upregulation specifically in S2-8-1, not direct pathway activity or causal mediation of other endpoints.</p>
+                    </div>
+
+                </details>
 
 
             </div>
@@ -921,7 +975,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -934,7 +987,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1021,7 +1073,7 @@
 
             var processes = [];
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1059,6 +1111,17 @@
 
 
 
+
+            var participantKeys = [
+
+                "Ensifer sp. S2-8-1"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

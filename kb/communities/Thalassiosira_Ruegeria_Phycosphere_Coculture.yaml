@@ -98,11 +98,13 @@ taxonomy:
     snippet: bacteria pre-grown in YTSS medium were washed five times in sterile L1 medium and inoculated into three replicate diatom cultures
     explanation: Supports the bacterial inoculation step used to assemble the pairwise coculture.
 ecological_interactions:
-- name: Diatom Recognition of Ruegeria
-  description: T. pseudonana changes gene expression in response to R. pomeroyi DSS-3, indicating a
-    recognition response in the two-member model system.
+- name: Putative Diatom Recognition Response to Ruegeria
+  description: In the 2017 B12-limited coculture experiment, T. pseudonana CCMP1335 differentially expressed genes
+    with annotations consistent with recognition and signaling in response to R. pomeroyi DSS-3. The proposed plant-like
+    cascade is inferred from homology and transcript patterns, not selectively demonstrated. Little attachment was
+    observed during exponential growth. This is a directed diatom response to bacterial presence, not a measured
+    colonization benefit or proof that recognition causes the separate chitin/lipid transcriptional response.
   scope: PAIRWISE
-  interaction_type: COLONIZATION_FACILITATION
   source_taxon:
     preferred_term: Ruegeria pomeroyi DSS-3
     term:
@@ -118,25 +120,27 @@ ecological_interactions:
     term:
       id: GO:0007154
       label: cell communication
+    notes: Putative communication inferred from transcription and annotation; the chemical cue and pathway mediation
+      are unresolved.
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Diatom Chitin and Lipid Response During Coculture
-    description: >
-      Ruegeria-triggered diatom recognition is reflected in the downstream
-      T. pseudonana transcriptional response affecting chitin metabolism and
-      lipid biosynthesis during coculture.
   evidence:
   - reference: PMID:28631440
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Bacterium Ruegeria pomeroyi DSS-3 triggered differential expression of >80 genes in diatom Thalassiosira pseudonana CCMP1335
-    explanation: Supports Ruegeria-triggered diatom recognition or response in the exact two-member system.
+    snippet: Bacterium Ruegeria pomeroyi DSS-3 triggered differential expression of >80 genes in diatom Thalassiosira
+      pseudonana CCMP1335
+    explanation: Supports differential transcription; recognition-pathway function is a hypothesis, not a colonization
+      or mediation assay.
 - name: Phytoplankton Metabolite Transfer to Ruegeria
-  description: T. pseudonana provides organic substrates that support R. pomeroyi growth, including
-    sulfonates, sugar derivatives, and organic nitrogen compounds inferred from multi-omics measurements.
+  description: 'Diatom-derived organic compounds support R. pomeroyi growth when the diatom is the only organic-carbon
+    source. Individual substrate assignments have different evidence strengths: in the 2020 R. pomeroyi column of
+    Table 1, DMSP and N-acetyl-D-glucosamine are supported by gene expression, whereas proline and guanosine have
+    net exometabolite-drawdown evidence. These are three separate bacterial pair cultures, not a mixed three-bacterium
+    competition experiment. Neither transcript induction nor net concentration changes alone trace a compound-specific
+    transfer flux or demonstrate that bacterial consumption causes the diatom chitin response.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -154,18 +158,26 @@ ecological_interactions:
     term:
       id: CHEBI:16457
       label: S,S-dimethyl-beta-propiothetin
+    notes: Gene-expression inference (G; functionally verified genes for DMSP) in the R. pomeroyi pair in 2020 Table
+      1; candidate uptake, not an individually traced transfer flux.
   - preferred_term: N-acetyl-D-glucosamine
     term:
       id: CHEBI:506227
       label: N-acetyl-D-glucosamine
+    notes: Gene-expression inference (G) in the R. pomeroyi pair in 2020 Table 1; candidate uptake, not an individually
+      traced transfer flux.
   - preferred_term: proline
     term:
       id: CHEBI:26271
       label: proline
+    notes: Net metabolite drawdown (M) in the R. pomeroyi pair in 2020 Table 1; candidate uptake, not an individually
+      traced transfer flux.
   - preferred_term: guanosine
     term:
       id: CHEBI:16750
       label: guanosine
+    notes: Net metabolite drawdown (M) in the R. pomeroyi pair in 2020 Table 1; candidate uptake, not an individually
+      traced transfer flux.
   biological_processes:
   - preferred_term: photosynthesis
     term:
@@ -183,29 +195,28 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Diatom Chitin and Lipid Response During Coculture
-    description: >
-      Diatom-derived substrates consumed by Ruegeria include chitin-related
-      sugar derivatives, linking the transfer node to the chitin-metabolism
-      component of the diatom transcriptional response.
   evidence:
   - reference: PMID:28631440
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: we hypothesize that nine diatom metabolites supported the majority of bacterial growth, among them sulfonates, sugar derivatives and organic nitrogen compounds
-    explanation: Supports diatom-to-Ruegeria metabolite transfer and candidate metabolite classes.
+    snippet: we hypothesize that nine diatom metabolites supported the majority of bacterial growth, among them
+      sulfonates, sugar derivatives and organic nitrogen compounds
+    explanation: The 2017 abstract explicitly hypothesizes compound identities; it does not directly measure all
+      nine transfer fluxes.
   - reference: PMID:33097854
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: marine phytoplankter T. pseudonana CCMP1335 served as the sole carbon source for three bacterial strains
-    explanation: Supports the experimental premise that diatom products served as the bacterial carbon source, including in the R. pomeroyi pairwise coculture.
+    explanation: The 2020 sole-carbon-source design supports diatom-to-bacterium feeding in separate pair cultures,
+      not simultaneous competition.
 - name: Diatom Chitin and Lipid Response During Coculture
-  description: Coculture with R. pomeroyi is associated with T. pseudonana transcriptional shifts in
-    lipid biosynthesis and chitin metabolism, linking the interaction to diatom cell-surface and carbon
-    allocation processes.
+  description: 'In the 2017 study, cocultured diatoms downregulated lipid biosynthesis and upregulated chitin metabolism
+    genes relative to B12-replete axenic controls. These are measured transcriptional changes, not demonstrated
+    Ruegeria-to-diatom substrate feeding, polymer production fluxes or selectively established outputs of a recognition
+    cascade. The bacterium also supported B12-limited diatom growth, a distinct relationship missing from the present
+    topology and tracked in #1883; it must not be inferred from this chitin/lipid node. The later L1 substrate-partitioning
+    assay does not negate the earlier B12-limited benefit.'
   scope: PAIRWISE
-  interaction_type: CROSS_FEEDING
   source_taxon:
     preferred_term: Ruegeria pomeroyi DSS-3
     term:
@@ -388,3 +399,36 @@ associated_datasets:
     snippet: Raw data, peak lists, and analysis scripts are available at MetaboLights under accession MTBLS1544.
     explanation: Supports the exometabolomics data and analysis resource for the coculture study.
 metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: ruegeria-recognition-mediation-and-b12-extension
+  prompt: Which signaling steps mediate the transcript response, and how should B12-dependent growth support be
+    represented separately?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: 'The 2017 PDF Figure 1 and Results support rescue of B12-limited diatom growth; that reciprocal interaction
+    is missing from the current graph. Edison dry run completed, but the authorized real invocation stopped before
+    submission because the configured key loader returned no key. New topology remains #1883, not silently replaced
+    by the chitin response. Two existing arrows were removed because co-occurring transcript changes and shared
+    substrate names do not establish those directions. Receptor/cue identity and causal mediation require further
+    evidence; assay-metadata reconciliation is #1885.'
+  attaches_to:
+  - ecological_interactions#Putative Diatom Recognition Response to Ruegeria
+  - ecological_interactions#Phytoplankton Metabolite Transfer to Ruegeria
+  - ecological_interactions#Diatom Chitin and Lipid Response During Coculture
+  evidence:
+  - reference: PMID:28631440
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: induced a potential recognition cascade
+    explanation: The abstract explicitly qualifies the recognition cascade; the full paper separately reports B12-limited
+      growth support.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-08T08:31:38Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain a putative recognition response without colonization typing or a restatement arrow to other transcript
+    changes.; Preserve supported organic-carbon feeding, grade metabolite evidence and remove the shared-substrate-to-transcript
+    arrow.; Retain the chitin/lipid response as transcription, not reverse cross-feeding; preserve the separate
+    B12 growth-benefit boundary. Issue#1881; reports/causal_graph_review/decisions/20261008-three-records-batch113.yaml
+  llm_assisted: true

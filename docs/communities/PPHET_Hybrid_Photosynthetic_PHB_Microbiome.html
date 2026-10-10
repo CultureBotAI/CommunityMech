@@ -592,7 +592,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for PPHET Hybrid Photosynthetic PHB Microbiome</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -600,13 +600,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -614,11 +609,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Engineered Phototroph Substitution</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Engineered Phototroph Integration</h3>
                 </div>
-                <p class="prewrap interaction-description">PPHET was assembled by replacing the native cyanobacterial component of WCRM with the engineered Synechocystis sp. PCC 6803 PPT1 strain while retaining a non-cyanobacterial heterotrophic fraction.
-</p>
+                <p class="prewrap interaction-description">Synechocystis sp. PCC 6803 PPT1 was integrated into the retained non-cyanobacterial fraction of WCRM. Microscopy, plating, repeated propagation and colony PCR supported replacement and persistence of the engineered phototroph. PPHET preserved high PHB production comparable to axenic PPT1 and greater than WCRM. This is an experimental community-composition intervention and functional integration, not an isolated priority-effect or colonization-facilitation mechanism.</p>
 
 
 
@@ -645,8 +638,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Nitrate-Limited Photoautotrophic PHB Production
-                        <p class="prewrap causal-description">The introduced PPT1 phototroph gave the hybrid community high PHB production capacity under nitrogen-limited light conditions.
-</p>
+                        <p class="prewrap causal-description">Replacing the native phototroph with PHB-optimized PPT1 gives the hybrid community high PHB-production capacity: PPHET reached 48% PHB/CDW, compared with 50% for axenic PPT1 and about 10% for WCRM under the matched small-scale regime. This supports the engineered phototroph contribution, not proof that every increment arises exclusively in PPT1 or from colonization facilitation.</p>
                     </div>
 
                 </div>
@@ -665,7 +657,20 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"We refer to the new hybrid culture with PPT1 as core species as PPHET consortia"</div>
+                        <div class="snippet">"Microscopy analysis validated the successful colonisation and replacement of the original phototrophic strain with PPT1 or GFP"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41559821/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41559821</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"PPHET reached similar PHB levels, up to 48% PHB/CDW"</div>
 
                     </li>
 
@@ -676,10 +681,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Nitrate-Limited Photoautotrophic PHB Production</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Under BG11_0 plus nitrate and bicarbonate in the light, PPHET entered chlorosis after nitrate depletion and accumulated PHB to a yield similar to axenic PPT1 and higher than wild-type WCRM, with BODIPY-positive PHB granules detected in PPT1 and other community members.
-</p>
+                <p class="prewrap interaction-description">In the 19-day small-scale BG110 regime with 5 mM nitrate and 10 mM bicarbonate, followed by a 50 mM bicarbonate boost after nitrate depletion, PPHET reached up to 48% PHB/CDW versus 50% for PPT1 and about 10% for WCRM, with three biological replicates. HPLC measured bulk PHB; BODIPY-positive non-Synechocystis cells suggest additional producers but do not resolve each taxon or its PHB flux. These production phenotypes do not demonstrate reduced competition through niche partitioning.</p>
 
 
 
@@ -741,7 +744,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41559821/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41559821</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"other members of the community stained positive for BODIPY"</div>
@@ -755,10 +758,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Dark Acetate PHB Accumulation</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">After photoautotrophic growth, acetate-supplemented BG11_0 enabled PPHET, but not axenic PPT1, to keep accumulating PHB in the dark; microscopy showed condition-specific PHB granule localization primarily in heterotrophic cells.
-</p>
+                <p class="prewrap interaction-description">After photoautotrophic growth, 30 mM acetate and 10 mM bicarbonate in BG110 supported further dark PHB accumulation in PPHET but not axenic PPT1. At two weeks, dark PPHET reached about 38% PHB/CDW but only about 23 mg/L, versus about 55% and 250 mg/L in light, reflecting different biomass. BODIPY granules localized primarily to non-cyanobacterial cells in darkness. This supports condition-dependent metabolic flexibility, not measured inter-member transfer or demonstrated competition-reducing niche separation.</p>
 
 
 
@@ -795,7 +796,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Production was also achieved under dark conditions with acetate supplementation"</div>
+                        <div class="snippet">"In darkness, only PPHET continued to accumulate PHB, reaching ~38% PHB/CDW"</div>
 
                     </li>
 
@@ -808,7 +809,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"PHB granules localised primarily in heterotrophic members"</div>
+                        <div class="snippet">"PHB granules localised primarily in heterotrophic members of the community"</div>
 
                     </li>
 
@@ -818,11 +819,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Non-Sterile Scaled Reactor Production</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>PPHET Stress Resilience and Scaled PHB Production</h3>
                 </div>
-                <p class="prewrap interaction-description">PPHET tolerated non-sterile scaled cultivation better than axenic PPT1 and retained PHB production after transfer to either a 4 L flat-panel photobioreactor with high light or an 8 L non-aerated dark reactor with acetate.
-</p>
+                <p class="prewrap interaction-description">PPHET retained pigmentation, biomass and PHB under increased light and recovered from transient 38 C heat stress better than axenic PPT1. Small-scale high-light PHB averaged about 300 versus 100 mg/L; nonsterility alone had only a minor small-scale effect. In nonsterile scale-up, PPT1 collapsed after added illumination while PPHET kept growing. Separate PPHET production runs reached 33% PHB/CDW (about 250 mg/L) in a 4 L high-light flat panel and 22% (about 70 mg/L) in an 8 L non-aerated dark acetate reactor. These support community-associated resilience and production, not proven oxygen-scavenging mediation, anaerobiosis from lack of aeration, or equivalent yield across reactors.</p>
 
 
 
@@ -847,7 +846,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"PPHET reached 33% PHB/CDW"</div>
+                        <div class="snippet">"PPHET maintained pigmentation during heat stress and resumed growth upon return to standard conditions."</div>
 
                     </li>
 
@@ -860,7 +859,20 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"A separate dark‐scale fermentation"</div>
+                        <div class="snippet">"PPHET reached 33% PHB/CDW (~250 mg L−1)"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41559821/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41559821</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"yielded 22% PHB/CDW (~70 mg L−1)"</div>
 
                     </li>
 
@@ -910,7 +922,7 @@
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -922,7 +934,7 @@
                 <p class="prewrap">Zini et al. propose heterotrophic oxygen scavenging as a possible mechanism for high-light tolerance but report it as qualitative support rather than a direct pairwise mechanism, so the record tracks it as a hypothesis instead of an asserted interaction.
 </p>
 
-                <p class="muted small">Attaches to: <code>ecological_interactions#Non-Sterile Scaled Reactor Production</code></p>
+                <p class="muted small">Attaches to: <code>ecological_interactions#PPHET Stress Resilience and Scaled PHB Production</code></p>
 
 
 
@@ -931,8 +943,8 @@
 
                     <div class="evidence">
                         <div class="evidence-head">
-                            <span class="badge small">full_text</span>
-                            <span class="badge small">NO_EVIDENCE</span>
+                            <span class="badge small">OTHER</span>
+                            <span class="badge small">PARTIAL</span>
 
 
 
@@ -941,8 +953,42 @@
 
                         </div>
                         <p class="snippet small prewrap">A possible explanation for this robustness is the presence of heterotrophic partners</p>
-                        <p class="muted small prewrap">The paper discusses oxygen scavenging as a possible explanation, not as a directly resolved causal edge.
-</p>
+                        <p class="muted small prewrap">Author-proposed oxygen-scavenging mechanism with qualitative observations, not an isolated mediator experiment. The full_text label is replaced by a documented provenance category.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which community functions mediate stress recovery and condition-specific PHB localization under matched conditions?
+                </h3>
+                <p class="prewrap">Preserve functional integration and its existing production arrow. High-light/heat manipulations support resilience; oxygen scavenging remains proposed. Community production does not itself establish colonization facilitation or competition-reducing niche partitioning. HPLC bulk PHB, qualitative cell localization, small-scale titers and separate scaled reactors must remain distinct. Prior dark/scale workflow arrows stay absent.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Engineered Phototroph Integration</code>, <code>ecological_interactions#Nitrate-Limited Photoautotrophic PHB Production</code>, <code>ecological_interactions#Dark Acetate PHB Accumulation</code>, <code>ecological_interactions#PPHET Stress Resilience and Scaled PHB Production</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/41559821/" rel="nofollow noreferrer">PMID:41559821</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">PPHET maintained pigmentation during heat stress and resumed growth upon return to standard conditions.</p>
+                        <p class="muted small prewrap">Positive recovery after heat stress; the mechanism is unresolved.</p>
                     </div>
 
                 </details>
@@ -1341,7 +1387,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1354,7 +1399,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1408,7 +1452,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1417,11 +1461,11 @@
             processes.push("photosynthesis");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Engineered Phototroph Substitution",
+                label: "Engineered Phototroph Integration",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1436,7 +1480,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1472,7 +1516,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1502,16 +1546,16 @@
 
         (function() {
             var intId = "interaction:3";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "Non-Sterile Scaled Reactor Production",
+                label: "PPHET Stress Resilience and Scaled PHB Production",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

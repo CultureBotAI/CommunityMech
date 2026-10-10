@@ -52,9 +52,9 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Cellulose Hydrolysis During Solid-State Fermentation
-  description: The eight-strain synthetic community enzymatically degrades the cellulose fraction of
-    corn straw during optimized solid-state fermentation.
-  interaction_type: MUTUALISM
+  description: 'The eight-strain synthetic community degraded 34.91% of the cellulose fraction of corn straw under
+    the tested optimum solid-state fermentation conditions: 10% inoculum (w/v), 4% nitrogen source ratio and 23
+    days. This community-level conversion does not establish reciprocal fitness benefits among its members.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cellulose
@@ -68,20 +68,23 @@ ecological_interactions:
       label: cellulose catabolic process
   downstream:
   - target: Core Corn Straw Lignocellulose Decomposition
-    description: Cellulose hydrolysis converts one of the three major corn-straw fractions targeted by
-      the SynCom's solid-state degradation process.
+    description: Cellulose hydrolysis converts one of the three major corn-straw fractions targeted by the SynCom's
+      solid-state degradation process.
   evidence:
-  - *id001
   - reference: PMID:37774801
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the degradation rates of cellulose, hemicellulose, and lignin were 34.91%,
-      45.94%, and 23.34%, respectively.
+    snippet: The synthetic microbial community was employed to degrade corn straw via solid-state fermentation.
+    explanation: Supports the defined synthetic community design and represented community context.
+  - reference: PMID:37774801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the degradation rates of cellulose, hemicellulose, and lignin were 34.91%, 45.94%, and 23.34%, respectively.
     explanation: Quantifies cellulose degradation by the synthetic microbial community.
 - name: Hemicellulose Xylan Hydrolysis
-  description: The synthetic community degrades corn-straw hemicellulose, with proteomics implicating
-    xylanases and beta-xylosidase in lignocellulose breakdown.
-  interaction_type: MUTUALISM
+  description: The community degraded 45.94% of corn-straw hemicellulose under the tested optimum conditions. Proteomics
+    associates xylanases and beta-xylosidase with lignocellulose degradation; enzyme necessity, sufficiency and
+    strain-specific contributions are not established by the available abstract.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: hemicellulose
@@ -95,20 +98,30 @@ ecological_interactions:
       label: xylan catabolic process
   downstream:
   - target: Core Corn Straw Lignocellulose Decomposition
-    description: Hemicellulose xylan hydrolysis contributes a second measured corn-straw fraction to
-      whole-lignocellulose conversion.
+    description: Hemicellulose xylan hydrolysis contributes a second measured corn-straw fraction to whole-lignocellulose
+      conversion.
   evidence:
-  - *id001
   - reference: PMID:37774801
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Proteomic analysis revealed that lignin 1,4-β-xylanase, β-xylosidase and
-      endo-1,4-β-xylanase were closely related to lignocellulose degradation.
-    explanation: Supports a proteome-resolved xylanase arm of hemicellulose degradation.
+    snippet: The synthetic microbial community was employed to degrade corn straw via solid-state fermentation.
+    explanation: Supports the defined synthetic community design and represented community context.
+  - reference: PMID:37774801
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Proteomic analysis revealed that lignin 1,4-β-xylanase, β-xylosidase and endo-1,4-β-xylanase were closely
+      related to lignocellulose degradation.
+    explanation: Preserves the primary wording as a proteomic association, not a necessity test or proof that xylanases
+      are ligninases.
+  - reference: PMID:37774801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the degradation rates of cellulose, hemicellulose, and lignin were 34.91%, 45.94%, and 23.34%, respectively.
+    explanation: Directly supports the measured hemicellulose fraction without relying on proteomic mechanism inference.
 - name: Lignin Breakdown During Solid-State Fermentation
-  description: The SynCom degrades the lignin fraction of corn straw alongside its cellulose and
-    hemicellulose conversion activity.
-  interaction_type: MUTUALISM
+  description: The community degraded 23.34% of the corn-straw lignin fraction alongside cellulose and hemicellulose
+    conversion. A selective effect of lignin removal on polysaccharide accessibility is HYPOTHESIZED from the available
+    abstract, not resolved by the joint fraction measurements.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lignin
@@ -122,20 +135,25 @@ ecological_interactions:
       label: lignin catabolic process
   downstream:
   - target: Core Corn Straw Lignocellulose Decomposition
-    description: Lignin breakdown opens the recalcitrant aromatic fraction that limits integrated
-      corn-straw lignocellulose utilization.
+    description: Lignin breakdown directly contributes conversion of the aromatic fraction to overall corn-straw
+      decomposition. Additional opening of an accessibility barrier for cellulose or hemicellulose is HYPOTHESIZED;
+      simultaneous fraction degradation does not isolate that mediation.
   evidence:
-  - *id001
   - reference: PMID:37774801
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the degradation rates of cellulose, hemicellulose, and lignin were 34.91%,
-      45.94%, and 23.34%, respectively.
+    snippet: The synthetic microbial community was employed to degrade corn straw via solid-state fermentation.
+    explanation: Supports the defined synthetic community design and represented community context.
+  - reference: PMID:37774801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the degradation rates of cellulose, hemicellulose, and lignin were 34.91%, 45.94%, and 23.34%, respectively.
     explanation: Quantifies lignin degradation by the synthetic microbial community.
 - name: Core Corn Straw Lignocellulose Decomposition
-  description: Cellulose, hemicellulose, and lignin conversion by the synthetic microbial community
-    jointly decomposes corn straw under optimized solid-state fermentation.
-  interaction_type: MUTUALISM
+  description: Measured cellulose (34.91%), hemicellulose (45.94%) and lignin (23.34%) conversion jointly constitutes
+    corn-straw lignocellulose decomposition under the tested optimum solid-state fermentation conditions. These
+    are distinct fraction-specific percentages, not additive whole-straw yield or evidence of mutual benefit to
+    all eight strains.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cellulose
@@ -164,14 +182,17 @@ ecological_interactions:
       id: GO:0046274
       label: lignin catabolic process
   evidence:
-  - *id001
   - reference: PMID:37774801
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the degradation rates of cellulose, hemicellulose, and lignin were 34.91%,
-      45.94%, and 23.34%, respectively.
-    explanation: Quantifies degradation of all three major corn-straw
-      lignocellulose fractions by the synthetic microbial community.
+    snippet: The synthetic microbial community was employed to degrade corn straw via solid-state fermentation.
+    explanation: Supports the defined synthetic community design and represented community context.
+  - reference: PMID:37774801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the degradation rates of cellulose, hemicellulose, and lignin were 34.91%, 45.94%, and 23.34%, respectively.
+    explanation: Quantifies degradation of all three major corn-straw lignocellulose fractions by the synthetic
+      microbial community.
 environmental_factors:
 - name: defined synthetic community design
   value: Species analysis and functional predictions across ecosystems were coupled to construct a core
@@ -241,3 +262,29 @@ growth_media:
       source ratio and a fermentation time of 23 d.
     explanation: States the optimized solid-state fermentation cultivation conditions
       (inoculum level, nitrogen ratio, fermentation time).
+discussions:
+- discussion_id: corn_fraction_conversion_and_enzyme_causality
+  prompt: Which selective mechanisms explain the measured community responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: Preserve all three component-to-whole contributions and the measured fraction reductions. Full Methods
+    are not available through Europe PMC; the abstract supports community conversion but not reciprocal member fitness,
+    enzyme necessity or isolated lignin-barrier mediation. Its unusual proteomic wording is quoted verbatim, not
+    repaired into an unsupported ligninolytic enzyme assignment. Resolve strain roles and perturbations before adding
+    member-level structure.
+  attaches_to:
+  - ecological_interactions#Cellulose Hydrolysis During Solid-State Fermentation
+  - ecological_interactions#Hemicellulose Xylan Hydrolysis
+  - ecological_interactions#Lignin Breakdown During Solid-State Fermentation
+  - ecological_interactions#Core Corn Straw Lignocellulose Decomposition
+curation_history:
+- timestamp: '2026-10-07T03:09:29Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain cellulose conversion and direct contribution to decomposition, not mutualism.; Retain measured
+    hemicellulose conversion; proteomic enzyme mechanism is PARTIAL.; Retain lignin fraction contribution; accessibility-barrier
+    mediation remains HYPOTHESIZED.; Retain joint fraction decomposition, not additive yield or reciprocal fitness.
+    Issue #1627; reports/causal_graph_review/decisions/20261007-four-records-batch75.yaml'
+  llm_assisted: true

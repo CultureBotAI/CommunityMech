@@ -1,0 +1,503 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: c12b1dc71b78f968854875181b0e3b1f8d9ef3df
+scope:
+- kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+- kb/communities/Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml
+- kb/communities/GLBRC_UFMP_Fermentation_Community.yaml
+- kb/communities/Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.yaml
+- kb/communities/Pleuromutilin_Degrading_Artificial_Consortium_5_Strain.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-five-records-batch91.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch91.json
+findings:
+- issue: 1744
+  severity: P2
+  status: addressed_in_this_change
+  finding: Use current SYNTROPHY semantics in UFMP, digestion and pleuromutilin review rationales
+  disposition: Close only after protected-main merge; includes append-only review supersession support.
+- issue: 1715
+  severity: P2
+  status: unresolved_research
+  disposition: Keep OPEN after graph-rationale repair.
+- issue: 183
+  severity: P2
+  status: unresolved_non_graph
+  disposition: Keep OPEN after graph-rationale repair.
+- issue: 1327
+  severity: P2
+  status: unresolved_non_graph
+  disposition: Keep OPEN after graph-rationale repair.
+- issue: 1366
+  severity: P2
+  status: unresolved_non_graph
+  disposition: Keep OPEN after graph-rationale repair.
+- issue: 1716
+  severity: P2
+  status: unresolved_non_graph
+  disposition: Keep OPEN after graph-rationale repair.
+adversarial_checks:
+- Fresh both-root baseline preceded papers. Five previous reviews rechecked, three records changed and two unchanged.
+  All14nodes7arrows retained with identical arrow wording/endpoints and participant assignments. No new direction,
+  topology or inflated completed-review count.
+- Current schema explicitly does not assert obligacy for SYNTROPHY. Its additional criterion is product-removal
+  feedback making the first partner metabolism favourable. Cross-feeding and cooperative outcomes do not automatically
+  demonstrate that feedback.
+- UFMP primary main text supports an inferred producer-consumer connection. The existing transfer node receives
+  CROSS_FEEDING with PARTIAL COMPUTATIONAL evidence; heterogeneous donor/substrate roles and both hypothesized arrows
+  remain. No direct flux, stereochemistry, complete conversion or additional species assignment is claimed.
+- Digestion retains reported methane increases, propionate reduction and function/stability trade-off. Metagenomic
+  association is not transcript abundance or measured electron transfer. Its untyped mechanism node is justified
+  by unresolved feedback, not unproven obligacy; primary access is abstract-only.
+- Pleuromutilin retains its positive community endpoint and proposed-products evidence. These nodes do not resolve
+  product-removal feedback and remain untyped; existing needs_research status and issue1715 remain. A discussion
+  reference to nonexistent engineering_design is corrected to the record description. No new antibiotic-selection,
+  growth optimization, genetic design, pathway or protocol details.
+- MFC and Crystal Geyser already distinguished substrate provision from product-removal feedback, so their record
+  bytes remain unchanged. MFC current/CMC outcomes and spatial observations stay separate; Crystal Geyser lipid/genome/isotope
+  associations do not isolate a donor-recipient route. Missing fresh MFC full text is not absence of controls.
+- Two complete main bodies, embedded table text and captions read, plus four other primary abstracts. No original
+  figure pixels, raw data or complete supplement audit. Earlier pleuromutilin supplement notes/boundary rows reread,
+  not newly downloaded or visually rendered; inconsistent S3 scale/subset/table labels are recorded in existing
+  research1715, not reconciled.
+- An initial PMID33125214 lookup was unrelated and explicitly excluded. Correct exact-system PMID42133144 was retrieved
+  and read before edits. Target proofs reference only six correct primary sources; unrelated lookup artifacts remain
+  for transparency, not evidence.
+- Inventory previously rejected any repeated record review. Explicit parent ledger, record hash, original hash and
+  ID links now select one linear tip independent of ordering. Tests reject duplicate, missing, self, mismatched,
+  unlinked, forked, cyclic and disconnected histories. Current record hash and node/edge coverage checks remain
+  mandatory; needs_research is not promoted.
+- All previous tracked history and decision artifacts are byte-identical to the parent commit. Three append-only
+  histories, eight record regressions and sixteen new inventory cases. All921caches457unchangedrecords/raw non-graph
+  blocks preserved. Coverage280reviewed132pending48research;1420nodes584arrows, all56oldwarnings, zero structural
+  defects and unchanged legacy census.
+- No Edison dry run, provider submission or spend. Executed gates and deterministic HTML parser checks are not browser
+  screenshots or generated-model loader certification; loader1703 remains open. Repair1744 awaits protected-main
+  merge; research1715 and metadata183/1327/1366/1716 stay open. Source-based self-review is not independent approval
+  or corpus completion.
+verification:
+  combined_regressions: 841 passed in 329.80s (0:05:29)
+  new_regression_tests: 24
+  record_regressions: 8
+  new_inventory_regressions: 16
+  primary_graph_snippet_proof:
+    graph_quotations: 23
+    discussion_quotations: 2
+    fresh_primary_matches: 25
+    cached_only_matches: 0
+    retained_nodes: 14
+    removed_nodes: 0
+    retained_arrows: 7
+    removed_arrows: 0
+    arrow_wording_and_endpoints_unchanged: true
+    new_biological_causal_claims: 0
+    primary_main_texts_read: 2
+    other_primary_abstracts_read: 4
+    cache_changes: 0
+  references: Five full-record reference-validator runs passed. CLI Total checks counts issues, not executed checks.
+    Twenty-three graph and two discussion quotations match fresh target-specific primary text and cache text. Literal
+    matching is not entailment; two main bodies and four other abstracts were read, not six full papers.
+  snippet_counts_by_record:
+    kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml:
+      MATCH: 28
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml:
+      MATCH: 13
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/GLBRC_UFMP_Fermentation_Community.yaml:
+      MATCH: 28
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.yaml:
+      MATCH: 10
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Pleuromutilin_Degrading_Artificial_Consortium_5_Strain.yaml:
+      MATCH: 9
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    caveat: Both-root recipe executed. Informational exit0 does not certify a clean corpus; five focused snippet
+      gates pass independently.
+    output: "# 8930 evidence snippets scanned across 460 files\n  MATCH      8795\n  RENDERING  20\n  ASSEMBLED\
+      \  1\n  WEAK       0\n  MISMATCH   38\n  NOCONTENT  76\n\n# Files with MISMATCH/WEAK (content present but\
+      \ snippet absent) \u2014 fabrication suspects\n  19 (19 hard)  kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml\n\
+      \  15 (15 hard)  kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml\n   3 (3 hard)  kb/communities/Coscinodiscus_Synthetic_Community.yaml\n\
+      \   1 (1 hard)  kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml\nuv run python scripts/evidence_snippet_audit.py\
+      \ \n"
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All 56 existing warnings preserved, zero structural defects. All 14 nodes and seven arrows retained,
+      including wording and endpoints. No taxonomy or auditor-rule changes.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-five-records-batch91.yaml: 55c2dafc3c10346c37f864ef5acc1fdadefd37967c51f21696eef562a0296bbe
+    reports/causal_graph_review/build_inventory.py: 5cb9aeb35b34b67077dddf434715d1ee9314f71130f9e165f5c41967180a9483
+    tests/test_causal_review_inventory.py: 43a297fcbff5a2882d6a2c3d70f00a29c92ee48a9626bb94e8ed9fefa68b321d
+    tests/test_causal_review_batch44.py: fecdd8792d0526861c355b3655123a6bb4be56ec912832c13c0bedf0f2d353f7
+    tests/test_causal_review_batch75.py: f05d4ac2dd6310a9d3e21ab3bb3227beecab71271f7ac1ada2eadaa71e54fcce
+    tests/test_causal_review_batch86.py: a34b4b722057aec1f8742fea08320d6c1d7230f2dbb111158e83c8a6432b9975
+    tests/test_causal_review_batch91.py: ebe9c06685e16b5fd896f511b0cd8a3d12a4affdb0d0d67e5b28087d7916459f
+    kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml: bafb8c0e58150b2e586e92c84725b0e3ad88001a64c2d1acb1d2889ede2810b3
+    kb/communities/Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml: b219156340ab8170a318ed82b9bf47e7a5a5b67e490870d42fabb2c9a8e25051
+    kb/communities/GLBRC_UFMP_Fermentation_Community.yaml: e3f1905f6c8547e172311d18108c5860d14f919150c44f238ddc484a497b763f
+    kb/communities/Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.yaml: 93c0f771f13065d1e571c9eb5a548e09714581bbe588cf0b522bdbc29af456da
+    kb/communities/Pleuromutilin_Degrading_Artificial_Consortium_5_Strain.yaml: 08cd2f0be57b813b8e230e235c317770d414a6c4948003dd645063562c9a55c2
+    reports/causal_graph_review/README.md: e81e7887555c8c936c63e974da15e8d67ea6c4c7caa0be65f7b9a3ef34501526
+  unchanged_records: 457
+  unchanged_caches: 921
+  immutable_prior_history_and_decision_files: 740
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: true
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    prior_unanswered_scope: 'Issue #1715 / batch86 remains pending; no new authorization or job.'
+  post_commit_docs_current: Separate publication gate, not preasserted.
+  validation_refresh:
+    reason: 841 tests passed; Ruff found ten dictionary-constructor style violations and two existing long strings
+      in the newly scoped inventory script. Style-only fixes, no biological input changes. Inventory, full regressions
+      and style gates refreshed; original output retained.
+    original_report: /private/tmp/communitymech-batch91/before-lint-fix/validation.json
+    original_report_sha256: 07e4a1fbde1d84fbcbbfff21b0724d5ea41e664b720410b44fa37177cd2b6c76
+    archived_inputs:
+      /private/tmp/communitymech-batch91/before-lint-fix/reports/causal_graph_review/build_inventory.py: 5759cacb876773d23b2b2d34ba3974de2853d0d2c47b6e6ada19eabe711d0926
+      /private/tmp/communitymech-batch91/before-lint-fix/tests/test_causal_review_inventory.py: 0c5d7faad1b9b5cab588b4306e8852dd55d95b613eda798d9b8f9bcdf62fb8bb
+      /private/tmp/communitymech-batch91/before-lint-fix/tests/test_causal_review_batch44.py: 4b0a2566405cd6572a7ac80587c5abe958d9cec6a172d2a869d353c50a521502
+      /private/tmp/communitymech-batch91/before-lint-fix/tests/test_causal_review_batch75.py: 9eadbbab11fe53ffe76de3fbe2e1929b99e3fdb05d556a177658864a5e671d61
+      /private/tmp/communitymech-batch91/before-lint-fix/tests/test_causal_review_batch86.py: de694ae73aec8cc6f32b21653378e5f63267f49cc8ae6eb52d7607606611260a
+      /private/tmp/communitymech-batch91/before-lint-fix/tests/test_causal_review_batch91.py: ebe9c06685e16b5fd896f511b0cd8a3d12a4affdb0d0d67e5b28087d7916459f
+      ? /private/tmp/communitymech-batch91/before-lint-fix/reports/causal_graph_review/decisions/20261007-five-records-batch91.yaml
+      : 55c2dafc3c10346c37f864ef5acc1fdadefd37967c51f21696eef562a0296bbe
+      /private/tmp/communitymech-batch91/before-lint-fix/reports/causal_graph_review/inventory.tsv: ca34fa8001a6bfe9ce3f606e0594e11a1e3df579f5fff6fde4106f2f5dffc944
+      /private/tmp/communitymech-batch91/before-lint-fix/reports/causal_graph_review/summary.json: b5bc36167531e52dd8d5ce46c40c35fba2840667bf72211a26c34c4b1626b5f0
+    new_log_prefix: v2-
+  superseded_checks:
+  - check: inventory
+    command:
+    - /Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3
+    - reports/causal_graph_review/build_inventory.py
+    exit_code: 0
+    expected_exit_codes:
+    - 0
+    log: /private/tmp/communitymech-batch91/inventory.log
+    log_sha256: beb676def27914d03e3c57f8cd243729b37ac50f1c39d0da197815fea5122264
+    output_tail: "{\n  \"scope\": \"Every YAML under kb/communities and data/isolates; filesystem discovery includes\
+      \ hidden/ignored files.\",\n  \"semantic_review_rule\": \"Structural checks and readiness scores do not establish\
+      \ causal support. Completed reviews must match the current record SHA-256, cover every node once with a rationale,\
+      \ and reproduce the current edge list.\",\n  \"records\": 460,\n  \"nodes\": 1420,\n  \"edges\": 584,\n  \"\
+      records_without_nodes\": 8,\n  \"records_without_edges\": 173,\n  \"review_status_counts\": {\n    \"needs_research\"\
+      : 48,\n    \"pending\": 132,\n    \"reviewed\": 280\n  },\n  \"structural_defects\": []\n}\n"
+  - check: regressions
+    command:
+    - /Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3
+    - -m
+    - pytest
+    - -q
+    - tests/test_causal_review_batch10.py
+    - tests/test_causal_review_batch11.py
+    - tests/test_causal_review_batch12.py
+    - tests/test_causal_review_batch13.py
+    - tests/test_causal_review_batch14.py
+    - tests/test_causal_review_batch15.py
+    - tests/test_causal_review_batch16.py
+    - tests/test_causal_review_batch17.py
+    - tests/test_causal_review_batch18.py
+    - tests/test_causal_review_batch19.py
+    - tests/test_causal_review_batch20.py
+    - tests/test_causal_review_batch21.py
+    - tests/test_causal_review_batch22.py
+    - tests/test_causal_review_batch23.py
+    - tests/test_causal_review_batch24.py
+    - tests/test_causal_review_batch25.py
+    - tests/test_causal_review_batch27.py
+    - tests/test_causal_review_batch28.py
+    - tests/test_causal_review_batch29.py
+    - tests/test_causal_review_batch30.py
+    - tests/test_causal_review_batch31.py
+    - tests/test_causal_review_batch32.py
+    - tests/test_causal_review_batch33.py
+    - tests/test_causal_review_batch34.py
+    - tests/test_causal_review_batch35.py
+    - tests/test_causal_review_batch36.py
+    - tests/test_causal_review_batch37.py
+    - tests/test_causal_review_batch38.py
+    - tests/test_causal_review_batch39.py
+    - tests/test_causal_review_batch40.py
+    - tests/test_causal_review_batch41.py
+    - tests/test_causal_review_batch42.py
+    - tests/test_causal_review_batch43.py
+    - tests/test_causal_review_batch44.py
+    - tests/test_causal_review_batch45.py
+    - tests/test_causal_review_batch46.py
+    - tests/test_causal_review_batch47.py
+    - tests/test_causal_review_batch48.py
+    - tests/test_causal_review_batch49.py
+    - tests/test_causal_review_batch5.py
+    - tests/test_causal_review_batch50.py
+    - tests/test_causal_review_batch51.py
+    - tests/test_causal_review_batch52.py
+    - tests/test_causal_review_batch53.py
+    - tests/test_causal_review_batch54.py
+    - tests/test_causal_review_batch55.py
+    - tests/test_causal_review_batch56.py
+    - tests/test_causal_review_batch57.py
+    - tests/test_causal_review_batch58.py
+    - tests/test_causal_review_batch59.py
+    - tests/test_causal_review_batch6.py
+    - tests/test_causal_review_batch60.py
+    - tests/test_causal_review_batch61.py
+    - tests/test_causal_review_batch62.py
+    - tests/test_causal_review_batch63.py
+    - tests/test_causal_review_batch64.py
+    - tests/test_causal_review_batch65.py
+    - tests/test_causal_review_batch66.py
+    - tests/test_causal_review_batch67.py
+    - tests/test_causal_review_batch68.py
+    - tests/test_causal_review_batch69.py
+    - tests/test_causal_review_batch7.py
+    - tests/test_causal_review_batch70.py
+    - tests/test_causal_review_batch71.py
+    - tests/test_causal_review_batch72.py
+    - tests/test_causal_review_batch73.py
+    - tests/test_causal_review_batch74.py
+    - tests/test_causal_review_batch75.py
+    - tests/test_causal_review_batch76.py
+    - tests/test_causal_review_batch77.py
+    - tests/test_causal_review_batch78.py
+    - tests/test_causal_review_batch79.py
+    - tests/test_causal_review_batch8.py
+    - tests/test_causal_review_batch80.py
+    - tests/test_causal_review_batch81.py
+    - tests/test_causal_review_batch82.py
+    - tests/test_causal_review_batch83.py
+    - tests/test_causal_review_batch84.py
+    - tests/test_causal_review_batch85.py
+    - tests/test_causal_review_batch86.py
+    - tests/test_causal_review_batch87.py
+    - tests/test_causal_review_batch88.py
+    - tests/test_causal_review_batch89.py
+    - tests/test_causal_review_batch9.py
+    - tests/test_causal_review_batch90.py
+    - tests/test_causal_review_batch91.py
+    - tests/test_site_audit_fixes.py
+    - tests/test_causal_review_inventory.py
+    - tests/test_rank_causal_graph_readiness.py
+    - tests/test_network_auditor.py
+    - tests/test_participating_taxa.py
+    - tests/test_causal_descriptions_are_published.py
+    - tests/test_published_pages_name_real_records.py
+    - tests/test_reference_validator_actually_validates.py
+    - tests/test_snippet_audit_artefact_classes.py
+    - tests/test_reference_error_annotation.py
+    - tests/test_community_level_connectivity_credit.py
+    - tests/test_no_paywalled_text_in_repo.py
+    exit_code: 0
+    expected_exit_codes:
+    - 0
+    log: /private/tmp/communitymech-batch91/regressions.log
+    log_sha256: feae6c7f69aed8bd43970af498ff2f350c68c688ebf5da329955ab7088aa92d5
+    output_tail: '........................................................................ [  8%]
+
+      ........................................................................ [ 17%]
+
+      ........................................................................ [ 25%]
+
+      ........................................................................ [ 34%]
+
+      ........................................................................ [ 42%]
+
+      ........................................................................ [ 51%]
+
+      ........................................................................ [ 59%]
+
+      ........................................................................ [ 68%]
+
+      ........................................................................ [ 77%]
+
+      ........................................................................ [ 85%]
+
+      ........................................................................ [ 94%]
+
+      .................................................                        [100%]
+
+      841 passed in 290.21s (0:04:50)
+
+      '
+  - check: black
+    command:
+    - /Users/marcin/.cache/uv/archive-v0/3Q_kifQtLB624D5bBWGIf/bin/black
+    - --check
+    - reports/causal_graph_review/build_inventory.py
+    - tests/test_causal_review_inventory.py
+    - tests/test_causal_review_batch44.py
+    - tests/test_causal_review_batch75.py
+    - tests/test_causal_review_batch86.py
+    - tests/test_causal_review_batch91.py
+    exit_code: 0
+    expected_exit_codes:
+    - 0
+    log: /private/tmp/communitymech-batch91/black.log
+    log_sha256: 7657c5ec367da2c8d4deead1b5f1f8eca9c1b89120ad13df7f855ca4005696b6
+    output_tail: "All done! \u2728 \U0001F370 \u2728\n6 files would be left unchanged.\n"
+  - check: ruff
+    command:
+    - /Users/marcin/.cache/uv/archive-v0/wCcxEYRM4HeHgwYPZemHX/bin/ruff
+    - check
+    - reports/causal_graph_review/build_inventory.py
+    - tests/test_causal_review_inventory.py
+    - tests/test_causal_review_batch44.py
+    - tests/test_causal_review_batch75.py
+    - tests/test_causal_review_batch86.py
+    - tests/test_causal_review_batch91.py
+    exit_code: 1
+    expected_exit_codes:
+    - 0
+    log: /private/tmp/communitymech-batch91/ruff.log
+    log_sha256: dd0f860e98fea4a76d9bf065ae8e7d6f8c8fcd1be90d8eb61aa58e7d53653596
+    output_tail: "E501 Line too long (122 > 100)\n   --> reports/causal_graph_review/build_inventory.py:175:101\n\
+      \    |\n173 |     ]\n174 |     summary = {\n175 |         \"scope\": \"Every YAML under kb/communities and\
+      \ data/isolates; filesystem discovery includes hidden/ignored files.\",\n    |                           \
+      \                                                                          ^^^^^^^^^^^^^^^^^^^^^^\n176 | \
+      \        \"semantic_review_rule\": \"Structural checks and readiness scores do not establish causal support.\
+      \ Completed reviews must match\u2026\n177 |         \"records\": len(rows),\n    |\n\nE501 Line too long (240\
+      \ > 100)\n   --> reports/causal_graph_review/build_inventory.py:176:101\n    |\n174 | \u2026\n175 | \u2026\
+      des hidden/ignored files.\",\n176 | \u2026 support. Completed reviews must match the current record SHA-256,\
+      \ cover every node once with a rationale, and reproduce the current edge list.\",\n    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+      177 | \u2026\n178 | \u2026\n    |\n\nC408 Unnecessary `dict()` call (rewrite as a literal)\n   --> tests/test_causal_review_batch44.py:100:52\n\
+      \    |\n 98 |               current = next(r for r in followup[\"records\"] if r[\"path\"] == row[\"path\"\
+      ])\n 99 |               assert current[\"original_sha256\"] == expected\n100 |               assert current[\"\
+      supersedes_review\"] == dict(\n    |  ____________________________________________________^\n101 | |     \
+      \            review_file=str(LEDGER.relative_to(ROOT)), record_sha256=expected\n102 | |             )\n  \
+      \  | |_____________^\n103 |               expected = current[\"record_sha256\"]\n104 |           assert expected\
+      \ == hashlib.sha256((ROOT / row[\"path\"]).read_bytes()).hexdigest()\n    |\nhelp: Rewrite as a literal\n\n\
+      C408 Unnecessary `dict()` call (rewrite as a literal)\n   --> tests/test_causal_review_batch75.py:129:52\n\
+      \    |\n127 |               current = next(r for r in followup[\"records\"] if r[\"path\"] == row[\"path\"\
+      ])\n128 |               assert current[\"original_sha256\"] == expected\n129 |               assert current[\"\
+      supersedes_review\"] == dict(\n    |  ____________________________________________________^\n130 | |     \
+      \            review_file=str(LEDGER.relative_to(ROOT)), record_sha256=expected\n131 | |             )\n  \
+      \  | |_____________^\n132 |               expected = current[\"record_sha256\"]\n133 |           assert hashlib.sha256((ROOT\
+      \ / row[\"path\"]).read_bytes()).hexdigest() == expected\n    |\nhelp: Rewrite as a literal\n\nC408 Unnecessary\
+      \ `dict()` call (rewrite as a literal)\n   --> tests/test_causal_review_batch86.py:156:52\n    |\n154 |  \
+      \             current = next(r for r in followup[\"records\"] if r[\"path\"] == row[\"path\"])\n155 |    \
+      \           assert current[\"original_sha256\"] == expected\n156 |               assert current[\"supersedes_review\"\
+      ] == dict(\n    |  ____________________________________________________^\n157 | |                 review_file=str(LEDGER.relative_to(ROOT)),\
+      \ record_sha256=expected\n158 | |             )\n    | |_____________^\n159 |               expected = current[\"\
+      record_sha256\"]\n160 |           assert hashlib.sha256((ROOT / row[\"path\"]).read_bytes()).hexdigest() ==\
+      \ expected\n    |\nhelp: Rewrite as a literal\n\nC408 Unnecessary `dict()` call (rewrite as a literal)\n \
+      \  --> tests/test_causal_review_inventory.py:121:13\n    |\n120 |   def review_chain():\n121 |       first\
+      \ = dict(\n    |  _____________^\n122 | |         path=\"record.yaml\", id=\"CommunityMech:1\", review_file=\"\
+      first.yaml\", record_sha256=\"one\"\n123 | |     )\n    | |_____^\n124 |       second = dict(\n125 |     \
+      \      path=first[\"path\"],\n    |\nhelp: Rewrite as a literal\n\nC408 Unnecessary `dict()` call (rewrite\
+      \ as a literal)\n   --> tests/test_causal_review_inventory.py:124:14\n    |\n122 |           path=\"record.yaml\"\
+      , id=\"CommunityMech:1\", review_file=\"first.yaml\", record_sha256=\"one\"\n123 |       )\n124 |       second\
+      \ = dict(\n    |  ______________^\n125 | |         path=first[\"path\"],\n126 | |         id=first[\"id\"\
+      ],\n127 | |         review_file=\"second.yaml\",\n128 | |         record_sha256=\"two\",\n129 | |        \
+      \ original_sha256=\"one\",\n130 | |         supersedes_review=dict(review_file=\"first.yaml\", record_sha256=\"\
+      one\"),\n131 | |     )\n    | |_____^\n132 |       third = dict(\n133 |           path=first[\"path\"],\n\
+      \    |\nhelp: Rewrite as a literal\n\nC408 Unnecessary `dict()` call (rewrite as a literal)\n   --> tests/test_causal_review_inventory.py:130:27\n\
+      \    |\n128 |         record_sha256=\"two\",\n129 |         original_sha256=\"one\",\n130 |         supersedes_review=dict(review_file=\"\
+      first.yaml\", record_sha256=\"one\"),\n    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+      131 |     )\n132 |     third = dict(\n    |\nhelp: Rewrite as a literal\n\nC408 Unnecessary `dict()` call\
+      \ (rewrite as a literal)\n   --> tests/test_causal_review_inventory.py:132:13\n    |\n130 |           supersedes_review=dict(review_file=\"\
+      first.yaml\", record_sha256=\"one\"),\n131 |       )\n132 |       third = dict(\n    |  _____________^\n133\
+      \ | |         path=first[\"path\"],\n134 | |         id=first[\"id\"],\n135 | |         review_file=\"third.yaml\"\
+      ,\n136 | |         record_sha256=\"three\",\n137 | |         original_sha256=\"two\",\n138 | |         supersedes_review=dict(review_file=\"\
+      second.yaml\", record_sha256=\"two\"),\n139 | |     )\n    | |_____^\n140 |       return first, second, third\n\
+      \    |\nhelp: Rewrite as a literal\n\nC408 Unnecessary `dict()` call (rewrite as a literal)\n   --> tests/test_causal_review_inventory.py:138:27\n\
+      \    |\n136 |         record_sha256=\"three\",\n137 |         original_sha256=\"two\",\n138 |         supersedes_review=dict(review_file=\"\
+      second.yaml\", record_sha256=\"two\"),\n    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+      139 |     )\n140 |     return first, second, third\n    |\nhelp: Rewrite as a literal\n\nC408 Unnecessary\
+      \ `dict()` call (rewrite as a literal)\n   --> tests/test_causal_review_inventory.py:197:38\n    |\n195 |\
+      \         rows = [first, second, third]\n196 |     else:\n197 |         first[\"supersedes_review\"] = dict(review_file=\"\
+      second.yaml\", record_sha256=\"two\")\n    |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+      198 |         first[\"original_sha256\"] = \"two\"\n199 |         rows = [first, second]\n    |\nhelp: Rewrite\
+      \ as a literal\n\nC408 Unnecessary `dict()` call (rewrite as a literal)\n   --> tests/test_causal_review_inventory.py:214:27\n\
+      \    |\n212 |         review_file=\"second.yaml\",\n213 |         original_sha256=old[\"record_sha256\"],\n\
+      214 |         supersedes_review=dict(review_file=old[\"review_file\"], record_sha256=old[\"record_sha256\"\
+      ]),\n    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+      215 |     )\n216 |     new[\"node_decisions\"].pop()\n    |\nhelp: Rewrite as a literal\n\nFound 12 errors.\n\
+      No fixes available (10 hidden fixes can be enabled with the `--unsafe-fixes` option).\n"
+research_issue_note:
+  issue: 1715
+  id: 6039456491
+  url: https://github.com/CultureBotAI/CommunityMech/issues/1715#issuecomment-6039456491
+  body_sha256: 3f51f7a20174796bee70fe612b3a1063854e9d8371c6900fd2b17d9f36067fb2
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 396
+      mixed: 126
+      community_level_only: 270
+      taxa: 1523
+      credited_solely_by_the_rule: 1249
+    current:
+      records: 460
+      with_community_level: 396
+      mixed: 126
+      community_level_only: 270
+      taxa: 1523
+      credited_solely_by_the_rule: 1249
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: Canonical participant assignments and measured legacy community-level census unchanged. No taxonomy
+    or auditor-rule change.
+corpus:
+  records: 460
+  nodes: 1420
+  edges: 584
+  review_status_counts:
+    needs_research: 48
+    pending: 132
+    reviewed: 280
+limitations:
+- Fresh both-root baseline before papers:460records921caches1420nodes584arrows56warnings0structural. Re-review of14existingnodes7arrows,
+  all retained without endpoint or wording changes. Three records edited; two unchanged. Review-status counts remain280reviewed132pending48needs_research;
+  re-review does not inflate coverage.
+- 'Six target primary sources: two full main bodies with embedded tables/captions (UFMP and Crystal Geyser), four
+  abstracts (two MFC papers, digestion, exact pleuromutilin). No original figure pixels, raw data or separate full
+  supplements independently audited. Pleuromutilin historical DOCX text reread only for TablesS1/S2, S3 scope/method
+  notes and boundary rows; not all metabolite rows or a fresh main text.'
+- Accidental PMID33125214 lookup is an unrelated vanadium paper, explicitly excluded from target evidence. Primary/cache
+  snippet matches are not scientific entailment. Main-text access limits are not evidence that controls were absent.
+- MFC and Crystal Geyser already use the product-removal criterion and are unchanged. UFMP retains the hypothesized
+  producer-consumer model as CROSS_FEEDING, not demonstrated flux. Digestion and pleuromutilin remain untyped for
+  unresolved feedback or outcome scope, not lack of obligacy. No categorical SYNTROPHY restoration based only on
+  author vocabulary.
+- Pleuromutilin discussion now points to its actual description rather than a nonexistent engineering_design field.
+  The historical S3 note has internally conflicting fold-change/list-scope wording; no numerical reconciliation
+  or new pathway is asserted. Research1715 and metadata183/1327/1366/1716 remain open.
+- No taxonomy, canonical participants, network rules, cache content, node additions/removals or arrow changes. No
+  new antibiotic-selection details, strain optimization, genetic designs or experimental procedures. No Edison dry
+  run or paid submission.
+- Earlier decisions and external history artifacts remain append-only. Explicit supersedes_review links bind each
+  prior reviewed record hash to the next original hash; inventory must reject unlinked duplicates, forks and cycles
+  and still validate current graph coverage.
+- Source-based self-adversarial review is not independent approval, generated-model loader certification or corpus
+  completion. Loader1703 remains unresolved. New repair issue1744 closes only after protected-main merge.

@@ -576,7 +576,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Ferroplasma-Leptospirillum Iron-Cycling Syntrophy</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -589,13 +589,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -603,32 +598,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Iron Oxidation by Leptospirillum</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Proposed Leptospirillum Organic-Matter Supply</h3>
                 </div>
-                <p class="prewrap interaction-description">Leptospirillum ferriphilum oxidizes ferrous iron (Fe²⁺) to ferric iron (Fe³⁺) as its sole energy source, using the electrons to fix CO₂ through the Calvin-Benson-Bassham cycle. This obligate chemolithoautotroph oxidizes iron from pyrite and chalcopyrite mineral dissolution. The Fe³⁺ generated attacks sulfide minerals, perpetuating the iron redox cycle. During growth, Leptospirillum releases organic matter that can accumulate to toxic concentrations in pure culture. In co-culture with Ferroplasma, this organic matter is consumed, relieving organic-compound stress.
-</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED: L. ferriphilum growth supplies organic matter usable by F. acidiphilum. The inspected Merino abstract states this as the study hypothesis, not a quantified release flux or a resolved substrate identity. Retain the upstream supply context without asserting Calvin-Benson-Bassham fixation, mineral-specific dissolution, toxic accumulation thresholds or their relief in the exact pair.</p>
 
 
+                <p><strong>Source Taxon:</strong> Leptospirillum ferriphilum</p>
 
 
-                <p><strong>Participating Taxa:</strong>
-
-                    Leptospirillum ferriphilum
-
-                </p>
 
 
 
                 <p><strong>Metabolites:</strong>
-
-                    Fe(II)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29033</a>),
-
-                    Fe(III)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29034</a>),
 
                     organic molecular entity
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=50860"
@@ -638,31 +619,14 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        iron ion transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006826</a>)
-                    </li>
-
-                    <li>
-                        carbon fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015977"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015977</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Organic Matter Consumption by Ferroplasma
-                        <p class="prewrap causal-description">Organic compounds secreted by Leptospirillum are consumed by Ferroplasma</p>
+                        <span class="flow-arrow">→</span> Proposed Ferroplasma Organic-Matter Consumption
+                        <p class="prewrap causal-description">HYPOTHESIZED: Organic matter released during Leptospirillum growth would provide substrate for Ferroplasma consumption. This is the source-stated supply hypothesis, not a traced partner-to-partner flux; reciprocal supernatant growth does not identify the transferred compound or prove the detoxification mechanism.</p>
                     </div>
 
                 </div>
@@ -678,10 +642,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/27535541/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:27535541</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Ferroplasma acidiphilum and Leptospirillum ferriphilum are the dominant species in extremely acid environments and have great use in bioleaching applications"</div>
+                        <div class="snippet">"The hypothesis of this work is that F. acidiphilum uses the organic matter secreted by L. ferriphilum for growth"</div>
 
                     </li>
 
@@ -691,11 +655,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Organic Matter Consumption by Ferroplasma</h3>
+                    <h3>Proposed Ferroplasma Organic-Matter Consumption</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Ferroplasma acidiphilum grows chemomixotrophically, consuming organic matter secreted by Leptospirillum ferriphilum while oxidizing ferrous iron for energy. F. acidiphilum uses the organic matter for carbon assimilation, maintaining low organic compound levels in the culture medium that prevents toxic effects on L. ferriphilum. This scavenging function is critical - in pure Leptospirillum cultures, organic matter accumulates and inhibits growth, but in co-culture, Ferroplasma maintains organic compounds below toxic thresholds. The archaeon can utilize diverse organic substrates including amino acids, organic acids, and cell debris. This creates a mutualistic relationship where Ferroplasma benefits from carbon supply while Leptospirillum benefits from detoxification.
-</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED: Organic matter supplied by L. ferriphilum contributes carbon to F. acidiphilum BRL-115 and its removal relieves inhibition of the bacterium. Reciprocal filtered-supernatant growth supports soluble partner effects, but the inspected abstract does not establish identified transferred substrates, assimilation flux or detoxification thresholds. BRL-115 chemomixotrophy and the 0.04% yeast-extract growth optimum are characterization results, not proof of the proposed mediator in mixed culture. CROSS_FEEDING denotes this proposed transfer, not established obligate syntrophy.</p>
 
 
                 <p><strong>Source Taxon:</strong> Leptospirillum ferriphilum</p>
@@ -710,27 +673,13 @@
 
                     organic molecular entity
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=50860"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:50860</a>),
-
-                    Fe(II)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29033</a>)
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:50860</a>)
 
                 </p>
 
 
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Filtered Medium Cross-Feeding
-                        <p class="prewrap causal-description">Soluble organic compounds contribute to the reciprocal filtered-medium growth response</p>
-                    </div>
-
-                </div>
 
 
 
@@ -743,10 +692,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/27535541/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:27535541</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"F. acidiphilum uses the organic matter secreted by L. ferriphilum for growth, maintaining low levels of organic compounds in the culture medium, preventing their toxic effects on L. ferriphilum"</div>
+                        <div class="snippet">"The hypothesis of this work is that F. acidiphilum uses the organic matter secreted by L. ferriphilum for growth"</div>
 
                     </li>
 
@@ -769,20 +718,14 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Iron Oxidation by Ferroplasma</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Ferroplasma Iron-Metabolism Context</h3>
                 </div>
-                <p class="prewrap interaction-description">Ferroplasma acidiphilum oxidizes ferrous iron microaerophilically, complementing Leptospirillum&#39;s aerobic iron oxidation. F. acidiphilum obtains energy by oxidation of ferrous iron using oxygen as terminal electron acceptor, with a membrane-bound complex dedicated to this process. The archaeon can function at lower oxygen concentrations than Leptospirillum, filling microaerobic niches. Ferroplasma&#39;s cellular machinery is iron-protein-dominated, with high iron content reflecting specialization for iron metabolism. Both organisms oxidize Fe²⁺ to Fe³⁺, but occupy different physiological niches (aerobic vs. microaerobic, autotrophic vs. mixotrophic), reducing direct competition and enabling stable coexistence.
-</p>
+                <p class="prewrap interaction-description">Ferroplasma iron metabolism is physiological context, not an observed niche-partitioning interaction. Ferrer studied strain Y(T), reporting ferrous-iron oxidation and iron-rich proteins; this is not BRL-115 in the Leptospirillum pair. Wilson compared isolated rusticyanins: the archaeal FaR had similar redox potential but slower electron transfer than AfR. These sources do not establish lower-oxygen complementarity, a pair-specific membrane complex, competition relief or stable coexistence. Protein electron-transfer properties do not measure consortium iron-oxidation flux.</p>
 
 
+                <p><strong>Source Taxon:</strong> Ferroplasma acidiphilum</p>
 
 
-                <p><strong>Participating Taxa:</strong>
-
-                    Ferroplasma acidiphilum
-
-                </p>
 
 
 
@@ -800,17 +743,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        iron ion transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006826</a>)
-                    </li>
-
-                </ul>
-
 
 
 
@@ -827,7 +759,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"properties of the Type-1 copper protein rusticyanin from Acidithiobacillus ferrooxidans (AfR) were compared with those from an ancestral form of this enzyme (N0) and an archaeal enzyme identified in Ferroplasma acidiphilum (FaR)"</div>
+                        <div class="snippet">"While both N0 and FaR show redox potentials similar to that of AfR their electron transport rates were significantly slower."</div>
 
                     </li>
 
@@ -840,7 +772,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"acidiphilum therefore has a currently unique iron-protein-dominated cellular machinery and biochemical phylogeny."</div>
+                        <div class="snippet">"F. acidiphilum strain Y(T) is a chemoautotroph"</div>
 
                     </li>
 
@@ -850,11 +782,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Filtered Medium Cross-Feeding</h3>
-                    <span class="interaction-type">MUTUALISM</span>
+                    <h3>Reciprocal Filtered-Medium Growth Response</h3>
                 </div>
-                <p class="prewrap interaction-description">Cell growth is favorably affected by the presence of filtered medium of the partner organism. The reciprocal supernatant response shows that the partnership involves soluble factors beyond direct cell contact.
-</p>
+                <p class="prewrap interaction-description">In reciprocal assays, each organism grew favorably in filtered medium from its partner. This supports diffusible partner-associated growth effects without requiring direct cell contact in those assays, but does not identify the mediators, show equal reciprocal benefit in simultaneous coculture or prove obligatory syntrophy. Mixed-culture growth rates were used as input to flux-balance analysis; model behavior is not independent measurement of exchanged flux. Organic-matter consumption cannot be treated as the demonstrated cause of both reciprocal responses.</p>
 
 
 
@@ -868,14 +798,6 @@
                 </p>
 
 
-
-                <p><strong>Metabolites:</strong>
-
-                    organic molecular entity
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=50860"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:50860</a>)
-
-                </p>
 
 
 
@@ -919,6 +841,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which soluble factors mediate the reciprocal growth response of BRL-115 and L. ferriphilum?
+                </h3>
+                <p class="prewrap">Only cited abstracts were inspected. The primary abstract explicitly frames carbon supply and detoxification as a hypothesis. Reciprocal filtered-medium responses do not identify molecules, quantify partner-resolved flux or establish toxic thresholds. Growth-rate inputs to FBA are not independent flux observations. Preserve only the HYPOTHESIZED supply-to-consumption arrow and remove its unsupported extension to both reciprocal assays. Y(T) iron-rich proteins and isolated FaR kinetics are separate systems, not oxygen-niche or pair-specific membrane-complex evidence. No new structure is added. Non-graph physiology, medium and syntrophy claims remain #1462.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Proposed Leptospirillum Organic-Matter Supply</code>, <code>ecological_interactions#Proposed Ferroplasma Organic-Matter Consumption</code>, <code>ecological_interactions#Ferroplasma Iron-Metabolism Context</code>, <code>ecological_interactions#Reciprocal Filtered-Medium Growth Response</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1384,7 +1325,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1397,7 +1337,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1451,30 +1390,20 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
-
-            metabolites.push("Fe(II)");
-
-            metabolites.push("Fe(III)");
 
             metabolites.push("organic molecular entity");
 
 
             var processes = [];
 
-
-            processes.push("iron ion transport");
-
-            processes.push("carbon fixation");
-
-
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Iron Oxidation by Leptospirillum",
+                label: "Proposed Leptospirillum Organic-Matter Supply",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1483,18 +1412,12 @@
             });
 
 
+            var srcKey = "Leptospirillum ferriphilum";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
 
 
-            var participantKeys = [
-
-                "Leptospirillum ferriphilum"
-
-            ];
-            participantKeys.forEach(function(key) {
-                if (taxonNodeIds[key]) {
-                    links.push({ source: taxonNodeIds[key], target: intId });
-                }
-            });
 
         })();
 
@@ -1506,8 +1429,6 @@
 
             metabolites.push("organic molecular entity");
 
-            metabolites.push("Fe(II)");
-
 
             var processes = [];
 
@@ -1515,7 +1436,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Organic Matter Consumption by Ferroplasma",
+                label: "Proposed Ferroplasma Organic-Matter Consumption",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1540,7 +1461,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1551,15 +1472,11 @@
 
             var processes = [];
 
-
-            processes.push("iron ion transport");
-
-
             var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Iron Oxidation by Ferroplasma",
+                label: "Ferroplasma Iron-Metabolism Context",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1568,29 +1485,19 @@
             });
 
 
+            var srcKey = "Ferroplasma acidiphilum";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
 
 
-            var participantKeys = [
-
-                "Ferroplasma acidiphilum"
-
-            ];
-            participantKeys.forEach(function(key) {
-                if (taxonNodeIds[key]) {
-                    links.push({ source: taxonNodeIds[key], target: intId });
-                }
-            });
 
         })();
 
         (function() {
             var intId = "interaction:3";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
-
-
-            metabolites.push("organic molecular entity");
-
 
             var processes = [];
 
@@ -1602,7 +1509,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Filtered Medium Cross-Feeding",
+                label: "Reciprocal Filtered-Medium Growth Response",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

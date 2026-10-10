@@ -412,33 +412,26 @@ taxonomy:
     explanation: >-
       Dataset S1 assigns Chryseobacterium gleum isolate TBS_030 to SRC2v4.
 ecological_interactions:
-- name: Root-Colonization-Selected SRC2v4 Stability
-  description: >-
-    SRC2v4, the 15-member variant selected for root colonization efficiency,
-    was the most compositionally representative of its inoculum among the four
-    SRC2 variants and shifted no members in the differential-abundance test
-    against the starting inoculum.
-  interaction_type: COLONIZATION_FACILITATION
+- name: SRC2v4 Composition Relative to Its Inoculum
+  description: In the controlled gnotobiotic comparison, SRC2v4 was the most compositionally representative of its
+    inoculum among the four tested variants, with no member shift detected by the reported differential-abundance
+    test. Nonsignificance does not establish invariant abundance, equivalence or universal stability. The result
+    does not identify one organism facilitating another, and the paper's prose and figure caption differ on root
+    diversity loss.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: symbiotic process
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
   evidence:
   - reference: PMID:42454401
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      Differential abundance testing reinforced SRC2v4's exceptional stability
-    explanation: >-
-      Supports the community-level colonization-stability phenotype of SRC2v4.
+    snippet: Across all variants, SRC2v4 was the most compositionally representative of its inoculum, suggesting
+      greater compositional stability within the controlled gnotobiotic environment used here.
+    explanation: Supports a relative, context-bounded composition result, not equivalence or an interspecies facilitation
+      mechanism.
 - name: Live SRC2v4 Plant Growth Promotion
-  description: >-
-    Live SRC2v4 promoted above- and below-ground S. bicolor growth in 1-month
-    gnotobiotic microboxes, whereas heat-killed SRC2v4 failed to significantly
-    induce plant growth promotion.
-  interaction_type: MUTUALISM
+  description: In the reported gnotobiotic comparison, live SRC2v4 increased shoot fresh weight, shoot dry weight
+    and root fresh weight; the heat-killed treatment did not significantly induce plant growth promotion. This is
+    a host phenotype under the tested conditions, not demonstrated reciprocal microbial fitness benefit, field efficacy
+    or identification of a specific living-cell mechanism.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: plant growth
@@ -449,25 +442,19 @@ ecological_interactions:
   - reference: PMID:42454401
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      Live SRC2v4 treatment increased shoot fresh weight, shoot dry weight, and
-      root fresh weight.
-    explanation: >-
-      Documents plant growth promotion by live SRC2v4 relative to the
-      heat-killed and mock controls.
+    snippet: Live SRC2v4 treatment increased shoot fresh weight, shoot dry weight, and root fresh weight.
+    explanation: Supports the observed host biomass outcomes, not reciprocal benefits to all microbial members.
   - reference: PMID:42454401
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: host interaction with live SRC2v4 was required for PGP
-    explanation: >-
-      Shows that the plant growth promotion required live SRC2v4 rather than
-      heat-killed microbial material.
+    explanation: The live-versus-heat-killed comparison supports a requirement for live treatment in this assay
+      without isolating a specific mechanism.
 - name: SRC2v4 Host Flavonoid Response
-  description: >-
-    Colonization by SRC2v4 induced a dynamic root and shoot host transcriptomic
-    response that upregulated flavonoid biosynthesis genes and was corroborated
-    by LC-MS/MS detection of enriched flavones in root and rhizosphere samples.
-  interaction_type: COLONIZATION_FACILITATION
+  description: SRC2v4 treatment was associated with dynamic host flavonoid-pathway transcription and enriched flavone-related
+    metabolites in root and rhizosphere samples. These observations do not establish that flavonoids facilitate
+    colonization or mediate the host growth response. The paper leaves recruitment versus prevention of colonization
+    unresolved; correlations restricted to SRC2v4-treated samples were not significant.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
@@ -478,21 +465,13 @@ ecological_interactions:
   - reference: PMID:42454401
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      functional enrichment analysis confirmed that the flavonoid biosynthetic
-      pathway was strongly regulated
-    explanation: >-
-      Supports host transcriptional regulation of flavonoid biosynthesis after
-      SRC2v4 inoculation.
+    snippet: functional enrichment analysis confirmed that the flavonoid biosynthetic pathway was strongly regulated
+    explanation: Supports host transcriptional regulation of flavonoid biosynthesis after SRC2v4 inoculation.
   - reference: PMID:42454401
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      Notably, five enriched flavones in the root in addition to Flavone +1O;
-      OMe in the rhizosphere
-    explanation: >-
-      Supports metabolomic flavone enrichment in SRC2v4-treated roots and
-      rhizosphere samples.
+    snippet: Notably, five enriched flavones in the root in addition to Flavone +1O; OMe in the rhizosphere
+    explanation: Supports enriched flavone-related features without establishing their causal effect on colonization.
 growth_media:
 - name: Sterile Hoagland microbox seedling system
   composition:
@@ -605,3 +584,33 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >-
   No metal or rare-earth cycling was curated for this Sorghum bicolor
   root-colonization SynCom.
+discussions:
+- discussion_id: src2_causal_attribution_batch103
+  prompt: Do the reported composition and flavonoid responses establish a specific ecological mechanism in SRC2v4?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: 'They support observations, not a demonstrated interspecies fitness sign or flavonoid-mediated colonization.
+    Differential-abundance nonsignificance is not invariance; the main text and Fig.2 caption also differ on root
+    diversity loss. No raw-data reanalysis was performed. The source leaves flavonoid function unresolved. Preserve
+    the absence of assay-order edges fixed in #782. No new growth, colonization, infection or genetic-design procedures
+    are added; existing non-graph protocols are outside this review.'
+  posed_by: codex
+  posed_date: '2026-10-08'
+  evidence:
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Roles for both recruitment and prevention of colonization by plant-produced flavonoids remain open.
+    explanation: The authors explicitly leave the direction and mechanism unresolved.
+  attaches_to:
+  - ecological_interactions#SRC2v4 Composition Relative to Its Inoculum
+  - ecological_interactions#Live SRC2v4 Plant Growth Promotion
+  - ecological_interactions#SRC2v4 Host Flavonoid Response
+curation_history:
+- timestamp: '2026-10-08T00:12:44Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain relative composition fidelity with statistical, context and source-consistency limits; remove
+    facilitation.; Preserve positive live-treatment host biomass results without mutualism or field-efficacy claims.;
+    Retain host transcript/metabolite responses while withholding unproven flavonoid mediation. Issue#1811; reports/causal_graph_review/decisions/20261008-four-records-batch103.yaml
+  llm_assisted: true

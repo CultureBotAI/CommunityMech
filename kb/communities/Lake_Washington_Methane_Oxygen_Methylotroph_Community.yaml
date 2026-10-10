@@ -279,10 +279,10 @@ taxonomy:
     explanation: Supports Methylophilus as a higher-oxygen methylotroph partner.
 ecological_interactions:
 - name: Methanotroph-Methylotroph Guild Coupling
-  description: >
-    Methane-fed Lake Washington sediment communities consistently include both
-    methane-oxidizing Methylococcaceae and non-methanotrophic methylotrophs in
-    Methylophilaceae, supporting a coupled guild model for methane oxidation.
+  description: Methane-fed sediment microcosms co-enrich Methylococcaceae and non-methanotrophic Methylophilaceae.
+    PARTIAL - growth and prior stable-isotope studies support inferred methane-derived carbon coupling between guilds,
+    but this experiment does not identify the transferred compound, directly trace methanol donation or establish
+    reciprocal benefit. Family-level coupling is not a resolved strain pair or a universal partnership.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -300,11 +300,8 @@ ecological_interactions:
     term:
       id: CHEBI:16183
       label: methane
-  - preferred_term: methanol
-    term:
-      id: CHEBI:17790
-      label: methanol
-    notes: Likely one-carbon intermediate supporting methylotroph partners.
+    notes: Externally supplied methane supports the enrichment; methane is not established as the directly transferred
+      donor-to-recipient compound.
   biological_processes:
   - preferred_term: methane metabolic process
     term:
@@ -312,21 +309,30 @@ ecological_interactions:
       label: methane metabolic process
   evidence:
   - reference: PMID:25755930
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: likely involves communities composed of different functional guilds
-    explanation: Supports the guild-coupling interpretation for methane oxidation.
+    explanation: Supports the guild-level interpretation, not a resolved carbon mediator or reciprocal benefit in
+      this microcosm.
   - reference: PMID:25755930
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: rather than a single type of microbe
-    explanation: Supports a community-level methane oxidation model instead of a single taxon model.
-- name: Oxygen-Tension Specific Partnerships
-  description: >
-    Oxygen availability determines which methanotroph and methylotroph genera
-    dominate methane-fed microcosms: Methylosarcina with Methylophilus at higher
-    oxygen tension and Methylobacter with Methylotenera at lower oxygen tension.
-  interaction_type: NICHE_PARTITIONING
+    explanation: Supports the guild-level interpretation, not a resolved carbon mediator or reciprocal benefit in
+      this microcosm.
+  - reference: PMID:25755930
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: we do not have information regarding how a methanotroph can provide carbon to a community of non-methanotrophs
+    explanation: Explicit limitation on the transfer mechanism; prior isotope studies are contextual evidence.
+- name: Oxygen-Regime Dependent Guild Composition
+  description: Under repeated methane feeding and daily gas resetting, initial oxygen regimes changed 16S relative
+    guild composition after 10 and 16 weeks. Higher-oxygen treatments favored Methylosarcina/Methylophilus, whereas
+    lower-oxygen treatments favored Methylobacter/Methylotenera, with intermediate mixtures and replicate exceptions.
+    Low treatments became hypoxic before replenishment; these were not constant dissolved-oxygen levels. This establishes
+    treatment-dependent composition, not a unique molecular partnership mechanism or absolute viable abundance.
+    Listed participants are the reliable canonical aggregate/families/genera, not the incorrectly grounded Methylosarcina
+    species.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: methane metabolic process
@@ -335,55 +341,82 @@ ecological_interactions:
       label: methane metabolic process
   downstream:
   - target: Methanotroph-Methylotroph Guild Coupling
-    description: >
-      Oxygen tension selects which methanotroph and non-methanotrophic
-      methylotroph genera persist as the methane-oxidizing guild partners.
-  - target: Modeled Methylobacter-Methylomonas Exchange
-    description: >
-      Lake Washington methanotroph models tested carbon, oxygen, and nitrogen
-      limitation, making oxygen availability a condition that modulates
-      predicted metabolite exchange within the methane-cycling community.
+    description: PARTIAL - changing the oxygen-feeding regime selects different relative abundances of methanotroph
+      and methylotroph genera within the methane-fed guilds. This alters the observed guild composition, not a demonstrated
+      specific carbon-transfer reaction or reciprocal benefit; the treatments also differ in time spent hypoxic.
   evidence:
   - reference: PMID:25755930
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: different species persisted under different oxygen tensions
-    explanation: Supports oxygen-tension-dependent membership.
+    explanation: Supports controlled oxygen-regime effects on relative guild composition, with intermediate/replicate
+      variation rather than exclusive partner pairs.
   - reference: PMID:25755930
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: oxygen availability is at least one major factor determining specific partnerships in methane oxidation
-    explanation: Supports oxygen availability as a driver of partnership composition.
-- name: Modeled Methylobacter-Methylomonas Exchange
-  description: >
-    Genome-scale metabolic modeling of Lake Washington methanotrophs predicts
-    competitive and mutualistic interactions between Methylobacter and
-    Methylomonas and condition-dependent extracellular metabolite exchanges.
-  interaction_type: NICHE_PARTITIONING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Methylobacter
+    explanation: Supports controlled oxygen-regime effects on relative guild composition, with intermediate/replicate
+      variation rather than exclusive partner pairs.
+  participating_taxa:
+  - preferred_term: Lake Washington methane-consuming microbial community
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  - preferred_term: Methylococcaceae methanotrophs
+    term:
+      id: NCBITaxon:403
+      label: Methylococcaceae
+  - preferred_term: Methylophilaceae non-methanotrophic methylotrophs
+    term:
+      id: NCBITaxon:32011
+      label: Methylophilaceae
+  - preferred_term: Methylobacter
     term:
       id: NCBITaxon:429
       label: Methylobacter
-  target_taxon:
+  - preferred_term: Methylotenera
+    term:
+      id: NCBITaxon:359407
+      label: Methylotenera
+  - preferred_term: Methylophilus
+    term:
+      id: NCBITaxon:16
+      label: Methylophilus
+- name: Modeled Methylomonas-To-Methylobacter Formaldehyde Transfer
+  description: 'An OptCom genome-scale model of Methylomonas sp. LW13 and Methylobacter tundripaludum 21/22 reports
+    conditional formaldehyde transfer from Methylomonas to Methylobacter. With imposed MB:ML growth ratios, uptake
+    occurs in the synthetic 0.05:1 scenario but not the sediment 9.3:1 scenario. These ratios are constraints, not
+    predicted abundances. PARTIAL - optimization, borrowed biomass/maintenance parameters and a formaldehyde-inhibition
+    constraint shape this result; no transfer was experimentally validated here. Conflicting wording elsewhere in
+    the source remains unresolved under #1554, so this is a qualified reported prediction, not verified flux.'
+  scope: PAIRWISE
+  source_taxon:
     preferred_term: Methylomonas
     term:
       id: NCBITaxon:416
       label: Methylomonas
+  target_taxon:
+    preferred_term: Methylobacter
+    term:
+      id: NCBITaxon:429
+      label: Methylobacter
   metabolites:
   - preferred_term: methane
     term:
       id: CHEBI:16183
       label: methane
+    notes: Shared external substrate in the model, not donor-to-recipient transfer.
   - preferred_term: carbon dioxide
     term:
       id: CHEBI:16526
       label: carbon dioxide
+    notes: Modeled export to the environment by both taxa, not partner-directed exchange.
   - preferred_term: formaldehyde
     term:
       id: CHEBI:16842
       label: formaldehyde
+    notes: Conditional modeled Methylomonas-to-Methylobacter transfer; source wording discrepancies and lack of
+      experimental validation remain explicit.
   biological_processes:
   - preferred_term: methane metabolic process
     term:
@@ -391,15 +424,18 @@ ecological_interactions:
       label: methane metabolic process
   evidence:
   - reference: PMID:32655999
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: competitive and mutualistic metabolic interactions among Methylobacter and Methylomonas
-    explanation: Supports modeled interaction types between the two methanotroph genera.
+    snippet: Methylobacter takes up some of the secreted formaldehyde from Methylomonas as a carbon source in addition
+      to methane under the synthetic condition
+    explanation: Results explicitly reports direction and synthetic-condition uptake; the main-text inconsistencies
+      remain unresolved.
   - reference: PMID:32655999
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: excretion of formaldehyde and carbon di-oxide in the community
-    explanation: Supports predicted extracellular metabolite exchange (formaldehyde, CO2) in the community model.
+    snippet: the experimentally observed species abundance ratio was imposed on the growth rates
+    explanation: The sediment/synthetic abundance ratios constrain the optimization; they are not recovered model
+      predictions.
 environmental_factors:
 - name: Methane amendment
   value: methane supplied at the same concentration in each microcosm
@@ -623,3 +659,31 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element processing role is curated for this
   methane-consuming freshwater sediment community.
+discussions:
+- discussion_id: washington_experiment_model_and_mediator_limits
+  prompt: Which compounds mediate guild coupling, and can the conditional two-methanotroph model result be reproduced?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Methanotroph-Methylotroph Guild Coupling
+  - ecological_interactions#Oxygen-Regime Dependent Guild Composition
+  - ecological_interactions#Modeled Methylomonas-To-Methylobacter Formaldehyde Transfer
+  rationale: 'Retain oxygen-regime selection of guild composition, but remove the cross-study arrow to the separate
+    two-methanotroph model. The 2015 microcosms infer carbon coupling without identifying the mediator or reciprocal
+    benefit; nitrogen-metabolism explanations are hypotheses. The 2020 model reports Methylomonas-to-Methylobacter
+    formaldehyde transfer under imposed synthetic ratios, not the sediment ratio, and environmental CO2 export.
+    Do not confuse the two methanotrophs with the methanotroph/methylotroph guild pair. Nutrient-rich dominance
+    and formaldehyde-export statements conflict internally, tracked in #1554. Full main bodies were read, but no
+    original figures, S4 workbook, SBML models or executable solutions were audited; the public supplemental endpoint
+    failed HTTP500. #1553 tracks the Methylosarcina genus/species mismatch and other taxonomy/metadata. Omit that
+    misgrounded species from explicit participants rather than silently validating it; the resulting connectivity
+    warning is an unresolved roster defect, not grounds to invent an edge.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T21:32:00Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate oxygen guild selection from the conditional Methylomonas-to-Methylobacter model. Issue #1551;
+    reports/causal_graph_review/decisions/20261006-lakes-mars-batch62.yaml'
+  llm_assisted: true

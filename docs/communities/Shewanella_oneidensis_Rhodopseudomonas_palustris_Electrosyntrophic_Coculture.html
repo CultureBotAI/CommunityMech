@@ -566,7 +566,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Shewanella oneidensis MR-1 - Rhodopseudomonas palustris Electro-syntrophic Co-culture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -574,8 +574,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -584,16 +584,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Polydopamine-Driven Cell-to-Cell Coaggregation</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">In-situ polydopamine nano-encapsulation of S. oneidensis MR-1 surfaces creates a conductive, adhesive interface that promotes stable coaggregation with R. palustris.</p>
-
-
-                <p><strong>Source Taxon:</strong> Shewanella oneidensis MR-1</p>
+                <p class="prewrap interaction-description">The source reports increased coaggregation of Shewanella oneidensis MR-1 and Rhodopseudomonas palustris with the material-associated cell interface. This is a two-member physical community observation, not itself a donor-to-recipient metabolic transfer or evidence of syntrophic feedback.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Rhodopseudomonas palustris</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Shewanella oneidensis MR-1,
+
+                    Rhodopseudomonas palustris
+
+                </p>
 
 
 
@@ -616,8 +619,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Engineered interspecies electron transfer (MIET-to-DIET shift)
-                        <p class="prewrap causal-description">The stable conductive PDA cell-to-cell interface precedes the shift from diffusible H2-mediated IET toward contact-dependent electron transfer.</p>
+                        <span class="flow-arrow">→</span> Shift Toward Contact-Dependent Electron Transfer
+                        <p class="prewrap causal-description">PARTIAL: the material-associated interface supports contact between the two members and is reported to favor contact-dependent electron transfer. The abstract does not isolate coaggregation from the interface&#39;s conductive properties as the causal mediator of the transfer-mode shift.</p>
                     </div>
 
                 </div>
@@ -646,10 +649,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Engineered interspecies electron transfer (MIET-to-DIET shift)</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Shift Toward Contact-Dependent Electron Transfer</h3>
                 </div>
-                <p class="prewrap interaction-description">The PDA-stabilized cell-to-cell interface shifts the dominant IET mode from H2-mediated MIET toward contact-dependent direct electron transfer involving outer-membrane c-type cytochromes.</p>
+                <p class="prewrap interaction-description">The primary abstract reports a shift from H2-mediated transfer toward contact-dependent electron transfer in the tested two-species community, with Shewanella as donor and Rhodopseudomonas as acceptor. Retain that direction without treating a shift in the dominant mode as elimination of all mediated transfer or as evidence of product-removal feedback.</p>
 
 
                 <p><strong>Source Taxon:</strong> Shewanella oneidensis MR-1</p>
@@ -688,7 +690,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Enhanced Nitrogenase-Derived CH4 Indicator
-                        <p class="prewrap causal-description">Contact-dependent electron transfer increases the nitrogenase-derived methane readout used to quantify IET efficiency.</p>
+                        <p class="prewrap causal-description">PARTIAL: the reported transfer-mode shift is proposed to support the increased nitrogenase-derived methane readout. The abstract presents methane as an IET indicator, but does not establish a calibrated proportional increase in all interspecies electron flux or separate the contribution of each transfer route.</p>
                     </div>
 
                 </div>
@@ -718,9 +720,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Enhanced Nitrogenase-Derived CH4 Indicator</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">The engineered two-species community shows roughly 380% more nitrogenase-derived methane, the quantitative indicator used for IET efficiency in this system.</p>
+                <p class="prewrap interaction-description">The engineered two-species community showed roughly 380% higher nitrogenase-derived methane, used by the authors as an indicator of interspecies electron-transfer efficiency. Preserve this measured positive result without equating the percentage with a calibrated change in total electron flux, natural methanogenesis or reciprocal fitness benefit.</p>
 
 
 
@@ -774,6 +775,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How do interface effects and indicator calibration constrain causal attribution?
+                </h3>
+                <p class="prewrap">The fresh primary abstract and whole committed cache support coaggregation, the reported transfer-mode shift and the methane-indicator increase. Complete main text, route-specific controls and indicator calibration were not independently reviewed. The retained PARTIAL directions distinguish interface-associated effects from isolated mediation and a quantitative proxy from total electron flux; no product-removal feedback or reciprocal fitness benefit is newly asserted.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Polydopamine-Driven Cell-to-Cell Coaggregation</code>, <code>ecological_interactions#Shift Toward Contact-Dependent Electron Transfer</code>, <code>ecological_interactions#Enhanced Nitrogenase-Derived CH4 Indicator</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42285537/" rel="nofollow noreferrer">PMID:42285537</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">nitrogenase-derived CH4, used as a quantitative indicator of IET efficiency, increased by ∼380 % in the engineered two-species community.</p>
+                        <p class="muted small prewrap">Supports the reported indicator increase, not a separately calibrated total electron-flux increase or syntrophic feedback.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -803,7 +843,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -816,7 +855,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -870,7 +908,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -892,23 +930,26 @@
             });
 
 
-            var srcKey = "Shewanella oneidensis MR-1";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Rhodopseudomonas palustris";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Shewanella oneidensis MR-1",
+
+                "Rhodopseudomonas palustris"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -925,7 +966,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Engineered interspecies electron transfer (MIET-to-DIET shift)",
+                label: "Shift Toward Contact-Dependent Electron Transfer",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -950,7 +991,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

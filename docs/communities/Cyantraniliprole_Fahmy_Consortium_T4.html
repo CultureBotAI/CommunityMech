@@ -742,7 +742,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Cyantraniliprole Fahmy Consortium T4</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -750,8 +750,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -760,13 +760,27 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>T4 distributed cyantraniliprole enzyme potential</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Bioinformatic prediction assigned T4 a distributed enzyme set covering the five enzyme classes the authors considered necessary for the cyantraniliprole degradation pathway. Individual predicted enzyme activities differed among strains, so the record captures this as community-level functional complementarity and not as a resolved pairwise metabolite exchange.
-</p>
+                <p class="prewrap interaction-description">Post-assay bioinformatic analysis assigns the T4 strains a combined repertoire spanning five enzyme classes proposed for cyantraniliprole transformation. These are predicted functions and pathway coverage, not measured enzyme expression, catalytic activity or necessary member-specific flux. The six-strain aggregate can have complementary potential without demonstrated reciprocal fitness benefits or resolved metabolite exchange; the simpler four-strain design suggested by the authors was not experimentally validated.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus subtilis subsp. subtilis AZFS3,
+
+                    Bacillus pumilus AZFS5,
+
+                    Bacillus mojavensis AZFS15,
+
+                    Bacillus paramycoides AZFS18,
+
+                    Pseudomonas aeruginosa KZFS4,
+
+                    Alcaligenes aquatilis KZFS11
+
+                </p>
 
 
 
@@ -819,13 +833,27 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>HPLC-confirmed cyantraniliprole removal</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">In simulated contaminated water amended with NPK and incubated at 30 C, T4 removed 98.27% of the 57.79 mg/L zero-day cyantraniliprole residue from the nominal 60 mg/L dose and left the lowest 20-day residual concentration among the tested consortia.
-</p>
+                <p class="prewrap interaction-description">In NPK-amended freshwater microcosms incubated at 30 C for 20 days, T4 augmentation was associated with HPLC-measured cyantraniliprole decline from a 57.79 mg/L zero-day residue to 1.00 mg/L, corresponding to 98.27% removal from the recovered starting residue after a nominal 60 mg/L spike. This positive treatment-level outcome occurred alongside a native water microbiota and exceeded uninoculated controls. Parent-compound loss does not establish complete mineralization, detoxification, member-specific contribution, reciprocal benefit or enzyme mediation.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus subtilis subsp. subtilis AZFS3,
+
+                    Bacillus pumilus AZFS5,
+
+                    Bacillus mojavensis AZFS15,
+
+                    Bacillus paramycoides AZFS18,
+
+                    Pseudomonas aeruginosa KZFS4,
+
+                    Alcaligenes aquatilis KZFS11
+
+                </p>
 
 
 
@@ -887,13 +915,11 @@
                 <h3>
                     <span class="role-badge">KNOWLEDGE_GAP</span>
                     <span class="role-badge">OPEN</span>
-                    Which T4 member enzyme activities are expressed during cyantraniliprole biodegradation, and which predicted transformation products are formed?
-
+                    Which T4 enzymes and members causally mediate parent-compound removal, and what transformation products and fitness effects result?
                 </h3>
-                <p class="prewrap">The 2026 study used bioinformatic prediction to map candidate cyantraniliprole-degradation enzymes and noted simpler transformation products, but it did not experimentally assign expressed enzymes or measured intermediates to specific T4 strains.
-</p>
+                <p class="prewrap">The complete primary body supports positive HPLC parent-removal outcomes, growth and redox proxies, and post-assay predicted pathway coverage. It does not experimentally assign the predicted enzyme activities or intermediary flux to T4 strains. Selective member/enzyme perturbations, product identification and mass balance would test mediation and distinguish removal from mineralization or detoxification. Reciprocal fitness benefits and the suggested reduced consortium remain untested. The former prediction-to-removal workflow arrow is not restored. Salinity and temperature inconsistencies in non-graph metadata remain in #1371.</p>
 
-                <p class="muted small">Attaches to: <code>ecological_interactions#T4 distributed cyantraniliprole enzyme potential</code></p>
+                <p class="muted small">Attaches to: <code>ecological_interactions#T4 distributed cyantraniliprole enzyme potential</code>, <code>ecological_interactions#HPLC-confirmed cyantraniliprole removal</code></p>
 
 
 
@@ -1478,7 +1504,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1491,7 +1516,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1573,7 +1597,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1601,11 +1625,32 @@
 
 
 
+            var participantKeys = [
+
+                "Bacillus subtilis subsp. subtilis AZFS3",
+
+                "Bacillus pumilus AZFS5",
+
+                "Bacillus mojavensis AZFS15",
+
+                "Bacillus paramycoides AZFS18",
+
+                "Pseudomonas aeruginosa KZFS4",
+
+                "Alcaligenes aquatilis KZFS11"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1632,6 +1677,27 @@
 
 
 
+
+            var participantKeys = [
+
+                "Bacillus subtilis subsp. subtilis AZFS3",
+
+                "Bacillus pumilus AZFS5",
+
+                "Bacillus mojavensis AZFS15",
+
+                "Bacillus paramycoides AZFS18",
+
+                "Pseudomonas aeruginosa KZFS4",
+
+                "Alcaligenes aquatilis KZFS11"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

@@ -525,7 +525,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Saccharomyces-Chlamydomonas Fungal-Algal Mutualism</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -545,7 +545,7 @@
                     <h3>Yeast Carbon Dioxide Provisioning</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">S. cerevisiae metabolizes glucose and releases carbon dioxide that is assimilated photosynthetically by C. reinhardtii under carbon-limited coculture conditions.</p>
+                <p class="prewrap interaction-description">In the sealed illuminated coculture, yeast glucose metabolism supplies carbon dioxide assimilated by the algal partner. This is the carbon arm of the authors&#39; experimentally supported reciprocal carbon/nitrogen mutualism. The source does not isolate fermentation as the only route of yeast carbon dioxide production.</p>
 
 
                 <p><strong>Source Taxon:</strong> Saccharomyces cerevisiae</p>
@@ -574,12 +574,6 @@
                 <ul>
 
                     <li>
-                        fermentation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006113"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006113</a>)
-                    </li>
-
-                    <li>
                         photosynthesis
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0015979"
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0015979</a>)
@@ -594,7 +588,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Algal Reduced Nitrogen Provisioning
-                        <p class="prewrap causal-description">Yeast-derived carbon dioxide is fixed photosynthetically by C. reinhardtii, sustaining the algal partner that reduces nitrite to ammonia for S. cerevisiae.</p>
+                        <p class="prewrap causal-description">PARTIAL: yeast-derived carbon dioxide sustains the alga that supplies reduced nitrogen to yeast, closing the resource-dependence loop. Coculture and resource-availability comparisons support this reciprocal mechanism, but do not separately quantify how a change in carbon transfer changes ammonia release.</p>
                     </div>
 
                 </div>
@@ -623,53 +617,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Algal Oxygen Provisioning</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
-                </div>
-                <p class="prewrap interaction-description">C. reinhardtii releases photosynthetic oxygen that supports aerobic yeast metabolism in the sealed coculture.</p>
-
-
-                <p><strong>Source Taxon:</strong> Chlamydomonas reinhardtii</p>
-
-
-
-                <p><strong>Target Taxon:</strong> Saccharomyces cerevisiae</p>
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    dioxygen
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15379"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:15379</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        photosynthesis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015979"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015979</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
                     <h3>Algal Reduced Nitrogen Provisioning</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">C. reinhardtii metabolizes nitrite and releases ammonia, providing reduced nitrogen that supports S. cerevisiae growth.</p>
+                <p class="prewrap interaction-description">Algal nitrite metabolism supplies ammonia usable by yeast in the carbon/nitrogen mutualism. The dependence is conditional on the resource environment, not an unconditional property of these species; external reduced nitrogen can remove yeast dependence on the alga.</p>
 
 
                 <p><strong>Source Taxon:</strong> Chlamydomonas reinhardtii</p>
@@ -712,7 +663,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Yeast Carbon Dioxide Provisioning
-                        <p class="prewrap causal-description">Algal reduction of nitrite to ammonia supplies the nitrogen source that lets S. cerevisiae proliferate and keep producing carbon dioxide from glucose.</p>
+                        <p class="prewrap causal-description">PARTIAL: algal reduced nitrogen sustains yeast growth and therefore the yeast partner supplying carbon dioxide. This reciprocal support is consistent with the reported dependence, not a measured feedback gain or a separate temporal causal experiment.</p>
                     </div>
 
                 </div>
@@ -779,6 +730,45 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Is algal oxygen release a demonstrated additional benefit to yeast in this exact coculture?
+                </h3>
+                <p class="prewrap">The primary manuscript depicts oxygen release, but the reviewed main text establishes reciprocal carbon/nitrogen dependence rather than an isolated oxygen-mediated yeast benefit. The two-node resource loop is retained with PARTIAL mediation limits. The oxygen-benefit assertion is removed pending exact-system evidence. This does not assert that yeast cannot use oxygen. Broader re-evidencing remains in issue765, and cache-version/license provenance is tracked separately.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Yeast Carbon Dioxide Provisioning</code>, <code>ecological_interactions#Algal Reduced Nitrogen Provisioning</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/24994654/" rel="nofollow noreferrer">PMID:24994654</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">an environment requiring reciprocal carbon and nitrogen exchange</p>
+                        <p class="muted small prewrap">The abstract supports the established reciprocal resource basis, not an oxygen-specific benefit.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -946,7 +936,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -959,7 +948,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1025,8 +1013,6 @@
             var processes = [];
 
 
-            processes.push("fermentation");
-
             processes.push("photosynthesis");
 
 
@@ -1059,48 +1045,6 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
-            var metabolites = [];
-
-
-            metabolites.push("dioxygen");
-
-
-            var processes = [];
-
-
-            processes.push("photosynthesis");
-
-
-            var evidenceCount = 0;
-
-            nodes.push({
-                id: intId,
-                label: "Algal Oxygen Provisioning",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-            var srcKey = "Chlamydomonas reinhardtii";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-            var tgtKey = "Saccharomyces cerevisiae";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
-        })();
-
-        (function() {
-            var intId = "interaction:2";
             var intType = "CROSS_FEEDING";
             var metabolites = [];
 
@@ -1162,7 +1106,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 5;
+        var nodeCount = 4;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

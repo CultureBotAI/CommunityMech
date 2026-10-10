@@ -143,10 +143,12 @@ taxonomy:
     explanation: Supports the H2-producing bacterial members and their reduced
       activity.
 ecological_interactions:
-- name: H2 Oxidation Outcompetes Hydrogenotrophic Methanogenesis
-  description: Increased bacterial H2 oxidation activity in PSY rhizosphere
-    lowers H2 available for hydrogenotrophic methanogens, reducing CH4
-    production.
+- name: Proposed H2 Oxidation Competition with Methanogenesis
+  description: HYPOTHESIZED - PSY1 rhizospheres had higher transcription of bacterial H2-consuming hydrogenases,
+    supporting the proposal that bacterial H2 use restricts substrate for hydrogenotrophic methanogens. This is
+    not a measured H2 pool or isolated pairwise competition experiment. Individual genome-scale models predict increased
+    H2 oxidation mainly with higher O2; elevated exudate compounds have little direct effect on oxidation but support
+    biomass. Canonical Bacteria and Archaea IDs denote the named functional guilds, not all members of those domains.
   interaction_type: COMPETITION
   scope: PAIRWISE
   source_taxon:
@@ -174,30 +176,31 @@ ecological_interactions:
       id: GO:0015948
       label: methanogenesis
   downstream:
-  - target: H2 Limitation Suppresses Hydrogenotrophic Methanogenesis
-    description: Elevated bacterial H2 oxidation lowers H2 availability for
-      hydrogenotrophic archaeal methanogenesis in the PSY rice rhizosphere.
+  - target: Reduced Methane Emissions and Proposed H2 Limitation
+    description: HYPOTHESIZED - Greater bacterial H2 consumption could reduce substrate available for hydrogenotrophic
+      methanogenesis and contribute to lower methane. Transcript patterns and individual metabolic models support
+      this mechanism indirectly; H2 depletion, pairwise competition and the fraction of methane reduction mediated
+      by this route were not directly isolated.
   evidence:
   - reference: PMID:41582156
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: increased activity of bacterial H2 oxidation pathways
-    explanation: Supports the enhanced bacterial H2 oxidation that competes with
-      methanogens for H2.
+    explanation: Supports the proposed guild-level competition mechanism through transcript/model interpretation,
+      not direct H2-pool or pairwise perturbation measurements.
   - reference: PMID:41582156
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: decreased CH4 emissions are due to a lower amount of H2 available
-      for hydrogenotrophic methanogenesis
-    explanation: Supports the proposed mechanism linking H2 oxidation to reduced
-      methanogenesis.
-- name: Root Exudate Gluconeogenic Acid Cross-Feeding
-  description: PSY rice root exudates are elevated in gluconeogenic acids,
-    primarily amino acids, that stimulate the H2-oxidizing rhizosphere bacteria
-    enriched for gluconeogenic-acid utilization genes. The source is the plant
-    host (abiotic-from-the-microbial-perspective), so this is curated as a
-    community-level interaction.
-  interaction_type: CROSS_FEEDING
+    snippet: decreased CH4 emissions are due to a lower amount of H2 available for hydrogenotrophic methanogenesis
+    explanation: Supports the proposed guild-level competition mechanism through transcript/model interpretation,
+      not direct H2-pool or pairwise perturbation measurements.
+- name: PSY Root Exudate Effects and Proposed Bacterial Substrate Preference
+  description: The living rice host, not an abiotic source, produces exudates with altered composition. Axenic seedling
+    metabolomics found enriched gluconeogenic compounds, largely amino acids, without a significant total-carbon
+    difference. Adding whole PSY1 or PSY2 exudates to soil caused lower CH4 than Kitaake exudates; water controls
+    produced no detected CH4. HYPOTHESIZED - Genomic substrate preferences and PSY1 transcript associations suggest
+    selective support of H2-consuming bacteria, but a specific amino-acid transfer or uptake-mediated mechanism
+    was not isolated. Seedling exudates are not direct samples of mature soil-grown root flux.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: rhizosphere H2-oxidizing bacteria
@@ -219,21 +222,30 @@ ecological_interactions:
       id: GO:0009063
       label: amino acid catabolic process
   downstream:
-  - target: H2 Oxidation Outcompetes Hydrogenotrophic Methanogenesis
-    description: Gluconeogenic acids in PSY root exudates likely stimulate the
-      H2-oxidizing bacterial genomes enriched for amino-acid utilization genes.
+  - target: Proposed H2 Oxidation Competition with Methanogenesis
+    description: PARTIAL - Altered exudate composition may support biomass and activity of H2-consuming guilds enriched
+      for gluconeogenic-acid use, indirectly contributing to the proposed H2 competition. The model predicts little
+      direct effect of exudate enrichment on H2 oxidation itself; increased oxidation responds mainly to O2. Whole-exudate
+      methane suppression is experimentally supported but does not resolve this specific mediator.
   evidence:
   - reference: PMID:41582156
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: their activities are likely stimulated by elevated levels of
-      gluconeogenic acids, primarily amino acids, in PSY root exudates
-    explanation: Supports root-exudate amino acids as the C/N source stimulating
-      H2-oxidizing bacteria.
-- name: Reduced H2 Producer Activity
-  description: PSY rhizosphere conditions decrease H2-producing gene activity,
-    further restricting H2 supply to hydrogenotrophic methanogens.
-  interaction_type: COMPETITION
+    evidence_source: IN_VITRO
+    snippet: Soils treated with Kitaake exudates exhibited consistently higher CH4 emissions than those treated
+      with PSY1 or PSY2 exudates
+    explanation: Direct whole-exudate soil amendment supports a methane response, not attribution to individual
+      amino acids.
+  - reference: PMID:41582156
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: their activities are likely stimulated by elevated levels of gluconeogenic acids, primarily amino acids,
+      in PSY root exudates
+    explanation: Author-proposed substrate preference mechanism; not directly traced uptake.
+- name: Reduced H2-Producing Transcripts and Modeled H2 Supply
+  description: PSY1 rhizospheres showed lower expression of H2-producing hydrogenases and nitrogenase markers than
+    Kitaake at specified sampling stages. Individual dFBA models predict less H2 production with enriched PSY1 exudate
+    compounds, even where producer biomass increases. This distinguishes gene-expression measurements and modeled
+    flux from reduced producer abundance or directly measured H2 supply. It is not by itself a -/- competition phenotype.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: rhizosphere H2-producing bacteria
@@ -246,21 +258,28 @@ ecological_interactions:
       id: CHEBI:18276
       label: dihydrogen
   downstream:
-  - target: H2 Limitation Suppresses Hydrogenotrophic Methanogenesis
-    description: Suppressed H2 production further lowers the H2 available to
-      hydrogenotrophic methanogens in the PSY rice rhizosphere.
+  - target: Reduced Methane Emissions and Proposed H2 Limitation
+    description: HYPOTHESIZED - Lower H2-generating activity could restrict substrate supply for hydrogenotrophic
+      methanogenesis. Gene-expression patterns and predicted H2 flux are consistent with this direction, but do
+      not measure the shared H2 pool or isolate the causal contribution to greenhouse CH4 reduction.
   evidence:
   - reference: PMID:41582156
     supports: SUPPORT
     evidence_source: IN_VIVO
+    snippet: decreased activity of H2-producing genes
+    explanation: Supports lower transcript activity in PSY1 rhizospheres, not direct H2 flux.
+  - reference: PMID:41582156
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
     snippet: suppressed H2 production in the PSY rhizosphere
-    explanation: Supports the metabolic-model prediction of suppressed H2
-      production under PSY conditions.
-- name: H2 Limitation Suppresses Hydrogenotrophic Methanogenesis
-  description: Increased bacterial H2 oxidation and suppressed H2-producing gene
-    activity lower the rhizosphere H2 pool available to hydrogenotrophic
-    methanogens, reducing cumulative CH4 emissions from PSY rice genotypes.
-  interaction_type: COMPETITION
+    explanation: Metabolic-model prediction, not an in-vivo H2 measurement.
+- name: Reduced Methane Emissions and Proposed H2 Limitation
+  description: Greenhouse rice grown in agronomic soil emitted less cumulative CH4 with PSY1 (about 38%) and PSY2
+    (about 58%) than Kitaake over 70 days. Repeated timepoints were integrated at tub level, not as repeat observations
+    of the same destructively sampled plant. Microbial omics and metabolic modeling focused on PSY1. HYPOTHESIZED
+    - Lower H2 production and greater bacterial consumption restrict hydrogenotrophic methanogenesis; inferred oxygenation
+    and methane oxidation may also contribute. Lower measured CH4 is demonstrated, but the H2-mediated fraction,
+    oxygen concentration and in-situ H2 pool are unresolved.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: dihydrogen
@@ -280,17 +299,14 @@ ecological_interactions:
   - reference: PMID:41582156
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: elevated H2 oxidation and suppressed H2 production in the PSY
-      rhizosphere
-    explanation: Supports the coupled H2-consumption and H2-production changes
-      predicted for the PSY rhizosphere.
+    snippet: reduce cumulative CH4 emissions by 38% (PSY1) and 58% (PSY2) over 70 days of growth compared with controls.
+    explanation: Direct greenhouse emission phenotype; downstream microbial omics focused on PSY1.
   - reference: PMID:41582156
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: decreased CH4 emissions are due to a lower amount of H2 available
-      for hydrogenotrophic methanogenesis
-    explanation: Supports low H2 availability as the mechanism for reduced
-      hydrogenotrophic methane production.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Metabolic modeling using metagenomic and metabolomic data predicts elevated H2 oxidation and suppressed
+      H2 production
+    explanation: Supports the modeled hydrogen mechanism, not measured H2 depletion.
 environmental_factors:
 - name: PSY transgene background
   value: PSY1 vs PSY2 vs control rice
@@ -492,3 +508,38 @@ related_ingredients:
       compared with controls
     explanation: Identifies methane (CH4) as the emission outcome the PSY-rhizosphere community
       modulates.
+discussions:
+- discussion_id: psy-exudate-perturbation-versus-hydrogen-mediation
+  prompt: How should the demonstrated whole-exudate methane response be linked without equating it with resolved
+    amino-acid or hydrogen mediation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Proposed H2 Oxidation Competition with Methanogenesis
+  - ecological_interactions#PSY Root Exudate Effects and Proposed Bacterial Substrate Preference
+  - ecological_interactions#Reduced H2-Producing Transcripts and Modeled H2 Supply
+  - ecological_interactions#Reduced Methane Emissions and Proposed H2 Limitation
+  rationale: Three existing arrows remain explicitly partial or hypothesized. The direct exudate-to-methane link
+    merits extension review; a one-community Edison dry run is not a report or spend authorization. Individual dFBA
+    models are not a coupled methanogen competition experiment. Preserve living-host effects, greenhouse CH4 and
+    soil-exudate perturbations while separating PSY1 omics, seedling sampling, oxygen inference, transcripts and
+    model flux. Specific compounds, H2 addback and field transfer need further evidence.
+  evidence:
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Soils treated with Kitaake exudates exhibited consistently higher CH4 emissions than those treated
+      with PSY1 or PSY2 exudates
+    explanation: Direct whole-exudate soil amendment supports a methane response, not attribution to individual
+      amino acids.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-07T06:12:45Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain the guild competition hypothesis while distinguishing transcripts, oxygen-sensitive model flux
+    and measured H2.; Preserve whole-exudate perturbation and living-host origin without asserting resolved amino-acid
+    cross-feeding.; Retain reduced transcript and modeled supply evidence with correct computational provenance.;
+    Preserve measured PSY1/PSY2 methane reductions while bounding H2 mediation and PSY1-only omics. Issue #1670;
+    reports/causal_graph_review/decisions/20261007-four-records-batch81.yaml'
+  llm_assisted: true

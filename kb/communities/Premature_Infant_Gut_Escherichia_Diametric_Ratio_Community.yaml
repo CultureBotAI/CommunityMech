@@ -54,11 +54,10 @@ taxonomy:
     explanation: Supports the Escherichia spp. members and cohort.
 ecological_interactions:
 - name: Higher Low-Oxygen Diametric Ratios in NEC Samples
-  description: Diametric ratios of genes associated with low oxygen levels
-    were significantly higher in samples from infants later diagnosed with
-    NEC than in samples without NEC, suggesting hypoxic conditions in the
-    NEC-developing gut.
-  interaction_type: COMMENSALISM
+  description: Escherichia transcript ratios associated with low oxygen were higher in samples from infants later
+    diagnosed with NEC. This four-infant observational result suggests lower oxygen exposure, not directly measured
+    hypoxia, microbial commensalism or proof of NEC causation. Twenty repeated samples are not twenty independent
+    infants.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: oxygen
@@ -74,60 +73,15 @@ ecological_interactions:
   - reference: PMID:32130257
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: significantly higher diametric ratios of genes associated with
-      low oxygen levels in samples of infants later diagnosed with NEC than
-      in samples without NEC
-    explanation: Supports the curated NEC-versus-non-NEC oxygen-condition
-      difference.
-- name: Diametric-Ratio Generalizes to Other Conditions
-  description: The diametric-ratio method extends beyond oxygen to examine
-    other physiological conditions such as nitric oxide exposure and
-    osmotic pressure.
-  interaction_type: COMMENSALISM
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: nitric oxide
+    snippet: significantly higher diametric ratios of genes associated with low oxygen levels in samples of infants
+      later diagnosed with NEC than in samples without NEC
+    explanation: Supports the observed transcript-ratio association; physiological interpretation is indirect and
+      confounded.
+  participating_taxa:
+  - preferred_term: premature-infant-gut Escherichia spp.
     term:
-      id: CHEBI:16480
-      label: nitric oxide
-  biological_processes:
-  - preferred_term: response to osmotic stress
-    term:
-      id: GO:0006970
-      label: response to osmotic stress
-  evidence:
-  - reference: PMID:32130257
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: this method can be used for examining other physiological
-      conditions, such as exposure to nitric oxide and osmotic pressure
-    explanation: Supports the method generalization.
-- name: MAG-Anchored Diametric-Ratio In Situ Physiology
-  description: Sample-specific metagenome-assembled genomes (MAGs) anchored
-    transcript mapping, and transcript ratios of genes with opposite
-    transcription responses (the diametric-ratio method) eliminated biases
-    related to organism abundance.
-  interaction_type: COMMENSALISM
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: gene expression
-    term:
-      id: GO:0010467
-      label: gene expression
-  evidence:
-  - reference: PMID:32130257
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Sample-specific meta-genomic assembled genomes (MAGs) were used
-      as reference genomes to accurately identify the origin of RNA reads
-    explanation: Supports the MAG-anchored mapping.
-  - reference: PMID:32130257
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: transcript ratios of genes with opposite transcription responses
-      were compared to eliminate biases related to differences in organismal
-      abundance
-    explanation: Supports the curated diametric-ratio method.
+      id: NCBITaxon:561
+      label: Escherichia
 environmental_factors:
 - name: Cohort composition
   value: 4 premature infants, 2 with NEC, 20 fecal samples
@@ -169,7 +123,38 @@ curation_history:
 - timestamp: '2026-10-02T06:00:47Z'
   curator: codex
   action: REPAIR_CAUSAL_GRAPH
-  changes: Removed two diametric-ratio analysis edges that linked MAG-resolved
-    transcript mapping to later NEC oxygen-ratio comparisons and method
-    generalization rather than to biological causal outcomes.
+  changes: Removed two diametric-ratio analysis edges that linked MAG-resolved transcript mapping to later NEC oxygen-ratio
+    comparisons and method generalization rather than to biological causal outcomes.
   llm_assisted: true
+- timestamp: '2026-10-07T11:17:01Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve oxygen-related transcript association with cohort and causal limits. Issue #1719; reports/causal_graph_review/decisions/20261007-four-records-batch87.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: infant-ratios-versus-causal-physiology
+  prompt: Do transcript-ratio differences reflect NEC-related physiology or cohort confounding?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  rationale: 'MAG mapping and diametric ratios are analytical methods, not ecological interactions. Full text reports
+    lower NO-related ratios in NEC and an osmotic-ratio difference, but the latter significance wording conflicts
+    with a printed p>0.05. Gestational age, delivery mode and birth weight differ between the two NEC and two control
+    infants. Preserve those observations without diagnostic validation or causal arrows. Methods remain in the record
+    description. Non-graph interpretation and source inconsistency remain #1722.'
+  attaches_to:
+  - ecological_interactions#Higher Low-Oxygen Diametric Ratios in NEC Samples
+  evidence:
+  - reference: PMID:32130257
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: significantly higher diametric ratios of genes associated with low oxygen levels in samples of infants
+      later diagnosed with NEC than in samples without NEC
+    explanation: Supports the observed transcript-ratio association; physiological interpretation is indirect and
+      confounded.
+  - reference: PMID:32130257
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: this method can be used for examining other physiological conditions, such as exposure to nitric oxide
+      and osmotic pressure
+    explanation: Supports the method generalization.

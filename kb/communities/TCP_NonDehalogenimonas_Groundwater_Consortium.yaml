@@ -110,9 +110,10 @@ taxonomy:
       and Parabacteroides
     explanation: Identifies Parabacteroides as one of the four genera comprising the synergistic TCP-transforming consortium.
 ecological_interactions:
-- name: Hydrogen Cofactor Reductive-Dechlorination Module
-  description: Metagenomic analysis connected the four-genus synergistic alliance to a coupled metabolic module containing
-    hydrogen production, cofactor synthesis, and reductive dechlorination functions during TCP transformation.
+- name: Inferred Hydrogen Cofactor Reductive-Dechlorination Module
+  description: 'HYPOTHESIZED functional coupling: community and metagenomic analyses associate the four named genera
+    with hydrogen production, cofactor synthesis and reductive dechlorination. This is a consortium-level reconstruction,
+    not measured intergenus hydrogen/cofactor transfer or a demonstrated genus-specific dechlorination pathway.'
   scope: COMMUNITY_LEVEL
   participating_taxa: &id001
   - preferred_term: Fusibacter
@@ -148,14 +149,22 @@ ecological_interactions:
       label: halogenated hydrocarbon metabolic process
   evidence:
   - reference: PMID:41736479
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: realized through a coupled metabolic module of "hydrogen production, cofactor synthesis, and reductive dechlorination"
-    explanation: Supports a consortium-level module that combines hydrogen production, cofactor synthesis, and TCP reductive
-      dechlorination.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: realized through a coupled metabolic module of "hydrogen production, cofactor synthesis, and reductive
+      dechlorination"
+    explanation: The abstract attributes this coupled module to community and metagenomic analyses; it does not
+      independently demonstrate transfer or assign each function to a named genus.
+    computational_provenance:
+      prediction_type: OTHER
+      model_source: Community and metagenomic analyses described in the primary abstract.
+      input_accession: PMID:41736479
+      parameters: Genus-level coupled-module interpretation; exact tools, genomes, versions and flux measurements
+        were not available in the retrieved abstract. No FBA or interaction simulation is asserted.
 - name: Co-Metabolic Substrate Enhanced TCP Removal
-  description: Sodium acetate and lactate stimulation increased the consortium's TCP degradation efficiency and supported
-    complete removal in the domesticated culture.
+  description: Sodium acetate and lactate amendments enhanced TCP degradation in the domesticated consortium. The
+    abstract reports an overall average degradation rate of 19.06 umol L-1 d-1 and complete removal within 3.5 days;
+    those values are not separately assigned to each amendment or to an individual genus.
   scope: COMMUNITY_LEVEL
   participating_taxa: *id001
   metabolites:
@@ -289,28 +298,49 @@ related_ingredients:
 associated_datasets: []
 discussions:
 - discussion_id: tcp_nondehalogenimonas_species_roles_and_dosing
-  prompt: Resolve species or strain IDs, initial inoculum source, the directed domestication passaging regimen, quantitative
-    member abundances, co-metabolic substrate concentrations, and genus-specific assignment of hydrogen-production, cofactor-synthesis,
-    and reductive-dechlorination roles.
+  prompt: Resolve species or strain IDs, initial inoculum source, the directed domestication passaging regimen,
+    quantitative member abundances, co-metabolic substrate concentrations, and genus-specific assignment of hydrogen-production,
+    cofactor-synthesis, and reductive-dechlorination roles.
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - taxonomy
   - engineering_design
   - growth_media
-  - ecological_interactions#Hydrogen Cofactor Reductive-Dechlorination Module
+  - ecological_interactions#Inferred Hydrogen Cofactor Reductive-Dechlorination Module
   rationale: The accessible PubMed abstract names the four-genera consortium and overall hydrogen/cofactor/reductive-dechlorination
-    module, but it does not expose species or strain IDs, original inoculum details, full medium composition, substrate concentrations,
-    transfer cadence, or the role of each named genus within the module.
+    module, but it does not expose species or strain IDs, original inoculum details, full medium composition, substrate
+    concentrations, transfer cadence, or the role of each named genus within the module.
   posed_by: codex
   posed_date: '2026-09-26'
+- discussion_id: tcp_module_mediation_vs_amendment_response
+  prompt: Which inferred functions actually mediate the observed amendment response?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Inferred Hydrogen Cofactor Reductive-Dechlorination Module
+  - ecological_interactions#Co-Metabolic Substrate Enhanced TCP Removal
+  rationale: Positive substrate-amendment effects remain distinct from metagenome-inferred coupling. The retrieved
+    abstract does not resolve intergenus transfer, necessary cofactors or functional perturbations; the publisher
+    full text was not retrieved. Keep the two existing nodes without inventing a module-to-removal arrow. Prior
+    removal of syntrophy assertions and dangling phenotype arrows is preserved.
+  evidence:
+  - reference: PMID:41736479
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: realized through a coupled metabolic module of "hydrogen production, cofactor synthesis, and reductive
+      dechlorination"
+    explanation: The abstract attributes this coupled module to community and metagenomic analyses; it does not
+      independently demonstrate transfer or assign each function to a named genus.
+  posed_by: codex
+  posed_date: '2026-10-08'
 curation_history:
 - timestamp: '2026-09-26T13:58:15Z'
   curator: codex
   action: ADD_COMMUNITY_RECORD
-  changes: Created CommunityMech:000437 from PMID:41736479 and DOI 10.1002/wer.70318 for the long-term domesticated TCP-degrading
-    non-Dehalogenimonas groundwater-bioremediation consortium containing Fusibacter, Desulfovibrio, Nitratidesulfovibrio,
-    and Parabacteroides genus-level members.
+  changes: Created CommunityMech:000437 from PMID:41736479 and DOI 10.1002/wer.70318 for the long-term domesticated
+    TCP-degrading non-Dehalogenimonas groundwater-bioremediation consortium containing Fusibacter, Desulfovibrio,
+    Nitratidesulfovibrio, and Parabacteroides genus-level members.
   llm_assisted: true
 - timestamp: '2026-09-26T14:03:55Z'
   curator: codex
@@ -318,4 +348,11 @@ curation_history:
   changes: Addressed adversarial-review issues 1108 and 1109 by removing over-specific syntrophy role and type assertions
     from the abstract-backed four-genus module and by dropping two dangling downstream edges that pointed at a non-existent
     TCP Bioremediation Performance interaction.
+  llm_assisted: true
+- timestamp: '2026-10-08T17:51:30Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Qualify reconstructed coupling and correct computational provenance without genus-specific functions.;
+    Retain positive amendment and removal endpoints without assigning culture-wide rates to each substrate. Issue#1963;
+    reports/causal_graph_review/decisions/20261008-six-records-batch124.yaml
   llm_assisted: true

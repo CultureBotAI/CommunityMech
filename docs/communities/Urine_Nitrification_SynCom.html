@@ -684,7 +684,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Urine Nitrification Synthetic Microbial Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -695,6 +695,11 @@
                              aria-hidden="true" data-symbol="symbolDiamond"
                              data-color="#57c7ab"></svg> Cross-feeding
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
@@ -702,9 +707,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Ureolytic Heterotroph Ammonium Release</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Pseudomonas fluorescens, Acidovorax delafieldii, and Delftia acidovorans provide the ureolytic heterotroph stage of the synthetic community, hydrolyzing urine urea into ammonium for the nitrifiers.</p>
+                <p class="prewrap interaction-description">The three named ureolytic heterotrophs provide the urine-urea hydrolysis function that releases ammonium for nitrification in the assembled community. The abstract identifies this guild but does not quantify each member contribution or establish equal or individually essential ureolytic activity.</p>
 
 
 
@@ -741,8 +745,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Ammonium-Fed Nitrifier Coculture
-                        <p class="prewrap causal-description">Ammonium released by the ureolytic heterotrophs feeds the Nitrosomonas-Nitrobacter nitrifier stage that performs salt-adapted nitrification.</p>
+                        <span class="flow-arrow">→</span> Ammonia and nitrite oxidation by the nitrifier pair
+                        <p class="prewrap causal-description">Ureolytic ammonium release supplies the substrate for ammonia oxidation within the urine-fed community, followed by nitrite oxidation. This functional route does not connect urine hydrolysis as the cause of the separate ammonium-fed reactor-1 salt-adaptation result.</p>
                     </div>
 
                 </div>
@@ -771,10 +775,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Ammonium-Fed Nitrifier Coculture</h3>
+                    <h3>Ammonia and nitrite oxidation by the nitrifier pair</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The Nitrosomonas europaea ammonia oxidizer and Nitrobacter winogradskyi nitrite oxidizer form the inorganic nitrifier stage, removing ammonium under urine-like salinity and generating nitrate fertilizer.</p>
+                <p class="prewrap interaction-description">Nitrosomonas europaea and Nitrobacter winogradskyi supply the ammonia-oxidation and nitrite-oxidation functions, respectively. Nitrite delivery links these complementary nitrifier roles. The ammonium-fed pair was separately salt-adapted in reactor 1 up to 45 mS/cm while removing 44 +/- 10 mg ammonium-N/L/day; this is not a measured salinity or removal rate for the five-member urine-fed reactor 2.</p>
 
 
 
@@ -807,7 +811,7 @@
                 <ul>
 
                     <li>
-                        nitrification
+                        ammonia oxidation
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0019329"
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0019329</a>)
                     </li>
@@ -821,7 +825,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Nitrifier-Heterotroph Urine Conversion
-                        <p class="prewrap causal-description">Salt-adapted Nitrosomonas and Nitrobacter convert ammonium supplied by urine hydrolysis into the nitrate output of the full five-member community.</p>
+                        <p class="prewrap causal-description">The complementary ammonia- and nitrite-oxidation functions enable nitrate output from hydrolyzed urine nitrogen in the five-member reactor. The reactor-1 salt tolerance and removal benchmark are not transferred to reactor 2.</p>
                     </div>
 
                 </div>
@@ -844,6 +848,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/31623889/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31623889</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"In this study, a synthetic microbial community containing an AOB (Nitrosomonas europaea), NOB (Nitrobacter winogradskyi), and three ureolytic heterotrophs (Pseudomonas fluorescens, Acidovorax delafieldii, and Delftia acidovorans) was compiled and evaluated for these challenges."</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -851,12 +868,25 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Nitrifier-Heterotroph Urine Conversion</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The complete five-member synthetic community links ureolysis with nitrification to convert urine nitrogen into liquid nitrate fertilizer for regenerative life-support applications.</p>
+                <p class="prewrap interaction-description">The five-member urine-fed community in reactor 2 produced nitrate at 15 +/- 6 mg nitrate-N/L/day with 1 percent synthetic and 10 percent fresh real urine, respectively. Separate fresh-real-urine batch activity tests reached 29 +/- 3 mg N/L/day. These are distinct assay outcomes, not rates to combine with the reactor-1 salt challenge. The reported organic removal still required optimization; nitrate production is not proof of spaceflight performance or fertilizer readiness.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Nitrosomonas europaea,
+
+                    Nitrobacter winogradskyi,
+
+                    Pseudomonas fluorescens,
+
+                    Acidovorax delafieldii,
+
+                    Delftia acidovorans
+
+                </p>
 
 
 
@@ -882,7 +912,7 @@
                 <ul>
 
                     <li>
-                        nitrification
+                        ammonia oxidation
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0019329"
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0019329</a>)
                     </li>
@@ -918,19 +948,6 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Astronauts&#39; urine can, for instance, be nitrified by micro-organisms into a liquid nitrate fertilizer for plant growth in space."</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/31623889/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31623889</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
                         <div class="snippet">"the nitrifiers and ureolytic heterotrophs were fed with urine and achieved a 15±6mg NO3--NL-1d-1 production rate"</div>
 
                     </li>
@@ -944,6 +961,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How do individual heterotroph contributions and reactor conditions control urine nitrification?
+                </h3>
+                <p class="prewrap">This review uses the final-publication abstract, not the restricted full paper or the earlier thesis chapter. It distinguishes reactor 1, reactor 2 and batch activity assays. Exact individual ureolysis contributions and perturbation details remain unresolved; the space-fertilizer motivation is not an experimental endpoint.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Ureolytic Heterotroph Ammonium Release</code>, <code>ecological_interactions#Ammonia and nitrite oxidation by the nitrifier pair</code>, <code>ecological_interactions#Nitrifier-Heterotroph Urine Conversion</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/31623889/" rel="nofollow noreferrer">PMID:31623889</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">three ureolytic heterotrophs (Pseudomonas fluorescens, Acidovorax delafieldii, and Delftia acidovorans)</p>
+                        <p class="muted small prewrap">Identifies the three ureolytic heterotrophs in the urine-fed synthetic microbial community.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1080,7 +1136,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1093,7 +1148,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1168,7 +1222,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1225,14 +1279,14 @@
             var processes = [];
 
 
-            processes.push("nitrification");
+            processes.push("ammonia oxidation");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Ammonium-Fed Nitrifier Coculture",
+                label: "Ammonia and nitrite oxidation by the nitrifier pair",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1260,7 +1314,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1274,10 +1328,10 @@
             var processes = [];
 
 
-            processes.push("nitrification");
+            processes.push("ammonia oxidation");
 
 
-            var evidenceCount = 3;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1291,6 +1345,25 @@
 
 
 
+
+            var participantKeys = [
+
+                "Nitrosomonas europaea",
+
+                "Nitrobacter winogradskyi",
+
+                "Pseudomonas fluorescens",
+
+                "Acidovorax delafieldii",
+
+                "Delftia acidovorans"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

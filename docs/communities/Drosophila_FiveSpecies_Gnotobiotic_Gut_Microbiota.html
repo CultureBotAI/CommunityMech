@@ -599,7 +599,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Drosophila Five-Species Gnotobiotic Gut Microbiota</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -607,18 +607,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -627,16 +617,21 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Acetobacter-Lactobacillus Nutrient Allocation Interaction</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Acetobacter and Lactobacillus members jointly restore host triglyceride phenotypes that are not restored by Lactobacillus alone, linking interspecies effects to host nutrient allocation.</p>
-
-
-                <p><strong>Source Taxon:</strong> Drosophila gut Lactobacillus isolates</p>
+                <p class="prewrap interaction-description">Combined Acetobacter-Lactobacillus treatments alter whole-host triglyceride levels. This joint outcome does not establish metabolite exchange; individual pair responses differ.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Drosophila gut Acetobacter isolates</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Drosophila gut Acetobacter isolates,
+
+                    Drosophila gut Lactobacillus isolates,
+
+                    Drosophila melanogaster
+
+                </p>
 
 
 
@@ -660,17 +655,6 @@
                 </ul>
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Microbiota-Dependent Host Nutrition
-                        <p class="prewrap causal-description">Joint Acetobacter-Lactobacillus colonization restores the host triglyceride phenotype measured in the five-species Drosophila nutrition model.
-</p>
-                    </div>
-
-                </div>
 
 
 
@@ -697,9 +681,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Lactobacillus Promotion of Acetobacter Abundance</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Lactobacillus cocolonization increases Acetobacter abundance in flies, explaining a nonmodular microbiota effect on host triglyceride content.</p>
+                <p class="prewrap interaction-description">Whole-fly Acetobacter CFU increased with L. brevis or L. fructivorans, but not significantly with L. plantarum. CFU endpoints do not establish stable gut residence or growth rates. Grouped canonical taxa must not imply a universal genus-level effect.</p>
 
 
                 <p><strong>Source Taxon:</strong> Drosophila gut Lactobacillus isolates</p>
@@ -716,12 +699,6 @@
                 <ul>
 
                     <li>
-                        growth
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0040007"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0040007</a>)
-                    </li>
-
-                    <li>
                         biological process involved in interspecies interaction between organisms
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
@@ -736,8 +713,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Acetobacter-Lactobacillus Nutrient Allocation Interaction
-                        <p class="prewrap causal-description">Lactobacillus-mediated promotion of Acetobacter abundance explains the nonmodular Acetobacter-Lactobacillus effect on host triglyceride allocation.
-</p>
+                        <p class="prewrap causal-description">PARTIAL - greater Acetobacter abundance could contribute to lower host triglycerides. Inoculum perturbations support this model but do not selectively establish abundance as the mediator.</p>
                     </div>
 
                 </div>
@@ -767,14 +743,21 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Microbiota-Dependent Host Nutrition</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">The five-species community was used to quantify microbiota-dependent Drosophila nutritional phenotypes including development, glucose, triglyceride, glycogen, protein, and weight.</p>
+                <p class="prewrap interaction-description">Host nutrition depends on microbiota and experimental context. The 2014 single/five-species comparison found no significant weight, protein or glycogen response. The separate 2015 host-genotype study found variation in response magnitude and direction, not universal benefit.</p>
 
 
 
 
-                <p><strong>Target Taxon:</strong> Drosophila melanogaster</p>
+                <p><strong>Participating Taxa:</strong>
+
+                    Drosophila gut Acetobacter isolates,
+
+                    Drosophila gut Lactobacillus isolates,
+
+                    Drosophila melanogaster
+
+                </p>
 
 
 
@@ -906,6 +889,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which species-specific interactions and host pathways mediate the nutritional outcomes?
+                </h3>
+                <p class="prewrap">The endpoint-to-panel arrow is redundant, not demonstrated causation. Species-level expansion remains pending under #1408 and canonical roster/role review under #1407. Existing non-graph evidence debt is tracked by #765. No removed publisher body is restored.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Acetobacter-Lactobacillus Nutrient Allocation Interaction</code>, <code>ecological_interactions#Lactobacillus Promotion of Acetobacter Abundance</code>, <code>ecological_interactions#Microbiota-Dependent Host Nutrition</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1009,7 +1011,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1022,7 +1023,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1083,7 +1083,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1107,29 +1107,32 @@
             });
 
 
-            var srcKey = "Drosophila gut Lactobacillus isolates";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Drosophila gut Acetobacter isolates";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Drosophila gut Acetobacter isolates",
+
+                "Drosophila gut Lactobacillus isolates",
+
+                "Drosophila melanogaster"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
-
-            processes.push("growth");
 
             processes.push("biological process involved in interspecies interaction between organisms");
 
@@ -1163,7 +1166,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1189,10 +1192,20 @@
 
 
 
-            var tgtKey = "Drosophila melanogaster";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+            var participantKeys = [
+
+                "Drosophila gut Acetobacter isolates",
+
+                "Drosophila gut Lactobacillus isolates",
+
+                "Drosophila melanogaster"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

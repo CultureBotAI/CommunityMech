@@ -97,10 +97,12 @@ taxonomy:
     explanation: Identifies Salmonella Typhimurium as a pathogen tested against the stable
       SynComBac10 consortium.
 ecological_interactions:
-- name: SynCom-Stimulated SFB Cross-Feeding
-  description: SynComBac10-derived metabolites, including staphyloferrin B from multiple SynCom
-    members, are predicted to facilitate early establishment of segmented filamentous bacteria in
-    the chicken intestine.
+- name: Predicted SynCom-to-SFB metabolite exchange
+  description: 'HYPOTHESIZED/PARTIAL: iNAP 2.0 predicted potential metabolite exchange from SynComBac10 to segmented
+    filamentous bacteria, including the reported siderophore candidate. Culture-supernatant metabolomics corroborated
+    production of a subset of predicted metabolites, but production is not measured transfer to SFB in the intestine.
+    The source proposes cross-feeding as an explanation for SFB establishment and acknowledges alternative community
+    effects.'
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -124,48 +126,65 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: SFB-Driven Th17 Immune Priming
-    description: SynComBac10 metabolite cross-feeding is the proposed mechanism for early SFB
-      establishment, which then induces Th17 cell-mediated immune responses.
+    description: 'HYPOTHESIZED/PARTIAL: predicted nutrient provision may help account for the observed SFB establishment
+      upstream of Th17 induction. The study supports SFB-associated immune induction, but does not establish the
+      predicted exchange as its necessary upstream mediator.'
   evidence:
   - reference: PMID:40266232
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: staphyloferrin B, a siderophore, could be provided from six SynComBac10 members
-      (L. reuteri CML393, B. velezensis CML396, E. faecium CML291, M. funiformis CML154,
-      R. lituseburensis CML137, and E. sp. CML138) to SFB
-    explanation: In-silico transfer analysis predicts staphyloferrin B as an iron-scavenging
-      metabolite supplied by six SynComBac10 members to SFB.
+    snippet: staphyloferrin B, a siderophore, could be provided from six SynComBac10 members (L. reuteri CML393,
+      B. velezensis CML396, E. faecium CML291, M. funiformis CML154, R. lituseburensis CML137, and E. sp. CML138)
+      to SFB
+    explanation: Supports a predicted donor-recipient route, not experimentally traced in-host transfer.
+    computational_provenance:
+      prediction_type: METABOLIC_INTERACTION_SIMULATION
+      tools:
+      - tool_name: iNAP
+        tool_version: '2.0'
+        role: Prediction of potentially transferable metabolites
+      model_source: Metabolic information from SynComBac10 member and reconstructed SFB genomes
+      parameters: Potential transfer prediction; supernatant metabolite detection is separate evidence and does
+        not measure recipient uptake.
+  - reference: PMID:40266232
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we performed metabolomic profiling of the bacterial culture supernatants, and ultimately, a total of
+      18 metabolites were confirmed
+    explanation: Preserves the positive metabolite-detection result without equating production with transfer.
 - name: SFB-Driven Th17 Immune Priming
-  description: Segmented filamentous bacteria enriched after SynComBac10 exposure induce Th17
-    cell-mediated immune responses in the chicken gut.
-  interaction_type: COLONIZATION_FACILITATION
+  description: SFB-associated intervention increased intestinal Th17 cells, supported by cellular profiling and
+    flow cytometry, alongside the Th17 increase in SynComBac10-treated chickens. This is host immune induction,
+    not a colonization-facilitation interaction. The specifically Th17 observation should not be represented only
+    as regulation of innate immunity.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: segmented filamentous bacteria
     term:
       id: NCBITaxon:49082
       label: Candidatus Neoarthromitus
-  biological_processes:
-  - preferred_term: regulation of innate immune response
-    term:
-      id: GO:0045088
-      label: regulation of innate immune response
   downstream:
-  - target: SFB-Mediated Salmonella Resistance
-    description: Th17 immune priming by SFB supplies the host-mediated protective mechanism that
-      increases resistance to Salmonella infection.
+  - target: Host protection after SynComBac10 exposure
+    description: 'HYPOTHESIZED/PARTIAL: SFB-associated Th17 responses are proposed to contribute to the protective
+      host outcomes after SynComBac10 exposure. The source explicitly leaves other immune and non-immune contributions
+      open, so this is not an exclusive or experimentally isolated mediation claim.'
   evidence:
   - reference: PMID:40266232
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: SFB), which in turn induced Th17 cell-mediated immune responses, thereby conferring resistance
-      to Salmonella infection
-    explanation: SynComBac10-promoted SFB growth is reported upstream of Th17 immune responses
-      and Salmonella resistance.
-- name: SFB-Mediated Salmonella Resistance
-  description: SFB-mediated immune responses protect the host from Salmonella infection in
-    SynComBac10-treated chickens.
-  interaction_type: COMPETITION
+    snippet: SFB), which in turn induced Th17 cell-mediated immune responses, thereby conferring resistance to Salmonella
+      infection
+    explanation: SynComBac10-promoted SFB growth is reported upstream of Th17 immune responses and Salmonella resistance.
+  - reference: PMID:40266232
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The induction of Th17 cells after SFB spore inoculation was also evidenced by the flow cytometry results
+    explanation: Supports the positive cellular immune endpoint beyond transcript association.
+- name: Host protection after SynComBac10 exposure
+  description: SynComBac10-treated chickens showed improved host growth, tissue and serum outcome measures in the
+    reported Salmonella comparison. SFB-associated immune responses are a proposed contributor, not the sole established
+    cause of protection. These host endpoints do not demonstrate reciprocal-negative competition between SFB and
+    Salmonella, pathogen eradication, or a universal effect across hosts.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: segmented filamentous bacteria
@@ -183,12 +202,18 @@ ecological_interactions:
       label: defense response to bacterium
   evidence:
   - reference: PMID:40266232
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: SFB-enriched SynComBac10 chickens were highly resistant to Salmonella infection due to the SFB-mediated
+      immune responses
+    explanation: The authors attribute host protection to SFB immunity, but explicitly qualify exclusive attribution
+      in the discussion.
+  - reference: PMID:40266232
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: SFB-enriched SynComBac10 chickens were highly resistant to Salmonella infection due to
-      the SFB-mediated immune responses
-    explanation: Supports SFB-mediated host immunity as the resistance mechanism that suppresses
-      Salmonella infection in SynComBac10-treated chickens.
+    snippet: the anti-Salmonella effect of SynComBac10 treatment may not be solely attributed to its induction of
+      SFB colonization.
+    explanation: States the source limitation on exclusive SFB mediation.
 environmental_factors:
 - name: early-life gut SynCom exposure
   value: Chickens were exposed early in life to SynComBac10 and evaluated for gut maturation and Salmonella
@@ -239,3 +264,33 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: absolute abundance of 10 strains in GAM medium
     explanation: GAM (Gifu Anaerobic Medium) used to culture the 10-member consortium.
+discussions:
+- discussion_id: chicken-predicted-transfer-and-nonexclusive-protection
+  prompt: How much of the protective host outcome is mediated by predicted metabolite transfer and SFB-associated
+    Th17 responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Predicted SynCom-to-SFB metabolite exchange
+  - ecological_interactions#SFB-Driven Th17 Immune Priming
+  - ecological_interactions#Host protection after SynComBac10 exposure
+  rationale: Retain the measured metabolite-production, immune and host-protection findings. The source does not
+    establish recipient uptake of the predicted metabolites or exclusive mediation through SFB. This record-level
+    repair adds no procedures, strain designs, pathogen enhancement mechanisms or optimization advice.
+  evidence:
+  - reference: PMID:40266232
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the anti-Salmonella effect of SynComBac10 treatment may not be solely attributed to its induction of
+      SFB colonization.
+    explanation: States the source limitation on exclusive SFB mediation.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-08T03:27:20Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Preserve predicted exchange and measured metabolite production with iNAP provenance and an explicitly
+    partial upstream mechanism.; Preserve supported Th17 induction; remove colonization typing and the mismatched
+    innate-only GO annotation.; Preserve positive host-protection endpoints without competition, eradication or
+    exclusive SFB mediation. Issue#1839; reports/causal_graph_review/decisions/20261008-four-records-batch107.yaml
+  llm_assisted: true

@@ -695,7 +695,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for MUCC Freshwater Wetland Methane-Cycling Network Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -703,13 +703,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -718,12 +713,21 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Conserved Methane-Cycling Genera Across Wetlands</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">MUCC v2.0.0 integrates wetland microbiome and flux datasets to identify conserved methane-cycling genera shared across multiple wetland types.</p>
+                <p class="prewrap interaction-description">MUCC combines nine wetland sites; five high-emitting marsh and swamp sites share five methanogen and three methanotroph genera under the authors occupancy definition. Core means present in at least one sample at every site in this subset, not present in every sample or a demonstrated stable mutualistic consortium. The canonical whole-community aggregate and Archaea/Bacteria guild participants are contextual placeholders, not all eight resolved genera. Genus occupancy and relative abundance do not establish niche partitioning or metabolic dependence.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    MUCC freshwater wetland microbial community,
+
+                    MUCC wetland methanogens,
+
+                    MUCC wetland methanotrophs
+
+                </p>
 
 
 
@@ -736,23 +740,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        methanogenesis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015948"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015948</a>)
-                    </li>
-
-                    <li>
-                        methane metabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015947"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015947</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -780,7 +767,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/39843444/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39843444</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"Microorganisms drive methane cycling"</div>
@@ -793,17 +780,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Marsh Metabolic Interaction Networks</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Wetland Methanogen Co-occurrence Networks</h3>
                 </div>
-                <p class="prewrap interaction-description">Marsh wetland networks show wetland-specific metabolic interactions, including low methanogen-methanotroph connectivity in high-emitting wetlands.</p>
-
-
-                <p><strong>Source Taxon:</strong> MUCC wetland methanogens</p>
+                <p class="prewrap interaction-description">Positive Spearman genus co-occurrence networks used 12 late-season samples per site, four per depth category, at JLA, LA2, OWC, PPR P7 and PPR P8. JLA is a swamp despite shorthand marsh wording. Fewer methanogen-associated nodes and methanogen-methanotroph connections were associated with greater methane flux; whole-community network structure did not show the same relationship. MAG-derived metabolic categories were matched at genus level, providing potential cross-feeding interpretations rather than direct exchange measurements. Shared environmental responses, relative-abundance effects and incomplete genome coverage remain alternatives. Broad canonical guilds do not identify every network member or a directed donor-recipient pair.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> MUCC wetland methanotrophs</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    MUCC wetland methanogens,
+
+                    MUCC wetland methanotrophs
+
+                </p>
 
 
 
@@ -816,17 +806,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        methane metabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015947"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015947</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -841,7 +820,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/39843444/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39843444</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"wetland-specific metabolic interactions in marshes"</div>
@@ -854,7 +833,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/39843444/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39843444</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"low connections between methanogens and methanotrophs in high-emitting wetlands"</div>
@@ -868,14 +847,17 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Methanoregula Hub Methanogen And Flux Predictor</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Methanoregula is identified as a network hub and predictor of methane flux, linking methanogen network structure to wetland methane emissions.</p>
+                <p class="prewrap interaction-description">Methanoregula was a core network member, and its fraction within methanogens predicted methane flux across nine sites; temperature plus this dominance measure improved the reported fit. These are cross-site associations, not evidence that removing or adding Methanoregula changes flux or that it is an obligate syntrophic hub. OWC MAG/genus transcription supplies an activity proxy, not methane-production flux. Methods describe 2018 transcriptomes and production estimates using 2015 flux/porewater inputs; temporal alignment needs reconciliation before treating the VIP analysis as a matched contemporaneous test. The single canonical participant identifies the focal genus, not its partners.</p>
 
 
-                <p><strong>Source Taxon:</strong> Methanoregula</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Methanoregula
+
+                </p>
 
 
 
@@ -888,17 +870,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        methanogenesis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015948"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015948</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -940,14 +911,17 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Methylotrophic Methanogenesis Potential</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">In the MUCC wetlands, Methanoregula shows functional potential for methylotrophic methanogenesis, highlighting a methane production pathway that can contribute to wetland emissions.</p>
+                <p class="prewrap interaction-description">Some of 107 dereplicated Methanoregula MAGs encoded candidate methylotrophic machinery for methylated sulfides and methoxylated compounds alongside broadly conserved hydrogenotrophic potential. Genomic annotation, phylogenetic placement and synteny support metabolic potential, not confirmed substrate use, enzyme activity or pathway-specific methane flux in these wetlands. This does not establish methanol use by the curated genus or experimentally demonstrated niche partitioning. Physiological validation is needed to assign the proposed expanded substrate range.</p>
 
 
-                <p><strong>Source Taxon:</strong> Methanoregula</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Methanoregula
+
+                </p>
 
 
 
@@ -955,26 +929,11 @@
 
                     methane
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16183"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16183</a>),
-
-                    methanol
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17790"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17790</a>)
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16183</a>)
 
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        methanogenesis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015948"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015948</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -989,7 +948,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/39843444/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39843444</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"functional potential for methylotrophic methanogenesis"</div>
@@ -1002,7 +961,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/39843444/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39843444</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"highlighting the importance of this pathway"</div>
@@ -1117,6 +1076,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which wetland associations correspond to causal metabolic exchange?
+                </h3>
+                <p class="prewrap">Retain four observations and zero arrows, preserving the prior three workflow-edge removals. Genus co-occurrence and MAG potential do not establish pairwise transfer or obligate syntrophy; flux prediction does not establish a perturbed driver. Validate candidate methylated-sulfide/methoxylated-compound use rather than substituting methanol. Temporal alignment of 2018 expression and 2015 modeled production, transcriptome counts and roster/metadata ambiguities remain under #1574. Complete primary main text read, not original figure pixels, separate supplements, raw data or executable models.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Conserved Methane-Cycling Genera Across Wetlands</code>, <code>ecological_interactions#Wetland Methanogen Co-occurrence Networks</code>, <code>ecological_interactions#Methanoregula Hub Methanogen And Flux Predictor</code>, <code>ecological_interactions#Methylotrophic Methanogenesis Potential</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1346,7 +1324,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1359,7 +1336,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1427,7 +1403,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1435,12 +1411,6 @@
 
 
             var processes = [];
-
-
-            processes.push("methanogenesis");
-
-            processes.push("methane metabolic process");
-
 
             var evidenceCount = 2;
 
@@ -1457,11 +1427,26 @@
 
 
 
+            var participantKeys = [
+
+                "MUCC freshwater wetland microbial community",
+
+                "MUCC wetland methanogens",
+
+                "MUCC wetland methanotrophs"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1470,15 +1455,11 @@
 
             var processes = [];
 
-
-            processes.push("methane metabolic process");
-
-
             var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Marsh Metabolic Interaction Networks",
+                label: "Wetland Methanogen Co-occurrence Networks",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1487,23 +1468,26 @@
             });
 
 
-            var srcKey = "MUCC wetland methanogens";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "MUCC wetland methanotrophs";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "MUCC wetland methanogens",
+
+                "MUCC wetland methanotrophs"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1511,10 +1495,6 @@
 
 
             var processes = [];
-
-
-            processes.push("methanogenesis");
-
 
             var evidenceCount = 2;
 
@@ -1529,31 +1509,31 @@
             });
 
 
-            var srcKey = "Methanoregula";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Methanoregula"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:3";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
             metabolites.push("methane");
 
-            metabolites.push("methanol");
-
 
             var processes = [];
-
-
-            processes.push("methanogenesis");
-
 
             var evidenceCount = 2;
 
@@ -1568,12 +1548,18 @@
             });
 
 
-            var srcKey = "Methanoregula";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Methanoregula"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

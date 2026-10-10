@@ -657,7 +657,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Wheat Straw Biogas Pretreatment SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -665,8 +665,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -675,9 +675,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Synthetic Community Fermentation-Enzyme Production</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">The four Bacillus, Acinetobacter, Trichoderma, and Aspergillus degraders are assembled as synthetic microbial communities for fermentation-enzyme production, yielding the crude enzyme solution used for wheat-straw pretreatment.</p>
+                <p class="prewrap interaction-description">The four reported bacterial/fungal degraders form an enzyme-producing inoculum that yields the crude enzyme solution used for wheat-straw pretreatment. This positive process output does not measure reciprocal fitness, member-specific enzyme contributions or metabolite cross-feeding. The accessible abstract does not resolve strain identities or establish that the four isolates constitute the downstream anaerobic-digestion community.</p>
 
 
 
@@ -724,7 +723,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Lignocellulose Enzyme Pretreatment
-                        <p class="prewrap causal-description">Crude enzyme from the fermentation-production community was applied to wheat straw for the enzyme pretreatment that depolymerizes cellulose, hemicellulose, and lignin.</p>
+                        <p class="prewrap causal-description">Fermentation supplies the crude enzyme solution applied to wheat straw, enabling the measured polymer-degradation pretreatment. This is an enzyme-mediated material-transfer step, not proof that the living four-member inoculum colonizes every subsequent process stage.</p>
                     </div>
 
                 </div>
@@ -754,9 +753,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Lignocellulose Enzyme Pretreatment</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Bacterial and fungal enzyme producers jointly degrade wheat straw polymers before anaerobic digestion.</p>
+                <p class="prewrap interaction-description">Crude enzyme solution from the synthetic community was applied to wheat straw before anaerobic digestion. Reported cellulose, hemicellulose and lignin degradation rates were 39.85%, 36.99% and 19.21%, respectively. The treatment acts through the enzyme preparation; these values do not establish reciprocal microbial benefit or living producer growth on the pretreated substrate.</p>
 
 
 
@@ -811,7 +809,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Enhanced Biogas Production after Anaerobic Digestion
-                        <p class="prewrap causal-description">Improved wheat-straw enzymatic digestion feeds downstream anaerobic digestion and increases the cumulative biogas yield.</p>
+                        <p class="prewrap causal-description">The enzyme-pretreated straw supplies substrate to subsequent anaerobic digestion, where cumulative biogas was higher than with untreated straw or either commercial-enzyme pretreatment. Retain this process-level treatment effect without assigning gas production to the four enzyme producers or to one uniquely necessary polymer-degradation route.</p>
                     </div>
 
                 </div>
@@ -854,22 +852,13 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Enhanced Biogas Production after Anaerobic Digestion</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Wheat straw pretreated with the synthetic-community crude enzyme solution produced the highest cumulative biogas in the subsequent anaerobic digestion stage, outperforming untreated straw and both commercial enzyme pretreatments.</p>
+                <p class="prewrap interaction-description">Subsequent anaerobic digestion of synthetic-community enzyme-pretreated straw yielded 801.16 mL/g TS cumulative biogas, higher than untreated straw and both commercial-enzyme pretreatments. Biogas volume is not a methane-only yield. The abstract does not identify the digestion community or demonstrate methanogenesis by the four enzyme-producing isolates.</p>
 
 
 
 
 
-
-                <p><strong>Metabolites:</strong>
-
-                    methane
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16183"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16183</a>)
-
-                </p>
 
 
 
@@ -902,6 +891,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How do enzyme producers and the downstream digestion community contribute to the biogas benefit?
+                </h3>
+                <p class="prewrap">The accessible abstract supports the existing enzyme-production to pretreatment to digestion sequence and positive polymer and total-biogas outcomes. It does not resolve individual-strain contributions, reciprocal benefit, digestor membership, methane fraction or a uniquely necessary enzyme. Primary full methods and supplementary information were not inspected; publisher access attempts failed. This is a bounded access limitation, not a claim that full text or supplements do not exist.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Synthetic Community Fermentation-Enzyme Production</code>, <code>ecological_interactions#Lignocellulose Enzyme Pretreatment</code>, <code>ecological_interactions#Enhanced Biogas Production after Anaerobic Digestion</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+
+
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/38748977/" rel="nofollow noreferrer">PMID:38748977</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">SMCEP displayed the highest cumulative biogas production at 801.16 mL/g TS</p>
+
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -975,7 +1003,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -988,7 +1015,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1056,7 +1082,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1092,7 +1118,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1132,12 +1158,8 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
-
-
-            metabolites.push("methane");
-
 
             var processes = [];
 

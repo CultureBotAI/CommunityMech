@@ -581,7 +581,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Dehalococcoides-Methanosarcina DMB-Guided Cobalamin Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -594,8 +594,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -606,7 +606,7 @@
                     <h3>DMB-Guided Cobalamin Support</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">M. barkeri Fusaro produces factor III cobamide, and when DMB is added the coculture can generate a cobalamin that supports Dehalococcoides reductive dechlorination activity and growth.</p>
+                <p class="prewrap interaction-description">DMB amendment enables compatible cobalamin production and supports BAV1 dechlorination and growth in the Fusaro coculture. Native factor III alone does not supply an adequate cofactor under the tested conditions. The experiment supports conditional partner assistance, not endogenous DMB supply or reciprocal nutrient exchange.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methanosarcina barkeri strain Fusaro</p>
@@ -655,8 +655,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Cobalamin-Dependent Reductive Dechlorination
-                        <p class="prewrap causal-description">DMB-guided biosynthesis converts the Methanosarcina cobamide supply into a cobalamin compatible with the Dehalococcoides reductive dechlorination machinery.
-</p>
+                        <p class="prewrap causal-description">With externally supplied DMB, the partner-associated corrinoid system supplies compatible cofactor and enables BAV1 dechlorination and growth. This does not assign an exclusive donor-versus-recipient remodeling route or imply that DMB is required when compatible cobalamin is supplied directly.</p>
                     </div>
 
                 </div>
@@ -699,9 +698,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Factor III Is Insufficient Without DMB</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
                 </div>
-                <p class="prewrap interaction-description">M. barkeri Fusaro produced factor III extracellular cobamide, but that cobamide alone did not satisfy Dehalococcoides corrinoid requirements under the tested chlorinated-ethene conditions.</p>
+                <p class="prewrap interaction-description">Without DMB or a compatible cobalamin amendment, the tested Fusaro cobamide supply did not adequately support BAV1 reductive dechlorination. This negative compatibility result is not commensalism, active factor-III toxicity or proof that the methanogen inhibits an otherwise adequately supplemented dechlorinator.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methanosarcina barkeri strain Fusaro</p>
@@ -711,14 +709,6 @@
                 <p><strong>Target Taxon:</strong> Dehalococcoides mccartyi BAV1</p>
 
 
-
-                <p><strong>Metabolites:</strong>
-
-                    cobalamin
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30411"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30411</a>)
-
-                </p>
 
 
 
@@ -740,8 +730,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Cobalamin-Dependent Reductive Dechlorination
-                        <p class="prewrap causal-description">Unguided factor III production leaves the Dehalococcoides corrinoid requirement unsatisfied, so organohalide respiration remains constrained unless DMB enables compatible cobalamin production.
-</p>
+                        <p class="prewrap causal-description">Failure to supply an adequate compatible cofactor leaves BAV1 dechlorination constrained in the unamended coculture. This denotes a missing nutritional input, not active inhibition by factor III. DMB-associated cofactor production or direct compatible-cobalamin supplementation can overcome that limitation.</p>
                     </div>
 
                 </div>
@@ -784,16 +773,13 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Cobalamin-Dependent Reductive Dechlorination</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">BAV1 uses cobalamin-dependent organohalide respiration to detoxify chlorinated ethenes, and insufficient cobalamin causes incomplete dechlorination and vinyl chloride accumulation.</p>
+                <p class="prewrap interaction-description">BAV1 cobalamin-dependent organohalide respiration converts growth-supporting chlorinated ethenes toward ethene; limited cofactor availability can leave incomplete dechlorination and vinyl chloride. This is the recipient phenotype, not BAV1-to-Fusaro cross-feeding. Pooled BAV1, GT and FL2 responses are not all assigned to this pair.</p>
 
 
                 <p><strong>Source Taxon:</strong> Dehalococcoides mccartyi BAV1</p>
 
 
-
-                <p><strong>Target Taxon:</strong> Methanosarcina barkeri strain Fusaro</p>
 
 
 
@@ -868,6 +854,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which cofactor-production and remodeling routes support BAV1 in the DMB-amended pair?
+                </h3>
+                <p class="prewrap">The cached abstract and indexed primary excerpts support DMB-dependent rescue and native-cobamide insufficiency, not an exclusive cell-resolved route or reciprocal transfer. Complete primary body, figure images and supplements were not retrieved; fine-grained strain/substrate comparisons are therefore not generalized. Preserve the positive rescue and negative compatibility observations without equating absence of support with toxicity. Non-graph follow-up: #1386.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#DMB-Guided Cobalamin Support</code>, <code>ecological_interactions#Factor III Is Insufficient Without DMB</code>, <code>ecological_interactions#Cobalamin-Dependent Reductive Dechlorination</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1244,7 +1249,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1257,7 +1261,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1357,12 +1360,8 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
-
-
-            metabolites.push("cobalamin");
-
 
             var processes = [];
 
@@ -1399,7 +1398,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1435,11 +1434,6 @@
             }
 
 
-
-            var tgtKey = "Methanosarcina barkeri strain Fusaro";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
 
         })();
 

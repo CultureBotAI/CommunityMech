@@ -97,41 +97,57 @@ taxonomy:
       genera: Pseudomonas, Halopseudomonas, Paenarthrobacter, and Alcanivorax'
 ecological_interactions:
 - name: Consortium n-Alkane Biodegradation
-  description: The four-member Gulf of Mexico consortium degraded n-alkanes from
-    light crude oil, one of the two GC-MS-measured contaminant classes supporting
-    its improved crude-oil removal.
-  interaction_type: NICHE_PARTITIONING
+  description: GC-MS with an abiotic-control baseline measured C8-C38 n-alkane depletion in the four-strain consortium
+    and individual cultures. Consortium values reached about 60% at day 30 and about 45% at day 75; chain-length
+    fractions differed, and time-dependent abiotic loss of shorter alkanes affects these relative estimates. These
+    measurements support hydrocarbon transformation, not complete mineralization, obligatory niche partitioning
+    or strain-resolved in-consortium flux. Similar monoculture preferences and MetaMIS predictions do not assign
+    the consortium result exclusively to Pseudomonas or Alcanivorax.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: alkane
     term:
       id: CHEBI:18310
       label: alkane
-  - preferred_term: dodecane
-    term:
-      id: CHEBI:28817
-      label: dodecane
   biological_processes:
   - preferred_term: alkane catabolic process
     term:
       id: GO:0043448
       label: alkane catabolic process
-  downstream:
-  - target: Enhanced Light Crude Oil Removal
-    description: Consortium-scale n-alkane biodegradation contributes to improved
-      gravimetric light-crude-oil removal by the selected four-strain consortium.
   evidence:
   - reference: doi:10.3389/fmars.2022.962071
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We also measured biodegradation levels by Gas Chromatography/Mass Spectrometry (GC-MS) observing
-      12 polyaromatic hydrocarbons (PAHs) degradation analyzed and n-alkanes degradation with a preference
-      for specific chain length
+    snippet: We also measured biodegradation levels by Gas Chromatography/Mass Spectrometry (GC-MS) observing 12
+      polyaromatic hydrocarbons (PAHs) degradation analyzed and n-alkanes degradation with a preference for specific
+      chain length
+    explanation: The abstract supports the measured hydrocarbon class and chain-length differences. Publisher Methods
+      2.7-2.8 and Results 3.3.2 bound the quantitative/time-dependent interpretation; it is not a selectively demonstrated
+      cause of the comparative gross-removal advantage.
+  participating_taxa:
+  - preferred_term: Pseudomonas sp. GOM
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+  - preferred_term: Halopseudomonas aestusnigri GOM5
+    term:
+      id: NCBITaxon:857252
+      label: Halopseudomonas aestusnigri
+  - preferred_term: Paenarthrobacter sp. GOM3
+    term:
+      id: NCBITaxon:2782567
+      label: Paenarthrobacter sp. GOM3
+  - preferred_term: Alcanivorax sp. GOM
+    term:
+      id: NCBITaxon:1872427
+      label: Alcanivorax sp.
 - name: Consortium Polyaromatic Hydrocarbon Biodegradation
-  description: The selected four-strain consortium degraded 12 measured
-    polyaromatic hydrocarbons from light crude oil alongside its n-alkane
-    biodegradation activity.
-  interaction_type: NICHE_PARTITIONING
+  description: GC-MS monitored 12 aromatic analytes, with different susceptibilities; not all 12 were substantially
+    biodegraded. The consortium aggregate PAH estimate reached about 16% at day 75 relative to the abiotic baseline.
+    The main text identifies fluorene, dibenzothiophene, methylated phenanthrenes and pyrene among susceptible compounds,
+    while others were hardly biodegraded. This does not establish generic phenanthrene degradation, complete mineralization
+    or a necessary division of labor. The canonical four participants identify the assayed consortium, not four
+    proven owners of each degradation reaction.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: fluorene
@@ -142,10 +158,6 @@ ecological_interactions:
     term:
       id: CHEBI:23681
       label: dibenzothiophene
-  - preferred_term: phenanthrene
-    term:
-      id: CHEBI:28851
-      label: phenanthrene
   - preferred_term: pyrene
     term:
       id: CHEBI:39106
@@ -154,37 +166,69 @@ ecological_interactions:
   - reference: doi:10.3389/fmars.2022.962071
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We also measured biodegradation levels by Gas Chromatography/Mass Spectrometry (GC-MS) observing
-      12 polyaromatic hydrocarbons (PAHs) degradation analyzed and n-alkanes degradation with a preference
-      for specific chain length
-  downstream:
-  - target: Enhanced Light Crude Oil Removal
-    description: PAH biodegradation is one measured hydrocarbon-removal activity
-      of the consortium that reached higher total crude-oil removal than any
-      individual member.
-- name: Enhanced Light Crude Oil Removal
-  description: The Plackett-Burman-selected Pseudomonas, Halopseudomonas, Paenarthrobacter,
-    and Alcanivorax consortium removed more light crude oil than any constituent
-    grown alone over the 75-day assay.
-  interaction_type: NICHE_PARTITIONING
+    snippet: We also measured biodegradation levels by Gas Chromatography/Mass Spectrometry (GC-MS) observing 12
+      polyaromatic hydrocarbons (PAHs) degradation analyzed and n-alkanes degradation with a preference for specific
+      chain length
+    explanation: The abstract reports the GC-MS panel, while publisher Results 3.3.3 states heterogeneous susceptibility
+      and hardly biodegraded analytes. Twelve analyzed compounds must not become twelve substantial positive degradation
+      results.
+  participating_taxa:
+  - preferred_term: Pseudomonas sp. GOM
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+  - preferred_term: Halopseudomonas aestusnigri GOM5
+    term:
+      id: NCBITaxon:857252
+      label: Halopseudomonas aestusnigri
+  - preferred_term: Paenarthrobacter sp. GOM3
+    term:
+      id: NCBITaxon:2782567
+      label: Paenarthrobacter sp. GOM3
+  - preferred_term: Alcanivorax sp. GOM
+    term:
+      id: NCBITaxon:1872427
+      label: Alcanivorax sp.
+- name: Higher Gross Light Crude Oil Removal
+  description: After 75 days, gravimetric light-crude-oil removal was about 62% in the Plackett-Burman-selected
+    four-strain consortium versus about 25-39% in individual cultures. The authors explicitly did not subtract abiotic-control
+    removal from these gross percentages, unlike the baseline used for GC-MS biodegradation. Both monocultures and
+    consortium started at 1e8 CFU/mL per strain, so total starting CFUs were higher in the consortium; this is not
+    a total-inoculum-matched synergy test. Stable relative abundance after day 7 and inferred MetaMIS interactions
+    suggest possible cooperation, not directly demonstrated niche partitioning or the mechanism of this comparative
+    endpoint. Neither the n-alkane nor PAH percentage alone selectively explains the gross-removal advantage.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: alkane
     term:
       id: CHEBI:18310
       label: alkane
-  - preferred_term: polyaromatic hydrocarbons
-    term:
-      id: CHEBI:33848
-      label: polycyclic arene
   evidence:
   - reference: doi:10.3389/fmars.2022.962071
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Individually, bacterial oil removal by these microorganisms was evaluated by
-      gravimetry, reaching 39% at maximum after 75 days, whereas in consortium
-      it was ~62%.
-    explanation: Supports the enhanced whole-consortium oil-removal endpoint.
+    snippet: Individually, bacterial oil removal by these microorganisms was evaluated by gravimetry, reaching 39%
+      at maximum after 75 days, whereas in consortium it was ~62%.
+    explanation: Supports the positive gross gravimetric consortium-versus-individual comparison. Primary Methods
+      2.4/2.7 and Results 3.3.1 limit causal interpretation through per-strain inocula and unsubtracted abiotic
+      removal.
+  participating_taxa:
+  - preferred_term: Pseudomonas sp. GOM
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+  - preferred_term: Halopseudomonas aestusnigri GOM5
+    term:
+      id: NCBITaxon:857252
+      label: Halopseudomonas aestusnigri
+  - preferred_term: Paenarthrobacter sp. GOM3
+    term:
+      id: NCBITaxon:2782567
+      label: Paenarthrobacter sp. GOM3
+  - preferred_term: Alcanivorax sp. GOM
+    term:
+      id: NCBITaxon:1872427
+      label: Alcanivorax sp.
 environmental_factors:
 - name: Oil removal efficiency
   value: 62% (consortium) vs 39% (individual)
@@ -263,3 +307,29 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: Glass flasks containing 20 mL of marine medium were inoculated with each consortium and incubated for 75 days at 30°C, 180 RPM.
     explanation: Source states the glass-flask vessel, marine medium, 75-day incubation, 30 °C temperature and 180 rpm shaking of the consortium cultivation.
+discussions:
+- discussion_id: gom_abiotic_inoculum_and_mediation
+  prompt: Which processes explain the consortium gross-removal advantage?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Consortium n-Alkane Biodegradation
+  - ecological_interactions#Consortium Polyaromatic Hydrocarbon Biodegradation
+  - ecological_interactions#Higher Gross Light Crude Oil Removal
+  rationale: Equal-total-inoculum controls, abiotic-adjusted mass balance and selective partner or metabolic perturbations
+    would separate starting cell number, hydrocarbon transformation, other removal processes and true interaction
+    effects. The paper infers a signed network from relative-abundance time series using MetaMIS; these predictions
+    and possible biosurfactant/cometabolic roles are not newly curated causal nodes here. Two class-to-bulk arrows
+    are removed because neither establishes mediation of the comparative gross endpoint. Existing cache has an abstract
+    and one Methods sentence despite a FULL TEXT marker; the publisher main body, Methods, tables and captions were
+    read separately. Non-graph claims of significant degradation and metadata remain preserved, not certified.
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T12:10:37Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain abiotic-referenced, time-dependent n-alkane depletion without assigned in-consortium member flux.;
+    Retain heterogeneous PAH-panel depletion, not substantial degradation of all 12 or generic phenanthrene.; Retain
+    gross removal improvement while exposing abiotic and total-inoculum limits on synergy. Issue #1475; reports/causal_graph_review/decisions/20261006-three-records-batch44.yaml'
+  llm_assisted: true

@@ -685,7 +685,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for SF356 Thermophilic Cellulose-Degrading Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding, mutualism. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -703,8 +703,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -791,7 +791,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"straminisolvens CSK1 supplied metabolites (acetate and glucose)"</div>
+                        <div class="snippet">"C. straminisolvens CSK1 supplied metabolites (acetate and glucose)"</div>
 
                     </li>
 
@@ -804,8 +804,7 @@
                     <h3>Oxygen Consumption and Anaerobiosis Creation</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Pseudoxanthomonas sp. M1-3 and Brevibacillus sp. M1-5 consume oxygen in the static, aerobic SF356 culture, introducing anaerobic conditions that allow the anaerobic cellulolytic CSK1 population to degrade cellulose.
-</p>
+                <p class="prewrap interaction-description">Pseudoxanthomonas sp. M1-3 and Brevibacillus sp. M1-5 introduce anaerobic conditions that support cellulolytic CSK1 in the mixed culture. Together with CSK1 metabolite supply, this is a supported positive reciprocal relationship. It does not imply CSK1 cannot tolerate any oxygen.</p>
 
 
 
@@ -848,8 +847,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Thermophilic Cellulose Hydrolysis
-                        <p class="prewrap causal-description">Aerobic oxygen consumption recreates the anaerobic microenvironment required for CSK1 cellulose fermentation in the mixed culture.
-</p>
+                        <p class="prewrap causal-description">Aerobic oxygen consumption lowers oxygen availability and supports CSK1 cellulose degradation in the mixed culture, completing the positive feedback with metabolite supply. This does not assert an absolute zero-oxygen requirement for the aerotolerant CSK1 isolate.</p>
                     </div>
 
                 </div>
@@ -868,7 +866,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"straminisolvens CSK1) and two strains of aerobic bacteria (Pseudoxanthomonas sp. strain M1-3 and Brevibacillus sp. strain M1-5) were observed; the aerobes introduced anaerobic conditions, and C"</div>
+                        <div class="snippet">"the aerobes introduced anaerobic conditions"</div>
 
                     </li>
 
@@ -879,17 +877,13 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>FG4 Excess Acetate Inhibits Cellulose Degradation</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">Clostridium sp. FG4 is a second cellulolytic member of SF356, but it can inhibit cellulose degradation by producing excess acetic acid, one of the negative interactions balanced in the stable mixed culture.
-</p>
+                <p class="prewrap interaction-description">The primary abstract attributes inhibition of SF356 cellulose degradation to excess acetic acid produced by Clostridium sp. FG4. Retain this negative community-function link; it does not separately establish reciprocal harm between FG4 and CSK1 or isolated CSK1 toxicity.</p>
 
 
                 <p><strong>Source Taxon:</strong> Clostridium sp. FG4</p>
 
 
-
-                <p><strong>Target Taxon:</strong> Clostridium straminisolvens CSK1</p>
 
 
 
@@ -921,8 +915,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Thermophilic Cellulose Hydrolysis
-                        <p class="prewrap causal-description">Excess acetic acid made by FG4 inhibits the cellulose-degradation reaction driven by CSK1 in the SF356 consortium.
-</p>
+                        <p class="prewrap causal-description">Excess acetic acid attributed to FG4 inhibits cellulose degradation in the mixed culture, opposing the community hydrolysis/cross-feeding process. The accessible evidence does not isolate the effect on CSK1 from the rest of the consortium.</p>
                     </div>
 
                 </div>
@@ -952,10 +945,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Brevibacillus Suppression of Bordetella</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">Brevibacillus sp. M1-5 suppresses growth of Bordetella sp. M1-6, providing a second negative interaction that is balanced with the positive CSK1-aerobe syntrophy during stable coexistence of all five SF356 members.
-</p>
+                <p class="prewrap interaction-description">Brevibacillus sp. M1-5 suppresses growth of Bordetella sp. M1-6 in the relationships inferred from the SF356 knockout communities. Suppression is retained without asserting reciprocal harm or an identified inhibitory mechanism. The positive CSK1-aerobe relationship is separately retained.</p>
 
 
                 <p><strong>Source Taxon:</strong> Brevibacillus sp. M1-5</p>
@@ -1008,6 +999,60 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    What causes the negative effects and which partners are harmed?
+                </h3>
+                <p class="prewrap">The fresh primary abstract supports the positive metabolite/oxygen feedback, FG4-associated excess-acid inhibition and Brevibacillus suppression of Bordetella. The available evidence does not establish reciprocal harm required by COMPETITION. The complete main text was not retrieved in this pass, so no further inhibitory mechanism is certified. Current SYNTROPHY does not require obligacy, but oxygen facilitation alone is not product-removal feedback. CSK1 aerotolerance also precludes an absolute zero-oxygen claim. Non-graph origin, physiological roles and whole-community cultivation claims remain issue1770.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Thermophilic Cellulose Hydrolysis</code>, <code>ecological_interactions#Oxygen Consumption and Anaerobiosis Creation</code>, <code>ecological_interactions#FG4 Excess Acetate Inhibits Cellulose Degradation</code>, <code>ecological_interactions#Brevibacillus Suppression of Bordetella</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/16269746/" rel="nofollow noreferrer">PMID:16269746</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">knockout communities</p>
+                        <p class="muted small prewrap">The source investigated member removal, not merely coexistence.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/15545431/" rel="nofollow noreferrer">PMID:15545431</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">grew under a gas phase containing up to 4 % O(2)</p>
+                        <p class="muted small prewrap">The isolate abstract directly establishes CSK1 oxygen tolerance.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1253,7 +1298,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1266,7 +1310,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1427,7 +1470,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1460,16 +1503,11 @@
 
 
 
-            var tgtKey = "Clostridium straminisolvens CSK1";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
         })();
 
         (function() {
             var intId = "interaction:3";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];

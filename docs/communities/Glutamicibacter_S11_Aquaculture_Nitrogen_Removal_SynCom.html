@@ -561,7 +561,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Glutamicibacter S11 Aquaculture Nitrogen Removal SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -569,8 +569,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -579,9 +579,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Synergistic S11 ammonium and nitrite removal</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">The two-strain S11 consortium removed ammonium and nitrite nitrogen more efficiently than the corresponding single-strain cultures under the reported pH and C/N ranges.</p>
+                <p class="prewrap interaction-description">The two-strain S11 consortium removed ammonium and nitrite more efficiently than the corresponding single-strain cultures. The primary abstract reports 95% ammonium-N and 97% nitrite-N removal within 24 h at initial concentrations of 30 mg/L each, pH 6-9 and C/N at least 15, described as a 15%-25% improvement over monocultures. This positive whole-consortium removal phenotype does not by itself establish reciprocal microbial fitness, exchanged intermediates or a formal interaction mechanism. The authors characterize the isolates as heterotrophic nitrification-aerobic denitrification strains, but the accessible abstract does not partition consortium removal among oxidation, denitrification, assimilation and other sinks or provide a nitrogen mass balance. Sponge-immobilized recirculation and industrial trials are separate assay contexts, not steps in a demonstrated causal chain; reported industrial residual nitrite fractions are not removal percentages.</p>
 
 
 
@@ -609,23 +608,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        ammonia oxidation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019329"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019329</a>)
-                    </li>
-
-                    <li>
-                        denitrification
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019333"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019333</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -670,7 +652,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -681,6 +663,21 @@
                 <p class="prewrap">The accessible PubMed abstract identifies the two member strains, S11 consortium identity, inorganic nitrogen endpoints, pH/C:N assay envelope, and headline sponge and industrial recirculating-aquaculture results, but Europe PMC reports the full article as subscription-only and not in PMC. Exact method details should be filled only after inspecting the version of record or author-accepted text.</p>
 
                 <p class="muted small">Attaches to: <code>engineering_design</code>, <code>growth_media</code>, <code>cultivation_setup</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which nitrogen routes and partner effects explain S11 removal performance?
+                </h3>
+                <p class="prewrap">The accessible primary abstract identifies both strains as HNAD organisms and reports a positive consortium removal contrast, but does not resolve partner-specific viable growth, isotope flux, nitrogen mass balance, exchanged intermediates or pathway perturbations. Retain that positive HNAD characterization without assigning resolved graph-level ammonia-oxidation or denitrification flux. Full Methods and controls are unavailable for this review. Separate batch, sponge and industrial endpoints and do not equate residual concentration percentages with removal. Resolve these gaps before adding a reciprocal-benefit, route-specific or cross-feeding edge.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Synergistic S11 ammonium and nitrite removal</code></p>
 
 
 
@@ -904,7 +901,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -917,7 +913,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -971,7 +966,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -981,12 +976,6 @@
 
 
             var processes = [];
-
-
-            processes.push("ammonia oxidation");
-
-            processes.push("denitrification");
-
 
             var evidenceCount = 2;
 

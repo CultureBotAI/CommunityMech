@@ -82,11 +82,12 @@ taxonomy:
     snippet: Ramichloridium apiculatum CMS-1 and Talaromyces pseudofuniculosus hzt-3′ in different ratios
     explanation: Identifies T. pseudofuniculosus hzt-3′ as a member of the defined fungal mixed culture.
 ecological_interactions:
-- name: CMS-1 Extracellular Polymer Cross-Feeding
-  description: R. apiculatum CMS-1 synthesized extracellular polysaccharides and proteins during mixed cultivation; T. pseudofuniculosus
-    hzt-3′ utilized these extracellular products, which was associated with increased hzt-3′ gluconic-acid, isocitric-acid,
-    L-glutamine, and L-tyrosine production.
-  interaction_type: CROSS_FEEDING
+- name: Hypothesized CMS-1 Extracellular Polymer Cross-Feeding
+  description: 'HYPOTHESIZED: CMS-1 extracellular products may support hzt-3′ metabolism in the mixed fungal culture.
+    The source proposes this direction from bulk polysaccharide, protein and metabolite patterns; it does not trace
+    CMS-1-derived material into hzt-3′. Medium sucrose consumption also contributes to the measured carbohydrate
+    decline. Retain the proposed interaction without presenting direct transfer or recipient-specific production
+    as demonstrated.'
   scope: PAIRWISE
   source_taxon:
     preferred_term: Ramichloridium apiculatum CMS-1
@@ -114,19 +115,23 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Mixed-Culture Organic-Acid and Amino-Acid Upregulation
-    description: Cross-feeding of CMS-1 extracellular polymers and protein was linked to increased hzt-3′ acid and amino-acid
-      production in the mixed culture.
+    description: 'HYPOTHESIZED: consumption of CMS-1 products could enable greater hzt-3′ acid and amino-acid production.
+      Bulk culture comparisons support metabolic changes but do not isolate this transfer as their necessary cause
+      or distinguish it from consumption of supplied sucrose.'
   evidence:
   - reference: PMID:42478817
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: In mixed culture, CMS-1 synthesized extracellular polysaccharides and proteins that were utilized by hzt-3′
-    explanation: Supports the directed extracellular-polysaccharide and protein cross-feeding edge from CMS-1 to hzt-3′.
+    snippet: In mixed culture, CMS-1 synthesized extracellular polysaccharides and proteins that were utilized by
+      hzt-3′
+    explanation: An author-proposed transfer mechanism inferred from bulk measurements, not direct donor-to-recipient
+      tracing.
 - name: Mixed-Culture Organic-Acid and Amino-Acid Upregulation
-  description: The 20% CMS-1 plus 80% hzt-3′ mixed culture had elevated organic acids and amino acids relative to pure cultures;
-    CMS-1 chiefly produced oxalic acid, while hzt-3′ chiefly generated gluconic acid and increased secretion of gluconic acid,
-    isocitric acid, L-glutamine, and L-tyrosine after receiving CMS-1 extracellular products.
-  interaction_type: NICHE_PARTITIONING
+  description: 'The tested 20% CMS-1 plus 80% hzt-3′ culture showed increased total organic acids and selected amino
+    acids relative to pure cultures. Pure CMS-1 chiefly produced oxalic acid, while pure hzt-3′ chiefly produced
+    gluconic acid. These are bulk concentrations, not gene-expression measurements or proof of recipient-specific
+    synthesis after cross-feeding. Individual compounds did not all increase: mixed-culture oxalic acid was much
+    lower.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Ramichloridium apiculatum CMS-1
@@ -152,24 +157,33 @@ ecological_interactions:
       label: amino acid
   downstream:
   - target: Optimized Wollastonite Calcium and Silicon Leaching
-    description: Increased acids and amino acids lowered pH and intensified the chemical dissolution of wollastonite by the
-      mixed fungal culture.
+    description: 'PARTIAL: increased acidic metabolites and lower pH are consistent with enhanced acid dissolution
+      and complexation driving wollastonite leaching. The culture-ratio comparison supports this mechanism but does
+      not selectively establish which acid or amino acid is necessary, or partition chemical dissolution from physical
+      disruption.'
   evidence:
   - reference: PMID:42478817
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The strain CMS-1 primarily produced oxalic acid (0.66 ± 0.033 mg/mL), while strain hzt-3′ mainly generated gluconic
-      acid (1.60 ± 0.0798 mg/mL).
+    snippet: The strain CMS-1 primarily produced oxalic acid (0.66 ± 0.033 mg/mL), while strain hzt-3′ mainly generated
+      gluconic acid (1.60 ± 0.0798 mg/mL).
     explanation: Supports the distinct dominant organic acids measured for each fungal strain.
+  - reference: PMID:42478817
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: hzt-3′, which upregulated the production of gluconic acid, isocitric acid, L-glutamine, and L-tyrosine
+    explanation: The abstract assigns the mixed-culture change to hzt-3′; bulk assays do not independently establish
+      cell-specific flux.
   - reference: PMID:42478817
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: hzt-3′, which upregulated the production of gluconic acid, isocitric acid, L-glutamine, and L-tyrosine
-    explanation: Supports increased hzt-3′ acid and amino-acid production in the mixed system.
+    snippet: 'The total organic acid production ranked as follows: 20% CMS-1 + 80% hzt-3′ > 100% hzt-3′ > 100% CMS-1.'
+    explanation: Results reports the mixed culture above both pure cultures; individual acids need not all increase.
 - name: Optimized Wollastonite Calcium and Silicon Leaching
-  description: The 20% CMS-1 plus 80% hzt-3′ inoculation ratio produced the strongest wollastonite dissolution among the tested
-    ratios, reaching 79.95% calcium leaching and 18.59% silicon leaching and visibly disrupting wollastonite residue structure.
-  interaction_type: NICHE_PARTITIONING
+  description: 'The 20% CMS-1 plus 80% hzt-3′ input ratio gave the greatest wollastonite leaching among the tested
+    ratios: 79.95% +/- 6.37% calcium and 18.59% +/- 0.11% silicon at day 12. Residue analyses support altered mineral
+    structure. These positive outcomes do not demonstrate niche partitioning, quantify a separate hyphal-force contribution
+    or measure net CO2 sequestration.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Ramichloridium apiculatum CMS-1
@@ -184,14 +198,14 @@ ecological_interactions:
   - reference: PMID:42478817
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The 20% CMS-1 + 80% hzt-3′ ratio achieved leaching efficiency of 79.95% ± 6.37% for Ca2+ and 18.59% ± 0.11% for
-      Si4+
+    snippet: The 20% CMS-1 + 80% hzt-3′ ratio achieved leaching efficiency of 79.95% ± 6.37% for Ca2+ and 18.59%
+      ± 0.11% for Si4+
     explanation: Supports the optimum mixed-culture ratio and Ca/Si leaching efficiencies.
   - reference: PMID:42478817
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: surface cracks and grooves on leaching residues indicated additional biophysical disruption
-    explanation: Supports fungal physical disruption of wollastonite residues as an additional leaching mechanism.
+    explanation: Residue morphology is consistent with disruption but does not isolate a causal hyphal-force contribution.
 environmental_factors:
 - name: Optimum CMS-1:hzt-3′ inoculation ratio
   value: 20% Ramichloridium apiculatum CMS-1 plus 80% Talaromyces pseudofuniculosus hzt-3′
@@ -296,27 +310,27 @@ curation_history:
 - timestamp: '2026-09-21T07:22:13Z'
   curator: claude
   action: CREATE_RECORD
-  changes: Created CommunityMech:000404 for the Ramichloridium apiculatum CMS-1 / Talaromyces pseudofuniculosus hzt-3′ wollastonite
-    fungal mixed-culture consortium from PMID:42478817, including taxonomy, cross-feeding and bioleaching interactions, cultivation
-    conditions, and claim-level evidence snippets.
+  changes: Created CommunityMech:000404 for the Ramichloridium apiculatum CMS-1 / Talaromyces pseudofuniculosus
+    hzt-3′ wollastonite fungal mixed-culture consortium from PMID:42478817, including taxonomy, cross-feeding and
+    bioleaching interactions, cultivation conditions, and claim-level evidence snippets.
   llm_assisted: true
 - timestamp: '2026-09-21T07:39:56Z'
   curator: claude
   action: FIX_REFERENCE_SNIPPETS
-  changes: Split the modified-Czapek method evidence around the bracketed pH clause stripped by reference validation, removed
-    the unsupported pH field, and tightened the hzt-3′ organic-acid upregulation quote.
+  changes: Split the modified-Czapek method evidence around the bracketed pH clause stripped by reference validation,
+    removed the unsupported pH field, and tightened the hzt-3′ organic-acid upregulation quote.
   llm_assisted: true
 - timestamp: '2026-09-21T07:40:33Z'
   curator: claude
   action: FIX_ONTOLOGY_LABEL
-  changes: Updated the GO:0044419 label on the extracellular polymer cross-feeding interaction to the canonical term-validator
-    label.
+  changes: Updated the GO:0044419 label on the extracellular polymer cross-feeding interaction to the canonical
+    term-validator label.
   llm_assisted: true
 - timestamp: '2026-09-21T07:45:20Z'
   curator: claude
   action: FIX_STRAIN_DESIGNATION
-  changes: Restored the prime mark in the Talaromyces pseudofuniculosus hzt-3′ strain designation and member references so
-    the record preserves the strain identifier reported by PMID:42478817.
+  changes: Restored the prime mark in the Talaromyces pseudofuniculosus hzt-3′ strain designation and member references
+    so the record preserves the strain identifier reported by PMID:42478817.
   llm_assisted: true
 - timestamp: '2026-09-21T07:46:24Z'
   curator: claude
@@ -332,7 +346,34 @@ curation_history:
   curator: codex
   action: REPAIR_OBSOLETE_GO_PROCESS
   llm_assisted: true
-  changes: Removed the optional obsolete GO:0016053 descriptor. Its only explicit GO replacement is GO:0008152
-    (metabolic process), which the existing no-vacuous-annotations policy rejects. Retained the specific
-    biological meaning in the unchanged interaction prose, metabolites, downstream links, and evidence
-    without inventing a narrower ontology mapping.
+  changes: Removed the optional obsolete GO:0016053 descriptor. Its only explicit GO replacement is GO:0008152 (metabolic
+    process), which the existing no-vacuous-annotations policy rejects. Retained the specific biological meaning
+    in the unchanged interaction prose, metabolites, downstream links, and evidence without inventing a narrower
+    ontology mapping.
+- timestamp: '2026-10-08T16:49:43Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Qualify the proposed polymer handoff; bulk carbohydrate decline also includes medium-sucrose consumption.;
+    Preserve bulk metabolite changes without niche partitioning, uniform acid increases or recipient-specific synthesis.;
+    Keep measured day-12 calcium/silicon leaching and residue changes distinct from isolated physical causality
+    and CO2 sequestration. Issue#1957; reports/causal_graph_review/decisions/20261008-four-records-batch123.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: woll_causal_scope_batch123
+  prompt: Which processes mediate the mixed-culture leaching improvement?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Hypothesized CMS-1 Extracellular Polymer Cross-Feeding
+  - ecological_interactions#Mixed-Culture Organic-Acid and Amino-Acid Upregulation
+  - ecological_interactions#Optimized Wollastonite Calcium and Silicon Leaching
+  rationale: The source demonstrates culture-ratio effects and bulk chemical changes. Direct CMS-1-to-hzt-3′ transfer,
+    cell-specific synthesis, necessary individual metabolites and a separately quantified hyphal-force contribution
+    remain unresolved. The proposed cross-feeding-to-acid-to-leaching chain is retained as qualified existing topology,
+    not a traced flux pathway or a net-carbon-removal measurement.
+  posed_by: codex
+  posed_date: '2026-10-08'
+  evidence:
+  - reference: PMID:42478817
+    snippet: In mixed culture, CMS-1 synthesized extracellular polysaccharides and proteins that were utilized by
+      hzt-3′

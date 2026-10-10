@@ -142,12 +142,13 @@ taxonomy:
     snippet: Pelobacter, Desulfurumonas, and Pseudomonas were also identified at 2.22, 1.64, and 0.87%
     explanation: Supports Pseudomonas as a minor detected genus in the benzene-fed MFC biofilm.
 ecological_interactions:
-- name: Benzene-fed bioanode niche shift
-  description: >
-    The shift from sodium acetate to benzene depleted the sodium-acetate-linked
-    Comamonas signal and selected a benzene-fed bioanode in which Bacillus and
-    Arcobacter together comprised 63.21% of genus-level 16S assignments.
-  interaction_type: NICHE_PARTITIONING
+- name: Benzene-fed bioanode composition shift
+  description: After sequential acclimation from acetate to benzene, relative 16S genus profiles showed Bacillus
+    at 32.93% and Arcobacter at 30.28%, with Pelobacter and Pseudomonas also detected. These four canonical genera
+    are a resolved subset, not a complete or necessarily active consortium. The compositional change supports substrate-associated
+    selection but does not measure absolute expansion, niche partitioning, species identity or taxon-specific benzene
+    degradation/electron transfer. Feed composition and biofilm acclimation changed together; no selective genus
+    removal established the mediator of increased power.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacillus
@@ -158,37 +159,42 @@ ecological_interactions:
     term:
       id: NCBITaxon:28196
       label: Arcobacter
+  - preferred_term: Pelobacter
+    term:
+      id: NCBITaxon:18
+      label: Pelobacter
+  - preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
   metabolites:
   - &benzene
     preferred_term: benzene
     term: &benzene_term
       id: CHEBI:16716
       label: benzene
-  biological_processes:
-  - preferred_term: xenobiotic metabolic process
-    term:
-      id: GO:0006805
-      label: xenobiotic metabolic process
-  - preferred_term: electron transport chain
-    term:
-      id: GO:0022900
-      label: electron transport chain
   downstream:
   - target: Benzene removal with voltage generation
-    description: >
-      The benzene-selected bioanode removed benzene while producing a higher
-      maximum voltage and power density than the acetate-fed bioanode.
+    description: HYPOTHESIZED - substrate-associated community restructuring could increase the bioanode capacity
+      for benzene conversion and electron transfer, as proposed by the authors. Whole-biofilm chemical and electrochemical
+      measurements support performance, but relative genus enrichment does not isolate composition from substrate/acclimation
+      effects or establish Bacillus and Arcobacter as necessary catalytic partners.
   evidence:
   - reference: PMID:41210787
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Clearly, benzene addition has shifted the microbial community composition by diminishing Commamonas and enriching the Arcobacter and Bacillus populations
-    explanation: Supports the substrate-driven shift from the sodium-acetate biofilm toward a Bacillus/Arcobacter-rich benzene bioanode.
+    snippet: Clearly, benzene addition has shifted the microbial community composition by diminishing Commamonas
+      and enriching the Arcobacter and Bacillus populations
+    explanation: Supports the substrate-driven shift from the sodium-acetate biofilm toward a Bacillus/Arcobacter-rich
+      benzene bioanode.
 - name: Benzene removal with voltage generation
-  description: >
-    The benzene-acclimated MFC bioanode removed 98.7 +/- 2.4% of the supplied
-    benzene within 96 h and generated up to 902.3 +/- 20.6 mV during the
-    high-benzene feed cycle.
+  description: The acclimated whole-biofilm MFC removed 98.7 +/- 2.4% of benzene within 96 h while generating electricity.
+    Maximum voltage was 902.3 +/- 20.6 mV in cycle VI (250 mg/L benzene); the final 330 mg/L cycle VII reached 899.9
+    +/- 15.2 mV. Power density at 330 mg/L was 390.1 +/- 26 mW/m2 versus 238.8 +/- 19 with acetate, not a 100-fold
+    acetate improvement. The abiotic control lacked sustained output voltage. Main-text GC/HPLC results report transient
+    acetate/butyrate and final gaseous products, supporting whole-system conversion without tracing complete carbon
+    fate or proving partner exchange. DET versus mediated transfer and catalytic roles of individual genera remain
+    unresolved; the named participants are a partial roster.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacillus
@@ -199,6 +205,14 @@ ecological_interactions:
     term:
       id: NCBITaxon:28196
       label: Arcobacter
+  - preferred_term: Pelobacter
+    term:
+      id: NCBITaxon:18
+      label: Pelobacter
+  - preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
   metabolites:
   - *benzene
   biological_processes:
@@ -211,12 +225,15 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: The percentage of benzene in the MFC decreased over time to 98.7 ± 2.4% after 96 h
-    explanation: Supports the measured benzene-removal endpoint.
+    explanation: The Results sentence is awkwardly worded; abstract, Table 1 and Conclusion explicitly identify
+      98.7% as removal, not residual benzene. This is a whole-system endpoint, not Bacillus-specific flux.
   - reference: PMID:41210787
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Maximum voltages observed in Cycles III, IV, V, VI, and VII were 678.5 ± 98.2, 542.4 ± 50.7, 768.6 ± 10.8, 902.3 ± 20.6, and 899.9 ± 15.2 mV
-    explanation: Supports voltage generation during the benzene feed cycles.
+    snippet: Maximum voltages observed in Cycles III, IV, V, VI, and VII were 678.5 ± 98.2, 542.4 ± 50.7, 768.6
+      ± 10.8, 902.3 ± 20.6, and 899.9 ± 15.2 mV
+    explanation: 'Supports the nonmonotonic cycle maxima: 902.3 mV at cycle VI/250 mg/L and 899.9 mV at cycle VII/330
+      mg/L. It does not isolate community composition as their cause.'
 environmental_factors:
 - name: Mangrove sediment inoculum
   value: Vitoria, Espirito Santo State, Brazil
@@ -354,44 +371,62 @@ related_ingredients:
     explanation: Supports sodium acetate as the initial MFC feedstock.
 discussions:
 - discussion_id: benzene_mfc_bioanode_species_resolution
-  prompt: Resolve the species or MAG identities, full final-biofilm composition, genus-specific benzene-degradation genes, and
-    stable raw 16S read accessions for the benzene-fed mangrove MFC bioanode.
+  prompt: Resolve the species or MAG identities, full final-biofilm composition, genus-specific benzene-degradation
+    genes, and stable raw 16S read accessions for the benzene-fed mangrove MFC bioanode.
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - taxonomy
-  - ecological_interactions#Benzene-fed bioanode niche shift
-  rationale: >
-    The ACS Omega full text reports genus-level 16S abundances in the final
-    benzene-fed MFC but does not expose species-level identities, raw sequence
-    accessions, or a direct metagenomic assignment of benzene-degradation and
-    electron-transfer genes to each genus. The source also reports a genus
-    spelled Desulfurumonas at 1.64% abundance; that member was not curated here
-    until the label can be resolved against NCBI or GTDB.
+  - ecological_interactions#Benzene-fed bioanode composition shift
+  rationale: 'The ACS Omega full text reports genus-level 16S abundances in the final benzene-fed MFC but does not
+    expose species-level identities, raw sequence accessions, or a direct metagenomic assignment of benzene-degradation
+    and electron-transfer genes to each genus. The source also reports a genus spelled Desulfurumonas at 1.64% abundance;
+    that member was not curated here until the label can be resolved against NCBI or GTDB.
+
+    '
   posed_by: codex
   posed_date: '2026-09-26'
+- discussion_id: benzene_mfc_composition_and_electron_transfer
+  prompt: Which members and electron-transfer routes mediate whole-bioanode performance?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Benzene-fed bioanode composition shift
+  - ecological_interactions#Benzene removal with voltage generation
+  rationale: 'Retain positive removal, product and electrochemical observations, while composition mediation remains
+    HYPOTHESIZED. Relative genus profiles and other-strain literature cannot establish exact-system partner roles,
+    niche partitioning, carbon balance or DET rather than MET. The prior #1124 removal of Bacillus PRIMARY_DEGRADER
+    remains; Arcobacter non-graph role and Daphnia species metadata remain under #1586. Main Table 1 read, not separate
+    supporting spectra/chromatograms or original figure pixels. #1583 repair adds no new structure.'
+  posed_by: codex
+  posed_date: '2026-10-06'
 curation_history:
 - timestamp: '2026-09-26T21:48:42Z'
   curator: codex
   action: ADD_COMMUNITY_RECORD
-  changes: >
-    Created CommunityMech:000442 from PMID:41210787 and DOI
-    10.1021/acsomega.5c05703 for the mangrove-derived benzene-fed MFC bioanode
-    enrichment, including genus-level Bacillus, Arcobacter, Pelobacter, and
-    Pseudomonas 16S assignments; sodium-acetate-to-benzene acclimation in Lovley
-    and Phillips medium; 96 h benzene removal and voltage-generation endpoints;
-    and an explicit open question for species-level resolution and the unresolved
+  changes: 'Created CommunityMech:000442 from PMID:41210787 and DOI 10.1021/acsomega.5c05703 for the mangrove-derived
+    benzene-fed MFC bioanode enrichment, including genus-level Bacillus, Arcobacter, Pelobacter, and Pseudomonas
+    16S assignments; sodium-acetate-to-benzene acclimation in Lovley and Phillips medium; 96 h benzene removal and
+    voltage-generation endpoints; and an explicit open question for species-level resolution and the unresolved
     Desulfurumonas label.
+
+    '
   llm_assisted: true
 - timestamp: '2026-09-26T21:57:29Z'
   curator: codex
   action: FIX_ADVERSARIAL_REVIEW_FINDINGS
-  changes: >
-    Addressed adversarial review issue #1124 by removing the Bacillus
-    PRIMARY_DEGRADER functional role, which over-typed a benzene-associated
-    16S enrichment signal as a complex-substrate degradation role, while
-    retaining Bacillus as the dominant benzene-fed genus and citing its
-    sodium-acetate-to-benzene enrichment.
+  changes: 'Addressed adversarial review issue #1124 by removing the Bacillus PRIMARY_DEGRADER functional role,
+    which over-typed a benzene-associated 16S enrichment signal as a complex-substrate degradation role, while retaining
+    Bacillus as the dominant benzene-fed genus and citing its sodium-acetate-to-benzene enrichment.
+
+    '
+  llm_assisted: true
+- timestamp: '2026-10-07T00:06:10Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain relative genus response at partial-roster scope, not partitioning or isolated catalytic mediation.;
+    Retain positive whole-system removal and power with cycle-specific voltage and unresolved member flux. Issue
+    #1583; reports/causal_graph_review/decisions/20261006-four-records-batch68.yaml'
   llm_assisted: true
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare-earth processing role is reported for this benzene-fed MFC bioanode.

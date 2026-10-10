@@ -1,0 +1,141 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: e3864bd9f75e621affb7f2e9705a62ce001321d5
+scope:
+- kb/communities/Grassland_Soil_WetUp_Virus_Host_Community.yaml
+- kb/communities/Groundwater_Elusimicrobia_Diverse_Metabolisms.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-wetup-elusimicrobia-batch49.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch49.json
+findings:
+- issue: 1490
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound wet-up viral mortality and inferred carbon mediation.
+  disposition: Close only after protected main merge.
+- issue: 1491
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate genomic capacities from ecological labels and remove three overview inclusion arrows.
+  disposition: Close only after protected main merge.
+adversarial_checks:
+- Whole records and all seven original nodes/five arrows read. Wet-up complete cached main body/Methods/embedded
+  captions; groundwater complete primary PMC main body/Methods/embedded captions plus local abstract.
+  No figure images, supplements, raw data or code audited.
+- Wet-up positive viral time-course and isotope-incorporation observations remain. Biomass is a viral-DNA
+  proxy; lifestyle inference does not exclude nonintegrating temperate infection. Canonical virus-to-bacterium
+  predation direction is preserved, not reversed or assigned to resolved strains.
+- The cumulative mortality range depends on assumed burst size and conversion/recovery/rRNA-copy assumptions.
+  Below 1% to 46.6% is not a directly counted fixed effect. The first arrow remains PARTIAL; no model
+  equation or analysis-code reimplementation claimed.
+- The ecosystem carbon node is community-level, with both canonical participants. Its incoming arrow remains
+  HYPOTHESIZED because virus-specific CO2 mediation is not selectively resolved. No new causal structure
+  or paid Edison research run occurred.
+- 'The adversarial pass corrected an overstatement: different 24-hour and one-week richness summaries
+  need not contradict each other. Initial actual validation receipts were retained as superseded, then
+  every verification command rerun against corrected final wording. No history was removed or source cache
+  changed.'
+- Groundwater is a comparative multi-habitat genome survey, not a demonstrated coexisting community. The
+  two habitat-specific labels remain distinct despite sharing NCBITaxon:641853. Three intrinsic source-only
+  capacities cannot credit the animal-associated bin as a partner or create same-CURIE self-exchange.
+- All four groundwater findings remain. Remove NICHE_PARTITIONING, CROSS_FEEDING and COMMENSALISM labels
+  and three overview inclusion arrows. Genomic evidence is COMPUTATIONAL; gene-neighborhood support is
+  distinguished from PARTIAL biochemical predictions. The paralog and Rnf name are not nitrogen-fixation
+  proof.
+- 'Measured census: 460 records, 389 with community scope, mixed126->127, community-only263->262, 1498
+  taxa, solely credited1223->1222. Two participant-registry entries and only the measured mixed upper
+  bound updated; no production matching changes.'
+- Inspected record and test diffs. Seven nodes retained, two existing arrows qualified, three inclusion
+  arrows removed. Six focused tests cover direction, participants, model bounds, evidence type, exact
+  anchors and hash-bound all-node/arrow coverage. All458 other records and920 caches preserved, not certified;
+  non-graph evidence/roles remain outside scope.
+- Actual schema, strict, terms, references, snippets, rank and history gates passed. Network equals baseline
+  with34 pre-existing findings and zero structural defects. Repeat HTML renders and exact descriptions
+  across456 pages parser-checked; no browser screenshot claim. Post-commit docs-current remains a separate
+  actual gate.
+- Dedup checked801 all-state issue titles/bodies and ignored/hidden local review files, not every comment
+  or PR review. Issues1490/1491 addressed here and remain open until protected main merge. This is source-based
+  self-adversarial review, not independent approval.
+verification:
+  combined_regressions: 478 passed in 184.49s (0:03:04)
+  new_regression_tests: 6
+  schema_strict_terms_history: Passed with actual output digests
+  references: CLI Total checks counts reported issues, not executed checks. Exit0 is no reported issues,
+    not source verification. SupportingReference coverage (#476), Linux DOI-cache lookup (#1091) and selected-cache
+    provenance (#1362) remain limitations.
+  snippet_counts_by_record:
+    kb/communities/Grassland_Soil_WetUp_Virus_Host_Community.yaml:
+      MATCH: 9
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Groundwater_Elusimicrobia_Diverse_Metabolisms.yaml:
+      MATCH: 14
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  network:
+    existing_findings_preserved: 34
+    added_findings: {}
+    removed_findings: {}
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-wetup-elusimicrobia-batch49.yaml: 0b3c8b79e2264e4b9bc5ced88f6eedab41110a20b09bd21b4820554a62a1af6d
+    tests/test_causal_review_batch49.py: 84fc66b8c879ad8b11037465cefbd3db2866022d719aee5a2aabf0f810761065
+    tests/test_participating_taxa.py: 1d92e0223433203a099a8cdff20df8635d04dcb41babbc9729f96969c14645d3
+    tests/test_community_level_connectivity_credit.py: 4558cd732952343c247c0014da0ae1311bb93ea213a57ffeb7a31b788e68800b
+    kb/communities/Grassland_Soil_WetUp_Virus_Host_Community.yaml: 69f8f1177ae4ad7775872f98f55d3bcc9d184f0c4c45425fbc189128d1427d93
+    kb/communities/Groundwater_Elusimicrobia_Diverse_Metabolisms.yaml: 0f6adfa3d990e2d2d09e5680230095263aecd71f1ee1b00288ebe13e5a995089
+    reports/causal_graph_review/README.md: 0532a816f308848fb6e20fef089cf22f43c2c2d8d693174b28b154e47ea620b3
+  post_commit_docs_current: Separate publication gate; not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 389
+      mixed: 126
+      community_level_only: 263
+      taxa: 1498
+      credited_solely_by_the_rule: 1223
+    current:
+      records: 460
+      with_community_level: 389
+      mixed: 127
+      community_level_only: 262
+      taxa: 1498
+      credited_solely_by_the_rule: 1222
+  interpretation: Groundwater comparison remains community-scoped while three intrinsic capacities become
+    source-only. Measured mixed +1, CL-only -1, solely credited -1; two registry entries added. No production
+    matching change.
+corpus:
+  records: 460
+  nodes: 1465
+  edges: 676
+  review_status_counts:
+    needs_research: 14
+    pending: 273
+    reviewed: 173
+limitations:
+- Whole 204-line wet-up and 304-line groundwater records and every original node/arrow reviewed. Wet-up
+  complete cached main body/Methods/captions and groundwater complete primary PMC main body/Methods/captions
+  read. No figure images, supplements, raw data or analysis code audited.
+- Existing-structure repairs only; no new causal nodes/arrows, no paid Edison job or provider spend. Positive
+  observations and genomic findings retained without claims that all possible mechanisms are represented.
+- Wet-up mortality is burst-size/model dependent; biomass is a viral-DNA proxy, host links are coarse
+  and lifestyle alternatives remain. Richness summaries cover different time windows and need not conflict;
+  lower mortality bounds differ slightly across source sections. No equation or code reimplementation
+  claimed; CO2 mediation remains a hypothesis.
+- Groundwater is a comparative multi-habitat genome survey, not one demonstrated coexisting community.
+  Same-CURIE habitat labels retained separately. Encoded loci are distinct from predicted function, and
+  the nitrogenase paralog is not demonstrated nitrogen fixation.
+- All non-graph raw blocks and 920 cache files preserved, not certified. This leaves non-graph broad functional
+  roles and evidence classifications outside the present repair. Reference CLI Total checks counts reported
+  issues, not executed checks; SupportingReference coverage (#476), Linux DOI-cache lookup (#1091) and
+  selected-cache provenance (#1362) remain limitations.
+- Dedup checked 801 all-state issue titles/bodies and ignored/hidden local review files, not every comment
+  or PR review. Source-based self-adversarial review is not independent approval. Protected-main merge
+  and corpus completion remain pending.

@@ -102,11 +102,11 @@ taxonomy:
     snippet: Archaeal methanogenesis genes were positively correlated with methane flux
     explanation: Supports methanogenic archaea as a detected guild in unrestored salt pond sediments.
 ecological_interactions:
-- name: Restoration-State Niche Filtering
-  description: Restoration status and associated hydrologic/geochemical changes
-    partition the sediment community into unrestored hypersaline salt pond
-    communities and restored/reference wetland-like communities.
-  interaction_type: NICHE_PARTITIONING
+- name: Restoration-State Community Composition Association
+  description: Community composition differed among the sampled unrestored ponds, restored pond and reference wetland,
+    with restored and reference communities more similar to one another. This cross-site association is consistent
+    with restoration-related environmental filtering but does not isolate restoration as a cause or demonstrate
+    distinct niches that reduce competition.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: response to abiotic stimulus
@@ -117,24 +117,22 @@ ecological_interactions:
   - reference: doi:10.1038/s41396-021-01067-w
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: restored salt pond harbored communities more phylogenetically and functionally similar
-    explanation: Supports restoration-state structuring of community composition.
-  - reference: doi:10.1038/s41396-021-01067-w
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: restoration effectively converted industrial salt pond microbial communities
-    explanation: Supports compositional separation among unrestored, restored, and reference sites.
-- name: Archaeal Methanogenesis Coupled to Methane Flux
-  description: Archaeal methanogenesis genes were associated with methane flux,
-    implicating methanogenic archaea in methane emissions from salt pond and
-    wetland sediments.
-  interaction_type: SYNTROPHY
+    snippet: with restored/reference wetland communities more similar to each other than to those of unrestored
+      salt ponds
+    explanation: Supports the measured cross-site composition pattern, not a controlled restoration effect.
+    computational_provenance:
+      prediction_type: STATISTICAL_INFERENCE
+      model_source: 16S rRNA community profiles compared across site types using weighted UniFrac or Bray-Curtis
+        dissimilarities and PERMANOVA.
+      tools:
+      - tool_name: vegan
+        role: PERMANOVA using adonis; version not specified in the reviewed passage
+- name: Archaeal Methanogenesis Evidence and Methane Flux Association
+  description: Archaeal methanogenesis-gene abundances correlated positively with methane flux across sites. A separate
+    unrestored-pond microcosm comparison supported methane production from methylated substrates, while acetate
+    did not significantly stimulate production. These findings support a methanogenic contribution, not a quantified
+    in-situ pathway flux, attribution to every archaeon or syntrophic product-removal feedback.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: salt pond methanogenic archaea
-    term:
-      id: NCBITaxon:2157
-      label: Archaea
   metabolites:
   - preferred_term: methane
     term:
@@ -150,23 +148,37 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: Archaeal methanogenesis genes were positively correlated with methane flux
-    explanation: Supports methanogenesis as a methane-linked functional mechanism.
+    explanation: Supports gene-abundance/flux association; does not establish product-removal cooperation.
+    computational_provenance:
+      prediction_type: STATISTICAL_INFERENCE
+      model_source: DESeq2-normalized shotgun metagenomic gene-copy estimates compared with methane flux using Spearman
+        rank correlation.
+      tools:
+      - tool_name: DESeq2
+        role: Normalization of estimated gene-copy counts
   - reference: doi:10.1038/s41396-021-01067-w
     supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: methane is generated both from bacterial methylphosphonate degradation and archaeal methanogenesis
-    explanation: Supports methanogenesis as one of the inferred methane-generating pathways.
-- name: Bacterial Methylphosphonate Methane Pathway
-  description: Bacterial genes encoding methylphosphonate degradation enzymes
-    were correlated with methane flux, suggesting a bacterial source of methane
-    alongside archaeal methanogenesis in salt pond sediments.
-  interaction_type: CROSS_FEEDING
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: unrestored salt pond methane-linked bacteria
+    evidence_source: IN_VITRO
+    snippet: Acetate addition did not stimulate significant methane production, and control incubations also exhibited
+      little change in methane production rates.
+    explanation: Bounds substrate-response interpretation and distinguishes genetic potential from an observed activity.
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the substrate addition experiment demonstrated the conversion of trimethylamine and methanol to methane.
+    explanation: Supports the existing methanogenesis node with microcosm activity evidence, not a partner interaction
+      or field pathway flux fraction.
+  participating_taxa:
+  - preferred_term: salt pond methanogenic archaea
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:2157
+      label: Archaea
+- name: Bacterial Methylphosphonate Degradation Potential
+  description: 'Bacterial methylphosphonate-degradation genes were associated with methane flux, supporting a predicted
+    contribution to methane production in unrestored ponds. This node describes the bacterial evidence, not bacterial
+    exclusivity: the study also recovered archaeal genomes with phnJ. Genomic potential and correlation do not measure
+    this pathway''s methane contribution or demonstrate cross-feeding between bacteria and methanogens.'
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methane
     term:
@@ -174,20 +186,30 @@ ecological_interactions:
       label: methane
   evidence:
   - reference: doi:10.1038/s41396-021-01067-w
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: genes encoding enzymes for bacterial methylphosphonate degradation
-    explanation: Supports bacterial methylphosphonate degradation as a methane-linked mechanism.
-  - reference: doi:10.1038/s41396-021-01067-w
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: methane is generated both from bacterial methylphosphonate degradation and archaeal methanogenesis
-    explanation: Supports both bacterial and archaeal methane-generating pathways in the community.
-- name: Sulfate and Methanogenesis Competition
-  description: Methane emissions were positively correlated with salinity and
-    sulfate across the sampled salt pond and wetland sediments, linking the
-    geochemical gradient to methane-generating community functions.
-  interaction_type: NICHE_PARTITIONING
+    snippet: suggesting these two pathways may jointly contribute to the high methane emission.
+    explanation: The source qualifies the joint contribution as an inference, not measured exchange or apportioned
+      flux.
+    computational_provenance:
+      prediction_type: STATISTICAL_INFERENCE
+      model_source: DESeq2-normalized gene-abundance/flux correlations and MUSiCC genome-fraction estimates in the
+        salt-pond metagenomes.
+      tools:
+      - tool_name: DESeq2
+        role: Gene-copy count normalization
+      - tool_name: MUSiCC
+        role: Genome-fraction estimation using universal single-copy genes
+  participating_taxa:
+  - preferred_term: unrestored salt pond methane-linked bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+- name: Salinity and Sulfate Associations with Methane Flux
+  description: Methane emissions were positively associated with salinity and sulfate across the sampled sites.
+    These covarying field measurements do not demonstrate sulfate-driven methanogenesis, sulfate-reducer competition
+    or niche partitioning. The source discusses possible environmental explanations, but this node retains only
+    the observed association.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: sulfate
@@ -198,17 +220,12 @@ ecological_interactions:
     term:
       id: CHEBI:16183
       label: methane
-  biological_processes:
-  - preferred_term: methanogenesis
-    term:
-      id: GO:0015948
-      label: methanogenesis
   evidence:
   - reference: doi:10.1038/s41396-021-01067-w
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: positively correlated with salinity and sulfate across all samples
-    explanation: Supports salinity and sulfate as field correlates of methane emissions.
+    explanation: Supports field covariation, not a competition mechanism or causal sulfate effect.
 environmental_factors:
 - name: Restoration management state
   value: two unrestored salt ponds, restored salt pond, and reference wetland
@@ -539,7 +556,40 @@ curation_history:
 - timestamp: '2026-10-02T06:15:13Z'
   curator: codex
   action: REVIEW_CAUSAL_GRAPH
-  changes: Removed three downstream edges that connected restoration-state,
-    sulfate-salinity, archaeal methanogenesis, and methylphosphonate findings by
-    field correlation rather than tested methane-production causality.
+  changes: Removed three downstream edges that connected restoration-state, sulfate-salinity, archaeal methanogenesis,
+    and methylphosphonate findings by field correlation rather than tested methane-production causality.
   llm_assisted: true
+- timestamp: '2026-10-08T00:12:44Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain cross-site community composition association without categorical niche partitioning or controlled
+    restoration causality.; Retain archaeal gene/flux evidence and bounded substrate-response support without syntrophic
+    feedback or field flux apportionment.; Retain bacterial pathway potential with canonical scope, non-exclusivity
+    and explicitly inferred contribution, not cross-feeding.; Retain salinity/sulfate covariation without a competition
+    or causal sulfate claim. Issue#1812; reports/causal_graph_review/decisions/20261008-four-records-batch103.yaml
+  llm_assisted: true
+discussions:
+- discussion_id: pond_causal_attribution_batch103
+  prompt: What fraction of field methane derives from each inferred pathway, and which partner interactions are
+    actually demonstrated?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: 'The primary results, discussion and relevant statistical methods were read. Field covariation and
+    genomic potential do not isolate interspecies exchange, product-removal feedback, competition or the causal
+    effect of restoration. Microcosm substrate responses support community activity but do not apportion field flux
+    among taxa/pathways. No prior correlation-based direction is restored. Broad non-graph guild roles and bottle-capacity/working-volume
+    conflation remain tracked in #1814.'
+  posed_by: codex
+  posed_date: '2026-10-08'
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: These correlations should be interpreted cautiously, however, because the genes could be present but
+      inactive in the methylotrophic methanogens
+    explanation: The source explicitly distinguishes gene presence/correlation from realized activity.
+  attaches_to:
+  - ecological_interactions#Restoration-State Community Composition Association
+  - ecological_interactions#Archaeal Methanogenesis Evidence and Methane Flux Association
+  - ecological_interactions#Bacterial Methylphosphonate Degradation Potential
+  - ecological_interactions#Salinity and Sulfate Associations with Methane Flux

@@ -379,55 +379,63 @@ taxonomy:
     explanation: Identifies Ensifer sp. W16 as a Wheat DT-SynCom member.
 ecological_interactions:
 - name: Wheat DT-SynCom powdery mildew resistance
-  description: >
-    Barley seedlings root-inoculated with the wheat-origin DT-SynCom showed
-    lower Blumeria graminis f. sp. hordei DAF fluorescence intensity than
-    mock-treated controls after pathogen challenge, consistent with
-    SynCom-induced systemic resistance under the assay conditions.
+  description: The wheat-origin, 16-member DT-SynCom reduced barley leaf powdery-mildew DAF fluorescence by 43.3%
+    relative to mock treatment after Blumeria graminis f. sp. hordei challenge. All three inoculants protected plants;
+    their pairwise differences were not significant. This supports ISR-like protection but does not assign necessity
+    to JA, ethylene or SA signaling. PEG-tolerant isolate selection is not a test of whole-plant drought protection.
   scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:42453107
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >
-      Mean fluorescence was reduced by 50.4% in the barley SynCom treatment,
-      43.3% in the wheat SynCom treatment, and 34.9% in the WCS417r treatment,
-      relative to the mock treatment.
+    snippet: 'Mean fluorescence was reduced by 50.4% in the barley SynCom treatment, 43.3% in the wheat SynCom treatment,
+      and 34.9% in the WCS417r treatment, relative to the mock treatment.
+
+      '
     explanation: Quantifies the barley and wheat SynCom disease-protection phenotypes.
   - reference: PMID:42453107
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >
-      These results demonstrate that both the barley and wheat SynComs induce
-      ISR in a manner similar to that of the ISR-eliciting bacterium WCS417r.
-    explanation: Supports the systemic-resistance interpretation for both SynComs.
+    snippet: 'These results demonstrate that both the barley and wheat SynComs induce ISR in a manner similar to
+      that of the ISR-eliciting bacterium WCS417r.
+
+      '
+    explanation: The authors interpret the positive host phenotype as ISR; specific hormone-pathway dependence was
+      not assigned.
 - name: Wheat DT-SynCom selective rhizosphere functional shifts
-  description: >
-    The wheat-origin DT-SynCom produced selective metatranscriptomic changes in
-    the barley rhizosphere, including downregulation of PF02868, PF01614, and
-    the KEGG stress-induced DnaJ-like molecular chaperone term K05516, rather
-    than a broad shift in rhizosphere functional profiles.
+  description: Before pathogen challenge, the wheat DT-SynCom treatment produced selective changes in measured barley-rhizosphere
+    RNA features, including downregulation of PF02868, PF01614 and K05516. Overall functional profiles and bacterial
+    community structure showed no significant treatment shift. These are metatranscriptomic observations, not PICRUSt
+    predictions. Similarity-based contig annotations do not attribute transcripts to individual inoculant strains,
+    and no perturbation establishes these changes as necessary mediators of the later disease-protection outcome.
   scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:42453107
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >
-      Inoculation with wheat SynCom resulted in downregulation of PF02868,
-      PF01614 (PFAM; IclR-family transcriptional regulator, C-terminal domain),
-      and K05516 (KEGG; stress-induced DnaJ-like molecular chaperone)
-    explanation: >
-      Supports selective rhizosphere metatranscriptomic feature shifts after
-      Wheat DT-SynCom inoculation.
+    snippet: 'Inoculation with wheat SynCom resulted in downregulation of PF02868, PF01614 (PFAM; IclR-family transcriptional
+      regulator, C-terminal domain), and K05516 (KEGG; stress-induced DnaJ-like molecular chaperone)
+
+      '
+    explanation: 'Supports selective rhizosphere metatranscriptomic feature shifts after Wheat DT-SynCom inoculation.
+
+      '
   - reference: PMID:42453107
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >
-      Overall, bioinoculants induced selective, function-specific shifts in
-      rhizosphere microbial gene expression, not broad community changes.
-    explanation: >
-      Supports the distinction between the observed differential functional
-      features and broad community-level shifts.
+    snippet: 'Overall, bioinoculants induced selective, function-specific shifts in rhizosphere microbial gene expression,
+      not broad community changes.
+
+      '
+    explanation: 'Supports the distinction between the observed differential functional features and broad community-level
+      shifts.
+
+      '
+  - reference: PMID:42453107
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The metatranscriptomic contigs were assigned based on sequence similarity (not reference SynCom genomes)
+    explanation: Explains why functional RNA changes are not assigned to individual inoculant strains.
 environmental_factors:
 - name: GCEF wheat isolate source
   value: Wheat cultivar RGT Reform rhizosphere
@@ -558,12 +566,31 @@ discussions:
   status: OPEN
   attaches_to:
   - associated_datasets#PRJNA1405459
-  rationale: >
-    The paper reports PRJNA1405459 for the generated sequencing data, but NCBI
-    BioProject returned a "not public" placeholder for accession 1405459 during
-    curation on 2026-09-24.
+  rationale: 'The paper reports PRJNA1405459 for the generated sequencing data, but NCBI BioProject returned a "not
+    public" placeholder for accession 1405459 during curation on 2026-09-24.
+
+    '
   posed_by: codex
   posed_date: '2026-09-24'
+- discussion_id: dt_causal_scope_batch122
+  prompt: Which pre-infection responses mediate wheat DT-SynCom disease protection in barley?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Wheat DT-SynCom powdery mildew resistance
+  - ecological_interactions#Wheat DT-SynCom selective rhizosphere functional shifts
+  rationale: Molecular samples preceded the pathogen assay, so these profiles cannot be described as post-infection
+    responses. No significant pairwise difference establishes a superior inoculant. The authors could not assign
+    ISR to specific hormone pathways. OTU matches at 99% identity suggest persistence of related taxa, not unique
+    viable-strain identification. Preserve the prior selective-versus-broad correction and the dated BioProject-visibility
+    discussion.
+  evidence:
+  - reference: PMID:42453107
+    snippet: Although our data did not allow direct assignment of ISR to specific JA-, ET-, or SA-dependent pathways
+  - reference: PMID:42453107
+    snippet: Although strain-level identity cannot be confirmed by 16S rRNA gene-based identification alone
+  posed_by: codex
+  posed_date: '2026-10-08'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -575,19 +602,25 @@ curation_history:
 - timestamp: '2026-09-24T07:33:22Z'
   curator: codex
   action: ADD_COMMUNITY_RECORD
-  changes: >
-    Added CommunityMech:000429 for the sixteen-strain wheat-origin DT-SynCom
-    from PMID:42453107 / doi:10.3389/fmicb.2026.1818676, including exact Table
-    1 member rows at genus plus strain-code resolution, equal-proportion
-    YME-grown inoculum assembly, barley powdery mildew assay evidence,
-    PRJNA1405459 dataset metadata, and an open discussion for the non-public
-    BioProject.
+  changes: 'Added CommunityMech:000429 for the sixteen-strain wheat-origin DT-SynCom from PMID:42453107 / doi:10.3389/fmicb.2026.1818676,
+    including exact Table 1 member rows at genus plus strain-code resolution, equal-proportion YME-grown inoculum
+    assembly, barley powdery mildew assay evidence, PRJNA1405459 dataset metadata, and an open discussion for the
+    non-public BioProject.
+
+    '
   llm_assisted: true
 - timestamp: '2026-09-24T07:44:58Z'
   curator: codex
   action: FIX_ADVERSARIAL_REVIEW_FINDINGS
-  changes: >
-    Addressed issue #1070 from local adversarial review by adding source
-    evidence for the Wheat DT-SynCom metatranscriptome interaction's selective,
-    not broad, rhizosphere functional-shift clause.
+  changes: 'Addressed issue #1070 from local adversarial review by adding source evidence for the Wheat DT-SynCom
+    metatranscriptome interaction''s selective, not broad, rhizosphere functional-shift clause.
+
+    '
+  llm_assisted: true
+- timestamp: '2026-10-08T16:00:02Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain positive barley protection without inferring inoculant superiority, hormone-pathway necessity
+    or plant drought protection.; Preserve selective measured RNA changes and broad-profile nulls, with pre-challenge
+    timing and no strain-level or causal-pathway assignment. Issue#1948; reports/causal_graph_review/decisions/20261008-four-records-batch122.yaml
   llm_assisted: true

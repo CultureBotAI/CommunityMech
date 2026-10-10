@@ -616,7 +616,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for South Bay Salt Pond Methane Restoration Microbial Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -624,18 +624,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -643,10 +633,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Restoration-State Niche Filtering</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Restoration-State Community Composition Association</h3>
                 </div>
-                <p class="prewrap interaction-description">Restoration status and associated hydrologic/geochemical changes partition the sediment community into unrestored hypersaline salt pond communities and restored/reference wetland-like communities.</p>
+                <p class="prewrap interaction-description">Community composition differed among the sampled unrestored ponds, restored pond and reference wetland, with restored and reference communities more similar to one another. This cross-site association is consistent with restoration-related environmental filtering but does not isolate restoration as a cause or demonstrate distinct niches that reduce competition.</p>
 
 
 
@@ -682,20 +671,7 @@
                             - SUPPORT (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"restored salt pond harbored communities more phylogenetically and functionally similar"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.1038/s41396-021-01067-w"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1038/s41396-021-01067-w</a>
-
-                            - SUPPORT (COMPUTATIONAL)
-                        </div>
-
-                        <div class="snippet">"restoration effectively converted industrial salt pond microbial communities"</div>
+                        <div class="snippet">"with restored/reference wetland communities more similar to each other than to those of unrestored salt ponds"</div>
 
                     </li>
 
@@ -705,15 +681,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Archaeal Methanogenesis Coupled to Methane Flux</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Archaeal Methanogenesis Evidence and Methane Flux Association</h3>
                 </div>
-                <p class="prewrap interaction-description">Archaeal methanogenesis genes were associated with methane flux, implicating methanogenic archaea in methane emissions from salt pond and wetland sediments.</p>
+                <p class="prewrap interaction-description">Archaeal methanogenesis-gene abundances correlated positively with methane flux across sites. A separate unrestored-pond microcosm comparison supported methane production from methylated substrates, while acetate did not significantly stimulate production. These findings support a methanogenic contribution, not a quantified in-situ pathway flux, attribution to every archaeon or syntrophic product-removal feedback.</p>
 
 
-                <p><strong>Source Taxon:</strong> salt pond methanogenic archaea</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    salt pond methanogenic archaea
+
+                </p>
 
 
 
@@ -764,10 +743,23 @@
                             <a href="https://doi.org/10.1038/s41396-021-01067-w"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1038/s41396-021-01067-w</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"methane is generated both from bacterial methylphosphonate degradation and archaeal methanogenesis"</div>
+                        <div class="snippet">"Acetate addition did not stimulate significant methane production, and control incubations also exhibited little change in methane production rates."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.1038/s41396-021-01067-w"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1038/s41396-021-01067-w</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"the substrate addition experiment demonstrated the conversion of trimethylamine and methanol to methane."</div>
 
                     </li>
 
@@ -777,15 +769,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Bacterial Methylphosphonate Methane Pathway</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Bacterial Methylphosphonate Degradation Potential</h3>
                 </div>
-                <p class="prewrap interaction-description">Bacterial genes encoding methylphosphonate degradation enzymes were correlated with methane flux, suggesting a bacterial source of methane alongside archaeal methanogenesis in salt pond sediments.</p>
+                <p class="prewrap interaction-description">Bacterial methylphosphonate-degradation genes were associated with methane flux, supporting a predicted contribution to methane production in unrestored ponds. This node describes the bacterial evidence, not bacterial exclusivity: the study also recovered archaeal genomes with phnJ. Genomic potential and correlation do not measure this pathway&#39;s methane contribution or demonstrate cross-feeding between bacteria and methanogens.</p>
 
 
-                <p><strong>Source Taxon:</strong> unrestored salt pond methane-linked bacteria</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    unrestored salt pond methane-linked bacteria
+
+                </p>
 
 
 
@@ -812,23 +807,10 @@
                             <a href="https://doi.org/10.1038/s41396-021-01067-w"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1038/s41396-021-01067-w</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"genes encoding enzymes for bacterial methylphosphonate degradation"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.1038/s41396-021-01067-w"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1038/s41396-021-01067-w</a>
-
-                            - SUPPORT (COMPUTATIONAL)
-                        </div>
-
-                        <div class="snippet">"methane is generated both from bacterial methylphosphonate degradation and archaeal methanogenesis"</div>
+                        <div class="snippet">"suggesting these two pathways may jointly contribute to the high methane emission."</div>
 
                     </li>
 
@@ -838,10 +820,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Sulfate and Methanogenesis Competition</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Salinity and Sulfate Associations with Methane Flux</h3>
                 </div>
-                <p class="prewrap interaction-description">Methane emissions were positively correlated with salinity and sulfate across the sampled salt pond and wetland sediments, linking the geochemical gradient to methane-generating community functions.</p>
+                <p class="prewrap interaction-description">Methane emissions were positively associated with salinity and sulfate across the sampled sites. These covarying field measurements do not demonstrate sulfate-driven methanogenesis, sulfate-reducer competition or niche partitioning. The source discusses possible environmental explanations, but this node retains only the observed association.</p>
 
 
 
@@ -861,17 +842,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        methanogenesis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015948"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015948</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -902,6 +872,43 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    What fraction of field methane derives from each inferred pathway, and which partner interactions are actually demonstrated?
+                </h3>
+                <p class="prewrap">The primary results, discussion and relevant statistical methods were read. Field covariation and genomic potential do not isolate interspecies exchange, product-removal feedback, competition or the causal effect of restoration. Microcosm substrate responses support community activity but do not apportion field flux among taxa/pathways. No prior correlation-based direction is restored. Broad non-graph guild roles and bottle-capacity/working-volume conflation remain tracked in #1814.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Restoration-State Community Composition Association</code>, <code>ecological_interactions#Archaeal Methanogenesis Evidence and Methane Flux Association</code>, <code>ecological_interactions#Bacterial Methylphosphonate Degradation Potential</code>, <code>ecological_interactions#Salinity and Sulfate Associations with Methane Flux</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">OTHER</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+                                <a href="https://doi.org/10.1038/s41396-021-01067-w" rel="noreferrer">doi:10.1038/s41396-021-01067-w</a>
+
+                        </div>
+                        <p class="snippet small prewrap">These correlations should be interpreted cautiously, however, because the genes could be present but inactive in the methylotrophic methanogens</p>
+                        <p class="muted small prewrap">The source explicitly distinguishes gene presence/correlation from realized activity.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1678,7 +1685,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1691,7 +1697,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1752,7 +1757,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1761,11 +1766,11 @@
             processes.push("response to abiotic stimulus");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Restoration-State Niche Filtering",
+                label: "Restoration-State Community Composition Association",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1780,7 +1785,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1793,11 +1798,11 @@
             processes.push("methanogenesis");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "Archaeal Methanogenesis Coupled to Methane Flux",
+                label: "Archaeal Methanogenesis Evidence and Methane Flux Association",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1806,18 +1811,24 @@
             });
 
 
-            var srcKey = "salt pond methanogenic archaea";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "salt pond methanogenic archaea"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1826,11 +1837,11 @@
 
             var processes = [];
 
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Bacterial Methylphosphonate Methane Pathway",
+                label: "Bacterial Methylphosphonate Degradation Potential",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1839,18 +1850,24 @@
             });
 
 
-            var srcKey = "unrestored salt pond methane-linked bacteria";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "unrestored salt pond methane-linked bacteria"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:3";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1861,15 +1878,11 @@
 
             var processes = [];
 
-
-            processes.push("methanogenesis");
-
-
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Sulfate and Methanogenesis Competition",
+                label: "Salinity and Sulfate Associations with Methane Flux",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

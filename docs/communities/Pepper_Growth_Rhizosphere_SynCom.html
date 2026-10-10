@@ -618,7 +618,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Pepper Growth Rhizosphere SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -626,86 +626,18 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
 
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Four-Member Pepper SynCom Inoculation</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
-                </div>
-                <p class="prewrap interaction-description">Bacillus subtilis, Trichoderma harzianum, Trichoderma asperellum, and Aspergillus sp. fermentation liquids were normalized and mixed in equal proportions before soil inoculation.
-</p>
-
-
-
-
-
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        symbiotic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044403"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044403</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> SynCom-Shifted Rhizosphere Diversity
-                        <p class="prewrap causal-description">The four-member SynCom inoculation reorganized the pepper seedling rhizosphere, driving the measured fungal and bacterial diversity shifts after 45 days.
-</p>
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/39858916/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39858916</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"The fermentation liquids of the four strains were adjusted to a concentration of 1 × 108 CFU/mL, and then mixed in equal proportions to create the SynCom."</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
 
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>SynCom-Shifted Rhizosphere Diversity</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">SynCom inoculation increased fungal richness and fungal Bray-Curtis dissimilarity while decreasing bacterial Bray-Curtis dissimilarity in the pepper seedling rhizosphere.
-</p>
+                <p class="prewrap interaction-description">After the four-member inoculation treatment, the study reports increased fungal and bacterial Chao richness and fungal Bray-Curtis dissimilarity, with decreased bacterial Bray-Curtis dissimilarity after 45 days. Preserve the observed community-profile response. These diversity indices do not demonstrate colonization by each inoculated strain, symbiosis, stability or a causal enrichment mechanism, and the main text contains inconsistent blanket richness/evenness wording.</p>
 
 
 
@@ -713,17 +645,6 @@
 
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        symbiotic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044403"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044403</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -731,9 +652,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Key Native Taxa Enrichment
-                        <p class="prewrap causal-description">The SynCom-driven rhizosphere shift included increases in native fungal and bacterial OTUs that were correlated with pepper growth and root morphology readouts.
-</p>
+                        <span class="flow-arrow">→</span> Growth-Associated Native Taxa Relative Enrichment
+                        <p class="prewrap causal-description">HYPOTHESIZED - The authors propose that the shifted rhizosphere community favors enrichment of growth-associated native taxa. Diversity indices and relative taxon profiles were measured after the same treatment; their association does not isolate diversity change as the cause of enrichment.</p>
                     </div>
 
                 </div>
@@ -762,11 +682,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Key Native Taxa Enrichment</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Growth-Associated Native Taxa Relative Enrichment</h3>
                 </div>
-                <p class="prewrap interaction-description">SynCom inoculation enriched native Sordariomycetes, Pseudarthrobacter, SBR1031, and A4b OTUs whose abundances tracked pepper growth and root morphology.
-</p>
+                <p class="prewrap interaction-description">SynCom treatment increased relative abundances of selected Sordariomycetes, Pseudarthrobacter, norank SBR1031 and norank A4b OTUs associated with pepper growth and root morphology. Scedosporium OTU451 also increased, while total genus-level Scedosporium decreased; these different aggregation levels must remain distinct. Correlations and random-forest importance identify candidate mediators, not absolute population growth, strain-specific colonization or demonstrated contributions by the four inoculated strains.</p>
 
 
 
@@ -774,17 +692,6 @@
 
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        symbiotic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044403"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044403</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -793,8 +700,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Pepper Rhizosphere Growth Promotion
-                        <p class="prewrap causal-description">Random-forest and correlation analyses nominated the enriched native taxa as contributors to the shoot-height, dry-weight, chlorophyll, and root-vigor responses.
-</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED - The enriched native taxa may contribute to pepper growth, as proposed from correlation and random-forest analyses. Those analyses do not establish necessity, sufficiency or direction independently of the shared inoculation treatment or plant-driven changes.</p>
                     </div>
 
                 </div>
@@ -824,10 +730,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Pepper Rhizosphere Growth Promotion</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">The four-member SynCom increased pepper seedling shoot, biomass, chlorophyll, root-vigor, and root-morphology measurements relative to uninoculated controls.
-</p>
+                <p class="prewrap interaction-description">The four-member SynCom treatment increased measured shoot growth, biomass, chlorophyll, root vigor and root-morphology readouts compared with uninoculated controls after 45 days. Preserve these positive whole-plant responses without inferring reciprocal microbial fitness, superiority over every single strain, field yield or mediation by a particular native taxon.</p>
 
 
 
@@ -876,6 +780,46 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which native-community changes mediate the measured pepper growth response?
+                </h3>
+                <p class="prewrap">Inoculum preparation is an experimental method, not a biological node. The three biological observations remain and the author-proposed diversity-to-enrichment-to-growth path is retained as hypothesized. Relative OTU enrichment and predictive importance do not identify independent causal mediators. Scedosporium genus decrease and OTU451 increase are compatible at different resolutions. Preserve the four-member taxonomy and earlier label repairs. No new topology is supported by the inspected experimental comparisons.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#SynCom-Shifted Rhizosphere Diversity</code>, <code>ecological_interactions#Growth-Associated Native Taxa Relative Enrichment</code>, <code>ecological_interactions#Pepper Rhizosphere Growth Promotion</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VIVO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/39858916/" rel="nofollow noreferrer">PMID:39858916</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">The abundance of Sordariomycetes, Pseudarthrobacter, norank SBR1031, and norank A4b were significantly correlated with pepper growth and root morphology</p>
+                        <p class="muted small prewrap">Links SynCom-enriched native taxa to the pepper growth and root-architecture phenotypes.
+</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1017,7 +961,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1030,7 +973,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1098,42 +1040,10 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("symbiotic process");
-
-
-            var evidenceCount = 1;
-
-            nodes.push({
-                id: intId,
-                label: "Four-Member Pepper SynCom Inoculation",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:1";
-            var intType = "COLONIZATION_FACILITATION";
-            var metabolites = [];
-
-            var processes = [];
-
-
-            processes.push("symbiotic process");
-
 
             var evidenceCount = 1;
 
@@ -1153,21 +1063,17 @@
         })();
 
         (function() {
-            var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intId = "interaction:1";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("symbiotic process");
-
 
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Key Native Taxa Enrichment",
+                label: "Growth-Associated Native Taxa Relative Enrichment",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1181,8 +1087,8 @@
         })();
 
         (function() {
-            var intId = "interaction:3";
-            var intType = "MUTUALISM";
+            var intId = "interaction:2";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1227,7 +1133,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 8;
+        var nodeCount = 7;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

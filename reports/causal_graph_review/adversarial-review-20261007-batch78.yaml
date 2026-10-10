@@ -1,0 +1,244 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 76c0dec3077239bbe236ba6a01e76df3923b6f65
+scope:
+- kb/communities/Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml
+- kb/communities/OMM12_Gnotobiotic_Mouse_Gut_Community.yaml
+- kb/communities/ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model.yaml
+- kb/communities/ORNL_PMI_Populus_PD10_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch78.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch78.json
+findings:
+- issue: 1644
+  severity: P2
+  status: addressed_in_this_change
+  finding: Nitrifier background handoff versus actual redox-dependent performance.
+  disposition: Close only after protected-main merge.
+- issue: 1645
+  severity: P2
+  status: addressed_in_this_change
+  finding: OMM12 versus expanded resistance, protocol detection and context arrow.
+  disposition: Close only after protected-main merge.
+- issue: 1646
+  severity: P2
+  status: addressed_in_this_change
+  finding: ORNL trophic measurements versus flux model and stale source-access gap.
+  disposition: Close only after protected-main merge.
+- issue: 1647
+  severity: P2
+  status: addressed_in_this_change
+  finding: PD10 medium selection, FBA, agar and protein boundaries and incorrect groundings.
+  disposition: Close only after protected-main merge.
+- issue: 1648
+  severity: P2
+  status: unresolved_research
+  finding: Missing nitrifier redox-dependent outcome nodes.
+  disposition: Keep OPEN after repair merge; scoped paid authorization and report inspection remain pending.
+- issue: 1649
+  severity: P2
+  status: unresolved_research
+  finding: Missing distinct MOPS predicted exchange structure.
+  disposition: Keep OPEN after repair merge; scoped paid authorization and report inspection remain pending.
+- issue: 1650
+  severity: P2
+  status: unresolved_non_graph
+  finding: OMM strain/table identity discrepancies and ORNL non-graph medium/assay metadata.
+  disposition: Keep OPEN after graph-repair merge.
+adversarial_checks:
+- Fresh both-root baseline preceded primary-source reading. All four whole records,13existing nodes and7arrows were
+  inspected. One context arrow removed; six causal or explicitly hypothesized arrows retained. No topology invented
+  to satisfy graph density.
+- Nitrifier handoff background is not exact-system transfer measurement. Preserve late aerobic ammonia removal/nitrate
+  accumulation and anoxic ammonia accumulation, with the early decrease/rebound sequence. Gene content and amoC
+  alone do not demonstrate complete enzyme activity, exclusive donor-recipient flux or anoxic nitrification.
+- Preserve the prior45.96% Nitrosospira starting-material abundance correction rather than replacing it with the
+  different short-read week0 percentage. Aerobic guild decline and absent Nitrobacter nitrogen-gene RNA do not prove
+  all nitrification absent; lower-abundance contributors remain possible. Canonical taxa preserved.
+- OMM12 genuinely confers resistance but less than conventional microbiota. The conventional-like result is the
+  expanded community, not the12-member record. Source abstract directly resolves this distinction; publisher subscription
+  access was not bypassed.
+- Retain the repeat-dose protocol-to-establishment arrow and improved YL27 detection. Staged facility cohorts are
+  not a fully matched randomized experiment, every strain is not detected in every sample, and qPCR gene copies
+  per extracted-DNA volume are not viable counts. Compositional similarity is not challenge-function mediation;
+  remove that context arrow.
+- The ORNL exact-system full text is now read, superseding stale access wording. Measured bulk substrate/product
+  chemistry, qPCR and microscopy support the maintained trophic community and both donor-to-partner edges. Carbon/electron
+  allocation, hydrogen/ethanol proportions and alternative transfer routes remain modeled or unresolved.
+- Do not transfer the sulfate-free Desulfovibrio-methanogen syntrophy case or the separate fuel-cell system to this
+  sulfate-supplied community. Cross-feeding does not prove reciprocal obligacy. Elevated-fumarate upset and succinate
+  accumulation do not isolate selective succinate causation. OptCom biomass objectives and assumed hydrogen recipient
+  are not new measured flux, and its fourth-member extension is not a community member.
+- PD10 controlled medium comparison supports two selection-to-survivor arrows. Distinguish MOPS passage4 and R2A
+  passage10 rather than treating the abstract five-cycle summary as exact for both. Maintain the ten-strain experimental
+  inoculum and separate four-/three-member computational subsets.
+- Retain both inhibition and positive pairwise R2A agar phenotypes. GM17-inhibited strains still persist in liquid;
+  positive exchanges and culture-condition differences are alternatives rather than an isolated rescue. Preserve
+  protein evidence for BC15 without claiming directly counted viable biomass or equal 16S/protein rankings.
+- Retain the R2A exchange-support arrow as explicitly hypothesized. FBA is conditioned on endpoint proportions and
+  proteins establish pathway capacity, not actual exchange flux or independent validation of temporal assembly.
+  Include both other modeled partners, not exclusive AP49; remove two chemically incorrect descriptors while preserving
+  generic classes in prose. The dry-run schema guard rejected ungrounded structured descriptors before any record
+  writes.
+- Fresh primary text and existing caches match all22 graph snippets. ChEBI fumarate(2-) was verified at the official
+  entry. Separate supplements, original figure pixels, raw data and executable KBase models were not audited. Early
+  oversized output truncation was not used as evidence of absence; primary main texts and structured tables were
+  reread in bounded chunks.
+- 'Four histories and all raw non-graph blocks,456 other records and920 caches are preserved. Graph-only scope does
+  not certify metadata: OMM strain-name/table disagreements, ORNL medium detail and PD10 seed-culture/metal notes
+  are tracked separately in1650. Prior416/1083/529/543 and the distinct1532/1533 record scope are respected.'
+- Nitrifier endpoint and PD10 MOPS exchange omissions remain needs_research1648/1649. Two one-record Edison LITERATURE
+  dry runs cost zero credits; no actual provider reports or submissions. Scoped questions are unanswered, preselection
+  is not approval, and prior denied/pending scopes are unchanged.
+- Full focused schema/strict/term/reference/snippet/history checks, both-root inventory/network/rank, regression/lint
+  and deterministic rendering outputs are captured. Exact descriptions parsed across456 pages are not browser screenshots.
+  Exact-head COMMENT self-review and postcommit docs-current are separate publication gates. Protected-main merge
+  and branch cleanup are still required; self-review is not independent approval or corpus completion.
+verification:
+  combined_regressions: 696 passed in 202.21s (0:03:22)
+  new_regression_tests: 10
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: All four full-record reference validators exit0. CLI Total checks counts issues, not executed checks.
+    All22 graph quotations independently match fresh primary XML-extracted text or abstract. All920 caches are unchanged;
+    literal matching is not entailment. Six complete main bodies were read, while the OMM design/infection paper
+    remains public-abstract bounded. No recertification of every cache or non-graph field.
+  snippet_counts_by_record:
+    kb/communities/Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml:
+      MATCH: 15
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/OMM12_Gnotobiotic_Mouse_Gut_Community.yaml:
+      MATCH: 13
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model.yaml:
+      MATCH: 28
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/ORNL_PMI_Populus_PD10_SynCom.yaml:
+      MATCH: 29
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    primary_matched: 22
+    new_nodes_or_arrows: 0
+    complete_main_bodies_read: 6
+    omm_design_abstract_bounded: true
+    separate_supplements_raw_datasets_original_figure_pixels_or_live_kbase_models_audited: false
+  network:
+    existing_findings_preserved: 44
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All44 baseline warnings preserved exactly. Community scope remains aggregate, not resolved member-specific
+      activity. No taxonomy or auditor-rule changes.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch78.yaml: 5803b1826d23abd55d08addeb735915efbe4906b77096584338e28c200415ea2
+    tests/test_causal_review_batch78.py: 2725914f0db01e44accb4e7cb4241cfb86935a3f17d99c62c1482e417f172ccf
+    kb/communities/Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml: 61a0b16fc00db138fa35884e8f9f170bda3b2cc9092008a9d5098b3600ad920a
+    kb/communities/OMM12_Gnotobiotic_Mouse_Gut_Community.yaml: 850493028ce860f07a09dccf22edadd16a29743f9ba8c42363c36091ad0a5e38
+    kb/communities/ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model.yaml: 151a414766ded2f1c8b094002819c6e620751b6344ef9753d1f3a988c1cf99dd
+    kb/communities/ORNL_PMI_Populus_PD10_SynCom.yaml: 339ff13ebe407e9c101499ec4a8ec7618da7079c503e7457152577021ab71a04
+    reports/causal_graph_review/README.md: 9d2535ea11646668c20770637d0028435cdb78e3560f51ee6690c984a6400831
+  unchanged_caches: 920
+  cache_changes: []
+  unchanged_records: 456
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: true
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs:
+    - community_id: CommunityMech:000433
+      job: LITERATURE
+      query_chars: 9473
+      query_sha256: 9cb17046ed5b75af97b0ac4c34efa9851bdc1c17522872c6afde5d900e7b736d
+      meta_path: /private/tmp/communitymech-batch78/edison-nitrifier/Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium-edison-literature-causal-meta.yaml
+      authorization: Scoped asynchronous question unanswered; preselection is not approval.
+    - community_id: CommunityMech:000047
+      job: LITERATURE
+      query_chars: 15034
+      query_sha256: 024cc9d6f3d0e1209a08a18d3edf8c7b148a942c94717104f06b881aaa3b32bc
+      meta_path: /private/tmp/communitymech-batch78/edison-populus/ORNL_PMI_Populus_PD10_SynCom-edison-literature-causal-meta.yaml
+      authorization: Scoped asynchronous question unanswered; preselection is not approval.
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+    current:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: No scope-count change, taxonomy edit, or auditor-rule change. Aggregate outcomes do not establish
+    member-resolved activity.
+corpus:
+  records: 460
+  nodes: 1447
+  edges: 614
+  review_status_counts:
+    needs_research: 30
+    pending: 180
+    reviewed: 250
+limitations:
+- Fresh pre-paper baseline includes460 records and920 caches across both roots with ignored/hidden-independent enumeration.
+  All13 current nodes and7arrows reviewed;13nodes6arrows remain. Four guarded repairs and histories,456 other records
+  and all920 caches unchanged.
+- Six complete primary main bodies read from fresh Europe PMC XML, including embedded captions and structured tables.
+  OMM design/infection paper is public-abstract bounded; Nature subscription preview and PMC reCAPTCHA were respected.
+  No separate supplement, original figure pixels, raw dataset or live KBase model execution was audited.
+- Early oversized cache/combined output truncations do not establish absence. Relevant full primary texts were read
+  in bounded chunks and structured tables read separately. Dry-run metadata fields are parsed structurally; rendering
+  a truncated meta file is not report inspection.
+- Every22 graph quotations independently matches fresh primary text and existing cache. No cache changed or full
+  publication uploaded. Literal matching is not entailment; full-record reference validators and source-based review
+  remain distinct.
+- Nitrifier positive aerobic removal after lag and anoxic ammonia accumulation are preserved. Introductory handoff
+  background is not experimental pair flux; gene potential and amoC expression alone do not establish complete enzyme
+  activity. Missing redox endpoints remain needs_research.
+- OMM12 retains real but lower-than-conventional resistance. Expanded-community conventional-like resistance is
+  not transferred to the12-member record. Repeat-dose improvement remains without all-strain detection guarantees
+  or functional mediation; staged cohorts and qPCR units are explicit.
+- ORNL trophic main text supersedes old access limitation. Bulk substrate and product measurements support both
+  trophic arrows; species allocations and donor proportions remain model estimates. OptCom assumptions and modeled
+  fourth-member extension are not measured three-species flux or membership.
+- PD10 retains medium-dependent survivor selection and proposed R2A substrate support. Endpoint-conditioned FBA
+  and pathway proteins do not independently validate assembly or exchange flux. Agar inhibition/promotion differs
+  from liquid coexistence. Generic predicted metabolite classes do not justify purine-alkaloid or aromatase-inhibitor
+  groundings. Missing MOPS exchange structure remains needs_research.
+- Two separate one-community Edison LITERATURE dry runs used zero provider submissions/credits. Scoped questions
+  remain unanswered; generic authorization and earlier pending/denied scopes are not broadened. No new nodes or
+  arrows added.
+- Dedup reviewed926 all-state issue titles/bodies and99 local matches with ignored/hidden-inclusive search excluding
+  git/docs/site/cache. Matching12/416/592/595/1083/1532/1533 and529/543 read; no exhaustive PR-comment audit. Earlier
+  fixes remain, and1532/1533 concern a different record.
+- Repairs1644-1647 remain OPEN until protected-main merge; research1648/1649 and metadata1650 remain OPEN afterward.
+  Canonical taxa and raw non-graph fields preserved, not certified. Self-adversarial review is not independent approval
+  or corpus completion.

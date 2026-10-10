@@ -103,12 +103,11 @@ taxonomy:
     explanation: Supports an acetogenic bacterial guild in deeper SPRUCE peat.
 ecological_interactions:
 - name: Soil Organic Matter-Derived Terminal Electron Acceptors
-  description: Cleavage of peat soil organic matter supplies terminal electron
-    acceptors for anaerobic carbon decomposition, allowing sulfate/sulfite
-    reduction, denitrification, and acetogenesis to predominate over
-    methanogenesis by gene abundance even in an acidic, anoxic,
-    inorganic-electron-acceptor-limited peatland.
-  interaction_type: COMMENSALISM
+  description: 'HYPOTHESIZED: multiomics and metabolite profiles suggest that cleavage of soil organic matter supplies
+    terminal electron acceptors for anaerobic respiration. Relative gene abundances indicate substantial potential
+    for sulfate/sulfite reduction, denitrification and acetogenesis; they do not directly rank process fluxes or
+    demonstrate a neutral-beneficiary relationship between taxa. The authors explicitly require process-specific
+    rate measurements to test the mechanism.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: organic molecular entity
@@ -126,29 +125,31 @@ ecological_interactions:
       label: anaerobic respiration
   downstream:
   - target: Depth-Stratified Anaerobic Peat Metabolism
-    description: Soil organic matter electron-acceptor availability varies
-      along the peat profile and helps structure depth-specific anaerobic
-      terminal carbon pathways.
+    description: 'HYPOTHESIZED: depth-dependent availability of electron acceptors released from organic matter
+      may help select the metabolic pathways represented along the peat profile. The genomic and metabolite correlations
+      support the conceptual model but do not independently isolate acceptor release as the cause of stratification.'
   evidence:
   - reference: PMID:40715043
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Multi-omics data suggest that organic matter cleavage provides terminal electron acceptors,
-      which together with methanogen metabolic flexibility, may explain peat microbiome composition resistance
-      to warming.
-    explanation: Supports soil organic matter cleavage as a source of terminal
-      electron acceptors in the warming-manipulated SPRUCE peat.
+    snippet: Multi-omics data suggest that organic matter cleavage provides terminal electron acceptors, which together
+      with methanogen metabolic flexibility, may explain peat microbiome composition resistance to warming.
+    explanation: Supports soil organic matter cleavage as a source of terminal electron acceptors in the warming-manipulated
+      SPRUCE peat.
   - reference: PMID:40715043
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: the predominant pathways for anaerobic carbon decomposition include sulfate/sulfite reduction,
-      denitrification, and acetogenesis, rather than methanogenesis based on gene abundances
-    explanation: Supports sulfate/sulfite reduction, denitrification, and
-      acetogenesis as the major modeled anaerobic terminal pathways.
-- name: Acetate-Fueled Methanogenesis Under Warming
-  description: Elevated temperatures increase substrate availability, including acetate, which supports
-    methanogenic activity in anaerobic peat. The inferred interaction links acetogenic production of acetate
-    in deep peat to acetoclastic and hydrogenotrophic methanogenesis by archaeal methanogens.
+    snippet: the predominant pathways for anaerobic carbon decomposition include sulfate/sulfite reduction, denitrification,
+      and acetogenesis, rather than methanogenesis based on gene abundances
+    explanation: Supports sulfate/sulfite reduction, denitrification, and acetogenesis as the major modeled anaerobic
+      terminal pathways.
+- name: Inferred Acetate Supply to Methanogens
+  description: 'HYPOTHESIZED: acetogenic bacteria may supply acetate to methanogens, but the deep-peat guild-to-guild
+    transfer is not directly traced. Greater deep-peat Wood-Ljungdahl pathway potential and acetate accumulation
+    are distinct from surface acetogen activity associated with warming. Surface methanogens express acetoclastic
+    and hydrogenotrophic pathways; acetate feeds the acetoclastic route, while hydrogenotrophy uses hydrogen and
+    carbon dioxide. These observations do not demonstrate acetate transport from deep peat to the surface or quantify
+    the contribution of this particular donor guild to warming-induced methane production.'
   interaction_type: CROSS_FEEDING
   source_taxon:
     preferred_term: deep peat acetogenic bacteria
@@ -183,19 +184,28 @@ ecological_interactions:
   - reference: PMID:40715043
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: the mechanism by which elevated temperatures promote methanogenesis in the bog is through
-      enhanced availability of substrates (e.g., acetate).
-    explanation: Supports substrate-mediated stimulation of methanogenesis under warming.
+    snippet: the mechanism by which elevated temperatures promote methanogenesis in the bog is through enhanced
+      availability of substrates (e.g., acetate).
+    explanation: Supports the authors' surface substrate-availability interpretation, not demonstrated deep-to-surface
+      transfer.
   - reference: PMID:40715043
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: we find evidence that the dominant methanogen at SPRUCE, Ca. Methanoflorens, is actively
-      performing both acetoclastic and hydrogenotrophic methanogenesis at the surface of the bog
-    explanation: Supports active methanogenic pathways in the SPRUCE surface peat community.
+    snippet: we find evidence that the dominant methanogen at SPRUCE, Ca. Methanoflorens, is actively performing
+      both acetoclastic and hydrogenotrophic methanogenesis at the surface of the bog
+    explanation: Supports surface methanogen pathway flexibility, not acetate as the direct substrate of hydrogenotrophy.
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the genomic potential for acetogenesis via the Wood-Ljungdahl pathway continues to increase, resulting
+      in the highest concentrations of acetate in the deep peat
+    explanation: Supports deep-peat acetogenic potential and acetate accumulation, not a measured transfer to the
+      named recipient guild.
 - name: Depth-Stratified Anaerobic Peat Metabolism
-  description: SPRUCE peat microbial composition and functional potential vary with depth, structuring
-    terminal anaerobic carbon turnover across surface and deep peat zones.
-  interaction_type: NICHE_PARTITIONING
+  description: Community composition and genomic functional potential differ with peat depth. Surface layers contain
+    more aerobic and fermentative potential, whereas deeper layers contain diverse anaerobic pathways and greater
+    acetogenic potential. This supports environmental stratification, not by itself reduced competition among species
+    or a measured flux from deep producers to surface consumers.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: acetate
@@ -212,18 +222,17 @@ ecological_interactions:
       id: GO:0015948
       label: methanogenesis
   downstream:
-  - target: Acetate-Fueled Methanogenesis Under Warming
-    description: Depth-stratified anaerobic metabolism includes increasing
-      Wood-Ljungdahl acetogenesis potential and the highest acetate
-      concentrations in deep peat, providing acetate that can feed active
-      archaeal methanogenesis in the bog.
+  - target: Inferred Acetate Supply to Methanogens
+    description: 'HYPOTHESIZED: the depth-associated distribution of acetogenic potential and acetate provides a
+      possible substrate-supply context for methanogens in the peat. It does not establish a deep-to-surface transport
+      pathway, a specific donor-recipient flux, or the cause of the surface warming response.'
   evidence:
   - reference: PMID:40715043
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Depth was the main driver of variation in microbial community composition (P = 0.002, adjR2
-      = 0.13, Fig. 1A, B) and functional potential (P < 0.001, R2 = 0.623).
-    explanation: Supports depth-based niche partitioning in SPRUCE peat.
+    snippet: Depth was the main driver of variation in microbial community composition (P = 0.002, adjR2 = 0.13,
+      Fig. 1A, B) and functional potential (P < 0.001, R2 = 0.623).
+    explanation: Supports depth-associated community composition and functional potential, not reduced competition.
 environmental_factors:
 - name: Whole-ecosystem warming and elevated carbon dioxide
   value: air and peat warming with elevated atmospheric CO2
@@ -339,3 +348,32 @@ associated_datasets:
     snippet: The mass spectrometry proteomics data were deposited in the MetaproteomeXchange Consortium
       via the MassIVE partner repository with accession number PXD063775 and MSV000097832.
     explanation: Links the community record to public metaproteomic data.
+discussions:
+- discussion_id: methane_graph_evidence_scope
+  prompt: Which inferred electron-acceptor and acetate transfers are supported by direct process measurements?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The primary study explicitly presents a conceptual model and calls for process-specific rates and physiological
+    confirmation. Preserve pathway potential, metabolite distributions and the observed surface expression response
+    without equating them with quantified flux. Deep acetate accumulation does not identify its consumers or prove
+    vertical transport. COMMUNITY_LEVEL stratification does not establish reduced competition. No new topology is
+    introduced.
+  evidence:
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: our hypotheses must be confirmed by process-specific rate measurements in the future
+    explanation: The primary discussion explicitly limits mechanistic certainty.
+  attaches_to:
+  - ecological_interactions#Soil Organic Matter-Derived Terminal Electron Acceptors
+  - ecological_interactions#Inferred Acetate Supply to Methanogens
+  - ecological_interactions#Depth-Stratified Anaerobic Peat Metabolism
+curation_history:
+- timestamp: '2026-10-07T19:51:55Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain the proposed organic-matter electron-acceptor mechanism without commensalism or flux certainty.;
+    Retain hypothesized acetate cross-feeding while separating deep potential from surface activity and hydrogenotrophy.;
+    Retain depth stratification and its hypothesized supply direction without asserting competition reduction or
+    vertical transport. Issue#1778; reports/causal_graph_review/decisions/20261007-four-records-batch98.yaml
+  llm_assisted: true

@@ -101,8 +101,10 @@ taxonomy:
     explanation: Identifies B. subtilis as the auxiliary strain in the SYC consortium.
 ecological_interactions:
 - name: Staged cattle-manure wastewater valorization
-  description: The staged two-member SYC consortium converted cattle manure wastewater into stable bioactive fermentation
-    broth and maintained stronger viable bacterial density than the S2-8-1 monoculture or simultaneous co-culture.
+  description: Among the tested S2-8-1 monoculture, simultaneous co-culture and staged SYC systems, SYC maintained
+    the highest viable bacterial density. The source describes the resulting cattle-manure wastewater broth as stable
+    and bioactive; this is bounded to the reported experiment, not demonstrated reciprocal benefit or universal
+    functional stability.
   scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:42341825
@@ -113,12 +115,14 @@ ecological_interactions:
   - reference: PMID:42341825
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The staged "pre-modification followed by synergy" consortium effectively converts cattle manure wastewater into
-      a stable and bioactive fermentation broth
+    snippet: The staged "pre-modification followed by synergy" consortium effectively converts cattle manure wastewater
+      into a stable and bioactive fermentation broth
     explanation: Supports conversion of cattle manure wastewater by the staged consortium.
 - name: SYC rhizosphere nitrification and maize promotion
-  description: Fermentation broth from SYC increased rhizosphere nitrification, nitrate availability, photosynthetic performance,
-    cytokinin accumulation, and maize whole-plant dry matter in a soil-maize pot experiment.
+  description: In a soil-maize pot experiment, SYC enhanced rhizosphere nitrification, nitrate availability, photosynthetic
+    performance and cytokinin accumulation. Whole-plant dry matter increased by 41.4% versus the water control,
+    not the monoculture or simultaneous-culture comparator used for broth density. The accessible abstract does
+    not isolate cytokinin accumulation or the transcript response as the cause of plant growth.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: nitrate
@@ -129,24 +133,37 @@ ecological_interactions:
   - reference: PMID:42341825
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: SYC significantly enhanced rhizosphere nitrification, increased NO3--N availability, and promoted maize growth
+    snippet: SYC significantly enhanced rhizosphere nitrification, increased NO3--N availability, and promoted maize
+      growth
     explanation: Supports the pot-experiment nitrogen and maize-growth effects of SYC.
   - reference: PMID:42341825
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: resulting in a 41.4% increase in whole-plant dry matter compared with the water control
     explanation: Quantifies the maize dry-matter increase after SYC treatment.
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The consortium also improved photosynthetic performance and cytokinin accumulation.
+    explanation: Supports these reported pot-treatment endpoints without proving their mediation of growth.
 - name: S2-8-1 nitrogen and cytokinin-related gene upregulation
   description: Comparative metatranscriptomics under SYC conditions found significant upregulation of S2-8-1 heterotrophic
-    ammonia oxidation-related genes and cytokinin-related genes.
+    ammonia oxidation-related and cytokinin-related genes. This is a member-specific transcript observation, not
+    demonstrated protein activity, metabolic flux, or a proven mediator of the broth-density or maize-growth outcomes.
   scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:42341825
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Comparative metatranscriptomic analysis revealed significant upregulation of heterotrophic ammonia oxidation-related
-      genes (CYP450) and cytokinin-related genes (miaA and LOG) in S2-8-1 under SYC conditions
-    explanation: Supports S2-8-1 transcriptional activation in the staged consortium.
+    snippet: Comparative metatranscriptomic analysis revealed significant upregulation of heterotrophic ammonia
+      oxidation-related genes (CYP450) and cytokinin-related genes (miaA and LOG) in S2-8-1 under SYC conditions
+    explanation: Supports reported transcript upregulation specifically in S2-8-1, not direct pathway activity or
+      causal mediation of other endpoints.
+  participating_taxa:
+  - preferred_term: Ensifer sp. S2-8-1
+    term:
+      id: NCBITaxon:106591
+      label: Ensifer
 related_ingredients:
 - preferred_term: nitrate
   chebi_term:
@@ -208,17 +225,36 @@ external_resources:
     explanation: Lists the primary publication for the SYC consortium.
 discussions:
 - discussion_id: syc_staging_and_manure_wastewater_recipe
-  prompt: Which precise cattle-manure wastewater composition, pre-modification sequence, staging interval, inoculation ratio,
-    temperature, and aeration conditions were used for the Ensifer sp. S2-8-1/Bacillus subtilis SYC consortium?
+  prompt: Which precise cattle-manure wastewater composition, pre-modification sequence, staging interval, inoculation
+    ratio, temperature, and aeration conditions were used for the Ensifer sp. S2-8-1/Bacillus subtilis SYC consortium?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - growth_media#cattle manure wastewater
   - environmental_factors#staged consortium assembly
-  rationale: The PubMed abstract names the two strains, staged design, cattle manure wastewater feedstock, and day-12 outcome,
-    but it does not expose the full staging or medium protocol needed to reproduce the fermentation.
+  rationale: The PubMed abstract names the two strains, staged design, cattle manure wastewater feedstock, and day-12
+    outcome, but it does not expose the full staging or medium protocol needed to reproduce the fermentation.
   posed_by: codex
   posed_date: '2026-09-22'
+- discussion_id: syc_transcripts_and_endpoint_mediation
+  prompt: Does the S2-8-1 transcript response causally mediate the separately reported broth and maize endpoints?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Staged cattle-manure wastewater valorization
+  - ecological_interactions#SYC rhizosphere nitrification and maize promotion
+  - ecological_interactions#S2-8-1 nitrogen and cytokinin-related gene upregulation
+  rationale: The accessible abstract reports comparative transcript abundance and suggests coordinated pathway activation.
+    It does not isolate the transcript changes as causal mediators. Keep the observed endpoints separate, the transcript
+    node scoped only to Ensifer, and no downstream arrows. Exact full-text methods were not read.
+  evidence:
+  - reference: PMID:42341825
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Comparative metatranscriptomic analysis revealed significant upregulation of heterotrophic ammonia
+      oxidation-related genes (CYP450) and cytokinin-related genes (miaA and LOG) in S2-8-1 under SYC conditions
+    explanation: Supports reported transcript upregulation specifically in S2-8-1, not direct pathway activity or
+      causal mediation of other endpoints.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -228,11 +264,20 @@ curation_history:
 - timestamp: '2026-09-22T09:18:04Z'
   curator: codex
   action: ADD_COMMUNITY_RECORD
-  changes: Added a staged two-member Ensifer sp. S2-8-1 and Bacillus subtilis cattle-manure wastewater SynCom from PMID:42341825.
+  changes: Added a staged two-member Ensifer sp. S2-8-1 and Bacillus subtilis cattle-manure wastewater SynCom from
+    PMID:42341825.
   llm_assisted: true
 - timestamp: '2026-09-22T09:24:41Z'
   curator: codex
   action: FIX_ADVERSARIAL_REVIEW_FINDINGS
-  changes: Removed unsupported cross-feeder roles, reclassified soil-maize pot evidence as in vivo, and narrowed the metatranscriptomic
-    interaction to observed S2-8-1 gene upregulation under SYC conditions.
+  changes: Removed unsupported cross-feeder roles, reclassified soil-maize pot evidence as in vivo, and narrowed
+    the metatranscriptomic interaction to observed S2-8-1 gene upregulation under SYC conditions.
+  llm_assisted: true
+- timestamp: '2026-10-08T01:27:46Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain tested broth-density comparison without universal stability or reciprocal-benefit claims.; Preserve
+    positive maize-pot endpoints and the water-control dry-matter comparator without inferred mediator arrows.;
+    Restrict the transcript observation to canonical Ensifer S2-8-1 and distinguish it from protein activity, flux
+    or causal mediation. Issue#1826; reports/causal_graph_review/decisions/20261008-four-records-batch105.yaml
   llm_assisted: true

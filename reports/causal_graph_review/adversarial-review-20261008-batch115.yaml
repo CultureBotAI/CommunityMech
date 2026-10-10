@@ -1,0 +1,417 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 62b18e27b8c7a00db7a90bdeaab5f730cdab5f80
+scope:
+- kb/communities/Thermophilic_Pyrite_QS_Consortium.yaml
+- kb/communities/Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.yaml
+- kb/communities/Tinto_River_Iron_Cycling_Community.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-three-records-batch115.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch115.json
+findings:
+- issue: 1893
+  severity: P2
+  finding: Separate added QS compounds from endogenous mutualism in the thermophilic pyrite graph
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1894
+  severity: P2
+  finding: Distinguish Afipia genomic predictions and shared reactor perturbations from demonstrated exchange
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1895
+  severity: P2
+  finding: Correct Acidiphilium redox direction and unsupported Tinto cross-feeding arrows
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1896
+  severity: P2
+  finding: Reconcile pyrite consortium non-graph assay and signaling claims
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1897
+  severity: P2
+  finding: Correct reactor-specific SCN ramps left wrong by the earlier thiocyanate metadata fix
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1898
+  severity: P2
+  finding: Reconcile Tinto fungal identity, redox roles and site-specific abundance metadata
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1899
+  severity: P1
+  finding: An old plain-YAML smoke test expected pre-review names and one evidence entry. Keep the source-reviewed
+    batch109 graph, and assert both SUPPORT capacity and PARTIAL early-growth inference.
+  status: locally_fixed_stack_propagation_pending
+  disposition: Local tail fix verified; propagate through affected stack and close only after protected-main integration.
+adversarial_checks:
+- 'All 14 original nodes and seven directions have explicit dispositions: 13 nodes and four arrows retained, one
+  unsupported fungal node and three arrows removed, four renames, no new topology. Targets and discussion anchors
+  resolve.'
+- 'Pyrite overcorrection check: retain measured biogenic DSF in 2021 and the mineral iron-recycling loop. Nanomolar
+  culture concentrations differ from micromolar additions; natural consortium signal transfer and density protection
+  are not demonstrated. Fatty-acid stress and signaling were not selectively separated. Intrinsic physiological
+  roles remain in prose without treating broad process annotations as causal evidence.'
+- 'AHL: 2025 methods specify an added DL mixture; remove incorrect exact-L/generic CURIE substitutions, not the
+  compound names or doses. Flagellar transcripts support a motility interpretation, not direct motility-rate measurements
+  or A. caldus AHL production. Non-graph compound identity remains follow-up #1896.'
+- 'Sulfobacillus: the 2020 simultaneous-inoculation improvement uses the Sulfobacillus-alone comparator, not all
+  monocultures; precolonization can impair leaching. The 2025 DSF biofilm relative distribution was unchanged at
+  7/14 days in this mixed assay. No universal mutualism, partner-lysate feeding or species-optimum substitution.'
+- 'SCN: Afipia pathway evidence is COMPUTATIONAL/PARTIAL; selection enriches genomic potential, not pathway induction
+  or assigned flux. Remove the common-cause-as-mediation arrow. Preserve R2/R3 fixed 250 mg/L versus other ramps;
+  stable R3 performance must not be conflated with R4/R5 high-loading instability. Biofilm, nitrogen and cofactor
+  mediation remain hypothetical.'
+- 'Tinto: 2003 Figure 6 and p4863 assign Acidiphilium ferric reduction with carbon respiration; the retained incoming
+  link supplies ferric acceptor, not traced autotroph carbon. Eukaryotic/fungal presence and production do not establish
+  specific carbon transfer. Hortaea ascomycete identity cannot justify Basidiomycota; primary fungal isolations
+  support both phyla, so no absence claim.'
+- 'Source scope: four fresh primary XML main bodies, complete 2003 Tinto PDF text and Figure 6 visual read, 2013
+  review, and two eukaryote/fungal primary abstracts read. Other original figure pixels, supplements, raw data and
+  detailed corrupted PDF table cells were not audited. All 25 quotations match fresh sources and caches: 23 primary,
+  two review. No new publication bodies or caches.'
+- 'Three guarded records and histories preserve 457 other records, 923 caches, all non-graph raw blocks and prior
+  history/decision artifacts. Three participant-list users added. Measured survey: 414 community-level, 136 mixed,
+  278 community-only, 1568 taxa and 1280 without pairwise nodes. That last survey count is not proof of actual coverage.
+  Connectivity rules and share guard unchanged.'
+- 'Network: 56 prior warnings preserved; one intentional DISCONNECTED warning for Basidiomycota exposed by removing
+  unsupported exchange. Do not silence it with unrelated participant credit or call the corpus warning-free. Identity/functional-coverage
+  follow-up #1898 remains open. Zero structural defects.'
+- Seven real in-memory control/mutation/restored-control probes reject biogenic DSF erasure, AHL support inflation,
+  the wrong dual-culture comparator, Afipia support inflation, the common-cause arrow, Acidiphilium redox reversal
+  and untraced algal transfer. Mutations and rejecting assertions are recorded; canonical hashes unchanged; not
+  additional pytest tests.
+- 'Eleven focused tests and 1044 combined regressions pass. All three records pass schema, strict, terms, full references,
+  snippets, history and rank. Deterministic rendering and exact HTML-description coverage: 456 pages, 1365 nodes,
+  528 arrows, not UI screenshots. Local macOS reference passes do not certify Linux; the full-corpus snippet audit
+  is informational.'
+- 'Graph issues #1893-#1895 await protected-main merge; metadata #1896-#1898 remain open. No Edison invocation or
+  new topology. Prior Ruegeria extension #1883 and other needs_research records remain incomplete. Self-review is
+  not independent approval; postcommit docs-current and exact-head publication are separate gates. Root CI blocker
+  #1836 is not bypassed; dependent branches are not deleted.'
+- 'Corpus: 369 reviewed, 37 pending, 54 needs_research across 460 records. The overall goal remains incomplete.'
+- 'CI exposed stale Synechococcus smoke expectations from batch109: names and single-evidence count. Issue #1899
+  records the real failed batch114 run and local reproduction. The corrected test checks exact reviewed names, target
+  resolution, pairwise taxa, qualified mediation, and SUPPORT/PARTIAL evidence. Dedicated pytest and seven additional
+  counterfactual probes pass without changing the canonical record. Propagation through older affected PRs is still
+  required; 1044 regressions plus the focused smoke run are not a new full-suite pass. #1703 loader work remains
+  separate.'
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: Erase experimentally measured biogenic DSF
+      test: test_biogenic_dsf_survives_without_endogenous_consortium_overclaim
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 32
+      assertion: assert "confirmed biogenic DSF" in node["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/4/description
+        before: 'The 2025 mixed-culture experiments added DSF and BDSF at 2 uM each. Pyrite relative abundances
+          and planktonic transcripts support A. caldus dispersal and relative L. ferriphilum enrichment on mineral
+          surfaces, with context-dependent inhibition of growth and leaching. The separate 2021 study confirmed
+          biogenic DSF in L. ferriphilum and L. ferrooxidans pyrite cultures by GC-MS at nanomolar concentrations.
+          That production result is retained, but it does not prove the micromolar treatment phenotype arises from
+          endogenous transfer within this three-species consortium. HYPOTHESIZED: natural niche defense and receptor-mediated
+          regulation; fatty-acid stress can also contribute. Neither mutual benefit nor density-dependent protection
+          against mineral overexploitation was demonstrated.'
+        after: Only synthetic DSF has evidence.
+    - mutation: Promote AHL transcript inference to demonstrated motility mechanism
+      test: test_ahl_treatment_is_not_production_or_exact_l_reagents
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 48
+      assertion: assert node["evidence"][0]["supports"] == "PARTIAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/5/evidence/0/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Reverse the dual-culture comparator
+      test: test_sulfobacillus_comparator_and_time_context_are_preserved
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 54
+      assertion: assert "not relative to L. ferriphilum biofilms" in node["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/2/description
+        before: S. thermosulfidooxidans DSM 9293 has both ferrous-iron and inorganic sulfur-oxidizing capacity and
+          can grow mixotrophically. The 2025 consortium assays used 40 C, not the species growth optimum. Its biofilm
+          relative distribution at 7 and 14 days was not significantly changed by DSF/BDSF, although other assay
+          designs and time points showed inhibition. The separate 2020 two-species study found that co-inoculation
+          improved leaching relative to S. thermosulfidooxidans alone but not relative to L. ferriphilum biofilms;
+          precolonization could impair leaching. These condition-dependent findings do not establish universal mutualism
+          or measured consumption of partner lysate or EPS.
+        after: S. thermosulfidooxidans DSM 9293 has both ferrous-iron and inorganic sulfur-oxidizing capacity and
+          can grow mixotrophically. The 2025 consortium assays used 40 C, not the species growth optimum. Its biofilm
+          relative distribution at 7 and 14 days was not significantly changed by DSF/BDSF, although other assay
+          designs and time points showed inhibition. The separate 2020 two-species study found that co-inoculation
+          improved leaching relative to S. thermosulfidooxidans alone but also relative to L. ferriphilum biofilms;
+          precolonization could impair leaching. These condition-dependent findings do not establish universal mutualism
+          or measured consumption of partner lysate or EPS.
+    - mutation: Promote predicted Afipia pathway to measured support
+      test: test_afipia_pathway_is_predicted_not_measured_cross_feeding
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 76
+      assertion: assert a["evidence"][0]["supports"] == "PARTIAL"
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/0/evidence/0/supports
+        before: PARTIAL
+        after: SUPPORT
+    - mutation: Restore common-cause arrow as selective mediation
+      test: test_selection_to_potential_does_not_mediate_biofilm_loss
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 85
+      assertion: assert len(b["downstream"]) == 1 and b["downstream"][0]["target"] == a["name"]
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/1/downstream
+        before:
+        - target: Predicted Afipia Thiocyanate Metabolism and CO2 Fixation
+          description: 'PARTIAL: selection increases the representation of Afipia carrying the predicted SCN-degradation
+            and carbon-fixation machinery. This links composition to enriched functional potential, not induction
+            of the pathway or demonstration of strain-specific SCN flux.'
+        after:
+        - target: Predicted Afipia Thiocyanate Metabolism and CO2 Fixation
+          description: 'PARTIAL: selection increases the representation of Afipia carrying the predicted SCN-degradation
+            and carbon-fixation machinery. This links composition to enriched functional potential, not induction
+            of the pathway or demonstration of strain-specific SCN flux.'
+        - target: Unstable High-Loading SCN Degradation Without Molasses
+          description: Afipia dominance causes niche loss.
+    - mutation: Reverse Acidiphilium iron reduction
+      test: test_acidiphilium_is_ferric_reduction_not_ferrous_oxidation
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 97
+      assertion: assert "ferric-iron reduction, producing ferrous iron" in b["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/1/description
+        before: 'PARTIAL: the 2003 model assigns Acidiphilium organic-carbon respiration coupled to ferric-iron
+          reduction, producing ferrous iron, particularly under anoxic or microaerobic conditions. It does not assign
+          ferrous-iron oxidation to this heterotrophic role. The survey combines taxon detection and physiological
+          knowledge; it does not trace algal exudates, fungal products or autotroph biomass into Acidiphilium, quantify
+          in situ carbon/iron flux, or establish a closed mutually beneficial nutrient cycle.'
+        after: Acidiphilium oxidizes ferrous iron.
+    - mutation: Restore untraced algal carbon-delivery arrow
+      test: test_phototrophy_and_fungal_presence_do_not_prove_carbon_delivery
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 112
+      assertion: assert sum(len(n.get("downstream", [])) for n in nodes) == 1
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/2/downstream
+        before: null
+        after:
+        - target: Heterotrophic Carbon-Iron Coupling
+          description: Photosynthate demonstrably feeds Acidiphilium.
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/Thermophilic_Pyrite_QS_Consortium.yaml: 05778c90ad0a5bedfde9bc406926489c4c8f70edcf59ad524f7ffb1cadf69320
+      kb/communities/Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.yaml: 0bf172f2ca5732c1c0ff0b2853f2685a65da950dface53edd4e00ba108a3c281
+      kb/communities/Tinto_River_Iron_Cycling_Community.yaml: 0597ed078c3761a0c46d2d8590ce3c328bd9897730a232938f4f5709bba02d09
+      tests/test_causal_review_batch115.py: 2accd814f7393578131dbcaaff75677940fab5f705c90c96908329ff8fa0dacc
+    probe_script_sha256: 8282e8a850986cfd18c0af6ed8eb54c982ce5eefa164fe9f41dca00bfd68ae1c
+    scope: In-memory control/mutation/restored-control; no canonical writes and not additional pytest tests.
+  artifact: /private/tmp/communitymech-batch115/adversarial-regression-proof.json
+  sha256: 51ab418bb4441b267087b2c8d27e76bb19e7f0da96556c843f05a94e1daea259
+ci_regression_fix:
+  artifact: reports/causal_graph_review/ci-regression-1899-20261008.json
+  sha256: e39c6bf4a9bb97f40006b9ebfacce828a0a379a9e6045273b65019641e0bd837
+  focused_test_output: '........................                                                 [100%]
+
+    24 passed in 25.29s
+
+    '
+  mutation_cases: 7
+  propagation_status: locally_fixed_stack_propagation_pending
+verification:
+  combined_regressions: 1044 passed in 338.70s (0:05:38)
+  new_regression_tests: 11
+  total_recorded_gate_outputs: 34
+  primary_graph_snippet_proof:
+    graph_quotations: 21
+    discussion_quotations: 4
+    fresh_source_literal_matches: 25
+    fresh_primary_literal_matches: 23
+    fresh_review_literal_matches: 2
+    all_cached_literal_matches: 25
+    retained_nodes: 13
+    removed_nodes: 1
+    renamed_nodes: 4
+    retained_arrows: 4
+    removed_arrows: 3
+    new_nodes_or_directions: 0
+  references: Full-record local passes are macOS, not Linux certification. Literal matching does not establish entailment.
+    Total checks in the reference CLI counts issues, not examined snippets.
+  snippet_counts_by_record:
+    kb/communities/Thermophilic_Pyrite_QS_Consortium.yaml:
+      MATCH: 49
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Tinto_River_Iron_Cycling_Community.yaml:
+      MATCH: 19
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 9021
+      categories:
+        MATCH: 8876
+        RENDERING: 28
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 40
+        NOCONTENT: 76
+    caveat: Informational audit exit0 is not clean-corpus or entailment certification.
+  network:
+    existing_findings_preserved: 56
+    added_findings:
+      Tinto_River_Iron_Cycling_Community:
+      - type: DISCONNECTED
+        taxon: Basidiomycota
+        taxon_id: NCBITaxon:5204
+        taxon_data:
+          taxon_term:
+            preferred_term: Basidiomycota
+            term:
+              id: NCBITaxon:5204
+              label: Basidiomycota
+            gtdb_grounding_status: NO_GTDB_EQUIVALENT
+            notes: 'Acidophilic fungi including Hortaea werneckii (black yeast) detected in Rio Tinto sediments
+              and water. Fungi contribute to organic matter degradation, biofilm formation, and nutrient cycling
+              through extracellular enzyme secretion.
+
+              '
+          functional_role:
+          - PRIMARY_DEGRADER
+          abundance_level: RARE
+          evidence:
+          - reference: PMID:25369810
+            supports: SUPPORT
+            evidence_source: IN_VIVO
+            snippet: Thus, interest in the biodiversity and ecology of extreme environments has grown in recent
+              years for several reasons
+            explanation: Documents fungal presence
+        message: Taxon 'Basidiomycota' has no interactions
+    removed_findings: {}
+    structural_defects: 0
+    explanation: Unsupported fungal exchange removed; canonical Basidiomycota remains disconnected pending identity/functional
+      followup1898. Not hidden with unrelated participant credit.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-three-records-batch115.yaml: d3113e49652aec8fca801633429779709a295435bab5aebf2b245b9fbf550e5d
+    tests/test_causal_review_batch115.py: 2accd814f7393578131dbcaaff75677940fab5f705c90c96908329ff8fa0dacc
+    tests/test_participating_taxa.py: 2e58f21916f36b5480201aedb1faa01b6d4ac1b2d842455df5215b07452e7906
+    tests/test_community_level_connectivity_credit.py: 32e0b5fa5eb4cf62d93ae54199cdf3ac7185f2f3863430d835d79248886c2f25
+    tests/test_causal_review_batch109.py: 47698b6781f7a5ffd3735ec1bbad7832d38be32288169c6cebb8968775448a89
+    reports/causal_graph_review/cache-provenance-20261008-batch115.json: 04fad375f39715f7322a34b0f0bea521fddf379153dd482d9f02045d693e16b2
+    kb/communities/Thermophilic_Pyrite_QS_Consortium.yaml: 05778c90ad0a5bedfde9bc406926489c4c8f70edcf59ad524f7ffb1cadf69320
+    kb/communities/Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.yaml: 0bf172f2ca5732c1c0ff0b2853f2685a65da950dface53edd4e00ba108a3c281
+    kb/communities/Tinto_River_Iron_Cycling_Community.yaml: 0597ed078c3761a0c46d2d8590ce3c328bd9897730a232938f4f5709bba02d09
+  history_sha256:
+    history/records/Thermophilic_Pyrite_QS_Consortium/2026-10-08T094801Z-codex-f46200.yaml: c34c6afbae76d0849f9c1ecc5d58ab64a7d443ce641668ee83efce4674a1812d
+    history/records/Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community/2026-10-08T094801Z-codex-c1fca6.yaml: dedd1ab806b642e2b540097ce37193cc17e94f44bad26d7c4f5a9e7c5cc6622a
+    history/records/Tinto_River_Iron_Cycling_Community/2026-10-08T094801Z-codex-607d09.yaml: c6ac6eefa1cfe41139d9e5cec8d59cbaa247836be5fba6ec6ce88b3f56e2808c
+  unchanged_records: 457
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 865
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    new_nodes_or_directions: 0
+    prior_extension_blocker: 'Ruegeria issue1883: configuredkey unavailable in prior approved invocation; not retried
+      without state change.'
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  current:
+    records: 460
+    with_community_level: 414
+    mixed: 136
+    community_level_only: 278
+    taxa: 1568
+    credited_solely_by_the_rule: 1280
+  delta_from_batch114:
+    records: 0
+    with_community_level: 1
+    mixed: -1
+    community_level_only: 2
+    taxa: 3
+    credited_solely_by_the_rule: 7
+  explanation: Pyrite becomes community-only; Tinto loses pairwise claims and becomes community-only. Three new
+    participant-list users. The survey sole-credit count includes canonical taxa lacking pairwise nodes, not proof
+    of actual participant coverage; Basidiomycota has no covered interaction. No rule/share-guard changes.
+corpus:
+  records: 460
+  nodes: 1379
+  edges: 536
+  review_status_counts:
+    needs_research: 54
+    pending: 37
+    reviewed: 369
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary established Python3.13 lint environment; project dependencies unchanged.
+limitations:
+- Fresh pre-source baseline:460 records across both roots,923 caches,56 unchanged warnings,zero structural defects.
+  Three whole records and all14existingnodes/7directions reviewed;13nodes/4directions retained,one node andthree
+  arrows removed,four renames,no added topology.
+- Fresh primary XML main bodies read in full for2025pyrite,2021DSF,2020dualculture and2021SCN,including methods/results/discussion
+  and extracted captions. Serialized tables not used for precise numerical claims; original figure pixels,supplements
+  andraw data not audited.
+- The2013eukaryote review was read in full and remains REVIEW evidence,not primary evidence. Its2011photosynthesis(PMID21605310)
+  and2004fungal-isolation(PMID15644909) primary abstracts were traced/retrieved/read; full papers not read. These
+  corroborate photosynthesis and fungal presence,not specific carbon transfer.
+- The2003Tinto XML returned500 afterthree attempts andPMC browser showed a challenge; publisher open timedout. Institutional13pagePDF
+  retrieved fromhttps://pure.mpg.de/rest/items/item_2485967_2/component/file_3274102/content. Complete extracted
+  text read; Figure6/page4863 visually checked for ferric reduction and model scope. PDF extraction interleaves
+  columns and corrupts Table5; no detailed table-cell claims based on it. ExistingTinto cache isabstract-only. No
+  bypass or new publication bodies committed.
+- Fresh abstracts/Crossref identities checked for all8existing references.1994caldus and2002Lepto taxonomy remain
+  abstract-bounded;2002fullXML failed500. NCBI taxon91943 confirmsHortaea ascomycete identity; canonical fungal
+  identity is not rewritten in this graph-only batch.
+- 'Pyrite: actual2021DSF production retained, but naturalnanomolar cultures not conflated with micromolar additions;signaling
+  versus fatty-acidstress not selectivelyisolated.2020inoculation-order/comparator details retained. AHL DLreagents
+  not falsely mapped to exactL compounds. Backgroundphysiology not pairwise mutualism.'
+- 'SCN: Afipia genomic predictions areCOMPUTATIONAL/PARTIAL;selection-to-potential isnot pathwayinduction or flux.
+  Shared perturbation doesnotprove Afipia causesniche loss. R2/R3fixed250mg/L distinguishedfrom R1/R4/R5ramps;initialHRTfix
+  preserved under metadatafollowup1897.'
+- 'Tinto: ferric reduction corrected;oxidation-to-reduction direction describes ferricacceptor supply inauthorsmodel.
+  Eukaryotic/fungalcarbon-transfer arrowsremoved withoutdenyingphototrophy or fungalpresence. Removedfungalexchange
+  nodekept asfocusedgap;Hortaea cannotjustifyBasidiomycota. No newtaxa orcausalstructure invented.'
+- All1135initial issue titles/bodies searched anddedup repeated;closed697,694,543,513read. Localignored/hidden-inclusive
+  pathsearch found128files,excluding.git,docs,site,references_cache,.env. Notallhistoricfilebodies orPRcomments
+  reviewed.
+- NoEdisoninvocation for existing-graphrepair,provider submissions0/spend0. PriorRuegeria extension remainsblocked
+  inconfiguredkeyloader;no credentialssearched orretrywithoutstatechange. Thisdoesnotdeclaretheoverallgoalcomplete.
+- Allnon-graphblocks,457otherrecords,923caches andpriorhistories/decisionspreserved. Metadatafollowups1896-1898remainopen;graphissues1893-1895closeonlyafterprotectedmainmerge.
+  No runtime/schema/validator/connectivitylogicchanges. Self-review isnotindependentapproval;rootCIblocker1836notbypassed.

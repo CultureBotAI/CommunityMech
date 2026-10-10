@@ -1,0 +1,257 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 20d6692b687fa6826bc25f8673543215c18aa310
+scope:
+- kb/communities/Staphylococcus_Candida_Context_Dependent_Biofilm_Coculture.yaml
+- kb/communities/Stordalen_Mire_Methylotrophic_Methanogenesis_Community.yaml
+- kb/communities/Streptomyces_A2_A5_A11_M7_Pesticide_Consortium.yaml
+- kb/communities/Subsurface_Carboxydocella_CO_Aquifer_Community.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-four-records-batch106.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch106.json
+findings:
+- issue: 1829
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate study-specific Staphylococcus-Candida observations and remove cross-study causal joins
+  disposition: Close only after protected-main merge.
+- issue: 1830
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound Stordalen methylotrophy graphs to omics evidence and correct the acetate-route arrow
+  disposition: Close only after protected-main merge.
+- issue: 1831
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate Streptomyces aggregate performance from mutualism and gene-mediated causation
+  disposition: Close only after protected-main merge.
+- issue: 1832
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate Carboxydocella genome-analysis workflow from ecological response and functional potential
+  disposition: Close only after protected-main merge.
+- issue: 1833
+  severity: P2
+  status: open_non_graph_follow_up
+  finding: Audit non-graph role and substrate extrapolations in Stordalen and Staphylococcus-Candida records
+  disposition: Separate non-graph curation required.
+adversarial_checks:
+- 'Whole original targets and all changed graph/discussion diffs reviewed. All19 original nodes and10 directions
+  have dispositions: retain18nodes and5qualified existing directions, remove1analysis-workflow node and5cross-study/wrong-route/restatement
+  arrows, rename8nodes. No new topology or provider spend.'
+- 'Challenge removal versus lost evidence: retain the six separate Staphylococcus-Candida observations, mire encoded
+  potential/expression/metabolite findings, exact four-member pesticide outcomes and aquifer relative-abundance/genomic-potential
+  findings. Retain qualified source hypotheses rather than deleting all topology or rejecting positive results.'
+- 'Staphylococcus-Candida: species composition is not one fixed experimental system. Remove cross-study mechanism/requirement
+  arrows; aggregate biomass and one-way inhibition do not demonstrate reciprocal competition. Preserve copper authors
+  mutualism as HYPOTHESIZED/PARTIAL and direct scaffold facilitation. RNA/ontology associations do not establish
+  virulence, altered genotype or colonization. No new pathogen enhancement procedures, genetic designs, strain-selection
+  advice or partner mechanisms.'
+- 'Mire: source distinguishes acetate-to-acetoclastic routing from methylotrophic methanogenesis. Remove the wrong-route
+  arrow without importing another mechanism. Product-removal feedback and traced exchange are not established by
+  omics co-occurrence. Retain source-proposed fen niche partitioning and its existing direction HYPOTHESIZED/PARTIAL,
+  not reduced competition or direct uptake. Preserve genomic/transcript/metabolite support and canonical identity-only
+  scope; the gradient remains an observation, not its own causal driver.'
+- 'Pesticide: non-antagonism and greater mixed biomass do not establish reciprocal benefit. Preserve exact A2-A5-A11-M7
+  observations without transferring six-member immobilized-culture results. Gene detection supports potential, not
+  expression/flux; removal is not mineralization. Keep both existing directions HYPOTHESIZED/PARTIAL because the
+  accessible abstract does not isolate gene activity or parent depletion as mediators. Positive phytotoxicity endpoints
+  remain.'
+- 'Aquifer: remove the genome-resolution workflow node and preserve prior analysis-edge repair. Field perturbation
+  is the upstream abiotic input, not aggregate restructuring as a demonstrated mediator. Relative abundance is not
+  absolute loss or fitness. CODH analysis supports inferred potential, not a physiological switch; carbon/electron
+  flow is a source implication, not measured flux. Keep both existing directions qualified and do not invent methods.'
+- 'Twenty-nine graph and seven discussion quotations match fresh primary text and unchanged caches. Eleven independent
+  primary retrievals: nine whole abstracts plus bounded mire2023/pesticide2013 main-text coverage. Available Staphylococcus-Candida
+  PMCID leads were not read; copper cache PMCID differs from fresh metadata. Failed aquifer/pesticide publisher
+  requests were Internal Error, not verified HTTP403. No global full-text absence claim, bypass, cache import, supplement/figure-pixel
+  or raw-data certification.'
+- Four guarded writes and four append-only histories;456 other records/all923 caches and prior history/decision
+  files byte-identical. Non-graph raw blocks unchanged. Identity-only mire scopes do not change the global census
+  because the whole-community gradient observation remains. No census threshold, schema or runtime-rule changes.
+  The pre-write guard rejected unsupported discussion provenance fields; provenance remains on interaction evidence
+  without changing the shared schema.
+- Eight focused tests and959 combined regressions pass. Four full-record schema/strict/term/reference/snippet checks
+  and four histories validate. Network equals56 baseline warnings with zero structural defects. Deterministic rendering
+  and exact HTML parser cover456pages/1372descriptions/545arrows, not screenshots. Plain just-lint passed; explicit-runtime
+  no-incremental mypy additionally checked.
+- Repairs1829-1832 addressed but remain open until protected-main merge; non-graph1833 remains open. Prior691/763
+  and aquifer analysis repairs preserved. The caches requested by764 are present, so no duplicate cache issue/import.
+  Existing license949, loader1703, DOIcache1091, denied and unansweredEdison scopes are not resolved. Self-review
+  is not independent approval; no artificial CI, protection bypass or premature cleanup.
+- Corpus338reviewed/72pending/50needs_research is not completion. Postcommit docs-current and exact-head publication
+  require separate receipts, not preasserted here.
+verification:
+  combined_regressions: 959 passed in 793.39s (0:13:13)
+  new_regression_tests: 8
+  total_recorded_gate_outputs: 41
+  primary_graph_snippet_proof:
+    graph_quotations: 29
+    new_discussion_quotations: 7
+    fresh_primary_literal_matches: 36
+    all_cached_literal_matches: 36
+    retained_nodes: 18
+    removed_nodes: 1
+    retained_arrows: 5
+    removed_arrows: 5
+    new_nodes_or_directions: 0
+    scope: All reviewed quotations match fresh primary text and unchanged existing caches literally after normalization;
+      entailment separately reviewed. Staphylococcus-Candida, mire2018, pesticide2026 and aquifer abstracts; mire2023
+      and pesticide2013 have bounded main-text coverage. No cache text or audit exception.
+  references: Four full-record CLI and local snippet checks executed on macOS,not Linux; DOI-cache casing issue1091
+    remains. Literal matches do not establish entailment; per-source read and access limits are recorded. CLI Total
+    checks counts issues,not executed checks. Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/Staphylococcus_Candida_Context_Dependent_Biofilm_Coculture.yaml:
+      MATCH: 31
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Stordalen_Mire_Methylotrophic_Methanogenesis_Community.yaml:
+      MATCH: 26
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Streptomyces_A2_A5_A11_M7_Pesticide_Consortium.yaml:
+      MATCH: 24
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Subsurface_Carboxydocella_CO_Aquifer_Community.yaml:
+      MATCH: 9
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8960
+      categories:
+        MATCH: 8824
+        RENDERING: 20
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 39
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification; literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: One analysis-workflow node and five cross-study/wrong-route/restatement arrows removed;18 observations
+      and five qualified existing directions retained. All56existing warnings unchanged and zero structural defects.
+      No audit rules changed.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-four-records-batch106.yaml: af866c82bb491b74c48f353aeb02c43bda4dd426af2f03dea2a24613dcf6e065
+    tests/test_causal_review_batch106.py: 14c625feb3e733b49012ba53b53c8efedd3ad639cc28f68cf3ad3dc81cc8117a
+    tests/test_participating_taxa.py: 4b0f435e5401b563a03420068c3a9893e5731546950db84dce2505f4fd99812b
+    tests/test_community_level_connectivity_credit.py: 383a0f5904085a5cda800b5102923fc99301831f5769d8d4821e000773d2ea4c
+    reports/causal_graph_review/cache-provenance-20261008-batch106.json: d8a73c0adb6e7239ee5719d2767c24e1dfcdd10314ef888572f14e8a4138846e
+    kb/communities/Staphylococcus_Candida_Context_Dependent_Biofilm_Coculture.yaml: b56a50fee784e1e8d6c07167f9faeccef0dc6ec979cc7f3b79861cb7034bc68e
+    kb/communities/Stordalen_Mire_Methylotrophic_Methanogenesis_Community.yaml: 3f9b3c0e30a8f745ccaa24400d3523ef7306000486ab5e1b5c05a0cf3f877e27
+    kb/communities/Streptomyces_A2_A5_A11_M7_Pesticide_Consortium.yaml: 4ef09a74970615b914a26247da7f2919234df7487a087c51923c41dea1a9042c
+    kb/communities/Subsurface_Carboxydocella_CO_Aquifer_Community.yaml: 0f750d563e028d6b70a47ac876aec68e29bef5b87eae6ec06ba34630e43e6bd9
+  unchanged_records: 456
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 817
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Qualify existing observation/mechanism boundaries and participant scope; retain five qualified
+      directions, remove one workflow node and five unsupported/restatement arrows. No new mechanisms or directions.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 403
+      mixed: 128
+      community_level_only: 275
+      taxa: 1544
+      credited_solely_by_the_rule: 1270
+    current:
+      records: 460
+      with_community_level: 403
+      mixed: 128
+      community_level_only: 275
+      taxa: 1544
+      credited_solely_by_the_rule: 1270
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: Mire archaeal/bacterial nodes gain identity-only canonical scope. Its gradient observation still
+    encompasses the community, so the global census is unchanged. No census threshold or runtime rule changes.
+corpus:
+  records: 460
+  nodes: 1386
+  edges: 553
+  review_status_counts:
+    needs_research: 50
+    pending: 72
+    reviewed: 338
+lint_limitation: Plain just-lint passed; explicit-runtime no-incremental mypy additionally checked.
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary Python3.13 lint environment reuses validation runtime and locked mypy1.19.1/stubs/scikit-learn1.8.0/pacmap0.9.1
+    for static checks; not a complete embedding runtime. Project dependencies unchanged.
+limitations:
+- 'Fresh both-root baseline before source reads: 460 records, 923 caches, 56 existing warnings, zero structural
+  defects. Four whole records and all19 original nodes/10 directions reviewed;18 nodes and five qualified existing
+  directions retained, one workflow node and five arrows removed, eight renames. No new topology or Edison submission/spend.'
+- 'Eleven primary sources independently retrieved. All nine abstract-only retrievals were read whole, including
+  the six Staphylococcus-Candida studies, 2018 mire catalog, 2026 pesticide study and aquifer study. Available full-text
+  leads were not fetched for Staphylococcus-Candida: fresh PMCID leads exist for three and the pre-existing copper
+  cache lists PMC13306210 despite missing fresh PMCID metadata. This is an abstract-bounded metadata correction,
+  not an assertion of full-text absence.'
+- Fresh EuropePMC full-body XML retrieved for mire2023 and pesticide2013. Mire abstract1-33, results/discussion238-477
+  and methods528-676 read; pesticide2013 results182-246 read. Other spans were indexed or not read, not whole-paper
+  review. No figure-pixel, supplement, raw-data or full-pipeline certification. Mire CC BY4.0 and pesticide2013
+  CC BY3.0 metadata retained.
+- Existing six Staphylococcus-Candida caches, pesticide2026, both aquifer caches and both lindane abstract caches
+  read whole. Large mire2023, mire2018 and pesticide2013 caches used for bounded context and normalized claim matching,
+  not exhaustive duplicated full-text review. Wiley aquifer and Elsevier pesticide2026 web requests returned Internal
+  Error with no HTTP code reported; no bypass or global full-text-absence assertion. No cache imports, license949/loader1703/DOI-case1091
+  certification.
+- 'Staphylococcus-Candida: retain six separate-study observations; remove cross-study arrows and categorical reciprocal
+  competition/universal mutualism. Preserve the copper authors mutualism interpretation as HYPOTHESIZED/PARTIAL
+  and source-supported scaffold facilitation. Transcript/ontology associations are not demonstrated virulence, genotype
+  change or colonization. No new growth, biofilm, survival, resistance, virulence or colonization enhancement procedures,
+  genetic designs, strain-selection advice or partner mechanisms.'
+- 'Mire: preserve encoded potential, transcripts and metabolite observations with canonical identity-only archaeal/bacterial
+  scope and computational provenance. Remove unestablished syntrophic product-removal feedback and traced cross-feeding.
+  Acetate supports an acetoclastic route, not the removed methylotrophic target; no replacement mechanism/node added.
+  Preserve source-proposed fen niche partitioning and its existing direction as HYPOTHESIZED/PARTIAL; no measured
+  substrate flux or competition reduction. Remove redundant habitat arrows and unrelated catalog support for specific
+  syntrophy.'
+- 'Pesticide: retain the exact four-member non-antagonism, aggregate growth, gene detection, removal and phytotoxicity
+  results. Remove reciprocal-mutualism typing and qualify both existing directions; gene presence is not expression/flux,
+  removal is not mineralization or an isolated toxicity mediator. Do not transfer six-member immobilized-culture
+  results or claim universal consortium superiority. Existing22840534/31430718 caches requested by open764 are present;
+  no duplicate cache issue/import.'
+- 'Aquifer: remove only the genome-resolution workflow node and preserve prior2026-10-02 analysis-edge removal.
+  Retain field perturbation and relative-abundance observation without absolute loss or fitness claims. Gene-based
+  CO-oxidation potential and carbon/electron-flow implications receive computational provenance and HYPOTHESIZED/PARTIAL
+  causal descriptions. No invented methods or measured flux.'
+- Graph issues1829-1832 addressed here and remain open until protected-main merge; non-graph1833 remains open. Fresh
+  all-state title/body dedup matches294/691/763/764. Hidden/ignored local search excludes.git/docs/site/references_cache
+  with relevant caches separately covered. PRs/comments not exhaustively searched. Non-graph role, abundance, placeholder
+  taxonomy, habitat-note and substrate extrapolations remain separately scoped and byte-preserved, not certified.
+- Four guarded writes and append-only histories;456 other records and all923 caches unchanged. Every unrelated raw
+  block preserved. No schema/runtime/audit rule changes. Self-adversarial review is not independent approval or
+  corpus completion. DeniedAM_AB000444 and unanswered Edison scopes untouched. Validation/publication not preasserted.

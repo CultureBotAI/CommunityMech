@@ -583,7 +583,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Synechococcus-Shewanella D-Lactate Biophotovoltaic Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -596,8 +596,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -608,7 +608,7 @@
                     <h3>Photosynthetic D-Lactate Cross-Feeding</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Engineered S. elongatus UTEX 2973 converts light and carbon dioxide into D-lactate, which serves as the transferred energy carrier for S. oneidensis MR-1.</p>
+                <p class="prewrap interaction-description">Engineered Syn2973-omcS-ldh produces D-lactate that supports current production by the napA-deletion derivative of S. oneidensis MR-1. The engineered carrier is important but not the exclusive organic input: the paper reports additional cyanobacterial organics and LB supplementation in the consortium assays. Canonical member labels denote their strain backgrounds.</p>
 
 
                 <p><strong>Source Taxon:</strong> Synechococcus elongatus UTEX 2973</p>
@@ -621,9 +621,9 @@
 
                 <p><strong>Metabolites:</strong>
 
-                    D-lactic acid
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=42111"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:42111</a>),
+                    D-lactate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16004"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16004</a>),
 
                     carbon dioxide
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16526"
@@ -657,8 +657,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Shewanella Anode Electron Transfer
-                        <p class="prewrap causal-description">Photosynthetically produced D-lactate is the engineered carrier oxidized by S. oneidensis as it releases electrons to the anode.
-</p>
+                        <p class="prewrap causal-description">Photosynthetically produced D-lactate is oxidized by the engineered Shewanella partner, supporting electron transfer to the anode. Lactate-free and axenic comparisons support its contribution, not exclusive attribution of all current to D-lactate.</p>
                     </div>
 
                 </div>
@@ -694,6 +693,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/31537786/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31537786</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"d-lactate which is the dominant secreted metabolite"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -701,39 +713,29 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Shewanella Anode Electron Transfer</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">S. oneidensis MR-1 oxidizes D-lactate and uses its extracellular electron transfer machinery to release electrons to the anode for current production.</p>
-
-
-                <p><strong>Source Taxon:</strong> Shewanella oneidensis MR-1</p>
+                <p class="prewrap interaction-description">The napA-deletion S. oneidensis MR-1 derivative oxidizes D-lactate and transfers electrons to an abiotic anode. This is the consortium electrode-output process, not electron or metabolite donation to Synechococcus. The paper also reports enhanced cyanobacterial growth; it does not isolate CO2 recycling as its cause.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Synechococcus elongatus UTEX 2973</p>
 
+                <p><strong>Participating Taxa:</strong>
 
-
-                <p><strong>Metabolites:</strong>
-
-                    D-lactic acid
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=42111"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:42111</a>)
+                    Shewanella oneidensis MR-1
 
                 </p>
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
+                <p><strong>Metabolites:</strong>
 
-                    <li>
-                        interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
+                    D-lactate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16004"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16004</a>)
 
-                </ul>
+                </p>
+
+
 
 
 
@@ -742,8 +744,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Photosynthetic D-Lactate Cross-Feeding
-                        <p class="prewrap causal-description">Physical and temporal separation prevents light- and oxygen-associated inhibition of S. oneidensis while preserving D-lactate transfer from the engineered cyanobacterium.
-</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED/PARTIAL: the source schematic proposes that CO2 released during Shewanella oxidation can be re-assimilated by cyanobacteria for D-lactate production. The reviewed main text does not demonstrate this carbon-return flux or identify it as the cause of cyanobacterial growth benefit; electrons flow to the anode, not the cyanobacterium.</p>
                     </div>
 
                 </div>
@@ -772,10 +773,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/31537786/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31537786</a>
 
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"The released CO2 can be re-assimilated by cyanobacteria for d-lactate production."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/31537786/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31537786</a>
+
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"converting organic compounds into electricity using its efficient EET capacity"</div>
+                        <div class="snippet">"enhanced the growth of cyanobacteria"</div>
 
                     </li>
 
@@ -786,31 +800,23 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Spatial-Temporal Separation for Compatibility</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Light and oxygen produced during photosynthesis damaged or inhibited S. oneidensis, so temporal and spatial separation protected the exoelectrogenic partner while allowing D-lactate transfer to support durable power generation.</p>
-
-
-                <p><strong>Source Taxon:</strong> Synechococcus elongatus UTEX 2973</p>
-
-
-
-                <p><strong>Target Taxon:</strong> Shewanella oneidensis MR-1</p>
+                <p class="prewrap interaction-description">Device-level temporal or spatial separation mitigated incompatible light and oxygen conditions for the Shewanella partner while preserving D-lactate transfer. This is an abiotic compatibility intervention, not colonization facilitation by cyanobacteria. The more-than-40-day spatial-temporal result additionally used continuous medium replenishment and LB supplementation; it is distinct from temporal batch and spatially separated assays.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
+                    Synechococcus elongatus UTEX 2973,
 
-                    <li>
-                        interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
+                    Shewanella oneidensis MR-1
 
-                </ul>
+                </p>
+
+
+
+
 
 
 
@@ -845,6 +851,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/31537786/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:31537786</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"spatial-temporal separation setup with medium replenishment enables stable operation for over 40 days"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -854,6 +873,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Does Shewanella-derived CO2 contribute to cyanobacterial D-lactate production or growth?
+                </h3>
+                <p class="prewrap">The primary main text, Results and figure captions were inspected. Figure1 proposes CO2 re-assimilation and Results report cyanobacterial growth enhancement, but these do not isolate a carbon-return mediator. The anode remains the electron recipient. Preserve the existing reverse direction only as a hypothesis pending direct flux evidence; device separation and medium replenishment are distinct interventions.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Shewanella Anode Electron Transfer</code>, <code>ecological_interactions#Photosynthetic D-Lactate Cross-Feeding</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/31537786/" rel="nofollow noreferrer">PMID:31537786</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">The released CO2 can be re-assimilated by cyanobacteria for d-lactate production.</p>
+                        <p class="muted small prewrap">Source-proposed carbon recycling is not demonstrated electron return.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1195,7 +1253,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1208,7 +1265,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1266,7 +1322,7 @@
             var metabolites = [];
 
 
-            metabolites.push("D-lactic acid");
+            metabolites.push("D-lactate");
 
             metabolites.push("carbon dioxide");
 
@@ -1279,7 +1335,7 @@
             processes.push("interspecies interaction between organisms");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1308,20 +1364,16 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
-            metabolites.push("D-lactic acid");
+            metabolites.push("D-lactate");
 
 
             var processes = [];
 
-
-            processes.push("interspecies interaction between organisms");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1334,32 +1386,29 @@
             });
 
 
-            var srcKey = "Shewanella oneidensis MR-1";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Synechococcus elongatus UTEX 2973";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Shewanella oneidensis MR-1"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
-
-            processes.push("interspecies interaction between organisms");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1372,17 +1421,20 @@
             });
 
 
-            var srcKey = "Synechococcus elongatus UTEX 2973";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Shewanella oneidensis MR-1";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Synechococcus elongatus UTEX 2973",
+
+                "Shewanella oneidensis MR-1"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

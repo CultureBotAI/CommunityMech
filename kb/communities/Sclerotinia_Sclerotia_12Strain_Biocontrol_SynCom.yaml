@@ -286,9 +286,9 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Twelve-Strain SynCom Suppression of Sclerotinia Sclerotia
-  description: The full twelve-strain bacterial SynCom antagonizes mature Sclerotinia sclerotiorum sclerotia in static tube
-    co-culture, increasing mortality after 1 day and reaching complete sclerotia mortality by 14 days.
-  interaction_type: COMPETITION
+  description: The full twelve-member inoculum increased sclerotium mortality relative to the control in the reported
+    laboratory comparison. This establishes a community treatment effect, not equal antagonistic contributions by
+    every member, resource competition with the fungus or a demonstrated cellular defense-response pathway.
   scope: COMMUNITY_LEVEL
   target_taxon:
     preferred_term: Sclerotinia sclerotiorum
@@ -296,60 +296,107 @@ ecological_interactions:
       id: NCBITaxon:5180
       label: Sclerotinia sclerotiorum
     gtdb_grounding_status: NO_GTDB_EQUIVALENT
-  biological_processes:
-  - preferred_term: defense response to fungus
-    term:
-      id: GO:0050832
-      label: defense response to fungus
   evidence:
   - reference: PMID:42523014
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: When sclerotia were inoculated with the SynCom, sclerotia mortality was significantly increased after 1-day co-culture
-      with the SynCom, gradually reaching 100.0% mortality by 14-day co-culture
+    snippet: When sclerotia were inoculated with the SynCom, sclerotia mortality was significantly increased after
+      1-day co-culture with the SynCom, gradually reaching 100.0% mortality by 14-day co-culture
     explanation: Supports full-SynCom causality for the sclerotium mortality phenotype.
+  participating_taxa:
+  - preferred_term: Caballeronia zhejiangensis N8
+    term:
+      id: NCBITaxon:871203
+      label: Caballeronia zhejiangensis
+  - preferred_term: Cupriavidus sp. N4
+    term:
+      id: NCBITaxon:106589
+      label: Cupriavidus
+  - preferred_term: Massilia sp. R20
+    term:
+      id: NCBITaxon:149698
+      label: Massilia
+  - preferred_term: Massilia sp. TB221
+    term:
+      id: NCBITaxon:149698
+      label: Massilia
+  - preferred_term: Massilia sp. RB201
+    term:
+      id: NCBITaxon:149698
+      label: Massilia
+  - preferred_term: Massilia sp. RB202
+    term:
+      id: NCBITaxon:149698
+      label: Massilia
+  - preferred_term: Paraburkholderia sp. I59
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
+  - preferred_term: Paraburkholderia phenoliruptrix TB211
+    term:
+      id: NCBITaxon:252970
+      label: Paraburkholderia phenoliruptrix
+  - preferred_term: Paraburkholderia phymatum R7
+    term:
+      id: NCBITaxon:148447
+      label: Paraburkholderia phymatum
+  - preferred_term: Paraburkholderia sp. T17
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
+  - preferred_term: Ralstonia sp. R4
+    term:
+      id: NCBITaxon:48736
+      label: Ralstonia
+  - preferred_term: Trinickia sclerotiorum sp. nov. MC
+    term:
+      id: NCBITaxon:2571160
+      label: Trinickia
 - name: Trinickia MC Key Contribution to Sclerotia Mortality
-  description: 'The dropout experiment identified Trinickia sp. MC as the dominant single contributor: removing MC reduced
-    sclerotia mortality, and MC mono-inoculation alone accelerated sclerotia mortality.'
-  interaction_type: COMPETITION
+  description: The dropout series and single-member comparison identify Trinickia MC as the strongest resolved contributor
+    to accelerated sclerotium mortality. Its contribution is context- and time-dependent, not proof that MC is uniquely
+    necessary for all eventual mortality or that every other member reinforces it. The primary discussion reports
+    attenuation by the remaining nine-member group and eventual mortality from assemblies lacking MC. This node
+    records the named member's contribution to the community intervention; Sclerotinia is the external challenge
+    context, not a thirteenth consortium member.
   scope: COMMUNITY_LEVEL
+  target_taxon:
+    preferred_term: Sclerotinia sclerotiorum
+    term:
+      id: NCBITaxon:5180
+      label: Sclerotinia sclerotiorum
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+  downstream:
+  - target: Twelve-Strain SynCom Suppression of Sclerotinia Sclerotia
+    description: The decrease in mortality following MC removal supports a causal contribution to the full-community
+      outcome over the measured time course. This is not an additive decomposition of member effects or proof of
+      universal necessity; other-member effects can attenuate MC and later reach the same endpoint.
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: dropping TsMC significantly decreased mortality and its mono-inoculation alone could accelerate sclerotia
+      mortality
+    explanation: Supports a dropout-resolved MC contribution in the tested comparisons, not universal necessity
+      or an additive contribution model.
   participating_taxa:
   - preferred_term: Trinickia sclerotiorum sp. nov. MC
     term:
       id: NCBITaxon:2571160
       label: Trinickia
-  target_taxon:
-    preferred_term: Sclerotinia sclerotiorum
-    term:
-      id: NCBITaxon:5180
-      label: Sclerotinia sclerotiorum
-    gtdb_grounding_status: NO_GTDB_EQUIVALENT
-  biological_processes:
-  - preferred_term: defense response to fungus
-    term:
-      id: GO:0050832
-      label: defense response to fungus
-  downstream:
-  - target: Twelve-Strain SynCom Suppression of Sclerotinia Sclerotia
-    description: Trinickia sp. MC is the strongest member-level contributor resolved by the dropout series.
-  evidence:
-  - reference: PMID:42523014
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: dropping TsMC significantly decreased mortality and its mono-inoculation alone could accelerate sclerotia mortality
-    explanation: Supports Trinickia sp. MC as the dominant dropout-validated contributor to sclerotia mortality.
 - name: Spatial Invasion of Sclerotia by SynCom Members
-  description: Xenium spatial profiling of inoculated sclerotia showed that Massilia sp. TB221 and R20 were early interior
-    colonizers by day 3, while Ralstonia sp. R4 and Trinickia sp. MC progressively increased in interior layers at days 5
-    to 7 and MC exceeded every other member across all five layers by day 14.
-  interaction_type: NICHE_PARTITIONING
+  description: Spatial profiling detected early interior colonization by Massilia TB221 and R20, later interior
+    enrichment of Ralstonia R4 and Trinickia MC, and MC dominance across the sampled layers at the final observation.
+    These distribution and timing observations are not demonstrated competition-reducing niche partitioning or evidence
+    that early colonization itself causes mortality. The MC contribution is supported independently by the dropout
+    comparison, not inferred solely from its location.
   scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:42523014
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: By 3-day co-culture, Massilia sp. TB221 and Massilia sp. R20 had reached the interior sclerotia
-      (layer 1 to 4)
+    snippet: By 3-day co-culture, Massilia sp. TB221 and Massilia sp. R20 had reached the interior sclerotia (layer
+      1 to 4)
     explanation: Supports Massilia sp. TB221 and Massilia sp. R20 as early interior sclerotium colonizers.
   - reference: PMID:42523014
     supports: SUPPORT
@@ -360,9 +407,26 @@ ecological_interactions:
   - reference: PMID:42523014
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: By 14-day co-culture, when sclerotia viability was completely suppressed, the relative abundance of Trinickia
-      sp. MC exceeded all other SynCom members simultaneously across layer 1 to 5
+    snippet: By 14-day co-culture, when sclerotia viability was completely suppressed, the relative abundance of
+      Trinickia sp. MC exceeded all other SynCom members simultaneously across layer 1 to 5
     explanation: Supports Trinickia sp. MC dominance across all five sclerotium layers at day 14.
+  participating_taxa:
+  - preferred_term: Massilia sp. TB221
+    term:
+      id: NCBITaxon:149698
+      label: Massilia
+  - preferred_term: Massilia sp. R20
+    term:
+      id: NCBITaxon:149698
+      label: Massilia
+  - preferred_term: Ralstonia sp. R4
+    term:
+      id: NCBITaxon:48736
+      label: Ralstonia
+  - preferred_term: Trinickia sclerotiorum sp. nov. MC
+    term:
+      id: NCBITaxon:2571160
+      label: Trinickia
 environmental_factors:
 - name: flooded non-autoclaved soil source condition
   value: 5-day burial under flooding
@@ -497,42 +561,64 @@ external_resources:
     explanation: Gives the DOI of the primary publication.
 discussions:
 - discussion_id: trinickia_mc_species_ncbitaxon_gap
-  prompt: Has Trinickia sclerotiorum sp. nov. MC been assigned an NCBITaxon species identifier or stable strain genome assembly
-    accession that should replace the current genus-level grounding?
+  prompt: Has Trinickia sclerotiorum sp. nov. MC been assigned an NCBITaxon species identifier or stable strain
+    genome assembly accession that should replace the current genus-level grounding?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - taxonomy#Trinickia sclerotiorum sp. nov. MC
-  rationale: The 2026 paper describes MC as a novel Trinickia species using core-gene phylogeny, ANI and dDDH, but the local
-    NCBITaxon snapshot resolves Trinickia and not the proposed species name.
+  rationale: The 2026 paper describes MC as a novel Trinickia species using core-gene phylogeny, ANI and dDDH, but
+    the local NCBITaxon snapshot resolves Trinickia and not the proposed species name.
   evidence:
   - reference: PMID:42523014
     supports: SUPPORT
     evidence_source: full_text
-    snippet: These results indicate TsMC does not belong to any known Trinickia species and thus we describe this strain as
-      a new species, Trinickia sclerotiorum sp. nov. type strain MC
-    explanation: Supports the novel-species status that is not yet available as a species-level local NCBITaxon term.
+    snippet: These results indicate TsMC does not belong to any known Trinickia species and thus we describe this
+      strain as a new species, Trinickia sclerotiorum sp. nov. type strain MC
+    explanation: Supports the novel-species status that is not yet available as a species-level local NCBITaxon
+      term.
   posed_by: codex
   posed_date: '2026-09-13'
 - discussion_id: sclerotia_syncom_partial_abundance_coverage
-  prompt: Which additional bacteria in the 5-day flooded-soil sclerotium microbiome account for the abundance not captured
-    by the twelve-strain SynCom?
+  prompt: Which additional bacteria in the 5-day flooded-soil sclerotium microbiome account for the abundance not
+    captured by the twelve-strain SynCom?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - engineering_design
   - ecological_interactions#Twelve-Strain SynCom Suppression of Sclerotinia Sclerotia
-  rationale: The SynCom covered most of the 5-day SF microbiome at genus level but only 56.3% at species level, so the full
-    flooded-soil sclerotium microbiome may include interaction complexity absent from the defined assembly.
+  rationale: The SynCom covered most of the 5-day SF microbiome at genus level but only 56.3% at species level,
+    so the full flooded-soil sclerotium microbiome may include interaction complexity absent from the defined assembly.
   evidence:
   - reference: PMID:42523014
     supports: SUPPORT
     evidence_source: full_text
-    snippet: As our SynCom represents only 56.3% bacterial abundance of 5-day SF microbiome, higher level of the complexity
-      in the bacteria-bacteria interaction may not be captured in this study
+    snippet: As our SynCom represents only 56.3% bacterial abundance of 5-day SF microbiome, higher level of the
+      complexity in the bacteria-bacteria interaction may not be captured in this study
     explanation: Records the authors' caveat about the partial species-level coverage of the defined SynCom.
   posed_by: codex
   posed_date: '2026-09-13'
+- discussion_id: sclerotia_graph_evidence_scope
+  prompt: Which mechanisms explain the context-dependent antagonism and spatial associations?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: Mortality contrasts support the community and MC treatment effects, while the spatial profile alone
+    does not establish facilitation, resource competition or reduced competition among bacteria. Nonadditive effects
+    and eventual mortality in assemblies lacking MC limit an essential-member interpretation. Molecular mechanisms
+    remain unresolved; no new pathway, culturing procedure or genetic design is introduced. Existing taxonomic and
+    partial-coverage discussions remain unchanged.
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: dropping TsMC significantly decreased mortality and its mono-inoculation alone could accelerate sclerotia
+      mortality
+    explanation: Supports a dropout-resolved MC contribution in the tested comparisons, not universal necessity
+      or an additive contribution model.
+  attaches_to:
+  - ecological_interactions#Twelve-Strain SynCom Suppression of Sclerotinia Sclerotia
+  - ecological_interactions#Trinickia MC Key Contribution to Sclerotia Mortality
+  - ecological_interactions#Spatial Invasion of Sclerotia by SynCom Members
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -541,16 +627,29 @@ curation_history:
 - timestamp: '2026-09-13T17:00:42Z'
   curator: codex
   action: CREATE_COMMUNITY
-  changes: Created CommunityMech:000364 for the twelve-strain Sclerotinia sclerotiorum sclerotia biocontrol SynCom from PMID:42523014
-    / doi:10.1093/ismejo/wrag201, preserving all strain designations, exact PubMed and open-access manuscript snippets, genus-level
-    Massilia and Paraburkholderia GTDB groundings, and explicit unresolved statuses for the remaining bacterial taxa.
+  changes: Created CommunityMech:000364 for the twelve-strain Sclerotinia sclerotiorum sclerotia biocontrol SynCom
+    from PMID:42523014 / doi:10.1093/ismejo/wrag201, preserving all strain designations, exact PubMed and open-access
+    manuscript snippets, genus-level Massilia and Paraburkholderia GTDB groundings, and explicit unresolved statuses
+    for the remaining bacterial taxa.
   llm_assisted: true
 - timestamp: '2026-09-13T17:07:17Z'
   curator: codex
   action: RESOLVE_REVIEW_ISSUE
-  changes: >-
-    Replaced the broad Xenium spatial summary evidence with exact day-3, day-5-to-7
-    and day-14 layer-level snippets from PMID:42523014, and added exact method
-    snippets for SynCom OD600 normalization, the 28-probe Xenium panel and
-    Xenium signal-density extraction to resolve adversarial-review issue #852.
+  changes: 'Replaced the broad Xenium spatial summary evidence with exact day-3, day-5-to-7 and day-14 layer-level
+    snippets from PMID:42523014, and added exact method snippets for SynCom OD600 normalization, the 28-probe Xenium
+    panel and Xenium signal-density extraction to resolve adversarial-review issue #852.'
+  llm_assisted: true
+- timestamp: '2026-10-07T20:37:43Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain full-community antagonism with all twelve inoculum identities, without competition/defense ontology
+    overclaims.; Retain the dropout-supported pairwise MC contribution and its direction, without universal necessity
+    or additivity.; Retain measured spatial timing and scoped participants, without niche-partitioning or colonization-causality
+    claims. Issue#1787; reports/causal_graph_review/decisions/20261007-four-records-batch99.yaml
+  llm_assisted: true
+- timestamp: '2026-10-07T20:41:33Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH_SCOPE_CORRECTION
+  changes: Keep the MC dropout result at community-contribution scope with only MC as participant and the fungal
+    challenge as external context; do not assert a pairwise consortium-membership relation. Issue#1787; reports/causal_graph_review/decisions/20261007-four-records-batch99.yaml
   llm_assisted: true

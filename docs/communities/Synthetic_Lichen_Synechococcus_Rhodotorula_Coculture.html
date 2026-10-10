@@ -563,7 +563,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Synthetic Lichen Synechococcus-Rhodotorula Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding, mutualism. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -579,6 +579,11 @@
                              aria-hidden="true" data-symbol="symbolSquare"
                              data-color="#9f2ebb"></svg> Mutualism
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
@@ -588,7 +593,7 @@
                     <h3>Photosynthetic Sucrose Provisioning</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Engineered S. elongatus fixes carbon dioxide under illumination and secretes sucrose that supports heterotrophic yeast growth.</p>
+                <p class="prewrap interaction-description">Sucrose-secreting S. elongatus supplies carbon used by R. glutinis in the synthetic lichen coculture. Yeast growth and lower residual sucrose support feeding. The result is strain-specific: the tested S. cerevisiae pairing did not grow comparably. CO2 is fixed by the phototroph rather than donated as the organic carbon substrate.</p>
 
 
                 <p><strong>Source Taxon:</strong> Synechococcus elongatus PCC 7942 cscB+</p>
@@ -637,7 +642,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Lipid Production Enhancement
-                        <p class="prewrap causal-description">Cyanobacterial sucrose provisioning supplies the yeast carbon source that is routed into coculture biomass and lipid production.</p>
+                        <p class="prewrap causal-description">Cyanobacterial sucrose supports yeast growth within the consortium that exhibits greater total biomass and fatty-acid yield. The whole-culture comparison does not resolve the partners&#39; separate lipid contributions or a sucrose-to-lipid carbon balance.</p>
                     </div>
 
                 </div>
@@ -669,7 +674,7 @@
                     <h3>Rhodotorula-Enhanced Cyanobacterial Survival</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">R. glutinis improves cyanobacterial growth and survival at low inoculum density by alleviating accumulated reactive oxygen stress.</p>
+                <p class="prewrap interaction-description">R. glutinis supports cyanobacterial growth while receiving sucrose, consistent with conditional mutualism. In illuminated HEPES-buffered cultures, peroxide measurements and catalase-rescue comparisons support protection against oxidative stress, especially for dilute cyanobacterial inocula. High-density axenic growth remains possible. Yeast enhances growth beyond catalase alone, so peroxide removal is not the sole demonstrated explanation and the additional benefit is unresolved.</p>
 
 
                 <p><strong>Source Taxon:</strong> Rhodotorula glutinis</p>
@@ -708,7 +713,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Lipid Production Enhancement
-                        <p class="prewrap causal-description">Yeast relief of low-density cyanobacterial oxidative stress helps stabilize the artificial lichen coculture that produces the increased biomass and lipid yield.</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED/PARTIAL: protection against oxidative stress could help maintain the phototrophic partner that supports lipid-producing coculture. The ROS/catalase comparisons do not isolate the contribution of that protection to the separately measured whole-culture fatty-acid yield advantage.</p>
                     </div>
 
                 </div>
@@ -740,7 +745,46 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Accumulated reactive oxygen species was observed to severely inhibit axenic growth of cyanobacteria"</div>
+                        <div class="snippet">"HOOH content was progressively reduced and efficiently minimized"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.1186/s13068-017-0736-x"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1186/s13068-017-0736-x</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"S. elongatus grew better in the cultures with catalase"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.1186/s13068-017-0736-x"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1186/s13068-017-0736-x</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"the axenic growth of S. elongatus was robust"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.1186/s13068-017-0736-x"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1186/s13068-017-0736-x</a>
+
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"R. glutinis may be providing factors beyond HOOH reduction"</div>
 
                     </li>
 
@@ -751,9 +795,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Lipid Production Enhancement</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Stable S. elongatus-R. glutinis cocultures increased biomass and overall lipid yield relative to cyanobacterial monocultures.</p>
+                <p class="prewrap interaction-description">S. elongatus-R. glutinis cultures persisted for more than one month in batch and semi-continuous formats. Batch total fatty-acid yield was 54% higher than in cyanobacterial monoculture, alongside increased total biomass. These are whole-culture endpoints, not an additional exchange or a measurement of yeast-specific lipid output. Semi-continuous total harvest includes withdrawn material and is not equivalent to final biomass alone.</p>
 
 
 
@@ -811,7 +854,33 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"final biomass and overall lipid yields in the batch co-culture 40 to 60% higher"</div>
+                        <div class="snippet">"The total fatty acids (TFA) in the batch co-culture was 54% higher than in mono-culture"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.1186/s13068-017-0736-x"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1186/s13068-017-0736-x</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"With addition of the 50 mL of culture that was removed both at 10 and 21 days"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.1186/s13068-017-0736-x"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1186/s13068-017-0736-x</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"were sustained over 1 month in both batch and in semi-continuous culture"</div>
 
                     </li>
 
@@ -859,6 +928,43 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How much of the lipid-yield benefit is mediated by ROS relief rather than other partner effects?
+                </h3>
+                <p class="prewrap">Peroxide measurements and catalase rescue support ROS protection, but the primary growth benefit exceeds catalase alone and the lipid assay measures the mixed culture. Do not infer an identified additional factor, exclusive ROS mediation or yeast-specific lipid yield from these comparisons.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Rhodotorula-Enhanced Cyanobacterial Survival</code>, <code>ecological_interactions#Lipid Production Enhancement</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+                                <a href="https://doi.org/10.1186/s13068-017-0736-x" rel="noreferrer">doi:10.1186/s13068-017-0736-x</a>
+
+                        </div>
+                        <p class="snippet small prewrap">R. glutinis may be providing factors beyond HOOH reduction</p>
+                        <p class="muted small prewrap">The source identifies an unresolved contribution beyond peroxide reduction.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1018,7 +1124,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1031,7 +1136,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1144,7 +1248,7 @@
             processes.push("response to oxidative stress");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 5;
 
             nodes.push({
                 id: intId,
@@ -1173,7 +1277,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1188,7 +1292,7 @@
             processes.push("lipid biosynthetic process");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,

@@ -546,7 +546,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Streptococcus mutans - Selenomonas sputigena ECC Pathobiont Model</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for colonization facilitation. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -557,6 +557,11 @@
                              aria-hidden="true" data-symbol="symbolPlus"
                              data-color="#edab12"></svg> Colonization facilitation
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
@@ -566,7 +571,7 @@
                     <h3>Streptococcal Exoglucan Entrapment of Selenomonas sputigena</h3>
                     <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Streptococcus mutans exoglucans trap Selenomonas sputigena, suppress its motility, and create a structured mixed-species biofilm.</p>
+                <p class="prewrap interaction-description">Streptococcus mutans exoglucans trap Selenomonas sputigena, suppress its motility, and create a structured mixed-species biofilm. The primary in-vitro surface-colonization comparison supports S. mutans-to-S. sputigena facilitation; it does not establish the reverse direction from acid output alone.</p>
 
 
                 <p><strong>Source Taxon:</strong> Streptococcus mutans</p>
@@ -621,7 +626,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/37217495/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37217495</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (IN_VITRO)
                         </div>
 
                         <div class="snippet">"We show that S. sputigena, a flagellated anaerobe with previously unknown role in supragingival biofilm, becomes trapped in streptococcal exoglucans, loses motility but actively proliferates to build a honeycomb-like multicellular-superstructure encapsulating S. mutans, enhancing acidogenesis."</div>
@@ -635,16 +640,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Honeycomb Biofilm Acidogenesis</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Entrapped Selenomonas sputigena actively proliferates into a honeycomb-like multicellular superstructure that encapsulates Streptococcus mutans and enhances acidogenesis in the mixed-species biofilm.</p>
-
-
-                <p><strong>Source Taxon:</strong> Selenomonas sputigena</p>
+                <p class="prewrap interaction-description">Entrapped Selenomonas sputigena actively proliferates into a honeycomb-like multicellular superstructure that encapsulates Streptococcus mutans and enhances acidogenesis in the mixed-species biofilm. This is a mixed-biofilm structure and metabolic outcome, not a measurement of S. mutans establishment. Primary matrix-disruption results support the structural contribution to localized acidity.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Streptococcus mutans</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Streptococcus mutans,
+
+                    Selenomonas sputigena
+
+                </p>
 
 
 
@@ -675,8 +683,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Pathobiont-Enhanced Cariogenicity
-                        <p class="prewrap causal-description">The structured S. mutans-S. sputigena biofilm intensifies acidogenesis, providing the local virulence context for the extensive enamel lesions observed during coinfection.</p>
+                        <span class="flow-arrow">→</span> Rodent Coinfection Caries Outcome
+                        <p class="prewrap causal-description">PARTIAL: the structured acidic biofilm is the proposed mediator of the rodent lesion outcome. The primary in-vitro disruption and ex-vivo enamel results support the structure-to-damage interpretation, while the rodent coinfection comparison does not independently isolate that mediator in vivo.</p>
                     </div>
 
                 </div>
@@ -692,10 +700,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/37217495/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37217495</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (IN_VITRO)
                         </div>
 
                         <div class="snippet">"We show that S. sputigena, a flagellated anaerobe with previously unknown role in supragingival biofilm, becomes trapped in streptococcal exoglucans, loses motility but actively proliferates to build a honeycomb-like multicellular-superstructure encapsulating S. mutans, enhancing acidogenesis."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/37217495/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37217495</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"The data suggest that the interspecies spatial structuring between S. sputigena and S. mutans is required to create a virulent acidic microenvironment."</div>
 
                     </li>
 
@@ -705,17 +726,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Pathobiont-Enhanced Cariogenicity</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Rodent Coinfection Caries Outcome</h3>
                 </div>
-                <p class="prewrap interaction-description">Selenomonas sputigena is non-cariogenic alone but markedly worsens enamel lesion formation when coinfected with Streptococcus mutans.</p>
-
-
-                <p><strong>Source Taxon:</strong> Selenomonas sputigena</p>
+                <p class="prewrap interaction-description">In the reported rodent model, S. sputigena alone did not cause more caries than the control, whereas dual-species coinfection increased lesion severity. This community-associated host outcome does not itself demonstrate a colonization benefit to S. mutans or establish human causal direction.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Streptococcus mutans</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Streptococcus mutans,
+
+                    Selenomonas sputigena
+
+                </p>
 
 
 
@@ -761,6 +785,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How directly does the model establish mediation of disease in humans?
+                </h3>
+                <p class="prewrap">Primary results support S. mutans-assisted S. sputigena colonization, matrix-dependent structure and local acidity, ex-vivo enamel damage, and greater rodent disease under coinfection. Retain this experimental evidence and both directions; only the in-vivo mediation bridge is PARTIAL. Do not turn the reverse acidogenesis effect into a colonization-facilitation label. Human discovery data are cross-sectional. Exact molecular details remain unresolved; no new mechanisms or experimental procedures are added.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Streptococcal Exoglucan Entrapment of Selenomonas sputigena</code>, <code>ecological_interactions#Honeycomb Biofilm Acidogenesis</code>, <code>ecological_interactions#Rodent Coinfection Caries Outcome</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VIVO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/37217495/" rel="nofollow noreferrer">PMID:37217495</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">the cross-sectional nature of our human observational data, which limits the samples’ inferential potential regarding temporality and causality</p>
+                        <p class="muted small prewrap">The primary discussion explicitly limits human causal inference.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -863,7 +926,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -876,7 +938,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -972,7 +1033,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -985,7 +1046,7 @@
             processes.push("biofilm formation");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -998,23 +1059,26 @@
             });
 
 
-            var srcKey = "Selenomonas sputigena";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Streptococcus mutans";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Streptococcus mutans",
+
+                "Selenomonas sputigena"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1027,7 +1091,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Pathobiont-Enhanced Cariogenicity",
+                label: "Rodent Coinfection Caries Outcome",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1036,17 +1100,20 @@
             });
 
 
-            var srcKey = "Selenomonas sputigena";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Streptococcus mutans";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Streptococcus mutans",
+
+                "Selenomonas sputigena"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

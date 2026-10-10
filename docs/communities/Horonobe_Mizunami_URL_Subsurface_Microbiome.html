@@ -561,7 +561,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Horonobe and Mizunami Underground Research Laboratory Subsurface Microbiome</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, niche partitioning, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -574,13 +574,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -588,13 +583,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Lithology-Driven Community Divergence</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Site-Associated URL Community Divergence</h3>
                 </div>
-                <p class="prewrap interaction-description">Sedimentary versus granitic host rock yields dissimilar URL microbiomes despite shared deep-subsurface chemistry, indicating lithology as a primary structuring factor.</p>
+                <p class="prewrap interaction-description">Groundwater metagenomes distinguish the sedimentary Horonobe and granitic Mizunami microbiomes. Host rock, location, groundwater chemistry and tunnel/flow context covary, so the comparison supports a site-associated pattern and a proposed lithological explanation, not an isolated lithology effect or demonstrated competitive niche partitioning. The two canonical habitat-level participants share a broad cellular-organisms CURIE but denote different sampled communities.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Horonobe sedimentary URL groundwater microbiome,
+
+                    Mizunami granitic URL groundwater microbiome
+
+                </p>
 
 
 
@@ -614,16 +616,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Horonobe Sulfate-Reducer Hydrogen Support of Methanogenesis
-                        <p class="prewrap causal-description">The sedimentary Horonobe URL is organic- and CO2-rich and methane-biased, providing the geochemical context for sulfate reducers predicted to produce H2 that supports methanogenesis.</p>
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -635,7 +627,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/39696556/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39696556</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"The Horonobe and Mizunami microbiomes are dissimilar, likely because the Mizunami URL is hosted in granitic rock and the Horonobe URL in sedimentary rock"</div>
@@ -648,13 +640,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Shared Deep-Subsurface Functional Core</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Shared Deep-Subsurface Genomic Functional Potential</h3>
                 </div>
-                <p class="prewrap interaction-description">Despite community-level dissimilarity, both URLs share well- represented hydrogen metabolism, rubisco-based CO2 fixation, nitrogen reduction, and sulfate reduction functions.</p>
+                <p class="prewrap interaction-description">Genome marker annotations in both URLs support widespread coding potential for hydrogen metabolism, Rubisco-based carbon fixation, nitrogen reduction and sulfate reduction. The positive genomic result is not measurement of pathway expression, biogeochemical flux, or exchange between every organism carrying those genes. A functional repertoire is not itself cross-feeding.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Horonobe sedimentary URL groundwater microbiome,
+
+                    Mizunami granitic URL groundwater microbiome
+
+                </p>
 
 
 
@@ -695,16 +694,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Horonobe Sulfate-Reducer Hydrogen Support of Methanogenesis
-                        <p class="prewrap causal-description">Hydrogen metabolism and sulfate reduction are represented in both URLs and include Horonobe Syntrophobacterales predicted to produce H2 while reducing sulfate, feeding abundant Methanospirillum.</p>
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -716,7 +705,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/39696556/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39696556</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"hydrogen metabolism, rubisco-based CO2 fixation, reduction of nitrogen compounds and sulfate reduction are well represented functions in microbiomes from both URLs"</div>
@@ -732,10 +721,16 @@
                     <h3>Horonobe Sulfate-Reducer Hydrogen Support of Methanogenesis</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">In Horonobe communities farther from the tunnels, abundant Syntrophobacterales are predicted to be autotrophic sulfate reducers that may produce H2 supporting methanogenesis by abundant Methanospirillum, linking the shared hydrogen and sulfate functional core to Horonobe-biased methane metabolism.</p>
+                <p class="prewrap interaction-description">PARTIAL - in Horonobe samples farther from tunnels, the authors propose that putative autotrophic sulfate-reducing Syntrophobacterales may produce hydrogen supporting Methanospirillum methanogenesis. Genomic capacities and community profiles motivate this model, without directly measuring partner-resolved hydrogen transfer, necessity or simultaneous sulfate reduction and hydrogen export. The canonical Horonobe community placeholder does not resolve those partners as individual grounded taxa.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Horonobe sedimentary URL groundwater microbiome
+
+                </p>
 
 
 
@@ -787,7 +782,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/39696556/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39696556</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"predicted to be autotrophic sulfate-reducers that may also produce H2, supporting methanogenesis by abundant Methanospirillum"</div>
@@ -800,7 +795,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/39696556/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39696556</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"methane metabolism is more prevalent at the organic- and CO2-rich Horonobe URL"</div>
@@ -814,12 +809,17 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Genotypic Homogeneity Across Depths in Horonobe</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Near-identical genotypes for approximately one third of detected organisms recur at multiple Horonobe depths with detectable but slow in situ growth, suggesting historical dispersal under different hydrological regimes.</p>
+                <p class="prewrap interaction-description">Near-identical genotypes recur across Horonobe depths for approximately one third of genomically defined organisms. Coverage-qualified iRep estimates for a subset support replication, not direct absolute growth rates for all taxa. Historical groundwater mobility is a proposed explanation for present genotype similarity; the data do not directly establish migration, colonization facilitation or mutation rates, and current low conductivity and heterogeneous chemistry argue against assuming ongoing intersite dispersal.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Horonobe sedimentary URL groundwater microbiome
+
+                </p>
 
 
 
@@ -849,7 +849,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/39696556/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39696556</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"near-identical genotypes for approximately one third of all genomically defined organisms at multiple depths within the Horonobe URL"</div>
@@ -862,7 +862,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/39696556/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39696556</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"the Horonobe URL microbiome homogeneity may be explained by higher groundwater mobility during the last glacial period"</div>
@@ -875,7 +875,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/39696556/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39696556</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"in situ growth was detected for some bacteria, albeit at slow rates"</div>
@@ -891,6 +891,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which processes connect URL genomic potential to activity and dispersal?
+                </h3>
+                <p class="prewrap">Remove both overview-to-hydrogen arrows: contrasting sites provides context, and membership of a shared functional repertoire provides inclusion, neither an experimentally resolved upstream cause of the proposed transfer. Expression, isotope/flux measurements and partner perturbations would test the retained hydrogen hypothesis. Distinct rpS3 and genome-ANI species definitions yield different overlap counts and must not be conflated. Broad habitat placeholders are not organism-resolved donor/recipient groundings. Methanoperedens iron-coupling, tunnel-associated mobilization and historical dispersal are additional proposals, not newly demonstrated branches or an exhaustive mechanism expansion. Non-graph metadata is preserved, not recertified.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Site-Associated URL Community Divergence</code>, <code>ecological_interactions#Shared Deep-Subsurface Genomic Functional Potential</code>, <code>ecological_interactions#Horonobe Sulfate-Reducer Hydrogen Support of Methanogenesis</code>, <code>ecological_interactions#Genotypic Homogeneity Across Depths in Horonobe</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1085,7 +1104,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1098,7 +1116,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1152,7 +1169,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1167,7 +1184,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Lithology-Driven Community Divergence",
+                label: "Site-Associated URL Community Divergence",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1178,11 +1195,24 @@
 
 
 
+            var participantKeys = [
+
+                "Horonobe sedimentary URL groundwater microbiome",
+
+                "Mizunami granitic URL groundwater microbiome"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1205,7 +1235,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Shared Deep-Subsurface Functional Core",
+                label: "Shared Deep-Subsurface Genomic Functional Potential",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1215,6 +1245,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Horonobe sedimentary URL groundwater microbiome",
+
+                "Mizunami granitic URL groundwater microbiome"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1254,11 +1297,22 @@
 
 
 
+            var participantKeys = [
+
+                "Horonobe sedimentary URL groundwater microbiome"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:3";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1281,6 +1335,17 @@
 
 
 
+
+            var participantKeys = [
+
+                "Horonobe sedimentary URL groundwater microbiome"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

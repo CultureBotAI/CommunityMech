@@ -268,11 +268,10 @@ taxonomy:
     explanation: Establishes L. plantarum DSMZ 20174 as a SIHUMIx member.
 ecological_interactions:
 - name: Anaerobic Fermentation and Short-Chain Fatty Acid Output
-  description: SIHUMIx is maintained as an anaerobic intestinal model in which community metabolism can
-    be followed through short-chain fatty acid measurements. The community includes primary carbohydrate
-    degraders and secondary fermenters that together support acetate, propionate, and butyrate output
-    under controlled bioreactor conditions.
-  interaction_type: CROSS_FEEDING
+  description: SIHUMIx bioreactor studies measured community short-chain fatty acid output. The transit-time study
+    reports lower butyrate and selected other acids at shorter transit time; total SCFA, acetate and propionate
+    did not change significantly with transit time. These bulk endpoints do not identify donor-recipient exchange
+    or establish BP5 mediation.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: acetate
@@ -297,18 +296,13 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: a reduction in butyrate, methyl butyrate, isobutyrate, valerate, and isovalerate concentrations
-    explanation: Supports short-chain fatty acid output as a measured community function.
-  - reference: PMID:33622394
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The reduced complexity compared to the intestinal microbiome allows researchers to use the in vitro model system
-    explanation: Supports use of SIHUMIx to analyze controlled community metabolism and interactions.
+    explanation: Supports measured acid-output differences in the distinct transit-time experiment, not cross-feeding
+      or BP5 causation.
 - name: Community-Specific Small Protein Expression
-  description: SIHUMIx metaproteomic comparisons found small proteins expressed only in multi-species
-    community cultivation, including candidates with potential antimicrobial function. These observations
-    indicate that community context changes functional gene-product expression relative to single-strain
-    growth.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Six novel small proteins were detected only in the community comparison. This is positive expression
+    evidence, but single-strain and community cultivation conditions differed, so community-specific regulation
+    is not isolated. Antimicrobial predictions and the limited positive synthetic-CR2 assay do not establish colonization
+    facilitation or a native BP5-mediated exchange mechanism.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: gene expression
@@ -319,11 +313,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: BP5-Linked Blautia Metabolite Exchange
-    description: Community-only sProtein expression included BP5, whose adjacent
-      enzymes were predicted to modulate metabolite exchanges between Blautia
-      producta and the other SIHUMIx members.
   evidence:
   - reference: PMID:33622394
     supports: SUPPORT
@@ -331,16 +320,17 @@ ecological_interactions:
     snippet: six of these sProteins were only identified in the SIHUMIx community
     explanation: Supports community-specific protein expression.
   - reference: PMID:33622394
-    supports: SUPPORT
-    evidence_source: IN_VITRO
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
     snippet: Two of these novel sProteins have a potential antimicrobial function
-    explanation: Supports potential interaction-relevant antimicrobial functions.
-- name: BP5-Linked Blautia Metabolite Exchange
-  description: Metabolic modelling connected the community-only B. producta
-    sProtein BP5 to neighboring valine-biosynthesis and TCA-cycle reactions that
-    modulate B. producta metabolite exchange with other SIHUMIx strains, including
-    acetate production, ATP-from-AMP production, choline uptake, and betaine
-    production.
+    explanation: The abstract describes potential antimicrobial function; predictions are not proof of community
+      colonization facilitation.
+- name: Predicted Blautia Exchange After BP5-Neighbor Reaction Knockout
+  description: 'COMPUTATIONAL: constraint-based modelling predicted altered B. producta exchanges after in silico
+    removal of rxn15467, a valine-biosynthesis reaction encoded near BP5. The predictions included reduced acetate
+    production and increased choline uptake/betaine production. This was not a BP5 knockout; genomic proximity and
+    community-only detection leave BP5 mediation HYPOTHESIZED. Predicted exchange is not measured transfer or an
+    established cause of SCFA outcomes in the separate transit-time study.'
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   metabolites:
@@ -353,29 +343,19 @@ ecological_interactions:
       id: CHEBI:15354
       label: choline
   biological_processes:
-  - preferred_term: gene expression
-    term:
-      id: GO:0010467
-      label: gene expression
   - preferred_term: interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Anaerobic Fermentation and Short-Chain Fatty Acid Output
-    description: BP5-neighboring reactions were predicted to alter B. producta
-      acetate production for other members, connecting community-specific protein
-      expression to SIHUMIx short-chain-fatty-acid output.
   evidence:
   - reference: PMID:33622394
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: An in silico knockout of (R)-2,3-dihydroxy-3-methylbutanoate hydrolyase which is
-      in close genomic neighborhood to BP5 and catalyzes the second-to-last step in valine
-      biosynthesis, led to a reduced metabolite production and concurrently increased metabolite
-      consumption by B. producta for the SIHUMIx community members.
-    explanation: Supports BP5-neighborhood modelling as a predicted mediator of
-      B. producta metabolite exchange with the SIHUMIx community.
+    snippet: An in silico knockout of (R)-2,3-dihydroxy-3-methylbutanoate hydrolyase which is in close genomic neighborhood
+      to BP5 and catalyzes the second-to-last step in valine biosynthesis, led to a reduced metabolite production
+      and concurrently increased metabolite consumption by B. producta for the SIHUMIx community members.
+    explanation: Supports the simulated neighboring-enzyme perturbation and predicted exchange, not a BP5 perturbation
+      or measured cross-feeding.
 cultivation_setup:
 - cultivation_mode: CHEMOSTAT
   system_type: BIOREACTOR_UNSPECIFIED
@@ -545,3 +525,44 @@ associated_datasets:
     snippet: expression of 30 was supported by metatranscriptomics data
     explanation: Links the record to metatranscriptomic support for detected small proteins.
 metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: sihumix_expression_model_and_outcome
+  prompt: Does native BP5 regulate community metabolite exchange?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Anaerobic Fermentation and Short-Chain Fatty Acid Output
+  - ecological_interactions#Community-Specific Small Protein Expression
+  - ecological_interactions#Predicted Blautia Exchange After BP5-Neighbor Reaction Knockout
+  rationale: Selected primary cultivation, modelling, results and discussion sections were read. BP5 adjacency does
+    not demonstrate regulation of the neighboring enzyme, and the authors explicitly call its mediation hypothetical.
+    Different single/community growth conditions confound the expression comparison. The primary main text also
+    reports a positive synthetic-CR2 effect on C. butyricum lag and cell size; this limited assay is not evidence
+    of colonization facilitation or proof of native peptide action within the whole consortium. No new CR2 node
+    or mechanism is added without the required extension workflow. The separate transit-time study measures community
+    outputs, not BP5-dependent flux; its discussion contains inconsistent BCFA direction wording, so the graph follows
+    the explicit Results and abstract. Non-graph modelling-source labels and culture-temperature scope remain issue1770.
+  evidence:
+  - reference: PMID:33622394
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: growth and cultivation conditions differ between individual cultures and communities
+    explanation: The source explicitly identifies this confounder.
+  - reference: PMID:33622394
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: BP5 may serve as potential mediator or modulator
+    explanation: The authors label BP5 mediation a hypothesis.
+  - reference: PMID:33622394
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we observed a significant reduction in cell size after treatment of C. butyricum with CR2
+    explanation: Positive synthetic-peptide assay evidence is acknowledged without claiming native community mediation.
+curation_history:
+- timestamp: '2026-10-07T17:54:05Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain measured community SCFA outcomes without donor-recipient or BP5 attribution.; Retain community-only
+    detection with cultivation confounding, not colonization facilitation.; Retain explicit predicted exchange following
+    neighboring-enzyme perturbation; remove both bridges to observed expression and output. Issue#1769; reports/causal_graph_review/decisions/20261007-four-records-batch96.yaml
+  llm_assisted: true

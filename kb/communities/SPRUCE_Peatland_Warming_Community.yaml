@@ -129,96 +129,48 @@ taxonomy:
     snippet: Peat vOTUs with aquatic-like signatures (shared predicted protein content with marine and/or freshwater vOTUs) were significantly enriched in more waterlogged surface peat
     explanation: Demonstrates niche partitioning in viral communities
 ecological_interactions:
-- name: Warming-Enhanced Saprophytic Decomposition
-  description: 'Whole-ecosystem warming (+2.25°C to +9°C) promotes saprophytic fungal and chemoorganoheterotrophic bacterial abundance and activity in root-associated environments. Saprophytic fungi (primarily Basidiomycota and Ascomycota) decompose plant litter, peat organic matter, and dead root tissues, releasing CO2 and mobilizing nutrients. Warming accelerates enzymatic activity (cellulases, laccases, peroxidases) and fungal hyphal growth rates, increasing organic carbon mineralization. Bacterial decomposers (Proteobacteria, Acidobacteria, Actinobacteria) synergize with fungal decomposition by metabolizing low-molecular-weight organic compounds released during fungal litter breakdown. This climate-driven enhancement of decomposition has critical ecosystem consequences: (1) accelerated carbon loss from peat carbon stores, potentially shifting peatlands from carbon sinks to sources; (2) increased nutrient availability for plants, potentially stimulating productivity; (3) altered peat structure and hydrology through organic matter breakdown. The warming effect on decomposition is modulated by peat moisture status, with waterlogged conditions limiting aerobic decomposition despite elevated temperatures.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Fungi
-    term:
-      id: NCBITaxon:4751
-      label: Fungi
-  target_taxon:
-    preferred_term: Bacteria
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
-  metabolites:
-  - preferred_term: carbon dioxide
-    term:
-      id: CHEBI:16526
-      label: carbon dioxide
-    notes: Product of aerobic respiration and organic matter decomposition
-  - preferred_term: methane
-    term:
-      id: CHEBI:16183
-      label: methane
-    notes: Product of anaerobic decomposition in waterlogged peat
-  biological_processes:
-  - preferred_term: cellulose catabolic process
-    term:
-      id: GO:0030245
-      label: cellulose catabolic process
-  - preferred_term: lignin catabolic process
-    term:
-      id: GO:0046274
-      label: lignin catabolic process
+- name: Warming-Associated Root-Zone Decomposer Community
+  description: The field warming study found increased representation of saprophytic fungi and putative chemoorganoheterotrophic
+    bacteria in root-associated communities. Trait measurements and amplicon profiles support a community response,
+    not a directed mutualistic benefit between all fungi and bacteria. Increased decomposition is a functional interpretation;
+    the cited observations do not directly measure specific cellulase, laccase or peroxidase activity, fungal-to-bacterial
+    carbon transfer, or methane production by these participants.
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:38515239
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Warming promoted self-reliance for resource uptake in trees and shrubs, while saprophytic fungi and putative chemoorganoheterotrophic bacteria utilizing plant-derived carbon substrates were favored in the root zone
+    snippet: Warming promoted self-reliance for resource uptake in trees and shrubs, while saprophytic fungi and
+      putative chemoorganoheterotrophic bacteria utilizing plant-derived carbon substrates were favored in the root
+      zone
     explanation: Documents warming effects on decomposer communities
-- name: Elevated CO2-Enhanced Ectomycorrhizal Symbiosis
-  description: 'Elevated CO2 (+500 ppm above ambient, ~900 ppm total) enhances associations between vascular plants (primarily black spruce, Picea mariana) and ectomycorrhizal (ECM) fungi. eCO2 increases plant photosynthetic carbon fixation, providing additional carbohydrate resources allocated belowground to support mycorrhizal partners. ECM fungi respond by increasing colonization of fine roots and hyphal exploration of soil. Under eCO2, trees preferentially associate with ECM fungi employing short-distance exploration strategies (limited hyphal spread, clustered near roots) that target labile nitrogen pools (amino acids, simple organic nitrogen) rather than distant or recalcitrant N sources. This represents a shift in ECM functional guild composition, with implications for nutrient cycling: short-distance explorers efficiently scavenge readily available N but may reduce ecosystem N retention compared to long-distance mat-forming ECM. The enhanced ECM symbiosis improves tree nutrient acquisition (N, P) and potentially increases tree growth and carbon allocation to roots, with cascading effects on peat carbon inputs through root exudation and turnover. The eCO2-ECM response contrasts with warming effects, suggesting divergent climate driver impacts on plant-fungal mutualisms.
-
-    '
-  interaction_type: MUTUALISM
+  participating_taxa:
+  - preferred_term: Bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  - preferred_term: Fungi
+    term:
+      id: NCBITaxon:4751
+      label: Fungi
+- name: Elevated CO2-Associated Ectomycorrhizal Colonization
+  description: Elevated CO2 increased ectomycorrhizal colonization of tree roots in the field study. Greater colonization
+    was associated with a higher relative representation of short-distance exploration types. The plant-fungal association
+    is retained, but the cited measurements do not directly resolve reciprocal fitness or transfer of particular
+    glucose, glutamine or ammonium molecules. Trees are the plant context of this node, not a newly curated microbial
+    member.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Fungi
     term:
       id: NCBITaxon:4751
       label: Fungi
-  metabolites:
-  - preferred_term: glucose
-    term:
-      id: CHEBI:17234
-      label: glucose
-    notes: Plant-derived photosynthate allocated to ECM fungi
-  - preferred_term: L-glutamine
-    term:
-      id: CHEBI:18050
-      label: L-glutamine
-    notes: Labile nitrogen source targeted by short-distance ECM
-  - preferred_term: ammonium
-    term:
-      id: CHEBI:28938
-      label: ammonium
-    notes: Inorganic nitrogen accessed by ECM and transferred to plants
-  biological_processes:
-  - preferred_term: acquisition of nutrients from host
-    term:
-      id: GO:0044002
-      label: acquisition of nutrients from host
-    notes: The fungus taking plant photosynthate - the glucose above, "plant-derived photosynthate allocated
-      to ECM fungi". GO defines the host as the larger organism, which is Picea mariana.
-  - preferred_term: acquisition of nutrients from symbiont
-    term:
-      id: GO:0051850
-      label: acquisition of nutrients from symbiont
-    notes: The return leg, and the one this record's narrative leads with - the ammonium above is "accessed
-      by ECM and transferred to plants", and the description's headline claim is that the symbiosis
-      "improves tree nutrient acquisition (N, P)". Both terms are listed because the interaction is typed
-      MUTUALISM and the metabolites run both ways; carrying one would make the record assert a one-way
-      transfer it does not describe (#356).
   downstream:
   - target: Root Trait-Mediated Microbial Community Assembly
-    description: eCO2 promoted tree-ectomycorrhizal associations and shifted trees
-      toward short-distance, labile-N-exploring fungi, making this a climate-linked
-      plant-root trait response that structures associated microbial communities.
+    description: 'PARTIAL: increased ectomycorrhizal colonization under elevated CO2 is associated with fungal community
+      composition and exploration-type changes. This supports the authors'' root-associated assembly interpretation,
+      not an independently isolated mediator or a uniformly positive effect on decomposers; elevated CO2 decreased
+      saprotroph representation.'
   evidence:
   - reference: PMID:38515239
     supports: SUPPORT
@@ -228,73 +180,75 @@ ecological_interactions:
   - reference: PMID:38515239
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Trees mostly associated with short-distance exploration-type fungi that preferentially use labile soil N
+    snippet: Trees mostly associated with short-distance exploration-type fungi that preferentially use labile soil
+      N
     explanation: Details ECM functional guild shifts under eCO2
 - name: Root Trait-Mediated Microbial Community Assembly
-  description: 'Vascular plant fine root traits serve as critical mediators of climate change effects on microbial communities. Root trait variation (specific root length, root diameter, tissue chemistry, exudate composition) creates heterogeneous microenvironments in the rhizosphere and bulk peat, structuring microbial community composition and function. Under warming, plants shift root allocation and morphology, altering the quantity and quality of resources available to root-associated microbes. For example, increased fine root production provides fresh organic carbon substrates for decomposers, while changes in root exudate chemistry (organic acids, sugars, secondary metabolites) selectively promote or inhibit specific microbial taxa. Under eCO2, enhanced root biomass and exudation due to increased photosynthate allocation belowground fuel ectomycorrhizal fungal growth and bacterial rhizosphere communities. This plant-mediated microbial response represents a biotic feedback mechanism: climate change → plant physiological/morphological responses → altered root traits → microbial community shifts → ecosystem function changes (decomposition, nutrient cycling, carbon storage). The finding that root traits mediate climate effects suggests that plant species composition and functional diversity will strongly influence peatland microbial responses to global change, adding complexity to climate-ecosystem models.
-
-    '
-  interaction_type: NICHE_PARTITIONING
+  description: Fine-root traits and microbial community composition covary across the warming and elevated-CO2 field
+    treatments. The authors interpret root traits as mediators of climate responses, while the statistical associations
+    do not independently establish every intermediate mechanism. Warming-associated resource investment in roots
+    and elevated-CO2-associated tree mycorrhizal colonization have contrasting community effects. The record does
+    not claim measured root-exudate chemistry, universal morphological change, or competition-reducing niche partitioning.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: response to other organism
     term:
       id: GO:0051707
       label: response to other organism
-    notes: 'Microbial responses to plant root exudates and morphology. Regrounded from GO:0075136
-      "response to host", which is false here: that term is defined as a change in the *symbiont* in
-      response to *its host*, while this interaction is typed NICHE_PARTITIONING and its description
-      covers free-living decomposers and bulk-peat taxa that are no such thing (#356). GO has no
-      "response to root" or "response to root exudate" term - every hit for exudate or rhizosphere is
-      obsolete, and every hit for root is anatomy or tropism - so this is the nearest true one. It is
-      chosen over GO:0042221 "response to chemical" because the traits this interaction names are
-      mostly not chemical: specific root length, root diameter and morphology alongside exudate
-      composition. A biotic-stimulus term covers all of them without asserting symbiosis. The gap that
-      would let this be specific is #463.'
+    notes: Broad biotic-response grounding retained for the root-associated community interpretation. A more specific
+      non-symbiosis-implying term is a separate ontology question tracked in issue463.
   downstream:
-  - target: Warming-Enhanced Saprophytic Decomposition
-    description: Fine-root trait variation is the plant-mediated mechanism linking
-      whole-ecosystem warming to root-zone enrichment of saprophytic fungi and
-      chemoorganoheterotrophic bacteria.
+  - target: Warming-Associated Root-Zone Decomposer Community
+    description: 'PARTIAL: warming-associated root investment is proposed to change resources available to root-zone
+      decomposers, consistent with the measured root-trait and microbial-composition associations. Exudate-mediated
+      causation and decomposition flux are not independently isolated. This arrow does not imply that elevated CO2
+      also promotes decomposers; its reported saprotroph response is opposite.'
   evidence:
   - reference: PMID:38515239
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Our results indicate that plant fine-root trait variation is a crucial mechanism
-      through which vascular plants in peatlands respond to climate change via their influence
-      on microbial communities that regulate biogeochemical cycles
+    snippet: Our results indicate that plant fine-root trait variation is a crucial mechanism through which vascular
+      plants in peatlands respond to climate change via their influence on microbial communities that regulate biogeochemical
+      cycles
     explanation: The paper's own conclusion that root traits mediate the climate-microbe link.
-- name: Viral-Host Dynamics and Niche Partitioning
-  description: 'Viral communities (phages) exert top-down control on bacterial and archaeal populations through predation, influencing microbial community structure, diversity, and nutrient cycling. In SPRUCE peatland, viral community composition tracks environmental gradients (peat depth, water content, carbon chemistry) rather than direct climate manipulations (temperature), suggesting viruses respond to microbial host distributions and metabolism rather than abiotic climate drivers. Viruses exhibit strong niche partitioning between aquatic (waterlogged surface peat) and terrestrial (deeper, less saturated) zones, with distinct vOTU assemblages reflecting underlying bacterial host community composition. Predicted viral hosts show narrow ranges (typically within a single bacterial genus), indicating specialized phage-host relationships and limited cross-infection. This specificity suggests viral predation may regulate specific bacterial functional guilds (e.g., methanogens, cellulose degraders) with cascading effects on ecosystem processes. Viral lysis releases intracellular nutrients and organic carbon (viral shunt), making them available for microbial uptake and potentially accelerating nutrient cycling. The lack of viral community response to temperature during initial warming (first 2 years) suggests viral dynamics may lag behind bacterial responses or require threshold climate changes to trigger shifts.
-
-    '
-  interaction_type: PREDATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Viruses
-    term:
-      id: NCBITaxon:10239
-      label: Viruses
-  biological_processes:
-  - preferred_term: viral entry into host cell
-    term:
-      id: GO:0046718
-      label: symbiont entry into host cell
-  - preferred_term: host cell lysis by virus
-    term:
-      id: GO:0019076
-      label: viral release from host cell
+- name: Predicted Viral Hosts and Depth-Associated Composition
+  description: Metagenomic viral composition correlated with depth, water content and carbon chemistry, and aquatic-like
+    sequence signatures were enriched near the peat surface. CRISPR matches predicted links to bacterial MAGs, generally
+    within a genus where resolvable. These are computational host assignments and ecological associations, not direct
+    infection, predation, cell lysis or viral-shunt measurements. No CRISPR links to the detected methanogen or
+    methanotroph MAGs were recovered by this study; this is a limitation of the analysis, not evidence that such
+    infections never occur. The sampled column was saturated throughout despite greater near-surface water content.
+    No significant temperature-associated compositional effect was reported during the first two years.
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:34836550
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Predicted host ranges for SPRUCE vOTUs were relatively narrow, generally within a single bacterial genus
-    explanation: Documents viral-host specificity
+    evidence_source: COMPUTATIONAL
+    snippet: Predicted host ranges for SPRUCE vOTUs were relatively narrow, generally within a single bacterial
+      genus
+    explanation: Supports predicted host range or environmental association, not experimental predation or causal
+      control.
   - reference: PMID:34836550
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: viral community composition was significantly correlated with peat depth, water content, and carbon chemistry
-    explanation: Establishes viral community environmental drivers
+    evidence_source: COMPUTATIONAL
+    snippet: viral community composition was significantly correlated with peat depth, water content, and carbon
+      chemistry
+    explanation: Supports predicted host range or environmental association, not experimental predation or causal
+      control.
+  - reference: PMID:34836550
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: none of these MAGs had a CRISPR linkage to a vOTU
+    explanation: The primary results do not identify viral hosts among the methanogen/methanotroph MAGs.
+  participating_taxa:
+  - preferred_term: Viruses
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+  - preferred_term: Bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
 environmental_factors:
 - name: Temperature Gradient
   value: '+0 to +9'
@@ -389,3 +343,34 @@ associated_datasets:
   dataset_type: METATRANSCRIPTOMICS
   accession: PMID:38515239
   description: 'Metatranscriptomic profiling of active gene expression in peat microbial communities under warming and eCO2, revealing functional responses to climate treatments'
+discussions:
+- discussion_id: warming_graph_evidence_scope
+  prompt: Which root-mediated and viral processes are measured rather than inferred from community profiles?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The root paper supports increased ECM colonization and community responses, including opposite saprotroph
+    responses to warming and elevated CO2. Retain both existing directions as PARTIAL, without a uniform positive
+    chain, measured compound exchange or fungal-bacterial mutualism. The virome paper provides host predictions,
+    not measured lysis or top-down control; no methane-cycler MAG had a CRISPR host link. Functional decomposition
+    and root-exudate mediation need process-specific evidence. Non-graph descriptions and dataset claims remain
+    a separate review scope.
+  evidence:
+  - reference: PMID:38515239
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Additionally, eCO2 decreased the relative abundance of saprotrophs in tree roots
+    explanation: The treatment effects must not be propagated with the same positive sign.
+  attaches_to:
+  - ecological_interactions#Warming-Associated Root-Zone Decomposer Community
+  - ecological_interactions#Elevated CO2-Associated Ectomycorrhizal Colonization
+  - ecological_interactions#Root Trait-Mediated Microbial Community Assembly
+  - ecological_interactions#Predicted Viral Hosts and Depth-Associated Composition
+curation_history:
+- timestamp: '2026-10-07T19:51:56Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain the measured root-zone decomposer response at community scope, not fungal-bacterial mutualism.;
+    Retain increased ECM colonization and PARTIAL community-assembly association without named molecular transfers.;
+    Retain root-trait mediation as PARTIAL and distinguish contrasting treatment effects.; Retain predicted bacterial
+    hosts and depth associations without experimental viral predation or methane-host assignment. Issue#1779; reports/causal_graph_review/decisions/20261007-four-records-batch98.yaml
+  llm_assisted: true

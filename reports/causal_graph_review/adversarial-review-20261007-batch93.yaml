@@ -1,0 +1,521 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: ba6bdfb3fa594cdf5469fc81c12ae2975bb3ce6e
+scope:
+- kb/communities/Rammelsberg_Cobalt_Nickel_Tailings.yaml
+- kb/communities/Rhizorhabdus_Cupriavidus_BDE47_Degradation_SynCom.yaml
+- kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml
+- kb/communities/Rhodococcus_Pseudomonas_PPOW_Consortium.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch93.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch93.json
+findings:
+- issue: 1750
+  severity: P2
+  status: addressed_in_this_change
+  finding: Repair Rammelsberg graph citation and unsupported pairwise feedback
+  disposition: Close only after protected-main merge.
+- issue: 1751
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate BDE-47 cross-feeding from donor rescue and parent removal
+  disposition: Close only after protected-main merge.
+- issue: 1752
+  severity: P2
+  status: addressed_in_this_change
+  finding: Qualify PPOW member roles and expose contradictory control reporting
+  disposition: Close only after protected-main merge.
+- issue: 1753
+  severity: P2
+  status: open_non_graph_follow_up
+  finding: Reconcile batch93 non-graph source identity, roles and concentration units
+  disposition: Remain open for separate non-graph curation; graph merge does not resolve it.
+adversarial_checks:
+- 'Initial combined regression output retained:855passed and one participant-set failure. The expected set now includes
+  Rammelsberg after the measured census; the corrected full suite was rerun. Reference CLI success is macOS-only,
+  not a Linux claim: existing DOI-cache casing issue1091 remains unresolved.'
+- Fresh both-root baseline preceded sources; four whole records and all nine original nodes/six arrows accounted
+  for. Eight nodes/three directions retained, one intrinsic node/three feedback arrows removed, no new topology.
+- Rammelsberg primary105443 is distinct from Finnish105484. Community chemistry and positive metal recovery remain;
+  the dominant recorded taxa are not the entire enrichment or demonstrated pairwise beneficiaries. Correct iron-to-dissolution
+  direction retained. Generic review chemistry cannot establish strain-specific recycling/passivation, and intrinsic
+  carbon fixation is not exchange. Incorrect iron-transport annotation removed.
+- BDE-47 retains supported forward intermediate CROSS_FEEDING, functional enzymes, transwell relay, sequential growth
+  and wastewater endpoints. Both monoculture and mixed culture remove parent BDE-47; partner conversion prevents2,4-DBP
+  accumulation. Reverse donor benefit/return transfer is not shown. SYNTROPHY does not require obligacy; feedback
+  is the missing criterion. Pathway reconstruction/bromide release are not a closed carbon balance.
+- 'RAMC graph and entire record remain unchanged: exact primary monoculture/pool comparisons support complementary
+  utilization. Succinate exchange remains proposed, not an asserted arrow. WT and engineered RAMC-P claims remain
+  separate; no protocol/design additions. Existing non-graph citation-marker omission yields one ASSEMBLED classification
+  and one RENDERING; baseline/current counts measured equal, not silently called literal MATCH.'
+- PPOW roles remain an explicit HYPOTHESIZED/PARTIAL model while bulk removal retains SUPPORT. Methods2.4 describes
+  controls but the conclusion says they are lacking; this source conflict is not resolved by choosing one statement.
+  No directional cross-feeding invented. Existing member-mechanism discussion preserved.
+- Three fresh PMC main bodies and complete public Rammelsberg pre-proof text read, with captions/table text but
+  no figure pixels, raw data or complete supplements. One retained BDE FigureS16 caption has existing-cache-only
+  provenance. All other21graph/new-discussion quotes freshly matched; quote matching is not entailment. Publisher
+  metadata independently verifies Rammelsberg DOI/title/OA license but is not full text. No security challenge bypass.
+- 'All921baselinecaches preserved; two independent full-text caches added: the public Rammelsberg pre-proof and
+  freshly retrieved PPOW PMC text. PPOW initial31NoContent CLI failure is separately retained, not counted as a
+  pass.457otherrecords, non-graph raw blocks and prior histories/decisions remain unchanged. Canonical IDs/labels
+  preserved; Rammelsberg COMMUNITY_LEVEL scope and BDE recipient-step participants intentionally repaired. Legacy
+  community-level census changes are measured, not used to claim mechanistic connectivity.'
+- Eight new regressions and focused schema/strict/term/reference/snippet/history checks executed, including the
+  explicit RAMC baseline exception. Network remains56existingwarnings and zero structural defects. Deterministic
+  rendering and exact HTML-description checks are not browser screenshots; generated-model loader1703 remains outside
+  certification.
+- Ignored-inclusive local and all-state issue dedup recorded with exclusions. Repairs1750-1752 remain open until
+  protected-main merge; non-graph1753 remains unresolved. No provider spend, new wet-lab instructions, independent
+  approval or corpus-completion claim. Prior denied/pending Edison scopes unchanged.
+verification:
+  combined_regressions: 856 passed in 287.22s (0:04:47)
+  new_regression_tests: 8
+  primary_graph_snippet_proof:
+    graph_quotations: 16
+    new_discussion_quotations: 6
+    fresh_primary_matches: 21
+    existing_supplement_caption_matches: 1
+    retained_nodes: 8
+    removed_nodes: 1
+    retained_arrows: 3
+    removed_arrows: 3
+    new_nodes_or_directions: 0
+    fresh_main_bodies_read: 3
+    public_author_preproof_read: 1
+    cache_files_added: 2
+    baseline_cache_files_preserved: 921
+  references: 'Four full-record CLI and local snippet checks executed. Literal matches do not establish entailment
+    or independent provenance: RAMC selected cache quotes separately match fresh full text; the retained BDE FigureS16
+    caption has existing-cache-only provenance. Rammelsberg new cache is the complete public author pre-proof browser
+    extraction, not a final PDF. CLI Total checks counts issues, not executed checks. Executed on macOS, not Linux:
+    existing issue1091 remains open for the pinned DOI-cache reader casing mismatch on case-sensitive filesystems.'
+  snippet_counts_by_record:
+    kb/communities/Rammelsberg_Cobalt_Nickel_Tailings.yaml:
+      MATCH: 22
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Rhizorhabdus_Cupriavidus_BDE47_Degradation_SynCom.yaml:
+      MATCH: 25
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml:
+      MATCH: 20
+      RENDERING: 1
+      ASSEMBLED: 1
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Rhodococcus_Pseudomonas_PPOW_Consortium.yaml:
+      MATCH: 35
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    caveat: Both-root audit executed; informational exit0 is not clean-corpus certification. Selected-cache matches
+      are literal, not independent verification.
+    counts:
+      records: 460
+      total: 8936
+      categories:
+        MATCH: 8801
+        RENDERING: 20
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 38
+        NOCONTENT: 76
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: Eight nodes retained, one intrinsic node and three unproven feedback arrows removed. All56existingwarnings
+      unchanged, zero structural defects; no taxonomy or auditor-rule changes.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch93.yaml: 500c0c50004d7468d58773f647750f745900bfa6463bcd8622ef2e8093ed7651
+    tests/test_causal_review_batch93.py: 4fd15b6e98e64b9e83fbcd7fe9a3309bc579fb8f368ff1e149c85b86622d1d4f
+    reports/causal_graph_review/README.md: d34e84deda4be3e21480cd5e4539ce93ed0b34122a94c4d45898461b4e4b56cc
+    reports/causal_graph_review/cache-provenance-20261007-batch93.json: 42eced81b60bd40edf7100055b057c03ca35c0cb9472f70e1c23566f7e76a082
+    kb/communities/Rammelsberg_Cobalt_Nickel_Tailings.yaml: cf9d123e9ca919c62766a20e764dbb2f18bbfc1004911cdf4a0d48055ba47e56
+    kb/communities/Rhizorhabdus_Cupriavidus_BDE47_Degradation_SynCom.yaml: 5b74bd01d770c894a9dd65240bf47b4754d997013fa2681a63abf653a1fb82d0
+    kb/communities/Rhodococcus_Acinetobacter_RAMC_Mixed_Plastic_Upcycling_SynCom.yaml: 583655d32e85bb7a2786ba99f814f00b83dde9a5dca8e3d3b6d0b4f38ab28d46
+    kb/communities/Rhodococcus_Pseudomonas_PPOW_Consortium.yaml: 8e36a499934681939a8905e7044d7951646ef4efe7ed0cf5cfb37d4ce95e9171
+    tests/test_participating_taxa.py: 542dd1067bae1fa922b7c728e017b8cd9b40278c2b11dff0b4673165b1b07715
+  unchanged_records: 457
+  unchanged_caches: 921
+  immutable_prior_history_and_decision_files: 748
+  cache_changes:
+  - path: references_cache/doi_10.1016_j.hydromet.2020.105443.md
+    action: added
+    sha256: 1f68bb07ce944b1917509a359d5cf957585cb316ee5b8de732e9d3b17951e9d3
+    reference: doi:10.1016/j.hydromet.2020.105443
+    source: https://www.researchgate.net/publication/343508487_Bioleaching_of_cobalt_from_CuCo-rich_sulfidic_mine_tailings_from_the_polymetallic_Rammelsberg_mine_Germany
+    scope: Complete public author-copy main text, figure captions and Table1 extracted through the browser and read.
+      Pre-proof, not final publisher PDF; no figure pixels or supplement review. Contiguous browser lines69-1291
+      independently captured, excluding subsequent citing papers. Direct repository PDF presented a security challenge,
+      direct author page returned403; neither bypassed. Elsevier API independently confirms DOI/title/license but
+      returns metadata only.
+    independent_primary_text: true
+    prior_cache_files_preserved: 921
+  - path: references_cache/PMID_42491060.md
+    action: added
+    sha256: 84603f25a950f92b37d0d4f8a608149ab42cc95886d62d9085ecd3a6cc1baa96
+    reference: PMID:42491060
+    source: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13375889/fullTextXML
+    scope: Complete freshly retrieved article abstract/main body, including embedded table text and figure captions.
+      Structured XML extraction, not curated snippet assembly; no figure pixels or supplementary files.
+    independent_primary_text: true
+    prior_cache_files_preserved: 921
+  ramc_existing_snippet_classification:
+    baseline_counts:
+      MATCH: 20
+      RENDERING: 1
+      ASSEMBLED: 1
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    current_counts:
+      MATCH: 20
+      RENDERING: 1
+      ASSEMBLED: 1
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    interpretation: 'Unchanged non-graph medium quote omits the source citation marker63 after medium. Fresh primary
+      paragraph read: the prose is consecutive apart from that citation. The lexical auditor reports ASSEMBLED;
+      it is not silently counted as MATCH or proof of fabricated assembly. One existing RENDERING also remains.'
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Qualify/re-evidence existing nodes/directions and remove unsupported graph elements; no new topology.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+  failed_attempts:
+  - check: Rhodococcus_Pseudomonas_PPOW_Consortium-references
+    command:
+    - /Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/linkml-reference-validator
+    - validate
+    - data
+    - kb/communities/Rhodococcus_Pseudomonas_PPOW_Consortium.yaml
+    - -s
+    - src/communitymech/schema/communitymech.yaml
+    - --config
+    - conf/reference_validator.yaml
+    exit_code: 1
+    expected_exit_codes:
+    - 0
+    log: /private/tmp/communitymech-batch93/Rhodococcus_Pseudomonas_PPOW_Consortium-references.log
+    log_sha256: 62b9eb343eb8b9d1e2a7f055684e51bcbd98cab73455109acb1c69bbfd42b886
+    output_tail: "Validating kb/communities/Rhodococcus_Pseudomonas_PPOW_Consortium.yaml against schema src/communitymech/schema/communitymech.yaml\n\
+      Cache directory: references_cache\n\nValidation Issues (31):\n  [ERROR] No content available for reference:\
+      \ PMID:42491060\n    Location: engineering_design.evidence[0].snippet\n    Reference: PMID:42491060\n  [ERROR]\
+      \ No content available for reference: PMID:42491060\n    Location: engineering_design.evidence[1].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ engineering_design.evidence[2].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available for\
+      \ reference: PMID:42491060\n    Location: engineering_design.evidence[3].snippet\n    Reference: PMID:42491060\n\
+      \  [ERROR] No content available for reference: PMID:42491060\n    Location: engineering_design.evidence[4].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ taxonomy[0].evidence[0].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available for reference:\
+      \ PMID:42491060\n    Location: taxonomy[0].evidence[1].snippet\n    Reference: PMID:42491060\n  [ERROR] No\
+      \ content available for reference: PMID:42491060\n    Location: taxonomy[0].evidence[2].snippet\n    Reference:\
+      \ PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location: taxonomy[1].evidence[0].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ taxonomy[1].evidence[1].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available for reference:\
+      \ PMID:42491060\n    Location: taxonomy[1].evidence[2].snippet\n    Reference: PMID:42491060\n  [ERROR] No\
+      \ content available for reference: PMID:42491060\n    Location: taxonomy[2].evidence[0].snippet\n    Reference:\
+      \ PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location: taxonomy[2].evidence[1].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ taxonomy[2].evidence[2].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available for reference:\
+      \ PMID:42491060\n    Location: ecological_interactions[0].evidence[0].snippet\n    Reference: PMID:42491060\n\
+      \  [ERROR] No content available for reference: PMID:42491060\n    Location: ecological_interactions[0].evidence[1].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ ecological_interactions[0].evidence[2].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available\
+      \ for reference: PMID:42491060\n    Location: ecological_interactions[0].evidence[3].snippet\n    Reference:\
+      \ PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location: environmental_factors[0].evidence[0].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ environmental_factors[1].evidence[0].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available\
+      \ for reference: PMID:42491060\n    Location: environmental_factors[2].evidence[0].snippet\n    Reference:\
+      \ PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location: environmental_factors[3].evidence[0].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ growth_media[0].evidence[0].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available for reference:\
+      \ PMID:42491060\n    Location: growth_media[0].evidence[1].snippet\n    Reference: PMID:42491060\n  [ERROR]\
+      \ No content available for reference: PMID:42491060\n    Location: growth_media[0].evidence[2].snippet\n \
+      \   Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location: growth_media[0].evidence[3].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ growth_media[0].evidence[4].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available for reference:\
+      \ PMID:42491060\n    Location: growth_media[0].evidence[5].snippet\n    Reference: PMID:42491060\n  [ERROR]\
+      \ No content available for reference: PMID:42491060\n    Location: cultivation_setup[0].evidence[0].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ cultivation_setup[0].evidence[1].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available for\
+      \ reference: PMID:42491060\n    Location: external_resources[0].evidence[0].snippet\n    Reference: PMID:42491060\n\
+      \nValidation Summary:\n  Total checks: 31\n  Issues found: 31\n"
+    explained_output_tail: "Validating kb/communities/Rhodococcus_Pseudomonas_PPOW_Consortium.yaml against schema\
+      \ src/communitymech/schema/communitymech.yaml\nCache directory: references_cache\n\nValidation Issues (31):\n\
+      \  [ERROR] No content available for reference: PMID:42491060\n    Location: engineering_design.evidence[0].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ engineering_design.evidence[1].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available for\
+      \ reference: PMID:42491060\n    Location: engineering_design.evidence[2].snippet\n    Reference: PMID:42491060\n\
+      \  [ERROR] No content available for reference: PMID:42491060\n    Location: engineering_design.evidence[3].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ engineering_design.evidence[4].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available for\
+      \ reference: PMID:42491060\n    Location: taxonomy[0].evidence[0].snippet\n    Reference: PMID:42491060\n\
+      \  [ERROR] No content available for reference: PMID:42491060\n    Location: taxonomy[0].evidence[1].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ taxonomy[0].evidence[2].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available for reference:\
+      \ PMID:42491060\n    Location: taxonomy[1].evidence[0].snippet\n    Reference: PMID:42491060\n  [ERROR] No\
+      \ content available for reference: PMID:42491060\n    Location: taxonomy[1].evidence[1].snippet\n    Reference:\
+      \ PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location: taxonomy[1].evidence[2].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ taxonomy[2].evidence[0].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available for reference:\
+      \ PMID:42491060\n    Location: taxonomy[2].evidence[1].snippet\n    Reference: PMID:42491060\n  [ERROR] No\
+      \ content available for reference: PMID:42491060\n    Location: taxonomy[2].evidence[2].snippet\n    Reference:\
+      \ PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location: ecological_interactions[0].evidence[0].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ ecological_interactions[0].evidence[1].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available\
+      \ for reference: PMID:42491060\n    Location: ecological_interactions[0].evidence[2].snippet\n    Reference:\
+      \ PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location: ecological_interactions[0].evidence[3].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ environmental_factors[0].evidence[0].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available\
+      \ for reference: PMID:42491060\n    Location: environmental_factors[1].evidence[0].snippet\n    Reference:\
+      \ PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location: environmental_factors[2].evidence[0].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ environmental_factors[3].evidence[0].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available\
+      \ for reference: PMID:42491060\n    Location: growth_media[0].evidence[0].snippet\n    Reference: PMID:42491060\n\
+      \  [ERROR] No content available for reference: PMID:42491060\n    Location: growth_media[0].evidence[1].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ growth_media[0].evidence[2].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available for reference:\
+      \ PMID:42491060\n    Location: growth_media[0].evidence[3].snippet\n    Reference: PMID:42491060\n  [ERROR]\
+      \ No content available for reference: PMID:42491060\n    Location: growth_media[0].evidence[4].snippet\n \
+      \   Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location: growth_media[0].evidence[5].snippet\n\
+      \    Reference: PMID:42491060\n  [ERROR] No content available for reference: PMID:42491060\n    Location:\
+      \ cultivation_setup[0].evidence[0].snippet\n    Reference: PMID:42491060\n  [ERROR] No content available for\
+      \ reference: PMID:42491060\n    Location: cultivation_setup[0].evidence[1].snippet\n    Reference: PMID:42491060\n\
+      \  [ERROR] No content available for reference: PMID:42491060\n    Location: external_resources[0].evidence[0].snippet\n\
+      \    Reference: PMID:42491060\n\nValidation Summary:\n  Total checks: 31\n  Issues found: 31\n"
+    disposition: Pre-remediation failure retained. Independent PMC full-text cache added; a separately named fresh-cache
+      gate must actually pass.
+  - check: regressions
+    command:
+    - /Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3
+    - -m
+    - pytest
+    - -q
+    - tests/test_causal_review_batch10.py
+    - tests/test_causal_review_batch11.py
+    - tests/test_causal_review_batch12.py
+    - tests/test_causal_review_batch13.py
+    - tests/test_causal_review_batch14.py
+    - tests/test_causal_review_batch15.py
+    - tests/test_causal_review_batch16.py
+    - tests/test_causal_review_batch17.py
+    - tests/test_causal_review_batch18.py
+    - tests/test_causal_review_batch19.py
+    - tests/test_causal_review_batch20.py
+    - tests/test_causal_review_batch21.py
+    - tests/test_causal_review_batch22.py
+    - tests/test_causal_review_batch23.py
+    - tests/test_causal_review_batch24.py
+    - tests/test_causal_review_batch25.py
+    - tests/test_causal_review_batch27.py
+    - tests/test_causal_review_batch28.py
+    - tests/test_causal_review_batch29.py
+    - tests/test_causal_review_batch30.py
+    - tests/test_causal_review_batch31.py
+    - tests/test_causal_review_batch32.py
+    - tests/test_causal_review_batch33.py
+    - tests/test_causal_review_batch34.py
+    - tests/test_causal_review_batch35.py
+    - tests/test_causal_review_batch36.py
+    - tests/test_causal_review_batch37.py
+    - tests/test_causal_review_batch38.py
+    - tests/test_causal_review_batch39.py
+    - tests/test_causal_review_batch40.py
+    - tests/test_causal_review_batch41.py
+    - tests/test_causal_review_batch42.py
+    - tests/test_causal_review_batch43.py
+    - tests/test_causal_review_batch44.py
+    - tests/test_causal_review_batch45.py
+    - tests/test_causal_review_batch46.py
+    - tests/test_causal_review_batch47.py
+    - tests/test_causal_review_batch48.py
+    - tests/test_causal_review_batch49.py
+    - tests/test_causal_review_batch5.py
+    - tests/test_causal_review_batch50.py
+    - tests/test_causal_review_batch51.py
+    - tests/test_causal_review_batch52.py
+    - tests/test_causal_review_batch53.py
+    - tests/test_causal_review_batch54.py
+    - tests/test_causal_review_batch55.py
+    - tests/test_causal_review_batch56.py
+    - tests/test_causal_review_batch57.py
+    - tests/test_causal_review_batch58.py
+    - tests/test_causal_review_batch59.py
+    - tests/test_causal_review_batch6.py
+    - tests/test_causal_review_batch60.py
+    - tests/test_causal_review_batch61.py
+    - tests/test_causal_review_batch62.py
+    - tests/test_causal_review_batch63.py
+    - tests/test_causal_review_batch64.py
+    - tests/test_causal_review_batch65.py
+    - tests/test_causal_review_batch66.py
+    - tests/test_causal_review_batch67.py
+    - tests/test_causal_review_batch68.py
+    - tests/test_causal_review_batch69.py
+    - tests/test_causal_review_batch7.py
+    - tests/test_causal_review_batch70.py
+    - tests/test_causal_review_batch71.py
+    - tests/test_causal_review_batch72.py
+    - tests/test_causal_review_batch73.py
+    - tests/test_causal_review_batch74.py
+    - tests/test_causal_review_batch75.py
+    - tests/test_causal_review_batch76.py
+    - tests/test_causal_review_batch77.py
+    - tests/test_causal_review_batch78.py
+    - tests/test_causal_review_batch79.py
+    - tests/test_causal_review_batch8.py
+    - tests/test_causal_review_batch80.py
+    - tests/test_causal_review_batch81.py
+    - tests/test_causal_review_batch82.py
+    - tests/test_causal_review_batch83.py
+    - tests/test_causal_review_batch84.py
+    - tests/test_causal_review_batch85.py
+    - tests/test_causal_review_batch86.py
+    - tests/test_causal_review_batch87.py
+    - tests/test_causal_review_batch88.py
+    - tests/test_causal_review_batch89.py
+    - tests/test_causal_review_batch9.py
+    - tests/test_causal_review_batch90.py
+    - tests/test_causal_review_batch91.py
+    - tests/test_causal_review_batch92.py
+    - tests/test_causal_review_batch93.py
+    - tests/test_site_audit_fixes.py
+    - tests/test_causal_review_inventory.py
+    - tests/test_rank_causal_graph_readiness.py
+    - tests/test_network_auditor.py
+    - tests/test_participating_taxa.py
+    - tests/test_causal_descriptions_are_published.py
+    - tests/test_published_pages_name_real_records.py
+    - tests/test_reference_validator_actually_validates.py
+    - tests/test_snippet_audit_artefact_classes.py
+    - tests/test_reference_error_annotation.py
+    - tests/test_community_level_connectivity_credit.py
+    - tests/test_no_paywalled_text_in_repo.py
+    exit_code: 1
+    expected_exit_codes:
+    - 0
+    log: /private/tmp/communitymech-batch93/regressions.log
+    log_sha256: 12a3b8369f67649332a2336c183101ba20fcd76f8a90bfeb071dd3b5152f043b
+    output_tail: "........................................................................ [  8%]\n........................................................................\
+      \ [ 16%]\n........................................................................ [ 25%]\n........................................................................\
+      \ [ 33%]\n........................................................................ [ 42%]\n........................................................................\
+      \ [ 50%]\n........................................................................ [ 58%]\n........................................................................\
+      \ [ 67%]\n........................................................................ [ 75%]\n........................................................................\
+      \ [ 84%]\n.......................................................F................ [ 92%]\n................................................................\
+      \         [100%]\n=================================== FAILURES ===================================\n_________________\
+      \ test_the_corpus_is_unchanged_by_this_feature _________________\n\n    def test_the_corpus_is_unchanged_by_this_feature():\n\
+      \        \"\"\"Only the records that mean to use the slot do.\n    \n        Asserted on the corpus rather\
+      \ than trusted from the schema: an\n        `ifabsent` or a default that quietly populated the slot would\
+      \ change 312\n        records' connectivity without anyone editing a record. That is still the\n        failure\
+      \ this catches \u2014 a silent default would put every record in `users`,\n        not just the three named\
+      \ below.\n        \"\"\"\n        users = {\n            path.name\n            for path in record_files()\n\
+      \            for interaction in (yaml.safe_load(path.read_text()) or {}).get(\"ecological_interactions\")\n\
+      \            or []\n            if isinstance(interaction, dict) and interaction.get(\"participating_taxa\"\
+      )\n        }\n>       assert users == USERS, (\n            f\"{len(users)} records use participating_taxa,\
+      \ expected {len(USERS)}. \"\n            f\"Adding a user is fine \u2014 but the connectivity numbers in \"\
+      \n            f\"tests/test_community_level_connectivity_credit.py were measured \"\n            f\"before\
+      \ the slot was used, so re-check them and then update USERS. \"\n            f\"Added: {sorted(users - USERS)}.\
+      \ Removed: {sorted(USERS - users)}\"\n        )\nE       AssertionError: 257 records use participating_taxa,\
+      \ expected 256. Adding a user is fine \u2014 but the connectivity numbers in tests/test_community_level_connectivity_credit.py\
+      \ were measured before the slot was used, so re-check them and then update USERS. Added: ['Rammelsberg_Cobalt_Nickel_Tailings.yaml'].\
+      \ Removed: []\nE       assert {'AMD_Acidoph...re.yaml', ...} == {'AMD_Acidoph...re.yaml', ...}\nE        \
+      \ \nE         Extra items in the left set:\nE         'Rammelsberg_Cobalt_Nickel_Tailings.yaml'\nE       \
+      \  Use -v to get more diff\n\ntests/test_participating_taxa.py:441: AssertionError\n===========================\
+      \ short test summary info ============================\nFAILED tests/test_participating_taxa.py::test_the_corpus_is_unchanged_by_this_feature\n\
+      1 failed, 855 passed in 246.48s (0:04:06)\n"
+    disposition: Expected participant-record set updated after measured census; full suite rerun required.
+  total_recorded_gate_outputs: 44
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 396
+      mixed: 126
+      community_level_only: 270
+      taxa: 1523
+      credited_solely_by_the_rule: 1249
+    current:
+      records: 460
+      with_community_level: 397
+      mixed: 126
+      community_level_only: 271
+      taxa: 1525
+      credited_solely_by_the_rule: 1251
+  delta:
+    records: 0
+    with_community_level: 1
+    mixed: 0
+    community_level_only: 1
+    taxa: 2
+    credited_solely_by_the_rule: 2
+  interpretation: Rammelsberg now has community-scoped process nodes with both existing dominant taxa explicitly
+    named. The legacy survey counts taxa only within records carrying COMMUNITY_LEVEL nodes:1523to1525 is not an
+    increase in corpus membership. Its sole-credit count increases1249to1251; this metric is not evidence of an
+    ecological mechanism. BDE-47 remains mixed scope with its supported forward pairwise relay.
+corpus:
+  records: 460
+  nodes: 1419
+  edges: 580
+  review_status_counts:
+    needs_research: 48
+    pending: 124
+    reviewed: 288
+limitations:
+- Reference CLI checks were executed on macOS, not Linux. Existing issue1091 documents the pinned validator's DOI-cache
+  casing mismatch on case-sensitive filesystems. The new DOI cache follows repository convention; this graph repair
+  does not resolve or certify that cross-platform reader contract.
+- The first combined regression run passed855tests and failed the exact participating_taxa record-set assertion.
+  Rammelsberg intentionally adds explicit community participants; the measured census supports updating the expected
+  set. The failed output is retained separately from the corrected rerun.
+- All four whole records, nine original nodes and six original arrows reviewed. Eight nodes and three qualified
+  existing arrows remain; RAMC unchanged. No new node/direction, experimental protocol, provider submission or paid
+  Edison job.
+- Three fresh EuropePMC main bodies and the complete public Rammelsberg author pre-proof text read, including captions
+  and available table text. No figure-pixel, raw-data or complete supplement review. Rammelsberg browser extraction
+  is not a downloaded final PDF; repository challenge and direct403 were not bypassed. The official publisher API
+  returned identifying metadata only.
+- Rammelsberg105443 is the exact study;105484 is a different Finnish study and its caches remain unchanged. PMID39770610
+  is a background review, with only abstract/sections1-2 read. The corrected graph includes dominant recorded taxa
+  without claiming they exhaust the enrichment. Non-graph source/community/industrial-scale errors remain issue1753.
+- BDE-47 cross-feeding, functional pathway and removal remain positive. Parent disappearance alone does not need
+  JMP134; the demonstrated contribution is clearing2,4-DBP. Current SYNTROPHY does not assert obligacy; donor feedback,
+  reverse transfer, reciprocal fitness and closed carbon balance are not established by this comparison. The retained
+  bromide quote matches the existing appended FigureS16 caption, read but not freshly retrieved or visually inspected.
+  Thus21of22graph/new-discussion quotations have fresh independent primary matches, one is existing-caption-only.
+  Non-graph partner roles remain issue1753.
+- RAMC remains supported without asserting the proposed succinate cross-feed; WT versus RAMC-P distinctions and
+  previous non-graph fixes stay intact. Its selected appended cache is not independent evidence, but both graph
+  quotes separately match the fresh complete main body.
+- PPOW retains a HYPOTHESIZED/PARTIAL complementarity model and the SUPPORT bulk-removal observation. Methods/control
+  claims conflict with the conclusion; neither control adequacy nor total absence is certified. Abstract versus
+  main-text concentration-unit conflict and non-graph member-role evidence remain issue1753.
+- All921baselinecaches and457otherrecord files preserved; two new exact-source caches added with browser-extraction
+  provenance. All prior histories/decision ledgers and all non-graph raw blocks are preserved. Canonical taxon IDs/labels
+  remain, but Rammelsberg process scope and BDE recipient-step assignment are intentionally repaired.
+- Dedup included ignored/hidden local files except.git/docs/site/references_cache, with relevant caches separately
+  checked. All-state issue titles/bodies refreshed; six matching existing issues read. Comments/PRs not exhaustively
+  searched. Repairs1750-1752 close only after protected-main merge; non-graph1753 remains open.
+- Self-adversarial review is not independent approval, generated-model loader certification or corpus completion.
+  Loader1703 and prior denied/pending Edison scopes remain unchanged. Subsequent test/render/publication gates are
+  not preasserted.
+- The initial PPOW reference CLI failed with31NoContent errors because its old text dump was not usable by that
+  validator. A second new cache independently extracted from the freshly retrieved complete PMC primary text resolves
+  cache access without changing the original dump. Two new caches total, all921baselinecaches unchanged. The failed
+  attempt remains separately recorded, not represented as a pass.

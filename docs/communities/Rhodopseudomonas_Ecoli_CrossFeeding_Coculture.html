@@ -558,7 +558,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Rhodopseudomonas-E. coli Cross-Feeding Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -578,8 +578,7 @@
                     <h3>Ammonium Cross-Feeding By Nitrogen-Fixing R. palustris</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Rhodopseudomonas palustris fixes dinitrogen and excretes ammonium as the essential nitrogen source for E. coli in the anaerobic synthetic mutualism.
-</p>
+                <p class="prewrap interaction-description">In the tested anaerobic cocultures, nitrogen-fixing R. palustris supplies ammonium required by E. coli. Effective exchange depends on the donor and recipient context: engineered ammonium-excreting partners support growth, whereas WT-based emergence depends on recipient adaptation. This is not a claim that every wild-type pairing readily supports the same exchange.</p>
 
 
                 <p><strong>Source Taxon:</strong> Rhodopseudomonas palustris</p>
@@ -622,8 +621,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Reciprocal Carbon-Nitrogen Cross-Feeding
-                        <p class="prewrap causal-description">Ammonium excreted by nitrogen-fixing R. palustris supplies the nitrogen currency needed by E. coli in the reciprocal coculture.
-</p>
+                        <p class="prewrap causal-description">Ammonium transfer supports E. coli nitrogen acquisition and thereby its contribution to reciprocal coculture growth in the tested donor/recipient contexts; the rate and emergence of this exchange are strain dependent.</p>
                     </div>
 
                 </div>
@@ -655,8 +653,7 @@
                     <h3>E. coli Fermentation Product Cross-Feeding</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">E. coli ferments glucose and excretes organic acids that serve as essential carbon sources for R. palustris, forming the carbon-transfer half of the reciprocal exchange.
-</p>
+                <p class="prewrap interaction-description">E. coli fermentation supplies acetate, lactate and succinate that R. palustris can use as carbon sources in the studied cocultures. The paper excludes formate from these consumed organic-acid carbon sources; ethanol excretion is not evidence that ethanol supplies the partner. This is the carbon-transfer half of the demonstrated reciprocal exchange.</p>
 
 
                 <p><strong>Source Taxon:</strong> Escherichia coli</p>
@@ -687,8 +684,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Reciprocal Carbon-Nitrogen Cross-Feeding
-                        <p class="prewrap causal-description">E. coli fermentation products provide the essential carbon flow to R. palustris that balances R. palustris ammonium transfer back to E. coli.
-</p>
+                        <p class="prewrap causal-description">The usable organic-acid products of E. coli fermentation supply carbon to R. palustris, enabling the carbon-transfer arm of the reciprocal carbon/nitrogen exchange; not every excreted fermentation product is a partner carbon source.</p>
                     </div>
 
                 </div>
@@ -707,7 +703,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"E. coli ferments glucose, a carbon source that R. palustris cannot consume, and excretes ethanol and organic acids"</div>
+                        <div class="snippet">"The organic acids, with the exception of formate, serve as the sole carbon sources for R. palustris"</div>
 
                     </li>
 
@@ -720,7 +716,7 @@
                     <h3>Reciprocal Carbon-Nitrogen Cross-Feeding</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">R. palustris supplies ammonium while E. coli supplies fermentation products.</p>
+                <p class="prewrap interaction-description">Reciprocal exchange of ammonium and usable organic-acid carbon supports the tested R. palustris-E. coli cocultures. Engineered donor contexts and adapted recipient contexts are distinct routes to coexistence, not a universal wild-type phenotype. Enhanced recipient uptake is the authors mechanistic interpretation of emergence; no new gene-design or feedback node is added here.</p>
 
 
 
@@ -790,6 +786,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How general is reciprocal exchange across donor and recipient backgrounds?
+                </h3>
+                <p class="prewrap">The complete primary manuscript distinguishes engineered ammonium donors from WT-based emergence and shows that recipient adaptation can enable coculture growth without increased donor ammonium excretion. Retain both observed transfer directions, but do not generalize growth rates, readiness of exchange or inferred uptake feedback to arbitrary wild-type pairings. Species-level canonical taxonomy is unchanged. No new genetic design or experimental protocol is curated.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Ammonium Cross-Feeding By Nitrogen-Fixing R. palustris</code>, <code>ecological_interactions#E. coli Fermentation Product Cross-Feeding</code>, <code>ecological_interactions#Reciprocal Carbon-Nitrogen Cross-Feeding</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/32788711/" rel="nofollow noreferrer">PMID:32788711</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">multiple combinations of recipient and producer genotypes can lead to stable coexistence</p>
+                        <p class="muted small prewrap">Discussion limits coexistence to genotype/environment combinations, rather than all pairings.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -949,7 +984,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -962,7 +996,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };

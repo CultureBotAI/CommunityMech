@@ -516,7 +516,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for N-Cycle Bioflocculation Model Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -524,8 +524,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -534,9 +534,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Alginate-Entrapped Nitrifier Microcolony Formation</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Alginate entrapment and oxic/anoxic sequencing-batch-reactor cycles generated strong nitrifier microcolonies before the entrapped aggregates were released into denitrifier flocs.</p>
+                <p class="prewrap interaction-description">Alginate entrapment during oxic/anoxic reactor cycles produced stable nitrifier microcolonies, mostly composed of one species. Microcolonies persisted after alginate dissolution with retained N-cycle activity. The artificial retention matrix is not itself a demonstrated interspecies colonization-facilitation interaction.</p>
 
 
 
@@ -563,7 +562,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Nitrifier-Denitrifier Macrocluster Formation
-                        <p class="prewrap causal-description">Release of the nitrifier microcolonies into suspension seeded larger macroclusters with the denitrifier flocs.</p>
+                        <p class="prewrap causal-description">Released nitrifier microcolonies provided building blocks incorporated into mixed denitrifier macroclusters after centrifugation and resuspension in calcium-rich HEPES-buffered medium. Release alone did not yield these macroclusters. PARTIAL - Calcium bridging is proposed; its contribution was not fully decoupled from centrifugation.</p>
                     </div>
 
                 </div>
@@ -593,9 +592,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Nitrifier-Denitrifier Macrocluster Formation</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Released nitrifier aggregates formed macroclusters with denitrifier flocs, yielding a bottom-up living model of a full-scale activated-sludge floc.</p>
+                <p class="prewrap interaction-description">Mixed macroclusters containing nitrifier colonies and Azoarcus flocs appeared after centrifugation at 3000 g for 10 min and resuspension in calcium-rich HEPES-buffered medium, persisting for about 10 days under aerobic stirring. Release alone did not generate these structures. FISH preparation caused separate artefactual aggregation; the later suspended macroclusters were a real positive result. Calcium and centrifugation effects were not fully decoupled.</p>
 
 
 
@@ -616,16 +614,6 @@
                 </ul>
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Bottom-Up Activated Sludge Floc Model
-                        <p class="prewrap causal-description">Macrocluster formation with denitrifier flocs builds the bottom-up living model used to study full-scale activated-sludge bioflocculation.</p>
-                    </div>
-
-                </div>
 
 
 
@@ -652,10 +640,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Bottom-Up Activated Sludge Floc Model</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">The reduced N-cycle consortium uses released nitrifier microcolonies and denitrifier flocs as a bottom-up living model of full-scale activated-sludge flocs for mechanistic bioflocculation studies.
-</p>
+                <p class="prewrap interaction-description">The nitrifier-microcolony/denitrifier-floc assembly provides a reduced bottom-up proof-of-concept model of activated-sludge flocs. It retains N-cycle function, but its use as a model is an interpretation of the same assembly, not a separate downstream biological event or proof of full-scale performance. The authors recommend operation that separates medium exchange from centrifugation when testing calcium effects.</p>
 
 
 
@@ -704,6 +690,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which observations distinguish activity and causal mediation from inferred potential?
+                </h3>
+                <p class="prewrap">Preserve stable nitrifier microcolonies, real mixed macroclusters and retained nitrogen cycling. Separate FISH-induced artefacts from unstained suspension observations. Selectively test calcium/cation bridging without centrifugation and characterize matrix composition before claiming an isolated EPS mechanism or biotic facilitation. Remove the model-utility workflow arrow, not the positive physical assembly result.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Alginate-Entrapped Nitrifier Microcolony Formation</code>, <code>ecological_interactions#Nitrifier-Denitrifier Macrocluster Formation</code>, <code>ecological_interactions#Bottom-Up Activated Sludge Floc Model</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -832,7 +837,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -845,7 +849,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -892,7 +895,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -920,7 +923,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -948,7 +951,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];

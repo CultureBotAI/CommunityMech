@@ -147,7 +147,7 @@ def test_calcium_separates_compounds_exudates_and_pots():
     assert all("interaction_type" not in n for n in (compounds, exudates, pots))
 
 
-def test_cable_partial_taxonomy_repair_is_not_certified():
+def test_cable_historical_partial_review_and_mechanism_bounds_are_preserved():
     graph = nodes("Cable_Bacteria_Photosynthetic_Biofilm_Sediment")
     oxygen, conduction, response = graph
     assert oxygen["interaction_type"] == "CROSS_FEEDING"
@@ -155,7 +155,7 @@ def test_cable_partial_taxonomy_repair_is_not_certified():
     assert oxygen["downstream"][0]["target"] == conduction["name"]
     assert conduction["downstream"][0]["target"] == response["name"]
     assert "NCBITaxon:3041" not in str(graph)
-    assert "connectivity still inherits that unresolved roster" in oxygen["description"]
+    assert "reciprocal benefit to the phototrophs is not established" in oxygen["description"]
     assert not any(n.get("participating_taxa") for n in graph)
     ledger = yaml.safe_load(
         (

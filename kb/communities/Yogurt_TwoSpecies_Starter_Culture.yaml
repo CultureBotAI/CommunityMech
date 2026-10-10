@@ -115,8 +115,11 @@ taxonomy:
     explanation: Supports a strain-specific L. delbrueckii subsp. bulgaricus member in one coculture.
 ecological_interactions:
 - name: Streptococcus Formate and Carbon Dioxide Support
-  description: S. thermophilus produces formate and carbon dioxide-linked growth factors that stimulate
-    L. delbrueckii subsp. bulgaricus, accelerating yogurt fermentation and acidification.
+  description: 'PARTIAL mechanistic model: supplementation and transcriptome responses in S. thermophilus CNRZ1066
+    with L. bulgaricus ATCC BAA-365 support formate-related nutritional assistance. Carbon-dioxide provision is
+    inferred rather than a quantified transfer in that study; urease experiments distinguish CO2-responsive from
+    unresponsive lactobacillus strains. This species-level record combines exact strain-pair studies, not one universally
+    beneficial pair.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -149,23 +152,28 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:20889781
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: formic acid, folic acid, and fatty acids are provided by S. thermophilus
-    explanation: Supports formate/formic-acid transfer from S. thermophilus to L. bulgaricus.
+    explanation: The physiological/transcriptome results support a nutritional model, not a measured interspecies
+      formate flux.
   - reference: PMID:20889781
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: folic acid and carbon dioxide
-    explanation: Supports carbon dioxide as a growth-enhancing metabolite in the interaction.
+    explanation: This abstract phrase describes believed growth-enhancing exchange; it alone does not demonstrate
+      CO2 transfer.
   - reference: PMID:24936380
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: earlier l-lactate and formate accumulation
-    explanation: Supports formate accumulation during effective yogurt fermentation by the two-member culture.
+    explanation: Earlier formate accumulation was measured in the separate 1131/2038 oxygen study, not in all yogurt
+      strain pairs.
 - name: Lactobacillus Proteolytic Nitrogen Support
-  description: L. delbrueckii subsp. bulgaricus releases peptides and amino acids from milk proteins,
-    supporting S. thermophilus growth and acidification in milk.
+  description: L. bulgaricus proteolysis supplies peptides and amino acids that support S. thermophilus in milk.
+    The CNRZ1066/ATCC BAA-365 experiments support this contribution but show that it does not satisfy all sulfur
+    and branched-chain amino-acid demands. LMG 18311/ATCC 11842 expression responses are contextual evidence, not
+    a direct nitrogen-flux measurement or proof of reciprocal final growth benefit.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -198,10 +206,9 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Streptococcus Formate and Carbon Dioxide Support
-    description: >
-      Proteolytic nitrogen released by L. delbrueckii supports
-      S. thermophilus growth, enabling the formate and carbon dioxide return
-      flow that accelerates protocooperative acidification.
+    description: 'HYPOTHESIZED mediation: nitrogen support can sustain S. thermophilus growth and hence potential
+      return metabolites. The cited strain-pair experiments do not selectively establish proteolysis as the cause
+      of formate/CO2 return flow; this is not a demonstrated universal feedback loop.'
   evidence:
   - reference: PMID:20889781
     supports: SUPPORT
@@ -209,25 +216,18 @@ ecological_interactions:
     snippet: Proteolysis by L. bulgaricus supplies both strains with amino acids
     explanation: Supports nitrogen cross-feeding from proteolytic L. bulgaricus to S. thermophilus.
   - reference: PMID:19114510
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: implicated mainly in the metabolism of nitrogen
-    explanation: Supports nitrogen metabolism as a coculture-specific response in S. thermophilus.
+    explanation: Coculture nitrogen-metabolism responses support nutritional involvement but do not identify a measured
+      transfer flux.
 - name: Urease-Dependent Acidification Acceleration
-  description: S. thermophilus urease activity generates ammonia nitrogen and carbon dioxide effects that
-    help maintain rapid acidification during protocooperative yogurt fermentation.
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Streptococcus thermophilus
-    term:
-      id: NCBITaxon:1308
-      label: Streptococcus thermophilus
-  target_taxon:
-    preferred_term: Lactobacillus delbrueckii subsp. bulgaricus
-    term:
-      id: NCBITaxon:1585
-      label: Lactobacillus delbrueckii subsp. bulgaricus
+  description: Urease-deficient S. thermophilus mutants and supplementation experiments support a contribution of
+    urease to rapid yogurt acidification across the tested strain combinations. Ammonia shortage mainly limits S.
+    thermophilus, whereas CO2 shortage affects responsive L. bulgaricus strains. The culture-level benefit is not
+    equivalent to direct reciprocal benefit of every strain pair; ammonia effects were stronger and coculture could
+    mask the deficiency.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: fermentation
     term:
@@ -243,22 +243,23 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: NH3 and CO2 that it generates
-    explanation: Supports ammonia and carbon dioxide as urease-linked factors in the interaction.
-- name: Oxygen Removal by Streptococcus Thermophilus
-  description: S. thermophilus NADH oxidase removes dissolved oxygen in milk, allowing faster coculture
-    fermentation with L. delbrueckii subsp. bulgaricus.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Streptococcus thermophilus
+    explanation: The full abstract distinguishes ammonia nutrition of S. thermophilus from CO2 responsiveness of
+      L. bulgaricus.
+  participating_taxa:
+  - preferred_term: Streptococcus thermophilus
     term:
       id: NCBITaxon:1308
       label: Streptococcus thermophilus
-  target_taxon:
-    preferred_term: Lactobacillus delbrueckii subsp. bulgaricus
+  - preferred_term: Lactobacillus delbrueckii subsp. bulgaricus
     term:
       id: NCBITaxon:1585
       label: Lactobacillus delbrueckii subsp. bulgaricus
+- name: Streptococcus Nox-Dependent Milk Fermentation
+  description: In the S. thermophilus 1131/L. bulgaricus 2038 pair, disrupting S. thermophilus nox reduced oxygen
+    removal and slowed skim-milk acidification. Pre-fermentation deoxygenation mainly accelerated early S. thermophilus
+    growth and formate/lactate accumulation, not L. bulgaricus growth; final Streptococcus counts converged. This
+    is a fermentation phenotype, not colonization facilitation. A direct Nox-to-Pfl mechanism remains HYPOTHESIZED.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: fermentation
     term:
@@ -266,9 +267,10 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Streptococcus Formate and Carbon Dioxide Support
-    description: S. thermophilus oxygen removal relieves dissolved-oxygen
-      suppression of yogurt fermentation and is associated with earlier
-      formate accumulation during the two-species acidification process.
+    description: 'PARTIAL: Oxygen removal promotes early formate accumulation in the 1131/2038 system, and the nox
+      mutant lacks detected formate in the tested monoculture. Protection of oxygen-sensitive Pfl is HYPOTHESIZED;
+      the study also considers other Nox functions and does not establish the CO2 branch or universal transfer to
+      L. bulgaricus.'
   evidence:
   - reference: PMID:24936380
     supports: SUPPORT
@@ -280,6 +282,21 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: Nox of S. thermophilus 1131 contributes greatly to yogurt fermentation
     explanation: Supports S. thermophilus NADH oxidase as an oxygen-removal mechanism promoting fermentation.
+  - reference: PMID:24936380
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: deoxygenated fermentation primarily increased the cell number of S. thermophilus 1131 rather than that
+      of L. bulgaricus 2038
+    explanation: Preserves the principal early beneficiary of oxygen removal.
+  participating_taxa:
+  - preferred_term: Streptococcus thermophilus
+    term:
+      id: NCBITaxon:1308
+      label: Streptococcus thermophilus
+  - preferred_term: Lactobacillus delbrueckii subsp. bulgaricus
+    term:
+      id: NCBITaxon:1585
+      label: Lactobacillus delbrueckii subsp. bulgaricus
 environmental_factors:
 - name: milk substrate
   value: skim milk or milk used for thermophilic yogurt fermentation
@@ -400,3 +417,35 @@ associated_datasets:
     snippet: Lactobacillus bulgaricus and Streptococcus thermophilus, used in yogurt starter cultures
     explanation: Lists a computational/genomic publication with the same two-species yogurt starter composition.
 metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: yogurt_strain_stage_and_mediator_boundaries
+  prompt: Which return-flow mechanisms and benefits hold for each tested strain pair and growth stage?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Streptococcus Formate and Carbon Dioxide Support
+  - ecological_interactions#Lactobacillus Proteolytic Nitrogen Support
+  - ecological_interactions#Urease-Dependent Acidification Acceleration
+  - ecological_interactions#Streptococcus Nox-Dependent Milk Fermentation
+  rationale: Keep the CNRZ1066/ATCC BAA-365 nutritional model, LMG 18311/ATCC 11842 expression study, 1131/2038
+    Nox experiment and urease strain panel separate. In the LMG 18311 pair, faster acidification accompanied lower
+    final lactobacillus counts. In the Nox study, early effects did not imply a higher final Streptococcus yield.
+    Nutrient supplementation and knockout phenotypes remain positive evidence without universal mutualism or proven
+    mediation.
+  evidence:
+  - reference: PMID:19114510
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the coculture resulted in a threefold decrease of the final bacterial counts
+    explanation: Faster coculture acidification did not imply a final population benefit to both partners.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T17:51:30Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Qualify the strain-specific formate/CO2 model.; Retain nitrogen support without nutritional sufficiency
+    or demonstrated return-flow mediation.; Represent the urease effect at culture level with distinct ammonia/CO2
+    recipients.; Preserve the Nox intervention and early-growth evidence without colonization or universal-recipient
+    claims. Issue#1965; reports/causal_graph_review/decisions/20261008-six-records-batch124.yaml
+  llm_assisted: true

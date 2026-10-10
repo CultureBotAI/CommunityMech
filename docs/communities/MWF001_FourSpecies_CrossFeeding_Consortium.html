@@ -618,7 +618,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for MWF001 Four-Species Cross-Feeding Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -631,8 +631,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -643,10 +643,22 @@
                     <h3>Cross-fed metabolic byproduct partitioning</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The four MWF001 strains coexisted because they generated and partitioned metabolic byproducts that supported cross-feeding beyond the externally supplied carbon source.</p>
+                <p class="prewrap interaction-description">PARTIAL - partner spent-media growth and persistence of primary-carbon-source nonusers support byproduct cross-feeding in MWF001. All four strains grew better in partner spent medium than their own, but exact exchanged compounds and donor-recipient fluxes were not chemically resolved. Unchanged stationary OD does not establish complete primary-substrate depletion; the greater-than-10-percent residual-resource exclusion described in Methods applies to simulations, not an equivalent experimental chemical assay. Generic consumer-resource models support coexistence through byproduct availability and differential resource affinities, not exact four-strain pathways. Fresh-medium pair effects were positive or negative depending on partner and condition, so reciprocal benefit is not universal.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Agrobacterium tumefaciens MWF001,
+
+                    Comamonas testosteroni MWF001,
+
+                    Microbacterium liquefaciens MWF001,
+
+                    Ochrobactrum anthropi MWF001
+
+                </p>
 
 
 
@@ -665,7 +677,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42752228/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42752228</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"experimental assays and consumer-resource modeling showed that the coexistence was explained by cross-feeding and niche partitioning of metabolic byproducts"</div>
@@ -692,12 +704,23 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Robust coexistence across simple nutrient environments</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">All four members survived eight serial batch transfers across the first 31 single- or paired-resource M9 media tested, despite several media supplying only one carbon source.</p>
+                <p class="prewrap interaction-description">All four strains remained detectable through eight 72-hour growth-and-dilution cycles in 31 carbon-supplied conditions, including 16 single-resource environments. These finite observations support broad conditional persistence, not asymptotic stability or a measured niche-partitioning mechanism. Additional 5X-malate conditions lost Comamonas after the first transfer; Microbacterium did not persist without carbon. The initial batch panel used 1/100 transfers except 1/10 for citrate and inosine, with the first citrate transfer at 1/100. Separate four-day chemostats on four single carbon sources also retained all four strains. The canonical participants preserve the source roster and prior unresolved taxonomic mappings, not independently recertified identities.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Agrobacterium tumefaciens MWF001,
+
+                    Comamonas testosteroni MWF001,
+
+                    Microbacterium liquefaciens MWF001,
+
+                    Ochrobactrum anthropi MWF001
+
+                </p>
 
 
 
@@ -733,7 +756,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -744,6 +767,21 @@
                 <p class="prewrap">The paper supports cross-feeding of partner-derived spent-media metabolites and uses a consumer-resource model to interpret the four-species coexistence, but it explicitly notes the technical challenge of quantifying resource affinities for cross-fed metabolites in vitro. No exact exchanged metabolite was therefore asserted in the record.</p>
 
                 <p class="muted small">Attaches to: <code>ecological_interactions#Cross-fed metabolic byproduct partitioning</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How strongly does byproduct partitioning support the observed coexistence?
+                </h3>
+                <p class="prewrap">The complete primary text supports considering a PARTIAL arrow from cross-feeding/byproduct partitioning to coexistence, with generic-model, residual-substrate and exact-metabolite limits. This new causal structure is tracked in #1575: the free one-community Edison causal dry run passed, but the paid run and report review are not complete. Keep needs_research rather than calling the sparse graph complete. Preserve the existing exact-byproduct gap and #1127/#1128 safeguards. Protocol and source inconsistencies remain under #1574. Original figure pixels, separate supplements, raw data and executable models were not audited.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Cross-fed metabolic byproduct partitioning</code>, <code>ecological_interactions#Robust coexistence across simple nutrient environments</code></p>
 
 
 
@@ -1127,7 +1165,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1140,7 +1177,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1228,11 +1264,28 @@
 
 
 
+            var participantKeys = [
+
+                "Agrobacterium tumefaciens MWF001",
+
+                "Comamonas testosteroni MWF001",
+
+                "Microbacterium liquefaciens MWF001",
+
+                "Ochrobactrum anthropi MWF001"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1251,6 +1304,23 @@
 
 
 
+
+            var participantKeys = [
+
+                "Agrobacterium tumefaciens MWF001",
+
+                "Comamonas testosteroni MWF001",
+
+                "Microbacterium liquefaciens MWF001",
+
+                "Ochrobactrum anthropi MWF001"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

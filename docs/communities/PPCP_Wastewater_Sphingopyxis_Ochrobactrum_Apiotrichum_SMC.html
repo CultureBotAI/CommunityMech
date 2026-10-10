@@ -597,7 +597,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for PPCP Wastewater Sphingopyxis-Ochrobactrum-Apiotrichum SMC</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -605,8 +605,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -615,9 +615,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Simultaneous chloramphenicol-triclocarban-naproxen removal</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The SMC enhanced simultaneous removal of chloramphenicol, triclocarban, and naproxen in both simulated and real wastewater, with removal supported under aerobic and anoxic operation.</p>
+                <p class="prewrap interaction-description">The introduced Sphingopyxis sp. GC21, Ochrobactrum sp. TCC-2 and Apiotrichum sp. IB-1 SMC enhanced simultaneous chloramphenicol, triclocarban and naproxen removal in simulated and real wastewater. The accessible abstract reports aerobic simulated-wastewater removal of 97.83%, 68.19% and 85.34%, respectively, within 8 h; aerobic real-wastewater values exceeded 70%, and anoxic values exceeded 60% in both matrices. These are aggregate removal outcomes, not complete mineralization, resolved per-strain transformation assignments or demonstrated inter-member metabolite exchange. Indigenous wastewater organisms may contribute.</p>
 
 
 
@@ -719,7 +718,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -732,6 +731,41 @@
                 <p class="muted small">Attaches to: <code>engineering_design</code>, <code>ecological_interactions#Simultaneous chloramphenicol-triclocarban-naproxen removal</code></p>
 
 
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which introduced and indigenous organisms mediate each transformation, and is metabolite transfer responsible for improved removal?
+                </h3>
+                <p class="prewrap">The abstract reports transformation classes, detoxification and ARG responses, but controls and full-text assays have not been inspected. Genus relative abundances do not establish strain-resolved persistence, and bacterial/fungal fractions need not share a denominator. Preserve removal and the three canonical participants without assigning every reaction to every strain. Authorized full text and scoped extension research remain necessary before adding causal links.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Simultaneous chloramphenicol-triclocarban-naproxen removal</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42526243/" rel="nofollow noreferrer">PMID:42526243</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">simultaneous removal of three representative PPCPs: chloramphenicol (CAP), triclocarban (TCC), and naproxen (NPX)</p>
+                        <p class="muted small prewrap">Supports the stated community-level removal condition in the primary abstract; no strain-specific pathway or cross-feeding mechanism is established by this quotation.</p>
+                    </div>
+
+                </details>
 
 
             </div>
@@ -935,7 +969,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -948,7 +981,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1009,7 +1041,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

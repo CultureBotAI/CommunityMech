@@ -1,0 +1,281 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 14e7003bc452218c62baa85d5d9f51618d20f366
+baseline_commit: 14e7003bc452218c62baa85d5d9f51618d20f366
+base_tree: 3b55fe60d43507fad7a841aec338d497a0775fa6
+issues:
+- 1452
+- 1453
+- 1454
+open_nongraph_followups:
+- 1455
+- 1456
+- 1457
+open_graph_research: []
+issue_deduplication:
+  all_state_issue_titles_and_bodies: 772
+  ignored_hidden_local_search: true
+  relevant_bodies_read:
+  - 583
+  - 529
+  - 1091
+  - 1094
+  limitations: Not every issue comment or PR reviewed.
+reference_cache_original_hashes:
+  references_cache/PMID_41236292.md: a5db3634359651ebd829d93fdfbaa26ecd7c4433478d33194a68eba7b42e2651
+  references_cache/PMID_27855786.md: f7b54084a1eb7a726f79149c3ddc3d0a34e180294f61d2e053516b8a78b31b40
+  references_cache/PMID_31409662.md: 288f1f394bae8d552b40bba3250131534d1e4d32c47824a3e66730f9173abcdf
+edison:
+  status: not_required_for_existing_structure_repairs
+  rationale: Nine existing nodes retained; five existing arrows retained with bounded descriptions and one workflow
+    arrow removed. No new nodes or arrows, no provider job or spend.
+limitations:
+- Cached primary main bodies, tables and captions read; no figure images, separate supplements or raw data reviewed.
+  Selected Emiliania review exchange only.
+- Nine existing nodes retained; five arrows retained and one unsupported workflow arrow removed. Do not add links
+  to suppress connectivity warnings.
+- 'Canonical taxonomy, prior history, original YAML aliases and non-graph raw blocks preserved, not certified. Non-graph
+  followups #1455/#1456/#1457 remain open.'
+- Source-based self-adversarial review is not independent approval, protected merge or full-corpus completion. Text
+  matching is not scientific validation.
+- 'Reference validator 0.1.7 is known to perform zero checks for this schema; report the no-op explicitly. DOI casing
+  and stale pointer issues remain #1091/#1094.'
+records:
+- path: kb/communities/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.yaml
+  id: CommunityMech:000298
+  original_sha256: d225c991b8b826dc63bb56b8094e9bc5420e5c9da7f6c2e6be693fc7dc56e9e2
+  record_sha256: 236e65e0a34ac546bcc54c39e37fd6f69d98943d2e6527324d96b800fe9a53bc
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch40.yaml
+  scope: Whole record and every existing node/arrow assessed. Non-graph fields preserved, not certified.
+  summary: Retain biofilm-associated route as PARTIAL without contact-only DIET or syntrophy proof.; Retain planktonic
+    route as PARTIAL without exclusive or donor-resolved mediator flux.; Retain acetate enhancement with the alternative-pair
+    roster and explicit cell-voltage/control boundaries.
+  renamed_nodes:
+    DIET from S. oneidensis to C. aceticum: Proposed Biofilm-Associated IET in the S. oneidensis-C. aceticum Pair
+    H2/formate-mediated IET from S. oneidensis to A. woodii: Proposed Planktonic H2/Formate IET in the S. oneidensis-A.
+      woodii Pair
+  node_decisions:
+  - node: Proposed Biofilm-Associated IET in the S. oneidensis-C. aceticum Pair
+    rationale: Retain biofilm-associated route as PARTIAL without contact-only DIET or syntrophy proof.
+  - node: Proposed Planktonic H2/Formate IET in the S. oneidensis-A. woodii Pair
+    rationale: Retain planktonic route as PARTIAL without exclusive or donor-resolved mediator flux.
+  - node: Enhanced CO2-to-Acetate Conversion
+    rationale: Retain acetate enhancement with the alternative-pair roster and explicit cell-voltage/control boundaries.
+  removed_node_decisions: []
+  edges_before:
+  - source: DIET from S. oneidensis to C. aceticum
+    target: Enhanced CO2-to-Acetate Conversion
+    description: 'Biofilm-localized DIET in the S. oneidensis-C. aceticum consortium contributes electron flow for
+      enhanced CO2-to-acetate electrosynthesis.
+
+      '
+  - source: H2/formate-mediated IET from S. oneidensis to A. woodii
+    target: Enhanced CO2-to-Acetate Conversion
+    description: 'H2/formate-mediated electron transfer in the S. oneidensis-A. woodii consortium contributes planktonic
+      electron flow for enhanced CO2-to-acetate electrosynthesis.
+
+      '
+  edges_after:
+  - source: Proposed Biofilm-Associated IET in the S. oneidensis-C. aceticum Pair
+    target: Enhanced CO2-to-Acetate Conversion
+    description: 'PARTIAL: Biofilm-associated electron supply and riboflavin-responsive transfer can support the
+      C. aceticum pair''s acetate increase. Compartment removal and add-back support this contribution, but do not
+      isolate the necessity of contact-only DIET or a specific cytochrome. This arrow concerns the CS pair, not
+      a simultaneous three-member culture.'
+  - source: Proposed Planktonic H2/Formate IET in the S. oneidensis-A. woodii Pair
+    target: Enhanced CO2-to-Acetate Conversion
+    description: 'PARTIAL: Diffusible reducing equivalents are a supported explanation for suspension-associated
+      acetate synthesis in the AS pair, including acetate production where A. woodii alone failed at the tested
+      lower cell voltage. This does not establish exclusive hydrogen/formate mediation or identify the molecular
+      donor flux.'
+  retained_edge_decisions:
+  - source: Proposed Biofilm-Associated IET in the S. oneidensis-C. aceticum Pair
+    target: Enhanced CO2-to-Acetate Conversion
+    rationale: 'PARTIAL: Biofilm-associated electron supply and riboflavin-responsive transfer can support the C.
+      aceticum pair''s acetate increase. Compartment removal and add-back support this contribution, but do not
+      isolate the necessity of contact-only DIET or a specific cytochrome. This arrow concerns the CS pair, not
+      a simultaneous three-member culture.'
+  - source: Proposed Planktonic H2/Formate IET in the S. oneidensis-A. woodii Pair
+    target: Enhanced CO2-to-Acetate Conversion
+    rationale: 'PARTIAL: Diffusible reducing equivalents are a supported explanation for suspension-associated acetate
+      synthesis in the AS pair, including acetate production where A. woodii alone failed at the tested lower cell
+      voltage. This does not establish exclusive hydrogen/formate mediation or identify the molecular donor flux.'
+  removed_edge_decisions: []
+  references:
+  - PMID:41236292
+  issues:
+  - 1452
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate/2026-10-06T101622Z-codex-3da2ef.yaml
+  source_review:
+    PMID:41236292:
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12866739/
+      scope: Full cached primary main body through Methods, including tables/captions. No figure images, separate
+        supplements or raw data reviewed.
+      cache: references_cache/PMID_41236292.md
+- path: kb/communities/Emiliania_Phaeobacter_Dynamic_Interaction.yaml
+  id: CommunityMech:000143
+  original_sha256: e0a94fe128d5babfb6c76a3f161d32dd8a1f1ed58a5204d55a632c28283c702b
+  record_sha256: d3d385ef2d9f8807a54d65a3e7ec6a08371f98df61b771426717fad84758577c
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch40.yaml
+  scope: Whole record and every existing node/arrow assessed. Non-graph fields preserved, not certified.
+  summary: Retain nutrient-supported growth without a generic-to-specific workflow arrow or direct photosynthesis-flux
+    claim.; Retain precursor availability, added-tryptophan conversion and attachment responses without a complete
+    traced endogenous loop.; Retain observed promotion and late death with HYPOTHESIZED IAA mediation, not categorical
+    predation or unique death mechanism.
+  renamed_nodes:
+    IAA-Mediated Algal Growth Promotion And Killing: Algal Growth Promotion and Late Killing with Proposed IAA Mediation
+  node_decisions:
+  - node: Algal Nutrient Provisioning Supports Bacterial Growth
+    rationale: Retain nutrient-supported growth without a generic-to-specific workflow arrow or direct photosynthesis-flux
+      claim.
+  - node: Tryptophan-Enhanced Bacterial Attachment And IAA Production
+    rationale: Retain precursor availability, added-tryptophan conversion and attachment responses without a complete
+      traced endogenous loop.
+  - node: Algal Growth Promotion and Late Killing with Proposed IAA Mediation
+    rationale: Retain observed promotion and late death with HYPOTHESIZED IAA mediation, not categorical predation
+      or unique death mechanism.
+  removed_node_decisions: []
+  edges_before:
+  - source: Algal Nutrient Provisioning Supports Bacterial Growth
+    target: Tryptophan-Enhanced Bacterial Attachment And IAA Production
+    description: Algal nutrient provisioning sustains P. inhibens growth in the non-permissive L1-Si medium, putting
+      the heterotroph in the phycosphere where algal tryptophan stimulates attachment and IAA production.
+  - source: Tryptophan-Enhanced Bacterial Attachment And IAA Production
+    target: IAA-Mediated Algal Growth Promotion And Killing
+    description: Algal tryptophan stimulates P. inhibens indole-3-acetic acid production, and that bacterially produced
+      IAA drives the downstream algal growth-promotion and killing response.
+  edges_after:
+  - source: Tryptophan-Enhanced Bacterial Attachment And IAA Production
+    target: Algal Growth Promotion and Late Killing with Proposed IAA Mediation
+    description: 'HYPOTHESIZED: Tryptophan-enhanced IAA production could contribute to initial algal promotion and
+      late killing. Added tryptophan accelerated coculture bleaching, but also changed attachment; bulk coculture
+      IAA was undetectable and pathway mutants retained production. The experiment therefore does not isolate IAA
+      mediation or show that measured bacterial IAA reached the exogenous toxic dose.'
+  retained_edge_decisions:
+  - source: Tryptophan-Enhanced Bacterial Attachment And IAA Production
+    target: Algal Growth Promotion and Late Killing with Proposed IAA Mediation
+    rationale: 'HYPOTHESIZED: Tryptophan-enhanced IAA production could contribute to initial algal promotion and
+      late killing. Added tryptophan accelerated coculture bleaching, but also changed attachment; bulk coculture
+      IAA was undetectable and pathway mutants retained production. The experiment therefore does not isolate IAA
+      mediation or show that measured bacterial IAA reached the exogenous toxic dose.'
+  removed_edge_decisions:
+  - source: Algal Nutrient Provisioning Supports Bacterial Growth
+    target: Tryptophan-Enhanced Bacterial Attachment And IAA Production
+    rationale: Generic nutrient support enables bacterial growth but does not selectively establish the specific
+      tryptophan/IAA response; a workflow/enabling-context link is not sufficient.
+  references:
+  - PMID:27855786
+  issues:
+  - 1453
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Emiliania_Phaeobacter_Dynamic_Interaction/2026-10-06T101622Z-codex-837390.yaml
+  source_review:
+    PMID:27855786:
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC5148602/
+      scope: Full cached primary main body through Methods, including tables/captions. No figure images, separate
+        supplements or raw data reviewed. Selected published peer-review discussion read, not the entire exchange.
+        Live publisher/PMC access returned challenge pages; no bypass attempted.
+      cache: references_cache/PMID_27855786.md
+- path: kb/communities/Engineered_Gut_Amino_Acid_CrossFeeding_Consortium.yaml
+  id: CommunityMech:000151
+  original_sha256: b29aa03e39e670a5d61b55306119f11c3459c7fb5c6cf5e8fb58a92d040a8cf0
+  record_sha256: 54c35d933209e608a7f894e1e602441d945a5d311e4b9ff212ab6fae1a0f5a18
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-three-records-batch40.yaml
+  scope: Whole record and every existing node/arrow assessed. Non-graph fields preserved, not certified.
+  summary: Retain measured nutritional dependence without complete reciprocal rescue or transporter-specific annotation.;
+    Retain in-vitro model-inferred interaction shift without universal mutualism or absence-of-antagonism claims.;
+    Retain condition-specific evenness endpoints without established in-vivo mediation, stability or host benefit.
+  renamed_nodes: {}
+  node_decisions:
+  - node: Engineered Amino Acid Cross-Feeding
+    rationale: Retain measured nutritional dependence without complete reciprocal rescue or transporter-specific
+      annotation.
+  - node: Beneficial Interaction Shift
+    rationale: Retain in-vitro model-inferred interaction shift without universal mutualism or absence-of-antagonism
+      claims.
+  - node: Cross-Feeding Increased Population Evenness
+    rationale: Retain condition-specific evenness endpoints without established in-vivo mediation, stability or
+      host benefit.
+  removed_node_decisions: []
+  edges_before:
+  - source: Engineered Amino Acid Cross-Feeding
+    target: Beneficial Interaction Shift
+    description: 'Engineered auxotrophy and amino acid overproduction created positive nutritional dependencies
+      that shifted the consortium away from antagonism.
+
+      '
+  - source: Beneficial Interaction Shift
+    target: Cross-Feeding Increased Population Evenness
+    description: 'The engineered shift from antagonistic to beneficial interactions drove the more even four-strain
+      population structure measured in vitro and in the low-protein mouse gut.
+
+      '
+  edges_after:
+  - source: Engineered Amino Acid Cross-Feeding
+    target: Beneficial Interaction Shift
+    description: 'PARTIAL: The combined dependency/overproduction intervention introduced nutritional support and
+      changed the in-vitro growth trajectories used to infer interaction structure. Unequal rescue and remaining
+      negative-interaction uncertainty prevent interpreting this as a measured fully mutualistic all-to-all network.'
+  - source: Beneficial Interaction Shift
+    target: Cross-Feeding Increased Population Evenness
+    description: 'PARTIAL: Engineered nutritional dependencies and altered inferred net interactions are consistent
+      with the greater evenness observed in separate in-vitro endpoint assays. The interaction-shift node was not
+      selectively perturbed to establish mediation. Extension of this pathway to the day-10 mouse-gut endpoint is
+      HYPOTHESIZED; in-vitro network inference does not measure in-vivo exchange.'
+  retained_edge_decisions:
+  - source: Engineered Amino Acid Cross-Feeding
+    target: Beneficial Interaction Shift
+    rationale: 'PARTIAL: The combined dependency/overproduction intervention introduced nutritional support and
+      changed the in-vitro growth trajectories used to infer interaction structure. Unequal rescue and remaining
+      negative-interaction uncertainty prevent interpreting this as a measured fully mutualistic all-to-all network.'
+  - source: Beneficial Interaction Shift
+    target: Cross-Feeding Increased Population Evenness
+    rationale: 'PARTIAL: Engineered nutritional dependencies and altered inferred net interactions are consistent
+      with the greater evenness observed in separate in-vitro endpoint assays. The interaction-shift node was not
+      selectively perturbed to establish mediation. Extension of this pathway to the day-10 mouse-gut endpoint is
+      HYPOTHESIZED; in-vitro network inference does not measure in-vivo exchange.'
+  removed_edge_decisions: []
+  references:
+  - PMID:31409662
+  - doi:10.1128/mSystems.00352-19
+  issues:
+  - 1454
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Engineered_Gut_Amino_Acid_CrossFeeding_Consortium/2026-10-06T101622Z-codex-ebe0ca.yaml
+  source_review:
+    PMID:31409662:
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6697442/
+      scope: Full cached primary main body through Methods, including tables/captions. No figure images, separate
+        supplements or raw data reviewed. PMID copy read; DOI copy exists but was not independently read in full.
+        Live PMC access returned a challenge page.
+      cache: references_cache/PMID_31409662.md
+preflight_snippet_corrections:
+  initial_counts:
+    MATCH: 53
+    RENDERING: 1
+    MISMATCH: 1
+  disposition: Replaced a paraphrased CFU excerpt with the literal source sentence and restored the source hyphen
+    in a fold-change excerpt. Full verification follows.

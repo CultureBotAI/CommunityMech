@@ -589,7 +589,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Phaeodactylum-Aliivibrio Diel Co-culture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for competition. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -613,7 +613,7 @@
                 <div class="interaction-header">
                     <h3>Aliivibrio Surface Colonization of Phaeodactylum</h3>
                 </div>
-                <p class="prewrap interaction-description">SEM imaging showed A. fischeri colonizing P. tricornutum cell surfaces in the 30% marine broth co-culture, with filamentous structures likely corresponding to EPS from one or both partners.</p>
+                <p class="prewrap interaction-description">SEM showed A. fischeri attached to P. tricornutum surfaces in the 30% marine-broth coculture. Filamentous structures were interpreted as likely EPS from one or both partners; neither their chemical identity nor their producer was established by microscopy. Preserve the physical association without treating it as proof of nutrient transfer or the cause of photosynthetic decline.</p>
 
 
                 <p><strong>Source Taxon:</strong> Aliivibrio fischeri MCCC 1H00019</p>
@@ -652,10 +652,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Amino Acid Resource Competition</h3>
+                    <h3>Proposed Amino Acid Resource Competition</h3>
                     <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">Rather than supporting a direct growth-promotion effect of A. fischeri on P. tricornutum, the EASW/30% marine broth co-culture showed nutrient depletion and pigment dynamics consistent with early competition for amino-acid resources.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - Nutrient and pigment profiles led the authors to propose early amino-acid competition. Nitrate-N and orthophosphate were measured, but amino-acid depletion and partner-resolved exchange were not. Medium-matched axenic HAC controls support a negative coculture effect on late photosynthetic performance; moderate broth enrichment itself supported axenic growth. These observations do not isolate amino-acid competition as the mechanism or show bacterial growth promotion by bioluminescence.</p>
 
 
 
@@ -685,7 +685,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42668638/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42668638</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"These results are more consistent with a competitive effect in co-culture than with a growth-promoting role of A. fischeri."</div>
@@ -714,6 +714,60 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which processes connect bacterial association to diatom physiological and diel responses?
+                </h3>
+                <p class="prewrap">Keep SEM attachment and medium-controlled late physiological decline as positive findings. Matched late physiological controls exist, but no day-8 axenic transcriptome was collected; age, nutrients and growth phase confound attribution of Co8d transcription to bacteria alone. Light-dark rhythmic gene counts do not establish endogenous clock disruption. Biomass-flux changes (+81%/-87%) are transcript-constrained model predictions, not measured intracellular or interspecies flux. EPS decline admits synthesis, dilution and catabolism explanations. Dedicated physiological/diel/model response structure remains issue #1698, with a one-community Edison dry run and no paid report; no new arrow is inferred from the two existing nodes.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Aliivibrio Surface Colonization of Phaeodactylum</code>, <code>ecological_interactions#Proposed Amino Acid Resource Competition</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42668638/" rel="nofollow noreferrer">PMID:42668638</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Scanning electron microscopy (SEM) analysis demonstrated significant colonization of P. tricornutum cell surfaces by A. fischeri</p>
+                        <p class="muted small prewrap">Supports bacterial attachment to the diatom cell surface in co-culture.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42668638/" rel="nofollow noreferrer">PMID:42668638</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">The observed nutrient depletion patterns and pigment dynamics suggest early-phase competition for amino acid resources between P. tricornutum and A. fischeri</p>
+                        <p class="muted small prewrap">Supports the authors&#39; competition interpretation; nutrient/pigment observations do not directly identify exchanged or limiting amino acids.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1006,7 +1060,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1019,7 +1072,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1116,7 +1168,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Amino Acid Resource Competition",
+                label: "Proposed Amino Acid Resource Competition",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

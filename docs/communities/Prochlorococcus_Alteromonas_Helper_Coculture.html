@@ -569,7 +569,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Prochlorococcus-Alteromonas Helper Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (commensalism, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -577,13 +577,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -592,9 +587,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Hydrogen Peroxide Cross-Protection</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Alteromonas protects Prochlorococcus by removing hydrogen peroxide and other reactive oxygen species. This detoxification service reduces oxidative stress for Prochlorococcus, which lacks catalase, and increases its growth under otherwise inhibitory peroxide and temperature conditions.</p>
+                <p class="prewrap interaction-description">Alteromonas scavenging of hydrogen peroxide protects Prochlorococcus and supports growth under inhibitory peroxide and temperature conditions. Preserve this positive facilitation; it does not establish detoxification of every reactive oxygen species or a neutral fitness effect on Alteromonas.</p>
 
 
                 <p><strong>Source Taxon:</strong> Alteromonas macleodii EZ55</p>
@@ -633,8 +627,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Helper-Dependent Prochlorococcus Growth
-                        <p class="prewrap causal-description">Alteromonas hydrogen-peroxide removal relieves oxidative stress enough to support helper-dependent Prochlorococcus growth.
-</p>
+                        <p class="prewrap causal-description">Hydrogen-peroxide removal reduces oxidative inhibition and permits helper-dependent Prochlorococcus growth. Retain this source-supported direction within the laboratory assay conditions, not as a universal requirement at every density or temperature.</p>
                     </div>
 
                 </div>
@@ -677,9 +670,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Carbon Dioxide Perturbation of Helper Function</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Elevated carbon dioxide weakens the Alteromonas helper interaction by decreasing Alteromonas catalase gene expression and reducing the rate at which cocultures remove hydrogen peroxide. This makes Prochlorococcus more vulnerable to oxidative stress under projected high-CO2 conditions.</p>
+                <p class="prewrap interaction-description">At 800 versus 400 ppm CO2, cocultures showed reduced Alteromonas catalase transcripts, approximately sixfold lower peroxide removal and longer Prochlorococcus post-transfer lag with greater apparent die-off. PARTIAL: catalase-mediated weakening is the authors explanation; available evidence does not isolate catalase necessity from other CO2 responses.</p>
 
 
                 <p><strong>Source Taxon:</strong> Alteromonas macleodii EZ55</p>
@@ -722,8 +714,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Hydrogen Peroxide Cross-Protection
-                        <p class="prewrap causal-description">Elevated carbon dioxide lowers Alteromonas catalase expression and hydrogen-peroxide removal, weakening the helper detoxification service that protects Prochlorococcus from oxidative stress.
-</p>
+                        <p class="prewrap causal-description">PARTIAL: reduced catalase expression is proposed to lower peroxide removal and weaken protection. Retain the measured treatment-associated loss of detoxification without treating transcript abundance as proof of the sole causal mediator.</p>
                     </div>
 
                 </div>
@@ -766,10 +757,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Helper-Dependent Prochlorococcus Growth</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Peroxide scavenging by A. macleodii EZ55 lowers oxidative stress and facilitates the growth of Prochlorococcus MIT9312 at ecologically relevant cell concentrations.
-</p>
+                <p class="prewrap interaction-description">Helper coculture facilitates Prochlorococcus growth under the tested peroxide and thermal conditions at ecologically relevant concentrations. Preserve the positive growth response while keeping the separate temperature and CO2 experiments distinct.</p>
 
 
                 <p><strong>Source Taxon:</strong> Alteromonas macleodii EZ55</p>
@@ -871,6 +860,58 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How much of the CO2 response is mediated specifically by helper catalase?
+                </h3>
+                <p class="prewrap">Peroxide protection remains supported and both existing directions remain. CO2-associated catalase transcription and peroxide-removal changes support a partial explanation, not exclusive mediation. Fresh abstracts were read; only introduction and early thermal methods were exposed by the public publisher archive before subsequent retrieval failures. No full-methods, supplement or figure-pixel verification is claimed. Exact strain and separate medium contexts remain #1722; missing access does not prove experiments are absent.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Hydrogen Peroxide Cross-Protection</code>, <code>ecological_interactions#Carbon Dioxide Perturbation of Helper Function</code>, <code>ecological_interactions#Helper-Dependent Prochlorococcus Growth</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/29087377/" rel="nofollow noreferrer">PMID:29087377</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Alteromonas facilitate the growth of Prochlorococcus by scavenging HOOH</p>
+                        <p class="muted small prewrap">Directly supports the helper-bacterium peroxide-scavenging mechanism.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+                                <a href="https://doi.org/10.1038/ismej.2017.189" rel="noreferrer">doi:10.1038/ismej.2017.189</a>
+
+                        </div>
+                        <p class="snippet small prewrap">decreased expression of the catalase gene</p>
+                        <p class="muted small prewrap">Supports decreased catalase transcription, not a catalase-specific necessity or rescue experiment.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1038,7 +1079,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1051,7 +1091,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1105,7 +1144,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1147,7 +1186,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1191,7 +1230,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

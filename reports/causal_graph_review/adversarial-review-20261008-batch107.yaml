@@ -1,0 +1,299 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 2d931aca3afcab956c0eba9661e09344479ad2c7
+scope:
+- kb/communities/Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom.yaml
+- kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+- kb/communities/SynComBac10_Chicken_Intestinal_SynCom.yaml
+- kb/communities/SynCom_ARC_Peanut_Aflatoxin_Nodulation.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-four-records-batch107.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch107.json
+findings:
+- issue: 1837
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate Suillus recruitment and vitamin transfer from untested causal mediation
+  disposition: Close only after protected-main merge.
+- issue: 1838
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate sulfide-spring imaging and predicted metabolism from commensalism and spatial arrows
+  disposition: Close only after protected-main merge.
+- issue: 1839
+  severity: P2
+  status: addressed_in_this_change
+  finding: Qualify SynComBac10 predicted exchange and immune mediation without losing host protection
+  disposition: Close only after protected-main merge.
+- issue: 1840
+  severity: P2
+  status: addressed_in_this_change
+  finding: Bound ARC outcome graph to protective assays and distinguish nodulation from aggregate yield
+  disposition: Close only after protected-main merge.
+- issue: 1841
+  severity: P2
+  status: open_identity_follow_up
+  finding: Resolve sulfide-spring Thiothrix participant identity before certifying its causal graph
+  disposition: Coordinated canonical and graph identity curation required; record remains needs_research.
+adversarial_correction:
+  issue: 1838
+  finding: HydDB incorrectly listed on the separate sulfur-enzyme evidence
+  resolution: Narrow Doudnabacteria sulfur-enzyme provenance to METABOLIC and AlphaFold2; HydDB applies only to
+    the separate hydrogenase prediction.
+  initial_history: history/records/Sulfide_Spring_Autotrophic_CPR_Biofilm/2026-10-08T032721Z-codex-525fbf.yaml
+  correction_history: history/records/Sulfide_Spring_Autotrophic_CPR_Biofilm/2026-10-08T033029Z-codex-a989db.yaml
+  initial_history_sha256: fbfb65d6b1cc316f1cbc9c90b6f419ab00b9b295e8d76a5ee208e428d3020606
+superseded_verification:
+  report: /private/tmp/communitymech-batch107/pre-correction-validation.json
+  sha256: f415569eea83f28f133dc7e6669d0af61386ee53175453a4f358ff140d9324fa
+  log_directory: /private/tmp/communitymech-batch107/verification-pre-correction
+  original_log_directory: /private/tmp/communitymech-batch107/verification
+  status: Interrupted for factual provenance correction;not a final pass
+  exec_session: 77092
+  exit_code: 130
+adversarial_checks:
+- 'Whole original targets and changed graph/discussion diffs reviewed. All 13 original nodes and nine directions
+  have dispositions: retain 13 nodes and seven qualified existing directions, remove two spatial arrows and rename
+  five nodes. No new topology or Edison spend.'
+- 'Challenge removal versus lost evidence: retain demonstrated bacterial-to-fungal vitamin transfer, fungal/host
+  benefits, sulfur-granule imaging, tentative CPR associations and lineage-specific predictions, immune induction
+  and protective host/plant outcomes. Preserve qualified source hypotheses rather than rejecting positive observations.'
+- 'Suillus: distinguish ureidosuccinate chemotaxis from pregnenolone motility. Cue response does not establish nutrient
+  uptake or resolved bacterial benefit. Labeled thiamine in fungal hyphae supports direct transfer; preserve CROSS_FEEDING
+  and host mutualism interpretation. Qualify recruitment necessity and exclusive in-plant vitamin mediation. Preserve
+  thiamine-free P20 and prior #583 context.'
+- 'Spring: remove unestablished commensalism and spatial arrows. Proximity does not cause attachment or encoded
+  metabolic capacity. Failed FISH leaves imaged-cell identity tentative; predicted genes and structures are not
+  measured flux or exchange. The legacy Thiothrix species grounding exceeds the source 51% average amino-acid similarity
+  and is explicitly uncertified. Keep needs_research under #1841, not completed review.'
+- 'Adversarial correction: HydDB was initially copied onto sulfur-enzyme provenance. Narrow that evidence to METABOLIC
+  and AlphaFold2; retain HydDB only for hydrogenases. Add a second spring curation event and fifth append-only history
+  without rewriting the first. Interrupt the first verification with SIGINT/exit130 for this factual correction,
+  archive its partial report/logs and run all final gates afresh. This was not a timeout. A separate in-memory control/mutation/restore
+  probe passes, rejects reinserting HydDB at the exact tool-set assertion, then passes again; canonical files remain
+  unchanged.'
+- 'Chicken: iNAP2.0 predicted exchange and measured supernatant metabolites do not prove recipient uptake or exclusive
+  mediation. Preserve supported immune induction and host protection; remove mismatched colonization/competition
+  typing and innate-only GO annotation. Keep both existing directions explicitly partial. No pathogen-enhancement
+  procedures, challenge protocols, strain-selection advice or genetic designs are added.'
+- 'ARC: retain reduced aflatoxin after 12 months of storage, not an immediate field endpoint. ARC alone did not
+  induce nodulation; preserve the rhizobia-dependent comparison and identity-only node scopes. Remove reciprocal-competition
+  and aggregate colonization/host-defense annotations. Parallel positive endpoints and omics do not isolate the
+  proposed carbon/nitrogen feedback. Preserve #300/#307 counter-selection and #653 supplement context; no toxin-production
+  or optimization procedures.'
+- Twenty-five graph and six discussion quotations match fresh primary text and unchanged caches. Four independently
+  retrieved primary XML sources have bounded actual read spans recorded in the ledger. No figure-pixel, separate-supplement,
+  raw-data or full-pipeline certification. Cache headers with abstract_only labels can contain body text; no cache
+  imports or global absence claims. Literal matching is distinct from entailment.
+- Four guarded initial writes plus one guarded provenance correction produce five append-only histories. All 456
+  other records, all 923 caches, non-graph raw blocks and prior history/decision files remain byte-identical. No
+  schema, validator, census-threshold or runtime-rule changes. The global participant census is unchanged; legacy
+  spring identity links are not certified.
+- Eight focused tests and 967 combined regressions pass. Four full-record schema/strict/term/reference/snippet checks
+  and all five histories validate. The network retains 56 baseline warnings and zero structural defects. Deterministic
+  rendering and exact HTML parsing cover 456 pages, 1372 node descriptions and 543 arrows, not screenshots. Plain
+  just-lint passed;explicit-runtime no-incremental mypy additionally checked.
+- 'Repair issues #1837-#1840 are addressed but remain open until protected-main merge. Identity #1841 stays open.
+  Existing license #949, loader #1703 and DOI-cache case #1091 are not certified. Denied and unanswered Edison scopes
+  remain untouched. Self-review is not independent approval; no artificial CI, protection bypass or premature branch
+  deletion.'
+- Corpus status is 341 reviewed, 68 pending and 51 needs_research, not completion. Postcommit docs-current and exact-head
+  publication require separate receipts and are not preasserted here.
+correction_regression_proof:
+  report:
+    test: tests/test_causal_review_batch107.py
+    test_function: test_computational_evidence_stays_on_predictions_not_discussion_schema
+    control: PASS
+    mutation: Reinsert HydDB only into the sulfur-enzyme evidence tool list in memory.
+    mutation_applied: true
+    mutation_result: AssertionError at exact tool-set assertion
+    assertion_line: 62
+    restored_control: PASS
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom.yaml: 69551869693ec797fb080f10747bdacd590e9686cdcdb93ff8c47a2e20880a18
+      kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml: 5d3a32811ff6817ac9002bd39f79c53511fa76bc15d97a9adca897220471f235
+      kb/communities/SynComBac10_Chicken_Intestinal_SynCom.yaml: 3b6f0e648eb199d8139c7d790034e88f471e3fa5a3f0212ed55a60280921a6e6
+      kb/communities/SynCom_ARC_Peanut_Aflatoxin_Nodulation.yaml: 8128a35b7336eb6a0e2da4768e456cd12e84db5632b771708a70f07d6bebd5b5
+      tests/test_causal_review_batch107.py: 0be0b34da158fcb6b9a9d4788949d1615d42ad26ecf19168905a06fc5b17bed6
+  artifact: /private/tmp/communitymech-batch107/correction-regression-proof.json
+  sha256: b278410c408d405162797ffcf004375e29d1785ec7cef7cdd62e0335f9f36dc2
+verification:
+  combined_regressions: 967 passed in 327.16s (0:05:27)
+  new_regression_tests: 8
+  total_recorded_gate_outputs: 42
+  primary_graph_snippet_proof:
+    graph_quotations: 25
+    new_discussion_quotations: 6
+    fresh_primary_literal_matches: 31
+    all_cached_literal_matches: 31
+    retained_nodes: 13
+    removed_nodes: 0
+    retained_arrows: 7
+    removed_arrows: 2
+    new_nodes_or_directions: 0
+    scope: All reviewed quotations match fresh primary text and unchanged caches; source entailment separately reviewed.
+      Four bounded main-text reviews,not whole-paper/supplement/figure/raw-data certification.
+  references: Four full-record CLI and local snippet checks on macOS,not Linux;DOI-cache case1091 remains. Literal
+    matches do not establish entailment;per-source read limits recorded. CLI Total checks counts issues,not checks.
+    Loader1703 not certified.
+  snippet_counts_by_record:
+    kb/communities/Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom.yaml:
+      MATCH: 27
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml:
+      MATCH: 17
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/SynComBac10_Chicken_Intestinal_SynCom.yaml:
+      MATCH: 15
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/SynCom_ARC_Peanut_Aflatoxin_Nodulation.yaml:
+      MATCH: 24
+      RENDERING: 1
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 8977
+      categories:
+        MATCH: 8840
+        RENDERING: 21
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 39
+        NOCONTENT: 76
+    caveat: Both-root informational audit exit0 is not clean-corpus certification;literal matches are not entailment.
+  network:
+    existing_findings_preserved: 56
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All13nodes retained,seven existing directions qualified,two spatial arrows removed. All56existing
+      warnings unchanged;zero structural defects. Spring species identity remains unresolved1841 despite structural
+      validity.
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-four-records-batch107.yaml: deb7c0eb9394c0e4a810507a75e20c88b029c9c7ca8a4851d078b4aaad0c9940
+    tests/test_causal_review_batch107.py: 0be0b34da158fcb6b9a9d4788949d1615d42ad26ecf19168905a06fc5b17bed6
+    tests/test_participating_taxa.py: 5a52c3d54ae981f49fd187531e19c8c8b8788473e16465f1dce59b1a6c2e9aad
+    tests/test_community_level_connectivity_credit.py: 383a0f5904085a5cda800b5102923fc99301831f5769d8d4821e000773d2ea4c
+    reports/causal_graph_review/cache-provenance-20261008-batch107.json: 9a031575c6dc1d75f998b819cc7e46122344adb49eeedb2344741ab5fed0112c
+    kb/communities/Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom.yaml: 69551869693ec797fb080f10747bdacd590e9686cdcdb93ff8c47a2e20880a18
+    kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml: 5d3a32811ff6817ac9002bd39f79c53511fa76bc15d97a9adca897220471f235
+    kb/communities/SynComBac10_Chicken_Intestinal_SynCom.yaml: 3b6f0e648eb199d8139c7d790034e88f471e3fa5a3f0212ed55a60280921a6e6
+    kb/communities/SynCom_ARC_Peanut_Aflatoxin_Nodulation.yaml: 8128a35b7336eb6a0e2da4768e456cd12e84db5632b771708a70f07d6bebd5b5
+  history_sha256:
+    history/records/Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom/2026-10-08T032721Z-codex-f26eee.yaml: e7c9aa698811f6fce4db925bdf63a60bc85abd74ade9364acaba69059a718b66
+    history/records/Sulfide_Spring_Autotrophic_CPR_Biofilm/2026-10-08T032721Z-codex-525fbf.yaml: fbfb65d6b1cc316f1cbc9c90b6f419ab00b9b295e8d76a5ee208e428d3020606
+    history/records/Sulfide_Spring_Autotrophic_CPR_Biofilm/2026-10-08T033029Z-codex-a989db.yaml: daefa0855186be3a47d742a0fc8b98810b750c109e9c620db4a0bedd8edd3384
+    history/records/SynComBac10_Chicken_Intestinal_SynCom/2026-10-08T032722Z-codex-28b659.yaml: ecbebf388c21f1a3c40d2514705e19a0ba1662b7679107100dcc746a9ba15596
+    history/records/SynCom_ARC_Peanut_Aflatoxin_Nodulation/2026-10-08T032722Z-codex-9322a4.yaml: 339045fc453118baa32f96de53db2bc1bf8681bd303d382bbbb9ed46cbe17493
+  unchanged_records: 456
+  unchanged_caches: 923
+  immutable_prior_history_and_decision_files: 822
+  cache_changes: []
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: false
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs: []
+    repair_scope: Existing-node evidence/semantics repair,seven existing directions retained,two spatial arrows
+      removed;identity1841needs coordinated curation,not new-topology generation.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 403
+      mixed: 128
+      community_level_only: 275
+      taxa: 1544
+      credited_solely_by_the_rule: 1270
+    current:
+      records: 460
+      with_community_level: 403
+      mixed: 128
+      community_level_only: 275
+      taxa: 1544
+      credited_solely_by_the_rule: 1270
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: ARC suppression/nodulation observations gain canonical identity-only scope. The combined endpoint
+    still encompasses the system;global census unchanged. Spring legacy identity links are explicitly uncertified.
+    No census thresholds or audit rules changed.
+corpus:
+  records: 460
+  nodes: 1386
+  edges: 551
+  review_status_counts:
+    needs_research: 51
+    pending: 68
+    reviewed: 341
+lint_limitation: Plain just-lint passed;explicit-runtime no-incremental mypy additionally checked.
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary Python3.13 lint environment reuses validation runtime and locked typing tools;project dependencies
+    unchanged. Not a complete embedding runtime.
+limitations:
+- Fresh both-root baseline before source reads:460records,923caches,56existing warnings,zero structural defects.
+  Whole four targets and all13nodes/9directions reviewed. Retain13nodes/7existing directions,remove2spatial arrows,rename5nodes.
+  No new topology or Edison submission/spend.
+- Four primary EuropePMC XML sources independently retrieved with CC BY4.0 metadata. Suillus abstract/introduction1-60
+  and results/discussion242-503 read; spring abstract/background1-65,methods193-268,results270-485 and513-662 read;
+  chicken bounded immune/protection/prediction results260-393 and discussion427-522 read, plus abstract; ARC extracted
+  main text1-217 read. Other spans were indexed or not read. No figure-pixel,separate-supplement,raw-data or full-pipeline
+  certification.
+- Existing caches used for headers,bounded context and normalized quote checks,not exhaustive duplicated full-text
+  review. Suillus cache is PMID_41454778.md and contains body text despite abstract_only metadata. Chicken has two
+  existing cache representations; no new cache imports. Large single-line cache output was truncated and is not
+  claimed as read. No license949,loader1703 or DOI-case1091 certification.
+- Suillus:preserve demonstrated bacterial-to-fungal thiamine transfer,auxotrophy rescue,recruitment and fungal/plant
+  benefits. Distinguish pregnenolone motility from ureidosuccinate chemotaxis. Remove nutrient-consumption typing
+  from cue response; preserve host mutualism interpretation but not measured host-fungal flux or exclusive thiamine
+  mediation. Thiamine-free P20 and prior583 context remain unchanged.
+- Spring:preserve sulfur-granule imaging,putative CPR association and lineage-specific metabolic predictions. Remove
+  unestablished commensalism and both spatial arrows; add bounded genomic/structural provenance. Current canonical
+  NCBITaxon:1031 link exceeds the source51%amino-acid similarity; legacy references remain explicitly uncertified
+  pending coordinated identity repair1841. This record remains needs_research rather than being counted fully reviewed.
+- Chicken:preserve measured immune induction,metabolite-production evidence and host protection. Predicted iNAP2.0
+  exchange is not measured recipient transfer; protective association is not exclusive mediation. Remove colonization/competition
+  typing and misplaced innate-only GO annotation. Evidence correction only; no new pathogen enhancement,genetic
+  designs,strain-selection advice,challenge methods,growth optimization or causal mechanisms.
+- ARC:preserve protective fungal,nodulation,photosynthesis and yield outcomes. Attach85.6%aflatoxin decrease to12months
+  storage and retain the rhizobia-dependent nodulation boundary. Remove reciprocal-competition and aggregate-colonization/host-defense
+  annotations; narrow separate node participants. Both outcome-contribution directions remain qualified,not isolated
+  mechanisms or a proven feedback loop. Prior300/307counter-selection and653supplement provenance remain unchanged.
+  No toxin-production procedures or optimization advice.
+- Graph repairs1837-1840remain open until protected-main merge. Identity1841remains open after repair merge. Fresh
+  all-state issue-title/body search matched653/583/307/304/300; all five bodies read. Scoped local search includes
+  ignored/hidden files,excluding.git/docs/site/references_cache and credentials; relevant caches separately covered.
+  PRs/comments not exhaustively searched. No reusable taxon match found in ignored/hidden-inclusive kb/taxa search
+  for the reviewed taxa/IDs.
+- Only graphs,new focused discussions and curation events change. All456other records,923caches,non-graph raw blocks
+  and prior histories/decisions preserved. No schema,validator,threshold or runtime-rule changes. Spring remaining
+  identity uncertainty is explicit; other non-graph taxonomy,abundance,role,cultivation and evidence claims are
+  not recertified. Self-review is not independent approval or corpus completion. DeniedAM_AB000444 and unanswered
+  Edison scopes untouched. Validation/publication are not preasserted.
+- Self-adversarial review corrected a too-broad computational tool chain before publication:HydDB removed from Doudnabacteria
+  sulfur-enzyme provenance and retained for hydrogenases. A fifth append-only history and second spring curation
+  event preserve the initial entry unchanged. Initial verification was deliberately interrupted with SIGINT/exit130
+  for this factual correction,not a timeout,and its partial logs are archived;all final gates run afresh.

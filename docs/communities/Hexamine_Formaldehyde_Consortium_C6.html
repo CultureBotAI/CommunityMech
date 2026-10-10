@@ -705,7 +705,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Hexamine Formaldehyde Consortium C6</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -724,10 +724,26 @@
                 <div class="interaction-header">
                     <h3>C6 hexamine and formaldehyde removal</h3>
                 </div>
-                <p class="prewrap interaction-description">Consortium C6 removed hexamine, formaldehyde, and chemical oxygen demand from AS broth, with the biofilm format reaching 94.41% hexamine removal, 85.56% formaldehyde removal, and 37.64% COD removal within 24 h.</p>
+                <p class="prewrap interaction-description">The study reports C6 biofilm removal of 94.41% hexamine, 85.56% formaldehyde and 37.64% chemical oxygen demand within 24 h. These positive bulk-chemistry outcomes in nutrient-containing AS broth do not establish complete mineralization, member-resolved conversion or reciprocal benefit among all six strains. The separate suspended-C6 Table 2 reports ammonia production, not consortium ammonia removal. The six canonical strain labels describe the assembled consortium, not measured persistence of every strain.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Brevundimonas diminuta SRCHD03,
+
+                    Brevundimonas diminuta SRCHD04,
+
+                    Brucella pseudintermedia SRCHD05,
+
+                    Brucella pseudintermedia SRCHD07,
+
+                    Ochrobactrum sp. SRCHD06,
+
+                    Micrococcus luteus SRCHD02
+
+                </p>
 
 
 
@@ -807,10 +823,26 @@
                 <div class="interaction-header">
                     <h3>Immobilized C6 post-irradiation recovery</h3>
                 </div>
-                <p class="prewrap interaction-description">Polypropylene-Raschig-ring C6 biofilms retained stronger removal after 3.75 Gy and 5.25 Gy cobalt-60 gamma irradiation than suspended C6 cultures, with hexamine removal not significantly changed at 24 h and formaldehyde/COD performance reviving within 96 h.</p>
+                <p class="prewrap interaction-description">Polypropylene-Raschig-ring C6 biofilms showed stronger post-irradiation removal performance than suspended cultures after 3.75 Gy and 5.25 Gy cobalt-60 exposure. At 24 h, no statistically detected difference in biofilm hexamine removal was reported versus the unirradiated control (p = 0.29-0.5); this is not a formal equivalence test. Biofilm formaldehyde/COD removal was reported to recover within 96 h during repeated fresh-medium renewal. Bulk functional recovery does not establish survival of every original strain, unchanged community composition or a selectively demonstrated EPS/quorum-sensing protection mechanism.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Brevundimonas diminuta SRCHD03,
+
+                    Brevundimonas diminuta SRCHD04,
+
+                    Brucella pseudintermedia SRCHD05,
+
+                    Brucella pseudintermedia SRCHD07,
+
+                    Ochrobactrum sp. SRCHD06,
+
+                    Micrococcus luteus SRCHD02
+
+                </p>
 
 
 
@@ -890,9 +922,9 @@
                     <span class="role-badge">OPEN</span>
                     The source quantified community-level C6 removal of hexamine, formaldehyde, and COD but did not resolve which isolate genes or exchange steps perform hexamine hydrolysis, formaldehyde assimilation or oxidation, ammonia handling, or post-irradiation biofilm recovery.
                 </h3>
-                <p class="prewrap">The article explicitly leaves Ochrobactrum/Brevundimonas functional interactions for a future molecular study, so this record should not assert a pairwise metabolic edge inside C6.</p>
+                <p class="prewrap">The article explicitly leaves Ochrobactrum/Brevundimonas functional interactions for a future molecular study, so this record should not assert a pairwise metabolic edge inside C6. Bulk removal and COD are not complete mineralization or strain-resolved flux. Table 2 ammonia production must not become a consortium removal claim. Repeated medium renewal and nonsignificant comparisons do not prove equivalence, every-strain survival or a specific protection mechanism. Resolve the irradiation-feed discrepancy between the main-text 50 mg/L description and Figure 4&#39;s 100 mg/L caption before assigning one common concentration; existing non-graph assay fields are preserved, not recertified. Original figure images, supplements, raw data and code were not audited.</p>
 
-                <p class="muted small">Attaches to: <code>ecological_interactions#C6 hexamine and formaldehyde removal</code></p>
+                <p class="muted small">Attaches to: <code>ecological_interactions#C6 hexamine and formaldehyde removal</code>, <code>ecological_interactions#Immobilized C6 post-irradiation recovery</code></p>
 
 
 
@@ -1260,7 +1292,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1273,7 +1304,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1389,6 +1419,27 @@
 
 
 
+            var participantKeys = [
+
+                "Brevundimonas diminuta SRCHD03",
+
+                "Brevundimonas diminuta SRCHD04",
+
+                "Brucella pseudintermedia SRCHD05",
+
+                "Brucella pseudintermedia SRCHD07",
+
+                "Ochrobactrum sp. SRCHD06",
+
+                "Micrococcus luteus SRCHD02"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1422,6 +1473,27 @@
 
 
 
+
+            var participantKeys = [
+
+                "Brevundimonas diminuta SRCHD03",
+
+                "Brevundimonas diminuta SRCHD04",
+
+                "Brucella pseudintermedia SRCHD05",
+
+                "Brucella pseudintermedia SRCHD07",
+
+                "Ochrobactrum sp. SRCHD06",
+
+                "Micrococcus luteus SRCHD02"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

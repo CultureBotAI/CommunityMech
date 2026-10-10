@@ -642,7 +642,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for KBase ORT Workflow Community Model</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -650,8 +650,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -659,13 +659,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Coupled Nitrification in Columbia River Sediments</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Modeled Coupled Nitrification</h3>
                 </div>
-                <p class="prewrap interaction-description">Ammonia-oxidizing archaea (Nitrososphaeraceae) and nitrite-oxidizing bacteria (Nitrospiraceae) form a coupled nitrification network in Columbia River sediments. The archaeon oxidizes ammonium to nitrite, which is then consumed by Nitrospiraceae to produce nitrate. This syntrophic coupling is fundamental to nitrogen cycling in the sediment microbiome and demonstrates metabolic interdependence between archaeal and bacterial partners. The partnership enables complete nitrification from ammonium to nitrate, feeding nitrate to downstream denitrifiers.</p>
+                <p class="prewrap interaction-description">The ORT proof-of-concept uses Nitrososphaeraceae and Nitrospiraceae MAG-derived models for ammonium-to-nitrite and nitrite-to-nitrate transformations. Sequential substrate coupling is represented computationally, not experimentally measured partner transfer, obligatory syntrophy or an assembled two-strain culture.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Nitrososphaeraceae archaeon,
+
+                    Nitrospiraceae bacterium
+
+                </p>
 
 
 
@@ -691,7 +698,7 @@
                 <ul>
 
                     <li>
-                        nitrification
+                        ammonia oxidation
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0019329"
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0019329</a>)
                     </li>
@@ -704,9 +711,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Nitrate-to-Nitrogen Gas Denitrification
-                        <p class="prewrap causal-description">Coupled archaeal and bacterial nitrification produces nitrate that feeds the downstream Steroidobacteraceae denitrifiers.
-</p>
+                        <span class="flow-arrow">→</span> Modeled Nitrate Reduction with Gapfilled Nitrogen Production
+                        <p class="prewrap causal-description">PARTIAL - sequential modeled nitrification supplies nitrate for modeled denitrification. This is a substrate route in the proof-of-concept simulation, not proof of an exclusive environmental nitrate source, obligatory partner dependence or genome-supported completion to nitrogen gas.</p>
                     </div>
 
                 </div>
@@ -725,7 +731,7 @@
                             - SUPPORT (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"predict nitrogen cycling patterns with site-specific insight into the chemical and biological drivers of nitrification and denitrification processes"</div>
+                        <div class="snippet">"nitrification and denitrification"</div>
 
                     </li>
 
@@ -735,13 +741,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Nitrate-to-Nitrogen Gas Denitrification</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Modeled Nitrate Reduction with Gapfilled Nitrogen Production</h3>
                 </div>
-                <p class="prewrap interaction-description">Two Steroidobacteraceae denitrifiers consume nitrate produced by nitrifying organisms and reduce it through denitrification to nitrogen gas. This terminal step in the nitrogen cycle completes the transformation of fixed nitrogen back to atmospheric N2. The denitrifiers depend on upstream nitrification to provide nitrate substrate, demonstrating sequential metabolic coupling across the community. Genome-scale models also connected the denitrifier reactions to metabolome-derived carbon sources, enabling precise identification of biogeochemical limiting factors.</p>
+                <p class="prewrap interaction-description">Two Steroidobacteraceae MAG-derived models represent nitrate reduction to dissolved nitrogen. Neither MAG encoded nitrogen-gas production; the N2O-to-N2 reaction was added by gapfilling. The positive simulation output is therefore conditional on model assumptions, not demonstrated complete metabolism of either organism or measured field nitrogen loss. The two canonical denitrifier names remain distinct despite sharing a family identifier.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Steroidobacteraceae denitrifier 1,
+
+                    Steroidobacteraceae denitrifier 2
+
+                </p>
 
 
 
@@ -753,19 +766,7 @@
 
                     nitrogen
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17997"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17997</a>),
-
-                    betaine
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17750"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17750</a>),
-
-                    leucine
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15603"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:15603</a>),
-
-                    choline
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15354"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:15354</a>)
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17997</a>)
 
                 </p>
 
@@ -798,20 +799,7 @@
                             - SUPPORT (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"GSMs identified additional carbon sources utilized, enabling more precise identification of the biogeochemical limiting factors in the system"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/34726691/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:34726691</a>
-
-                            - SUPPORT (COMPUTATIONAL)
-                        </div>
-
-                        <div class="snippet">"predict nitrogen cycling patterns with site-specific insight into the chemical and biological drivers of nitrification and denitrification processes"</div>
+                        <div class="snippet">"nitrification and denitrification"</div>
 
                     </li>
 
@@ -821,13 +809,24 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Metabolome-Informed Carbon Source Utilization</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Modeled Metabolome-Informed Carbon Utilization</h3>
                 </div>
-                <p class="prewrap interaction-description">The ORT site model incorporated additional organic carbon compounds detected in the bulk Columbia River sediment metabolome. This allowed Steroidobacteraceae denitrifier models to use 15-23 unique carbon sources, including glycine betaine, leucine, and choline, instead of restricting denitrification to acetate as in the generalized literature-based model.</p>
+                <p class="prewrap interaction-description">Site models used 15-23 additional carbon substrates, with betaine, leucine and choline among the examples. Bulk metabolomics informed model media, with some unmeasured necessities assumed nonlimiting. These modeled exchanges add chemical detail; they are not traced member flux or experimentally identified field limitations, and the reported substrate count is not assigned to every denitrifier.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Nitrososphaeraceae archaeon,
+
+                    Nitrospiraceae bacterium,
+
+                    Steroidobacteraceae denitrifier 1,
+
+                    Steroidobacteraceae denitrifier 2
+
+                </p>
 
 
 
@@ -866,8 +865,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Nitrate-to-Nitrogen Gas Denitrification
-                        <p class="prewrap causal-description">Metabolome-derived organic carbon sources constrain the denitrifier reactions that reduce nitrate through the modeled nitrogen cycle.</p>
+                        <span class="flow-arrow">→</span> Modeled Nitrate Reduction with Gapfilled Nitrogen Production
+                        <p class="prewrap causal-description">PARTIAL - modeled carbon uptake contributes substrate and stoichiometric context to the denitrification representation. The exchange calculations support this model-level coupling, not selective demonstration that these example compounds control field denitrification or are consumed by both denitrifiers.</p>
                     </div>
 
                 </div>
@@ -934,6 +933,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which modeled nitrogen and carbon routes are supported by measured organism activity?
+                </h3>
+                <p class="prewrap">Retain both existing model-level substrate arrows, explicitly PARTIAL for biological validation. Nitrogen-gas completion is gapfilled, and neither denitrifier MAG encoded it. The single-chemistry-input demonstration compares model stoichiometries using common rate assumptions; no high-resolution empirical time series validates its predicted trajectories. Iterative KBase/PFLOTRAN coupling is a proposed capability, not a demonstrated feedback experiment. Full publisher main text/Methods/Table1/captions read; no figure pixels, supplements, code, raw data or narrative execution inspected. #1527 tracks non-graph metadata and #1528 cache provenance; all canonical IDs/labels remain unchanged. No new graph structure.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Modeled Coupled Nitrification</code>, <code>ecological_interactions#Modeled Nitrate Reduction with Gapfilled Nitrogen Production</code>, <code>ecological_interactions#Modeled Metabolome-Informed Carbon Utilization</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1027,7 +1045,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1040,7 +1057,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1108,7 +1124,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1122,14 +1138,14 @@
             var processes = [];
 
 
-            processes.push("nitrification");
+            processes.push("ammonia oxidation");
 
 
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Coupled Nitrification in Columbia River Sediments",
+                label: "Modeled Coupled Nitrification",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1140,23 +1156,30 @@
 
 
 
+            var participantKeys = [
+
+                "Nitrososphaeraceae archaeon",
+
+                "Nitrospiraceae bacterium"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
             metabolites.push("nitrate");
 
             metabolites.push("nitrogen");
-
-            metabolites.push("betaine");
-
-            metabolites.push("leucine");
-
-            metabolites.push("choline");
 
 
             var processes = [];
@@ -1165,11 +1188,11 @@
             processes.push("denitrification");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Nitrate-to-Nitrogen Gas Denitrification",
+                label: "Modeled Nitrate Reduction with Gapfilled Nitrogen Production",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1180,11 +1203,24 @@
 
 
 
+            var participantKeys = [
+
+                "Steroidobacteraceae denitrifier 1",
+
+                "Steroidobacteraceae denitrifier 2"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1205,7 +1241,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Metabolome-Informed Carbon Source Utilization",
+                label: "Modeled Metabolome-Informed Carbon Utilization",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1215,6 +1251,23 @@
 
 
 
+
+            var participantKeys = [
+
+                "Nitrososphaeraceae archaeon",
+
+                "Nitrospiraceae bacterium",
+
+                "Steroidobacteraceae denitrifier 1",
+
+                "Steroidobacteraceae denitrifier 2"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

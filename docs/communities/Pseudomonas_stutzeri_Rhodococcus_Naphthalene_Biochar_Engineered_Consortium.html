@@ -570,7 +570,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Pseudomonas stutzeri + Rhodococcus Naphthalene-degrading Biochar-bridged Engineered Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for syntrophy. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -581,6 +581,11 @@
                              aria-hidden="true" data-symbol="symbolTriangle"
                              data-color="#7f30cf"></svg> Syntrophy
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
@@ -590,7 +595,7 @@
                     <h3>Biochar-bridged direct interspecies electron transfer (DIET)</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">The conductive S-N-doped biochar matrix bridges the two strains, facilitating direct interspecies electron transfer (DIET) and extracellular electron transfer (EET). Pseudomonas stutzeri acts as an oxidative bio-anode releasing electrons that are harnessed by the Rhodococcus reductive bio-cathode.</p>
+                <p class="prewrap interaction-description">PARTIAL: the authors interpret the conductive material as coupling donor electron release with recipient electron use in a syntrophic model. Retain this reported coupling type, which does not assert obligacy. Electrochemical and multi-omics support do not independently isolate the interspecies route from other material-associated effects in the accessible abstract.</p>
 
 
                 <p><strong>Source Taxon:</strong> Pseudomonas stutzeri (overexpressing nahAc and nahB)</p>
@@ -621,7 +626,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Syntrophic naphthalene mineralization circuit
-                        <p class="prewrap causal-description">Conductive biochar-mediated electron transfer bridges the engineered Pseudomonas bio-anode and Rhodococcus bio-cathode that jointly mineralize naphthalene.</p>
+                        <p class="prewrap causal-description">PARTIAL: the reported conductive interface is proposed to couple the partners within the authors degradation-circuit model; route-specific mediation is not independently resolved by the accessible abstract.</p>
                     </div>
 
                 </div>
@@ -653,14 +658,18 @@
                     <h3>Syntrophic naphthalene mineralization circuit</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Pseudomonas stutzeri initiates naphthalene degradation and releases electrons; the directed electron flux is harnessed by Rhodococcus to drive oxygenolytic ring-cleavage catalysis, establishing a syntrophic circuit that mineralizes naphthalene while minimizing intermediate accumulation.</p>
-
-
-                <p><strong>Source Taxon:</strong> Pseudomonas stutzeri (overexpressing nahAc and nahB)</p>
+                <p class="prewrap interaction-description">PARTIAL: the authors interpret coordinated electron flux and catabolic responses as a syntrophic degradation circuit. Retain that reported model with canonical participants. The local interaction type does not assert obligacy, and the accessible abstract does not independently isolate every mediator.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Rhodococcus rhodococcus (overexpressing nahH and catA)</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas stutzeri (overexpressing nahAc and nahB),
+
+                    Rhodococcus rhodococcus (overexpressing nahH and catA)
+
+                </p>
 
 
 
@@ -681,8 +690,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Enhanced Naphthalene Removal and Mineralization
-                        <p class="prewrap causal-description">Biochar-mediated electron flux feeds the Pseudomonas-Rhodococcus syntrophic circuit that removes and mineralizes naphthalene.
-</p>
+                        <p class="prewrap causal-description">PARTIAL: the proposed coordinated circuit is offered as an explanation for the reported removal and mineralization endpoints. The abstract does not isolate each mediator from concurrent treatment effects.</p>
                     </div>
 
                 </div>
@@ -712,13 +720,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Enhanced Naphthalene Removal and Mineralization</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">The biochar-bridged engineered circuit achieved more than 98.3% naphthalene removal and 89.5% mineralization by coordinating electron flux between Pseudomonas and Rhodococcus and limiting intermediate accumulation.
-</p>
+                <p class="prewrap interaction-description">The source reports more than 98.3% naphthalene removal and 89.5% mineralization. Preserve these separate positive endpoints without treating the measured outcome itself as an electron-transfer interaction or independently auditing a complete carbon balance.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas stutzeri (overexpressing nahAc and nahB),
+
+                    Rhodococcus rhodococcus (overexpressing nahH and catA)
+
+                </p>
 
 
 
@@ -761,6 +775,60 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    What distinguishes the reported electron-transfer model from the treatment endpoints?
+                </h3>
+                <p class="prewrap">All three nodes and both existing directions remain. The authors electron-transfer model retains its SYNTROPHY classification with PARTIAL evidence bounds: the local enum does not require obligacy. The community removal/mineralization endpoint is distinct from the coupling mechanism. Only the fresh primary abstract was retrieved; unavailable methods are not proof that route-specific controls were absent. Canonical source labels are preserved, not newly certified strain identities. No new genetic designs, optimization details or experimental procedures were added.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Biochar-bridged direct interspecies electron transfer (DIET)</code>, <code>ecological_interactions#Syntrophic naphthalene mineralization circuit</code>, <code>ecological_interactions#Enhanced Naphthalene Removal and Mineralization</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42139785/" rel="nofollow noreferrer">PMID:42139785</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">facilitating direct interspecies electron transfer (DIET) and enhancing extracellular electron transfer (EET)</p>
+                        <p class="muted small prewrap">Supports the authors DIET/EET interpretation, not independent resolution of the electron-transfer route or obligatory mutual dependence.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42139785/" rel="nofollow noreferrer">PMID:42139785</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">The resulting bioelectrochemical synergy achieved exceptional naphthalene removal (&gt;98.3%) and mineralization efficiency (89.5%)</p>
+                        <p class="muted small prewrap">Supports the measured removal and mineralization endpoint of the engineered consortium.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -790,7 +858,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -803,7 +870,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -917,23 +983,26 @@
             });
 
 
-            var srcKey = "Pseudomonas stutzeri (overexpressing nahAc and nahB)";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Rhodococcus rhodococcus (overexpressing nahH and catA)";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Pseudomonas stutzeri (overexpressing nahAc and nahB)",
+
+                "Rhodococcus rhodococcus (overexpressing nahH and catA)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -956,6 +1025,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Pseudomonas stutzeri (overexpressing nahAc and nahB)",
+
+                "Rhodococcus rhodococcus (overexpressing nahH and catA)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

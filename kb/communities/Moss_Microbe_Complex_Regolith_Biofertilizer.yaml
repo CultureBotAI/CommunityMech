@@ -153,12 +153,10 @@ taxonomy:
     explanation: Names Devosia among the genera stably present in moss-treated simulant soils.
 ecological_interactions:
 - name: Moss-facilitated microbial colonization on Martian simulant
-  description: >
-    In the Martian (MGS) simulant, whose high bulk density and low porosity impeded
-    microbial effectiveness, the moss Hypnum plumaeforme functioned as a biological
-    buffer that facilitated colonization by the plant growth-promoting bacteria and
-    restored plant growth responses. The moss thereby acts as a key facilitator of
-    plant-microbe interactions under harsh regolith-simulant conditions.
+  description: The primary abstract reports that Hypnum plumaeforme acts as a biological buffer facilitating microbial
+    colonization in the dense, low-porosity Martian simulant, where microbial effectiveness is otherwise impeded.
+    PARTIAL - This is the reported facilitation interpretation; abstract-only access does not resolve selective
+    colonization mediation versus other moss-associated changes.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
   biological_processes:
@@ -168,9 +166,10 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Moss-microbe co-treatment enhances barley growth and soil quality
-    description: >
-      Moss-buffered microbial colonization on the low-porosity Martian simulant
-      restores plant growth responses in the combined moss-microbe treatment.
+    description: PARTIAL - Moss-associated buffering and microbial colonization are reported to restore plant growth
+      responses on the Martian simulant. This is a supported mechanistic interpretation of the combined treatment,
+      but the available abstract does not isolate colonization from organic inputs, soil changes or other growth-promoting
+      activities.
   evidence:
   - reference: doi:10.1016/j.ecolind.2025.114023
     supports: SUPPORT
@@ -180,40 +179,35 @@ ecological_interactions:
   - reference: doi:10.1016/j.ecolind.2025.114023
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: moss acts not merely as an organic input but as a key facilitator of plant–microbe interactions under harsh conditions
-    explanation: Supports the moss as a facilitator of plant-microbe interactions under harsh regolith-simulant conditions.
+    snippet: moss acts not merely as an organic input but as a key facilitator of plant–microbe interactions under
+      harsh conditions
+    explanation: Supports the moss as a facilitator of plant-microbe interactions under harsh regolith-simulant
+      conditions.
 - name: Moss-microbe co-treatment enhances barley growth and soil quality
-  description: >
-    Combined application of moss and its associated bacteria (versus moss alone or
-    microbes alone) significantly enhanced barley shoot biomass, dry weight, soil
-    organic matter, available phosphate, and cation exchange capacity, indicating a
-    community-level synergy of the moss-microbe complex improving plant growth and soil
-    functionality on the simulants.
+  description: The study compared moss alone, microbes alone and combined application on lunar and Martian simulants.
+    The primary abstract reports significant combined-treatment improvements in barley shoot biomass, dry weight,
+    organic matter, available phosphate and cation exchange capacity. It does not specify every endpoint comparator
+    or demonstrate reciprocal moss-microbial fitness; these positive treatment outcomes are not classified as mutualism.
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Moss-Microbe Rhizosphere Metabolite Accumulation
-    description: >
-      The same moss-microbe co-treatment that improved barley growth and soil
-      quality also reprogrammed the rhizosphere metabolite profile.
   evidence:
   - reference: doi:10.1016/j.ecolind.2025.114023
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: moss–microbe co-treatment significantly enhanced shoot biomass, dry weight, organic matter content, available phosphate, and cation exchange capacity
-    explanation: Supports the community-level synergy of moss plus microbes enhancing plant growth and soil quality.
+    snippet: moss–microbe co-treatment significantly enhanced shoot biomass, dry weight, organic matter content,
+      available phosphate, and cation exchange capacity
+    explanation: Supports positive combined-treatment outcomes; does not specify superiority over each single treatment
+      for every endpoint or reciprocal fitness.
 - name: Moss-Microbe Rhizosphere Metabolite Accumulation
-  description: >
-    Metabolite profiling of the moss-microbe complex treatment revealed significant
-    accumulation of growth-related D-ribose and D-gluconate, suggesting that the
-    complex reprograms rhizosphere metabolism on the soil simulants.
+  description: Metabolite profiling reports accumulation of D-ribose and D-gluconate with moss-microbe treatment.
+    Reprogrammed rhizosphere metabolism is HYPOTHESIZED from altered pools; producer identity, interspecies transfer
+    and the causal contribution to barley growth are not resolved by the available abstract. Growth/soil improvement
+    and metabolite changes are parallel reported treatment outcomes, not an established causal sequence.
   scope: COMMUNITY_LEVEL
-  interaction_type: MUTUALISM
   metabolites:
   - preferred_term: D-ribose
     term:
@@ -232,8 +226,10 @@ ecological_interactions:
   - reference: doi:10.1016/j.ecolind.2025.114023
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Metabolite profiling further revealed the significant accumulation of growth-related compounds such as D-ribose and D-gluconate, suggesting that the moss–microbe complex may reprogram rhizosphere metabolism.
-    explanation: Supports moss-microbe treatment reshaping the rhizosphere metabolite pool.
+    snippet: Metabolite profiling further revealed the significant accumulation of growth-related compounds such
+      as D-ribose and D-gluconate, suggesting that the moss–microbe complex may reprogram rhizosphere metabolism.
+    explanation: Supports changed metabolite pools and the authors proposed metabolic interpretation, not demonstrated
+      transfer or mediation.
 environmental_factors:
 - name: Lunar (LHS) and Martian (MGS) soil simulants
   value: LHS and MGS soil simulants
@@ -274,3 +270,27 @@ related_ingredients:
     evidence_source: IN_VITRO
     snippet: accumulation of growth-related compounds such as D-ribose and D-gluconate
     explanation: Names D-gluconate among the accumulated growth-related rhizosphere metabolites.
+discussions:
+- discussion_id: moss_colonization_and_metabolite_mediation
+  prompt: Which selective mechanisms explain the measured community responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: The primary publisher abstract supports positive treatment effects and a colonization interpretation.
+    Full publisher access returned403; this does not show that selective controls were absent. Obtain authorized
+    full Methods to resolve colonization versus other moss effects, endpoint comparators and metabolite mediation.
+    Devosia is detected rather than a selected inoculant; do not assign all measured outcomes to each bacterial
+    member.
+  attaches_to:
+  - ecological_interactions#Moss-facilitated microbial colonization on Martian simulant
+  - ecological_interactions#Moss-microbe co-treatment enhances barley growth and soil quality
+  - ecological_interactions#Moss-Microbe Rhizosphere Metabolite Accumulation
+curation_history:
+- timestamp: '2026-10-07T02:43:02Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain reported colonization facilitation with PARTIAL mediation arrow.; Preserve treatment gains; remove
+    unsupported reciprocal-fitness classification and shared-outcome arrow.; Retain metabolite accumulation, not
+    traced cross-feeding or demonstrated growth mediation. Issue #1622; reports/causal_graph_review/decisions/20261007-four-records-batch74.yaml'
+  llm_assisted: true

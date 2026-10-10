@@ -135,16 +135,10 @@ taxonomy:
     explanation: Supports virus-host relationships with key sulfur- and methane-cycling guilds.
 ecological_interactions:
 - name: Diverse Sulfate-Reduction Guild
-  description: Candidate sulfate reducers encode sulfate-reduction marker genes
-    and span multiple bacterial phyla, supporting high sulfate reduction and
-    carbon mineralization in Prairie Pothole wetland sediments.
-  interaction_type: NICHE_PARTITIONING
+  description: 'Candidate sulfate-reducer marker genes and MAGs support diverse genomic potential. PARTIAL: predicted
+    donor use and reaction direction are not measured fluxes or experimentally confirmed sulfate reduction for each
+    genome.'
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Prairie Pothole candidate sulfate reducers
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
   metabolites:
   - preferred_term: sulfate
     term:
@@ -169,9 +163,9 @@ ecological_interactions:
       label: catabolic process
   downstream:
   - target: Niche Differentiation In Heterogeneous Wetland Sediment
-    description: Sulfate-reducer metabolic versatility is one component of the
-      diversity inferred to sustain high carbon and sulfur cycling rates in the
-      heterogeneous sediment matrix.
+    description: 'HYPOTHESIZED: metabolic versatility may allow sulfate-reducing guilds to occupy different sediment
+      niches and contribute to high cycling rates; substrate partitioning and its effect on ecosystem rates were
+      not experimentally isolated.'
   evidence:
   - reference: PMID:30086797
     supports: SUPPORT
@@ -183,22 +177,16 @@ ecological_interactions:
     evidence_source: COMPUTATIONAL
     snippet: utilizing a wide variety of electron donors, such as methanol and other alcohols
     explanation: Supports metabolic versatility among candidate sulfate reducers.
+  participating_taxa:
+  - preferred_term: Prairie Pothole candidate sulfate reducers
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
 - name: Alcohol-Linked Methanogenesis Potential
-  description: Methanogen marker genes and reconstructed methanogen genomes
-    suggest that multiple methanogenesis pathways operate in these sediments,
-    with ethanol and 2-propanol hypothesized as important substrates.
-  interaction_type: CROSS_FEEDING
+  description: 'HYPOTHESIZED: methanogen markers, putative alcohol dehydrogenases and porewater alcohols suggest
+    alcohol-fueled methanogenesis. These findings do not identify an interspecies producer-to-consumer transfer
+    route or quantify its contribution.'
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Prairie Pothole wetland sediment microbial community
-    term:
-      id: NCBITaxon:131567
-      label: cellular organisms
-  target_taxon:
-    preferred_term: Prairie Pothole methanogens
-    term:
-      id: NCBITaxon:2157
-      label: Archaea
   metabolites:
   - preferred_term: methane
     term:
@@ -228,22 +216,16 @@ ecological_interactions:
     evidence_source: COMPUTATIONAL
     snippet: these alcohols may drive a significant fraction of methanogenesis
     explanation: Supports the alcohol-linked methanogenesis hypothesis in this ecosystem.
-- name: Viral Control Of Sulfate Reducers And Methanogens
-  description: Novel viral populations were predicted to infect dominant
-    sulfate-reducing and methanogenic hosts, suggesting top-down viral control
-    over sulfur and carbon cycling guilds.
-  interaction_type: PREDATION
+  participating_taxa:
+  - preferred_term: Prairie Pothole methanogens
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+- name: Predicted Viral Links to Sulfate Reducers and Methanogens
+  description: 'Metagenomic analyses predict virus-host links. HYPOTHESIZED: infection could affect these guilds,
+    but host predictions can be false positives and do not establish current lysis or its effect on sulfur and carbon
+    cycling.'
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Prairie Pothole wetland sediment viruses
-    term:
-      id: NCBITaxon:10239
-      label: Viruses
-  target_taxon:
-    preferred_term: Prairie Pothole wetland sediment microbial community
-    term:
-      id: NCBITaxon:131567
-      label: cellular organisms
   biological_processes:
   - preferred_term: virus-host interaction
     term:
@@ -251,9 +233,9 @@ ecological_interactions:
       label: symbiont-mediated perturbation of host process
   downstream:
   - target: Niche Differentiation In Heterogeneous Wetland Sediment
-    description: Predicted infection of dominant sulfate reducers and
-      methanogens adds a viral control to the processes inferred to modulate
-      wetland carbon and sulfur cycling.
+    description: 'HYPOTHESIZED: host lysis may open niche space and release substrates, potentially changing diversity
+      and cycling. Host suppression and substrate release could have opposing effects, so this existing direction
+      has no established net sign.'
   evidence:
   - reference: PMID:30086797
     supports: SUPPORT
@@ -265,11 +247,22 @@ ecological_interactions:
     evidence_source: COMPUTATIONAL
     snippet: approximately 80% of viral populations being unclassified
     explanation: Supports novelty of the viral populations involved in the interaction.
+  participating_taxa:
+  - preferred_term: Prairie Pothole candidate sulfate reducers
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  - preferred_term: Prairie Pothole methanogens
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+  - preferred_term: Prairie Pothole wetland sediment viruses
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
 - name: Niche Differentiation In Heterogeneous Wetland Sediment
-  description: The source study concludes that microbial diversity, metabolic
-    versatility, dynamic environmental conditions, viral infection, and sediment
-    niche differentiation together modulate carbon and sulfur cycling.
-  interaction_type: NICHE_PARTITIONING
+  description: 'HYPOTHESIZED: diversity, metabolic versatility, local geochemistry and viral activity may jointly
+    explain heterogeneous niches and high cycling rates. The study does not resolve their causal contributions.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methane
@@ -294,12 +287,29 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: diversity is likely key to extremely high rates of methanogenesis and sulfate reduction
-    explanation: Supports diversity as a mechanism for high biogeochemical rates.
+    explanation: Supports the authors proposed diversity explanation, not an experimentally isolated mechanism.
   - reference: PMID:30086797
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: modulating carbon and sulfur cycling in this ecosystem
     explanation: Supports ecosystem-scale relevance of the inferred interactions.
+  participating_taxa:
+  - preferred_term: Prairie Pothole wetland sediment microbial community
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  - preferred_term: Prairie Pothole candidate sulfate reducers
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  - preferred_term: Prairie Pothole methanogens
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+  - preferred_term: Prairie Pothole wetland sediment viruses
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
 environmental_factors:
 - name: Prairie Pothole wetland sediment
   value: North American Prairie Pothole Region
@@ -445,3 +455,37 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   Prairie Pothole wetland sulfur-carbon virus-host community.
+discussions:
+- discussion_id: prairie-genomic-potential-and-viral-effect-sign
+  prompt: Which predicted activities and viral effects control measured ecosystem rates?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  rationale: Retain the genomic findings and both proposed directions. Candidate genomes do not guarantee sulfate-reduction
+    direction; alcohol use and viral host links remain inferred. Viral suppression versus release of labile substrates
+    could lower or raise cycling rates. Exact activities, lysis and net effects need experiments; no new arrows
+    were added.
+  attaches_to:
+  - ecological_interactions#Diverse Sulfate-Reduction Guild
+  - ecological_interactions#Alcohol-Linked Methanogenesis Potential
+  - ecological_interactions#Predicted Viral Links to Sulfate Reducers and Methanogens
+  - ecological_interactions#Niche Differentiation In Heterogeneous Wetland Sediment
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: these alcohols may drive a significant fraction of methanogenesis
+    explanation: Supports the alcohol-linked methanogenesis hypothesis in this ecosystem.
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: viral populations were predicted to target dominant sulfate reducers and methanogens
+    explanation: Supports virus-host targeting of key sulfur- and methane-cycling guilds.
+curation_history:
+- timestamp: '2026-10-07T11:16:58Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve genomic guild diversity without certifying activity or flux.; Preserve proposed alcohol methanogenesis
+    without invented cross-feeding.; Preserve predicted viral links and qualify lysis and ecosystem effect.; Preserve
+    niche explanation as an unresolved ecosystem hypothesis. Issue #1718; reports/causal_graph_review/decisions/20261007-four-records-batch87.yaml'
+  llm_assisted: true

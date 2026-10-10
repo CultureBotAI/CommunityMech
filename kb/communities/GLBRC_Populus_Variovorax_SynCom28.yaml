@@ -1017,113 +1017,328 @@ environmental_factors:
       with endosphere specialization.
     explanation: Supports dual-compartment design and the endosphere specialization objective.
 ecological_interactions:
-- name: Rhizosphere-Endosphere Niche Partitioning
-  description: The 28 Variovorax strains exhibit compartment partitioning between rhizosphere and endosphere
-    niches in Populus roots. Strain-resolved metagenomic profiling demonstrates that different strains
-    specialize for either external root surface colonization (rhizosphere) or internal root tissue colonization
-    (endosphere). This spatial niche partitioning reduces direct competition among closely related strains
-    by separating them into distinct microhabitats with different selective pressures. Endosphere colonizers
-    are enriched in genes for nutrient metabolism, redox balance, and transcriptional regulation, while
-    rhizosphere strains exhibit different trait profiles.
-  interaction_type: NICHE_PARTITIONING
+- name: Variovorax Relative Compartment Enrichment
+  description: After equal-OD preparation and three weeks in axenic P. deltoides or P. trichocarpa microcosms, strain-resolved
+    metagenomic profiles showed relative endosphere-versus-rhizosphere enrichment. Five strains accounted for about
+    80% of mapped endosphere reads, while enrichment and normalized read abundance identified distinct patterns. This
+    is relative DNA compartment association, not absolute colonization efficiency, physical exclusion, or demonstrated
+    reduction of competition. Some abundant strains were generalists in both compartments. Isolation source and
+    shared genus do not establish fixed niche identity or a single species; the authors distinguish ANI-defined
+    lineages and putative species.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction
-      between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between
-        organisms
   evidence:
   - reference: PMID:41543249
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: we use a defined, genome-resolved community of 28 Variovorax strains isolated from the roots
-      of Populus deltoides and Populus trichocarpa (poplar trees) to determine which strains partition
-      between rhizosphere and endosphere compartments
-    explanation: Demonstrates spatial niche partitioning of Variovorax strains across rhizosphere and
-      endosphere compartments.
+    snippet: we use a defined, genome-resolved community of 28 Variovorax strains isolated from the roots of Populus
+      deltoides and Populus trichocarpa (poplar trees) to determine which strains partition between rhizosphere
+      and endosphere compartments
+    explanation: The complete main body supports compartment-associated relative strain profiles; the study aim
+      alone does not demonstrate reduced competition or absolute colonization efficiency.
+  - reference: PMID:41543249
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: dominant endosphere colonizers are enriched in genes related to nutrient metabolism, redox balance,
+      transcriptional regulation, and a conserved L-fucose utilization pathway
+    explanation: Gene-content enrichment is inferred potential associated with selected lineages, not directly measured
+      expression or mediator necessity.
   - reference: PMID:41543249
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: dominant endosphere colonizers are enriched in genes related to nutrient metabolism, redox
-      balance, transcriptional regulation, and a conserved L-fucose utilization pathway
-    explanation: Shows genomic differentiation associated with endosphere vs rhizosphere niche specialization.
-- name: Intraspecific Metabolic Competition
-  description: Multiple Variovorax strains compete for resources within both rhizosphere and endosphere
-    compartments. Strain-level analyses reveal that not all strains succeed through the same strategy
-    - some benefit from rapid growth on plant-derived carbon sources, while others rely on stress tolerance
-    or fine-tuned regulation. This metabolic competition among closely related strains shapes community
-    composition, with host filtering selecting for distinct and sometimes complementary microbial strategies.
-    The endosphere exhibits a distinct and reduced set of functional traits compared to the rhizosphere,
-    reflecting intense selective pressure.
-  interaction_type: STRAIN_COMPETITION
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction
-      between organisms
+    snippet: Log₂ fold changes (endosphere vs. rhizosphere) were used to quantify differential compartment association
+      rather than absolute colonization efficiency
+    explanation: The Methods explicitly limit the metagenomic comparison to differential compartment association.
+  participating_taxa:
+  - preferred_term: Variovorax sp. BK119
     term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between
-        organisms
-  downstream:
-  - target: Rhizosphere-Endosphere Niche Partitioning
-    description: Competition is one of the ecological strategies that lets
-      Variovorax strains succeed during Populus endosphere colonization and
-      produces distinct, host-filtered rhizosphere and endosphere assemblages.
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. BK151
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. BK370
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. BK460
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. BK613
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. BK658
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. BT01
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. CF079
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. CF313
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. GV004
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. GV008
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. GV014
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. GV035
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. GV040
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. GV042
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. GV051
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. OK202
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. OK212
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. OK605
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. OV084
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. OV329
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. OV700
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. PDC80
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. YR216
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. YR266
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. YR634
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. YR750
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. YR752
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+- name: Proposed Variovorax Resource Competition
+  description: 'HYPOTHESIZED: The authors propose metabolic competitiveness alongside regulatory adaptation as alternative
+    routes to successful endosphere colonization. Associations among community abundance, genomic traits and separate
+    sole-fucose growth assays support this interpretation, not directly measured depletion of host resources, reciprocal
+    partner harm, or selective mediation of compartment enrichment. Host fucose concentrations were not quantified.
+    All 28 canonical participants denote the assayed community, not 28 demonstrated competitive pairs; these isolates
+    span putative species within Variovorax, so intraspecific competition is not established.'
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:41543249
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: These findings reveal that multiple ecological strategies, such as metabolic competition,
-      regulatory adaptation, and niche specialization, can support endosphere colonization.
-    explanation: Explicitly identifies metabolic competition as one of the ecological strategies among
-      Variovorax strains.
+    snippet: These findings reveal that multiple ecological strategies, such as metabolic competition, regulatory
+      adaptation, and niche specialization, can support endosphere colonization.
+    explanation: Supports the authors' ecological interpretation of genomic, growth and enrichment observations,
+      not selective measurement of resource competition or a causal arrow to compartment partitioning.
   - reference: PMID:41543249
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: Not all strains succeed through the same strategy. Community-wide functional profiling revealed
-      a distinct and reduced set of traits in the endosphere
-    explanation: Demonstrates competitive selection and differentiation of strain-level strategies within
-      the community.
-- name: L-Fucose Pathway Colonization Enhancement
-  description: A conserved L-fucose utilization pathway shared among certain Variovorax strains experimentally
-    enhances root colonization success. Strains possessing this pathway gain an advantage in establishing
-    endosphere colonization, potentially facilitating their own persistence and indirectly affecting community
-    assembly by modifying the selective environment. This represents a genomic trait that enables successful
-    colonization and may influence the establishment of other community members through priority effects
-    or niche modification.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
+    snippet: Not all strains succeed through the same strategy. Community-wide functional profiling revealed a distinct
+      and reduced set of traits in the endosphere
+    explanation: Supports the authors' ecological interpretation of genomic, growth and enrichment observations,
+      not selective measurement of resource competition or a causal arrow to compartment partitioning.
+  participating_taxa:
+  - preferred_term: Variovorax sp. BK119
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. BK151
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. BK370
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. BK460
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. BK613
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. BK658
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. BT01
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. CF079
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. CF313
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. GV004
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. GV008
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. GV014
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. GV035
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. GV040
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. GV042
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. GV051
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. OK202
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. OK212
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. OK605
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. OV084
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. OV329
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. OV700
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. PDC80
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. YR216
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. YR266
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. YR634
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. YR750
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Variovorax sp. YR752
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+- name: CF313 Fucose-Pathway-Associated Root Recovery
+  description: In the separate CF313 assay, deletion of the L-fuconolactonase gene PMI12_01353 abolished growth
+    with L-fucose as sole carbon source and reduced recoverable root CFUs in sterile P. deltoides microcosms relative
+    to wild type (reported P=0.0022). This supports a locus-associated contribution to recovered colonization in
+    the tested strain and host, not facilitation of other strains, priority effects, or a community-wide cause of
+    relative compartment enrichment. Only CF313, OV700 and YR750 showed the reported sole-fucose growth among 28
+    strains; several intact-pathway strains did not grow. Gene presence alone is not sufficient, and host fucose
+    was not quantified. Complementation rescue and full-panel mutant replacement are not established by the inspected
+    main body; no distinct entry, persistence or in planta flux mechanism is assigned.
+  scope: PAIRWISE
   metabolites:
   - preferred_term: L-fucose
     term:
-      id: CHEBI:2181
-      label: L-fucopyranose
-    concentration: Plant-derived sugar utilized for colonization
-  biological_processes:
-  - preferred_term: root colonization
-    term:
-      id: GO:0044409
-      label: symbiont entry into host
-  downstream:
-  - target: Rhizosphere-Endosphere Niche Partitioning
-    description: The conserved L-fucose utilization pathway enhances root
-      colonization and gives pathway-bearing strains an experimentally
-      validated route through the endosphere selection bottleneck.
+      id: CHEBI:18287
+      label: L-fucose
+    notes: Substrate in the separate sole-carbon-source assay; concentration and flux in the host were not measured.
   evidence:
   - reference: PMID:41543249
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: a conserved L-fucose utilization pathway experimentally shown to enhance root colonization
-    explanation: Demonstrates that L-fucose metabolism facilitates endosphere colonization in Variovorax
-      strains.
+    evidence_source: IN_VITRO
+    snippet: The resulting CF313Δfuc strain failed to grow on L-fucose as a sole carbon source, while the wild type
+      showed robust growth under the same conditions
+    explanation: Supports the strain-specific growth phenotype after locus deletion, not universal sufficiency of
+      pathway possession.
   - reference: PMID:41543249
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: host filtering selects for distinct, and sometimes complementary, microbial strategies
-    explanation: Suggests that colonization traits like L-fucose utilization can enable complementary
-      strategies among strains.
+    snippet: When inoculated into sterile P. deltoides microcosms, the mutant exhibited significantly reduced colonization
+      compared to wild-type CF313
+    explanation: Supports the reported mutant-versus-wild-type root recovery endpoint in the separate assay; not
+      partner facilitation or mediation of the complete SynCom compartment pattern.
+  - reference: PMID:41543249
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Other strains, which included those with intact fucose pathways, such as BK151, BK613, BK370, and YR634,
+      showed little to no growth.
+    explanation: Bounds gene-presence claims with the separate strain growth screen.
+  source_taxon:
+    preferred_term: Variovorax sp. CF313
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
 associated_datasets:
 - title: Primary publication
   dataset_type: OTHER
@@ -1208,3 +1423,31 @@ growth_media:
     evidence_source: IN_VIVO
     snippet: A single colony from each plate was used to inoculate 5 mL of R2A and incubated overnight at 30°C and 200 rpm by continually shaking
     explanation: Source states the R2A medium and 30 °C / 200 rpm conditions used to propagate the strains before inoculation.
+discussions:
+- discussion_id: variovorax_competition_and_fucose_scope
+  prompt: Which resource and regulatory mechanisms explain strain-resolved compartment enrichment?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Variovorax Relative Compartment Enrichment
+  - ecological_interactions#Proposed Variovorax Resource Competition
+  - ecological_interactions#CF313 Fucose-Pathway-Associated Root Recovery
+  rationale: 'The 28-strain metagenomic profiles describe relative DNA enrichment, while CF313 deletion and root
+    CFU recovery are a separate strain-specific perturbation. Resource competition remains an author-proposed hypothesis.
+    The study did not quantify host fucose; intact pathways did not guarantee growth. Complementation, full-panel
+    mutant replacement, absolute strain abundance and resource/flux perturbations would distinguish direct metabolic
+    mediation, regulatory effects and host filtering. No priority effects or facilitation of other strains are established.
+    Existing-node and arrow corrections address #1471 without new structure or provider spend. Non-graph metadata
+    and source-cache front matter are preserved, not certified. Complete cached main body and Methods/captions read;
+    no figure images, separate supplements, raw data or analysis code audited.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T11:33:41Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain relative compartment enrichment, not reduced competition or absolute colonization efficiency.;
+    Retain author-proposed resource competition as HYPOTHESIZED without a selective compartment-causation claim.;
+    Restrict the existing fucose node to canonical CF313 locus-associated root recovery, not interstrain facilitation
+    or pathway sufficiency. Issue #1471; reports/causal_graph_review/decisions/20261006-variovorax-batch43.yaml'
+  llm_assisted: true

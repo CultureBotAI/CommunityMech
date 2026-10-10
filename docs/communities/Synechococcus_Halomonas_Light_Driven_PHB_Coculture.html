@@ -583,7 +583,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Synechococcus-Halomonas Light-Driven PHB Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -596,8 +596,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -608,7 +608,7 @@
                     <h3>Photosynthetic Sucrose Transfer To Halomonas</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Engineered S. elongatus PCC 7942 cscB fixes carbon dioxide using light energy and exports sucrose that directly supports H. boliviensis growth and PHB accumulation.</p>
+                <p class="prewrap interaction-description">The study reports that sucrose secreted by S. elongatus CscB directly supports H. boliviensis in the light-driven consortium. CO2 is the photosynthetic substrate, not the exchanged organic carbon. The primary Introduction identifies the heterotroph as LC1 (DSM 15516), supporting the canonical strain-specific attribution. Complete medium inputs remain unverified.</p>
 
 
                 <p><strong>Source Taxon:</strong> Synechococcus elongatus PCC 7942 cscB</p>
@@ -657,8 +657,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Light-Driven Biopolymer Production
-                        <p class="prewrap causal-description">Exported cyanobacterial sucrose is the photosynthetically derived organic carbon that H. boliviensis consumes to support PHB accumulation without added external organic carbon.
-</p>
+                        <p class="prewrap causal-description">Photosynthetically supplied sucrose supports the PHB-producing Halomonas partner. This preserves the source-supported carbon-to-product route without asserting that the abstract proves exclusion of every external organic input or a quantitative carbon balance.</p>
                     </div>
 
                 </div>
@@ -690,7 +689,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"photoautotroph/chemoheterotroph consortial design"</div>
+                        <div class="snippet">"Halomonas boliviensis LC1 (DSM 15516)"</div>
 
                     </li>
 
@@ -701,39 +700,31 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Light-Driven Biopolymer Production</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">H. boliviensis uses photosynthetically derived sucrose from the cyanobacterium to support stable polyhydroxybutyrate production without adding external organic carbon.</p>
-
-
-                <p><strong>Source Taxon:</strong> Synechococcus elongatus PCC 7942 cscB</p>
+                <p class="prewrap interaction-description">The light-driven consortium accumulated PHB in H. boliviensis. The primary abstract reports up to 31% of heterotroph dry weight as PHB and productive coculture persistence for over five months. This is a community production endpoint, not an additional pairwise exchange or direct photosynthesis by Halomonas. LC1 identity is supported by the primary Introduction; exact assay details await full Methods.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Halomonas boliviensis LC1</p>
 
+                <p><strong>Participating Taxa:</strong>
 
+                    Synechococcus elongatus PCC 7942 cscB,
 
-                <p><strong>Metabolites:</strong>
-
-                    sucrose
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17992"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17992</a>)
+                    Halomonas boliviensis LC1
 
                 </p>
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
+                <p><strong>Metabolites:</strong>
 
-                    <li>
-                        photosynthesis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015979"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015979</a>)
-                    </li>
+                    poly(3-hydroxybutyrate)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=53389"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:53389</a>)
 
-                </ul>
+                </p>
+
+
 
 
 
@@ -751,7 +742,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"stable polyhydroxybutyrate production"</div>
+                        <div class="snippet">"Consortial H. boliviensis accumulate up to 31% of their dry-weight as PHB"</div>
 
                     </li>
 
@@ -764,7 +755,20 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"improved synthetic photoautotroph/chemoheterotroph consortial design"</div>
+                        <div class="snippet">"cultures were continuously productive for over 5 months"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/29061492/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29061492</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Halomonas boliviensis LC1 (DSM 15516)"</div>
 
                     </li>
 
@@ -775,9 +779,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Alginate-Partitioned Coculture Stabilization</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Alginate encapsulation of the S. elongatus CscB module enhances sucrose export and coculture stability, physically partitioning the sucrose-producing cyanobacterium from H. boliviensis while maintaining carbohydrate transfer that drives PHB accumulation.</p>
+                <p class="prewrap interaction-description">Alginate encapsulation of S. elongatus CscB increased sucrose export and improved coculture stability in the primary abstract. This is an abiotic partitioning intervention, not organism-driven colonization facilitation. The source supports these positive effects but the abstract does not isolate how much of PHB output is mediated by export versus other effects.</p>
 
 
 
@@ -794,10 +797,6 @@
 
                 <p><strong>Metabolites:</strong>
 
-                    alginic acid
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17548"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17548</a>),
-
                     sucrose
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17992"
                         class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17992</a>)
@@ -813,7 +812,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Light-Driven Biopolymer Production
-                        <p class="prewrap causal-description">Enhanced sucrose export and improved partitioned-coculture stability increase the reliability of cyanobacterial sucrose delivery that supports Halomonas PHB accumulation.</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED/PARTIAL: alginate-enhanced sucrose export and stability could sustain carbon delivery to the PHB producer. The abstract reports these benefits and PHB production but does not separate their causal contributions to productivity.</p>
                     </div>
 
                 </div>
@@ -858,6 +857,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which full primary methods establish medium inputs and the contribution of encapsulation to PHB output?
+                </h3>
+                <p class="prewrap">The publisher-indexed Introduction now establishes LC1 (DSM 15516) as the coculture heterotroph. It also reports growth without supplemental carbon sources, but the accessible section previews do not provide complete medium accounting or isolate encapsulation-mediated PHB output. Direct publisher retrieval failed; full Methods, Table 1 and supplements remain unaudited. Issue #1860 remains open for these methods and mediation limits, not for the resolved LC1 identity.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Photosynthetic Sucrose Transfer To Halomonas</code>, <code>ecological_interactions#Light-Driven Biopolymer Production</code>, <code>ecological_interactions#Alginate-Partitioned Coculture Stabilization</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/29061492/" rel="nofollow noreferrer">PMID:29061492</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">enhances the co-culture stability</p>
+                        <p class="muted small prewrap">The stability finding does not resolve the remaining medium and mediation details.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1124,7 +1162,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1137,7 +1174,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1237,20 +1273,16 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
-            metabolites.push("sucrose");
+            metabolites.push("poly(3-hydroxybutyrate)");
 
 
             var processes = [];
 
-
-            processes.push("photosynthesis");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1263,27 +1295,28 @@
             });
 
 
-            var srcKey = "Synechococcus elongatus PCC 7942 cscB";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Halomonas boliviensis LC1";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Synechococcus elongatus PCC 7942 cscB",
+
+                "Halomonas boliviensis LC1"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
-
-            metabolites.push("alginic acid");
 
             metabolites.push("sucrose");
 

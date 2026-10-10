@@ -1,0 +1,216 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: d35e526e30385056f3b99c9a93c85a0d791b309b
+scope:
+- kb/communities/Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml
+- kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+- kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261006-three-records-batch27.yaml
+validation_report: reports/causal_graph_review/validation-20261006-batch27.json
+findings:
+- issue: 1365
+  severity: P2
+  status: addressed_in_this_change
+  finding: The Crystal Geyser graph overstates lipid transfer and assigns syntrophy/commensalism without
+    resolved exchange or fitness evidence.
+  disposition: Keep the positive carbon-source and mixed-fraction lipid observations; qualify acquisition
+    and both existing arrows, remove unsupported relationship types, preserve canonical participants,
+    and add an anchored research gap.
+- issue: 1365
+  severity: P2
+  status: caught_by_regressions_and_corrected
+  finding: 'The first candidate omitted Crystal Geyser from the exact participating_taxa USERS registry:
+    one failed and 329 passed.'
+  disposition: Added exactly that record to the registry (167 to 168). Connectivity surveys remain identical,
+    including 124 mixed-scope records; no numeric bound or production logic is loosened. Full verification
+    rerun is retained.
+- issue: 1366
+  severity: P2
+  status: open_nongraph_followup
+  finding: Crystal Geyser non-graph metadata retains stronger lipid-dependence and pressure-adaptation
+    wording.
+  disposition: Tracked separately; all non-graph record blocks are preserved, not certified by this graph
+    review.
+- issue: 596
+  severity: P2
+  status: open_source_access_followup
+  finding: DCPP has 19 snippets absent from independently retrieved abstract text and no reviewed complete
+    primary body.
+  disposition: Leave the record unchanged and mark needs_research; selected excerpts and a diagnostic
+    exit zero do not certify its body-specific graph claims.
+adversarial_checks:
+- All seven original nodes and two original arrows have explicit decisions; three node renames propagate
+  to exact edge targets and new discussion anchors.
+- Carbon-source support is retained rather than discarded for lack of organism-resolved flux; fractionation
+  assumptions and heterotrophic reuse remain explicit.
+- The separate archaeal lipid proposal is not evidence for archaeal-to-CPR donation. The broad producer
+  participant is contextual, not a resolved donor.
+- Lack of known pathways does not exclude unknown ACP-independent synthesis. Scavenged biomass and direct
+  host acquisition remain alternatives.
+- Mixed size fractions, abundant Sulfurimonas in the initial fraction, and the separate CPR-rich FTIR
+  sample do not establish purified-cell uptake, curvature benefit, or commensal fitness.
+- Nitrifier abstract-level sequential conversion, selected organic-nitrogen conditions, nitrate and endpoint-nitrite
+  limits are retained; relative-abundance associations do not justify extra arrows.
+- DCPP exact strain comparisons, partner-specific detoxification and LC-MS details remain unresolved.
+  Metabolite detection is not organism-resolved exchange flux.
+- One guarded record edit has one llm-assisted curation event and one append-only history. Unchanged records
+  receive no invented edit events or histories.
+- Non-graph blocks, the other 459 records, and all 920 caches are byte-preserved. No primary full body,
+  PDF, new graph structure or Edison output is introduced.
+- Both corpus roots are inventoried. Issue deduplication includes ignored and hidden local files plus
+  698 all-state issue titles/bodies, not every issue comment.
+- All 456 community pages have node and arrow descriptions compared to source YAML by HTML parser, with
+  deterministic repeat rendering. Browser screenshots were not performed.
+verification:
+  combined_regressions: 330 passed in 225.67s (0:03:45)
+  new_regression_tests: 6
+  schema_strict_terms_history: passed for applicable reviewed targets; complete commands and raw results
+    are in the validation report
+  snippet_counts_by_record:
+    kb/communities/Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml:
+      MATCH: 13
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml:
+      MATCH: 18
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml:
+      MATCH: 2
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 19
+      NOCONTENT: 0
+  network: Zero structural errors; the same 25 warnings, with raw warning exits retained.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261006-three-records-batch27.yaml: 90e6a0ad3e095a1301744958f706782510d03bdf40852999837d12401019ded0
+    tests/test_causal_review_batch27.py: 7b4ecaa048f32fadab20aa56306b761281689995dc285e2a4f20ce840b31c75f
+    tests/test_participating_taxa.py: 4cda8cb7b7aeb1928ebd1c208a090377345ca3843bcbba3a21b493d298dbafa6
+    kb/communities/Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml: b219156340ab8170a318ed82b9bf47e7a5a5b67e490870d42fabb2c9a8e25051
+    kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml: b3843b5e2f64d179b4bc11a1558b7f977c025252fa6fe16d8ab82e0dfb292ec1
+    kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml: f9b1a67fb3fcd903a1adcb16f0eb5279a3738ff6807ddc4cc9203553be36bc3a
+  post_commit_docs_current: Separate publication gate; not yet claimed by this pre-commit artifact.
+  protected_ci_and_merge: Require live exact-head status and protected main queue; not asserted here.
+corpus:
+  records: 460
+  nodes: 1474
+  edges: 710
+  review_status_counts:
+    needs_research: 4
+    pending: 331
+    reviewed: 125
+self_review_remediation:
+  issue: 1365
+  finding: Crystal Geyser explicit participants require one addition to the exact USERS census; the first
+    full regression run exposed the omitted registry entry.
+  initial_failure:
+    check: regressions
+    command:
+    - /Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3
+    - -m
+    - pytest
+    - -q
+    - tests/test_causal_review_batch10.py
+    - tests/test_causal_review_batch11.py
+    - tests/test_causal_review_batch12.py
+    - tests/test_causal_review_batch13.py
+    - tests/test_causal_review_batch14.py
+    - tests/test_causal_review_batch15.py
+    - tests/test_causal_review_batch16.py
+    - tests/test_causal_review_batch17.py
+    - tests/test_causal_review_batch18.py
+    - tests/test_causal_review_batch19.py
+    - tests/test_causal_review_batch20.py
+    - tests/test_causal_review_batch21.py
+    - tests/test_causal_review_batch22.py
+    - tests/test_causal_review_batch23.py
+    - tests/test_causal_review_batch24.py
+    - tests/test_causal_review_batch25.py
+    - tests/test_causal_review_batch27.py
+    - tests/test_causal_review_batch5.py
+    - tests/test_causal_review_batch6.py
+    - tests/test_causal_review_batch7.py
+    - tests/test_causal_review_batch8.py
+    - tests/test_causal_review_batch9.py
+    - tests/test_site_audit_fixes.py
+    - tests/test_causal_review_inventory.py
+    - tests/test_rank_causal_graph_readiness.py
+    - tests/test_network_auditor.py
+    - tests/test_participating_taxa.py
+    - tests/test_causal_descriptions_are_published.py
+    - tests/test_published_pages_name_real_records.py
+    - tests/test_reference_validator_actually_validates.py
+    - tests/test_snippet_audit_artefact_classes.py
+    - tests/test_reference_error_annotation.py
+    - tests/test_community_level_connectivity_credit.py
+    - tests/test_no_paywalled_text_in_repo.py
+    exit_code: 1
+    expected_exit_codes:
+    - 0
+    log: /private/tmp/communitymech-batch27/regressions.log
+    log_sha256: 9f89aef0388829f653066bef7f68bf00bc17015d279ef41dddc9f4a8f4ed5625
+    output_tail: "........................................................................ [ 21%]\n........................................................................\
+      \ [ 43%]\n........................................................................ [ 65%]\n.................................F......................................\
+      \ [ 87%]\n..........................................                               [100%]\n===================================\
+      \ FAILURES ===================================\n_________________ test_the_corpus_is_unchanged_by_this_feature\
+      \ _________________\n\n    def test_the_corpus_is_unchanged_by_this_feature():\n        \"\"\"Only\
+      \ the records that mean to use the slot do.\n    \n        Asserted on the corpus rather than trusted\
+      \ from the schema: an\n        `ifabsent` or a default that quietly populated the slot would change\
+      \ 312\n        records' connectivity without anyone editing a record. That is still the\n      \
+      \  failure this catches \u2014 a silent default would put every record in `users`,\n        not\
+      \ just the three named below.\n        \"\"\"\n        users = {\n            path.name\n      \
+      \      for path in record_files()\n            for interaction in (yaml.safe_load(path.read_text())\
+      \ or {}).get(\"ecological_interactions\")\n            or []\n            if isinstance(interaction,\
+      \ dict) and interaction.get(\"participating_taxa\")\n        }\n>       assert users == USERS, (\n\
+      \            f\"{len(users)} records use participating_taxa, expected {len(USERS)}. \"\n       \
+      \     f\"Adding a user is fine \u2014 but the connectivity numbers in \"\n            f\"tests/test_community_level_connectivity_credit.py\
+      \ were measured \"\n            f\"before the slot was used, so re-check them and then update USERS.\
+      \ \"\n            f\"Added: {sorted(users - USERS)}. Removed: {sorted(USERS - users)}\"\n      \
+      \  )\nE       AssertionError: 168 records use participating_taxa, expected 167. Adding a user is\
+      \ fine \u2014 but the connectivity numbers in tests/test_community_level_connectivity_credit.py\
+      \ were measured before the slot was used, so re-check them and then update USERS. Added: ['Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml'].\
+      \ Removed: []\nE       assert {'AMD_Acidoph...re.yaml', ...} == {'AMD_Acidoph...re.yaml', ...}\n\
+      E         \nE         Extra items in the left set:\nE         'Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml'\n\
+      E         Use -v to get more diff\n\ntests/test_participating_taxa.py:345: AssertionError\n===========================\
+      \ short test summary info ============================\nFAILED tests/test_participating_taxa.py::test_the_corpus_is_unchanged_by_this_feature\n\
+      1 failed, 329 passed in 210.35s (0:03:30)\n"
+  initial_report: /private/tmp/communitymech-batch27/participant-census-remediation/initial-failed-validation.json
+  initial_report_sha256: b71a138a4323f2913e729fabcf7e6766eb0f1b6ece2dbbd13e650b39acc5e392
+  correction: Add only Crystal Geyser to USERS. Recheck both connectivity surveys and retain every numeric
+    bound and production algorithm.
+  status: corrected_and_full_verification_rerun
+  connectivity_before:
+    community_level_only: 265
+    credited_solely_by_the_rule: 1217
+    mixed: 124
+    records: 460
+    taxa: 1499
+    with_community_level: 389
+  connectivity_after:
+    community_level_only: 265
+    credited_solely_by_the_rule: 1217
+    mixed: 124
+    records: 460
+    taxa: 1499
+    with_community_level: 389
+  exact_census_change: 167 -> 168 users; only Crystal Geyser added
+limitations:
+- 'Three records assessed: Crystal Geyser changed/reviewed, nitrifier unchanged/reviewed, DCPP unchanged/needs_research.
+  Only two completed reviews are added.'
+- Seven existing nodes and two arrows preserved across the three records; no new graph structure or Edison
+  spend.
+- One complete primary main body and two complete abstracts reviewed. No figure images or supplementary
+  files inspected; no new full body or PDF committed.
+- Non-graph metadata preserved, not certified; Crystal Geyser metadata follow-up remains open.
+- 'DCPP selected cache fragments are not primary-body verification. Nineteen retrieval gaps remain under
+  #596 and no body-specific graph certification is claimed.'
+- Self-adversarial review is not independent approval, protected CI success or full-corpus completion.

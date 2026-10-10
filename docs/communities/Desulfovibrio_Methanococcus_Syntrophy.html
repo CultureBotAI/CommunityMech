@@ -561,7 +561,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Desulfovibrio-Methanococcus Syntrophic Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for syntrophy. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -572,6 +572,11 @@
                              aria-hidden="true" data-symbol="symbolTriangle"
                              data-color="#7f30cf"></svg> Syntrophy
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
@@ -581,13 +586,14 @@
                     <h3>Lactate Oxidation and H2 Production</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Desulfovibrio vulgaris Hildenborough oxidizes lactate to acetate in the absence of sulfate, using protons as the electron acceptor and producing H2 and CO2 as electron sink products. Normally a sulfate-reducing bacterium, D. vulgaris can adapt to sulfate-free conditions by coupling lactate oxidation to syntrophic hydrogen transfer. This metabolic shift is thermodynamically unfavorable under standard conditions and only proceeds when H2 partial pressure is kept extremely low by a syntrophic partner. The organism cannot complete lactate oxidation without efficient H2 removal.
-</p>
+                <p class="prewrap interaction-description">DvH provides hydrogen during lactate fermentation in the no-added-sulfate coculture with M. maripaludis S2. Low hydrogen supports fermentative energetics; the uphill lactate-to-pyruvate step must not be equated with the thermodynamics of the complete fermentation.</p>
 
 
                 <p><strong>Source Taxon:</strong> Desulfovibrio vulgaris Hildenborough</p>
 
 
+
+                <p><strong>Target Taxon:</strong> Methanococcus maripaludis S2</p>
 
 
 
@@ -637,7 +643,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> D. vulgaris Hydrogenase-Cytochrome Electron Transfer
-                        <p class="prewrap causal-description">Electrons from lactate oxidation feed hydrogenases and the Hmc cytochrome system that are required for syntrophic growth.</p>
+                        <p class="prewrap causal-description">PARTIAL - lactate-derived electrons feed the proposed hydrogenase/cytochrome route. Expression and mutant phenotypes support contributions, not a fully resolved electron path or universal component necessity.</p>
                     </div>
 
                 </div>
@@ -653,7 +659,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/19581361/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:19581361</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Additionally, a predicted operon containing genes involved in lactate transport and oxidation exhibited upregulation, further suggesting an alternative pathway for electrons derived from lactate oxidation during syntrophic growth"</div>
@@ -680,17 +686,13 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>D. vulgaris Hydrogenase-Cytochrome Electron Transfer</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">During syntrophic growth on lactate with M. maripaludis, D. vulgaris upregulates electron-transfer and energy-generation machinery, including Coo, Hyd, and Hyn hydrogenases and the high-molecular-weight cytochrome Hmc. Mutations in a subset of these systems impaired syntrophic growth while leaving sulfate respiration largely intact, showing that this electron transfer route is specific to syntrophic growth.
-</p>
+                <p class="prewrap interaction-description">Coo/Hmc mutations strongly impair lactate syntrophy; Hyd/Hyn mutations slow growth without eliminating final yield. Hmc also affects respiratory growth. This donor machinery is not itself interspecies exchange, and its detailed coupling remains a model.</p>
 
 
                 <p><strong>Source Taxon:</strong> Desulfovibrio vulgaris Hildenborough</p>
 
 
-
-                <p><strong>Target Taxon:</strong> Methanococcus maripaludis S2</p>
 
 
 
@@ -722,7 +724,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Interspecies Hydrogen Transfer and Methanogenesis
-                        <p class="prewrap causal-description">Hydrogenase/cytochrome activity enables the H2 flux consumed by the methanogen.</p>
+                        <p class="prewrap causal-description">PARTIAL - donor electron-transfer machinery supports hydrogen provision to the methanogen. Genetic phenotypes support contribution, while the detailed route and coupling remain unresolved.</p>
                     </div>
 
                 </div>
@@ -751,7 +753,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/19581361/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:19581361</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Mutations in a subset of genes coding for Coo, Hmc, Hyd, and Hyn impaired or severely limited syntrophic growth but had little effect on growth via sulfate respiration"</div>
@@ -767,13 +769,14 @@
                     <h3>Interspecies Hydrogen Transfer and Methanogenesis</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Methanococcus maripaludis S2 consumes the H2 and CO2 produced by D. vulgaris, combining them to produce methane via hydrogenotrophic methanogenesis. This H2 removal maintains a low H2 partial pressure, making the thermodynamically unfavorable lactate oxidation by D. vulgaris energetically feasible in the absence of sulfate. The efficiency of this interspecies hydrogen transfer (IHT) is critical for the growth of both organisms, as H2 concentration determines the fraction of energy available to each partner.
-</p>
+                <p class="prewrap interaction-description">M. maripaludis consumes hydrogen for methanogenesis, supporting DvH through product removal. This feedback is a hydrogen sink, not reverse nutrient donation.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methanococcus maripaludis S2</p>
 
 
+
+                <p><strong>Target Taxon:</strong> Desulfovibrio vulgaris Hildenborough</p>
 
 
 
@@ -813,7 +816,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Lactate Oxidation and H2 Production
-                        <p class="prewrap causal-description">H2 and CO2 consumption by M. maripaludis keeps H2 partial pressure low enough for D. vulgaris to continue lactate oxidation in the absence of sulfate.</p>
+                        <p class="prewrap causal-description">Methanogen hydrogen consumption supports the low-hydrogen conditions favorable to continued donor lactate fermentation, closing the physiological feedback loop.</p>
                     </div>
 
                 </div>
@@ -829,7 +832,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/19581361/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:19581361</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Interspecies hydrogen transfer between organisms producing and consuming hydrogen promotes the decomposition of organic matter in most anoxic environments"</div>
@@ -842,7 +845,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/19581361/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:19581361</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Interspecies hydrogen transfer between organisms producing and consuming hydrogen promotes the decomposition of organic matter in most anoxic environments"</div>
@@ -858,6 +861,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How do donor electron-transfer components couple lactate oxidation to hydrogen provision?
+                </h3>
+                <p class="prewrap">Distinguish measured mutant phenotypes from proposed electron routing and ion coupling. Transcript abundance does not establish flux. Donor lactate/pyruvate and syntrophic/respiratory comparisons are distinct. Preserve the physiological feedback cycle, not an accidental self-edge. Metadata and medium evidence remain open under #1398.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Lactate Oxidation and H2 Production</code>, <code>ecological_interactions#D. vulgaris Hydrogenase-Cytochrome Electron Transfer</code>, <code>ecological_interactions#Interspecies Hydrogen Transfer and Methanogenesis</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1407,7 +1429,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1420,7 +1441,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1515,11 +1535,16 @@
 
 
 
+            var tgtKey = "Methanococcus maripaludis S2";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1551,11 +1576,6 @@
             }
 
 
-
-            var tgtKey = "Methanococcus maripaludis S2";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
 
         })();
 
@@ -1597,6 +1617,11 @@
             }
 
 
+
+            var tgtKey = "Desulfovibrio vulgaris Hildenborough";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
 
         })();
 

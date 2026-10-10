@@ -52,67 +52,11 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Peanut Seed SynCom Construction
-  description: >
-    Conserved, growth-promoting, and combined synthetic communities of peanut
-    seed bacteria were constructed from 16S rRNA profiles, strain isolation,
-    and plant-growth-promotion indicator measurements.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Dual Fungal Challenge Evaluation
-    description: >
-      The defined seed-bacterial SynComs were then challenged against peanut
-      seed Aspergillus flavus contamination and Fusarium oxysporum seedling
-      root rot.
-  - target: CS Seedling Growth Promotion
-    description: >
-      The constructed seed-bacterial CS SynCom was evaluated for its ability to
-      improve peanut seedling growth in parallel with fungal suppression.
-  evidence:
-  - *id001
-- name: Dual Fungal Challenge Evaluation
-  description: >
-    Peanut seed-bacterial SynComs were tested for control of seed aflatoxin
-    contamination caused by Aspergillus flavus and root rot caused by Fusarium
-    oxysporum.
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: defense response to fungus
-    term:
-      id: GO:0050832
-      label: defense response to fungus
-  downstream:
-  - target: Salicylic-Acid Defense Activation
-    description: >
-      The Fusarium oxysporum seedling challenge showed the CS community's
-      strongest root-rot protection and associated that phenotype with
-      salicylic-acid-related induced resistance.
-  - target: CS Aspergillus and Aflatoxin Suppression
-    description: >
-      The Aspergillus flavus seed challenge directly measured seed fungal
-      reproduction and aflatoxin production after CS inoculation.
-  evidence:
-  - reference: PMID:38520150
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >
-      the control effects of synthetic microbial communities composed of peanut
-      seed bacteria against seed aflatoxin contamination caused by Aspergillus
-      flavus and root rot by Fusarium oxysporum were evaluated
-    explanation: >
-      Supports testing peanut seed-bacterial SynComs against both seed
-      Aspergillus flavus aflatoxin contamination and Fusarium oxysporum
-      root rot.
-- name: Salicylic-Acid Defense Activation
-  description: >
-    The combined CS SynCom's root-rot protection in peanut seedlings was
-    associated with increased defense enzyme activity and activation of
-    salicylic-acid-related systemic induced resistance.
+- name: SA-Related Defense Response and Proposed Resistance Mediation
+  description: Peanut seedlings treated with the seed-bacterial synthetic communities showed increased defense-enzyme
+    activity and an SA-related resistance response. The accessible abstract attributes protection to this host response.
+    PARTIAL - The full-text controls for SA-pathway necessity, sufficiency and distal systemic signaling have not
+    been inspected; marker/enzyme responses alone do not resolve those causal requirements.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: salicylic acid
@@ -126,24 +70,24 @@ ecological_interactions:
       label: defense response to fungus
   downstream:
   - target: CS Fusarium Root-Rot Resistance
-    description: >
-      Defense enzyme and salicylic-acid responses were the reported host
-      defense axis underlying CS-mediated Fusarium root-rot resistance.
+    description: PARTIAL - The authors attribute increased root-rot resistance to higher defense-enzyme activity
+      and SA-related induced resistance. Retain this reported causal direction, while noting that the accessible
+      abstract does not expose pathway-blocking, rescue or distal-tissue controls needed to isolate SA mediation.
   evidence:
   - reference: PMID:38520150
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: >
-      This was achieved by increased defense enzyme activity and activated
-      salicylic acid (SA)-related, systematically induced resistance in peanuts
-    explanation: >
-      Supports salicylic-acid-related induced resistance as the peanut defense
-      response associated with the CS root-rot phenotype.
+    snippet: 'This was achieved by increased defense enzyme activity and activated salicylic acid (SA)-related,
+      systematically induced resistance in peanuts
+
+      '
+    explanation: Author-reported defense response and resistance interpretation; pathway-necessity controls are
+      not exposed in the accessible abstract.
 - name: CS Fusarium Root-Rot Resistance
-  description: >
-    All three seed-bacterial SynCom designs resisted Fusarium oxysporum root
-    rot in peanut seedlings, with the combined CS community producing the
-    strongest protection.
+  description: All three seed-bacterial synthetic communities, C, S and CS, improved resistance to Fusarium oxysporum
+    root rot after seedling inoculation, with CS showing the best effect in the reported comparison. Preserve this
+    positive host-protection result; it does not identify the contribution of each member or prove that SA signaling
+    is the sole mediator.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: defense response to fungus
@@ -154,17 +98,19 @@ ecological_interactions:
   - reference: PMID:38520150
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >
-      Three synthetic communities showed resistance to root rot and CS had the
-      best effect after inoculating into peanut seedlings
-    explanation: >
-      Supports Fusarium root-rot resistance and the strongest effect from the
-      combined CS community.
+    snippet: 'Three synthetic communities showed resistance to root rot and CS had the best effect after inoculating
+      into peanut seedlings
+
+      '
+    explanation: 'Supports Fusarium root-rot resistance and the strongest effect from the combined CS community.
+
+      '
 - name: CS Aspergillus and Aflatoxin Suppression
-  description: >
-    The combined CS SynCom inhibited Aspergillus flavus reproduction on peanut
-    seeds and reduced aflatoxin production, a seed-protection effect linked to
-    bacterial toxin degradation and fungal mycelial disruption.
+  description: CS inhibited Aspergillus flavus reproduction on peanut seeds and reduced aflatoxin production. The
+    authors relate these effects to bacterial toxin degradation and mycelial destruction. The positive suppression
+    phenotype is supported, but the accessible abstract does not disclose toxin-fate measurements, degradation products,
+    adsorption controls or member-resolved contributions. Lower toxin abundance is not by itself proof of chemical
+    destruction, complete detoxification or field efficacy.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: defense response to fungus
@@ -175,24 +121,24 @@ ecological_interactions:
   - reference: PMID:38520150
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >
-      CS also inhibited the reproduction of A. flavus on peanut seeds and the
-      production of aflatoxin
-    explanation: >
-      Supports CS suppression of Aspergillus flavus reproduction and aflatoxin
-      production on peanut seeds.
+    snippet: 'CS also inhibited the reproduction of A. flavus on peanut seeds and the production of aflatoxin
+
+      '
+    explanation: 'Supports CS suppression of Aspergillus flavus reproduction and aflatoxin production on peanut
+      seeds.
+
+      '
   - reference: PMID:38520150
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: These effects are related to bacterial degradation of toxins and destruction of mycelia
-    explanation: >
-      Supports toxin degradation and fungal mycelial damage as the reported
-      mechanisms associated with CS seed protection.
-- name: CS Seedling Growth Promotion
-  description: >
-    In addition to helping peanut seeds and seedlings resist fungal invasion,
-    inoculation with the seed-bacterial synthetic community promoted peanut
-    seedling growth.
+    explanation: Author-reported association with degradation and mycelial damage; exact toxin-fate and mediator
+      controls remain uninspected in the abstract-only review.
+- name: Reported Peanut Seedling Growth Promotion
+  description: The abstract concludes that inoculation with a synthetic community composed of seed bacteria promotes
+    peanut seedling growth. It does not give a CS-specific growth effect size or distinguish the contribution of
+    C, S and CS to that conclusion. Preserve the reported positive outcome at its stated scope without assuming
+    that disease protection, SA markers or toxin suppression caused the growth response.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: growth
@@ -204,9 +150,9 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: promote the growth of peanut seedlings
-    explanation: >
-      Supports peanut seedling growth promotion after inoculation with a seed
-      bacterial synthetic community.
+    explanation: 'Supports peanut seedling growth promotion after inoculation with a seed bacterial synthetic community.
+
+      '
 environmental_factors:
 - name: defined synthetic community design
   value: Synthetic communities were derived from 16S profiling, strain isolation, and plant growth promotion
@@ -230,3 +176,48 @@ related_ingredients:
       induced resistance in peanuts
     explanation: Names salicylic acid as the host defense signaling axis activated by the SynCom to
       suppress root rot.
+discussions:
+- discussion_id: peanut-cs-mediation-and-assay-boundaries
+  prompt: Which exact CS members and host or fungal mechanisms account for the reported protection?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#SA-Related Defense Response and Proposed Resistance Mediation
+  - ecological_interactions#CS Fusarium Root-Rot Resistance
+  - ecological_interactions#CS Aspergillus and Aflatoxin Suppression
+  - ecological_interactions#Reported Peanut Seedling Growth Promotion
+  rationale: Construction and challenge-evaluation steps are methods, not biological causal nodes, and their four
+    workflow arrows are removed. Four positive biological outcomes remain, with the existing defense-to-resistance
+    arrow explicitly partial. Authorized full text is needed to resolve SA necessity/systemic signaling, toxin fate
+    versus abundance, composition and CS-specific growth attribution. No absence claim is made about unseen full-text
+    experiments and no new causal structure is added.
+  evidence:
+  - reference: PMID:38520150
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: 'This was achieved by increased defense enzyme activity and activated salicylic acid (SA)-related,
+      systematically induced resistance in peanuts
+
+      '
+    explanation: Author-reported defense response and resistance interpretation; pathway-necessity controls are
+      not exposed in the accessible abstract.
+  - reference: PMID:38520150
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 'CS also inhibited the reproduction of A. flavus on peanut seeds and the production of aflatoxin
+
+      '
+    explanation: 'Supports CS suppression of Aspergillus flavus reproduction and aflatoxin production on peanut
+      seeds.
+
+      '
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-07T06:44:10Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain author-reported SA-defense direction with unresolved pathway controls.; Preserve best-CS root-rot
+    resistance without member-specific attribution.; Preserve fungal/toxin suppression while separating abundance
+    from chemical degradation.; Preserve reported growth without unsupported CS-specific mediation. Issue #1679;
+    reports/causal_graph_review/decisions/20261007-four-records-batch82.yaml'
+  llm_assisted: true

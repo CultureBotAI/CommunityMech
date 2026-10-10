@@ -72,11 +72,10 @@ taxonomy:
     explanation: Identifies Sphingobacterium sp. Y2 as an isolated consortium member.
 ecological_interactions:
 - name: Metabolic division of labor in polyethylene degradation
-  description: Complementary enzymatic repertoire drives synergistic PE degradation. Ensifer YF2, the
-    primary degrader, performs backbone cleavage via oxidases (LadA, AlkB, CYP450); Sphingobacterium
-    Y2, enriched in esterases and lipases, metabolizes the resulting intermediates through
-    cross-feeding.
-  interaction_type: CROSS_FEEDING
+  description: HYPOTHESIZED - genomic oxidase annotations in Ensifer YF2 and esterase/lipase annotations in Sphingobacterium
+    Y2 motivate a model in which YF2 supplies polymer-derived intermediates to Y2. The directed pair represents
+    that conceptual model, not measured donor export, identified exchanged compounds, recipient uptake or selectively
+    established enzyme activity on polyethylene.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Ensifer sp. YF2
@@ -88,62 +87,48 @@ ecological_interactions:
     term:
       id: NCBITaxon:28453
       label: Sphingobacterium
-  biological_processes:
-  - preferred_term: alkane catabolic process
-    term:
-      id: GO:0043448
-      label: alkane catabolic process
   downstream:
   - target: Synergistic enhancement of PE degradation in the dual-strain consortium
-    description: Ensifer backbone cleavage and Sphingobacterium intermediate
-      metabolism combine into the YF2/Y2 dual consortium's enhanced PE
-      degradation phenotype.
+    description: HYPOTHESIZED - complementary transformation capacities could contribute to the stronger YF2/Y2
+      consortium phenotype. Genomic annotation and the coculture comparison do not isolate cross-feeding as the
+      cause of that improvement.
+  evidence:
+  - reference: PMID:41996795
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: YF2, encoding key oxidases (LadA, AlkB, CYP450), served as the primary degrader for backbone cleavage,
+      while Y2, enriched with esterases and lipases, facilitated intermediate metabolism through cross-feeding.
+    explanation: The abstract assigns roles from genomic complementarity and presents a conceptual model; it does
+      not expose a direct exchange or enzyme-necessity experiment.
+- name: Synergistic enhancement of PE degradation in the dual-strain consortium
+  description: The abstract reports greater polyethylene degradation by the YF2/Y2 pair than by either isolate or
+    the screened three-strain mixture including MF1. This is a consortium-output comparison, not demonstrated reciprocal
+    fitness benefit, an identified exchanged metabolite or a formal additive-synergy test. MF1 is a comparator,
+    not a member of this curated pair.
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:41996795
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: YF2, encoding key oxidases (LadA, AlkB, CYP450), served as the primary degrader for
-      backbone cleavage, while Y2, enriched with esterases and lipases, facilitated intermediate
-      metabolism through cross-feeding.
-    explanation: Genomic evidence for YF2 backbone cleavage feeding intermediates to Y2.
-- name: Synergistic enhancement of PE degradation in the dual-strain consortium
-  description: Co-culture of Ensifer YF2 and Sphingobacterium Y2 degraded polyethylene more
-    efficiently than either strain alone or the full three-strain combination, indicating emergent
-    synergy from functional compatibility rather than taxonomic richness.
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Ensifer sp. YF2
+    snippet: A dual-strain consortium (YF2 +Y2) demonstrated enhanced degradation compared to individual strains
+      and the three-strain combination, indicating that functional compatibility rather than taxonomic richness
+      drives consortium performance.
+    explanation: Supports the reported comparative consortium performance, not reciprocal organism fitness or a
+      selectively resolved mechanism.
+  participating_taxa:
+  - preferred_term: Ensifer sp. YF2
     term:
       id: NCBITaxon:106591
       label: Ensifer
-  target_taxon:
-    preferred_term: Sphingobacterium sp. Y2
+  - preferred_term: Sphingobacterium sp. Y2
     term:
       id: NCBITaxon:28453
       label: Sphingobacterium
-  biological_processes:
-  - preferred_term: alkane catabolic process
-    term:
-      id: GO:0043448
-      label: alkane catabolic process
-  downstream:
-  - target: Polyethylene Oxidation and Surface Erosion
-    description: The enhanced dual-strain consortium grows with PE as the sole
-      carbon source and induces oxidative and physical damage to the polymer.
-  evidence:
-  - reference: PMID:41996795
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: A dual-strain consortium (YF2 +Y2) demonstrated enhanced degradation compared to
-      individual strains and the three-strain combination, indicating that functional compatibility
-      rather than taxonomic richness drives consortium performance.
-    explanation: Measured emergent synergy of the YF2+Y2 co-culture over monocultures and the 3-strain mix.
 - name: Polyethylene Oxidation and Surface Erosion
-  description: The Ensifer YF2 and Sphingobacterium Y2 consortium utilizes
-    polyethylene as sole carbon source while oxidizing and eroding the polymer
-    surface.
-  interaction_type: CROSS_FEEDING
+  description: The tested two-member consortium was reported to use polyethylene as the sole carbon source and to
+    induce polymer oxidation and surface erosion. These physical and chemical endpoints do not by themselves establish
+    complete mineralization, a measured interstrain carbon flux or a separate downstream consequence of the performance
+    summary.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Ensifer sp. YF2
@@ -154,19 +139,13 @@ ecological_interactions:
     term:
       id: NCBITaxon:28453
       label: Sphingobacterium
-  biological_processes:
-  - preferred_term: alkane catabolic process
-    term:
-      id: GO:0043448
-      label: alkane catabolic process
   evidence:
   - reference: PMID:41996795
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The consortium utilized PE as the sole carbon source, inducing oxidative
-      modifications and physical erosion of the polymer surface.
-    explanation: Supports the terminal polyethylene degradation phenotype of the
-      effective YF2/Y2 consortium.
+    snippet: The consortium utilized PE as the sole carbon source, inducing oxidative modifications and physical
+      erosion of the polymer surface.
+    explanation: Supports the terminal polyethylene degradation phenotype of the effective YF2/Y2 consortium.
 growth_media:
 - name: polyethylene as sole carbon source (medium composition not specified in abstract)
   preparation_notes: Consortium cultivated with polyethylene (PE) provided as the sole carbon source;
@@ -177,3 +156,28 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: The consortium utilized PE as the sole carbon source, inducing oxidative modifications and physical erosion of the polymer surface.
     explanation: Source reports polyethylene as the sole carbon source of the cultivation; no further growth conditions are given in the accessible abstract.
+discussions:
+- discussion_id: yf2_y2_genomic_model_and_polymer_endpoints
+  prompt: Which exchanged compounds and enzymes account for the YF2/Y2 polymer phenotype?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Metabolic division of labor in polyethylene degradation
+  - ecological_interactions#Synergistic enhancement of PE degradation in the dual-strain consortium
+  - ecological_interactions#Polyethylene Oxidation and Surface Erosion
+  rationale: 'Retain the existing conceptual donor/recipient model and only a HYPOTHESIZED contribution to comparative
+    performance. Remove the performance-to-surface-endpoint part/whole arrow. The available primary abstract does
+    not expose isotope tracing, enzyme perturbations or species-resolved fitness. Preserve the exact pair and AMBIGUOUS
+    Ensifer grounding; do not reintroduce the screened MF1 member. The publisher labels the article open access,
+    but full-body retrieval failed in this session; this is not evidence of a paywall. Non-graph role and access/protocol
+    claims remain #1441. No new causal structure is needed to repair the existing claims.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T09:08:51Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain the genomic donor/recipient hypothesis without categorical cross-feeding or measured polymer-enzyme
+    flux.; Retain two-member comparative output without mutualism or a part/whole outcome arrow.; Retain polymer
+    surface endpoints without complete mineralization or interstrain flux claims. Issue #1438; reports/causal_graph_review/decisions/20261006-three-records-batch38.yaml'
+  llm_assisted: true

@@ -563,16 +563,11 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Dehalococcoides-Syntrophomonas TCE Dechlorination Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for syntrophy. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -581,8 +576,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -593,7 +588,7 @@
                     <h3>Butyrate Fermentation Supporting TCE Dechlorination</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">S. wolfei ferments butyrate in the coculture, producing hydrogen and acetate; D. mccartyi 195 consumes hydrogen for reductive dechlorination of TCE, keeping hydrogen low enough to make syntrophic butyrate oxidation favorable.</p>
+                <p class="prewrap interaction-description">S. wolfei ferments butyrate to provide hydrogen and acetate while strain 195 consumes hydrogen for TCE reductive dechlorination, supporting favorable fermentative energetics. This positive coupling concerns the butyrate-fed, externally cobalamin-supplemented coculture; crotonate comparisons and donor-limited threshold assays are distinct conditions.</p>
 
 
                 <p><strong>Source Taxon:</strong> Syntrophomonas wolfei</p>
@@ -650,8 +645,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Reductive Dechlorination by Dehalococcoides
-                        <p class="prewrap causal-description">Hydrogen produced during syntrophic butyrate oxidation by S. wolfei supplies the electron donor D. mccartyi 195 uses for TCE dechlorination; the coupling is demonstrated by nanomolar aqueous H2 during dechlorination and the strain-195 minimum H2 threshold.
-</p>
+                        <p class="prewrap causal-description">Hydrogen from S. wolfei butyrate oxidation supplies the electron donor for strain-195 TCE dechlorination, while recipient consumption maintains a favorable hydrogen sink. The separate donor-limited minimum-threshold assay is not the routine culture concentration. Later residual butyrate consumption and cometabolic vinyl-chloride conversion do not establish continued growth after the growth-supporting acceptors are depleted.</p>
                     </div>
 
                 </div>
@@ -694,16 +688,13 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Reductive Dechlorination by Dehalococcoides</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">D. mccartyi 195 uses hydrogen supplied by S. wolfei as electron donor and TCE as electron acceptor, producing less chlorinated ethene products including ethene under the tested coculture conditions.</p>
+                <p class="prewrap interaction-description">Strain 195 uses hydrogen for reductive dechlorination of TCE and cis-DCE toward vinyl chloride in the coculture. Subsequent vinyl-chloride-to-ethene conversion is cometabolic, not demonstrated growth-coupled vinyl-chloride respiration. This recipient phenotype is not nutrient transfer from strain 195 to S. wolfei.</p>
 
 
                 <p><strong>Source Taxon:</strong> Dehalococcoides mccartyi 195</p>
 
 
-
-                <p><strong>Target Taxon:</strong> Syntrophomonas wolfei</p>
 
 
 
@@ -793,16 +784,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Aggregation-Enhanced Hydrogen Flux</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">The coculture forms cell aggregates that reduce interspecies distances and support the hydrogen flux required for observed TCE dechlorination rates.</p>
-
-
-                <p><strong>Source Taxon:</strong> Syntrophomonas wolfei</p>
+                <p class="prewrap interaction-description">SEM directly observed joint cell aggregates during syntrophic growth. PARTIAL - a Fick diffusion model predicts that shorter interspecies distances support the hydrogen flux needed for the measured dechlorination rate. The model and microscopy do not selectively demonstrate aggregation necessity, one-way colonization facilitation or conductive electron transfer.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Dehalococcoides mccartyi 195</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Dehalococcoides mccartyi 195,
+
+                    Syntrophomonas wolfei
+
+                </p>
 
 
 
@@ -834,8 +828,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Reductive Dechlorination by Dehalococcoides
-                        <p class="prewrap causal-description">Cell aggregation shortens the interspecies distance and sustains the hydrogen flux required for the observed TCE dechlorination rates (supported by the reported need for aggregation; lower-confidence than the direct H2-threshold edge).
-</p>
+                        <p class="prewrap causal-description">PARTIAL - aggregation could shorten diffusion distances and thereby support hydrogen delivery to strain 195 at the measured dechlorination rate. This mechanistic contribution is inferred from the diffusion model together with observed aggregates, not from selective disruption and rescue of aggregation.</p>
                     </div>
 
                 </div>
@@ -864,7 +857,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/25576615/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:25576615</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"demonstrated the need for aggregation"</div>
@@ -931,6 +924,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Do aggregation and carbon-monoxide removal causally explain the coculture advantage?
+                </h3>
+                <p class="prewrap">The 2015 primary body supports observed aggregates and modeled hydrogen diffusion, without selective aggregation disruption. It also reports CO consumption in S. wolfei assays and lower coculture CO, proposing supplementary energy and toxicity relief; a selective exact-pair CO-removal/rescue contribution remains unresolved. New CO structure awaits one-community Edison research and primary-source assessment under #1392; this record remains needs_research. A dry run prepared the prompt, but no provider job was submitted. In the 2016 follow-up, exact-Dhc qRT-PCR is distinct from protein/complex assays with M. hungatei; induction is not genetic necessity. No figure images or supplement files were inspected.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Butyrate Fermentation Supporting TCE Dechlorination</code>, <code>ecological_interactions#Reductive Dechlorination by Dehalococcoides</code>, <code>ecological_interactions#Aggregation-Enhanced Hydrogen Flux</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1273,7 +1285,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1286,7 +1297,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1390,7 +1400,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1429,16 +1439,11 @@
 
 
 
-            var tgtKey = "Syntrophomonas wolfei";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1464,17 +1469,20 @@
             });
 
 
-            var srcKey = "Syntrophomonas wolfei";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Dehalococcoides mccartyi 195";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Dehalococcoides mccartyi 195",
+
+                "Syntrophomonas wolfei"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

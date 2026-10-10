@@ -1,0 +1,239 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 8b90f0da40d7c3efba946f8ffc2183dba193112c
+scope:
+- kb/communities/Methylomicrobium_Chlorella_Methane_Sequestration_Coculture.yaml
+- kb/communities/Methylotuvimicrobium_Synechococcus_Gas_Feedstock_Coculture.yaml
+- kb/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml
+- kb/communities/Microbacterium_Terrabacter_Sulfadiazine_CrossFeeding_Coculture.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch72.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch72.json
+findings:
+- issue: 1608
+  severity: P2
+  status: addressed_in_this_change
+  finding: Chlorella whole-culture carbon/pH and cross-system model support.
+  disposition: Close only after protected-main merge.
+- issue: 1609
+  severity: P2
+  status: addressed_in_this_change
+  finding: Synechococcus inferred gas rates versus direct exchange and reciprocal fitness.
+  disposition: Close only after protected-main merge.
+- issue: 1610
+  severity: P3
+  status: addressed_in_this_change
+  finding: Missing review rationale for a justified empty peptide-panel graph, not a missing-edge defect.
+  disposition: Close only after protected-main merge.
+- issue: 1611
+  severity: P2
+  status: addressed_in_this_change
+  finding: Sulfadiazine carbon/nitrogen attribution, heterogeneous activity and degradation kinetics.
+  disposition: Close only after protected-main merge.
+- issue: 1612
+  severity: P2
+  status: unresolved_non_graph
+  finding: Gas-rate and protocol metadata, axenic isotope-label wording and culture-medium/stock provenance
+    remain unresolved.
+  disposition: Keep OPEN after graph review merge.
+adversarial_checks:
+- 'Read all four whole records and every original node/arrow, including the empty peptide graph. Baseline
+  preceded paper research. Seven primary sources: two exact-pair abstracts, three other exact-system main
+  texts and two modeling main texts. Quantification accepted manuscript included supplement text; equation
+  pages10-11 visually inspected. Other figure pixels, separate supplements and raw data not audited.'
+- Retain Chlorella mutual growth enhancement, methane removal and nearly order-of-magnitude biomass carbon.
+  Do not demote demonstrated positive mutual growth merely because its mediator is unresolved. Growth/removal-to-carbon
+  arrow remains PARTIAL, not wholly unsupported.
+- Chlorella biomass carbon and pH are culture-level endpoints, not measured partner carbon flux or colonization.
+  The pH-to-carbon arrow remains explicitly HYPOTHESIZED. Abstract scope does not establish absence of
+  selective controls in inaccessible full Methods.
+- Both models actually study M.buryatense5GB1/A.platensis, not a generic validated model of either reviewed20Z
+  pair. Remove their graph evidence but retain bounded discussion context. DynamiCom nitrogen exchange
+  is an unvalidated mechanism prediction and cannot establish Chlorella pH recovery. No new nitrogen-exchange
+  graph is minted.
+- Retain experimentally supported photosynthetic oxygen supply and gas-fed biomass conversion. An O2-depleted
+  reactor with no fedCH4/O2 mixture does not imply anaerobic methanotrophy. Directed benefit or net community
+  biomass does not by itself establish reciprocal fitness enhancement.
+- 'Read quantitative-follow-up equations3-9 and visually verify pages10-11: methane uptake and growth
+  stoichiometry estimate methanotroph biomass/O2/CO2, then measured overall gas/TIC changes give photoautotroph
+  rates. DissolvedO2 is neglected. Flow cytometry and OD comparisons validate biomass estimates, not independent
+  gas-flux measurements.'
+- Preserve20ZR/PCC7002 follow-up versus20z original continuous reactor. The separate M.capsulatus/C.sorokiniana
+  freshwater pair shows oxygen-limited inoculum response; the saltwater pair is interpreted as methane-mass-transfer-limited.
+  Do not import freshwater results or transfer its organisms into the canonical pair.
+- The peptide record is a panel of two separately produced lyophilized biomasses, not a five-member community.
+  Commercial Alcalase processing, chemical assays and in silico peptides do not justify ecological nodes
+  or workflow arrows. Preserve the empty graph, positive assay endpoints, C1/C2 membership, PRIDE identifiers
+  and prior flat-photobioreactor/extraction fixes.
+- 'Peptide activity is assay-dependent: C1 ABTS decreases after hydrolysis while ORAC increases, and phenolics
+  can contribute. Predicted peptides are not measured exchanged products. Absence of a supported graph
+  here is not evidence that no living interaction exists; discussion remains OPEN.'
+- Sulfadiazine primary supports causal donor release, recipient assimilation and complementary intermediate
+  removal, not mere correlation. Retain all3 nodes and both supported arrows. First arrow now states how
+  donor release enables recipient assimilation rather than restating its endpoint.
+- The dual-labeled substrate does not establish independent nitrogen incorporation. The primary explicitly
+  attributes the1000-to988cm-1 phenylalanine shift to13C, not15N. Retain42.8+/-1.8% and45.9+/-3.2% labeled
+  recipient fractions and allow below-threshold activity; do not make every cell active.
+- Preserve initial population decline and subsequent Terrabacter recovery rather than uninterrupted mutual
+  growth. Parent disappears byday2 inBR1 alone andday4 in coculture. The benefit is2-AP removal, not faster
+  parent loss. Nondetection is atdays0,2,4, not continuous absence or measured closed-carbon-balance mineralization.
+- Donor protection by intermediate scavenging is proposed, not selectively demonstrated feedback. No new
+  return arrow is added. Preserve prior dual-label coculture snippet1196 and BrunnerMSM discussion1195;
+  blanket axenic-label protocol and stock provenance remain metadata1612.
+- Guarded dry run matched all17 retained graph snippets to selected caches and fresh primary. New peptide
+  discussion excerpt separately checked against primary. Four append-only events and history artifacts;456
+  other records,920 caches and all non-graph raw blocks preserved. Canonical taxa are unchanged, not recertified.
+- Census adds one mixed/community-scope Chlorella record and its two existing taxa to the community-scope-only
+  denominator. This is not new taxonomy or equal causal credit. Synechococcus remains community-level;
+  the peptide graph remains empty. All44 baseline warnings preserved exactly; zero structural defects.
+- Actual schema,strict,terms,references,snippets,history, inventory,rank,network, repeat rendering, regressions
+  and lint outputs retained with digests. A new-test lambda assignment failed an exploratory lint check
+  and was replaced by a set comprehension; final lint and focused16-test run verify the corrected file.
+  Exact HTML descriptions parsed across456 pages, not browser screenshots. Postcommit docs-current is
+  a separate publication gate.
+- Dedup included all896 issue titles/bodies and ignored/hidden local search, with four matching prior
+  bodies read. Tasks1608-1611 remain OPEN until protected-main merge; metadata1612 remains OPEN afterward.
+  This exact-head self-review is COMMENT, not independent approval. Full corpus remains unfinished.
+verification:
+  combined_regressions: 648 passed in 211.20s (0:03:31)
+  new_regression_tests: 7
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: CLI Total checks counts reported issues, not executed checks. Cache MATCH is not scientific
+    entailment or provenance certification. All920 caches unchanged;17 retained graph excerpts and one
+    new discussion excerpt independently match fresh primary text after whitespace normalization. Two
+    exact-pair sources remain abstract-supported after403 responses. Metadata1612 remains OPEN. Broader
+    cache limitations persist.
+  snippet_counts_by_record:
+    kb/communities/Methylomicrobium_Chlorella_Methane_Sequestration_Coculture.yaml:
+      MATCH: 22
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Methylotuvimicrobium_Synechococcus_Gas_Feedstock_Coculture.yaml:
+      MATCH: 23
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml:
+      MATCH: 14
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Microbacterium_Terrabacter_Sulfadiazine_CrossFeeding_Coculture.yaml:
+      MATCH: 15
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    primary_matched_graph_snippets: 17
+    whitespace_only_matches: 17
+    primary_matched_new_discussion_snippets: 1
+    complete_primary_main_texts: 5
+    abstract_only_sources: 2
+    paid_submissions: 0
+    new_nodes_or_arrows: 0
+    justified_empty_graphs: 1
+    included_followup_supplement_text_read: true
+    separate_supplements_inspected: false
+    visually_inspected_equation_pdf_pages:
+    - 10
+    - 11
+    other_original_figure_pixels_inspected: false
+  network:
+    existing_findings_preserved: 44
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All44 baseline warnings preserved exactly. Explicit whole-coculture participants do
+      not assert member-specific causal contributions. No taxonomy or auditor-rule changes.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch72.yaml: f2fb00dfb79b4fbe7e95196d9d5c21f40b52956cd1bce051c8165e26e04a362d
+    tests/test_causal_review_batch72.py: 9009b168fe74c41ed433fc8fec6c33b785158dca51e1cd35e9b428d12eb954ae
+    tests/test_participating_taxa.py: 91577fc41f8296be06ac18ab59e59c1325e0f473492d4f8c90820a7f461495a6
+    kb/communities/Methylomicrobium_Chlorella_Methane_Sequestration_Coculture.yaml: a58d8ac4603390f7322d606e5aacc0002d3240b03d47b5786e994da2c5412cc9
+    kb/communities/Methylotuvimicrobium_Synechococcus_Gas_Feedstock_Coculture.yaml: e5dfb319c4ad66e288910657f76423b4a083e73f6761bbaeecd1b0c4e1b4afcf
+    kb/communities/Microalgae_Cyanobacteria_Bioactive_Peptide_Consortia.yaml: 13f107e9c60dafb1f45527dc041ea9c9d1ddb9f72642a368c771a87293d045fa
+    kb/communities/Microbacterium_Terrabacter_Sulfadiazine_CrossFeeding_Coculture.yaml: 6b7afe887f8b6dd052a4fae909df27de25e0ee34ad383950c4205bad8548adf6
+    reports/causal_graph_review/README.md: 217be0f098750ad762f575920e0e51e1aaadf8faff4a8dd0236f8a487506c24c
+  unchanged_caches: 920
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    rationale: Existing structure repair only; earlier deferred extension approvals unchanged.
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 392
+      mixed: 124
+      community_level_only: 268
+      taxa: 1509
+      credited_solely_by_the_rule: 1240
+    current:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+  delta:
+    records: 0
+    with_community_level: 1
+    mixed: 1
+    community_level_only: 0
+    taxa: 2
+    credited_solely_by_the_rule: 0
+  interpretation: 'Chlorella carbon and pH endpoints now community-level alongside the mutualistic-growth
+    pairwise node, adding one mixed-scope record. The survey taxa denominator counts only records with
+    community-level nodes: two existing members enter that denominator, not new taxonomy. Both retain
+    pairwise links, so solely-rule count is unchanged. Synechococcus biomass remains community-level.
+    Peptide graph stays empty. No taxonomy or auditor-rule change.'
+corpus:
+  records: 460
+  nodes: 1447
+  edges: 624
+  review_status_counts:
+    needs_research: 24
+    pending: 204
+    reviewed: 232
+limitations:
+- All9 original nodes and6 arrows retained with bounded evidence and scope. One existing empty graph independently
+  reviewed and preserved. No new structure or provider submissions.
+- Exact Chlorella/20Z and original20z/PCC7002 papers are primary-abstract-supported; publisher and PNNL
+  full text respectively returned403. This does not prove absent controls. Search highlights were leads,
+  not additional graph evidence.
+- Complete primary main texts/captions and embedded tables read for peptides, sulfadiazine and both modeling
+  papers. Public quantitative-follow-up accepted manuscript main text/tables/captions and included supplement
+  text read; equation pages10-11 visually checked. Other figure pixels, separate supplements and raw data
+  not audited.
+- Both modeling studies concern M.buryatense5GB1/A.platensis, not either reviewed20Z pair. Their nitrogen-exchange
+  predictions are contextual hypotheses, removed from direct graph evidence. Positive Chlorella mutual
+  growth, methane removal and whole-biomass carbon are preserved.
+- Photosynthetic O2 support and positive gas conversion remain. Individual gas fluxes are inferred from
+  overall gas/TIC measurements and growth coefficients; flow cytometry supports biomass estimation, not
+  independent gas-flux validation. Preserve20ZR derivative and separate freshwater pair.
+- Peptide C1/C2 are separate lyophilized biomass panels; commercial Alcalase treatment and predicted peptides
+  do not establish a living ecological chain. Empty graph is justified by this source, not a universal
+  no-interaction claim.
+- Sulfadiazine donor-to-recipient cross-feeding remains supported. Raman supports13C incorporation, not
+  independent15N assimilation. Preserve heterogeneous activity and sampled intermediate nondetection;
+  parent disappears faster in BR1 alone. No closed carbon-balance mineralization or selective donor-protection
+  test asserted.
+- All920 caches and raw non-graph blocks unchanged, not recertified. Canonical taxa unchanged. Non-graph
+  gas-rate/protocol, axenic isotope-label and medium/stock follow-up1612 remains OPEN; prior952/953/1195/1196
+  fixes preserved.
+- Dedup covered896 all-state issue titles/bodies and ignored/hidden-inclusive local search with40 matching
+  files. Four matching issue bodies952,953,1195,1196 read. No exhaustive PR-comment or local historical
+  report audit claimed.
+- Self-adversarial review is not independent approval. Tasks1608-1611 remain OPEN until protected-main
+  merge. Reviewed status is bounded existing-graph review, not complete corpus or whole-record certification.

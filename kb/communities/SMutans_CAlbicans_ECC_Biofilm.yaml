@@ -82,10 +82,8 @@ taxonomy:
     explanation: Establishes Candida albicans as the fungal member of the model.
 ecological_interactions:
 - name: Cross-Kingdom Biofilm Enhancement
-  description: >-
-    Coinoculation of Streptococcus mutans and Candida albicans enhances biofilm
-    formation relative to either species alone in both in vitro and in vivo
-    settings.
+  description: Coinoculation of Streptococcus mutans and Candida albicans enhances biofilm formation relative to
+    either species alone in both in vitro and in vivo settings.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -104,21 +102,21 @@ ecological_interactions:
       id: GO:0042710
       label: biofilm formation
   downstream:
-  - target: Synergistic Caries Virulence
-    description: The enhanced dual-species plaque biofilm is the infection state that
-      drives higher microbial carriage and more aggressive carious lesions in vivo.
+  - target: Rodent Coinfection Carriage and Caries Outcome
+    description: 'PARTIAL: the mixed biofilm provides the proposed context for the greater disease severity in the
+      rodent model. Coinfection establishes an effect on carriage and lesions, but does not isolate biofilm quantity
+      as the necessary mediator of the lesion outcome or establish human disease causation.'
   evidence:
   - reference: PMID:24566629
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      We showed that the ability of these organisms together to form biofilms
-      is enhanced in vitro and in vivo.
+    snippet: We showed that the ability of these organisms together to form biofilms is enhanced in vitro and in
+      vivo.
     explanation: Supports a mutually reinforcing cross-kingdom biofilm interaction.
 - name: Candida-Driven EPS Amplification of Streptococcus mutans
-  description: >-
-    Candida albicans promotes an EPS-rich matrix and higher viable Streptococcus
-    mutans abundance within cospecies plaque biofilms.
+  description: Candida albicans promotes an EPS-rich matrix and higher viable Streptococcus mutans abundance within
+    cospecies plaque biofilms. This observation is from the in-vitro biofilm comparison, not a direct measurement
+    of EPS mediation in animals.
   interaction_type: COLONIZATION_FACILITATION
   scope: PAIRWISE
   source_taxon:
@@ -138,35 +136,20 @@ ecological_interactions:
       label: biofilm formation
   downstream:
   - target: Cross-Kingdom Biofilm Enhancement
-    description: Candida-driven exopolysaccharide accumulation increases the biomass
-      and viable S. mutans burden of the cross-kingdom plaque biofilm.
+    description: Candida-driven exopolysaccharide accumulation increases the biomass and viable S. mutans burden
+      of the cross-kingdom plaque biofilm.
   evidence:
   - reference: PMID:24566629
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: >-
-      The presence of C. albicans augments the production of
-      exopolysaccharides (EPS), such that cospecies biofilms accrue more
-      biomass and harbor more viable S. mutans cells than single-species
-      biofilms.
+    evidence_source: IN_VITRO
+    snippet: The presence of C. albicans augments the production of exopolysaccharides (EPS), such that cospecies
+      biofilms accrue more biomass and harbor more viable S. mutans cells than single-species biofilms.
     explanation: Supports Candida-mediated enhancement of S. mutans colonization and matrix formation.
-- name: Synergistic Caries Virulence
-  description: >-
-    Coinfection with Streptococcus mutans and Candida albicans increases plaque
-    infection burden and produces more aggressive carious lesions than either
-    species alone.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Candida albicans
-    term:
-      id: NCBITaxon:5476
-      label: Candida albicans
-  target_taxon:
-    preferred_term: Streptococcus mutans
-    term:
-      id: NCBITaxon:1309
-      label: Streptococcus mutans
+- name: Rodent Coinfection Carriage and Caries Outcome
+  description: The dual-species rodent infection model showed increased plaque microbial carriage and more severe
+    carious lesions relative to the single-species groups. This is a community-associated host outcome, not itself
+    a directed colonization benefit to S. mutans or proof of the same causal effect in children.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
     term:
@@ -176,18 +159,24 @@ ecological_interactions:
   - reference: PMID:24566629
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      Coinfected animals displayed higher levels of infection and microbial
-      carriage within plaque biofilms than animals infected with either species
-      alone.
+    snippet: Coinfected animals displayed higher levels of infection and microbial carriage within plaque biofilms
+      than animals infected with either species alone.
     explanation: Documents increased pathogenic load during dual-species coinfection.
   - reference: PMID:24566629
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      Furthermore, coinfection synergistically enhanced biofilm virulence,
-      leading to aggressive onset of the disease with rampant carious lesions.
+    snippet: Furthermore, coinfection synergistically enhanced biofilm virulence, leading to aggressive onset of
+      the disease with rampant carious lesions.
     explanation: Documents amplified caries severity caused by the dual-species consortium.
+  participating_taxa:
+  - preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  - preferred_term: Candida albicans
+    term:
+      id: NCBITaxon:5476
+      label: Candida albicans
 related_ingredients:
 - preferred_term: exopolysaccharide
   chebi_term:
@@ -263,3 +252,33 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: at 37°C under 5% CO2
     explanation: Biofilms cultivated at 37 °C under 5% CO2 (capnophilic).
+discussions:
+- discussion_id: candida_graph_evidence_and_model_scope
+  prompt: How much of the rodent lesion effect is mediated by the measured biofilm changes?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The fresh primary abstract and PubMed figure captions support reciprocal biofilm benefit, EPS-associated
+    accumulation and the rodent coinfection outcome. Those positive observations remain. The EPS assay is in vitro;
+    the rodent disease endpoint is distinct from recipient colonization. The existing disease arrow is retained
+    as PARTIAL mediation. EuropePMC full-text retrieval returned HTTP500, so complete main-text, supplement and
+    figure-pixel review is not claimed. Non-graph evidence labels remain separate follow-up work.
+  evidence:
+  - reference: PMID:24566629
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Our in vitro data also revealed that glucosyltransferase-derived EPS is a key mediator of cospecies
+      biofilm development
+    explanation: Supports in-vitro mediation of biofilm development, not isolated mediation of the rodent lesion
+      outcome.
+  attaches_to:
+  - ecological_interactions#Cross-Kingdom Biofilm Enhancement
+  - ecological_interactions#Candida-Driven EPS Amplification of Streptococcus mutans
+  - ecological_interactions#Rodent Coinfection Carriage and Caries Outcome
+curation_history:
+- timestamp: '2026-10-07T18:45:52Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain supported mutualism and a PARTIAL rodent-outcome direction.; Retain positive Candida-to-S. mutans
+    biofilm facilitation with the correct in-vitro source.; Retain the positive rodent carriage/lesion outcome at
+    community scope, not pairwise colonization. Issue#1772; reports/causal_graph_review/decisions/20261007-four-records-batch97.yaml
+  llm_assisted: true

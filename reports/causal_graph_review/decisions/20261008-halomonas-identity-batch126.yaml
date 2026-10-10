@@ -1,0 +1,127 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 6f062d2eb68fedab336b700c758cd21622fabbb6
+source_access:
+  reference: PMID:29061492
+  doi: 10.1016/j.ymben.2017.10.009
+  url: https://www.sciencedirect.com/science/article/abs/pii/S1096717617301763
+  retrieved_on: '2026-10-08'
+  retrieval_mode: Publisher page as indexed by web search; not a successful direct full-text download
+  search_query: '"A synthetic, light-driven consortium" "DSM" (sciencedirect.com)'
+  inspected_scope: Primary abstract, complete indexed Introduction and bounded Methods/Results/Discussion section
+    previews; references and unrelated citing-article abstracts excluded from claim evidence
+  section: Introduction, paragraph beginning In this work
+  literal_excerpt: Halomonas boliviensis LC1 (DSM 15516)
+  excerpt_words: 5
+  interpretation: The authors identify LC1/DSM15516 as the heterotroph in the actual coculture, not merely an older
+    reference's strain.
+  access_limits:
+  - Direct publisher page retrieval returned HTTP403.
+  - Public Crossref-advertised text/plain link returned HTTP400 INVALID_INPUT; no credentials used or access controls
+    bypassed.
+  - Full Methods, Table1, figures, supplements and raw data were not obtained or audited.
+  - Introduction also states absence of supplemental carbon sources, but complete medium accounting and isolated
+    encapsulation mediation remain unaudited.
+  copyright: Copyright 2017 International Metabolic Engineering Society. Published by Elsevier Inc. All rights reserved.
+source_manifest_sha256: 578fd3802499a03bfb9de23690412df1e9457ac59c3d5bc751da77debdee848c
+cache_changes:
+- path: references_cache/PMID_29061492.md
+  before_sha256: 816c373f1144f53cf27397b175ac17afa2626e8f6be92758c6018ef6fbff4b7f
+  after_sha256: f51fc90476e6cfe4bbbdd6bacad50f16382ea3851b8fd92beaeaab262289af08
+  appended_excerpt_words: 5
+reviewed_counts:
+  records: 1
+  retained_nodes: 3
+  retained_arrows: 2
+  new_nodes_or_directions: 0
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+limitations:
+- Indexed primary Introduction and bounded section previews, not retrieved full Methods, Table1, figure pixels,
+  supplements or raw data.
+- Only the newly added identity excerpt was freshly reverified in this pass; old abstract evidence is retained without
+  claiming a fresh whole-record snippet audit.
+- The roster, canonical identifiers, GTDB payload, functional-role assignments and other non-graph metadata are
+  unchanged and not independently recertified.
+- Three nodes, two arrows, participating taxa and alginate mediation uncertainty remain. Needs_research and issue1860
+  remain open.
+- One five-word attributed appendix in the preferred Markdown cache. Historical ledger preserved via hash-linked
+  supersession; no full-text import or Edison spend.
+- Source-based self-review is not independent approval. Protected merge and branch cleanup are separate unfinished
+  requirements.
+records:
+- path: kb/communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.yaml
+  id: CommunityMech:000198
+  original_sha256: 6f80bc26157b469b40d247d9d8bdf08aacee7ce6009e53527820248179397b3c
+  record_sha256: 5de5347f2d9d23ab1b6bd0c0d7f46b424d8a2c8b603a683e7de0a975f7cd4502
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261008-halomonas-identity-batch126.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-three-records-batch110.yaml
+    record_sha256: 6f80bc26157b469b40d247d9d8bdf08aacee7ce6009e53527820248179397b3c
+  scope: Whole record read; only identity attribution in two existing graph nodes and related discussion repaired.
+    Not whole-record certification.
+  summary: Resolve LC1 graph attribution from the primary Introduction; retain existing topology and unresolved
+    medium/encapsulation limits.
+  node_decisions:
+  - node: Photosynthetic Sucrose Transfer To Halomonas
+    rationale: Canonical strain identity now has primary Introduction evidence; carbon route and medium limit retained.
+  - node: Light-Driven Biopolymer Production
+    rationale: Community PHB endpoint and reported duration retained, with source-backed strain attribution but
+      unaudited assay details.
+  - node: Alginate-Partitioned Coculture Stabilization
+    rationale: Abiotic partitioning description and qualified PHB mediation arrow retained without modification.
+  edges_before:
+  - source: Photosynthetic Sucrose Transfer To Halomonas
+    target: Light-Driven Biopolymer Production
+    description: Photosynthetically supplied sucrose supports the PHB-producing Halomonas partner. This preserves
+      the source-supported carbon-to-product route without asserting that the abstract proves exclusion of every
+      external organic input or a quantitative carbon balance.
+  - source: Alginate-Partitioned Coculture Stabilization
+    target: Light-Driven Biopolymer Production
+    description: 'HYPOTHESIZED/PARTIAL: alginate-enhanced sucrose export and stability could sustain carbon delivery
+      to the PHB producer. The abstract reports these benefits and PHB production but does not separate their causal
+      contributions to productivity.'
+  edges_after:
+  - source: Photosynthetic Sucrose Transfer To Halomonas
+    target: Light-Driven Biopolymer Production
+    description: Photosynthetically supplied sucrose supports the PHB-producing Halomonas partner. This preserves
+      the source-supported carbon-to-product route without asserting that the abstract proves exclusion of every
+      external organic input or a quantitative carbon balance.
+  - source: Alginate-Partitioned Coculture Stabilization
+    target: Light-Driven Biopolymer Production
+    description: 'HYPOTHESIZED/PARTIAL: alginate-enhanced sucrose export and stability could sustain carbon delivery
+      to the PHB producer. The abstract reports these benefits and PHB production but does not separate their causal
+      contributions to productivity.'
+  retained_edge_decisions:
+  - edge:
+      source: Photosynthetic Sucrose Transfer To Halomonas
+      target: Light-Driven Biopolymer Production
+      description: Photosynthetically supplied sucrose supports the PHB-producing Halomonas partner. This preserves
+        the source-supported carbon-to-product route without asserting that the abstract proves exclusion of every
+        external organic input or a quantitative carbon balance.
+    rationale: Existing source-bounded direction unchanged; no new topology.
+  - edge:
+      source: Alginate-Partitioned Coculture Stabilization
+      target: Light-Driven Biopolymer Production
+      description: 'HYPOTHESIZED/PARTIAL: alginate-enhanced sucrose export and stability could sustain carbon delivery
+        to the PHB producer. The abstract reports these benefits and PHB production but does not separate their
+        causal contributions to productivity.'
+    rationale: Existing source-bounded direction unchanged; no new topology.
+  removed_node_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:29061492
+  issues:
+  - 1860
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  history_files:
+  - history/records/Synechococcus_Halomonas_Light_Driven_PHB_Coculture/2026-10-08T202223Z-codex-6b4786.yaml
+  curation_events_added: 1

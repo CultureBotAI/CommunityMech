@@ -124,8 +124,10 @@ taxonomy:
     explanation: Supports the PHB-producing functional role assigned to H. boliviensis.
 ecological_interactions:
 - name: Photosynthetic Sucrose Transfer To Halomonas
-  description: Engineered S. elongatus PCC 7942 cscB fixes carbon dioxide using light energy and exports
-    sucrose that directly supports H. boliviensis growth and PHB accumulation.
+  description: The study reports that sucrose secreted by S. elongatus CscB directly supports H. boliviensis in
+    the light-driven consortium. CO2 is the photosynthetic substrate, not the exchanged organic carbon. The primary
+    Introduction identifies the heterotroph as LC1 (DSM 15516), supporting the canonical strain-specific attribution.
+    Complete medium inputs remain unverified.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -143,6 +145,7 @@ ecological_interactions:
     term:
       id: CHEBI:16526
       label: carbon dioxide
+    notes: Carbon-fixation substrate, not the transferred organic carbon.
   - preferred_term: sucrose
     term:
       id: CHEBI:17992
@@ -158,10 +161,9 @@ ecological_interactions:
       label: sucrose biosynthetic process
   downstream:
   - target: Light-Driven Biopolymer Production
-    description: >
-      Exported cyanobacterial sucrose is the photosynthetically derived organic
-      carbon that H. boliviensis consumes to support PHB accumulation without
-      added external organic carbon.
+    description: Photosynthetically supplied sucrose supports the PHB-producing Halomonas partner. This preserves
+      the source-supported carbon-to-product route without asserting that the abstract proves exclusion of every
+      external organic input or a quantitative carbon balance.
   evidence:
   - reference: PMID:29061492
     supports: SUPPORT
@@ -171,49 +173,51 @@ ecological_interactions:
   - reference: PMID:29061492
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: photoautotroph/chemoheterotroph consortial design
-    explanation: Supports the division of labor between phototrophic and heterotrophic members.
+    snippet: Halomonas boliviensis LC1 (DSM 15516)
+    explanation: Primary Introduction names the actual coculture strain; this identity evidence does not resolve
+      the complete medium or PHB mediation mechanism.
 - name: Light-Driven Biopolymer Production
-  description: H. boliviensis uses photosynthetically derived sucrose from the cyanobacterium to support
-    stable polyhydroxybutyrate production without adding external organic carbon.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Synechococcus elongatus PCC 7942 cscB
-    term:
-      id: NCBITaxon:32046
-      label: Synechococcus elongatus
-  target_taxon:
-    preferred_term: Halomonas boliviensis LC1
-    term:
-      id: NCBITaxon:1072583
-      label: Vreelandella boliviensis LC1
+  description: The light-driven consortium accumulated PHB in H. boliviensis. The primary abstract reports up to
+    31% of heterotroph dry weight as PHB and productive coculture persistence for over five months. This is a community
+    production endpoint, not an additional pairwise exchange or direct photosynthesis by Halomonas. LC1 identity
+    is supported by the primary Introduction; exact assay details await full Methods.
+  scope: COMMUNITY_LEVEL
   metabolites:
-  - preferred_term: sucrose
+  - preferred_term: poly(3-hydroxybutyrate)
     term:
-      id: CHEBI:17992
-      label: sucrose
-  biological_processes:
-  - preferred_term: photosynthesis
-    term:
-      id: GO:0015979
-      label: photosynthesis
+      id: CHEBI:53389
+      label: poly(3-hydroxybutyrate)
   evidence:
   - reference: PMID:29061492
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: stable polyhydroxybutyrate production
-    explanation: Supports the biopolymer-production outcome in the light-driven coculture.
+    snippet: Consortial H. boliviensis accumulate up to 31% of their dry-weight as PHB
+    explanation: Supports PHB accumulation in the heterotroph, not a second exchange.
   - reference: PMID:29061492
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: improved synthetic photoautotroph/chemoheterotroph consortial design
-    explanation: Supports the engineered modular design for light-driven PHB production.
+    snippet: cultures were continuously productive for over 5 months
+    explanation: Supports the reported duration without assigning an unverified operating mode.
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Halomonas boliviensis LC1 (DSM 15516)
+    explanation: Primary Introduction names the actual coculture strain; this identity evidence does not resolve
+      the complete medium or PHB mediation mechanism.
+  participating_taxa:
+  - preferred_term: Synechococcus elongatus PCC 7942 cscB
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+  - preferred_term: Halomonas boliviensis LC1
+    term:
+      id: NCBITaxon:1072583
+      label: Vreelandella boliviensis LC1
 - name: Alginate-Partitioned Coculture Stabilization
-  description: Alginate encapsulation of the S. elongatus CscB module enhances sucrose export and
-    coculture stability, physically partitioning the sucrose-producing cyanobacterium from H.
-    boliviensis while maintaining carbohydrate transfer that drives PHB accumulation.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Alginate encapsulation of S. elongatus CscB increased sucrose export and improved coculture stability
+    in the primary abstract. This is an abiotic partitioning intervention, not organism-driven colonization facilitation.
+    The source supports these positive effects but the abstract does not isolate how much of PHB output is mediated
+    by export versus other effects.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Synechococcus elongatus PCC 7942 cscB
@@ -225,30 +229,27 @@ ecological_interactions:
       id: NCBITaxon:1072583
       label: Vreelandella boliviensis LC1
   metabolites:
-  - preferred_term: alginic acid
-    term:
-      id: CHEBI:17548
-      label: alginic acid
   - preferred_term: sucrose
     term:
       id: CHEBI:17992
       label: sucrose
   downstream:
   - target: Light-Driven Biopolymer Production
-    description: Enhanced sucrose export and improved partitioned-coculture stability increase the
-      reliability of cyanobacterial sucrose delivery that supports Halomonas PHB accumulation.
+    description: 'HYPOTHESIZED/PARTIAL: alginate-enhanced sucrose export and stability could sustain carbon delivery
+      to the PHB producer. The abstract reports these benefits and PHB production but does not separate their causal
+      contributions to productivity.'
   evidence:
   - reference: PMID:29061492
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: alginate encapsulation of S. elongatus CscB enhances sucrose-export rates
-    explanation: Supports alginate encapsulation as the engineered community context that increases
-      cyanobacterial sucrose export.
+    explanation: Supports alginate encapsulation as the engineered community context that increases cyanobacterial
+      sucrose export.
   - reference: PMID:29061492
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: enhances the co-culture stability
-    explanation: Supports alginate partitioning as a stabilizing influence in the coculture.
+    explanation: Supports a positive stability effect, not an isolated PHB mediation test.
 environmental_factors:
 - name: Illumination
   value: light-driven culture
@@ -361,3 +362,38 @@ rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this light-driven PHB
   coculture.
+discussions:
+- discussion_id: halomonas-strain-and-production-context
+  prompt: Which full primary methods establish medium inputs and the contribution of encapsulation to PHB output?
+  rationale: 'The publisher-indexed Introduction now establishes LC1 (DSM 15516) as the coculture heterotroph. It
+    also reports growth without supplemental carbon sources, but the accessible section previews do not provide
+    complete medium accounting or isolate encapsulation-mediated PHB output. Direct publisher retrieval failed;
+    full Methods, Table 1 and supplements remain unaudited. Issue #1860 remains open for these methods and mediation
+    limits, not for the resolved LC1 identity.'
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  attaches_to:
+  - ecological_interactions#Photosynthetic Sucrose Transfer To Halomonas
+  - ecological_interactions#Light-Driven Biopolymer Production
+  - ecological_interactions#Alginate-Partitioned Coculture Stabilization
+  evidence:
+  - reference: PMID:29061492
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: enhances the co-culture stability
+    explanation: The stability finding does not resolve the remaining medium and mediation details.
+curation_history:
+- timestamp: '2026-10-08T05:36:17Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain abstract-supported sucrose feeding while exposing unresolved LC1/medium scope.; Retain PHB and
+    persistence as a community phenotype, not duplicate exchange or photosynthesis.; Retain alginate intervention
+    effects without colonization typing or proven PHB mediation. Issue#1857; reports/causal_graph_review/decisions/20261008-three-records-batch110.yaml
+  llm_assisted: true
+- timestamp: '2026-10-08T20:22:22Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Resolve LC1 graph attribution from the primary Introduction; retain existing topology and unresolved
+    medium/encapsulation limits. Issue#1860; reports/causal_graph_review/decisions/20261008-halomonas-identity-batch126.yaml
+  llm_assisted: true

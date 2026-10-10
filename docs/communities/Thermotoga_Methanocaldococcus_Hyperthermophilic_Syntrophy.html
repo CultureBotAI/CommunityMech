@@ -585,7 +585,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Thermotoga-Methanocaldococcus Hyperthermophilic Syntrophy</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for syntrophy. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -598,8 +598,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -610,7 +610,7 @@
                     <h3>Interspecies Hydrogen Transfer</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">T. maritima produces hydrogen during fermentative growth, and M. jannaschii consumes transferred hydrogen as a hydrogenotrophic methanogen, allowing the coculture to sustain higher T. maritima cell densities than monoculture.</p>
+                <p class="prewrap interaction-description">T. maritima produces hydrogen during fermentation, and hydrogen consumption by M. jannaschii supports methanogenesis while relieving bacterial product inhibition. The 1997 study reported a tenfold bacterial density increase at 85 C and methanogen growth without external H2/CO2. The separate 2006 study reported a three- to fivefold density increase under its own conditions. These are assay-specific effects, not a single universal fold change or obligate mutual dependence under all conditions; T. maritima also grew in monoculture.</p>
 
 
                 <p><strong>Source Taxon:</strong> Thermotoga maritima MSB8</p>
@@ -663,7 +663,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Coculture-Associated Aggregation and Transcriptome Shift
-                        <p class="prewrap causal-description">Sustained interspecies hydrogen transfer places T. maritima in the methanogenic coculture state that changes its transcriptome and promotes EPS-based aggregation.</p>
+                        <p class="prewrap causal-description">PARTIAL: hydrogen removal relieves growth inhibition and enables the higher-density coculture context in which aggregation and altered growth-phase transcription were observed. Hydrogen-removal comparisons support a contribution to physiology, but do not selectively demonstrate mediation of every EPS or transcript response by hydrogen transfer alone. Growth phase, population density and culture/gas-handling conditions remain part of this causal interpretation.</p>
                     </div>
 
                 </div>
@@ -719,16 +719,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Spatially Proximate Methanogenic Coculture</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Physical separation prevented establishment of the coculture, indicating that close spatial proximity is important for hydrogen transfer between the fermentative bacterium and methanogenic archaeon.</p>
-
-
-                <p><strong>Source Taxon:</strong> Methanocaldococcus jannaschii DSM 2661</p>
+                <p class="prewrap interaction-description">PARTIAL: the 1997 coculture failed to establish when partners were separated by a dialysis membrane, and the methanogen occurred in larger cell sorts. These observations support the importance of spatial proximity in that assay. They do not demonstrate direct cell contact as obligatory, a specific molecular adhesion mechanism, or directional colonization facilitation by the archaeon. Hydrogen transport and metabolic-rate effects were also modeled, rather than all directly measured.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Thermotoga maritima MSB8</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Thermotoga maritima MSB8,
+
+                    Methanocaldococcus jannaschii DSM 2661
+
+                </p>
 
 
 
@@ -760,7 +763,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Interspecies Hydrogen Transfer
-                        <p class="prewrap causal-description">Close spatial proximity allows transferred hydrogen to reach M. jannaschii and establish the methanogenic coculture.</p>
+                        <p class="prewrap causal-description">PARTIAL: proximity can reduce the transport distance for hydrogen from the fermenter to the methanogen, helping establish hydrogen-transfer syntrophy. Failure across a dialysis membrane and size-fraction association support this interpretation, but do not uniquely identify diffusion distance, direct contact or a specific attachment mechanism as the cause.</p>
                     </div>
 
                 </div>
@@ -789,7 +792,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/18636642/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:18636642</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"suggesting the importance of spatial proximity"</div>
@@ -803,16 +806,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Coculture-Associated Aggregation and Transcriptome Shift</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Methanogenic coculture altered the T. maritima transcriptome and promoted exopolysaccharide-based cell aggregates, linking syntrophic interaction to community structure and bacterial physiology.</p>
-
-
-                <p><strong>Source Taxon:</strong> Thermotoga maritima MSB8</p>
+                <p class="prewrap interaction-description">T. maritima aggregation and transcription changed with growth phase in methanogenic coculture. In the 2006 study, 292 genes changed at least twofold from mid-log to early stationary phase within coculture, versus 24 for that transition within monoculture; these are not 292 genes in a direct coculture-versus-monoculture contrast. EPS-based aggregates were prominent during mid-log growth and diminished during stationary phase. Proposed sigma-factor, ppGpp and EPS-remodeling mechanisms are interpretations, not demonstrated regulatory necessity. The phenotype is not an additional measured metabolite-transfer event from bacterium to archaeon.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Methanocaldococcus jannaschii DSM 2661</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Thermotoga maritima MSB8,
+
+                    Methanocaldococcus jannaschii DSM 2661
+
+                </p>
 
 
 
@@ -935,6 +941,45 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which proximity and hydrogen-removal effects specifically mediate aggregation and the bacterial transcript response?
+                </h3>
+                <p class="prewrap">Dialysis separation, hydrogen-removal comparisons and growth-phase observations support the existing qualified links, but do not isolate every step. Density-matched and gas-handling-matched comparisons would help distinguish hydrogen transfer from other coculture effects. The 1997 and 2006 assay conditions must remain separate; non-graph metadata followup remains issue #1891.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Interspecies Hydrogen Transfer</code>, <code>ecological_interactions#Spatially Proximate Methanogenic Coculture</code>, <code>ecological_interactions#Coculture-Associated Aggregation and Transcriptome Shift</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/16391122/" rel="nofollow noreferrer">PMID:16391122</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">concomitant formation of exopolysaccharide (EPS)-based cell aggregates</p>
+                        <p class="muted small prewrap">Supports observed EPS-based aggregates accompanying the high-density coculture; specific mediation is not isolated by this quote.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1207,7 +1252,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1220,7 +1264,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1322,7 +1365,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1348,23 +1391,26 @@
             });
 
 
-            var srcKey = "Methanocaldococcus jannaschii DSM 2661";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Thermotoga maritima MSB8";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Thermotoga maritima MSB8",
+
+                "Methanocaldococcus jannaschii DSM 2661"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1386,17 +1432,20 @@
             });
 
 
-            var srcKey = "Thermotoga maritima MSB8";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Methanocaldococcus jannaschii DSM 2661";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Thermotoga maritima MSB8",
+
+                "Methanocaldococcus jannaschii DSM 2661"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

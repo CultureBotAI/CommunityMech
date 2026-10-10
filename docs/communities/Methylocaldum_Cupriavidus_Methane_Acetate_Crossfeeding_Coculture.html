@@ -583,7 +583,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Methylocaldum-Cupriavidus Methane Acetate Cross-Feeding Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -596,8 +596,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -605,10 +605,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Methane-Derived Acetate Cross-Feeding To Cupriavidus</h3>
+                    <h3>Proposed Methanol-Independent Carbon Supply To Cupriavidus</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">M. marinum S8 oxidizes methane and excretes acetate; C. necator NBRC 102504 grows in the methane-fed coculture, supporting methanol-independent transfer of methanotroph-derived carbon.</p>
+                <p class="prewrap interaction-description">PARTIAL - growth of nonmethylotrophic Cupriavidus necator NBRC 102504 with methane-oxidizing Methylocaldum marinum S8 supports supply of carbon other than methanol under aerobic conditions. Acetate is a plausible candidate because S8 excretes it, but the abstract does not identify the compound actually transferred to Cupriavidus. The phrase about possibly using acetate refers to the separate Gela4 system, not this recipient.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methylocaldum marinum S8</p>
@@ -656,9 +656,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Cupriavidus Growth on Methane-Derived Acetate
-                        <p class="prewrap causal-description">Acetate excreted from methane-oxidizing M. marinum S8 provides the likely methanotroph-derived carbon source that lets nonmethylotrophic C. necator grow in the methane-fed coculture.
-</p>
+                        <span class="flow-arrow">→</span> Cupriavidus Growth in Aerobic S8 Coculture
+                        <p class="prewrap causal-description">HYPOTHESIZED - nonmethanol carbon released by S8 could support Cupriavidus growth. Positive coculture growth supports this interpretation, but acetate identity, transfer rate, carryover controls and recipient-specific utilization are not resolved by the accessible abstract.</p>
                     </div>
 
                 </div>
@@ -674,23 +673,10 @@
                             <a href="https://doi.org/10.1093/bbb/zbab150"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1093/bbb/zbab150</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"supporting the existence of methanol-independent cross-feeding from M. marinum S8"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.1093/bbb/zbab150"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1093/bbb/zbab150</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"possibly utilizes acetate rather than methanol"</div>
+                        <div class="snippet">"methanol-independent cross-feeding from M. marinum S8 under aerobic conditions"</div>
 
                     </li>
 
@@ -700,11 +686,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Cupriavidus Growth on Methane-Derived Acetate</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Cupriavidus Growth in Aerobic S8 Coculture</h3>
                 </div>
-                <p class="prewrap interaction-description">Cupriavidus necator NBRC 102504 is a nonmethylotrophic partner that cannot use methane or methanol as the conventional methanotroph excretion product. Its growth in coculture with M. marinum S8 under aerobic, methane-oxidizing conditions supports acetate-based transfer of methane-derived carbon into a bioproduction-relevant heterotroph.
-</p>
+                <p class="prewrap interaction-description">Cupriavidus necator NBRC 102504 grew when cocultured with M. marinum S8 under aerobic conditions. This positive result supports methanol-independent cross-feeding to a nonmethylotrophic recipient, without establishing acetate as its sole or predominant substrate, a quantified production yield or reciprocal benefit.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methylocaldum marinum S8</p>
@@ -715,26 +699,7 @@
 
 
 
-                <p><strong>Metabolites:</strong>
 
-                    acetate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30089</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        acetate metabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006083"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006083</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -752,109 +717,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Cupriavidus necator NBRC 102504, could grow when cocultured with M. marinum S8"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.1093/bbb/zbab150"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1093/bbb/zbab150</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"supporting the existence of methanol-independent cross-feeding from M. marinum S8 under aerobic conditions"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Oxygen-Dependent Acetate Excretion Window</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
-                </div>
-                <p class="prewrap interaction-description">M. marinum S8 excretes acetate across microaerobic and aerobic conditions, creating a cross-feeding window compatible with aerobic methane oxidation and C. necator growth.</p>
-
-
-                <p><strong>Source Taxon:</strong> Methylocaldum marinum S8</p>
-
-
-
-                <p><strong>Target Taxon:</strong> Cupriavidus necator NBRC 102504</p>
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    oxygen
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15379"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:15379</a>),
-
-                    acetate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30089</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        methane metabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015947"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015947</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Methane-Derived Acetate Cross-Feeding To Cupriavidus
-                        <p class="prewrap causal-description">Acetate excretion by M. marinum S8 across low- and high-oxygen methane oxidation regimes creates the acetate supply that can sustain C. necator in the methane-fed coculture.
-</p>
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.1093/bbb/zbab150"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1093/bbb/zbab150</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"not only under microaerobic"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.1093/bbb/zbab150"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1093/bbb/zbab150</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"but also under aerobic"</div>
+                        <div class="snippet">"could grow when cocultured with M. marinum S8"</div>
 
                     </li>
 
@@ -918,6 +781,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which S8-derived compounds support Cupriavidus under the tested aerobic conditions?
+                </h3>
+                <p class="prewrap">The oxygen-series abstract describes S8 alone and with Gela4: S8 excreted acetate at 3.5-6% and 20-31% O2. Its phosphoketolase/acetate-kinase transcripts nominate a production route, not a demonstrated Cupriavidus uptake pathway. Remove the cross-system oxygen-window node/arrow, retaining this context here. Public publisher abstract and Europe PMC abstract were read; full Methods and controls were unavailable. No claim that Cupriavidus itself was tested across both oxygen ranges. #1603 repairs the graph; #1606 retains non-graph acetate, roles and oxygen metadata.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Proposed Methanol-Independent Carbon Supply To Cupriavidus</code>, <code>ecological_interactions#Cupriavidus Growth in Aerobic S8 Coculture</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1195,7 +1077,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1208,7 +1089,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1279,11 +1159,11 @@
             processes.push("acetate metabolic process");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Methane-Derived Acetate Cross-Feeding To Cupriavidus",
+                label: "Proposed Methanol-Independent Carbon Supply To Cupriavidus",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1308,68 +1188,16 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
-
-
-            metabolites.push("acetate");
-
 
             var processes = [];
 
-
-            processes.push("acetate metabolic process");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Cupriavidus Growth on Methane-Derived Acetate",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-            var srcKey = "Methylocaldum marinum S8";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-            var tgtKey = "Cupriavidus necator NBRC 102504";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
-        })();
-
-        (function() {
-            var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
-            var metabolites = [];
-
-
-            metabolites.push("oxygen");
-
-            metabolites.push("acetate");
-
-
-            var processes = [];
-
-
-            processes.push("methane metabolic process");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Oxygen-Dependent Acetate Excretion Window",
+                label: "Cupriavidus Growth in Aerobic S8 Coculture",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1411,7 +1239,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 5;
+        var nodeCount = 4;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

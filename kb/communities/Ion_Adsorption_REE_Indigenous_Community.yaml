@@ -312,299 +312,245 @@ taxonomy:
     explanation: Establishes fungal role in REE mineralization
 ecological_interactions:
 - name: Teichoic Acid-Mediated HREE Selective Biosorption
-  description: 'Gram-positive bacteria (Bacillus, Micrococcus) selectively adsorb heavy rare earth elements
-    (HREE) through teichoic acids in their cell walls, achieving 82-85% HREE uptake versus 70-78% LREE
-    uptake. Teichoic acids are anionic polymers containing phosphate groups that serve as the primary
-    binding sites for REE cations. The selectivity arises from lanthanide contraction—the progressive
-    decrease in ionic radius from La³⁺ (1.16 Å) to Lu³⁺ (0.98 Å) across the lanthanide series. Smaller
-    HREE cations form stronger coordination bonds with phosphate oxygen atoms due to higher charge density
-    and better geometric fit. TEM/EDS spectroscopy confirmed co-localization of ytterbium (Yb, Z=70) with
-    phosphorus along bacterial cell walls, demonstrating P-O-REE bonding. Removal of teichoic acids reduced
-    REE adsorption from 65.5% to 17.8%, proving their essentiality. This natural HREE fractionation mechanism
-    explains the commercial HREE enrichment in ion-adsorption deposits and offers a biological model for
-    selective REE recovery technologies.
-
-    '
-  interaction_type: COMMENSALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Bacillus
-    term:
-      id: NCBITaxon:1386
-      label: Bacillus <firmicutes>
-  target_taxon:
-    preferred_term: Micrococcus
-    term:
-      id: NCBITaxon:1269
-      label: Micrococcus
+  description: Isolated Bacillus and Micrococcus strains from the Renju profile preferentially adsorbed HREEs in
+    separate laboratory assays. In the Bacillus pumilus cell-wall comparison, removing teichoic acids reduced total
+    REE adsorption from 65.5 to 17.8 percent and removed HREE preference; residual binding remained. Freeze-dried
+    cells retained adsorption, consistent with passive surface binding rather than active metal transport. Ytterbium/phosphorus
+    colocalization and spectroscopy support wall binding groups, not a resolved bond geometry or proof that ionic
+    radius is the sole cause. The canonical genera represent separately tested isolates, not measured commensalism
+    between them or every strain in either genus.
+  scope: COMMUNITY_LEVEL
   metabolites:
-  - preferred_term: dysprosium(3+)
-    term:
-      id: CHEBI:33377
-      label: dysprosium atom
-    notes: Critical HREE for permanent magnets, selectively adsorbed by teichoic acids
   - preferred_term: yttrium(3+)
     term:
       id: CHEBI:49962
       label: yttrium(3+)
-    notes: HREE analog, selectively adsorbed; enriched 56-184 ppm in B horizon
+    notes: Laboratory REE cation; the multi-element adsorption series and higher-concentration Yb microscopy are
+      distinct assays. No profile-wide ionic concentration is assigned.
   - preferred_term: ytterbium(3+)
     term:
       id: CHEBI:49980
       label: ytterbium(3+)
-    notes: HREE used in EDS co-localization studies with phosphate
-  - preferred_term: phosphate
-    term:
-      id: CHEBI:18367
-      label: phosphate(3-)
-    notes: Binding site in teichoic acids for REE coordination
-  biological_processes:
-  - preferred_term: metal ion transport
-    term:
-      id: GO:0030001
-      label: metal ion transport
-  - preferred_term: cellular response to metal ion
-    term:
-      id: GO:0071248
-      label: cellular response to metal ion
-  downstream:
-  - target: HREE Enrichment in B Horizon
-    description: Bacterial biosorption concentrates HREE in clay-rich weathering zones
+    notes: Laboratory REE cation; the multi-element adsorption series and higher-concentration Yb microscopy are
+      distinct assays. No profile-wide ionic concentration is assigned.
   evidence:
   - reference: PMID:35708325
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Taking advantage of bacteria strains isolated from the profile, Gram-positive bacteria affiliated
-      with Bacillus and Micrococcus preferentially adsorbed HREEs, and teichoic acids in the cell wall
-      served as the main sites for HREE adsorption, leading to an enrichment of HREEs in the deposit
-    explanation: Quantifies HREE selectivity
+    evidence_source: IN_VITRO
+    snippet: Taking advantage of bacteria strains isolated from the profile, Gram-positive bacteria affiliated with
+      Bacillus and Micrococcus preferentially adsorbed HREEs, and teichoic acids in the cell wall served as the
+      main sites for HREE adsorption, leading to an enrichment of HREEs in the deposit
+    explanation: Supports laboratory isolate/cell-wall adsorption and its proposed binding groups, not universal
+      essentiality, active transport or quantified field mediation.
   - reference: PMID:35708325
     supports: SUPPORT
-    evidence_source: IN_VIVO
+    evidence_source: IN_VITRO
     snippet: teichoic acids in the cell walls of G+ bacteria lead to REE fractionation
-    explanation: Proves teichoic acid essentiality for REE binding
+    explanation: Supports laboratory isolate/cell-wall adsorption and its proposed binding groups, not universal
+      essentiality, active transport or quantified field mediation.
   - reference: PMID:35708325
     supports: SUPPORT
-    evidence_source: IN_VIVO
+    evidence_source: IN_VITRO
     snippet: surface carboxyl and phosphate groups are active sites for REE adsorption
-    explanation: Spectroscopic evidence for phosphate-HREE binding
-- name: Bioweathering and REE Mineral Dissolution
-  description: 'Proteobacteria (Acinetobacter, Pseudomonas), Actinobacteria, and fungi (Ascomycota, Basidiomycota)
-    accelerate weathering of granitic bedrock and dissolution of REE-bearing minerals through production
-    of organic acids (citric, oxalic, gluconic), siderophores, and extracellular enzymes. Bacterial and
-    fungal metabolites acidify the microenvironment, protonate silicate minerals, and complex REE cations,
-    driving mineral dissolution rates orders of magnitude faster than abiotic weathering. Acinetobacter
-    and Pseudomonas are known REE-mineral dissolvers that facilitate REE release from resistant phases
-    like monazite, xenotime, and REE-enriched clays. Fungal hyphae physically penetrate grain boundaries
-    and chemically attack mineral surfaces, creating high surface-area weathering zones. This bioweathering
-    process transforms primary REE minerals into secondary clay-bound ion-adsorption forms that are economically
-    extractable through simple ammonium sulfate leaching. The biogeochemical cascade (mineral dissolution
-    → REE release → biosorption → HREE fractionation) drives formation of commercially valuable HREE-enriched
-    ion-adsorption deposits.
-
-    '
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Proteobacteria
-    term:
-      id: NCBITaxon:1224
-      label: Pseudomonadota
-  target_taxon:
-    preferred_term: Actinobacteria
-    term:
-      id: NCBITaxon:201174
-      label: Actinomycetota
-  metabolites:
-  - preferred_term: citric acid
-    term:
-      id: CHEBI:30769
-      label: citric acid
-    notes: Organic acid complexing agent for REE mobilization
-  - preferred_term: oxalic acid
-    term:
-      id: CHEBI:16995
-      label: oxalic acid
-    notes: Strong chelator for REE and mineral cations
-  - preferred_term: organic molecular entity
-    term:
-      id: CHEBI:50860
-      label: organic molecular entity
-    notes: Diverse organic metabolites driving bioweathering
-  downstream:
-  - target: Teichoic Acid-Mediated HREE Selective Biosorption
-    description: Dissolved REE become available for selective bacterial biosorption
-  evidence:
+    explanation: Supports laboratory isolate/cell-wall adsorption and its proposed binding groups, not universal
+      essentiality, active transport or quantified field mediation.
   - reference: PMID:35708325
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: These findings not only elucidate the crucial contribution of fungi and bacteria in the supergene
-      REE mineralization but also provide insights into efficient utilization of mineral resources via
-      a biological pathway
-    explanation: Documents bacterial REE-mineral dissolution
-  - reference: PMID:35708325
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Both fungi and bacteria contributed to the accumulation of REEs
-    explanation: Establishes synergistic microbial REE mobilization
-- name: HREE Enrichment in B Horizon
-  description: 'The combined effects of bioweathering (REE release), selective bacterial biosorption (HREE
-    preference), and downward percolation concentrate HREE in the B horizon (enrichment zone) of the weathering
-    profile, creating the economic ion-adsorption deposit. The B horizon shows peak total REE content
-    of 776 ppm at ~6m depth with HREE concentrations of 56-184 ppm. Gram-positive bacteria preferentially
-    sequester HREE from percolating groundwater, while LREE are more mobile and leach downward or re-distribute.
-    The teichoic acid fractionation mechanism results in HREE/LREE ratios higher than parent granite,
-    creating the characteristic HREE enrichment that makes South China ion-adsorption deposits the world''s
-    dominant source of critical heavy REE (Dy, Y, Tb, Eu, Er, Yb) for permanent magnets, phosphors, and
-    advanced technologies. This natural biogeochemical concentration process operates over thousands of
-    years in stable weathering profiles under subtropical monsoon conditions.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Bacillus
+    evidence_source: IN_VITRO
+    snippet: decreased the REE adsorption from 65.5% to only 17.8%
+    explanation: Primary cell-wall perturbation retains positive teichoic-acid contribution with residual adsorption,
+      not abolition of all binding.
+  participating_taxa:
+  - preferred_term: Bacillus
     term:
       id: NCBITaxon:1386
       label: Bacillus <firmicutes>
-  metabolites:
-  - preferred_term: dysprosium(3+)
+  - preferred_term: Micrococcus
     term:
-      id: CHEBI:33377
-      label: dysprosium atom
-    notes: Critical HREE for permanent magnets
-  - preferred_term: yttrium(3+)
-    term:
-      id: CHEBI:49962
-      label: yttrium(3+)
-    concentration: 56-184 ppm in B horizon
-  - preferred_term: terbium(3+)
-    term:
-      id: CHEBI:49902
-      label: terbium(3+)
-    notes: Critical HREE for phosphors
-  biological_processes:
-  - preferred_term: metal ion transport
-    term:
-      id: GO:0030001
-      label: metal ion transport
-  evidence:
-  - reference: PMID:35708325
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Taking advantage of bacteria strains isolated from the profile, Gram-positive bacteria affiliated
-      with Bacillus and Micrococcus preferentially adsorbed HREEs, and teichoic acids in the cell wall
-      served as the main sites for HREE adsorption, leading to an enrichment of HREEs in the deposit
-    explanation: Quantifies HREE enrichment in B horizon
-  - reference: PMID:35708325
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: teichoic acids in the cell wall served as the main sites for HREE adsorption
-    explanation: Links bacterial selectivity to deposit-scale HREE enrichment.
-- name: Fungal Bioweathering and Mineral Dissolution
-  description: 'Ascomycota and Basidiomycota fungi work synergistically to accelerate granite weathering
-    and REE mineral dissolution through complementary enzymatic and chemical attack mechanisms. Together
-    comprising over 88% of fungal sequences, these two dominant phyla produce diverse organic acids (citric,
-    oxalic, gluconic), extracellular enzymes (laccases, peroxidases), and siderophores that chelate REE
-    cations and dissolve silicate minerals. Ascomycete hyphae mechanically penetrate mineral grain boundaries
-    while secreting organic acids that protonate and dissolve REE-bearing phases like monazite, xenotime,
-    and REE-enriched clays. Basidiomycete enzymes further degrade silicate matrices and mobilize REE from
-    resistant mineral structures. The fungal bioweathering creates high-surface-area weathering zones
-    where primary REE minerals transform into secondary clay-bound ion-adsorption forms. This fungal-bacterial
-    partnership drives the biogeochemical cascade: fungal mineral dissolution releases REE → bacterial
-    biosorption concentrates HREE → deposit-scale HREE enrichment occurs. The synergistic action of Ascomycota
-    and Basidiomycota accelerates REE mineralization orders of magnitude faster than abiotic weathering
-    processes.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Ascomycota
-    term:
-      id: NCBITaxon:4890
-      label: Ascomycota
-  target_taxon:
-    preferred_term: Basidiomycota
-    term:
-      id: NCBITaxon:5204
-      label: Basidiomycota
+      id: NCBITaxon:1269
+      label: Micrococcus
+  downstream:
+  - target: Observed B-Horizon HREE Enrichment
+    description: PARTIAL - preferential HREE binding by indigenous bacterial cell walls could contribute to retention
+      and fractionation in the B horizon. Laboratory adsorption and field community/geochemical associations support
+      this route, but do not isolate its deposit-scale magnitude from mineral adsorption and water transport.
+- name: Proposed Microbial REE Mineral Dissolution
+  description: HYPOTHESIZED - microbial organic acids and other ligands could weather minerals and release REEs
+    in the Renju profile. The primary discussion combines community/geochemical associations with weathering functions
+    known from prior literature; it does not measure these routes in every listed phylum or isolate direct Proteobacteria-to-Actinobacteria
+    transfer. The canonical bacterial and fungal phyla are contextual groups, not a demonstrated four-partner cross-feeding
+    unit. An orders-of-magnitude acceleration relative to abiotic weathering was not established in the inspected
+    study.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: citric acid
     term:
       id: CHEBI:30769
       label: citric acid
-    notes: Fungal organic acid for REE complexation
+    notes: Contextual candidate weathering ligand from the proposed mechanism, not a measured product or traced
+      transfer by every listed taxon in the Renju profile.
   - preferred_term: oxalic acid
     term:
       id: CHEBI:16995
       label: oxalic acid
-    notes: Strong chelator for mineral dissolution
-  downstream:
-  - target: Teichoic Acid-Mediated HREE Selective Biosorption
-    description: Fungal dissolution releases REE for bacterial biosorption
-  evidence:
-  - reference: PMID:35708325
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Both fungi and bacteria contributed to the accumulation of REEs
-    explanation: Documents synergistic fungal bioweathering
-  - reference: PMID:35708325
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: These findings not only elucidate the crucial contribution of fungi and bacteria in the supergene
-      REE mineralization but also provide insights into efficient utilization of mineral resources via
-      a biological pathway
-    explanation: Establishes fungal role in REE mobilization
-- name: Oligotrophic REE Mobilization and Deep Profile Colonization
-  description: 'Acidobacteria employ oligotrophic K-strategist metabolic strategies to colonize nutrient-depleted
-    deep weathering zones (up to 40m depth) and contribute to long-term REE mobilization and biogeochemical
-    cycling. Representing 14.6% of the bacterial community, Acidobacteria thrive in low-organic-carbon
-    regolith environments where r-strategist copiotrophs (like many Proteobacteria) cannot compete. Their
-    slow-growing, stress-tolerant lifestyle enables sustained activity in the C horizon weathered bedrock
-    where microbial biomass decreases to 23.6 ppm. Acidobacteria produce exopolysaccharides and organic
-    ligands that bind REE cations and enhance mineral dissolution at depth, complementing the more abundant
-    Proteobacteria in upper horizons. This vertical metabolic partitioning ensures continuous REE mobilization
-    throughout the 40-meter weathering profile. The oligotrophic adaptations of Acidobacteria are critical
-    for establishing stable indigenous microbial communities in the nutrient-scarce, low-productivity
-    conditions of regolith-hosted REE deposits, enabling the thousand-year biogeochemical processes that
-    create economically viable HREE enrichment.
-
-    '
-  interaction_type: COMMENSALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Acidobacteria
-    term:
-      id: NCBITaxon:57723
-      label: Acidobacteriota
-  target_taxon:
-    preferred_term: Proteobacteria
-    term:
-      id: NCBITaxon:1224
-      label: Pseudomonadota
-  metabolites:
+    notes: Contextual candidate weathering ligand from the proposed mechanism, not a measured product or traced
+      transfer by every listed taxon in the Renju profile.
   - preferred_term: organic molecular entity
     term:
       id: CHEBI:50860
       label: organic molecular entity
-    notes: Exopolysaccharides and organic ligands for REE binding
+    notes: Contextual candidate weathering ligand from the proposed mechanism, not a measured product or traced
+      transfer by every listed taxon in the Renju profile.
   evidence:
   - reference: PMID:35708325
     supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: regolith-hosted REE deposits
-    explanation: The abstract supports the regolith-hosted REE-deposit setting but
-      does not name Acidobacteria; the oligotrophic K-strategist lifestyle described
-      in the full text is not present in the abstract, so this evidence is downgraded
-      to PARTIAL.
+    snippet: These findings not only elucidate the crucial contribution of fungi and bacteria in the supergene REE
+      mineralization but also provide insights into efficient utilization of mineral resources via a biological
+      pathway
+    explanation: Supports the authors' proposed microbial contribution in conjunction with profile associations;
+      it does not demonstrate this exact phylum-level dissolution mechanism or mutualism.
+  - reference: PMID:35708325
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: Both fungi and bacteria contributed to the accumulation of REEs
+    explanation: Supports the authors' proposed microbial contribution in conjunction with profile associations;
+      it does not demonstrate this exact phylum-level dissolution mechanism or mutualism.
+  participating_taxa:
+  - preferred_term: Proteobacteria
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+  - preferred_term: Actinobacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  - preferred_term: Ascomycota
+    term:
+      id: NCBITaxon:4890
+      label: Ascomycota
+  - preferred_term: Basidiomycota
+    term:
+      id: NCBITaxon:5204
+      label: Basidiomycota
+  downstream:
+  - target: Teichoic Acid-Mediated HREE Selective Biosorption
+    description: HYPOTHESIZED - microbial mineral dissolution could release REEs that become substrates for bacterial
+      surface adsorption. This substrate-availability route is proposed from profile associations and known weathering
+      functions, not traced from the listed phyla to the tested isolates in situ.
+- name: Observed B-Horizon HREE Enrichment
+  description: Field geochemistry shows HREE enrichment in the Renju B horizon, with total HREE concentrations of
+    56-184 ppm and a total-REE maximum of 776 ppm near 6 m. These are elemental sums, not the concentration or speciation
+    of a single yttrium ion. The sampled profile extends to 45 m and uses A, B and P horizons. Microbial composition
+    correlations and isolate adsorption support a proposed biological contribution alongside clay/mineral binding
+    and hydrology; they do not quantify the microbial share of deposit formation. The canonical taxa are a sampled
+    community subset, not proven joint causes or reciprocal beneficiaries of enrichment.
+  scope: COMMUNITY_LEVEL
+  evidence:
   - reference: PMID:35708325
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: However, little is known about the roles of microorganisms in the formation of exogenic deposits
-      such as regolith-hosted REE deposits that are of HREE enrichment and provide over 90% of global
-      HREE demand
-    explanation: Establishes Acidobacteria contribution to REE mobilization
+    snippet: the B horizon is rich in HREEs
+    explanation: Primary field geochemistry supports observed enrichment; the body supplies profile depth and elemental-sum
+      context, not a single-ion measurement.
+  participating_taxa:
+  - preferred_term: Proteobacteria
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+  - preferred_term: Acidobacteria
+    term:
+      id: NCBITaxon:57723
+      label: Acidobacteriota
+  - preferred_term: Actinobacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  - preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+  - preferred_term: Micrococcus
+    term:
+      id: NCBITaxon:1269
+      label: Micrococcus
+  - preferred_term: Ascomycota
+    term:
+      id: NCBITaxon:4890
+      label: Ascomycota
+  - preferred_term: Basidiomycota
+    term:
+      id: NCBITaxon:5204
+      label: Basidiomycota
+- name: Proposed Fungal REE Bioweathering
+  description: HYPOTHESIZED - fungal organic acids and mineral-surface interactions could contribute to REE mobilization.
+    Ascomycota/Basidiomycota profiles and selected fungal-genus correlations are positive community observations;
+    the exact weathering functions are discussed partly from prior literature. The study does not isolate mutual
+    benefit between these phyla, complementary enzyme action, direct fungal-to-bacterial transfer or an orders-of-magnitude
+    rate increase in this profile. The canonical phyla delimit the represented fungal groups, not a resolved two-member
+    consortium.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: citric acid
+    term:
+      id: CHEBI:30769
+      label: citric acid
+    notes: Contextual candidate weathering ligand from the proposed mechanism, not a measured product or traced
+      transfer by every listed taxon in the Renju profile.
+  - preferred_term: oxalic acid
+    term:
+      id: CHEBI:16995
+      label: oxalic acid
+    notes: Contextual candidate weathering ligand from the proposed mechanism, not a measured product or traced
+      transfer by every listed taxon in the Renju profile.
+  evidence:
+  - reference: PMID:35708325
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: Both fungi and bacteria contributed to the accumulation of REEs
+    explanation: Supports the authors' proposed microbial contribution in conjunction with profile associations;
+      it does not demonstrate this exact phylum-level dissolution mechanism or mutualism.
+  - reference: PMID:35708325
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: These findings not only elucidate the crucial contribution of fungi and bacteria in the supergene REE
+      mineralization but also provide insights into efficient utilization of mineral resources via a biological
+      pathway
+    explanation: Supports the authors' proposed microbial contribution in conjunction with profile associations;
+      it does not demonstrate this exact phylum-level dissolution mechanism or mutualism.
+  participating_taxa:
+  - preferred_term: Ascomycota
+    term:
+      id: NCBITaxon:4890
+      label: Ascomycota
+  - preferred_term: Basidiomycota
+    term:
+      id: NCBITaxon:5204
+      label: Basidiomycota
+  downstream:
+  - target: Teichoic Acid-Mediated HREE Selective Biosorption
+    description: HYPOTHESIZED - fungal weathering could release REEs for bacterial cell-wall binding. The fungal
+      associations and separate adsorption assays support a candidate route, not selectively demonstrated fungal
+      dissolution, partner transfer or its necessity for field enrichment.
+- name: Acidobacteria Profile Distribution and Oligotrophic Interpretation
+  description: Acidobacteria averaged 14.6 percent of bacterial sequences and generally decreased with depth to
+    40 m before a slight increase at 45 m. The primary discussion invokes an oligotrophic K-strategist interpretation,
+    not increasing deep-profile dominance. Neither taxonomic abundance nor that ecological interpretation demonstrates
+    Acidobacteria ligand production, measured REE mobilization, exclusion of Proteobacteria or a benefit supplied
+    to them. Preserve the observed distribution without assigning a phylum-wide biochemical pathway.
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:35708325
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: tends to decrease with increasing depth
+    explanation: Primary Acidobacteria distribution result; the surrounding body supplies mean abundance and the
+      deepest-sample exception, not measured ligand-mediated REE transfer.
+  participating_taxa:
+  - preferred_term: Acidobacteria
+    term:
+      id: NCBITaxon:57723
+      label: Acidobacteriota
 environmental_factors:
 - name: Weathering Profile Depth
   value: 0-40
@@ -785,3 +731,30 @@ growth_media:
     snippet: R2A was used as the separation culture medium.
     explanation: R2A was the isolation medium used to recover community members from
       the weathering profile.
+discussions:
+- discussion_id: ree_lab_to_profile_mediation
+  prompt: How much do specific microbial weathering and adsorption processes contribute to field enrichment?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Teichoic Acid-Mediated HREE Selective Biosorption
+  - ecological_interactions#Proposed Microbial REE Mineral Dissolution
+  - ecological_interactions#Observed B-Horizon HREE Enrichment
+  - ecological_interactions#Proposed Fungal REE Bioweathering
+  - ecological_interactions#Acidobacteria Profile Distribution and Oligotrophic Interpretation
+  rationale: 'Retain the positive isolated-cell/cell-wall experiments and field elemental distributions without
+    treating laboratory adsorption as a quantified deposit-scale cause. Teichoic-acid removal is not a genetic knockout
+    or purified rescue, and residual adsorption remains. Phylum-level weathering assignments, fungal synergy and
+    Acidobacteria ligand transfer are unresolved, not demonstrated pairwise benefits. Full cached primary main text,
+    Methods and Figures 1-7 captions read; selected claims independently verified in fresh NCBI XML. No original
+    images, external supplements, raw data or code inspected. Non-graph profile, function, economic and cultivation
+    claims remain unresolved under #1520 and are preserved, not recertified.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T17:45:53Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate positive REE laboratory adsorption from proposed weathering and deposit-scale mediation. Issue
+    #1517; reports/causal_graph_review/decisions/20261006-three-records-batch55.yaml'
+  llm_assisted: true

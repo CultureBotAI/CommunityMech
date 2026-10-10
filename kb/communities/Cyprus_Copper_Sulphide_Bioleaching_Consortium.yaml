@@ -149,91 +149,106 @@ taxonomy:
     snippet: Thermoplasmatales archaea
     explanation: Supports the Thermoplasmatales archaeal member.
 ecological_interactions:
-- name: Mineral-Type-Dependent Community Composition
-  description: Switching between chalcopyrite and chalcocite reshapes member
-    abundances in the bioleaching consortium, reflecting differences in mineral
-    structure and Fe availability.
-  interaction_type: NICHE_PARTITIONING
+- name: Mineral- and Fraction-Associated Community Profiles
+  description: Serially passaged SC3 enrichments on chalcopyrite and chalcocite showed different metagenomic community
+    profiles, including differences between attached and planktonic fractions at eight weeks. The four named taxonomic
+    groups are an aggregate view of the recovered organisms. These positive mineral-treatment and microhabitat observations
+    support ecological selection, but the combined mineral-structure, dissolution and Fe-availability changes do
+    not isolate Fe as the sole cause. Relative DNA profiles from pooled replicate samples and gene annotations do
+    not directly measure each member's metabolic niche or flux.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: chalcopyrite
     term:
       id: CHEBI:86202
       label: chalcopyrite
-    notes: Fe-bearing CuFeS2 mineral used to establish and propagate the
-      consortium before substrate switching.
+    notes: Fe-bearing CuFeS2 mineral used to establish and propagate the consortium before substrate switching.
   - preferred_term: chalcocite
     term:
       id: CHEBI:51114
       label: copper(I) sulfide
-    notes: Fe-free Cu2S mineral used to test how mineral structure and
-      mineral-derived Fe availability shift community composition.
+    notes: Fe-free Cu2S mineral used to test how mineral structure and mineral-derived Fe availability shift community
+      composition.
   - preferred_term: iron(2+)
     term:
       id: CHEBI:29033
       label: iron(2+)
-    notes: Ferrous iron whose mineral-derived availability differs between
-      chalcopyrite and chalcocite enrichments.
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Plasmid-Borne Metal Resistance and Sulphur Metabolism
-    description: Mineral type and planktonic-versus-attached partitioning define
-      the acidophile consortium in which plasmids encoding metal resistance,
-      sulphur metabolism, and CRISPR-Cas loci were recovered.
+    notes: Ferrous iron whose mineral-derived availability differs between chalcopyrite and chalcocite enrichments.
   evidence:
   - reference: PMID:41381092
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: trends in abundance patterns were observed with mineralogy and
-      surface-attached versus planktonic conditions
-    explanation: Supports mineralogy and lifestyle as drivers of abundance
-      patterns.
-- name: Plasmid-Borne Metal Resistance and Sulphur Metabolism
-  description: Plasmid-encoded metal resistance pathways, sulphur metabolic
-    capacities, and CRISPR-Cas loci are widespread in the bioleaching consortium
-    and may modulate microbial activity during sulphide ore dissolution.
-  interaction_type: COMMENSALISM
+    snippet: trends in abundance patterns were observed with mineralogy and surface-attached versus planktonic conditions
+    explanation: Supports observed composition patterns under the mineral and fraction comparisons, not a selectively
+      demonstrated Fe-only mechanism or experimentally resolved metabolic niche partitioning.
+  participating_taxa:
+  - preferred_term: Acidithiobacillus species
+    term:
+      id: NCBITaxon:119977
+      label: Acidithiobacillus
+  - preferred_term: Leptospirillum ferrodiazotrophum
+    term:
+      id: NCBITaxon:412449
+      label: Leptospirillum ferrodiazotrophum
+  - preferred_term: Rhodospirillales bacterium
+    term:
+      id: NCBITaxon:204441
+      label: Rhodospirillales
+  - preferred_term: Thermoplasmatales archaea
+    term:
+      id: NCBITaxon:2301
+      label: Thermoplasmatales
+- name: Plasmid-Encoded Functional Potential
+  description: The metagenomic analysis recovered twelve distinct putative plasmids, some encoding predicted metal-resistance,
+    sulphur-metabolism or CRISPR-associated functions. Named participants represent the explicitly Acidithiobacillus-
+    and Leptospirillum-associated subset, not every host or every listed function. Copper-resistance candidates
+    on an Alphaproteobacteria-related plasmid are not assigned specifically to the canonical Rhodospirillales member
+    or to archaea. Gene content and phylogenetic association do not demonstrate expression, host benefit, horizontal
+    transfer or a plasmid-caused increase in bioleaching.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: sulfur compound metabolic process
     term:
       id: GO:0006790
       label: sulfur compound metabolic process
-  downstream:
-  - target: Intra-Plasmid CRISPR Competition
-    description: CRISPR-Cas loci were among the plasmid-borne functions, and the
-      Acidithiobacillus Plasmid_56_509 CRISPR spacers provided the specific
-      evidence for plasmid-plasmid competition within the consortium.
   evidence:
   - reference: PMID:41381092
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: encoded metal resistance pathways, sulphur metabolic capacities and
-      CRISPR-Cas loci
-    explanation: Supports the plasmid-encoded functional repertoire.
-- name: Intra-Plasmid CRISPR Competition
-  description: CRISPR spacers on an Acidithiobacillus plasmid target plasmid-
-    borne conjugal transfer genes from the same genus, indicating intra-plasmid
-    competition among co-resident mobile elements.
-  interaction_type: COMPETITION
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
+    evidence_source: COMPUTATIONAL
+    snippet: encoded metal resistance pathways, sulphur metabolic capacities and CRISPR-Cas loci
+    explanation: Supports sequence-annotated functional potential in some plasmids, not expressed activity or commensal
+      fitness. Host associations and functions are distinct annotations; the unresolved Alphaproteobacteria-linked
+      plasmid is not grounded to a specific Rhodospirillales taxon.
+  participating_taxa:
+  - preferred_term: Acidithiobacillus species
     term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
+      id: NCBITaxon:119977
+      label: Acidithiobacillus
+  - preferred_term: Leptospirillum ferrodiazotrophum
+    term:
+      id: NCBITaxon:412449
+      label: Leptospirillum ferrodiazotrophum
+- name: Putative Acidithiobacillus Plasmid CRISPR Interference
+  description: HYPOTHESIZED - CRISPR spacers on Acidithiobacillus-associated Plasmid_56_509 match two unbinned Acidithiobacillus-like
+    contigs containing conjugation-related genes. This supports a putative plasmid interference model in that host
+    group. The source-only scope records the host-associated molecular capability, not a taxon-to-taxon competitive
+    relationship. Sequence matches do not demonstrate target cleavage, blocked conjugation, plasmid exclusion, confirmed
+    co-residence in a cell or reciprocal harm among the microbial members.
+  scope: PAIRWISE
   evidence:
   - reference: PMID:41381092
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: CRISPR spacers on an Acidithiobacillus plasmid targeted plasmid-borne
-      conjugal transfer genes found in the same genus, likely belonging to
-      another plasmid, evidence of intra-plasmid competition
-    explanation: Supports the CRISPR-spacer-based plasmid competition.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: CRISPR spacers on an Acidithiobacillus plasmid targeted plasmid-borne conjugal transfer genes found
+      in the same genus, likely belonging to another plasmid, evidence of intra-plasmid competition
+    explanation: Supports a spacer/contig-based interference inference. The primary body identifies two unbinned
+      targets with plasmid-related genes; it does not experimentally establish plasmid elimination or co-residence.
+      Competition here concerns proposed mobile-element dynamics, not measured reciprocal taxon fitness.
+  source_taxon:
+    preferred_term: Acidithiobacillus species
+    term:
+      id: NCBITaxon:119977
+      label: Acidithiobacillus
 cultivation_setup:
 - cultivation_mode: BATCH
   operating_temperature: 28.0
@@ -381,3 +396,31 @@ metal_relevance: PRIMARY
 metal_notes: Copper recovery from sulphide ores is the primary biotechnological
   motivation; iron availability differs between chalcopyrite and chalcocite and
   shapes consortium composition.
+discussions:
+- discussion_id: cyprus_mineral_functions_and_plasmid_interference
+  prompt: Which mineral-associated functions and plasmid activities causally alter SC3 bioleaching?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Mineral- and Fraction-Associated Community Profiles
+  - ecological_interactions#Plasmid-Encoded Functional Potential
+  - ecological_interactions#Putative Acidithiobacillus Plasmid CRISPR Interference
+  rationale: 'The main body and tables distinguish measured composition/solution chemistry from predicted organism/plasmid
+    functions. The two removed arrows were a recovery-context link and a general-repertoire-to-example link, not
+    causal dependencies. Plasmid perturbations, expression/flux assays, host resolution and conjugation/interference
+    experiments would test the proposed functions. Relative abundance and spacer matches alone cannot assign benefits
+    or competition. The literature-derived sulphur pathway diagram is not a measured organism-resolved exchange
+    map. No figure images or supplementary files were inspected. Non-graph mineral oxidation-state and Fe-specific
+    attribution wording remains in #1372.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T04:52:55Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain positive mineral/fraction-associated composition observations without isolating Fe or claiming
+    measured niche-specific metabolic flux.; Retain the annotated plasmid repertoire with a known-host subset and
+    unresolved hosts, not commensal fitness or expressed biochemical effects.; Represent the putative CRISPR interference
+    mechanism as host-associated source-only capability, not observed taxon competition or confirmed plasmid co-residence.
+    Issue #1369; reports/causal_graph_review/decisions/20261006-four-records-batch28.yaml'
+  llm_assisted: true

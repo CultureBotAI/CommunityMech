@@ -583,7 +583,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Meghalaya Bacillus Consortia-A22ED9</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -602,10 +602,18 @@
                 <div class="interaction-header">
                     <h3>Consortia-A22ED9 single-metal Fe-Cd-Cr removal</h3>
                 </div>
-                <p class="prewrap interaction-description">A22ED9 removed iron, chromium, and cadmium from pH 5.0 LB cultures over 24 h, with mean removal values of 92.08% Fe across 50-1000 mg/L, 74.15% Cr across 1-32 mg/L, and 97.587% Cd across 1-32 mg/L.</p>
+                <p class="prewrap interaction-description">In separate 24-hour LB assays initially at pH 5.0, A22ED9 showed reported mean removal of 92.08% Fe across 50-1000 mg/L, 74.15% Cr and 97.587% Cd across 1-32 mg/L. ICP-OES measured residual metal after centrifugation and filtration. These positive depletion endpoints do not identify oxidation state, intracellular uptake or the shares attributable to biosorption and precipitation. Final pH varied rather than staying fixed at 5.0 or universally reaching 8.0. Cell-free medium controls showed little loss, but pH-matched abiotic and live/dead comparisons were not sufficient to partition mechanisms. The study does not establish enhanced consortium removal over isolates or field efficacy.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus sp. SK22,
+
+                    Bacillus sp. KHED9
+
+                </p>
 
 
 
@@ -683,7 +691,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(3)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -707,6 +715,21 @@
                     Does A22ED9 provide reproducibly higher Fe, Cd, or Cr removal than its single-isolate members?
                 </h3>
                 <p class="prewrap">The paper reports high Fe, Cd, and Cr removal for A22ED9, but the abstract explicitly states that consortia did not show significant differences in heavy-metal removal, so the curated interaction does not assert an emergent metal-removal advantage.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Consortia-A22ED9 single-metal Fe-Cd-Cr removal</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which processes account for depletion, and what does filtrate stimulation contribute?
+                </h3>
+                <p class="prewrap">Preserve Table 3 single-metal removal averages and prior #1009 labels. The source inconsistently says abiotic controls were absent while also reporting cell-free controls; the defensible limit is unresolved pH-matched biological/precipitation contributions, not erasure of reported controls. SEM-EDX examples name individual SK22 and SK18-4, not complete A22ED9-specific partitioning. Filtrate-associated SK22 stimulation by KHED9 is a separate measured candidate for new structure under #1593; inspect supplementary Fig S2 and controls before extension. Current record remains needs_research. #1591 repairs the existing endpoint; #1594 tracks non-graph metadata. One-record Edison dry run only; no credits spent.</p>
 
                 <p class="muted small">Attaches to: <code>ecological_interactions#Consortia-A22ED9 single-metal Fe-Cd-Cr removal</code></p>
 
@@ -1048,7 +1071,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1061,7 +1083,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1142,6 +1163,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Bacillus sp. SK22",
+
+                "Bacillus sp. KHED9"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

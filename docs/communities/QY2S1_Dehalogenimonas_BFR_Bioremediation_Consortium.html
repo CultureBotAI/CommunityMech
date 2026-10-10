@@ -665,7 +665,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for QY2-S1 Dehalogenimonas-Rich Brominated-Flame-Retardant Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -673,8 +673,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -683,9 +683,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Fermenter-Methanogen Support for Dehalogenimonas RDase Activity</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Dominant Clostridium and Sedimentibacter fermenters and Methanoculleus methanogens form a syntrophic support network that can supply H2, carbon, and cofactors required for Dehalogenimonas reductive dehalogenase activity during BDE 99 and beta-TBCO organohalide respiration.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED: The authors propose that Clostridium and Sedimentibacter fermenters support Dehalogenimonas through hydrogen, carbon and cofactors. Methanoculleus is discussed as a hydrogen consumer that may indirectly favour fermentation, not as a demonstrated hydrogen donor. The QY2-S1 assays measured pollutant transformation and genus-level abundance, not partner-specific metabolite flux or product-removal feedback. The proposed support network is retained without categorical SYNTROPHY.</p>
 
 
 
@@ -726,7 +725,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42511722/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42511722</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"This robust consortium forms a synergistic metabolic network, where fermentative bacteria and methanogens provide essential electron donors (H2), carbon source, and other growth cofactors, required for the RDase activity of the core OHRB, Dehalogenimonas"</div>
@@ -778,7 +777,7 @@
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -791,6 +790,41 @@
                 <p class="muted small">Attaches to: <code>taxonomy</code></p>
 
 
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which partner exchanges and product-removal feedback, if any, support Dehalogenimonas in QY2-S1?
+                </h3>
+                <p class="prewrap">Section 2.3 proposes indirect methanogen support through hydrogen consumption. Absolute 16S abundance and pollutant/product kinetics do not isolate that feedback or demonstrate the proposed carbon/cofactor provision. Current SYNTROPHY does not assert obligacy; the missing criterion is demonstrated product-removal feedback. The positive transformation and co-exposure inhibition results remain unchanged outside this node.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Fermenter-Methanogen Support for Dehalogenimonas RDase Activity</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42511722/" rel="nofollow noreferrer">PMID:42511722</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">By maintaining extremely low H2 partial pressures, methanogens prevent the feedback inhibition of fermentation</p>
+                        <p class="muted small prewrap">Identifies the authors proposed feedback explanation, not a measured partner-specific perturbation or flux.</p>
+                    </div>
+
+                </details>
 
 
             </div>
@@ -1153,7 +1187,6 @@ concentration of 0.2 mM"</p>
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1166,7 +1199,6 @@ concentration of 0.2 mM"</p>
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1234,7 +1266,7 @@ concentration of 0.2 mM"</p>
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

@@ -559,7 +559,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Crystal Geyser CO2-Rich Aquifer Autotrophic CPR Lysolipid Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy, commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -572,13 +572,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -586,13 +581,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Autotrophy-Based Deep Biosphere</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Predominantly Autotrophic Carbon Supply</h3>
                 </div>
-                <p class="prewrap interaction-description">Microbial lipid stable-carbon-isotope compositions show that bacterial and archaeal CO2 fixation in the deep subsurface provides the organic carbon for the complex communities residing there.</p>
+                <p class="prewrap interaction-description">Stable carbon isotope compositions, community metagenomes and geological constraints support a predominantly autotrophic origin of biomass across the sampled aquifers. Bacterial and archaeal carbon fixation supplies the community organic-carbon pool; isotope mass-balance estimates depend on fractionation assumptions and allow heterotrophic reuse. This does not trace a particular producer-to-CPR carbon or lipid transfer.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    deep-aquifer CO2-fixing bacteria and archaea
+
+                </p>
 
 
 
@@ -623,9 +623,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Lipid Redistribution to CPR Symbionts
-                        <p class="prewrap causal-description">Autotrophic bacterial and archaeal production supplies deep-subsurface organic carbon to the complex community that includes lipid-limited CPR putative symbionts.
-</p>
+                        <span class="flow-arrow">→</span> Putative CPR Lipid Acquisition
+                        <p class="prewrap causal-description">HYPOTHESIZED - autotrophically fixed carbon can supply bacterial lipid production and the community material available for CPR acquisition. The isotope, lipid and genomic observations support this proposed carbon route but do not trace transfer from a particular producer to CPR cells.</p>
                     </div>
 
                 </div>
@@ -654,17 +653,21 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Lipid Redistribution to CPR Symbionts</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Putative CPR Lipid Acquisition</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">CPR bacteria possess regular lipid membranes despite lacking complete lipid biosynthesis pathways; lipids likely originate from other community members, with the partner bacteria/archaea also adapting to high in situ pressure via increased fatty acid unsaturation.</p>
-
-
-                <p><strong>Source Taxon:</strong> deep-aquifer CO2-fixing bacteria and archaea</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - CPR-associated membrane lipids together with missing known complete lipid-biosynthesis pathways support acquisition of lipids or precursors from coexisting bacteria. Scavenging degraded biomass and direct host-derived acquisition remain alternatives; neither a donor nor uptake flux was resolved. The broad producer participant represents community context, not proof of archaeal-to-CPR donation. Some Nealsonbacteria retain near-complete pathways, so unknown ACP-independent biosynthesis cannot be excluded. Product-removal syntrophy was not demonstrated.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> deep-aquifer CPR bacteria</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    deep-aquifer CPR bacteria,
+
+                    deep-aquifer CO2-fixing bacteria and archaea
+
+                </p>
 
 
 
@@ -699,9 +702,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> CPR Lysolipid Enrichment as Curvature Adaptation
-                        <p class="prewrap causal-description">Imported or redistributed community lipids form CPR bacterial membranes, whose lysolipid enrichment is a candidate response to high curvature.
-</p>
+                        <span class="flow-arrow">→</span> CPR-Associated Lysolipids and Proposed Curvature Adaptation
+                        <p class="prewrap causal-description">HYPOTHESIZED - acquired community lipids or precursors could provide material for CPR-associated lysolipid membranes and their proposed curvature adaptation. Lipid correlations and mixed-fraction spectroscopy do not demonstrate that acquisition causes lysolipid enrichment or that enrichment improves curvature tolerance.</p>
                     </div>
 
                 </div>
@@ -717,7 +719,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/32203118/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32203118</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
                         <div class="snippet">"CPR bacteria lack complete lipid biosynthesis pathways but still possess regular lipid membranes"</div>
@@ -730,10 +732,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/32203118/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32203118</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"adapt to high in situ pressure by increasing fatty acid unsaturation"</div>
+                        <div class="snippet">"the redistribution of lipids into putative symbionts within this community"</div>
 
                     </li>
 
@@ -743,10 +745,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/32203118/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32203118</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (OTHER)
                         </div>
 
-                        <div class="snippet">"the redistribution of lipids into putative symbionts within this community"</div>
+                        <div class="snippet">"Thus, we suggest that most CPR bacteria derive their membrane lipids, including lysolipids, from coexisting bacteria."</div>
 
                     </li>
 
@@ -756,13 +758,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>CPR Lysolipid Enrichment as Curvature Adaptation</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
+                    <h3>CPR-Associated Lysolipids and Proposed Curvature Adaptation</h3>
                 </div>
-                <p class="prewrap interaction-description">Unusually high abundance of lysolipids attributed to CPR bacteria may represent an adaptation to membrane curvature stress induced by their small cell sizes.</p>
+                <p class="prewrap interaction-description">Lipidomics, organism-lipid correlations and FTIR of CPR-enriched size fractions support lysolipid-rich membranes in some CPR bacteria. These fractions are mixed communities, not purified CPR isolates; the initial fraction also contained abundant Sulfurimonas. Reduced curvature stress in small cells is a proposed adaptive explanation, not a tested membrane-mechanical or fitness effect. No unaffected-donor relationship is established.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    deep-aquifer CPR bacteria
+
+                </p>
 
 
 
@@ -800,7 +807,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/32203118/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32203118</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
                         <div class="snippet">"An unusually high abundance of lysolipids attributed to CPR bacteria may represent an adaptation to membrane curvature stress induced by their small cell sizes"</div>
@@ -816,6 +823,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which sources and uptake routes supply CPR lipids, and do lysolipids causally relieve membrane curvature stress?
+                </h3>
+                <p class="prewrap">The complete primary main body supports mostly autotrophic community carbon, missing known biosynthesis pathways and CPR-associated lysolipids. Correlated relative abundances, mixed size fractions and FTIR do not resolve donors or transfer rates. Degraded-biomass scavenging, direct host acquisition and unknown biosynthetic routes remain distinguishable hypotheses. Selective uptake/biosynthesis perturbations, tracing and membrane-mechanical measurements would test the proposed chain. The separate archaeal lipid discussion must not establish archaeal donation to CPR. No figure images or supplementary files were inspected. Non-graph taxon-role and pressure-adaptation overstatements remain in #1366.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Predominantly Autotrophic Carbon Supply</code>, <code>ecological_interactions#Putative CPR Lipid Acquisition</code>, <code>ecological_interactions#CPR-Associated Lysolipids and Proposed Curvature Adaptation</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -984,7 +1010,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -997,7 +1022,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1051,7 +1075,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1068,7 +1092,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Autotrophy-Based Deep Biosphere",
+                label: "Predominantly Autotrophic Carbon Supply",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1079,11 +1103,22 @@
 
 
 
+            var participantKeys = [
+
+                "deep-aquifer CO2-fixing bacteria and archaea"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "CROSS_FEEDING";
             var metabolites = [];
 
 
@@ -1102,7 +1137,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Lipid Redistribution to CPR Symbionts",
+                label: "Putative CPR Lipid Acquisition",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1111,23 +1146,26 @@
             });
 
 
-            var srcKey = "deep-aquifer CO2-fixing bacteria and archaea";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "deep-aquifer CPR bacteria";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "deep-aquifer CPR bacteria",
+
+                "deep-aquifer CO2-fixing bacteria and archaea"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1144,7 +1182,7 @@
 
             nodes.push({
                 id: intId,
-                label: "CPR Lysolipid Enrichment as Curvature Adaptation",
+                label: "CPR-Associated Lysolipids and Proposed Curvature Adaptation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1154,6 +1192,17 @@
 
 
 
+
+            var participantKeys = [
+
+                "deep-aquifer CPR bacteria"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

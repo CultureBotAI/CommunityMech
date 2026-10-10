@@ -625,7 +625,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Hualgayoc Acidic Sulfate-Reducing AMD Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -645,7 +645,7 @@
                     <h3>Glycerol-to-Acetate Sulfate Reduction</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Desulfosporosinus sp. MAG003 and possibly other early enrichment members initiated sulfate reduction at roughly pH 3.0 with glycerol as the supplied carbon and electron source, producing acetate that could inhibit cells unless consumed by a downstream partner.</p>
+                <p class="prewrap interaction-description">PARTIAL - the authors propose Desulfosporosinus sp. MAG003 as an initiator of glycerol-associated sulfate reduction and acetate production near pH 3. Bulk chemistry and taxon profiles support this model, but both dominant MAGs encode glycerol-to-acetate potential and do not establish exclusive MAG003 flux. The canonical participant remains MAG003 for this proposed initiating role; possible minor acidogens remain unresolved. Inoculum was added again on days 32 and 86, so the time course is not unassisted succession.</p>
 
 
 
@@ -698,7 +698,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Acetate-Fed Acididesulfobacillus Sulfate Reduction
-                        <p class="prewrap causal-description">Acididesulfobacillus sp. MAG013 is inferred to consume acetate produced during glycerol oxidation after the consortium raises the pH.</p>
+                        <p class="prewrap causal-description">PARTIAL - proposed glycerol oxidation can supply acetate to the later MAG013-associated sulfate-reducing route as the medium becomes less acidic. Bulk chemistry and genomes support the model, but do not resolve the exact donor-to-recipient flux, demonstrate acetate-toxicity rescue or isolate pH from reinoculation and other time-varying conditions.</p>
                     </div>
 
                 </div>
@@ -714,7 +714,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42029028/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42029028</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Desulfosporosinus initiated sulfate reduction at pH ~3.0 with glycerol as the carbon source and acetate as the waste product."</div>
@@ -727,7 +727,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42029028/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42029028</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"While genes coding for glycerol, pyruvate, and acetyl-CoA oxidation (from glycerol to acetate) were found in both MAGs"</div>
@@ -743,7 +743,7 @@
                     <h3>Acetate-Fed Acididesulfobacillus Sulfate Reduction</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Once pH increased to about 4.0, Acididesulfobacillus sp. MAG013 was inferred to oxidize acetate fully to CO2 while continuing sulfate reduction, creating a carbon-flow network that removed acetate and limited organic-acid toxicity in the acidic enrichment.</p>
+                <p class="prewrap interaction-description">PARTIAL - the authors propose that Acididesulfobacillus sp. MAG013 consumes acetate while reducing sulfate after pH rises toward 4. TCA-cycle annotations support a potential acetate-oxidation route, not measured MAG013-specific carbon dioxide flux, an exclusive substrate role or a selectively established pH threshold. Acetate removal could relieve organic-acid stress, but toxicity mediation and complete carbon mineralization were not demonstrated; residual acetate remained at day 160.</p>
 
 
 
@@ -806,7 +806,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42029028/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42029028</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Once pH rose to ~4.0, Acididesulfobacillus continued with sulfate reduction with acetate as a carbon source"</div>
@@ -819,7 +819,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42029028/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42029028</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"genes for the TCA cycle (from acetate to CO2) were mainly found in Acididesulfobacillus-MAG"</div>
@@ -871,7 +871,7 @@
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -882,6 +882,21 @@
                 <p class="prewrap">Resolving the acidogenic fermenters with MAGs would clarify how much of the early glycerol-to-acetate flux was performed by Desulfosporosinus versus non-aSRB community members.</p>
 
                 <p class="muted small">Attaches to: <code>taxonomy</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which MAGs drive carbon flow, and how should the positive remediation outcome enter the graph?
+                </h3>
+                <p class="prewrap">Biotic treatment versus abiotic controls supports positive sulfate-reducing chemistry, pH increase and dissolved-metal removal, independently of inferred MAG assignments. Bulk 16S rRNA transcripts were measured; this is not MAG-resolved metabolic expression. Relative amplicon and metagenome profiles are different measurements and do not resolve flux. Both dominant MAGs have glycerol-to-acetate potential; other acidogens and organic amendments prevent assuming a closed two-member carbon balance. Mineral saturation modeling and poorly crystalline XRD do not prove exact precipitate identities; cell coating does not identify every coated cell as a sulfate reducer or exclude sulfide/acetate toxicity. The missing positive metal-removal/neutralization outcome structure remains unresolved under #1504. The original #815 rendering complaint was addressed by removal in merged PR814; restoring source-backed outcome structure is a distinct task. One-community Edison dry run succeeded without API calls or charges; the report and source-backed node/arrow extension remain pending specific provider authorization. Preserve #816&#39;s already-present MAG003-only initiating participant. Existing minor-acidogen discussion and non-graph blocks remain unchanged, not recertified.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Glycerol-to-Acetate Sulfate Reduction</code>, <code>ecological_interactions#Acetate-Fed Acididesulfobacillus Sulfate Reduction</code></p>
 
 
 
@@ -1379,7 +1394,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1392,7 +1406,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };

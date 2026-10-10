@@ -633,7 +633,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for TCP Non-Dehalogenimonas Groundwater Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -650,9 +650,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Hydrogen Cofactor Reductive-Dechlorination Module</h3>
+                    <h3>Inferred Hydrogen Cofactor Reductive-Dechlorination Module</h3>
                 </div>
-                <p class="prewrap interaction-description">Metagenomic analysis connected the four-genus synergistic alliance to a coupled metabolic module containing hydrogen production, cofactor synthesis, and reductive dechlorination functions during TCP transformation.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED functional coupling: community and metagenomic analyses associate the four named genera with hydrogen production, cofactor synthesis and reductive dechlorination. This is a consortium-level reconstruction, not measured intergenus hydrogen/cofactor transfer or a demonstrated genus-specific dechlorination pathway.</p>
 
 
 
@@ -709,7 +709,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41736479/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41736479</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"realized through a coupled metabolic module of &#34;hydrogen production, cofactor synthesis, and reductive dechlorination&#34;"</div>
@@ -724,7 +724,7 @@
                 <div class="interaction-header">
                     <h3>Co-Metabolic Substrate Enhanced TCP Removal</h3>
                 </div>
-                <p class="prewrap interaction-description">Sodium acetate and lactate stimulation increased the consortium&#39;s TCP degradation efficiency and supported complete removal in the domesticated culture.</p>
+                <p class="prewrap interaction-description">Sodium acetate and lactate amendments enhanced TCP degradation in the domesticated consortium. The abstract reports an overall average degradation rate of 19.06 umol L-1 d-1 and complete removal within 3.5 days; those values are not separately assigned to each amendment or to an individual genus.</p>
 
 
 
@@ -804,7 +804,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -814,9 +814,44 @@
                 </h3>
                 <p class="prewrap">The accessible PubMed abstract names the four-genera consortium and overall hydrogen/cofactor/reductive-dechlorination module, but it does not expose species or strain IDs, original inoculum details, full medium composition, substrate concentrations, transfer cadence, or the role of each named genus within the module.</p>
 
-                <p class="muted small">Attaches to: <code>taxonomy</code>, <code>engineering_design</code>, <code>growth_media</code>, <code>ecological_interactions#Hydrogen Cofactor Reductive-Dechlorination Module</code></p>
+                <p class="muted small">Attaches to: <code>taxonomy</code>, <code>engineering_design</code>, <code>growth_media</code>, <code>ecological_interactions#Inferred Hydrogen Cofactor Reductive-Dechlorination Module</code></p>
 
 
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which inferred functions actually mediate the observed amendment response?
+                </h3>
+                <p class="prewrap">Positive substrate-amendment effects remain distinct from metagenome-inferred coupling. The retrieved abstract does not resolve intergenus transfer, necessary cofactors or functional perturbations; the publisher full text was not retrieved. Keep the two existing nodes without inventing a module-to-removal arrow. Prior removal of syntrophy assertions and dangling phenotype arrows is preserved.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Inferred Hydrogen Cofactor Reductive-Dechlorination Module</code>, <code>ecological_interactions#Co-Metabolic Substrate Enhanced TCP Removal</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">COMPUTATIONAL</span>
+                            <span class="badge small">PARTIAL</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/41736479/" rel="nofollow noreferrer">PMID:41736479</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">realized through a coupled metabolic module of &#34;hydrogen production, cofactor synthesis, and reductive dechlorination&#34;</p>
+                        <p class="muted small prewrap">The abstract attributes this coupled module to community and metagenomic analyses; it does not independently demonstrate transfer or assign each function to a named genus.</p>
+                    </div>
+
+                </details>
 
 
             </div>
@@ -1135,7 +1170,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1148,7 +1182,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1235,7 +1268,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Hydrogen Cofactor Reductive-Dechlorination Module",
+                label: "Inferred Hydrogen Cofactor Reductive-Dechlorination Module",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

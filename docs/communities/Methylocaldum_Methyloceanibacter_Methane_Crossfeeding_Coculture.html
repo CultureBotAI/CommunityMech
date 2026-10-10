@@ -583,7 +583,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Methylocaldum-Methyloceanibacter Methane Cross-Feeding Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -594,6 +594,11 @@
                              aria-hidden="true" data-symbol="symbolDiamond"
                              data-color="#57c7ab"></svg> Cross-feeding
                     </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
                 </div>
             </div>
 
@@ -603,7 +608,7 @@
                     <h3>Methane-Derived Carbon Cross-Feeding</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">M. marinum S8 oxidizes methane and releases methane-derived carbon that supports growth of the non-methanotrophic methylotroph M. caenitepidi Gela4 in coculture.</p>
+                <p class="prewrap interaction-description">M. marinum S8 supports growth of M. caenitepidi Gela4 with methane supplied as the sole added carbon source after washed inocula. Acetate is a source-supported candidate cross-fed compound: concentrations, transcript profiles and acetate-grown reference qRT-PCR are consistent with it. These results do not quantify donor-to-recipient acetate flux or exclude methanol turnover.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methylocaldum marinum S8</p>
@@ -651,14 +656,13 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Methanol-Independent Methylotroph Response
-                        <p class="prewrap causal-description">Methane-derived carbon cross-feeding induces the Gela4 expression profile that points away from methanol and toward an acetate-linked cross-fed substrate.</p>
+                        <span class="flow-arrow">→</span> Gela4 Carbon-Metabolism Response in Coculture
+                        <p class="prewrap causal-description">HYPOTHESIZED - a change in available methanotroph-derived carbon could drive the observed Gela4 transcript response. The main RNA-seq comparison changes both partner presence and supplied carbon source; acetate reference qRT-PCR supports the interpretation without selectively identifying the cross-fed inducer.</p>
                     </div>
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Methylotroph Growth in Methane-Fed Coculture
-                        <p class="prewrap causal-description">Methane-derived carbon released by M. marinum S8 supports syntrophic growth of the facultative methylotroph in methane-fed coculture.
-</p>
+                        <p class="prewrap causal-description">PARTIAL - S8-derived carbon supports the observed Gela4 growth in methane-fed coculture. Acetate is a plausible mediator, but its share versus methanol or other metabolites is unresolved; this is not evidence of obligatory mutual dependence.</p>
                     </div>
 
                 </div>
@@ -687,7 +691,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/30870453/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:30870453</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"organic compound other than methanol, possibly acetate"</div>
@@ -701,10 +705,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Methylotroph Growth in Methane-Fed Coculture</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Methyloceanibacter caenitepidi Gela4 grows syntrophically with M. marinum S8 when methane is supplied as the methanotroph substrate. Chemical and RNA-seq evidence ruled out accumulated methanol as the dominant cross-fed product and implicated acetate as the likely methane-derived carbon source supporting Gela4 growth.
-</p>
+                <p class="prewrap interaction-description">Gela4 grew in methane-fed S8 coculture, with a reported specific growth rate of 0.02/h versus 0.03/h in methanol-grown pure culture. Positive growth is preserved; the different substrates make that comparison unsuitable for claiming growth enhancement. Methanol below 310 nM does not rule out low-concentration, high-turnover cross-feeding, explicitly acknowledged by the authors. Acetate remains a candidate major substrate.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methylocaldum marinum S8</p>
@@ -728,17 +730,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        acetate metabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006083"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006083</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -779,10 +770,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Methanol-Independent Methylotroph Response</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Gela4 Carbon-Metabolism Response in Coculture</h3>
                 </div>
-                <p class="prewrap interaction-description">Under coculture conditions, M. caenitepidi Gela4 downregulated serine-pathway genes while upregulating TCA-cycle and acetyl-CoA synthetase genes, consistent with use of acetate-linked carbon rather than methanol as the dominant cross-fed substrate.</p>
+                <p class="prewrap interaction-description">Relative to methanol-grown Gela4 monoculture, methane-fed S8 coculture showed serine-pathway downregulation and TCA/acetyl-CoA-associated upregulation, including acsA log2FC 3.57. Acetate reached &lt;15.6 micromol/L in S8 culture and &lt;12.4 micromol/L in coculture; methanol was below 310 nM. Acetate-grown reference qRT-PCR supported the interpretation, with late-phase coculture acsA/hpr significantly higher than the methanol control, whereas the early-phase difference was not significant. These are measured concentration and expression results, not direct acetate transfer or proof of methanol independence.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methylocaldum marinum S8</p>
@@ -917,6 +907,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    What fractions of recipient carbon come from acetate, methanol and other S8 products?
+                </h3>
+                <p class="prewrap">Retain positive growth and the authors&#39; acetate interpretation with two qualified existing arrows. Main RNA-seq contrasts methanol monoculture with methane coculture; partner and substrate change together. Acetate-reference qRT-PCR adds support but does not identify transferred carbon by itself. The paper expressly allows low-concentration high-turnover methanol. Main text, captions and Tables 1-2 were read; raw RNA-seq, supplements and figure pixels were not audited. #1604 repairs the graph; methanol ingredient wording and other non-graph fields remain #1606.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Methane-Derived Carbon Cross-Feeding</code>, <code>ecological_interactions#Methylotroph Growth in Methane-Fed Coculture</code>, <code>ecological_interactions#Gela4 Carbon-Metabolism Response in Coculture</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1169,7 +1178,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1182,7 +1190,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1282,7 +1289,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1292,10 +1299,6 @@
 
 
             var processes = [];
-
-
-            processes.push("acetate metabolic process");
-
 
             var evidenceCount = 2;
 
@@ -1326,7 +1329,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1347,7 +1350,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Methanol-Independent Methylotroph Response",
+                label: "Gela4 Carbon-Metabolism Response in Coculture",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

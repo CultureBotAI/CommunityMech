@@ -597,7 +597,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Pseudomonas-Klebsiella-Alcaligenes Fe2+ Nitrogen-Removal SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -605,8 +605,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -615,12 +615,21 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Composite nitrogen-removal metabolic network</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Pseudomonas stutzeri, Klebsiella sp., and Alcaligenes sp. were combined into a synthetic consortium spanning aerobic denitrification, facultative anaerobic denitrification, and heterotrophic nitrification-aerobic denitrification. Fe2+ chemical regulation increased nitrate-N removal efficiency relative to other iron species and shifted the metagenomic carbon and nitrogen network toward higher dissimilatory nitrate reduction to ammonium pathway abundance and lower denitrification pathway abundance.</p>
+                <p class="prewrap interaction-description">The three-member consortium showed higher nitrate-N removal under the reported iron-species treatment comparison and associated changes in carbon/nitrogen pathway abundance. PARTIAL: complementary named capabilities do not establish niche partitioning, member-specific contributions or measured pathway flux. The abstract labels the analysis metagenomic but calls the reported counts transcript abundance, leaving the measurement type unresolved.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas stutzeri,
+
+                    Klebsiella sp.,
+
+                    Alcaligenes sp.
+
+                </p>
 
 
 
@@ -682,6 +691,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42520901/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42520901</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"compared with the other iron species, the Fe2+ group achieved a 20-30% increase in nitrate-N removal efficiency"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -692,7 +714,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -705,6 +727,56 @@
                 <p class="muted small">Attaches to: <code>engineering_design#assembly_strategy</code>, <code>growth_media#Fe2+-regulated nitrogen-removal assay</code></p>
 
 
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    What measurement supports the reported pathway shift and net nitrogen fate?
+                </h3>
+                <p class="prewrap">The nitrate-N treatment response remains a measured positive endpoint. The accessible abstract mixes metagenomic sequencing with transcript-abundance terminology; it does not resolve that inconsistency, taxon-specific partitioning or flux. Nitrate disappearance alone does not establish whole-system nitrogen loss. Full text and complete nitrogen balances were not available in this review. No new arrows or experimental protocols were added.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Composite nitrogen-removal metabolic network</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">COMPUTATIONAL</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42520901/" rel="nofollow noreferrer">PMID:42520901</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Metagenomic analysis revealed that Fe2+ modulated the carbon and nitrogen metabolic networks: in the carbon metabolic network, enrichment of the por gene in the glycolytic pathway generated substantial reducing power in the form of reduced ferredoxin; concomitantly, the transcript abundance of the dissimilatory nitrate reduction to ammonium pathway increased from 775 to 802, whereas that of the denitrification pathway decreased from 1259 to 1222.</p>
+                        <p class="muted small prewrap">Supports the source-reported abundance shift with an unresolved metagenomic/transcript terminology inconsistency, not verified transcription, reducing-power production or nitrogen flux.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42520901/" rel="nofollow noreferrer">PMID:42520901</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">compared with the other iron species, the Fe2+ group achieved a 20-30% increase in nitrate-N removal efficiency</p>
+                        <p class="muted small prewrap">Supports Fe2+ as the iron species that increased nitrate-N removal efficiency.</p>
+                    </div>
+
+                </details>
 
 
             </div>
@@ -923,7 +995,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -936,7 +1007,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -997,7 +1067,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1012,7 +1082,7 @@
             processes.push("denitrification");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1026,6 +1096,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Pseudomonas stutzeri",
+
+                "Klebsiella sp.",
+
+                "Alcaligenes sp."
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

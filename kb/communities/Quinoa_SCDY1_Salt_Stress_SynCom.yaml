@@ -254,16 +254,16 @@ taxonomy:
     explanation: Identifies isolate 106 as a member of SCDY1.
 ecological_interactions:
 - name: SCDY1 Arabidopsis salt-stress growth promotion
-  description: SCDY1 improved Arabidopsis root elongation and biomass under moderate sodium-chloride stress, with the clearest
-    overall response at 120 mM NaCl.
-  interaction_type: MUTUALISM
+  description: SCDY1 improved Arabidopsis root elongation and biomass under moderate sodium-chloride stress, with
+    the clearest overall response at 120 mM NaCl. This is a host-growth outcome, not evidence of reciprocal fitness
+    benefits to the plant and bacterial members.
   scope: COMMUNITY_LEVEL
   evidence:
   - reference: doi:10.64898/2026.07.15.738596
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: SCDY1 promoted primary root elongation and biomass accumulation in a salinity-dependent manner, with the clearest
-      effect under 120 mM NaCl
+    snippet: SCDY1 promoted primary root elongation and biomass accumulation in a salinity-dependent manner, with
+      the clearest effect under 120 mM NaCl
     explanation: Supports the SCDY1 plant-growth phenotype under salt stress.
 environmental_factors:
 - name: primary NaCl screening stress
@@ -321,3 +321,22 @@ curation_history:
   action: CREATE_RECORD
   changes: Created CommunityMech:000459 for the nine-isolate quinoa-derived SCDY1 salt-stress SynCom from doi:10.64898/2026.07.15.738596.
   llm_assisted: true
+- timestamp: '2026-10-07T14:46:11Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain supported SCDY1 plant growth and its SUPPORT evidence; remove MUTUALISM because the cited evidence
+    does not establish reciprocal benefit, and record the abstract-only access boundary. Issue #1747; reports/causal_graph_review/decisions/20261007-four-records-batch92.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: scdy1_host_benefit_scope
+  prompt: Does SCDY1 confer reciprocal fitness benefits, and which mechanisms mediate the plant-growth response?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#SCDY1 Arabidopsis salt-stress growth promotion
+  rationale: The cited preprint abstract supports plant growth under salt stress and recovery of a subset of bacteria;
+    recoverability alone does not establish bacterial benefit or unaffected fitness. Host transcriptional and root-hair
+    responses are not demonstrated causal mediators. The complete preprint body was not retrieved in this review,
+    so missing access is not evidence that additional controls are absent. The independently retrieved accepted
+    journal abstract corroborates the endpoint, but does not supersede the historical preprint evidence. No COMMENSALISM
+    substitution or previously removed recovery/epidermal node is added.

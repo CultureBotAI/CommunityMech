@@ -546,7 +546,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Streptococcus mutans - Candida albicans ECC Biofilm Model</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for mutualism, colonization facilitation. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -561,6 +561,11 @@
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
                              aria-hidden="true" data-symbol="symbolPlus"
                              data-color="#edab12"></svg> Colonization facilitation
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -601,8 +606,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Synergistic Caries Virulence
-                        <p class="prewrap causal-description">The enhanced dual-species plaque biofilm is the infection state that drives higher microbial carriage and more aggressive carious lesions in vivo.</p>
+                        <span class="flow-arrow">→</span> Rodent Coinfection Carriage and Caries Outcome
+                        <p class="prewrap causal-description">PARTIAL: the mixed biofilm provides the proposed context for the greater disease severity in the rodent model. Coinfection establishes an effect on carriage and lesions, but does not isolate biofilm quantity as the necessary mediator of the lesion outcome or establish human disease causation.</p>
                     </div>
 
                 </div>
@@ -634,7 +639,7 @@
                     <h3>Candida-Driven EPS Amplification of Streptococcus mutans</h3>
                     <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Candida albicans promotes an EPS-rich matrix and higher viable Streptococcus mutans abundance within cospecies plaque biofilms.</p>
+                <p class="prewrap interaction-description">Candida albicans promotes an EPS-rich matrix and higher viable Streptococcus mutans abundance within cospecies plaque biofilms. This observation is from the in-vitro biofilm comparison, not a direct measurement of EPS mediation in animals.</p>
 
 
                 <p><strong>Source Taxon:</strong> Candida albicans</p>
@@ -681,7 +686,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/24566629/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24566629</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (IN_VITRO)
                         </div>
 
                         <div class="snippet">"The presence of C. albicans augments the production of exopolysaccharides (EPS), such that cospecies biofilms accrue more biomass and harbor more viable S. mutans cells than single-species biofilms."</div>
@@ -694,17 +699,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Synergistic Caries Virulence</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Rodent Coinfection Carriage and Caries Outcome</h3>
                 </div>
-                <p class="prewrap interaction-description">Coinfection with Streptococcus mutans and Candida albicans increases plaque infection burden and produces more aggressive carious lesions than either species alone.</p>
-
-
-                <p><strong>Source Taxon:</strong> Candida albicans</p>
+                <p class="prewrap interaction-description">The dual-species rodent infection model showed increased plaque microbial carriage and more severe carious lesions relative to the single-species groups. This is a community-associated host outcome, not itself a directed colonization benefit to S. mutans or proof of the same causal effect in children.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Streptococcus mutans</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Streptococcus mutans,
+
+                    Candida albicans
+
+                </p>
 
 
 
@@ -763,6 +771,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How much of the rodent lesion effect is mediated by the measured biofilm changes?
+                </h3>
+                <p class="prewrap">The fresh primary abstract and PubMed figure captions support reciprocal biofilm benefit, EPS-associated accumulation and the rodent coinfection outcome. Those positive observations remain. The EPS assay is in vitro; the rodent disease endpoint is distinct from recipient colonization. The existing disease arrow is retained as PARTIAL mediation. EuropePMC full-text retrieval returned HTTP500, so complete main-text, supplement and figure-pixel review is not claimed. Non-graph evidence labels remain separate follow-up work.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Cross-Kingdom Biofilm Enhancement</code>, <code>ecological_interactions#Candida-Driven EPS Amplification of Streptococcus mutans</code>, <code>ecological_interactions#Rodent Coinfection Carriage and Caries Outcome</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/24566629/" rel="nofollow noreferrer">PMID:24566629</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Our in vitro data also revealed that glucosyltransferase-derived EPS is a key mediator of cospecies biofilm development</p>
+                        <p class="muted small prewrap">Supports in-vitro mediation of biofilm development, not isolated mediation of the rodent lesion outcome.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -865,7 +912,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -878,7 +924,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1008,7 +1053,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1021,7 +1066,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Synergistic Caries Virulence",
+                label: "Rodent Coinfection Carriage and Caries Outcome",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1030,17 +1075,20 @@
             });
 
 
-            var srcKey = "Candida albicans";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Streptococcus mutans";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Streptococcus mutans",
+
+                "Candida albicans"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

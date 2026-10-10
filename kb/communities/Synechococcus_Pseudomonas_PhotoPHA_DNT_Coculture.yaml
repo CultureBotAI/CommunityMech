@@ -138,8 +138,10 @@ taxonomy:
     explanation: Supports P. putida cscRABY as the heterotrophic partner in the multi-omics coculture.
 ecological_interactions:
 - name: Photosynthetic Sucrose Cross-Feeding
-  description: S. elongatus cscB fixes CO2 using light energy, converts fixed carbon to sucrose, and exports
-    sucrose to support P. putida growth and metabolism.
+  description: 'S. elongatus cscB supplies photosynthetically derived sucrose to engineered P. putida partners.
+    This record spans distinct implementations: cscAB PHA production, cscRABY and its nitrate-blind derivative,
+    and EM173-derived DNT transformation. Their outcomes and growth-feedback assays are not interchangeable strain-level
+    observations.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -157,6 +159,7 @@ ecological_interactions:
     term:
       id: CHEBI:16526
       label: carbon dioxide
+    notes: Photosynthetic substrate, not the exchanged organic molecule.
   - preferred_term: sucrose
     term:
       id: CHEBI:17992
@@ -172,10 +175,13 @@ ecological_interactions:
       label: sucrose biosynthetic process
   downstream:
   - target: Heterotrophic PHA Accumulation
-    description: Secreted sucrose provides the carbon source for P. putida PHA biosynthesis.
+    description: Cyanobacterial sucrose supplies carbon for P. putida PHA accumulation in the production assays.
+      Polymer accumulation depends on the tested strain and nitrogen regime; the nitrate-blind comparison measures
+      final accumulation, not a production-rate increase.
   - target: DNT Biotransformation with Photosynthetic Carbon Input
-    description: Secreted sucrose supports active metabolism of engineered P. putida during pollutant
-      transformation.
+    description: In the separate EM173-derived DNT implementation, sucrose from encapsulated cyanobacteria supports
+      heterotrophic growth and metabolism during DNT biotransformation. This does not equate pollutant disappearance
+      with complete mineralization.
   evidence:
   - reference: PMID:28814973
     supports: SUPPORT
@@ -186,13 +192,12 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: cyanobacteria fix CO2 through photosynthetic metabolism and secrete sufficient carbohydrates
-    explanation: Supports photosynthetic CO2 fixation and carbohydrate secretion as the basis for P. putida
-      growth.
+    explanation: Supports photosynthetic CO2 fixation and carbohydrate secretion as the basis for P. putida growth.
 - name: Heterotrophic PHA Accumulation
-  description: P. putida consumes cyanobacterial sucrose-derived carbon and accumulates medium-chain-length
-    polyhydroxyalkanoates as a bioproduct, with nitrogen limitation or nitrate-blind engineering improving
-    production in related exact species-pair studies.
-  interaction_type: CROSS_FEEDING
+  description: P. putida cscAB accumulated medium-chain-length PHA from cyanobacterial sucrose, with 3-hydroxydecanoate
+    the most abundant monomer. A separate cscRABY nitrate-blind study reported an 8.8-fold increase in final PHA
+    accumulation relative to its nitrate-consuming reference, not a measured rate increase. These production phenotypes
+    are not additional cross-feeding events and do not establish PHB homopolymer identity.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Synechococcus elongatus PCC 7942 cscB
@@ -203,20 +208,15 @@ ecological_interactions:
     term:
       id: NCBITaxon:303
       label: Pseudomonas putida
-  source_taxon:
-    preferred_term: Pseudomonas putida engineered sucrose-utilizing partner
-    term:
-      id: NCBITaxon:303
-      label: Pseudomonas putida
   metabolites:
   - preferred_term: sucrose
     term:
       id: CHEBI:17992
       label: sucrose
-  - preferred_term: poly(3-hydroxybutyrate)
+  - preferred_term: polyhydroxyalkanoate
     term:
-      id: CHEBI:53389
-      label: poly(3-hydroxybutyrate)
+      id: CHEBI:78037
+      label: polyhydroxyalkanoate
   biological_processes:
   - preferred_term: sucrose catabolic process
     term:
@@ -226,18 +226,19 @@ ecological_interactions:
   - reference: PMID:28814973
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: maximal PHA production rate of 23.8
-    explanation: Supports PHA accumulation by the coculture under nitrogen-limiting conditions.
+    snippet: with 3-hydroxydecanoic acid being the most abundant monomer
+    explanation: The directly measured polymer composition is medium-chain-length PHA, not PHB.
   - reference: PMID:32523942
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: PHA produced from light and CO2 was 8.8 fold increased
-    explanation: Supports improved PHA production in a nitrate-blind P. putida variant of the same species-pair
-      platform.
+    snippet: these numbers are based on the snapshot at the end of the experiment
+    explanation: Bounds the strain comparison to final accumulation rather than production rate.
 - name: DNT Biotransformation with Photosynthetic Carbon Input
-  description: In the DNT-remediation implementation, engineered P. putida EM173 consumes cyanobacterial
-    sucrose and transforms 2,4-dinitrotoluene while S. elongatus provides photosynthetically fixed carbon.
-  interaction_type: CROSS_FEEDING
+  description: The EM173-derived P. putida EM.DNT.S partner transformed 2,4-DNT in coculture with alginate-encapsulated
+    S. elongatus CscB. Oxidative-intermediate measurements support pathway activity, whereas disappearance from
+    solution also includes adsorption and reductive transformation. Complete mineralization was not directly established;
+    the paper gives a model-based estimate. The same implementation accumulated PHA under nitrogen depletion, without
+    proving a PHB homopolymer composition.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Synechococcus elongatus PCC 7942 cscB
@@ -245,11 +246,6 @@ ecological_interactions:
       id: NCBITaxon:32046
       label: Synechococcus elongatus
   - preferred_term: Pseudomonas putida engineered sucrose-utilizing partner
-    term:
-      id: NCBITaxon:303
-      label: Pseudomonas putida
-  source_taxon:
-    preferred_term: Pseudomonas putida engineered sucrose-utilizing partner
     term:
       id: NCBITaxon:303
       label: Pseudomonas putida
@@ -271,17 +267,24 @@ ecological_interactions:
   - reference: PMID:32064751
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: degrade the environmental pollutant 2,4-dinitrotoluene (2,4-DNT)
-    explanation: Supports engineered P. putida-mediated DNT transformation in the photosynthetic coculture.
+    snippet: a portion of 2,4-DNT is also transformed via reductive processes
+    explanation: The source explicitly distinguishes alternative fates from the oxidative route.
   - reference: PMID:32064751
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: remediate the industrial pollutant 2,4-DNT while simultaneously synthesizing biopolymers
-    explanation: Supports the dual bioremediation and bioproduct function of the coculture.
+    snippet: we could not precisely quantitate the flux through the oxidative pathway with our data
+    explanation: Soluble pollutant loss is not a direct measure of complete oxidative mineralization.
+  - reference: PMID:32064751
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both engineered P. putida strains were able to accumulate the polymer under nitrogen-limited conditions
+    explanation: Supports the production endpoint in this implementation with its nitrogen boundary.
 - name: Growth-Promoting Partner Feedback
-  description: Multi-omics experiments indicate that P. putida cscRABY can improve S. elongatus cscB growth
-    and photosynthetic capacity, with additional molecular exchanges beyond sucrose likely contributing
-    to coculture dynamics.
+  description: 'In the cscRABY study, P. putida promoted cyanobacterial growth and prevented photobleaching in tested
+    contexts while receiving photosynthetic carbon. MUTUALISM here denotes that conditional carbon-supported partnership,
+    not a universal fitness response: P. putida growth was not improved relative to matched external-sucrose controls.
+    PARTIAL: additional molecular exchange and the mechanism of growth promotion remain hypotheses; mixed-cell omics
+    and transporter regulation do not identify a transferred mediator. Sucrose is not a reverse donation.'
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -294,11 +297,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:32046
       label: Synechococcus elongatus
-  metabolites:
-  - preferred_term: sucrose
-    term:
-      id: CHEBI:17992
-      label: sucrose
   evidence:
   - reference: PMID:38609451
     supports: SUPPORT
@@ -306,10 +304,15 @@ ecological_interactions:
     snippet: up to 80% increase in the growth rate and enhanced photosynthetic capacity
     explanation: Supports a positive effect of P. putida on the cyanobacterial partner.
   - reference: PMID:38609451
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: exchange of further molecules beyond the unidirectional feeding with sucrose
-    explanation: Supports additional interaction mechanisms beyond the engineered sucrose cross-feeding link.
+    explanation: The source strongly hints at additional exchange; it does not demonstrate its mediator or direction.
+  - reference: PMID:38609451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: which aligns with the expected outcome due to the same growth rate
+    explanation: Pseudomonas growth-rate comparison used matched sucrose-supplied axenic controls.
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: FLASK
@@ -605,3 +608,38 @@ related_ingredients:
     evidence_source: IN_VITRO
     snippet: promote dehydration of 3‐hydroxybutyrate into crotonic acid
     explanation: Names crotonic acid as the analytical proxy for PHA quantification.
+discussions:
+- discussion_id: pseudomonas-growth-feedback-mediator
+  prompt: Which mechanism causes cyanobacterial growth promotion in the cscRABY coculture?
+  rationale: The primary study supports conditional cyanobacterial growth benefit and carbon supply to Pseudomonas,
+    while matched external-sucrose controls show no heterotroph growth advantage. Transport regulation and mixed-cell
+    metabolomics suggest additional interactions but do not resolve donor-recipient flux or distinguish a specific
+    mediator from growth-state differences. Do not transfer this feedback to the cscAB or DNT implementation without
+    exact-system evidence.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  attaches_to:
+  - ecological_interactions#Growth-Promoting Partner Feedback
+  evidence:
+  - reference: PMID:38609451
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: attributing core metabolites to a specific co-culture partner is not possible
+    explanation: Explains why the omics findings cannot directly identify reciprocal transfer.
+curation_history:
+- timestamp: '2026-10-08T05:36:18Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain sucrose carbon support with separate production and DNT assay contexts.; Retain PHA phenotype
+    with correct polymer-family grounding and endpoint comparison.; Retain DNT transformation and PHA outcome without
+    inferring complete mineralization.; Preserve conditional growth partnership without reverse sucrose donation
+    or identified mediator. Issue#1858; reports/causal_graph_review/decisions/20261008-three-records-batch110.yaml
+  llm_assisted: true
+- timestamp: '2026-10-08T05:41:27Z'
+  curator: codex
+  action: CORRECT_EVIDENCE_SNIPPET
+  changes: Replace growth-rate excerpt with an exact passage shared by the primary XML and unchanged PDF cache;
+    the initial CLI rejected a PDF word-join artifact. Matched-control growth interpretation and graph topology
+    are unchanged. Issue#1858.
+  llm_assisted: true

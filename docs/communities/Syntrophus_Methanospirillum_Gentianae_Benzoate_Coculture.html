@@ -585,7 +585,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Syntrophus-Methanospirillum Gentianae Benzoate Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for syntrophy. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -598,8 +598,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -624,8 +624,8 @@
                 <p><strong>Metabolites:</strong>
 
                     benzoate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30746"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30746</a>),
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16150"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16150</a>),
 
                     acetate
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
@@ -696,24 +696,21 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Minimum Energy Threshold for Syntrophic Growth</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">During growth on benzoate, the free energy available to S. gentianae was near the lower limit for energy conservation, showing why syntrophic partner activity and product concentrations constrain the community.</p>
+                <p class="prewrap interaction-description">During growth of the methanogenic coculture, calculated free energy available to S. gentianae was -50 to -55 kJ per mol benzoate. The authors inferred an approximate -45 kJ/mol requirement for growth and energy conservation. This is a condition-dependent energetic constraint of the fermenter, not a second partner-directed syntrophy event or an invariant value for every suspension or perturbation.</p>
 
 
                 <p><strong>Source Taxon:</strong> Syntrophus gentianae</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Methanospirillum hungatei</p>
-
 
 
                 <p><strong>Metabolites:</strong>
 
                     benzoate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30746"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30746</a>)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16150"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16150</a>)
 
                 </p>
 
@@ -743,7 +740,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Methanogenic Benzoate Degradation
-                        <p class="prewrap causal-description">Accumulated acetate and hydrogen thermodynamically inhibit the syntrophic reaction, lowering benzoate-degradation rates when products build up.</p>
+                        <p class="prewrap causal-description">DIRECTLY IMPLIED: the fermenter must conserve sufficient energy to sustain growth-associated benzoate conversion. The observed endpoint correlates with residual substrate and calculated free energy; the inferred approximate growth threshold is not an independently manipulated universal constant.</p>
                     </div>
 
                 </div>
@@ -775,7 +772,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"minimum energy required for growth and energy conservation"</div>
+                        <div class="snippet">"minimum energy required for growth and energy conservation of the benzoate-fermenting bacterium S. gentianae is approximately -45 kJ (mol benzoate)-1"</div>
 
                     </li>
 
@@ -786,16 +783,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Product Inhibition of Benzoate Degradation</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">Acetate and hydrogen inhibited benzoate degradation thermodynamically, while acetate and propionate additions lowered the degradation rate, linking product accumulation to community performance.</p>
-
-
-                <p><strong>Source Taxon:</strong> Syntrophus gentianae</p>
+                <p class="prewrap interaction-description">Accumulated hydrogen and acetate constrain methanogenic benzoate degradation thermodynamically. Acetate and separately added propionate also lower degradation rate; propionate is not identified as a benzoate product here. These are metabolite and energetic constraints on the coculture, not competition between S. gentianae and M. hungatei. Rescue with added sulfate reducers or Methanosaeta changes community composition and is not an unmodified two-member outcome.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Methanospirillum hungatei</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Syntrophus gentianae,
+
+                    Methanospirillum hungatei
+
+                </p>
 
 
 
@@ -831,7 +831,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Minimum Energy Threshold for Syntrophic Growth
-                        <p class="prewrap causal-description">Hydrogen and acetate product accumulation constrain the free energy remaining to the benzoate-fermenting Syntrophus partner.</p>
+                        <p class="prewrap causal-description">Product accumulation changes the free energy available to the fermenter, bringing growth-associated benzoate conversion toward its energetic limit. Acetate also partly uncouples substrate degradation from energy conservation, so this does not assert that product addition changes a fixed intrinsic threshold.</p>
                     </div>
 
                 </div>
@@ -940,6 +940,45 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How do energetic limits vary with growth, dense suspensions and added partners?
+                </h3>
+                <p class="prewrap">The primary abstract distinguishes growing cocultures from cell suspensions and inhibitor or added-partner treatments. Its approximate -45 kJ/mol growth requirement is not a universal endpoint. The graph preserves product-inhibition constraints without encoding interspecies competition or treating expanded-community rescue as the original pair.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Minimum Energy Threshold for Syntrophic Growth</code>, <code>ecological_interactions#Product Inhibition of Benzoate Degradation</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/33657722/" rel="nofollow noreferrer">PMID:33657722</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">acetate also partly uncouples substrate degradation from energy conservation</p>
+                        <p class="muted small prewrap">This is an energetic constraint rather than a competition phenotype.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1287,7 +1326,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1300,7 +1338,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1402,7 +1439,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1437,16 +1474,11 @@
 
 
 
-            var tgtKey = "Methanospirillum hungatei";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1474,17 +1506,20 @@
             });
 
 
-            var srcKey = "Syntrophus gentianae";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Methanospirillum hungatei";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Syntrophus gentianae",
+
+                "Methanospirillum hungatei"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

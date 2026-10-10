@@ -646,7 +646,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Infant-gut Prebiotic-response SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -654,13 +654,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -668,13 +663,24 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Substrate-dependent cross-feeding network</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Substrate-Dependent Infant Community Interaction Responses</h3>
                 </div>
-                <p class="prewrap interaction-description">Mechanistic dissection using the defined SynCom revealed extensive cross-feeding networks and substrate-dependent interaction rewiring among community members in response to HMO, GOS, and 2&#39;FL.</p>
+                <p class="prewrap interaction-description">The primary preprint compares donor-derived infant fermentations with a separate six-species SynCom containing B. breve, B. infantis, P. vulgatus, E. coli, L. gasseri and R. gnavus. Substrate perturbations and semipermeable binary cultures show growth responses and substrate-dependent interactions, including relief of P. vulgatus inhibition with 2FL. Donor communities instead contain P. dorei and L. rhamnosus in the corresponding comparisons; abundance correlations there are not the same intervention. The four canonical entries are a cross-experiment subset, not a four-member assayed SynCom or a complete roster. Exact strains and missing members remain unresolved under #1514.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Bifidobacterium spp.,
+
+                    Bacteroides/Phocaeicola spp.,
+
+                    Phocaeicola vulgatus,
+
+                    Escherichia coli
+
+                </p>
 
 
 
@@ -697,13 +703,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Phocaeicola vulgatus hub modulates Escherichia coli metabolism
-                        <p class="prewrap causal-description">Substrate-dependent SynCom rewiring identifies P. vulgatus as the hub that reshapes succinate and propionate production and E. coli metabolic activity.</p>
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Lactate-mediated species-specific inhibition
-                        <p class="prewrap causal-description">Substrate-driven cross-feeding produces fermentation products whose chemical identity, including lactate, determines species-specific competitive inhibition.</p>
+                        <span class="flow-arrow">→</span> Species-Specific Lactate and Acetate Inhibition
+                        <p class="prewrap causal-description">PARTIAL - substrate-dependent fermentation can supply lactate whose accumulation may suppress susceptible members. Community metabolite profiles, binary growth responses and separate acid challenges support this route, but selective lactate depletion/rescue was not demonstrated in the inspected complete-community experiments; pH and other products can also contribute.</p>
                     </div>
 
                 </div>
@@ -732,17 +733,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Phocaeicola vulgatus hub modulates Escherichia coli metabolism</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Phocaeicola Omission Alters Community Metabolism and Ecoli Activity</h3>
                 </div>
-                <p class="prewrap interaction-description">Phocaeicola vulgatus acts as a context-dependent ecological hub that disproportionately shapes succinate and propionate production and alters Escherichia coli metabolic activity without changing its abundance.</p>
-
-
-                <p><strong>Source Taxon:</strong> Phocaeicola vulgatus</p>
+                <p class="prewrap interaction-description">Omitting P. vulgatus from the defined community changes succinate/propionate output and E. coli metabolic activity. Heavy-water Raman-FISH measurements under GOS found higher E. coli activity with P. vulgatus present, without an abundance change in that assay. This is positive community-context intervention evidence, not proof of direct two-member succinate or propionate transfer to E. coli. Growth in P. vulgatus-conditioned supernatants did not differ between GOS and glucose, leaving timing and other partners relevant. The listed taxa identify the omitted member and measured responder, not the whole tested community or universal abundance invariance.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Escherichia coli</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Phocaeicola vulgatus,
+
+                    Escherichia coli
+
+                </p>
 
 
 
@@ -780,19 +784,39 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.64898/2026.05.29.728681"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.64898/2026.05.29.728681</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"significantly higher activity when P. vulgatus was present"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Lactate-mediated species-specific inhibition</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>Species-Specific Lactate and Acetate Inhibition</h3>
                 </div>
-                <p class="prewrap interaction-description">Competitive outcomes were determined not only by environmental acidification but by the chemical identity of fermentation products, with lactate exerting species-specific inhibitory effects independent of bulk pH changes.</p>
+                <p class="prewrap interaction-description">The preprint reports stronger inhibition of P. vulgatus and R. gnavus by lactate than acetate at comparable concentrations, with E. coli less affected. P. vulgatus was also inhibited at pH 5, and the authors discuss additive effects of pH and acid identity. Preserve these positive challenge results without claiming a universally pH-independent mechanism or an inspected pH-clamped protocol: the exact acid-challenge protocol is not in the main Methods and the external supplement was not obtained. The canonical P. vulgatus and E. coli entries are the represented comparison subset; R. gnavus remains missing under #1514.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Phocaeicola vulgatus,
+
+                    Escherichia coli
+
+                </p>
 
 
 
@@ -822,7 +846,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"with lactate exerting species-specific inhibitory effects independent of bulk pH changes"</div>
+                        <div class="snippet">"stronger by lactate than acetate at comparable concentrations"</div>
 
                     </li>
 
@@ -835,6 +859,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which exact members and metabolites mediate the substrate-dependent responses?
+                </h3>
+                <p class="prewrap">Remove the network-overview-to-hub arrow, which describes identification of a component rather than a causal mechanism. Preserve the positive P. vulgatus omission result, with higher E. coli activity when present under GOS, and the separate acid challenge. Retain fermentation-to-inhibition only as PARTIAL. #1514 tracks the exact six-member roster, R. gnavus-dependent 2FL availability and missing ex-vivo mouse-colon outcome representation. Full/P. vulgatus-omitted supernatants both suppress motility; matched SCFAs do not reproduce it and PEA was below detection in SynCom. These do not prove infant in-vivo physiology or endogenous PEA mediation. Full version-1 primary main text, Methods and embedded figure captions read; external supplement, exact strain sheet, raw data, code and figure pixels not inspected. One-community Edison dry run only; no paid report or new graph structure. Non-graph pH/roster claims remain outside this repair.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Substrate-Dependent Infant Community Interaction Responses</code>, <code>ecological_interactions#Phocaeicola Omission Alters Community Metabolism and Ecoli Activity</code>, <code>ecological_interactions#Species-Specific Lactate and Acetate Inhibition</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -864,7 +907,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -877,7 +919,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -945,7 +986,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -958,7 +999,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Substrate-dependent cross-feeding network",
+                label: "Substrate-Dependent Infant Community Interaction Responses",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -969,11 +1010,28 @@
 
 
 
+            var participantKeys = [
+
+                "Bifidobacterium spp.",
+
+                "Bacteroides/Phocaeicola spp.",
+
+                "Phocaeicola vulgatus",
+
+                "Escherichia coli"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -984,11 +1042,11 @@
 
             var processes = [];
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Phocaeicola vulgatus hub modulates Escherichia coli metabolism",
+                label: "Phocaeicola Omission Alters Community Metabolism and Ecoli Activity",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -997,23 +1055,26 @@
             });
 
 
-            var srcKey = "Phocaeicola vulgatus";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Escherichia coli";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Phocaeicola vulgatus",
+
+                "Escherichia coli"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1026,7 +1087,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Lactate-mediated species-specific inhibition",
+                label: "Species-Specific Lactate and Acetate Inhibition",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1036,6 +1097,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Phocaeicola vulgatus",
+
+                "Escherichia coli"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

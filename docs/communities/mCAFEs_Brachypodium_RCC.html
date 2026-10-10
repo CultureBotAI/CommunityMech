@@ -844,7 +844,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for m-CAFEs Brachypodium Reduced Complexity Consortia</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -852,8 +852,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -862,10 +862,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Root Exudate-Mimicking Enrichment Assembly</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Co-localized microbes from Brachypodium roots grown in Angelo Coast Range Reserve soil were introduced into a multiplexed high-throughput enrichment design, coupling root-exudate-like carbon substrates to 3-day and 7-day transfers to produce fast- and slow-growing reduced-complexity consortia.
-</p>
+                <p class="prewrap interaction-description">A multiplexed enrichment experiment varied root-associated inocula, carbon conditions and 3-day versus 7-day transfer intervals to generate a collection of Brachypodium-derived RCC. It is not one fixed consortium of the ten listed representative taxa. The abiotic selection treatments are experimental inputs, not direct evidence that species partition niches or reduce competition.</p>
 
 
 
@@ -873,17 +871,6 @@
 
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -892,14 +879,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Carbon-Source ASV Sorting
-                        <p class="prewrap causal-description">The 768 enrichments crossed rhizosphere inocula with root-exudate carbon substrates, allowing carbon chemistry to sort enriched ASVs.
-</p>
+                        <p class="prewrap causal-description">Changing the supplied carbon condition alters the ASV composition of enrichment cultures, with inoculum source accounted for in comparisons. This experimentally imposed selection does not demonstrate reciprocal niche partitioning or consumption of distinct substrates by each named organism.</p>
                     </div>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Transfer-Interval Growth-Rate Sorting
-                        <p class="prewrap causal-description">The same enrichment design used serial 3-day and 7-day transfers to separate ASVs favored by fast and slow subculture intervals.
-</p>
+                        <span class="flow-arrow">→</span> Transfer-interval ASV abundance classification
+                        <p class="prewrap causal-description">Changing serial-transfer interval alters which ASVs are relatively enriched at later generations. The resulting 3-day/7-day abundance classification is a response to the transfer regime, not a direct per-ASV growth-rate measurement.</p>
                     </div>
 
                 </div>
@@ -944,10 +929,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Carbon-Source ASV Sorting</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Carbon substrate choice imposed a measurable selection on the enrichment communities: 1/10 R2A gave the broadest ASV enrichment and repeatedly selected Terriglobus and Arthrobacter, while asparagine selected Bradyrhizobium and a related rhizobial clade.
-</p>
+                <p class="prewrap interaction-description">Carbon amendments selected different ASVs in inoculum-stratified comparisons. Complex 1/10 R2A supported broad enrichment including Terriglobus and Arthrobacter; asparagine enriched Bradyrhizobium and a related rhizobial clade. The listed participants are representative named taxa, not all enriched ASVs. These relative-abundance changes do not isolate substrate consumption, microbial cooperation or reduced competition as their mechanism.</p>
 
 
 
@@ -1018,28 +1001,12 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Transfer-Interval Growth-Rate Sorting</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Transfer-interval ASV abundance classification</h3>
                 </div>
-                <p class="prewrap interaction-description">Later transfer generations were analyzed by 3-day versus 7-day interval, categorizing ASVs enriched at 3 days as fast growers and those enriched at 7 days as slow growers; 1/10 R2A, asparagine, and glucuronic acid best retained both growth-rate classes.
-</p>
+                <p class="prewrap interaction-description">For a fixed carbon source and original inoculum, ASVs more abundant after 7-day transfers than 3-day transfers were called slow growers, and the converse were called fast growers. The comparison used generations 6 and 9. These are operational relative-abundance classes, not measured isolate growth rates; transfer duration also changes other ecological conditions. The reported capacity of 1/10 R2A, asparagine and glucuronic acid to enrich both classes is retained. Network-hub genera are not substituted for the set of ASVs in this differential-abundance analysis.</p>
 
 
 
-
-                <p><strong>Participating Taxa:</strong>
-
-                    Methylobacterium,
-
-                    Stenotrophomonas,
-
-                    Pseudomonas,
-
-                    Terriglobus,
-
-                    Arthrobacter
-
-                </p>
 
 
 
@@ -1097,11 +1064,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Growth-Rate Hub Network Divergence</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Transfer-interval association-network hubs</h3>
                 </div>
-                <p class="prewrap interaction-description">NetCoMi analysis of 1/10 R2A core ASVs produced distinct 3-day and 7-day association networks: Methylobacterium-Methylorubrum, Stenotrophomonas, and Pseudomonas were hubs after 3-day transfers, whereas Terriglobus and Arthrobacter were hubs after 7-day transfers.
-</p>
+                <p class="prewrap interaction-description">NetCoMi Pearson-correlation analysis of core ASVs in the 1/10 R2A enrichments identified different high-eigenvector-centrality hubs in 3-day and 7-day networks. The named taxa are representative reported hubs, including the Methylobacterium-Methylorubrum source clade, not an exhaustive community roster. Association centrality does not establish ecological niche partitioning, directly measured growth rate, keystone necessity or plant-growth promotion by those ASVs.</p>
 
 
 
@@ -1124,17 +1089,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
 
 
 
@@ -1148,7 +1102,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/38846575/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38846575</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"ASVs belong to genus Methylobacterium-Methylorubrum, Stenotrophomonas, Pseudomonas are hubs for 3-day interval transfers
@@ -1162,11 +1116,24 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/38846575/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38846575</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"ASVs from family Rhizobiaceae, genus Lactobacillus, Terriglobus, and Arthrobacter are hubs for 7-day interval transfers
 "</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/38846575/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38846575</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"The hub node (keystone taxa) is identified if the node’s eigenvector centrality value is above the 90% quantile."</div>
 
                     </li>
 
@@ -1176,11 +1143,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Generational Keystone Persistence</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Recurring association-network hubs</h3>
                 </div>
-                <p class="prewrap interaction-description">Network comparisons across adjacent generations retained recurring hubs, including Paenibacillus, Sphingomonas, Mucilaginibacter, and Terriglobus, indicating that several low-abundance taxa stayed central after repeated passaging.
-</p>
+                <p class="prewrap interaction-description">Adjacent-generation network comparisons identified recurring hub taxa, including Paenibacillus, Sphingomonas, Mucilaginibacter and Terriglobus. This is persistence of a statistical hub designation across sampled transfers, not a taxon-removal test of community stability or direct measurement of niche partitioning. Inferred importance and PGP traits known for related genera are not validated functions of every enriched ASV.</p>
 
 
 
@@ -1201,17 +1166,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
 
 
 
@@ -1225,7 +1179,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/38846575/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38846575</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"certain keystone species, including members of the Rhizobiaceae family and the genera Paenibacillus, Sphingomonas, Mucilaginibacter, and Terriglobus, were consistent across multiple generations
@@ -1240,19 +1194,11 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>1/10 R2A Glycerol Stock Revival</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Five 1/10 R2A RCC glycerol stocks from 3-day and 7-day transfers were thawed, serially propagated, and resequenced, producing stable dominant genera and a revived-stock network in which Burkholderia remained a shared hub for both transfer intervals.
-</p>
+                <p class="prewrap interaction-description">Five selected 1/10 R2A RCC stocks were revived and serially propagated, with broadly consistent dominant genera and relative abundances in those tests. This does not establish universal revival of all initial enrichments, exact strain-level identity, or retention of every rare taxon. Burkholderia and Mesorhizobium were shared statistical hubs in the revived-stock networks, not demonstrated causes of revival. The original broad 1/10 R2A enrichments were less stable than most other carbon arms; that result is distinct from stability of these five selected stocks.</p>
 
 
 
-
-                <p><strong>Participating Taxa:</strong>
-
-                    Burkholderia
-
-                </p>
 
 
 
@@ -1296,7 +1242,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/38846575/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38846575</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"Genus Burkholderia and Mesorhizobium were shared keystone taxa among 3-day and 7-day intervals
@@ -1348,6 +1294,45 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which inferred RCC hubs have experimentally necessary ecological functions beyond association centrality?
+                </h3>
+                <p class="prewrap">The study manipulates carbon conditions and transfer intervals and directly tests selected-stock revival, but hub identity is assigned from correlation and eigenvector centrality. Taxon-removal/rescue, direct growth measurements and strain-resolved functional tests are needed before asserting niche partitioning, causal stabilization or PGP activity. The source represents multiple enrichments and selected stocks, not a single fixed ten-member community.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Root Exudate-Mimicking Enrichment Assembly</code>, <code>ecological_interactions#Carbon-Source ASV Sorting</code>, <code>ecological_interactions#Transfer-interval ASV abundance classification</code>, <code>ecological_interactions#Transfer-interval association-network hubs</code>, <code>ecological_interactions#Recurring association-network hubs</code>, <code>ecological_interactions#1/10 R2A Glycerol Stock Revival</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+
+
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/38846575/" rel="nofollow noreferrer">PMID:38846575</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">The hub node (keystone taxa) is identified if the node’s eigenvector centrality value is above the 90% quantile.</p>
+
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1540,7 +1525,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1553,7 +1537,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1663,14 +1646,10 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
 
             var evidenceCount = 2;
 
@@ -1691,7 +1670,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1734,7 +1713,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1747,7 +1726,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Transfer-Interval Growth-Rate Sorting",
+                label: "Transfer-interval ASV abundance classification",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1758,43 +1737,20 @@
 
 
 
-            var participantKeys = [
-
-                "Methylobacterium",
-
-                "Stenotrophomonas",
-
-                "Pseudomonas",
-
-                "Terriglobus",
-
-                "Arthrobacter"
-
-            ];
-            participantKeys.forEach(function(key) {
-                if (taxonNodeIds[key]) {
-                    links.push({ source: taxonNodeIds[key], target: intId });
-                }
-            });
-
         })();
 
         (function() {
             var intId = "interaction:3";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "Growth-Rate Hub Network Divergence",
+                label: "Transfer-interval association-network hubs",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1828,20 +1784,16 @@
 
         (function() {
             var intId = "interaction:4";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
 
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Generational Keystone Persistence",
+                label: "Recurring association-network hubs",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1873,7 +1825,7 @@
 
         (function() {
             var intId = "interaction:5";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1896,17 +1848,6 @@
 
 
 
-
-            var participantKeys = [
-
-                "Burkholderia"
-
-            ];
-            participantKeys.forEach(function(key) {
-                if (taxonNodeIds[key]) {
-                    links.push({ source: taxonNodeIds[key], target: intId });
-                }
-            });
 
         })();
 

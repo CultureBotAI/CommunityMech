@@ -113,11 +113,11 @@ taxonomy:
       asserting species identities absent from the abstract.
 ecological_interactions:
 - name: Staged metabolic hand-off across hydrolytic, acidogenic and methanogenic members
-  description: SynCom-YSJ is organized as a multi-stage consortium in which hydrolytic, acidogenic
-    and methanogenic members carry out sequential steps of anaerobic digestion, remodeling
-    metabolism so that hydrolysis and acidogenesis feed downstream methanogenesis. This staged
-    division of labor underlies its superior methane yield and reduced propionate accumulation
-    relative to the methanogen-only SynCom-J.
+  description: SynCom-YSJ combines hydrolytic, acidogenic and methanogenic members in reactors with a metabolically
+    complete native microbiome. Relative to the non-bioaugmented control, methane yield increased by 22% for YSJ
+    versus 8% for methanogen-only SynCom-J; YSJ nearly eliminated start-up lag. Both consortia reduced propionate
+    accumulation by 1.6-fold. PARTIAL - Staged metabolite hand-off is the proposed cross-feeding mechanism, not
+    a resolved transfer between particular introduced members or a YSJ-specific propionate advantage.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   metabolites:
@@ -142,32 +142,39 @@ ecological_interactions:
       id: GO:0015948
       label: methanogenesis
   downstream:
-  - target: Interspecies electron transfer supporting methanogenesis
-    description: Hydrolytic and acidogenic stages feed the methanogenic stage, while
-      SynCom-YSJ upregulates interspecies electron transfer and acetoclastic and
-      hydrogenotrophic methanogenesis as part of the same coordinated metabolic
-      remodeling program.
+  - target: Putative interspecies electron transfer supporting methanogenesis
+    description: HYPOTHESIZED - Hydrolytic and acidogenic processing can supply methanogenic substrates and thereby
+      support electron-transfer-associated methanogenesis. The available abstract reports coordinated functional
+      changes after bioaugmentation but does not resolve this mediation or separate introduced-member hand-off from
+      native-community activity.
   evidence:
+  - reference: PMID:41825563
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: a multi-stage consortium comprising hydrolytic, acidogenic, and methanogenic members (SynCom-YSJ)
+    explanation: Defines staged functional guilds; membership alone does not demonstrate donor-recipient flux.
   - reference: PMID:41825563
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: a multi-stage consortium comprising hydrolytic, acidogenic, and methanogenic members
-      (SynCom-YSJ)
-    explanation: Defines the staged functional membership (hydrolytic, acidogenic, methanogenic)
-      that hands metabolites down the anaerobic-digestion chain.
-- name: Interspecies electron transfer supporting methanogenesis
-  description: Metagenomic analysis of the SynCom-YSJ-bioaugmented digester showed upregulation of
-    genes for interspecies electron transfer alongside energy metabolism and acetoclastic and
-    hydrogenotrophic methanogenesis, indicating syntrophic electron exchange between acid-forming
-    members and methanogens.
-  interaction_type: SYNTROPHY
+    snippet: increased methane yield by 22% (vs. 8% for SynCom-J) and nearly eliminated the start-up lag phase,
+      while both consortia reduced propionate accumulation by 1.6-fold.
+    explanation: Preserves measured treatment effects and their non-bioaugmented comparator; both consortia reduce
+      propionate.
+- name: Putative interspecies electron transfer supporting methanogenesis
+  description: PARTIAL - Metagenomic analysis associates YSJ bioaugmentation with hydrolysis, acidogenesis, interspecies
+    electron transfer, energy metabolism and methanogenesis functions. The abstract calls this gene upregulation;
+    this metagenomic statement alone does not establish transcription, protein activity, measured electron flux,
+    direct electrical transfer or product-removal feedback making upstream metabolism favourable. Methane gains
+    are retained independently of the unresolved transfer mechanism. SYNTROPHY does not require obligacy in the
+    local schema; the unresolved feedback mechanism, not unproven obligacy, is the reason this node remains untyped.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methane
     term:
       id: CHEBI:16183
       label: methane
-    notes: Terminal product of the upregulated acetoclastic/hydrogenotrophic methanogenesis module.
+    notes: Methane output increases after bioaugmentation; its electron-transfer route is not resolved by the available
+      abstract.
   biological_processes:
   - preferred_term: electron transport chain
     term:
@@ -179,23 +186,23 @@ ecological_interactions:
       label: methanogenesis
   downstream:
   - target: Deterministic selection of the resident community by SynCom colonization
-    description: SynCom-YSJ metabolic reprogramming couples interspecies electron
-      transfer with acetoclastic and hydrogenotrophic methanogenesis, shifting acetate
-      and propionate pools in the digester microenvironment and selecting the resident
-      community.
+    description: HYPOTHESIZED - Electron-transfer-associated methanogenesis could alter acetate and propionate turnover,
+      changing the chemical environment that selects resident taxa. Bioaugmentation changes both function and community
+      structure; the abstract does not isolate electron transfer as the cause of pool shifts or deterministic selection.
   evidence:
   - reference: PMID:41825563
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: upregulating genes involved in hydrolysis, acidogenesis, interspecies electron
-      transfer, energy metabolism, and acetoclastic/hydrogenotrophic methanogenesis
-    explanation: Metagenomic evidence for interspecies electron transfer coupled to methanogenesis
-      within the bioaugmented consortium.
+    snippet: upregulating genes involved in hydrolysis, acidogenesis, interspecies electron transfer, energy metabolism,
+      and acetoclastic/hydrogenotrophic methanogenesis
+    explanation: Supports the authors metagenomic functional interpretation, not measured expression or an identified
+      electron carrier.
 - name: Deterministic selection of the resident community by SynCom colonization
-  description: Successful colonization by the SynComs reshaped the anaerobic-digestion
-    microenvironment (elevated acetate, reduced propionate, moderate non-inhibitory ammonia
-    increase), imposing deterministic selection on the resident native community.
-  interaction_type: COMPETITION
+  description: Successful SynCom colonization is reported with elevated acetate, reduced propionate and a moderate
+    non-inhibitory total-ammonia-nitrogen increase. PARTIAL - Deterministic selection through this changed environment
+    is the authors interpretation, not demonstration of pairwise resource competition. SynCom-J produced a more
+    robust network, whereas YSJ prioritized methane yield with a more complex network; higher methane output is
+    not universally greater network stability.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: acetate
@@ -210,11 +217,11 @@ ecological_interactions:
     notes: Short-chain VFA reduced in the SynCom-remodeled anaerobic-digester microenvironment.
   evidence:
   - reference: PMID:41825563
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: thereby imposing deterministic selection on the resident community
-    explanation: The introduced SynComs altered the shared microenvironment and deterministically
-      selected among resident taxa.
+    explanation: Reports the selection interpretation; it does not identify competitive fitness effects or isolate
+      individual environmental mediators.
 growth_media:
 - name: partially hydrolyzed food-waste feedstock (semi-continuous AD)
   atmosphere: ANAEROBIC
@@ -249,3 +256,37 @@ cultivation_setup:
     snippet: SynCom-YSJ consistently outperformed SynCom-J during the entire hydraulic retention time
     explanation: Establishes hydraulic retention time (HRT) as the operating retention-time basis of
       the reactor.
+discussions:
+- discussion_id: digestion_transfer_and_selection_mediation
+  prompt: Which selective mechanisms explain the measured community responses?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  posed_date: '2026-10-07'
+  rationale: 'Primary abstract supports positive bioaugmentation outcomes, not individually isolated links in the
+    staged hand-off/electron-transfer/environment-selection chain. Obtain authorized full Methods to distinguish
+    metagenomic abundance from expression, native from inoculated contributions, and direct from carrier-mediated
+    electron exchange. Preserve the observed function/stability trade-off and the existing membership follow-up
+    #183. Abstract-only access does not show that controls were absent. The local SYNTROPHY definition concerns
+    product-removal feedback and does not assert obligacy. Metagenomic functional association alone does not resolve
+    that feedback; retain the putative transfer interpretation without a categorical SYNTROPHY label.'
+  attaches_to:
+  - ecological_interactions#Staged metabolic hand-off across hydrolytic, acidogenic and methanogenic members
+  - ecological_interactions#Putative interspecies electron transfer supporting methanogenesis
+  - ecological_interactions#Deterministic selection of the resident community by SynCom colonization
+curation_history:
+- timestamp: '2026-10-07T03:09:29Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve methane gains and both-consortium propionate reduction; qualify guild hand-off and its downstream
+    mechanism.; Retain metagenomic transfer interpretation as PARTIAL, not expression, direct flux or obligate syntrophy.;
+    Retain environmental selection interpretation and function/stability trade-off; remove unsupported competition
+    label. Issue #1626; reports/causal_graph_review/decisions/20261007-four-records-batch75.yaml'
+  llm_assisted: true
+- timestamp: '2026-10-07T13:44:53Z'
+  curator: codex
+  action: REVIEW_INTERACTION_SEMANTICS
+  changes: 'Preserve measured methane/comparator outcomes and the qualified staged-transfer model.; Keep the metagenomically
+    inferred transfer node untyped for unresolved product-removal feedback, not unproven obligacy.; Preserve environmental
+    selection interpretation and function/stability distinction. Issue #1744; reports/causal_graph_review/decisions/20261007-five-records-batch91.yaml'
+  llm_assisted: true

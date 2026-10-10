@@ -741,7 +741,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Naica Deep Subsurface Thermophilic Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -749,13 +749,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -763,10 +758,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Thermophilic Archaeal and OP3 Selection</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Inferred Thermophily of Naica Archaeal and OP3 Lineages</h3>
                 </div>
-                <p class="prewrap interaction-description">The Naica hydrothermal aquifer selected archaeal and OP3 lineages with elevated 16S rRNA GC content, indicating thermophily in the low-diversity prokaryotic community.</p>
+                <p class="prewrap interaction-description">PARTIAL - Elevated 16S rRNA GC content suggests thermophily of detected archaeal lineages and some OP3 OTUs in Naica hydrothermal waters. This sequence-based inference is not a measured growth-temperature response or demonstrated ecological selection; it does not apply uniformly to all OP3 lineages.</p>
 
 
 
@@ -798,16 +792,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Thermophilic Ammonia Oxidation
-                        <p class="prewrap causal-description">The thermophilic environmental filter defines the hot, energy-limited niche in which Thaumarchaeota amoA genes support archaeal ammonia oxidation.</p>
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -819,10 +803,10 @@
                             <a href="https://doi.org/10.3389/fmicb.2013.00037"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2013.00037</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"The high GC content of 16S rRNA gene sequences belonging to the archaea and to some OP3 OTUs suggests that at least these lineages are thermophilic"</div>
+                        <div class="snippet">"high GC content of 16S rRNA gene sequences belonging to the archaea and to some OP3 OTUs suggests that at least these lineages are thermophilic"</div>
 
                     </li>
 
@@ -832,10 +816,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Thermophilic Ammonia Oxidation</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Putative Thermophilic Archaeal Ammonia Oxidation</h3>
                 </div>
-                <p class="prewrap interaction-description">Archaeal ammonia monooxygenase genes were amplified from Naica samples, supporting thermophilic ammonia oxidation by Thaumarchaeota in an extremely energy-limited aquifer.</p>
+                <p class="prewrap interaction-description">PARTIAL - Archaeal AamoA genes amplified from Naica water support putative ammonia-oxidizing capacity and the authors chemolithoautotrophic interpretation. Gene detection does not measure ammonia oxidation or carbon-fixation flux, assign activity to every detected archaeal lineage, or quantify ammonia and nitrite concentrations.</p>
 
 
                 <p><strong>Source Taxon:</strong> Thaumarchaeota</p>
@@ -862,9 +845,9 @@
                 <ul>
 
                     <li>
-                        nitrification
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019676"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019676</a>)
+                        ammonia oxidation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019329"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019329</a>)
                     </li>
 
                     <li>
@@ -888,10 +871,10 @@
                             <a href="https://doi.org/10.3389/fmicb.2013.00037"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2013.00037</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"Genes encoding archaeal ammonium monooxygenase (AamoA) were amplified, suggesting that Naica Thaumarchaeota are involved in nitrification"</div>
+                        <div class="snippet">"genes encoding archaeal ammonium monooxygenase (AamoA) were amplified, suggesting that Naica Thaumarchaeota are involved in nitrification"</div>
 
                     </li>
 
@@ -901,10 +884,10 @@
                             <a href="https://doi.org/10.3389/fmicb.2013.00037"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2013.00037</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"these organisms are likely thermophilic chemolithoautotrophs adapted to thrive in an extremely energy-limited environment"</div>
+                        <div class="snippet">"These organisms are likely thermophilic chemolithoautotrophs adapted to thrive in an extremely energy-limited environment"</div>
 
                     </li>
 
@@ -914,10 +897,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Electron Donor Limitation Filters Sulfate Reduction</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>Putative Electron-Donor Limitation of Sulfate Reduction</h3>
                 </div>
-                <p class="prewrap interaction-description">The sulfate-rich Naica aquifer lacks evidence that sulfate reduction is a dominant terminal metabolism; dsrAB marker amplification was unsuccessful, appreciable hydrogen sulfide was not detected, and the paper argues that both organic matter and hydrogen are extremely low. This electron-donor limitation constrains sulfate reduction despite the aquifer&#39;s sulfate abundance.</p>
+                <p class="prewrap interaction-description">PARTIAL - Failed dsrA amplification and reported lack of appreciable hydrogen sulfide led the authors to infer that sulfate reduction, if present, was not dominant in the sulfate-rich aquifer. They proposed low organic matter and hydrogen as an electron-donor constraint. Negative PCR is not pathway absence, and this explanation was not a donor-rescue experiment or demonstration of competition. Co-occurring AamoA detection does not establish a causal link to ammonia oxidation.</p>
 
 
 
@@ -955,16 +937,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Thermophilic Ammonia Oxidation
-                        <p class="prewrap causal-description">Electron-donor scarcity constrained sulfate reduction in the same energy-limited aquifer where archaeal AamoA genes supported ammonia oxidation by Thaumarchaeota.</p>
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -979,7 +951,7 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"We failed to amplify dsrA genes encoding the dissimilatory sulfite reductase, which further reinforces the idea that Naica-associated microbial communities do not"</div>
+                        <div class="snippet">"We failed to amplify dsrA genes encoding the dissimilatory sulfite reductase"</div>
 
                     </li>
 
@@ -989,7 +961,7 @@
                             <a href="https://doi.org/10.3389/fmicb.2013.00037"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2013.00037</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
                         <div class="snippet">"At any rate, for sulfate reduction to occur, either organic matter or inorganic electron donors, typically H2, must be present to fuel the redox reaction. However, both appear to be extremely low in the aquifer"</div>
@@ -1005,6 +977,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which observations distinguish activity and causal mediation from inferred potential?
+                </h3>
+                <p class="prewrap">Distinguish high-GC thermophily inference and AamoA capacity from measured growth and metabolic rates. Low-biomass sampling, primer detection limits and contamination considerations bound negative and positive detections. The source presents sulfate reduction as not dominant if present; hydrogen-sulfide absence includes unpublished observations. Test donor rescue and oxidation rates before adding causal arrows among co-occurring environmental explanations. Canonical taxonomic groundings are retained; non-graph physiological metadata needs separate reconciliation.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Inferred Thermophily of Naica Archaeal and OP3 Lineages</code>, <code>ecological_interactions#Putative Thermophilic Archaeal Ammonia Oxidation</code>, <code>ecological_interactions#Putative Electron-Donor Limitation of Sulfate Reduction</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1141,7 +1132,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1154,7 +1144,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1236,7 +1225,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1249,7 +1238,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Thermophilic Archaeal and OP3 Selection",
+                label: "Inferred Thermophily of Naica Archaeal and OP3 Lineages",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1279,7 +1268,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1291,7 +1280,7 @@
             var processes = [];
 
 
-            processes.push("nitrification");
+            processes.push("ammonia oxidation");
 
             processes.push("carbon fixation");
 
@@ -1300,7 +1289,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Thermophilic Ammonia Oxidation",
+                label: "Putative Thermophilic Archaeal Ammonia Oxidation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1320,7 +1309,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1341,7 +1330,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Electron Donor Limitation Filters Sulfate Reduction",
+                label: "Putative Electron-Donor Limitation of Sulfate Reduction",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

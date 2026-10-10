@@ -31,40 +31,38 @@ taxonomy:
       support_genomes: 52
       total_genomes: 61
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at f__ rank; 3 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at f__ rank;
+        3 GTDB taxa under the NCBI taxon]
     notes: Long multicellular filamentous bacteria mediating electrogenic sulfur oxidation in sediment.
   functional_role:
-  - SYNTROPHIC_PARTNER
   - CROSS_FEEDER
   evidence:
   - reference: PMID:25416774
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: belonging to the family Desulfobulbaceae
-    explanation: Supports conservative family-level taxonomy for cable bacteria in this sediment system.
+    explanation: Family-level cable-bacteria identity; oxygen consumption does not establish reciprocal syntrophy.
 - taxon_term:
-    preferred_term: oxygenic algal biofilm
+    preferred_term: diatom-dominated photosynthetic biofilm
     term:
-      id: NCBITaxon:3041
-      label: Chlorophyta
+      id: NCBITaxon:2836
+      label: Bacillariophyta
     gtdb_grounding_status: NO_GTDB_EQUIVALENT
-    notes: Photosynthetic algal biofilm at the sediment surface that changes oxygen availability under a
-      diel light-dark cycle.
+    notes: Phylum-level diatom grounding; the study does not identify a species or a defined two-member culture.
   functional_role:
   - PRIMARY_PRODUCER
   evidence:
   - reference: PMID:25416774
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: a photosynthetic algal biofilm
-    explanation: Supports inclusion of the phototrophic surface biofilm member.
+    snippet: dominated by diatoms
+    explanation: Experimental biofilm identity in Methods, not an assignment to green algae.
 ecological_interactions:
 - name: Photosynthesis Stimulates Cable-Bacteria Electron Harvesting
-  description: 'Photosynthetic oxygen supply from a diatom-dominated surface biofilm supports cable-bacteria sulfide
+  description: Photosynthetic oxygen supply from a diatom-dominated surface biofilm supports cable-bacteria sulfide
     oxidation. The light perturbation supports oxygen cross-feeding, but reciprocal benefit to the phototrophs is
-    not established. The record''s Chlorophyta roster conflicts with the primary source; explicit graph assignments
-    are withheld pending #1267. Community-level connectivity still inherits that unresolved roster, so this graph
-    is not fully certified.'
+    not established. Community-level scope uses the corrected phylum-level biofilm and family-level cable-bacteria
+    roster, not species-resolved partners or an isolated two-member culture.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   metabolites:
@@ -162,33 +160,32 @@ environmental_factors:
     snippet: free sulfide in deeper sediment horizons
     explanation: Supports deeper sulfide as the electron donor reservoir.
 related_ingredients:
-- preferred_term: sulfide
+- preferred_term: hydrogen sulfide
   chebi_term:
-    id: CHEBI:15138
-    label: sulfide(2-)
-  relevance: >
-    Free sulfide in the reduced sediment is the electron donor that cable bacteria oxidize,
-    harvesting electrons that are conducted to oxygen near the surface.
+    id: CHEBI:16136
+    label: hydrogen sulfide
+  relevance: H2S is the measured free-sulfide species. Calculated total sulfide includes H2S and HS-; this term
+    does not identify all dissolved sulfide as H2S or as sulfide(2-).
   evidence:
   - reference: PMID:25416774
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: harvesting electrons from free sulfide
-    explanation: Names sulfide as the electron-donor substrate for cable-bacteria oxidation.
+    snippet: free sulfide (H2S) is reported
+    explanation: Methods identify the measured species; no exclusive molecular uptake mechanism is inferred.
 - preferred_term: dioxygen
   chebi_term:
     id: CHEBI:15379
     label: dioxygen
-  relevance: >
-    Oxygen near the sediment-water interface is the terminal electron acceptor for long-distance
-    electron transfer, spatially separated from sulfide at depth.
+  relevance: 'Oxygen near the sediment-water interface is the terminal electron acceptor for long-distance electron
+    transfer, spatially separated from sulfide at depth.
+
+    '
   evidence:
   - reference: PMID:25416774
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: to oxygen present near the sediment-water interface
-    explanation: Names oxygen as the terminal electron acceptor at the
-      sediment-water interface.
+    explanation: Names oxygen as the terminal electron acceptor at the sediment-water interface.
 associated_datasets:
 - title: Cable bacteria photosynthetic biofilm sediment article
   dataset_type: PHENOTYPE
@@ -205,18 +202,17 @@ associated_datasets:
     explanation: Links this record to the primary cable-bacteria biofilm source.
 discussions:
 - discussion_id: cable_biofilm_taxonomy_and_redox_sites
-  prompt: Can the biofilm roster and redox-site mechanism be reconciled with the diatom-based primary experiment?
+  prompt: Which redox-site regulation or motility mechanisms explain the response, and do phototrophs benefit reciprocally?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#Photosynthesis Stimulates Cable-Bacteria Electron Harvesting
   - ecological_interactions#Electrogenic Sulfide Oxidation across Sediment Redox Zones
   - ecological_interactions#Rapid Redox Signal Transmission under Diel Illumination
-  rationale: 'The primary paper describes diatoms, not the assigned Chlorophyta. Explicit unsupported graph participants
-    were removed, but non-graph taxonomy and resulting community-level expansion remain unresolved: #1267 stays
-    open and review status is needs_research. Publisher main text through conclusions and cached abstract read,
-    not images/supplements. Hydrogen-sulfide versus calculated total-sulfide measurements do not establish related_ingredients
-    sulfide(2-) speciation. Exact regulation and motility need testing.'
+  rationale: 'Identity and chemical-grounding defects in #1267 are repaired, while species resolution and a defined
+    two-member culture remain unsupported. Regulation, motility and reciprocal benefit remain unresolved. The existing
+    bounds on replication and the inconsistent sulfide-depth significance claim remain; source access does not validate
+    these mechanisms.'
   posed_by: codex
   posed_date: '2026-10-05'
 curation_history:
@@ -225,4 +221,10 @@ curation_history:
   action: REVIEW_CAUSAL_GRAPH
   changes: 'Bound cable-bacteria oxygen coupling and expose unresolved biofilm taxonomy; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml;
     https://github.com/CultureBotAI/CommunityMech/issues/1267'
+  llm_assisted: true
+- timestamp: '2026-10-08T19:46:14Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Reconcile inherited cable-biofilm graph membership and sulfide grounding; preserve all three nodes, two
+    arrows and mechanism limits. Issue#1267; reports/causal_graph_review/decisions/20261008-cable-biofilm-batch125.yaml
   llm_assisted: true

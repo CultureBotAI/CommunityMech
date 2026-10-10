@@ -1,0 +1,204 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: b46d6272aa24de28b7e31995b74f7a306b387fff
+scope:
+- kb/communities/Model_Cyanobacterial_Consortia_Core_Microbiome.yaml
+- kb/communities/Model_Lignocellulose_Formaldehyde_Crossfeeding_Community.yaml
+- kb/communities/Moss_Microbe_Complex_Regolith_Biofertilizer.yaml
+- kb/communities/Mucin_Glycan_MDSC_Synthetic_Gut_Community.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch74.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch74.json
+findings:
+- issue: 1620
+  severity: P2
+  status: addressed_in_this_change
+  finding: Core membership, causal recruitment and putative functional inference.
+  disposition: Close only after protected-main merge.
+- issue: 1621
+  severity: P2
+  status: addressed_in_this_change
+  finding: Formaldehyde controls, conditional rescue, donor direction and engineering arrow.
+  disposition: Close only after protected-main merge.
+- issue: 1622
+  severity: P2
+  status: addressed_in_this_change
+  finding: Moss treatment comparators, shared outcomes and reciprocal fitness.
+  disposition: Close only after protected-main merge.
+- issue: 1623
+  severity: P2
+  status: addressed_in_this_change
+  finding: Mucin composition mediation and unresolved cross-feeding.
+  disposition: Close only after protected-main merge.
+- issue: 1624
+  severity: P2
+  status: unresolved_non_graph
+  finding: Core, strain and host metadata require separate reconciliation.
+  disposition: Keep OPEN after graph-repair merge.
+adversarial_checks:
+- Read all four whole records and every original node/arrow after the both-root baseline. Read three complete primary
+  main bodies, captions and embedded tables; no separate supplement, raw-data or figure-pixel audit. Moss scope
+  is primary abstract only after full access403, not evidence of absent controls.
+- Preserve108 retained cyanobacterial consortia and25 operational core species. Species occurrence18.5%-68.5% contradicts
+  universal membership. Both host and source effects are significant; authors explicitly lack cyanobacteria-free
+  controls. Repair the name, description and stale evidence explanation, not only the headline.
+- Genomic and plasmid enrichment are positive observations. Putative plasmid cobinning,98% noncircularized contigs
+  and bioinformatic removal do not prove biological plasmid dependence, metabolite exchange or reciprocal fitness.
+  Remove analytical-workflow edges without deleting observed nodes.
+- Retain formaldehyde generation0.6-0.8mM, C.fimi inhibition threshold0.5mM, and experimentally reduced accumulation
+  with M.extorquens. The formaldehyde-free PCA control still inhibits C.fimi; do not claim detoxification completely
+  restores growth or dominates inhibition.
+- Preserve two positive exchange results under their actual conditions. Selected CM4744 supports C.fimi without
+  supplied methionine only with added methanol/succinate; wild type does not. Separately C.fimi supports methylotroph
+  growth. Correct methionine donor direction; no claim of autonomous mutual codependence.
+- Iron/supplement rescue and spent-medium inhibition support multiple mechanisms, not an exclusive depleted resource.
+  Remove competition-to-engineered-exchange arrow because investigator selection is not biological induction of
+  overproduction. No new reverse edge or separate node added.
+- Moss primary abstract supports reported colonization facilitation, growth/soil gains and altered metabolite pools.
+  Preserve positive results while bounding endpoint comparators and colonization mediation. Shared-treatment outcomes
+  do not establish growth causing metabolite accumulation; joint application is not measured reciprocal fitness.
+- Mucin substrate changes directly affect composition, degradation and fermentation profiles. Retain composition-to-degradation
+  as PARTIAL mechanism, not a composition-only intervention. Preserve BSM O-glycan limitation versus N-glycan degradation,
+  residual added glycans and yeast-extract contribution. Do not infer A.muciniphila sialic-acid utilization from
+  enrichment.
+- Preserve existing MDSC pairwise-flux discussion and closed957/958/959 repairs. No taxonomy, strain identifier
+  or non-graph change. Metadata1624 separately tracks remaining whole-record scope; no synthetic member-specific
+  arrows invented.
+- Adversarial diff review found a remaining host-independent evidence explanation. Corrected before commit, added
+  explicit regression coverage and retained17 superseded outputs, then reran all affected and corpus gates. No stale
+  pre-fix pass is presented as final verification.
+- All13 nodes and7 original arrows have decisions;3 remain,4 noncausal links removed. All456 other records,920 caches
+  and raw non-graph blocks verified unchanged. Four append-only record/history events. Structural defects zero;44
+  baseline warnings unchanged, connectivity census unchanged.
+- Actual schema, strict, terms, references, snippets, history, both-root inventory/network/rank, repeat renders,
+  regression and lint results retained with digests. Exact descriptions parsed across456 pages, not browser screenshots.
+  Postcommit docs-current remains a separate publication gate.
+- Dedup scanned906 all-state issue titles/bodies and31 ignored/hidden local matches with explicit git/docs/site/cache
+  exclusions; prior957/958/959 fixes inspected. No exhaustive PR-comment audit or global source-absence claim. Repair1620-1623
+  stays OPEN until protected-main merge;1624 stays OPEN afterward.
+- No new causal topology and no paid provider submission. Existing denied/pending scoped authorizations unchanged.
+  Self-adversarial COMMENT is not independent approval and does not certify corpus completion.
+verification:
+  combined_regressions: 662 passed in 202.52s (0:03:22)
+  new_regression_tests: 7
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: All four full-record reference validators exit0. CLI Total checks counts issues, not executed checks.
+    All21 graph quotations match selected caches;17 automatically match fresh primary XML and4 moss quotations were
+    visually checked against the publisher-indexed primary abstract. Cache matching is not entailment. Full moss
+    access403; all920 caches unchanged, not recertified. Prior batch73 gallium non-graph reference exception remains
+    outside this batch.
+  snippet_counts_by_record:
+    kb/communities/Model_Cyanobacterial_Consortia_Core_Microbiome.yaml:
+      MATCH: 13
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Model_Lignocellulose_Formaldehyde_Crossfeeding_Community.yaml:
+      MATCH: 26
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Moss_Microbe_Complex_Regolith_Biofertilizer.yaml:
+      MATCH: 12
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Mucin_Glycan_MDSC_Synthetic_Gut_Community.yaml:
+      MATCH: 28
+      RENDERING: 2
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  primary_graph_snippet_proof:
+    automatically_primary_matched: 17
+    publisher_abstract_visual_matches: 4
+    new_nodes_or_arrows: 0
+    complete_primary_main_texts_read: 3
+    separate_supplements_or_original_figure_pixels_inspected: false
+  network:
+    existing_findings_preserved: 44
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All44 baseline warnings preserved exactly. Community scope remains aggregate, not resolved member-specific
+      activity. No taxonomy or auditor-rule changes.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch74.yaml: 4d975cf5114b018229e3fc8408b87ea6b43e50d5e40569c564aeefa4daffa8ca
+    tests/test_causal_review_batch74.py: 46f1cbe401d385001730f356bb6349965b3452c00c0f88f7b714d62f2b0c2cff
+    kb/communities/Model_Cyanobacterial_Consortia_Core_Microbiome.yaml: c995dcaed8253c17933f5cc48404f8a09438eb99dc975df2d717a08c24a69023
+    kb/communities/Model_Lignocellulose_Formaldehyde_Crossfeeding_Community.yaml: 1cdf5aaf167042938bdbdd8d9bcb0abaa322a0a4a99a7f05abd8b2658740e82c
+    kb/communities/Moss_Microbe_Complex_Regolith_Biofertilizer.yaml: 40f12b8a0f6ef7d64390819dd8c67282e465da6d24d5098d19080088dd04199d
+    kb/communities/Mucin_Glycan_MDSC_Synthetic_Gut_Community.yaml: 4ef5925538ded3549c72fd84eaa0786922b4f9565de33946289104cef18a5d49
+    reports/causal_graph_review/README.md: e8279363f25533e6b67b674def497791a94daea1f4c0219c7ac961ce72542a05
+  unchanged_caches: 920
+  unchanged_records: 456
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    rationale: Existing topology repaired; no new causal structure. Prior denied/pending scoped authorizations unchanged.
+  post_commit_docs_current: Separate publication gate, not asserted before commit.
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+    current:
+      records: 460
+      with_community_level: 393
+      mixed: 125
+      community_level_only: 268
+      taxa: 1511
+      credited_solely_by_the_rule: 1240
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: No scope-count change, taxonomy edit, or auditor-rule change. Removing group-level directional
+    taxa does not establish member-resolved activity.
+corpus:
+  records: 460
+  nodes: 1447
+  edges: 620
+  review_status_counts:
+    needs_research: 25
+    pending: 196
+    reviewed: 239
+limitations:
+- Baseline before paper research covered460 records and920 caches, including both roots and ignored/hidden YAML.
+  All13 existing nodes reviewed and retained;7 original arrows become3 after removing4 noncausal workflow/shared-outcome
+  links. No new nodes/arrows or paid provider calls.
+- Full primary main bodies, embedded tables and captions read for cyanobacteria, lignocellulose and mucin. Separate
+  supplements, raw data and original figure pixels were not audited. Moss publisher full access403; publisher-indexed
+  primary abstract visually checked, not full Methods. Abstract-only access is not proof no controls exist.
+- All21 graph quotations match selected existing caches;17 also match fresh primary XML with whitespace-only normalization
+  and4 moss quotations visually match the publisher-indexed abstract. Cache matching is not entailment. No complete
+  primary articles added to the repository; all920 caches preserved.
+- Core microbiome is operational, not universal or independent of host/inoculum; plasmid content and genomic function
+  support hypotheses, not measured exchange or fitness. Preserve positive replicated enrichment and stabilization.
+- Preserve formaldehyde lowering and positive growth assays; PCA control retains inhibition. Selected CM4744 methionine
+  rescue requires added producer substrate, and C.fimi-supported methylotroph growth is a separate assay. Canonical
+  species IDs preserved; strain metadata remains separate.
+- Preserve moss treatment gains and reported facilitation. Remove shared-outcome direction and reciprocal-fitness
+  labels, not positive growth. Retain mucin substrate effects, conditional composition mediation, O/N-glycan distinction
+  and measured profiles without inferred donor-recipient flux.
+- Scanned906 all-state issue titles/bodies for dedup with31 ignored/hidden local matches under explicit git/docs/site/cache
+  exclusions. Prior957/958/959 fixes retained;1093 is unrelated cache maintenance, not a duplicate. No exhaustive
+  historical PR-comment audit or global source-absence claim.
+- All raw non-graph blocks and456 other records preserved, not recertified. Metadata1624 remains OPEN after graph
+  repair. Repair1620-1623 remain OPEN until protected-main merge. Self-adversarial COMMENT is not independent approval.
+  The whole corpus is unfinished.

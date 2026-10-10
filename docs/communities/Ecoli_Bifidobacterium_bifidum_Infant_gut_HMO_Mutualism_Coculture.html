@@ -562,7 +562,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Escherichia coli + Bifidobacterium bifidum Infant-gut Mutualistic Co-culture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding, mutualism.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -587,7 +587,7 @@
                     <h3>Cysteine provision enabling cooperative 2&#39;-fucosyllactose degradation</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">E. coli supplies cysteine to the auxotrophic B. bifidum, facilitating cooperative degradation of 2&#39;-fucosyllactose, the predominant human milk oligosaccharide.</p>
+                <p class="prewrap interaction-description">In the nutrient-limited in vitro model, E. coli K12 supplies the cysteine requirement of an infant-stool B. bifidum isolate, enabling growth and 2-fucosyllactose degradation without added cysteine or casamino acids. The delta-cysE donor control impaired coculture growth and ethanol-killed partner controls failed to support it. This supports cysteine-dependent cooperation, not a measured cysteine export rate or proof of active secretion rather than overflow or lysis.</p>
 
 
                 <p><strong>Source Taxon:</strong> Escherichia coli</p>
@@ -619,8 +619,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Monosaccharide return sustaining E. coli growth
-                        <p class="prewrap causal-description">Cysteine supplied by E. coli enables B. bifidum to cooperatively degrade 2&#39;-fucosyllactose, liberating monosaccharides that return carbon to E. coli.
-</p>
+                        <p class="prewrap causal-description">Cysteine-dependent support from E. coli permits the auxotrophic B. bifidum partner to grow and degrade 2-fucosyllactose under the tested nutrient limitation, releasing sugar substrates usable by E. coli. The mutant and killed-partner controls support the dependency; the sugar-consumption assay separately required spent-medium pH adjustment to 6.3.</p>
                     </div>
 
                 </div>
@@ -643,6 +642,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42020426/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42020426</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"observing a significant impairment of growth"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -652,7 +664,7 @@
                     <h3>Monosaccharide return sustaining E. coli growth</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Monosaccharides liberated from cooperative 2&#39;-fucosyllactose degradation sustain E. coli growth, completing a cooperative cross-feeding loop that may help regulate E. coli abundance in the infant gut.</p>
+                <p class="prewrap interaction-description">B. bifidum degraded 2-fucosyllactose and left fucose and galactose that E. coli K12 subsequently consumed, measured by chromatography. E. coli grew in this spent medium only after pH readjustment from 4.3 to 6.3. This measured in vitro return of carbon does not establish that the same exchange controls E. coli abundance in infants or quantify sugar-to-cysteine flux in coculture.</p>
 
 
                 <p><strong>Source Taxon:</strong> Bifidobacterium bifidum</p>
@@ -680,14 +692,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Cysteine provision enabling cooperative 2&#39;-fucosyllactose degradation
-                        <p class="prewrap causal-description">Monosaccharides returned from B. bifidum sustain E. coli growth and close the cooperative loop that maintains cysteine provisioning to the auxotroph.
-</p>
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Cooperative Infant-Gut HMO Mutualism
-                        <p class="prewrap causal-description">Reciprocal cysteine and monosaccharide exchange completes the cooperative HMO-fed loop between E. coli and B. bifidum.
-</p>
+                        <p class="prewrap causal-description">PARTIAL - accessible HMO-derived sugars sustain E. coli growth and can maintain the donor population supporting the cysteine-dependent partner. Reciprocal nutrient dependence is experimentally supported, but a time-resolved sugar-to-cysteine feedback gain or isotope-resolved flux was not measured; the separate spent-medium assay required pH 6.3.</p>
                     </div>
 
                 </div>
@@ -710,6 +715,32 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42020426/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42020426</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"B. bifidum efficiently degraded 2’FL, but left galactose and fucose unconsumed"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42020426/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42020426</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"growth only when the pH was adjusted to its initial value of 6.3"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -719,8 +750,7 @@
                     <h3>Cooperative Infant-Gut HMO Mutualism</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">E. coli cysteine provision to B. bifidum and B. bifidum monosaccharide liberation from 2&#39;-fucosyllactose form a reciprocal, cooperative cross-feeding loop that sustains both partners in the infant-gut two-member model.
-</p>
+                <p class="prewrap interaction-description">E. coli K12 and the infant-stool B. bifidum isolate co-grew in modified M9 with 0.5% 2-fucosyllactose and without added cysteine or casamino acids. Cysteine dependence, viable-partner controls and measured sugar utilization support reciprocal benefit in this restricted laboratory model. This node summarizes that exchange rather than adding a separate downstream outcome. Its prevalence, strength and effect on E. coli abundance in living infants remain untested.</p>
 
 
 
@@ -793,6 +823,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How strongly does the measured laboratory exchange operate in the infant gut?
+                </h3>
+                <p class="prewrap">The K12 donor and infant B. bifidum isolate support nutrient-limited reciprocal cooperation, not a universal species-level interaction or demonstrated regulation of E. coli abundance in vivo. Chromatographic sugar data and a delta-cysE control do not resolve cysteine release route, export rate or isotope-resolved feedback. The pH-adjusted spent-medium assay is distinct from the live coculture. The sugar-to-mutualism summary arrow is removed as a part/whole restatement, not an independently supported causal consequence. Experimental-strain and 0.1% screening versus 0.5% coculture metadata remain under #1428.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Cysteine provision enabling cooperative 2&#39;-fucosyllactose degradation</code>, <code>ecological_interactions#Monosaccharide return sustaining E. coli growth</code>, <code>ecological_interactions#Cooperative Infant-Gut HMO Mutualism</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -913,7 +962,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -926,7 +974,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -991,7 +1038,7 @@
 
             var processes = [];
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1029,7 +1076,7 @@
 
             var processes = [];
 
-            var evidenceCount = 1;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,

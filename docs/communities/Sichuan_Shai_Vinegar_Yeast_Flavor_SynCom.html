@@ -686,7 +686,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Sichuan Shai Vinegar Yeast Flavor SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -699,8 +699,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -711,10 +711,8 @@
                     <h3>Saccharomyces ethanol provisioning for ester synthesis</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">S. cerevisiae produced ethanol that served as a precursor for ester synthesis by the other yeasts.</p>
+                <p class="prewrap interaction-description">The study reports S. cerevisiae-derived ethanol as a precursor for ester synthesis by other yeasts in the four-species comparison panel. The listed participants delimit that panel, not proof of transfer to every named member. S. cerevisiae was not a member of the separately selected three-yeast combination.</p>
 
-
-                <p><strong>Source Taxon:</strong> Saccharomyces cerevisiae</p>
 
 
 
@@ -760,7 +758,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Pichia-dominated ester synthesis
-                        <p class="prewrap causal-description">Ethanol from S. cerevisiae served as a precursor for ester synthesis by other yeasts.</p>
+                        <p class="prewrap causal-description">PARTIAL: reported ethanol provisioning supplies a substrate for ester synthesis, which was dominated by P. kudriavzevii in the comparison panel. The abstract does not isolate a specific S. cerevisiae-to-P. kudriavzevii transfer or establish this route in the selected trio, which excludes S. cerevisiae.</p>
                     </div>
 
                 </div>
@@ -790,7 +788,6 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Pichia-dominated ester synthesis</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
                 <p class="prewrap interaction-description">P. kudriavzevii dominated ester synthesis in the defined yeast co-culture comparison.</p>
 
@@ -808,16 +805,6 @@
 
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Three-yeast acid and flavor optimum
-                        <p class="prewrap causal-description">P. kudriavzevii was retained in the three-member consortium that optimized acid and flavor output.</p>
-                    </div>
-
-                </div>
 
 
 
@@ -844,7 +831,6 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Brettanomyces characteristic flavor production</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
                 <p class="prewrap interaction-description">B. bruxellensis primarily produced characteristic flavor compounds including acetaldehyde and 4-ethylguaiacol.</p>
 
@@ -896,7 +882,6 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Kazachstania-driven acidification</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
                 <p class="prewrap interaction-description">K. humilis efficiently produced acids and accelerated acidification.</p>
 
@@ -914,16 +899,6 @@
 
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Three-yeast acid and flavor optimum
-                        <p class="prewrap causal-description">K. humilis acidification was one of the functional roles represented in the optimal three-yeast consortium.</p>
-                    </div>
-
-                </div>
 
 
 
@@ -949,10 +924,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Three-yeast acid and flavor optimum</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Three-Yeast Acid and Flavor Comparison Outcome</h3>
                 </div>
-                <p class="prewrap interaction-description">The P. kudriavzevii, K. humilis, and B. bruxellensis combination showed optimal synergy, peak total-acid and acetic-acid contents, and enhanced characteristic flavor profiles.</p>
+                <p class="prewrap interaction-description">Within the tested early-fermentation comparisons, the P. kudriavzevii, K. humilis and B. bruxellensis combination had the reported peak total-acid and acetic-acid contents and enhanced characteristic flavor profiles. This is a configuration-level outcome, not a universal optimum or proof of reduced competition. Untargeted metabolomics implicated pyruvate-associated pathways without tracing pyruvate exchange or establishing pathway causation.</p>
 
 
 
@@ -1022,7 +996,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41344775/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41344775</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"this combination efficiently regulated multiple flavor biosynthesis pathways through pyruvate-mediated metabolic hubs"</div>
@@ -1039,7 +1013,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -1052,6 +1026,41 @@
                 <p class="muted small">Attaches to: <code>taxonomy#Pichia kudriavzevii</code>, <code>taxonomy#Kazachstania humilis</code>, <code>taxonomy#Brettanomyces bruxellensis</code>, <code>growth_media#simulated Sichuan Shai vinegar solid-state fermentation</code></p>
 
 
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which tested configurations resolve ethanol recipient identity and individual contributions to the reported three-yeast outcome?
+                </h3>
+                <p class="prewrap">The primary abstract and committed abstract were checked. It reports precursor use and distinct production roles, but neither reduced competition nor isolated contributions to the joint endpoint. The selected trio excludes the ethanol donor. The publisher request returned 403; bounded exact-title/DOI searches did not yield an independently verified complete article. Configuration-specific primary results would resolve attribution; the existing methods discussion remains separate.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Saccharomyces ethanol provisioning for ester synthesis</code>, <code>ecological_interactions#Pichia-dominated ester synthesis</code>, <code>ecological_interactions#Brettanomyces characteristic flavor production</code>, <code>ecological_interactions#Kazachstania-driven acidification</code>, <code>ecological_interactions#Three-Yeast Acid and Flavor Comparison Outcome</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/41344775/" rel="nofollow noreferrer">PMID:41344775</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Saccharomyces cerevisiae produced ethanol, which served as a precursor for ester synthesis by other yeasts.</p>
+                        <p class="muted small prewrap">Supports ethanol supply by S. cerevisiae as an input to ester synthesis by partner yeasts.</p>
+                    </div>
+
+                </details>
 
 
             </div>
@@ -1237,7 +1246,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1250,7 +1258,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1344,18 +1351,30 @@
             });
 
 
-            var srcKey = "Saccharomyces cerevisiae";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Saccharomyces cerevisiae",
+
+                "Pichia kudriavzevii",
+
+                "Kazachstania humilis",
+
+                "Brettanomyces bruxellensis"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1390,7 +1409,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1429,7 +1448,7 @@
 
         (function() {
             var intId = "interaction:3";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1464,7 +1483,7 @@
 
         (function() {
             var intId = "interaction:4";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1479,7 +1498,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Three-yeast acid and flavor optimum",
+                label: "Three-Yeast Acid and Flavor Comparison Outcome",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

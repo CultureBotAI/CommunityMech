@@ -601,7 +601,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Lac Pavin Permanently Stratified Lake Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -609,8 +609,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -618,13 +618,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Oxygen-Driven Carbon-Fixation Niche Partitioning</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Depth-Associated Carbon Metabolic Potential</h3>
                 </div>
-                <p class="prewrap interaction-description">Distinct C1 and CO2 fixation pathways are enriched in the oxic lake interface versus the anoxic zone and sediments, indicating oxygen-dependent niche partitioning among non-CPR bacteria and archaea.</p>
+                <p class="prewrap interaction-description">Genome-resolved metagenomics associates Calvin-cycle potential with shallower lake zones and Wood-Ljungdahl/reverse-TCA potential with anoxic water and sediments. PARTIAL - depth and oxygen co-vary with light and other geochemistry; this is genetic potential, not measured carbon-fixation flux or an isolated oxygen effect. The listed Archaea participant represents only the canonical archaeal component; most non-CPR bacterial lineages in this analysis are absent from the record roster.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    sediment methanogenic archaea
+
+                </p>
 
 
 
@@ -651,21 +656,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Spatial Separation of Methane Oxidation and Production
-                        <p class="prewrap causal-description">Oxygen-driven compartmentalization separates methane oxidation in the water column from methane production by sediment methanogens.</p>
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> CPR and DPANN RuBisCO Distribution
-                        <p class="prewrap causal-description">The same lake-depth gradient structures RuBisCO-bearing CPR bacteria in the water column and DPANN archaea in the sediments.</p>
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -677,7 +667,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/36694212/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:36694212</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"enrichment of distinct C1 and CO2 fixation pathways in the oxic lake interface and anoxic zone/sediments"</div>
@@ -690,13 +680,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Spatial Separation of Methane Oxidation and Production</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Spatial Separation Of Methane-Cycle Genetic Potential</h3>
                 </div>
-                <p class="prewrap interaction-description">Methane oxidation and its byproducts are largely spatially separated from methane production, indicating depth-resolved compartments for the two halves of the methane cycle.</p>
+                <p class="prewrap interaction-description">Methane-monooxygenase genetic potential is concentrated near the lake interface, with low-abundance occurrences in anoxic water, whereas mcr genes are mainly sediment-associated and also occur in the anoxic zone. This is largely separated potential, not strictly exclusive compartments or measured methane flux. Genome recovery is incomplete, so nondetection is not proof of absence. The listed sediment-methanogen aggregate does not resolve the missing bacterial methane oxidizers.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    sediment methanogenic archaea
+
+                </p>
 
 
 
@@ -734,7 +729,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/36694212/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:36694212</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"the oxidation of methane and its byproducts is largely spatially separated from methane production"</div>
@@ -747,13 +742,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>CPR and DPANN RuBisCO Distribution</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>CPR And DPANN RuBisCO-Associated CO2 Incorporation Potential</h3>
                 </div>
-                <p class="prewrap interaction-description">RuBisCO genes occur throughout the Lac Pavin water column and sediments, including form II/III and form III-related enzymes encoded by CPR bacteria in the water column and DPANN archaea in sediments, indicating depth-partitioned carbon-fixation potential in small symbiont lineages.</p>
+                <p class="prewrap interaction-description">CPR water-column genomes encode form II/III and III-c RuBisCO, and sediment DPANN genomes include form III-related enzymes. PARTIAL - these variants suggest CO2 incorporation through a free-nucleotide pathway, not complete Calvin-cycle autotrophy or measured CO2 fixation. CPR gene repertoires show weak depth differentiation overall; host-mediated selection is a hypothesis, not an established consequence of the carbon-fixation node.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    water-column Candidate Phyla Radiation (CPR) bacteria,
+
+                    sediment DPANN archaea
+
+                </p>
 
 
 
@@ -791,10 +793,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/36694212/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:36694212</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"we detected evidence for RuBisCO throughout the water column and sediments, including form II/III and form III-related enzymes encoded by CPR bacteria in the water column and DPANN archaea in the sediments"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/36694212/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:36694212</a>
+
+                            - PARTIAL (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"Both form II/III and all form III RuBisCO likely function by incorporating carbon dioxide with a free nucleotide"</div>
 
                     </li>
 
@@ -807,6 +822,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which depth-associated capacities are expressed and mediate carbon flux?
+                </h3>
+                <p class="prewrap">Drop both common-gradient arrows: co-varying genomic distributions do not establish carbon fixation as a cause of methane-cycle separation or CPR/DPANN RuBisCO distributions. Retain all three positive observations as potential. The 738 genomes cover only part of the community; nondetection and incomplete genomes cannot establish pathway absence. Oxygen, light and other geochemistry co-vary. CPR repertoires are weakly differentiated by depth, with host selection proposed. Canonical participants are incomplete: Archaea represents only the listed archaeal component, not all carbon-fixing bacteria or methane oxidizers. #1553 tracks roles and missing taxonomy/non-graph evidence. Main text/captions read, not raw genomes, separate supplements or figure pixels.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Depth-Associated Carbon Metabolic Potential</code>, <code>ecological_interactions#Spatial Separation Of Methane-Cycle Genetic Potential</code>, <code>ecological_interactions#CPR And DPANN RuBisCO-Associated CO2 Incorporation Potential</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -949,7 +983,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -962,7 +995,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1023,7 +1055,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1040,7 +1072,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Oxygen-Driven Carbon-Fixation Niche Partitioning",
+                label: "Depth-Associated Carbon Metabolic Potential",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1051,11 +1083,22 @@
 
 
 
+            var participantKeys = [
+
+                "sediment methanogenic archaea"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1072,7 +1115,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Spatial Separation of Methane Oxidation and Production",
+                label: "Spatial Separation Of Methane-Cycle Genetic Potential",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1083,11 +1126,22 @@
 
 
 
+            var participantKeys = [
+
+                "sediment methanogenic archaea"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1100,11 +1154,11 @@
             processes.push("carbon fixation");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "CPR and DPANN RuBisCO Distribution",
+                label: "CPR And DPANN RuBisCO-Associated CO2 Incorporation Potential",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1114,6 +1168,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "water-column Candidate Phyla Radiation (CPR) bacteria",
+
+                "sediment DPANN archaea"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

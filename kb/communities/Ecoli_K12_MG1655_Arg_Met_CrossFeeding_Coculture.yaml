@@ -110,7 +110,10 @@ taxonomy:
     explanation: Identifies the methionine-auxotrophic, arginine-overproducing member.
 ecological_interactions:
 - name: ΔargA-ΔmetJ methionine cross-feeding
-  description: The ΔargA-ΔmetJ member overproduces methionine that supports the methionine-requiring ΔmetA-ΔargR partner.
+  description: The delta-argA/delta-metJ mutant overproduces methionine supporting the methionine-requiring delta-metA/delta-argR
+    partner under the tested amino-acid limitation. Both strains are E. coli K-12 MG1655 derivatives. Reciprocal
+    growth dependence does not resolve the release route or single-cell export flux, and supplemented cultures need
+    not remain obligately mutualistic.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -138,14 +141,18 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: ΔargA-ΔmetJ required arginine (Arg) to grow but overproduced methionine (Met)
-    explanation: Supports methionine overproduction by the ΔargA-ΔmetJ member and arginine auxotrophy in that same member.
+    explanation: Supports methionine overproduction by the ΔargA-ΔmetJ member and arginine auxotrophy in that same
+      member.
   - reference: PMID:42592155
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: cooperated by exchanging two essential AAs (Met and Arg)
     explanation: Supports reciprocal amino-acid exchange in the engineered pair.
 - name: ΔmetA-ΔargR arginine cross-feeding
-  description: The ΔmetA-ΔargR member overproduces arginine that supports the arginine-requiring ΔargA-ΔmetJ partner.
+  description: The delta-metA/delta-argR mutant supplies arginine supporting the arginine-requiring delta-argA/delta-metJ
+    partner under the tested amino-acid limitation. The same canonical taxon ID represents distinct engineered genotypes,
+    not one organism acting on itself. Supplementation can remove partner dependence; this is not universal obligate
+    exchange across media.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -173,15 +180,20 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: ΔmetA-ΔargR needed Met but overproduced Arg
-    explanation: Supports arginine overproduction by the ΔmetA-ΔargR member and methionine auxotrophy in that same member.
+    explanation: Supports arginine overproduction by the ΔmetA-ΔargR member and methionine auxotrophy in that same
+      member.
   - reference: PMID:42592155
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: cooperated by exchanging two essential AAs (Met and Arg)
     explanation: Supports reciprocal amino-acid exchange in the engineered pair.
 - name: Arg-Met obligate mutualism increases cell noise
-  description: The reciprocal Arg/Met exchange formed a two-way positive, obligate mutualistic cross-feeding system and increased
-    single-cell fluorescence noise in each strain population relative to mono-cultures.
+  description: 'In the tested nutrient-limited Arg/Met coculture, reciprocal exchange was associated with higher
+    single-cell fluorescent-reporter coefficient of variation than in supplemented monocultures. Mean amino-acid
+    matching controls supported a heterogeneity interpretation. Reporter amino-acid sensitivity and experimental
+    context matter: this is not a direct measurement of intrinsic transcriptional noise, a universal protein-noise
+    effect or evidence that noise causes community collapse. MUTUALISM denotes the restricted reciprocal-growth
+    model, not every supplementation condition.'
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -202,22 +214,19 @@ ecological_interactions:
     term:
       id: CHEBI:29016
       label: arginine
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:42592155
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: forming an obligate mutualistic relationship through exchanging essential AAs with each other
-    explanation: Supports the two-way obligate mutualism created by reciprocal amino-acid exchange.
+    explanation: Supports reciprocal obligation under the tested nutrient limitation; supplementation changes the
+      interaction.
   - reference: PMID:42592155
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: cross-feeding consistently increased cell noise of two populations
-    explanation: Supports increased cell noise as an emergent result of the Arg/Met cross-feeding pair.
+    explanation: Supports the fluorescent-reporter CV endpoint in the tested Arg/Met system, not all reporters or
+      resolved intrinsic transcriptional noise.
 environmental_factors:
 - name: Arginine and methionine reciprocal auxotrophy
   value: ΔargA-ΔmetJ requires Arg and overproduces Met; ΔmetA-ΔargR requires Met and overproduces Arg
@@ -369,28 +378,45 @@ external_resources:
     explanation: Lists the PubMed Central identifier for the open full text.
 discussions:
 - discussion_id: arg_met_supplementary_protocol_details
-  prompt: What exact M9-glucose recipe, antibiotic and IPTG concentrations, amino-acid omission/addition conditions, inoculum
-    density, and culture volumes were used for each Arg/Met co-culture experiment?
+  prompt: What exact M9-glucose recipe, antibiotic and IPTG concentrations, amino-acid omission/addition conditions,
+    inoculum density, and culture volumes were used for each Arg/Met co-culture experiment?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - growth_media#LB or M9-glucose E. coli aerobic culture media
   - cultivation_setup
-  rationale: The primary full text supports LB or M9-glucose aerobic culture at 37 C and 200 rpm and says that detailed information
-    for Experiments 1-8 was presented in Supplementary data, so condition-specific recipes should be resolved from the supplement
-    before asserting exact amino-acid supplementation or inoculum sizes.
+  rationale: The primary full text supports LB or M9-glucose aerobic culture at 37 C and 200 rpm and says that detailed
+    information for Experiments 1-8 was presented in Supplementary data, so condition-specific recipes should be
+    resolved from the supplement before asserting exact amino-acid supplementation or inoculum sizes.
   posed_by: codex
   posed_date: '2026-09-27'
 - discussion_id: additional_pair_and_environmental_isolate_scope
-  prompt: Should the ΔargA-ΔtrpR/ΔtrpC-ΔargR pair and BL21-GFP environmental-isolate co-cultures be curated as separate variant
-    records?
+  prompt: Should the ΔargA-ΔtrpR/ΔtrpC-ΔargR pair and BL21-GFP environmental-isolate co-cultures be curated as separate
+    variant records?
   kind: KNOWLEDGE_GAP
   status: OPEN
-  rationale: The main text reports a second K-12 MG1655 auxotrophic pair and synthetic environmental communities, but this
-    record intentionally covers the primary ΔargA-ΔmetJ/ΔmetA-ΔargR arginine-methionine system rather than grouping all variant
-    co-cultures under one biological identity.
+  rationale: The main text reports a second K-12 MG1655 auxotrophic pair and synthetic environmental communities,
+    but this record intentionally covers the primary ΔargA-ΔmetJ/ΔmetA-ΔargR arginine-methionine system rather than
+    grouping all variant co-cultures under one biological identity.
   posed_by: codex
   posed_date: '2026-09-27'
+- discussion_id: argmet_noise_mechanism_expansion
+  prompt: How do nutrient heterogeneity and reporter sensitivity mediate the Arg/Met fluorescence response?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#ΔargA-ΔmetJ methionine cross-feeding
+  - ecological_interactions#ΔmetA-ΔargR arginine cross-feeding
+  - ecological_interactions#Arg-Met obligate mutualism increases cell noise
+  rationale: 'Existing nodes are qualified, not an exhaustive mechanism graph. The primary main body supports assessing
+    additional structure for reporter sensitivity and manipulated nutrient, strain-ratio and spatial heterogeneity.
+    Mixed preincubations are not a direct spatial nutrient map, and modeled diffusion/uptake is not measured micro-scale
+    flux. Intrinsic/extrinsic noise remains unresolved. Keep distinct Arg-Trp and BL21/environmental-isolate experiments
+    outside this record. One-community Edison dry run is complete, but no provider job was submitted; expansion
+    remains needs_research under #1436 pending specific spend authorization. Preserve the existing supplement/protocol
+    and alternative-pair gaps.'
+  posed_by: codex
+  posed_date: '2026-10-06'
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -401,6 +427,13 @@ curation_history:
   curator: codex
   action: CREATE_COMMUNITY_RECORD
   changes: Created CommunityMech:000455 for the two-member E. coli K-12 MG1655 DeltaargA-DeltametJ plus DeltametA-DeltaargR
-    Arg/Met cross-feeding coculture from PMID:42592155, with exact-member taxonomy, reciprocal amino-acid cross-feeding interactions,
-    culture conditions, PubMed/DOI/PMCID resources, and supplement-scoped knowledge gaps.
+    Arg/Met cross-feeding coculture from PMID:42592155, with exact-member taxonomy, reciprocal amino-acid cross-feeding
+    interactions, culture conditions, PubMed/DOI/PMCID resources, and supplement-scoped knowledge gaps.
+  llm_assisted: true
+- timestamp: '2026-10-06T08:49:09Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain genotype-specific methionine support under tested nutrient limitation.; Retain reverse arginine
+    support without collapsing same-species engineered strains.; Qualify the fluorescence CV endpoint and remove
+    interspecies GO grounding; mechanism expansion remains pending. Issue #1431; reports/causal_graph_review/decisions/20261006-three-records-batch37.yaml'
   llm_assisted: true

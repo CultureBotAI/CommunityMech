@@ -191,11 +191,12 @@ taxonomy:
       culture 0B.
 ecological_interactions:
 - name: Syntrophic Butyrate Oxidation by MAG1
-  description: >-
-    Candidatus Syntrophothermus ammoniitolerans MAG1 is inferred to oxidize
-    butyrate through beta-oxidation, releasing acetate and reduced electron
-    carriers whose removal by acetate oxidizers and hydrogenotrophic
-    methanogens makes the overall butyrate-to-methane conversion favorable.
+  description: PARTIAL - cultivation and metagenomics support MAG1 as a putative syntrophic butyrate oxidizer. The
+    single long-term 0B culture converted butyrate to methane, while MAG1 beta-oxidation and energy-conservation
+    genes support the proposed organism-level role. Acetate provision to the putative MAG2 acetate oxidizer and
+    carrier consumption by methanogens form the authors' model, not measured MAG-specific flux or a selectively
+    tested partner requirement. The source-to-target pair represents the proposed acetate branch, not transfer of
+    every listed metabolite to MAG2.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -232,32 +233,34 @@ ecological_interactions:
       label: fatty acid beta-oxidation
   downstream:
   - target: Syntrophic Acetate Oxidation by MAG2 to Methanoculleus
-    description: >-
-      MAG1 produces acetate during butyrate beta-oxidation; MAG2 is then
-      inferred to oxidize acetate with Methanoculleus consuming released H2 or
-      formate.
+    description: PARTIAL - proposed MAG1 butyrate oxidation supplies acetate that MAG2 could oxidize while Methanoculleus
+      consumes released hydrogen or formate, supporting the modeled coupled conversion. Bulk conversion and genomic
+      potential do not establish this exact partner-resolved flux or the hydrogen/formate split.
   - target: Syntrophic Acetate Oxidation by MAG2 to Methanothermobacter
-    description: >-
-      MAG1 produces acetate during butyrate beta-oxidation; MAG2 is then
-      inferred to oxidize acetate with Methanothermobacter consuming released
-      H2 or formate.
+    description: PARTIAL - proposed MAG1 butyrate oxidation supplies acetate that MAG2 could oxidize while Methanothermobacter
+      consumes released hydrogen or formate, supporting the modeled coupled conversion. Bulk conversion and genomic
+      potential do not establish this exact partner-resolved flux or the hydrogen/formate split.
   evidence:
   - reference: PMID:42527912
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: >-
-      Acetate produced during butyrate oxidation was further oxidized by
-      syntrophic acetate-oxidizing bacteria and ultimately converted to methane
-      by hydrogenotrophic methanogens
-    explanation: >-
-      Supports the flow from butyrate oxidation through acetate oxidation to
-      hydrogenotrophic methanogenesis.
+    snippet: Acetate produced during butyrate oxidation was further oxidized by syntrophic acetate-oxidizing bacteria
+      and ultimately converted to methane by hydrogenotrophic methanogens
+    explanation: Supports the authors' coupled metabolic model; bulk chemistry does not resolve MAG1-to-MAG2 acetate
+      transfer or partner-specific hydrogen/formate flux.
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Thereafter, the 0B culture subsequently converted butyrate to methane without substantial lag phases
+      during the subsequent seven butyrate depletion cycles
+    explanation: Supports positive community-level 0B butyrate-to-methane conversion, not a direct MAG1-specific
+      flux measurement.
 - name: Syntrophic Acetate Oxidation by MAG2 to Methanoculleus
-  description: >-
-    The Candidatus Thermosyntrophaceticus-like MAG2 is inferred to consume
-    acetate produced during MAG1-driven butyrate oxidation and to route
-    electrons to H2 or formate for Candidatus Methanoculleus
-    thermohydrogenotrophicum MAG3.
+  description: PARTIAL - the authors infer acetate oxidation by MAG2 coupled to hydrogen- or formate-consuming Methanoculleus
+    MAG3. MAG2 is a moderate-quality genome without a completely annotated Wood-Ljungdahl pathway; the close-relative
+    comparison supports a hypothesis, not observation of its missing genes or active acetate flux. Methanogen genomic
+    potential supports the proposed partner role without resolving carrier partition or proving that each partner
+    is necessary.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -304,24 +307,23 @@ ecological_interactions:
   - reference: PMID:42527912
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: >-
-      suggesting that MAG2 also possesses the genomic potential for SAO
-    explanation: >-
-      Supports the inferred, but not directly transcription-validated,
-      syntrophic acetate oxidation role of MAG2.
+    snippet: suggesting that MAG2 also possesses the genomic potential for SAO
+    explanation: Supports inferred MAG2 SAO potential with incomplete pathway annotation, not demonstrated in situ
+      acetate oxidation.
   - reference: PMID:42527912
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: >-
-      members of the genera Methanoculleus and Methanothermobacter likely
-      served as hydrogenotrophic methanogenic partners
-    explanation: >-
-      Names Methanoculleus as one inferred hydrogenotrophic partner genus.
+    snippet: members of the genera Methanoculleus and Methanothermobacter likely served as hydrogenotrophic methanogenic
+      partners
+    explanation: Supports a proposed hydrogenotrophic partner genus, not selective validation of the exact MAG-to-MAG
+      exchange.
 - name: Syntrophic Acetate Oxidation by MAG2 to Methanothermobacter
-  description: >-
-    The Candidatus Thermosyntrophaceticus-like MAG2 is inferred to consume
-    acetate produced during MAG1-driven butyrate oxidation and to route
-    electrons to H2 or formate for Methanothermobacter MAG4 and MAG5.
+  description: PARTIAL - the authors infer acetate oxidation by MAG2 coupled to hydrogen- or formate-consuming Methanothermobacter
+    MAG4/MAG5. MAG2 is a moderate-quality genome without a completely annotated Wood-Ljungdahl pathway; the close-relative
+    comparison supports a hypothesis, not observation of its missing genes or active acetate flux. Methanogen genomic
+    potential supports the proposed partner role without resolving carrier partition or proving that each partner
+    is necessary. Late relative enrichment of Methanothermobacter does not establish an improved butyrate-conversion
+    rate. Proposed acetate assimilation by MAG5 is distinct from acetoclastic methane production.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -368,19 +370,16 @@ ecological_interactions:
   - reference: PMID:42527912
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: >-
-      suggesting that MAG2 also possesses the genomic potential for SAO
-    explanation: >-
-      Supports the inferred, but not directly transcription-validated,
-      syntrophic acetate oxidation role of MAG2.
+    snippet: suggesting that MAG2 also possesses the genomic potential for SAO
+    explanation: Supports inferred MAG2 SAO potential with incomplete pathway annotation, not demonstrated in situ
+      acetate oxidation.
   - reference: PMID:42527912
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: >-
-      members of the genera Methanoculleus and Methanothermobacter likely
-      served as hydrogenotrophic methanogenic partners
-    explanation: >-
-      Names Methanothermobacter as one inferred hydrogenotrophic partner genus.
+    snippet: members of the genera Methanoculleus and Methanothermobacter likely served as hydrogenotrophic methanogenic
+      partners
+    explanation: Supports a proposed hydrogenotrophic partner genus, not selective validation of the exact MAG-to-MAG
+      exchange.
 environmental_factors:
 - name: High-ammonia biogas origin
   value: elevated ammonia digestate
@@ -635,27 +634,34 @@ metal_notes: >-
   high-ammonia syntrophic butyrate-oxidizing enrichment.
 discussions:
 - discussion_id: kg-high-ammonia-mag2-sao-inference
-  prompt: >-
-    Does the moderate-quality Candidatus Thermosyntrophaceticus-like MAG2
-    actively perform syntrophic acetate oxidation in the 0B enrichment, and
-    what is the division of hydrogen versus formate transfer among the MAG1,
+  prompt: Does the moderate-quality Candidatus Thermosyntrophaceticus-like MAG2 actively perform syntrophic acetate
+    oxidation in the 0B enrichment, and what is the division of hydrogen versus formate transfer among the MAG1,
     MAG2, Methanoculleus, and Methanothermobacter MAGs?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
+  - ecological_interactions#Syntrophic Butyrate Oxidation by MAG1
   - ecological_interactions#Syntrophic Acetate Oxidation by MAG2 to Methanoculleus
   - ecological_interactions#Syntrophic Acetate Oxidation by MAG2 to Methanothermobacter
-  rationale: >-
-    The 0B enrichment couples butyrate loss to methane formation, but MAG2 was
-    reconstructed at moderate quality and a complete Wood-Ljungdahl pathway was
-    inferred from a close relative rather than completely annotated in MAG2
-    itself.
+  rationale: The 0B enrichment couples butyrate loss to methane formation, but MAG2 was reconstructed at moderate
+    quality and a complete Wood-Ljungdahl pathway was inferred from a close relative rather than completely annotated
+    in MAG2 itself. All three pairwise assignments and both acetate-branch arrows remain PARTIAL. The single 0B
+    long-term culture is distinct from replicated yeast-extract YB cultures; yeast-extract-free medium is not proof
+    that butyrate was the only available organic carbon. Direct MAG1-to-methanogen carrier provision is another
+    proposed route, not a new demonstrated branch here. MAG9 alternative roles, hydrogen/formate partition, MAG2
+    activity and partner necessity remain unresolved; isotope tracing, expression and partner perturbations would
+    discriminate them. Below-detection relative abundance is not extinction, calculated free ammonia is not a direct
+    measurement, and archaeal succession is not a demonstrated rate advantage. No complete mechanism expansion is
+    claimed. Non-graph metadata is preserved, not recertified.
   evidence:
   - reference: PMID:42527912
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: >-
-      Owing to the relatively low completeness of MAG2, a complete
-      Wood-Ljungdahl pathway could not be annotated
-    explanation: >-
-      Documents the main uncertainty around MAG2's acetate-oxidizing role.
+    snippet: Owing to the relatively low completeness of MAG2, a complete Wood-Ljungdahl pathway could not be annotated
+    explanation: Documents the main uncertainty around MAG2's acetate-oxidizing role.
+curation_history:
+- timestamp: '2026-10-06T15:06:38Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound MAG-resolved syntrophy while retaining positive 0B conversion. Issue #1497; reports/causal_graph_review/decisions/20261006-enrichments-core20-batch51.yaml'
+  llm_assisted: true

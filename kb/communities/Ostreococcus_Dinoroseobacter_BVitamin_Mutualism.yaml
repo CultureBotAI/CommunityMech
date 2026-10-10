@@ -84,8 +84,10 @@ taxonomy:
     explanation: Supports D. shibae DF-12 as a member of the coculture.
 ecological_interactions:
 - name: Bacterial Rescue of Algal Cobalamin and Thiamine Auxotrophy
-  description: D. shibae alleviates O. tauri requirements for cobalamin and thiamine, enabling algal
-    growth without external addition of those vitamins in coculture.
+  description: 'D. shibae significantly rescues O. tauri growth under cobalamin or thiamine omission compared with
+    corresponding axenic cultures. Rescue of the B12 requirement is stronger: without thiamine, algal carrying capacity
+    in coculture was only about 30% of the vitamin-supplemented condition. This is demonstrated physiological complementation,
+    not a measurement of secreted vitamin flux or a complete rescue of every vitamin requirement.'
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -118,18 +120,21 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Stable B-Vitamin Mutualism Maintains Coculture
-    description: Dinoroseobacter rescue of algal B12 and B1 auxotrophy
-      maintains the O. tauri partner within the stable reciprocal B-vitamin
-      mutualism.
+    description: Bacterial complementation of algal vitamin requirements sustains the algal partner under the tested
+      vitamin-omission conditions and contributes to serial coculture persistence. This positive physiological dependence
+      does not isolate a transporter, secretion mechanism or the cause of the near 1:1 population ratio.
   evidence:
   - reference: PMID:30228381
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: B12 and B1 auxotrophy of O. tauri can be alleviated by co-culturing with a heterotrophic bacterial partner Dinoroseobacter shibae
+    snippet: B12 and B1 auxotrophy of O. tauri can be alleviated by co-culturing with a heterotrophic bacterial
+      partner Dinoroseobacter shibae
     explanation: Supports D. shibae-mediated rescue of O. tauri cobalamin and thiamine requirements.
 - name: Algal Rescue of Bacterial Vitamin Requirements
-  description: O. tauri reciprocally satisfies vitamin requirements of D. shibae, including biotin-linked
-    auxotrophy, supporting a stable long-term coculture rather than a one-way commensal association.
+  description: O. tauri significantly complements D. shibae requirements for niacin, biotin and p-aminobenzoic acid
+    compared with the corresponding vitamin-deficient monocultures. This reciprocal physiological rescue supports
+    mutualism, not merely one-way commensalism. The exact transport/release routes were not investigated; the ratio-dynamics
+    experiment supplied thiamine and biotin to shorten growth times, unlike the all-vitamin-omission assay.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -160,12 +165,15 @@ ecological_interactions:
   - reference: PMID:30228381
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: alga is in turn able to satisfy the reciprocal vitamin requirements of its bacterial partner in a stable long-term co-culture
+    snippet: alga is in turn able to satisfy the reciprocal vitamin requirements of its bacterial partner in a stable
+      long-term co-culture
     explanation: Supports reciprocal vitamin provisioning from O. tauri to D. shibae.
 - name: Stable B-Vitamin Mutualism Maintains Coculture
-  description: Reciprocal B-vitamin complementation lets O. tauri and D. shibae persist through
-    repeated subculture in a stable, self-sustaining mutualistic relationship without exogenous fixed
-    carbon or B vitamins.
+  description: Both partners persisted through serial subcultures under mutually dependent nutrient conditions.
+    Initial-ratio experiments reached approximately 1:1, and serial persistence was reported over four consecutive
+    subcultures. Thiamine and biotin were supplied in the ratio-dynamics experiment, whereas separate omission assays
+    tested all five vitamins. Vitamin/carbon addback changed the ratio; this supports nutrient dependence but not
+    exclusive active population regulation, because competition for other nutrients remains possible.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -186,17 +194,13 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Algal Rescue of Bacterial Vitamin Requirements
-    description: Fixed carbon supplied by O. tauri supports the D. shibae
-      partner that has reciprocal vitamin requirements in the stable long-term
-      coculture.
   evidence:
   - reference: PMID:30228381
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: O. tauri and D. shibae continued to grow in a stable self-sustaining mutualistic
-    explanation: Supports stable long-term coculture under B-vitamin exchange conditions.
+    explanation: Supports serial mutualistic persistence; the full cached manuscript distinguishes omission and
+      supplemented ratio assays.
 cultivation_setup:
 - cultivation_mode: BATCH
   operating_temperature: 18.0
@@ -326,3 +330,34 @@ related_ingredients:
     snippet: 2.05 nM biotin
     explanation: Names biotin verbatim among the defined B-vitamin amendments central to the assays.
 metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: reciprocal-rescue-versus-population-regulation
+  prompt: How should reciprocal vitamin rescue be connected to persistence without equating it with a resolved population-regulation
+    mechanism?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Bacterial Rescue of Algal Cobalamin and Thiamine Auxotrophy
+  - ecological_interactions#Algal Rescue of Bacterial Vitamin Requirements
+  - ecological_interactions#Stable B-Vitamin Mutualism Maintains Coculture
+  rationale: The demonstrated algal-to-bacterial rescue merits a separate rescue-to-persistence arrow, pending scoped
+    Edison/report review. The removed reverse arrow described fixed carbon but targeted vitamin rescue. No passive-versus-active
+    release mechanism was tested, and other nutrient competition was not excluded. One 9032 character Edison dry
+    run is not a provider report or authorization to spend.
+  evidence:
+  - reference: PMID:30228381
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: alga is in turn able to satisfy the reciprocal vitamin requirements of its bacterial partner in a stable
+      long-term co-culture
+    explanation: Supports reciprocal vitamin provisioning from O. tauri to D. shibae.
+  posed_by: codex
+curation_history:
+- timestamp: '2026-10-07T05:33:25Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Preserve positive bacterial rescue and its persistence contribution with partial thiamine-rescue limits.;
+    Preserve reciprocal niacin/biotin/pABA complementation and distinguish supplemented ratio assays.; Preserve
+    serial persistence while removing the mismatched reverse arrow and qualifying exact-ratio regulation. Issue
+    #1660; reports/causal_graph_review/decisions/20261007-four-records-batch80.yaml'
+  llm_assisted: true

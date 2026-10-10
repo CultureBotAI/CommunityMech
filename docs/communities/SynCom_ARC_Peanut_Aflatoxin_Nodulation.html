@@ -661,7 +661,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for SynCom ARC Peanut Aflatoxin-Control and Nodulation-Coupling Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for colonization facilitation. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -669,13 +669,13 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolPlus"
+                             data-color="#edab12"></svg> Colonization facilitation
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -684,13 +684,23 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>SynCom ARC Suppression of Aspergillus flavus</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">The four-strain community inhibits growth of the aflatoxin-producing fungus Aspergillus flavus and lowers peanut aflatoxin levels by 85.6% over four years of field trials, with the abstract additionally reporting that the community acts on multiple targets in the fungus.
-</p>
+                <p class="prewrap interaction-description">The four-member ARC community inhibited A. flavus in the reported assays. In multi-year field comparisons, harvested peanuts showed lower aflatoxigenic fungal abundance, and the reported mean 85.6% aflatoxin reduction was measured after 12 months of natural storage. These protective outcomes do not demonstrate reciprocal-negative competition or resolve the individual inhibitory compounds.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus (ARC strains Bl13-2C11, Ba13-20E05, Bm14-5G09),
+
+                    Enterobacter (ARC strain El17-4B09),
+
+                    Aspergillus flavus,
+
+                    peanut
+
+                </p>
 
 
 
@@ -713,9 +723,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Coupled Aflatoxin Prevention and Nodulation-Supported Yield
-                        <p class="prewrap causal-description">A. flavus suppression supplies the pathogen-control branch of ARC&#39;s coupled peanut field phenotype.
-</p>
+                        <span class="flow-arrow">→</span> Concurrent aflatoxin reduction, nodulation and yield outcomes
+                        <p class="prewrap causal-description">HYPOTHESIZED/PARTIAL: fungal suppression contributes to the aflatoxin-control component of the combined protective phenotype. Its contribution to the joint nodulation and yield outcome is not isolated from the other effects of ARC.</p>
                     </div>
 
                 </div>
@@ -738,6 +747,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42099455/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42099455</a>
+
+                            - SUPPORT (IN_VIVO)
+                        </div>
+
+                        <div class="snippet">"After 12 months of natural storage, aflatoxin levels were reduced by an average of 85.6%"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -747,11 +769,22 @@
                     <h3>SynCom ARC Induction of Rhizobia-Legume Nodulation</h3>
                     <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">Alongside pathogen suppression, the community enhances peanut nodulation and nitrogenase activity and keeps nodules active through to harvest, so the same consortium that antagonises the fungus facilitates colonisation by the nitrogen-fixing symbiont.
-</p>
+                <p class="prewrap interaction-description">ARC enhanced peanut nodulation, nitrogenase activity and retention of active nodules. The laboratory comparison found no nodulation with ARC alone but more nodules when ARC accompanied rhizobia, supporting facilitation of the rhizobial-host association rather than nitrogen fixation by the four ARC members themselves. The source also reports increased rhizobial abundance; strain-specific persistence and the responsible compounds are not resolved.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus (ARC strains Bl13-2C11, Ba13-20E05, Bm14-5G09),
+
+                    Enterobacter (ARC strain El17-4B09),
+
+                    Bradyrhizobium PHNZY-24-6,
+
+                    peanut
+
+                </p>
 
 
 
@@ -780,9 +813,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Coupled Aflatoxin Prevention and Nodulation-Supported Yield
-                        <p class="prewrap causal-description">Enhanced rhizobia-legume nodulation supplies the nitrogen-fixation branch of ARC&#39;s coupled peanut field phenotype.
-</p>
+                        <span class="flow-arrow">→</span> Concurrent aflatoxin reduction, nodulation and yield outcomes
+                        <p class="prewrap causal-description">HYPOTHESIZED/PARTIAL: enhanced rhizobial nodulation and nitrogenase activity are proposed to support the higher-yield phenotype alongside improved photosynthesis and carbon allocation. Parallel endpoints and omics associations do not isolate the contribution of nitrogen fixation or prove the proposed feedback quantitatively.</p>
                     </div>
 
                 </div>
@@ -805,17 +837,28 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42099455/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42099455</a>
+
+                            - SUPPORT (IN_VIVO)
+                        </div>
+
+                        <div class="snippet">"Laboratory tests showed ARC alone did not induce nodulation but promoted significantly more nodules when co-inoculated with rhizobia"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Coupled Aflatoxin Prevention and Nodulation-Supported Yield</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Concurrent aflatoxin reduction, nodulation and yield outcomes</h3>
                 </div>
-                <p class="prewrap interaction-description">SynCom ARC joins A. flavus inhibition with rhizobia-legume nodulation induction, enhanced nitrogenase activity, retained active nodules, and improved photosynthesis and carbon supply, producing lower aflatoxin and higher yield without a super-nodulation penalty in field trials.
-</p>
+                <p class="prewrap interaction-description">ARC-treated field systems combined reduced aflatoxin, greater nodulation and nitrogenase activity, retained active nodules, improved photosynthetic measures and higher yield. These positive outcomes support the reported multifunctional phenotype. The proposed carbon-nitrogen feedback and precise contributions of fungal inhibition versus rhizobial facilitation remain preliminary mechanisms, not an independently demonstrated feedback loop or host antifungal immune response.</p>
 
 
 
@@ -826,12 +869,6 @@
 
                 <p><strong>Biological Processes:</strong></p>
                 <ul>
-
-                    <li>
-                        defense response to fungus
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0050832"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0050832</a>)
-                    </li>
 
                     <li>
                         nodulation
@@ -866,10 +903,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42099455/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42099455</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
                         <div class="snippet">"SynCom ARC inhibits multiple targets in A. flavus, recruits and activates nodulation and nitrogen fixation in rhizobia and peanut, and improves photosynthesis and carbon supply for aflatoxin prevention and nodulation induction, balancing yield increase"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42099455/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42099455</a>
+
+                            - SUPPORT (IN_VIVO)
+                        </div>
+
+                        <div class="snippet">"Building upon the phenotypic effects and preliminary mechanisms revealed in this study"</div>
 
                     </li>
 
@@ -882,6 +932,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which mechanisms quantitatively connect ARC suppression and rhizobial facilitation to the combined field phenotype?
+                </h3>
+                <p class="prewrap">The positive suppression, nodulation and yield findings remain. The study describes preliminary mechanisms and leaves specific compounds and host regulation unresolved. Retain qualified contributions rather than a demonstrated feedback or host-defense mechanism. Counter-selected candidates remain outside the interaction graph; no toxin-production methods or optimization instructions are added.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#SynCom ARC Suppression of Aspergillus flavus</code>, <code>ecological_interactions#SynCom ARC Induction of Rhizobia-Legume Nodulation</code>, <code>ecological_interactions#Concurrent aflatoxin reduction, nodulation and yield outcomes</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VIVO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42099455/" rel="nofollow noreferrer">PMID:42099455</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Building upon the phenotypic effects and preliminary mechanisms revealed in this study</p>
+                        <p class="muted small prewrap">The source distinguishes phenotypic effects from preliminary mechanistic interpretation.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1275,7 +1364,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1288,7 +1376,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1363,7 +1450,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1372,7 +1459,7 @@
             processes.push("biological process involved in interspecies interaction between organisms");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1386,6 +1473,23 @@
 
 
 
+
+            var participantKeys = [
+
+                "Bacillus (ARC strains Bl13-2C11, Ba13-20E05, Bm14-5G09)",
+
+                "Enterobacter (ARC strain El17-4B09)",
+
+                "Aspergillus flavus",
+
+                "peanut"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1402,7 +1506,7 @@
             processes.push("nitrogen fixation");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1417,17 +1521,32 @@
 
 
 
+            var participantKeys = [
+
+                "Bacillus (ARC strains Bl13-2C11, Ba13-20E05, Bm14-5G09)",
+
+                "Enterobacter (ARC strain El17-4B09)",
+
+                "Bradyrhizobium PHNZY-24-6",
+
+                "peanut"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
-
-            processes.push("defense response to fungus");
 
             processes.push("nodulation");
 
@@ -1436,11 +1555,11 @@
             processes.push("photosynthesis");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Coupled Aflatoxin Prevention and Nodulation-Supported Yield",
+                label: "Concurrent aflatoxin reduction, nodulation and yield outcomes",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

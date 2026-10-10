@@ -85,120 +85,143 @@ taxonomy:
     explanation: Supports the diverse host community membership.
 ecological_interactions:
 - name: Groundwater CPR/DPANN-Host Coexistence
-  description: >
-    Genome-resolved metagenomics of eight Northern California groundwater
-    communities recovered 746 CPR and DPANN genomes from small-celled symbionts
-    that coexist with diverse host organisms in the aquifers.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Genome-resolved surveys recovered 746 CPR and DPANN genomes across eight Northern California groundwater
+    sites. This framework pools distinct environmental communities, not one defined three-member culture. The canonical
+    participants are broad lineage/host categories; genome recovery and coexistence do not establish colonization
+    facilitation or every possible host association.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:33495623
     supports: SUPPORT
-    evidence_source: IN_VIVO
+    evidence_source: COMPUTATIONAL
     snippet: recovered 746 CPR and DPANN genomes in total
-    explanation: >
-      Supports the CPR and DPANN genome collection recovered from the eight
-      groundwater communities.
+    explanation: 'Supports the CPR and DPANN genome collection recovered from the eight groundwater communities.
+
+      '
   - reference: PMID:33495623
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: site-specific diversity of CPR bacteria and DPANN archaea that coexist with
-      diverse hosts in groundwater aquifers
-    explanation: >
-      Supports coexistence between groundwater CPR/DPANN lineages and diverse
-      host organisms.
+    evidence_source: COMPUTATIONAL
+    snippet: site-specific diversity of CPR bacteria and DPANN archaea that coexist with diverse hosts in groundwater
+      aquifers
+    explanation: 'Supports coexistence between groundwater CPR/DPANN lineages and diverse host organisms.
+
+      '
+  participating_taxa:
+  - preferred_term: groundwater CPR (Candidate Phyla Radiation) bacteria
+    term:
+      id: NCBITaxon:1783273
+      label: Patescibacteria group
+  - preferred_term: groundwater DPANN archaea
+    term:
+      id: NCBITaxon:1783276
+      label: Nanobdellati
+  - preferred_term: groundwater CPR/DPANN host bacteria and archaea
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
 - name: Site-Specific CPR/DPANN Differentiation
-  description: >
-    Little species-level overlap among metagenome-assembled genomes across
-    groundwater sites indicated that CPR and DPANN communities were
-    differentiated by local physicochemical conditions and host populations.
-  interaction_type: NICHE_PARTITIONING
+  description: Most site pairs had little species-level genome overlap. Hydrogeochemistry, host composition, dispersal
+    history, founder effects and sampling can contribute to this pattern; the comparison does not selectively demonstrate
+    physiological niche partitioning or a universal interspecies mechanism.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:33495623
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: little species-level overlap of metagenome-assembled genomes (MAGs)
-      across the groundwater sites
+    evidence_source: COMPUTATIONAL
+    snippet: little species-level overlap of metagenome-assembled genomes (MAGs) across the groundwater sites
     explanation: Supports the site-specific differentiation pattern.
+  participating_taxa:
+  - preferred_term: groundwater CPR (Candidate Phyla Radiation) bacteria
+    term:
+      id: NCBITaxon:1783273
+      label: Patescibacteria group
+  - preferred_term: groundwater DPANN archaea
+    term:
+      id: NCBITaxon:1783276
+      label: Nanobdellati
+  - preferred_term: groundwater CPR/DPANN host bacteria and archaea
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
 - name: Size-Fraction CPR/DPANN Host-Attachment Signal
-  description: >
-    CPR and DPANN genomes detected in larger groundwater-cell size fractions
-    provided genomic evidence that many ultrasmall CPR/DPANN cells remained
-    physically attached to larger host cells during filtration.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Larger size fractions contained CPR/DPANN genome signals consistent with some ultrasmall cells retaining
+    host attachment. This is a size-fraction proxy, not direct taxonomic identification of cell pairs. Estimated
+    cell counts used DNA yield and genome-size corrections, not direct cell counting; attachment disruption and
+    other size-associated effects limit the interpretation.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: cell adhesion
-    term:
-      id: GO:0007155
-      label: cell adhesion
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:33495623
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: indicate that a fair number of CPR/DPANN cells retain host attachment throughout
-      the filtration process
-    explanation: >
-      Supports using the larger size fractions as a genomic signal of
-      CPR/DPANN host attachment.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: indicate that a fair number of CPR/DPANN cells retain host attachment throughout the filtration process
+    explanation: Supports the authors' interpretation of a fraction-associated genomic signal, not direct identification
+      of attached pairs.
+  participating_taxa:
+  - preferred_term: groundwater CPR (Candidate Phyla Radiation) bacteria
+    term:
+      id: NCBITaxon:1783273
+      label: Patescibacteria group
+  - preferred_term: groundwater DPANN archaea
+    term:
+      id: NCBITaxon:1783276
+      label: Nanobdellati
+  - preferred_term: groundwater CPR/DPANN host bacteria and archaea
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
 - name: CPR/DPANN Episymbiotic Attachment to Hosts
-  description: >
-    Cryogenic transmission electron microscopy and genomic analyses identified
-    ultrasmall CPR and DPANN lineages that reproducibly attach to prokaryotic
-    host-cell surfaces through pili-like structures.
-  interaction_type: COLONIZATION_FACILITATION
+  description: The authors report cryo-TEM observations of ultrasmall cells attached to larger cells in concentrated
+    Ag groundwater, with pili-like appendages at some interfaces. Their assignment to CPR or DPANN is inferred from
+    size and community context, not a resolved taxonomic identity for each imaged pair. These observations do not
+    establish a necessary attachment protein, transferred resource or host fitness effect.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: cell adhesion
     term:
       id: GO:0007155
       label: cell adhesion
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Host-Attached CPR Replication Stimulation
-    description: >
-      Host-cell surface attachment is inferred to stimulate CPR bacterial
-      replication because attached CPR cells in larger size fractions showed
-      higher instantaneous replication rates than unattached CPR cells from the
-      same groundwater community.
+    description: HYPOTHESIZED - access to host-associated resources could stimulate CPR replication. Attached-cell
+      images and higher CPR iRep in larger fractions support this interpretation, but attachment was not selectively
+      perturbed and the putative resource transfer was not measured. The replication comparison does not include
+      DPANN archaea.
   evidence:
   - reference: PMID:33495623
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: CPR and DPANN lineages that reproducibly attach to host cells
-    explanation: >
-      Supports reproducible CPR/DPANN episymbiotic attachment to host cells.
+    explanation: The combined abstract interpretation exceeds the taxonomic resolution of individual cryo-TEM images;
+      identity is inferred from size and context.
   - reference: PMID:33495623
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: attaching through pili-like structures
-    explanation: >
-      Supports the host-contact mechanism observed for ultrasmall episymbionts
-      in the Ag groundwater cryo-TEM images.
+    explanation: Supports reported pili-like morphology at cell interfaces, not selective demonstration of a particular
+      attachment molecule.
+  - reference: PMID:33495623
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: likely to be CPR or DPANN organisms
+    explanation: Main text explicitly limits the taxonomic assignment of the imaged ultrasmall cells.
+  participating_taxa:
+  - preferred_term: groundwater CPR (Candidate Phyla Radiation) bacteria
+    term:
+      id: NCBITaxon:1783273
+      label: Patescibacteria group
+  - preferred_term: groundwater DPANN archaea
+    term:
+      id: NCBITaxon:1783276
+      label: Nanobdellati
+  - preferred_term: groundwater CPR/DPANN host bacteria and archaea
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
 - name: Host-Attached CPR Replication Stimulation
-  description: >
-    Higher instantaneous replication rates in larger size fractions indicated
-    that CPR bacteria attached to host-cell surfaces replicated faster than
-    unattached CPR bacteria from the same groundwater community.
-  interaction_type: COMMENSALISM
+  description: At three of four size-fraction sampling points in Ag groundwater, CPR populations had significantly
+    higher iRep in the 0.65-2.5 micrometer fraction than in the 0.1-0.2 micrometer fraction. iRep is average genome-replication
+    state, not a single-cell growth rate or doubling time. Archaea were excluded from this analysis. An association
+    with probable attachment does not establish causation or commensalism because host fitness was not measured.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: groundwater CPR (Candidate Phyla Radiation) bacteria
@@ -209,30 +232,30 @@ ecological_interactions:
     term:
       id: NCBITaxon:131567
       label: cellular organisms
-  biological_processes:
-  - preferred_term: growth
-    term:
-      id: GO:0040007
-      label: growth
-  - preferred_term: biological process involved in interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:33495623
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: host-attached CPR bacteria consistently exhibit a higher replication rate than
-      non-host-attached CPR bacteria
-    explanation: >
-      Supports stimulation of CPR replication in host-attached size fractions.
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: host-attached CPR bacteria consistently exhibit a higher replication rate than non-host-attached CPR
+      bacteria
+    explanation: Supports an iRep/size-fraction association in CPR populations, not a causal attachment intervention
+      or a measured effect on host fitness.
+  - reference: PMID:33495623
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: the growth of CPR bacteria seems to be stimulated by attachment to host-cell surfaces
+    explanation: Supports an iRep/size-fraction association in CPR populations, not a causal attachment intervention
+      or a measured effect on host fitness.
   - reference: PMID:33495623
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: the growth of CPR bacteria seems to be stimulated by attachment to
-      host-cell surfaces
-    explanation: >
-      Summarizes the inferred positive effect of host attachment on CPR growth.
+    evidence_source: COMPUTATIONAL
+    snippet: archaeal genomes were excluded
+    explanation: The replication analysis does not establish a corresponding DPANN effect.
+  - reference: PMID:33495623
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: average replication state of the cell population
+    explanation: Defines the iRep readout; it is not an individual-cell growth rate.
 environmental_factors:
 - name: Site land use
   value: one agricultural and seven pristine groundwater sites
@@ -306,10 +329,39 @@ curation_history:
 - timestamp: '2026-10-02T05:45:52Z'
   curator: codex
   action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
-  changes: >
-    Removed three downstream edges that connected CPR/DPANN genome recovery to
-    cross-site and size-fraction comparisons, and size-fraction host-attachment
-    signals to direct imaging, as analysis steps rather than groundwater
-    mechanisms. Kept the host-attachment to CPR replication edge and rewrote its
-    description to state the inferred host-surface stimulation mechanism.
+  changes: 'Removed three downstream edges that connected CPR/DPANN genome recovery to cross-site and size-fraction
+    comparisons, and size-fraction host-attachment signals to direct imaging, as analysis steps rather than groundwater
+    mechanisms. Kept the host-attachment to CPR replication edge and rewrote its description to state the inferred
+    host-surface stimulation mechanism.
+
+    '
   llm_assisted: true
+- timestamp: '2026-10-06T09:08:52Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain the eight-site genomic framework without colonization facilitation or a defined-culture claim.;
+    Retain site differences without a selectively established niche mechanism.; Retain size-fraction attachment
+    proxies with modeled count and identification limits.; Retain reported physical attachment with uncertain cell
+    identities and a hypothesized CPR consequence.; Retain CPR-only population replication-state association without
+    causal or host-neutrality claims. Issue #1439; reports/causal_graph_review/decisions/20261006-three-records-batch38.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: groundwater_attachment_identity_and_replication_causality
+  prompt: Which hosts, resources and attachment mechanisms explain the CPR replication association?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Groundwater CPR/DPANN-Host Coexistence
+  - ecological_interactions#Site-Specific CPR/DPANN Differentiation
+  - ecological_interactions#Size-Fraction CPR/DPANN Host-Attachment Signal
+  - ecological_interactions#CPR/DPANN Episymbiotic Attachment to Hosts
+  - ecological_interactions#Host-Attached CPR Replication Stimulation
+  rationale: 'The only arrow remains HYPOTHESIZED. Size fractions are imperfect proxies, imaged ultrasmall-cell
+    taxonomy is inferred, and iRep describes CPR population replication state; DPANN archaea were excluded. Host
+    fitness and transferred resources were not measured, so commensalism and syntrophic flux are not established.
+    Preserve the three workflow-edge removals in the 2026-10-02 history. The eight-site framework is not a single
+    reconstructed community. PMID:32252814 concerns separate Oak Ridge groundwater rather than the same California
+    sites; non-graph provenance and role claims remain #1442. No new partner-specific structure is supported by
+    these observations alone.'
+  posed_by: codex
+  posed_date: '2026-10-06'

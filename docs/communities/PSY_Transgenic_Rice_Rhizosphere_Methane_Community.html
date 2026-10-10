@@ -603,7 +603,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for PSY Transgenic Rice Rhizosphere Methane-Mitigating Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for competition. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -611,13 +611,13 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
+                             aria-hidden="true" data-symbol="symbolTimes"
+                             data-color="#a91919"></svg> Competition
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -625,10 +625,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>H2 Oxidation Outcompetes Hydrogenotrophic Methanogenesis</h3>
+                    <h3>Proposed H2 Oxidation Competition with Methanogenesis</h3>
                     <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">Increased bacterial H2 oxidation activity in PSY rhizosphere lowers H2 available for hydrogenotrophic methanogens, reducing CH4 production.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - PSY1 rhizospheres had higher transcription of bacterial H2-consuming hydrogenases, supporting the proposal that bacterial H2 use restricts substrate for hydrogenotrophic methanogens. This is not a measured H2 pool or isolated pairwise competition experiment. Individual genome-scale models predict increased H2 oxidation mainly with higher O2; elevated exudate compounds have little direct effect on oxidation but support biomass. Canonical Bacteria and Archaea IDs denote the named functional guilds, not all members of those domains.</p>
 
 
                 <p><strong>Source Taxon:</strong> rhizosphere H2-oxidizing bacteria</p>
@@ -670,8 +670,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> H2 Limitation Suppresses Hydrogenotrophic Methanogenesis
-                        <p class="prewrap causal-description">Elevated bacterial H2 oxidation lowers H2 availability for hydrogenotrophic archaeal methanogenesis in the PSY rice rhizosphere.</p>
+                        <span class="flow-arrow">→</span> Reduced Methane Emissions and Proposed H2 Limitation
+                        <p class="prewrap causal-description">HYPOTHESIZED - Greater bacterial H2 consumption could reduce substrate available for hydrogenotrophic methanogenesis and contribute to lower methane. Transcript patterns and individual metabolic models support this mechanism indirectly; H2 depletion, pairwise competition and the fraction of methane reduction mediated by this route were not directly isolated.</p>
                     </div>
 
                 </div>
@@ -687,7 +687,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41582156/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41582156</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
                         <div class="snippet">"increased activity of bacterial H2 oxidation pathways"</div>
@@ -700,7 +700,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41582156/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41582156</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
                         <div class="snippet">"decreased CH4 emissions are due to a lower amount of H2 available for hydrogenotrophic methanogenesis"</div>
@@ -713,10 +713,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Root Exudate Gluconeogenic Acid Cross-Feeding</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>PSY Root Exudate Effects and Proposed Bacterial Substrate Preference</h3>
                 </div>
-                <p class="prewrap interaction-description">PSY rice root exudates are elevated in gluconeogenic acids, primarily amino acids, that stimulate the H2-oxidizing rhizosphere bacteria enriched for gluconeogenic-acid utilization genes. The source is the plant host (abiotic-from-the-microbial-perspective), so this is curated as a community-level interaction.</p>
+                <p class="prewrap interaction-description">The living rice host, not an abiotic source, produces exudates with altered composition. Axenic seedling metabolomics found enriched gluconeogenic compounds, largely amino acids, without a significant total-carbon difference. Adding whole PSY1 or PSY2 exudates to soil caused lower CH4 than Kitaake exudates; water controls produced no detected CH4. HYPOTHESIZED - Genomic substrate preferences and PSY1 transcript associations suggest selective support of H2-consuming bacteria, but a specific amino-acid transfer or uptake-mediated mechanism was not isolated. Seedling exudates are not direct samples of mature soil-grown root flux.</p>
 
 
 
@@ -762,8 +761,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> H2 Oxidation Outcompetes Hydrogenotrophic Methanogenesis
-                        <p class="prewrap causal-description">Gluconeogenic acids in PSY root exudates likely stimulate the H2-oxidizing bacterial genomes enriched for amino-acid utilization genes.</p>
+                        <span class="flow-arrow">→</span> Proposed H2 Oxidation Competition with Methanogenesis
+                        <p class="prewrap causal-description">PARTIAL - Altered exudate composition may support biomass and activity of H2-consuming guilds enriched for gluconeogenic-acid use, indirectly contributing to the proposed H2 competition. The model predicts little direct effect of exudate enrichment on H2 oxidation itself; increased oxidation responds mainly to O2. Whole-exudate methane suppression is experimentally supported but does not resolve this specific mediator.</p>
                     </div>
 
                 </div>
@@ -779,7 +778,20 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41582156/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41582156</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Soils treated with Kitaake exudates exhibited consistently higher CH4 emissions than those treated with PSY1 or PSY2 exudates"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41582156/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41582156</a>
+
+                            - PARTIAL (OTHER)
                         </div>
 
                         <div class="snippet">"their activities are likely stimulated by elevated levels of gluconeogenic acids, primarily amino acids, in PSY root exudates"</div>
@@ -792,10 +804,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Reduced H2 Producer Activity</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>Reduced H2-Producing Transcripts and Modeled H2 Supply</h3>
                 </div>
-                <p class="prewrap interaction-description">PSY rhizosphere conditions decrease H2-producing gene activity, further restricting H2 supply to hydrogenotrophic methanogens.</p>
+                <p class="prewrap interaction-description">PSY1 rhizospheres showed lower expression of H2-producing hydrogenases and nitrogenase markers than Kitaake at specified sampling stages. Individual dFBA models predict less H2 production with enriched PSY1 exudate compounds, even where producer biomass increases. This distinguishes gene-expression measurements and modeled flux from reduced producer abundance or directly measured H2 supply. It is not by itself a -/- competition phenotype.</p>
 
 
 
@@ -824,8 +835,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> H2 Limitation Suppresses Hydrogenotrophic Methanogenesis
-                        <p class="prewrap causal-description">Suppressed H2 production further lowers the H2 available to hydrogenotrophic methanogens in the PSY rice rhizosphere.</p>
+                        <span class="flow-arrow">→</span> Reduced Methane Emissions and Proposed H2 Limitation
+                        <p class="prewrap causal-description">HYPOTHESIZED - Lower H2-generating activity could restrict substrate supply for hydrogenotrophic methanogenesis. Gene-expression patterns and predicted H2 flux are consistent with this direction, but do not measure the shared H2 pool or isolate the causal contribution to greenhouse CH4 reduction.</p>
                     </div>
 
                 </div>
@@ -844,6 +855,19 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
+                        <div class="snippet">"decreased activity of H2-producing genes"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41582156/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41582156</a>
+
+                            - PARTIAL (COMPUTATIONAL)
+                        </div>
+
                         <div class="snippet">"suppressed H2 production in the PSY rhizosphere"</div>
 
                     </li>
@@ -854,10 +878,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>H2 Limitation Suppresses Hydrogenotrophic Methanogenesis</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>Reduced Methane Emissions and Proposed H2 Limitation</h3>
                 </div>
-                <p class="prewrap interaction-description">Increased bacterial H2 oxidation and suppressed H2-producing gene activity lower the rhizosphere H2 pool available to hydrogenotrophic methanogens, reducing cumulative CH4 emissions from PSY rice genotypes.</p>
+                <p class="prewrap interaction-description">Greenhouse rice grown in agronomic soil emitted less cumulative CH4 with PSY1 (about 38%) and PSY2 (about 58%) than Kitaake over 70 days. Repeated timepoints were integrated at tub level, not as repeat observations of the same destructively sampled plant. Microbial omics and metabolic modeling focused on PSY1. HYPOTHESIZED - Lower H2 production and greater bacterial consumption restrict hydrogenotrophic methanogenesis; inferred oxygenation and methane oxidation may also contribute. Lower measured CH4 is demonstrated, but the H2-mediated fraction, oxygen concentration and in-situ H2 pool are unresolved.</p>
 
 
 
@@ -905,7 +928,7 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"elevated H2 oxidation and suppressed H2 production in the PSY rhizosphere"</div>
+                        <div class="snippet">"reduce cumulative CH4 emissions by 38% (PSY1) and 58% (PSY2) over 70 days of growth compared with controls."</div>
 
                     </li>
 
@@ -915,10 +938,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41582156/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41582156</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"decreased CH4 emissions are due to a lower amount of H2 available for hydrogenotrophic methanogenesis"</div>
+                        <div class="snippet">"Metabolic modeling using metagenomic and metabolomic data predicts elevated H2 oxidation and suppressed H2 production"</div>
 
                     </li>
 
@@ -931,6 +954,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How should the demonstrated whole-exudate methane response be linked without equating it with resolved amino-acid or hydrogen mediation?
+                </h3>
+                <p class="prewrap">Three existing arrows remain explicitly partial or hypothesized. The direct exudate-to-methane link merits extension review; a one-community Edison dry run is not a report or spend authorization. Individual dFBA models are not a coupled methanogen competition experiment. Preserve living-host effects, greenhouse CH4 and soil-exudate perturbations while separating PSY1 omics, seedling sampling, oxygen inference, transcripts and model flux. Specific compounds, H2 addback and field transfer need further evidence.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Proposed H2 Oxidation Competition with Methanogenesis</code>, <code>ecological_interactions#PSY Root Exudate Effects and Proposed Bacterial Substrate Preference</code>, <code>ecological_interactions#Reduced H2-Producing Transcripts and Modeled H2 Supply</code>, <code>ecological_interactions#Reduced Methane Emissions and Proposed H2 Limitation</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/41582156/" rel="nofollow noreferrer">PMID:41582156</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Soils treated with Kitaake exudates exhibited consistently higher CH4 emissions than those treated with PSY1 or PSY2 exudates</p>
+                        <p class="muted small prewrap">Direct whole-exudate soil amendment supports a methane response, not attribution to individual amino acids.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1318,7 +1380,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1331,7 +1392,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1411,7 +1471,7 @@
 
             nodes.push({
                 id: intId,
-                label: "H2 Oxidation Outcompetes Hydrogenotrophic Methanogenesis",
+                label: "Proposed H2 Oxidation Competition with Methanogenesis",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1436,7 +1496,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1451,11 +1511,11 @@
             processes.push("amino acid catabolic process");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Root Exudate Gluconeogenic Acid Cross-Feeding",
+                label: "PSY Root Exudate Effects and Proposed Bacterial Substrate Preference",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1481,7 +1541,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1490,11 +1550,11 @@
 
             var processes = [];
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Reduced H2 Producer Activity",
+                label: "Reduced H2-Producing Transcripts and Modeled H2 Supply",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1520,7 +1580,7 @@
 
         (function() {
             var intId = "interaction:3";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1539,7 +1599,7 @@
 
             nodes.push({
                 id: intId,
-                label: "H2 Limitation Suppresses Hydrogenotrophic Methanogenesis",
+                label: "Reduced Methane Emissions and Proposed H2 Limitation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

@@ -646,7 +646,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Medicago Nodule Biofertilizer SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -654,8 +654,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -664,10 +664,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Four-Strain Nodule PGP Trait Retention</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Pseudomonas sp. N4, Pseudomonas sp. N8, Ensifer sp. N10, and Ensifer sp. N12 retained a stress-tolerant PGP trait set, including phosphate solubilization, IAA production, ACC deaminase activity, biofilm formation, pectinase activity, salt and PEG tolerance, and growth at at least 40 degrees Celsius.
-</p>
+                <p class="prewrap interaction-description">The four strains were assayed individually for PGP-associated traits and stress tolerance, not for reciprocal benefit in mixed culture. All showed phosphate solubilization, Salkowski-estimated IAA, ACC deaminase, biofilm and pectinase activity under the tested metal mixture. This was not universal trait retention: biofilm signal decreased and N10/N12 did not grow in nitrogen-free medium with metals. Nitrogen-free growth was only a first approximation of fixation. NaCl/PEG tolerance and maximum temperatures differed by strain. These positive culture traits do not establish their delivery, necessity or sufficiency in Medicago sativa.</p>
 
 
 
@@ -696,25 +694,14 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        nodulation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009877"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009877</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Abiotic-Stress Antioxidant Protection
-                        <p class="prewrap causal-description">The stress-tolerant PGP endophyte SynCom induced antioxidant enzyme activities that protected M. sativa during abiotic stress.</p>
+                        <span class="flow-arrow">→</span> Abiotic-Stress Antioxidant Enzyme Response
+                        <p class="prewrap causal-description">HYPOTHESIZED - stress-tolerant PGP traits could help the inoculum function in the host and induce antioxidant responses. Individual-strain trait assays and whole-SynCom plant enzyme responses support this proposed connection, but no specific PGP trait was selectively perturbed to establish mediation.</p>
                     </div>
 
                 </div>
@@ -744,7 +731,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/37299063/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37299063</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"All strains maintained the PGP properties in absence of metals"</div>
@@ -757,14 +744,24 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Abiotic-Stress Antioxidant Protection</h3>
-                    <span class="interaction-type">MUTUALISM</span>
+                    <h3>Abiotic-Stress Antioxidant Enzyme Response</h3>
                 </div>
-                <p class="prewrap interaction-description">The Pseudomonas-Ensifer SynCom increased M. sativa antioxidant enzymatic activities across metal, salt, drought, and heat treatments, providing a common plant-protection mechanism under abiotic stress.
-</p>
+                <p class="prewrap interaction-description">SynCom inoculation increased measured catalase, superoxide dismutase, guaiacol peroxidase and ascorbate peroxidase activities in M. sativa tissues under the tested metal, salt, drought and heat conditions. Responses varied by tissue and treatment. These positive host enzyme responses support the proposed protective interpretation but do not directly quantify ROS clearance or establish antioxidant necessity for improved growth. Plant benefit is not a test of reciprocal bacterial benefit; M. sativa is the external host, not a fifth bacterial inoculum member.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas sp. N4,
+
+                    Pseudomonas sp. N8,
+
+                    Ensifer sp. N10,
+
+                    Ensifer sp. N12
+
+                </p>
 
 
 
@@ -796,7 +793,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Legume Nodule Biofertilization
-                        <p class="prewrap causal-description">Antioxidant enzyme activation is the shared protective mechanism associated with improved M. sativa growth and nodulation under each abiotic stress.</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED - induced antioxidant activities could limit oxidative injury and thereby support plant growth and nodulation under stress. Enzyme and plant phenotypes co-occur with inoculation; selective antioxidant inhibition or rescue was not used to establish this causal step.</p>
                     </div>
 
                 </div>
@@ -812,7 +809,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/37299063/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37299063</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
                         <div class="snippet">"The increase in plant antioxidant enzymatic activities seems to be a common and important mechanism of plant protection induced by the SynCom"</div>
@@ -826,10 +823,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Legume Nodule Biofertilization</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">The four-strain Pseudomonas-Ensifer SynCom increased M. sativa biomass, nodulation, photosynthesis, and nitrogen content in stressed estuarine soils.
-</p>
+                <p class="prewrap interaction-description">In controlled pot experiments, the four-strain SynCom improved M. sativa dry biomass, nodule number, photosynthetic parameters and plant nitrogen content relative to comparison inoculation treatments, including Ensifer N10 alone. Benefits were endpoint- and stress-dependent: salinity-treated SynCom plants had shorter but thicker roots, and heat-stressed photosynthesis remained low despite improvement. Nodules and nitrogen content are positive outcomes, not direct N2-fixation flux or proof that all four members are required. These plant measurements do not establish field efficacy or reciprocal microbial benefit.</p>
 
 
 
@@ -862,12 +857,6 @@
                 <ul>
 
                     <li>
-                        nitrogen fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009399"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009399</a>)
-                    </li>
-
-                    <li>
                         nodulation
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0009877"
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0009877</a>)
@@ -888,10 +877,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/37299063/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37299063</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"This work was aimed to determine the potential of a nodule synthetic bacterial community (SynCom), including two Ensifer sp. and two Pseudomonas sp. strains isolated from Medicago spp. nodules, to promote M. sativa growth and nodulation in degraded estuarine soils under several abiotic stresses"</div>
+                        <div class="snippet">"Inoculation with the SynCom in pots containing soil enhanced plant growth parameters"</div>
 
                     </li>
 
@@ -917,6 +906,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which bacterial traits and host antioxidant processes mediate the observed plant benefits?
+                </h3>
+                <p class="prewrap">Retain positive culture traits, plant enzyme responses and plant benefits, but qualify both proposed mediation arrows. No selective trait or antioxidant perturbation resolves their necessity; tissue nitrogen is not traced N2 fixation. Preserve strain names despite shared genus IDs. The host is external and no new taxon mapping is made. #1588 repairs this graph; #1594 retains role, ingredient and non-graph evidence follow-up. Complete primary main text and Tables 1-2 read; separate supplements, figure pixels and raw measurements not audited.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Four-Strain Nodule PGP Trait Retention</code>, <code>ecological_interactions#Abiotic-Stress Antioxidant Enzyme Response</code>, <code>ecological_interactions#Legume Nodule Biofertilization</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1066,7 +1074,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1079,7 +1086,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1147,7 +1153,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1155,10 +1161,6 @@
 
 
             var processes = [];
-
-
-            processes.push("nodulation");
-
 
             var evidenceCount = 2;
 
@@ -1196,7 +1198,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1213,7 +1215,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Abiotic-Stress Antioxidant Protection",
+                label: "Abiotic-Stress Antioxidant Enzyme Response",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1224,11 +1226,28 @@
 
 
 
+            var participantKeys = [
+
+                "Pseudomonas sp. N4",
+
+                "Pseudomonas sp. N8",
+
+                "Ensifer sp. N10",
+
+                "Ensifer sp. N12"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1237,8 +1256,6 @@
 
             var processes = [];
 
-
-            processes.push("nitrogen fixation");
 
             processes.push("nodulation");
 

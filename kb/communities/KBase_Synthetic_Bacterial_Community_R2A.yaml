@@ -93,56 +93,58 @@ associated_datasets:
   url: https://pubmed.ncbi.nlm.nih.gov/33995895/
   description: Publication for Populus PD10 synthetic community assembly and modeling.
 ecological_interactions:
-- name: Pantoea Metabolite Cross-Feeding to Community
-  description: Pantoea sp. YR343, the dominant strain in R2A medium, exports a greater range of metabolites
-    than it receives from other community members. FBA modeling predicts that Pantoea excretes organic
-    acids, purine derivatives, and biogenic amines that support the growth of Pseudomonas and Variovorax.
-    Pantoea has the highest number of transporter genes and exchange reactions among community members,
-    enabling utilization of diverse nutrients in the complex medium. Metaproteomics confirms high representation
-    of enzymes involved in these metabolic pathways, supporting the cross-feeding mechanism.
-  interaction_type: CROSS_FEEDING
+- name: Predicted R2A Community Metabolite Exchange
+  description: PARTIAL - the R2A community FBA model predicts that Pantoea sp. YR343 exports organic acids, purine
+    derivatives and biogenic amines to other modeled members, and predicts a higher Pantoea growth rate in the community
+    than in its individual model. The actual three-member model comprises YR343, Pseudomonas sp. GM17 and Sphingobium
+    sp. AP49, not Variovorax CF313. The listed canonical participants are only the two correctly represented model
+    members; AP49 membership and strain grounding remain unresolved in record metadata (#1533). Models were gapfilled,
+    combined using final-passage 16S ratios and constrained by carbon uptake calibrated to experimental growth rates.
+    These are conditional predictions, not measurements of exchange flux or reciprocal fitness benefit. Metaproteomics
+    detects relevant enzymes but does not confirm metabolite transfer. Pantoea dominance is based on 16S data; protein-based
+    abundance estimates differ.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Pantoea sp. YR343
-    term:
-      id: NCBITaxon:53335
-      label: Pantoea
   metabolites:
   - preferred_term: organic acid
     term:
       id: CHEBI:64709
       label: organic acid
-    concentration: Excreted by Pantoea to support community growth
-  - preferred_term: purine
+    notes: Broad class of model-predicted exchange substrates, not a measured concentration or a compound-specific
+      transferred flux.
+  - preferred_term: purines
     term:
       id: CHEBI:26401
       label: purines
-    concentration: Purine derivatives excreted by Pantoea
-  downstream:
-  - target: Variovorax Cross-Feeding on Community Metabolites
-    description: Pantoea exports organic acids, purine derivatives, and
-      biogenic amines into the shared extracellular environment that
-      lower-abundance Variovorax uses for persistence in the R2A community.
+    notes: Broad class of model-predicted exchange substrates, not a measured concentration or a compound-specific
+      transferred flux.
   evidence:
   - reference: PMID:33995895
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: the dominant strain Pantoea sp. YR343, based on the 16S rRNA marker data, is expected to
-      export a greater range of metabolites than it receives from the other two members of the community
-    explanation: Demonstrates Pantoea's role as the primary metabolite exporter supporting community growth.
+    snippet: Organic acids, purine derivatives and biogenic amines are predicted to be excreted
+    explanation: Results3.4.2 identifies predicted R2A exchanges, not observed donor-to-recipient flux.
   - reference: PMID:33995895
     supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: Organic acids, purine derivatives and biogenic amines are predicted to be excreted and support
-      the growth of the other community members.
-    explanation: Identifies specific metabolite classes involved in cross-feeding from Pantoea.
+    evidence_source: IN_VITRO
+    snippet: The less abundant strains in R2A medium are Pseudomonas sp. GM17 and Sphingobium sp. AP49.
+    explanation: Results3.1 identifies the R2A model companions of Pantoea; CF313 belongs to the separate MOPS model.
+  participating_taxa:
+  - preferred_term: Pantoea sp. YR343
+    term:
+      id: NCBITaxon:53335
+      label: Pantoea
+  - preferred_term: Pseudomonas sp. GM17
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
 - name: Pseudomonas Competitive Antagonism
-  description: Pseudomonas sp. GM17 demonstrates antagonistic interactions toward other community members
-    in pairwise screens, inhibiting growth of Variovorax CF313 and other strains on agar plates. However,
-    in well-mixed liquid R2A medium, these strains co-exist despite the antagonism. This suggests that
-    beneficial effects from metabolic exchanges in the shared extracellular environment overwhelm the
-    antagonistic effects. Fast growth rate and metabolic cooperation enable Pseudomonas to maintain presence
-    as a secondary dominant member.
+  description: 'Pseudomonas sp. GM17 inhibited Variovorax sp. CF313 in a pairwise R2A-agar lawn/spot screen: 5 microliters
+    of overnight culture was spotted onto a lawn of the other strain and incubated at 25 degrees C for 48 hours.
+    Preserve this experimentally observed antagonism as an assay-specific pair, not as membership of CF313 in the
+    three-member R2A FBA model. The source reports coexistence during ten-member liquid cultivation despite agar
+    inhibition. HYPOTHESIZED - beneficial shared metabolites could compensate for antagonism, but liquid-versus-static-agar
+    conditions are an explicit alternative explanation. No selective metabolite rescue, inhibitory molecule or causal
+    link from antagonism to cross-feeding was established.'
   interaction_type: COMPETITION
   scope: PAIRWISE
   source_taxon:
@@ -156,67 +158,23 @@ ecological_interactions:
       id: NCBITaxon:34072
       label: Variovorax
   biological_processes:
-  - preferred_term: interspecies interaction between organisms
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: Variovorax Cross-Feeding on Community Metabolites
-    description: >
-      GM17 antagonism is the pairwise inhibitory pressure that Variovorax CF313
-      overcomes in the liquid community when beneficial shared metabolites
-      outweigh agar-plate antagonism.
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Pseudomonas sp. GM17 cells were antagonistic to the growth of the majority of the other community
-      members
-    explanation: Demonstrates antagonistic interaction between Pseudomonas and other community members
-      including Variovorax.
+    snippet: although the growth of strain AP49, CF313 and CF142 were inhibited by strain GM17 in pairwise interaction
+      screens
+    explanation: Results3.5 directly identifies the GM17-to-CF313 inhibition; Methods2.4 gives the R2A-agar assay.
   - reference: PMID:33995895
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: although the growth of strain AP49, CF313 and CF142 were inhibited by strain GM17 in pairwise
-      interaction screens, these strains still co-existed with strain GM17 during the 10-member community
-      cultivation
-    explanation: Shows that despite antagonism in pairwise screens, Variovorax CF313 and Pseudomonas GM17
-      co-exist in mixed community conditions.
-- name: Variovorax Cross-Feeding on Community Metabolites
-  description: Variovorax sp. CF313 persists in the R2A community as a cross-feeder, consuming metabolites
-    exported by Pantoea and other dominant members. Despite antagonistic interactions with Pseudomonas
-    in pairwise screens, Variovorax maintains presence in the liquid community by accessing excreted organic
-    acids, purine derivatives, and other metabolites from the shared extracellular environment. This metabolic
-    cooperation enables coexistence with faster-growing competitors.
-  interaction_type: CROSS_FEEDING
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Variovorax sp. CF313
-    term:
-      id: NCBITaxon:34072
-      label: Variovorax
-  metabolites:
-  - preferred_term: organic acid
-    term:
-      id: CHEBI:64709
-      label: organic acid
-    concentration: Consumed from community metabolite pool
-  evidence:
-  - reference: PMID:33995895
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: Accessing excreted metabolites may be vital for the maintenance of those members with minor
-      content in the community.
-    explanation: Supports that Variovorax as a minor community member relies on metabolites excreted by
-      dominant strains like Pantoea.
-  - reference: PMID:33995895
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: This may be attributed to intertwined metabolic interactions among these four strains, in
-      which the beneficial effect from the metabolites in a shared extracellular environment for growth
-      overwhelms antagonistic effects
-    explanation: Demonstrates that metabolic cooperation enables Variovorax persistence despite competitive
-      pressures.
+    snippet: Alternatively, different experimental conditions may account for the unexpected result.
+    explanation: Results3.5 explicitly contrasts well-mixed liquid cultivation with static agar; metabolic compensation
+      remains an alternative, not established mediation.
 external_resources:
 - name: KBase narrative
   repository: KBASE
@@ -303,3 +261,27 @@ growth_media:
       with shaking at 200 rpm and passaged every 48 h at a 1:10 dilution for 15 passages.'
     explanation: Confirms the community was passaged at 30 °C, 200 rpm, 48 h intervals
       at 1:10 dilution.
+discussions:
+- discussion_id: r2a_model_membership_and_exchange_validation
+  prompt: Which R2A exchanges occur in culture, and what explains coexistence despite agar antagonism?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Predicted R2A Community Metabolite Exchange
+  - ecological_interactions#Pseudomonas Competitive Antagonism
+  rationale: 'The three-member R2A model contains YR343, GM17 and AP49; CF313 belongs to the four-member MOPS model.
+    The CF313 cross-feeding node and both arrows were removed because they transplant medium-specific predictions
+    and a proposed compensation mechanism into R2A. Preserve the measured GM17-to-CF313 agar assay separately. Model
+    fluxes and enzyme representation do not trace exchange; liquid-versus-agar conditions offer an alternative to
+    metabolic rescue. Canonical membership, AP49 grounding, CF313 role and ten-isolate assembly metadata remain
+    unresolved under #1533 and were not altered or certified here. Full primary extracted main text/Methods/Tables1-2/main
+    captions read; no original figure pixels, supplements, raw data or executed KBase narrative. No new causal structure
+    or Edison spend for this repair.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T19:27:02Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Separate R2A FBA predictions from MOPS CF313 attribution and agar antagonism. Issue #1532; reports/causal_graph_review/decisions/20261006-r2a-batch58.yaml'
+  llm_assisted: true

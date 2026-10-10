@@ -642,7 +642,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for KBase Models for Zahmeeth Original PLOS</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -650,18 +650,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -669,42 +659,26 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>RFMIA Community Information-Flow Adaptation</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Model-Architecture-Dependent Information Flow</h3>
                 </div>
-                <p class="prewrap interaction-description">The Zahmeeth computational workflow adapted Run Flux Mutual Information Analysis to combine molecular communication, Shannon information theory, and metabolic flux analysis for quantifying information flow through modeled microbial community metabolism in bits.
-</p>
+                <p class="prewrap interaction-description">Mixed-bag models generally had higher mutual-information scores than compartmentalized models. The authors attribute this to pooling reactions without intermember transport constraints; this is a model-architecture interpretation, not observed niche partitioning or a selectively validated biological transport mechanism. Methods/Results identify E. coli iML1515 and B. theta iAH991; the abstract names different pairs. The two canonical participants delimit the modeled comparison, not a four-member consortium; the source/metadata discrepancy remains #1527.</p>
+
+
+
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Escherichia coli,
+
+                    Bacteroides thetaiotaomicron
+
+                </p>
 
 
 
 
 
 
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Idealized Two-Member Community Model Construction
-                        <p class="prewrap causal-description">The RFMIA framework was applied to idealized two-member microbial communities represented by genome-scale metabolic models.
-</p>
-                    </div>
-
-                </div>
 
 
 
@@ -720,7 +694,7 @@
                             - SUPPORT (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"adapted a model that blends molecular communication and Shannon Information theory to be able to quantify the information flow through metabolism in bits"</div>
+                        <div class="snippet">"mixed-bag framework conducts greater information flow than the compartmentalized framework"</div>
 
                     </li>
 
@@ -730,155 +704,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Idealized Two-Member Community Model Construction</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Model-Conditional Growth Contrasts</h3>
                 </div>
-                <p class="prewrap interaction-description">The RFMIA analysis was instantiated on idealized two-member communities, including Escherichia coli with Pseudomonas fluorescens and Bacteroides thetaiotaomicron with Klebsiella, allowing modeled community flux behavior to be compared with isolate behavior.
-</p>
+                <p class="prewrap interaction-description">Community models grew on dextrin where the E. coli isolate model did not. Aerobic isolated B. theta growth and information flow were manually set to zero, with that constraint lifted in community models; the contrast is not independently predicted partner rescue. Model growth does not establish actual strain growth, resolved cross-feeding, stable community formation or reciprocal benefit. Methods/Results identify E. coli iML1515 and B. theta iAH991; the abstract names different pairs. The two canonical participants delimit the modeled comparison, not a four-member consortium; the source/metadata discrepancy remains #1527.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
 
+                    Escherichia coli,
 
+                    Bacteroides thetaiotaomicron
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Mixed-Bag and Compartmentalized GEM Comparison
-                        <p class="prewrap causal-description">The idealized two-member models supplied the test cases for comparing mixed-bag and compartmentalized community genome-scale model structures.
-</p>
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> In Silico Community-Formation Dependencies
-                        <p class="prewrap causal-description">The paired idealized communities were also used to identify model dependencies that justified community formation relative to isolate simulations.
-</p>
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.1101/2023.08.23.554558"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1101/2023.08.23.554558</a>
-
-                            - SUPPORT (COMPUTATIONAL)
-                        </div>
-
-                        <div class="snippet">"RFMIA (Run Flux Mutual Information Analysis), was applied to idealized two-member microbial communities"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.1101/2023.08.23.554558"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1101/2023.08.23.554558</a>
-
-                            - SUPPORT (COMPUTATIONAL)
-                        </div>
-
-                        <div class="snippet">"one of E. coli and Pseudomonas fluorescens and another of Bacteroides thetaiotaomicron (B. theta) and Klebsiella"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Mixed-Bag and Compartmentalized GEM Comparison</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
-                </div>
-                <p class="prewrap interaction-description">The workflow compared mixed-bag and compartmentalized genome-scale metabolic modeling frameworks for the same idealized two-member communities, separating model-architecture effects from isolated-community information-flow contrasts.
-</p>
-
-
-
-
-
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Greater Community Information Flow
-                        <p class="prewrap causal-description">Comparing the alternative GEM frameworks produced the specific result that mixed-bag community models conducted more information flow than compartmentalized ones.
-</p>
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.1101/2023.08.23.554558"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1101/2023.08.23.554558</a>
-
-                            - SUPPORT (COMPUTATIONAL)
-                        </div>
-
-                        <div class="snippet">"mixed-bag framework conducts greater information flow than the compartmentalized framework for community genome-scale metabolic models"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>In Silico Community-Formation Dependencies</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
-                </div>
-                <p class="prewrap interaction-description">Simulated pairwise communities exposed community-only dependencies, including aerobic B. thetaiotaomicron growth when coupled with E. coli and community dextrin growth in cases where E. coli could not grow as an isolate.
-</p>
-
-
-
+                </p>
 
 
 
@@ -892,29 +731,7 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
 
-                    <li>
-                        interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Greater Community Information Flow
-                        <p class="prewrap causal-description">The modeled dependency examples accompanied the broader finding that two-member community models carried more metabolic information flow than isolate models.
-</p>
-                    </div>
-
-                </div>
 
 
 
@@ -930,20 +747,7 @@
                             - SUPPORT (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"Our work reveals dependencies among organisms that justify community formation"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.1101/2023.08.23.554558"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1101/2023.08.23.554558</a>
-
-                            - SUPPORT (COMPUTATIONAL)
-                        </div>
-
-                        <div class="snippet">"including that B. theta only grows in aerobic environments when coupled with E. coli and that community models grew on dextrin despite that E. coli failed to grow as an isolate"</div>
+                        <div class="snippet">"despite that E. coli failed to grow as an isolate"</div>
 
                     </li>
 
@@ -954,28 +758,23 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Greater Community Information Flow</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">The RFMIA simulations reported higher information flow through the idealized two-member community models than through isolated organism models, tying the KBase model workflows to a quantitative community-level information-flow output.
-</p>
+                <p class="prewrap interaction-description">RFMIA generally returned higher mutual-information scores for the community models than for isolated models under the tested nutrient combinations. These are computed information-theoretic outputs in bits, not measured molecular communication, a universal growth advantage or mutualism. Methods/Results identify E. coli iML1515 and B. theta iAH991; the abstract names different pairs. The two canonical participants delimit the modeled comparison, not a four-member consortium; the source/metadata discrepancy remains #1527.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Escherichia coli,
+
+                    Bacteroides thetaiotaomicron
+
+                </p>
 
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -1041,6 +840,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which model-dependent findings persist with verified partners and experimentally tested constraints?
+                </h3>
+                <p class="prewrap">Remove adaptation/construction nodes and all five procedural or co-occurrence arrows. Keep three existing modeled observations without imposing a new causal chain. Primary full v1 PDF text/captions read and selected Methods, equations, table, architecture and charts visually inspected; no independent mathematical derivation, supplement/code/raw simulation audit or model rerun. Manually imposed aerobic constraints cannot validate partner rescue. #1527 tracks non-graph model/partner metadata and #1528 the mismatching cached abstract. Canonical identifiers and raw non-graph blocks are preserved; no new graph structure.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Model-Architecture-Dependent Information Flow</code>, <code>ecological_interactions#Model-Conditional Growth Contrasts</code>, <code>ecological_interactions#Greater Community Information Flow</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1123,7 +941,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1136,7 +953,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1204,20 +1020,16 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("interspecies interaction between organisms");
-
 
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "RFMIA Community Information-Flow Adaptation",
+                label: "Model-Architecture-Dependent Information Flow",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1227,68 +1039,25 @@
 
 
 
+
+            var participantKeys = [
+
+                "Escherichia coli",
+
+                "Bacteroides thetaiotaomicron"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
-            var metabolites = [];
-
-            var processes = [];
-
-
-            processes.push("interspecies interaction between organisms");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Idealized Two-Member Community Model Construction",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
-            var metabolites = [];
-
-            var processes = [];
-
-
-            processes.push("interspecies interaction between organisms");
-
-
-            var evidenceCount = 1;
-
-            nodes.push({
-                id: intId,
-                label: "Mixed-Bag and Compartmentalized GEM Comparison",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:3";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1297,15 +1066,11 @@
 
             var processes = [];
 
-
-            processes.push("interspecies interaction between organisms");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "In Silico Community-Formation Dependencies",
+                label: "Model-Conditional Growth Contrasts",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1316,18 +1081,27 @@
 
 
 
+            var participantKeys = [
+
+                "Escherichia coli",
+
+                "Bacteroides thetaiotaomicron"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
-            var intId = "interaction:4";
-            var intType = "MUTUALISM";
+            var intId = "interaction:2";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("interspecies interaction between organisms");
-
 
             var evidenceCount = 1;
 
@@ -1343,6 +1117,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Escherichia coli",
+
+                "Bacteroides thetaiotaomicron"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1365,7 +1152,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 9;
+        var nodeCount = 7;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

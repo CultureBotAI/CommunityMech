@@ -561,7 +561,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Model Cyanobacterial Consortia Core Microbiome</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -569,18 +569,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -588,17 +578,12 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Plasmid-Mediated Cyanobacteria-Heterotroph Symbiosis</h3>
-                    <span class="interaction-type">MUTUALISM</span>
+                    <h3>Putative Plasmid Functions in the Cyanobacterial Core Microbiome</h3>
                 </div>
-                <p class="prewrap interaction-description">Core noncyanobacterial species are significantly enriched in plasmids, and plasmid-encoded functions are suggested to mediate symbiotic interactions with the cyanobacterial hosts.</p>
-
-
-                <p><strong>Source Taxon:</strong> core noncyanobacterial heterotrophs</p>
+                <p class="prewrap interaction-description">PARTIAL - Core microbiome MAGs are enriched in putative plasmid contigs carrying transport, carbohydrate-metabolism and signaling functions. Cobinning assigns plasmids to MAGs and 98% of predicted plasmids were not circularized. Their contribution to phototroph-heterotroph establishment or maintenance is HYPOTHESIZED from genomic content, not demonstrated plasmid transfer, curing, reciprocal fitness or metabolite flux.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> model cyanobacterial hosts</p>
 
 
 
@@ -628,7 +613,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/40626910/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40626910</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"core species showed significant enrichment of plasmids, and functions encoded on plasmids suggested plasmid-mediated roles in symbiotic interactions"</div>
@@ -642,9 +627,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Core Micronutrient and Anoxygenic Photosynthesis Functions</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The 25-species core microbiome is statistically enriched for micronutrient biosynthesis, metabolite transport, and anoxygenic photosynthesis functions, indicating shared community-level metabolic contributions across consortia.</p>
+                <p class="prewrap interaction-description">Core microbiome MAGs are statistically enriched in micronutrient biosynthesis, membrane transport and anoxygenic photosynthesis potential; 20 of 25 core MAGs encode anoxygenic photosystem components. These are genomic capabilities. Cross-feeding of costly cofactors or cyanobacterial products is HYPOTHESIZED, not measured expression, transferred metabolites or partner-specific growth benefit.</p>
 
 
 
@@ -702,10 +686,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Host- and Inoculum-Independent Core Recruitment</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Reproducible Core Recruitment Across Hosts and Inocula</h3>
                 </div>
-                <p class="prewrap interaction-description">Despite varying cyanobacterial host species and freshwater inoculum sources, the 108 consortia converged on the same noncyanobacterial core, indicating reproducible cyanobacterium-driven recruitment.</p>
+                <p class="prewrap interaction-description">Among 108 retained consortia, 25 species met an operational core definition: occurrence with at least four host strains and at least two source environments under replicated criteria. Individual core species occurred in 18.5%-68.5% of samples, not universally. Communities stabilized and showed broad convergence, while both host strain and inoculum significantly affected composition. Host-driven facilitation is PARTIAL because cyanobacteria-free controls were absent, leaving medium and laboratory selection unresolved.</p>
 
 
 
@@ -727,21 +710,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Core Micronutrient and Anoxygenic Photosynthesis Functions
-                        <p class="prewrap causal-description">Reproducible 25-species core recruitment made it possible to statistically validate shared micronutrient-biosynthesis, metabolite- transport, and anoxygenic-photosynthesis functions in the core microbiome.</p>
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Plasmid-Mediated Cyanobacteria-Heterotroph Symbiosis
-                        <p class="prewrap causal-description">The recruited core species were significantly enriched in plasmids whose encoded functions suggested plasmid-mediated cyanobacteria-heterotroph symbiotic roles.</p>
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -760,6 +728,32 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40626910/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40626910</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Individual core species were present in 18.5%–68.5% of all samples"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40626910/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40626910</a>
+
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"The absence of cyanobacteria-free controls limited our ability to disentangle effects solely attributable to media or laboratory conditions."</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -769,6 +763,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which selective mechanisms explain the measured community responses?
+                </h3>
+                <p class="prewrap">The primary source establishes replicated enrichment, but host/source variation persists and the authors report no cyanobacteria-free controls. Bioinformatic removal of predicted plasmid contigs is an analytical comparison, not a biological plasmid intervention. Quantify selective host, plasmid and metabolite-exchange contributions before adding mechanistic arrows; statistical analysis enabled by recruitment is not a downstream ecological cause.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Putative Plasmid Functions in the Cyanobacterial Core Microbiome</code>, <code>ecological_interactions#Core Micronutrient and Anoxygenic Photosynthesis Functions</code>, <code>ecological_interactions#Reproducible Core Recruitment Across Hosts and Inocula</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -992,7 +1005,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1005,7 +1017,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1059,7 +1070,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1072,7 +1083,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Plasmid-Mediated Cyanobacteria-Heterotroph Symbiosis",
+                label: "Putative Plasmid Functions in the Cyanobacterial Core Microbiome",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1081,23 +1092,13 @@
             });
 
 
-            var srcKey = "core noncyanobacterial heterotrophs";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
-
-
-            var tgtKey = "model cyanobacterial hosts";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1129,7 +1130,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1138,11 +1139,11 @@
             processes.push("interspecies interaction between organisms");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "Host- and Inoculum-Independent Core Recruitment",
+                label: "Reproducible Core Recruitment Across Hosts and Inocula",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

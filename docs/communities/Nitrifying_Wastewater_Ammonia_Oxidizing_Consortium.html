@@ -599,7 +599,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Nitrifying Wastewater Ammonia-Oxidizing Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -616,11 +616,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Nitrifier Guild Metabolic Handoff</h3>
+                    <h3>Putative Nitrifier Guild Metabolic Handoff</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The consortium contains ammonia-oxidizing and nitrite-oxidizing guilds whose sequential nitrogen transformations were monitored under aerobic and anoxic redox conditions; Nitrosospira represented the dominant AOB MAG and Nitrobacter represented an NOB MAG in the starting material.
-</p>
+                <p class="prewrap interaction-description">PARTIAL - Starting-material Nitrosospira and Nitrobacter MAGs support ammonia- and nitrite-oxidizing guild potential, but do not resolve an active, exclusive donor-recipient flux. Aerobic cultures showed consistent net ammonia removal and nitrate accumulation only after about day 30; anoxic cultures accumulated ammonia. These measured consortium outcomes do not demonstrate nitrification under anoxia or assign the aerobic flux solely to the two starting dominant guilds.</p>
 
 
 
@@ -666,11 +665,24 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41457319/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41457319</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (OTHER)
                         </div>
 
                         <div class="snippet">"ammonia-oxidizing bacteria (AOB) and nitrite-oxidizing bacteria (NOB) that rely on metabolic handoffs to carry out nitrification
 "</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41457319/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41457319</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"All cultures accumulated ammonia over 4 weeks, with only aerobic cultures reducing ammonia levels thereafter."</div>
 
                     </li>
 
@@ -736,6 +748,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which exact-system measurements distinguish the observed outcome from the proposed mechanism?
+                </h3>
+                <p class="prewrap">Retain the observed aerobic ammonia-removal outcome after the lag, anoxic ammonia accumulation, and positive nitrogen-cycling gene potential. An initial aerobic ammonia decrease was followed by rebound before consistent net removal after day 30. Nitrosospira and Nitrobacter declined in aerobic abundance and mapped RNA; Nitrobacter nitrogen-gene RNA was not detected, and other populations could contribute. Gene presence and amoC transcription alone do not establish complete ammonia-monooxygenase activity. Periodic oxygen supply, pH change and alternative nitrogen sources are proposed contributors, not isolated mediators. The bulk ammonia assay does not distinguish NH3 from NH4+. Missing redox-dependent endpoint nodes require separate source-backed causal research; the existing one-node graph remains needs_research.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Putative Nitrifier Guild Metabolic Handoff</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -989,7 +1020,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1002,7 +1032,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1076,11 +1105,11 @@
 
             var processes = [];
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Nitrifier Guild Metabolic Handoff",
+                label: "Putative Nitrifier Guild Metabolic Handoff",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

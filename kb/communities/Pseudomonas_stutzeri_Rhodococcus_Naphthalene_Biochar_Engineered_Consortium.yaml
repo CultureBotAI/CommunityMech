@@ -86,11 +86,10 @@ taxonomy:
     explanation: Identifies the engineered Rhodococcus strain as a member of the consortium.
 ecological_interactions:
 - name: Biochar-bridged direct interspecies electron transfer (DIET)
-  description: The conductive S-N-doped biochar matrix bridges the two strains, facilitating direct
-    interspecies electron transfer (DIET) and extracellular electron transfer (EET). Pseudomonas
-    stutzeri acts as an oxidative bio-anode releasing electrons that are harnessed by the Rhodococcus
-    reductive bio-cathode.
-  interaction_type: SYNTROPHY
+  description: 'PARTIAL: the authors interpret the conductive material as coupling donor electron release with recipient
+    electron use in a syntrophic model. Retain this reported coupling type, which does not assert obligacy. Electrochemical
+    and multi-omics support do not independently isolate the interspecies route from other material-associated effects
+    in the accessible abstract.'
   scope: PAIRWISE
   source_taxon:
     preferred_term: Pseudomonas stutzeri (overexpressing nahAc and nahB)
@@ -109,33 +108,22 @@ ecological_interactions:
       label: electron transport chain
   downstream:
   - target: Syntrophic naphthalene mineralization circuit
-    description: Conductive biochar-mediated electron transfer bridges the engineered
-      Pseudomonas bio-anode and Rhodococcus bio-cathode that jointly mineralize
-      naphthalene.
+    description: 'PARTIAL: the reported conductive interface is proposed to couple the partners within the authors
+      degradation-circuit model; route-specific mediation is not independently resolved by the accessible abstract.'
   evidence:
   - reference: PMID:42139785
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: facilitating direct interspecies electron transfer (DIET) and enhancing extracellular
-      electron transfer (EET)
-    explanation: States the biochar-mediated DIET/EET electron transfer between the two members.
-- name: Syntrophic naphthalene mineralization circuit
-  description: Pseudomonas stutzeri initiates naphthalene degradation and releases electrons; the
-    directed electron flux is harnessed by Rhodococcus to drive oxygenolytic ring-cleavage catalysis,
-    establishing a syntrophic circuit that mineralizes naphthalene while minimizing intermediate
-    accumulation.
+    snippet: facilitating direct interspecies electron transfer (DIET) and enhancing extracellular electron transfer
+      (EET)
+    explanation: Supports the authors DIET/EET and coupled-metabolism interpretation, without independently resolving
+      the transfer route or asserting obligacy.
   interaction_type: SYNTROPHY
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Pseudomonas stutzeri (overexpressing nahAc and nahB)
-    term:
-      id: NCBITaxon:316
-      label: Stutzerimonas stutzeri
-  target_taxon:
-    preferred_term: Rhodococcus rhodococcus (overexpressing nahH and catA)
-    term:
-      id: NCBITaxon:1827
-      label: Rhodococcus <high G+C Gram-positive bacteria>
+- name: Syntrophic naphthalene mineralization circuit
+  description: 'PARTIAL: the authors interpret coordinated electron flux and catabolic responses as a syntrophic
+    degradation circuit. Retain that reported model with canonical participants. The local interaction type does
+    not assert obligacy, and the accessible abstract does not independently isolate every mediator.'
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: naphthalene
     term:
@@ -143,22 +131,30 @@ ecological_interactions:
       label: naphthalene
   downstream:
   - target: Enhanced Naphthalene Removal and Mineralization
-    description: >
-      Biochar-mediated electron flux feeds the Pseudomonas-Rhodococcus
-      syntrophic circuit that removes and mineralizes naphthalene.
+    description: 'PARTIAL: the proposed coordinated circuit is offered as an explanation for the reported removal
+      and mineralization endpoints. The abstract does not isolate each mediator from concurrent treatment effects.'
   evidence:
   - reference: PMID:42139785
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Electrochemical and multi‑omics analyses confirmed the establishment of this syntrophic
-      circuit, demonstrating elevated electron flux, coordinated upregulation of catabolic genes
-    explanation: Confirms the syntrophic naphthalene-mineralizing circuit between the two members.
-- name: Enhanced Naphthalene Removal and Mineralization
-  description: >
-    The biochar-bridged engineered circuit achieved more than 98.3% naphthalene
-    removal and 89.5% mineralization by coordinating electron flux between
-    Pseudomonas and Rhodococcus and limiting intermediate accumulation.
+    snippet: Electrochemical and multi‑omics analyses confirmed the establishment of this syntrophic circuit, demonstrating
+      elevated electron flux, coordinated upregulation of catabolic genes
+    explanation: Supports the reported electron-flux and expression findings and the authors circuit interpretation,
+      not independent necessity of every mediator.
+  participating_taxa:
+  - preferred_term: Pseudomonas stutzeri (overexpressing nahAc and nahB)
+    term:
+      id: NCBITaxon:316
+      label: Stutzerimonas stutzeri
+  - preferred_term: Rhodococcus rhodococcus (overexpressing nahH and catA)
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
   interaction_type: SYNTROPHY
+- name: Enhanced Naphthalene Removal and Mineralization
+  description: The source reports more than 98.3% naphthalene removal and 89.5% mineralization. Preserve these separate
+    positive endpoints without treating the measured outcome itself as an electron-transfer interaction or independently
+    auditing a complete carbon balance.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: naphthalene
@@ -169,9 +165,18 @@ ecological_interactions:
   - reference: PMID:42139785
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The resulting bioelectrochemical synergy achieved exceptional naphthalene removal
-      (>98.3%) and mineralization efficiency (89.5%)
+    snippet: The resulting bioelectrochemical synergy achieved exceptional naphthalene removal (>98.3%) and mineralization
+      efficiency (89.5%)
     explanation: Supports the measured removal and mineralization endpoint of the engineered consortium.
+  participating_taxa:
+  - preferred_term: Pseudomonas stutzeri (overexpressing nahAc and nahB)
+    term:
+      id: NCBITaxon:316
+      label: Stutzerimonas stutzeri
+  - preferred_term: Rhodococcus rhodococcus (overexpressing nahH and catA)
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
 cultivation_setup:
 - system_type: BIOELECTROCHEMICAL_SYSTEM
   instrument_detail: Immobilized engineered microbial system (imGEM) co-anchoring engineered Pseudomonas
@@ -195,3 +200,47 @@ cultivation_setup:
     snippet: the immobilized system exhibited outstanding operational stability, maintaining high degradation
       efficiency over 30 days under varying environmental conditions
     explanation: Immobilized bioelectrochemical consortium operated over a 30-day period.
+discussions:
+- discussion_id: naphthalene-model-versus-endpoint
+  prompt: What distinguishes the reported electron-transfer model from the treatment endpoints?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  posed_by: codex
+  rationale: 'All three nodes and both existing directions remain. The authors electron-transfer model retains its
+    SYNTROPHY classification with PARTIAL evidence bounds: the local enum does not require obligacy. The community
+    removal/mineralization endpoint is distinct from the coupling mechanism. Only the fresh primary abstract was
+    retrieved; unavailable methods are not proof that route-specific controls were absent. Canonical source labels
+    are preserved, not newly certified strain identities. No new genetic designs, optimization details or experimental
+    procedures were added.'
+  attaches_to:
+  - ecological_interactions#Biochar-bridged direct interspecies electron transfer (DIET)
+  - ecological_interactions#Syntrophic naphthalene mineralization circuit
+  - ecological_interactions#Enhanced Naphthalene Removal and Mineralization
+  evidence:
+  - reference: PMID:42139785
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: facilitating direct interspecies electron transfer (DIET) and enhancing extracellular electron transfer
+      (EET)
+    explanation: Supports the authors DIET/EET interpretation, not independent resolution of the electron-transfer
+      route or obligatory mutual dependence.
+  - reference: PMID:42139785
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The resulting bioelectrochemical synergy achieved exceptional naphthalene removal (>98.3%) and mineralization
+      efficiency (89.5%)
+    explanation: Supports the measured removal and mineralization endpoint of the engineered consortium.
+curation_history:
+- timestamp: '2026-10-07T12:54:50Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Qualify the authors electron-transfer model without asserting obligatory syntrophy.; Represent the composite
+    circuit collectively with explicit canonical participants.; Preserve reported removal and mineralization without
+    conflating endpoints with a specific interaction type. Issue #1740; reports/causal_graph_review/decisions/20261007-four-records-batch90.yaml'
+  llm_assisted: true
+- timestamp: '2026-10-07T13:07:39Z'
+  curator: codex
+  action: CORRECT_PRECOMMIT_SYNTROPHY_REVIEW
+  changes: 'Restore the authors qualified SYNTROPHY model on the transfer and circuit nodes; the local enum explicitly
+    does not assert obligacy. Keep the measurement endpoint distinct. Issue #1740; reports/causal_graph_review/decisions/20261007-four-records-batch90.yaml'
+  llm_assisted: true

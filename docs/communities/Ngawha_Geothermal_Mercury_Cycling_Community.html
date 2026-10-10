@@ -601,7 +601,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Ngawha Geothermal Acidic Springs Mercury Cycling Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -609,13 +609,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -624,10 +619,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Acidic Warm-Spring Mercury Speciation Regime</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Adjacent acidic warm springs in the Ngawha Geothermal Field had pH below 4.5, temperatures below 55 C, and exceptionally high dissolved total and methylated mercury, defining the geochemical regime constraining microbial Hg transformations.
-</p>
+                <p class="prewrap interaction-description">Geochemical measurements characterize acidic warm Ngawha springs with high dissolved total mercury and methylmercury and high sediment mercury. These measured environmental pools constrain hypotheses about bioavailability, but total dissolved mercury is not synonymous with freely available Hg(II), and co-occurrence does not show that the regime caused the observed diversity.</p>
 
 
 
@@ -648,29 +641,7 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
 
-                    <li>
-                        mercury ion transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015694"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015694</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Diverse Acidophile Guilds Under Ultrahigh Mercury
-                        <p class="prewrap causal-description">The high-Hg acidic spring regime was inhabited by unexpectedly diverse sulfur-, iron-, Hg/As-resistance, and archaeal guilds.
-</p>
-                    </div>
-
-                </div>
 
 
 
@@ -697,11 +668,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Genome-Resolved Mercury Transformation Potential</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Metagenomic Mercury Transformation Potential</h3>
                 </div>
-                <p class="prewrap interaction-description">Genome-resolved analysis identified members genetically equipped for the three central Hg transformations in the springs: mercury methylation, methylmercury demethylation, and Hg(II) reduction to volatile elemental Hg(0).
-</p>
+                <p class="prewrap interaction-description">PARTIAL - Metagenomic merA/merB homologues support potential Hg(II) reduction and organomercurial demethylation. Cub Bath yielded hgcA/hgcB evidence, but hgcA-bearing sequences could not be assigned to a resolved genome or definitive taxon; Tiger Bath nondetection is sequencing-depth bounded. These are positive sequence findings, not measured transformation rates or identified active members for every reaction. HMM merA counts required paralog filtering.</p>
 
 
 
@@ -722,17 +691,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        mercury ion transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015694"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015694</a>)
-                    </li>
-
-                </ul>
-
 
 
 
@@ -746,10 +704,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/32414793/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32414793</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"microorganisms genetically equipped for mercury methylation, demethylation, or Hg(II) reduction to volatile Hg(0)"</div>
+                        <div class="snippet">"merB genes were identified"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/32414793/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32414793</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"The Cub Bath hgcA sequences could not be binned"</div>
 
                     </li>
 
@@ -760,10 +731,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Diverse Acidophile Guilds Under Ultrahigh Mercury</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Despite ultrahigh dissolved and solid mercury concentrations, the geothermal microbiome stayed unexpectedly diverse and was dominated by sulfur- and iron-cycling bacteria, Hg/As-resistant bacteria, and thermophilic acidophilic archaea.
-</p>
+                <p class="prewrap interaction-description">The sampled Ngawha microbiomes were unexpectedly diverse despite high mercury, with sulfur- and iron-cycling bacteria, Hg/As-resistance potential and acidophilic archaea; the two baths differed in composition. This metagenomic observation does not demonstrate temporal stability, realized niche partitioning, or a mercury-driven diversity increase.</p>
 
 
 
@@ -784,17 +753,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
 
 
 
@@ -808,7 +766,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/32414793/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32414793</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"In the context of such ultrahigh mercury levels, the geothermal microbiome was unexpectedly diverse"</div>
@@ -821,11 +779,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Volatile Hg(0) Geothermal Mercury Emission</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Measured Gaseous Mercury With Unresolved Microbial Contribution</h3>
                 </div>
-                <p class="prewrap interaction-description">Hg- and As-resistant spring bacteria carried the genetic potential to reduce inorganic Hg(II) to volatile Hg(0), connecting microbial detoxifying potential to the aqueous and gaseous mercury emissions characteristic of geothermal systems.
-</p>
+                <p class="prewrap interaction-description">Gaseous Hg(0) was measured above Tiger and Cub Baths, alongside aqueous and sediment mercury measurements. The source also reports merA-based reduction potential. The measured atmospheric mercury is a positive environmental result, not an isolated microbial emission rate: deep geological inputs and abiotic redox processes also contribute, and their contributions were not separated from microbial reduction.</p>
 
 
 
@@ -846,17 +802,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        mercury ion transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015694"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015694</a>)
-                    </li>
-
-                </ul>
-
 
 
 
@@ -873,7 +818,7 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"Hg(II) reduction to volatile Hg(0)"</div>
+                        <div class="snippet">"Gaseous Hg0 emissions were also recorded from the baths"</div>
 
                     </li>
 
@@ -884,10 +829,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Sulfur-Iron-Coupled Mercury Cycle Model</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">The study integrated spring-community metagenomic potential with abiotic geochemical controls to produce a model in which mercury speciation is linked to microbial community dynamics and to sulfur and iron biogeochemistry.
-</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - The conceptual model links sulfur/iron redox cycling and cinnabar precipitation/dissolution to mercury bioavailability, with potential methylation, demethylation and Hg(II) reduction. These coupled biotic and abiotic reactions are an evidence-informed model, not demonstrated interspecies syntrophy or a measured taxon-to-taxon mercury flux.</p>
 
 
 
@@ -908,17 +851,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        mercury ion transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015694"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015694</a>)
-                    </li>
-
-                </ul>
-
 
 
 
@@ -932,7 +864,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/32414793/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32414793</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"illustrates how geothermal mercury cycling may couple to microbial community dynamics and sulfur and iron biogeochemistry
@@ -949,6 +881,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which measurements establish the proposed causal mechanism in this exact system?
+                </h3>
+                <p class="prewrap">Retain measured mercury pools, atmospheric Hg(0), diverse microbiomes and positive mer/hgc sequence evidence. The hgcA sequences could not be binned, MerA HMM hits included paralogs, and no hgcAB was recovered from resolved sulfate-reducing bins. Absence at one sequencing depth is not biological absence. Environmental concentrations and mer/hgc potential do not isolate microbial rates or prove temporal stability. The sulfur/iron/cinnabar coupling is proposed; selective activity assays and source partitioning are needed. Preserve the earlier removal of four interpretation-workflow arrows and remove the remaining environmental-context arrow.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Acidic Warm-Spring Mercury Speciation Regime</code>, <code>ecological_interactions#Metagenomic Mercury Transformation Potential</code>, <code>ecological_interactions#Diverse Acidophile Guilds Under Ultrahigh Mercury</code>, <code>ecological_interactions#Measured Gaseous Mercury With Unresolved Microbial Contribution</code>, <code>ecological_interactions#Sulfur-Iron-Coupled Mercury Cycle Model</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1117,7 +1068,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1130,7 +1080,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1191,7 +1140,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1201,10 +1150,6 @@
 
 
             var processes = [];
-
-
-            processes.push("mercury ion transport");
-
 
             var evidenceCount = 1;
 
@@ -1225,7 +1170,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1236,15 +1181,11 @@
 
             var processes = [];
 
-
-            processes.push("mercury ion transport");
-
-
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Genome-Resolved Mercury Transformation Potential",
+                label: "Metagenomic Mercury Transformation Potential",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1259,7 +1200,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1269,10 +1210,6 @@
 
 
             var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
 
             var evidenceCount = 1;
 
@@ -1293,7 +1230,7 @@
 
         (function() {
             var intId = "interaction:3";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1304,15 +1241,11 @@
 
             var processes = [];
 
-
-            processes.push("mercury ion transport");
-
-
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Volatile Hg(0) Geothermal Mercury Emission",
+                label: "Measured Gaseous Mercury With Unresolved Microbial Contribution",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1327,7 +1260,7 @@
 
         (function() {
             var intId = "interaction:4";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1337,10 +1270,6 @@
 
 
             var processes = [];
-
-
-            processes.push("mercury ion transport");
-
 
             var evidenceCount = 1;
 

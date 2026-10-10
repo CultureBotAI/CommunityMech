@@ -558,7 +558,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for E. coli K-12 MG1655 Arg-Met Cross-Feeding Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding, mutualism.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -583,7 +583,7 @@
                     <h3>ΔargA-ΔmetJ methionine cross-feeding</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The ΔargA-ΔmetJ member overproduces methionine that supports the methionine-requiring ΔmetA-ΔargR partner.</p>
+                <p class="prewrap interaction-description">The delta-argA/delta-metJ mutant overproduces methionine supporting the methionine-requiring delta-metA/delta-argR partner under the tested amino-acid limitation. Both strains are E. coli K-12 MG1655 derivatives. Reciprocal growth dependence does not resolve the release route or single-cell export flux, and supplemented cultures need not remain obligately mutualistic.</p>
 
 
                 <p><strong>Source Taxon:</strong> Escherichia coli K-12 MG1655 ΔargA-ΔmetJ</p>
@@ -657,7 +657,7 @@
                     <h3>ΔmetA-ΔargR arginine cross-feeding</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The ΔmetA-ΔargR member overproduces arginine that supports the arginine-requiring ΔargA-ΔmetJ partner.</p>
+                <p class="prewrap interaction-description">The delta-metA/delta-argR mutant supplies arginine supporting the arginine-requiring delta-argA/delta-metJ partner under the tested amino-acid limitation. The same canonical taxon ID represents distinct engineered genotypes, not one organism acting on itself. Supplementation can remove partner dependence; this is not universal obligate exchange across media.</p>
 
 
                 <p><strong>Source Taxon:</strong> Escherichia coli K-12 MG1655 ΔmetA-ΔargR</p>
@@ -731,7 +731,7 @@
                     <h3>Arg-Met obligate mutualism increases cell noise</h3>
                     <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">The reciprocal Arg/Met exchange formed a two-way positive, obligate mutualistic cross-feeding system and increased single-cell fluorescence noise in each strain population relative to mono-cultures.</p>
+                <p class="prewrap interaction-description">In the tested nutrient-limited Arg/Met coculture, reciprocal exchange was associated with higher single-cell fluorescent-reporter coefficient of variation than in supplemented monocultures. Mean amino-acid matching controls supported a heterogeneity interpretation. Reporter amino-acid sensitivity and experimental context matter: this is not a direct measurement of intrinsic transcriptional noise, a universal protein-noise effect or evidence that noise causes community collapse. MUTUALISM denotes the restricted reciprocal-growth model, not every supplementation condition.</p>
 
 
 
@@ -759,17 +759,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -814,7 +803,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(3)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -838,6 +827,21 @@
                     Should the ΔargA-ΔtrpR/ΔtrpC-ΔargR pair and BL21-GFP environmental-isolate co-cultures be curated as separate variant records?
                 </h3>
                 <p class="prewrap">The main text reports a second K-12 MG1655 auxotrophic pair and synthetic environmental communities, but this record intentionally covers the primary ΔargA-ΔmetJ/ΔmetA-ΔargR arginine-methionine system rather than grouping all variant co-cultures under one biological identity.</p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How do nutrient heterogeneity and reporter sensitivity mediate the Arg/Met fluorescence response?
+                </h3>
+                <p class="prewrap">Existing nodes are qualified, not an exhaustive mechanism graph. The primary main body supports assessing additional structure for reporter sensitivity and manipulated nutrient, strain-ratio and spatial heterogeneity. Mixed preincubations are not a direct spatial nutrient map, and modeled diffusion/uptake is not measured micro-scale flux. Intrinsic/extrinsic noise remains unresolved. Keep distinct Arg-Trp and BL21/environmental-isolate experiments outside this record. One-community Edison dry run is complete, but no provider job was submitted; expansion remains needs_research under #1436 pending specific spend authorization. Preserve the existing supplement/protocol and alternative-pair gaps.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#ΔargA-ΔmetJ methionine cross-feeding</code>, <code>ecological_interactions#ΔmetA-ΔargR arginine cross-feeding</code>, <code>ecological_interactions#Arg-Met obligate mutualism increases cell noise</code></p>
 
 
 
@@ -1207,7 +1211,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1220,7 +1223,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1368,10 +1370,6 @@
 
 
             var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
 
             var evidenceCount = 2;
 

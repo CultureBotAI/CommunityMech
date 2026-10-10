@@ -96,12 +96,10 @@ taxonomy:
     explanation: Identifies M7 as a member of the exact consortium.
 ecological_interactions:
 - name: Non-antagonistic community-level growth enhancement
-  description: >
-    The four strains showed no detectable antagonism in the reported screen, and
-    the A2-A5-A11-M7 mixed culture accumulated more biomass than the corresponding
-    pure cultures in pesticide-supplemented minimal medium. Pairwise directions
-    and exchanged metabolites were not resolved.
-  interaction_type: MUTUALISM
+  description: The exact four-strain mixture showed non-antagonism and greater aggregate biomass than the corresponding
+    pure cultures in the reported pesticide experiment. These observations do not measure reciprocal benefit to
+    each member. The 2013 paper includes other mixtures, including a six-member immobilized system whose results
+    are not assigned to this four-member record.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: chlorpyrifos
@@ -121,19 +119,21 @@ ecological_interactions:
   - reference: PMID:23865051
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Results revealed that the strains did not have any antagonistic effects and showed tolerance against the pesticides mixture. In fact, the growth of mixed cultures was significantly higher than in pure cultures.
-    explanation: Supports compatible assembly and community-level growth enhancement while leaving the pairwise mechanism unresolved.
+    snippet: Results revealed that the strains did not have any antagonistic effects and showed tolerance against
+      the pesticides mixture. In fact, the growth of mixed cultures was significantly higher than in pure cultures.
+    explanation: Supports the reported screen and aggregate growth comparison; not quantified reciprocal benefit
+      or the performance of every source formulation.
   - reference: PMID:41678860
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: revealing their metabolic versatility and potential cooperative work, fundamental for the degradation of xenobiotic compounds.
-    explanation: Supports the authors' interpretation that cooperative activity contributes to the consortium phenotype.
-- name: C1 Distributed Atrazine Catabolism
-  description: >
-    Every Streptomyces member of C1 carried at least one gene encoding an
-    herbicide-degradation enzyme, supporting atrazine catabolic capacity
-    distributed across the exact A2-A5-A11-M7 consortium.
-  interaction_type: MUTUALISM
+    snippet: revealing their metabolic versatility and potential cooperative work, fundamental for the degradation
+      of xenobiotic compounds.
+    explanation: Preserves the source authors potential-cooperation interpretation without classifying all members
+      as mutualistic.
+- name: C1 Herbicide-Catabolism Gene Detection
+  description: The 2026 source detected at least one herbicide-catabolism-associated gene in each C1 member. This
+    supports distributed genetic potential, not measured expression, enzyme activity or a demonstrated contribution
+    of each member to removal.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: atrazine
@@ -147,21 +147,20 @@ ecological_interactions:
       label: xenobiotic metabolic process
   downstream:
   - target: C1 Atrazine Growth and Removal
-    description: >
-      Distributed herbicide-catabolism genes provide the mechanistic basis for
-      C1 growth on and removal of atrazine as a sole carbon or nitrogen source.
+    description: 'HYPOTHESIZED/PARTIAL: the detected catabolic genes could underlie the reported C1 atrazine growth/removal
+      phenotype. The accessible abstract reports gene presence and community outcomes but does not isolate gene
+      activity or member-specific contributions as causal mediators.'
   evidence:
   - reference: PMID:41678860
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the presence of at least one of the genes that encode enzymes involved in the herbicide degradation was detected in all C1 members.
+    snippet: the presence of at least one of the genes that encode enzymes involved in the herbicide degradation
+      was detected in all C1 members.
     explanation: Supports distribution of herbicide-catabolic potential across all four consortium members.
 - name: C1 Atrazine Growth and Removal
-  description: >
-    The exact A2-A5-A11-M7 consortium grew on atrazine supplied as either the
-    sole carbon source or sole nitrogen source while removing the herbicide from
-    liquid cultures.
-  interaction_type: MUTUALISM
+  description: The exact A2-A5-A11-M7 consortium showed growth and atrazine removal in the source nutrient-role
+    comparisons. Preserve these observed liquid-culture outcomes without treating parent-compound removal as complete
+    mineralization or measured reciprocal partner benefit.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: atrazine
@@ -175,21 +174,20 @@ ecological_interactions:
       label: xenobiotic metabolic process
   downstream:
   - target: C1 Atrazine Phytotoxicity Reversal
-    description: >
-      Atrazine growth and removal by C1 reduces the herbicide toxicity of the
-      treated liquid system.
+    description: 'HYPOTHESIZED/PARTIAL: atrazine removal could contribute to the reported decrease in phytotoxicity
+      after C1 treatment. The accessible abstract does not establish parent-compound depletion as the sole cause,
+      resolve transformation-product effects or demonstrate complete mineralization.'
   evidence:
   - reference: PMID:41678860
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: These results demonstrated the ability of C1 to remove atrazine and use it as a carbon or nitrogen source
+    snippet: These results demonstrated the ability of C1 to remove atrazine and use it as a carbon or nitrogen
+      source
     explanation: Supports C1 atrazine removal under both nutrient-role treatments.
 - name: C1 Atrazine Phytotoxicity Reversal
-  description: >
-    Liquid cultures treated with the C1 consortium were detoxified enough to
-    reverse the measured phytotoxicity of atrazine, especially when atrazine was
-    supplied as the carbon source.
-  interaction_type: MUTUALISM
+  description: The source phytotoxicity tests found that C1 treatment reversed the measured herbicide toxicity,
+    with differing outcomes across the nutrient-role comparisons. Preserve this positive tested endpoint without
+    attributing it exclusively to parent-compound depletion or generalizing it to all toxicity endpoints.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: atrazine
@@ -205,8 +203,10 @@ ecological_interactions:
   - reference: PMID:41678860
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Phytotoxicity tests demonstrated the ability of C1 to reverse the herbicide toxicity, especially with atrazine as a carbon source.
-    explanation: Supports detoxification as a downstream C1 community output.
+    snippet: Phytotoxicity tests demonstrated the ability of C1 to reverse the herbicide toxicity, especially with
+      atrazine as a carbon source.
+    explanation: Supports the reported post-treatment phytotoxicity endpoint, not an isolated depletion-mediated
+      causal mechanism.
 environmental_factors:
 - name: Atrazine concentration
   value: 25 and 50
@@ -404,3 +404,42 @@ external_resources:
     explanation: Explicitly identifies the exact composition in the atrazine study.
 metal_relevance: NOT_APPLICABLE
 metal_notes: The curated exact composition is represented for pesticide degradation; metal-remediation studies using different Streptomyces combinations are not attributed to this record.
+discussions:
+- discussion_id: c1_gene_presence_and_outcome_mediation
+  prompt: Do the detected genes and atrazine removal independently establish the mechanisms of C1 performance and
+    reduced phytotoxicity?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Non-antagonistic community-level growth enhancement
+  - ecological_interactions#C1 Herbicide-Catabolism Gene Detection
+  - ecological_interactions#C1 Atrazine Growth and Removal
+  - ecological_interactions#C1 Atrazine Phytotoxicity Reversal
+  rationale: Retain the exact four-member observations. Aggregate biomass and compatibility are not reciprocal benefit.
+    Gene detection does not establish expression or flux, and treatment-associated phytotoxicity reversal does not
+    isolate its mediator. Keep the two existing directions qualified; do not transfer six-member immobilized-culture
+    results. The 2026 abstract and bounded 2013 results were read, not full methods or all source formulations.
+  evidence:
+  - reference: PMID:41678860
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the presence of at least one of the genes that encode enzymes involved in the herbicide degradation
+      was detected in all C1 members.
+    explanation: Supports distribution of herbicide-catabolic potential across all four consortium members.
+  - reference: PMID:41678860
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Phytotoxicity tests demonstrated the ability of C1 to reverse the herbicide toxicity, especially with
+      atrazine as a carbon source.
+    explanation: Supports the reported post-treatment phytotoxicity endpoint, not an isolated depletion-mediated
+      causal mechanism.
+curation_history:
+- timestamp: '2026-10-08T02:08:54Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain exact-mixture non-antagonism and aggregate biomass, removing reciprocal-mutualism typing and excluding
+    other source formulations.; Retain herbicide-catabolism gene detection as genetic potential, with the existing
+    outcome direction HYPOTHESIZED/PARTIAL.; Retain observed atrazine growth/removal without mineralization or reciprocal-benefit
+    claims; qualify the existing toxicity direction.; Retain positive tested phytotoxicity reversal without claiming
+    its sole causal mediator or universal detoxification. Issue#1831; reports/causal_graph_review/decisions/20261008-four-records-batch106.yaml
+  llm_assisted: true

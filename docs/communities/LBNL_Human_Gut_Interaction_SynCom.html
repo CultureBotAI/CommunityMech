@@ -516,7 +516,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for LBNL Human Gut Interaction SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -524,13 +524,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -538,23 +533,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Pairwise Interaction-Dominated Community Dynamics</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Pairwise Model Prediction Of Community Dynamics</h3>
                 </div>
-                <p class="prewrap interaction-description">Time-resolved measurements of lower-order assemblages showed that pairwise interactions, rather than higher-order interactions, are major drivers of the synthetic gut community dynamics.</p>
+                <p class="prewrap interaction-description">A generalized Lotka-Volterra model trained on monospecies and pairwise time series predicted much of the tested 11- and 12-member community dynamics; additional full-community training improved predictions. PARTIAL - model success supports important pairwise effects in these conditions, not absence of higher-order effects, perfect prediction or universal acetate cross-feeding. Abundance inputs combined 16S proportions with OD600, not direct viable-cell counts.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
 
-
-                <p><strong>Metabolites:</strong>
-
-                    acetate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30089</a>)
+                    human gut bacterial SynCom members
 
                 </p>
+
+
 
 
 
@@ -570,16 +562,6 @@
                 </ul>
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Positive-Negative Ecological Network Topology
-                        <p class="prewrap causal-description">Pairwise inference resolved both negative and positive interactions that together define the ecological network topology of the synthetic gut community.</p>
-                    </div>
-
-                </div>
 
 
 
@@ -605,23 +587,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/29930200/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29930200</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"pairwise interactions are major drivers of multi-species community dynamics"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/29930200/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29930200</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"cross‐feeding of metabolic by‐products such as acetate in the gut microbiota is a prevalent mechanism that could alter environmental pH"</div>
+                        <div class="snippet">"pairwise interactions are major drivers of multi‐species community dynamics"</div>
 
                     </li>
 
@@ -631,13 +600,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Positive-Negative Ecological Network Topology</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Inferred Positive-Negative Ecological Network Topology</h3>
                 </div>
-                <p class="prewrap interaction-description">The inferred human-gut SynCom network contains many negative interactions and frequent positive interactions that form the interaction topology of the community.</p>
+                <p class="prewrap interaction-description">The fitted 12-species gut network contains frequent negative and positive interaction coefficients, including coupled positive/negative pairwise motifs. These are effective ecological effects inferred from abundance dynamics. Their signs do not uniquely identify nutrient competition, cross-feeding, niche partitioning or molecular mechanisms; conditioned-medium and metabolomics results provide complementary but imperfect support.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    human gut bacterial SynCom members
+
+                </p>
 
 
 
@@ -660,8 +634,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Robust Coexistence Feedback
-                        <p class="prewrap causal-description">The mixed positive and negative topology enables feedback that balances differences in monospecies fitness and supports robust coexistence.</p>
+                        <span class="flow-arrow">→</span> Modeled Pairwise Coexistence Feedback
+                        <p class="prewrap causal-description">PARTIAL - in the fitted pairwise gLV models, coupled positive and negative effects create negative feedback that limits the higher-fitness partner and permits coexistence with the lower-fitness partner across a broader tested growth-rate range than mutual inhibition. This preserves the source-supported model mechanism, not proof of a universal or molecularly resolved feedback in the entire gut community.</p>
                     </div>
 
                 </div>
@@ -677,7 +651,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/29930200/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29930200</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"The inferred ecological network exhibits a high proportion of negative and frequent positive interactions."</div>
@@ -690,13 +664,18 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Robust Coexistence Feedback</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Modeled Pairwise Coexistence Feedback</h3>
                 </div>
-                <p class="prewrap interaction-description">Positive and negative interactions implement a stabilizing negative feedback loop that balances monospecies fitness differences and enables robust coexistence.</p>
+                <p class="prewrap interaction-description">Within the inferred pairwise gLV models, a positive/negative motif implements negative feedback that balances monospecies fitness differences and supports coexistence over a broader tested parameter range than mutual inhibition. The CH-ER pair provides an experimentally coexisting example. PARTIAL - the mathematical mechanism is model-bounded; neither its molecular mediator nor universal stability of the full 12-member system follows from this analysis.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    human gut bacterial SynCom members
+
+                </p>
 
 
 
@@ -726,7 +705,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/29930200/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29930200</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"positive and negative interaction topology enables robust coexistence by implementing a negative feedback loop"</div>
@@ -742,6 +721,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which molecular mechanisms realize the inferred signed interactions and feedback?
+                </h3>
+                <p class="prewrap">Remove the analytical inference-to-topology arrow, but retain topology-to-coexistence as a model-bounded causal mechanism. Acetate in the cited passage is a prior-literature example; separate metabolomics cultures supplemented ER and FP with acetate, which does not prove cross-feeding throughout this graph. Co-consumption/secretion only yields an ecological effect when relevant substrates limit growth, and conditioned-medium signs do not always match inferred coefficients. Higher-order effects, parameter uncertainty and OD-scaled abundance remain limitations. Canonical NCBITaxon:2 is only an aggregate placeholder for the 12-species experimental roster; #1548 tracks its grounding and non-graph metadata. No original figure pixels, separate supplements, raw data or executable model reproduction was performed.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Pairwise Model Prediction Of Community Dynamics</code>, <code>ecological_interactions#Inferred Positive-Negative Ecological Network Topology</code>, <code>ecological_interactions#Modeled Pairwise Coexistence Feedback</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -888,7 +886,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -901,7 +898,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -948,12 +944,8 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
-
-
-            metabolites.push("acetate");
-
 
             var processes = [];
 
@@ -961,11 +953,11 @@
             processes.push("biological process involved in interspecies interaction between organisms");
 
 
-            var evidenceCount = 3;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Pairwise Interaction-Dominated Community Dynamics",
+                label: "Pairwise Model Prediction Of Community Dynamics",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -975,12 +967,23 @@
 
 
 
+
+            var participantKeys = [
+
+                "human gut bacterial SynCom members"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -993,7 +996,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Positive-Negative Ecological Network Topology",
+                label: "Inferred Positive-Negative Ecological Network Topology",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1003,12 +1006,23 @@
 
 
 
+
+            var participantKeys = [
+
+                "human gut bacterial SynCom members"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1021,7 +1035,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Robust Coexistence Feedback",
+                label: "Modeled Pairwise Coexistence Feedback",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1031,6 +1045,17 @@
 
 
 
+
+            var participantKeys = [
+
+                "human gut bacterial SynCom members"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

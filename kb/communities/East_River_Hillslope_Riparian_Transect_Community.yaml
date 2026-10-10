@@ -238,11 +238,12 @@ related_ingredients:
     snippet: Oxidation of selenium to soluble selenite and selenate
     explanation: Names selenate as a soluble selenium oxidation product and reductase substrate.
 ecological_interactions:
-- name: Groundwater and Weathered Shale Niche Filtering
-  description: Proximity to the stream, groundwater table, and weathered shale
-    strongly structures community composition and metabolic potential along the
-    hillslope-to-riparian transect.
-  interaction_type: NICHE_PARTITIONING
+- name: Hypothesized Groundwater and Weathered Shale Filtering
+  description: Across the September 2016 PLM transect, microbial composition and DNA-based metabolic potential covaried
+    with depth, river proximity, groundwater and weathered shale. HYPOTHESIZED moisture, redox and substrate filtering
+    may explain these patterns, but no selective groundwater, shale or nutrient perturbation isolated the drivers.
+    Compartment participants retain distinct canonical labels despite sharing a broad cellular-organisms ID; they
+    are not resolved taxa.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: nitrate
@@ -254,41 +255,56 @@ ecological_interactions:
       id: CHEBI:16189
       label: sulfate
   downstream:
-  - target: Riparian Carbon Nitrogen and Sulfur Functional Zone
-    description: Groundwater saturation and weathered shale stratify the transect
-      into floodplain niches where carbon, nitrogen, and sulfur pathway genes
-      differentiated riparian communities from hillslope communities.
+  - target: Riparian Carbon Nitrogen and Sulfur Genomic Potential
+    description: HYPOTHESIZED - groundwater-associated low-redox conditions may favor organisms carrying anaerobic
+      carbon, nitrogen and sulfur pathway genes, producing the observed riparian-versus-hillslope differences. Spatial
+      gene abundance supports the model but does not isolate redox as the mediator or demonstrate flux.
   - target: Depth-Enriched Uncultivated Bacterial Lineages
-    description: The same depth and saturation gradient that separates PLM4
-      water-table samples localizes CPR bacteria primarily to floodplain and
-      groundwater-saturated sediments.
-  - target: Weathered Shale and Saturated Sediment Selenium Reduction
-    description: Weathered shale and saturated sediments expose communities to
-      mobilized selenium and the below-water-table redox conditions where srdA
-      selenate-reductase genes were enriched.
+    description: HYPOTHESIZED - depth and water-table conditions may select compatible microorganisms and possible
+      hosts, influencing candidate-phylum distributions. Observational detections support environmental filtering,
+      but no host dependence or exclusive groundwater requirement was tested; deep hillslope exceptions remain.
+  - target: Deep Shale and Riparian Selenate Reduction Potential
+    description: HYPOTHESIZED - shale-derived selenium availability together with periodically reducing groundwater
+      conditions may select selenate-respiring organisms and enrich srdA. Gene abundance and incomplete chemistry
+      support this proposed mechanism, not experimentally demonstrated selenium reduction or export control.
   evidence:
   - reference: PMID:31380022
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: proximity to groundwater and underlying weathered shale
-    explanation: Supports groundwater and weathered shale as major structuring factors.
+    explanation: Supports a spatial association and proposed environmental driver, not selective causal mediation
+      or direct redox/substrate flux.
   - reference: PMID:31380022
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: strongly impact microbial community structure and metabolic potential
-    explanation: Supports niche filtering across the transect.
+    explanation: Supports a spatial association and proposed environmental driver, not selective causal mediation
+      or direct redox/substrate flux.
   - reference: PMID:31380022
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: the proximity to sulfate and nitrate rich Mancos shale bedrock
-    explanation: Supports sulfate and nitrate as shale-associated chemical
-      mediators of the depth-structured community shift.
-- name: Riparian Carbon Nitrogen and Sulfur Functional Zone
-  description: Riparian-zone communities differ from hillslope communities in
-    capacities for carbon fixation, nitrogen fixation, and sulfate reduction,
-    suggesting that riparian saturated soils and sediments act as a biogeochemical
-    functional zone in the watershed.
-  interaction_type: NICHE_PARTITIONING
+    explanation: Supports a spatial association and proposed environmental driver, not selective causal mediation
+      or direct redox/substrate flux.
+  participating_taxa:
+  - preferred_term: East River hillslope-riparian transect microbiome
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  - preferred_term: riparian zone microbial communities
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  - preferred_term: hillslope microbial communities
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+- name: Riparian Carbon Nitrogen and Sulfur Genomic Potential
+  description: Riparian samples near and below the water table differed from hillslope samples in DNA abundances
+    of genes associated with carbon fixation, nitrogen fixation and sulfur reduction. DsrD and other reductase signatures
+    help interpret direction, but RNA was extracted for another study and no pathway flux was measured here. This
+    comparison supports a putative functional zone, not demonstrated interspecies niche partitioning, complete redox
+    cycling or equivalent metabolism in all compartments.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: carbon dioxide
@@ -323,23 +339,27 @@ ecological_interactions:
     evidence_source: COMPUTATIONAL
     snippet: functionally differentiated from hillslope communities
     explanation: Supports functional differentiation from hillslope communities.
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: While RNA was extracted for the purpose of another study
+    explanation: Prevents treating DNA co-extraction or gene abundance as an RNA-activity result in this study.
+  participating_taxa:
+  - preferred_term: riparian zone microbial communities
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  - preferred_term: hillslope microbial communities
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
 - name: Depth-Enriched Uncultivated Bacterial Lineages
-  description: Bacteria from phyla lacking isolated representatives increase in
-    abundance with depth, and CPR bacteria were detected in saturated riparian
-    sediments, linking vertical hydrologic gradients to uncultivated bacterial
-    community structure.
-  interaction_type: NICHE_PARTITIONING
+  description: Non-CPR candidate phyla increased with sampling depth. CPR detections were concentrated near and
+    below the PLM4 water table, with two Yanofskybacteria occurrences in deep hillslope samples near weathered shale.
+    These are distinct patterns, not exclusive confinement of every uncultivated lineage to saturated riparian sediment.
+    CPR dependency on unknown hosts is a literature-based hypothesis, not measured cross-feeding or syntrophy in
+    this transect.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: riparian saturated sediment Candidate Phyla Radiation bacteria
-    term:
-      id: NCBITaxon:1783273
-      label: Patescibacteria group
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:31380022
     supports: SUPPORT
@@ -347,22 +367,37 @@ ecological_interactions:
     snippet: consistently increase in abundance with increasing depth
     explanation: Supports depth-related enrichment of uncultivated bacterial phyla.
   - reference: PMID:31380022
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: riparian zone saturated sediments we found Candidate Phyla Radiation bacteria
-    explanation: Supports CPR presence specifically in saturated riparian sediments.
+    explanation: The abstract highlights saturated riparian sediment, but primary Results and Discussion also report
+      detections just above the water table and two deep hillslope exceptions.
+  - reference: PMID:31380022
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Many are likely obligate symbionts, and as such they may often associate with anaerobic hosts
+    explanation: General literature-based hypothesis; host identity and material exchange were not established for
+      this transect.
   - reference: PMID:31380022
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Many are likely obligate symbionts, and as such they may often associate
-      with anaerobic hosts
-    explanation: Supports interspecies dependency as the microbial context for
-      CPR bacteria in anaerobic floodplain sediments.
-- name: Weathered Shale and Saturated Sediment Selenium Reduction
-  description: Selenium reduction is prominent at depth in weathered shale and
-    saturated riparian sediments, indicating a water-quality-relevant redox
-    function associated with the deeper transect microbiome.
-  interaction_type: NICHE_PARTITIONING
+    snippet: Other than the two occurrences of Yanofskybacteria species in deep samples close to the soil
+    explanation: Primary Discussion explicitly records deep hillslope exceptions to the dominant riparian CPR pattern.
+  participating_taxa:
+  - preferred_term: East River hillslope-riparian transect microbiome
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  - preferred_term: riparian saturated sediment Candidate Phyla Radiation bacteria
+    term:
+      id: NCBITaxon:1783273
+      label: Patescibacteria group
+- name: Deep Shale and Riparian Selenate Reduction Potential
+  description: DNA abundance of the srdA catalytic-subunit gene was elevated in groundwater-saturated riparian samples
+    and deep weathered shale, consistent with selenate-reduction potential. The measured srdA-selenium association
+    lacks chemistry at the deepest high-srdA sites. Actual selenate reduction rates, selenium removal, growth support
+    and water-quality improvement were not measured; this is not direct evidence of selenite reduction by a named
+    taxon.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: selenate
@@ -374,19 +409,29 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: Selenium reduction is prominent at depth
-    explanation: Supports selenium reduction as a depth-associated metabolic potential.
+    explanation: Supports location and interpretation of srdA-associated genomic potential, not measured selenium
+      conversion or water-quality benefit.
   - reference: PMID:31380022
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: weathered shale and saturated riparian zone sediments
-    explanation: Supports the environmental location of selenium-reduction potential.
+    explanation: Supports location and interpretation of srdA-associated genomic potential, not measured selenium
+      conversion or water-quality benefit.
   - reference: PMID:31380022
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Selenate reductase encoded by the gene srdA, which is associated with
-      selenate respiration
-    explanation: Supports selenate as the substrate-linked reductase signal
-      enriched in the deeper transect microbiome.
+    snippet: Selenate reductase encoded by the gene srdA, which is associated with selenate respiration
+    explanation: Supports location and interpretation of srdA-associated genomic potential, not measured selenium
+      conversion or water-quality benefit.
+  participating_taxa:
+  - preferred_term: riparian zone microbial communities
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  - preferred_term: hillslope microbial communities
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
 environmental_factors:
 - name: Hillslope-to-riparian transect position
   value: depth-resolved hillslope to riparian zone transect
@@ -469,3 +514,29 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: Selenium reduction is noted as a water-quality-relevant metalloid
   redox function, but no metal or rare earth element is curated as a primary
   community function.
+discussions:
+- discussion_id: east_river_hillslope_environmental_mediation
+  prompt: Which environmental mechanisms and organisms realize the inferred redox capacities?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Hypothesized Groundwater and Weathered Shale Filtering
+  - ecological_interactions#Riparian Carbon Nitrogen and Sulfur Genomic Potential
+  - ecological_interactions#Depth-Enriched Uncultivated Bacterial Lineages
+  - ecological_interactions#Deep Shale and Riparian Selenate Reduction Potential
+  rationale: 'Selective groundwater/redox/substrate perturbations and direct flux measurements are needed to distinguish
+    the proposed drivers. DNA abundance is metabolic potential, not transcription or activity; selenium chemistry
+    is missing at key deep high-srdA sites. CPR partners and exchanges are unknown, and candidate phyla are not
+    synonymous with CPR. The three original arrows remain explicit hypotheses, not niche-partitioning facts. Non-graph
+    role and activity wording remain under #1422.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-06T08:01:03Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain environmental filtering as a source-proposed causal hypothesis.; Retain DNA-based compartment
+    differentiation without activity or niche-partitioning claims.; Distinguish candidate-phylum depth enrichment
+    from CPR location and untested host dependency.; Retain srdA-based selenate-reduction potential without flux
+    or water-quality claims. Issue #1419; reports/causal_graph_review/decisions/20261006-three-records-batch35.yaml'
+  llm_assisted: true

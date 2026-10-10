@@ -142,22 +142,12 @@ taxonomy:
     explanation: Supports the curated methanogenic scavenger role of M. hungatei.
 ecological_interactions:
 - name: Fermenter-Stimulated Butyrate Oxidation and Methane Production
-  description: >
-    Addition of T. flocculiformis ES5 stimulated the S. wolfei and M. hungatei
-    syntrophic coculture, increasing butyrate consumption and volumetric methane
-    production.
-  interaction_type: SYNTROPHY
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Trichococcus flocculiformis strain ES5
-    term:
-      id: NCBITaxon:82803
-      label: Trichococcus flocculiformis
-  target_taxon:
-    preferred_term: Syntrophomonas wolfei
-    term:
-      id: NCBITaxon:863
-      label: Syntrophomonas wolfei
+  description: Adding T. flocculiformis ES5 stimulated the S. wolfei-M. hungatei culture, most clearly by shortening
+    the lag before conversion. In the exact-pair comparison, Table 1 marks the methane lag difference significant,
+    not the fitted maximum production-rate or final-concentration differences. The Discussion reports similar butyrate-consumption
+    slopes with and without ES5. Abstract-wide 120%/150% wording is not an exact-triculture increase estimate. This
+    is a three-member outcome, not an ES5-to-S. wolfei syntrophic exchange.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: butyrate
     term:
@@ -180,30 +170,34 @@ ecological_interactions:
   - reference: PMID:35699440
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The addition of T. flocculiformis ES5 to the syntrophic cocultures led to an increase
-    explanation: Supports ES5 addition as the perturbation that stimulated the syntrophic cocultures.
+    snippet: statistically significant change in the lag phase of the S. wolfei and M. hungatei when cultured with
+      T. flocculiformis ES5.
+    explanation: The main Results identify the significant exact-pair lag response; Table 1 marks lag, not the rate
+      or final concentration, for this pairing.
   - reference: PMID:35699440
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: rates of butyrate consumption (120%) and volumetric methane production (150%)
-    explanation: Supports increased butyrate consumption and methane production as measured effects.
-- name: Aggregation With Syntrophic Partners
-  description: >
-    Scanning electron microscopy showed a tendency for T. flocculiformis ES5 to
-    aggregate with S. wolfei and M. hungatei in the most positively affected
-    coculture, consistent with spatial facilitation of the syntrophic partners.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Trichococcus flocculiformis strain ES5
+    snippet: butyrate consumption rates were similar regardless of presence of T. flocculiformis ES5 in the syntroph-methanogen
+      coculture
+    explanation: The Discussion bounds the general stimulation claim and separates lag from consumption slope.
+  participating_taxa:
+  - preferred_term: Trichococcus flocculiformis strain ES5
     term:
       id: NCBITaxon:82803
       label: Trichococcus flocculiformis
-  target_taxon:
-    preferred_term: Methanospirillum hungatei
+  - preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  - preferred_term: Methanospirillum hungatei
     term:
       id: NCBITaxon:2203
       label: Methanospirillum hungatei
+- name: Aggregation With Syntrophic Partners
+  description: SEM of the exact three-member culture showed ES5 in close spatial association with both syntrophic
+    partners and altered aggregation relative to the biculture. This is a community morphology observation, not
+    an isolated directional colonization benefit or proof of conductive bridging.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -211,39 +205,36 @@ ecological_interactions:
       label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: Fermenter-Stimulated Butyrate Oxidation and Methane Production
-    description: >
-      HYPOTHESIZED — ES5 co-aggregation with S. wolfei and M. hungatei may
-      spatially facilitate the improved butyrate oxidation and methane
-      production, but the aggregation is an observed correlate of the ES5 effect
-      and was NOT demonstrated to causally mediate the rate increases.
+    description: 'HYPOTHESIZED/PARTIAL: ES5-associated aggregation could contribute to the shorter conversion lag,
+      but morphology was not selectively manipulated to show mediation. Conductive bridging and DIET remain proposed
+      explanations, not demonstrated routes.'
   evidence:
   - reference: PMID:35699440
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: S. wolfei, M. hungatei, and T. flocculiformis ES5
-    explanation: Supports the exact three-member composition of the coculture examined by microscopy.
-  - reference: PMID:35699440
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: T. flocculiformis ES5 to aggregate with the syntrophic partners
-    explanation: Supports the aggregation interaction with the two syntrophic partners.
-- name: Proteome Response in the Syntrophic Partners
-  description: >
-    Proteome analysis linked ES5 addition to signal-transducing systems in
-    M. hungatei and activation of additional butyryl coenzyme A dehydrogenase
-    and electron transfer flavoprotein in S. wolfei.
-  interaction_type: SYNTROPHY
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Trichococcus flocculiformis strain ES5
+    snippet: very close proximity of T. flocculiformis ES5 cells to the cells of M. hungatei (as well as to the
+      cells of S. wolfei)
+    explanation: Supports association with both canonical partners, not a single directed recipient.
+  participating_taxa:
+  - preferred_term: Trichococcus flocculiformis strain ES5
     term:
       id: NCBITaxon:82803
       label: Trichococcus flocculiformis
-  target_taxon:
-    preferred_term: Syntrophomonas wolfei
+  - preferred_term: Syntrophomonas wolfei
     term:
       id: NCBITaxon:863
       label: Syntrophomonas wolfei
+  - preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
+- name: Proteome Response in the Syntrophic Partners
+  description: Comparative proteomics of the two syntrophic partners with and without ES5 detected differential
+    protein abundance. Additional S. wolfei butyryl-CoA dehydrogenase and electron-transfer flavoprotein were more
+    abundant in the triculture; many candidate M. hungatei signaling proteins were instead more abundant in the
+    biculture. These observations do not directly measure enzyme activation, prove a signaling mechanism or establish
+    a second syntrophic exchange. ES5 is the added member; the assayed proteomes belong to S. wolfei and M. hungatei.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: fatty acid beta-oxidation
     term:
@@ -251,23 +242,35 @@ ecological_interactions:
       label: fatty acid beta-oxidation
   downstream:
   - target: Fermenter-Stimulated Butyrate Oxidation and Methane Production
-    description: >
-      HYPOTHESIZED — the ES5-associated proteomic changes (activation of
-      additional butyryl-CoA dehydrogenase and electron-transfer flavoprotein in
-      S. wolfei; signal-transducing systems in M. hungatei) may underlie the
-      improved butyrate oxidation, but the proteome response is correlative and
-      was NOT shown to be the causal mediator of the improved performance.
+    description: 'HYPOTHESIZED/PARTIAL: changes in partner protein abundance may contribute to the shorter lag associated
+      with ES5 addition. The comparison does not selectively establish enzymatic or signaling mediation, and protein
+      abundance is not a direct activity assay.'
   evidence:
   - reference: PMID:35699440
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: signal transducing systems of M. hungatei
-    explanation: Supports a proteomic response in the methanogenic partner after ES5 addition.
+    snippet: differential proteomics to compare protein expression profiles of the Syntrophomonas wolfei and Methanospirillum
+      hungatei with or without the addition of the fermentative microorganism
+    explanation: Defines the two measured proteomes and ES5 perturbation.
   - reference: PMID:35699440
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: activation of additional butyryl coenzyme A dehydrogenase and an electron transfer flavoprotein
-    explanation: Supports the curated proteomic response in S. wolfei.
+    snippet: it is not clear whether the presence of T. flocculiformis ES5 alone was activating production of this
+      enzyme.
+    explanation: The source explicitly withholds direct enzyme-activation attribution.
+  participating_taxa:
+  - preferred_term: Trichococcus flocculiformis strain ES5
+    term:
+      id: NCBITaxon:82803
+      label: Trichococcus flocculiformis
+  - preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  - preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
 environmental_factors:
 - name: Anoxic anaerobic ecosystem context
   value: anoxic sediments, soils, and wastewater treatment bioreactors
@@ -444,27 +447,30 @@ metal_notes: >
   fermenter-stimulated methanogenic butyrate coculture.
 discussions:
 - discussion_id: kg-es5-mediation-mechanism-unresolved
-  prompt: >
-    Does T. flocculiformis ES5 improve the S. wolfei / M. hungatei syntrophy via
-    co-aggregation-based spatial bridging (possible DIET) or via the observed
-    proteomic changes, and is either mechanism causal rather than correlative?
+  prompt: Which ES5-associated processes mediate the shorter lag in this exact triculture?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
+  - ecological_interactions#Fermenter-Stimulated Butyrate Oxidation and Methane Production
   - ecological_interactions#Aggregation With Syntrophic Partners
   - ecological_interactions#Proteome Response in the Syntrophic Partners
-  rationale: >
-    The ES5-driven increase in butyrate consumption (120%) and methane (150%) is
-    perturbation-supported, but the mediating mechanism is unresolved: aggregation
-    and the partner proteome response are observed correlates, not demonstrated
-    causal mediators (the two `downstream` edges here are flagged HYPOTHESIZED
-    accordingly). Direct interspecies electron transfer was not experimentally
-    demonstrated for this tri-culture, and the exact ES5 bridging role remains an
-    open question per the source.
+  rationale: The exact-pair Results and Table 1 support a shorter lag; the Discussion reports similar butyrate-consumption
+    slopes. The former abstract-wide 120%/150% increase attribution is therefore removed from this discussion and
+    graph. Aggregation and differential protein abundance are measured correlates, while causal mediation, conductive
+    bridging and DIET remain unresolved. Both existing explanatory arrows stay hypothetical. No direct enzyme activation
+    or uniformly enhanced methanogen signaling is inferred.
   evidence:
   - reference: PMID:35699440
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: T. flocculiformis ES5 to aggregate with the syntrophic partners
-    explanation: Aggregation is reported as an association accompanying the ES5 effect, without a
-      demonstrated causal-mediation or DIET mechanism — the basis for the knowledge gap.
+    snippet: it is not clear whether the presence of T. flocculiformis ES5 alone was activating production of this
+      enzyme.
+    explanation: The source explicitly withholds direct enzyme-activation attribution.
+curation_history:
+- timestamp: '2026-10-08T07:10:56Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Bound stimulation to exact-pair lag and statistical comparisons at community scope.; Retain three-member
+    spatial association without directed colonization or DIET proof.; Retain differential proteomics without enzyme-activation
+    or signaling-causality overstatement. Issue#1876; reports/causal_graph_review/decisions/20261008-seven-records-batch112.yaml
+  llm_assisted: true

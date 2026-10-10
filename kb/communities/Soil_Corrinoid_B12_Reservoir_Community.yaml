@@ -99,12 +99,12 @@ taxonomy:
       and bacterial phyla Thermoproteota, Actinobacteria, and Proteobacteria
     explanation: Supports Proteobacteria as a corrinoid supplier.
 ecological_interactions:
-- name: Archaeal and Bacterial Corrinoid Supply
-  description: >
-    Thermoproteota, Actinobacteria, and Proteobacteria encode the principal corrinoid-supply capacity
-    in grassland soil, supplying structurally diverse vitamin B12-related cofactors to the surrounding
-    microbial community.
-  interaction_type: CROSS_FEEDING
+- name: Predicted Soil Corrinoid Supply Capacity
+  description: 'Metagenome-assembled genomes from Hopland grassland soil suggest that Thermoproteota, Actinobacteria
+    and Proteobacteria contain the principal corrinoid-producing lineages. This is predicted capacity in a subset
+    of genomes, not demonstrated production or exchange by every member of these phyla. HYPOTHESIZED: released corrinoids
+    support dependent organisms directly or through a soil-associated reservoir; release and replenishment were
+    not traced.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: corrinoid-supplying Thermoproteota
@@ -130,28 +130,36 @@ ecological_interactions:
       id: GO:0009235
       label: cobalamin metabolic process
   downstream:
-  - target: Soil-Matrix Corrinoid Reservoir Supports Stability
-    description: >
-      Archaeal and bacterial corrinoid supply replenishes the B12-related
-      micronutrient pool that accumulates on the grassland soil matrix.
+  - target: Soil Corrinoid Reservoir and Hypothesized Buffering
+    description: 'HYPOTHESIZED: the source model proposes that corrinoids released by predicted producers can adsorb
+      to the soil matrix and contribute to its reservoir. The mechanism and magnitude of release and pool replenishment
+      remain unknown; the MAG predictions do not trace this flux.'
   evidence:
   - reference: PMID:38832716
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: corrinoids are supplied to the community by members of the archaeal and bacterial phyla Thermoproteota, Actinobacteria, and Proteobacteria
-    explanation: Supports the predicted archaeal and bacterial phyla that supply corrinoids to the soil
-      microbial community.
-- name: Corrinoid Structure Shapes Bacterial Community Composition
-  description: Enrichment cultures and soil microcosms seeded with different
-    corrinoid structures show distinct community composition shifts, indicating
-    that B12-related cofactor structure is a community-shaping signal.
-  interaction_type: NICHE_PARTITIONING
+    snippet: Analysis of metagenome-assembled genomes suggests that corrinoids are supplied to the community by
+      members of the archaeal and bacterial phyla Thermoproteota, Actinobacteria, and Proteobacteria
+    explanation: Retains the prediction qualifier; does not demonstrate metabolite transfer.
+    computational_provenance:
+      prediction_type: OTHER
+      model_source: Corrinoid biosynthesis-marker and dependent-enzyme annotations in 503 soil MAGs; DRAM annotations
+        cross-listed with KEGG orthologues, with a Pfam exception for corrinoid-dependent ribonucleotide reductase.
+      tools:
+      - tool_name: DRAM
+        role: Previously generated MAG annotations used for corrinoid-role inference
+- name: Corrinoid Amendment and Community Composition
+  description: Distinct corrinoid amendments altered bacterial composition in soil-derived enrichments and soil
+    microcosms, with context-dependent responses. In soil microcosms, non-cobalamin treatments had stronger early
+    effects than cobalamin, and the treatment effect was largely lost by the final sampling point. These amendment
+    responses do not establish niche partitioning, a direct response by every taxon, or exposure to an equally diverse
+    native reservoir.
   scope: COMMUNITY_LEVEL
   metabolites:
-  - preferred_term: cobalamin
+  - preferred_term: corrinoid
     term:
-      id: CHEBI:23334
-      label: cobalamins
+      id: CHEBI:33913
+      label: corrinoid
   biological_processes:
   - preferred_term: cobalamin metabolic process
     term:
@@ -160,21 +168,20 @@ ecological_interactions:
   evidence:
   - reference: PMID:38832716
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: soil microcosms seeded with different corrinoids showed distinct
-      shifts in bacterial community composition
-    explanation: Supports corrinoid-structure-driven community composition shifts.
+    evidence_source: IN_VITRO
+    snippet: Enrichment cultures and soil microcosms seeded with different corrinoids showed distinct shifts in
+      bacterial community composition, supporting the hypothesis that corrinoid structure can shape communities.
+    explanation: Supports context-dependent amendment responses, not an interspecies niche or transfer mechanism.
   - reference: PMID:38832716
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: corrinoid structure can shape communities
-    explanation: Supports the curated community-shaping role of corrinoid
-      structure.
-- name: Soil-Matrix Corrinoid Reservoir Supports Stability
-  description: Corrinoids accumulate adhered to the soil matrix at levels
-    exceeding cultured-bacterium requirements, acting as a micronutrient
-    reservoir that promotes community stability.
-  interaction_type: CROSS_FEEDING
+    evidence_source: IN_VITRO
+    snippet: Environmental context influenced both community- and taxon-specific responses to specific corrinoids.
+    explanation: Bounds the response to the measured environmental contexts.
+- name: Soil Corrinoid Reservoir and Hypothesized Buffering
+  description: 'Soil extraction and bioassays detected an abundant, strongly soil-associated corrinoid pool, expected
+    to be predominantly cobalamin. The assay does not separate intracellular from extracellular corrinoids, and
+    accessibility to resident microbes remains unclear. HYPOTHESIZED: this reservoir buffers community response
+    to additional cobalamin; its role in stability was not isolated experimentally.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: corrinoid
@@ -187,22 +194,24 @@ ecological_interactions:
       id: GO:0009235
       label: cobalamin metabolic process
   downstream:
-  - target: Corrinoid Structure Shapes Bacterial Community Composition
-    description: >
-      The soil-matrix corrinoid reservoir exposes bacteria to structurally diverse
-      B12-related cofactors whose identities shape community composition.
+  - target: Corrinoid Amendment and Community Composition
+    description: 'HYPOTHESIZED: a predominantly cobalamin reservoir may buffer the community response to added cobalamin,
+      helping explain the contrast with other corrinoid amendments and with soil-derived enrichments. This proposed
+      modulation of the amendment response is not demonstrated release of a diverse native pool or proof that the
+      reservoir caused the observed shifts.'
   evidence:
   - reference: PMID:38832716
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Corrinoids were found largely adhered to the soil matrix in a
-      grassland soil, at levels exceeding those required by cultured bacteria
-    explanation: Supports the soil-matrix corrinoid reservoir.
+    evidence_source: IN_VITRO
+    snippet: Corrinoids were found largely adhered to the soil matrix in a grassland soil, at levels exceeding those
+      required by cultured bacteria.
+    explanation: Supports the measured total soil-associated pool, not its extracellular fraction or bioavailability.
   - reference: PMID:38832716
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: environmental micronutrient reservoirs promote community stability
-    explanation: Supports the stability-promoting role of the reservoir.
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: These results implicate corrinoids as key determinants of soil microbiome structure and suggest that
+      environmental micronutrient reservoirs promote community stability.
+    explanation: 'The source says suggest: reservoir-mediated stability remains an interpretation.'
 environmental_factors:
 - name: Corrinoid amendment
   value: enrichments seeded with different corrinoid structures
@@ -270,3 +279,36 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is curated for this
   corrinoid-shaped soil community; cobalt is implicit in cobalamin (B12)
   structure but is not a curated metal in this study.
+discussions:
+- discussion_id: corrinoid_causal_attribution_batch103
+  prompt: How much of the measured corrinoid pool is accessible to resident microbes, and does it mediate the community
+    response to amendment?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: 'The primary results and discussion distinguish total corrinoid measurement, genome-based producer
+    inference and two proposed cycling routes. Intracellular/extracellular partitioning, producer release and accessibility
+    are unresolved. Both original directions are retained only as explicitly HYPOTHESIZED links in the authors''
+    model. No new donor-recipient mechanism or direction is added. Taxonomic role/evidence overclaims outside the
+    graph remain tracked in issue #1814.'
+  posed_by: codex
+  posed_date: '2026-10-08'
+  evidence:
+  - reference: PMID:38832716
+    supports: PARTIAL
+    evidence_source: OTHER
+    snippet: These results implicate corrinoids as key determinants of soil microbiome structure and suggest that
+      environmental micronutrient reservoirs promote community stability.
+    explanation: 'The source says suggest: reservoir-mediated stability remains an interpretation.'
+  attaches_to:
+  - ecological_interactions#Predicted Soil Corrinoid Supply Capacity
+  - ecological_interactions#Corrinoid Amendment and Community Composition
+  - ecological_interactions#Soil Corrinoid Reservoir and Hypothesized Buffering
+curation_history:
+- timestamp: '2026-10-08T00:12:43Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain genome-predicted supplier capacity and explicitly hypothesized reservoir replenishment, without
+    categorical cross-feeding.; Retain context-dependent composition responses to added corrinoids without niche-partitioning
+    attribution.; Retain the measured soil-associated pool, distinguish accessibility from abundance, and qualify
+    its proposed buffering effect. Issue#1809; reports/causal_graph_review/decisions/20261008-four-records-batch103.yaml
+  llm_assisted: true

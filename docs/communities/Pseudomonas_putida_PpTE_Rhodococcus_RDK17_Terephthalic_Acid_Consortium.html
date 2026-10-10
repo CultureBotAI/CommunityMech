@@ -558,7 +558,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Pseudomonas putida Pp-TE + Rhodococcus sp. RDK17 Terephthalic-acid Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for competition.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -578,7 +578,7 @@
                     <h3>Exploitative competition for terephthalic acid</h3>
                     <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">Both strains utilize TPA at comparable rates in monoculture, but they compete for TPA as the shared sole carbon and energy source in coculture; Pp-TE consistently outcompetes RDK17, partly through relative growth kinetics.</p>
+                <p class="prewrap interaction-description">Both members use the shared substrate, and the source reports that abolishing its metabolism in Pp-TE removes dominance. This supports a metabolic contribution to competition; dominance alone does not identify that mechanism. PARTIAL: the abstract does not separately quantify resource competition and contact-inhibition contributions.</p>
 
 
                 <p><strong>Source Taxon:</strong> Pseudomonas putida strain Pp-TE (engineered)</p>
@@ -606,8 +606,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Pp-TE Dominance During TPA Coculture
-                        <p class="prewrap causal-description">Competition for terephthalic acid contributes to Pp-TE dominance in the two-member TPA coculture fermentations.
-</p>
+                        <p class="prewrap causal-description">The source-reported metabolic perturbation supports a contribution of substrate use to dominance, alongside contact inhibition. PARTIAL: their separate effect sizes are not resolved by the accessible abstract.</p>
                     </div>
 
                 </div>
@@ -630,6 +629,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42324694/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42324694</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"when TPA metabolism was abolished in Pp-TE, it lost its dominance to RDK17"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -639,7 +651,7 @@
                     <h3>Interference competition via type VI secretion system</h3>
                     <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">Pp-TE inhibits RDK17 through contact-dependent inhibition mediated by its type VI secretion system, which impairs RDK17 growth and reinforces Pp-TE dominance in coculture.</p>
+                <p class="prewrap interaction-description">The authors report assays attributing the main competitive advantage to type-VI-secretion-associated contact inhibition, with a partial contribution from relative growth kinetics. Preserve this experimental attribution; the accessible abstract does not expose the full controls or separate effect sizes.</p>
 
 
                 <p><strong>Source Taxon:</strong> Pseudomonas putida strain Pp-TE (engineered)</p>
@@ -670,8 +682,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Pp-TE Dominance During TPA Coculture
-                        <p class="prewrap causal-description">Contact-dependent growth inhibition reinforces Pp-TE dominance over RDK17 in TPA-fed cocultures.
-</p>
+                        <p class="prewrap causal-description">The source reports that contact-dependent impairment of the partner is the main contributor to dominance, alongside metabolic capability and relative kinetics. This preserves the reported causal attribution without independently certifying unreviewed methods.</p>
                     </div>
 
                 </div>
@@ -703,8 +714,7 @@
                     <h3>Pp-TE Dominance During TPA Coculture</h3>
                     <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">P. putida Pp-TE consistently dominates Rhodococcus sp. RDK17 in batch and serial-transfer cocultures supplied with terephthalic acid as the sole carbon and energy source.
-</p>
+                <p class="prewrap interaction-description">Pp-TE consistently outcompetes RDK17 in the reported batch and serial-transfer cocultures. This is the measured population outcome; its mechanistic attribution is represented by the two upstream nodes, not inferred from dominance alone.</p>
 
 
                 <p><strong>Source Taxon:</strong> Pseudomonas putida strain Pp-TE (engineered)</p>
@@ -765,6 +775,60 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How are the two competitive contributions distinguished from the dominance observation?
+                </h3>
+                <p class="prewrap">All three competition nodes and both existing directions remain. The primary abstract reports contact inhibition, relative kinetics and a metabolism-loss comparison; those positive findings are retained. Full methods and quantitative decomposition were unavailable, which does not imply absent controls. No new resistance-selection details, genetic designs or experimental protocols were added.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Exploitative competition for terephthalic acid</code>, <code>ecological_interactions#Interference competition via type VI secretion system</code>, <code>ecological_interactions#Pp-TE Dominance During TPA Coculture</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42324694/" rel="nofollow noreferrer">PMID:42324694</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Pp-TE consistently outcompeted RDK17 in batch and multitransfer coculture fermentations, even when RDK17 was inoculated at a significantly higher initial abundance</p>
+                        <p class="muted small prewrap">Supports the observed competitive outcome, not by itself the mechanism of resource competition.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42324694/" rel="nofollow noreferrer">PMID:42324694</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">the dominance of Pp-TE was primarily conferred by its type VI secretion system, which impaired the growth of RDK17 via contact-dependent inhibition</p>
+                        <p class="muted small prewrap">Contact-dependent inhibition through the Pp-TE T6SS is interference competition against RDK17.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -857,7 +921,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -870,7 +933,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -933,7 +995,7 @@
 
             var processes = [];
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,

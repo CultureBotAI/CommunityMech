@@ -660,7 +660,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Model Soil Consortium-2 (MSC-2)</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -668,18 +668,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -688,9 +678,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Primary Chitin Polymer Degradation</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Dyadobacter, Ensifer MSC1_011, Variovorax, Sinorhizobium, and Rhodococcus MSC-2 members can grow on chitin as the sole carbon source and act as primary degraders that initiate chitin decomposition before nondegraders profit from released breakdown products.</p>
+                <p class="prewrap interaction-description">Five individual MSC-2 isolates, Dyadobacter, Ensifer MSC1_011, Variovorax, Sinorhizobium and Rhodococcus, grew with chitin as the sole added carbon source in monoculture. This establishes conditional chitin-use phenotypes, not obligate syntrophy or exclusive initiating roles in the mixed community. Monocultures used 100 ppm chitin; the community used 500 ppm after chitin-plus-NAG preconditioning, with 18 mM ammonium in M9. Streptomyces, Neorhizobium and Sphingopyxis lacked monoculture growth even in reported 500/1000 ppm tests. Species roles in the community are inferred from additional molecular data and need not equal their monoculture roles.</p>
 
 
 
@@ -743,7 +732,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Chitin Breakdown Product Sharing
-                        <p class="prewrap causal-description">Primary chitin degradation releases soluble decomposition products that other MSC-2 members can consume in the mixed community.</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED - chitin degradation by community members releases assimilable products that could support other members. Monoculture growth, community transcripts and cell-pellet metabolites support this model, but they do not measure donor-to-recipient extracellular flux or prove that the five monoculture-positive isolates are the exclusive initial donors.</p>
                     </div>
 
                 </div>
@@ -772,7 +761,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/36154140/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:36154140</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"certain species act as primary degraders of carbon sources and that the most successful species are likely those that can take the most advantage of breakdown products"</div>
@@ -786,12 +775,31 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Chitin Breakdown Product Sharing</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Community growth on chitin is supported by interspecies sharing of decomposition products, so the most abundant members are not necessarily the taxa that directly metabolize chitin in monoculture.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - MSC-2 members share chitin-derived products, allowing taxa with broader substrate-use potential to grow in the consortium. Community DNA/RNA increased and member transcript proportions differed; these are not direct measurements of equal viable abundance or partner-resolved carbon flux. GC-MS found increased NAG at 118 versus 70 hours in cell-pellet extracts after supernatant removal, not extracellular transfer measurements. Mixed-bag metabolic modeling merged isolate networks without species boundaries, so predicted community substrate use does not identify actual exchange partners. Niche-size association and omics support a mechanistic model rather than proving reciprocal benefit.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Streptomyces sp. MSC1_001,
+
+                    Neorhizobium tomejilense MSC1_005,
+
+                    Dyadobacter sp. MSC1_007,
+
+                    Sphingopyxis sp. MSC1_008,
+
+                    Ensifer adhaerens MSC1_011,
+
+                    Variovorax beijingensis MSC1_012,
+
+                    Sinorhizobium meliloti MSC1_014,
+
+                    Rhodococcus sp. MSC1_016
+
+                </p>
 
 
 
@@ -812,7 +820,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Community-Responsive Streptomyces Chitin Phenotype
-                        <p class="prewrap causal-description">Initial community chitin breakdown provides products that let Streptomyces grow and express a chitin-decomposition phenotype not seen during monoculture growth on chitin.</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED - products supplied by other community members could relieve an initial resource limitation and allow Streptomyces to grow and express chitin-associated machinery. The primary Discussion proposes this explanation, while noting possible NAG repression during preconditioning. No selective product rescue, partner-removal test or matched mono-versus-community enzyme assay establishes this causal route.</p>
                     </div>
 
                 </div>
@@ -828,7 +836,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/36154140/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:36154140</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"the most abundant members of MSC-2 were not those that were able to metabolize chitin itself, but rather those that were able to take full advantage of interspecies interactions to grow on chitin decomposition products"</div>
@@ -842,12 +850,9 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Community-Responsive Streptomyces Chitin Phenotype</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Streptomyces exhibits a community-responsive chitin phenotype, and MSC-2 organizes members into distinct functional roles during decomposition.</p>
+                <p class="prewrap interaction-description">Streptomyces MSC1_001 lacked detectable monoculture growth on chitin under the tested conditions but contributed about 12% of aligned community RNA at 70 hours and expressed chitin-associated genes in MSC-2. Differential expression compares 70 with 118 hours within the community, not matched monoculture-versus-community expression or direct enzyme activity. These observations support a community-responsive phenotype and proposed contribution to decomposition. They do not establish partner-specific induction, measured chitinase flux, mutualism or experimentally demonstrated niche partitioning. The single canonical participant identifies the focal organism, not the complete eight-member experimental context.</p>
 
-
-                <p><strong>Source Taxon:</strong> Streptomyces sp. MSC1_001</p>
 
 
 
@@ -873,17 +878,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        chitin catabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006032"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006032</a>)
-                    </li>
-
-                </ul>
-
 
 
 
@@ -897,7 +891,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/36154140/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:36154140</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Emergent properties of both species and the community were found, including changes in the chitin degradation potential of Streptomyces species and organization of all species into distinct roles in the chitin degradation process."</div>
@@ -1012,6 +1006,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Do transferred chitin products enable the Streptomyces community phenotype?
+                </h3>
+                <p class="prewrap">Retain both existing biological arrows as HYPOTHESIZED; do not restore previously removed dangling outcome arrows. Five monoculture-positive isolates need not be the exclusive initial community degraders. Main Fig5 describes a hypothesized decomposition route, temporal community transcripts are not matched induction assays, and pellet GC-MS is not extracellular transfer despite Introduction wording. The mixed-bag model removes species boundaries. Pairwise and leave-one-out experiments are future work, and NAG preconditioning may repress Streptomyces chitinase. Primary body and main Tables1/2 read, not original figure pixels, separate supplements, raw data or executable models. Canonical labels/genomes preserved without independent identity recertification; non-graph protocol and source inconsistencies remain under #1569.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Primary Chitin Polymer Degradation</code>, <code>ecological_interactions#Chitin Breakdown Product Sharing</code>, <code>ecological_interactions#Community-Responsive Streptomyces Chitin Phenotype</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1143,7 +1156,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1156,7 +1168,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1252,7 +1263,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1305,7 +1316,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1329,11 +1340,36 @@
 
 
 
+            var participantKeys = [
+
+                "Streptomyces sp. MSC1_001",
+
+                "Neorhizobium tomejilense MSC1_005",
+
+                "Dyadobacter sp. MSC1_007",
+
+                "Sphingopyxis sp. MSC1_008",
+
+                "Ensifer adhaerens MSC1_011",
+
+                "Variovorax beijingensis MSC1_012",
+
+                "Sinorhizobium meliloti MSC1_014",
+
+                "Rhodococcus sp. MSC1_016"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1343,10 +1379,6 @@
 
 
             var processes = [];
-
-
-            processes.push("chitin catabolic process");
-
 
             var evidenceCount = 1;
 
@@ -1361,12 +1393,18 @@
             });
 
 
-            var srcKey = "Streptomyces sp. MSC1_001";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Streptomyces sp. MSC1_001"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

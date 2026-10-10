@@ -365,28 +365,98 @@ taxonomy:
     explanation: Names Microvirga lotononidis HAMBI 3237 as a member of the SynCom.
 ecological_interactions:
 - name: Total-carbon-driven community state shifts
-  description: The full 16-member SynCom reproducibly shifted among states along the total-carbon gradient, with A. caviae
-    dominating low total carbon, P. chlororaphis rising to high abundance with A. caviae at intermediate carbon, and C. koseri
-    dominating high carbon. The source attributed these state transitions principally to total carbon availability, with R2A-derived
-    resource complexity acting as a secondary modulator.
-  interaction_type: COMPETITION
+  description: 'Controlled glucose/R2A carbon gradients produced repeatable community-composition shifts: A. caviae
+    dominated low carbon, P. chlororaphis co-dominated with A. caviae at intermediate carbon, and C. koseri dominated
+    high carbon. R2A-derived complexity modulated this pattern within the tested media. Relative 16S profiles and
+    the authors'' OD-scaled abundance analysis support the result, but are not direct viable-cell counts or proof
+    of extinction. The authors interpret dominance as competitive sorting; ancestral monoculture lag and growth
+    traits predict patterns but do not selectively establish competition, lag time or pH as the mediator. Clusters
+    across different resource conditions do not demonstrate alternative stable states within one condition.'
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+    notes: Community interaction context; no specific pairwise competitive harm or mediator is assigned.
   evidence:
   - reference: PMID:42367191
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: we observed a repeatable state shift pattern in the serially transferred multispecies synthetic community
-    explanation: Supports state shifts as a repeatable community-level outcome of the serial-transfer SynCom.
+    explanation: Supports repeatable composition outcomes in the controlled serial-transfer experiment, not a selectively
+      established pairwise mechanism.
   - reference: PMID:42367191
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: total carbon availability was the principal driver of community-level state transitions
-    explanation: Identifies total carbon availability as the primary driver of the SynCom state transitions.
+    explanation: Supports total-carbon treatment effects within the tested glucose/R2A media; competitive sorting
+      and trait mediation remain interpretations rather than isolated causal effects.
+  participating_taxa:
+  - preferred_term: Pseudomonas putida HAMBI 6
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  - preferred_term: Agrobacterium tumefaciens HAMBI 105
+    term:
+      id: NCBITaxon:358
+      label: Agrobacterium tumefaciens
+  - preferred_term: Comamonas testosteroni HAMBI 403
+    term:
+      id: NCBITaxon:285
+      label: Comamonas testosteroni
+  - preferred_term: Citrobacter koseri HAMBI 1287
+    term:
+      id: NCBITaxon:545
+      label: Citrobacter koseri
+  - preferred_term: Morganella morganii HAMBI 1292
+    term:
+      id: NCBITaxon:582
+      label: Morganella morganii
+  - preferred_term: Kluyvera intermedia HAMBI 1299
+    term:
+      id: NCBITaxon:61648
+      label: Kluyvera intermedia
+  - preferred_term: Sphingobium yanoikuyae HAMBI 1842
+    term:
+      id: NCBITaxon:13690
+      label: Sphingobium yanoikuyae
+  - preferred_term: Sphingobacterium spiritivorum HAMBI 1896
+    term:
+      id: NCBITaxon:258
+      label: Sphingobacterium spiritivorum
+  - preferred_term: Aeromonas caviae HAMBI 1972
+    term:
+      id: NCBITaxon:648
+      label: Aeromonas caviae
+  - preferred_term: Pseudomonas chlororaphis HAMBI 1977
+    term:
+      id: NCBITaxon:587753
+      label: Pseudomonas chlororaphis
+  - preferred_term: Bordetella avium HAMBI 2160
+    term:
+      id: NCBITaxon:521
+      label: Bordetella avium
+  - preferred_term: Cupriavidus oxalaticus HAMBI 2164
+    term:
+      id: NCBITaxon:96344
+      label: Cupriavidus oxalaticus
+  - preferred_term: Paracoccus denitrificans HAMBI 2443
+    term:
+      id: NCBITaxon:266
+      label: Paracoccus denitrificans
+  - preferred_term: Stenotrophomonas maltophilia HAMBI 2659
+    term:
+      id: NCBITaxon:40324
+      label: Stenotrophomonas maltophilia
+  - preferred_term: Niabella yanshanensis HAMBI 3031
+    term:
+      id: NCBITaxon:577386
+      label: Paraniabella yanshanensis
+  - preferred_term: Microvirga lotononidis HAMBI 3237
+    term:
+      id: NCBITaxon:864069
+      label: Microvirga lotononidis
 environmental_factors:
 - name: total carbon concentration
   value: 0.031 to 4 g C/L
@@ -499,13 +569,35 @@ curation_history:
 - timestamp: '2026-09-22T16:28:16Z'
   curator: codex
   action: CREATE_RECORD
-  changes: Created CommunityMech:000423 for the 16-species HAMBI carbon-gradient SynCom from PMID:42367191 with exact strain
-    membership, 96-condition glucose/R2A resource-gradient design, serial-transfer cultivation, and community-state-shift
-    evidence.
+  changes: Created CommunityMech:000423 for the 16-species HAMBI carbon-gradient SynCom from PMID:42367191 with
+    exact strain membership, 96-condition glucose/R2A resource-gradient design, serial-transfer cultivation, and
+    community-state-shift evidence.
   llm_assisted: true
 - timestamp: '2026-09-22T16:28:16Z'
   curator: codex
   action: ADDRESS_REVIEW
-  changes: 'Addressed review issues #1059 and #1060 by removing unsupported serial-passage temperature/atmosphere fields and
-    replacing the truncated glucose evidence snippet with exact M9/R2A medium-preparation evidence from PMID:42367191.'
+  changes: 'Addressed review issues #1059 and #1060 by removing unsupported serial-passage temperature/atmosphere
+    fields and replacing the truncated glucose evidence snippet with exact M9/R2A medium-preparation evidence from
+    PMID:42367191.'
   llm_assisted: true
+- timestamp: '2026-10-06T14:36:23Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Bound controlled carbon-state outcomes and competitive-sorting interpretation. Issue #1493; reports/causal_graph_review/decisions/20261006-hambi-hanford-c6-batch50.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: hambi_state_shift_mediators
+  prompt: Which member interactions and traits mediate the carbon-dependent state shifts?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Total-carbon-driven community state shifts
+  rationale: Preserve the positive controlled carbon response and the authors' competitive-sorting interpretation.
+    Monoculture trait prediction, endpoint pH associations and OD-scaled abundance are informative but not selective
+    mediator perturbations or viable-cell enumeration. Partner removal, trait manipulation and pH control would
+    test the proposed mechanisms. R2A is a proxy for resource complexity with uncertain effective availability,
+    not an exhaustive complexity experiment; no within-condition hysteresis or alternative-attractor demonstration
+    is established by clustering. All 16 canonical strains denote the input community, not proven persistence at
+    every endpoint. Non-graph metadata is preserved, not recertified.
+  posed_by: codex
+  posed_date: '2026-10-06'

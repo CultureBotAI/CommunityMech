@@ -559,7 +559,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Neocallimastix-Methanobrevibacter Xylanolytic Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for syntrophy.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -579,7 +579,7 @@
                     <h3>Interspecies Hydrogen Transfer During Xylan Fermentation</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">M. smithii removes reducing equivalents from the fungal fermentation, preventing hydrogen accumulation and shifting the metabolite profile toward acetate during xylan degradation.</p>
+                <p class="prewrap interaction-description">In the N. frontalis PNK2-M. smithii coculture, hydrogen and formate did not accumulate, acetate formation increased and lactate decreased, consistent with the reported interspecies hydrogen transfer and methanogenesis. M. smithii alone did not utilize xylan or supply the assayed extracellular hydrolase activities. These results support metabolic coupling without establishing obligate dependence of fungal growth on this partner.</p>
 
 
                 <p><strong>Source Taxon:</strong> Neocallimastix frontalis</p>
@@ -632,14 +632,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Methanogen-Stimulated Xylan Utilization
-                        <p class="prewrap causal-description">Hydrogen removal by M. smithii shifts fungal fermentation away from reduced products, supporting the observed increase in xylan utilization.
-</p>
+                        <p class="prewrap causal-description">PARTIAL - Methanogenic removal of fermentation products shifts fungal metabolism toward acetate and is proposed to support the observed increase in xylan-derived sugar utilization. The coculture comparison supports the positive effect, but does not isolate hydrogen removal from growth and other partner-associated changes; utilization is distinct from polymer depolymerization.</p>
                     </div>
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Enhanced Extracellular Hemicellulase Activities
-                        <p class="prewrap causal-description">Interspecies hydrogen transfer in the fungus-methanogen coculture is the syntrophic context in which extracellular xylanase and accessory hemicellulase activities increase.
-</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED - Methanogenic product removal is proposed to improve fungal sugar uptake, reducing extracellular xylose accumulation and catabolite repression of hemicellulases. This supplies a mechanistic path to the measured enzyme increase, not merely a shared coculture context; the authors leave control of sugar uptake unresolved.</p>
                     </div>
 
                 </div>
@@ -684,7 +682,7 @@
                     <h3>Methanogen-Stimulated Xylan Utilization</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Coculture with M. smithii increases both the rate and extent of xylan utilization by anaerobic ruminal fungi relative to axenic fungal culture.</p>
+                <p class="prewrap interaction-description">Coculture with M. smithii increased the rate and extent of xylan utilization by N. frontalis PNK2 relative to fungal monoculture, with stimulation maintained during an 18-day experiment. Increased utilization does not imply a corresponding increase in polymer depolymerization: N. frontalis already degraded most xylan in both conditions, and the source distinguishes degradation from uptake and fermentation of released sugars.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methanobrevibacter smithii</p>
@@ -745,7 +743,7 @@
                     <h3>Enhanced Extracellular Hemicellulase Activities</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">The M. smithii coculture stimulates extracellular xylanolytic enzyme activities by the anaerobic fungal partner, including xylanase, arabinofuranosidase, and beta-xylosidase activities.</p>
+                <p class="prewrap interaction-description">Coculture increased extracellular xylanase, alpha-L-arabinofuranosidase and beta-D-xylosidase specific activities, normalized to fungal protein rather than explained solely by greater biomass. Magnitudes depended on fungus, enzyme, substrate and sampling time; the abstract maxima summarize a comparison panel, not uniform fold changes for N. frontalis PNK2. Cell-bound endopeptidase was not increased and alpha-D-glucosidase was little affected.</p>
 
 
                 <p><strong>Source Taxon:</strong> Methanobrevibacter smithii</p>
@@ -854,6 +852,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which measurements establish the proposed causal mechanism in this exact system?
+                </h3>
+                <p class="prewrap">Preserve the directly measured coculture utilization and enzyme gains, as well as hydrogen/formate and fermentation-product changes. Distinguish polymer degradation from utilization and protein-normalized enzyme activity from biomass. The primary main text proposes sugar-uptake and catabolite-repression mediation but calls for further work on uptake control. No selective hydrogen-removal or repression-rescue experiment is inferred from the coculture comparison. The three fungal systems in the comparison panel are not additional members of this two-member record.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Interspecies Hydrogen Transfer During Xylan Fermentation</code>, <code>ecological_interactions#Methanogen-Stimulated Xylan Utilization</code>, <code>ecological_interactions#Enhanced Extracellular Hemicellulase Activities</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1021,7 +1038,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1034,7 +1050,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };

@@ -654,7 +654,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Early Dental Biofilm Five-Species Model</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -662,13 +662,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -676,10 +671,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Actinomyces and S. mitis coaggregation during early biofilm assembly</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>A. naeslundii and S. mitis Planktonic Coaggregation</h3>
                 </div>
-                <p class="prewrap interaction-description">Actinomyces naeslundii AK6 and Streptococcus mitis SK24 formed visible coaggregates in diluted Todd-Hewitt broth within 15 min, indicating a direct cell-cell association that can contribute to mixed-species early dental biofilm assembly.</p>
+                <p class="prewrap interaction-description">A. naeslundii AK6 and S. mitis SK24 formed visible coaggregates within 15 min in a separate planktonic assay in 1/10 Todd-Hewitt broth. This is direct physical association, not a demonstrated directional benefit, colonization-facilitation effect or cause of acidification in the five-species biofilm. The authors propose an adhesion contribution but did not selectively perturb coaggregation in the pH assay.</p>
 
 
                 <p><strong>Source Taxon:</strong> Actinomyces naeslundii</p>
@@ -692,28 +686,7 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
 
-                    <li>
-                        biofilm formation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0042710"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0042710</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Five-species glucose acidification of the biofilm interface
-                        <p class="prewrap causal-description">Direct A. naeslundii-S. mitis coaggregation contributes to assembly of the reproducible five-species biofilm that was challenged with glucose for microscale pH imaging.</p>
-                    </div>
-
-                </div>
 
 
 
@@ -739,10 +712,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Actinomyces and S. sanguinis coaggregation during early biofilm assembly</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>A. naeslundii and S. sanguinis Planktonic Coaggregation</h3>
                 </div>
-                <p class="prewrap interaction-description">Actinomyces naeslundii AK6 also coaggregated with Streptococcus sanguinis SK150, forming small suspended aggregates within 2 h and providing a second direct pairwise attachment interaction in the five-member biofilm.</p>
+                <p class="prewrap interaction-description">A. naeslundii AK6 and S. sanguinis SK150 formed small suspended aggregates within 2 h in the separate planktonic assay, weaker than the A. naeslundii-S. mitis association. The source/target fields identify the measured pair, not a direction of facilitation. This does not establish an attachment route or acidification mechanism in the five-species flow biofilm.</p>
 
 
                 <p><strong>Source Taxon:</strong> Actinomyces naeslundii</p>
@@ -755,28 +727,7 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
 
-                    <li>
-                        biofilm formation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0042710"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0042710</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Five-species glucose acidification of the biofilm interface
-                        <p class="prewrap causal-description">Direct A. naeslundii-S. sanguinis coaggregation provides a second attachment route into the five-species biofilm whose glucose metabolism generated stable acidic microenvironments.</p>
-                    </div>
-
-                </div>
 
 
 
@@ -803,12 +754,25 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Five-species glucose acidification of the biofilm interface</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">After the five species were established as a reproducible flow-channel biofilm, glucose addition immediately triggered biofilm acid production and generated stable extracellular pH microenvironments at the biofilm-substrate interface.</p>
+                <p class="prewrap interaction-description">Sequentially assembled five-species plastic flow-channel biofilms showed extracellular acidification after 0.4% or 10% glucose in sterile saliva, while the no-glucose control remained above pH 7. Spatial pH differences persisted for hours. This is a collective glucose-response endpoint, not demonstrated niche partitioning, metabolite exchange, species-specific acid flux or enamel demineralization. Growth in flowing diluted Todd-Hewitt broth and the later salivary glucose challenge are distinct stages.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Streptococcus oralis,
+
+                    Streptococcus sanguinis,
+
+                    Streptococcus mitis,
+
+                    Streptococcus downei,
+
+                    Actinomyces naeslundii
+
+                </p>
 
 
 
@@ -862,6 +826,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Does either pairwise coaggregation mechanism mediate biofilm acidification?
+                </h3>
+                <p class="prewrap">Planktonic coaggregation and glucose-responsive biofilm pH were measured in different assays. Neither pair was selectively disrupted or rescued in the biofilm; physical association does not establish colonization benefit or mediation of the pH response. Resolve species-specific acid flux and the origin of persistent pH heterogeneity experimentally. The two workflow-to-outcome arrows are removed. Flow rate, growth feed, substrate and temperature-stage metadata remain under #1420.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#A. naeslundii and S. mitis Planktonic Coaggregation</code>, <code>ecological_interactions#A. naeslundii and S. sanguinis Planktonic Coaggregation</code>, <code>ecological_interactions#Five-species glucose acidification of the biofilm interface</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1034,7 +1017,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1047,7 +1029,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1122,20 +1103,16 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("biofilm formation");
-
 
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Actinomyces and S. mitis coaggregation during early biofilm assembly",
+                label: "A. naeslundii and S. mitis Planktonic Coaggregation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1160,20 +1137,16 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("biofilm formation");
-
 
             var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Actinomyces and S. sanguinis coaggregation during early biofilm assembly",
+                label: "A. naeslundii and S. sanguinis Planktonic Coaggregation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1198,7 +1171,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1225,6 +1198,25 @@
 
 
 
+
+            var participantKeys = [
+
+                "Streptococcus oralis",
+
+                "Streptococcus sanguinis",
+
+                "Streptococcus mitis",
+
+                "Streptococcus downei",
+
+                "Actinomyces naeslundii"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

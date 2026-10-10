@@ -139,14 +139,11 @@ taxonomy:
     explanation: Supports B. bruxellensis as a producer of characteristic flavor compounds in the division-of-labor model.
 ecological_interactions:
 - name: Saccharomyces ethanol provisioning for ester synthesis
-  description: S. cerevisiae produced ethanol that served as a precursor for ester synthesis by the other yeasts.
+  description: The study reports S. cerevisiae-derived ethanol as a precursor for ester synthesis by other yeasts
+    in the four-species comparison panel. The listed participants delimit that panel, not proof of transfer to every
+    named member. S. cerevisiae was not a member of the separately selected three-yeast combination.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Saccharomyces cerevisiae
-    term:
-      id: NCBITaxon:4932
-      label: Saccharomyces cerevisiae
   metabolites:
   - preferred_term: ethanol
     term:
@@ -159,12 +156,15 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Pichia-dominated ester synthesis
-    description: Ethanol from S. cerevisiae served as a precursor for ester synthesis by other yeasts.
+    description: 'PARTIAL: reported ethanol provisioning supplies a substrate for ester synthesis, which was dominated
+      by P. kudriavzevii in the comparison panel. The abstract does not isolate a specific S. cerevisiae-to-P. kudriavzevii
+      transfer or establish this route in the selected trio, which excludes S. cerevisiae.'
   evidence:
   - reference: PMID:41344775
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Saccharomyces cerevisiae produced ethanol, which served as a precursor for ester synthesis by other yeasts.
+    snippet: Saccharomyces cerevisiae produced ethanol, which served as a precursor for ester synthesis by other
+      yeasts.
     explanation: Supports ethanol supply by S. cerevisiae as an input to ester synthesis by partner yeasts.
   participating_taxa:
   - preferred_term: Saccharomyces cerevisiae
@@ -185,16 +185,12 @@ ecological_interactions:
       label: Brettanomyces bruxellensis
 - name: Pichia-dominated ester synthesis
   description: P. kudriavzevii dominated ester synthesis in the defined yeast co-culture comparison.
-  interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pichia kudriavzevii
     term:
       id: NCBITaxon:4909
       label: Pichia kudriavzevii
-  downstream:
-  - target: Three-yeast acid and flavor optimum
-    description: P. kudriavzevii was retained in the three-member consortium that optimized acid and flavor output.
   evidence:
   - reference: PMID:41344775
     supports: SUPPORT
@@ -203,7 +199,6 @@ ecological_interactions:
     explanation: Supports the ester-synthesis role assigned to P. kudriavzevii.
 - name: Brettanomyces characteristic flavor production
   description: B. bruxellensis primarily produced characteristic flavor compounds including acetaldehyde and 4-ethylguaiacol.
-  interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Brettanomyces bruxellensis
@@ -219,30 +214,28 @@ ecological_interactions:
   - reference: PMID:41344775
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Brettanomyces bruxellensis primarily produced characteristic flavor compounds (e.g., acetaldehyde, 4-ethylguaiacol)
+    snippet: Brettanomyces bruxellensis primarily produced characteristic flavor compounds (e.g., acetaldehyde,
+      4-ethylguaiacol)
     explanation: Supports the characteristic-flavor production role assigned to B. bruxellensis.
 - name: Kazachstania-driven acidification
   description: K. humilis efficiently produced acids and accelerated acidification.
-  interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Kazachstania humilis
     term:
       id: NCBITaxon:51915
       label: Maudiozyma humilis
-  downstream:
-  - target: Three-yeast acid and flavor optimum
-    description: K. humilis acidification was one of the functional roles represented in the optimal three-yeast consortium.
   evidence:
   - reference: PMID:41344775
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Kazachstania humilis efficiently produced acids accelerating acidification
     explanation: Supports the acid-production and acidification role assigned to K. humilis.
-- name: Three-yeast acid and flavor optimum
-  description: The P. kudriavzevii, K. humilis, and B. bruxellensis combination showed optimal synergy, peak total-acid and
-    acetic-acid contents, and enhanced characteristic flavor profiles.
-  interaction_type: NICHE_PARTITIONING
+- name: Three-Yeast Acid and Flavor Comparison Outcome
+  description: Within the tested early-fermentation comparisons, the P. kudriavzevii, K. humilis and B. bruxellensis
+    combination had the reported peak total-acid and acetic-acid contents and enhanced characteristic flavor profiles.
+    This is a configuration-level outcome, not a universal optimum or proof of reduced competition. Untargeted metabolomics
+    implicated pyruvate-associated pathways without tracing pyruvate exchange or establishing pathway causation.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pichia kudriavzevii
@@ -270,20 +263,23 @@ ecological_interactions:
   - reference: PMID:41344775
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Pichia kudriavzevii, Kazachstania humilis, and Brettanomyces bruxellensis exhibited optimal synergy, achieving
-      peak total acid
-    explanation: Supports the three-species consortium as the optimal combination for acid output.
+    snippet: Pichia kudriavzevii, Kazachstania humilis, and Brettanomyces bruxellensis exhibited optimal synergy,
+      achieving peak total acid
+    explanation: Supports the reported best acid-output combination among the tested comparisons, not a universal
+      optimum or interaction fitness sign.
   - reference: PMID:41344775
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: significantly enhancing characteristic flavor profiles
-    explanation: Supports enhanced flavor profiles in the optimal three-species consortium.
+    explanation: Supports the positive flavor-profile outcome in the tested trio, without isolating each member
+      contribution.
   - reference: PMID:41344775
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: this combination efficiently regulated multiple flavor biosynthesis pathways through pyruvate-mediated metabolic
-      hubs
-    explanation: Supports pyruvate-mediated pathway regulation by the optimal three-species consortium.
+    snippet: this combination efficiently regulated multiple flavor biosynthesis pathways through pyruvate-mediated
+      metabolic hubs
+    explanation: Reports a metabolomics-based pathway interpretation, not direct measurement of pyruvate transfer
+      or causal flux.
 related_ingredients:
 - preferred_term: ethanol
   chebi_term:
@@ -392,8 +388,8 @@ external_resources:
     explanation: Lists the DOI for the Sichuan Shai vinegar yeast SynCom publication.
 discussions:
 - discussion_id: sichuan_shai_vinegar_strains_and_solid_state_conditions
-  prompt: Which strain accessions, inoculation ratios, solid-state matrix, and incubation parameters were used for the P.
-    kudriavzevii / K. humilis / B. bruxellensis Sichuan Shai vinegar consortium?
+  prompt: Which strain accessions, inoculation ratios, solid-state matrix, and incubation parameters were used for
+    the P. kudriavzevii / K. humilis / B. bruxellensis Sichuan Shai vinegar consortium?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
@@ -401,10 +397,35 @@ discussions:
   - taxonomy#Kazachstania humilis
   - taxonomy#Brettanomyces bruxellensis
   - growth_media#simulated Sichuan Shai vinegar solid-state fermentation
-  rationale: The PubMed abstract names the yeast species, the optimized triple consortium, and the major flavor outputs, but
-    not enough methods detail to reproduce the simulated solid-state fermentation.
+  rationale: The PubMed abstract names the yeast species, the optimized triple consortium, and the major flavor
+    outputs, but not enough methods detail to reproduce the simulated solid-state fermentation.
   posed_by: codex
   posed_date: '2026-09-22'
+- discussion_id: vinegar_causal_attribution_batch102
+  prompt: Which tested configurations resolve ethanol recipient identity and individual contributions to the reported
+    three-yeast outcome?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Saccharomyces ethanol provisioning for ester synthesis
+  - ecological_interactions#Pichia-dominated ester synthesis
+  - ecological_interactions#Brettanomyces characteristic flavor production
+  - ecological_interactions#Kazachstania-driven acidification
+  - ecological_interactions#Three-Yeast Acid and Flavor Comparison Outcome
+  rationale: The primary abstract and committed abstract were checked. It reports precursor use and distinct production
+    roles, but neither reduced competition nor isolated contributions to the joint endpoint. The selected trio excludes
+    the ethanol donor. The publisher request returned 403; bounded exact-title/DOI searches did not yield an independently
+    verified complete article. Configuration-specific primary results would resolve attribution; the existing methods
+    discussion remains separate.
+  posed_by: codex
+  posed_date: '2026-10-07'
+  evidence:
+  - reference: PMID:41344775
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Saccharomyces cerevisiae produced ethanol, which served as a precursor for ester synthesis by other
+      yeasts.
+    explanation: Supports ethanol supply by S. cerevisiae as an input to ester synthesis by partner yeasts.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -414,13 +435,23 @@ curation_history:
 - timestamp: '2026-09-22T07:39:16Z'
   curator: codex
   action: CREATE_COMMUNITY
-  changes: Created CommunityMech:000417 for PMID:41344775 / doi:10.1016/j.fm.2025.104983, a defined Sichuan Shai vinegar yeast
-    SynCom with abstract-backed membership, division-of-labor interactions, flavor metabolites, and a knowledge gap for strain-level
-    and solid-state methods details.
+  changes: Created CommunityMech:000417 for PMID:41344775 / doi:10.1016/j.fm.2025.104983, a defined Sichuan Shai
+    vinegar yeast SynCom with abstract-backed membership, division-of-labor interactions, flavor metabolites, and
+    a knowledge gap for strain-level and solid-state methods details.
   llm_assisted: true
 - timestamp: '2026-09-22T07:46:26Z'
   curator: codex
   action: ADDRESS_ADVERSARIAL_REVIEW
-  changes: 'Addressed adversarial review issues #1042, #1043, and #1044 by replacing the broad Fungi ethanol-edge target with
-    record-local yeast participants, adding acetic-acid-specific evidence, and removing an unsupported growth-media inoculum_source.'
+  changes: 'Addressed adversarial review issues #1042, #1043, and #1044 by replacing the broad Fungi ethanol-edge
+    target with record-local yeast participants, adding acetic-acid-specific evidence, and removing an unsupported
+    growth-media inoculum_source.'
+  llm_assisted: true
+- timestamp: '2026-10-07T23:24:39Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain reported precursor provisioning with panel-limited participants and PARTIAL recipient attribution.;
+    Retain ester synthesis; remove unsupported niche label and membership-only arrow.; Retain characteristic flavor
+    production without a resource-partitioning claim.; Retain acidification; remove unsupported niche label and
+    membership-only arrow.; Preserve the positive tested-trio outcome and distinguish metabolomic interpretation
+    from causal exchange. Issue#1803; reports/causal_graph_review/decisions/20261007-four-records-batch102.yaml
   llm_assisted: true

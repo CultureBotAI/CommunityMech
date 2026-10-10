@@ -768,7 +768,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Electrostimulated Toluene Methanogenic Microbiota</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -776,8 +776,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -786,9 +786,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Non-electrostimulated toluene degrader to acetoclastic methanogens</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">In non-electro-stimulated microbiota, Syntrophobacteraceae MAG116 was inferred as a toluene degrader proposed to establish electron syntrophy with acetoclastic Methanosarcina spp. or Methanothrix sp. through e-pili or shared acetate.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - the abstract proposes MAG116-mediated toluene conversion linked to Methanosarcina OR Methanothrix through e-pili OR acetate. These are alternative partners and routes, not a demonstrated three-member assembly or resolved direct-electron-transfer flux. The non-electrostimulated model must remain distinct from electrode-associated hypotheses.</p>
 
 
 
@@ -823,17 +822,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        methanogenesis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015948"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015948</a>)
-                    </li>
-
-                </ul>
-
 
 
 
@@ -861,9 +849,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Anode-linked Desulfoprunum and Syntrophobacteraceae electron transfer</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">In electro-stimulated microbiota, anode-recruited Desulfoprunum MAG10 was inferred to participate in interspecies electron transfer with Syntrophobacteraceae MAG116 and the anode, potentially mediated by c-type cytochromes.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - anode-associated Desulfoprunum MAG10 may exchange electrons with MAG116 and the electrode. The abstract does not resolve donor-to-recipient direction between the MAGs or demonstrate a necessary transfer protein. Electrode enrichment does not independently establish syntrophic flux.</p>
 
 
 
@@ -896,7 +883,7 @@
                             - PARTIAL (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"facilitated by c-type cytochromes"</div>
+                        <div class="snippet">"MAG10 engaged in interspecies electron transfer with both syntroph f_Syntrophobacteraceae MAG116 and the anode"</div>
 
                     </li>
 
@@ -907,9 +894,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Aminidesulfovibrio electron and hydrogen sharing with Methanobacterium</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Electrotrophic Aminidesulfovibrio MAG60 was inferred to capture electrons from the external circuit and share electrons and hydrogen with the hydrogenotrophic methanogen Methanobacterium MAG74.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED - MAG60 could supply electrons or hydrogen to Methanobacterium MAG74. The directed pair encodes the proposed route, not a measured exchange rate, demonstrated obligate cooperation or resolved direct versus hydrogen-mediated transfer. Hydrogenase gene content alone does not demonstrate that flux.</p>
 
 
                 <p><strong>Source Taxon:</strong> Aminidesulfovibrio sp. MAG60</p>
@@ -933,17 +919,6 @@
                 </p>
 
 
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        methanogenesis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015948"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015948</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -975,7 +950,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -1008,6 +983,21 @@
                     </div>
 
                 </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which candidate MAG routes are established by selective perturbation and primary reactor data?
+                </h3>
+                <p class="prewrap">The three abstract-supported mechanisms remain HYPOTHESIZED with PARTIAL computational evidence and zero downstream arrows. A common electrical treatment does not establish a chain among control, anode and cathode mechanisms. Preserve the alternate methanogen evidence from #1121 and recruitment evidence from #1120. Distinct MAG116 and MAG60 labels must not collapse because both use NCBITaxon:2. Full primary Methods/Results and supplements were not acquired; publisher requests failed and the ResearchGate entry requires a full-text request. This is an access limitation, not proof that full text does not exist. Non-graph roles and reactor metadata remain #1435.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Non-electrostimulated toluene degrader to acetoclastic methanogens</code>, <code>ecological_interactions#Anode-linked Desulfoprunum and Syntrophobacteraceae electron transfer</code>, <code>ecological_interactions#Aminidesulfovibrio electron and hydrogen sharing with Methanobacterium</code></p>
+
+
 
 
             </div>
@@ -1250,7 +1240,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1263,7 +1252,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1345,7 +1333,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1357,10 +1345,6 @@
 
 
             var processes = [];
-
-
-            processes.push("methanogenesis");
-
 
             var evidenceCount = 1;
 
@@ -1396,7 +1380,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1433,7 +1417,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1443,10 +1427,6 @@
 
 
             var processes = [];
-
-
-            processes.push("methanogenesis");
-
 
             var evidenceCount = 1;
 

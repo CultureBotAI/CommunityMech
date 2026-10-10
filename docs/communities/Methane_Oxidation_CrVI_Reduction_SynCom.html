@@ -600,7 +600,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Methane Oxidation-Cr(VI) Reduction SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -608,13 +608,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -623,9 +618,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Methylocystis Hypoxic Methane Oxidation</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Under hypoxic methane-fed conditions, Methylocystis is the core microorganism oxidizing methane and initiating electron flow toward Cr(VI) reduction.</p>
+                <p class="prewrap interaction-description">MAG analysis assigned Methylocystis, reported at 6.30% abundance, as the methane-oxidizing core under hypoxic conditions. This is the source&#39;s taxon assignment, not an isolated-strain electron-flux measurement or proof that only this genus oxidizes methane. Hypoxia does not make this an established oxygen-independent methane pathway; the study describes aerobic methanotrophs under low oxygen.</p>
 
 
 
@@ -666,7 +660,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Extracellular Electron Transfer to Cr(VI)
-                        <p class="prewrap causal-description">Hypoxic methane oxidation by Methylocystis supplies electrons that reach Cr(VI) through extracellular electron transfer mediated by c-type cytochromes, conductive pili, and dominant partner genera.</p>
+                        <p class="prewrap causal-description">PARTIAL - methane oxidation can supply reducing equivalents for the proposed EET routes. Inhibiting oxidation reduced Cr(VI) reduction, supporting functional coupling, but the abstract does not resolve how much reaches chromium through Methylocystis cytochromes/pili versus partner-associated routes.</p>
                     </div>
 
                 </div>
@@ -682,7 +676,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41932525/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41932525</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"under hypoxic conditions, Methylocystis (6.30%) was the core microorganism driving methane oxidation"</div>
@@ -696,9 +690,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Extracellular Electron Transfer to Cr(VI)</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Methylocystis achieves extracellular electron transfer through multiheme c-type cytochromes and conductive pili or jointly with dominant Hyphomicrobium and Thiobacillus partners, coupling methane oxidation to Cr(VI) reduction.</p>
+                <p class="prewrap interaction-description">The source proposes Methylocystis EET via multiheme c-type cytochromes and conductive pili, or jointly with dominant Hyphomicrobium and Thiobacillus. Preserve these alternative route assignments from MAG/multi-omics analysis, not a single demonstrated serial transfer chain, obligatory syntrophy, measured metabolite exchange or selective proof of each protein and partner. The three named genera are a reported subset of the enrichment, not its complete composition or a verified three-isolate coculture.</p>
 
 
 
@@ -753,7 +746,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Methane-Driven Chromium Reduction
-                        <p class="prewrap causal-description">Extracellular electron transfer from methane oxidation connects the methane-oxidizing core and partner genera to Cr(VI) reduction in the chromium-removing SynCom.</p>
+                        <p class="prewrap causal-description">PARTIAL - proposed extracellular transfer could deliver methane-derived electrons to Cr(VI). Positive removal and the methane-inhibition result support coupling, not selective demonstration that this EET route is the sole mediator; inhibitor specificity and route-specific controls require the unavailable Methods.</p>
                     </div>
 
                 </div>
@@ -769,7 +762,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41932525/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41932525</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"It achieved extracellular electron transfer (EET) through multiheme c-type cytochromes and conductive pili, or jointly with dominant genera such as Hyphomicrobium and Thiobacillus, to couple methane oxidation with Cr(VI) reduction."</div>
@@ -783,12 +776,21 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Methane-Driven Chromium Reduction</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">The SynCom couples methane oxidation with Cr(VI) reduction through extracellular electron transfer and a quorum-sensing, methane-metabolism, ABC transporter, and porin expression program.</p>
+                <p class="prewrap interaction-description">The enrichment reached a maximum reported Cr(VI) removal load of 20.63 mg/L/d. Inhibiting methane oxidation reduced Cr(VI)-reduction efficiency, a positive perturbation result supporting coupling. Omics associated the system with quorum-sensing and methane-metabolism proteins, ABC substrate-binding protein and porin expression; these are not selectively established mediators. The abstract does not resolve inhibitor off-target effects, chromium mass balance, exact reduced-product speciation, or each genus&#39; share. Named participants are a subset, not a tested minimal consortium.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Methylocystis sp.,
+
+                    Hyphomicrobium sp.,
+
+                    Thiobacillus sp.
+
+                </p>
 
 
 
@@ -821,12 +823,6 @@
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0022900</a>)
                     </li>
 
-                    <li>
-                        quorum sensing
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009372"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009372</a>)
-                    </li>
-
                 </ul>
 
 
@@ -835,19 +831,6 @@
 
                 <h4>Evidence</h4>
                 <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/41932525/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41932525</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"In this study, a synthetic microbial community (SynCom) was constructed by controlling methane concentration and chromium load."</div>
-
-                    </li>
 
                     <li class="evidence-item">
                         <div>
@@ -868,7 +851,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41932525/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41932525</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"significant enrichment of differentially expressed proteins involved in quorum sensing and methane metabolism"</div>
@@ -897,6 +880,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which EET route mediates methane-linked chromium reduction?
+                </h3>
+                <p class="prewrap">Retain positive Cr(VI) removal and methane-oxidation inhibition results, with two PARTIAL pathway arrows. MAGs and protein expression do not establish exclusive electron flux through pili, cytochromes or each partner; quorum-sensing enrichment is not a perturbation. Full primary Methods, control specificity, exact chromium chemistry and taxon-specific roles remain unavailable after public publisher requests failed. #1599 repairs existing structure; #1600 retains non-graph enrichment/composition claims and the unresolved canonical Hyphomicrobium grounding. Canonical labels/IDs are preserved, not independently recertified.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Methylocystis Hypoxic Methane Oxidation</code>, <code>ecological_interactions#Extracellular Electron Transfer to Cr(VI)</code>, <code>ecological_interactions#Methane-Driven Chromium Reduction</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1038,7 +1040,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1051,7 +1052,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1112,7 +1112,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1155,7 +1155,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1206,7 +1206,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1222,10 +1222,8 @@
 
             processes.push("electron transport chain");
 
-            processes.push("quorum sensing");
 
-
-            var evidenceCount = 4;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1239,6 +1237,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Methylocystis sp.",
+
+                "Hyphomicrobium sp.",
+
+                "Thiobacillus sp."
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

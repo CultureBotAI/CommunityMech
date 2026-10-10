@@ -572,7 +572,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Rammelsberg Cobalt-Nickel Tailings Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism, commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -580,13 +580,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -595,15 +590,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Iron Oxidation and Ferric Iron Generation</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Acidithiobacillus ferrooxidans oxidizes ferrous iron (Fe²⁺) to ferric iron (Fe³⁺), generating the primary oxidant for chemical attack of cobalt-bearing sulfide minerals. The enzymatic reaction (4Fe²⁺ + O₂ + 4H⁺ → 4Fe³⁺ + 2H₂O) couples oxygen reduction to iron oxidation, yielding energy for bacterial growth and CO₂ fixation. Ferric iron acts as a powerful oxidant that attacks framboidal pyrite surfaces where cobalt is concentrated, solubilizing both iron sulfides and associated cobalt minerals. The continuous regeneration of ferric iron by At. ferrooxidans maintains high oxidation potential in the bioleaching system, driving efficient cobalt and copper mobilization even from low-grade tailings (0.02% Co). This iron-cycling process represents the dominant energy-generating pathway for the consortium and is rate-limiting for overall metal recovery.
-</p>
+                <p class="prewrap interaction-description">In the Rammelsberg laboratory enrichment, falling iron(II), increasing redox potential and dissolved iron support microbial iron(II)-to-iron(III) conversion that promotes metal-sulfide dissolution. The primary paper contrasts these dynamics with an inhibited abiotic control; it does not establish a rate-limiting step or reciprocal fitness between the two dominant taxa. The listed Acidithiobacillus taxa are dominant recorded members, not an exhaustive community or a demonstrated pairwise benefit.</p>
 
 
-                <p><strong>Source Taxon:</strong> Acidithiobacillus ferrooxidans</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Acidithiobacillus ferrooxidans,
+
+                    Acidithiobacillus thiooxidans
+
+                </p>
 
 
 
@@ -625,17 +624,6 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        iron ion transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006826</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
@@ -643,7 +631,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Cobalt and Copper Mobilization from Sulfide Minerals
-                        <p class="prewrap causal-description">Ferric iron oxidizes sulfide minerals releasing cobalt and copper</p>
+                        <p class="prewrap causal-description">Microbial conversion of iron(II) to iron(III) supplies the chemical oxidant that promotes sulfide dissolution and associated metal release, as interpreted from the Rammelsberg reactor chemistry and abiotic comparison.</p>
                     </div>
 
                 </div>
@@ -656,13 +644,13 @@
                     <li class="evidence-item">
                         <div>
 
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/39770610/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39770610</a>
+                            <a href="https://doi.org/10.1016/j.hydromet.2020.105443"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1016/j.hydromet.2020.105443</a>
 
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"It has emerged as a key player in biomining and bioleaching technologies thanks to its unique ability to mobilize a wide spectrum of elements, such as Li, P, V, Cr, Fe, Ni, Cu, Zn, Ga, As, Mo, W, Pb, U, and its role in ferrous iron oxidation and reduction"</div>
+                        <div class="snippet">"This indicates that due to bacterial activity, the iron(II) was constantly converted to iron(III), causing metal sulfide dissolution."</div>
 
                     </li>
 
@@ -673,17 +661,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Cobalt and Copper Mobilization from Sulfide Minerals</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Ferric iron generated by At. ferrooxidans chemically oxidizes cobalt-bearing framboidal pyrite and copper sulfides (chalcopyrite, covellite) in the Rammelsberg tailings. The reaction attacks pyrite surfaces where cobalt is concentrated, releasing Co²⁺, Cu²⁺, Fe²⁺, and sulfate into solution. Mineralogical analysis confirmed that cobalt occurs on the surface of framboidal pyrite and is mainly leached by microbial attack. The consortium achieved 91% cobalt recovery and 57% copper recovery from bulk tailings (Co 0.02%, Cu 0.12%) after 13 days at 10% pulp density in stirred tank reactors. From flotation concentrate (Co 0.06%, Cu 0.57%), recovery was 66% cobalt and 33% copper. The ferric-mediated oxidation represents the dominant metal solubilization mechanism (indirect bioleaching), with ferrous iron released during mineral oxidation being recycled back to At. ferrooxidans for re-oxidation, creating a closed iron redox cycle.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Acidithiobacillus ferrooxidans</p>
+                <p class="prewrap interaction-description">The Rammelsberg enrichment achieved 91% cobalt and 57% copper extraction from bulk tailings after 13 days in laboratory stirred-tank reactors; flotation concentrate yielded 66% cobalt and 33% copper. Mineral analysis associates cobalt with framboidal pyrite, and the authors interpret greater cobalt dissolution than in the abiotic control as microbial/ferric-iron attack. These are community and mineral outcomes, not demonstrated mutualism or a closed partner-specific iron cycle. The listed Acidithiobacillus taxa are dominant recorded members, not an exhaustive community or a demonstrated pairwise benefit.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Acidithiobacillus thiooxidans</p>
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Acidithiobacillus ferrooxidans,
+
+                    Acidithiobacillus thiooxidans
+
+                </p>
 
 
 
@@ -711,21 +701,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Iron Oxidation and Ferric Iron Generation
-                        <p class="prewrap causal-description">Fe²⁺ released from mineral oxidation is recycled to At. ferrooxidans</p>
-                    </div>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Sulfur Oxidation and Acid Generation
-                        <p class="prewrap causal-description">Elemental sulfur produced during mineral oxidation is substrate for At. thiooxidans</p>
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -734,26 +709,26 @@
                     <li class="evidence-item">
                         <div>
 
-                            <a href="https://doi.org/10.1016/j.hydromet.2020.105484"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1016/j.hydromet.2020.105484</a>
+                            <a href="https://doi.org/10.1016/j.hydromet.2020.105443"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1016/j.hydromet.2020.105443</a>
 
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"This material still contains several sulfide minerals (pyrrhotite, pyrite, sphalerite, pentlandite, violarite, chalcopyrite) and significant amounts of metals (Zn, Ni, Cu, Co, rare earth elements)"</div>
+                        <div class="snippet">"The microbial consortium achieved 91% cobalt and 57% copper extraction from bulk tailings after 13 days in STR."</div>
 
                     </li>
 
                     <li class="evidence-item">
                         <div>
 
-                            <a href="https://doi.org/10.1016/j.hydromet.2020.105484"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1016/j.hydromet.2020.105484</a>
+                            <a href="https://doi.org/10.1016/j.hydromet.2020.105443"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1016/j.hydromet.2020.105443</a>
 
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Cobalt dissolution kinetics were highly improved by the bacterial activity, whatever the consortium. This is consistent with the presence of Co in the pyrite in the secondary ore"</div>
+                        <div class="snippet">"For the flotation concentrates, bioleaching tests showed 66% cobalt and 33 % copper recovery after 13 days."</div>
 
                     </li>
 
@@ -764,15 +739,19 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Sulfur Oxidation and Acid Generation</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Acidithiobacillus thiooxidans oxidizes elemental sulfur (S⁰) that accumulates as a passivation layer on sulfide mineral surfaces during ferric iron attack. The oxidation reaction (S²⁻ + 2H₂O + 2O₂ → SO₄²⁻ + 4H⁺) produces sulfuric acid, maintaining the low pH (pH 1.5-2.5) required for ferric iron solubility and optimal acidophilic bacterial activity. Removal of the elemental sulfur passivation layer is essential for sustained bioleaching kinetics, as sulfur accumulation would otherwise block access of ferric iron and bacteria to fresh mineral surfaces. At. thiooxidans employs the sox system (soxAX, soxB, soxCD, soxYZ), sulfide oxidoreductase (SQR), and sulfur dioxygenase (SDO) to catalyze sulfur oxidation. The sulfuric acid produced lowers pH, solubilizes additional metals through acid leaching, and creates the extreme acidic environment that excludes neutrophilic competitors, maintaining consortium dominance. This sulfur-oxidizing function is synergistic with At. ferrooxidans iron oxidation, as the two organisms together prevent both ferric hydroxide precipitation (through low pH) and sulfur passivation.
-</p>
+                <p class="prewrap interaction-description">Rammelsberg shake-flask bioleaching decreased pH, whereas uninoculated inhibited controls increased in pH; the authors attribute the decrease to sulfuric-acid production by sulfide and sulfur biooxidation. This is a community acidification process. The source does not isolate an Acidithiobacillus thiooxidans-specific passivation-removal pathway, the named enzyme systems, or acidification-mediated benefit to Acidithiobacillus ferrooxidans. The listed Acidithiobacillus taxa are dominant recorded members, not an exhaustive community or a demonstrated pairwise benefit.</p>
 
 
-                <p><strong>Source Taxon:</strong> Acidithiobacillus thiooxidans</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Acidithiobacillus ferrooxidans,
+
+                    Acidithiobacillus thiooxidans
+
+                </p>
 
 
 
@@ -807,16 +786,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Iron Oxidation and Ferric Iron Generation
-                        <p class="prewrap causal-description">Low pH maintained by sulfuric acid prevents ferric iron precipitation</p>
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -825,98 +794,13 @@
                     <li class="evidence-item">
                         <div>
 
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/39770610/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39770610</a>
+                            <a href="https://doi.org/10.1016/j.hydromet.2020.105443"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1016/j.hydromet.2020.105443</a>
 
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"However, its use in biometallurgical applications poses environmental issues through its effect on the pH levels in bioleaching systems, which produce acid mine drainage in rivers and lakes adjacent to mines"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://doi.org/10.1016/j.hydromet.2020.105484"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1016/j.hydromet.2020.105484</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"In the framework of the European project NEMO (Near-zero-waste recycling of low-grade sulfidic mining waste for critical-metal, mineral and construction raw-material production in a circular economy), new ways to valorize sulfidic tailings are being developed through the recovery of valuable metals and critical raw materials and the transformation of the residual in clean mineral fraction to be used for the mass production of cement, concrete and construction products"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Autotrophic Carbon Fixation in Acidic Environment</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
-                </div>
-                <p class="prewrap interaction-description">Both Acidithiobacillus ferrooxidans and At. thiooxidans are obligate chemolithoautotrophs that fix atmospheric CO₂ via the Calvin-Benson-Bassham cycle using energy derived from iron or sulfur oxidation. This autotrophic metabolism eliminates the need for organic carbon supplementation in the bioleaching system, reducing operational costs and enabling growth on the inorganic tailings substrate alone. Carbon fixation couples to the primary energy-generating reactions (iron and sulfur oxidation), with ATP and reducing equivalents (NADH) produced from chemolithotrophic electron transport chains driving CO₂ assimilation into biomass. The autotrophic growth strategy is well-adapted to the extreme oligotrophic conditions of acidic mine tailings where organic carbon is scarce, allowing the consortium to thrive and catalyze metal mobilization without external organic nutrients.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Acidithiobacillus ferrooxidans</p>
-
-
-
-                <p><strong>Target Taxon:</strong> Acidithiobacillus thiooxidans</p>
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    carbon dioxide
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16526"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16526</a>),
-
-                    ATP
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15422"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:15422</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        carbon fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015977"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015977</a>)
-                    </li>
-
-                    <li>
-                        reductive pentose-phosphate cycle
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019253"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019253</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/39770610/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:39770610</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"ferrooxidans catalyzes the extraction of elements by generating iron (III) ions in oxic conditions, which are able to react with metal sulfides"</div>
+                        <div class="snippet">"due to sulfuric acid production by sulfide and sulfur biooxidation."</div>
 
                     </li>
 
@@ -929,6 +813,56 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which strain-specific exchanges and feedbacks are established in the Rammelsberg enrichment?
+                </h3>
+                <p class="prewrap">The correct primary study is doi:10.1016/j.hydromet.2020.105443;105484 concerns Finnish secondary ore, while PMID:39770610 is a general review. The inoculum contained four named strains and indigenous organisms were detected. Dominance by the two recorded Acidithiobacillus taxa does not establish a defined two-member community or reciprocal fitness. General iron/sulfur chemistry is not a demonstrated partner-specific recycling/passivation feedback, and intrinsic carbon fixation is not commensal exchange. Retain supported community processes and the iron-to-mineral-dissolution arrow without the other three feedback arrows or carbon-fixation interaction. Non-graph identity, industrial-scale and citation claims require separate curation under issue1753.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Iron Oxidation and Ferric Iron Generation</code>, <code>ecological_interactions#Cobalt and Copper Mobilization from Sulfide Minerals</code>, <code>ecological_interactions#Sulfur Oxidation and Acid Generation</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+                                <a href="https://doi.org/10.1016/j.hydromet.2020.105443" rel="noreferrer">doi:10.1016/j.hydromet.2020.105443</a>
+
+                        </div>
+                        <p class="snippet small prewrap">Some indigenous bacteria (~19%) were detected at the end of the leaching tests in STR</p>
+                        <p class="muted small prewrap">The exact study explicitly reports additional community members.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+                                <a href="https://doi.org/10.1016/j.hydromet.2020.105443" rel="noreferrer">doi:10.1016/j.hydromet.2020.105443</a>
+
+                        </div>
+                        <p class="snippet small prewrap">The mixed consortium containing mainly At. ferrooxidans and At. thiooxidans remained stable throughout the experiment.</p>
+                        <p class="muted small prewrap">Supports these taxa as dominant, not exclusive or proven reciprocal beneficiaries.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1158,7 +1092,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1171,7 +1104,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1225,7 +1157,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1237,10 +1169,6 @@
 
 
             var processes = [];
-
-
-            processes.push("iron ion transport");
-
 
             var evidenceCount = 1;
 
@@ -1255,18 +1183,26 @@
             });
 
 
-            var srcKey = "Acidithiobacillus ferrooxidans";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Acidithiobacillus ferrooxidans",
+
+                "Acidithiobacillus thiooxidans"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1294,23 +1230,26 @@
             });
 
 
-            var srcKey = "Acidithiobacillus ferrooxidans";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-            var tgtKey = "Acidithiobacillus thiooxidans";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
+                "Acidithiobacillus ferrooxidans",
+
+                "Acidithiobacillus thiooxidans"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1327,7 +1266,7 @@
             processes.push("sulfur compound metabolic process");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
@@ -1340,58 +1279,20 @@
             });
 
 
-            var srcKey = "Acidithiobacillus thiooxidans";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-        })();
+                "Acidithiobacillus ferrooxidans",
 
-        (function() {
-            var intId = "interaction:3";
-            var intType = "COMMENSALISM";
-            var metabolites = [];
+                "Acidithiobacillus thiooxidans"
 
-
-            metabolites.push("carbon dioxide");
-
-            metabolites.push("ATP");
-
-
-            var processes = [];
-
-
-            processes.push("carbon fixation");
-
-            processes.push("reductive pentose-phosphate cycle");
-
-
-            var evidenceCount = 1;
-
-            nodes.push({
-                id: intId,
-                label: "Autotrophic Carbon Fixation in Acidic Environment",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
             });
-
-
-            var srcKey = "Acidithiobacillus ferrooxidans";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-            var tgtKey = "Acidithiobacillus thiooxidans";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
 
         })();
 
@@ -1414,7 +1315,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 6;
+        var nodeCount = 5;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

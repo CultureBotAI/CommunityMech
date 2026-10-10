@@ -1,0 +1,118 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: d61d3a6a0f782c5df8febccd0ecae0ea8c3759ca
+baseline_commit: d61d3a6a0f782c5df8febccd0ecae0ea8c3759ca
+base_tree: b1be6bbcb5a107378ba50075dfb062b14152c60d
+pre_source_baseline_sha256: b37a0d9b620870bd1a541cef9b8ee67f2f8b10c8798f97edf4e5a02cfce370e7
+issues:
+- 1530
+unresolved_non_graph_issues:
+- 1364
+issue_deduplication:
+  all_state_issue_titles_and_bodies: 833
+  ignored_hidden_local_search: true
+  matching_local_files: 14
+  related_issues:
+  - 1364
+  - 1398
+  - 1399
+  - 1400
+  - 496
+reference_cache_original_hashes:
+  references_cache/doi_10.1098_rsif.2019.0129.md: 2478af1fb20fd55912d1737a025cc659f2db4bef173151a02d9931410f0c1b5f
+  references_cache/PMID_16345708.md: 5e0e85bae63d540c243ab12bdc2a3d3fef677857206075289d73efb6c617cf02
+primary_artifacts:
+  dvm-primary.html: 741f79cd71a4d16e3d94d9839c1105f5bfac606deb8092368ea3bd34f1ca95ad
+  dvm-primary.txt: 179b12905519216d52e716361a7c6ce115e2e021a70e90efc5182ecf6e7bf930
+primary_urls:
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC6544901/
+primary_graph_fragments_verified: 7
+limitations:
+- All four nodes/two arrows reviewed and retained; both arrows PARTIAL for exact flux allocation. No new causal
+  structure, Edison dry run, paid request or report.
+- 2019 primary full main text/Methods/Tables1-2/main captions read; no original figure pixels, external supplements/raw
+  data or independent mass-balance replication.1981 cached abstract only; fresh PubMed view did not expose text.
+- Canonical taxonomy and raw non-graph fields preserved, not recertified. Existing1364 tracks incorrect origin/protocol
+  and overbroad non-graph mechanism metadata; remains open after graph merge.
+- All920 cache files unchanged. Seven graph snippets independently matched to fresh primary main text; cache MATCH
+  and the abstract_only front matter do not certify all cache provenance. Existing496 concerns that misleading full-text
+  status.
+- 833 all-state issue titles/bodies searched;14 matching ignored/hidden local files with docs/site/cache exclusions.
+  Relevant existing issues inspected, not every historical comment/PR or every matching file.
+- Self-adversarial review, not independent approval. Repair1530 stays open until protected-main merge. SupportingReference
+  coverage476, writer artifact1095 and Linux DOI lookup1091 remain pre-existing limitations.
+records:
+- path: kb/communities/DVM_Triculture.yaml
+  id: CommunityMech:000021
+  original_sha256: f266bb55b26a98251d9302e6a411526e3908eb775203bd87b4fa8b47fcb07743
+  record_sha256: a35537c075a8b201555340df6b43a65be0409250e87e476fb4dac682201e6f36
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261006-dvm-batch57.yaml
+  scope: Whole record, all four existing nodes and two arrows; source-bounded repair without extension.
+  summary: Bound DVM substrate provision, methane pathway partition and sulfate competition by exact assay.
+  renamed_nodes: {}
+  node_decisions:
+  - node: Lactate Oxidation and H2/Acetate Production
+    rationale: Preserve donor fermentation with recipient-specific substrate use and incomplete acetate conversion.
+  - node: Hydrogenotrophic Methanogenesis by M. maripaludis
+    rationale: Preserve hydrogenotrophic syntrophy and sulfate-dependent pair outcomes without exclusive donor gas
+      origin.
+  - node: Dual-pathway Methanogenesis by M. barkeri
+    rationale: Preserve positive methane and monoculture perturbation results while distinguishing pair mass balance
+      from tri-culture pathway allocation.
+  - node: Sulfate-mediated Competition
+    rationale: Preserve sulfate-treatment phenotypes without selectively proven tri-culture competition mediation.
+  removed_node_decisions: []
+  edges_before:
+  - source: Lactate Oxidation and H2/Acetate Production
+    target: Hydrogenotrophic Methanogenesis by M. maripaludis
+    description: H2 produced by D. vulgaris is consumed by M. maripaludis for methanogenesis
+  - source: Lactate Oxidation and H2/Acetate Production
+    target: Dual-pathway Methanogenesis by M. barkeri
+    description: Both H2 and acetate produced by D. vulgaris are consumed by M. barkeri
+  edges_after:
+  - source: Lactate Oxidation and H2/Acetate Production
+    target: Hydrogenotrophic Methanogenesis by M. maripaludis
+    description: PARTIAL - lactate fermentation supplies hydrogen that can support M. maripaludis methanogenesis
+      and product removal. The functional pair and tri-culture support this physiological route, but partner-resolved
+      flux and the fraction supplied by fermentation were not isolated; initial headspace also contained hydrogen
+      and carbon dioxide.
+  - source: Lactate Oxidation and H2/Acetate Production
+    target: Dual-pathway Methanogenesis by M. barkeri
+    description: PARTIAL - lactate fermentation supplies acetate and hydrogen that can support M. barkeri methane
+      production. Monoculture hydrogen perturbations and Dv-Mb mass balances support hydrogen co-utilization, but
+      do not resolve pathway shares in the tri-culture or establish complete acetate consumption.
+  retained_edge_decisions:
+  - source: Lactate Oxidation and H2/Acetate Production
+    target: Hydrogenotrophic Methanogenesis by M. maripaludis
+    description: PARTIAL - lactate fermentation supplies hydrogen that can support M. maripaludis methanogenesis
+      and product removal. The functional pair and tri-culture support this physiological route, but partner-resolved
+      flux and the fraction supplied by fermentation were not isolated; initial headspace also contained hydrogen
+      and carbon dioxide.
+    rationale: Retain physiological substrate supply with PARTIAL quantitative and exact-system allocation.
+  - source: Lactate Oxidation and H2/Acetate Production
+    target: Dual-pathway Methanogenesis by M. barkeri
+    description: PARTIAL - lactate fermentation supplies acetate and hydrogen that can support M. barkeri methane
+      production. Monoculture hydrogen perturbations and Dv-Mb mass balances support hydrogen co-utilization, but
+      do not resolve pathway shares in the tri-culture or establish complete acetate consumption.
+    rationale: Retain physiological substrate supply with PARTIAL quantitative and exact-system allocation.
+  removed_edge_decisions: []
+  references:
+  - doi:10.1098/rsif.2019.0129
+  - PMID:16345708
+  issues:
+  - 1530
+  - 1364
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/DVM_Triculture/2026-10-06T185257Z-codex-5706a2.yaml
+  source_review:
+    scope: Full2019 primary main text, Methods4.1-4.8, Tables1-2 and main captions read; no original images, external
+      supplements, raw data or independent mass-balance replication.1981 cached abstract only.
+    cache_provenance_certified: false

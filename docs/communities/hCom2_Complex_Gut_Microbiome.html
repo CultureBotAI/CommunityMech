@@ -516,7 +516,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for hCom2 Complex Gut Microbiome</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -524,8 +524,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -533,10 +533,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Fecal-Challenge Open Niche Filling</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Fecal-Challenge-Guided Community Augmentation</h3>
                 </div>
-                <p class="prewrap interaction-description">Species that engrafted after hCom1 fecal challenge were added to the defined gut consortium, filling open ecological niches to yield hCom2.</p>
+                <p class="prewrap interaction-description">Species identified after challenging hCom1-colonized mice with fecal communities informed the assembly of hCom2. The intervention changes community membership; filling open niches is its ecological interpretation, not a directly measured complete metabolic or spatial niche map.</p>
 
 
 
@@ -563,12 +562,12 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> hCom2 Fecal-Challenge Stability
-                        <p class="prewrap causal-description">Filling hCom1&#39;s open niches with engrafting gut species produced hCom2&#39;s higher stability when challenged again with human fecal microbiota.</p>
+                        <p class="prewrap causal-description">Membership augmentation produced a community with greater fecal-challenge resilience in the tested mice. PARTIAL mechanism: niche occupancy is a proposed explanation rather than a selectively measured mediator, and unrelated donors expose residual invasibility.</p>
                     </div>
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> hCom2 Escherichia coli Colonization Resistance
-                        <p class="prewrap causal-description">Occupying the open gut niches left in hCom1 produced a more complete hCom2 consortium that resisted pathogenic Escherichia coli colonization.</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED mediation: broader niche occupancy could contribute to hCom2 resistance, but observing resistance in hCom2 does not establish that the augmentation step or any added species is necessary. The study does not resolve the protective strains or molecular pathway.</p>
                     </div>
 
                 </div>
@@ -598,9 +597,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>hCom2 Fecal-Challenge Stability</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">The augmented hCom2 community remains more stable than hCom1 when challenged with a human fecal community in gnotobiotic mice.</p>
+                <p class="prewrap interaction-description">In gnotobiotic mice, hCom2 was more resilient than hCom1 to fecal challenge. The primary study also reports weaker resilience to unrelated fecal donors. Stability is therefore donor- and experiment-dependent, not complete exclusion or universal human-microbiome equivalence.</p>
 
 
 
@@ -636,7 +634,7 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"We identified new species that engrafted following fecal challenge and added them to hCom1, yielding hCom2."</div>
+                        <div class="snippet">"hCom2 exhibited increased stability to fecal challenge"</div>
 
                     </li>
 
@@ -647,9 +645,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>hCom2 Escherichia coli Colonization Resistance</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
                 </div>
-                <p class="prewrap interaction-description">The niche-filled hCom2 consortium provides robust colonization resistance against pathogenic Escherichia coli in gnotobiotic mice.</p>
+                <p class="prewrap interaction-description">hCom2 conferred robust resistance to the tested pathogenic E. coli challenge in gnotobiotic mice. The phenotype is community-level resistance, not facilitation of the invader and not proof that each bacterial member is protective. The responsible strains and molecular mechanism remain unresolved.</p>
 
 
 
@@ -685,7 +682,7 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"We identified new species that engrafted following fecal challenge and added them to hCom1, yielding hCom2."</div>
+                        <div class="snippet">"robust colonization resistance against pathogenic Escherichia coli"</div>
 
                     </li>
 
@@ -698,6 +695,45 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which membership changes and ecological mechanisms cause the challenge phenotypes?
+                </h3>
+                <p class="prewrap">Preserve the augmented-community and pathogenic-challenge outcomes without assigning colonization-facilitation labels. Phylum-dropout results narrow candidate explanations but do not identify a necessary individual strain or distinguish direct protection from altered community architecture. Unrelated-donor invasion limits universal stability. Existing non-graph re-evidencing debt remains under issue 765; no restricted article body is reintroduced into the repository.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Fecal-Challenge-Guided Community Augmentation</code>, <code>ecological_interactions#hCom2 Fecal-Challenge Stability</code>, <code>ecological_interactions#hCom2 Escherichia coli Colonization Resistance</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VIVO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/36070752/" rel="nofollow noreferrer">PMID:36070752</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">robust colonization resistance against pathogenic Escherichia coli</p>
+                        <p class="muted small prewrap">Direct abstract evidence for the challenge phenotype; assembly alone is not outcome evidence.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -808,7 +844,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -821,7 +856,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -868,7 +902,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -881,7 +915,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Fecal-Challenge Open Niche Filling",
+                label: "Fecal-Challenge-Guided Community Augmentation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -896,7 +930,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -924,7 +958,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];

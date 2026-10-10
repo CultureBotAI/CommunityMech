@@ -762,7 +762,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Pseudomonas aeruginosa Eight-Strain Full-Factorial SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -779,79 +779,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Full-factorial Pseudomonas strain assembly</h3>
-                </div>
-                <p class="prewrap interaction-description">All 256 possible combinations of the eight P. aeruginosa mutants were assembled, diluted into LB medium, and grown in 96-well plates to quantify strain-context effects on the Abs600 community-function landscape.</p>
-
-
-
-
-                <p><strong>Participating Taxa:</strong>
-
-                    Pseudomonas aeruginosa pAOV,
-
-                    Pseudomonas aeruginosa PA14,
-
-                    Pseudomonas aeruginosa NfxB,
-
-                    Pseudomonas aeruginosa ParR-CAZ,
-
-                    Pseudomonas aeruginosa mexZ,
-
-                    Pseudomonas aeruginosa OrfN,
-
-                    Pseudomonas aeruginosa NfxB-CAZ,
-
-                    Pseudomonas aeruginosa MDR6-CAZ
-
-                </p>
-
-
-
-
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/42153623/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42153623</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"them to assemble all 2 8 strain combinations as described in the main text"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/42153623/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42153623</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"Samples were incubated still at 37 °C for 40 hr, after which the absorbance spectrum of each sample was quantified"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
                     <h3>Highest-Abs600 00001101 trio</h3>
                 </div>
-                <p class="prewrap interaction-description">The highest Abs600 value in the demonstrator experiment came from consortium 00001101, the three-mutant Pseudomonas aeruginosa combination containing pAOV, NfxB, and ParR-CAZ; its positive third-order functional interaction is statistical under the source&#39;s additive Abs600 baseline, not a resolved molecular competition mechanism.</p>
+                <p class="prewrap interaction-description">The highest Abs600 value in the demonstrator experiment came from consortium 00001101, the three-mutant Pseudomonas aeruginosa combination containing pAOV, NfxB, and ParR-CAZ; its positive third-order functional interaction is statistical under the source&#39;s additive Abs600 baseline, not a resolved molecular competition mechanism. The ranking is illustrative, with similarly high values in other consortia; absorbance is not a linear biomass measure across its full range.</p>
 
 
 
@@ -926,13 +856,13 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
                     <span class="role-badge">KNOWLEDGE_GAP</span>
                     <span class="role-badge">OPEN</span>
-                    Which secreted metabolites or contact-dependent mechanisms cause the 00001101 trio&#39;s positive third-order functional interaction?
+                    What evidence, if any, resolves a biological mechanism behind the statistical phenotype?
                 </h3>
                 <p class="prewrap">The eLife study quantified functional effects and interaction coefficients from Abs600 phenotypes, but did not identify the molecular mechanism behind the positive third-order interaction in the high-Abs600 trio.</p>
 
@@ -956,6 +886,41 @@
                         </div>
                         <p class="snippet small prewrap">This observation highlights the potential of full factorial design to interrogate and generate hypotheses with respect to the mechanisms that govern the emergence of community- level functions</p>
                         <p class="muted small prewrap">The source frames mechanism generation as downstream of the functional factorial measurement rather than resolved by it.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How should an assay panel be distinguished from an individual-community interaction?
+                </h3>
+                <p class="prewrap">Experimental assembly is a method, not a biological interaction, and was removed from the graph. The existing statistical phenotype remains, without new biological mechanisms or experimental designs. Five canonical panel members lose the artificial connectivity supplied by the method node; their membership representation remains #1729. Relevant cached primary results and discussion were read, but fresh full-text retrieval failed. This review does not independently certify the entire cached paper, raw data or figure pixels.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Highest-Abs600 00001101 trio</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42153623/" rel="nofollow noreferrer">PMID:42153623</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Under this definition, the term interaction should be interpreted in a statistical, rather than biological sense</p>
+                        <p class="muted small prewrap">Clarifies that the high-Abs600 trio&#39;s interaction coefficient is a statistical deviation from an additive function baseline, not a resolved biological competition mechanism.</p>
                     </div>
 
                 </details>
@@ -1101,7 +1066,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1114,7 +1078,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1215,55 +1178,6 @@
 
             var processes = [];
 
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Full-factorial Pseudomonas strain assembly",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
-
-            var participantKeys = [
-
-                "Pseudomonas aeruginosa pAOV",
-
-                "Pseudomonas aeruginosa PA14",
-
-                "Pseudomonas aeruginosa NfxB",
-
-                "Pseudomonas aeruginosa ParR-CAZ",
-
-                "Pseudomonas aeruginosa mexZ",
-
-                "Pseudomonas aeruginosa OrfN",
-
-                "Pseudomonas aeruginosa NfxB-CAZ",
-
-                "Pseudomonas aeruginosa MDR6-CAZ"
-
-            ];
-            participantKeys.forEach(function(key) {
-                if (taxonNodeIds[key]) {
-                    links.push({ source: taxonNodeIds[key], target: intId });
-                }
-            });
-
-        })();
-
-        (function() {
-            var intId = "interaction:1";
-            var intType = "UNKNOWN";
-            var metabolites = [];
-
-            var processes = [];
-
             var evidenceCount = 3;
 
             nodes.push({
@@ -1315,7 +1229,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 10;
+        var nodeCount = 9;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

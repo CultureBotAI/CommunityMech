@@ -600,7 +600,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Multi-stage Anaerobic-Digestion SynCom-YSJ and SynCom-J</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -613,13 +613,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -630,7 +625,7 @@
                     <h3>Staged metabolic hand-off across hydrolytic, acidogenic and methanogenic members</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">SynCom-YSJ is organized as a multi-stage consortium in which hydrolytic, acidogenic and methanogenic members carry out sequential steps of anaerobic digestion, remodeling metabolism so that hydrolysis and acidogenesis feed downstream methanogenesis. This staged division of labor underlies its superior methane yield and reduced propionate accumulation relative to the methanogen-only SynCom-J.</p>
+                <p class="prewrap interaction-description">SynCom-YSJ combines hydrolytic, acidogenic and methanogenic members in reactors with a metabolically complete native microbiome. Relative to the non-bioaugmented control, methane yield increased by 22% for YSJ versus 8% for methanogen-only SynCom-J; YSJ nearly eliminated start-up lag. Both consortia reduced propionate accumulation by 1.6-fold. PARTIAL - Staged metabolite hand-off is the proposed cross-feeding mechanism, not a resolved transfer between particular introduced members or a YSJ-specific propionate advantage.</p>
 
 
 
@@ -672,8 +667,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Interspecies electron transfer supporting methanogenesis
-                        <p class="prewrap causal-description">Hydrolytic and acidogenic stages feed the methanogenic stage, while SynCom-YSJ upregulates interspecies electron transfer and acetoclastic and hydrogenotrophic methanogenesis as part of the same coordinated metabolic remodeling program.</p>
+                        <span class="flow-arrow">→</span> Putative interspecies electron transfer supporting methanogenesis
+                        <p class="prewrap causal-description">HYPOTHESIZED - Hydrolytic and acidogenic processing can supply methanogenic substrates and thereby support electron-transfer-associated methanogenesis. The available abstract reports coordinated functional changes after bioaugmentation but does not resolve this mediation or separate introduced-member hand-off from native-community activity.</p>
                     </div>
 
                 </div>
@@ -689,10 +684,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41825563/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41825563</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"a multi-stage consortium comprising hydrolytic, acidogenic, and methanogenic members (SynCom-YSJ)"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41825563/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41825563</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"increased methane yield by 22% (vs. 8% for SynCom-J) and nearly eliminated the start-up lag phase, while both consortia reduced propionate accumulation by 1.6-fold."</div>
 
                     </li>
 
@@ -702,10 +710,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Interspecies electron transfer supporting methanogenesis</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Putative interspecies electron transfer supporting methanogenesis</h3>
                 </div>
-                <p class="prewrap interaction-description">Metagenomic analysis of the SynCom-YSJ-bioaugmented digester showed upregulation of genes for interspecies electron transfer alongside energy metabolism and acetoclastic and hydrogenotrophic methanogenesis, indicating syntrophic electron exchange between acid-forming members and methanogens.</p>
+                <p class="prewrap interaction-description">PARTIAL - Metagenomic analysis associates YSJ bioaugmentation with hydrolysis, acidogenesis, interspecies electron transfer, energy metabolism and methanogenesis functions. The abstract calls this gene upregulation; this metagenomic statement alone does not establish transcription, protein activity, measured electron flux, direct electrical transfer or product-removal feedback making upstream metabolism favourable. Methane gains are retained independently of the unresolved transfer mechanism. SYNTROPHY does not require obligacy in the local schema; the unresolved feedback mechanism, not unproven obligacy, is the reason this node remains untyped.</p>
 
 
 
@@ -746,7 +753,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Deterministic selection of the resident community by SynCom colonization
-                        <p class="prewrap causal-description">SynCom-YSJ metabolic reprogramming couples interspecies electron transfer with acetoclastic and hydrogenotrophic methanogenesis, shifting acetate and propionate pools in the digester microenvironment and selecting the resident community.</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED - Electron-transfer-associated methanogenesis could alter acetate and propionate turnover, changing the chemical environment that selects resident taxa. Bioaugmentation changes both function and community structure; the abstract does not isolate electron transfer as the cause of pool shifts or deterministic selection.</p>
                     </div>
 
                 </div>
@@ -762,7 +769,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41825563/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41825563</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"upregulating genes involved in hydrolysis, acidogenesis, interspecies electron transfer, energy metabolism, and acetoclastic/hydrogenotrophic methanogenesis"</div>
@@ -776,9 +783,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Deterministic selection of the resident community by SynCom colonization</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">Successful colonization by the SynComs reshaped the anaerobic-digestion microenvironment (elevated acetate, reduced propionate, moderate non-inhibitory ammonia increase), imposing deterministic selection on the resident native community.</p>
+                <p class="prewrap interaction-description">Successful SynCom colonization is reported with elevated acetate, reduced propionate and a moderate non-inhibitory total-ammonia-nitrogen increase. PARTIAL - Deterministic selection through this changed environment is the authors interpretation, not demonstration of pairwise resource competition. SynCom-J produced a more robust network, whereas YSJ prioritized methane yield with a more complex network; higher methane output is not universally greater network stability.</p>
 
 
 
@@ -812,7 +818,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41825563/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41825563</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"thereby imposing deterministic selection on the resident community"</div>
@@ -828,6 +834,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which selective mechanisms explain the measured community responses?
+                </h3>
+                <p class="prewrap">Primary abstract supports positive bioaugmentation outcomes, not individually isolated links in the staged hand-off/electron-transfer/environment-selection chain. Obtain authorized full Methods to distinguish metagenomic abundance from expression, native from inoculated contributions, and direct from carrier-mediated electron exchange. Preserve the observed function/stability trade-off and the existing membership follow-up #183. Abstract-only access does not show that controls were absent. The local SYNTROPHY definition concerns product-removal feedback and does not assert obligacy. Metagenomic functional association alone does not resolve that feedback; retain the putative transfer interpretation without a categorical SYNTROPHY label.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Staged metabolic hand-off across hydrolytic, acidogenic and methanogenic members</code>, <code>ecological_interactions#Putative interspecies electron transfer supporting methanogenesis</code>, <code>ecological_interactions#Deterministic selection of the resident community by SynCom colonization</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -912,7 +937,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -925,7 +949,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1003,7 +1026,7 @@
             processes.push("methanogenesis");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1022,7 +1045,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "SYNTROPHY";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1041,7 +1064,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Interspecies electron transfer supporting methanogenesis",
+                label: "Putative interspecies electron transfer supporting methanogenesis",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1056,7 +1079,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

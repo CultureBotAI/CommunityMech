@@ -517,7 +517,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Premature Infant Gut Escherichia In-Situ Physiological-Condition Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -525,8 +525,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -535,12 +535,17 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Higher Low-Oxygen Diametric Ratios in NEC Samples</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Diametric ratios of genes associated with low oxygen levels were significantly higher in samples from infants later diagnosed with NEC than in samples without NEC, suggesting hypoxic conditions in the NEC-developing gut.</p>
+                <p class="prewrap interaction-description">Escherichia transcript ratios associated with low oxygen were higher in samples from infants later diagnosed with NEC. This four-infant observational result suggests lower oxygen exposure, not directly measured hypoxia, microbial commensalism or proof of NEC causation. Twenty repeated samples are not twenty independent infants.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    premature-infant-gut Escherichia spp.
+
+                </p>
 
 
 
@@ -589,130 +594,65 @@
 
             </div>
 
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Diametric-Ratio Generalizes to Other Conditions</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
-                </div>
-                <p class="prewrap interaction-description">The diametric-ratio method extends beyond oxygen to examine other physiological conditions such as nitric oxide exposure and osmotic pressure.</p>
-
-
-
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    nitric oxide
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16480"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16480</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        response to osmotic stress
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006970"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006970</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/32130257/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32130257</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"this method can be used for examining other physiological conditions, such as exposure to nitric oxide and osmotic pressure"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>MAG-Anchored Diametric-Ratio In Situ Physiology</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
-                </div>
-                <p class="prewrap interaction-description">Sample-specific metagenome-assembled genomes (MAGs) anchored transcript mapping, and transcript ratios of genes with opposite transcription responses (the diametric-ratio method) eliminated biases related to organism abundance.</p>
-
-
-
-
-
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        gene expression
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0010467"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0010467</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/32130257/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32130257</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"Sample-specific meta-genomic assembled genomes (MAGs) were used as reference genomes to accurately identify the origin of RNA reads"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/32130257/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32130257</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"transcript ratios of genes with opposite transcription responses were compared to eliminate biases related to differences in organismal abundance"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
 
         </section>
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Do transcript-ratio differences reflect NEC-related physiology or cohort confounding?
+                </h3>
+                <p class="prewrap">MAG mapping and diametric ratios are analytical methods, not ecological interactions. Full text reports lower NO-related ratios in NEC and an osmotic-ratio difference, but the latter significance wording conflicts with a printed p&gt;0.05. Gestational age, delivery mode and birth weight differ between the two NEC and two control infants. Preserve those observations without diagnostic validation or causal arrows. Methods remain in the record description. Non-graph interpretation and source inconsistency remain #1722.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Higher Low-Oxygen Diametric Ratios in NEC Samples</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VIVO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/32130257/" rel="nofollow noreferrer">PMID:32130257</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">significantly higher diametric ratios of genes associated with low oxygen levels in samples of infants later diagnosed with NEC than in samples without NEC</p>
+                        <p class="muted small prewrap">Supports the observed transcript-ratio association; physiological interpretation is indirect and confounded.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VIVO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/32130257/" rel="nofollow noreferrer">PMID:32130257</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">this method can be used for examining other physiological conditions, such as exposure to nitric oxide and osmotic pressure</p>
+                        <p class="muted small prewrap">Supports the method generalization.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -855,7 +795,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -868,7 +807,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -915,7 +853,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -943,65 +881,16 @@
 
 
 
-        })();
+            var participantKeys = [
 
-        (function() {
-            var intId = "interaction:1";
-            var intType = "COMMENSALISM";
-            var metabolites = [];
+                "premature-infant-gut Escherichia spp."
 
-
-            metabolites.push("nitric oxide");
-
-
-            var processes = [];
-
-
-            processes.push("response to osmotic stress");
-
-
-            var evidenceCount = 1;
-
-            nodes.push({
-                id: intId,
-                label: "Diametric-Ratio Generalizes to Other Conditions",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
             });
-
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:2";
-            var intType = "COMMENSALISM";
-            var metabolites = [];
-
-            var processes = [];
-
-
-            processes.push("gene expression");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "MAG-Anchored Diametric-Ratio In Situ Physiology",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
 
         })();
 
@@ -1024,7 +913,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 4;
+        var nodeCount = 2;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

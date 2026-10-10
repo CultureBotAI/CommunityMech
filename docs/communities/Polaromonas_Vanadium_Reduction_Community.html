@@ -704,7 +704,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Polaromonas Vanadium Reduction Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -712,18 +712,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -731,57 +721,22 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Dissimilatory V(V) Reduction by Polaromonas</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Vanadium Reduction in Polaromonas-Associated Enrichments</h3>
                 </div>
-                <p class="prewrap interaction-description">Polaromonas species perform dissimilatory vanadate [V(V)] reduction to vanadyl [V(IV)] as a respiratory process, coupling oxidation of organic electron donors (lactate, acetate, pyruvate) to V(V) reduction. The process is mediated by c-type cytochromes (cymA, omcA genes) that transfer electrons from the inner membrane quinone pool to outer membrane terminal reductases (narG-like nitrate reductases, arrA-like arsenate reductases) capable of reducing V(V). Soluble vanadate (VO₄³⁻, oxidation state +5) is reduced to vanadyl cation (VO²⁺, oxidation state +4), decreasing vanadium solubility by 2-3 orders of magnitude. V(IV) precipitates as hydrated vanadyl hydroxides, oxides, or co-precipitates with iron minerals. In tailings microcosms, Polaromonas achieves 65-80% V(V) reduction within 7-14 days, lowering dissolved vanadium from 15-25 mg/L to 3-8 mg/L. This represents the dominant vanadium immobilization pathway in the community. The reaction is thermodynamically favorable (standard potential E⁰ +0.34 V for VO₂⁺/VO₄³⁻ couple) and generates energy for microbial growth, with cell yields increasing proportionally to V(V) reduced.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Polaromonas species</p>
+                <p class="prewrap interaction-description">V(V)-reducing enrichments support community-level reduction. PARTIAL: enrichment association implicates Polaromonas, and its recovered MAGs suggest cymA, omcA and narG involvement; these observations do not establish a purified-isolate activity, gene necessity or a partner-specific respiratory pathway. Public Supplement Figure S2 shows 6 mM acetate and 1.5 mM vanadate treatments with autoclaved and no-vanadate controls. No unsupported arrA function, energy yield, time course or numerical removal rate is assigned.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
 
-                <p><strong>Metabolites:</strong>
-
-                    vanadate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=46442"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:46442</a>),
-
-                    vanadyl cation
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30046"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30046</a>),
-
-                    lactate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=24996"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:24996</a>),
-
-                    acetate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30089</a>)
+                    Polaromonas species
 
                 </p>
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
 
-                    <li>
-                        dissimilatory reduction
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019645"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019645</a>)
-                    </li>
-
-                    <li>
-                        cellular detoxification
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1990748"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:1990748</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -789,8 +744,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Vanadium Immobilization via V(IV) Precipitation
-                        <p class="prewrap causal-description">Reduced V(IV) forms sparingly soluble minerals</p>
+                        <span class="flow-arrow">→</span> V(IV) Precipitation in Reducing Enrichments
+                        <p class="prewrap causal-description">Reduction of supplied V(V) yields V(IV), which precipitated in the acetate-plus-vanadate enrichments shown in Supplement Figure S2. This existing direction is retained at community scale; attribution specifically to Polaromonas remains PARTIAL, and the controls do not prove a particular reductase or mineral identity.</p>
                     </div>
 
                 </div>
@@ -809,7 +764,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Further, VV-reducing enrichments indicated that bacteria associated with Polaromonas, a genus belonging to the family Burkholderiaceae, were potentially responsible for VV reduction"</div>
+                        <div class="snippet">"were potentially responsible for VV reduction"</div>
 
                     </li>
 
@@ -819,12 +774,42 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33125214</a>
 
-                            - PARTIAL (IN_VIVO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
-                        <div class="snippet">"bacteria associated with Polaromonas, a genus belonging to the family Burkholderiaceae, were potentially responsible for VV reduction"</div>
+                        <div class="snippet">"Retrieved metagenome-assembled genomes (MAGs) suggested"</div>
 
                     </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>V(IV) Precipitation in Reducing Enrichments</h3>
+                </div>
+                <p class="prewrap interaction-description">Public Supplement Figure S2 reports V(IV) precipitate formation in acetate-plus-vanadate enrichment treatments and not in the autoclaved or no-vanadate controls. Preserve the positive enrichment-level precipitation observation. Polaromonas is the proposed associated genus, not a proven sole producer; no mineral phase, XAS fraction, solubility constant, oxidation stability or reciprocal microbial fitness benefit is established here.</p>
+
+
+
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Polaromonas species
+
+                </p>
+
+
+
+
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
 
                     <li class="evidence-item">
                         <div>
@@ -835,264 +820,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"Polaromonas spp. encoded genes (cymA, omcA, and narG) were responsible for VV reduction"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Vanadium Immobilization via V(IV) Precipitation</h3>
-                    <span class="interaction-type">MUTUALISM</span>
-                </div>
-                <p class="prewrap interaction-description">Biogenic V(IV) produced by microbial V(V) reduction undergoes rapid precipitation as vanadyl minerals, effectively immobilizing vanadium in the tailings solid phase. The vanadyl cation (VO²⁺) forms sparingly soluble precipitates including hydrated vanadyl hydroxides [VO(OH)₂], vanadyl sulfates, and V(IV)-substituted iron oxides. Solubility decreases from ~10⁻³ M for vanadate [V(V)] to ~10⁻⁵ to 10⁻⁶ M for vanadyl species at circumneutral pH. X-ray absorption spectroscopy (XAS) analysis confirms V(IV) accumulation in tailings solids following microbial reduction, with V(IV) comprising 65-85% of total vanadium in reduced zones. The precipitates are stable under reducing conditions (Eh &lt; -100 mV) but can re-oxidize to soluble V(V) if oxygen penetrates the tailings. Long-term immobilization requires maintaining anaerobic conditions through organic carbon amendment or physical capping. This process represents the key mechanism for natural attenuation of vanadium contamination in mine tailings.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Polaromonas species</p>
-
-
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    vanadyl cation
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30046"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30046</a>),
-
-                    vanadium dioxide
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30047"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30047</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        metal ion sequestration
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0061687"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0061687</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33125214</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"Vanadium (V) is an important metal with critical industrial and medical applications"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33125214</a>
-
-                            - PARTIAL (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"less toxic and immobile VIV"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Sulfide-Mediated Chemical V(V) Reduction</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
-                </div>
-                <p class="prewrap interaction-description">Hydrogen sulfide (H₂S) produced by sulfate-reducing bacteria (Desulfovibrio, Desulfitobacterium) chemically reduces V(V) to V(IV) through abiotic reactions, complementing enzymatic microbial reduction. The reaction proceeds as: VO₄³⁻ + H₂S + 2H⁺ → VO²⁺ + S⁰ + 2H₂O, consuming sulfide and generating elemental sulfur or sulfate depending on oxygen availability. Sulfide concentrations of 50-200 µM in tailings pore water accelerate V(V) reduction rates by 40-60% compared to microbial reduction alone. Additionally, sulfide precipitates vanadium as vanadium sulfide minerals (V₂S₃, V₃S₄) with extremely low solubility (Ksp ~ 10⁻²⁰), providing superior long-term immobilization compared to vanadyl oxides. Sulfate reduction is particularly important in deeper, more reduced tailings zones where sulfate concentrations (500-2000 mg/L from ore processing) are elevated. This chemical pathway operates continuously in sulfidogenic zones, providing persistent V(V) reduction capacity independent of direct microbial activity.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Desulfovibrio species</p>
-
-
-
-                <p><strong>Target Taxon:</strong> Desulfitobacterium species</p>
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    hydrogen sulfide
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16136"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16136</a>),
-
-                    sulfate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16189"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16189</a>),
-
-                    vanadate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=46442"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:46442</a>),
-
-                    vanadyl cation
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30046"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30046</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        sulfate reduction
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019420"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019420</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Vanadium Immobilization via V(IV) Precipitation
-                        <p class="prewrap causal-description">Sulfide-mediated V(V) reduction feeds the same insoluble V(IV) product pool as direct enzymatic V(V) reduction.</p>
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33125214</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"Further, VV-reducing enrichments indicated that bacteria associated with Polaromonas, a genus belonging to the family Burkholderiaceae, were potentially responsible for VV reduction"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33125214</a>
-
-                            - PARTIAL (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"reduce the more toxic and mobile VV to the less toxic and immobile VIV"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Sequential Fe(III) and V(V) Reduction</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
-                </div>
-                <p class="prewrap interaction-description">The microbial community performs sequential reduction of Fe(III) followed by V(V), reflecting thermodynamic favorability of electron acceptors. Geobacter and Polaromonas initially reduce abundant Fe(III) minerals (ferrihydrite, goethite, hematite) present in vanadium titanomagnetite tailings, generating Fe(II) and lowering redox potential from +200 mV to -50 to -150 mV. This Fe(III) reduction phase (days 0-5 in microcosms) creates strongly reducing conditions favorable for subsequent V(V) reduction. After Fe(III) depletion or decline to low concentrations, V(V) becomes the dominant terminal electron acceptor (days 5-14), with V(V) reduction rates increasing 3-5 fold. Fe(II) generated during Fe(III) reduction can also chemically reduce V(V) at mineral surfaces, particularly on magnetite and maghemite. The sequential reduction pattern mirrors that observed in uranium bioremediation systems, where Fe(III) reduction precedes U(VI) reduction. This metabolic succession is driven by thermodynamics (Fe³⁺/Fe²⁺ E⁰ = +0.77 V; VO₂⁺/VO₄³⁻ E⁰ = +0.34 V at pH 7), with organisms preferentially respiring higher-potential acceptors.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Geobacter species</p>
-
-
-
-                <p><strong>Target Taxon:</strong> Polaromonas species</p>
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    Fe(III)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29034</a>),
-
-                    Fe(II)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29033</a>),
-
-                    vanadate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=46442"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:46442</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        iron ion transport
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006826</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33125214</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"Further, VV-reducing enrichments indicated that bacteria associated with Polaromonas, a genus belonging to the family Burkholderiaceae, were potentially responsible for VV reduction"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:33125214</a>
-
-                            - PARTIAL (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"reduce the more toxic and mobile VV to the less toxic and immobile VIV"</div>
+                        <div class="snippet">"which formed VIV precipitates"</div>
 
                     </li>
 
@@ -1105,6 +833,60 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which organisms and enzymes actually mediate enrichment reduction and precipitation?
+                </h3>
+                <p class="prewrap">Keep positive V(V) reduction and treatment-associated V(IV) precipitation. MAG function and Polaromonas responsibility remain inferred; co-occurrence networks and annotated nitrogen/sulfur pathways are not transfer or enzyme-perturbation evidence. The reviewed primary abstract and public SI do not support the removed Desulfovibrio-to-Desulfitobacterium sulfide or Geobacter-to-Polaromonas sequential-iron routes and their exact numbers. Main text remains inaccessible. Only Polaromonas is explicitly credited in these qualified community nodes; the other canonical members remain unverified and may appear disconnected. Non-graph taxonomy, numerical claims and Panzhihua/Sichuan locality need #1716; public Figure S1 shows Hunan, and PMID19077236 concerns an Acidithiobacillus ferrooxidans genome, not Geobacter vanadium reduction. Related #1680 concerns a different record.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Vanadium Reduction in Polaromonas-Associated Enrichments</code>, <code>ecological_interactions#V(IV) Precipitation in Reducing Enrichments</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/" rel="nofollow noreferrer">PMID:33125214</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">were potentially responsible for VV reduction</p>
+                        <p class="muted small prewrap">The abstract proposes Polaromonas involvement in reducing enrichments; taxon attribution is not a gene or isolate perturbation.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/" rel="nofollow noreferrer">PMID:33125214</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">which formed VIV precipitates</p>
+                        <p class="muted small prewrap">Primary public Supplement Figure S2, not the abstract: treatment-associated precipitation with autoclaved/no-vanadate controls. This does not resolve mineral identity or sole-organism causation.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1360,7 +1142,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1373,7 +1154,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1441,32 +1221,16 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
-
-
-            metabolites.push("vanadate");
-
-            metabolites.push("vanadyl cation");
-
-            metabolites.push("lactate");
-
-            metabolites.push("acetate");
-
 
             var processes = [];
 
-
-            processes.push("dissimilatory reduction");
-
-            processes.push("cellular detoxification");
-
-
-            var evidenceCount = 3;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Dissimilatory V(V) Reduction by Polaromonas",
+                label: "Vanadium Reduction in Polaromonas-Associated Enrichments",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1475,37 +1239,33 @@
             });
 
 
-            var srcKey = "Polaromonas species";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Polaromonas species"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
-
-
-            metabolites.push("vanadyl cation");
-
-            metabolites.push("vanadium dioxide");
-
 
             var processes = [];
 
-
-            processes.push("metal ion sequestration");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "Vanadium Immobilization via V(IV) Precipitation",
+                label: "V(IV) Precipitation in Reducing Enrichments",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1514,106 +1274,18 @@
             });
 
 
-            var srcKey = "Polaromonas species";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
 
-        })();
+                "Polaromonas species"
 
-        (function() {
-            var intId = "interaction:2";
-            var intType = "CROSS_FEEDING";
-            var metabolites = [];
-
-
-            metabolites.push("hydrogen sulfide");
-
-            metabolites.push("sulfate");
-
-            metabolites.push("vanadate");
-
-            metabolites.push("vanadyl cation");
-
-
-            var processes = [];
-
-
-            processes.push("sulfate reduction");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Sulfide-Mediated Chemical V(V) Reduction",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
             });
-
-
-            var srcKey = "Desulfovibrio species";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-            var tgtKey = "Desulfitobacterium species";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
-        })();
-
-        (function() {
-            var intId = "interaction:3";
-            var intType = "SYNTROPHY";
-            var metabolites = [];
-
-
-            metabolites.push("Fe(III)");
-
-            metabolites.push("Fe(II)");
-
-            metabolites.push("vanadate");
-
-
-            var processes = [];
-
-
-            processes.push("iron ion transport");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Sequential Fe(III) and V(V) Reduction",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-            var srcKey = "Geobacter species";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-            var tgtKey = "Polaromonas species";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
 
         })();
 
@@ -1636,7 +1308,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 8;
+        var nodeCount = 6;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

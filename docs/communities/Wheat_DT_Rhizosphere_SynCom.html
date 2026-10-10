@@ -1066,7 +1066,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Wheat DT Rhizosphere SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -1085,8 +1085,7 @@
                 <div class="interaction-header">
                     <h3>Wheat DT-SynCom powdery mildew resistance</h3>
                 </div>
-                <p class="prewrap interaction-description">Barley seedlings root-inoculated with the wheat-origin DT-SynCom showed lower Blumeria graminis f. sp. hordei DAF fluorescence intensity than mock-treated controls after pathogen challenge, consistent with SynCom-induced systemic resistance under the assay conditions.
-</p>
+                <p class="prewrap interaction-description">The wheat-origin, 16-member DT-SynCom reduced barley leaf powdery-mildew DAF fluorescence by 43.3% relative to mock treatment after Blumeria graminis f. sp. hordei challenge. All three inoculants protected plants; their pairwise differences were not significant. This supports ISR-like protection but does not assign necessity to JA, ethylene or SA signaling. PEG-tolerant isolate selection is not a test of whole-plant drought protection.</p>
 
 
 
@@ -1138,8 +1137,7 @@
                 <div class="interaction-header">
                     <h3>Wheat DT-SynCom selective rhizosphere functional shifts</h3>
                 </div>
-                <p class="prewrap interaction-description">The wheat-origin DT-SynCom produced selective metatranscriptomic changes in the barley rhizosphere, including downregulation of PF02868, PF01614, and the KEGG stress-induced DnaJ-like molecular chaperone term K05516, rather than a broad shift in rhizosphere functional profiles.
-</p>
+                <p class="prewrap interaction-description">Before pathogen challenge, the wheat DT-SynCom treatment produced selective changes in measured barley-rhizosphere RNA features, including downregulation of PF02868, PF01614 and K05516. Overall functional profiles and bacterial community structure showed no significant treatment shift. These are metatranscriptomic observations, not PICRUSt predictions. Similarity-based contig annotations do not attribute transcripts to individual inoculant strains, and no perturbation establishes these changes as necessary mediators of the later disease-protection outcome.</p>
 
 
 
@@ -1180,6 +1178,19 @@
 
                         <div class="snippet">"Overall, bioinoculants induced selective, function-specific shifts in rhizosphere microbial gene expression, not broad community changes.
 "</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42453107/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42453107</a>
+
+                            - SUPPORT (IN_VIVO)
+                        </div>
+
+                        <div class="snippet">"The metatranscriptomic contigs were assigned based on sequence similarity (not reference SynCom genomes)"</div>
 
                     </li>
 
@@ -1229,7 +1240,7 @@
         </section>
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -1243,6 +1254,56 @@
                 <p class="muted small">Attaches to: <code>associated_datasets#PRJNA1405459</code></p>
 
 
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which pre-infection responses mediate wheat DT-SynCom disease protection in barley?
+                </h3>
+                <p class="prewrap">Molecular samples preceded the pathogen assay, so these profiles cannot be described as post-infection responses. No significant pairwise difference establishes a superior inoculant. The authors could not assign ISR to specific hormone pathways. OTU matches at 99% identity suggest persistence of related taxa, not unique viable-strain identification. Preserve the prior selective-versus-broad correction and the dated BioProject-visibility discussion.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Wheat DT-SynCom powdery mildew resistance</code>, <code>ecological_interactions#Wheat DT-SynCom selective rhizosphere functional shifts</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+
+
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42453107/" rel="nofollow noreferrer">PMID:42453107</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Although our data did not allow direct assignment of ISR to specific JA-, ET-, or SA-dependent pathways</p>
+
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+
+
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42453107/" rel="nofollow noreferrer">PMID:42453107</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">Although strain-level identity cannot be confirmed by 16S rRNA gene-based identification alone</p>
+
+                    </div>
+
+                </details>
 
 
             </div>
@@ -1540,7 +1601,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1553,7 +1613,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1734,7 +1793,7 @@
 
             var processes = [];
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,

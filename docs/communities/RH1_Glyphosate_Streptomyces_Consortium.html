@@ -657,7 +657,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for RH1 Glyphosate Streptomyces Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -665,8 +665,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -675,9 +675,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>RH1 glyphosate biodegradation</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">The four Streptomyces members were compatible in the antagonism assay and, as the RH1 mixed culture, degraded glyphosate at all tested initial concentrations. At 50 mg/L glyphosate, RH1 exceeded the previously reported single-strain removal and TOC-reduction rates. Pairwise exchange metabolites and glyphosate-catabolic genes were not directly resolved.</p>
+                <p class="prewrap interaction-description">The four Streptomyces members were compatible in the antagonism assay and, as the RH1 mixed culture, degraded glyphosate at all tested initial concentrations. At 50 mg/L glyphosate, RH1 exceeded the previously reported single-strain removal and TOC-reduction rates. Pairwise exchange metabolites and glyphosate-catabolic genes were not directly resolved. Compatibility and greater aggregate performance do not establish reciprocal fitness benefits among the four members.</p>
 
 
 
@@ -706,16 +705,6 @@
                 </ul>
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> RH1 total organic carbon reduction
-                        <p class="prewrap causal-description">Glyphosate transformation by the mixed RH1 culture reduced TOC after 15 days at 50 mg/L initial glyphosate.</p>
-                    </div>
-
-                </div>
 
 
 
@@ -768,9 +757,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>RH1 total organic carbon reduction</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">At 50 mg/L initial glyphosate, the RH1 consortium removed 91.03% of measured total organic carbon over the 15-day incubation, supporting substantial transformation of glyphosate-derived organic carbon.</p>
+                <p class="prewrap interaction-description">At 50 mg/L initial glyphosate, RH1 showed a 91.03% decrease in measured total organic carbon after 15 days. TOC was measured after centrifugation and filtration. This positive processed-sample endpoint does not distinguish mineralization from biomass incorporation or other carbon partitioning, and does not independently establish a direct glyphosate-transformation-to-TOC causal link.</p>
 
 
 
@@ -817,7 +805,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -847,6 +835,41 @@
                         </div>
                         <p class="snippet small prewrap">Although functional genes were not directly characterized in this study, the observed biodegradation behavior strongly indicates the involvement of conserved phosphonate-degrading genetic systems, warranting future molecular analyses targeting genes such as phnJ, dadA, and soxA.</p>
                         <p class="muted small prewrap">Supports leaving the proposed glyphosate-pathway genes as an open mechanistic gap.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    How are member fitness benefits and glyphosate-derived carbon partitioned in RH1?
+                </h3>
+                <p class="prewrap">The negative antagonism test demonstrates compatibility, not MUTUALISM. The single-strain comparisons cite earlier work, and consortium-level growth/removal does not measure each member benefit. Glyphosate removal, ATR-FTIR changes and TOC decline remain positive observations, but centrifuged/filtered TOC does not resolve mineralization versus biomass or other partitioning. The stoichiometric reaction is predicted, not an empirical carbon balance. The direct arrow between the two outcome nodes is removed while both endpoints and the existing unresolved-gene discussion are preserved.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#RH1 glyphosate biodegradation</code>, <code>ecological_interactions#RH1 total organic carbon reduction</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42582159/" rel="nofollow noreferrer">PMID:42582159</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">After 15 days of incubation, samples were centrifuged, filtered, and diluted before analysis</p>
+                        <p class="muted small prewrap">Methods 2.4 delimit the measured TOC fraction; this preparation does not itself resolve the missing carbon fate.</p>
                     </div>
 
                 </details>
@@ -1274,7 +1297,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1287,7 +1309,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1355,7 +1376,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1387,7 +1408,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

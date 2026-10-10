@@ -1,0 +1,830 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 5afca28e40023b10e05db1c228ec70ecbaf5d7a9
+scope:
+- kb/communities/Tomato_Oxylipin_SynCom3.yaml
+- kb/communities/Wheat_Consortium_C1.yaml
+- kb/communities/Wheat_Consortium_C6.yaml
+- kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261008-four-records-batch121.yaml
+validation_report: reports/causal_graph_review/validation-20261008-batch121.json
+findings:
+- issue: 1939
+  severity: P2
+  finding: Keep tomato SynCom3 divinyl-ether causality without reciprocal-mutualism claims
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1940
+  severity: P2
+  finding: Separate wheat C1 inoculum assembly and measured protection from ecological mechanism
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1941
+  severity: P2
+  finding: Preserve wheat C6 mixture-versus-member assay contrasts and null outcomes
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1942
+  severity: P2
+  finding: Distinguish wheat crown-rot SMC protection from inferred rhizosphere mechanisms
+  status: addressed_in_this_change
+  disposition: Close only after protected-main merge.
+- issue: 1943
+  severity: P2
+  finding: Ground tomato SynCom3 member evidence and cross-feeder roles to the exact community
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1944
+  severity: P2
+  finding: Verify incidental-metal attribution and abundance scope in wheat C1 and C6 records
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+- issue: 1945
+  severity: P2
+  finding: Reconcile wheat crown-rot source-cache discrepancies and experimental timing
+  status: open_non_graph_follow_up
+  disposition: Remain open until separately verified.
+adversarial_checks:
+- 'All 14 original nodes and two arrows accounted for: 12 nodes and both directions retained, two inoculum-preparation
+  nodes removed, six renames, no new topology. Targets and discussion anchors resolve. Prior C1/C6 workflow-arrow
+  deletions are not undone.'
+- Tomato complementary biofilm/host-defense functions are not reciprocal microbial fitness. Keep positive protection
+  comparable to the 38-member precursor and intensified host oxylipin responses. Biofilm mediation remains PARTIAL.
+  Biosynthesis inhibition abolishes protection and SlLOX5/SlDES1 overexpression increases resistance; do not erase
+  these stronger causal experiments or promote separate necessity of each divinyl ether.
+- C1 retains 37.00% plate inhibition and positive greenhouse root-rot/root-weight effects. Equal-ratio assembly
+  is preparation, not colonization facilitation. No demonstrated superiority over the best single strain; persistence
+  was explicitly unassessed. Whole-mixture cell-free and volatile results are not inferred from individual members.
+- C6 retains 34.48% direct plate inhibition and 11.76 ug/mL IAA-calibrated Salkowski output. Colorimetry is not
+  resolved compound identity or plant delivery. Arabidopsis primary-root shortening is not growth promotion or significant
+  wheat protection. The source negative-r-squared notation is not copied as a valid statistic.
+- C6 individual members have positive cell-free and volatile results, but assembled-mixture supernatants are null
+  and C6 is absent from the significant volatile-mixture list. Both positive members and null mixture observations
+  stay together. No universal inefficacy claim and no new assay-to-assay causal arrows.
+- Crown-rot SMC retains positive disease reduction from 86.45% to 25.93% and challenged TKW +10.39%. Relative DNA
+  profiles and correlation networks are not viability, colonization, nutrient flux, reciprocal cooperation or ecological
+  necessity. Added allantoin/dihydrodaidzein positive host assays and negative direct fungal assays remain explicit,
+  not erased or promoted to intact-SMC necessity.
+- 'Twenty-four graph and 10 discussion quotes match fresh primary and caches. Three unique studies: complete wheat
+  C1/C6 and crown-rot main bodies, methods, results, discussion, tables and captions read; tomato abstract-bounded.
+  No original figure pixels, external supplements, raw data or code audit. Crown-rot license CC BY-NC-ND 4.0, not
+  unrestricted CC BY. Three short excerpts, 21 words, appended with verified Zhou attribution; old cache prefix
+  preserved. Cache/source wording and treatment-assignment discrepancies remain #1945.'
+- 'Four guarded writes and append-only histories preserve 456 other records, 922 unchanged caches, unrelated raw
+  YAML blocks and previous histories/decisions. Canonical taxa, participant lists and scopes unchanged. Shared evidence
+  aliases detached. Non-graph member/role, metal/abundance and provenance/timing findings remain #1943-#1945.'
+- Fifteen focused tests and 12 control/mutation/restored-control probes pass. Mutations reject tomato mutualism,
+  unique-biofilm promotion, erased biosynthesis/overexpression positives, restored C1 assembly, best-single superiority,
+  C6 auxin mutualism, root-growth promotion, erased supernatant/volatile nulls, erased crown-rot grain benefit and
+  profile-to-colonization promotion. No canonical writes in probes.
+- 'All four records pass schema, strict, terms, full-record references, snippets, rank and history. 1146 selected
+  tests including palette pass; not full Linux CI certification. Network: 57 unchanged warnings, zero structural
+  defects. Exact descriptions on 456 pages, 1359 nodes and 522 arrows and deterministic rendering verified, not
+  screenshot QA.'
+- 'Participant lists and scopes unchanged: 299 list users, 414 community-level, 136 mixed, 278 community-only, 1568
+  taxa, 1281 solely credited. Scope credit is not certification of actual participant coverage. Connectivity logic
+  and thresholds unchanged.'
+- 'Issues #1939-#1942 addressed pending protected-main merge; #1943-#1945 remain open. No Edison extension or credits.
+  Prior Ruegeria #1883 configured-authentication blocker not retried unchanged. Source-based self-review is not
+  independent approval; root #1836 and actual exact-head protected checks still required.'
+- 'Corpus: 392 reviewed, 14 pending, 54 needs_research across 460 records. Overall goal, protected merge and branch
+  deletion remain incomplete. Postcommit docs-current and exact-head publication are separate gates, not preasserted
+  here.'
+- The initial 1146-test run passed, then lint identified two SIM300 assertion-operand-order violations. Only operand
+  order was corrected. Original gate/probe outputs are preserved; focused tests, all1146selected tests, all12mutation
+  probes and lint were rerun successfully against the corrected file. No assertion or canonical-data weakening.
+adversarial_regression_proof:
+  report:
+    cases:
+    - mutation: Restore unsupported tomato mutualism
+      test: test_tomato_complementarity_is_not_reciprocal_mutualism
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 21
+      assertion: assert all("interaction_type" not in n for n in nodes)
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/0/interaction_type
+        before: null
+        after: MUTUALISM
+    - mutation: Promote biofilm to the proven unique mediator
+      test: test_tomato_biofilm_mediation_remains_partial
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 33
+      assertion: assert "PARTIAL for biofilm formation as the mediator" in a["downstream"][0]["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/0/downstream/0/description
+        before: 'SynCom3 treatment intensified oxylipin responses in infected tomato leaves. PARTIAL for biofilm
+          formation as the mediator: the abstract links complementary community functions to protection but does
+          not isolate biofilm formation as the unique cause of leaf pathway activation.'
+        after: Biofilm is the proven unique mediator.
+    - mutation: Erase positive biosynthesis perturbation
+      test: test_tomato_retains_positive_biosynthesis_perturbation
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 41
+      assertion: assert "fully abolished" in evidence["snippet"]
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/2/evidence/0/snippet
+        before: the inhibited biosynthesis of antimicrobial divinyl ethers, including colneleic and colnelenic acid,
+          fully abolished the community-induced plant disease resistance
+        after: Only correlation was measured.
+    - mutation: Erase complementary overexpression benefit
+      test: test_tomato_retains_complementary_overexpression_evidence
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 51
+      assertion: assert "overexpressing SlLOX5 and SlDES1" in node["evidence"][1]["snippet"]
+      restored_control: PASS
+      changed_values:
+      - path: records/0/ecological_interactions/2/evidence/1/snippet
+        before: transgenic plants overexpressing SlLOX5 and SlDES1, with higher levels of divinyl ethers, displayed
+          stronger resistance against B. cinerea compared to wild-type plants
+        after: Overexpression had no benefit.
+    - mutation: Restore C1 assembly as an ecological node
+      test: test_wheat_c1_assembly_is_metadata_not_an_ecological_node
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 60
+      assertion: assert len(nodes) == 2 and len(rows[1]["removed_node_decisions"]) == 1
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions
+        before:
+        - name: C1 SynCom inhibition of R. solani AG8 radial growth
+          description: The assembled C1 inhibited Rhizoctonia solani AG8 radial growth in dual culture, with reported
+            inhibition of 37.00% (SD 6.57) in Table 2. This is a positive fungal-growth outcome, not evidence that
+            both bacterial and fungal fitness declined. Plate inhibition does not establish the mediator or guarantee
+            host protection.
+          scope: COMMUNITY_LEVEL
+          participating_taxa:
+          - preferred_term: Pseudomonas sp. B5
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          - preferred_term: Pseudomonas sp. B11
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          - preferred_term: Pseudomonas sp. B12
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          - preferred_term: Pseudomonas sp. P25
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          biological_processes:
+          - preferred_term: interspecies interaction
+            term:
+              id: GO:0044419
+              label: biological process involved in interspecies interaction between organisms
+          evidence:
+          - reference: PMID:36118206
+            supports: SUPPORT
+            evidence_source: IN_VITRO
+            snippet: In vitro dual-culture assay showed eight SynComs, including C1-C4, C6-C8, and C10, inhibited
+              the growth of R. solani AG8 to varying degrees
+            explanation: Places C1 among the SynComs with significant AG8 radial-growth inhibition.
+          - reference: PMID:36118206
+            supports: SUPPORT
+            evidence_source: IN_VITRO
+            snippet: "SynCom 1(C1)37.00 \xB1 6.57"
+            explanation: Table 2 reports the whole-mixture plate inhibition estimate and standard deviation.
+        - name: C1 SynCom protection of wheat under AG8 challenge
+          description: C1 reduced root-rot scores and increased fresh root weight of AG8-challenged Alpowa wheat
+            in the three-week greenhouse soil assay. Preserve this positive whole-mixture benefit. The study did
+            not show superiority over the best individual strain or establish reciprocal microbial benefit, bilateral
+            competition, inoculum persistence, or a unique IAA/volatile mechanism. Only B5 among the four C1 members
+            significantly reduced disease when tested individually.
+          scope: COMMUNITY_LEVEL
+          participating_taxa:
+          - preferred_term: Pseudomonas sp. B5
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          - preferred_term: Pseudomonas sp. B11
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          - preferred_term: Pseudomonas sp. B12
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          - preferred_term: Pseudomonas sp. P25
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          biological_processes:
+          - preferred_term: biological process involved in interspecies interaction between organisms
+            term:
+              id: GO:0044419
+              label: biological process involved in interspecies interaction between organisms
+          evidence:
+          - reference: PMID:36118206
+            supports: SUPPORT
+            evidence_source: IN_VIVO
+            snippet: SynCom C1, composed of four different Pseudomonas members, significantly reduced wheat root
+              rot and increased root weight, compared with the controls
+            explanation: Supports the host-protection outcome measured for the whole C1 consortium.
+          - reference: PMID:36118206
+            supports: SUPPORT
+            evidence_source: IN_VIVO
+            snippet: None of them was significantly better than a single strain
+            explanation: Bounds claims of emergent superiority without erasing the significant C1 host outcome.
+        after:
+        - name: C1 SynCom inhibition of R. solani AG8 radial growth
+          description: The assembled C1 inhibited Rhizoctonia solani AG8 radial growth in dual culture, with reported
+            inhibition of 37.00% (SD 6.57) in Table 2. This is a positive fungal-growth outcome, not evidence that
+            both bacterial and fungal fitness declined. Plate inhibition does not establish the mediator or guarantee
+            host protection.
+          scope: COMMUNITY_LEVEL
+          participating_taxa:
+          - preferred_term: Pseudomonas sp. B5
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          - preferred_term: Pseudomonas sp. B11
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          - preferred_term: Pseudomonas sp. B12
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          - preferred_term: Pseudomonas sp. P25
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          biological_processes:
+          - preferred_term: interspecies interaction
+            term:
+              id: GO:0044419
+              label: biological process involved in interspecies interaction between organisms
+          evidence:
+          - reference: PMID:36118206
+            supports: SUPPORT
+            evidence_source: IN_VITRO
+            snippet: In vitro dual-culture assay showed eight SynComs, including C1-C4, C6-C8, and C10, inhibited
+              the growth of R. solani AG8 to varying degrees
+            explanation: Places C1 among the SynComs with significant AG8 radial-growth inhibition.
+          - reference: PMID:36118206
+            supports: SUPPORT
+            evidence_source: IN_VITRO
+            snippet: "SynCom 1(C1)37.00 \xB1 6.57"
+            explanation: Table 2 reports the whole-mixture plate inhibition estimate and standard deviation.
+        - name: C1 SynCom protection of wheat under AG8 challenge
+          description: C1 reduced root-rot scores and increased fresh root weight of AG8-challenged Alpowa wheat
+            in the three-week greenhouse soil assay. Preserve this positive whole-mixture benefit. The study did
+            not show superiority over the best individual strain or establish reciprocal microbial benefit, bilateral
+            competition, inoculum persistence, or a unique IAA/volatile mechanism. Only B5 among the four C1 members
+            significantly reduced disease when tested individually.
+          scope: COMMUNITY_LEVEL
+          participating_taxa:
+          - preferred_term: Pseudomonas sp. B5
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          - preferred_term: Pseudomonas sp. B11
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          - preferred_term: Pseudomonas sp. B12
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          - preferred_term: Pseudomonas sp. P25
+            term:
+              id: NCBITaxon:286
+              label: Pseudomonas
+          biological_processes:
+          - preferred_term: biological process involved in interspecies interaction between organisms
+            term:
+              id: GO:0044419
+              label: biological process involved in interspecies interaction between organisms
+          evidence:
+          - reference: PMID:36118206
+            supports: SUPPORT
+            evidence_source: IN_VIVO
+            snippet: SynCom C1, composed of four different Pseudomonas members, significantly reduced wheat root
+              rot and increased root weight, compared with the controls
+            explanation: Supports the host-protection outcome measured for the whole C1 consortium.
+          - reference: PMID:36118206
+            supports: SUPPORT
+            evidence_source: IN_VIVO
+            snippet: None of them was significantly better than a single strain
+            explanation: Bounds claims of emergent superiority without erasing the significant C1 host outcome.
+        - name: Inoculum assembly
+    - mutation: Promote C1 to superior-to-best-single performance
+      test: test_wheat_c1_host_benefit_is_not_best_strain_superiority
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 79
+      assertion: node["evidence"][1]["snippet"]
+      restored_control: PASS
+      changed_values:
+      - path: records/1/ecological_interactions/1/evidence/1/snippet
+        before: None of them was significantly better than a single strain
+        after: The mixture outperformed the best single strain.
+    - mutation: Turn C6 colorimetry into mutualism
+      test: test_wheat_c6_salkowski_is_not_resolved_delivery_or_mutualism
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 98
+      assertion: assert "interaction_type" not in node and "biological_processes" not in node
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/1/interaction_type
+        before: null
+        after: MUTUALISM
+    - mutation: Convert root shortening into growth promotion
+      test: test_wheat_c6_primary_root_shortening_is_not_growth_promotion
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 112
+      assertion: assert "not demonstrated growth promotion" in node["description"]
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/2/description
+        before: C6 was among the nine mixtures that significantly shortened primary roots of plate-grown Arabidopsis
+          after cocultivation. Shorter primary roots are the measured endpoint, not demonstrated growth promotion
+          or reciprocal benefit. The across-treatment association with a separate auxin assay does not establish
+          IAA as the necessary mediator. This Arabidopsis phenotype is not a wheat disease-protection result; C6
+          was not among the mixtures with significant greenhouse root-rot reduction or fresh-root-weight improvement.
+        after: C6 demonstrated IAA-mediated growth promotion.
+    - mutation: Erase whole-C6 cell-free null
+      test: test_wheat_c6_cell_free_member_positives_do_not_erase_mixture_null
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 123
+      assertion: assert "10 SynComs did not show any antifungal activities" in node["evidence"][2]["snippet"]
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/3/evidence/2/snippet
+        before: the cell-free supernatants from the rest of the eight bacteria and 10 SynComs did not show any antifungal
+          activities
+        after: All SynCom supernatants were inhibitory.
+    - mutation: Insert C6 into positive volatile mixture list
+      test: test_wheat_c6_volatile_positive_list_is_not_a_mixture_benefit
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 134
+      assertion: assert "SynComs C2-4, C7" in node["evidence"][2]["snippet"]
+      restored_control: PASS
+      changed_values:
+      - path: records/2/ecological_interactions/4/evidence/2/snippet
+        before: Rhodococcus erythropolis B43, and SynComs C2-4, C7
+        after: SynComs C2-4, C6, C7
+    - mutation: Erase crown-rot grain benefit
+      test: test_crown_rot_retains_positive_disease_and_grain_outcomes
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 145
+      assertion: assert node["evidence"][1]["snippet"] == "SMC+Fp increased TKW by 10.39% relative to Fp"
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/0/evidence/1/snippet
+        before: SMC+Fp increased TKW by 10.39% relative to Fp
+        after: No grain benefit occurred.
+    - mutation: Promote relative profiles to colonization facilitation
+      test: test_crown_rot_profiles_and_compound_assays_do_not_prove_necessity
+      control: PASS
+      mutation_applied: true
+      mutation_rejected: true
+      assertion_line: 152
+      assertion: assert "interaction_type" not in node and "biological_processes" not in node
+      restored_control: PASS
+      changed_values:
+      - path: records/3/ecological_interactions/1/interaction_type
+        before: null
+        after: COLONIZATION_FACILITATION
+    canonical_files_unchanged: true
+    checked_file_sha256:
+      kb/communities/Tomato_Oxylipin_SynCom3.yaml: 228468ac43630c33939dd4b0708476ef4006c9af7dbf1f108e7f88c36b0962c3
+      kb/communities/Wheat_Consortium_C1.yaml: 96fe252612fed33b257aed133760e929462f7021eef085750dfbb4469b1e6f26
+      kb/communities/Wheat_Consortium_C6.yaml: e0fca5ba8eedf1676949159803aa46771fa28af92dab641d102f531d3adc2c87
+      kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml: cf2ae08aab3fed7a94f5a0068db6d108baf734b22152547241ebe258f52d15ce
+      tests/test_causal_review_batch121.py: ac1e4196de6c948bc26632cc5b53ddf3e0e59a3eb9570340ae4e21fbc771a6cb
+    probe_script_sha256: ff36c48b3d7e84c51a8511846051408b929a0722a5c104a7f7e9c0ea3b0f29aa
+    scope: In-memory control/mutation/restored-control; no canonical writes and not additional pytest tests.
+  artifact: /private/tmp/communitymech-batch121/adversarial-regression-proof.json
+  sha256: daf0c2ac8b3e513f2f0539dcf8a9082c6e870c437a1f27a46cb4c7c22239fe7a
+lint_correction:
+  description: Two SIM300 equality-operand-order fixes in the new test only. Assertions retain identical string-equality
+    semantics. Original focused/regression passes and failed lint retained; focused,combined regressions,lint and
+    all12probes rerun on the corrected test. No canonical data or validation thresholds changed.
+  superseded_gate_outputs:
+  - check: focused
+    command:
+    - /Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3
+    - -m
+    - pytest
+    - -q
+    - tests/test_causal_review_batch121.py
+    exit_code: 0
+    expected_exit_codes:
+    - 0
+    log: /private/tmp/communitymech-batch121/verification/focused.log
+    log_sha256: 1bb220465fb38a66322df21f319c57ddc286c948f1dbd9ed95e5f16c3dbf57e7
+    output_tail: '...............                                                          [100%]
+
+      15 passed in 4.01s
+
+      '
+  - check: regressions
+    command:
+    - /Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3
+    - -m
+    - pytest
+    - -q
+    - tests/test_causal_review_batch10.py
+    - tests/test_causal_review_batch100.py
+    - tests/test_causal_review_batch101.py
+    - tests/test_causal_review_batch102.py
+    - tests/test_causal_review_batch103.py
+    - tests/test_causal_review_batch104.py
+    - tests/test_causal_review_batch105.py
+    - tests/test_causal_review_batch106.py
+    - tests/test_causal_review_batch107.py
+    - tests/test_causal_review_batch108.py
+    - tests/test_causal_review_batch109.py
+    - tests/test_causal_review_batch11.py
+    - tests/test_causal_review_batch110.py
+    - tests/test_causal_review_batch111.py
+    - tests/test_causal_review_batch112.py
+    - tests/test_causal_review_batch113.py
+    - tests/test_causal_review_batch114.py
+    - tests/test_causal_review_batch115.py
+    - tests/test_causal_review_batch116.py
+    - tests/test_causal_review_batch117.py
+    - tests/test_causal_review_batch118.py
+    - tests/test_causal_review_batch119.py
+    - tests/test_causal_review_batch12.py
+    - tests/test_causal_review_batch120.py
+    - tests/test_causal_review_batch121.py
+    - tests/test_causal_review_batch13.py
+    - tests/test_causal_review_batch14.py
+    - tests/test_causal_review_batch15.py
+    - tests/test_causal_review_batch16.py
+    - tests/test_causal_review_batch17.py
+    - tests/test_causal_review_batch18.py
+    - tests/test_causal_review_batch19.py
+    - tests/test_causal_review_batch20.py
+    - tests/test_causal_review_batch21.py
+    - tests/test_causal_review_batch22.py
+    - tests/test_causal_review_batch23.py
+    - tests/test_causal_review_batch24.py
+    - tests/test_causal_review_batch25.py
+    - tests/test_causal_review_batch27.py
+    - tests/test_causal_review_batch28.py
+    - tests/test_causal_review_batch29.py
+    - tests/test_causal_review_batch30.py
+    - tests/test_causal_review_batch31.py
+    - tests/test_causal_review_batch32.py
+    - tests/test_causal_review_batch33.py
+    - tests/test_causal_review_batch34.py
+    - tests/test_causal_review_batch35.py
+    - tests/test_causal_review_batch36.py
+    - tests/test_causal_review_batch37.py
+    - tests/test_causal_review_batch38.py
+    - tests/test_causal_review_batch39.py
+    - tests/test_causal_review_batch40.py
+    - tests/test_causal_review_batch41.py
+    - tests/test_causal_review_batch42.py
+    - tests/test_causal_review_batch43.py
+    - tests/test_causal_review_batch44.py
+    - tests/test_causal_review_batch45.py
+    - tests/test_causal_review_batch46.py
+    - tests/test_causal_review_batch47.py
+    - tests/test_causal_review_batch48.py
+    - tests/test_causal_review_batch49.py
+    - tests/test_causal_review_batch5.py
+    - tests/test_causal_review_batch50.py
+    - tests/test_causal_review_batch51.py
+    - tests/test_causal_review_batch52.py
+    - tests/test_causal_review_batch53.py
+    - tests/test_causal_review_batch54.py
+    - tests/test_causal_review_batch55.py
+    - tests/test_causal_review_batch56.py
+    - tests/test_causal_review_batch57.py
+    - tests/test_causal_review_batch58.py
+    - tests/test_causal_review_batch59.py
+    - tests/test_causal_review_batch6.py
+    - tests/test_causal_review_batch60.py
+    - tests/test_causal_review_batch61.py
+    - tests/test_causal_review_batch62.py
+    - tests/test_causal_review_batch63.py
+    - tests/test_causal_review_batch64.py
+    - tests/test_causal_review_batch65.py
+    - tests/test_causal_review_batch66.py
+    - tests/test_causal_review_batch67.py
+    - tests/test_causal_review_batch68.py
+    - tests/test_causal_review_batch69.py
+    - tests/test_causal_review_batch7.py
+    - tests/test_causal_review_batch70.py
+    - tests/test_causal_review_batch71.py
+    - tests/test_causal_review_batch72.py
+    - tests/test_causal_review_batch73.py
+    - tests/test_causal_review_batch74.py
+    - tests/test_causal_review_batch75.py
+    - tests/test_causal_review_batch76.py
+    - tests/test_causal_review_batch77.py
+    - tests/test_causal_review_batch78.py
+    - tests/test_causal_review_batch79.py
+    - tests/test_causal_review_batch8.py
+    - tests/test_causal_review_batch80.py
+    - tests/test_causal_review_batch81.py
+    - tests/test_causal_review_batch82.py
+    - tests/test_causal_review_batch83.py
+    - tests/test_causal_review_batch84.py
+    - tests/test_causal_review_batch85.py
+    - tests/test_causal_review_batch86.py
+    - tests/test_causal_review_batch87.py
+    - tests/test_causal_review_batch88.py
+    - tests/test_causal_review_batch89.py
+    - tests/test_causal_review_batch9.py
+    - tests/test_causal_review_batch90.py
+    - tests/test_causal_review_batch91.py
+    - tests/test_causal_review_batch92.py
+    - tests/test_causal_review_batch93.py
+    - tests/test_causal_review_batch94.py
+    - tests/test_causal_review_batch95.py
+    - tests/test_causal_review_batch96.py
+    - tests/test_causal_review_batch97.py
+    - tests/test_causal_review_batch98.py
+    - tests/test_causal_review_batch99.py
+    - tests/test_network_palette.py
+    - tests/test_datamodel.py
+    - tests/test_site_audit_fixes.py
+    - tests/test_causal_review_inventory.py
+    - tests/test_rank_causal_graph_readiness.py
+    - tests/test_network_auditor.py
+    - tests/test_participating_taxa.py
+    - tests/test_causal_descriptions_are_published.py
+    - tests/test_published_pages_name_real_records.py
+    - tests/test_reference_validator_actually_validates.py
+    - tests/test_snippet_audit_artefact_classes.py
+    - tests/test_reference_error_annotation.py
+    - tests/test_community_level_connectivity_credit.py
+    - tests/test_no_paywalled_text_in_repo.py
+    exit_code: 0
+    expected_exit_codes:
+    - 0
+    log: /private/tmp/communitymech-batch121/verification/regressions.log
+    log_sha256: 873297760b8f8ff58434193e806da505e241c10d71fd4b5606e07069b36f0923
+    output_tail: '........................................................................ [  6%]
+
+      ........................................................................ [ 12%]
+
+      ........................................................................ [ 18%]
+
+      ........................................................................ [ 25%]
+
+      ........................................................................ [ 31%]
+
+      ........................................................................ [ 37%]
+
+      ........................................................................ [ 43%]
+
+      ........................................................................ [ 50%]
+
+      ........................................................................ [ 56%]
+
+      ........................................................................ [ 62%]
+
+      ........................................................................ [ 69%]
+
+      ........................................................................ [ 75%]
+
+      ........................................................................ [ 81%]
+
+      ........................................................................ [ 87%]
+
+      ........................................................................ [ 94%]
+
+      ..................................................................       [100%]
+
+      1146 passed in 390.61s (0:06:30)
+
+      '
+  - check: just-lint
+    command:
+    - just
+    - lint
+    exit_code: 1
+    expected_exit_codes:
+    - 0
+    log: /private/tmp/communitymech-batch121/verification/just-lint.log
+    log_sha256: 2fe8d75b0a76266199cfe190c9be5f96ccb92a6fafa1204a15db38f851ab6f2f
+    output_tail: "SIM300 [*] Yoda condition detected\n  --> tests/test_causal_review_batch121.py:79:9\n   |\n77\
+      \ |       assert \"reduced root-rot scores and increased fresh root weight\" in node[\"description\"]\n78\
+      \ |       assert (\n79 | /         \"None of them was significantly better than a single strain\"\n80 | |\
+      \         == node[\"evidence\"][1][\"snippet\"]\n   | |_________________________________________^\n81 |  \
+      \     )\n82 |       assert \"Only B5\" in node[\"description\"]\n   |\n   |\n78 |     assert (\n   -     \
+      \    \"None of them was significantly better than a single strain\"\n   -         == node[\"evidence\"][1][\"\
+      snippet\"]\n79 +         node[\"evidence\"][1][\"snippet\"]\n80 +         == \"None of them was significantly\
+      \ better than a single strain\"\n81 |     )\n   |\n\nSIM300 [*] Yoda condition detected\n   --> tests/test_causal_review_batch121.py:145:12\n\
+      \    |\n143 |     assert \"interaction_type\" not in node\n144 |     assert \"86.45%\" in node[\"description\"\
+      ] and \"25.93%\" in node[\"description\"]\n145 |     assert \"SMC+Fp increased TKW by 10.39% relative to Fp\"\
+      \ == node[\"evidence\"][1][\"snippet\"]\n    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+      146 |     assert \"not multilocation field validation\" in node[\"description\"]\n    |\n    |\n144 |    \
+      \ assert \"86.45%\" in node[\"description\"] and \"25.93%\" in node[\"description\"]\n    -     assert \"\
+      SMC+Fp increased TKW by 10.39% relative to Fp\" == node[\"evidence\"][1][\"snippet\"]\n145 +     assert node[\"\
+      evidence\"][1][\"snippet\"] == \"SMC+Fp increased TKW by 10.39% relative to Fp\"\n146 |     assert \"not multilocation\
+      \ field validation\" in node[\"description\"]\n    |\n\nFound 2 errors.\n[*] 2 fixable with the `--fix` option.\n\
+      uv run black --check src/ tests/ scripts/\nAll done! \u2728 \U0001F370 \u2728\n374 files would be left unchanged.\n\
+      uv run ruff check src/ tests/ scripts/\nwarning: Invalid `# noqa` directive on scripts/gtdb_ground.py:74:\
+      \ expected code to consist of uppercase letters followed by digits only (e.g. `F401`)\nerror: recipe `lint`\
+      \ failed on line 518 with exit code 1\n"
+  prior_probe_artifact: /private/tmp/communitymech-batch121/adversarial-regression-proof-before-lint-fix.json
+  prior_probe_sha256: 6af8a2078d2804b963e2293514fb721e0c7b1df16b43c951aa8431e3daa6d305
+verification:
+  combined_regressions: 1146 passed in 406.93s (0:06:46)
+  new_regression_tests: 15
+  total_recorded_gate_outputs: 41
+  primary_graph_snippet_proof:
+    graph_quotations: 24
+    discussion_quotations: 10
+    fresh_primary_literal_matches: 34
+    all_cached_literal_matches: 34
+    retained_nodes: 12
+    removed_nodes: 2
+    renamed_nodes: 6
+    retained_arrows: 2
+    removed_arrows: 0
+    new_nodes_or_directions: 0
+  references: Full-record local passes are macOS, not Linux certification. Literal matching does not establish entailment.
+    Total checks in the reference CLI counts issues, not examined snippets.
+  snippet_counts_by_record:
+    kb/communities/Tomato_Oxylipin_SynCom3.yaml:
+      MATCH: 14
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Wheat_Consortium_C1.yaml:
+      MATCH: 14
+      RENDERING: 1
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Wheat_Consortium_C6.yaml:
+      MATCH: 19
+      RENDERING: 2
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml:
+      MATCH: 33
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    counts:
+      records: 460
+      total: 9073
+      categories:
+        MATCH: 8925
+        RENDERING: 31
+        ASSEMBLED: 1
+        WEAK: 0
+        MISMATCH: 40
+        NOCONTENT: 76
+    caveat: Informational audit exit0 is not clean-corpus or entailment certification.
+  network:
+    existing_findings_preserved: 57
+    added_findings: {}
+    removed_findings: {}
+    structural_defects: 0
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261008-four-records-batch121.yaml: e6545894c4182a28cb36818c71a5d2958dd7d5494fba58b101f4a478a6f0eed5
+    tests/test_causal_review_batch121.py: ac1e4196de6c948bc26632cc5b53ddf3e0e59a3eb9570340ae4e21fbc771a6cb
+    tests/test_participating_taxa.py: f438815b4a028c0f38a077df53c95f685f98b3c2b523593896a124b544269db1
+    tests/test_community_level_connectivity_credit.py: 996cc631423bfa7adc5d8e693d67d55b374a24379d119ab0fa8f1802f38f216a
+    tests/test_causal_review_batch109.py: ff8e9e26771545e1ace22b3c1d42076789c99cc4bc83e588b6a4b9ad698d3d73
+    tests/test_datamodel.py: f8d4750ad64eb4156857a86a8c6adf16dedefb09ca3c3da908f697e609a35f25
+    reports/causal_graph_review/cache-provenance-20261008-batch121.json: 52293a3b4509be41d05b369a019fd0b99a2f4144b2f978b986eb2a911cb54d18
+    kb/communities/Tomato_Oxylipin_SynCom3.yaml: 228468ac43630c33939dd4b0708476ef4006c9af7dbf1f108e7f88c36b0962c3
+    kb/communities/Wheat_Consortium_C1.yaml: 96fe252612fed33b257aed133760e929462f7021eef085750dfbb4469b1e6f26
+    kb/communities/Wheat_Consortium_C6.yaml: e0fca5ba8eedf1676949159803aa46771fa28af92dab641d102f531d3adc2c87
+    kb/communities/Wheat_CrownRot_SixStrain_CrossKingdom_SMC.yaml: cf2ae08aab3fed7a94f5a0068db6d108baf734b22152547241ebe258f52d15ce
+  history_sha256:
+    history/records/Tomato_Oxylipin_SynCom3/2026-10-08T150228Z-codex-b1572f.yaml: 6ba7a6ebd8bf8265071204827b11af6f071dfd5e10ad96c04ff657e297518ea3
+    history/records/Wheat_Consortium_C1/2026-10-08T150228Z-codex-ff737c.yaml: b0376f6cb7bc63570018a97ba08ead611c9ed773920b1ed0315be9c0ef75a916
+    history/records/Wheat_Consortium_C6/2026-10-08T150229Z-codex-b61a7a.yaml: d5b973cc60054869f95d2eda524821d86d189566e304ed5b2c4b885eafa7dd54
+    history/records/Wheat_CrownRot_SixStrain_CrossKingdom_SMC/2026-10-08T150229Z-codex-fc0ee7.yaml: 9a91fe60edf1f4e0b3c6f4d66f56651dac882ca5eb88ac1bd0d835690a641482
+  unchanged_records: 456
+  unchanged_caches: 922
+  immutable_prior_history_and_decision_files: 894
+  cache_changes:
+  - path: references_cache/PMID_41504167.txt
+    before_sha256: 4d486d1a61d439b27b58e26f089b287540ce49b0dfea5ff74b9d4c45b9d3b2ff
+    after_sha256: 09dbe7338cb653bdfec20d7103d2510e252b08f70b9166b38c193199e7e6e2fd
+    old_prefix_preserved: true
+    added_bytes: 606
+    added_quotation_words: 21
+    source_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12833866/
+    source_artifact: /private/tmp/communitymech-batch121/crown-primary.txt
+    source_sha256: 5473ae75df36a381dc6f107afe7cd3d93851565378b25de0baccca019d8ee36c
+    license: CC BY-NC-ND 4.0
+    scope: Three short selected discussion excerpts, not a full-text import. Existing provenance discrepancies retained
+      for issue1945.
+    quotations:
+    - functional validation at the molecular and genetic levels remains limited
+    - showed no direct antifungal activity of either compound
+    - significantly reduced DSI
+  edison:
+    required_for_this_repair: false
+    provider_submissions: 0
+    credits_spent: 0
+    new_nodes_or_directions: 0
+    prior_extension_blocker: 'Ruegeria1883: configured authentication unavailable in prior approved invocation;
+      no unchanged-state retry.'
+  post_commit_docs_current: Separate publication gate,not preasserted.
+participant_census:
+  current:
+    records: 460
+    with_community_level: 414
+    mixed: 136
+    community_level_only: 278
+    taxa: 1568
+    credited_solely_by_the_rule: 1281
+  delta_from_batch120:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  explanation: All participant lists and scopes are unchanged;299participant-list users. Scope credit is not certification
+    of actual participant coverage. Connectivity logic and thresholds are unchanged.
+corpus:
+  records: 460
+  nodes: 1373
+  edges: 530
+  review_status_counts:
+    needs_research: 54
+    pending: 14
+    reviewed: 392
+lint_environment:
+  path: /private/tmp/communitymech-batch100/lint-env
+  scope: Temporary established Python3.13 lint environment; project dependencies unchanged.
+limitations:
+- Both-root baseline precedes primary research:460records,923caches,57existing warnings,zero structural defects.
+  All four whole records and14existing nodes/two arrows reviewed. Retain12nodes/two arrows,remove two inoculum-assembly
+  nodes,rename six nodes,no new topology.
+- Four fresh EuropePMC abstract/metadata and Crossref retrievals cover three unique primary studies. Complete wheat
+  C1/C6 and crown-rot main bodies read including methods,results,discussion,tables and captions. C1/C6 XML/body
+  hashes are identical. No original figure pixels,separate supplementary files,raw data or analysis code audited.
+- Tomato changes are abstract-bounded. EuropePMC has no PMC identifier and lists subscription-required DOI access;
+  DOI open was unavailable and ScienceDirect PII S0981942823004527 returned403. No exhaustive full-text absence
+  claim,access bypass or author contact. No full article-body import.
+- Tomato retains positive complementary community functions,leaf oxylipin activation,biosynthesis-inhibition loss
+  of protection,and SlLOX5/SlDES1 overexpression benefit. This supports pathway-level causality,not reciprocal bacterial
+  fitness,unique biofilm mediation or independent necessity of each divinyl ether. Exact member/role metadata remains1943.
+- Wheat C1/C6 primary is CC BY4.0. Equal-ratio assembly is preparation,not ecological colonization; prior workflow-arrow
+  removals remain intact. C1 retains significant greenhouse benefits but no demonstrated superiority over the best
+  single strain. C6 retains positive dual-plate inhibition and Salkowski output but Arabidopsis root shortening
+  is not growth promotion. Positive individual-member secretion/volatile assays do not override whole-mixture nulls.
+  Persistence explicitly was not assessed. Negative r-squared notation is not silently repaired. Non-graph abundance/metal
+  scope remains1944.
+- Crown-rot primary is CC BY-NC-ND4.0,not unrestricted CC BY. Preserve measured pot disease and grain benefits.
+  Relative DNA profiles are not viable-cell colonization or functional flux; correlation networks do not establish
+  cooperation or ecological necessity. Added allantoin/dihydrodaidzein have positive plant outcomes and negative
+  direct fungal assays; do not erase these positives or infer intact-SMC necessity. Old cache wording differs from
+  fresh abstract and bacterial-treatment assignments; timing and provenance remain1945.
+- Exactly three short crown-rot discussion excerpts,21quoted words,are appended with source/license attribution.
+  Old cache bytes remain an unchanged prefix. No protocol addition or full-body import. All24graph and10discussion
+  quotes independently matched to fresh primary and authoritative local caches; literal matches are not entailment
+  proof. Existing selected caches and primary text read; no claim to manual whole-reading of the very long C1 markdown
+  cache.
+- Initial and fresh pre-creation all-state1175issue titles/bodies searched,seven matching bodies read,161matching
+  local paths found including ignored/hidden files except.git,docs,site,references_cache,.env.1035/1037 address
+  crown-rot participants/CI;615 host-cultivation schema;1521,1378,1375,981 other records. Not a historical PR-comment
+  audit.
+- Four guarded writes preserve456otherrecords,922unchangedcaches,unrelated raw YAML blocks and all prior histories/decisions.
+  Four append-only histories and curation events. Taxon identities,participant lists and scopes unchanged; evidence
+  aliases detached. No experimental optimization.
+- 'Existing-graph repair with no new nodes/directions: no Edison run,provider submission or spend. Prior authorized
+  Ruegeria1883 authentication blocker not retried unchanged; no credential inspected. Source-based self-adversarial
+  review is not independent approval. Overall review,protected merge and branch deletion remain incomplete.'

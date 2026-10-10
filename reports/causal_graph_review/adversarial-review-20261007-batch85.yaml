@@ -1,0 +1,395 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 345eedc71e173c75dff8d5692ef946aeb3c908de
+scope:
+- kb/communities/Phylogenetically_Diverse_Denitrifying_SynCom.yaml
+- kb/communities/Pichia_Lactiplantibacillus_CCMA_Plant_Beverage_Coculture.yaml
+- kb/communities/Picocystis_Activated_Sludge_Refinery_SWW_Consortium.yaml
+- kb/communities/Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml
+decision_ledger: reports/causal_graph_review/decisions/20261007-four-records-batch85.yaml
+validation_report: reports/causal_graph_review/validation-20261007-batch85.json
+findings:
+- issue: 1704
+  severity: P2
+  status: addressed_in_this_change
+  finding: Repair workflow and causal-direction claims in denitrifying diversity graph
+  disposition: Close only after protected-main merge.
+- issue: 1705
+  severity: P2
+  status: addressed_in_this_change
+  finding: Separate pine isolate screening from SynCom growth and defense endpoints
+  disposition: Close only after protected-main merge.
+- issue: 1706
+  severity: P2
+  status: unresolved_research
+  finding: Review missing biological directions in denitrifying diversity graph
+  disposition: Keep OPEN after graph-repair merge.
+- issue: 1707
+  severity: P2
+  status: unresolved_research
+  finding: Add source-bounded CCMA beverage coculture graph coverage
+  disposition: Keep OPEN after graph-repair merge.
+- issue: 1708
+  severity: P2
+  status: unresolved_research
+  finding: Add treatment-specific Picocystis refinery consortium graph coverage
+  disposition: Keep OPEN after graph-repair merge.
+- issue: 1709
+  severity: P2
+  status: unresolved_non_graph
+  finding: Reconcile batch85 non-graph assay and medium identity claims
+  disposition: Keep OPEN after graph-repair merge.
+adversarial_checks:
+- Fresh post-schema two-root baseline preceded papers:460records921caches,1435nodes598arrows,48warnings0structural.
+  Whole four records and all nine original nodes/six arrows reviewed, including two empty graphs. Seven biological
+  nodes survive; no new topology.
+- Denitrifying CR/DR assembly and 200-generation evolution are workflow, already preserved in engineering_design.
+  Remove only these two nodes and their sequencing arrows. Preserve measured DR productivity/denitrification/stability
+  and Paracoccus dominance; no blanket downgrade of positive experiment.
+- Endpoint-to-dominance and endpoint-to-statistical-decomposition arrows do not establish those directions. Dominance
+  is not a competition intervention, and complementarity/asynchrony does not resolve exchanged compounds. No reversed
+  direction invented;1706requires scoped Edison report. Companion open main text is a different experiment, not
+  primary methods.
+- Beverage absent graph and refinery empty list remain sparse and needs_research. Discussion-only changes preserve
+  viable counts, fermentation/metabolite changes, simulated bioaccessibility and mouse whole-beverage response without
+  partner-resolved exchange, colonization, compound mediation or human extrapolation.
+- Refinery retains treatment-specific Pico-Bac removal positives and Pico-monoculture oil/grease counterexample.
+  Abstract does not resolve lipid/seed arms. Removal is not complete mineralization or measured O2/CO2 exchange.
+  Domain-level bacteria grounding unchanged. Research1707/1708remain unfinished.
+- Pine pairwise compatibility is a no-inhibition-zone assay, not longitudinal coexistence or resource partitioning.
+  Public S1/TableS2 identify Phomopsis plates; S2 uses cell-free supernatants against urediniospores. Explicit final-community
+  screened participants are NA11/NA3/RE7, not RC1/OB3 or every screened isolate. OB3/NA3 retain distinct labels
+  despite species-level shared id.
+- Pine positive pot growth and19.1%PPO/157.3%POD increases remain SUPPORT with IN_VIVO evidence. IAA/nitrogen mediation
+  and reciprocal mutualism are not demonstrated. Two selection/antagonism-to-host arrows removed. Defense-associated
+  enzymes alone are not priming or infection resistance; abstract calls for subsequent inplanta biocontrol evaluation.
+- 'Four primary abstracts and target caches read; main texts unavailable. Both pine supplements read: six rendered
+  PDF pages visually inspected and both XLSX sheets fully cell-parsed. Downloaded small main-figure previews not
+  used for numerical inference. Public source URLs, access scope and hashes retained. No paywall bypass or full-text
+  claim.'
+- All921caches,456otherrecords and raw non-graph blocks preserved byte-for-byte; four appended curation events and
+  histories. Alias-linked non-graph denitrifying evidence unchanged. Schema/strict/terms/references/snippets/history
+  gates pass; broad regressions and deterministic exact-description HTML checks recorded. Parser checks are not
+  browser screenshots;48warnings unchanged, zero structural defects.
+- Dedup978all-state issue titles/bodies and ignored/hidden local search with declared exclusions; closed1116/1117/1118read.
+  Comments/PRs not exhaustive. Three one-community Edison dry runs, zero jobs/credits; scoped paid request unanswered
+  and earlier denials unchanged. Repair1704/1705close only after actual protected-main merge;1706-1709stayOPEN.
+  Self-adversarial COMMENT is not independent approval or corpus completion.
+verification:
+  combined_regressions: 766 passed in 407.08s (0:06:47)
+  new_regression_tests: 10
+  schema_strict_terms_history: Passed with actual outputs/digests
+  references: Four full-record reference validators exit0. CLI Total checks counts issues, not executed checks.
+    Eight graph and eight new discussion quotations match independently fetched primary abstracts and existing caches.
+    Literal matching is not entailment or whole-record certification. Public pine supplements provide additional
+    assay context, not inaccessible primary main text.
+  snippet_counts_by_record:
+    kb/communities/Phylogenetically_Diverse_Denitrifying_SynCom.yaml:
+      MATCH: 15
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Pichia_Lactiplantibacillus_CCMA_Plant_Beverage_Coculture.yaml:
+      MATCH: 12
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Picocystis_Activated_Sludge_Refinery_SWW_Consortium.yaml:
+      MATCH: 16
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+    kb/communities/Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml:
+      MATCH: 11
+      RENDERING: 0
+      ASSEMBLED: 0
+      WEAK: 0
+      MISMATCH: 0
+      NOCONTENT: 0
+  full_corpus_snippet_audit:
+    caveat: Both-root recipe actually executed. Exit0 is informational, not a clean-corpus certificate; focused
+      edited-record gates separately pass.
+    output: "# 8908 evidence snippets scanned across 460 files\n  MATCH      8773\n  RENDERING  20\n  ASSEMBLED\
+      \  1\n  WEAK       0\n  MISMATCH   38\n  NOCONTENT  76\n\n# Files with MISMATCH/WEAK (content present but\
+      \ snippet absent) \u2014 fabrication suspects\n  19 (19 hard)  kb/communities/DCPP_DBS4_DCP4_DCP11d_Degradation_SynCom.yaml\n\
+      \  15 (15 hard)  kb/communities/Fucoidan_Seven_Degrader_Combinatorial_SynCom.yaml\n   3 (3 hard)  kb/communities/Coscinodiscus_Synthetic_Community.yaml\n\
+      \   1 (1 hard)  kb/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml\nuv run python scripts/evidence_snippet_audit.py\
+      \ \n"
+  primary_graph_snippet_proof:
+    primary_matched_graph_quotations: 8
+    primary_matched_new_discussion_quotations: 8
+    independent_abstracts: 4
+    original_pine_pdf_pages_visually_inspected:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    pine_spreadsheet_tables_read:
+    - S1
+    - S2
+    primary_full_texts_for_target_records_read: 0
+    companion_main_texts_read: 1
+    retained_nodes: 7
+    removed_workflow_nodes: 2
+    retained_arrows: 0
+    removed_arrows: 6
+    new_nodes_or_arrows: 0
+    sparse_graphs_pending: 2
+  network:
+    existing_findings_preserved: 48
+    added_findings: {}
+    removed_findings: {}
+    interpretation: All48existingwarnings unchanged; zero structural defects. No taxonomy or auditor-rule changes.
+      Explicit pine participants retain distinct strain labels.
+  black_ruff_diff: passed
+  tested_file_sha256:
+    reports/causal_graph_review/decisions/20261007-four-records-batch85.yaml: 69d8051fe60a9a97abb76811bb274dca012274d3d3c44a124f663885b2631316
+    tests/test_causal_review_batch85.py: 51bec64bf36d4c4a3a4adae6946cef4332f41dc3f431f28d36ad882d07d3a73c
+    tests/test_participating_taxa.py: ee9f528f3bfe58149c99f2bf3761b82c0bf17a1d82a7fd96b28dfddc5183db55
+    kb/communities/Phylogenetically_Diverse_Denitrifying_SynCom.yaml: 6c83e98d24d68c5be779516c7d8a827629f79a37d7b91597db85ca7e727a8bd6
+    kb/communities/Pichia_Lactiplantibacillus_CCMA_Plant_Beverage_Coculture.yaml: 1dff5927ac9481854b9b13e67efb7fa7be2353674710553de2490207e9996dd9
+    kb/communities/Picocystis_Activated_Sludge_Refinery_SWW_Consortium.yaml: a2ac824aec0e51a196e0fccaca9f7346f74b0fc331704c53e69b6b04ff731c12
+    kb/communities/Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml: 609a40bb20f1ec5b5bb35f3a8805707bd7478c87b345d517c3c32b3d8af41625
+    reports/causal_graph_review/README.md: 771752437833af154c2224f19cae844224fdf5a8148d82170d9795c5460dd4a5
+  unchanged_caches: 921
+  cache_changes: []
+  unchanged_records: 456
+  edison:
+    required_for_this_repair: false
+    required_for_unresolved_extensions: true
+    provider_submissions: 0
+    credits_spent: 0
+    dry_runs:
+    - community_id: CommunityMech:000113
+      job: LITERATURE
+      query_chars: 11340
+      query_sha256: e629f63819e9d190cd7959db15899012fd0935475242c0e452d552a202de0447
+      meta_path: /private/tmp/communitymech-batch85/edison-denitrifying/Phylogenetically_Diverse_Denitrifying_SynCom-edison-literature-causal-meta.yaml
+      authorization: Scoped asynchronous paid question unanswered; no submission. Earlier pending/denied scopes
+        unchanged.
+    - community_id: CommunityMech:000345
+      job: LITERATURE
+      query_chars: 7735
+      query_sha256: d716659ba349d168bf97f0e232e8cef2cc0cd5d6cb006f0f929b1762ec47458d
+      meta_path: /private/tmp/communitymech-batch85/edison-beverage/Pichia_Lactiplantibacillus_CCMA_Plant_Beverage_Coculture-edison-literature-causal-meta.yaml
+      authorization: Scoped asynchronous paid question unanswered; no submission. Earlier pending/denied scopes
+        unchanged.
+    - community_id: CommunityMech:000439
+      job: LITERATURE
+      query_chars: 8529
+      query_sha256: 6b302426070d69df43bfa4edb1a1a2fb899fb008f7c8b6586aba439e7ce5c234
+      meta_path: /private/tmp/communitymech-batch85/edison-refinery/Picocystis_Activated_Sludge_Refinery_SWW_Consortium-edison-literature-causal-meta.yaml
+      authorization: Scoped asynchronous paid question unanswered; no submission. Earlier pending/denied scopes
+        unchanged.
+  post_commit_docs_current: Separate publication gate, not preasserted.
+  regression_correction: 'Preserved initial failure: explicit pine participating_taxa adds one intentional allowlist
+    user. Actual connectivity census unchanged. Added only that filename to the exact-use allowlist; no auditor
+    rule, census bound or production record changed to hide the failure.'
+  initial_failed_regression_output:
+    check: regressions
+    command:
+    - /Users/marcin/.cache/uv/archive-v0/l58VlyFvdmnkl0CcAx5Gk/bin/python3
+    - -m
+    - pytest
+    - -q
+    - tests/test_causal_review_batch10.py
+    - tests/test_causal_review_batch11.py
+    - tests/test_causal_review_batch12.py
+    - tests/test_causal_review_batch13.py
+    - tests/test_causal_review_batch14.py
+    - tests/test_causal_review_batch15.py
+    - tests/test_causal_review_batch16.py
+    - tests/test_causal_review_batch17.py
+    - tests/test_causal_review_batch18.py
+    - tests/test_causal_review_batch19.py
+    - tests/test_causal_review_batch20.py
+    - tests/test_causal_review_batch21.py
+    - tests/test_causal_review_batch22.py
+    - tests/test_causal_review_batch23.py
+    - tests/test_causal_review_batch24.py
+    - tests/test_causal_review_batch25.py
+    - tests/test_causal_review_batch27.py
+    - tests/test_causal_review_batch28.py
+    - tests/test_causal_review_batch29.py
+    - tests/test_causal_review_batch30.py
+    - tests/test_causal_review_batch31.py
+    - tests/test_causal_review_batch32.py
+    - tests/test_causal_review_batch33.py
+    - tests/test_causal_review_batch34.py
+    - tests/test_causal_review_batch35.py
+    - tests/test_causal_review_batch36.py
+    - tests/test_causal_review_batch37.py
+    - tests/test_causal_review_batch38.py
+    - tests/test_causal_review_batch39.py
+    - tests/test_causal_review_batch40.py
+    - tests/test_causal_review_batch41.py
+    - tests/test_causal_review_batch42.py
+    - tests/test_causal_review_batch43.py
+    - tests/test_causal_review_batch44.py
+    - tests/test_causal_review_batch45.py
+    - tests/test_causal_review_batch46.py
+    - tests/test_causal_review_batch47.py
+    - tests/test_causal_review_batch48.py
+    - tests/test_causal_review_batch49.py
+    - tests/test_causal_review_batch5.py
+    - tests/test_causal_review_batch50.py
+    - tests/test_causal_review_batch51.py
+    - tests/test_causal_review_batch52.py
+    - tests/test_causal_review_batch53.py
+    - tests/test_causal_review_batch54.py
+    - tests/test_causal_review_batch55.py
+    - tests/test_causal_review_batch56.py
+    - tests/test_causal_review_batch57.py
+    - tests/test_causal_review_batch58.py
+    - tests/test_causal_review_batch59.py
+    - tests/test_causal_review_batch6.py
+    - tests/test_causal_review_batch60.py
+    - tests/test_causal_review_batch61.py
+    - tests/test_causal_review_batch62.py
+    - tests/test_causal_review_batch63.py
+    - tests/test_causal_review_batch64.py
+    - tests/test_causal_review_batch65.py
+    - tests/test_causal_review_batch66.py
+    - tests/test_causal_review_batch67.py
+    - tests/test_causal_review_batch68.py
+    - tests/test_causal_review_batch69.py
+    - tests/test_causal_review_batch7.py
+    - tests/test_causal_review_batch70.py
+    - tests/test_causal_review_batch71.py
+    - tests/test_causal_review_batch72.py
+    - tests/test_causal_review_batch73.py
+    - tests/test_causal_review_batch74.py
+    - tests/test_causal_review_batch75.py
+    - tests/test_causal_review_batch76.py
+    - tests/test_causal_review_batch77.py
+    - tests/test_causal_review_batch78.py
+    - tests/test_causal_review_batch79.py
+    - tests/test_causal_review_batch8.py
+    - tests/test_causal_review_batch80.py
+    - tests/test_causal_review_batch81.py
+    - tests/test_causal_review_batch82.py
+    - tests/test_causal_review_batch83.py
+    - tests/test_causal_review_batch84.py
+    - tests/test_causal_review_batch85.py
+    - tests/test_causal_review_batch9.py
+    - tests/test_site_audit_fixes.py
+    - tests/test_causal_review_inventory.py
+    - tests/test_rank_causal_graph_readiness.py
+    - tests/test_network_auditor.py
+    - tests/test_participating_taxa.py
+    - tests/test_causal_descriptions_are_published.py
+    - tests/test_published_pages_name_real_records.py
+    - tests/test_reference_validator_actually_validates.py
+    - tests/test_snippet_audit_artefact_classes.py
+    - tests/test_reference_error_annotation.py
+    - tests/test_community_level_connectivity_credit.py
+    - tests/test_no_paywalled_text_in_repo.py
+    exit_code: 1
+    expected_exit_codes:
+    - 0
+    log: /private/tmp/communitymech-batch85/regressions-initial.log
+    log_sha256: 4c79ba80daf30bf5192b578c7802740e601376e20b51f70aad0798431e0456ba
+    output_tail: "........................................................................ [  9%]\n........................................................................\
+      \ [ 18%]\n........................................................................ [ 28%]\n........................................................................\
+      \ [ 37%]\n........................................................................ [ 46%]\n........................................................................\
+      \ [ 56%]\n........................................................................ [ 65%]\n........................................................................\
+      \ [ 75%]\n........................................................................ [ 84%]\n.....................................F..................................\
+      \ [ 93%]\n..............................................                           [100%]\n===================================\
+      \ FAILURES ===================================\n_________________ test_the_corpus_is_unchanged_by_this_feature\
+      \ _________________\n\n    def test_the_corpus_is_unchanged_by_this_feature():\n        \"\"\"Only the records\
+      \ that mean to use the slot do.\n    \n        Asserted on the corpus rather than trusted from the schema:\
+      \ an\n        `ifabsent` or a default that quietly populated the slot would change 312\n        records' connectivity\
+      \ without anyone editing a record. That is still the\n        failure this catches \u2014 a silent default\
+      \ would put every record in `users`,\n        not just the three named below.\n        \"\"\"\n        users\
+      \ = {\n            path.name\n            for path in record_files()\n            for interaction in (yaml.safe_load(path.read_text())\
+      \ or {}).get(\"ecological_interactions\")\n            or []\n            if isinstance(interaction, dict)\
+      \ and interaction.get(\"participating_taxa\")\n        }\n>       assert users == USERS, (\n            f\"\
+      {len(users)} records use participating_taxa, expected {len(USERS)}. \"\n            f\"Adding a user is fine\
+      \ \u2014 but the connectivity numbers in \"\n            f\"tests/test_community_level_connectivity_credit.py\
+      \ were measured \"\n            f\"before the slot was used, so re-check them and then update USERS. \"\n\
+      \            f\"Added: {sorted(users - USERS)}. Removed: {sorted(USERS - users)}\"\n        )\nE       AssertionError:\
+      \ 244 records use participating_taxa, expected 243. Adding a user is fine \u2014 but the connectivity numbers\
+      \ in tests/test_community_level_connectivity_credit.py were measured before the slot was used, so re-check\
+      \ them and then update USERS. Added: ['Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml']. Removed: []\nE\
+      \       assert {'AMD_Acidoph...re.yaml', ...} == {'AMD_Acidoph...re.yaml', ...}\nE         \nE         Extra\
+      \ items in the left set:\nE         'Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml'\nE         Use -v to\
+      \ get more diff\n\ntests/test_participating_taxa.py:428: AssertionError\n=========================== short\
+      \ test summary info ============================\nFAILED tests/test_participating_taxa.py::test_the_corpus_is_unchanged_by_this_feature\n\
+      1 failed, 765 passed in 277.98s (0:04:37)\n"
+    disposition: 'Preserved initial failure: explicit pine participating_taxa adds one intentional allowlist user.
+      Actual connectivity census unchanged. Added only that filename to the exact-use allowlist; no auditor rule,
+      census bound or production record changed to hide the failure.'
+participant_census:
+  measurements:
+    baseline:
+      records: 460
+      with_community_level: 394
+      mixed: 126
+      community_level_only: 268
+      taxa: 1517
+      credited_solely_by_the_rule: 1243
+    current:
+      records: 460
+      with_community_level: 394
+      mixed: 126
+      community_level_only: 268
+      taxa: 1517
+      credited_solely_by_the_rule: 1243
+  delta:
+    records: 0
+    with_community_level: 0
+    mixed: 0
+    community_level_only: 0
+    taxa: 0
+    credited_solely_by_the_rule: 0
+  interpretation: Legacy community-level census unchanged. It counts members without pairwise representation, not
+    actual explicit participant coverage; no canonical taxon or auditor-rule change.
+corpus:
+  records: 460
+  nodes: 1433
+  edges: 592
+  review_status_counts:
+    needs_research: 47
+    pending: 152
+    reviewed: 261
+limitations:
+- Fresh post-schema before-paper two-root baseline:460records,921caches,1435nodes598arrows,48warnings and zero structural
+  defects. Nine original nodes/six arrows reviewed; seven biological nodes remain and no arrows. Two empty graphs
+  remain explicitly needs_research, not certified complete.
+- Four independent primary abstracts and all four existing target caches read. Primary main texts remain inaccessible;
+  publisher previews are not full texts. Open companion PMID37154752 main text read, but its all-Shewanella 60transfer/180day
+  experiment cannot establish exact CR/DR primary methods. No paywall bypass.
+- 'Both openly linked pine supplements read: all six PDF pages visually inspected after local rendering, XLSX tables
+  S1/S2 parsed as cells. Phomopsis plates, cell-free urediniospore inhibition and pairwise compatibility are distinct
+  assays. Small publisher main-figure previews were downloaded but not used for numerical claims; main figures/full
+  methods not audited.'
+- Preserve denitrification/productivity/stability positives and ecological decomposition, without dominance intervention
+  or compound-resolved niche claims. Remove workflow nodes and noncausal directions; biological direction research1706remains
+  open.
+- Preserve pine compatibility, selected-isolate inhibition, pot growth and PPO/POD increases. Remove reciprocal
+  mutualism, unsupported trait mediation and two isolate-to-host arrows. Explicit participants distinguish three
+  screened final-community isolates from all five pot/compatibility members; species-sharing OB3/NA3 remain distinct
+  labels. No disease-control or priming proof.
+- Beverage/refinery discussion-only edits preserve positive endpoints without adding structure. Whole-beverage mouse
+  response is not human benefit or specific-metabolite mediation. Pico monoculture wins oil/grease removal; ambiguous
+  lipid/seed treatment arms remain unassigned. New structure1707/1708requires reviewed scoped Edison report.
+- All921caches,456otherrecords and raw non-graph blocks unchanged. Four append-only histories and concrete curation
+  events. Existing non-graph claims preserved, not certified; metadata1709remains open. Denitrifying YAML alias
+  is preserved outside graph without mutation leakage.
+- Dedup current all-state issue titles/bodies and ignored/hidden local searches with explicit .git/docs/site/references_cache
+  exclusions; target caches separately read. Closed1116/1117/1118bodies read. Comments/PRs not exhaustive.
+- Three single-community Edison causal dry runs:11340/7735/8529characters, zero provider jobs or credits. Scoped
+  request unanswered; initial generic authorization and prior denied scopes do not authorize these jobs. Repair1704/1705close
+  only after protected-main merge;1706-1709remainOPEN.
+- Validation/rendering outputs are recorded separately, not preasserted. Self-adversarial review is not independent
+  approval, whole-record certification or corpus completion. Protected merge and dependent-safe branch cleanup remain
+  separate gates.

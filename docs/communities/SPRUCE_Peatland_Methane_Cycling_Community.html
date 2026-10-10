@@ -604,7 +604,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for SPRUCE Peatland Methane-Cycling Microbial Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, commensalism, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -617,13 +617,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -632,9 +627,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Soil Organic Matter-Derived Terminal Electron Acceptors</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Cleavage of peat soil organic matter supplies terminal electron acceptors for anaerobic carbon decomposition, allowing sulfate/sulfite reduction, denitrification, and acetogenesis to predominate over methanogenesis by gene abundance even in an acidic, anoxic, inorganic-electron-acceptor-limited peatland.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED: multiomics and metabolite profiles suggest that cleavage of soil organic matter supplies terminal electron acceptors for anaerobic respiration. Relative gene abundances indicate substantial potential for sulfate/sulfite reduction, denitrification and acetogenesis; they do not directly rank process fluxes or demonstrate a neutral-beneficiary relationship between taxa. The authors explicitly require process-specific rate measurements to test the mechanism.</p>
 
 
 
@@ -673,7 +667,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Depth-Stratified Anaerobic Peat Metabolism
-                        <p class="prewrap causal-description">Soil organic matter electron-acceptor availability varies along the peat profile and helps structure depth-specific anaerobic terminal carbon pathways.</p>
+                        <p class="prewrap causal-description">HYPOTHESIZED: depth-dependent availability of electron acceptors released from organic matter may help select the metabolic pathways represented along the peat profile. The genomic and metabolite correlations support the conceptual model but do not independently isolate acceptor release as the cause of stratification.</p>
                     </div>
 
                 </div>
@@ -715,10 +709,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Acetate-Fueled Methanogenesis Under Warming</h3>
+                    <h3>Inferred Acetate Supply to Methanogens</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Elevated temperatures increase substrate availability, including acetate, which supports methanogenic activity in anaerobic peat. The inferred interaction links acetogenic production of acetate in deep peat to acetoclastic and hydrogenotrophic methanogenesis by archaeal methanogens.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED: acetogenic bacteria may supply acetate to methanogens, but the deep-peat guild-to-guild transfer is not directly traced. Greater deep-peat Wood-Ljungdahl pathway potential and acetate accumulation are distinct from surface acetogen activity associated with warming. Surface methanogens express acetoclastic and hydrogenotrophic pathways; acetate feeds the acetoclastic route, while hydrogenotrophy uses hydrogen and carbon dioxide. These observations do not demonstrate acetate transport from deep peat to the surface or quantify the contribution of this particular donor guild to warming-induced methane production.</p>
 
 
                 <p><strong>Source Taxon:</strong> deep peat acetogenic bacteria</p>
@@ -791,6 +785,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40715043/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40715043</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"the genomic potential for acetogenesis via the Wood-Ljungdahl pathway continues to increase, resulting in the highest concentrations of acetate in the deep peat"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -798,9 +805,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Depth-Stratified Anaerobic Peat Metabolism</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">SPRUCE peat microbial composition and functional potential vary with depth, structuring terminal anaerobic carbon turnover across surface and deep peat zones.</p>
+                <p class="prewrap interaction-description">Community composition and genomic functional potential differ with peat depth. Surface layers contain more aerobic and fermentative potential, whereas deeper layers contain diverse anaerobic pathways and greater acetogenic potential. This supports environmental stratification, not by itself reduced competition among species or a measured flux from deep producers to surface consumers.</p>
 
 
 
@@ -840,8 +846,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Acetate-Fueled Methanogenesis Under Warming
-                        <p class="prewrap causal-description">Depth-stratified anaerobic metabolism includes increasing Wood-Ljungdahl acetogenesis potential and the highest acetate concentrations in deep peat, providing acetate that can feed active archaeal methanogenesis in the bog.</p>
+                        <span class="flow-arrow">→</span> Inferred Acetate Supply to Methanogens
+                        <p class="prewrap causal-description">HYPOTHESIZED: the depth-associated distribution of acetogenic potential and acetate provides a possible substrate-supply context for methanogens in the peat. It does not establish a deep-to-surface transport pathway, a specific donor-recipient flux, or the cause of the surface warming response.</p>
                     </div>
 
                 </div>
@@ -940,6 +946,45 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which inferred electron-acceptor and acetate transfers are supported by direct process measurements?
+                </h3>
+                <p class="prewrap">The primary study explicitly presents a conceptual model and calls for process-specific rates and physiological confirmation. Preserve pathway potential, metabolite distributions and the observed surface expression response without equating them with quantified flux. Deep acetate accumulation does not identify its consumers or prove vertical transport. COMMUNITY_LEVEL stratification does not establish reduced competition. No new topology is introduced.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Soil Organic Matter-Derived Terminal Electron Acceptors</code>, <code>ecological_interactions#Inferred Acetate Supply to Methanogens</code>, <code>ecological_interactions#Depth-Stratified Anaerobic Peat Metabolism</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">COMPUTATIONAL</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/40715043/" rel="nofollow noreferrer">PMID:40715043</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">our hypotheses must be confirmed by process-specific rate measurements in the future</p>
+                        <p class="muted small prewrap">The primary discussion explicitly limits mechanistic certainty.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1061,7 +1106,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1074,7 +1118,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1135,7 +1178,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1186,11 +1229,11 @@
             processes.push("methane biosynthetic process");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "Acetate-Fueled Methanogenesis Under Warming",
+                label: "Inferred Acetate Supply to Methanogens",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1215,7 +1258,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 

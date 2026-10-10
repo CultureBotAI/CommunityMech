@@ -587,16 +587,11 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Dehalococcoides-Desulfovibrio Lactate-Fed TCE Dechlorination Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, syntrophy, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for syntrophy. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -605,8 +600,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -617,7 +612,7 @@
                     <h3>Lactate Fermentation Supports Dehalococcoides Growth</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">D. vulgaris Hildenborough ferments lactate and provides hydrogen and acetate that support D. mccartyi strain 195 growth and reductive dechlorination in the coculture.</p>
+                <p class="prewrap interaction-description">DvH fermentation of lactate supplies hydrogen as electron donor and acetate for strain-195 growth in the syntrophic coculture. Hydrogen consumption by the dechlorinator supports fermentative energetics. This does not establish that DvH supplies every required cofactor; later cobalamin-free tests required an additional corrinoid source or cobalamin amendment.</p>
 
 
                 <p><strong>Source Taxon:</strong> Desulfovibrio vulgaris Hildenborough</p>
@@ -670,7 +665,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Enhanced TCE Dechlorination By Syntrophic Support
-                        <p class="prewrap causal-description">H2 and acetate from DvH lactate fermentation feed the obligately H2-consuming D. mccartyi strain 195, enabling and accelerating reductive TCE dechlorination (the community&#39;s bioremediation function).</p>
+                        <p class="prewrap causal-description">DvH-derived hydrogen and acetate support strain-195 growth and reductive dechlorination in the tested coculture. The faster dechlorination comparison does not isolate every proposed ancillary benefit; proton translocation, amino-acid supply and corrinoid-related effects are not separately demonstrated by this arrow.</p>
                     </div>
 
                 </div>
@@ -706,6 +701,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/24463969/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24463969</a>
+
+                            - PARTIAL (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Only the triculture exhibited sustainable dechlorination and cell growth"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -713,16 +721,13 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Enhanced TCE Dechlorination By Syntrophic Support</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">D. mccartyi strain 195 uses partner-supported reducing equivalents to dechlorinate trichloroethene, with coculture dechlorination rates and strain 195 cell yield enhanced relative to strain 195 grown alone.</p>
+                <p class="prewrap interaction-description">Strain 195 showed faster reductive dechlorination and greater cell yield in DvH coculture than in isolation. The approximately threefold comparison concerns maximum dechlorination rate, not every growth endpoint. This is the recipient dechlorinator phenotype, not a second DvH-to-Dhc195 metabolite-transfer event.</p>
 
 
-                <p><strong>Source Taxon:</strong> Desulfovibrio vulgaris Hildenborough</p>
+                <p><strong>Source Taxon:</strong> Dehalococcoides mccartyi strain 195</p>
 
 
-
-                <p><strong>Target Taxon:</strong> Dehalococcoides mccartyi strain 195</p>
 
 
 
@@ -798,10 +803,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Sulfate-Reduction Perturbation Of Dechlorination</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>Sulfide-Associated Inhibition Of Dechlorination</h3>
                 </div>
-                <p class="prewrap interaction-description">Later constructed-consortium work tested how sulfate and generated sulfide affect dechlorination, showing that sulfide toxicity can inhibit growth and dechlorination under electron-acceptor-limiting conditions.</p>
+                <p class="prewrap interaction-description">In the electron-acceptor-limited DvH/195 coculture, sulfate reduction at high initial sulfate generated sulfide and inhibited strain-195 dechlorination and growth. This is conditional sulfide-associated inhibition, not a general effect of sulfate itself or demonstrated hydrogen starvation. Donor-limited butyrate-triculture and enrichment outcomes are separate experiments.</p>
 
 
                 <p><strong>Source Taxon:</strong> Desulfovibrio vulgaris Hildenborough</p>
@@ -854,7 +858,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Enhanced TCE Dechlorination By Syntrophic Support
-                        <p class="prewrap causal-description">Under high sulfate, DvH sulfate reduction diverts reducing equivalents and generates sulfide, whose toxicity suppresses reductive TCE dechlorination — opposing the syntrophic support edge.</p>
+                        <p class="prewrap causal-description">Under the tested high-sulfate, electron-donor-excess conditions, accumulated sulfide suppresses strain-195 dechlorination despite available hydrogen. Electron allocation to sulfate reduction is not sufficient evidence that hydrogen competition caused this inhibition. The arrow qualifies the recipient phenotype under this perturbation, not its unperturbed coculture rate.</p>
                     </div>
 
                 </div>
@@ -886,7 +890,7 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"sulfide at 5 mM exhibited inhibitory effects on growth of the sulfate reducer"</div>
+                        <div class="snippet">"sulfide at 5 mM exhibited inhibitory effects"</div>
 
                     </li>
 
@@ -950,6 +954,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which ancillary partner benefits and sulfide-sensitive processes explain strain-195 performance?
+                </h3>
+                <p class="prewrap">Keep measured fermentation support and conditional inhibition distinct. The 2012 full body was unavailable; ancillary benefits remain potential. The 2017 primary body distinguishes donor-excess cocultures from donor-limited tricultures and shows inhibition despite hydrogen availability. Its abstract and Results differ on the DvH sulfide threshold. Expression changes do not by themselves identify the inhibited enzyme. Broader field concentrations and mechanisms are not established by these laboratory comparisons. Non-graph follow-up: #1385.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Lactate Fermentation Supports Dehalococcoides Growth</code>, <code>ecological_interactions#Enhanced TCE Dechlorination By Syntrophic Support</code>, <code>ecological_interactions#Sulfide-Associated Inhibition Of Dechlorination</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1358,7 +1381,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1371,7 +1393,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1444,7 +1465,7 @@
             processes.push("anaerobic respiration");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1473,7 +1494,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1505,23 +1526,18 @@
             });
 
 
-            var srcKey = "Desulfovibrio vulgaris Hildenborough";
+            var srcKey = "Dehalococcoides mccartyi strain 195";
             if (taxonNodeIds[srcKey]) {
                 links.push({ source: taxonNodeIds[srcKey], target: intId });
             }
 
 
 
-            var tgtKey = "Dehalococcoides mccartyi strain 195";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1544,7 +1560,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Sulfate-Reduction Perturbation Of Dechlorination",
+                label: "Sulfide-Associated Inhibition Of Dechlorination",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

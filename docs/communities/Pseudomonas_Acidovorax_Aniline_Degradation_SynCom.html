@@ -617,7 +617,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Pseudomonas-Acidovorax Aniline-Degradation SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -636,7 +636,7 @@
                 <div class="interaction-header">
                     <h3>RF-PH enhanced aniline degradation</h3>
                 </div>
-                <p class="prewrap interaction-description">The optimized 3:1 RF-PH consortium degraded 500 mg/L aniline more rapidly within 12 h than either single-strain culture, and also improved 12 h removal at 1000 mg/L aniline.</p>
+                <p class="prewrap interaction-description">The optimized 3:1 RF-PH consortium degraded 500 mg/L aniline more rapidly within 12 h than either single-strain culture, and also improved 12 h removal at 1000 mg/L aniline. These analytical removal outcomes do not by themselves establish complete mineralization, a catechol pathway or a directional metabolite exchange between strains.</p>
 
 
 
@@ -696,7 +696,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -709,6 +709,56 @@
                 <p class="muted small">Attaches to: <code>ecological_interactions#RF-PH enhanced aniline degradation</code></p>
 
 
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Does the analytical removal endpoint establish the asserted mineralization pathway?
+                </h3>
+                <p class="prewrap">The positive consortium-versus-monoculture comparisons remain supported. Main methods quantify residual aniline, while the conclusion asserts catechol-pathway mineralization without corresponding mechanistic results in the main text reviewed. Supplements were not inspected, so this is an evidence boundary rather than proof that no additional data exist. No transferred intermediate, competition or new arrow is inferred; the existing open-ended mechanism discussion is preserved.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#RF-PH enhanced aniline degradation</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/41900437/" rel="nofollow noreferrer">PMID:41900437</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">For 500 mg·L−1 aniline, the degradation rate reached 91.28% within 12 h, representing an increase of 11.33% and 17.02% compared to the degradation rates achieved by strain RF or strain PH alone, respectively.</p>
+                        <p class="muted small prewrap">Supports the community-level enhancement of aniline degradation by RF-PH relative to either monoculture.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/41900437/" rel="nofollow noreferrer">PMID:41900437</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">For 1000 mg·L−1 aniline, the degradation rate reached 73.06% within 12 h, representing an increase of 18.25% and 28.04% compared to the degradation by strain RF or strain PH alone, respectively.</p>
+                        <p class="muted small prewrap">Supports the RF-PH consortium&#39;s enhanced 1000 mg/L aniline degradation relative to either monoculture.</p>
+                    </div>
+
+                </details>
 
 
             </div>
@@ -1039,7 +1089,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1052,7 +1101,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };

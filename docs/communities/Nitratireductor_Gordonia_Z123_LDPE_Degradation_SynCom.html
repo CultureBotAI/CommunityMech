@@ -582,7 +582,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Nitratireductor-Gordonia Z123 LDPE-Degradation SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -590,8 +590,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -600,9 +600,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Z123 LDPE functional differentiation</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Genomic and proteomic analyses of Z123 suggested functional differentiation among the Nitratireductor and Gordonia members across oxidative activation, chain scission, and downstream LDPE metabolism.</p>
+                <p class="prewrap interaction-description">PARTIAL - Integrated genomic and proteomic analyses suggest differentiation among the Z123 Nitratireductor and Gordonia members across oxidative activation, chain scission and downstream metabolism. This combines gene and protein evidence, but the accessible abstract does not establish strain-resolved substrate partitioning, intermember transfer or polymer-carbon assimilation/mineralization. The consortium-level weight and molecular-weight losses and recombinant MCO1/Lcp3 polymer-modification assays remain positive results; their missing graph endpoints require separate curation.</p>
 
 
 
@@ -635,7 +634,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42641428/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42641428</a>
 
-                            - SUPPORT (COMPUTATIONAL)
+                            - PARTIAL (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"Integrated genomic and proteomic analyses suggested functional differentiation among consortium members involving oxidative activation, chain scission, and downstream metabolism."</div>
@@ -652,7 +651,7 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
@@ -661,6 +660,21 @@
                     Which Z123 strain encodes and expresses the oxidative activation, chain scission, and downstream-metabolism steps in the consortium?
                 </h3>
                 <p class="prewrap">The abstract reports functional differentiation among consortium members and recombinant MCO1/Lcp3 LDPE activity, but the accessible cache does not assign individual enzymes or reaction steps to Nitratireductor sp. Z-1, Gordonia sp. Z-2, or Gordonia sp. Z-3.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Z123 LDPE functional differentiation</code></p>
+
+
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which measurements establish the proposed causal mechanism in this exact system?
+                </h3>
+                <p class="prewrap">Retain the reported 30-day 9.98% weight loss and 50.88% molecular-weight reduction as measured consortium outcomes, and the recombinant MCO1/Lcp3 LDPE-modification assays as separate enzyme-level evidence. GC-MS products are putative LDPE-associated compounds, not isotope-traced assimilation or mineralization. Combined enzymes exceeded corresponding individual half-dose treatments; this does not by itself establish full-dose-matched synergy, necessity in the living consortium or which strain supplied each enzyme. The existing strain-specific question stays open. Missing endpoint nodes await scoped Edison causal research and primary-source inspection; this sparse graph remains needs_research.</p>
 
                 <p class="muted small">Attaches to: <code>ecological_interactions#Z123 LDPE functional differentiation</code></p>
 
@@ -846,7 +860,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -859,7 +872,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -920,7 +932,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];

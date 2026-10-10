@@ -64,97 +64,46 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Pseudomonas-Centered Metabolic Facilitation
-  description: Seven simplified-SynCom partners with low substrate-use overlap
-    promote Pseudomonas aeruginosa Q6 growth through spent-medium metabolites,
-    including N-acetyl-L-serine among compounds enriched in mutually
-    interacting strains.
-  interaction_type: MUTUALISM
+  description: 'Seven selected helper strains promote P. aeruginosa Q6 growth in spent-medium assays; only three
+    of those pairs show bilateral positive effects. PARTIAL: differential substrate depletion and candidate secreted/consumed
+    compounds, including N-acetyl serine, support potential cross-feeding, not compound-specific rescue, resolved
+    stereochemistry or measured transfer in the rhizosphere. MUTUALISM cannot describe all seven helper pairs.'
+  interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: N-acetyl-L-serine
-    term:
-      id: CHEBI:45441
-      label: N-acetyl-L-serine
-  biological_processes:
-  - preferred_term: biofilm formation
-    term:
-      id: GO:0042710
-      label: biofilm formation
-  downstream:
-  - target: Pseudomonas Biofilm Pathway Enrichment
-    description: Metabolic facilitation by the seven helper strains supports the
-      Pseudomonas-centered simplified community whose inoculation enriches
-      Pseudomonas biofilm-formation functions in the rhizosphere.
   evidence:
-  - *id001
   - reference: PMID:38840214
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We identified compounds such as n-acetyl serine and lysine-hydroxyproline
-    explanation: Names N-acetyl-L-serine as a spent-medium compound in strains with
-      mutualistic effects on Pseudomonas aeruginosa Q6.
+    snippet: We identified that seven strains enhanced Pseudomonas aeruginosa Q6
+    explanation: Supports the positive spent-medium effect of the seven selected partners on Q6.
   - reference: PMID:38840214
     supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: increase in the relative abundance and biofilm-forming pathways of Pseudomonas
-      post-SynCom inoculation
-    explanation: Links the simplified SynCom phenotype to Pseudomonas biofilm-forming
-      pathways in the inoculated rhizosphere.
-- name: Pseudomonas Biofilm Pathway Enrichment
-  description: SynCom inoculation increases Pseudomonas abundance and enriches
-    Pseudomonas biofilm-synthesis pathway genes in the watermelon rhizosphere.
-  interaction_type: COLONIZATION_FACILITATION
+    evidence_source: IN_VITRO
+    snippet: Among these, three strains engaged in mutualistic interactions
+    explanation: Restricts bilateral benefits to three pairs rather than all seven.
+  - reference: PMID:38840214
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: indicating metabolic cross-feeding potential among these species
+    explanation: The metabolomic candidates support potential exchange, not a causal single-metabolite assay.
+- name: SSC8 watermelon growth promotion without added pathogen
+  description: The eight-member SSC8 improved ungrafted-watermelon growth in non-sterile greenhouse soil, with height,
+    root weight and dry weight comparable to the parent16-member SBC. This simplified-consortium experiment had
+    no added pathogen. The55.6% disease-index reduction and biofilm-pathway enrichment were measured for SBC and
+    must not be assigned to SSC8; neither plant protection nor biofilm mediation is established by this growth assay.
   scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: biofilm formation
-    term:
-      id: GO:0042710
-      label: biofilm formation
-  downstream:
-  - target: Watermelon Growth and Disease-Resistance Increase
-    description: Pseudomonas biofilm-formation enrichment and rhizosphere
-      colonization are linked to the SynCom's improved watermelon growth and
-      Fusarium oxysporum resistance.
-  evidence:
-  - reference: PMID:38840214
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: SynCom inoculation was found to substantially increase the abundance of rhizosphere
-      Pseudomonas
-    explanation: Supports Pseudomonas enrichment after SynCom inoculation in the
-      watermelon rhizosphere.
-  - reference: PMID:38840214
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: metagenomics analysis highlighted a significant enrichment of the Pseudomonas
-      biofilm synthesis pathway in SynCom-treated groups
-    explanation: Supports enrichment of Pseudomonas biofilm-formation functions
-      in SynCom-inoculated rhizospheres.
-- name: Watermelon Growth and Disease-Resistance Increase
-  description: The grafted-rhizosphere SynCom increases ungrafted-watermelon
-    growth and reduces Fusarium oxysporum disease pressure in non-sterile
-    greenhouse soil.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: defense response to fungus
-    term:
-      id: GO:0050832
-      label: defense response to fungus
   evidence:
   - reference: PMID:38840214
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: SynCom promoted ungrafted watermelon growth and alleviated disease
-    explanation: Supports the SynCom plant-growth and Fusarium-wilt protection
-      endpoint in non-sterile greenhouse soil.
+    snippet: none of the treatments in this potting experiment were supplemented with pathogen
+    explanation: Defines the no-added-pathogen scope of the simplified-consortium experiment.
   - reference: PMID:38840214
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: significantly lower disease index (with a 55.6% reduction) and F. oxysporum
-      abundance
-    explanation: Quantifies the disease-resistance endpoint for SynCom-treated,
-      Fusarium-challenged watermelon plants.
+    snippet: the growth parameters of the SSC8 group plants, including plant height, root weight, and dry weight,
+      were comparable to the initial SynCom (SBC) group
+    explanation: Preserves positive SSC8 growth results without transferring the parent disease-challenge outcome.
 environmental_factors:
 - name: defined synthetic community design
   value: Initial 16 core bacterial strains from grafted watermelon rhizosphere were refined to eight synergistic
@@ -219,3 +168,29 @@ growth_media:
     snippet: Each replicate was run in polypropylene pots filled with 600 g of dry, non-sterile soil
       with no history of watermelon cultivation.
     explanation: Describes the pot/soil cultivation vessel for the SynCom-inoculated watermelon plants.
+discussions:
+- discussion_id: watermelon_causal_graph_scope_batch118
+  prompt: Does SSC8 itself suppress Fusarium disease, and do its candidate metabolites or biofilms mediate that
+    effect?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Pseudomonas-Centered Metabolic Facilitation
+  - ecological_interactions#SSC8 watermelon growth promotion without added pathogen
+  rationale: The paper tests pathogen challenge and metagenomic biofilm-pathway enrichment for the parent16-member
+    SBC, whereas the simplified SSC8 experiment measures growth without added pathogen. Spent-medium benefit and
+    metabolomic candidates do not close that cross-experiment causal chain. An SSC8 pathogen challenge and mechanism-specific
+    controls would be required. The broad canonical membership placeholders also need separate supplement-grounded
+    curation under issue1919.
+  evidence:
+  - reference: PMID:38840214
+    snippet: none of the treatments in this potting experiment were supplemented with pathogen
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T12:47:20Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Preserve seven positive spent-medium responses and three bilateral pairs with only potential cross-feeding.;
+    Restrict the SSC8 outcome to measured growth without added pathogen. Issue#1917; reports/causal_graph_review/decisions/20261008-four-records-batch118.yaml
+  llm_assisted: true

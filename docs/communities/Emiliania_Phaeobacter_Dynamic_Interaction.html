@@ -563,7 +563,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Emiliania huxleyi-Phaeobacter inhibens Dynamic Interaction</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -573,11 +573,6 @@
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
                              aria-hidden="true" data-symbol="symbolDiamond"
                              data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -593,7 +588,7 @@
                     <h3>Algal Nutrient Provisioning Supports Bacterial Growth</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">E. huxleyi enables growth of P. inhibens in L1-Si medium, which is otherwise non-permissive for the bacterium, by supplying suitable forms of essential nutrients.</p>
+                <p class="prewrap interaction-description">E. huxleyi CCMP3266 supports P. inhibens DSM 17395 growth in otherwise nonpermissive L1-Si medium. Nutrient-rescue comparisons support algal supply of usable nutrient forms; DMSP can contribute sulfur but did not alone provide an adequate carbon supply in the tested context. Bacterial growth was monitored as colony-forming units, which may represent rosettes rather than single cells. Nutrient support does not by itself demonstrate a causal step from general biomass increase to the specific tryptophan/IAA response.</p>
 
 
                 <p><strong>Source Taxon:</strong> Emiliania huxleyi CCMP3266</p>
@@ -606,28 +601,7 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
 
-                    <li>
-                        photosynthesis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015979"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015979</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Tryptophan-Enhanced Bacterial Attachment And IAA Production
-                        <p class="prewrap causal-description">Algal nutrient provisioning sustains P. inhibens growth in the non-permissive L1-Si medium, putting the heterotroph in the phycosphere where algal tryptophan stimulates attachment and IAA production.</p>
-                    </div>
-
-                </div>
 
 
 
@@ -647,6 +621,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/27855786/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:27855786</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"CFU may include rosettes as well as individual bacteria"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -654,9 +641,8 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Tryptophan-Enhanced Bacterial Attachment And IAA Production</h3>
-                    <span class="interaction-type">MUTUALISM</span>
                 </div>
-                <p class="prewrap interaction-description">Tryptophan exuded from algal cells increases P. inhibens attachment and bacterial production of indole-3-acetic acid, linking algal exudates to bacterial behavior and hormone production.</p>
+                <p class="prewrap interaction-description">Algal exudates supported tryptophan-auxotroph growth, establishing bioavailable tryptophan. In separate bacterial cultures, added tryptophan increased IAA production and isotope labeling demonstrated conversion of the added precursor into IAA. Added tryptophan also increased bacterial attachment in coculture, particularly to naked algal cells. These assays do not trace the complete endogenous algal-to-bacterial-to-algal flux or measure de novo tryptophan biosynthesis in the recipient. The E. coli auxotroph is an assay reporter, not a community member.</p>
 
 
                 <p><strong>Source Taxon:</strong> Emiliania huxleyi CCMP3266</p>
@@ -681,25 +667,14 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        tryptophan biosynthetic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0000162"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0000162</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> IAA-Mediated Algal Growth Promotion And Killing
-                        <p class="prewrap causal-description">Algal tryptophan stimulates P. inhibens indole-3-acetic acid production, and that bacterially produced IAA drives the downstream algal growth-promotion and killing response.</p>
+                        <span class="flow-arrow">→</span> Algal Growth Promotion and Late Killing with Proposed IAA Mediation
+                        <p class="prewrap causal-description">HYPOTHESIZED: Tryptophan-enhanced IAA production could contribute to initial algal promotion and late killing. Added tryptophan accelerated coculture bleaching, but also changed attachment; bulk coculture IAA was undetectable and pathway mutants retained production. The experiment therefore does not isolate IAA mediation or show that measured bacterial IAA reached the exogenous toxic dose.</p>
                     </div>
 
                 </div>
@@ -722,16 +697,41 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/27855786/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:27855786</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"all produced IAA is fully labeled"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/27855786/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:27855786</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"This indicates that algal exudates contain bioavailable tryptophan"</div>
+
+                    </li>
+
                 </ul>
 
             </div>
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>IAA-Mediated Algal Growth Promotion And Killing</h3>
-                    <span class="interaction-type">PREDATION</span>
+                    <h3>Algal Growth Promotion and Late Killing with Proposed IAA Mediation</h3>
                 </div>
-                <p class="prewrap interaction-description">P. inhibens affects E. huxleyi physiology through indole-3-acetic acid, initially promoting algal growth but ultimately contributing to algal death in aging co-cultures.</p>
+                <p class="prewrap interaction-description">P. inhibens coculture initially increased algal yield, followed by late bleaching and increased algal death. Day-17 Sytox staining was reported as 94% dead in coculture versus 21% in axenic algae; day-20 TUNEL labeling showed more fragmented DNA. HYPOTHESIZED: IAA mediates both phases. Added IAA promoted growth at 1 and 100 micromolar but was harmful at 1000 micromolar; these are not measured coculture exposures. IAA was undetectable in coculture, and tested pathway mutants still produced IAA and bleached algae. The experiments do not establish IAA necessity, nutrient-consuming predation, a unique death pathway or natural-bloom termination.</p>
 
 
                 <p><strong>Source Taxon:</strong> Phaeobacter inhibens DSM 17395</p>
@@ -765,10 +765,49 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/27855786/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:27855786</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Both algal growth enhancement and algal death are driven by the bacterially-produced phytohormone indole-3-acetic acid"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/27855786/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:27855786</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"in these conditions IAA was undetectable"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/27855786/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:27855786</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"these mutants were still capable of producing IAA"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/27855786/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:27855786</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"while in the pure culture only 21% are dead by day 17"</div>
 
                     </li>
 
@@ -816,6 +855,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Is endogenous IAA necessary for algal promotion and late killing in this coculture?
+                </h3>
+                <p class="prewrap">The main text explicitly hypothesizes IAA mediation despite categorical abstract wording. Bulk coculture IAA was undetectable, exogenous micromolar dose responses are not measured local exposure, and pathway mutants retained IAA and bleaching. Labeled precursor conversion in bacterial culture plus exudate auxotroph rescue does not trace the complete endogenous loop. Tryptophan addition is pleiotropic and changes attachment. Remove the nutrient-provisioning workflow arrow rather than infer a selective route. Roseobacticide activity against CCMP372 cannot be assigned to CCMP3266; neither that comparator nor the E. coli reporter is a community member. Death staining and expression associations do not uniquely establish a death pathway or global bloom effects. Preserve nonpermissive-medium guidance and original YAML aliases; non-graph claims remain #1456.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Algal Nutrient Provisioning Supports Bacterial Growth</code>, <code>ecological_interactions#Tryptophan-Enhanced Bacterial Attachment And IAA Production</code>, <code>ecological_interactions#Algal Growth Promotion and Late Killing with Proposed IAA Mediation</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -975,7 +1033,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -988,7 +1045,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1047,11 +1103,7 @@
 
             var processes = [];
 
-
-            processes.push("photosynthesis");
-
-
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1080,7 +1132,7 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1091,11 +1143,7 @@
 
             var processes = [];
 
-
-            processes.push("tryptophan biosynthetic process");
-
-
-            var evidenceCount = 1;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
@@ -1124,7 +1172,7 @@
 
         (function() {
             var intId = "interaction:2";
-            var intType = "PREDATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1133,11 +1181,11 @@
 
             var processes = [];
 
-            var evidenceCount = 1;
+            var evidenceCount = 4;
 
             nodes.push({
                 id: intId,
-                label: "IAA-Mediated Algal Growth Promotion And Killing",
+                label: "Algal Growth Promotion and Late Killing with Proposed IAA Mediation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

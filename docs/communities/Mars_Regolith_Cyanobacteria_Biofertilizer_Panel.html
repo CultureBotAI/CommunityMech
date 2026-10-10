@@ -634,7 +634,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Mars Regolith Cyanobacteria/Microalga Biofertilizer Panel</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (commensalism, niche partitioning).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -642,13 +642,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolWye"
-                             data-color="#cf7830"></svg> Commensalism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -657,12 +652,23 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>MGS-1 Regolith Extract Nutrient Supply</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
-                <p class="prewrap interaction-description">Mars Global Simulant MGS-1 was extracted with water to make the poor martian-resource medium whose sulfur, potassium, and calcium content supplied a subset of the nutrients needed by the photosynthetic panel.</p>
+                <p class="prewrap interaction-description">The organisms were assayed separately, not as a coculture. COMMUNITY_LEVEL is retained as the current container for shared abiotic/panel observations, not evidence of emergent community activity; record-model placement remains OPEN under #573. Autoclaved MGS-1 aqueous extract contained measured S, K and Ca and smaller amounts of other elements (main Table 1). Element totals do not establish ionic speciation, bioavailable uptake or a complete growth medium. Phosphorus was not detected in the extract, and 5 mL of established inoculum was added to 75 mL treatment, so intracellular reserves and medium carryover cannot be excluded. Cultivation used an Earth-like atmosphere, not exposed Martian surface conditions.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Anabaena cylindrica,
+
+                    Nostoc muscorum,
+
+                    Arthrospira platensis,
+
+                    Chlorella vulgaris
+
+                </p>
 
 
 
@@ -684,25 +690,14 @@
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        photosynthesis
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015979"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015979</a>)
-                    </li>
-
-                </ul>
-
 
 
                 <div class="interaction-flow">
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Diazotrophic Mars Extract Growth Advantage
-                        <p class="prewrap causal-description">The MGS-1 aqueous extract provided the mineral and water resource base on which the nitrogen-fixing cyanobacteria outperformed the non-diazotrophic panel members.</p>
+                        <span class="flow-arrow">→</span> Separate-culture growth on Mars regolith extract
+                        <p class="prewrap causal-description">PARTIAL - water-extracted MGS-1 resources could support the observed growth above water-only controls. The authors propose nitrogen-fixing capacity as an explanation for differential performance, but nitrogen flux, ion requirements and reserve/carryover contributions were not independently isolated; species traits and growth rates differ.</p>
                     </div>
 
                 </div>
@@ -731,13 +726,24 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Diazotrophic Mars Extract Growth Advantage</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Separate-culture growth on Mars regolith extract</h3>
                 </div>
-                <p class="prewrap interaction-description">The diazotrophic cyanobacteria Nostoc muscorum and Anabaena cylindrica thrived in short-term Mars regolith extract culture, whereas the non-nitrogen-fixing Arthrospira platensis and Chlorella vulgaris did not.</p>
+                <p class="prewrap interaction-description">The organisms were assayed separately, not as a coculture. COMMUNITY_LEVEL is retained as the current container for shared abiotic/panel observations, not evidence of emergent community activity; record-model placement remains OPEN under #573. Over 25 days, OD440 and photosystem-II fluorescence supported stronger growth of Nostoc muscorum and Anabaena cylindrica in regolith extract than Arthrospira platensis or Chlorella vulgaris. Nostoc was most consistent; Anabaena fluorescence declined after day 15 and biomass browned later. Arthrospira had mild visible growth and clumping that limited optical measurements, so categorical absence of viable growth is too strong. Photosynthetic efficiency is not measured oxygen production. Diazotrophy is an author-proposed explanation, not directly measured N2 fixation or an interaction among the four organisms.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Anabaena cylindrica,
+
+                    Nostoc muscorum,
+
+                    Arthrospira platensis,
+
+                    Chlorella vulgaris
+
+                </p>
 
 
 
@@ -753,12 +759,6 @@
                     </li>
 
                     <li>
-                        nitrogen fixation
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009399"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009399</a>)
-                    </li>
-
-                    <li>
                         growth
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0040007"
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0040007</a>)
@@ -767,16 +767,6 @@
                 </ul>
 
 
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> End-of-Life Biomass Biofertilization
-                        <p class="prewrap causal-description">The 25-day phototroph cultures produced the cyanobacterial and microalgal biomass subsequently supplied to Lemna minor as filtered or sonicated biofertilizer treatments.</p>
-                    </div>
-
-                </div>
 
 
 
@@ -789,7 +779,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/35865930/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:35865930</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"N. muscorum showed the best growth performance when compared to the other species, while A. platensis and C. vulgaris were not able to thrive on Mars regolith extract."</div>
@@ -802,7 +792,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/35865930/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:35865930</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"C. vulgaris was unable to grow, while N. muscorum and A. cylindrica thrived in Mars regolith extract."</div>
@@ -815,13 +805,24 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>End-of-Life Biomass Biofertilization</h3>
-                    <span class="interaction-type">COMMENSALISM</span>
+                    <h3>Processed-culture Lemna biofertilization</h3>
                 </div>
-                <p class="prewrap interaction-description">Biomass from the Mars-regolith-grown phototroph cultures acted as a biofertilizer for Lemna minor, with Arthrospira- and Chlorella-derived treatments stimulating duckweed dry weight to levels comparable to standard synthetic medium.</p>
+                <p class="prewrap interaction-description">Separate 25-day regolith-extract cultures were filtered through 0.45-um membranes or sonicated and supplied as media for a seven-day Lemna minor assay. Arthrospira filtrate and sonicate, and Chlorella filtrate, supported dry-weight yields not significantly different from Steinberg medium, while frond yields remained lower. Filtered versus sonicated treatments of the same species did not significantly differ. These positive processed-material effects are not live commensalism or statistical proof of equivalence. The better-growing Nostoc cultures gave the lowest Lemna yield, so phototroph growth advantage does not establish biofertilizer advantage. Nutrient profiles suggest possible mediation, but carryover, released contents and other metabolites were not selectively isolated. Lemna is the external recipient, not part of the four-phototroph inoculum roster.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Anabaena cylindrica,
+
+                    Nostoc muscorum,
+
+                    Arthrospira platensis,
+
+                    Chlorella vulgaris
+
+                </p>
 
 
 
@@ -863,7 +864,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/35865930/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:35865930</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Cyanobacteria and microalgae (A. platensis and C. vulgaris) showed good abilities as biofertilizing agents, i.e., they stimulated biomass (i.e., dry weight) production at levels comparable to the plants that grew on standard synthetic medium."</div>
@@ -879,6 +880,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which resources mediate phototroph growth and the separate Lemna material-transfer effect?
+                </h3>
+                <p class="prewrap">Retain extract chemistry, positive separate-culture growth and processed-material benefits. Remove the growth-advantage-to-fertilizer workflow arrow: the stronger phototroph growers were not the strongest fertilizer treatments. Nitrogen fixation, phosphate reserves, carryover and specific nutrients remain candidate mechanisms. Living partner benefit and oxygen flux were not measured. #573 remains the shared panel-modeling question; #1585 graph repair and #1586 non-graph assay metadata are distinct. Main Table 1/captions read, not separate supplementary elemental tables/images or raw data. No new nodes/arrows.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#MGS-1 Regolith Extract Nutrient Supply</code>, <code>ecological_interactions#Separate-culture growth on Mars regolith extract</code>, <code>ecological_interactions#Processed-culture Lemna biofertilization</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1213,7 +1233,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1226,7 +1245,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1294,7 +1312,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1306,10 +1324,6 @@
 
 
             var processes = [];
-
-
-            processes.push("photosynthesis");
-
 
             var evidenceCount = 1;
 
@@ -1326,19 +1340,34 @@
 
 
 
+            var participantKeys = [
+
+                "Anabaena cylindrica",
+
+                "Nostoc muscorum",
+
+                "Arthrospira platensis",
+
+                "Chlorella vulgaris"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
 
             processes.push("photosynthesis");
-
-            processes.push("nitrogen fixation");
 
             processes.push("growth");
 
@@ -1347,7 +1376,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Diazotrophic Mars Extract Growth Advantage",
+                label: "Separate-culture growth on Mars regolith extract",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1358,11 +1387,28 @@
 
 
 
+            var participantKeys = [
+
+                "Anabaena cylindrica",
+
+                "Nostoc muscorum",
+
+                "Arthrospira platensis",
+
+                "Chlorella vulgaris"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COMMENSALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1381,7 +1427,7 @@
 
             nodes.push({
                 id: intId,
-                label: "End-of-Life Biomass Biofertilization",
+                label: "Processed-culture Lemna biofertilization",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1391,6 +1437,23 @@
 
 
 
+
+            var participantKeys = [
+
+                "Anabaena cylindrica",
+
+                "Nostoc muscorum",
+
+                "Arthrospira platensis",
+
+                "Chlorella vulgaris"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

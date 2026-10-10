@@ -684,7 +684,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Wine Yeast Five-Species Strain-Substitution Consortium</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for competition. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -708,7 +708,7 @@
                 <div class="interaction-header">
                     <h3>Species drop-out and strain-substitution output shifts</h3>
                 </div>
-                <p class="prewrap interaction-description">Removing a species or substituting one of the two strains representing a species significantly changed population dynamics, growth behavior, and metabolic output across the five-species wine yeast consortium.</p>
+                <p class="prewrap interaction-description">Species drop-out and strain substitution changed population succession, fermentation kinetics and metabolic outputs in the defined five-species synthetic-must panel. These are positive composition-perturbation effects, not identified molecular mechanisms. All tested consortia completed fermentation within the observation period; changed kinetics should not be equated with failure to finish fermentation.</p>
 
 
 
@@ -748,16 +748,29 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42784437/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42784437</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"the molecular mechanisms underlying the observed species- and strain-dependent effects were not addressed in the present work."</div>
+
+                    </li>
+
                 </ul>
 
             </div>
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Interspecies sugar-utilization competition</h3>
+                    <h3>Inferred interspecies sugar-utilization competition</h3>
                     <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">Fermentation sugar utilization and population measurements together supported competitive interactions among the wine yeast species.</p>
+                <p class="prewrap interaction-description">PARTIAL: drop-out-associated sugar-preference shifts and compensatory relative-abundance changes support the authors&#39; competition interpretation, principally among L. thermotolerans, S. bacillaris and T. delbrueckii. These consortium-level observations do not resolve a direct inhibitory agent or establish every pairwise relationship. ARISA measures relative DNA-based succession, not absolute viable population size; viable plating provides complementary evidence. Contact, toxins and nitrogen preferences remain candidate mechanisms, not demonstrated causes here.</p>
 
 
 
@@ -790,7 +803,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/42784437/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42784437</a>
 
-                            - SUPPORT (IN_VITRO)
+                            - PARTIAL (IN_VITRO)
                         </div>
 
                         <div class="snippet">"Sugar utilization and population data jointly revealed competitive interactions among species"</div>
@@ -805,7 +818,7 @@
                 <div class="interaction-header">
                     <h3>Non-Saccharomyces strain-dependent metabolic tuning</h3>
                 </div>
-                <p class="prewrap interaction-description">Strain substitutions in the non-Saccharomyces members shifted metabolic output more broadly than the S. cerevisiae strain, while chemical profiles tracked the species and strain identities assembled into each consortium.</p>
+                <p class="prewrap interaction-description">Among the particular strains tested, non-Saccharomyces substitutions affected a broader range of final metabolites than switching the S. cerevisiae strain. The latter still had detectable effects and was not metabolically silent. This result is panel- and synthetic-must-specific, not a universal ordering of species importance or a demonstration that strain effects share one mechanism.</p>
 
 
 
@@ -868,19 +881,54 @@
         <!-- Associated Datasets -->
 
         <section id="discussions">
-            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(2)</span></h2>
 
             <div class="discussion">
                 <h3>
                     <span class="role-badge">KNOWLEDGE_GAP</span>
                     <span class="role-badge">OPEN</span>
-                    Which exact strain names or culture-collection accessions correspond to the two Saccharomyces cerevisiae, Lachancea thermotolerans, Hanseniaspora uvarum, Starmerella bacillaris, and Torulaspora delbrueckii isolates used in the five-species strain-substitution panel, and which medium and incubation parameters were used for the fermentation assays?
+                    How should the ten reported strains and synthetic-must assay context be represented in the canonical species-level record?
                 </h3>
-                <p class="prewrap">The PubMed abstract for PMID:42784437 identifies the five species and states that each was represented by two phenotypically diverging strains, but it does not name the ten strains, their accessions, the exact fermentation medium, temperature, or timing.</p>
+                <p class="prewrap">The primary article Table 1 names the ten strains, and Methods supplies the synthetic-must assay conditions. The earlier abstract-only gap therefore concerns canonical strain and methods curation rather than missing source information. These non-graph fields require a separate evidence-backed update; species identities and the existing engineering-design block are preserved in this graph repair.</p>
 
                 <p class="muted small">Attaches to: <code>taxonomy#Saccharomyces cerevisiae</code>, <code>taxonomy#Lachancea thermotolerans</code>, <code>taxonomy#Hanseniaspora uvarum</code>, <code>taxonomy#Starmerella bacillaris</code>, <code>taxonomy#Torulaspora delbrueckii</code></p>
 
 
+
+
+            </div>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which mechanisms account for the composition-dependent fermentation phenotypes?
+                </h3>
+                <p class="prewrap">Drop-outs and substitutions establish composition effects but not their molecular mediators. Relative succession is not a complete pairwise interaction matrix, and non-significant statistical interactions are not proof of absence. Do not transfer contact or toxin mechanisms from other systems to this panel.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Species drop-out and strain-substitution output shifts</code>, <code>ecological_interactions#Inferred interspecies sugar-utilization competition</code>, <code>ecological_interactions#Non-Saccharomyces strain-dependent metabolic tuning</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+
+
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42784437/" rel="nofollow noreferrer">PMID:42784437</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">the molecular mechanisms underlying the observed species- and strain-dependent effects were not addressed in the present work.</p>
+
+                    </div>
+
+                </details>
 
 
             </div>
@@ -1047,7 +1095,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1060,7 +1107,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1144,7 +1190,7 @@
             processes.push("fermentation");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
@@ -1176,7 +1222,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Interspecies sugar-utilization competition",
+                label: "Inferred interspecies sugar-utilization competition",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,

@@ -175,10 +175,11 @@ taxonomy:
     explanation: Supports Bacteroidota as another endogenous non-anammox phylum in sludge-amended Delta groups.
 ecological_interactions:
 - name: Delta nrfA nitrate-to-nitrite supply for anammox
-  description: Deleting nrfA in S. oneidensis MR-1 blocks terminal DNRA reduction of nitrite to ammonium. In the Delta-B batch
-    cultures this diverted nitrate reduction toward nitrite accumulation, enriched the Brocadia-containing anammox guild,
-    and let the sludge community route ammonium plus nitrite toward total-nitrogen removal instead of losing anammox contribution
-    to excess ammonium production.
+  description: 'PARTIAL: the nrfA-deficient Shewanella treatment enhanced nitrate-to-nitrite conversion in the sludge
+    consortium, consistent with supplying anammox substrates. Brocadia and anammox-gene enrichment support this
+    interpretation, but final-time metagenomic abundance is not expression or a taxon-resolved flux measurement.
+    Liquid nitrogen profiles do not separately quantify anammox, denitrification and DNRA contributions or establish
+    that all removed nitrogen followed the proposed pairwise route.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -223,21 +224,23 @@ ecological_interactions:
   - reference: PMID:42655905
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Crucially, the ΔnrfA mutant may effectively block the terminal reduction of nitrite to ammonium via the Nap/Nrf
-      pathway.
-    explanation: Supports nrfA deletion as the engineered block in terminal DNRA to ammonium.
+    snippet: Crucially, the ΔnrfA mutant may effectively block the terminal reduction of nitrite to ammonium via
+      the Nap/Nrf pathway.
+    explanation: Supports the authors' proposed terminal-DNRA block; the metagenomic interpretation is not a direct
+      gene-expression or isotope-flux measurement.
   - reference: PMID:42655905
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Metagenomic analysis revealed that this configuration enriched anammox bacteria (Candidatus Brocadia ) and enhanced
-      the abundance of key anammox genes ( hzs and hdh )
-    explanation: Supports Brocadia/anammox-gene enrichment in the optimized 5:1 mutant coupled system.
+    snippet: Metagenomic analysis revealed that this configuration enriched anammox bacteria (Candidatus Brocadia
+      ) and enhanced the abundance of key anammox genes ( hzs and hdh )
+    explanation: Supports Brocadia and anammox-gene enrichment, not independently measured catalytic activity or
+      pathway-specific nitrogen flux.
 - name: Mutant dosage window for anammox performance
-  description: Adding a small Delta nrfA S. oneidensis MR-1 inoculum to anammox sludge improved nitrogen-removal kinetics,
-    but increasing the mutant culture fraction caused nitrite and ammonium accumulation patterns consistent with reduced anammox
-    contribution. The optimal Delta B1 treatment kept 25 mL anammox sludge with 5 mL mutant culture in 500 mL total liquid,
-    a 5:1 sludge-to-mutant culture-volume ratio.
-  interaction_type: COMPETITION
+  description: 'The tested mutant-addition series showed context-dependent nitrogen-removal performance, with the
+    reported 5:1 sludge-to-mutant culture-volume treatment reaching 97% total-nitrogen removal. Higher mutant culture
+    fractions had less favorable ammonium/nitrite profiles. HYPOTHESIZED: the authors attribute this pattern partly
+    to ecological competition, but the comparisons do not isolate competition from other community and substrate
+    effects. The ratio is a culture-volume ratio, not a cell-number ratio or universal optimum.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Delta nrfA Shewanella oneidensis MR-1
@@ -279,8 +282,9 @@ ecological_interactions:
   - reference: PMID:42655905
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: an excessive proportion of ΔnrfA S. oneidensis MR‐1 could compete with anammox bacteria for ecological niches
-    explanation: Supports the authors' competition interpretation for high mutant proportions.
+    snippet: an excessive proportion of ΔnrfA S. oneidensis MR‐1 could compete with anammox bacteria for ecological
+      niches
+    explanation: Supports an explicitly proposed competition interpretation, not an isolated competitive mechanism.
   - reference: PMID:42655905
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -289,8 +293,8 @@ ecological_interactions:
   - reference: PMID:42655905
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: ΔB1 exhibited the optimal N removal performance, which corresponded to a volumetric ratio of anammox sludge to
-      ΔnrfA S. oneidensis MR‐1 of 5:1
+    snippet: ΔB1 exhibited the optimal N removal performance, which corresponded to a volumetric ratio of anammox
+      sludge to ΔnrfA S. oneidensis MR‐1 of 5:1
     explanation: Ties the optimal nitrogen-removal result to the 5:1 sludge-to-mutant ratio.
 environmental_factors:
 - name: Anammox sludge to Delta nrfA Shewanella inoculation ratio
@@ -482,23 +486,23 @@ metal_notes: No metal or rare earth element processing role is curated for this 
   consortium.
 discussions:
 - discussion_id: shewanella_anammox_sludge_membership_and_flux_unresolved
-  prompt: Which endogenous sludge populations directly exchanged nitrite or electrons with the Delta nrfA S. oneidensis mutant,
-    and does the optimized 5:1 phenotype remain stable in a continuous reactor?
+  prompt: Which endogenous sludge populations directly exchanged nitrite or electrons with the Delta nrfA S. oneidensis
+    mutant, and does the optimized 5:1 phenotype remain stable in a continuous reactor?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - taxonomy#endogenous activated-sludge heterotrophic bacteria
   - ecological_interactions#Delta nrfA nitrate-to-nitrite supply for anammox
-  rationale: The source profiled the final time point by metagenomics and reported the dominant anammox genus, but it did
-    not isotope-trace nitrate, nitrite, or ammonium flux through the mutant, Brocadia, and endogenous denitrifiers. Its Perspective
-    explicitly calls for long-term continuous trials, gaseous-nitrogen measurements, time-series metagenomics, and isotope
-    labeling to resolve those mechanisms.
+  rationale: The source profiled the final time point by metagenomics and reported the dominant anammox genus, but
+    it did not isotope-trace nitrate, nitrite, or ammonium flux through the mutant, Brocadia, and endogenous denitrifiers.
+    Its Perspective explicitly calls for long-term continuous trials, gaseous-nitrogen measurements, time-series
+    metagenomics, and isotope labeling to resolve those mechanisms.
   evidence:
   - reference: PMID:42655905
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Future long‐term continuous reactor trials are required to evaluate the stable performance of the coupled system
-      under practical running conditions
+    snippet: Future long‐term continuous reactor trials are required to evaluate the stable performance of the coupled
+      system under practical running conditions
     explanation: Names the unresolved need for continuous-reactor validation.
   - reference: PMID:42655905
     supports: SUPPORT
@@ -508,23 +512,49 @@ discussions:
   - reference: PMID:42655905
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: future research could carry out isotope labeling tests to quantitatively differentiate the contribution of anammox,
-      denitrification, and DNRA
+    snippet: future research could carry out isotope labeling tests to quantitatively differentiate the contribution
+      of anammox, denitrification, and DNRA
     explanation: Names the unresolved isotope-flux attribution gap.
   posed_by: codex
   posed_date: '2026-09-21'
+- discussion_id: anammox_graph_evidence_scope
+  prompt: Which mechanisms account for the mutant-addition performance gradient?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The dose-response outcome is measured, while competition for ecological niches is an interpretation
+    of mixed-sludge chemistry and community profiles. The existing discussion already records unresolved pathway
+    flux and continuous-reactor stability. Neither bulk removal nor gene abundance identifies a unique inhibitory
+    mechanism at higher mutant fractions.
+  evidence:
+  - reference: PMID:42655905
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: an excessive proportion of ΔnrfA S. oneidensis MR‐1 could compete with anammox bacteria for ecological
+      niches
+    explanation: Supports an explicitly proposed competition interpretation, not an isolated competitive mechanism.
+  attaches_to:
+  - ecological_interactions#Delta nrfA nitrate-to-nitrite supply for anammox
+  - ecological_interactions#Mutant dosage window for anammox performance
 curation_history:
 - timestamp: '2026-09-21T04:08:55Z'
   curator: claude
   action: CREATE_RECORD
-  changes: Created CommunityMech:000402 for the Delta nrfA Shewanella oneidensis MR-1 / anammox-sludge nitrate-removal consortium
-    from PMID:42655905, including mutant/sludge assembly, 5:1 optimized Delta B1 dosing, nitrate-to-nitrite coupling, Brocadia
-    anammox metagenomic enrichment, 500 mL anaerobic mixed-medium cultivation, and unresolved flux/stability gaps.
+  changes: Created CommunityMech:000402 for the Delta nrfA Shewanella oneidensis MR-1 / anammox-sludge nitrate-removal
+    consortium from PMID:42655905, including mutant/sludge assembly, 5:1 optimized Delta B1 dosing, nitrate-to-nitrite
+    coupling, Brocadia anammox metagenomic enrichment, 500 mL anaerobic mixed-medium cultivation, and unresolved
+    flux/stability gaps.
   llm_assisted: true
 - timestamp: '2026-09-21T04:15:15Z'
   curator: claude
   action: FIX_ADVERSARIAL_REVIEW_FINDINGS
-  changes: 'Addressed adversarial-review issues #996, #997, and #998 by moving final-time-point metagenomic annotation out
-    of environmental_factors, adding Bacteroidota evidence for endogenous activated-sludge heterotrophs, and repairing the
-    PMID:42655905 PMCID provenance header.'
+  changes: 'Addressed adversarial-review issues #996, #997, and #998 by moving final-time-point metagenomic annotation
+    out of environmental_factors, adding Bacteroidota evidence for endogenous activated-sludge heterotrophs, and
+    repairing the PMID:42655905 PMCID provenance header.'
+  llm_assisted: true
+- timestamp: '2026-10-07T22:00:37Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain inferred nitrite cross-feeding with PARTIAL partner/pathway attribution and metagenomic limits.;
+    Retain the measured treatment gradient without categorical competition or a universal dosing optimum. Issue#1792;
+    reports/causal_graph_review/decisions/20261007-four-records-batch100.yaml
   llm_assisted: true

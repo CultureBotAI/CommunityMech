@@ -516,7 +516,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for GLBRC Exometabolite Transwell SynCom System</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -533,70 +533,9 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Exometabolite-Mediated Interaction</h3>
-                </div>
-                <p class="prewrap interaction-description">Community members interact chemically through small molecules, extracellular enzymes, and antibiotics in shared medium.</p>
-
-
-
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    N-acyl-L-homoserine lactone
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=55474"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:55474</a>),
-
-                    antibacterial agent
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33282"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:33282</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        quorum sensing
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009372"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009372</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/29152587/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29152587</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"we describe a straightforward synthetic community system that can be used to interrogate exometabolite interactions among microorganisms."</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
                     <h3>AHL Diffusion and Violacein Induction</h3>
                 </div>
-                <p class="prewrap interaction-description">Chromobacterium violaceum Cv017 produces acyl-homoserine lactones that diffuse through the Transwell reservoir and induce quorum sensing, vioC transcription, and violacein production in the physically separated Cv026 biosensor.
-</p>
+                <p class="prewrap interaction-description">In the two-strain reporter demonstration, AHL-producing Cv017 induced violacein and vioC transcription in physically separated Cv026 through the shared reservoir. Replated Cv026 returned to a nonpigmented phenotype, supporting signal-dependent response rather than contamination or a stable pigmented mutant. This supports diffusible signaling in this assay, not a quantified signal dose, all extracellular enzyme classes or causation of the separate three-member metabolomics phenotype. The canonical record currently has only a Bacteria umbrella; exact strain participants remain unresolved rather than being assigned invented CURIEs.</p>
 
 
 
@@ -652,8 +591,7 @@
                 <div class="interaction-header">
                     <h3>Three-Member Exometabolite Time Series</h3>
                 </div>
-                <p class="prewrap interaction-description">A stationary-phase Burkholderia thailandensis, Chromobacterium violaceum and Pseudomonas syringae Transwell community produced a reproducible nonpolar exometabolite profile in which mass features were depleted, produced de novo, or enriched at early and mid time points.
-</p>
+                <p class="prewrap interaction-description">The separate B. thailandensis E264, source-labeled C. violaceum and P. syringae DC3000 stationary-phase assay showed time-varying nonpolar mass features over 15-35 hours. The 977 features are not 977 identified metabolites, and changes do not resolve producer-consumer flux. Bactobolin was identified separately by polar HILIC-MS/MS; its accumulation does not selectively establish the cause of lower P. syringae live-cell counts in B. thailandensis-containing cultures. No bactobolin-to-inhibition or AHL-to-metabolomics arrow is asserted. The source has a Chromobacterium strain-number discrepancy; taxonomy and a separately supported antagonism node remain pending under #1467.</p>
 
 
 
@@ -699,6 +637,25 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which strain-resolved antagonism belongs alongside the separate Transwell demonstrations?
+                </h3>
+                <p class="prewrap">The platform-capability umbrella node is removed; prior workflow-arrow pruning remains intact. The AHL reporter pair and three-member stationary-phase series are distinct experiments. The full primary body supports lower P. syringae live-cell counts with B. thailandensis, but bactobolin accumulation is not selective mediator necessity. New antagonism structure and exact canonical members remain pending #1467; Bacteria/NCBITaxon:2 must not become invented species participants or a self-edge. The source uses SC11,368 in prose versus SC11,378/ATCC31532 in its strain table. One-community Edison dry run completed; specific credit authorization requested, no job or spend. Metadata still conflates test-tube versus Transwell cultivation and different assay media; those preserved fields are not certified. Main body, table text and captions read, not figure images, separate supplements or raw spectra.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#AHL Diffusion and Violacein Induction</code>, <code>ecological_interactions#Three-Member Exometabolite Time Series</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -840,7 +797,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -853,7 +809,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -906,40 +861,6 @@
 
             metabolites.push("N-acyl-L-homoserine lactone");
 
-            metabolites.push("antibacterial agent");
-
-
-            var processes = [];
-
-
-            processes.push("quorum sensing");
-
-
-            var evidenceCount = 1;
-
-            nodes.push({
-                id: intId,
-                label: "Exometabolite-Mediated Interaction",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:1";
-            var intType = "UNKNOWN";
-            var metabolites = [];
-
-
-            metabolites.push("N-acyl-L-homoserine lactone");
-
 
             var processes = [];
 
@@ -965,7 +886,7 @@
         })();
 
         (function() {
-            var intId = "interaction:2";
+            var intId = "interaction:1";
             var intType = "UNKNOWN";
             var metabolites = [];
 
@@ -1011,7 +932,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 4;
+        var nodeCount = 3;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

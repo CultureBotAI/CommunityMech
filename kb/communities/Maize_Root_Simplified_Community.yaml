@@ -224,11 +224,12 @@ taxonomy:
     explanation: Establishes F. verticillioides as the antagonism target the SynCom suppresses.
 ecological_interactions:
 - name: Host-Mediated Seven-Strain Root Assembly
-  description: >
-    Host-mediated selection from the maize-root microbiota produced a defined
-    seven-strain bacterial SynCom that colonizes axenic maize seedlings and
-    provides the model root ecosystem for keystone and biocontrol perturbations.
-  interaction_type: COLONIZATION_FACILITATION
+  description: Host-mediated selection yielded a seven-strain bacterial model that reproducibly assembled on axenic
+    maize roots and retained all seven members through 15 days, despite changing relative and absolute abundances.
+    This is conditional persistence in a gnotobiotic system, not asymptotic stability, universal host compatibility
+    or direct bacterial facilitation of colonization. Community structure differed in unplanted MS agar, supporting
+    host dependence. The canonical seven bacterial terms and maize host identify the studied system; source strain
+    names and unresolved taxonomy mappings are preserved, not independently recertified.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Enterobacter cloacae AA4
@@ -271,32 +272,23 @@ ecological_interactions:
   evidence:
   - reference: PMID:28275097
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: In this work, from the distinctive microbiota assembled by maize roots, through host-mediated
-      selection, we obtained a greatly simplified synthetic bacterial community consisting of seven strains
-      (Enterobacter cloacae, Stenotrophomonas maltophilia, Ochrobactrum pituitosum, Herbaspirillum frisingense,
-      Pseudomonas putida, Curtobacterium pusillum, and Chryseobacterium indologenes) representing three
-      of the four most dominant phyla found in maize roots
-    explanation: Names the seven host-selected bacterial members that make up the simplified
-      maize-root SynCom.
+    evidence_source: IN_VIVO
+    snippet: In this work, from the distinctive microbiota assembled by maize roots, through host-mediated selection,
+      we obtained a greatly simplified synthetic bacterial community consisting of seven strains (Enterobacter cloacae,
+      Stenotrophomonas maltophilia, Ochrobactrum pituitosum, Herbaspirillum frisingense, Pseudomonas putida, Curtobacterium
+      pusillum, and Chryseobacterium indologenes) representing three of the four most dominant phyla found in maize
+      roots
+    explanation: Supports host-selected root assembly in living maize seedlings; this does not establish a molecular
+      host recruitment mechanism or pairwise bacterial facilitation.
 - name: E. cloacae Keystone Control of C. pusillum Takeover
-  description: >
-    Removing Enterobacter cloacae from the maize-root SynCom caused collapse of
-    the bacterial community and takeover by Curtobacterium pusillum, identifying
-    E. cloacae as the keystone member that stabilizes the root-associated
-    consortium.
-  interaction_type: COMPETITION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Enterobacter cloacae AA4
-    term:
-      id: NCBITaxon:550
-      label: Enterobacter cloacae
-  target_taxon:
-    preferred_term: Curtobacterium pusillum
-    term:
-      id: NCBITaxon:69373
-      label: Curtobacterium pusillum
+  description: Removing E. cloacae from the seven-strain inoculum caused C. pusillum overgrowth and loss or strong
+    decline of the other five bacteria on maize roots by day 15. Selective-plate absolute CFUs distinguish both
+    C. pusillum expansion and decreases of other members, not merely relative-composition dilution. In unplanted
+    MS agar, the same removal did not produce C. pusillum takeover. This perturbation establishes a host-dependent
+    community keystone effect, not direct pairwise competition between E. cloacae and C. pusillum or a resolved
+    molecular route. Removing P. putida also increased C. pusillum, but less dramatically. All seven bacterial participants
+    and maize define the comparison, including the omitted member in its control inoculum.
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
     term:
@@ -306,22 +298,57 @@ ecological_interactions:
   - reference: PMID:28275097
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Only the removal of E. cloacae led to the complete loss of the community, and C. pusillum
-      took over
-    explanation: Supports E. cloacae as the keystone member that prevents C. pusillum
-      takeover on maize roots.
+    snippet: Only the removal of E. cloacae led to the complete loss of the community, and C. pusillum took over
+    explanation: Supports the community dropout effect; main-text absolute CFUs and unplanted controls bound it
+      to host-dependent community dynamics rather than demonstrated pairwise competition.
   - reference: PMID:28275097
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: This result suggests that E. cloacae plays the role of keystone species in this model
-      ecosystem
-    explanation: Names E. cloacae as the model ecosystem's keystone species.
+    snippet: This result suggests that E. cloacae plays the role of keystone species in this model ecosystem
+    explanation: Supports the conditional keystone interpretation; the molecular details and directness of individual
+      bacterial interactions remain unresolved.
+  participating_taxa:
+  - preferred_term: Enterobacter cloacae AA4
+    term:
+      id: NCBITaxon:550
+      label: Enterobacter cloacae
+  - preferred_term: Stenotrophomonas maltophilia AA1
+    term:
+      id: NCBITaxon:40324
+      label: Stenotrophomonas maltophilia
+  - preferred_term: Ochrobactrum pituitosum AA2
+    term:
+      id: NCBITaxon:571256
+      label: Brucella pituitosa
+  - preferred_term: Herbaspirillum frisingense
+    term:
+      id: NCBITaxon:92645
+      label: Herbaspirillum frisingense
+  - preferred_term: Pseudomonas putida
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  - preferred_term: Curtobacterium pusillum
+    term:
+      id: NCBITaxon:69373
+      label: Curtobacterium pusillum
+  - preferred_term: Chryseobacterium indologenes
+    term:
+      id: NCBITaxon:253
+      label: Chryseobacterium indologenes
+  - preferred_term: Zea mays
+    term:
+      id: NCBITaxon:4577
+      label: Zea mays
 - name: Seven-Strain Suppression of Fusarium
-  description: >
-    The assembled seven-species maize-root community inhibited the fungal
-    pathogen Fusarium verticillioides in planta and in vitro, giving the
-    simplified root microbiome a biocontrol effect that benefits the maize host.
-  interaction_type: COMPETITION
+  description: 'The seven-strain community delayed visible Fusarium verticillioides colonization of maize seeds
+    and reduced seedling-blight severity in laboratory assays; it also inhibited fungal growth on PDA and nutrient
+    agar. Seed colonization was delayed, not eradicated: group differences became nonsignificant on day 10. All
+    seven individual strains showed weaker protection to varying degrees, with E. cloacae strongest among them;
+    the whole community performed better. This supports biocontrol without establishing every member as necessary,
+    synergistic interaction, resource competition or host immune activation. Uninfected seed germination and root-growth
+    tests did not show significant promotion. Participants include seven bacteria, the maize host for in-planta
+    endpoints, and the fungal target, not a nine-member bacterial inoculum.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Enterobacter cloacae AA4
@@ -352,23 +379,22 @@ ecological_interactions:
     term:
       id: NCBITaxon:253
       label: Chryseobacterium indologenes
+  - preferred_term: Zea mays
+    term:
+      id: NCBITaxon:4577
+      label: Zea mays
   - preferred_term: Fusarium verticillioides
     term:
       id: NCBITaxon:117187
       label: Fusarium verticillioides
-  biological_processes:
-  - preferred_term: defense response to fungus
-    term:
-      id: GO:0050832
-      label: defense response to fungus
   evidence:
   - reference: PMID:28275097
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: In planta and in vitro, this model community inhibited the phytopathogenic fungus
-      Fusarium verticillioides, indicating a clear benefit to the host
-    explanation: Supports F. verticillioides suppression as the SynCom's fungal
-      biocontrol phenotype.
+    snippet: In planta and in vitro, this model community inhibited the phytopathogenic fungus Fusarium verticillioides,
+      indicating a clear benefit to the host
+    explanation: Supports in-planta and in-vitro suppression; current IN_VIVO evidence denotes the host result while
+      the description separates agar inhibition. Competition and host immune activation are untested mechanisms.
 environmental_factors:
 - name: Target pathogen
   value: Fusarium verticillioides
@@ -443,9 +469,32 @@ curation_history:
 - timestamp: '2026-10-02T05:57:41Z'
   curator: codex
   action: PRUNE_CAUSAL_GRAPH_WORKFLOW_EDGES
-  changes: >
-    Removed two downstream edges from host-mediated seven-strain root assembly
-    to the E. cloacae leave-one-out keystone result and the Fusarium suppression
-    phenotype because they described which assays used the assembled SynCom
-    rather than causal transitions from assembly itself.
+  changes: 'Removed two downstream edges from host-mediated seven-strain root assembly to the E. cloacae leave-one-out
+    keystone result and the Fusarium suppression phenotype because they described which assays used the assembled
+    SynCom rather than causal transitions from assembly itself.
+
+    '
   llm_assisted: true
+- timestamp: '2026-10-06T23:34:14Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain maize host-dependent keystone control and fungal biocontrol without untested pairwise mechanisms.
+    Issue #1579; reports/causal_graph_review/decisions/20261006-maize-batch67.yaml'
+  llm_assisted: true
+discussions:
+- discussion_id: maize_root_keystone_and_biocontrol_mechanisms
+  prompt: How does the host-dependent keystone effect operate, and what mediates biocontrol?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Host-Mediated Seven-Strain Root Assembly
+  - ecological_interactions#E. cloacae Keystone Control of C. pusillum Takeover
+  - ecological_interactions#Seven-Strain Suppression of Fusarium
+  rationale: 'The E. cloacae dropout intervention and absolute CFUs establish conditional community control without
+    demonstrating direct pairwise competition. Unplanted controls show host dependence. Fungal inhibition and disease
+    reduction remain positive observations, while niche competition and molecular/immune routes are hypotheses.
+    No new structure added; preserve the prior two assembly-workflow arrow removals. #1580 tracks non-graph identity,
+    temperature/protocol and metal claims; BioProtoc.2885 was not independently reviewed. Complete main text, embedded
+    SI methods/captions and Table S1 read, not separate datasets, original figure pixels or raw data.'
+  posed_by: codex
+  posed_date: '2026-10-06'

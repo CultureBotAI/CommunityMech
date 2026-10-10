@@ -233,9 +233,9 @@ related_ingredients:
     explanation: Names coproporphyrin III as the compound excreted during chlorosis.
 ecological_interactions:
 - name: Low-Oxygen Algal O2 Support for Methane Oxidation
-  description: Under low-oxygen conditions, Galdieria sp. RTK37.1 supplies oxygen that benefits
-    Methylacidiphilum sp. RTK17.1, enhancing methanotroph growth and methane oxidation.
-  interaction_type: MUTUALISM
+  description: Under low initial oxygen, photosynthetic Galdieria sp. RTK37.1 supplies oxygen supporting Methylacidiphilum
+    sp. RTK17.1 growth and methane oxidation. The positive support depends on inoculum proportions and gas supply.
+    This directed benefit does not by itself establish reciprocal carbon donation to the alga or obligatory mutualism.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Galdieria sp. RTK37.1
@@ -267,10 +267,9 @@ ecological_interactions:
       label: methane metabolic process
   downstream:
   - target: Methane-Linked Carbon Valorisation
-    description: >
-      Algal oxygen supply supports aerobic methane oxidation by
-      Methylacidiphilum, coupling low-oxygen coculture growth to
-      methane-linked net carbon assimilation.
+    description: Algal oxygen production supports aerobic methane oxidation and contributes to greater whole-coculture
+      net carbon fixation at low methanotroph-to-alga ratios. This is a condition-dependent system benefit, not
+      quantified methanotroph-to-alga carbon transfer.
   evidence:
   - reference: PMID:41888821
     supports: SUPPORT
@@ -283,9 +282,12 @@ ecological_interactions:
     snippet: enhancing growth and methane oxidation
     explanation: Supports the positive effect of algal oxygen supply on methanotroph performance.
 - name: Biomass-Ratio-Dependent Oxygen Competition
-  description: The coculture interaction changes with initial biomass ratio. Low methanotroph-to-alga
-    ratios improve net carbon fixation, while elevated Methylacidiphilum abundance can deplete oxygen,
-    inhibit Galdieria photosystem pigment biosynthesis, cause chlorosis, and reduce carbon fixation.
+  description: At initial Methylacidiphilum:Galdieria biomass ratios >=0.23:1 in low-oxygen methane-fed batches,
+    growth fell 66-100% and net carbon fixation fell 44-62% relative to methane-free controls. Pigment loss, chlorosis
+    and LC-MS-confirmed extracellular coproporphyrin III accompanied oxygen competition. Daily CH4/CO2/O2 replenishment
+    prevented chlorosis. In a separate recovery experiment, methane was removed on day 4 and oxygen was allowed
+    to accumulate without oxygen addition; pigments recovered before growth resumed. Oxygen-dependent HemF inhibition
+    and porphyrin reuptake are proposed molecular explanations, not directly measured enzyme inhibition or transport.
   interaction_type: COMPETITION
   scope: PAIRWISE
   source_taxon:
@@ -314,16 +316,15 @@ ecological_interactions:
       label: photosynthesis
   downstream:
   - target: Methane-Linked Carbon Valorisation
-    description: >
-      Oxygen competition at high Methylacidiphilum abundance reduces
-      Galdieria photosynthetic carbon fixation, opposing the low-ratio
-      methane-fed biomass gain.
+    description: Oxygen competition at high methanotroph abundance suppresses algal activity and decreases whole-coculture
+      carbon fixation, opposing the low-ratio benefit. Ratio and gas interventions support this physiological mechanism;
+      they do not individually establish HemF inhibition, porphyrin reuptake or a universal ratio threshold.
   evidence:
   - reference: PMID:41888821
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: inhibitory due to oxygen competition
-    explanation: Supports the density-dependent shift from mutualism to oxygen competition.
+    explanation: Supports ratio-dependent oxygen competition, not reciprocal benefit at every ratio.
   - reference: PMID:41888821
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -332,24 +333,16 @@ ecological_interactions:
   - reference: PMID:41888821
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: upon oxygen replenishment
-    explanation: Supports oxygen limitation as the driver of the inhibitory phenotype.
+    snippet: No O2 was added at any point.
+    explanation: Figure 5 distinguishes methane-withdrawal recovery from the separate daily gas-replenishment prevention
+      experiment.
 - name: Methane-Linked Carbon Valorisation
-  description: Methane-fed cocultures at low initial methanotroph-to-alga ratios achieved higher net
-    carbon fixation than methane-free controls, supporting methane-linked carbon valorisation by the
-    two-member system.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Methylacidiphilum sp. RTK17.1
-    term:
-      id: NCBITaxon:511746
-      label: Candidatus Methylacidiphilum infernorum
-  target_taxon:
-    preferred_term: Galdieria sp. RTK37.1
-    term:
-      id: NCBITaxon:2530459
-      label: Galdieria sp.
+  description: Methane-fed cocultures at low initial Methylacidiphilum:Galdieria ratios (<0.18:1) showed 17-28%
+    greater net carbon fixation than methane-free controls. This endpoint was calculated from initial/final gas
+    concentrations, pressure and temperature across six days; it is a whole-system carbon balance, not partner-resolved
+    assimilation or proof of CO2 transfer from methanotroph to alga. The maximum measured methane-consumption rate
+    was 0.124 +/- 0.001 mmol/L/h at 0.15:1, where methane was depleted, so it is not an unconstrained rate optimum.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: methane
     term:
@@ -372,13 +365,22 @@ ecological_interactions:
   - reference: PMID:41888821
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 17-28% greater net
+    snippet: greater net carbon fixation
     explanation: Supports methane-linked improvement in carbon fixation at low initial ratios.
   - reference: PMID:41888821
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: methane-fed photobioreactors relevant to SCP production
     explanation: Supports the methane-fed photobioreactor and carbon-valorisation context.
+  participating_taxa:
+  - preferred_term: Methylacidiphilum sp. RTK17.1
+    term:
+      id: NCBITaxon:511746
+      label: Candidatus Methylacidiphilum infernorum
+  - preferred_term: Galdieria sp. RTK37.1
+    term:
+      id: NCBITaxon:2530459
+      label: Galdieria sp.
 environmental_factors:
 - name: Low oxygen availability
   value: low-O2 coculture condition
@@ -483,3 +485,28 @@ cultivation_setup:
     snippet: For all cocultures, 250 mL of sterile V4 medium was added to 1-L Duran®
       Pressure Plus bottles sealed with bromobutyl rubber stoppers and inoculated to
       the desired initial concentrations with the appropriate microbial stocks
+discussions:
+- discussion_id: galdieria_oxygen_interventions_and_carbon_scope
+  prompt: Which molecular and partner-resolved processes explain the physiological oxygen trade-off?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Low-Oxygen Algal O2 Support for Methane Oxidation
+  - ecological_interactions#Biomass-Ratio-Dependent Oxygen Competition
+  - ecological_interactions#Methane-Linked Carbon Valorisation
+  rationale: 'Retain the positive oxygen-support and inhibitory competition arrows. Separate daily gas replenishment
+    from day-4 methane removal without added O2. HemF inhibition, porphyrin reuptake and potential metal sequestration
+    remain interpretations; no new molecular arrow is added. Gas-based net fixation is not taxon-resolved carbon
+    donation, and the ratio threshold depends on culture conditions. PMID:41888821 main text and captions were read,
+    not separate supplements or figure pixels. #1602 repairs graph scope; #1606 retains protocol discrepancies,
+    pure-culture formate context and canonical-taxonomy follow-up.'
+  posed_by: codex
+  posed_date: '2026-10-06'
+curation_history:
+- timestamp: '2026-10-07T01:27:49Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: 'Retain positive algal oxygen support without obligatory reciprocal benefit.; Retain experimentally supported
+    competition while distinguishing prevention, recovery and molecular inference.; Retain positive gas-based net
+    carbon fixation at whole-coculture scope. Issue #1602; reports/causal_graph_review/decisions/20261007-four-records-batch71.yaml'
+  llm_assisted: true

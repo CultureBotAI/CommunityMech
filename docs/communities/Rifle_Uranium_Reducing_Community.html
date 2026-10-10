@@ -722,7 +722,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Rifle Uranium-Reducing Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, syntrophy, competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -730,23 +730,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolDiamond"
-                             data-color="#57c7ab"></svg> Cross-feeding
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare"
-                             data-color="#9f2ebb"></svg> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -754,14 +739,10 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Acetate Oxidation Coupled to Fe(III) and U(VI) Reduction</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
+                    <h3>Geobacter Enrichment and Coincident Metal Reduction</h3>
                 </div>
-                <p class="prewrap interaction-description">During Phase I (days 0-50), Geobacter species oxidize injected acetate (1-3 mM) coupled to reduction of Fe(III) in aquifer sediments and U(VI) in groundwater. The Fe(III) reduction generates Fe(II) and creates reducing conditions favorable for U(VI) reduction. Geobacter directly reduces U(VI) to U(IV) through enzymatic pathways involving c-type cytochromes and outer membrane proteins. The reduced U(IV) precipitates as biogenic uraninite (UO₂) nanoparticles, immobilizing uranium in the subsurface. U(VI) concentrations decline from 0.4-1.4 μM to below the EPA treatment goal of 0.18 μM in some wells within 50 days. The acetate serves as both carbon source and electron donor, enabling rapid Geobacter proliferation from &lt;1% to 89% of the community.
-</p>
+                <p class="prewrap interaction-description">During the initial Rifle field response to acetate amendment, Geobacter enrichment accompanied groundwater uranium loss and increasing Fe(II). This supports coincident community metal reduction, not a measured G. metallireducens-specific flux, a demonstrated cytochrome mechanism or cross-feeding between named members.</p>
 
-
-                <p><strong>Source Taxon:</strong> Geobacter species</p>
 
 
 
@@ -776,10 +757,6 @@
                     uranium(VI)
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=32992"
                         class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:32992</a>),
-
-                    uranium(IV)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=32995"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:32995</a>),
 
                     Fe(III)
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
@@ -810,8 +787,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Uranium Immobilization via Uraninite Formation
-                        <p class="prewrap causal-description">Reduced U(IV) precipitates as biogenic uraninite nanoparticles</p>
+                        <span class="flow-arrow">→</span> Initial Groundwater Uranium Removal
+                        <p class="prewrap causal-description">PARTIAL: acetate-stimulated Geobacter-associated metal reduction is the proposed contributor to the observed initial groundwater uranium decline. Field covariation does not apportion species-specific flux or establish the mineral product and nanoparticle size.</p>
                     </div>
 
                 </div>
@@ -830,20 +807,7 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"As the acetate injection continued over 50 days there was a loss of sulfate from the groundwater and an accumulation of sulfide and the composition of the microbial community changed"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/14532040/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:14532040</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"Within 50 days uranium had declined below the prescribed treatment level"</div>
+                        <div class="snippet">"the initial loss of uranium from the groundwater was associated with an enrichment of Geobacter species"</div>
 
                     </li>
 
@@ -856,7 +820,7 @@
                             - PARTIAL (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"the initial loss of uranium from the groundwater was associated with an enrichment of Geobacter species"</div>
+                        <div class="snippet">"suggesting that U(VI) reduction was coincident with Fe(III) reduction"</div>
 
                     </li>
 
@@ -866,28 +830,14 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Uranium Immobilization via Uraninite Formation</h3>
-                    <span class="interaction-type">MUTUALISM</span>
+                    <h3>Initial Groundwater Uranium Removal</h3>
                 </div>
-                <p class="prewrap interaction-description">Enzymatic reduction of soluble U(VI) to insoluble U(IV) by Geobacter and Anaeromyxobacter results in precipitation of biogenic uraninite (UO₂) nanoparticles. These nanoparticles have diameters of 2-5 nm and form within or around bacterial cells. Uraninite formation effectively immobilizes uranium, preventing its transport in groundwater. However, uraninite stability depends on maintaining reducing conditions - re-oxidation to U(VI) can occur if oxygen or nitrate enters the aquifer. The nanoparticulate form exhibits different stability characteristics compared to abiotic or bulk uraninite.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Geobacter species</p>
+                <p class="prewrap interaction-description">Groundwater U(VI) decreased during the initial acetate-amended field phase and fell below the prescribed treatment level in some monitoring wells. This is a measured removal outcome, not a direct characterization of 2-5 nm uraninite or a demonstrated Geobacter-Anaeromyxobacter mutualism. Later sulfate reduction coincided with increasing groundwater uranium, not sustained removal at the initial effectiveness.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Anaeromyxobacter dehalogenans</p>
 
 
-
-                <p><strong>Metabolites:</strong>
-
-                    uranium(IV)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=32995"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:32995</a>)
-
-                </p>
 
 
 
@@ -907,7 +857,7 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"Analysis of 16S ribosomal DNA (rDNA) sequences and phospholipid fatty acid profiles demonstrated that the initial loss of uranium from the groundwater was associated with an enrichment of Geobacter species in the treatment zone"</div>
+                        <div class="snippet">"within 50 days uranium had declined below the prescribed treatment level"</div>
 
                     </li>
 
@@ -917,86 +867,12 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Hydrogen-Mediated U(VI) Reduction by Anaeromyxobacter</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <h3>Later Sulfate Reduction and Sulfide Accumulation</h3>
                 </div>
-                <p class="prewrap interaction-description">Anaeromyxobacter dehalogenans reduces U(VI) using hydrogen as electron donor, particularly when grown on fumarate. Unlike Geobacter, Anaeromyxobacter cannot use acetate directly for U(VI) reduction. In the Rifle subsurface, hydrogen may be generated by fermentative bacteria or through Geobacter metabolism, creating microenvironments where Anaeromyxobacter contributes to uranium reduction. This represents a complementary pathway to direct Geobacter-mediated reduction, potentially extending uranium removal to niches with low acetate but available hydrogen.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Anaeromyxobacter dehalogenans</p>
+                <p class="prewrap interaction-description">The later field phase showed sulfate loss and sulfide accumulation as sulfate-reducer-related sequences became predominant. Groundwater uranium increased during this transition. These observations do not establish sulfide-mediated U(VI) reduction, a uraninite/uranium-sulfide product or pairwise nutrient exchange in this field system.</p>
 
 
 
-
-
-                <p><strong>Metabolites:</strong>
-
-                    dihydrogen
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18276"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>),
-
-                    uranium(VI)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=32992"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:32992</a>),
-
-                    uranium(IV)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=32995"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:32995</a>)
-
-                </p>
-
-
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Uranium Immobilization via Uraninite Formation
-                        <p class="prewrap causal-description">Anaeromyxobacter hydrogen-dependent U(VI) reduction provides a complementary enzymatic route for forming insoluble U(IV) during Rifle aquifer biostimulation.
-</p>
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/18843300/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:18843300</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"Thirty-four c-type cytochrome genes were upregulated in the sediment-grown cells, including several genes that are homologous to cytochromes that are required for optimal Fe(III) and U(VI) reduction by G"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Sulfate Reduction and Chemical U(VI) Reduction</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
-                </div>
-                <p class="prewrap interaction-description">During Phase II (&gt;50 days), sulfate-reducing bacteria including Desulfobacteraceae (45% by day 80), Desulfovibrio, and Desulfosporosinus oxidize acetate and other organic compounds coupled to sulfate reduction, producing hydrogen sulfide (H₂S). The sulfide chemically reduces U(VI) to U(IV) and precipitates uranium as uraninite or uranium sulfide minerals. Additionally, some sulfate reducers enzymatically reduce U(VI) directly. This phase begins after Fe(III) depletion (&gt;50 days) and represents a metabolic succession from metal reduction to sulfate reduction. Sulfide production also precipitates other metals as metal sulfides.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Desulfobacteraceae family</p>
-
-
-
-                <p><strong>Target Taxon:</strong> Desulfovibrio vulgaris</p>
 
 
 
@@ -1008,15 +884,7 @@
 
                     hydrogen sulfide
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16136"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16136</a>),
-
-                    uranium(VI)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=32992"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:32992</a>),
-
-                    uranium(IV)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=32995"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:32995</a>)
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16136</a>)
 
                 </p>
 
@@ -1035,17 +903,6 @@
 
 
 
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Uranium Immobilization via Uraninite Formation
-                        <p class="prewrap causal-description">Sulfate reduction produces sulfide that chemically reduces soluble U(VI) to insoluble U(IV), extending uranium immobilization into the later sulfate-reducing phase.
-</p>
-                    </div>
-
-                </div>
-
 
 
                 <h4>Evidence</h4>
@@ -1060,7 +917,20 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"Organisms with 16S rDNA sequences most closely related to those of sulfate reducers became predominant, and Geobacter species became a minor component of the community"</div>
+                        <div class="snippet">"there was a loss of sulfate from the groundwater and an accumulation of sulfide"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/14532040/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:14532040</a>
+
+                            - SUPPORT (IN_VIVO)
+                        </div>
+
+                        <div class="snippet">"associated with an increase in uranium concentration in the groundwater"</div>
 
                     </li>
 
@@ -1071,17 +941,11 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Community Succession from Metal to Sulfate Reduction</h3>
-                    <span class="interaction-type">COMPETITION</span>
                 </div>
-                <p class="prewrap interaction-description">The microbial community undergoes predictable metabolic succession as terminal electron acceptors are sequentially depleted. Phase I (0-50 days) is dominated by Geobacter (89% peak) performing Fe(III) and U(VI) reduction. As Fe(III) becomes depleted, Phase II (&gt;50 days) transitions to sulfate reduction with Desulfobacteraceae reaching 45% and Geobacter declining to 35%. This succession reflects thermodynamic favorability - Fe(III) reduction yields more energy than sulfate reduction, so iron reducers outcompete sulfate reducers when Fe(III) is available. The transition affects uranium removal mechanisms, shifting from direct enzymatic reduction to combined enzymatic and sulfide-mediated chemical reduction.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Geobacter species</p>
+                <p class="prewrap interaction-description">The groundwater community shifted from Geobacter enrichment toward sulfate-reducer-related sequences during continued amendment. HYPOTHESIZED: depletion of accessible Fe(III) near the amendment zone and local acetate consumption may have favored this transition. The primary discussion calls this explanation a hypothesis requiring verification; succession alone does not establish reciprocal harm, exact species replacement or the sediment-attached community composition.</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Desulfobacteraceae family</p>
 
 
 
@@ -1105,9 +969,8 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Sulfate Reduction and Chemical U(VI) Reduction
-                        <p class="prewrap causal-description">Depletion of bioavailable Fe(III) shifts the acetate-stimulated aquifer from Geobacter-associated metal reduction toward sulfate-reducing taxa that generate sulfide for U(VI) reduction.
-</p>
+                        <span class="flow-arrow">→</span> Later Sulfate Reduction and Sulfide Accumulation
+                        <p class="prewrap causal-description">PARTIAL: the shift toward sulfate-reducer-related populations is proposed to accompany a change in the dominant acetate-oxidizing process, contributing to sulfate consumption and sulfide accumulation. The Fe(III)-depletion and donor-consumption explanation remains a field hypothesis, not independently established mediation or continued uranium immobilization.</p>
                     </div>
 
                 </div>
@@ -1126,107 +989,7 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"As the acetate injection continued over 50 days there was a loss of sulfate from the groundwater and an accumulation of sulfide and the composition of the microbial community changed"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/14532040/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:14532040</a>
-
-                            - PARTIAL (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"stimulating the in situ activity of dissimilatory metal-reducing microorganisms"</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Complementary Sulfate Reduction and U(VI) Reduction</h3>
-                    <span class="interaction-type">CROSS_FEEDING</span>
-                </div>
-                <p class="prewrap interaction-description">Desulfosporosinus species contribute to sulfate reduction and uranium removal during Phase II, working alongside Desulfobacteraceae and Desulfovibrio. As a Gram-positive, spore-forming sulfate reducer, Desulfosporosinus exhibits distinct enzymatic pathways for U(VI) reduction compared to Gram-negative Desulfovibrio, lacking certain cytochromes. This functional diversity may enhance community resilience and uranium reduction efficiency across varying microenvironmental conditions. Spore formation enables Desulfosporosinus to persist during unfavorable conditions and rapidly reactivate when acetate and sulfate are available.
-</p>
-
-
-                <p><strong>Source Taxon:</strong> Desulfosporosinus species</p>
-
-
-
-                <p><strong>Target Taxon:</strong> Desulfobacteraceae family</p>
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    sulfate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16189"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16189</a>),
-
-                    hydrogen sulfide
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16136"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16136</a>),
-
-                    uranium(VI)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=32992"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:32992</a>),
-
-                    uranium(IV)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=32995"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:32995</a>)
-
-                </p>
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        sulfate reduction
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019420"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019420</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/12788780/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:12788780</a>
-
-                            - SUPPORT (IN_VIVO)
-                        </div>
-
-                        <div class="snippet">"This removal was associated with an enrichment in microorganisms most closely related to Pseudomonas and Desulfosporosinus species."</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/36889400/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:36889400</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"The reduction of U(VI) by the sulfate-reducing bacterium Desulfosporosinus hippei DSM 8344T, a close phylogenetic relative to naturally occurring microorganism present in clay rock and bentonite, was investigated"</div>
+                        <div class="snippet">"Organisms with 16S rDNA sequences most closely related to those of sulfate reducers became predominant"</div>
 
                     </li>
 
@@ -1239,6 +1002,60 @@
 
         <!-- Associated Datasets -->
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which organisms and mechanisms explain the two field phases?
+                </h3>
+                <p class="prewrap">Fresh primary abstracts and the cached Rifle main text were checked. PMID18843300 studies G. uraniireducens, while PMID19346346 and PMID18456853 concern Oak Ridge. High-salinity enrichment and D. hippei isolate evidence do not establish the removed Rifle mechanisms. The cached field discussion reports low-identity sulfate-reducer-related clones and a proposed Fe(III)/acetate explanation requiring verification. Field uranium loss does not measure nanoparticle identity or size. Unspecified COMMUNITY_LEVEL participants must not be interpreted as evidence for every canonical member; non-graph membership, family/species grounding, clone percentages and later-removal claims remain issue1770. No inference that these taxa or reactions can never occur is intended.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Geobacter Enrichment and Coincident Metal Reduction</code>, <code>ecological_interactions#Initial Groundwater Uranium Removal</code>, <code>ecological_interactions#Later Sulfate Reduction and Sulfide Accumulation</code>, <code>ecological_interactions#Community Succession from Metal to Sulfate Reduction</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">2 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/18843300/" rel="nofollow noreferrer">PMID:18843300</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">were inoculated with Geobacter uraniireducens</p>
+                        <p class="muted small prewrap">Identifies the organism of the transcriptome study formerly misassigned to Anaeromyxobacter.</p>
+                    </div>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VIVO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/19346346/" rel="nofollow noreferrer">PMID:19346346</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">site near Oak Ridge, TN</p>
+                        <p class="muted small prewrap">The Anaeromyxobacter field evidence is from another site.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1532,7 +1349,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1545,7 +1361,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1620,15 +1435,13 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "CROSS_FEEDING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
             metabolites.push("acetate");
 
             metabolites.push("uranium(VI)");
-
-            metabolites.push("uranium(IV)");
 
             metabolites.push("Fe(III)");
 
@@ -1641,11 +1454,11 @@
             processes.push("acetate catabolic process");
 
 
-            var evidenceCount = 3;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Acetate Oxidation Coupled to Fe(III) and U(VI) Reduction",
+                label: "Geobacter Enrichment and Coincident Metal Reduction",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1653,11 +1466,6 @@
                 evidenceCount: evidenceCount
             });
 
-
-            var srcKey = "Geobacter species";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
 
@@ -1665,12 +1473,8 @@
 
         (function() {
             var intId = "interaction:1";
-            var intType = "MUTUALISM";
+            var intType = "UNKNOWN";
             var metabolites = [];
-
-
-            metabolites.push("uranium(IV)");
-
 
             var processes = [];
 
@@ -1678,7 +1482,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Uranium Immobilization via Uraninite Formation",
+                label: "Initial Groundwater Uranium Removal",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1686,71 +1490,20 @@
                 evidenceCount: evidenceCount
             });
 
-
-            var srcKey = "Geobacter species";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-            var tgtKey = "Anaeromyxobacter dehalogenans";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
-        })();
-
-        (function() {
-            var intId = "interaction:2";
-            var intType = "SYNTROPHY";
-            var metabolites = [];
-
-
-            metabolites.push("dihydrogen");
-
-            metabolites.push("uranium(VI)");
-
-            metabolites.push("uranium(IV)");
-
-
-            var processes = [];
-
-            var evidenceCount = 1;
-
-            nodes.push({
-                id: intId,
-                label: "Hydrogen-Mediated U(VI) Reduction by Anaeromyxobacter",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-            var srcKey = "Anaeromyxobacter dehalogenans";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
 
         })();
 
         (function() {
-            var intId = "interaction:3";
-            var intType = "CROSS_FEEDING";
+            var intId = "interaction:2";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
             metabolites.push("sulfate");
 
             metabolites.push("hydrogen sulfide");
-
-            metabolites.push("uranium(VI)");
-
-            metabolites.push("uranium(IV)");
 
 
             var processes = [];
@@ -1759,11 +1512,11 @@
             processes.push("sulfate reduction");
 
 
-            var evidenceCount = 1;
+            var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Sulfate Reduction and Chemical U(VI) Reduction",
+                label: "Later Sulfate Reduction and Sulfide Accumulation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1772,23 +1525,13 @@
             });
 
 
-            var srcKey = "Desulfobacteraceae family";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
-
-
-            var tgtKey = "Desulfovibrio vulgaris";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
 
         })();
 
         (function() {
-            var intId = "interaction:4";
-            var intType = "COMPETITION";
+            var intId = "interaction:3";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -1799,7 +1542,7 @@
 
             var processes = [];
 
-            var evidenceCount = 2;
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
@@ -1812,65 +1555,7 @@
             });
 
 
-            var srcKey = "Geobacter species";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
-
-
-            var tgtKey = "Desulfobacteraceae family";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
-        })();
-
-        (function() {
-            var intId = "interaction:5";
-            var intType = "CROSS_FEEDING";
-            var metabolites = [];
-
-
-            metabolites.push("sulfate");
-
-            metabolites.push("hydrogen sulfide");
-
-            metabolites.push("uranium(VI)");
-
-            metabolites.push("uranium(IV)");
-
-
-            var processes = [];
-
-
-            processes.push("sulfate reduction");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Complementary Sulfate Reduction and U(VI) Reduction",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-            var srcKey = "Desulfosporosinus species";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-            var tgtKey = "Desulfobacteraceae family";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
 
         })();
 
@@ -1893,7 +1578,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 11;
+        var nodeCount = 9;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

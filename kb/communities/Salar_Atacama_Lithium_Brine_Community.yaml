@@ -244,227 +244,48 @@ taxonomy:
       Xanthomonadaceae dominated the bacterial community in the concentrated brine
     explanation: Documents Staphylococcaceae as abundant bacterial family
 ecological_interactions:
-- name: Lithium Tolerance and Osmoadaptation
-  description: 'The entire halophilic community exhibits exceptional tolerance to extremely high lithium
-    concentrations (up to 58 g/L in concentrated brines) and total salinity (34.7-55.6%). Both halophilic
-    archaea (Halovenus, Natronomonas, Haloarcula, Halobacterium) and the halophilic bacterium Salinibacter
-    employ the "salt-in" osmoadaptation strategy, accumulating high intracellular concentrations of potassium
-    ions and compatible solutes to maintain osmotic balance. Lithium acts as a selective pressure that
-    modulates community composition, with archaeal diversity maximized in natural brine (lower Li) and
-    bacterial diversity increased in concentrated brine (higher Li). This differential response suggests
-    distinct lithium tolerance mechanisms between archaeal and bacterial lineages.
-
-    '
-  interaction_type: COMMENSALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Halovenus
-    term:
-      id: NCBITaxon:1377992
-      label: Halovenus
-  target_taxon:
-    preferred_term: Salinibacter
-    term:
-      id: NCBITaxon:146918
-      label: Salinibacter
-  metabolites:
-  - preferred_term: lithium
-    term:
-      id: CHEBI:49713
-      label: lithium(1+)
-    concentration: 1,500 mg/L (natural brine) to 58 g/L (concentrated brine)
-  - preferred_term: potassium(1+)
-    term:
-      id: CHEBI:29103
-      label: potassium(1+)
-    notes: Accumulated intracellularly for osmotic balance
-  - preferred_term: sodium chloride
-    term:
-      id: CHEBI:26710
-      label: sodium chloride
-    concentration: 34.7% to 55.6% total salinity
-  biological_processes:
-  - preferred_term: response to osmotic stress
-    term:
-      id: GO:0006970
-      label: response to osmotic stress
-  - preferred_term: cellular response to salt stress
-    term:
-      id: GO:1902074
-      label: response to salt
-  downstream:
-  - target: Organic Matter Degradation in Hypersaline Brine
-    description: Osmoadapted organisms drive heterotrophic activity in extreme salinity
+- name: Community Composition Across Natural and Concentrated Brines
+  description: 'The surveyed natural and industrially concentrated brines differed in taxonomic composition: bacterial
+    phylogenetic richness/diversity was higher in concentrated brine, whereas archaeal diversity was greater in
+    natural brine. These are community profiles across changing ionic composition and salinity, not a controlled
+    lithium-only effect or a mutual benefit between named taxa. The listed participants identify the existing curated
+    subset, not a complete community census or evidence that every member occurs in both samples. Salinibacter was
+    detected in natural brine but not the concentrated sample. Specific osmoadaptation, substrate exchange and nutrient-recycling
+    mechanisms remain unmeasured by this comparison.'
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: doi:10.1029/2018JG004621
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Further, our results showed that Bacteria were phylogenetically more diverse and rich in
-      the concentrated brine, while archaeal diversity was maximized in the natural brine
-    explanation: Documents lithium as selective modulator of community diversity
-  - reference: doi:10.1029/2018JG004621
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Bacteria were phylogenetically more diverse and rich in the concentrated brine, while archaeal
-      diversity was maximized in the natural brine
-    explanation: Shows differential response of bacteria vs archaea to lithium concentration
-- name: Organic Matter Degradation in Hypersaline Brine
-  description: 'Both archaeal and bacterial community members engage in aerobic heterotrophic degradation
-    of organic matter in the hypersaline brine ecosystem. Halophilic archaea (Halovenus, Natronomonas,
-    Haloarcula, Halobacterium) and the halophilic bacterium Salinibacter utilize diverse carbon sources
-    including polysaccharides, proteins, and simple organic compounds. The community demonstrates functional
-    redundancy in organic matter processing, with multiple taxa capable of degrading similar substrates.
-    This metabolic activity supports nutrient cycling in the lithium-rich brine environment and represents
-    the primary energy flow pathway in this extreme ecosystem.
-
-    '
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Halovenus
+    snippet: Further, our results showed that Bacteria were phylogenetically more diverse and rich in the concentrated
+      brine, while archaeal diversity was maximized in the natural brine
+    explanation: Supports the measured community diversity comparison, not lithium-only causation or a particular
+      physiological adaptation.
+  participating_taxa:
+  - preferred_term: Halovenus
     term:
       id: NCBITaxon:1377992
       label: Halovenus
-  metabolites:
-  - preferred_term: organic molecular entity
-    term:
-      id: CHEBI:50860
-      label: organic molecular entity
-    notes: Diverse organic carbon sources including polysaccharides, proteins, amino acids
-  biological_processes:
-  - preferred_term: aerobic respiration
-    term:
-      id: GO:0009060
-      label: aerobic respiration
-  downstream:
-  - target: Nutrient Remineralization in Lithium Brine
-    description: Organic degradation releases inorganic nutrients
-  evidence:
-  - reference: doi:10.1029/2018JG004621
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: 'Brines only supported a single archaeal family (Halobacteriaceae): natural brines included
-      the archaeal genera Halovenus, Natronomonas, Haloarcula, and Halobacterium'
-    explanation: Documents archaeal heterotrophic activity in brines
-- name: Nutrient Remineralization in Lithium Brine
-  description: 'Heterotrophic degradation by archaeal and bacterial community members results in remineralization
-    of nutrients (nitrogen, phosphorus, trace metals) from organic matter. This nutrient cycling is critical
-    for sustaining microbial productivity in the oligotrophic brine environment where external nutrient
-    inputs are limited. Remineralized nutrients become available for uptake by the same or other community
-    members, creating a closed nutrient cycle that supports long-term community stability despite extreme
-    salinity and lithium stress.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Natronomonas
+  - preferred_term: Natronomonas
     term:
       id: NCBITaxon:63743
       label: Natronomonas
-  target_taxon:
-    preferred_term: Haloarcula
+  - preferred_term: Haloarcula
     term:
       id: NCBITaxon:2237
       label: Haloarcula
-  metabolites:
-  - preferred_term: inorganic nutrient
-    term:
-      id: CHEBI:33284
-      label: nutrient
-    notes: Including nitrogen, phosphorus, trace metals from organic degradation
-  biological_processes:
-  - preferred_term: nitrogen cycle metabolic process
-    term:
-      id: GO:0071941
-      label: nitrogen cycle metabolic process
-  evidence:
-  - reference: doi:10.1029/2018JG004621
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: The concentrated lithium brines of the Salar de Atacama represent one of the most saline
-      environments described to date (dominated by LiCl)
-    explanation: Implies nutrient cycling supports community persistence in extreme conditions
-- name: Bacteriorhodopsin-Mediated Phototrophy
-  description: 'Halobacterium species possess bacteriorhodopsin, a light-driven proton pump that generates
-    ATP through photophosphorylation without requiring organic carbon. This phototrophic capability provides
-    metabolic flexibility in the high solar radiation environment of Salar de Atacama (6.3 × 10⁶ cal/m²/day,
-    3,700 mm/year evaporation). Phototrophy supplements heterotrophic metabolism during periods of organic
-    carbon limitation and contributes to the overall energy budget of the community. The bacteriorhodopsin
-    pathway represents a unique adaptation to the extreme light exposure in this high-altitude (2,300
-    m) desert environment.
-
-    '
-  interaction_type: COMMENSALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Halobacterium
+  - preferred_term: Halobacterium
     term:
       id: NCBITaxon:2239
       label: Halobacterium
-  metabolites:
-  - preferred_term: photon
-    term:
-      id: CHEBI:30212
-      label: photon
-    concentration: 6.3 × 10⁶ cal/m²/day solar radiation
-  - preferred_term: ATP
-    term:
-      id: CHEBI:15422
-      label: ATP
-    notes: Generated via bacteriorhodopsin proton pumping
-  biological_processes:
-  - preferred_term: photosynthesis, light reaction
-    term:
-      id: GO:0019684
-      label: photosynthesis, light reaction
-  evidence:
-  - reference: doi:10.1029/2018JG004621
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: The concentrated lithium brines of the Salar de Atacama represent one of the most saline
-      environments described to date (dominated by LiCl)
-    explanation: Documents extreme light exposure that selects for phototrophic capability
-- name: Bacterial Heterotrophic Activity and Functional Redundancy
-  description: 'Staphylococcaceae members contribute to heterotrophic organic matter processing in natural
-    brine, working alongside Salinibacter to provide functional redundancy in bacterial metabolism. As
-    one of the most abundant bacterial families in natural brine, Staphylococcaceae exhibits halotolerance
-    and participates in degradation of organic compounds. This bacterial functional redundancy complements
-    the archaeal heterotrophs and enhances community resilience to environmental fluctuations. The presence
-    of multiple bacterial families capable of heterotrophic activity ensures continued nutrient cycling
-    even if individual taxa decline due to lithium concentration changes during industrial processing.
-
-    '
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Staphylococcaceae members
-    term:
-      id: NCBITaxon:90964
-      label: Staphylococcaceae
-  target_taxon:
-    preferred_term: Salinibacter
+  - preferred_term: Salinibacter
     term:
       id: NCBITaxon:146918
       label: Salinibacter
-  metabolites:
-  - preferred_term: organic molecular entity
+  - preferred_term: Staphylococcaceae members
     term:
-      id: CHEBI:50860
-      label: organic molecular entity
-    notes: Diverse organic carbon sources
-  biological_processes:
-  - preferred_term: aerobic respiration
-    term:
-      id: GO:0009060
-      label: aerobic respiration
-  evidence:
-  - reference: doi:10.1029/2018JG004621
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: The most abundant bacterial families in natural brine were Rhodothermaceae and Staphylococcaceae;
-      Xanthomonadaceae dominated the bacterial community in the concentrated brine
-    explanation: Documents Staphylococcaceae as abundant bacterial family in natural brine
+      id: NCBITaxon:90964
+      label: Staphylococcaceae
 environmental_factors:
 - name: Lithium Concentration
   value: 1,500
@@ -674,3 +495,30 @@ growth_media:
       However, for both strains, optimum growth was attained at 37°C, and growth
       was lowest at 20°C.
     explanation: Documents the 37°C growth optimum across the tested 20-45°C range for the brine isolates.
+discussions:
+- discussion_id: brine_graph_evidence_scope
+  prompt: Which physiological or intertaxon mechanisms account for the observed brine community differences?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  rationale: The primary study measures composition in two brines and discusses candidate adaptation mechanisms
+    using background literature. It does not isolate lithium from covarying ions/salinity or establish the former
+    graph's organic degradation, closed nutrient recycling, phototrophy and functional-redundancy claims. Those
+    four nodes and both unsupported directions are removed. This is an evidentiary limit, not proof that the processes
+    are absent from the ecosystem.
+  evidence:
+  - reference: doi:10.1029/2018JG004621
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Further, our results showed that Bacteria were phylogenetically more diverse and rich in the concentrated
+      brine, while archaeal diversity was maximized in the natural brine
+    explanation: Supports the measured community diversity comparison, not lithium-only causation or a particular
+      physiological adaptation.
+  attaches_to:
+  - ecological_interactions#Community Composition Across Natural and Concentrated Brines
+curation_history:
+- timestamp: '2026-10-07T20:37:43Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain observed community differences at community scope; remove unmeasured pairwise benefit and physiological
+    causation. Issue#1786; reports/causal_graph_review/decisions/20261007-four-records-batch99.yaml
+  llm_assisted: true

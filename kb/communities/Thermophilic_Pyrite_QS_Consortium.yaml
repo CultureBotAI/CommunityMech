@@ -232,151 +232,84 @@ taxonomy:
       url: https://www.dsmz.de/collection/catalogue/details/culture/DSM-9293
 ecological_interactions:
 - name: Ferrous Iron Oxidation by Leptospirillum
-  description: 'Leptospirillum ferriphilum oxidizes ferrous iron [Fe(II)] to ferric iron [Fe(III)] as
-    the primary energy source for chemolithoautotrophic growth at 40°C and pH 2.0-2.5. The organism uses
-    Fe²⁺ as electron donor, generating reducing equivalents for CO₂ fixation through the Calvin-Benson-Bassham
-    cycle. Fe³⁺ production provides the oxidant necessary for pyrite (FeS₂) and chalcopyrite (CuFeS₂)
-    dissolution. This iron oxidation activity is subject to quorum sensing regulation through DSF and
-    AHL signaling systems. Treatment with DSF compounds caused L. ferriphilum to expand populations on
-    mineral surfaces, increasing contact with Fe²⁺ substrate released from mineral dissolution. Conversely,
-    AHL quorum sensing signals repressed L. ferriphilum motility, potentially stabilizing biofilm formation.
-    The QS-mediated control of iron oxidation represents a coordinated mechanism for regulating mineral
-    dissolution rates based on population density and community composition. DSF treatment reduced overall
-    pyrite and chalcopyrite dissolution via inhibitory effects on iron oxidation, demonstrating that QS
-    signals can modulate bioleaching efficiency.
-
-    '
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Leptospirillum ferriphilum
-    term:
-      id: NCBITaxon:178606
-      label: Leptospirillum ferriphilum
+  description: L. ferriphilum DSM 14647 oxidizes ferrous iron to ferric iron for chemolithoautotrophic growth. Ferric
+    iron is a chemical oxidant of sulfide minerals, not evidence of a measured nutrient transfer to a named microbial
+    recipient. Carbon fixation is retained without assigning the Calvin-Benson-Bassham pathway. The 2025 study measured
+    growth, redox potential and mineral-colonization responses to added signal compounds at 40 C. Relative enrichment
+    on pyrite in the mixed culture is not an absolute increase in every condition or proof of natural density-dependent
+    control of iron oxidation.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: Fe(II)
     term:
       id: CHEBI:29033
       label: iron(2+)
-    concentration: Substrate from pyrite/chalcopyrite dissolution
   - preferred_term: Fe(III)
     term:
       id: CHEBI:29034
       label: iron(3+)
-    concentration: Product for mineral oxidation; regulated by QS
-  biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
-  - preferred_term: carbon fixation
-    term:
-      id: GO:0015977
-      label: carbon fixation
-  - preferred_term: quorum sensing
-    term:
-      id: GO:0009372
-      label: quorum sensing
   downstream:
   - target: Pyrite and Chalcopyrite Dissolution
-    description: Fe³⁺ oxidizes sulfide minerals; QS modulates dissolution rates
+    description: Biological oxidation regenerates ferric iron, the chemical oxidant that attacks sulfide minerals
+      and enables their dissolution. This is the iron-recycling mechanism described in the cited studies, not a
+      pairwise cross-feeding assay or proof that increasing oxidation always improves chalcopyrite recovery; its
+      redox-potential window matters.
+  evidence:
+  - reference: doi:10.1038/s41598-021-95324-9
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: iron(II)-ion oxidation regenerates iron(III) ions, the chemical oxidant of the metal sulfide bond
+    explanation: The source introduction describes the mineral iron-recycling mechanism; not a measured microbial
+      exchange.
+  - reference: doi:10.3389/fmicb.2025.1592588
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: L. ferriphilum is the single moderately thermophilic Leptospirillum species and uses iron(II) as sole
+      energy source and fixes carbon dioxide
+    explanation: Background physiology supports the species role, without specifying a carbon-fixation pathway.
+  participating_taxa:
+  - preferred_term: Leptospirillum ferriphilum
+    term:
+      id: NCBITaxon:178606
+      label: Leptospirillum ferriphilum
+- name: Sulfur Oxidation by Acidithiobacillus caldus
+  description: A. caldus DSM 8584 supplies inorganic sulfur-oxidizing capacity in the three-species culture. Sulfur
+    oxidation contributes to acid generation, but the cited mixed-culture study does not isolate a passivation-removal
+    benefit to another named species or selective DSF control of sulfur-oxidation flux. Under added DSF/BDSF, pyrite-attached
+    relative abundance decreased while the planktonic fraction increased; flagellar transcript changes support a
+    dispersal interpretation. Axenic and mixed-culture responses differ.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: sulfuric acid
+    term:
+      id: CHEBI:26836
+      label: sulfuric acid
   evidence:
   - reference: doi:10.3389/fmicb.2025.1592588
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: In addition, DSF compounds induced Acidithiobacillus caldus motility and dispersion from
-      pyrite with a concomitant expansion of Leptospirillum ferriphilum on the mineral surface while in
-      contrast, the acyl-homoserine lactone mediated QS system repressed L
-    explanation: Links QS signaling to regulation of iron oxidation and mineral dissolution
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: A. caldus is an aerobic, ISC oxidizing obligate chemolithoautotroph
+    explanation: Species physiology underlies the assigned sulfur role, not demonstrated pairwise mutualism.
   - reference: doi:10.3389/fmicb.2025.1592588
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: concomitant expansion of Leptospirillum ferriphilum on the mineral surface
-    explanation: Documents QS-mediated increase in L. ferriphilum mineral colonization
-  - reference: doi:10.1038/s41598-021-95324-9
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Bioleaching of metal sulfide ores involves acidophilic microbes that catalyze the chemical
-      dissolution of the metal sulfide bond that is enhanced by attached and planktonic cell mediated
-      oxidation of iron(II)-ions and inorganic sulfur compounds
-    explanation: Establishes DSF role in controlling Leptospirillum bioleaching behavior
-- name: Sulfur Oxidation by Acidithiobacillus caldus
-  description: 'Acidithiobacillus caldus oxidizes elemental sulfur (S⁰) and reduced inorganic sulfur compounds
-    (RISCs) released from mineral dissolution to sulfuric acid (H₂SO₄). This process maintains the acidic
-    pH (2.0-2.5) essential for thermophilic bioleaching by continuously generating protons. Sulfur oxidation
-    follows: S⁰ + 1.5O₂ + H₂O → H₂SO₄. The sulfuric acid protonates mineral surfaces, enhancing Fe³⁺ attack
-    and preventing precipitation of iron hydroxides. A. caldus exhibits QS-mediated control of mineral
-    colonization patterns. Treatment with DSF compounds induced A. caldus motility and dispersion from
-    pyrite surfaces, reducing mineral-attached populations and increasing planktonic cells. This DSF-induced
-    detachment may represent a coordinated mechanism for redistributing cells between mineral colonization
-    and planktonic growth modes. The organism prevents accumulation of passivating sulfur layers that
-    would block mineral-microbe contact. QS regulation of A. caldus sulfur oxidation activity contributes
-    to overall modulation of bioleaching efficiency, with DSF treatment reducing chalcopyrite and pyrite
-    dissolution rates.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Acidithiobacillus caldus
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: DSF compounds induced Acidithiobacillus caldus motility and dispersion from pyrite
+    explanation: Authors interpret relative-abundance and transcript responses to added DSF-family compounds as
+      dispersal; no endogenous donor is established.
+  participating_taxa:
+  - preferred_term: Acidithiobacillus caldus
     term:
       id: NCBITaxon:33059
       label: Acidithiobacillus caldus
-  metabolites:
-  - preferred_term: sulfur
-    term:
-      id: CHEBI:26833
-      label: sulfur atom
-    notes: Elemental sulfur (S⁰) from mineral dissolution
-  - preferred_term: sulfuric acid
-    term:
-      id: CHEBI:26836
-      label: sulfuric acid
-    concentration: Maintains pH 2.0-2.5
-  biological_processes:
-  - preferred_term: sulfur compound metabolic process
-    term:
-      id: GO:0006790
-      label: sulfur compound metabolic process
-  - preferred_term: quorum sensing
-    term:
-      id: GO:0009372
-      label: quorum sensing
-  evidence:
-  - reference: doi:10.3389/fmicb.2025.1592588
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: In addition, DSF compounds induced Acidithiobacillus caldus motility and dispersion from
-      pyrite with a concomitant expansion of Leptospirillum ferriphilum on the mineral surface while in
-      contrast, the acyl-homoserine lactone mediated QS system repressed L
-    explanation: Documents QS-mediated shift in A. caldus mineral colonization
-  - reference: doi:10.3389/fmicb.2025.1592588
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: DSF compounds induced Acidithiobacillus caldus motility and dispersion from pyrite
-    explanation: Quantifies DSF effect on biofilm-to-planktonic transition
 - name: Dual Iron and Sulfur Oxidation by Sulfobacillus
-  description: 'Sulfobacillus thermosulfidooxidans oxidizes both ferrous iron (Fe²⁺) and elemental sulfur
-    (S⁰), performing metabolic roles analogous to both L. ferriphilum and A. caldus but at elevated temperatures
-    (50-55°C optimum). This thermophilic organism generates ferric iron for mineral oxidation and sulfuric
-    acid for pH maintenance, contributing to both major biogeochemical processes in the consortium. S.
-    thermosulfidooxidans exhibits facultative autotrophy, growing mixotrophically on organic compounds
-    plus iron or sulfur substrates. This metabolic flexibility may enable utilization of organic carbon
-    from cell lysis or exopolysaccharide degradation. The organism responds to DSF quorum sensing signals
-    with decreased mineral attachment, indicating QS-mediated coordination of biofilm versus planktonic
-    lifestyles. Its spore-forming capability provides resilience to environmental fluctuations and potential
-    for long-term dormancy. The combination of thermophily, dual substrate oxidation, and metal tolerance
-    (Cu, Zn, Ni, Co) positions S. thermosulfidooxidans as a versatile partner in the consortium, active
-    across temperature gradients and capable of oxidizing diverse sulfide minerals.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Sulfobacillus thermosulfidooxidans
-    term:
-      id: NCBITaxon:28034
-      label: Sulfobacillus thermosulfidooxidans
+  description: S. thermosulfidooxidans DSM 9293 has both ferrous-iron and inorganic sulfur-oxidizing capacity and
+    can grow mixotrophically. The 2025 consortium assays used 40 C, not the species growth optimum. Its biofilm
+    relative distribution at 7 and 14 days was not significantly changed by DSF/BDSF, although other assay designs
+    and time points showed inhibition. The separate 2020 two-species study found that co-inoculation improved leaching
+    relative to S. thermosulfidooxidans alone but not relative to L. ferriphilum biofilms; precolonization could
+    impair leaching. These condition-dependent findings do not establish universal mutualism or measured consumption
+    of partner lysate or EPS.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: Fe(II)
     term:
@@ -386,70 +319,43 @@ ecological_interactions:
     term:
       id: CHEBI:29034
       label: iron(3+)
-  - preferred_term: sulfur
-    term:
-      id: CHEBI:26833
-      label: sulfur atom
   - preferred_term: sulfuric acid
     term:
       id: CHEBI:26836
       label: sulfuric acid
-  biological_processes:
-  - preferred_term: iron ion transport
-    term:
-      id: GO:0006826
-      label: iron ion transport
-  - preferred_term: sulfur compound metabolic process
-    term:
-      id: GO:0006790
-      label: sulfur compound metabolic process
-  - preferred_term: quorum sensing
-    term:
-      id: GO:0009372
-      label: quorum sensing
   evidence:
-  - reference: doi:10.3389/fmicb.2025.1592588
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: In this study, treatment of a moderately thermophilic biomining consortium with QS compounds,
-      termed diffusible signal factors (DSF), reduced pyrite and chalcopyrite dissolution via an inhibitory
-      effect on iron oxidation and mineral colonization by the mixed culture
-    explanation: Documents QS-mediated regulation of S. thermosulfidooxidans biofilm formation
+  - reference: doi:10.3389/fmicb.2020.00044
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Since L. ferriphilum can oxidize only ferrous ion for energy but S. thermosulfidooxidans can use both,
+      ferrous ion and RISCs, as energy source
+    explanation: Explains distinct substrate capacities in the dual-culture experiments; not proof of every proposed
+      metabolic flux.
   - reference: doi:10.3389/fmicb.2020.00044
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: ferriphilum occurs during the dual-species biofilm formation, but different effects on bioleaching
-      were noted, if the preculture of L
-    explanation: Establishes cooperative interactions between Sulfobacillus and Leptospirillum
-- name: Pyrite and Chalcopyrite Dissolution
-  description: 'Ferric iron generated by L. ferriphilum and S. thermosulfidooxidans oxidizes pyrite (FeS₂)
-    and chalcopyrite (CuFeS₂) minerals, releasing ferrous iron, copper ions, and elemental sulfur. Primary
-    reactions include: FeS₂ + 14Fe³⁺ + 8H₂O → 15Fe²⁺ + 2SO₄²⁻ + 16H⁺ (pyrite) and CuFeS₂ + 4Fe³⁺ → Cu²⁺
-    + 5Fe²⁺ + 2S⁰ (chalcopyrite). These processes are enhanced by acidic pH (2.0-2.5) maintained by A.
-    caldus and S. thermosulfidooxidans sulfur oxidation. The released Fe²⁺ is re-oxidized by iron-oxidizing
-    bacteria, closing the iron redox cycle. Elemental sulfur is oxidized to sulfuric acid, preventing
-    surface passivation. Quorum sensing systems profoundly impact dissolution rates. Treatment with DSF
-    compounds reduced pyrite and chalcopyrite dissolution via inhibitory effects on iron oxidation and
-    altered mineral colonization patterns. DSF induced A. caldus dispersion from pyrite while expanding
-    L. ferriphilum surface populations, demonstrating QS-mediated redistribution of species on mineral
-    surfaces. AHL signaling repressed L. ferriphilum motility, potentially stabilizing biofilm attachment.
-    These QS-regulated changes in planktonic/mineral subpopulation distributions modulate overall leaching
-    efficiency, revealing that cell-cell communication coordinates consortium-level mineral dissolution
-    activity.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Leptospirillum ferriphilum
-    term:
-      id: NCBITaxon:178606
-      label: Leptospirillum ferriphilum
-  target_taxon:
-    preferred_term: Sulfobacillus thermosulfidooxidans
+    snippet: the bioleaching efficiency was better than that of a pure culture of S. thermosulfidooxidans
+    explanation: The comparator is S. thermosulfidooxidans alone after simultaneous inoculation, not all monocultures
+      or all inoculation orders.
+  - reference: doi:10.3389/fmicb.2025.1592588
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the presence of DSF/BDSF molecules did not affect its biofilm distribution at 7 and 14 days
+    explanation: The statement concerns S. thermosulfidooxidans relative distribution in the mixed pyrite culture,
+      not every attachment assay.
+  participating_taxa:
+  - preferred_term: Sulfobacillus thermosulfidooxidans
     term:
       id: NCBITaxon:28034
       label: Sulfobacillus thermosulfidooxidans
+- name: Pyrite and Chalcopyrite Dissolution
+  description: The three-species culture catalyzes sulfide-mineral dissolution through iron and sulfur oxidation.
+    Ferric attack releases ferrous iron that can be reoxidized; copper release reports chalcopyrite dissolution.
+    Added DSF/BDSF decreased bioleaching under the tested conditions, with effects on growth, redox potential and
+    colonization. The contributions of signaling, fatty-acid stress and cell damage were not selectively separated.
+    Pyrite and chalcopyrite responses differ; the outcome is not evidence of Leptospirillum-to-Sulfobacillus mutualism
+    or uniformly beneficial biofilm stabilization by AHLs.
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: pyrite
     term:
@@ -481,59 +387,46 @@ ecological_interactions:
       id: CHEBI:26836
       label: sulfuric acid
     notes: From sulfur oxidation
-  biological_processes:
-  - preferred_term: biofilm formation
-    term:
-      id: GO:0042710
-      label: biofilm formation
-  - preferred_term: quorum sensing
-    term:
-      id: GO:0009372
-      label: quorum sensing
   downstream:
   - target: Ferrous Iron Oxidation by Leptospirillum
-    description: Released Fe²⁺ is re-oxidized to regenerate Fe³⁺ oxidant
+    description: Chemical attack on sulfide minerals releases ferrous iron, providing substrate for L. ferriphilum
+      to regenerate ferric oxidant. This closes the mineral iron-recycling loop without asserting a measured interspecies
+      nutrient-transfer event.
   evidence:
   - reference: doi:10.3389/fmicb.2025.1592588
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: In this study, treatment of a moderately thermophilic biomining consortium with QS compounds,
-      termed diffusible signal factors (DSF), reduced pyrite and chalcopyrite dissolution via an inhibitory
-      effect on iron oxidation and mineral colonization by the mixed culture
-    explanation: Quantifies QS impact on mineral dissolution efficiency
-  - reference: doi:10.3389/fmicb.2025.1592588
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: QS molecules changed the distribution of planktonic/mineral subpopulations of the acidophilic species
-    explanation: Documents QS-mediated changes in biofilm-planktonic distributions
-- name: DSF Quorum Sensing Signaling
-  description: 'Diffusible signal factor (DSF) quorum sensing mediates intercellular communication and
-    coordinates community behavior in the consortium. L. ferriphilum produces DSF through RpfF-family
-    synthases, generating (Z)-11-methyl-2-dodecenoic acid and related compounds. Exogenous addition of
-    DSF and BDSF (2 μM each) altered planktonic versus mineral-attached population distributions. DSF
-    treatment induced A. caldus motility and dispersion from pyrite surfaces while expanding L. ferriphilum
-    colonization on minerals. This reciprocal species redistribution suggests DSF signaling coordinates
-    niche partitioning, with A. caldus adopting planktonic lifestyle while L. ferriphilum increases biofilm
-    formation. DSF compounds reduced overall pyrite and chalcopyrite dissolution through inhibitory effects
-    on iron oxidation, indicating that high population density signals (via DSF accumulation) downregulate
-    mineral attack. This may represent a density-dependent feedback mechanism preventing overexploitation
-    of mineral resources or managing oxidative stress from excessive Fe³⁺ generation. DSF signaling demonstrates
-    how single-species QS molecules can coordinate multi-species community behavior in syntrophic bioleaching
-    consortia.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Leptospirillum ferriphilum
+    evidence_source: IN_VITRO
+    snippet: reduced pyrite and chalcopyrite dissolution via an inhibitory effect on iron oxidation and mineral
+      colonization by the mixed culture
+    explanation: Supports the treatment-associated consortium outcome; it does not separate every proposed mediator.
+  - reference: doi:10.3389/fmicb.2020.00044
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Ferrous ion is then re-oxidized to ferric ion by the iron-oxidizing microorganisms
+    explanation: Background mechanistic account supports the retained iron-recycling direction.
+  participating_taxa:
+  - preferred_term: Leptospirillum ferriphilum
     term:
       id: NCBITaxon:178606
       label: Leptospirillum ferriphilum
-  target_taxon:
-    preferred_term: Acidithiobacillus caldus
+  - preferred_term: Acidithiobacillus caldus
     term:
       id: NCBITaxon:33059
       label: Acidithiobacillus caldus
+  - preferred_term: Sulfobacillus thermosulfidooxidans
+    term:
+      id: NCBITaxon:28034
+      label: Sulfobacillus thermosulfidooxidans
+- name: Responses to Added DSF and BDSF
+  description: 'The 2025 mixed-culture experiments added DSF and BDSF at 2 uM each. Pyrite relative abundances and
+    planktonic transcripts support A. caldus dispersal and relative L. ferriphilum enrichment on mineral surfaces,
+    with context-dependent inhibition of growth and leaching. The separate 2021 study confirmed biogenic DSF in
+    L. ferriphilum and L. ferrooxidans pyrite cultures by GC-MS at nanomolar concentrations. That production result
+    is retained, but it does not prove the micromolar treatment phenotype arises from endogenous transfer within
+    this three-species consortium. HYPOTHESIZED: natural niche defense and receptor-mediated regulation; fatty-acid
+    stress can also contribute. Neither mutual benefit nor density-dependent protection against mineral overexploitation
+    was demonstrated.'
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cis-11-methyl-2-dodecenoic acid
     term:
@@ -547,114 +440,70 @@ ecological_interactions:
       label: cis-2-dodecenoic acid
     concentration: 2 μM exogenous BDSF
     notes: BDSF quorum sensing signal
-  biological_processes:
-  - preferred_term: quorum sensing
-    term:
-      id: GO:0009372
-      label: quorum sensing
-  - preferred_term: regulation of biofilm formation
-    term:
-      id: GO:1900190
-      label: regulation of single-species biofilm formation
-  - preferred_term: regulation of cell motility
-    term:
-      id: GO:2000145
-      label: regulation of cell motility
   evidence:
   - reference: doi:10.3389/fmicb.2025.1592588
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: In this study, treatment of a moderately thermophilic biomining consortium with QS compounds,
-      termed diffusible signal factors (DSF), reduced pyrite and chalcopyrite dissolution via an inhibitory
-      effect on iron oxidation and mineral colonization by the mixed culture
-    explanation: Demonstrates DSF-mediated coordination of species-specific behaviors
-  - reference: doi:10.3389/fmicb.2025.1592588
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: treatment of a moderately thermophilic biomining consortium with QS compounds, termed diffusible signal factors (DSF), reduced pyrite and chalcopyrite dissolution
-    explanation: Establishes functional impact of DSF signaling on bioleaching
+    evidence_source: IN_VITRO
+    snippet: The DSF/BDSF addition resulted in a decreased cell density
+    explanation: Describes an external-addition effect in chalcopyrite assays, not a naturally secreted partner
+      signal.
   - reference: doi:10.1038/s41598-021-95324-9
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: In this study, we demonstrated a functional diffusible signal factor interspecies quorum
-      sensing signaling mechanism in Leptospirillum ferriphilum and Leptospirillum ferrooxidans that produces
-      (Z)-11-methyl-2-dodecenoic acid when grown with pyrite as energy source
-    explanation: Links DSF production in Leptospirillum to bioleaching regulation
-- name: AHL Quorum Sensing Regulation
-  description: 'N-acyl-homoserine lactone (AHL) quorum sensing provides an additional layer of community
-    coordination in the consortium. A. caldus and potentially S. thermosulfidooxidans possess AHL-type
-    QS systems mediated by LuxI/LuxR homologs. Exogenous addition of long-chain AHLs (C12-AHL, C14-AHL,
-    3-OH-C12-AHL, 3-OH-C14-AHL at 5 μM each) repressed L. ferriphilum motility, contrasting with DSF effects
-    that induced A. caldus motility. This demonstrates cross-species QS communication where A. caldus-produced
-    AHL signals regulate L. ferriphilum behavior. AHL-mediated repression of L. ferriphilum motility may
-    stabilize biofilm formation and mineral colonization during high cell density conditions. The opposing
-    effects of DSF (inducing motility/dispersion in A. caldus while expanding L. ferriphilum biofilms)
-    versus AHL (repressing L. ferriphilum motility) suggest complex multi-layered QS networks coordinate
-    community assembly. These interacting QS systems may enable fine-tuned regulation of planktonic-biofilm
-    transitions, niche partitioning, and metabolic specialization based on species composition and population
-    densities. AHL-DSF cross-talk represents sophisticated intercellular communication in acidophilic
-    biomining communities previously considered simple consortia.
-
-    '
-  interaction_type: MUTUALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Acidithiobacillus caldus
-    term:
-      id: NCBITaxon:33059
-      label: Acidithiobacillus caldus
-  target_taxon:
-    preferred_term: Leptospirillum ferriphilum
+    evidence_source: IN_VITRO
+    snippet: unambiguously identified the presence of biogenic DSF in cultures of both Leptospirillum species
+    explanation: GC-MS supports actual DSF production in separate pyrite-grown cultures; it is not erased by qualification
+      of the consortium inference.
+  - reference: doi:10.1038/s41598-021-95324-9
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Micromolar DSF/BDSF concentrations are unlikely to occur in leptospirilli containing habitats
+    explanation: Authors distinguish treatment concentrations from measured natural culture levels; local accumulation/niche
+      defense remains a hypothesis.
+  participating_taxa:
+  - preferred_term: Leptospirillum ferriphilum
     term:
       id: NCBITaxon:178606
       label: Leptospirillum ferriphilum
-  metabolites:
-  - preferred_term: N-dodecanoyl-L-homoserine lactone
+  - preferred_term: Acidithiobacillus caldus
     term:
-      id: CHEBI:55555
-      label: N-dodecanoyl-L-homoserine lactone
-    concentration: 5 μM C12-AHL
-  - preferred_term: N-tetradecanoyl-L-homoserine lactone
+      id: NCBITaxon:33059
+      label: Acidithiobacillus caldus
+  - preferred_term: Sulfobacillus thermosulfidooxidans
     term:
-      id: CHEBI:75315
-      label: N-tetradecanoyl-L-homoserine lactone
-    concentration: 5 μM C14-AHL
-  - preferred_term: N-(3-hydroxy-dodecanoyl)-L-homoserine lactone
-    term:
-      id: CHEBI:187815
-      label: N-(3-hydroxy-dodecanoyl)-homoserine lactone
-    concentration: 5 μM 3-OH-C12-AHL
-  - preferred_term: N-(3-hydroxy-tetradecanoyl)-L-homoserine lactone
-    term:
-      id: CHEBI:55474
-      label: N-acyl-L-homoserine lactone
-    concentration: 5 μM 3-OH-C14-AHL
-  biological_processes:
-  - preferred_term: quorum sensing
-    term:
-      id: GO:0009372
-      label: quorum sensing
-  - preferred_term: negative regulation of cell motility
-    term:
-      id: GO:2000146
-      label: negative regulation of cell motility
-  - preferred_term: regulation of biofilm formation
-    term:
-      id: GO:1900190
-      label: regulation of single-species biofilm formation
+      id: NCBITaxon:28034
+      label: Sulfobacillus thermosulfidooxidans
+- name: Responses to Added AHL Mixture
+  description: External addition of C12-AHL, C14-AHL, 3-OH-C12-AHL and 3-OH-C14-AHL at 5 uM each changed the mixed-culture
+    relative abundances and planktonic transcript profiles. The methods specify DL-homoserine-lactone reagents;
+    specific L-enantiomer or generic class CURIEs must not stand in for the exact supplied molecules. Decreased
+    L. ferriphilum flagellar transcripts support a motility interpretation, not a direct motility-rate measurement.
+    These experiments do not demonstrate A. caldus production of AHLs, a LuxI-dependent donor-recipient exchange,
+    natural density sensing, or necessary AHL-DSF cross-talk. Proposed biofilm and c-di-GMP mechanisms remain PARTIAL.
+  scope: COMMUNITY_LEVEL
   evidence:
   - reference: doi:10.3389/fmicb.2025.1592588
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: In addition, DSF compounds induced Acidithiobacillus caldus motility and dispersion from
-      pyrite with a concomitant expansion of Leptospirillum ferriphilum on the mineral surface while in
-      contrast, the acyl-homoserine lactone mediated QS system repressed L
-    explanation: Demonstrates AHL-mediated regulation of heterospecific behavior
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: AHLs induced changes in transcript counts of some L. ferriphilum flagellar genes
+    explanation: Supports the transcript response to added mixture; motility and mechanistic mediation remain interpretations.
   - reference: doi:10.3389/fmicb.2025.1592588
     supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: acyl-homoserine lactone mediated QS system
-    explanation: Establishes AHL production capacity in A. caldus
+    evidence_source: IN_VITRO
+    snippet: N-acyl-DL-homoserine lactones (AHLs) were used as a mixture
+    explanation: The methods specify external DL reagents, not A. caldus secretion or exact L-only compound identities.
+  participating_taxa:
+  - preferred_term: Leptospirillum ferriphilum
+    term:
+      id: NCBITaxon:178606
+      label: Leptospirillum ferriphilum
+  - preferred_term: Acidithiobacillus caldus
+    term:
+      id: NCBITaxon:33059
+      label: Acidithiobacillus caldus
+  - preferred_term: Sulfobacillus thermosulfidooxidans
+    term:
+      id: NCBITaxon:28034
+      label: Sulfobacillus thermosulfidooxidans
 environmental_factors:
 - name: Temperature
   value: '40'
@@ -967,3 +816,42 @@ growth_media:
       flasks with 100 mL of medium inoculated with a mixture of the three species each at 2 × 107 cells/mL
     explanation: Reports the vessel (250 mL Erlenmeyer flask, 100 mL) and inoculum density
       (2 × 10^7 cells/mL per species).
+discussions:
+- discussion_id: endogenous-signal-and-stress-separation-batch115
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  prompt: Which endogenous signals and receptors mediate mineral redistribution at natural concentrations?
+  rationale: 'Biogenic DSF production has experimental support, but micromolar additions combine signaling and stress.
+    Density-matched and receptor/production perturbations are needed to assign the three-species phenotype to endogenous
+    signaling. AHL-producing partners and exact compound groundings remain unresolved. Non-graph assay and signaling
+    metadata remain issue #1896.'
+  attaches_to:
+  - ecological_interactions#Responses to Added DSF and BDSF
+  - ecological_interactions#Responses to Added AHL Mixture
+  evidence:
+  - reference: doi:10.1038/s41598-021-95324-9
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: unambiguously identified the presence of biogenic DSF in cultures of both Leptospirillum species
+    explanation: GC-MS supports actual DSF production in separate pyrite-grown cultures; it is not erased by qualification
+      of the consortium inference.
+  - reference: doi:10.1038/s41598-021-95324-9
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Micromolar DSF/BDSF concentrations are unlikely to occur in leptospirilli containing habitats
+    explanation: Authors distinguish treatment concentrations from measured natural culture levels; local accumulation/niche
+      defense remains a hypothesis.
+  posed_by: codex
+  posed_date: '2026-10-08'
+curation_history:
+- timestamp: '2026-10-08T09:47:59Z'
+  curator: codex
+  action: REVIEW_CAUSAL_GRAPH
+  changes: Retain intrinsic iron oxidation and its mineral-oxidation link; no recipient, CBB attribution or density-control
+    proof.; Retain sulfur physiology and qualified dispersal interpretation, not demonstrated passivation-removal
+    mutualism.; Retain dual substrate capacity with condition-specific results and the actual 2020 comparator; no
+    universal cooperation.; Retain consortium dissolution and the physical iron-recycling feedback, not pairwise
+    mutualism or isolated QS mediation.; Separate externally dosed consortium responses from directly measured biogenic
+    DSF in the 2021 study and hypothetical natural niche defense.; Separate added DL-AHL/transcript responses from
+    endogenous production, direct motility measurement and unsupported compound stereochemistry. Issue#1893; reports/causal_graph_review/decisions/20261008-three-records-batch115.yaml
+  llm_assisted: true

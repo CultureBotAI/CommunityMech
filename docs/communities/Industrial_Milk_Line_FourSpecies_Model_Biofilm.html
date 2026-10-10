@@ -658,7 +658,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Industrial Milk-Line Four-Species Model Biofilm</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition, niche partitioning, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -666,18 +666,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTimes"
-                             data-color="#a91919"></svg> Competition
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
                     </div>
                 </div>
             </div>
@@ -685,13 +675,24 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Dynamic Positive and Negative Biofilm Interactions</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Biofilm Community Composition and Growth Interactions</h3>
                 </div>
-                <p class="prewrap interaction-description">Species-subset biofilms and growth modeling revealed a dynamic network of positive and negative interspecies effects that determined final biofilm composition.</p>
+                <p class="prewrap interaction-description">Controlled species-subset biofilms and fitted growth curves support dynamic positive and negative effects in this four-species model. Rhodocyclus adhesion/early growth was facilitated, Pseudomonas development was delayed, and Kocuria abundance was suppressed. These distinct measured effects do not establish a community-wide cooperation benefit, competitive niche partitioning or a resolved physical shielding mechanism. Bacillus ATCC14579T was a laboratory substitution; canonical strain labels are preserved.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Rhodocyclus sp.,
+
+                    Pseudomonas fluorescens,
+
+                    Kocuria varians,
+
+                    Bacillus cereus
+
+                </p>
 
 
 
@@ -753,15 +754,20 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Bacillus Thiocillin-Mediated Negative Interaction</h3>
-                    <span class="interaction-type">COMPETITION</span>
+                    <h3>Thiocillin-Biosynthesis-Dependent Kocuria Suppression</h3>
                 </div>
-                <p class="prewrap interaction-description">A negative interaction in the biofilm is mediated by thiocillin I produced by the Bacillus cereus strain, and mutational analysis showed that this molecule affects species distribution and biofilm robustness.</p>
+                <p class="prewrap interaction-description">B. cereus tclE-H deletion removed anti-Kocuria activity in the plate assay and, when substituted into the four-species biofilm, increased Kocuria abundance by about 50-fold. This is positive genetic evidence for thiocillin-biosynthesis-dependent suppression, interpreted by the authors as thiocillin I action. Activity was mainly pellet-associated or unstable; a freely diffusible bulk-medium route is not established. The main text did not report complementation or a purified-thiocillin rescue. The observed negative growth effect does not require reciprocal harm to Bacillus.</p>
 
 
-                <p><strong>Source Taxon:</strong> Bacillus cereus</p>
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus cereus,
+
+                    Kocuria varians
+
+                </p>
 
 
 
@@ -784,14 +790,13 @@
                     <strong>Downstream Effects:</strong>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Dynamic Positive and Negative Biofilm Interactions
-                        <p class="prewrap causal-description">Bacillus cereus thiocillin I changes the relative distribution of biofilm members.</p>
+                        <span class="flow-arrow">→</span> Biofilm Community Composition and Growth Interactions
+                        <p class="prewrap causal-description">Replacing wild-type B. cereus with the tclE-H deletion mutant increased Kocuria abundance and changed the 72-hour four-species composition, supporting a causal contribution of the thiocillin-biosynthesis-dependent negative interaction under the tested biofilm conditions. This does not establish every mechanism in the wider interaction network.</p>
                     </div>
 
                     <div class="flow-item">
-                        <span class="flow-arrow">→</span> Robustness to Transient Perturbation
-                        <p class="prewrap causal-description">Removing Bacillus thiocillin reshapes the model biofilm response to transient and continuous perturbations, linking this negative interaction to community robustness.
-</p>
+                        <span class="flow-arrow">→</span> Condition-Specific Biofilm Response to Perturbation
+                        <p class="prewrap causal-description">The tclE-H mutant substitution changed the community response to initial Bacillus depletion and to continuous substrate/medium changes. The genetic intervention supports a condition-specific contribution to the measured response, not universal robustness, a mature-biofilm recovery trajectory or a fully isolated thiocillin I rescue mechanism.</p>
                     </div>
 
                 </div>
@@ -833,13 +838,24 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Robustness to Transient Perturbation</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>Condition-Specific Biofilm Response to Perturbation</h3>
                 </div>
-                <p class="prewrap interaction-description">The model biofilm reproducibly returned to a stable equilibrium composition after transient inoculum perturbations, but continuous perturbations reduced robustness.</p>
+                <p class="prewrap interaction-description">Wild-type biofilms established similar 72-hour compositions after the tested initial physiological-state and Bacillus-inoculum changes, while glass substitution and especially undiluted medium altered the community. The thiocillin-biosynthesis mutant changed responses to particular transient and continuous perturbations. This is an endpoint comparison during establishment, not a recovery time course after disrupting an already mature biofilm, a general colonization-facilitation mechanism or robustness to every disturbance. Neither community resisted strong continuous changes uniformly.</p>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Rhodocyclus sp.,
+
+                    Pseudomonas fluorescens,
+
+                    Kocuria varians,
+
+                    Bacillus cereus
+
+                </p>
 
 
 
@@ -933,6 +949,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which molecular and spatial mechanisms determine the condition-specific biofilm response?
+                </h3>
+                <p class="prewrap">Retain both genetic-intervention arrows and positive omission/growth findings. The assay distinguishes initial/transient from continuous changes; it is not a mature-biofilm recovery experiment. Purified-molecule or complementation controls would further separate thiocillin I from biosynthetic-locus effects, without negating the existing knockout evidence. Protection of Kocuria by the other members could involve spatial shielding or adsorption but was not selectively resolved. Canonical Pseudomonas CLL49 spelling is preserved despite CCL49 elsewhere in the paper. Prior cultivation-arm correction under #529 remains unchanged. Non-graph taxon roles and origin claims are preserved, not recertified.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Biofilm Community Composition and Growth Interactions</code>, <code>ecological_interactions#Thiocillin-Biosynthesis-Dependent Kocuria Suppression</code>, <code>ecological_interactions#Condition-Specific Biofilm Response to Perturbation</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -1126,7 +1161,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -1139,7 +1173,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -1207,7 +1240,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1222,7 +1255,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Dynamic Positive and Negative Biofilm Interactions",
+                label: "Biofilm Community Composition and Growth Interactions",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1232,12 +1265,29 @@
 
 
 
+
+            var participantKeys = [
+
+                "Rhodocyclus sp.",
+
+                "Pseudomonas fluorescens",
+
+                "Kocuria varians",
+
+                "Bacillus cereus"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1250,7 +1300,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Bacillus Thiocillin-Mediated Negative Interaction",
+                label: "Thiocillin-Biosynthesis-Dependent Kocuria Suppression",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1259,18 +1309,26 @@
             });
 
 
-            var srcKey = "Bacillus cereus";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
 
 
+            var participantKeys = [
+
+                "Bacillus cereus",
+
+                "Kocuria varians"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
@@ -1283,7 +1341,7 @@
 
             nodes.push({
                 id: intId,
-                label: "Robustness to Transient Perturbation",
+                label: "Condition-Specific Biofilm Response to Perturbation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1293,6 +1351,23 @@
 
 
 
+
+            var participantKeys = [
+
+                "Rhodocyclus sp.",
+
+                "Pseudomonas fluorescens",
+
+                "Kocuria varians",
+
+                "Bacillus cereus"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

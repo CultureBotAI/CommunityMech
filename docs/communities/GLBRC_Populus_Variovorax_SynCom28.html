@@ -1650,21 +1650,11 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for GLBRC Populus Variovorax SynCom28</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning, colonization facilitation).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolSquare2"
-                             data-color="#1212ed"></svg> Niche partitioning
-                    </div>
-                    <div class="legend-item">
-                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolPlus"
-                             data-color="#edab12"></svg> Colonization facilitation
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -1677,28 +1667,76 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Rhizosphere-Endosphere Niche Partitioning</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                    <h3>Variovorax Relative Compartment Enrichment</h3>
                 </div>
-                <p class="prewrap interaction-description">The 28 Variovorax strains exhibit compartment partitioning between rhizosphere and endosphere niches in Populus roots. Strain-resolved metagenomic profiling demonstrates that different strains specialize for either external root surface colonization (rhizosphere) or internal root tissue colonization (endosphere). This spatial niche partitioning reduces direct competition among closely related strains by separating them into distinct microhabitats with different selective pressures. Endosphere colonizers are enriched in genes for nutrient metabolism, redox balance, and transcriptional regulation, while rhizosphere strains exhibit different trait profiles.</p>
+                <p class="prewrap interaction-description">After equal-OD preparation and three weeks in axenic P. deltoides or P. trichocarpa microcosms, strain-resolved metagenomic profiles showed relative endosphere-versus-rhizosphere enrichment. Five strains accounted for about 80% of mapped endosphere reads, while enrichment and normalized read abundance identified distinct patterns. This is relative DNA compartment association, not absolute colonization efficiency, physical exclusion, or demonstrated reduction of competition. Some abundant strains were generalists in both compartments. Isolation source and shared genus do not establish fixed niche identity or a single species; the authors distinguish ANI-defined lineages and putative species.</p>
 
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Variovorax sp. BK119,
+
+                    Variovorax sp. BK151,
+
+                    Variovorax sp. BK370,
+
+                    Variovorax sp. BK460,
+
+                    Variovorax sp. BK613,
+
+                    Variovorax sp. BK658,
+
+                    Variovorax sp. BT01,
+
+                    Variovorax sp. CF079,
+
+                    Variovorax sp. CF313,
+
+                    Variovorax sp. GV004,
+
+                    Variovorax sp. GV008,
+
+                    Variovorax sp. GV014,
+
+                    Variovorax sp. GV035,
+
+                    Variovorax sp. GV040,
+
+                    Variovorax sp. GV042,
+
+                    Variovorax sp. GV051,
+
+                    Variovorax sp. OK202,
+
+                    Variovorax sp. OK212,
+
+                    Variovorax sp. OK605,
+
+                    Variovorax sp. OV084,
+
+                    Variovorax sp. OV329,
+
+                    Variovorax sp. OV700,
+
+                    Variovorax sp. PDC80,
+
+                    Variovorax sp. YR216,
+
+                    Variovorax sp. YR266,
+
+                    Variovorax sp. YR634,
+
+                    Variovorax sp. YR750,
+
+                    Variovorax sp. YR752
+
+                </p>
 
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
 
 
 
@@ -1726,10 +1764,23 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41543249/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41543249</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (COMPUTATIONAL)
                         </div>
 
                         <div class="snippet">"dominant endosphere colonizers are enriched in genes related to nutrient metabolism, redox balance, transcriptional regulation, and a conserved L-fucose utilization pathway"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41543249/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41543249</a>
+
+                            - SUPPORT (IN_VIVO)
+                        </div>
+
+                        <div class="snippet">"Log₂ fold changes (endosphere vs. rhizosphere) were used to quantify differential compartment association rather than absolute colonization efficiency"</div>
 
                     </li>
 
@@ -1739,40 +1790,78 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Intraspecific Metabolic Competition</h3>
-                    <span class="interaction-type">STRAIN_COMPETITION</span>
+                    <h3>Proposed Variovorax Resource Competition</h3>
                 </div>
-                <p class="prewrap interaction-description">Multiple Variovorax strains compete for resources within both rhizosphere and endosphere compartments. Strain-level analyses reveal that not all strains succeed through the same strategy - some benefit from rapid growth on plant-derived carbon sources, while others rely on stress tolerance or fine-tuned regulation. This metabolic competition among closely related strains shapes community composition, with host filtering selecting for distinct and sometimes complementary microbial strategies. The endosphere exhibits a distinct and reduced set of functional traits compared to the rhizosphere, reflecting intense selective pressure.</p>
+                <p class="prewrap interaction-description">HYPOTHESIZED: The authors propose metabolic competitiveness alongside regulatory adaptation as alternative routes to successful endosphere colonization. Associations among community abundance, genomic traits and separate sole-fucose growth assays support this interpretation, not directly measured depletion of host resources, reciprocal partner harm, or selective mediation of compartment enrichment. Host fucose concentrations were not quantified. All 28 canonical participants denote the assayed community, not 28 demonstrated competitive pairs; these isolates span putative species within Variovorax, so intraspecific competition is not established.</p>
+
+
+
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Variovorax sp. BK119,
+
+                    Variovorax sp. BK151,
+
+                    Variovorax sp. BK370,
+
+                    Variovorax sp. BK460,
+
+                    Variovorax sp. BK613,
+
+                    Variovorax sp. BK658,
+
+                    Variovorax sp. BT01,
+
+                    Variovorax sp. CF079,
+
+                    Variovorax sp. CF313,
+
+                    Variovorax sp. GV004,
+
+                    Variovorax sp. GV008,
+
+                    Variovorax sp. GV014,
+
+                    Variovorax sp. GV035,
+
+                    Variovorax sp. GV040,
+
+                    Variovorax sp. GV042,
+
+                    Variovorax sp. GV051,
+
+                    Variovorax sp. OK202,
+
+                    Variovorax sp. OK212,
+
+                    Variovorax sp. OK605,
+
+                    Variovorax sp. OV084,
+
+                    Variovorax sp. OV329,
+
+                    Variovorax sp. OV700,
+
+                    Variovorax sp. PDC80,
+
+                    Variovorax sp. YR216,
+
+                    Variovorax sp. YR266,
+
+                    Variovorax sp. YR634,
+
+                    Variovorax sp. YR750,
+
+                    Variovorax sp. YR752
+
+                </p>
 
 
 
 
 
 
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        biological process involved in interspecies interaction between organisms
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Rhizosphere-Endosphere Niche Partitioning
-                        <p class="prewrap causal-description">Competition is one of the ecological strategies that lets Variovorax strains succeed during Populus endosphere colonization and produces distinct, host-filtered rhizosphere and endosphere assemblages.</p>
-                    </div>
-
-                </div>
 
 
 
@@ -1785,7 +1874,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41543249/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41543249</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
                         <div class="snippet">"These findings reveal that multiple ecological strategies, such as metabolic competition, regulatory adaptation, and niche specialization, can support endosphere colonization."</div>
@@ -1798,7 +1887,7 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41543249/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41543249</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - PARTIAL (IN_VIVO)
                         </div>
 
                         <div class="snippet">"Not all strains succeed through the same strategy. Community-wide functional profiling revealed a distinct and reduced set of traits in the endosphere"</div>
@@ -1811,11 +1900,12 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>L-Fucose Pathway Colonization Enhancement</h3>
-                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                    <h3>CF313 Fucose-Pathway-Associated Root Recovery</h3>
                 </div>
-                <p class="prewrap interaction-description">A conserved L-fucose utilization pathway shared among certain Variovorax strains experimentally enhances root colonization success. Strains possessing this pathway gain an advantage in establishing endosphere colonization, potentially facilitating their own persistence and indirectly affecting community assembly by modifying the selective environment. This represents a genomic trait that enables successful colonization and may influence the establishment of other community members through priority effects or niche modification.</p>
+                <p class="prewrap interaction-description">In the separate CF313 assay, deletion of the L-fuconolactonase gene PMI12_01353 abolished growth with L-fucose as sole carbon source and reduced recoverable root CFUs in sterile P. deltoides microcosms relative to wild type (reported P=0.0022). This supports a locus-associated contribution to recovered colonization in the tested strain and host, not facilitation of other strains, priority effects, or a community-wide cause of relative compartment enrichment. Only CF313, OV700 and YR750 showed the reported sole-fucose growth among 28 strains; several intact-pathway strains did not grow. Gene presence alone is not sufficient, and host fucose was not quantified. Complementation rescue and full-panel mutant replacement are not established by the inspected main body; no distinct entry, persistence or in planta flux mechanism is assigned.</p>
 
+
+                <p><strong>Source Taxon:</strong> Variovorax sp. CF313</p>
 
 
 
@@ -1824,35 +1914,14 @@
                 <p><strong>Metabolites:</strong>
 
                     L-fucose
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=2181"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:2181</a>)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18287"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18287</a>)
 
                 </p>
 
 
 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
 
-                    <li>
-                        root colonization
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044409"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044409</a>)
-                    </li>
-
-                </ul>
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Rhizosphere-Endosphere Niche Partitioning
-                        <p class="prewrap causal-description">The conserved L-fucose utilization pathway enhances root colonization and gives pathway-bearing strains an experimentally validated route through the endosphere selection bottleneck.</p>
-                    </div>
-
-                </div>
 
 
 
@@ -1865,10 +1934,10 @@
                             <a href="https://pubmed.ncbi.nlm.nih.gov/41543249/"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41543249</a>
 
-                            - SUPPORT (IN_VIVO)
+                            - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"a conserved L-fucose utilization pathway experimentally shown to enhance root colonization"</div>
+                        <div class="snippet">"The resulting CF313Δfuc strain failed to grow on L-fucose as a sole carbon source, while the wild type showed robust growth under the same conditions"</div>
 
                     </li>
 
@@ -1881,7 +1950,20 @@
                             - SUPPORT (IN_VIVO)
                         </div>
 
-                        <div class="snippet">"host filtering selects for distinct, and sometimes complementary, microbial strategies"</div>
+                        <div class="snippet">"When inoculated into sterile P. deltoides microcosms, the mutant exhibited significantly reduced colonization compared to wild-type CF313"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41543249/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41543249</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Other strains, which included those with intact fucose pathways, such as BK151, BK613, BK370, and YR634, showed little to no growth."</div>
 
                     </li>
 
@@ -1961,6 +2043,25 @@
             </div>
         </section>
 
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which resource and regulatory mechanisms explain strain-resolved compartment enrichment?
+                </h3>
+                <p class="prewrap">The 28-strain metagenomic profiles describe relative DNA enrichment, while CF313 deletion and root CFU recovery are a separate strain-specific perturbation. Resource competition remains an author-proposed hypothesis. The study did not quantify host fucose; intact pathways did not guarantee growth. Complementation, full-panel mutant replacement, absolute strain abundance and resource/flux perturbations would distinguish direct metabolic mediation, regulatory effects and host filtering. No priority effects or facilitation of other strains are established. Existing-node and arrow corrections address #1471 without new structure or provider spend. Non-graph metadata and source-cache front matter are preserved, not certified. Complete cached main body and Methods/captions read; no figure images, separate supplements, raw data or analysis code audited.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#Variovorax Relative Compartment Enrichment</code>, <code>ecological_interactions#Proposed Variovorax Resource Competition</code>, <code>ecological_interactions#CF313 Fucose-Pathway-Associated Root Recovery</code></p>
+
+
+
+
+            </div>
+
+        </section>
 
         <!-- Environmental Factors -->
 
@@ -2197,7 +2298,6 @@
             "MUTUALISM": "#9f2ebb",
             "SYNTROPHY": "#7f30cf",
             "COMPETITION": "#a91919",
-            "COMMENSALISM": "#cf7830",
             "NICHE_PARTITIONING": "#1212ed",
             "COLONIZATION_FACILITATION": "#edab12"
         };
@@ -2210,7 +2310,6 @@
             "MUTUALISM": "symbolSquare",
             "SYNTROPHY": "symbolTriangle",
             "COMPETITION": "symbolTimes",
-            "COMMENSALISM": "symbolWye",
             "NICHE_PARTITIONING": "symbolSquare2",
             "COLONIZATION_FACILITATION": "symbolPlus"
         };
@@ -2446,20 +2545,16 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "NICHE_PARTITIONING";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
 
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "Rhizosphere-Endosphere Niche Partitioning",
+                label: "Variovorax Relative Compartment Enrichment",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -2469,25 +2564,86 @@
 
 
 
+
+            var participantKeys = [
+
+                "Variovorax sp. BK119",
+
+                "Variovorax sp. BK151",
+
+                "Variovorax sp. BK370",
+
+                "Variovorax sp. BK460",
+
+                "Variovorax sp. BK613",
+
+                "Variovorax sp. BK658",
+
+                "Variovorax sp. BT01",
+
+                "Variovorax sp. CF079",
+
+                "Variovorax sp. CF313",
+
+                "Variovorax sp. GV004",
+
+                "Variovorax sp. GV008",
+
+                "Variovorax sp. GV014",
+
+                "Variovorax sp. GV035",
+
+                "Variovorax sp. GV040",
+
+                "Variovorax sp. GV042",
+
+                "Variovorax sp. GV051",
+
+                "Variovorax sp. OK202",
+
+                "Variovorax sp. OK212",
+
+                "Variovorax sp. OK605",
+
+                "Variovorax sp. OV084",
+
+                "Variovorax sp. OV329",
+
+                "Variovorax sp. OV700",
+
+                "Variovorax sp. PDC80",
+
+                "Variovorax sp. YR216",
+
+                "Variovorax sp. YR266",
+
+                "Variovorax sp. YR634",
+
+                "Variovorax sp. YR750",
+
+                "Variovorax sp. YR752"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
         (function() {
             var intId = "interaction:1";
-            var intType = "STRAIN_COMPETITION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
             var processes = [];
-
-
-            processes.push("biological process involved in interspecies interaction between organisms");
-
 
             var evidenceCount = 2;
 
             nodes.push({
                 id: intId,
-                label: "Intraspecific Metabolic Competition",
+                label: "Proposed Variovorax Resource Competition",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -2498,11 +2654,76 @@
 
 
 
+            var participantKeys = [
+
+                "Variovorax sp. BK119",
+
+                "Variovorax sp. BK151",
+
+                "Variovorax sp. BK370",
+
+                "Variovorax sp. BK460",
+
+                "Variovorax sp. BK613",
+
+                "Variovorax sp. BK658",
+
+                "Variovorax sp. BT01",
+
+                "Variovorax sp. CF079",
+
+                "Variovorax sp. CF313",
+
+                "Variovorax sp. GV004",
+
+                "Variovorax sp. GV008",
+
+                "Variovorax sp. GV014",
+
+                "Variovorax sp. GV035",
+
+                "Variovorax sp. GV040",
+
+                "Variovorax sp. GV042",
+
+                "Variovorax sp. GV051",
+
+                "Variovorax sp. OK202",
+
+                "Variovorax sp. OK212",
+
+                "Variovorax sp. OK605",
+
+                "Variovorax sp. OV084",
+
+                "Variovorax sp. OV329",
+
+                "Variovorax sp. OV700",
+
+                "Variovorax sp. PDC80",
+
+                "Variovorax sp. YR216",
+
+                "Variovorax sp. YR266",
+
+                "Variovorax sp. YR634",
+
+                "Variovorax sp. YR750",
+
+                "Variovorax sp. YR752"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
             var intId = "interaction:2";
-            var intType = "COLONIZATION_FACILITATION";
+            var intType = "UNKNOWN";
             var metabolites = [];
 
 
@@ -2511,15 +2732,11 @@
 
             var processes = [];
 
-
-            processes.push("root colonization");
-
-
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,
-                label: "L-Fucose Pathway Colonization Enhancement",
+                label: "CF313 Fucose-Pathway-Associated Root Recovery",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -2527,6 +2744,11 @@
                 evidenceCount: evidenceCount
             });
 
+
+            var srcKey = "Variovorax sp. CF313";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
 
 
 
