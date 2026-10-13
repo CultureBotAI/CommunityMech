@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from historical_cache import assert_historical_cache_hash
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-assay-boundaries-batch64.yaml"
@@ -105,10 +106,10 @@ def test_mamc_fraction_mean_is_not_each_fraction_or_gravimetric_loss():
     assert "biological_processes" not in output
 
 
-def test_batch64_caches_and_canonical_participants_are_not_rewritten():
+def test_batch64_historical_caches_and_current_canonical_participants():
     ledger, _, docs = records()
     for path, digest in ledger["reference_cache_original_hashes"].items():
-        assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest
+        assert_historical_cache_hash(ROOT, ledger, path, digest)
     for doc in docs.values():
         canonical = {
             t["taxon_term"]["preferred_term"]: t["taxon_term"]["term"] for t in doc["taxonomy"]

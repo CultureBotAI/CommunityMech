@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from historical_cache import assert_historical_cache_hash
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-ginseng-s11-batch48.yaml"
@@ -110,5 +111,5 @@ def test_every_original_node_and_arrow_has_a_hash_bound_decision():
             assert all(a.split("#", 1)[1] in names for a in gap["attaches_to"] if "#" in a)
     assert sum(len(r["edges_before"]) for r in ledger["records"]) == 1
     for path, digest in ledger["reference_cache_original_hashes"].items():
-        assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest
+        assert_historical_cache_hash(ROOT, ledger, path, digest)
     assert "abstract only" in ledger["records"][1]["source_review"]["PMID:41260371"]["scope"]

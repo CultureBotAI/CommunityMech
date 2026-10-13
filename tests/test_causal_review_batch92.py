@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from historical_cache import assert_historical_cache_hash
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch92.yaml"
@@ -84,7 +85,9 @@ def test_provenance_does_not_disguise_selected_excerpts_as_independent_sources()
     assert len(selected) == 1 and selected[0]["matched_artifact"].endswith("quinoa-abstract.txt")
     assert ledger["cache_changes"] == []
     for path, digest in ledger["primary_artifacts"].items():
-        if not path.startswith("/"):
+        if path.startswith("references_cache/"):
+            assert_historical_cache_hash(ROOT, ledger, path, digest)
+        elif not path.startswith("/"):
             assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest
 
 

@@ -41,6 +41,13 @@ retaining full text.
 
 ## When removing text breaks a snippet
 
+The pinned `linkml-reference-validator` does not read `.supplement.md` sidecars.
+A snippet supported only there still fails native article-cache validation;
+report that failure and its separate source location rather than re-appending
+the supplement. Explicit source-specific routing is tracked in #1996.
+The #1994 [separation receipt](../reports/reference_cache_separation/20261013-1994/README.md)
+records the affected snippets and preserves all source bytes independently.
+
 It will, and that is the correct outcome rather than a problem to route around.
 A snippet taken from a paywalled Methods section is a claim this repository
 cannot substantiate from anything it holds. Delete the evidence item. If that

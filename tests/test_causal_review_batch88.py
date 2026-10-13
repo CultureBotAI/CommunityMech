@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 import yaml
+from historical_cache import assert_historical_cache_hash
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch88.yaml"
@@ -124,4 +125,4 @@ def test_reviewed_records_and_caches_are_hash_bound():
         assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
     for path, digest in ledger["primary_artifacts"].items():
         if path.startswith("references_cache/"):
-            assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest
+            assert_historical_cache_hash(ROOT, ledger, path, digest)
