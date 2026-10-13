@@ -5,6 +5,7 @@ from collections import Counter
 from pathlib import Path
 
 import yaml
+from historical_cache import assert_historical_cache_hash
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261005-three-records-batch15.yaml"
@@ -108,4 +109,5 @@ def test_batch15_ledger_covers_every_node_and_retained_edge():
             if a.startswith("ecological_interactions#")
         )
     for path, expected in ledger["reference_cache_original_hashes"].items():
-        assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == expected
+        # This legacy ledger predates base_tree; its full commit still binds the bytes.
+        assert_historical_cache_hash(ROOT, ledger, path, expected, allow_missing_tree=True)

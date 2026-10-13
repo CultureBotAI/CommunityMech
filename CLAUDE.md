@@ -132,7 +132,7 @@ An `EvidenceItem` requires:
 
 The pinned reference validator matches committed article caches (abstracts and
 cached open-access full text), not separate supplementary files. Preserve
-supplement text separately and report supplement-only validator failures
+supplementary text separately and report supplement-only validator failures
 explicitly; source-specific routing is tracked in #1996. Do not paraphrase a
 snippet, combine non-contiguous text, remove meaningful bracketed text, or move
 supplement text into the article cache. If support is absent, omit the claim or
