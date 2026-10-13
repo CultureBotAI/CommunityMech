@@ -1,0 +1,339 @@
+schema_version: 1.0.0
+review_id: 20261013T060932Z-1994-portability-after
+kind: repository
+repository: CultureBotAI/CommunityMech
+title: 'PR 1997 historical-input fetch portability: after'
+started_at: '2026-10-13T06:09:32Z'
+finished_at: '2026-10-13T06:09:32Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Same agent implements and reviews; not independent approval.
+skill: pr-adversarial-review
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: 80 focused integration, provenance and workflow tests passed in 52.38s. A
+  fresh single-branch transport clone lacked all five bases, then the actual workflow
+  step fetched them from GitHub and all 19 historical cache hashes verified. Synthetic
+  control, unknown-commit mutation and restoration passed. Lint passed Black (389
+  files), Ruff and mypy (49 files). No old ledgers, scientific records or source bytes
+  changed.
+source:
+  git_revision: 7c0413e265261f6ffedc26ead498e891c94e180d
+  state: working_tree
+  inputs:
+  - path: .github/workflows/validate-strict.yaml
+    sha256: 8d2fc09e0aef722298a7bf1583f3c52e30955bcf866861e3bdd313329ed0208f
+    role: target
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: target
+  - path: reports/causal_graph_review/decisions/20261005-three-records-batch15.yaml
+    sha256: 9a91951bf6002151122053f4d0ad0c13ada0c7b4f61bff989a612268c9750dc0
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-assay-boundaries-batch64.yaml
+    sha256: c1ee5014ea7d83ad47d2a03e7392fb2e5f86722f7d29f90b1b132f41804982b4
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-ginseng-s11-batch48.yaml
+    sha256: c36d6bc71789c7f48d2e2c93d66e5f587aea15dd5c2c7bc9665092074befae33
+    role: context
+  - path: reports/causal_graph_review/decisions/20261007-four-records-batch88.yaml
+    sha256: ce41340909e65c676be7e53756385800335224b44432760dacd3a4ca98179429
+    role: context
+  - path: reports/causal_graph_review/decisions/20261007-four-records-batch92.yaml
+    sha256: 73d40c40dca10b7548a1fe0346ea8de924df5bb224ae256fcba5b48912d1fff5
+    role: context
+  - path: tests/historical_cache.py
+    sha256: 806f371f38e1def7cec87b5756be3419d278aa92412b922e5451e3099f0eed3c
+    role: context
+  - path: tests/test_causal_review_batch15.py
+    sha256: 89c823b38000ed9b77422c1d98475837f48b65d76c0a424f79397b7c15282117
+    role: target
+  - path: tests/test_causal_review_batch48.py
+    sha256: 45465e7e27ab52f0eaff635a302b971d57bc5b30382a792469a22e6e1fde313e
+    role: target
+  - path: tests/test_causal_review_batch64.py
+    sha256: 236ecb2e34ebbc328e5d96104d0bc41787484de6142f4285e869b7ec7b27aafc
+    role: target
+  - path: tests/test_causal_review_batch88.py
+    sha256: 6c3b2f3284005dca3cf31162840950c60a92e79f16eeed650c7dbe98b52529f2
+    role: target
+  - path: tests/test_causal_review_batch91.py
+    sha256: 43e1dfce5356c250f6932ee600631afe695bc45054dd5a1cb5224b67d56007f6
+    role: context
+  - path: tests/test_causal_review_batch92.py
+    sha256: e1eb04d2b093712284692bc14aa39d15b586e8de94886f9d7f5e6fcbf0685523
+    role: target
+  - path: tests/test_claude_guide_contract.py
+    sha256: 7fb401954f3eab1612453ccda0d1b819b7fe8869663bbb28c416ca6034bcc728
+    role: context
+  - path: tests/test_historical_cache.py
+    sha256: 7ddb11db7c00a2eb28f759b00dbccf5aaafe249402c013636982ad3d3eb0c8c6
+    role: context
+  - path: tests/test_historical_cache_fetch.py
+    sha256: b78a740f6d99388d973526de78c0e3c9df1cff46873a99c6d6d5b877811f2723
+    role: context
+targets:
+- target_id: tests/test_causal_review_batch15.py
+  path: tests/test_causal_review_batch15.py
+  label: tests/test_causal_review_batch15.py
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_causal_review_batch15.py
+    role: maintained
+- target_id: tests/test_causal_review_batch48.py
+  path: tests/test_causal_review_batch48.py
+  label: tests/test_causal_review_batch48.py
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_causal_review_batch48.py
+    role: maintained
+- target_id: tests/test_causal_review_batch64.py
+  path: tests/test_causal_review_batch64.py
+  label: tests/test_causal_review_batch64.py
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_causal_review_batch64.py
+    role: maintained
+- target_id: tests/test_causal_review_batch88.py
+  path: tests/test_causal_review_batch88.py
+  label: tests/test_causal_review_batch88.py
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_causal_review_batch88.py
+    role: maintained
+- target_id: tests/test_causal_review_batch92.py
+  path: tests/test_causal_review_batch92.py
+  label: tests/test_causal_review_batch92.py
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_causal_review_batch92.py
+    role: maintained
+- target_id: CLAUDE.md
+  path: CLAUDE.md
+  label: CLAUDE.md
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: CLAUDE.md
+    role: maintained
+- target_id: .github/workflows/validate-strict.yaml
+  path: .github/workflows/validate-strict.yaml
+  label: .github/workflows/validate-strict.yaml
+  kind: maintained
+  ownership_note: Local full-validation workflow.
+scope:
+  description: 'CI portability follow-up to #1998, retaining every predecessor target
+    plus the missing workflow prerequisite.'
+  selection: All six preceding integration targets and the full-validation workflow.
+  coverage: full
+  population_size: 7
+  reviewed_target_ids:
+  - tests/test_causal_review_batch15.py
+  - tests/test_causal_review_batch48.py
+  - tests/test_causal_review_batch64.py
+  - tests/test_causal_review_batch88.py
+  - tests/test_causal_review_batch92.py
+  - CLAUDE.md
+  - .github/workflows/validate-strict.yaml
+  exclusions:
+  - target: Scientific claims, canonical records, native supplement routing
+    reason: 'Unchanged; source-boundary reviews and #1996 cover the separate provenance
+      limitation.'
+checks:
+- check_id: portability
+  name: Fresh-checkout historical evidence availability
+  status: passed
+  required: true
+  command: env UV_NO_SYNC=1 UV_CACHE_DIR=/private/tmp/communitymech-1994-uv-cache
+    .venv/bin/python -m pytest tests/test_causal_review_batch15.py tests/test_causal_review_batch48.py
+    tests/test_causal_review_batch64.py tests/test_causal_review_batch88.py tests/test_causal_review_batch92.py
+    tests/test_claude_guide_contract.py tests/test_historical_cache.py tests/test_historical_cache_fetch.py
+    tests/test_ci_runtime_contracts.py tests/test_ci_triggers_cover_what_the_gates_read.py
+    -q --no-cov
+  exit_code: 0
+  expected_exit_code: 0
+  summary: 80 focused integration, provenance and workflow tests passed in 52.38s.
+    A fresh single-branch transport clone lacked all five bases, then the actual workflow
+    step fetched them from GitHub and all 19 historical cache hashes verified. Synthetic
+    control, unknown-commit mutation and restoration passed. Lint passed Black (389
+    files), Ruff and mypy (49 files). No old ledgers, scientific records or source
+    bytes changed.
+  target_ids:
+  - tests/test_causal_review_batch15.py
+  - tests/test_causal_review_batch48.py
+  - tests/test_causal_review_batch64.py
+  - tests/test_causal_review_batch88.py
+  - tests/test_causal_review_batch92.py
+  - CLAUDE.md
+  - .github/workflows/validate-strict.yaml
+  evidence_ids:
+  - portability
+evidence:
+- evidence_id: portability
+  kind: validation
+  reference: https://github.com/CultureBotAI/CommunityMech/actions/runs/38351761810
+  accessed_at: '2026-10-13T06:09:32Z'
+  support: supports
+  summary: Four historical pre-squash base commits are not included in the full-depth
+    advertised-ref checkout. GitHub Git API confirms all four exact commits and recorded
+    trees remain available. 80 focused integration, provenance and workflow tests
+    passed in 52.38s. A fresh single-branch transport clone lacked all five bases,
+    then the actual workflow step fetched them from GitHub and all 19 historical cache
+    hashes verified. Synthetic control, unknown-commit mutation and restoration passed.
+    Lint passed Black (389 files), Ruff and mypy (49 files). No old ledgers, scientific
+    records or source bytes changed.
+assessments:
+- assessment_id: portability-0
+  area: provenance
+  topic: Historical input availability in clean CI
+  outcome: supported
+  summary: 80 focused integration, provenance and workflow tests passed in 52.38s.
+    A fresh single-branch transport clone lacked all five bases, then the actual workflow
+    step fetched them from GitHub and all 19 historical cache hashes verified. Synthetic
+    control, unknown-commit mutation and restoration passed. Lint passed Black (389
+    files), Ruff and mypy (49 files). No old ledgers, scientific records or source
+    bytes changed.
+  target_ids:
+  - tests/test_causal_review_batch15.py
+  evidence_ids:
+  - portability
+- assessment_id: portability-1
+  area: provenance
+  topic: Historical input availability in clean CI
+  outcome: supported
+  summary: 80 focused integration, provenance and workflow tests passed in 52.38s.
+    A fresh single-branch transport clone lacked all five bases, then the actual workflow
+    step fetched them from GitHub and all 19 historical cache hashes verified. Synthetic
+    control, unknown-commit mutation and restoration passed. Lint passed Black (389
+    files), Ruff and mypy (49 files). No old ledgers, scientific records or source
+    bytes changed.
+  target_ids:
+  - tests/test_causal_review_batch48.py
+  evidence_ids:
+  - portability
+- assessment_id: portability-2
+  area: provenance
+  topic: Historical input availability in clean CI
+  outcome: supported
+  summary: 80 focused integration, provenance and workflow tests passed in 52.38s.
+    A fresh single-branch transport clone lacked all five bases, then the actual workflow
+    step fetched them from GitHub and all 19 historical cache hashes verified. Synthetic
+    control, unknown-commit mutation and restoration passed. Lint passed Black (389
+    files), Ruff and mypy (49 files). No old ledgers, scientific records or source
+    bytes changed.
+  target_ids:
+  - tests/test_causal_review_batch64.py
+  evidence_ids:
+  - portability
+- assessment_id: portability-3
+  area: provenance
+  topic: Historical input availability in clean CI
+  outcome: supported
+  summary: 80 focused integration, provenance and workflow tests passed in 52.38s.
+    A fresh single-branch transport clone lacked all five bases, then the actual workflow
+    step fetched them from GitHub and all 19 historical cache hashes verified. Synthetic
+    control, unknown-commit mutation and restoration passed. Lint passed Black (389
+    files), Ruff and mypy (49 files). No old ledgers, scientific records or source
+    bytes changed.
+  target_ids:
+  - tests/test_causal_review_batch88.py
+  evidence_ids:
+  - portability
+- assessment_id: portability-4
+  area: provenance
+  topic: Historical input availability in clean CI
+  outcome: supported
+  summary: 80 focused integration, provenance and workflow tests passed in 52.38s.
+    A fresh single-branch transport clone lacked all five bases, then the actual workflow
+    step fetched them from GitHub and all 19 historical cache hashes verified. Synthetic
+    control, unknown-commit mutation and restoration passed. Lint passed Black (389
+    files), Ruff and mypy (49 files). No old ledgers, scientific records or source
+    bytes changed.
+  target_ids:
+  - tests/test_causal_review_batch92.py
+  evidence_ids:
+  - portability
+- assessment_id: portability-5
+  area: provenance
+  topic: Historical input availability in clean CI
+  outcome: supported
+  summary: 80 focused integration, provenance and workflow tests passed in 52.38s.
+    A fresh single-branch transport clone lacked all five bases, then the actual workflow
+    step fetched them from GitHub and all 19 historical cache hashes verified. Synthetic
+    control, unknown-commit mutation and restoration passed. Lint passed Black (389
+    files), Ruff and mypy (49 files). No old ledgers, scientific records or source
+    bytes changed.
+  target_ids:
+  - CLAUDE.md
+  evidence_ids:
+  - portability
+- assessment_id: portability-6
+  area: provenance
+  topic: Historical input availability in clean CI
+  outcome: supported
+  summary: 80 focused integration, provenance and workflow tests passed in 52.38s.
+    A fresh single-branch transport clone lacked all five bases, then the actual workflow
+    step fetched them from GitHub and all 19 historical cache hashes verified. Synthetic
+    control, unknown-commit mutation and restoration passed. Lint passed Black (389
+    files), Ruff and mypy (49 files). No old ledgers, scientific records or source
+    bytes changed.
+  target_ids:
+  - .github/workflows/validate-strict.yaml
+  evidence_ids:
+  - portability
+findings:
+- finding_id: historical-cache-ci
+  issue_key: 1998-historical-cache-ci
+  category: provenance
+  severity: major
+  status: resolved
+  certainty: confirmed
+  title: Historical cache checks need explicit immutable-base fetching
+  description: The hash helper correctly fails closed, but CI full-depth checkout
+    does not fetch all pre-squash review bases. Local Git object availability hid
+    the missing setup step.
+  target_ids:
+  - tests/test_causal_review_batch15.py
+  - tests/test_causal_review_batch48.py
+  - tests/test_causal_review_batch64.py
+  - tests/test_causal_review_batch88.py
+  - tests/test_causal_review_batch92.py
+  - CLAUDE.md
+  - .github/workflows/validate-strict.yaml
+  field_paths:
+  - historical review Git inputs
+  - full-validation setup
+  evidence_ids:
+  - portability
+  ownership_note: Full-validation workflow and provenance tests; old ledgers and hash
+    semantics remain unchanged.
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1998
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261013T060629Z-1994-portability-before
+    finding_id: historical-cache-ci
+  disposition_reason: The actual CI step now fetches all five pinned historical cache-review
+    commits from origin before testing. Fresh transport clones reproduce missing bases,
+    pass after the fetch, reject a mutated unknown revision, and pass immediately
+    after restoration. Actual GitHub fetch also verified. No current-file fallback
+    or old-ledger rewrite.
+actions: []
+limitations:
+- Self-review, not independent approval or scientific review.
+- This bounded portability review is not a full-CI pass; protected PR and merge-queue
+  checks remain required.
+- 'Native supplement-only validation limitation #1996 remains open.'
+- GitHub must retain the exact historical commits; inability to fetch them remains
+  a hard failure, never a fallback to current bytes.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/1998
+- https://github.com/CultureBotAI/CommunityMech/pull/1997
