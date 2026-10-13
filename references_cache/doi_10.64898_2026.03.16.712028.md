@@ -129,32 +129,3 @@ Development of a continuous bioreactor to maintain stable nasal microbiomes from
  Zoology (2391)
 
  window.__CF$cv$params={r:'a3e1c836ee2d6cb7',t:'MTc4OTkxNzI5MA==',u:'01a0bf625e5c75f2ba6d2cc6b70b2586',ut:'gNi7astOKis5DHDNPQDQkLW6ubEp.bM.NvIp09Qf0U0-1789917290-1.2.1.1-OHSrrKnvkp3rieLQ8LaXuAQgS88BpgQOwTXEtKZX5Viy16umG4sUWkzIUpOBxqkw.jXy_hUg4x.S68sVgJYy1QIHfkUHjIIUHD5ERxyQjME',i:60};(function(){if(!document.body)return;var s=document.createElement('script');s.src='/cdn-cgi/challenge-platform/scripts/precursor/main.js';document.head.appendChild(s);})();
-
-===== SUPPLEMENTARY FILE TEXT (doi:10.64898/2026.03.16.712028) =====
-
-Cached from biorxiv supplementary Table S PDF using the DC2 supplement URL on 2026-09-20.
-This is SUPPLEMENTARY text, not the article body: validate-references matches snippets
-against the article cache, so nothing here is a substitute for it.
-
-Members:
-  - supplements/712028_file03.pdf: extracted pages 1-4
-
------ supplements/712028_file03.pdf -----
-Table S2. Information on the nasal strains used for SynCom C.
-Species
-LaCa collectionA Culture conditions
-SynCom
-Identifier SourceB MediumC Duration Oxygenation
-Staphylococcus aureus Sa A Vol. A BHI Overnight Aerobiosis Excluded
-Staphylococcus aureus Sa C Vol. C BHI Overnight Aerobiosis Excluded
-Staphylococcus epidermidis Se C Vol. C BHI Overnight Aerobiosis Included
-Staphylococcus capitis Sc C Vol. C BHI Overnight Aerobiosis Included
-Micrococcus luteus Ml C Vol. C BHI Overnight Aerobiosis Included
-Corynebacterium tuberculostearicum Ct C Vol. C BHI + 0.2% Tween 80 1 day Aerobiosis Included
-Cutibacterium avidum Cv C Vol. C TSB 2 days Anaerobiosis Included
-Cutibacterium acnes Cc C Vol. C TSB 4 days Anaerobiosis Included
-Cutibacterium granulosum Cg C Vol. C TSB 4 days Anaerobiosis Included
-Anaerococcus octavius Ao C Vol. C TSA + 5% sheep blood 7 days Anaerobiosis Included
-Peptoniphilus harei Ph C Vol. C TSA + 5% sheep blood 7 days Anaerobiosis Included
-A LaCa collection was established by Camus et al. B Vol. C corresponds to Vol. 1 from this study. Vol.: volunteer. C BHI: brain heart
-infusion, SynCom: synthetic microbial community, TSB: tryptic soy broth, TSA: tryptic soy agar.
