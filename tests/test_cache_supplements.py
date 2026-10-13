@@ -16,6 +16,9 @@ from __future__ import annotations
 import importlib.util
 import io
 import pathlib
+import shutil
+import subprocess
+import sys
 import zipfile
 
 import pytest
@@ -222,66 +225,79 @@ def test_an_existing_cache_is_not_refetched_unless_forced(module, tmp_path, monk
     assert module.cache_one("PMID:1").startswith("[skip]")
 
 
-def test_append_targets_the_file_the_validator_actually_reads(module, tmp_path, monkeypatch):
-    """`.md` when it exists, else the legacy `.txt` (#653).
-
-    The trap `cache_fulltext._cache_path` documents: text appended to the file
-    the validator does NOT read is silently ignored, and the result looks exactly
-    like a snippet that does not match its source. A curator would then "fix" a
-    correct quote.
-    """
+@pytest.mark.parametrize("article_suffixes", [(), (".txt",), (".md",), (".txt", ".md")])
+@pytest.mark.parametrize(
+    "args",
+    [
+        ["--append"],
+        ["--append", "PMID:1"],
+        ["PMID:1", "--append"],
+        ["--list", "--append", "PMID:1"],
+        ["--candidates", "--append"],
+        ["--force", "PMID:1", "--append"],
+        ["PMID:1", "PMID:2", "--append"],
+    ],
+)
+def test_append_cli_refuses_before_io(
+    module, tmp_path, monkeypatch, capsys, article_suffixes, args
+):
+    for suffix in article_suffixes:
+        (tmp_path / f"PMID_1{suffix}").write_text(f"article {suffix}\n", encoding="utf-8")
+    (tmp_path / "PMID_1.supplement.md").write_text("supplement\n", encoding="utf-8")
+    before = {path.name: path.read_bytes() for path in tmp_path.iterdir()}
     monkeypatch.setattr(module, "CACHE_DIR", tmp_path)
-    (tmp_path / "PMID_1.supplement.md").write_text("supp text", encoding="utf-8")
+    monkeypatch.setattr(sys, "argv", [str(SCRIPT), *args])
 
-    (tmp_path / "PMID_1.txt").write_text("legacy article", encoding="utf-8")
-    assert module.article_cache_path("PMID:1").name == "PMID_1.txt"
+    def refuse(*args, **kwargs):
+        raise AssertionError("--append reached retrieval, writing, or candidate discovery")
 
-    (tmp_path / "PMID_1.md").write_text("modern article", encoding="utf-8")
-    assert module.article_cache_path("PMID:1").name == "PMID_1.md", ".md must win once present"
+    for name in ("cache_one", "fetch_supplement", "candidates", "_get"):
+        monkeypatch.setattr(module, name, refuse)
 
-
-def test_append_refuses_when_there_is_no_article_cache(module, tmp_path, monkeypatch):
-    """A supplement alone must not become a file that poses as the article.
-
-    Creating `PMID_1.md` from supplementary text would let every later reader --
-    and every gate that counts cached full text -- treat a supplement as the
-    article body.
-    """
-    monkeypatch.setattr(module, "CACHE_DIR", tmp_path)
-    (tmp_path / "PMID_1.supplement.md").write_text("supp text", encoding="utf-8")
-
-    message = module.append_to_article_cache("PMID:1")
-
-    assert message.startswith("[skip]")
-    assert not (tmp_path / "PMID_1.md").exists()
-    assert not (tmp_path / "PMID_1.txt").exists()
+    assert module.main() == 2
+    output = capsys.readouterr()
+    assert "--append" in output.err and ".supplement.md" in output.err
+    assert not output.out
+    assert {path.name: path.read_bytes() for path in tmp_path.iterdir()} == before
 
 
-def test_append_is_idempotent_and_keeps_the_article_text(module, tmp_path, monkeypatch):
-    """Appending twice must not duplicate, and must not overwrite the article."""
-    monkeypatch.setattr(module, "CACHE_DIR", tmp_path)
-    (tmp_path / "PMID_1.supplement.md").write_text(
-        f"{module.MARKER} (PMID:1) =====\n\nGrown in LB medium.", encoding="utf-8"
+def test_append_entrypoint_rejects_without_changing_evidence(tmp_path):
+    scripts = tmp_path / "scripts"
+    scripts.mkdir()
+    script = scripts / SCRIPT.name
+    shutil.copyfile(SCRIPT, script)
+    cache = tmp_path / "references_cache"
+    cache.mkdir()
+    for filename in ("PMID_1.txt", "PMID_1.md", "PMID_1.supplement.md"):
+        (cache / filename).write_text(f"original {filename}\n", encoding="utf-8")
+    before = {path.name: path.read_bytes() for path in cache.iterdir()}
+
+    result = subprocess.run(
+        [sys.executable, str(script), "PMID:1", "--append"],
+        capture_output=True,
+        text=True,
+        timeout=10,
+        check=False,
     )
-    article = tmp_path / "PMID_1.md"
-    article.write_text("The article body says something.", encoding="utf-8")
 
-    first = module.append_to_article_cache("PMID:1")
-    after_first = article.read_text(encoding="utf-8")
-    second = module.append_to_article_cache("PMID:1")
-
-    assert first.startswith("[ok]") and second.startswith("[skip]")
-    assert article.read_text(encoding="utf-8") == after_first, "second append changed the file"
-    assert "The article body says something." in after_first, "the article text was lost"
-    assert "Grown in LB medium." in after_first, "the supplement text did not arrive"
-    assert after_first.count(module.MARKER) == 1, "the marker was duplicated"
+    assert result.returncode == 2, result.stdout + result.stderr
+    assert "--append" in result.stderr and ".supplement.md" in result.stderr
+    assert {path.name: path.read_bytes() for path in cache.iterdir()} == before
 
 
-def test_append_requires_the_supplement_to_have_been_fetched(module, tmp_path, monkeypatch):
+@pytest.mark.parametrize("list_only", [False, True])
+def test_supported_cli_modes_preserve_article_caches(module, tmp_path, monkeypatch, list_only):
+    for suffix in (".md", ".txt"):
+        (tmp_path / f"PMID_1{suffix}").write_text(f"article {suffix}\n", encoding="utf-8")
+    before = {path.name: path.read_bytes() for path in tmp_path.iterdir()}
     monkeypatch.setattr(module, "CACHE_DIR", tmp_path)
-    (tmp_path / "PMID_1.md").write_text("article", encoding="utf-8")
+    monkeypatch.setattr(module, "fetch_supplement", lambda ref: ("supplement\n", ["methods.txt"]))
+    args = [str(SCRIPT), "PMID:1"]
+    if list_only:
+        args.append("--list")
+    monkeypatch.setattr(sys, "argv", args)
 
-    message = module.append_to_article_cache("PMID:1")
-
-    assert message.startswith("[skip]")
-    assert module.MARKER not in (tmp_path / "PMID_1.md").read_text(encoding="utf-8")
+    assert module.main() == 0
+    for filename, content in before.items():
+        assert (tmp_path / filename).read_bytes() == content
+    assert (tmp_path / "PMID_1.supplement.md").is_file() is not list_only
