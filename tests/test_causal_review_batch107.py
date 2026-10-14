@@ -153,6 +153,19 @@ def test_review_hashes_histories_and_non_graph_boundaries_are_explicit():
             }
             assert normalized["original_sha256"] == expected_hash
             expected_hash = normalized["record_sha256"]
+            parent_rank = yaml.safe_load(
+                (
+                    ROOT
+                    / "reports/causal_graph_review/decisions"
+                    / "20261014-spring-parent-rank-batch129.yaml"
+                ).read_text()
+            )["records"][0]
+            assert parent_rank["supersedes_review"] == {
+                "review_file": normalized["review_file"],
+                "record_sha256": expected_hash,
+            }
+            assert parent_rank["original_sha256"] == expected_hash
+            expected_hash = parent_rank["record_sha256"]
         assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected_hash
         assert set(row["allowed_changed_fields"]) == {
             "ecological_interactions",

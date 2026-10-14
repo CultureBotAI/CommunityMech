@@ -1,0 +1,12 @@
+{
+  "command": [
+    "just",
+    "lint"
+  ],
+  "started_at": "2026-10-14T19:55:00.132380+00:00",
+  "finished_at": "2026-10-14T19:55:22.552071+00:00",
+  "git_revision": "8df89370be840a4b58a9d8a7407c66c7471a5085",
+  "exit_code": 1,
+  "stdout": "E501 Line too long (103 > 100)\n   --> tests/test_causal_review_batch107.py:159:101\n    |\n157 |                 (\n158 |                     ROOT\n159 |                     / \"reports/causal_graph_review/decisions/20261014-spring-parent-rank-batch129.yaml\"\n    |                                                                                                     ^^^\n160 |                 ).read_text()\n161 |             )[\"records\"][0]\n    |\n\nI001 [*] Import block is un-sorted or un-formatted\n  --> tests/test_causal_review_batch128.py:3:1\n   |\n 1 |   \"\"\"Active taxonomy uses normalized names; primary evidence remains verbatim.\"\"\"\n 2 |\n 3 | / import copy\n 4 | | import hashlib\n 5 | | import json\n 6 | | from pathlib import Path\n 7 | | import subprocess\n 8 | |\n 9 | | import pytest\n10 | | import yaml\n   | |___________^\n11 |\n12 |   ROOT = Path(__file__).resolve().parents[1]\n   |\nhelp: Organize imports\n\nI001 [*] Import block is un-sorted or un-formatted\n  --> tests/test_causal_review_batch129.py:3:1\n   |\n 1 |   \"\"\"Parent grounding must not silently reassert an unsupported genus identity.\"\"\"\n 2 |\n 3 | / from copy import deepcopy\n 4 | | import hashlib\n 5 | | import json\n 6 | | from pathlib import Path\n 7 | | import subprocess\n 8 | |\n 9 | | import pytest\n10 | | import yaml\n   | |___________^\n11 |\n12 |   ROOT = Path(__file__).resolve().parents[1]\n   |\nhelp: Organize imports\n\nFound 3 errors.\n[*] 2 fixable with the `--fix` option.\n",
+  "stderr": "uv run black --check src/ tests/ scripts/\nAll done! \u2728 \ud83c\udf70 \u2728\n390 files would be left unchanged.\nuv run ruff check src/ tests/ scripts/\nwarning: Invalid `# noqa` directive on scripts/gtdb_ground.py:74: expected code to consist of uppercase letters followed by digits only (e.g. `F401`)\nerror: recipe `lint` failed on line 525 with exit code 1\n"
+}
