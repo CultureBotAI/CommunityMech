@@ -33,6 +33,12 @@ An AM-AB single-community Edison dry run completed. No inherited credential
 was available; no provider submission or charge occurred. This is continuing
 work toward the full corpus objective, not completion or independent approval.
 
+The scoped structured self-review is saved as
+[Markdown](../../reviews/structured/20261014T200439Z-spring-parent-rank/review.md)
+and [YAML](../../reviews/structured/20261014T200439Z-spring-parent-rank/review.yaml).
+Its source base is commit `a7eaa4c339569107d60c25c409ba3599ce27a599`;
+retain that commit through any later squash merge and branch cleanup.
+
 ## Batch128: Active Lineage Nomenclature
 
 [Decisions](decisions/20261009-spring-lineage-batch128.yaml) address #1978,

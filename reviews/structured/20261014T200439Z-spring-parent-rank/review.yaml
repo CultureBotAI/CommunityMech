@@ -1,0 +1,663 @@
+schema_version: 1.0.0
+review_id: 20261014T200439Z-spring-parent-rank
+kind: batch
+repository: CultureBotAI/CommunityMech
+title: Spring graph participant parent-rank repair and full-corpus inventory checkpoint
+started_at: '2026-10-14T20:04:38.355318Z'
+finished_at: '2026-10-14T20:04:39.012063Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Same agent inspected sources, made the repair and ran adversarial
+    checks; not independent approval.
+skill: communitymech-causal-graphs
+completion: completed
+verdict: pass_with_limitations
+scientific_review: false
+summary: Completed scoped identity/provenance self-review, not scientific certification
+  of every claim or completion of the corpus goal. Existing Beggiatoa genus overprecision
+  was removed using a source-supported explicit parent rank. Corpus inventory is now462
+  records with406 reviewed,2 pending,54 needing research.
+source:
+  git_revision: a7eaa4c339569107d60c25c409ba3599ce27a599
+  state: working_tree
+  inputs:
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.html
+    sha256: d018c033284bbaf3e5a6f02f6e79b4bbf73ce965433f98902603d97a877382aa
+    role: context
+  - path: history/records/Sulfide_Spring_Autotrophic_CPR_Biofilm/2026-10-14T194751Z-claude-code-187b59.yaml
+    sha256: b7b2ae14b5ba904a386fb9f213a5c852eee5d0722c98d0168e153b368ac8593b
+    role: context
+  - path: history/records/Sulfide_Spring_Autotrophic_CPR_Biofilm/2026-10-14T194901Z-codex-89d482.yaml
+    sha256: 83ae5d2b42ba7143301e6e20b5e06c482bf03aa42a5411ce730ea08a10585bcc
+    role: context
+  - path: justfile
+    sha256: 9057c89905786df56ec697d89e4617093b41df061ffd5d45571d097f6a57f306
+    role: context
+  - path: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+    sha256: 904cc9646ae53fe0c021c1461a09f3f8d15b763edad42b6c9a43ada91c87597d
+    role: target
+  - path: references_cache/PMID_38273328.md
+    sha256: 9ba82a9b9ffa63754f6575ef42dff1476c8e1b22d0514ada1f72cc7f200a365b
+    role: context
+  - path: references_cache/PMID_38273328.txt
+    sha256: c87b82e525652b86711bfc3270ccf05e6e010b65c8746b3acf583f1446f6155a
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/after-inventory.json
+    sha256: dc4885227e11d5adeaf93c6f8fe234a6ca074299b7925198715d4a6e0d229fde
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/after-network.json
+    sha256: a91a916133f382ba26fda9bcb7e96f240bb0030928f5f7bb2b4c3bed27e0c5af
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/baseline-network.json
+    sha256: 6f8d3f46820fc38f55c57dc4b69de3c4a02256ded1c0c53e93f5669015eb9716
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/baseline-rank.json
+    sha256: a8a2e08a580c3cbdddb35aae9c5d8de94bb1f7e6615aadfc81d029b4a3e50a2e
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/baseline-reference.json
+    sha256: db6ead02cfbd78d2afb1a61c20cf190a5af468d3baf43c6fcc0bfa19f1dfd4c6
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/check_snippets.py
+    sha256: 2ea67a7d11f31a73cdb35e2150e9798b224dff1f10eb1f5f447ef75a35739163
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/docs-current.json
+    sha256: 5ac4616644738ee6f632a10e3b44a7cc42c9d2c79503abf8dc06da8efac12f94
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/final-diff.json
+    sha256: dd1bdda12b646ae8a4e889eafbf208be25f9e5a7c1c508d65c474287b8aa353f
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/lint-corrected.json
+    sha256: 3bbc4cac71834306932f81488242930aef8d5d9f50c6c27d87cec81de09c6d83
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/lint.json
+    sha256: e1ae53b1ab25d12f1309403ec6004e47acea9e58e66d298114405ed2797211f4
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/mapping-skip.json
+    sha256: f41b9a7b461601bb30c54efdab14e9ab23aaeb17910457b875e569f8f8d2e121
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/spring-audit-snippets.json
+    sha256: 5c23a4ca04f50da5b380cd32dae380fb108ed2176ee6bef257a6beb7d42e7f6a
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/spring-final-focused.json
+    sha256: 586fd3be61e4bbc24207fa75cc4a691fa0a755c2c0a939def81f91dcadb3f5a7
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/spring-history.json
+    sha256: 1669cb1616dfc6be99a49eabdb9c6303975d203448f2b7428ad236fcbd764922
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/spring-html.json
+    sha256: 05b5944332b174c4e01cf062b4a2e1c83ceb8653b53eacb047bccb21a15ded91
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/spring-rank.json
+    sha256: 72330084f0d98c758f71708c09b33575179fe925361eed915b740aadb8c5fb12
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/spring-reference-explicit.json
+    sha256: 700b5e385b0ca8c2945ee0e8d971c50552c4992a6cf99cb84f84fefa1d34585a
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/spring-schema.json
+    sha256: 08d5224c081d3ac00d44f92dcba3d14bd730321e6185796a0753f747028e9d5c
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/spring-snippets-complete.json
+    sha256: 7ffdd27fda3004ba4edd512212a67729d574d16ca2744818ad9aae3539dcbbbe
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/spring-snippets-final.json
+    sha256: c63be403b905eb5044c1bb365fe1b43f7d7b161240d8e623882bb9f7d60b9d8c
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/spring-snippets.json
+    sha256: ec972fe1a56d884c38a12aa8c7480e7823e8fc084292636b525e9dd53fc817ba
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/spring-strict.json
+    sha256: 69e69fd5f2c04cf29f659491efea84818c9ac47a7dbf80916bcab7477020af7a
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/spring-terms.json
+    sha256: 5775d36ada56a8287d68a5ee461921a6032fdb7bc49e65994f1527c8d0875f0c
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/spring-tests-corrected.json
+    sha256: 393d8e922cb000da0d573d5ddc64de1eec733e1452cbcd0d8c106f533f565b34
+    role: context
+  - path: reports/causal_graph_review/20261014-resume/spring-tests.json
+    sha256: 505a1ae75b18455f6dc6dbb60a6c7301a8da2468d9551bdb02deba7f5121d11e
+    role: context
+  - path: reports/causal_graph_review/build_inventory.py
+    sha256: 5cb9aeb35b34b67077dddf434715d1ee9314f71130f9e165f5c41967180a9483
+    role: context
+  - path: reports/causal_graph_review/decisions/20261009-spring-lineage-batch128.yaml
+    sha256: 19a158bac0d3e294c5406c1cd0ddf7577ddf3b213212b4fe67b779aeafcee7b3
+    role: context
+  - path: reports/causal_graph_review/decisions/20261014-spring-parent-rank-batch129.yaml
+    sha256: 66958f6a4af2b38a431d66ed3b94bd7030bc7064ec9027eb44773e8bd3d3c1d7
+    role: context
+  - path: reports/causal_graph_review/inventory.tsv
+    sha256: 57850aaf714e1b4fe92fbb497aa220fef0621fe429990dbbfda4bb3ed9ab37fd
+    role: context
+  - path: reports/causal_graph_review/sources/20261014-spring-parent-rank.json
+    sha256: 6122eb4a48aecc1febda3e62c41cc4b56c28437b02de47910cbfe6317f4d2e5c
+    role: context
+  - path: reports/causal_graph_review/summary.json
+    sha256: 6319d7443d99cd99fb0264cc1f888a90a05f47e63ba6d71a5706a81d1e70f395
+    role: context
+  - path: scripts/rank_causal_graph_readiness.py
+    sha256: 6aee68b5e3634b9e4903ba3dcbd2b1ec436a85cd1d8bcfa4b47c37ebf6a054eb
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: e5a87e5367609334ec0d6361f6ddafbe6bc4a1f7d93e5264c64688c28325910f
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+  - path: tests/test_causal_review_batch107.py
+    sha256: 380b0b83c88f3da192a11fe05da5cd4dc9838595c606bc5eb50f8d214846dafe
+    role: context
+  - path: tests/test_causal_review_batch127.py
+    sha256: abf0e62c3538a0188d9b6ddebb82f864ce25c7f46f7dfa909fb17845d842d661
+    role: context
+  - path: tests/test_causal_review_batch128.py
+    sha256: 41788c3e9eda8bc424cefc380e10206c06dda5115632407715148f370bb598af
+    role: context
+  - path: tests/test_causal_review_batch129.py
+    sha256: 928f39b74a014768b6dff4d0f28f46723a464558e086589eab18737d995f0df8
+    role: context
+  - path: uv.lock
+    sha256: 937fc64c52ddde9859c4231c12177e5b662ca40a7323fe21a5c0794d58ebbbc0
+    role: context
+scope:
+  description: One existing graph participant and its coordinated roster identity;
+    complete corpus structural inventory as context, not a semantic review of all462records.
+  selection: Existing open issue1841 and primary-source classification conflict; selected
+    after full-corpus readiness audit.
+  coverage: partial
+  population_size: 462
+  reviewed_target_ids:
+  - CommunityMech:000222
+  exclusions:
+  - target: Other461records
+    reason: Structurally inventoried, not freshly source-reviewed in this checkpoint.
+  - target: Other claims in CommunityMech:000222
+    reason: Full record read for context, but non-graph roles/ingredients and unmodified
+      metabolic predictions were not independently recertified.
+targets:
+- target_id: CommunityMech:000222
+  path: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+  label: Sulfide-spring graph participant parent-rank repair
+  selector: taxonomy[1]; ecological_interactions[0]; discussions[0]
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+    role: maintained roster and graph participant
+checks:
+- check_id: spring-schema
+  name: spring-schema
+  status: passed
+  required: true
+  summary: Actual command output retained in the linked receipt.
+  target_ids:
+  - CommunityMech:000222
+  command: just validate kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - spring-schema
+- check_id: spring-strict
+  name: spring-strict
+  status: passed
+  required: true
+  summary: Actual command output retained in the linked receipt.
+  target_ids:
+  - CommunityMech:000222
+  command: just validate-strict kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - spring-strict
+- check_id: spring-terms
+  name: spring-terms
+  status: passed
+  required: true
+  summary: Actual command output retained in the linked receipt.
+  target_ids:
+  - CommunityMech:000222
+  command: just validate-terms kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - spring-terms
+- check_id: spring-reference-explicit
+  name: spring-reference-explicit
+  status: passed
+  required: true
+  summary: Actual command output retained in the linked receipt.
+  target_ids:
+  - CommunityMech:000222
+  command: .venv/bin/linkml-reference-validator validate data kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+    -s src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity
+    --config conf/reference_validator.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - spring-reference-explicit
+- check_id: spring-snippets-final
+  name: spring-snippets-final
+  status: passed
+  required: true
+  summary: Actual command output retained in the linked receipt.
+  target_ids:
+  - CommunityMech:000222
+  command: .venv/bin/python reports/causal_graph_review/20261014-resume/check_snippets.py
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - spring-snippets-final
+- check_id: spring-audit-snippets
+  name: spring-audit-snippets
+  status: passed
+  required: true
+  summary: Actual command output retained in the linked receipt.
+  target_ids:
+  - CommunityMech:000222
+  command: just audit-snippets kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+    --list-mismatch --list-rendering --list-nocontent
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - spring-audit-snippets
+- check_id: spring-tests-corrected
+  name: spring-tests-corrected
+  status: passed
+  required: true
+  summary: Actual command output retained in the linked receipt.
+  target_ids:
+  - CommunityMech:000222
+  command: .venv/bin/pytest tests/test_causal_review_batch107.py tests/test_causal_review_batch127.py
+    tests/test_causal_review_batch128.py tests/test_causal_review_batch129.py tests/test_causal_review_inventory.py
+    tests/test_gtdb_lineage_tree.py tests/test_gtdb_coherence_validator.py -q
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - spring-tests-corrected
+- check_id: spring-history
+  name: spring-history
+  status: passed
+  required: true
+  summary: Actual command output retained in the linked receipt.
+  target_ids:
+  - CommunityMech:000222
+  command: just validate-history history/records/Sulfide_Spring_Autotrophic_CPR_Biofilm
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - spring-history
+- check_id: after-inventory
+  name: after-inventory
+  status: passed
+  required: true
+  summary: Actual command output retained in the linked receipt.
+  target_ids:
+  - CommunityMech:000222
+  command: .venv/bin/python reports/causal_graph_review/build_inventory.py
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - after-inventory
+- check_id: after-network
+  name: after-network
+  status: passed
+  required: true
+  summary: Exit1 represents the same57 warnings as baseline; zero errors. This is
+    not a zero-warning audit.
+  target_ids:
+  - CommunityMech:000222
+  command: just audit-network-json
+  exit_code: 1
+  expected_exit_code: 1
+  evidence_ids:
+  - after-network
+- check_id: spring-rank
+  name: spring-rank
+  status: passed
+  required: true
+  summary: Actual command output retained in the linked receipt.
+  target_ids:
+  - CommunityMech:000222
+  command: just rank-causal-graphs kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - spring-rank
+- check_id: lint-corrected
+  name: lint-corrected
+  status: passed
+  required: true
+  summary: Actual command output retained in the linked receipt.
+  target_ids:
+  - CommunityMech:000222
+  command: just lint
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - lint-corrected
+- check_id: docs-current
+  name: docs-current
+  status: passed
+  required: true
+  summary: Actual command output retained in the linked receipt.
+  target_ids:
+  - CommunityMech:000222
+  command: just check-docs-current
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - docs-current
+evidence:
+- evidence_id: spring-schema
+  kind: validation
+  reference: reports/causal_graph_review/20261014-resume/spring-schema.json
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: Stored unmodified command, exit code and output; inspect the receipt for
+    coverage and limitations.
+  snapshot_sha256: 08d5224c081d3ac00d44f92dcba3d14bd730321e6185796a0753f747028e9d5c
+- evidence_id: spring-strict
+  kind: validation
+  reference: reports/causal_graph_review/20261014-resume/spring-strict.json
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: Stored unmodified command, exit code and output; inspect the receipt for
+    coverage and limitations.
+  snapshot_sha256: 69e69fd5f2c04cf29f659491efea84818c9ac47a7dbf80916bcab7477020af7a
+- evidence_id: spring-terms
+  kind: validation
+  reference: reports/causal_graph_review/20261014-resume/spring-terms.json
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: Stored unmodified command, exit code and output; inspect the receipt for
+    coverage and limitations.
+  snapshot_sha256: 5775d36ada56a8287d68a5ee461921a6032fdb7bc49e65994f1527c8d0875f0c
+- evidence_id: spring-reference-explicit
+  kind: validation
+  reference: reports/causal_graph_review/20261014-resume/spring-reference-explicit.json
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: Stored unmodified command, exit code and output; inspect the receipt for
+    coverage and limitations.
+  snapshot_sha256: 700b5e385b0ca8c2945ee0e8d971c50552c4992a6cf99cb84f84fefa1d34585a
+- evidence_id: spring-snippets-final
+  kind: validation
+  reference: reports/causal_graph_review/20261014-resume/spring-snippets-final.json
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: Stored unmodified command, exit code and output; inspect the receipt for
+    coverage and limitations.
+  snapshot_sha256: c63be403b905eb5044c1bb365fe1b43f7d7b161240d8e623882bb9f7d60b9d8c
+- evidence_id: spring-audit-snippets
+  kind: validation
+  reference: reports/causal_graph_review/20261014-resume/spring-audit-snippets.json
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: Stored unmodified command, exit code and output; inspect the receipt for
+    coverage and limitations.
+  snapshot_sha256: 5c23a4ca04f50da5b380cd32dae380fb108ed2176ee6bef257a6beb7d42e7f6a
+- evidence_id: spring-tests-corrected
+  kind: validation
+  reference: reports/causal_graph_review/20261014-resume/spring-tests-corrected.json
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: Stored unmodified command, exit code and output; inspect the receipt for
+    coverage and limitations.
+  snapshot_sha256: 393d8e922cb000da0d573d5ddc64de1eec733e1452cbcd0d8c106f533f565b34
+- evidence_id: spring-history
+  kind: validation
+  reference: reports/causal_graph_review/20261014-resume/spring-history.json
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: Stored unmodified command, exit code and output; inspect the receipt for
+    coverage and limitations.
+  snapshot_sha256: 1669cb1616dfc6be99a49eabdb9c6303975d203448f2b7428ad236fcbd764922
+- evidence_id: after-inventory
+  kind: validation
+  reference: reports/causal_graph_review/20261014-resume/after-inventory.json
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: Stored unmodified command, exit code and output; inspect the receipt for
+    coverage and limitations.
+  snapshot_sha256: dc4885227e11d5adeaf93c6f8fe234a6ca074299b7925198715d4a6e0d229fde
+- evidence_id: after-network
+  kind: validation
+  reference: reports/causal_graph_review/20261014-resume/after-network.json
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: Stored unmodified command, exit code and output; inspect the receipt for
+    coverage and limitations.
+  snapshot_sha256: a91a916133f382ba26fda9bcb7e96f240bb0030928f5f7bb2b4c3bed27e0c5af
+- evidence_id: spring-rank
+  kind: validation
+  reference: reports/causal_graph_review/20261014-resume/spring-rank.json
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: Stored unmodified command, exit code and output; inspect the receipt for
+    coverage and limitations.
+  snapshot_sha256: 72330084f0d98c758f71708c09b33575179fe925361eed915b740aadb8c5fb12
+- evidence_id: lint-corrected
+  kind: validation
+  reference: reports/causal_graph_review/20261014-resume/lint-corrected.json
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: Stored unmodified command, exit code and output; inspect the receipt for
+    coverage and limitations.
+  snapshot_sha256: 3bbc4cac71834306932f81488242930aef8d5d9f50c6c27d87cec81de09c6d83
+- evidence_id: docs-current
+  kind: validation
+  reference: reports/causal_graph_review/20261014-resume/docs-current.json
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: Stored unmodified command, exit code and output; inspect the receipt for
+    coverage and limitations.
+  snapshot_sha256: 5ac4616644738ee6f632a10e3b44a7cc42c9d2c79503abf8dc06da8efac12f94
+- evidence_id: source
+  kind: primary_source
+  reference: PMID:38273328
+  locator: Table S4 rows5,12,68,69; Methods Phylogenetic analyses; Results Biofilms
+    contain diverse bacteria; Discussion FISH limitation
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: partial
+  summary: Fresh workbook bytes match the earlier retrieval. The selected bins share
+    class Gammaproteobacteria but lack genus; family is also blank in two rows. Primary
+    main text retains Beggiatoa terminology. These are not equivalent exact genus
+    assignments.
+  snapshot_sha256: 6122eb4a48aecc1febda3e62c41cc4b56c28437b02de47910cbfe6317f4d2e5c
+- evidence_id: ncbi
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&id=1236,1021&retmode=xml
+  locator: TaxId1236 ScientificName/Rank and TaxId1021 Lineage
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: NCBI1236 is class Gammaproteobacteria; NCBI Beggiatoa remains within Thiotrichales/Thiotrichaceae.
+    A direct lower-rank crosswalk from the study GTDB assignments is not asserted.
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: supports
+  summary: The roster and existing graph now use an explicitly parent-only anchor.
+    The two other nodes, all three names, zero-arrow topology and unresolved cell-identity
+    discussion remain.
+- evidence_id: known-gap
+  kind: prior_review
+  reference: https://github.com/CultureBotAI/CommunityMech/issues/476
+  accessed_at: '2026-10-14T20:04:38.355318Z'
+  support: context_only
+  summary: Live issue remains open and describes omitted SupportingReference annotations
+    in the shared vendored schema. No duplicate issue or isolated schema change was
+    made.
+assessments:
+- assessment_id: parent-boundary
+  area: grounding
+  topic: Explicit parent rank versus exact genus identity
+  outcome: supported
+  summary: Primary main text and S4 support a shared class anchor, with study-specific
+    lower ranks preserved in notes. Coordinated roster/graph replacement removes the
+    unsupported exact genus assertion without generalizing a mechanism to the whole
+    class.
+  target_ids:
+  - CommunityMech:000222
+  evidence_ids:
+  - source
+  - ncbi
+  - record
+  - spring-tests-corrected
+- assessment_id: evidence-coverage
+  area: evidence
+  topic: Native traversal and independently enumerated excerpt coverage
+  outcome: supported
+  summary: 20native EvidenceItem checks and22explicit excerpt checks have no mismatches.
+    Control/mutation/immediate-restoration probes detect fabricated graph and discussion
+    quotes. The existing shared-schema traversal gap is retained, not excused.
+  target_ids:
+  - CommunityMech:000222
+  evidence_ids:
+  - spring-snippets-final
+  - spring-audit-snippets
+  - known-gap
+- assessment_id: scope
+  area: scope
+  topic: Corpus progress is not completion
+  outcome: supported
+  summary: Ignored-inclusive inventory covers462records,1383nodes,533arrows with zero
+    structural errors. Two added phage records remain pending and54research cases
+    remain. This record stays needs_research; no new topology or provider submission
+    is claimed.
+  target_ids:
+  - CommunityMech:000222
+  evidence_ids:
+  - after-inventory
+  - after-network
+  - record
+findings:
+- finding_id: lower-rank
+  issue_key: communitymech-1841
+  category: identity
+  severity: minor
+  status: open
+  certainty: confirmed
+  title: Lower-rank reconciliation and imaged-cell identity remain unresolved
+  description: The parent-rank repair removes overprecision but does not settle lower-rank
+    assignments or demonstrate CPR-host metabolic exchange. Keep the explicit knowledge
+    gap and needs_research status.
+  target_ids:
+  - CommunityMech:000222
+  field_paths:
+  - taxonomy[1].taxon_term.notes
+  - discussions[0]
+  evidence_ids:
+  - source
+  - record
+  rule_id: causal-participant-identity-boundary
+  native_severity: P3
+  normalization_reason: After the explicit parent-only repair the remaining uncertainty
+    is disclosed and does not create a false exact identity; it still prevents whole-record
+    certification.
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+    role: maintained roster and graph participant
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1841
+- finding_id: discussion-traversal
+  issue_key: communitymech-476
+  category: evidence
+  severity: minor
+  status: open
+  certainty: confirmed
+  title: Native automatic traversal still omits two discussion citations
+  description: Both discussion snippets were explicitly checked with the unchanged
+    native excerpt matcher; this compensating scoped check does not resolve the shared-schema
+    defect or establish coverage for other records.
+  target_ids:
+  - CommunityMech:000222
+  field_paths:
+  - discussions[0].evidence
+  evidence_ids:
+  - spring-snippets-final
+  - known-gap
+  rule_id: discussion-reference-traversal
+  native_severity: P3
+  normalization_reason: Bounded automation limitation for this review because both
+    affected snippets were independently enumerated and checked; wider cross-repository
+    severity is not reassessed.
+  ownership_note: Shared schema annotations require coordinated upstream ownership;
+    do not edit this vendored copy alone.
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/476
+actions:
+- action_id: resolve-lower-rank
+  description: Continue issue1841 with per-bin primary classification and authoritative
+    taxonomy evidence; retain parent-only grounding until a narrower assignment is
+    demonstrable, and keep cell identity separate from metabolic coupling.
+  finding_ids:
+  - lower-rank
+  target_ids:
+  - CommunityMech:000222
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+    role: maintained roster and graph participant
+  acceptance_checks:
+  - Any narrower identifier has explicit source-bin and rank evidence rather than
+    genus-name similarity or a crosswalk vote.
+  - Roster and every graph participant are updated together; unchanged schema, terms,
+    network and snippet gates pass.
+  - Unresolved imaged-cell identity and metabolic exchange remain explicitly qualified
+    unless new direct evidence resolves them.
+- action_id: coordinate-discussion-validation
+  description: Follow existing issue476 through the canonical shared-schema owner
+    and coordinated vendoring; do not patch this consumer's shared schema in isolation.
+  finding_ids:
+  - discussion-traversal
+  target_ids:
+  - CommunityMech:000222
+  ownership_note: Canonical shared schema and synchronized consumer pins; the existing
+    GitHub issue records the cross-repository scope.
+  acceptance_checks:
+  - Native automatic traversal reaches both discussion snippets in addition to the20EvidenceItems
+    for this snapshot.
+  - A fabricated discussion quote makes the standard CLI fail and immediate restoration
+    passes.
+  - Cross-repository vendored-sync and unchanged source-specific evidence rules pass;
+    no supplemental text is added to article caches.
+limitations:
+- This is a scoped diagnostic/source-identity review, not a full scientific review
+  with completeness or validation-quality scores.
+- Current read scope excludes original figure pixels, all supplementary sheets, raw
+  reads, and new genome classification.
+- No Edison credential was available in the inherited environment. AM-AB dry run completed;
+  no paid job was submitted. Existing graph repair does not require new topology generation.
+- 'Full local suite was not run: native macOS LLVM/numba installation failed. The
+  locked curation dependencies were installed excluding those unrelated UMAP packages;
+  focused tests and lint results are explicit in receipts.'
+- Initial dependency installation, a misspelled test path, the all-snippets native-coverage
+  assumption and lint errors are preserved in prior receipts; corrected successes
+  are the checks reported here.
+- Protected publication, full-corpus semantic completion and branch cleanup are not
+  claimed by this review.
+- 'The one focused-test skip is the whole-corpus NCBI2GTDB classifier replay: its
+  external mapping file is unavailable. Direct NCBI identity and unchanged structural
+  GTDB gates did run.'
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/1841
+- https://github.com/CultureBotAI/CommunityMech/issues/476
+tags:
+- causal-graphs
+- batch129
+- self-review
+- partial-corpus
