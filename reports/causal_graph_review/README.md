@@ -15,6 +15,11 @@ two mediation arrows qualified, and model results separated by phage condition.
 Resistance terminology is explicitly phenotype-based, not sequenced genotype.
 PHA's five already qualified nodes remain unchanged and arrow-free.
 Issue #2005 tracks the three substantive review findings and their repairs.
+The append-only successor review is saved as
+[YAML](../../reviews/structured/20261014T222155Z-phage-graphs-after/review.yaml)
+and [Markdown](../../reviews/structured/20261014T222155Z-phage-graphs-after/review.md),
+with exact links to all three original findings. Provenance tags retain the
+pre-repair inputs and the committed post-repair review snapshot.
 
 The rebuilt inventory has 408 reviewed, 54 needs_research and zero pending
 records. This does not complete the corpus goal. Native reference CLI output
