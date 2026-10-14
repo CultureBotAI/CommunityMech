@@ -10,8 +10,8 @@ that rots, and `test_the_thin_groundings_are_visible` pins the shape.)
 The named-species filter (#375) sharpened it, because it shrinks the evidence
 without recording that it did.
 
-* ``total_genomes``   — genomes the majority was computed over. On **every**
-  grounding, because it is the number #383 actually asked for.
+* ``total_genomes``   — genomes the majority was computed over. Computed
+  groundings need it; source-only curated assignments must not invent a vote.
 * ``support_genomes`` — genomes behind the chosen taxon. Only on genus-and-higher
   groundings, where this script computes the majority itself.
 
@@ -31,7 +31,10 @@ species path states the denominator, which it knows exactly, and no numerator.
 
 from __future__ import annotations
 
+import hashlib
 import importlib.util
+import json
+from copy import deepcopy
 from pathlib import Path
 
 import pytest
@@ -194,27 +197,112 @@ def test_every_stored_block_is_coherent(grounded):
     assert not wrong, "incoherent gtdb_classification:\n" + "\n".join(f"  {w}" for w in wrong)
 
 
-def test_the_kb_carries_the_counts(grounded):
-    """Shipping the schema change without the sweep, or half of it, must fail.
+# These two fractional pins already lacked counts at main 8df89370 (#376/#384).
+# Retain only their exact semantic blocks, not a quota for arbitrary omissions.
+LEGACY_COUNTLESS_PINS = {
+    (
+        "Chlorochromatium_Aggregatum_Phototrophic_Consortium.yaml",
+        "Chlorobium chlorochromatii CaD3 epibiont",
+    ): "405d65c3ee0ee9f18ef74782eb8e63064e7ea68569daf111c149adf160f53fa3",
+    (
+        "Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml",
+        "Pelobacter strain SFB93",
+    ): "9b7f0f43dd7ba7d23871e23bd5529e1e9366cd50e53fb967aefe781498036c2f",
+}
 
-    `total_genomes` is the field every grounding gets, so it is the one that
-    detects a partial sweep. Only the four blocks the tool cannot recompute may
-    lack it: the curated Pelobacter pin (#384), the curated Chlorobium block, and
-    the two taxa that are now AMBIGUOUS (#376).
-    """
-    without = [
-        f"{record}: {name}" for record, name, b in grounded if b.get("total_genomes") is None
-    ]
-    assert len(without) <= 4, (
-        f"{len(without)} of {len(grounded)} blocks carry no total_genomes — the KB "
-        f"was not fully re-swept after the schema change (#383):\n"
-        + "\n".join(f"  {w}" for w in without[:10])
+
+def _assert_count_provenance(grounded):
+    missing = []
+    for record, name, block in grounded:
+        if block.get("total_genomes") is not None:
+            continue
+        digest = hashlib.sha256(json.dumps(block, sort_keys=True).encode()).hexdigest()
+        if LEGACY_COUNTLESS_PINS.get((record, name)) == digest:
+            continue
+        documented = all(
+            isinstance(block.get(field), str) and block[field].strip()
+            for field in (
+                "curation_note",
+                "mapping_source",
+                "gtdb_id",
+                "gtdb_lineage",
+                "ncbi_source_id",
+            )
+        )
+        source_only = (
+            block.get("curated") is True
+            and documented
+            and not {"majority_fraction", "support_genomes", "total_genomes"} & block.keys()
+        )
+        if not source_only:
+            missing.append(f"{record}: {name}")
+    assert not missing, (
+        "Missing total_genomes without a documented source-only assignment or an exact "
+        "legacy pin (#2004):\n" + "\n".join(f"  {item}" for item in missing)
     )
+
+
+def test_the_kb_carries_the_counts(grounded):
+    """Every omission needs provenance; an aggregate allowance cannot prove it."""
+    _assert_count_provenance(grounded)
     with_support = [b for _, _, b in grounded if b.get("support_genomes") is not None]
     assert len(with_support) > 250, (
         f"only {len(with_support)} blocks carry support_genomes — the higher-rank "
         f"path should populate it on roughly 307"
     )
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "computed_total",
+        "curated_vote",
+        "curator_flag",
+        "rationale",
+        "source",
+        "fraction",
+        "numerator",
+        "null_count",
+        "legacy_fraction",
+        "legacy_identity",
+    ],
+)
+def test_count_provenance_control_mutation_restoration(grounded, mutation):
+    computed = next(row for row in grounded if row[2].get("support_genomes"))
+    source = next(
+        row
+        for row in grounded
+        if row[2].get("curated") is True
+        and not {"majority_fraction", "support_genomes", "total_genomes"} & row[2].keys()
+    )
+    legacy = next(row for row in grounded if row[:2] in LEGACY_COUNTLESS_PINS)
+    control = [computed, source, legacy]
+    _assert_count_provenance(control)
+    changed = deepcopy(control)
+    if mutation in {"computed_total", "curated_vote"}:
+        del changed[0][2]["total_genomes"]
+        if mutation == "curated_vote":
+            changed[0][2].update(curated=True, curation_note="Curated vote still needs a count.")
+    elif mutation == "curator_flag":
+        changed[1][2]["curated"] = False
+    elif mutation == "rationale":
+        changed[1][2]["curation_note"] = " "
+    elif mutation == "source":
+        del changed[1][2]["mapping_source"]
+    elif mutation == "fraction":
+        changed[1][2]["majority_fraction"] = 1.0
+    elif mutation == "numerator":
+        changed[1][2]["support_genomes"] = 9
+    elif mutation == "null_count":
+        changed[1][2]["total_genomes"] = None
+    elif mutation == "legacy_fraction":
+        changed[2][2]["majority_fraction"] = 0.9
+    else:
+        changed[2] = ("Unreviewed.yaml", changed[2][1], changed[2][2])
+    assert changed != control
+    with pytest.raises(AssertionError, match="Missing total_genomes"):
+        _assert_count_provenance(changed)
+    _assert_count_provenance(control)
 
 
 def test_the_thin_groundings_are_visible(grounded):
