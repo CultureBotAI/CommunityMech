@@ -5,6 +5,24 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch130: Final Pending Phage Graphs
+
+[Decisions](decisions/20261014-phage-graphs-batch130.yaml),
+[source access](sources/20261014-phage-graphs-batch130.json) and
+[actual gate receipts](20261014-batch130/) cover all ten nodes and three arrows
+in the Alseth and PHA records. Alseth's unsupported optional types are removed,
+two mediation arrows qualified, and model results separated by phage condition.
+Resistance terminology is explicitly phenotype-based, not sequenced genotype.
+PHA's five already qualified nodes remain unchanged and arrow-free.
+Issue #2005 tracks the three substantive review findings and their repairs.
+
+The rebuilt inventory has 408 reviewed, 54 needs_research and zero pending
+records. This does not complete the corpus goal. Native reference CLI output
+reports zero checks; explicit plugin/excerpt checks validate 28 Alseth and 24
+PHA snippets, including the Discussion omitted by the known #476 traversal gap.
+Network warnings and source-read limits remain explicit. No new topology or
+provider spend. This is self-adversarial review, not independent approval.
+
 ## 2026-10-14 Resume And Batch129
 
 The freshly rebuilt, ignored-inclusive inventory contains 462 records, 1,383

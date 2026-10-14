@@ -1,28 +1,24 @@
 id: CommunityMech:000467
 name: Four-Species Pathogen Community Under DMS3vir Phage Predation
-description: >
-  An artificial four-species bacterial community — Pseudomonas aeruginosa PA14,
-  Acinetobacter baumannii, Staphylococcus aureus, and Burkholderia cenocepacia —
-  propagated for 10 days in lysogeny broth with and without the lytic phage
-  DMS3vir, which infects P. aeruginosa through its Type IV pilus. Without phage,
-  P. aeruginosa outcompetes the other three species. Adding DMS3vir drives
-  P. aeruginosa nearly extinct and releases A. baumannii into dominance, while
-  maintaining community diversity. The experiment is fully factorial over all
-  1-, 2-, 3-, and 4-species combinations and over two P. aeruginosa clones (wild
-  type and an isogenic CRISPR-KO), which lets the record separate the community
-  consequences of phage predation from the consequences of which resistance
-  mechanism evolves: the two resistance routes gave largely indistinguishable
-  community dynamics, and Type IV pilus mutation became dominant even where
-  CRISPR-Cas was functional.
+description: 'An artificial four-species bacterial community — Pseudomonas aeruginosa PA14, Acinetobacter
+  baumannii, Staphylococcus aureus, and Burkholderia cenocepacia — propagated for 10 days in lysogeny
+  broth with and without the lytic phage DMS3vir, which infects P. aeruginosa through its Type IV pilus.
+  Without phage, P. aeruginosa outcompetes the other three species. Adding DMS3vir drives P. aeruginosa
+  nearly extinct and releases A. baumannii into dominance, while maintaining community diversity. The
+  experiment is fully factorial over all 1-, 2-, 3-, and 4-species combinations and over two P. aeruginosa
+  clones (wild type and an isogenic CRISPR-KO), which lets the record separate the community consequences
+  of phage predation from the consequences of which resistance mechanism evolves: the two resistance routes
+  gave largely indistinguishable community dynamics, and surface-based resistance classified by the authors
+  as Type IV pilus mutation became dominant even where CRISPR-Cas was functional. That classification
+  is phenotype-based; the receptor mutants were not sequenced in this study.
 
-  This is a one-phage-on-many-bacteria (1-N) system in the sense of
-  doi:10.1146/annurev-virology-100424-123645 — a single phage population against
-  a bacterial community — and the record exists to carry the community-level
-  consequences of phage predation rather than the phage-host pair itself. Its
-  modelling result is curated as a negative one: generalised Lotka-Volterra
-  coefficients fitted to pairwise cocultures failed to predict the 3- and
-  4-species dynamics, so the assembled community is not reconstructible from its
-  pairwise parts.
+  This is a one-phage-on-many-bacteria (1-N) system in the sense of doi:10.1146/annurev-virology-100424-123645
+  — a single phage population against a bacterial community — and the record exists to carry the community-level
+  consequences of phage predation rather than the phage-host pair itself. The tested pairwise-fitted generalized
+  Lotka-Volterra models failed to predict the larger community. This supports a context-dependence interpretation
+  without establishing a general impossibility of prediction from pairwise information. Adding three-species
+  data improved quantitative prediction without phage; with phage, quantitative failure remained despite
+  a qualitative competitive-release prediction.'
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: PHAGE_PREDATION
@@ -235,9 +231,10 @@ ecological_interactions:
       Lysis of the otherwise dominant competitor is what frees the niche that
       A. baumannii expands into.
   - target: Type IV Pilus Mutation Dominates Realised Resistance
-    description: >-
-      Targeting the pilus is what makes receptor loss an available resistance
-      route, and what gives that route its fitness cost.
+    description: 'PARTIAL: Phage exposure provided the selection context in which surface-based resistance
+      became dominant. This links infection to the observed resistance response, but does not show that
+      receptor targeting itself causes a measured fitness cost or establishes the proposed cost-mediated
+      explanation for continued host non-recovery.'
   evidence:
   - reference: PMID:38648198
     supports: SUPPORT
@@ -272,10 +269,9 @@ ecological_interactions:
       label: Pseudomonas aeruginosa
   downstream:
   - target: Phage-Associated Maintenance of Community Diversity
-    description: >-
-      Releasing a subordinate competitor into dominance, rather than letting one
-      species exclude the rest, is the mechanism by which phage keeps the
-      assembly diverse.
+    description: 'PARTIAL: Competitive release is a proposed component of the phage-associated community
+      shift and diversity maintenance. Phage addition altered both outcomes, but the experiment does not
+      isolate expansion of A. baumannii alone as a necessary or sufficient mediator of the diversity effect.'
   evidence:
   - reference: PMID:38648198
     supports: SUPPORT
@@ -298,15 +294,15 @@ ecological_interactions:
     explanation: Supports the phage-free competitive hierarchy that the release
       inverts.
 - name: Type IV Pilus Mutation Dominates Realised Resistance
-  description: >-
-    P. aeruginosa can resist DMS3vir either by CRISPR-Cas immunity or by losing
-    or modifying the Type IV pilus receptor. Pilus mutation became the dominant
-    realised mechanism even in clones with a functional CRISPR system, and the
-    associated fitness cost is the proposed reason P. aeruginosa does not recover
-    after the phage is driven extinct. The wild type did reach higher relative
-    abundance than the CRISPR-KO when A. baumannii was present, early on while
-    phage persisted.
-  interaction_type: COMPETITION
+  description: P. aeruginosa can resist DMS3vir either by CRISPR-Cas immunity or by losing or modifying
+    the Type IV pilus receptor. Pilus mutation became the dominant realised mechanism even in clones with
+    a functional CRISPR system, and the associated fitness cost is the proposed reason P. aeruginosa does
+    not recover after the phage is driven extinct. The wild type did reach higher relative abundance than
+    the CRISPR-KO when A. baumannii was present, early on while phage persisted. This node records the
+    observed resistance response and its qualified ecological interpretation; it does not assert reciprocal
+    negative fitness effects between the listed participants. The mutation terminology is the authors'
+    phenotype-based classification of surface-based resistance; these receptor mutants were not sequenced
+    in this study, so it does not establish their specific genotypes.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pseudomonas aeruginosa PA14
@@ -333,20 +329,19 @@ ecological_interactions:
     explanation: The authors offer the resistance-cost explanation for non-recovery
       as a proposal ("might in part be why"), so this is curated as PARTIAL rather
       than as a demonstrated causal link.
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Further sequencing of receptor mutants was not done
+    explanation: 'The Methods explicitly limit the reported receptor-mutant classification: no sequencing
+      of these mutants was performed. Supports the evidence-resolution caveat, not a specific genotype.'
 - name: Phage-Associated Maintenance of Community Diversity
-  description: >-
-    Adding phage prevented the extinctions seen in the phage-free treatments:
-    very few or none of the replicates lost a species, and the authors report a
-    diversity-maintaining effect of phage on Shannon diversity over time.
-
-    Typed LYTIC_INFECTION at community scope rather than KILL_THE_WINNER on
-    purpose. The outcome has the kill-the-winner shape — predation on the
-    standing dominant sustains diversity — but that value requires evidence of
-    repeated or alternating dominance, and this 10-day experiment shows a single
-    release followed by phage extinction, not turnover. See the
-    `alseth_kill_the_winner_not_asserted` discussion; CommunityMech:000468 is the
-    record that does carry the stronger value.
-  interaction_type: LYTIC_INFECTION
+  description: 'Adding phage prevented the extinctions seen in the phage-free treatments: very few or
+    none of the replicates lost a species, and the authors report a diversity-maintaining effect on Shannon
+    diversity over time. This is a community-level treatment outcome, not an additional virus-to-host
+    infection. The actual pairwise infection is represented separately. A single competitive release does
+    not establish the repeated or alternating dominance required by KILL_THE_WINNER; no such interaction
+    type is assigned here.'
   scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:38648198
@@ -362,31 +357,28 @@ ecological_interactions:
     snippet: phage targeting a dominant species allows for the competitive release of
       the strongest competitor while also contributing to community diversity
       maintenance
-    explanation: Supports diversity maintenance by predation on a dominant species.
-      PARTIAL because the snippet is the authors' summary of the general principle,
-      while what this experiment shows is a single release over 10 days rather than
-      the repeated turnover the principle describes — the reason this edge is typed
-      LYTIC_INFECTION and not KILL_THE_WINNER.
-- name: Pairwise Interaction Coefficients Fail to Predict the Assembled Community
-  description: >-
-    Generalised Lotka-Volterra competition models were parameterised bottom-up —
-    monoculture growth rates fixed from single-species time series, then pairwise
-    interaction coefficients fitted from all two-species cocultures — and used to
-    predict three- and four-species dynamics. The predictions failed, with and
-    without phage, which the authors read as evidence of higher-order
-    interactions: the effect of one species on another depends on which third
-    species is present. Fitting coefficients on three-species data improved the
-    four-species predictions.
-  interaction_type: COMPETITION
+    explanation: 'Supports the authors'' summary of joint competitive-release and diversity outcomes.
+      PARTIAL for mediation: this summary does not demonstrate that the released competitor alone causes
+      diversity maintenance, or establish repeated turnover.'
+- name: Model-Inferred Context Dependence of Community Interactions
+  description: 'PARTIAL: The tested generalized Lotka-Volterra models fitted to pairwise data failed to
+    predict three- and four-species dynamics, consistent with context-dependent interactions. This diagnostic
+    does not isolate a particular higher-order mechanism or prove that no pairwise-based model could describe
+    the community. Incorporating two- and three-species data improved quantitative four-species prediction
+    in the absence of phage. With phage, the fitted coefficients still failed to generalize quantitatively
+    to four species, although the model captured a qualitative competitive-release shift. The authors
+    identify omitted explicit phage dynamics as a possible structural limitation. These are computational
+    findings, not a new measured reciprocal-competition relation.'
   scope: COMMUNITY_LEVEL
   evidence:
   - reference: PMID:38648198
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: fitting gLV models with pairwise only datasets led to predictive failures
       when applied to 3- or 4-species datasets
-    explanation: Supports the failure of the pairwise-parameterised model on the
-      assembled community.
+    explanation: Supports failure of the tested pairwise-fitted model. Context-dependent interactions
+      are a supported interpretation, not a uniquely established mechanism or a general impossibility
+      result.
     computational_provenance:
       prediction_type: POPULATION_DYNAMIC_MODEL
       model_name: generalised Lotka-Volterra competition model
@@ -404,11 +396,51 @@ ecological_interactions:
         between the with- and without-phage models, rather than as an explicit
         predation term.
   - reference: PMID:38648198
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: pairwise data alone is insufficient when modelling our microbial
       community
-    explanation: Supports the curated negative result as the authors state it.
+    explanation: Supports failure of the tested pairwise-fitted model. Context-dependent interactions
+      are a supported interpretation, not a uniquely established mechanism or a general impossibility
+      result.
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: reasonably fit the data in the absence of phage
+    explanation: Bounds improved quantitative four-species prediction from two- and three-species fits
+      to the phage-free condition.
+    computational_provenance:
+      prediction_type: POPULATION_DYNAMIC_MODEL
+      model_name: generalised Lotka-Volterra competition model
+      model_source: GITHUB:GaTechBrownLab/phage-community-dynamics
+      tools:
+      - tool_name: MATLAB
+        tool_version: 2021b
+        role: Model parameterisation by least-squares regression and simulation.
+      parameters: dNi/dt = ri*Ni - sum_j(beta_ij*Ni*Nj). Single-species maximal growth rates ri fixed
+        from monoculture time series; interaction coefficients beta_ij fitted from all two-species cocultures,
+        and separately from three-species data with all interaction parameters open. Phage effects enter
+        implicitly, as differences in the fitted interaction coefficients between the with- and without-phage
+        models, rather than as an explicit predation term.
+  - reference: PMID:38648198
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the interaction coefficients did not generalise quantitatively to 4-species data
+    explanation: Reports the remaining quantitative failure in the phage-present condition despite qualitative
+      competitive-release prediction.
+    computational_provenance:
+      prediction_type: POPULATION_DYNAMIC_MODEL
+      model_name: generalised Lotka-Volterra competition model
+      model_source: GITHUB:GaTechBrownLab/phage-community-dynamics
+      tools:
+      - tool_name: MATLAB
+        tool_version: 2021b
+        role: Model parameterisation by least-squares regression and simulation.
+      parameters: dNi/dt = ri*Ni - sum_j(beta_ij*Ni*Nj). Single-species maximal growth rates ri fixed
+        from monoculture time series; interaction coefficients beta_ij fitted from all two-species cocultures,
+        and separately from three-species data with all interaction parameters open. Phage effects enter
+        implicitly, as differences in the fitted interaction coefficients between the with- and without-phage
+        models, rather than as an explicit predation term.
 environmental_factors:
 - name: Temperature
   value: '37'
@@ -487,36 +519,28 @@ discussions:
   status: OPEN
   attaches_to:
   - taxonomy
-  rationale: >-
-    The curated finding here is a trajectory — P. aeruginosa falls and
-    A. baumannii rises over 10 days — but TaxonomicComposition carries a single
-    abundance per member with no time axis, so `abundance_level` had to be set to
-    the phage-free baseline and the trajectory written into interaction
-    descriptions instead. A consumer reading abundances alone sees
-    P. aeruginosa DOMINANT and A. baumannii MINOR, which is the pre-phage state
-    and the opposite of this record's point.
+  rationale: 'The curated finding here is a trajectory — P. aeruginosa falls and A. baumannii rises over
+    10 days — but TaxonomicComposition carries a single abundance per member with no time axis, so `abundance_level`
+    had to be set to the phage-free baseline and the trajectory written into interaction descriptions
+    instead. A consumer reading abundances alone sees P. aeruginosa DOMINANT and A. baumannii RARE, which
+    is the pre-phage state and the opposite of this record''s point.
 
-    What would resolve it is a decision about whether CommunityMech represents
-    time-series composition at all, or deliberately keeps trajectories in linked
-    datasets and carries only the qualitative dynamic claim in
-    `ecological_interactions`. This record is a good test case either way: the
-    underlying per-timepoint densities are published.
+    What would resolve it is a decision about whether CommunityMech represents time-series composition
+    at all, or deliberately keeps trajectories in linked datasets and carries only the qualitative dynamic
+    claim in `ecological_interactions`. This record is a good test case either way: the underlying per-timepoint
+    densities are published.'
 - discussion_id: alseth_kill_the_winner_not_asserted
-  prompt: Would a longer run of this community show rotating dominance, which would
-    justify KILL_THE_WINNER here rather than the weaker LYTIC_INFECTION typing?
+  prompt: Does this study establish recurring changes in dominance, beyond the observed single competitive
+    release, sufficient to support KILL_THE_WINNER?
   kind: OPEN_QUESTION
   status: OPEN
   attaches_to:
   - ecological_interactions#Phage-Associated Maintenance of Community Diversity
-  rationale: >-
-    The diversity-maintenance result reads like kill-the-winner — predation on
-    the standing dominant stops any one species excluding the rest — but the
-    experiment runs 10 days and phage is driven extinct partway through, so what
-    is observed is one competitive release, not turnover. The stronger value
-    requires repeated or alternating dominance, so it is deliberately not used.
-    A. baumannii is not itself knocked back after rising, and whether it would be
-    under a longer run with persisting phage is the question that would settle
-    this.
+  rationale: 'The reported experiment shows one competitive release and subsequent phage decline, not
+    recurring alternation of the dominant species. KILL_THE_WINNER is therefore not assigned. The diversity
+    outcome is also not a separate lytic infection: the direct phage-host relation is already represented
+    by its own pairwise node. This record does not establish what would happen under other time horizons
+    or ecological conditions.'
 - discussion_id: alseth_resistance_mechanism_has_no_slot
   prompt: Where should a phage-resistance mechanism (receptor mutation versus defence
     system) and its fitness cost be recorded, now that prose in an interaction description
@@ -525,17 +549,49 @@ discussions:
   status: OPEN
   attaches_to:
   - ecological_interactions#Type IV Pilus Mutation Dominates Realised Resistance
-  rationale: >-
-    Two curated claims here are about phage resistance — that Type IV pilus
-    mutation outbeat CRISPR-Cas as the realised route, and that its fitness cost
-    is the proposed reason P. aeruginosa never recovers. Both had to be written
-    as COMPETITION interactions with the content in prose, because the schema has
-    no resistance-mechanism or fitness-cost slot. If more phage records are
-    curated this becomes a recurring loss, since receptor identity versus
-    defence-system identity is the distinction that governs whether a phage
-    cocktail works.
+  rationale: 'The record distinguishes observed resistance-route frequencies from the proposed fitness-cost
+    explanation for non-recovery. No dedicated mechanism or cost slot is used here, but interaction_type
+    is optional: the absence of a more specific type does not justify a COMPETITION label asserting reciprocal
+    negative effects. The observations and their source-qualified interpretation remain in the node description
+    and evidence without that label.'
+- discussion_id: alseth_diversity_mediation_unresolved
+  prompt: How much of the phage-associated diversity effect is mediated by competitive release of A. baumannii?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Competitive Release of Acinetobacter baumannii
+  - ecological_interactions#Phage-Associated Maintenance of Community Diversity
+  rationale: The phage addition comparison supports changes in both dominance and diversity. The inspected
+    Results and Discussion do not isolate the released competitor as a necessary or sufficient cause of
+    diversity maintenance. The existing arrow therefore retains a PARTIAL mediation interpretation rather
+    than a fully resolved mechanistic chain. A direct mediation assessment in this exact community would
+    be needed to strengthen that claim.
+  evidence:
+  - reference: PMID:38648198
+    supports: PARTIAL
+    evidence_source: full_text
+    snippet: phage targeting a dominant species allows for the competitive release of the strongest competitor
+      while also contributing to community diversity maintenance
+    explanation: The authors summarize competitive release and diversity maintenance as joint phage-associated
+      outcomes; this sentence does not isolate their mediation.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: No metal or rare earth element processing role is reported for this
   community.
+curation_history:
+- timestamp: '2026-10-14T21:57:28Z'
+  curator: codex
+  action: BOUND_CAUSAL_GRAPH_CLAIMS
+  changes: 'Address issue #2005: omit unsupported optional interaction types, qualify two existing mediation
+    arrows, and distinguish phage-free quantitative model improvement from phage-present quantitative
+    failure. Preserve five nodes and three directions, exact source excerpts and all non-graph source
+    blocks. Batch130.'
+  llm_assisted: true
+- timestamp: '2026-10-14T22:07:11Z'
+  curator: codex
+  action: BOUND_RESISTANCE_EVIDENCE_RESOLUTION
+  changes: 'Follow-up to issue #2005: distinguish the authors'' phenotype-based receptor-mutant classification
+    from sequenced genotypes, with an exact Methods excerpt. No biological protocol or graph topology
+    change.'
+  llm_assisted: true

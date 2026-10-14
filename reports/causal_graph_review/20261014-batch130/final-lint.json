@@ -1,0 +1,20 @@
+{
+  "command": [
+    "just",
+    "lint"
+  ],
+  "started_at": "2026-10-14T22:14:47.517604+00:00",
+  "finished_at": "2026-10-14T22:14:59.811663+00:00",
+  "git_revision": "b68d71e702200cd7ce9afdec001705dc8b0890fd",
+  "input_sha256": {
+    "kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml": "cef1f3c47035ef336cb809456b25a185e0397bb9f0a16c492becdb5b371529f5",
+    "kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml": "aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488"
+  },
+  "after_sha256": {
+    "kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml": "cef1f3c47035ef336cb809456b25a185e0397bb9f0a16c492becdb5b371529f5",
+    "kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml": "aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488"
+  },
+  "exit_code": 1,
+  "stdout": "I001 [*] Import block is un-sorted or un-formatted\n  --> tests/test_causal_review_batch130.py:3:1\n   |\n 1 |   \"\"\"Keep phage treatment outcomes, mediation and model diagnostics distinct.\"\"\"\n 2 |\n 3 | / from copy import deepcopy\n 4 | | import hashlib\n 5 | | from pathlib import Path\n 6 | | import subprocess\n 7 | |\n 8 | | import pytest\n 9 | | import yaml\n   | |___________^\n10 |\n11 |   ROOT = Path(__file__).resolve().parents[1]\n   |\nhelp: Organize imports\n\nE501 Line too long (113 > 100)\n   --> tests/test_causal_review_batch130.py:135:101\n    |\n133 |     for path, expected in {\n134 |         PHA: \"aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488\",\n135 |         \"references_cache/PMID_38648198.txt\": \"babc54ddb60c3ed882e817d1970ff9c7ba24069b0b06d67730e12eb974b58df3\",\n    |                                                                                                     ^^^^^^^^^^^^^\n136 |         \"references_cache/PMID_40152616.txt\": \"65e30e4f8aed4b1c7cde1fb173376207bbf90d92306c7f59997fd41bfeddbe8b\",\n137 |     }.items():\n    |\n\nE501 Line too long (113 > 100)\n   --> tests/test_causal_review_batch130.py:136:101\n    |\n134 |         PHA: \"aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488\",\n135 |         \"references_cache/PMID_38648198.txt\": \"babc54ddb60c3ed882e817d1970ff9c7ba24069b0b06d67730e12eb974b58df3\",\n136 |         \"references_cache/PMID_40152616.txt\": \"65e30e4f8aed4b1c7cde1fb173376207bbf90d92306c7f59997fd41bfeddbe8b\",\n    |                                                                                                     ^^^^^^^^^^^^^\n137 |     }.items():\n138 |         assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == expected\n    |\n\nFound 3 errors.\n[*] 1 fixable with the `--fix` option.\n",
+  "stderr": "uv run black --check src/ tests/ scripts/\nAll done! \u2728 \ud83c\udf70 \u2728\n391 files would be left unchanged.\nuv run ruff check src/ tests/ scripts/\nerror: recipe `lint` failed on line 525 with exit code 1\n"
+}
