@@ -1,0 +1,24 @@
+{
+  "command": [
+    ".venv/bin/pytest",
+    "tests/test_causal_review_batch130.py",
+    "-q",
+    "--no-cov",
+    "-k",
+    "test_alseth_graph_semantics"
+  ],
+  "started_at": "2026-10-14T21:57:12.096476+00:00",
+  "finished_at": "2026-10-14T21:57:14.059791+00:00",
+  "git_revision": "b68d71e702200cd7ce9afdec001705dc8b0890fd",
+  "input_sha256": {
+    "kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml": "8980255bd37deba9af78f32382d4035cd32ce9de32c7c08472cce54f21750b80",
+    "kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml": "aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488"
+  },
+  "after_sha256": {
+    "kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml": "8980255bd37deba9af78f32382d4035cd32ce9de32c7c08472cce54f21750b80",
+    "kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml": "aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488"
+  },
+  "exit_code": 1,
+  "stdout": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_________________________ test_alseth_graph_semantics __________________________\n\n    def test_alseth_graph_semantics():\n>       contract(yaml.safe_load((ROOT / ALSETH).read_text()))\n\ntests/test_causal_review_batch130.py:57: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ndoc = {'associated_datasets': [], 'community_category': 'PHAGE_PREDATION', 'community_origin': 'SYNTHETIC', 'description': '...dict the 3- and 4-species dynamics, so the assembled community is not reconstructible from its pairwise parts.\\n', ...}\n\n    def contract(doc):\n        nodes = doc[\"ecological_interactions\"]\n        assert len(nodes) == 5\n        assert nodes[0][\"interaction_type\"] == \"LYTIC_INFECTION\"\n        assert nodes[0][\"scope\"] == \"PAIRWISE\"\n        assert nodes[1][\"interaction_type\"] == \"COMPETITIVE_RELEASE\"\n>       assert all(\"interaction_type\" not in node for node in nodes[2:])\nE       assert False\nE        +  where False = all(<generator object contract.<locals>.<genexpr> at 0x108868ee0>)\n\ntests/test_causal_review_batch130.py:28: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_causal_review_batch130.py::test_alseth_graph_semantics - as...\n1 failed, 12 deselected in 0.51s\n",
+  "stderr": ""
+}

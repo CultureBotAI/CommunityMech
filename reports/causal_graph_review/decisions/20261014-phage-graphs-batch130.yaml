@@ -1,0 +1,351 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: b68d71e702200cd7ce9afdec001705dc8b0890fd
+base_tree: e75a24bc5276cbddbc5daa7693d6b9040e210fe7
+source_access:
+  manifest: reports/causal_graph_review/sources/20261014-phage-graphs-batch130.json
+  sha256: 54714d5b8127649ca2a5cbcf969c789349de9136fc26e1857d63c67b98cbf55b
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+limitations:
+- Source-based self-adversarial review, not independent approval or whole-record certification.
+- Whole records and relevant primary Results/Discussion/Methods and captions inspected; figure pixels,
+  all supplements, raw data and executable models not reanalyzed.
+- Other 460 records receive structural census and preservation checks, not new semantic review; 54 needs_research
+  records remain unresolved.
+- Native reference CLI reports zero checks. Explicit plugin invocation checks 27 Alseth and 24 PHA fields;
+  full excerpt traversal additionally checks the Alseth Discussion, totaling 28 and 24. Lexical matches
+  do not prove causal support.
+- 'Discussion traversal gap #476 is compensated locally, not fixed. No schema, validator or threshold
+  is weakened.'
+- No new topology, provider submission, biological protocol or optimization instruction is introduced.
+records:
+- path: kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml
+  id: CommunityMech:000467
+  original_sha256: 8980255bd37deba9af78f32382d4035cd32ce9de32c7c08472cce54f21750b80
+  record_sha256: cef1f3c47035ef336cb809456b25a185e0397bb9f0a16c492becdb5b371529f5
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261014-phage-graphs-batch130.yaml
+  scope: Whole record read; every graph node and existing arrow compared with primary evidence. Related
+    descriptions and discussions checked; unrelated assertions not recertified.
+  summary: Bound typing, mediation, model context and phenotype/genotype evidence resolution.
+  node_decisions:
+  - node: DMS3vir Lytic Infection of Pseudomonas aeruginosa via the Type IV Pilus
+    rationale: Retain the directly reported phage-host infection as PAIRWISE LYTIC_INFECTION. The description
+      distinguishes study host framing from unperformed alternative-host assays.
+    field_path: ecological_interactions[0]
+    source_locator: 'Results: phage densities and host specificity; Fig 3 caption'
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Pseudomonas phage DMS3vir
+        term:
+          id: NCBITaxon:389469
+          label: Casadabanvirus DMS3
+      target_taxon:
+        preferred_term: Pseudomonas aeruginosa PA14
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+    evidence:
+    - reference: PMID:38648198
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Phage DMS3vir targets P. aeruginosa’s Type IV pilus (T4P)
+    - reference: PMID:38648198
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: phage DMS3vir initially reached high titres due to replication on sensitive P. aeruginosa
+        hosts, followed by a rapid decline in phage densities due to the evolution of phage resistance
+  - node: Competitive Release of Acinetobacter baumannii
+    rationale: Retain phage-associated release of the previously suppressed competitor and both named
+      bacterial participants. Do not equate observed replacement with an independently established diversity
+      mediator.
+    field_path: ecological_interactions[1]
+    source_locator: 'Results: competitive release; Fig 5 caption; Discussion'
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Acinetobacter baumannii FZ21
+        term:
+          id: NCBITaxon:470
+          label: Acinetobacter baumannii
+      - preferred_term: Pseudomonas aeruginosa PA14
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+    evidence:
+    - reference: PMID:38648198
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: the presence of phage caused microbial communities to no longer be dominated by P. aeruginosa
+    - reference: PMID:38648198
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: the competitive release of A. baumannii occurred in all treatments and was virtually independent
+        of whether P. aeruginosa had a functional CRISPR-Cas immune system or not
+    - reference: PMID:38648198
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: P. aeruginosa outcompetes the other species in the absence of phage
+  - node: Type IV Pilus Mutation Dominates Realised Resistance
+    rationale: Retain resistance observations using the authors' phenotype-based mutation terminology,
+      explicitly not sequenced genotypes. Cost interpretation remains PARTIAL; omit COMPETITION because
+      reciprocal negative effects are not established by this observation.
+    field_path: ecological_interactions[2]
+    source_locator: 'Results: resistance routes and qualified cost interpretation; Fig 4 caption; Methods:
+      absence of receptor-mutant sequencing'
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Pseudomonas aeruginosa PA14
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+      - preferred_term: Acinetobacter baumannii FZ21
+        term:
+          id: NCBITaxon:470
+          label: Acinetobacter baumannii
+    evidence:
+    - reference: PMID:38648198
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: mutation of the Type IV pilus became the dominant resistance mechanism even if P. aeruginosa
+        has a functional CRISPR system
+    - reference: PMID:38648198
+      supports: PARTIAL
+      evidence_source: IN_VITRO
+      snippet: which might in part be why P. aeruginosa did not recover in the microbial community post
+        phage exposure due to the associated fitness costs
+    - reference: PMID:38648198
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Further sequencing of receptor mutants was not done
+  - node: Phage-Associated Maintenance of Community Diversity
+    rationale: Retain the diversity treatment outcome without relabeling it as infection or repeated kill-the-winner
+      turnover. Mediation by the released competitor remains unresolved and PARTIAL.
+    field_path: ecological_interactions[3]
+    source_locator: 'Results: community diversity; Fig 8 caption; Discussion'
+    scope: COMMUNITY_LEVEL
+    participants: {}
+    evidence:
+    - reference: PMID:38648198
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: very few to none of the experimental repeats had 1 or more bacterial species go extinct
+    - reference: PMID:38648198
+      supports: PARTIAL
+      evidence_source: IN_VITRO
+      snippet: phage targeting a dominant species allows for the competitive release of the strongest
+        competitor while also contributing to community diversity maintenance
+  - node: Model-Inferred Context Dependence of Community Interactions
+    rationale: Retain computationally inferred context dependence, bounded to the tested models. Separate
+      quantitative improvement without phage from quantitative failure with phage and qualitative release
+      prediction; neither a measured reciprocal-competition relation nor a general impossibility theorem.
+    field_path: ecological_interactions[4]
+    source_locator: 'Results and Discussion: fitted gLV comparisons; Figs 9-10 captions; computational
+      Methods'
+    scope: COMMUNITY_LEVEL
+    participants: {}
+    evidence:
+    - reference: PMID:38648198
+      supports: PARTIAL
+      evidence_source: COMPUTATIONAL
+      snippet: fitting gLV models with pairwise only datasets led to predictive failures when applied
+        to 3- or 4-species datasets
+    - reference: PMID:38648198
+      supports: PARTIAL
+      evidence_source: COMPUTATIONAL
+      snippet: pairwise data alone is insufficient when modelling our microbial community
+    - reference: PMID:38648198
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: reasonably fit the data in the absence of phage
+    - reference: PMID:38648198
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: the interaction coefficients did not generalise quantitatively to 4-species data
+  edges_before:
+  - source: DMS3vir Lytic Infection of Pseudomonas aeruginosa via the Type IV Pilus
+    target: Competitive Release of Acinetobacter baumannii
+    description: Lysis of the otherwise dominant competitor is what frees the niche that A. baumannii
+      expands into.
+  - source: DMS3vir Lytic Infection of Pseudomonas aeruginosa via the Type IV Pilus
+    target: Type IV Pilus Mutation Dominates Realised Resistance
+    description: Targeting the pilus is what makes receptor loss an available resistance route, and what
+      gives that route its fitness cost.
+  - source: Competitive Release of Acinetobacter baumannii
+    target: Phage-Associated Maintenance of Community Diversity
+    description: Releasing a subordinate competitor into dominance, rather than letting one species exclude
+      the rest, is the mechanism by which phage keeps the assembly diverse.
+  edges_after:
+  - source: DMS3vir Lytic Infection of Pseudomonas aeruginosa via the Type IV Pilus
+    target: Competitive Release of Acinetobacter baumannii
+    description: Lysis of the otherwise dominant competitor is what frees the niche that A. baumannii
+      expands into.
+  - source: DMS3vir Lytic Infection of Pseudomonas aeruginosa via the Type IV Pilus
+    target: Type IV Pilus Mutation Dominates Realised Resistance
+    description: 'PARTIAL: Phage exposure provided the selection context in which surface-based resistance
+      became dominant. This links infection to the observed resistance response, but does not show that
+      receptor targeting itself causes a measured fitness cost or establishes the proposed cost-mediated
+      explanation for continued host non-recovery.'
+  - source: Competitive Release of Acinetobacter baumannii
+    target: Phage-Associated Maintenance of Community Diversity
+    description: 'PARTIAL: Competitive release is a proposed component of the phage-associated community
+      shift and diversity maintenance. Phage addition altered both outcomes, but the experiment does not
+      isolate expansion of A. baumannii alone as a necessary or sufficient mediator of the diversity effect.'
+  retained_edge_decisions:
+  - source: DMS3vir Lytic Infection of Pseudomonas aeruginosa via the Type IV Pilus
+    target: Competitive Release of Acinetobacter baumannii
+    description: Lysis of the otherwise dominant competitor is what frees the niche that A. baumannii
+      expands into.
+    rationale: The phage-addition comparison supports host loss and competitive release. Retain this study-specific
+      direction without broadening host-range or therapeutic claims.
+    reference: PMID:38648198
+  - source: DMS3vir Lytic Infection of Pseudomonas aeruginosa via the Type IV Pilus
+    target: Type IV Pilus Mutation Dominates Realised Resistance
+    description: 'PARTIAL: Phage exposure provided the selection context in which surface-based resistance
+      became dominant. This links infection to the observed resistance response, but does not show that
+      receptor targeting itself causes a measured fitness cost or establishes the proposed cost-mediated
+      explanation for continued host non-recovery.'
+    rationale: Retain PARTIAL exposure-to-resistance response, not receptor-targeting as a measured cost
+      mechanism for non-recovery.
+    reference: PMID:38648198
+  - source: Competitive Release of Acinetobacter baumannii
+    target: Phage-Associated Maintenance of Community Diversity
+    description: 'PARTIAL: Competitive release is a proposed component of the phage-associated community
+      shift and diversity maintenance. Phage addition altered both outcomes, but the experiment does not
+      isolate expansion of A. baumannii alone as a necessary or sufficient mediator of the diversity effect.'
+    rationale: Retain PARTIAL mediation of a joint diversity outcome; the released competitor was not
+      isolated as a necessary or sufficient mediator.
+    reference: PMID:38648198
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  renamed_nodes:
+  - before: Pairwise Interaction Coefficients Fail to Predict the Assembled Community
+    after: Model-Inferred Context Dependence of Community Interactions
+  references:
+  - PMID:38648198
+  issues:
+  - 2005
+  allowed_changed_fields:
+  - description
+  - ecological_interactions
+  - discussions
+  - curation_history
+  curation_events_added: 2
+  history_files:
+  - history/records/Alseth_FourSpecies_Pathogen_Phage_Community/2026-10-14T215856Z-codex-b473e9.yaml
+  - history/records/Alseth_FourSpecies_Pathogen_Phage_Community/2026-10-14T220730Z-codex-dda3a4.yaml
+- path: kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml
+  id: CommunityMech:000468
+  original_sha256: aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488
+  record_sha256: aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488
+  status: reviewed
+  outcome: no_change
+  review_file: reports/causal_graph_review/decisions/20261014-phage-graphs-batch130.yaml
+  scope: Whole record read; every graph node and existing arrow compared with primary evidence. Related
+    descriptions and discussions checked; unrelated assertions not recertified.
+  summary: Retain five bounded observational/model/prediction nodes without arrows.
+  node_decisions:
+  - node: Hypothesized Kill-the-Winner Succession of Dominant PHA Producers
+    rationale: Retain explicitly HYPOTHESIZED kill-the-winner with PARTIAL computational evidence. Observed
+      succession and fitted SEM do not independently demonstrate phage-mediated lysis; no arrow is justified.
+    field_path: ecological_interactions[0]
+    source_locator: 'Abstract; Results: succession and structural equation model; computational Methods'
+    scope: COMMUNITY_LEVEL
+    participants: {}
+    evidence:
+    - reference: PMID:40152616
+      supports: PARTIAL
+      evidence_source: COMPUTATIONAL
+      snippet: Structural equation modeling analysis showed that phages could infect and lyse dominant
+        species to vacate ecological niches for other species, resulting in a community succession state
+        in which dominant species alternated.
+    - reference: PMID:40152616
+      supports: PARTIAL
+      evidence_source: COMPUTATIONAL
+      snippet: Sample points in each reactor did not cluster together during the late stages of maintenance
+        (days 65, 68, and 145), suggesting that the bacterial community structure reached alternative
+        states during maintenance, even when deterministic selection pressure was applied
+  - node: Coupled Turnover of Phage and Bacterial Community Structure
+    rationale: Retain correlated turnover as association without mechanistic typing or causal direction.
+      Reactor-specific correlations do not establish predation.
+    field_path: ecological_interactions[1]
+    source_locator: 'Results: temporally adjacent community turnover and Spearman correlations'
+    scope: COMMUNITY_LEVEL
+    participants: {}
+    evidence:
+    - reference: PMID:40152616
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: There was a significant positive relationship between the bacterial and phage communities
+        shifts
+    - reference: PMID:40152616
+      supports: PARTIAL
+      evidence_source: COMPUTATIONAL
+      snippet: the dynamics of bacterial community structure could be mirrored in phage communities
+  - node: Modeled Association of Phage Abundance with Bacterial Diversity and Activity
+    rationale: Retain SEM-estimated negative associations with explicit observational limits. No manipulation
+      establishes killing or excludes host-driven explanations; keep arrow-free.
+    field_path: ecological_interactions[2]
+    source_locator: 'Results: structural equation model diversity and activity associations; computational
+      Methods'
+    scope: COMMUNITY_LEVEL
+    participants: {}
+    evidence:
+    - reference: PMID:40152616
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: 'significant negative correlation (r: −0.43, P ≤ 0.05) between phage abundance and the
+        alpha diversity (Chao1) index of the bacterial community'
+    - reference: PMID:40152616
+      supports: PARTIAL
+      evidence_source: COMPUTATIONAL
+      snippet: the SEM was used to discern the causality and quantify the effects of the drivers
+  - node: Phage-Encoded Auxiliary Metabolic Genes for PHA Synthesis Are Transcribed
+    rationale: Retain predicted AMGs and observed transcripts with distinct computational and experimental
+      modalities. Neither establishes productive infection, translated activity or increased PHA yield.
+    field_path: ecological_interactions[3]
+    source_locator: 'Results: predicted AMGs and metatranscriptomic expression; annotation Methods'
+    scope: COMMUNITY_LEVEL
+    participants: {}
+    evidence:
+    - reference: PMID:40152616
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: Seven key auxiliary metabolic genes (AMGs), phaC, fadJ, acs, ackA, phbB, acdAB, and fadD,
+        potentially contributing to PHA synthesis were identified from phage sequences
+    - reference: PMID:40152616
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: these AMGs were transcribed, indicating that they were in an active expression state
+  - node: Predicted Host Antiviral Defence Repertoire
+    rationale: Retain encoded defense predictions without functional resistance claims. Community context
+      does not justify a new pairwise infection or competition relation.
+    field_path: ecological_interactions[4]
+    source_locator: 'Results: encoded antiviral systems; DefenseFinder Methods'
+    scope: COMMUNITY_LEVEL
+    participants: {}
+    evidence:
+    - reference: PMID:40152616
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: The RM and CRISPR-Cas systems were the predominant antiviral systems in 10 of the 12 bacterial
+        phyla
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  renamed_nodes: []
+  references:
+  - PMID:40152616
+  issues: []
+  allowed_changed_fields: []
+  curation_events_added: 0
+  history_files: []
