@@ -3,6 +3,7 @@
 import copy
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -41,6 +42,11 @@ def test_normalized_active_lineage_retains_verbatim_primary_evidence():
 
 def test_immutable_successor_and_unchanged_graph():
     ledger, row, doc = documents()
+    # The batch128 graph is historical; batch129's tests guard its current successor.
+    historical = subprocess.check_output(
+        ["git", "show", f"8df89370be840a4b58a9d8a7407c66c7471a5085:{row['path']}"], cwd=ROOT
+    )
+    doc = yaml.safe_load(historical)
     parent_path = ROOT / row["supersedes_review"]["review_file"]
     parent = yaml.safe_load(parent_path.read_text())["records"][0]
     assert (
@@ -52,7 +58,7 @@ def test_immutable_successor_and_unchanged_graph():
         == row["original_sha256"]
         == row["supersedes_review"]["record_sha256"]
     )
-    assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+    assert hashlib.sha256(historical).hexdigest() == row["record_sha256"]
     assert (
         hashlib.sha256(
             json.dumps(doc["ecological_interactions"], sort_keys=True).encode()

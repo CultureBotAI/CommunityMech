@@ -1,0 +1,66 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 8df89370be840a4b58a9d8a7407c66c7471a5085
+base_tree: 44cc42efe226ee9a0a5d85628b35e3735c644d93
+source_access:
+  manifest: reports/causal_graph_review/sources/20261014-spring-parent-rank.json
+  sha256: 6122eb4a48aecc1febda3e62c41cc4b56c28437b02de47910cbfe6317f4d2e5c
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+limitations:
+- This is a parent-rank repair of an existing graph participant, not exact lower-rank identity, a new
+  classification, graph extension or whole-record scientific certification.
+- Primary S4 rows and selected taxonomic Methods/Results plus FISH Discussion inspected; not all figure
+  pixels, supplementary sheets or raw reads.
+- All caches, earlier reviews and histories remain unchanged. Non-graph functional roles and ingredient
+  assertions were not recertified.
+- Issue1841 remains open; lower-rank reconciliation and experimental cell identity/metabolic coupling
+  remain needs_research.
+- The history scaffolder defaulted to claude-code in the first new entry. A second append-only provenance
+  entry explicitly corrects the actor to codex without rewriting the first.
+records:
+- path: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+  id: CommunityMech:000222
+  original_sha256: 4c55cbbcf80785d2ad004ad3eab44d533811b7418c5995e5ba1893cb66864e36
+  record_sha256: 904cc9646ae53fe0c021c1461a09f3f8d15b763edad42b6c9a43ada91c87597d
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261014-spring-parent-rank-batch129.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261009-spring-lineage-batch128.yaml
+    record_sha256: 4c55cbbcf80785d2ad004ad3eab44d533811b7418c5995e5ba1893cb66864e36
+  scope: Whole record read; roster/graph participant parent-rank boundary rechecked against primary evidence.
+    Other node semantics retained, not freshly certified.
+  summary: Remove unsupported exact Beggiatoa genus grounding by using an explicitly parent-only Gammaproteobacteria
+    anchor in both roster and graph, while retaining study-specific unresolved ranks.
+  node_decisions:
+  - node: Filamentous Sulfur Oxidation with Encapsulated S Granules
+    rationale: Retain sulfur-granule observations with coordinated parent-rank attribution; no identification
+      of imaged cells or generic class-wide mechanism.
+  - node: Putative CPR association with sulfur-oxidizing filaments
+    rationale: Retain unchanged source-qualified association. Fresh primary FISH limitation still precludes
+      confirmed host identity and exchange.
+  - node: Predicted CPR sulfur and hydrogen metabolic capacity
+    rationale: Retain unchanged lineage-specific computational predictions without adding measured flux
+      or new causal topology; not independently rederived in this focused pass.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:38273328
+  issues:
+  - 1841
+  allowed_changed_fields:
+  - taxonomy
+  - ecological_interactions
+  - discussions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Sulfide_Spring_Autotrophic_CPR_Biofilm/2026-10-14T194751Z-claude-code-187b59.yaml
+  - history/records/Sulfide_Spring_Autotrophic_CPR_Biofilm/2026-10-14T194901Z-codex-89d482.yaml

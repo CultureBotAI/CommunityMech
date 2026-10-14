@@ -5,6 +5,34 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## 2026-10-14 Resume And Batch129
+
+The freshly rebuilt, ignored-inclusive inventory contains 462 records, 1,383
+nodes and 533 arrows: 406 reviewed, two pending and 54 needing research.
+The two pending records are the Alseth four-species phage community and the
+PHA mixed-culture phage succession community added after the earlier census.
+No structural defects were found; network warnings are not scientific approval.
+
+[Batch129 decisions](decisions/20261014-spring-parent-rank-batch129.yaml)
+and [fresh primary-source receipt](sources/20261014-spring-parent-rank.json)
+record a partial repair of #1841. The unsupported Beggiatoa genus assignment
+is replaced in the roster and existing graph participant by an explicitly
+parent-only Gammaproteobacteria anchor. The source's unresolved lower ranks
+remain explicit; no cross-taxonomy family equivalence, imaged-cell identity,
+new node or new arrow is asserted. Three nodes and zero arrows remain, and
+the record remains `needs_research`.
+
+The [validation receipts](20261014-resume/) retain failed and successful
+observations separately. The normal reference traversal checks 20 evidence
+snippets but omits two discussion citations, the existing #476 defect.
+The [instrumented native check](20261014-resume/check_snippets.py) separately
+checks all 22 with network forbidden and control/mutation/restoration probes.
+No reference cache, earlier decision ledger or saved review bundle was changed.
+
+An AM-AB single-community Edison dry run completed. No inherited credential
+was available; no provider submission or charge occurred. This is continuing
+work toward the full corpus objective, not completion or independent approval.
+
 ## Batch128: Active Lineage Nomenclature
 
 [Decisions](decisions/20261009-spring-lineage-batch128.yaml) address #1978,
