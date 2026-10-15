@@ -7,6 +7,11 @@ unchanged.
 
 - [Historical pre-fix YAML](../../../reviews/structured/20261015T043154Z-metg2-host-before/review.yaml)
   and [Markdown](../../../reviews/structured/20261015T043154Z-metg2-host-before/review.md).
+- [Successor YAML](../../../reviews/structured/20261015T044333Z-metg2-host-after/review.yaml)
+  and [Markdown](../../../reviews/structured/20261015T044333Z-metg2-host-after/review.md)
+  resolve the scoped host/participant finding and explicitly carry the unresolved
+  membership finding forward. Both observations retain their exact input commits
+  under annotated `review-provenance/20261015-metg2-host-*` tags.
 - [Decision ledger](../decisions/20261015-metg2-host.yaml) preserves all three
   node decisions, the retained hypothetical arrow and the prior review hash.
 - [Source manifest](../sources/20261015-metg2-host/manifest.json) and raw NCBI XML
