@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".venv/bin/pytest",
+    "tests/",
+    "-q",
+    "--no-cov"
+  ],
+  "started_at": "2026-10-15T13:45:45.352645+00:00",
+  "finished_at": "2026-10-15T13:46:02.489310+00:00",
+  "exit_code": 2,
+  "git_revision": "a633f798a2515cbc903d205bef94b69458783120",
+  "record_sha256_before": "1e5ee2a939774f3954bdb42b6c4124c1de1f0b36a3dc7b3e93e74ad52baa199b",
+  "record_sha256_after": "1e5ee2a939774f3954bdb42b6c4124c1de1f0b36a3dc7b3e93e74ad52baa199b",
+  "stdout": "\n==================================== ERRORS ====================================\n___________ ERROR collecting tests/test_embedding/test_aggregator.py ___________\nImportError while importing test module '/private/tmp/communitymech-causal-20261014/tests/test_embedding/test_aggregator.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/Caskroom/miniforge/base/lib/python3.13/importlib/__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_embedding/test_aggregator.py:8: in <module>\n    from communitymech.embedding.aggregator import CommunityVectorAggregator\nsrc/communitymech/embedding/__init__.py:4: in <module>\n    from .dimensionality import UMAPReducer\nsrc/communitymech/embedding/dimensionality.py:5: in <module>\n    import umap  # type: ignore[import-untyped]\n    ^^^^^^^^^^^\n.venv/lib/python3.13/site-packages/umap/__init__.py:2: in <module>\n    from .umap_ import UMAP\n.venv/lib/python3.13/site-packages/umap/umap_.py:29: in <module>\n    import numba\nE   ModuleNotFoundError: No module named 'numba'\n=============================== warnings summary ===============================\n.venv/lib/python3.13/site-packages/linkml/generators/pydanticgen/template.py:553: 12 warnings\n  /private/tmp/communitymech-causal-20261014/.venv/lib/python3.13/site-packages/linkml/generators/pydanticgen/template.py:553: PydanticDeprecatedSince211: Accessing the 'model_fields' attribute on the instance is deprecated. Instead, you should access this attribute from the model class. Deprecated in Pydantic V2.11 to be removed in V3.0.\n    imports=imports, **{k: getattr(self, k, None) for k in self.model_fields if k != \"imports\"}\n\ntests/test_install_recipe.py:70\n  /private/tmp/communitymech-causal-20261014/tests/test_install_recipe.py:70: SyntaxWarning: invalid escape sequence '\\['\n    ``deep-research-client[cyberian]>=0.2.4`` does, and a non-greedy ``\\[(.*?)\\]``\n\ntests/test_shared_taxon_ids.py:593\n  /private/tmp/communitymech-causal-20261014/tests/test_shared_taxon_ids.py:593: SyntaxWarning: invalid escape sequence '\\d'\n    Matching only `^sp\\d*$` left it parsing as a *named* epithet, so\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_embedding/test_aggregator.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n8 deselected, 14 warnings, 1 error in 15.61s\n",
+  "stderr": ""
+}

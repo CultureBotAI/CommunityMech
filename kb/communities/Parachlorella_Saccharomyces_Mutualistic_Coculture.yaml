@@ -56,10 +56,11 @@ taxonomy:
     explanation: Identifies Saccharomyces cerevisiae as the yeast member of the co-culture.
 ecological_interactions:
 - name: Proposed Reciprocal Oxygen and Carbon Dioxide Exchange
-  description: HYPOTHESIZED - Reciprocal oxygen/carbon dioxide exchange is proposed as a basis for microalga-yeast
-    association. In the accessible PMID42217804 abstract, this is introductory context rather than an exact-system
-    gas-flux or mediator-perturbation result. Preserve it as a mechanistic hypothesis for P. kessleri and S. cerevisiae,
-    not demonstrated bidirectional flux or reciprocal fitness benefit.
+  description: HYPOTHESIZED - Reciprocal oxygen/carbon dioxide exchange is proposed for P. kessleri and
+    S. cerevisiae. Results 3.2 of PMID42217804 attributes sustained algal growth after day 6 most likely
+    to local yeast-derived CO2 enrichment. The inspected main-text methods do not directly measure reciprocal
+    gas flux or isolate gas-exchange mediation. This is a mechanistic interpretation, not demonstrated
+    bidirectional transfer or reciprocal fitness benefit. Separate supplements remain uninspected.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Parachlorella kessleri
@@ -81,24 +82,34 @@ ecological_interactions:
       id: CHEBI:16526
       label: carbon dioxide
   downstream:
-  - target: Fourfold Coculture Biomass and Lipid Increase
-    description: HYPOTHESIZED - Photosynthetic oxygen and respiratory carbon dioxide exchange could support coculture
-      productivity. The accessible abstract does not isolate the contribution of gas exchange to the observed fourfold
-      biomass/lipid increase.
+  - target: Coculture Algal Cell Increase and Relative Lipid Signal
+    description: HYPOTHESIZED - Respiratory CO2 and photosynthetic oxygen could support coculture growth.
+      Main-text comparisons do not isolate gas exchange as the cause of the species-resolved algal cell
+      increase or bulk relative lipid signal; medium enrichment contributes to the growth comparison.
   evidence:
   - reference: PMID:42217804
     supports: PARTIAL
     evidence_source: OTHER
-    snippet: Microalgae and yeasts can establish a mutualistic relationship based on reciprocal oxygen/carbon dioxide
-      exchange, offering a strategy to overcome productivity limits caused by the slow growth of microalgae.
-    explanation: Introductory mechanistic context, not an exact-system gas-exchange measurement in the accessible
-      abstract.
+    snippet: Microalgae and yeasts can establish a mutualistic relationship based on reciprocal oxygen/carbon
+      dioxide exchange, offering a strategy to overcome productivity limits caused by the slow growth
+      of microalgae.
+    explanation: Introductory mechanistic context, not an exact-system gas-exchange measurement in the
+      accessible abstract.
+  - reference: PMID:42217804
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: microalgal growth was sustained and boosted in co-culture, most likely due to the local CO2
+      enrichment of the medium provided by yeast activity, in addition to atmospheric CO2.
+    explanation: 'Results 3.2, article page 6: authors'' proposed explanation of growth maintenance, not
+      direct CO2-flux or necessity evidence.'
 - name: Yeast support of microalgal growth and lipid accumulation
-  description: The abstract reports that yeast sustained microalgal growth during the transition to phototrophy
-    after glucose depletion on day 6 and promoted lipid accumulation through nutrient competition. Preserve these
-    reported positive physiological effects without interpreting nutrient competition as a demonstrated reciprocal
-    benefit or specifying an unmeasured exchanged nutrient. Full-text comparisons and the fraction of productivity
-    mediated by each process remain uninspected.
+  description: 'P. kessleri growth was maintained in coculture after the day 6 transition to phototrophy.
+    Figure 3 compares BBM + NO3 monoculture, glucose/peptone-enriched BG10P10 monoculture and BG10P10
+    coculture: reported day-12 algal cell concentrations are 2.8-fold and 4.8-fold the BBM control in
+    enriched monoculture and coculture, respectively. Thus yeast is associated with an additional growth
+    benefit, but the full 4.8-fold comparison includes medium enrichment. Nutrient competition and gas
+    exchange are proposed explanations of the relative lipid response, not isolated mediation estimates.
+    The day-14 bulk Nile Red assay does not establish taxon-specific lipid production.'
   scope: PAIRWISE
   source_taxon:
     preferred_term: Saccharomyces cerevisiae
@@ -120,23 +131,34 @@ ecological_interactions:
       id: GO:0006629
       label: lipid metabolic process
   downstream:
-  - target: Fourfold Coculture Biomass and Lipid Increase
-    description: PARTIAL - Yeast-associated maintenance of algal growth and nutrient-competition-associated lipid
-      accumulation provide the reported physiological contribution to higher coculture biomass/lipid production.
-      This does not apportion the fourfold endpoint among growth support, gas exchange and other mechanisms.
+  - target: Coculture Algal Cell Increase and Relative Lipid Signal
+    description: PARTIAL - Yeast-associated maintenance of algal growth contributes to the cell-count
+      endpoint. Nutrient competition is the authors' proposed explanation of increased relative lipid
+      signal. The enriched-medium control also increases growth, so the full control-relative fold change
+      cannot be assigned to yeast or a particular exchanged metabolite.
   evidence:
+  - reference: PMID:42217804
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Yeast sustained microalgal growth during the transition to phototrophy after glucose depletion
+      (day 6) and promoted lipid accumulation through nutrient competition.
+    explanation: Abstract reports algal growth maintenance and attributes lipid accumulation to nutrient
+      competition; the latter is an interpretation, not isolated mediator necessity. Methods 2.3 measures
+      bulk relative fluorescence.
   - reference: PMID:42217804
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Yeast sustained microalgal growth during the transition to phototrophy after glucose depletion (day
-      6) and promoted lipid accumulation through nutrient competition.
-    explanation: Yeast supports microalgal growth and drives lipid accumulation via nutrient competition.
+    snippet: The presence of glucose and peptone in BG10P10 medium brought higher cell concentrations,
+      with a maximum at day 12 with a 2.8-fold higher concentration in BG10P10 condition and a 4.8-fold
+      higher concentration in co-culture condition (Fig. 3A and B).
+    explanation: 'Results 3.2 and Figure 3: medium enrichment alone increases algal cell counts; coculture
+      provides a further increase. Both fold changes use BBM + NO3 monoculture as reference.'
 - name: Proposed EPS-Derived Metabolic Support of Yeast
-  description: HYPOTHESIZED - Yeast viability remained above 68% during approximately 8 days of nutrient limitation,
-    which the authors interpret as possible metabolic support by microalgal EPS-derived molecules. AFM showed visible
-    EPS and cell-surface changes, and FluidFM found stronger, longer cell interactions, likely associated with EPS.
-    These positive viability and biophysical observations do not by themselves demonstrate EPS-carbon uptake, donor-to-recipient
-    transfer or dependence of yeast survival on EPS.
+  description: HYPOTHESIZED - Yeast viability remained above 68% during approximately 8 days of nutrient
+    limitation, which the authors interpret as possible metabolic support by microalgal EPS-derived molecules.
+    AFM showed visible EPS and cell-surface changes, and FluidFM found stronger, longer cell interactions,
+    likely associated with EPS. These positive viability and biophysical observations do not by themselves
+    demonstrate EPS-carbon uptake, donor-to-recipient transfer or dependence of yeast survival on EPS.
   scope: PAIRWISE
   source_taxon:
     preferred_term: Parachlorella kessleri
@@ -157,16 +179,22 @@ ecological_interactions:
   - reference: PMID:42217804
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: yeast viability remained above 68%, indicating possible metabolic support from microalgae via exopolysaccharides
-      (EPS) - derived molecules
-    explanation: Positive viability observation supports a proposed EPS mechanism, not directly traced carbon transfer
-      or demonstrated necessity.
-- name: Fourfold Coculture Biomass and Lipid Increase
-  description: Under coculture conditions, biomass and lipid production increased fourfold relative to microalgal
-    monoculture grown in BBM + NO3 medium. This is a positive culture-level productivity comparison. The accessible
-    abstract does not establish that the entire biomass increase is microalgal, quantify each species contribution,
-    or isolate gas exchange or EPS transfer as the cause. It does not demonstrate reciprocal benefit solely from
-    increased bulk output.
+    snippet: yeast viability remained above 68%, indicating possible metabolic support from microalgae
+      via exopolysaccharides (EPS) - derived molecules
+    explanation: Positive viability observation supports a proposed EPS mechanism, not directly traced
+      carbon transfer or demonstrated necessity.
+- name: Coculture Algal Cell Increase and Relative Lipid Signal
+  description: 'Two distinct positive endpoints are reported for the P. kessleri-S. cerevisiae coculture.
+    Figure 3 measures P. kessleri cell concentration: at day 12, BG10P10 coculture is reported as 4.8-fold
+    the BBM + NO3 monoculture control, while BG10P10 algal monoculture is 2.8-fold that control. This
+    is not a fourfold isolated yeast effect or a dry-biomass measurement. Separately, Methods 2.3 assays
+    day-14 pellets resuspended at 1.0 x 10^8 cells/mL using bulk Nile Red fluorescence. Results 3.2 reports
+    3437 +/- 17 a.u. for BBM control and 14195 +/- 216 a.u. for coculture, and calls the latter 4.3-fold;
+    the ratio of those means is approximately 4.13. Methods specifies 2 micrograms/mL dye, whereas Results
+    specifies 2.5. These reporting conflicts remain unresolved. No species separation is described for
+    this lipid assay in the inspected main text; relative signal is not lipid mass, volumetric productivity,
+    or proof of exclusively algal lipid production. The combined endpoint remains community-level to preserve
+    that mixed-assay boundary.'
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: growth
@@ -181,11 +209,57 @@ ecological_interactions:
   - reference: PMID:42217804
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: biomass and lipid production increased 4-fold compared to microalgal monoculture grown in BBM + NO3
-      medium
-    explanation: 'Supports the increased biomass and lipid-production endpoint of the microalga-yeast coculture.
-
-      '
+    snippet: The presence of glucose and peptone in BG10P10 medium brought higher cell concentrations,
+      with a maximum at day 12 with a 2.8-fold higher concentration in BG10P10 condition and a 4.8-fold
+      higher concentration in co-culture condition (Fig. 3A and B).
+    explanation: Results 3.2, article page 6; Figure 3 reports algal cell concentration, with distinct
+      enriched-medium and coculture comparisons.
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: to enable species differentiation, precise cell quantification and to measure cell population
+      viability.
+    explanation: 'Methods 2.1.2, article page 3: coculture flow cytometry distinguishes species for cell
+      counts; this does not make the separate lipid plate assay species-resolved.'
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Relative lipid levels were then measured using Nile Red staining coupled with fluorescence
+      spectroscopy (Rumin et al., 2015).
+    explanation: Results 3.2 identifies relative lipid fluorescence, not an extracted lipid mass.
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pellets were thawed immediately before analysis and resuspended in deionized water to a final
+      concentration of 1.0 × 108 cells/mL.
+    explanation: 'Methods 2.3, article page 4: fixed-density pellet assay; species separation is not described
+      in this section.'
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 3437 ± 17 a. u., and in co-culture conditions with a lipid content increased to 14195 ± 216
+      a. u..
+    explanation: Results 3.2 gives arbitrary-unit fluorescence means; their calculated ratio is approximately
+      4.13, differing from the separately stated 4.3-fold.
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the co-culture exhibited a relative lipid content 4.3-fold higher than that observed in BBM
+      + NO3.
+    explanation: Results 3.2 reported fold change retained as a source conflict, not silently replaced
+      by the ratio of reported means.
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: concentration of 2 µg/mL in 40% (v/v) dimethyl sulfoxide (DMSO)
+    explanation: Methods 2.3 dye concentration conflicts with Results 3.2; supplementary calibration remains
+      uninspected.
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a Nile red concentration of 2.5 µg/mL was selected for the comparison.
+    explanation: Results 3.2 dye concentration retained alongside the different Methods value; no preferred
+      value inferred.
 growth_media:
 - name: BBM + NO3 medium
   preparation_notes: 'Microalga-yeast co-culture; yeast supplied with glucose as initial carbon source,
@@ -206,40 +280,53 @@ growth_media:
     explanation: Documents glucose as the initial carbon source, depleted at day 6.
 discussions:
 - discussion_id: parachlorella-assay-and-mediator-boundaries
-  prompt: Which measured gas, EPS and physical-interaction changes mediate the positive productivity and viability
-    responses?
+  prompt: Which measured gas, EPS and physical-interaction changes mediate the positive productivity and
+    viability responses?
   kind: KNOWLEDGE_GAP
   status: OPEN
   attaches_to:
   - ecological_interactions#Proposed Reciprocal Oxygen and Carbon Dioxide Exchange
   - ecological_interactions#Yeast support of microalgal growth and lipid accumulation
   - ecological_interactions#Proposed EPS-Derived Metabolic Support of Yeast
-  - ecological_interactions#Fourfold Coculture Biomass and Lipid Increase
-  rationale: Keep positive coculture productivity and yeast-associated algal support distinct from proposed gas
-    and EPS mechanisms. Stronger/longer cell adhesion and visible EPS are not themselves metabolite transfer. Full
-    text, controls and taxon-resolved measurements remain uninspected. A one-community Edison causal dry run prepares
-    possible separately evidenced biophysical structure; no paid report has been generated or used to add topology.
+  - ecological_interactions#Coculture Algal Cell Increase and Relative Lipid Signal
+  rationale: 'The public HAL main article has now been inspected: Figure 3 resolves algal cell-count attribution
+    and the enriched-medium comparator, whereas Methods 2.3 uses bulk relative Nile Red signal. Preserve
+    the 4.3 versus approximately 4.13 fold discrepancy and 2 versus 2.5 micrograms/mL dye conflict. Separate
+    supplements and raw data remain uninspected. Main-text growth, viability and AFM/FluidFM observations
+    do not isolate gas mediation or EPS uptake. The existing EPS-adhesion structure question remains open
+    under issue #1681; no paid report or new topology is part of this repair. Non-graph metadata is outside
+    this correction.'
   evidence:
-  - reference: PMID:42217804
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Yeast sustained microalgal growth during the transition to phototrophy after glucose depletion (day
-      6) and promoted lipid accumulation through nutrient competition.
-    explanation: Yeast supports microalgal growth and drives lipid accumulation via nutrient competition.
   - reference: PMID:42217804
     supports: PARTIAL
     evidence_source: IN_VITRO
-    snippet: yeast viability remained above 68%, indicating possible metabolic support from microalgae via exopolysaccharides
-      (EPS) - derived molecules
-    explanation: Positive viability observation supports a proposed EPS mechanism, not directly traced carbon transfer
-      or demonstrated necessity.
+    snippet: Yeast sustained microalgal growth during the transition to phototrophy after glucose depletion
+      (day 6) and promoted lipid accumulation through nutrient competition.
+    explanation: Abstract reports algal growth maintenance and attributes lipid accumulation to nutrient
+      competition; the latter is an interpretation, not isolated mediator necessity. Methods 2.3 measures
+      bulk relative fluorescence.
+  - reference: PMID:42217804
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: yeast viability remained above 68%, indicating possible metabolic support from microalgae
+      via exopolysaccharides (EPS) - derived molecules
+    explanation: Positive viability observation supports a proposed EPS mechanism, not directly traced
+      carbon transfer or demonstrated necessity.
   posed_by: codex
 curation_history:
 - timestamp: '2026-10-07T06:44:09Z'
   curator: codex
   action: REVIEW_CAUSAL_GRAPH
-  changes: 'Retain gas-exchange hypothesis with contextual evidence and partial productivity mediation.; Preserve
-    reported yeast-associated growth/lipid physiology without reciprocal-benefit inference.; Preserve yeast viability
-    and physical observations while qualifying EPS transfer.; Preserve fourfold culture-level output without unsupported
-    algal-only attribution. Issue #1677; reports/causal_graph_review/decisions/20261007-four-records-batch82.yaml'
+  changes: 'Retain gas-exchange hypothesis with contextual evidence and partial productivity mediation.;
+    Preserve reported yeast-associated growth/lipid physiology without reciprocal-benefit inference.;
+    Preserve yeast viability and physical observations while qualifying EPS transfer.; Preserve fourfold
+    culture-level output without unsupported algal-only attribution. Issue #1677; reports/causal_graph_review/decisions/20261007-four-records-batch82.yaml'
+  llm_assisted: true
+- timestamp: '2026-10-15T13:39:48Z'
+  curator: claude
+  action: CORRECT_CAUSAL_ASSAY_SCOPE
+  changes: 'Address #2020 using HAL primary full text: distinguish day-12 algal counts and medium controls
+    from normalized day-14 bulk lipid fluorescence; preserve numerical/dye conflicts and qualified mediation.
+    Rename existing endpoint and both targets/anchor; four nodes/two arrows retained. Keep #1681 research
+    and #1683 non-graph scope unresolved.'
   llm_assisted: true
