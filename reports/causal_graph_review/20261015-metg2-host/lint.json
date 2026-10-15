@@ -1,0 +1,15 @@
+{
+  "command": [
+    "just",
+    "--no-dotenv",
+    "lint"
+  ],
+  "started_at": "2026-10-15T04:38:47.191880+00:00",
+  "finished_at": "2026-10-15T04:38:58.468274+00:00",
+  "git_revision": "5ccf8a6f2996cd8daa3a5181abc84707f10b5a9c",
+  "record_sha256_before": "75f43d8ae7e953f895bf8b2e13cd26de63c288cf9200c2476fd60750ba87afcd",
+  "record_sha256_after": "75f43d8ae7e953f895bf8b2e13cd26de63c288cf9200c2476fd60750ba87afcd",
+  "exit_code": 1,
+  "stdout": "I001 [*] Import block is un-sorted or un-formatted\n  --> tests/test_metg2_host_scope.py:3:1\n   |\n 1 |   \"\"\"Keep the sugarcane host separate from microbial transcription (#1847).\"\"\"\n 2 |\n 3 | / from copy import deepcopy\n 4 | | import hashlib\n 5 | | import json\n 6 | | from pathlib import Path\n 7 | | import subprocess\n 8 | | import xml.etree.ElementTree as ET\n 9 | |\n10 | | import pytest\n11 | | import yaml\n12 | |\n13 | | from communitymech.network.auditor import NetworkIntegrityAuditor\n   | |_________________________________________________________________^\n14 |\n15 |   ROOT = Path(__file__).resolve().parents[1]\n   |\nhelp: Organize imports\n\nS314 Using `xml` to parse untrusted data is known to be vulnerable to XML attacks; use `defusedxml` equivalents\n   --> tests/test_metg2_host_scope.py:101:45\n    |\n 99 |     raw = (source / \"ncbi-taxonomy.xml\").read_bytes()\n100 |     assert hashlib.sha256(raw).hexdigest() == manifest[\"ncbi_sha256\"]\n101 |     taxa = {t.findtext(\"TaxId\"): t for t in ET.fromstring(raw).findall(\"Taxon\")}\n    |                                             ^^^^^^^^^^^^^^^^^^\n102 |     assert taxa[\"4546\"].findtext(\"ScientificName\") == \"Saccharum\"\n103 |     assert taxa[\"4546\"].findtext(\"Rank\") == \"genus\"\n    |\n\nFound 2 errors.\n[*] 1 fixable with the `--fix` option.\n",
+  "stderr": "uv run black --check src/ tests/ scripts/\nAll done! \u2728 \ud83c\udf70 \u2728\n394 files would be left unchanged.\nuv run ruff check src/ tests/ scripts/\nerror: recipe `lint` failed on line 526 with exit code 1\n"
+}

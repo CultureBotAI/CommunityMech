@@ -20,14 +20,17 @@ environment_term:
   notes: Greenhouse sugarcane rhizosphere following inoculation with the MetG2 rhizobacteria SynCom.
 taxonomy:
 - taxon_term:
-    preferred_term: sugarcane (Saccharum officinarum)
+    preferred_term: sugarcane (Saccharum; species unresolved)
     term:
-      id: NCBITaxon:4547
-      label: Saccharum officinarum
+      id: NCBITaxon:4546
+      label: Saccharum
     gtdb_grounding_status: NO_GTDB_EQUIVALENT
-    notes: Plant host of the rhizosphere community. The abstract refers only to "sugarcane"; commercial
-      sugarcane is typically Saccharum officinarum or an interspecific hybrid, grounded here at
-      S. officinarum.
+    notes: 'Plant host of the study rhizosphere. The inspected abstract identifies sugarcane, but the
+      experimental species and cultivar remain unverified. Saccharum is an explicit parent-rank anchor,
+      not an exact species determination and not a genus-wide claim about transcription or stress resilience.
+      The former S. officinarum assignment was an unsupported inference from the common name. NCBI Taxonomy
+      confirms NCBITaxon:4546 is genus Saccharum and 4547 is species S. officinarum (2026-10-15; https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4546).
+      Resolve the exact experimental host together with MetG2 member identities under #1847.'
   functional_role:
   - PRIMARY_PRODUCER
   abundance_value: Plant host whose rhizosphere is colonized by the SynCom.
@@ -37,7 +40,8 @@ taxonomy:
     evidence_source: IN_VIVO
     snippet: This study investigated the molecular mechanisms underlying sugarcane responses and the
       dynamics of its rhizosphere microbial community following inoculation with a SynCom called MetG2
-    explanation: Identifies sugarcane as the plant host of the rhizosphere community.
+    explanation: Identifies sugarcane as the study host, not a verified species or cultivar. The Saccharum
+      identifier is a parent-rank anchor only.
 - taxon_term:
     preferred_term: Proteobacteria (rhizosphere community members)
     term:
@@ -101,6 +105,11 @@ ecological_interactions:
       particularly within Proteobacteria, indicating active microbial movement toward root surfaces
     explanation: Supports gene upregulation and the authors colonization interpretation; it does not directly observe
       root movement or establish facilitation.
+  participating_taxa:
+  - preferred_term: Proteobacteria (rhizosphere community members)
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
 - name: Rhizosphere enrichment of plant-associated functional genes
   description: Rhizosphere genes associated with nutrient acquisition, hormone synthesis, siderophore production
     and VOC synthesis were enriched after MetG2 inoculation. The source interprets these changes as potentially
@@ -128,11 +137,12 @@ ecological_interactions:
     explanation: Supports functional gene enrichment and its proposed beneficial interpretation, not demonstrated
       mutualism or metabolite transfer.
 - name: Sugarcane hormone and nutrient-transporter response
-  description: Sugarcane showed increased expression of hormone-related and nutrient-transporter genes after MetG2
-    inoculation, together with stress-response transcription. These are positive molecular responses, not by themselves
-    a quantified stress-tolerance phenotype or reciprocal microbial benefit. The canonical Saccharum officinarum
-    grounding and inoculant membership require separate identity resolution; this observation is stated at the source's
-    sugarcane level.
+  description: Sugarcane showed increased expression of hormone-related and nutrient-transporter genes
+    after MetG2 inoculation, together with stress-response transcription. These are positive molecular
+    responses, not by themselves a quantified stress-tolerance phenotype or reciprocal microbial benefit.
+    The named participant is the study host at a parent-only Saccharum anchor; species and cultivar remain
+    unverified. This is not transcription by the bacterial inoculant or a response demonstrated across
+    the genus.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
@@ -152,6 +162,11 @@ ecological_interactions:
     snippet: Stress resistance genes such as trehalose 6-phosphate phosphatase, phenylalanine ammonia-lyase, expansin,
       and antioxidant-related genes were also induced.
     explanation: Supports host stress-response transcription, not a direct stress-challenge performance measurement.
+  participating_taxa:
+  - preferred_term: sugarcane (Saccharum; species unresolved)
+    term:
+      id: NCBITaxon:4546
+      label: Saccharum
 discussions:
 - discussion_id: metg2-identity-and-omics-mediation
   prompt: Which MetG2 members and host identity underlie the observed native-rhizosphere and sugarcane transcriptional
@@ -162,12 +177,15 @@ discussions:
   - ecological_interactions#Rhizosphere colonization-associated gene expression
   - ecological_interactions#Rhizosphere enrichment of plant-associated functional genes
   - ecological_interactions#Sugarcane hormone and nutrient-transporter response
-  rationale: The indexed publisher Introduction and experimental-design preview name four MetG2 strains, unlike
-    the record's broad responding-phylum wrapper. They differ in the spelling of one strain designation. The reviewed
-    source also does not verify the current species-level sugarcane grounding. Resolve canonical identities and
-    graph attribution together under issue1847; the record remains needs_research. Preserve the proposed functional
-    contribution without treating co-occurring expression, gene enrichment and host response as a demonstrated causal
-    sequence.
+  rationale: The indexed publisher Introduction and experimental-design preview name four MetG2 strains,
+    unlike the record's broad responding-phylum wrapper. The previews disagree between Chiliseed2 and
+    Chileseed2; their equivalence remains unverified. These are membership leads, not newly accepted strain
+    identities. The unsupported species-level sugarcane grounding has been replaced by an explicit Saccharum
+    parent-rank anchor, but the experimental host species/cultivar and inoculant roster still require
+    source verification under issue1847; the record remains needs_research. The host-response participant
+    now names only the plant, and the colonization-expression participant names the documented responding
+    phylum, not the host or the defined inoculant. Preserve the proposed functional contribution without
+    treating co-occurring expression, gene enrichment and host response as a demonstrated causal sequence.
   evidence:
   - reference: doi:10.1016/j.rhisph.2025.101142
     supports: SUPPORT
@@ -192,4 +210,12 @@ curation_history:
     to host responses; remove mutualism and exclusive inoculant attribution.; Preserve hormone, nutrient and stress
     transcription without asserting measured stress tolerance; keep the unresolved host/member identity boundary
     explicit. Issue#1845; reports/causal_graph_review/decisions/20261008-four-records-batch108.yaml
+  llm_assisted: true
+- timestamp: '2026-10-15T04:30:47Z'
+  curator: codex
+  action: CORRECT_CAUSAL_PARTICIPANT_SCOPE
+  changes: 'Partial #1847 repair: replace unsupported S. officinarum identity with an explicit Saccharum
+    parent-only host anchor; narrow existing host-response and bacterial colonization-expression participants.
+    Preserve all three nodes, the qualified arrow and every evidence snippet. Cultivar, inoculant membership
+    and strain spelling remain unresolved; no graph extension.'
   llm_assisted: true

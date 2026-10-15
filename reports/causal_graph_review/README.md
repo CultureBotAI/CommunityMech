@@ -5,6 +5,26 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## MetG2 Host And Participant Scope (2026-10-15)
+
+The unsupported S. officinarum assignment is replaced by an explicitly
+parent-only Saccharum host anchor. The existing host-response node names only
+the study plant, and the colonization-expression node names the documented
+responding phylum. These are not genus-wide functions or a verified MetG2
+inoculant roster. Three nodes, one qualified arrow and all eight evidence
+occurrences are unchanged. The aggregate functional-gene node remains unchanged
+pending source/member reconciliation.
+
+[Hash-linked decisions](decisions/20261015-metg2-host.yaml),
+[source scope](sources/20261015-metg2-host/manifest.json) and
+[validation receipts](20261015-metg2-host/README.md) retain the partial repair
+of #1847. Exact host/cultivar, inoculant membership and the conflicting
+Chiliseed2/Chileseed2 spelling remain unresolved; the record stays
+`needs_research`. Native CLI controls trace six excerpts; its two Discussion
+omissions are checked explicitly without changing the matcher or source cache.
+No new topology, provider submission, independent approval or corpus completion
+is implied. The inventory remains 408 reviewed and 54 needs_research.
+
 ## Reference CLI Reporting Correction (2026-10-15)
 
 The batch130/132 zero-coverage interpretation is withdrawn. The upstream

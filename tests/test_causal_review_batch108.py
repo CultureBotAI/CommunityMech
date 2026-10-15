@@ -1,18 +1,29 @@
 """Keep process outcomes and omics responses distinct from proven mediation."""
 
 import hashlib
+import subprocess
 from pathlib import Path
 
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261008-four-records-batch108.yaml"
+METG2_BASE = "737a95eed17f606b30dd99fbec7dc82c19ad3f40"
+
+
+def record_bytes(row):
+    # MetG2 has a linked successor; retain this batch's original assertions.
+    if row["id"] == "CommunityMech:000302":
+        raw = subprocess.check_output(["git", "show", f"{METG2_BASE}:{row['path']}"], cwd=ROOT)
+        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
+        return raw
+    return (ROOT / row["path"]).read_bytes()
 
 
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load((ROOT / row["path"]).read_text()) for row in rows]
+    return ledger, rows, [yaml.safe_load(record_bytes(row)) for row in rows]
 
 
 def test_tobacco_preserves_measured_outcomes_without_reciprocal_fitness():
@@ -127,7 +138,7 @@ def test_hashes_append_only_histories_and_discussion_schema_are_explicit():
     assert ledger["independent_approval"] is False
     assert [r["status"] for r in rows] == ["reviewed", "reviewed", "needs_research", "reviewed"]
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        assert hashlib.sha256(record_bytes(row)).hexdigest() == row["record_sha256"]
         assert set(row["allowed_changed_fields"]) == {
             "ecological_interactions",
             "discussions",
