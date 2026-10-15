@@ -24,6 +24,7 @@ entirely in telling the four cases apart:
 from __future__ import annotations
 
 import importlib.util
+import io
 import pathlib
 
 import pytest
@@ -41,6 +42,26 @@ def annotator(tmp_path, monkeypatch):
     cache.mkdir()
     monkeypatch.setattr(module, "CACHE", cache)
     return module, cache
+
+
+@pytest.mark.parametrize("count", [0, 1, 23])
+def test_summary_labels_findings_not_excerpts(annotator, monkeypatch, capsys, count):
+    module, _ = annotator
+    raw = f"Validation Summary:\n  Total checks: {count}\n"
+    monkeypatch.setattr(module.sys, "stdin", io.StringIO(raw))
+    assert module.main() == 0
+    output = capsys.readouterr().out
+    assert f"Reported validation issues: {count}" in output
+    assert "not a count of checked excerpts" in output
+    assert "Total checks:" not in output
+
+
+def test_summary_correction_does_not_rewrite_error_evidence(annotator, monkeypatch, capsys):
+    module, _ = annotator
+    raw = "  [ERROR] Text part not found as substring: 'Total checks: 0'\n"
+    monkeypatch.setattr(module.sys, "stdin", io.StringIO(raw))
+    assert module.main() == 0
+    assert capsys.readouterr().out == raw
 
 
 def _write(cache, name: str, body: str, *, full_text: bool) -> None:

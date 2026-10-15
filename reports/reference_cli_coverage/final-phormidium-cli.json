@@ -1,0 +1,141 @@
+{
+  "started_at": "2026-10-15T03:02:26.910942+00:00",
+  "finished_at": "2026-10-15T03:02:33.297640+00:00",
+  "invocation": "typer.testing.CliRunner invokes the actual validate data command",
+  "network_source_lookup_forbidden": true,
+  "dependencies": {
+    "linkml": "1.9.3",
+    "linkml-reference-validator": "0.1.7"
+  },
+  "inputs": {
+    "kb/communities/Phormidium_Alkaline_Consortium.yaml": "0f03389e79ddcf2e97ebb0f32bd51a776b6bcbaea3ddad52c21ada8feca2939b",
+    "references_cache/doi_10.3389_fmicb.2022.780346.md": "a3ba7f3dfd3bd6b6ae6338a05beead53f2cb15c89f70f0a89700cbfa0dc2b929",
+    "src/communitymech/schema/communitymech.yaml": "e5a87e5367609334ec0d6361f6ddafbe6bc4a1f7d93e5264c64688c28325910f",
+    "src/communitymech/schema/mech_shared.yaml": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895",
+    "conf/reference_validator.yaml": "5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652",
+    "reports/reference_cli_coverage/probe.py": "8e3782125ca5f5b022ec94527993bebca3e9a74fe93dc9d52037678dd4c127bd"
+  },
+  "cases": [
+    {
+      "case": "control",
+      "exit_code": 0,
+      "excerpt_fields": [
+        "taxonomy[0].evidence[0].snippet",
+        "taxonomy[0].evidence[1].snippet",
+        "taxonomy[1].evidence[0].snippet",
+        "taxonomy[2].evidence[0].snippet",
+        "taxonomy[3].evidence[0].snippet",
+        "taxonomy[4].evidence[0].snippet",
+        "taxonomy[5].evidence[0].snippet",
+        "ecological_interactions[0].evidence[0].snippet",
+        "ecological_interactions[1].evidence[0].snippet",
+        "ecological_interactions[2].evidence[0].snippet",
+        "ecological_interactions[3].evidence[0].snippet",
+        "environmental_factors[0].evidence[0].snippet",
+        "environmental_factors[1].evidence[0].snippet",
+        "environmental_factors[2].evidence[0].snippet",
+        "environmental_factors[3].evidence[0].snippet",
+        "environmental_factors[4].evidence[0].snippet",
+        "environmental_factors[5].evidence[0].snippet",
+        "related_ingredients[0].evidence[0].snippet",
+        "growth_media[0].evidence[0].snippet",
+        "growth_media[0].evidence[1].snippet",
+        "cultivation_setup[0].evidence[0].snippet"
+      ],
+      "excerpt_count": 21,
+      "stdout": "Validating <temporary-directory>/record.yaml against schema /private/tmp/communitymech-causal-20261014/src/communitymech/schema/communitymech.yaml\nCache directory: <temporary-directory>/cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "case": "evidence_mutation",
+      "exit_code": 1,
+      "excerpt_fields": [
+        "taxonomy[0].evidence[0].snippet",
+        "taxonomy[0].evidence[1].snippet",
+        "taxonomy[1].evidence[0].snippet",
+        "taxonomy[2].evidence[0].snippet",
+        "taxonomy[3].evidence[0].snippet",
+        "taxonomy[4].evidence[0].snippet",
+        "taxonomy[5].evidence[0].snippet",
+        "ecological_interactions[0].evidence[0].snippet",
+        "ecological_interactions[1].evidence[0].snippet",
+        "ecological_interactions[2].evidence[0].snippet",
+        "ecological_interactions[3].evidence[0].snippet",
+        "environmental_factors[0].evidence[0].snippet",
+        "environmental_factors[1].evidence[0].snippet",
+        "environmental_factors[2].evidence[0].snippet",
+        "environmental_factors[3].evidence[0].snippet",
+        "environmental_factors[4].evidence[0].snippet",
+        "environmental_factors[5].evidence[0].snippet",
+        "related_ingredients[0].evidence[0].snippet",
+        "growth_media[0].evidence[0].snippet",
+        "growth_media[0].evidence[1].snippet",
+        "cultivation_setup[0].evidence[0].snippet"
+      ],
+      "excerpt_count": 21,
+      "stdout": "Validating <temporary-directory>/record.yaml against schema /private/tmp/communitymech-causal-20261014/src/communitymech/schema/communitymech.yaml\nCache directory: <temporary-directory>/cache\n\nValidation Issues (1):\n  [ERROR] Text part not found as substring: 'ZZQQ_UNSUPPORTED_REFERENCE_CLI_COVERAGE_CANARY_XYZ' (note: only abstract available for doi:10.3389/fmicb.2022.780346, full text may contain this excerpt)\n    Location: ecological_interactions[0].evidence[0].snippet\n    Reference: doi:10.3389/fmicb.2022.780346\n\nValidation Summary:\n  Total checks: 1\n  Issues found: 1\n"
+    },
+    {
+      "case": "restoration",
+      "exit_code": 0,
+      "excerpt_fields": [
+        "taxonomy[0].evidence[0].snippet",
+        "taxonomy[0].evidence[1].snippet",
+        "taxonomy[1].evidence[0].snippet",
+        "taxonomy[2].evidence[0].snippet",
+        "taxonomy[3].evidence[0].snippet",
+        "taxonomy[4].evidence[0].snippet",
+        "taxonomy[5].evidence[0].snippet",
+        "ecological_interactions[0].evidence[0].snippet",
+        "ecological_interactions[1].evidence[0].snippet",
+        "ecological_interactions[2].evidence[0].snippet",
+        "ecological_interactions[3].evidence[0].snippet",
+        "environmental_factors[0].evidence[0].snippet",
+        "environmental_factors[1].evidence[0].snippet",
+        "environmental_factors[2].evidence[0].snippet",
+        "environmental_factors[3].evidence[0].snippet",
+        "environmental_factors[4].evidence[0].snippet",
+        "environmental_factors[5].evidence[0].snippet",
+        "related_ingredients[0].evidence[0].snippet",
+        "growth_media[0].evidence[0].snippet",
+        "growth_media[0].evidence[1].snippet",
+        "cultivation_setup[0].evidence[0].snippet"
+      ],
+      "excerpt_count": 21,
+      "stdout": "Validating <temporary-directory>/record.yaml against schema /private/tmp/communitymech-causal-20261014/src/communitymech/schema/communitymech.yaml\nCache directory: <temporary-directory>/cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    },
+    {
+      "case": "discussion_mutation",
+      "exit_code": 0,
+      "excerpt_fields": [
+        "taxonomy[0].evidence[0].snippet",
+        "taxonomy[0].evidence[1].snippet",
+        "taxonomy[1].evidence[0].snippet",
+        "taxonomy[2].evidence[0].snippet",
+        "taxonomy[3].evidence[0].snippet",
+        "taxonomy[4].evidence[0].snippet",
+        "taxonomy[5].evidence[0].snippet",
+        "ecological_interactions[0].evidence[0].snippet",
+        "ecological_interactions[1].evidence[0].snippet",
+        "ecological_interactions[2].evidence[0].snippet",
+        "ecological_interactions[3].evidence[0].snippet",
+        "environmental_factors[0].evidence[0].snippet",
+        "environmental_factors[1].evidence[0].snippet",
+        "environmental_factors[2].evidence[0].snippet",
+        "environmental_factors[3].evidence[0].snippet",
+        "environmental_factors[4].evidence[0].snippet",
+        "environmental_factors[5].evidence[0].snippet",
+        "related_ingredients[0].evidence[0].snippet",
+        "growth_media[0].evidence[0].snippet",
+        "growth_media[0].evidence[1].snippet",
+        "cultivation_setup[0].evidence[0].snippet"
+      ],
+      "excerpt_count": 21,
+      "stdout": "Validating <temporary-directory>/record.yaml against schema /private/tmp/communitymech-causal-20261014/src/communitymech/schema/communitymech.yaml\nCache directory: <temporary-directory>/cache\n\nValidation Summary:\n  Total checks: 0\n  All validations passed!\n"
+    }
+  ],
+  "omitted_discussion_fields": [
+    "discussions[0].evidence[0].snippet",
+    "discussions[0].evidence[1].snippet"
+  ],
+  "limit": "Lexical CLI coverage only, not scientific support. Discussion gap #476 remains."
+}
