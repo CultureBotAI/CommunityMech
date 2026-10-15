@@ -30,9 +30,12 @@ The [post-fix tests](after-regression.json) pass all 48 selected cases;
 Run `probe.py --record <stem> --output <new-path>` with the repository Python
 environment to reproduce the controls; it refuses to overwrite receipts.
 
-The [before review](../../reviews/structured/20261015T030500Z-reference-cli-coverage-before/review.yaml)
-records the recurrence. A successor observation corrects the interpretation
-without editing either historical bundle or their original command receipts.
+The before review ([YAML](../../reviews/structured/20261015T030500Z-reference-cli-coverage-before/review.yaml),
+[Markdown](../../reviews/structured/20261015T030500Z-reference-cli-coverage-before/review.md))
+records the recurrence. Its successor ([YAML](../../reviews/structured/20261015T031006Z-reference-cli-coverage-after/review.yaml),
+[Markdown](../../reviews/structured/20261015T031006Z-reference-cli-coverage-after/review.md))
+resolves the scoped finding and corrects the interpretation without editing
+either historical bundle or their original command receipts.
 The current index is maintained and now carries the correction prominently.
 The explained command labels the counter `Reported validation issues` and
 states its coverage limit; the raw command and its exit status are unchanged.
