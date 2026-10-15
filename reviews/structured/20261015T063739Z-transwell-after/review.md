@@ -1,0 +1,883 @@
+# Transwell assay participants: after correction
+
+- Review: 20261015T063739Z-transwell-after
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-15T06:17:58Z
+- Finished UTC: 2026-10-15T06:37:39.175225Z
+- Reviewer: codex (self_review)
+- Completion: partial
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Scoped participant correction; graph expansion and source discrepancy remain under #1467.
+
+## Scope And Provenance
+
+Full target read; taxonomy and both existing node scopes assessed. No new causal structure.
+
+Selection: One outstanding record selected from the 462-record causal graph corpus.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base ab76e9970f96b4375c0bc02f6db7097416aacd0a.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000091 | kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml | maintained | GLBRC Transwell demonstrations |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| Assay and identity source reconciliation | passed | True | CommunityMech:000091 | Read complete record, source scientific body/table, reclassification body and NCBI XML; distinguish source names, current labels and unresolved stock discrepancy. |
+| regression | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| validate | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| strict | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| terms | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| gtdb | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| gtdb-domain | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| references | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| snippets | passed | True | CommunityMech:000091 | Corpus diagnostic completed with 119 MISMATCH and 59 NOCONTENT findings; not a clean corpus evidence pass. |
+| history | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| rank | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| inventory | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| docs-current | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| lint | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| diff | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| preservation | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| explicit-excerpts | passed | True | CommunityMech:000091 | Exact command output retained; lexical/reference validation does not establish scientific support. |
+| Corpus zero-warning network audit | failed | False | CommunityMech:000091 | Existing warning backlog remains; preservation receipt compares exact before/after findings and checks structural errors. |
+
+## Scientific And Domain Assessments
+
+### Assay-specific strain identity
+
+grounding: supported. Targets: CommunityMech:000091.
+
+Species anchors plus unique strain labels preserve distinct Cv017, Cv026 and the table-defined wild type. E264/DC3000 use verified strain anchors; existing node participants are assay-specific.
+
+### Source discrepancy and graph expansion
+
+completeness: concern. Targets: CommunityMech:000091.
+
+SC discrepancy, independent stock verification, proposed antagonism structure and cultivation repair remain open; preserve needs_research.
+
+## Findings
+
+### participants: Generic roster hides two disjoint assay memberships
+
+major / resolved / confirmed; issue key: communitymech-1467-assay-participants.
+
+The Bacteria umbrella is not an assay roster or a supported cross-feeder assignment. Resolve current anchors and explicit strain-specific participants without merging the reporter assay and time series.
+
+Disposition: Guarded roster correction, exact directional reporter endpoints and named three-member subset; canonical labels verified and mutation/restoration regressions passed. Resolution is limited to qualified representation, not the stock discrepancy.
+
+### remaining: Source stock discrepancy and graph extension remain open
+
+major / open / confirmed; issue key: communitymech-1467-source-discrepancy-and-extension.
+
+SC11,368 in Results conflicts with Table 1 SC11,378/ATCC31532. The table supports a qualified roster, not independent resolution of the actual stock. A new antagonism node requires the skill's separate provider-assisted extension workflow; no bactobolin causal arrow follows from accumulation. Cultivation metadata still confounds test tubes and plate assays and is not certified here.
+
+## Recommended Actions And Acceptance Checks
+
+### finish-source-context
+
+Reconcile source stock discrepancy and separately review cultivation metadata; complete authorized provider-assisted research before new graph structure.
+
+- Exact experimental stock and separate assay conditions verified.
+- New node/edge direction has inspected primary support and the required Edison report, without presumed bactobolin mediation.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| primary | PMID:29152587; reports/causal_graph_review/sources/20261015-transwell/transwell.xml: Results, Table 1, Discussion, Methods | supports | Main scientific sections, embedded captions and Table 1 read. Two separate demonstrations: Cv017/Cv026 reporter pair; E264/DC3000/SC11,378 table-defined community. Prose says SC11,368; no erratum or original stock verification resolves that disagreement. |
+| classification | PMID:33159606; reports/causal_graph_review/sources/20261015-transwell/reclassification.xml: full scientific body and Tables 1-2 | supports | Genomic and phenotypic reclassification supports C. subtsugae for ATCC 31532 and CV026; Introduction identifies CV017 as its derivative with that species assignment. This is taxonomic evidence, not new Transwell interaction evidence. |
+| taxonomy | reports/causal_graph_review/sources/20261015-transwell/taxonomy.xml; Taxa 251747, 271848, 223283: exact names and ranks | supports | Current NCBI species anchor for C. subtsugae and strain anchors for E264/DC3000. Shared species CURIE does not collapse the three Chromobacterium strains. |
+| record | kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml; taxonomy, ecological_interactions[0,1], discussions[0] | supports | Five explicitly assay-specific entries; reporter source/target and three-member participant subset are distinct. Table-based identity is qualified by the unresolved SC discrepancy. |
+| regression | reports/causal_graph_review/20261015-transwell/regression-final.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for regression |
+| validate | reports/causal_graph_review/20261015-transwell/validate.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for validate |
+| strict | reports/causal_graph_review/20261015-transwell/strict.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for strict |
+| terms | reports/causal_graph_review/20261015-transwell/terms.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for terms |
+| gtdb | reports/causal_graph_review/20261015-transwell/gtdb.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for gtdb |
+| gtdb-domain | reports/causal_graph_review/20261015-transwell/gtdb-domain.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for gtdb-domain |
+| references | reports/causal_graph_review/20261015-transwell/references-final.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for references |
+| snippets | reports/causal_graph_review/20261015-transwell/snippets.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for snippets |
+| history | reports/causal_graph_review/20261015-transwell/history-final.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for history |
+| rank | reports/causal_graph_review/20261015-transwell/rank.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for rank |
+| inventory | reports/causal_graph_review/20261015-transwell/inventory.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for inventory |
+| docs-current | reports/causal_graph_review/20261015-transwell/docs-current-final.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for docs-current |
+| lint | reports/causal_graph_review/20261015-transwell/lint-final.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for lint |
+| diff | reports/causal_graph_review/20261015-transwell/diff-final.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for diff |
+| preservation | reports/causal_graph_review/20261015-transwell/preservation.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for preservation |
+| explicit-excerpts | reports/causal_graph_review/20261015-transwell/explicit-excerpts-final.json; command, timestamps, hashes, exit code, stdout/stderr | supports | Retained execution receipt for explicit-excerpts |
+
+## Limits And Additional Notes
+
+- Partial scientific self-review, not independent approval or whole-record/corpus completion.
+- No whole-record completeness/quality score assigned to this focused causal-graph repair.
+- Main scientific bodies and embedded tables/captions read; no independent image, supplement, raw spectra or original stock audit.
+- No new interaction node or downstream arrow; no provider submission or credit spend in this correction.
+- Protected PR/queue checks are pending at this immutable local snapshot.
+- Byte-preserved publisher XML and extracted article-cache lines contain trailing whitespace. A base-to-topic whitespace check reports those source-data lines; the recorded post-commit git diff check concerns unstaged edits, not normalization of archived source bytes.
+- Ignored/hidden-inclusive local searches covered kb/taxa, both canonical record roots and references_cache; no reusable matching Chromobacterium record or prior reclassification cache was found in that bounded scope.
+- Initial regression reproduced missing strain identity. The first wider run identified the expected mixed-scope census increment, now documented and verified without changing its share guard. The first excerpt probe imported the root CLI rather than its validate sub-app; corrected control/mutation/restoration traces all 16 fields with no network lookups. The initial pre-commit docs-current gate detects the intentionally uncommitted generated page; final committed check is retained. Generator-default history actor was corrected in an append-only successor, not rewritten. Initial review validation required the omitted proposed repair action; no invalid bundle was published.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261015T063739Z-transwell-after
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Transwell assay participants: after correction'
+started_at: '2026-10-15T06:17:58Z'
+finished_at: '2026-10-15T06:37:39.175225Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Implementing-agent adversarial source review, not independent
+    approval.
+skill: communitymech-causal-graphs
+completion: partial
+verdict: needs_curation
+scientific_review: true
+source:
+  git_revision: ab76e9970f96b4375c0bc02f6db7097416aacd0a
+  state: working_tree
+  inputs:
+  - path: docs/communities/GLBRC_Exometabolite_Transwell_SynCom.html
+    sha256: 981881bbb27023c3da08de8cc1a527f386dc5a2de09c609206a08e8539445cbb
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/records/GLBRC_Exometabolite_Transwell_SynCom/2026-10-02T055218Z-codex-fab091.yaml
+    sha256: dc08c09a81fab5b8d91f25cda927626814845793ca334f591b215550b0b14079
+    role: context
+  - path: history/records/GLBRC_Exometabolite_Transwell_SynCom/2026-10-06T110349Z-codex-80fddf.yaml
+    sha256: 19b96abbf77073bc96bf9f6dcdb1eded2c8cc981a9aef4d84fbc775a6a0fcd7e
+    role: context
+  - path: history/records/GLBRC_Exometabolite_Transwell_SynCom/2026-10-15T062520Z-claude-code-25fda9.yaml
+    sha256: f06e1c40745943c812cadea25d8bbe0216d325b81ea53d25a7075820bc578433
+    role: context
+  - path: history/records/GLBRC_Exometabolite_Transwell_SynCom/2026-10-15T062752Z-codex-19565d.yaml
+    sha256: 4b7e1e62cc9beb791f3207874e28aba227388a2e2e45b161ab6577493cc85091
+    role: context
+  - path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    sha256: fb696f2703ca1d568e76d6f651867f80b9b198b7704c26b0610eeda4cb5830e6
+    role: target
+  - path: references_cache/PMID_29152587.txt
+    sha256: 2e773cfbd68cb0dde8b53d5f97ed3576433fc0bea771e916ab08836828c75f73
+    role: context
+  - path: references_cache/PMID_33159606.txt
+    sha256: fb50e1811b956b9a6c0e77b6f0f5b4a985baf1501772935f7abe91b2276db9cc
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/baseline-inventory.json
+    sha256: e9c4e7d6cc4f2d5e130eca8bbcb9903297409212be7b0c541990b64bd38caff8
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/baseline-network.json
+    sha256: 8abaaf1a33f08448778339e0f6bd0fe8c0434733c3dd1d18c506f0dca9b9edba
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/baseline-rank.json
+    sha256: bc4476dbb82e594d19b38a97859cf816eb0a20757846b7de9b8d12d509150915
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/before-regression.json
+    sha256: 9b045cf231f3c038cb7d23a091a4c7ea16d1cbdfe312d7a713bbfc6dc9423b0b
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/check_excerpts.py
+    sha256: da35044bc05968d2a15c93bf3023b6aa41e884c2512fceaf943303b893c2e30a
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/diff-final.json
+    sha256: 72207e1375b033c4fb37e0f3a45937f025e7bd7d6ef817e2e34b1488f19da6e7
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/diff.json
+    sha256: 126a4eddeb3cd66301da26e980f8f0a85eda1efff2b542ba8194684004e9e10e
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/docs-current-final.json
+    sha256: 4fdbe021e546057ea4c7774faa8005b0ef43344c1cdfe71b7fbb4eba2cd579da
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/docs-current.json
+    sha256: ce11513a8cf577f7ac95c9385b02986dc1613a4b5c61867ab1e2a0733190f110
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/explicit-excerpts-final.json
+    sha256: 64f0faf2c6fffb4b82d90fb9f04f07f8975ced478351f5fb129b7205f6b9755f
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/explicit-excerpts.json
+    sha256: 04aad454fa4697e7eb90cdc9675a5f7549ae4e4dafe0298e06f39db19d682a79
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/first-regression.json
+    sha256: 2b99240abf0c5fb16bae1fad03170dd48e99601b64080052fc43f21b6fc292bc
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/gen-html.json
+    sha256: 5d2a6aeffff19785eb9dec9c51785417b4e9c153a3f336588de9e3b4a20644f9
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/gtdb-domain.json
+    sha256: db8b9d0297c61ec2dc5daabe866fbead4811d752861856325df002b69b4a6741
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/gtdb.json
+    sha256: 251ed92b4305c8deb82a4fed7ee75558fd1fc131fb82db9e6a904d387fbb1c51
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/history-attribution.json
+    sha256: 89604dfef69cb9d5401cff5f746d94c1e6d99c0669d8af79d47524fbdff5bee6
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/history-create.json
+    sha256: 4d008694f281529dc7602276a923ef50cf0fcc1333b79678cffac52cad663f7f
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/history-final.json
+    sha256: 902c5730484a5419b2f73b59461606769898180ddfb505e456800b8f170aa74e
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/history.json
+    sha256: 64daf9a70fddecd26e6ecfc429ed2fbb1f29cd984a2de15814eefe305f359050
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/inventory.json
+    sha256: 14c18a472c8bb65b685629b8a029cb18dc3043fb390053d6110d41e71ae62e42
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/lint-final.json
+    sha256: 513c31a153153336935271b82b6a807acc1eae78e5a468608a8222f98ee28b8d
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/lint.json
+    sha256: 443d695f7a0d86f3d671ba2920d483430ce12c767256fe10757cdf9297536fe1
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/network.json
+    sha256: 58fa6fab10c0ed8fef325966b2be3ff0b3d494cfd7fc3478a5faff95906c7ab6
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/preservation.json
+    sha256: a3cec93be2267e3fb55b22a703321e22a8cc132bbc129a86c0625bdd1f35a1f2
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/rank.json
+    sha256: b4de7a4a2771fbbb974755afba966e64949bee800f586a865ee5c76a34e57c6c
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/references-final.json
+    sha256: fca7b18d81b94ae494619399e6e376eca6f7e036fc4cf00f5b9e5a472a4cfa81
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/references.json
+    sha256: 0b34ea9a5a019267fb0c06627f7f5af87c943a776c0f6c8f796058c98bb4ddec
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/regression-final.json
+    sha256: 88b5d3c9f4aa9cbde4f79add1f784dd452b10ef642f7bc4ccca31ae737b3abed
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/regression.json
+    sha256: 683af1aeea3fbeee471298aa536b1a6b99a1d19f542c9cf3c2d3d87ec033b41f
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/report-lint.json
+    sha256: 4bc99cc9ff9f5d7ce315b921681875ba8357f8658d1417c14427b4e8f738f4fd
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/review-contract-before.json
+    sha256: 13a698236dada0e3538fc8035456a451cdb0173d3c1131908d287f88e8da489e
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/snippets.json
+    sha256: 849cef3ed4e45c4d37afb770f59abc2f6c911d39054cdd8b1d3a5598615f7c9c
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/strict.json
+    sha256: eed460ccf007578fae7e67538067589101553dd02acddf72f86719c60a77c09f
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/terms.json
+    sha256: 40ca2fede9ae59f95ebdb31bd82cbcdea461a1542f1e128a4677fa2b3418bd7c
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/validate.json
+    sha256: a9d79ae765f813aa24250e429e130f5b468e2f9116a913f3ec176f2a5c9e87b0
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell/verify.py
+    sha256: b7314db90c10aaa5c21babf30a3620f64ba9e97fc87a72ff17ac3d6d3ae33794
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-three-records-batch42.yaml
+    sha256: c0b2c349054635e9d6993082265669faede9e45656a6ae48549c87df053df645
+    role: context
+  - path: reports/causal_graph_review/decisions/20261015-transwell.yaml
+    sha256: ba5cf71650f9f49348185ef7a0f2661673078b14f46b481f32746d1b49bdf5a4
+    role: context
+  - path: reports/causal_graph_review/inventory.tsv
+    sha256: be752ec744d7093ceffafe6cca7e197f77e7de9eb6064cb0fbd3143a6306457d
+    role: context
+  - path: reports/causal_graph_review/sources/20261015-transwell/manifest.json
+    sha256: cff61b0302655881f9bb5bc76e77a6f14a02663db8d087d515172ea1fd43aa7b
+    role: context
+  - path: reports/causal_graph_review/sources/20261015-transwell/reclassification.xml
+    sha256: 3d228474c16ad1bda56060122abb5d8f2ccc1b975dd31ff755b06c6594dc9841
+    role: context
+  - path: reports/causal_graph_review/sources/20261015-transwell/taxonomy.xml
+    sha256: 560dcbce4af198f5e8e779c0827c1747c354d42790dfec670823126d5963732e
+    role: context
+  - path: reports/causal_graph_review/sources/20261015-transwell/transwell.xml
+    sha256: 45093e19ddf5c80b94ad776a1569d78272c0931912d6314babe960061c8a2920
+    role: context
+  - path: reports/causal_graph_review/summary.json
+    sha256: d4e452ae6d6b3a8c12a77274e08723406b5c97fb702a4df58d15c1e547e92819
+    role: context
+  - path: reviews/structured/20261015T062338Z-transwell-before/review.md
+    sha256: c6ccdaac4059101d93b20f9c74c695e94e80577d39cf9588ccfc2f26d7ed585a
+    role: context
+  - path: reviews/structured/20261015T062338Z-transwell-before/review.yaml
+    sha256: 89c15416c84ca9544fddeecbb7af21261c423e1ff98dc7e495bd37de9884c3b7
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: e5a87e5367609334ec0d6361f6ddafbe6bc4a1f7d93e5264c64688c28325910f
+    role: context
+  - path: tests/test_causal_review_batch42.py
+    sha256: 16fcc91b4b5c54ba511cfb16acdb050687fb2e1cf79ef0981dd440cc44d959c6
+    role: context
+  - path: tests/test_community_level_connectivity_credit.py
+    sha256: 69af5ff490cde0307d60a1d59389647a158f9d7f16c9f11796c7bf48480747ce
+    role: context
+  - path: tests/test_participating_taxa.py
+    sha256: 15be3dd03a9bf754248cf4d9c622f40a6b988e921553ec52cd77aa6ce900057e
+    role: context
+  - path: tests/test_transwell_participants.py
+    sha256: 544ac202baa34e9c63fa6680d70be67b2033d468230bf1f4f79b5f1d587b8dba
+    role: context
+targets:
+- target_id: CommunityMech:000091
+  path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  label: GLBRC Transwell demonstrations
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    role: canonical assay participants and graph
+summary: 'Scoped participant correction; graph expansion and source discrepancy remain
+  under #1467.'
+scope:
+  description: Full target read; taxonomy and both existing node scopes assessed.
+    No new causal structure.
+  selection: One outstanding record selected from the 462-record causal graph corpus.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000091
+  exclusions:
+  - target: Other 461 records; cultivation repair, figure images, separate supplements
+      and raw data
+    reason: Not assessed or certified by this scoped participant repair.
+checks:
+- check_id: source-review
+  name: Assay and identity source reconciliation
+  status: passed
+  required: true
+  summary: Read complete record, source scientific body/table, reclassification body
+    and NCBI XML; distinguish source names, current labels and unresolved stock discrepancy.
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - primary
+  - classification
+  - taxonomy
+  - record
+- check_id: regression
+  name: regression
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: .venv/bin/pytest tests/test_transwell_participants.py tests/test_causal_review_batch42.py
+    tests/test_causal_review_inventory.py tests/test_participating_taxa.py tests/test_community_level_connectivity_credit.py
+    -q
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - regression
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: just --no-dotenv validate kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - validate
+- check_id: strict
+  name: strict
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: just --no-dotenv validate-strict kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - strict
+- check_id: terms
+  name: terms
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: just --no-dotenv validate-terms kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - terms
+- check_id: gtdb
+  name: gtdb
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: just --no-dotenv validate-gtdb kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - gtdb
+- check_id: gtdb-domain
+  name: gtdb-domain
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: just --no-dotenv validate-gtdb-domain kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - gtdb-domain
+- check_id: references
+  name: references
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: just --no-dotenv validate-references-explained kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - references
+- check_id: snippets
+  name: snippets
+  status: passed
+  required: true
+  summary: Corpus diagnostic completed with 119 MISMATCH and 59 NOCONTENT findings;
+    not a clean corpus evidence pass.
+  command: just --no-dotenv audit-snippets
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - snippets
+- check_id: history
+  name: history
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: just --no-dotenv validate-history history/records/GLBRC_Exometabolite_Transwell_SynCom
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - history
+- check_id: rank
+  name: rank
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: just --no-dotenv rank-causal-graphs kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - rank
+- check_id: inventory
+  name: inventory
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: .venv/bin/python reports/causal_graph_review/build_inventory.py
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - inventory
+- check_id: docs-current
+  name: docs-current
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: just --no-dotenv check-docs-current
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - docs-current
+- check_id: lint
+  name: lint
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: just --no-dotenv lint
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - lint
+- check_id: diff
+  name: diff
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: git diff --check
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - diff
+- check_id: preservation
+  name: preservation
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: .venv/bin/python reports/causal_graph_review/20261015-transwell/verify.py
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - preservation
+- check_id: explicit-excerpts
+  name: explicit-excerpts
+  status: passed
+  required: true
+  summary: Exact command output retained; lexical/reference validation does not establish
+    scientific support.
+  command: .venv/bin/python reports/causal_graph_review/20261015-transwell/check_excerpts.py
+  exit_code: 0
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - explicit-excerpts
+- check_id: network
+  name: Corpus zero-warning network audit
+  status: failed
+  required: false
+  summary: Existing warning backlog remains; preservation receipt compares exact before/after
+    findings and checks structural errors.
+  command: just --no-dotenv audit-network-json
+  exit_code: 1
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - preservation
+evidence:
+- evidence_id: primary
+  kind: primary_source
+  reference: PMID:29152587
+  locator: 'reports/causal_graph_review/sources/20261015-transwell/transwell.xml:
+    Results, Table 1, Discussion, Methods'
+  accessed_at: '2026-10-15T06:17:58Z'
+  support: supports
+  summary: 'Main scientific sections, embedded captions and Table 1 read. Two separate
+    demonstrations: Cv017/Cv026 reporter pair; E264/DC3000/SC11,378 table-defined
+    community. Prose says SC11,368; no erratum or original stock verification resolves
+    that disagreement.'
+- evidence_id: classification
+  kind: primary_source
+  reference: PMID:33159606
+  locator: 'reports/causal_graph_review/sources/20261015-transwell/reclassification.xml:
+    full scientific body and Tables 1-2'
+  accessed_at: '2026-10-15T06:17:59Z'
+  support: supports
+  summary: Genomic and phenotypic reclassification supports C. subtsugae for ATCC
+    31532 and CV026; Introduction identifies CV017 as its derivative with that species
+    assignment. This is taxonomic evidence, not new Transwell interaction evidence.
+- evidence_id: taxonomy
+  kind: database
+  reference: reports/causal_graph_review/sources/20261015-transwell/taxonomy.xml
+  locator: 'Taxa 251747, 271848, 223283: exact names and ranks'
+  accessed_at: '2026-10-15T06:17:59Z'
+  support: supports
+  summary: Current NCBI species anchor for C. subtsugae and strain anchors for E264/DC3000.
+    Shared species CURIE does not collapse the three Chromobacterium strains.
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  locator: taxonomy, ecological_interactions[0,1], discussions[0]
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Five explicitly assay-specific entries; reporter source/target and three-member
+    participant subset are distinct. Table-based identity is qualified by the unresolved
+    SC discrepancy.
+- evidence_id: regression
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/regression-final.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for regression
+- evidence_id: validate
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/validate.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for validate
+- evidence_id: strict
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/strict.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for strict
+- evidence_id: terms
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/terms.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for terms
+- evidence_id: gtdb
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/gtdb.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for gtdb
+- evidence_id: gtdb-domain
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/gtdb-domain.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for gtdb-domain
+- evidence_id: references
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/references-final.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for references
+- evidence_id: snippets
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/snippets.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for snippets
+- evidence_id: history
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/history-final.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for history
+- evidence_id: rank
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/rank.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for rank
+- evidence_id: inventory
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/inventory.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for inventory
+- evidence_id: docs-current
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/docs-current-final.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for docs-current
+- evidence_id: lint
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/lint-final.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for lint
+- evidence_id: diff
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/diff-final.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for diff
+- evidence_id: preservation
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/preservation.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for preservation
+- evidence_id: explicit-excerpts
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell/explicit-excerpts-final.json
+  locator: command, timestamps, hashes, exit code, stdout/stderr
+  accessed_at: '2026-10-15T06:37:39.175225Z'
+  support: supports
+  summary: Retained execution receipt for explicit-excerpts
+assessments:
+- assessment_id: participants
+  area: grounding
+  topic: Assay-specific strain identity
+  outcome: supported
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - primary
+  - classification
+  - taxonomy
+  - record
+  summary: Species anchors plus unique strain labels preserve distinct Cv017, Cv026
+    and the table-defined wild type. E264/DC3000 use verified strain anchors; existing
+    node participants are assay-specific.
+- assessment_id: limits
+  area: completeness
+  topic: Source discrepancy and graph expansion
+  outcome: concern
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - primary
+  - record
+  summary: SC discrepancy, independent stock verification, proposed antagonism structure
+    and cultivation repair remain open; preserve needs_research.
+findings:
+- target_ids:
+  - CommunityMech:000091
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    role: canonical assay participants and graph
+  certainty: confirmed
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1467
+  finding_id: participants
+  issue_key: communitymech-1467-assay-participants
+  category: grounding
+  severity: major
+  status: resolved
+  title: Generic roster hides two disjoint assay memberships
+  description: The Bacteria umbrella is not an assay roster or a supported cross-feeder
+    assignment. Resolve current anchors and explicit strain-specific participants
+    without merging the reporter assay and time series.
+  field_paths:
+  - taxonomy
+  - ecological_interactions[0]
+  - ecological_interactions[1].participating_taxa
+  evidence_ids:
+  - primary
+  - classification
+  - taxonomy
+  - record
+  rule_id: causal-participant-scope
+  native_severity: P2
+  normalization_reason: Missing and conflated participants change graph meaning.
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T062338Z-transwell-before
+    finding_id: participants
+  disposition_reason: Guarded roster correction, exact directional reporter endpoints
+    and named three-member subset; canonical labels verified and mutation/restoration
+    regressions passed. Resolution is limited to qualified representation, not the
+    stock discrepancy.
+- target_ids:
+  - CommunityMech:000091
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    role: canonical assay participants and graph
+  certainty: confirmed
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1467
+  finding_id: remaining
+  issue_key: communitymech-1467-source-discrepancy-and-extension
+  category: completeness
+  severity: major
+  status: open
+  title: Source stock discrepancy and graph extension remain open
+  description: SC11,368 in Results conflicts with Table 1 SC11,378/ATCC31532. The
+    table supports a qualified roster, not independent resolution of the actual stock.
+    A new antagonism node requires the skill's separate provider-assisted extension
+    workflow; no bactobolin causal arrow follows from accumulation. Cultivation metadata
+    still confounds test tubes and plate assays and is not certified here.
+  field_paths:
+  - discussions[0]
+  - growth_media
+  - ecological_interactions
+  evidence_ids:
+  - primary
+  - record
+  rule_id: causal-source-context
+  native_severity: P2
+  normalization_reason: Unresolved experimental identity and context prevent complete
+    graph/record certification.
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T062338Z-transwell-before
+    finding_id: remaining
+actions:
+- action_id: finish-source-context
+  description: Reconcile source stock discrepancy and separately review cultivation
+    metadata; complete authorized provider-assisted research before new graph structure.
+  finding_ids:
+  - remaining
+  target_ids:
+  - CommunityMech:000091
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    role: canonical assay participants and graph
+  acceptance_checks:
+  - Exact experimental stock and separate assay conditions verified.
+  - New node/edge direction has inspected primary support and the required Edison
+    report, without presumed bactobolin mediation.
+limitations:
+- Partial scientific self-review, not independent approval or whole-record/corpus
+  completion.
+- No whole-record completeness/quality score assigned to this focused causal-graph
+  repair.
+- Main scientific bodies and embedded tables/captions read; no independent image,
+  supplement, raw spectra or original stock audit.
+- No new interaction node or downstream arrow; no provider submission or credit spend
+  in this correction.
+- Protected PR/queue checks are pending at this immutable local snapshot.
+- Byte-preserved publisher XML and extracted article-cache lines contain trailing
+  whitespace. A base-to-topic whitespace check reports those source-data lines; the
+  recorded post-commit git diff check concerns unstaged edits, not normalization of
+  archived source bytes.
+- Ignored/hidden-inclusive local searches covered kb/taxa, both canonical record roots
+  and references_cache; no reusable matching Chromobacterium record or prior reclassification
+  cache was found in that bounded scope.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/1467
+notes:
+- Initial regression reproduced missing strain identity. The first wider run identified
+  the expected mixed-scope census increment, now documented and verified without changing
+  its share guard. The first excerpt probe imported the root CLI rather than its validate
+  sub-app; corrected control/mutation/restoration traces all 16 fields with no network
+  lookups. The initial pre-commit docs-current gate detects the intentionally uncommitted
+  generated page; final committed check is retained. Generator-default history actor
+  was corrected in an append-only successor, not rewritten. Initial review validation
+  required the omitted proposed repair action; no invalid bundle was published.
+```
