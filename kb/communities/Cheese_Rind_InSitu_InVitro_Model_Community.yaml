@@ -99,9 +99,10 @@ taxonomy:
   abundance_level: ABUNDANT
 ecological_interactions:
 - name: Moisture-Structured Rind Community Assembly
-  description: Rind-style treatments changed reconstructed composition; drying also concentrates salt, so moisture
-    was not an isolated niche mechanism. The environmental reconstruction, pairwise assays and succession subset
-    have different memberships. The four genera in this record are not a complete defined assay roster.
+  description: HYPOTHESIZED - moisture-dependent assembly remains an unresolved mechanism in this record.
+    The retained abstract supports broad community-composition patterns, not a moisture-specific effect
+    or separation of moisture from salt. Exact treatment membership and causal attribution require assay-specific
+    evidence; the four listed genera are not a verified complete assay roster.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
@@ -109,10 +110,11 @@ ecological_interactions:
       id: GO:0042710
       label: biofilm formation
 - name: Proposed Fungal Deacidification and Bacterial Growth Responses
-  description: PARTIAL - fungal pH changes and pH-dependent bacterial growth suggest deacidification contributes
-    to some responses. The current roster omits several responsive genera and includes bacteria with inhibitory
-    responses; facilitation cannot be assigned across its four members. Exact-system evidence and assay scope remain
-    unresolved in issue 765.
+  description: PARTIAL - fungal deacidification is a candidate explanation for bacterial growth responses,
+    not a mechanism established by the retained abstract. That abstract reports positive and negative
+    bacterial-fungal interactions without assigning pH mediation or responsive pairs. Facilitation cannot
+    be assigned across the four listed genera. Exact-system evidence and assay scope remain unresolved
+    in issue 765.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biological process involved in interspecies interaction between organisms
@@ -120,9 +122,10 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
 - name: Reproducible Natural-Rind Succession
-  description: A simplified reconstruction reproduced broad in situ succession patterns, but was faster and quantitatively
-    different. This observation does not demonstrate that earlier members facilitated later colonization. The succession
-    subset must not be conflated with the environmental reconstruction or the incomplete four-genus roster.
+  description: A simplified in vitro reconstruction recapitulated broad in situ community-composition
+    and succession patterns, as reported in the retained abstract. This does not establish exact timing,
+    quantitative agreement, or facilitation of later colonizers by earlier members. Assay-specific membership
+    remains unresolved; the four listed genera must not be treated as a verified succession subset.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
@@ -250,6 +253,13 @@ curation_history:
   changes: Qualify cheese-rind assay summaries without certifying unresolved evidence and membership; reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml;
     https://github.com/CultureBotAI/CommunityMech/issues/1272
   llm_assisted: true
+- timestamp: '2026-10-15T09:15:15Z'
+  curator: codex
+  action: QUALIFY_CAUSAL_EVIDENCE_BOUNDARY
+  changes: 'Address #2015: distinguish unresolved moisture/pH hypotheses from retained abstract-supported
+    succession. Preserve three nodes, zero arrows, all evidence, taxonomy and non-graph metadata. Keep
+    #765 and needs_research open; no new causal structure or provider spend.'
+  llm_assisted: true
 discussions:
 - discussion_id: cheese_assay_membership_and_retained_evidence
   prompt: Which assay-specific members and permitted exact-system evidence support the three retained graph summaries?
@@ -259,9 +269,14 @@ discussions:
   - ecological_interactions#Moisture-Structured Rind Community Assembly
   - ecological_interactions#Proposed Fungal Deacidification and Bacterial Growth Responses
   - ecological_interactions#Reproducible Natural-Rind Succession
-  rationale: Issue 765 remains open. Abstracts and selected primary Results/Discussion were read; complete methods
-    and images were not accessible. No deleted publication-body text is restored. Environmental reconstruction,
-    pairwise growth and succession use different member sets; media/cultivation attribution and aroma-potential
-    claims need separate review. Keep zero arrows and needs_research until evidence and roster scope are reconciled.
+  rationale: 'Issue 765 remains open. The 2026-10-15 reassessment read both retained abstracts; primary
+    methods, figures and Table S5 were not available for complete inspection. Search-index membership
+    and protocol leads are not verified source evidence. No deleted publication body is restored. Resolve
+    each assay''s member set, growth versus recovery conditions, moisture/salt attribution and pH mediation
+    before strengthening the graph. The current repair qualifies existing descriptions only: three nodes,
+    zero arrows and needs_research remain. Non-graph media, cultivation and aroma claims are preserved,
+    not certified. A one-community Edison dry run submitted no provider job; new structure still requires
+    the authorized real-run workflow when credentials are available. See issue 2015 for the separate wording
+    repair and reports/causal_graph_review/20261015-cheese-evidence/source-access.md for access limits.'
   posed_by: codex
   posed_date: '2026-10-05'

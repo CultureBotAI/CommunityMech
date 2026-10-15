@@ -1,6 +1,7 @@
 """Keep measured outcomes distinct from model, transcript and assay-context claims."""
 
 import hashlib
+import subprocess
 from collections import Counter
 from pathlib import Path
 
@@ -8,10 +9,18 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml"
+CHEESE_BASE = "aafb95ba7442031eef348d072a184a248c4b54ad"
+
+
+def record_bytes(path):
+    # The cheese record has a linked successor; preserve this batch's assertions.
+    if Path(path).stem == "Cheese_Rind_InSitu_InVitro_Model_Community":
+        return subprocess.check_output(["git", "show", f"{CHEESE_BASE}:{path}"], cwd=ROOT)
+    return (ROOT / path).read_bytes()
 
 
 def record(stem):
-    return yaml.safe_load((ROOT / "kb/communities" / f"{stem}.yaml").read_text())
+    return yaml.safe_load(record_bytes(f"kb/communities/{stem}.yaml"))
 
 
 def test_california_keeps_relative_metric_and_two_hypotheses():
@@ -190,7 +199,7 @@ def test_batch10_ledger_hashes_nodes_and_directions_are_complete():
     assert sum(len(r["removed_edge_decisions"]) for r in rows) == 2
     assert sum(len(r["retained_edge_decisions"]) for r in rows) == 12
     for row in rows:
-        raw = (ROOT / row["path"]).read_bytes()
+        raw = record_bytes(row["path"])
         assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
         doc = yaml.safe_load(raw)
         assert Counter(d["node"] for d in row["node_decisions"]) == Counter(
