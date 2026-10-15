@@ -5,6 +5,16 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Reference CLI Reporting Correction (2026-10-15)
+
+The batch130/132 zero-coverage interpretation is withdrawn. The upstream
+`Total checks` label counts **reported issues**, not excerpts examined.
+[Real CLI controls and append-only review correction](../reference_cli_coverage/README.md)
+trace 21 Phormidium, 27 Alseth and 24 PHA excerpts; fabricated graph snippets
+fail, and restoration passes. The respective 2/1/0 Discussion omissions remain
+explicit under #476. No scientific claims, historical review bundles, source
+caches or graph status are changed. Supplement routing remains open under #1996.
+
 ## Batch132: Phormidium Participant Identity
 
 The cyanobacterial member and all four graph references now use species
@@ -21,7 +31,8 @@ all existing graph evidence and the canonical cache. Only one of 462 records
 changed. All 54 focused tests pass, as do native schema, strict, term, GTDB
 coherence/domain, history, product, lint and committed generated-docs checks.
 Explicit checks cover 23 excerpts, including the Discussion traversal gap;
-the native reference CLI's zero checks are not a coverage pass. The 57 network
+the native reference CLI checks 21 excerpts and reports zero issues. Its two
+Discussion omissions remain a coverage limitation. The 57 network
 warnings exactly match baseline. Earlier failed runs remain as separate receipts.
 
 The immutable before review ([YAML](../../reviews/structured/20261015T011216Z-phormidium-identity-before/review.yaml),
@@ -78,8 +89,8 @@ pre-repair inputs and the committed post-repair review snapshot.
 
 The rebuilt inventory has 408 reviewed, 54 needs_research and zero pending
 records. This does not complete the corpus goal. Native reference CLI output
-reports zero checks; explicit plugin/excerpt checks validate 28 Alseth and 24
-PHA snippets, including the Discussion omitted by the known #476 traversal gap.
+reports zero issues after checking 27 Alseth and 24 PHA excerpts. Explicit
+excerpt checks additionally cover Alseth's one Discussion omitted by #476.
 Network warnings and source-read limits remain explicit. No new topology or
 provider spend. This is self-adversarial review, not independent approval.
 

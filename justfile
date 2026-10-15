@@ -172,8 +172,9 @@ validate-references FILE:
     PYTHONPATH=src uv run python scripts/normalize_cache_names.py
     exit $code
 
-# Same, with the validator's "only abstract available" note corrected (#496) and
-# its silent stripping of [bracketed] text called out (#622). Prefer this when
+# Same, with the issue-count label clarified (#1469), the validator's "only
+# abstract available" note corrected (#496), and its silent stripping of
+# [bracketed] text called out (#622). Prefer this when
 # triaging: the raw note is a claim about the CACHE that the validator is not in
 # a position to make, and it has sent readers after a caching gap twice.
 validate-references-explained FILE:
