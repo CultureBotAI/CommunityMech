@@ -8,9 +8,10 @@ enforce it for bound `term.id` slots: it silently skips ids it cannot resolve.
     ENVO:00002121  label -> "totally bogus label xyz"   =>  exit 1  Label mismatch
     ENVO:00002121  -> ENVO:99999999 (label unchanged)   =>  exit 0  Validation passed
 
-— so a typo'd CURIE passes the binding gate, and the three curator-accepted
-residuals below pass it by blindness rather than by being fixed. Confirmed today:
-`CHEBI:75315`, `GO:0070812` and `NCBITaxon:1807132` all still resolve to None.
+— so a typo'd CURIE passes the binding gate. The original measurement found
+`CHEBI:75315`, `GO:0070812` and `NCBITaxon:1807132` resolving to None. Phormidium's
+wrong-organism 1807132 grounding was subsequently corrected to NCBITaxon:3723519
+and its exceptions removed in #2009; that repair does not fix the general blind spot.
 
 Engine B (`validate_id_label_correspondence.py`) does report ID_NOT_FOUND, and is
 the only thing that does — but it takes `sqlite:obo:` selectors, which

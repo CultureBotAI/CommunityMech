@@ -1,7 +1,8 @@
 """Keep the cyanobacterial member distinct from the unrelated legacy taxon (#2009)."""
 
-from pathlib import Path
+import hashlib
 import xml.etree.ElementTree as ET
+from pathlib import Path
 
 import yaml
 
@@ -34,9 +35,15 @@ def test_wrong_organism_is_not_waived_on_canonical_or_export_surfaces():
 def test_archived_taxonomy_distinguishes_species_strain_and_wrong_legacy_id():
     path = (
         ROOT
-        / "reports/causal_graph_review/sources/20261015-phormidium-identity-batch132/ncbi-taxonomy.xml"
+        / "reports/causal_graph_review/sources/20261015-phormidium-identity-batch132"
+        / "ncbi-taxonomy.xml"
     )
-    taxa = {t.findtext("TaxId"): t for t in ET.parse(path).getroot().findall("Taxon")}
+    source = path.read_bytes()
+    assert hashlib.sha256(source).hexdigest() == (
+        "cfee5fecfe1e5362eb32f516f341c16d6cf0eab8992c1f665021fc2d931258c3"
+    )
+    root = ET.fromstring(source)  # noqa: S314 - hash-pinned, reviewed repository fixture
+    taxa = {t.findtext("TaxId"): t for t in root.findall("Taxon")}
     species, strain, unrelated = (taxa[n] for n in ("3723519", "2839084", "2293317"))
     assert species.findtext("ScientificName") == SPECIES["label"]
     assert species.findtext("Rank") == "species"
