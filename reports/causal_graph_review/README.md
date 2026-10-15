@@ -5,6 +5,36 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch132: Phormidium Participant Identity
+
+The cyanobacterial member and all four graph references now use species
+`NCBITaxon:3723519`, Candidatus Sodalinema alkaliphilum, retaining the source
+name Candidatus Phormidium alkaliphilum. The former `1807132` identifies an
+unrelated Syntrophocurvum species; both stale exact-pair waivers are removed.
+[Live NCBI and installed OAK evidence](sources/20261015-phormidium-identity-batch132/manifest.json)
+distinguishes the species from reference strain PBR-2020. The multi-condition
+population is not collapsed to that one strain; GTDB remains unresolved.
+
+[Decisions](decisions/20261015-phormidium-identity-batch132.yaml) and
+[actual validation receipts](20261015-batch132/) retain four nodes, one arrow,
+all existing graph evidence and the canonical cache. Only one of 462 records
+changed. All 54 focused tests pass, as do native schema, strict, term, GTDB
+coherence/domain, history, product, lint and committed generated-docs checks.
+Explicit checks cover 23 excerpts, including the Discussion traversal gap;
+the native reference CLI's zero checks are not a coverage pass. The 57 network
+warnings exactly match baseline. Earlier failed runs remain as separate receipts.
+
+The immutable before review ([YAML](../../reviews/structured/20261015T011216Z-phormidium-identity-before/review.yaml),
+[Markdown](../../reviews/structured/20261015T011216Z-phormidium-identity-before/review.md))
+records #2009; its successor ([YAML](../../reviews/structured/20261015T014050Z-phormidium-identity-after/review.yaml),
+[Markdown](../../reviews/structured/20261015T014050Z-phormidium-identity-after/review.md))
+resolves the identity finding and carries the open coverage finding forward.
+Before/after provenance tags retain all reviewed input commits through squash
+merge and branch cleanup. Remote CI is pending at the saved review snapshot.
+This is partial source-based self-review, not independent approval. The corpus
+still has 408 reviewed and 54 needs_research records; #1699 and #1701 remain open.
+No graph extension, Edison submission or provider spend occurred.
+
 ## Batch131: Prompt Direction And Phormidium Research
 
 The shared causal-research prompt now uses hydrogen consumption, not production,

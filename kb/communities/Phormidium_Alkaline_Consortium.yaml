@@ -31,14 +31,24 @@ taxonomy:
 - taxon_term:
     preferred_term: Candidatus Phormidium alkaliphilum
     term:
-      id: NCBITaxon:1807132
-      label: Candidatus Phormidium alkaliphilum
+      id: NCBITaxon:3723519
+      label: Candidatus Sodalinema alkaliphilum
     gtdb_grounding_status: UNRESOLVED
-    notes: 'Filamentous cyanobacterium adapted to extremely alkaline conditions (pH >11). This organism
-      is the dominant primary producer in the consortium, representing >80% of the community biomass.
-      It fixes CO2 through oxygenic photosynthesis and releases dissolved organic matter that supports
-      the heterotrophic community. The species exhibits traits for biotechnological success including
-      robust growth, alkaline tolerance, and sustained productivity over multiple years.
+    notes: 'Identity grounding: retain the publication name Candidatus Phormidium alkaliphilum as the
+      preferred term; NCBI Taxonomy (2026-10-15) places this name under species-level NCBITaxon:3723519,
+      Candidatus Sodalinema alkaliphilum. Reference strain PBR-2020 (NCBITaxon:2839084; BioSample SAMN17928605;
+      genome CP075902) is not asserted to be the sole strain across the study''s conditions and time points.
+      The 2021 naming study (doi:10.1016/j.isci.2021.103405) reports strain diversity; the 2022 study
+      combines five metagenomes. The former ID 1807132 denotes the unrelated Candidatus Syntrophocurvum
+      alkaliphilum and must not ground this cyanobacterium. NCBI source: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3723519
+      . GTDB assignment remains unresolved; no equivalence is inferred from the source genus alone.
+
+
+      Filamentous cyanobacterium adapted to extremely alkaline conditions (pH >11). This organism is the
+      dominant primary producer in the consortium, representing >80% of the community biomass. It fixes
+      CO2 through oxygenic photosynthesis and releases dissolved organic matter that supports the heterotrophic
+      community. The species exhibits traits for biotechnological success including robust growth, alkaline
+      tolerance, and sustained productivity over multiple years.
 
       '
   functional_role:
@@ -52,6 +62,13 @@ taxonomy:
     snippet: The community structure was compared to a previously described consortium of a closely related
       cyanobacteria, which indicated that the results may be generalized
     explanation: Establishes dominance of the cyanobacterial primary producer
+  - reference: doi:10.3389/fmicb.2022.780346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the most abundant member and the only cyanobacterium in the consortium
+    explanation: Results identifies the named Candidatus Phormidium alkaliphilum population as the cyanobacterial
+      member. Current species nomenclature is reconciled separately in taxon notes; this sentence does
+      not quantify biomass or restrict the population to one strain.
 - taxon_term:
     preferred_term: Wenzhouxiangella sp.
     term:
@@ -214,8 +231,8 @@ ecological_interactions:
   source_taxon:
     preferred_term: Candidatus Phormidium alkaliphilum
     term:
-      id: NCBITaxon:1807132
-      label: Candidatus Phormidium alkaliphilum
+      id: NCBITaxon:3723519
+      label: Candidatus Sodalinema alkaliphilum
   metabolites:
   - preferred_term: carbon dioxide
     term:
@@ -266,8 +283,8 @@ ecological_interactions:
   participating_taxa:
   - preferred_term: Candidatus Phormidium alkaliphilum
     term:
-      id: NCBITaxon:1807132
-      label: Candidatus Phormidium alkaliphilum
+      id: NCBITaxon:3723519
+      label: Candidatus Sodalinema alkaliphilum
   - preferred_term: Wenzhouxiangella sp.
     term:
       id: NCBITaxon:1979961
@@ -287,8 +304,8 @@ ecological_interactions:
   source_taxon:
     preferred_term: Candidatus Phormidium alkaliphilum
     term:
-      id: NCBITaxon:1807132
-      label: Candidatus Phormidium alkaliphilum
+      id: NCBITaxon:3723519
+      label: Candidatus Sodalinema alkaliphilum
   target_taxon:
     preferred_term: Verrucomicrobiota members
     term:
@@ -322,8 +339,8 @@ ecological_interactions:
   source_taxon:
     preferred_term: Candidatus Phormidium alkaliphilum
     term:
-      id: NCBITaxon:1807132
-      label: Candidatus Phormidium alkaliphilum
+      id: NCBITaxon:3723519
+      label: Candidatus Sodalinema alkaliphilum
   target_taxon:
     preferred_term: Alphaproteobacteria members
     term:
@@ -528,4 +545,12 @@ curation_history:
     major-population isotope uptake with explicit participants and no invented compound specificity.; Retain gene-supported
     polymer-use hypothesis with corrected donor and recipient.; Preserve alpha heterotrophic evidence without class-wide
     reciprocal services. Issue #1696; reports/causal_graph_review/decisions/20261007-four-records-batch84.yaml'
+  llm_assisted: true
+- timestamp: '2026-10-15T01:14:32Z'
+  curator: codex
+  action: CORRECT_CAUSAL_PARTICIPANT_IDENTITY
+  changes: 'Address #2009: replace the unrelated legacy NCBITaxon:1807132 with species NCBITaxon:3723519
+    in the member and four graph references, preserving the publication name. Add bounded identity evidence
+    and nomenclature/strain context. Preserve all four graph nodes, their evidence and the existing arrow;
+    #1699 and #1701 remain open. Batch132.'
   llm_assisted: true

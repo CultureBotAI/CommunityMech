@@ -59,7 +59,7 @@ def test_phormidium_real_carbon_flow_has_explicit_major_participants():
     fixation, carbon, _, _ = docs[2]["ecological_interactions"]
     assert fixation["downstream"][0]["target"] == carbon["name"]
     assert {t["term"]["id"] for t in carbon["participating_taxa"]} == {
-        "NCBITaxon:1807132",
+        "NCBITaxon:3723519",
         "NCBITaxon:1979961",
         "NCBITaxon:203682",
     }
@@ -74,7 +74,7 @@ def test_phormidium_gene_capacity_does_not_prove_reciprocal_services():
     assert len(nodes) == 4
     assert all(n.get("interaction_type") != "MUTUALISM" for n in nodes)
     polymers, alpha = nodes[2:]
-    assert polymers["source_taxon"]["term"]["id"] == "NCBITaxon:1807132"
+    assert polymers["source_taxon"]["term"]["id"] == "NCBITaxon:3723519"
     assert polymers["target_taxon"]["term"]["id"] == "NCBITaxon:74201"
     assert polymers["evidence"][0]["evidence_source"] == "COMPUTATIONAL"
     assert "lower-peptide" in alpha["description"]
@@ -143,4 +143,20 @@ def test_history_sources_and_pending_lifecycle_are_explicit():
     for row, doc in zip(rows, docs, strict=True):
         assert row["curation_events_added"] == len(row["history_files"]) == 1
         assert doc["curation_history"][-1]["llm_assisted"] is True
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        expected_hash = row["record_sha256"]
+        if row["id"] == "CommunityMech:000054":
+            successor = yaml.safe_load(
+                (
+                    ROOT
+                    / "reports/causal_graph_review/decisions"
+                    / "20261015-phormidium-identity-batch132.yaml"
+                ).read_text()
+            )["records"][0]
+            assert successor["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": expected_hash,
+            }
+            assert successor["original_sha256"] == expected_hash
+            assert successor["status"] == "needs_research"
+            expected_hash = successor["record_sha256"]
+        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected_hash

@@ -69,10 +69,12 @@ RELABEL = {
     ("NCBITaxon:1801631", "Candidatus Micrarchaeota"),  # canon is now "Microcaldota" (same id)
 }
 
-# Intentionally left for the conf/id_label_targets.yaml exceptions list
-# (not in current OAK ncbitaxon snapshot, even after kg-microbe cross-check):
-#   NCBITaxon:1807132 "Candidatus Phormidium alkaliphilum"
+# Residual retained by the original run in conf/id_label_targets.yaml
+# (absent from the ontology snapshot used by that run):
 #   NCBITaxon:3050471 "Stenotrophomonas goyi"
+# Phormidium's former 1807132 exception was subsequently removed by the scoped
+# identity repair #2009: the cyanobacterial species is NCBITaxon:3723519, while
+# 1807132 is an alternative ID for an unrelated Syntrophocurvum species.
 
 ID_RE = re.compile(rf"^(\s*)id:\s*({PREFIX}:\d+)\s*$")
 LBL_RE = re.compile(r"^(\s*)label:\s*(.+?)\s*$")

@@ -1,0 +1,163 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+recorded_at: '2026-10-15T01:17:06.708615+00:00'
+base_commit: d8a37b795d75c372af6d75f590b78cefb913b940
+source_manifest: reports/causal_graph_review/sources/20261015-phormidium-identity-batch132/manifest.json
+edison:
+  required_for_identity_repair: false
+  provider_submissions: 0
+  credits_spent: 0
+limitations:
+- Identity repair only; no new causal nodes or arrows.
+- GTDB mapping lookup could not find a crosswalk in its configured locations; preserve UNRESOLVED, not
+  an invented classification.
+- Existing non-graph assertions and other participant identities are not recertified.
+- 54 records still require research; scientific self-review is not independent approval or corpus completion.
+records:
+- path: kb/communities/Phormidium_Alkaline_Consortium.yaml
+  id: CommunityMech:000054
+  original_sha256: 5bd6ec7333293e123e4b68212ddd64a6db8a8efd69f446912d154b260d79f2f5
+  record_sha256: 0f03389e79ddcf2e97ebb0f32bd51a776b6bcbaea3ddad52c21ada8feca2939b
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261015-phormidium-identity-batch132.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch84.yaml
+    record_sha256: 5bd6ec7333293e123e4b68212ddd64a6db8a8efd69f446912d154b260d79f2f5
+  scope: Whole record read; one member identity and all four graph references repaired. Existing four
+    nodes and one arrow retained with source-bound rationale; no new extension or whole-record certification.
+  summary: 'Correct the cyanobacterial population to species 3723519, preserve the source name and strain
+    scope, and remove the two stale canonical/export waivers. Coverage #1699 and non-graph #1701 remain
+    open.'
+  node_decisions:
+  - node: Photosynthetic CO2 Fixation
+    rationale: Retain photosynthetic carbon input and its experimental donor-to-heterotroph direction;
+      correct the cyanobacterial donor to the source-population species, not the unrelated legacy organism.
+    field_path: ecological_interactions[0]
+    participants:
+      source_taxon:
+        preferred_term: Candidatus Phormidium alkaliphilum
+        term:
+          id: NCBITaxon:3723519
+          label: Candidatus Sodalinema alkaliphilum
+    source_locator: doi:10.3389/fmicb.2022.780346 ; Results, Figures 3-4 and current bounded node evidence
+    evidence:
+    - reference: doi:10.3389/fmicb.2022.780346
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: tight coupling of carbon transfer from cyanobacteria to the heterotrophic populations
+      explanation: The primary protein/SIP results support transfer of photosynthetically fixed carbon;
+        they do not resolve the release route.
+  - node: Carbon Transfer to Heterotrophs
+    rationale: Retain protein/SIP carbon transfer with explicit major heterotroph participants and no
+      compound-specific or reciprocal-service inference. Correct only the cyanobacterial participant identity.
+    field_path: ecological_interactions[1]
+    participants:
+      participating_taxa:
+      - preferred_term: Candidatus Phormidium alkaliphilum
+        term:
+          id: NCBITaxon:3723519
+          label: Candidatus Sodalinema alkaliphilum
+      - preferred_term: Wenzhouxiangella sp.
+        term:
+          id: NCBITaxon:1979961
+          label: Wenzhouxiangella sp.
+      - preferred_term: Planctomycetota members
+        term:
+          id: NCBITaxon:203682
+          label: Planctomycetota
+    source_locator: doi:10.3389/fmicb.2022.780346 ; Results, Figures 3-4 and current bounded node evidence
+    evidence:
+    - reference: doi:10.3389/fmicb.2022.780346
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: tight coupling of carbon transfer from cyanobacteria to the heterotrophic populations
+      explanation: Experimental labeling supports carbon flow; full Figure 4 distinguishes the two major
+        heterotrophic populations from lower-peptide populations.
+  - node: Proposed Cyanobacterial Polymer Use by Verrucomicrobiota
+    rationale: Retain PARTIAL genomic polymer-use hypothesis, not demonstrated substrate transfer. Correct
+      the source species; no new edge or cross-phylum relay is inferred.
+    field_path: ecological_interactions[2]
+    participants:
+      source_taxon:
+        preferred_term: Candidatus Phormidium alkaliphilum
+        term:
+          id: NCBITaxon:3723519
+          label: Candidatus Sodalinema alkaliphilum
+      target_taxon:
+        preferred_term: Verrucomicrobiota members
+        term:
+          id: NCBITaxon:74201
+          label: Verrucomicrobiota
+    source_locator: doi:10.3389/fmicb.2022.780346 ; Results, Figures 3-4 and current bounded node evidence
+    evidence:
+    - reference: doi:10.3389/fmicb.2022.780346
+      supports: PARTIAL
+      evidence_source: COMPUTATIONAL
+      snippet: All four consortium members affiliated with Verrucomicrobiota had 6–38 genes for glycoside
+        hydrolysis and 12–37 genes encoding sulfatases
+      explanation: Primary Results assign the hydrolase/sulfatase genomic capacity to these four MAGs,
+        not a demonstrated cross-phylum handoff.
+  - node: Alphaproteobacterial Heterotrophic Carbon Use
+    rationale: Retain bounded alphaproteobacterial carbon-use evidence and weak MAG58 peptide coverage;
+      predicted phototrophy and reciprocal services are not promoted. Correct only the source species.
+    field_path: ecological_interactions[3]
+    participants:
+      source_taxon:
+        preferred_term: Candidatus Phormidium alkaliphilum
+        term:
+          id: NCBITaxon:3723519
+          label: Candidatus Sodalinema alkaliphilum
+      target_taxon:
+        preferred_term: Alphaproteobacteria members
+        term:
+          id: NCBITaxon:28211
+          label: Alphaproteobacteria
+    source_locator: doi:10.3389/fmicb.2022.780346 ; Results, Figures 3-4 and current bounded node evidence
+    evidence:
+    - reference: doi:10.3389/fmicb.2022.780346
+      supports: PARTIAL
+      evidence_source: IN_VITRO
+      snippet: tight coupling of carbon transfer from cyanobacteria to the heterotrophic populations
+      explanation: General experimental carbon-transfer evidence, narrowed by the lower-peptide MAG58
+        signal in Figure 4; not support for reciprocal services or every alphaproteobacterial member.
+  edges_before:
+  - source: Photosynthetic CO2 Fixation
+    target: Carbon Transfer to Heterotrophs
+    description: Cyanobacterial fixation supplies carbon subsequently incorporated into heterotrophic
+      proteins, as supported by 13C-bicarbonate protein/SIP. Preserve this experimental donor-to-heterotroph
+      direction without claiming that labeling identifies the exact exchanged compounds or a trophic cascade.
+  edges_after:
+  - source: Photosynthetic CO2 Fixation
+    target: Carbon Transfer to Heterotrophs
+    description: Cyanobacterial fixation supplies carbon subsequently incorporated into heterotrophic
+      proteins, as supported by 13C-bicarbonate protein/SIP. Preserve this experimental donor-to-heterotroph
+      direction without claiming that labeling identifies the exact exchanged compounds or a trophic cascade.
+  retained_edge_decisions:
+  - source: Photosynthetic CO2 Fixation
+    target: Carbon Transfer to Heterotrophs
+    description: Cyanobacterial fixation supplies carbon subsequently incorporated into heterotrophic
+      proteins, as supported by 13C-bicarbonate protein/SIP. Preserve this experimental donor-to-heterotroph
+      direction without claiming that labeling identifies the exact exchanged compounds or a trophic cascade.
+    reference: doi:10.3389/fmicb.2022.780346
+    rationale: Retain experimentally traced cyanobacterial carbon supply without claiming resolved compounds,
+      trophic cascades or reciprocal benefit.
+  removed_node_decisions: []
+  removed_edge_decisions: []
+  renamed_nodes: {}
+  references:
+  - doi:10.3389/fmicb.2022.780346
+  - PMID:34877483
+  - https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&id=2839084,3723519,1807132&retmode=xml
+  issues:
+  - 2009
+  - 1699
+  - 1701
+  allowed_changed_fields:
+  - taxonomy
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Phormidium_Alkaline_Consortium/2026-10-15T011536Z-codex-932c6d.yaml
