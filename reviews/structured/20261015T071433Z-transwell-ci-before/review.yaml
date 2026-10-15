@@ -1,0 +1,224 @@
+schema_version: 1.0.0
+review_id: 20261015T071433Z-transwell-ci-before
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Transwell integration findings before remediation
+started_at: '2026-10-15T07:14:33.960090Z'
+finished_at: '2026-10-15T07:14:33.960090Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Implementing-agent CI follow-up, not independent approval.
+skill: communitymech-causal-graphs
+completion: partial
+verdict: needs_curation
+scientific_review: false
+source:
+  git_revision: 1a274b20148ae84cd71e2b233f268c702b332b90
+  state: working_tree
+  inputs:
+  - path: kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml
+    sha256: 01d41a601dba3f750e87784a28d97ef169dbd17de44d4fbe64f37f3d19d5cf3a
+    role: context
+  - path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    sha256: fb696f2703ca1d568e76d6f651867f80b9b198b7704c26b0610eeda4cb5830e6
+    role: target
+  - path: kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml
+    sha256: a6de23c0605bdd23154c61dca8a27d161e55f8fdf0e191bc55d38969b693a6f8
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-failure.json
+    sha256: 5da92a111a9a359741ef4963498a3ac26224330b981ef7a60afcb7d41da6c63f
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/gtdb-candidate.json
+    sha256: 550de8712a72ad36718e04b6bc84b16e2d8bdc98284b7255b243f1743fabd4e6
+    role: context
+  - path: reviews/structured/20261015T063739Z-transwell-after/review.yaml
+    sha256: ad2bf520a25a591e836ed53950604a52f3f9cb2aaa9a0e6399bd8fc5c3f31d3e
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0a5b51ae6704da8d8bfa61991c0cdbe3339548a5644838a1418afc65cba18594
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: e5a87e5367609334ec0d6361f6ddafbe6bc4a1f7d93e5264c64688c28325910f
+    role: context
+  - path: tests/test_causal_review_batch109.py
+    sha256: 43e626791e6d646a5a30bea3cab36d304bd43e2c2ce482d41fba5f4bcf0dbd84
+    role: context
+  - path: tests/test_community_level_connectivity_credit.py
+    sha256: 69af5ff490cde0307d60a1d59389647a158f9d7f16c9f11796c7bf48480747ce
+    role: context
+  - path: tests/test_gtdb_coherence_validator.py
+    sha256: e3d274e76837dbf08bfd2c916167eb3f30a005ed571824caa26236eb7019dcfc
+    role: context
+  - path: tests/test_ncbitaxon_adapter_is_shared.py
+    sha256: c30b6169761c0fdf3b09e44b4395ab72dd90b88324479b24a3727838e5300131
+    role: context
+targets:
+- target_id: CommunityMech:000091
+  path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  label: Transwell CI integration
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    role: GTDB status and provenance
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_causal_review_batch109.py
+    role: exact corpus census
+summary: Address missing GTDB-status representation and exact census integration without
+  changing scientific participants or topology.
+scope:
+  description: Deterministic integration follow-up on one record; no fresh literature
+    certification.
+  selection: 'PR #2013 CI failures, issue #2014.'
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000091
+checks:
+- check_id: ci-tests
+  name: Original PR full suite
+  status: failed
+  required: true
+  command: uv run pytest tests/ -q --no-cov
+  exit_code: 1
+  summary: 3 failed; exact run output retained.
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci
+evidence:
+- evidence_id: ci
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-failure.json
+  locator: CI run 38693651398, Run tests failure summary
+  accessed_at: '2026-10-15T07:14:33.960090Z'
+  support: supports
+  summary: '3 failed, 4949 passed, 86 skipped, 8 deselected. Two root causes: five
+    missing GTDB statuses and the exact census baseline; the unavailable-ontology
+    harness repeats the missing-status defect.'
+- evidence_id: mapping
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/gtdb-candidate.json
+  locator: Native grounding attempt, exit 1 and searched paths
+  accessed_at: '2026-10-15T07:14:33.960090Z'
+  support: context_only
+  summary: Expected local crosswalk unavailable; no mapping/classification result
+    was produced. This is not evidence of no GTDB counterpart. Broader ignored-inclusive
+    filename search had permission-denied subtrees and is not an exhaustive machine-wide
+    absence claim.
+- evidence_id: convention
+  kind: record_content
+  reference: kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml
+  locator: taxonomy[0,1].taxon_term
+  accessed_at: '2026-10-15T07:14:33.960090Z'
+  support: supports
+  summary: Existing curation represents unavailable crosswalks with UNRESOLVED and
+    explicit notes. Amsterdam_10Species_Gut_Invasion_SynCom uses the same convention.
+- evidence_id: target
+  kind: record_content
+  reference: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  locator: taxonomy[*].taxon_term
+  accessed_at: '2026-10-15T07:14:33.960090Z'
+  support: supports
+  summary: GTDB representation only; NCBI names, strain identity, evidence and existing
+    nodes are not reassessed by this deterministic follow-up.
+assessments:
+- assessment_id: integration
+  area: consistency
+  topic: Required metadata and census accountability
+  outcome: concern
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci
+  - target
+  - convention
+  summary: Missing required corpus bookkeeping needs repair.
+findings:
+- finding_id: status
+  issue_key: communitymech-2014-status
+  category: consistency
+  severity: major
+  status: open
+  certainty: confirmed
+  title: New taxonomy entries lack GTDB status
+  description: Required corpus status coverage fails for all five new members, including
+    under the unavailable-ontology harness.
+  target_ids:
+  - CommunityMech:000091
+  field_paths:
+  - taxonomy[*].taxon_term.gtdb_grounding_status
+  evidence_ids:
+  - ci
+  - target
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    role: GTDB status and provenance
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_causal_review_batch109.py
+    role: exact corpus census
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2014
+- finding_id: census
+  issue_key: communitymech-2014-census
+  category: consistency
+  severity: minor
+  status: open
+  certainty: confirmed
+  title: Exact census remains pinned to the predecessor
+  description: The separate exact census must account for Transwell's additional four
+    strain entries and pairwise reporter scope, with a control proving the entire
+    delta.
+  target_ids:
+  - CommunityMech:000091
+  field_paths:
+  - tests/test_causal_review_batch109.py::test_current_scope_census_tracks_later_source_bounded_repairs
+  evidence_ids:
+  - ci
+  - target
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    role: GTDB status and provenance
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_causal_review_batch109.py
+    role: exact corpus census
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2014
+actions:
+- action_id: repair-integration
+  description: Add truthful GTDB status/provenance through a guarded writer and prove
+    the full census delta comes only from Transwell.
+  finding_ids:
+  - status
+  - census
+  target_ids:
+  - CommunityMech:000091
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    role: GTDB status and provenance
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_causal_review_batch109.py
+    role: exact corpus census
+  acceptance_checks:
+  - Affected native tests and unavailable-ontology harness pass without weakening
+    gates.
+  - No invented GTDB classification; mapping unavailability explicit.
+  - Old census reproduced with only Transwell replaced by its pinned predecessor;
+    current census restored.
+  - Append-only history/review, regenerated page and protected PR/queue CI.
+limitations:
+- This is a deterministic integration self-review, not a new scientific review.
+- Local crosswalk unavailable; UNRESOLVED represents pending lookup, not absence of
+  a GTDB counterpart. No curator-supplied mapping is fabricated.
+- 'Original scientific limitations under #1467 remain open and needs_research is not
+  promoted.'
+- Full revised-head PR/queue CI is pending at this immutable local snapshot.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2014
+- https://github.com/CultureBotAI/CommunityMech/issues/1467
+- https://github.com/CultureBotAI/CommunityMech/pull/2013
