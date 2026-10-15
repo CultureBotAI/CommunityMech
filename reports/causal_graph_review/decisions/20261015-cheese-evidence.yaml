@@ -1,0 +1,84 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+recorded_at: '2026-10-15T09:18:48.800044+00:00'
+base_commit: 3b9026603de970a028d436c192a23b6e0ad792ea
+source_access: reports/causal_graph_review/20261015-cheese-evidence/source-access.md
+edison:
+  required_for_repair: false
+  provider_submissions: 0
+  credits_spent: 0
+limitations:
+- 'No new evidence or structure. Two nodes remain unevidenced; #765 is not closed.'
+- Indexed membership/protocol leads are not experimental evidence.
+- No native whole-record scores or independent approval claimed.
+records:
+- path: kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml
+  id: CommunityMech:000153
+  original_sha256: 70f98b384879211c2cb7141b419e33e144b90be0dbe11b950c0d4e8e97662135
+  record_sha256: e4ccd373cf107383615b6f207ceb0521c83b4c97daf57c6700a441b2392ddda3
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261015-cheese-evidence.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+    record_sha256: 70f98b384879211c2cb7141b419e33e144b90be0dbe11b950c0d4e8e97662135
+  scope: Whole record read; all three graph nodes and zero arrows assessed against retained abstract evidence.
+    Full methods and assay membership remain unavailable; non-graph fields preserved, not certified.
+  summary: Qualify unsupported mechanistic details without strengthening or expanding the graph.
+  node_decisions:
+  - node: Moisture-Structured Rind Community Assembly
+    field_path: ecological_interactions[0]
+    rationale: HYPOTHESIZED - moisture-dependent assembly remains an unresolved mechanism in this record.
+      The retained abstract supports broad community-composition patterns, not a moisture-specific effect
+      or separation of moisture from salt. Exact treatment membership and causal attribution require assay-specific
+      evidence; the four listed genera are not a verified complete assay roster.
+    participants: Assay-specific members unresolved; four genus entries are not a verified complete roster.
+    direction: No downstream arrows
+    source_locator: Both complete retained abstracts; original methods and supplements not verified.
+    reference: PMID:25036636
+    evidence: []
+  - node: Proposed Fungal Deacidification and Bacterial Growth Responses
+    field_path: ecological_interactions[1]
+    rationale: PARTIAL - fungal deacidification is a candidate explanation for bacterial growth responses,
+      not a mechanism established by the retained abstract. That abstract reports positive and negative
+      bacterial-fungal interactions without assigning pH mediation or responsive pairs. Facilitation cannot
+      be assigned across the four listed genera. Exact-system evidence and assay scope remain unresolved
+      in issue 765.
+    participants: Assay-specific members unresolved; four genus entries are not a verified complete roster.
+    direction: No downstream arrows
+    source_locator: Both complete retained abstracts; original methods and supplements not verified.
+    reference: PMID:25036636
+    evidence: []
+  - node: Reproducible Natural-Rind Succession
+    field_path: ecological_interactions[2]
+    rationale: A simplified in vitro reconstruction recapitulated broad in situ community-composition
+      and succession patterns, as reported in the retained abstract. This does not establish exact timing,
+      quantitative agreement, or facilitation of later colonizers by earlier members. Assay-specific membership
+      remains unresolved; the four listed genera must not be treated as a verified succession subset.
+    participants: Assay-specific members unresolved; four genus entries are not a verified complete roster.
+    direction: No downstream arrows
+    source_locator: Both complete retained abstracts; original methods and supplements not verified.
+    reference: PMID:25036636
+    evidence:
+    - reference: PMID:25036636
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Patterns of community composition and succession observed in situ can be recapitulated
+        in a simple in vitro system.
+      explanation: Supports the abstract-level observation of in situ patterns reproduced in vitro, not
+        exact temporal ordering or facilitation among the currently listed genera.
+  edges_before: []
+  edges_after: []
+  removed_edge_decisions: []
+  retained_edge_decisions: []
+  references:
+  - PMID:25036636
+  open_issue: 765
+  wording_issue: 2015
+  history_files:
+  - history/records/Cheese_Rind_InSitu_InVitro_Model_Community/2026-10-15T091829Z-codex-bc7c70.yaml
+  allowed_changed_fields:
+  - ecological_interactions
+  - discussions
+  - curation_history
