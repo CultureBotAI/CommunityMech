@@ -1,0 +1,536 @@
+schema_version: 1.0.0
+review_id: 20261015T075024Z-transwell-ci-after
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Transwell integration findings after remediation
+started_at: '2026-10-15T07:50:24.432292Z'
+finished_at: '2026-10-15T07:50:24.432292Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Implementing-agent CI follow-up, not independent approval.
+skill: communitymech-causal-graphs
+completion: partial
+verdict: pass_with_limitations
+scientific_review: false
+source:
+  git_revision: e7468fbd8e98fd9bfbc961e228f844b30f929da7
+  state: working_tree
+  inputs:
+  - path: docs/communities/GLBRC_Exometabolite_Transwell_SynCom.html
+    sha256: 981881bbb27023c3da08de8cc1a527f386dc5a2de09c609206a08e8539445cbb
+    role: context
+  - path: kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml
+    sha256: 01d41a601dba3f750e87784a28d97ef169dbd17de44d4fbe64f37f3d19d5cf3a
+    role: context
+  - path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    sha256: 51bf55d56342aa28864c0dd458a172209f9ef1e14e51a0cd210bb46521a17f47
+    role: target
+  - path: kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml
+    sha256: a6de23c0605bdd23154c61dca8a27d161e55f8fdf0e191bc55d38969b693a6f8
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-classifier-availability.json
+    sha256: 02f1db0ea78547d00ff1f371fe51b50978734ecfc52f6c1f4238e8d121601f99
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-diff.json
+    sha256: 1daf90966995f13f5f973e88d3983482bf8b20f2a9988f5d305fac61f740af4c
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-docs.json
+    sha256: 64cd8e211b6026b77ead000d3ea06cd7ce4f0dfc87465be830edc505d7071458
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-failure.json
+    sha256: 5da92a111a9a359741ef4963498a3ac26224330b981ef7a60afcb7d41da6c63f
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-gen-html.json
+    sha256: 7ec7127c0f693e1f969d6d331e9c6abe0ae4df2fb0b14d236694dda1bc4261f2
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-gtdb-domain.json
+    sha256: 3d51cd5677e41798f19a6912acdaf02d4ddada1bd9963590c1c5bb5ce3e895b9
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-gtdb.json
+    sha256: 26bd74a20c08ae88026b61dc0492f39dffb074aaf612606dbf1c584901fa7d10
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-history-create.json
+    sha256: d232181633d6b0b1b3f99fe5a7a1a0c718e7acfa2257126a16d2c3015648bbff
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-history.json
+    sha256: e020cd386b9c2635e2b8400f7ed3895efa765ee7e7ec3bdf9e3581bcadc0b42d
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-inventory.json
+    sha256: ecbfe3b74a158f204c1dc98441850029ea98a9e2556d1249ca1b221951e29440
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-lint.json
+    sha256: 678c0cbf89d13033b2b2a2eb2b3705db93abfc1b4750bec3d03663f92d5c323c
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-network.json
+    sha256: c027bf3f6e52aff95244c225389935423f747bcb0cbd6dd71b7c3893d54ee163
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-preservation.json
+    sha256: e7eede42cd5dcf0238c42a4f12e60e0f542811adf5277e5c94be5a7fd536097e
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-rank.json
+    sha256: fc272637c168fe71e38ee3e4c87b19e05109c553dcc27caeb517ff064a014727
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-references.json
+    sha256: 0e489ead646b584329d80bb62fea13777706a8ef92cc0d1a0261b55ddb57a431
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-regression-v2.json
+    sha256: bf2cf8e3a2fe2d4b5aada2b145af78df5c86e5d44bd70249b17d162259e08577
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-regression.json
+    sha256: ecefa5a417b60c95c0e45936ecf7e09ce65bedada71e746f3c34e0929889d06c
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-review-contract-before.json
+    sha256: 47bb72bed739c94e0400701e70872f207ab583879cc6609d67816d3cd9c47a46
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-strict.json
+    sha256: f147c7100e1379e73a5d44cff3a5c8fe79584039f894d76d5b5f288cda697bce
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-terms.json
+    sha256: a0cf18a33722c0b14fb9363c652c4a9169b87804b19fc99d2dc1870668814218
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/ci-validate.json
+    sha256: 57ed450b58d02ab1aaa4cc77a6a6b03827623d2027f14a03117d2e0c263d6740
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/gtdb-candidate.json
+    sha256: 550de8712a72ad36718e04b6bc84b16e2d8bdc98284b7255b243f1743fabd4e6
+    role: context
+  - path: reports/causal_graph_review/20261015-transwell-ci/verify.py
+    sha256: b69c1777251edede3e2bbffc0dd5f068725fdb1a46b4b44307957e4e685fafc0
+    role: context
+  - path: reports/causal_graph_review/decisions/20261015-transwell-ci.yaml
+    sha256: 34357636a559637e7f5397049073e2020e9201363d230ad4e8c6adf3c49a66d2
+    role: context
+  - path: reports/causal_graph_review/inventory.tsv
+    sha256: 57b92e73c2da65081bbc8a09650990249940b13f830a42eb0d6ac821f1b7b10b
+    role: context
+  - path: reviews/structured/20261015T063739Z-transwell-after/review.yaml
+    sha256: ad2bf520a25a591e836ed53950604a52f3f9cb2aaa9a0e6399bd8fc5c3f31d3e
+    role: context
+  - path: reviews/structured/20261015T071433Z-transwell-ci-before/review.yaml
+    sha256: ad7c2e4bb52c34baaca04cd93c3303c2a75c5aec074c6bde2617e2ea582a7d7c
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0a5b51ae6704da8d8bfa61991c0cdbe3339548a5644838a1418afc65cba18594
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: e5a87e5367609334ec0d6361f6ddafbe6bc4a1f7d93e5264c64688c28325910f
+    role: context
+  - path: tests/test_causal_review_batch109.py
+    sha256: 12495a2668fd5491ac0857f2eb840013bfb8a7ab45deb2726a03326bab8541fb
+    role: context
+  - path: tests/test_community_level_connectivity_credit.py
+    sha256: 69af5ff490cde0307d60a1d59389647a158f9d7f16c9f11796c7bf48480747ce
+    role: context
+  - path: tests/test_gtdb_coherence_validator.py
+    sha256: 4182b8313cb7c8e22543cb122c0cf5714c0128f27918cb1b263da50671926344
+    role: context
+  - path: tests/test_ncbitaxon_adapter_is_shared.py
+    sha256: c30b6169761c0fdf3b09e44b4395ab72dd90b88324479b24a3727838e5300131
+    role: context
+  - path: tests/test_transwell_participants.py
+    sha256: 4b143052c40ffcf0b278f9ffa32cabb9ec4d0c9d692fc720f1938c214de6eb87
+    role: context
+targets:
+- target_id: CommunityMech:000091
+  path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  label: Transwell CI integration
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    role: GTDB status and provenance
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_causal_review_batch109.py
+    role: exact corpus census
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_gtdb_coherence_validator.py
+    role: GTDB distribution census
+summary: Address missing GTDB-status representation and exact census integration without
+  changing scientific participants or topology.
+scope:
+  description: Deterministic integration follow-up on one record; no fresh literature
+    certification.
+  selection: 'PR #2013 CI failures, issue #2014.'
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000091
+checks:
+- check_id: ci-regression-v2
+  name: ci-regression-v2
+  status: passed
+  required: true
+  command: .venv/bin/pytest tests/test_transwell_participants.py tests/test_causal_review_batch42.py
+    tests/test_causal_review_batch109.py tests/test_causal_review_inventory.py tests/test_participating_taxa.py
+    tests/test_community_level_connectivity_credit.py tests/test_gtdb_coherence_validator.py
+    tests/test_ncbitaxon_adapter_is_shared.py -q --no-cov
+  exit_code: 0
+  summary: Passed; actual output retained.
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci-regression-v2
+- check_id: ci-validate
+  name: ci-validate
+  status: passed
+  required: true
+  command: just --no-dotenv validate kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  exit_code: 0
+  summary: Passed; actual output retained.
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci-validate
+- check_id: ci-strict
+  name: ci-strict
+  status: passed
+  required: true
+  command: just --no-dotenv validate-strict kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  exit_code: 0
+  summary: Passed; actual output retained.
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci-strict
+- check_id: ci-gtdb
+  name: ci-gtdb
+  status: passed
+  required: true
+  command: just --no-dotenv validate-gtdb kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  exit_code: 0
+  summary: Passed; actual output retained.
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci-gtdb
+- check_id: ci-gtdb-domain
+  name: ci-gtdb-domain
+  status: passed
+  required: true
+  command: just --no-dotenv validate-gtdb-domain kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  exit_code: 0
+  summary: Passed; actual output retained.
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci-gtdb-domain
+- check_id: ci-terms
+  name: ci-terms
+  status: passed
+  required: true
+  command: just --no-dotenv validate-terms kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  exit_code: 0
+  summary: Passed; actual output retained.
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci-terms
+- check_id: ci-rank
+  name: ci-rank
+  status: passed
+  required: true
+  command: just --no-dotenv rank-causal-graphs kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  exit_code: 0
+  summary: Passed; actual output retained.
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci-rank
+- check_id: ci-references
+  name: ci-references
+  status: passed
+  required: true
+  command: just --no-dotenv validate-references-explained kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  exit_code: 0
+  summary: Passed; actual output retained.
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci-references
+- check_id: ci-history
+  name: ci-history
+  status: passed
+  required: true
+  command: just --no-dotenv validate-history history/records/GLBRC_Exometabolite_Transwell_SynCom
+  exit_code: 0
+  summary: Passed; actual output retained.
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci-history
+- check_id: ci-lint
+  name: ci-lint
+  status: passed
+  required: true
+  command: just --no-dotenv lint
+  exit_code: 0
+  summary: Passed; actual output retained.
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci-lint
+- check_id: ci-docs
+  name: ci-docs
+  status: passed
+  required: true
+  command: just --no-dotenv check-docs-current
+  exit_code: 0
+  summary: Passed; actual output retained.
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci-docs
+- check_id: ci-preservation
+  name: ci-preservation
+  status: passed
+  required: true
+  command: .venv/bin/python reports/causal_graph_review/20261015-transwell-ci/verify.py
+  exit_code: 0
+  summary: Passed; actual output retained.
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci-preservation
+evidence:
+- evidence_id: ci
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-failure.json
+  locator: CI run 38693651398, Run tests failure summary
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: '3 failed, 4949 passed, 86 skipped, 8 deselected. Two root causes: five
+    missing GTDB statuses and the exact census baseline; the unavailable-ontology
+    harness repeats the missing-status defect.'
+- evidence_id: mapping
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/gtdb-candidate.json
+  locator: Native grounding attempt, exit 1 and searched paths
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: context_only
+  summary: Expected local crosswalk unavailable; no mapping/classification result
+    was produced. This is not evidence of no GTDB counterpart. Broader ignored-inclusive
+    filename search had permission-denied subtrees and is not an exhaustive machine-wide
+    absence claim.
+- evidence_id: convention
+  kind: record_content
+  reference: kb/communities/HAMBI_Carbon_Gradient_SynCom16.yaml
+  locator: taxonomy[0,1].taxon_term
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: Existing curation represents unavailable crosswalks with UNRESOLVED and
+    explicit notes. Amsterdam_10Species_Gut_Invasion_SynCom uses the same convention.
+- evidence_id: target
+  kind: record_content
+  reference: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  locator: taxonomy[*].taxon_term
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: GTDB representation only; NCBI names, strain identity, evidence and existing
+    nodes are not reassessed by this deterministic follow-up.
+- evidence_id: local-first
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-regression.json
+  locator: First expanded local regression, exit 1
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: 135 passed, 2 failed, 1 skipped. Missing status and connectivity census
+    were fixed; the remaining distribution ceiling failed directly and inside the
+    unavailable-ontology harness. The failure receipt is preserved, not replaced.
+- evidence_id: ci-regression-v2
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-regression-v2.json
+  locator: Actual command and output
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: Retained local regression/gate receipt; not a remote CI pass.
+- evidence_id: ci-validate
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-validate.json
+  locator: Actual command and output
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: Retained local regression/gate receipt; not a remote CI pass.
+- evidence_id: ci-strict
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-strict.json
+  locator: Actual command and output
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: Retained local regression/gate receipt; not a remote CI pass.
+- evidence_id: ci-gtdb
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-gtdb.json
+  locator: Actual command and output
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: Retained local regression/gate receipt; not a remote CI pass.
+- evidence_id: ci-gtdb-domain
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-gtdb-domain.json
+  locator: Actual command and output
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: Retained local regression/gate receipt; not a remote CI pass.
+- evidence_id: ci-terms
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-terms.json
+  locator: Actual command and output
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: Retained local regression/gate receipt; not a remote CI pass.
+- evidence_id: ci-rank
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-rank.json
+  locator: Actual command and output
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: Retained local regression/gate receipt; not a remote CI pass.
+- evidence_id: ci-references
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-references.json
+  locator: Actual command and output
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: Retained local regression/gate receipt; not a remote CI pass.
+- evidence_id: ci-history
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-history.json
+  locator: Actual command and output
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: Retained local regression/gate receipt; not a remote CI pass.
+- evidence_id: ci-lint
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-lint.json
+  locator: Actual command and output
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: Retained local regression/gate receipt; not a remote CI pass.
+- evidence_id: ci-docs
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-docs.json
+  locator: Actual command and output
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: Retained local regression/gate receipt; not a remote CI pass.
+- evidence_id: ci-preservation
+  kind: validation
+  reference: reports/causal_graph_review/20261015-transwell-ci/ci-preservation.json
+  locator: Actual command and output
+  accessed_at: '2026-10-15T07:50:24.432292Z'
+  support: supports
+  summary: Retained local regression/gate receipt; not a remote CI pass.
+assessments:
+- assessment_id: integration
+  area: consistency
+  topic: Required metadata and census accountability
+  outcome: supported
+  target_ids:
+  - CommunityMech:000091
+  evidence_ids:
+  - ci-regression-v2
+  - target
+  - convention
+  - mapping
+  summary: All five entries explicitly retain unresolved GTDB lookup context. Current,
+    predecessor-substitution and restored census checks account for the exact delta
+    without changing validation rules.
+findings:
+- finding_id: status
+  issue_key: communitymech-2014-status
+  category: consistency
+  severity: major
+  status: resolved
+  certainty: confirmed
+  title: New taxonomy entries lack GTDB status
+  description: Required corpus status coverage fails for all five new members, including
+    under the unavailable-ontology harness.
+  target_ids:
+  - CommunityMech:000091
+  field_paths:
+  - taxonomy[*].taxon_term.gtdb_grounding_status
+  evidence_ids:
+  - ci-regression-v2
+  - local-first
+  - target
+  - convention
+  - mapping
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    role: GTDB status and provenance
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_causal_review_batch109.py
+    role: exact corpus census
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_gtdb_coherence_validator.py
+    role: GTDB distribution census
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2014
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T071433Z-transwell-ci-before
+    finding_id: status
+  disposition_reason: Explicit unresolved mapping context and the pinned predecessor
+    census controls account for connectivity and GTDB status counts. Runtime validators,
+    outage simulation and share guards are unchanged; issue closure still waits for
+    protected merge.
+- finding_id: census
+  issue_key: communitymech-2014-census
+  category: consistency
+  severity: minor
+  status: resolved
+  certainty: confirmed
+  title: Exact census remains pinned to the predecessor
+  description: The separate exact census must account for Transwell's additional four
+    strain entries and pairwise reporter scope, with a control proving the entire
+    delta. The subsequent local run also exposed the unresolved-status census ceiling;
+    its exact +5 unresolved/-1 grounded delta is proved with the same hash-pinned
+    predecessor strategy.
+  target_ids:
+  - CommunityMech:000091
+  field_paths:
+  - tests/test_causal_review_batch109.py::test_current_scope_census_tracks_later_source_bounded_repairs
+  - tests/test_gtdb_coherence_validator.py::test_the_status_distribution_is_what_was_measured
+  evidence_ids:
+  - ci-regression-v2
+  - local-first
+  - target
+  - convention
+  - mapping
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    role: GTDB status and provenance
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_causal_review_batch109.py
+    role: exact corpus census
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_gtdb_coherence_validator.py
+    role: GTDB distribution census
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2014
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T071433Z-transwell-ci-before
+    finding_id: census
+  disposition_reason: Explicit unresolved mapping context and the pinned predecessor
+    census controls account for connectivity and GTDB status counts. Runtime validators,
+    outage simulation and share guards are unchanged; issue closure still waits for
+    protected merge.
+actions: []
+limitations:
+- This is a deterministic integration self-review, not a new scientific review.
+- Local crosswalk unavailable; UNRESOLVED represents pending lookup, not absence of
+  a GTDB counterpart. No curator-supplied mapping is fabricated.
+- 'Original scientific limitations under #1467 remain open and needs_research is not
+  promoted.'
+- Full revised-head PR/queue CI is pending at this immutable local snapshot.
+- The local classifier reproduction test is skipped because its external GTDB crosswalk
+  is unavailable; status provenance is not a completed mapping.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2014
+- https://github.com/CultureBotAI/CommunityMech/issues/1467
+- https://github.com/CultureBotAI/CommunityMech/pull/2013

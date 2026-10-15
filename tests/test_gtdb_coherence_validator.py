@@ -542,7 +542,11 @@ def test_the_status_distribution_is_what_was_measured():
     # during curation (480 -> 489), not nine claims of absence from GTDB.
     # Their two viral members remain NO_GTDB_EQUIVALENT. The exact added
     # population is checked in test_phage_review_regressions.py.
-    assert counts["UNRESOLVED"] < 490, (
+    # #2014 replaces Transwell's grounded Bacteria umbrella with five explicit
+    # strain entries whose crosswalk lookup could not complete (489 -> 494).
+    # test_transwell_participants.py proves this entire distribution delta by
+    # substituting only the hash-pinned predecessor, then restoring the current record.
+    assert counts["UNRESOLVED"] < 495, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )

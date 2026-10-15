@@ -1,17 +1,28 @@
 """Pin assay boundaries, source contradictions and incomplete graph expansion."""
 
 import hashlib
+import subprocess
 from pathlib import Path
 
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-three-records-batch42.yaml"
+TRANSWELL_BASE = "616a2806e363f01a3727ea57dcf3bcd019999943"
+
+
+def record_bytes(row):
+    # Transwell has a linked successor; keep this batch's original assertions.
+    if row["id"] == "CommunityMech:000091":
+        raw = subprocess.check_output(["git", "show", f"{TRANSWELL_BASE}:{row['path']}"], cwd=ROOT)
+        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
+        return raw
+    return (ROOT / row["path"]).read_bytes()
 
 
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
-    return ledger, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in ledger["records"]]
+    return ledger, [yaml.safe_load(record_bytes(r)) for r in ledger["records"]]
 
 
 def test_fucoidan_panel_is_not_a_single_mutualistic_mineralizing_community():
@@ -133,7 +144,7 @@ def test_batch42_dispositions_history_participants_and_source_receipts():
     for path, expected in ledger["reference_cache_original_hashes"].items():
         assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == expected
     for row, doc in zip(ledger["records"], docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        assert hashlib.sha256(record_bytes(row)).hexdigest() == row["record_sha256"]
         assert len(row["history_files"]) == 1 and (ROOT / row["history_files"][0]).is_file()
         assert doc["curation_history"][-1]["llm_assisted"] is True
         canonical = {t["taxon_term"]["term"]["id"]: t["taxon_term"] for t in doc["taxonomy"]}

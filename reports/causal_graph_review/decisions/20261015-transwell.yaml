@@ -1,0 +1,108 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+recorded_at: '2026-10-15T06:26:42.159872+00:00'
+base_commit: 616a2806e363f01a3727ea57dcf3bcd019999943
+source_manifest: reports/causal_graph_review/sources/20261015-transwell/manifest.json
+edison:
+  required_for_repair: false
+  provider_submissions: 0
+  credits_spent: 0
+limitations:
+- No new nodes or downstream arrows. This is a partial participant correction, not independent approval
+  or corpus completion.
+- Two source scientific bodies, Table 1, captions and taxonomy XML inspected; no separate supplements,
+  image or raw-data audit.
+- 'SC discrepancy, new antagonism structure and cultivation metadata remain open under #1467.'
+records:
+- path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  id: CommunityMech:000091
+  original_sha256: 8d1ef9c4d9c8b8b0f2c203a984747b02cfa32e10fe648d3fd5bf0a9548c8208f
+  record_sha256: fb696f2703ca1d568e76d6f651867f80b9b198b7704c26b0610eeda4cb5830e6
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261015-transwell.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261006-three-records-batch42.yaml
+    record_sha256: 8d1ef9c4d9c8b8b0f2c203a984747b02cfa32e10fe648d3fd5bf0a9548c8208f
+  scope: Existing nodes, assay membership and taxonomic identity; no new topology.
+  summary: Five qualified strain entries replace the umbrella; explicit reporter endpoints and three-member
+    subset preserve assay boundaries.
+  node_decisions:
+  - node: AHL Diffusion and Violacein Induction
+    field_path: ecological_interactions[0]
+    rationale: Retain direct Cv017-to-Cv026 AHL reporter response, with current species grounding and
+      distinct strain endpoints. No coupling to the separate metabolomics assay.
+    participants:
+      source_taxon:
+        preferred_term: Chromobacterium subtsugae Cv017
+        term:
+          id: NCBITaxon:251747
+          label: Chromobacterium subtsugae
+      target_taxon:
+        preferred_term: Chromobacterium subtsugae Cv026
+        term:
+          id: NCBITaxon:251747
+          label: Chromobacterium subtsugae
+    reference: PMID:29152587
+    source_locator: Results, Table 1 and Methods
+    evidence:
+    - reference: PMID:29152587
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: AHLs from Cv017 diffused through wells to induce quorum sensing and violacein production
+        in Cv026
+      explanation: Supports the two-strain reporter response across the reservoir; endpoint transcription
+        and replating controls are described in the inspected main body. It is separate from the three-member
+        time series.
+  - node: Three-Member Exometabolite Time Series
+    field_path: ecological_interactions[1]
+    rationale: Retain time-varying nonpolar features, not identified metabolites or producer-consumer
+      flux. Limit to Table 1 wild type, E264 and DC3000, with unresolved prose/table strain discrepancy.
+      Polar bactobolin and live-cell counts do not establish selective mediation.
+    participants:
+      participating_taxa:
+      - preferred_term: Chromobacterium subtsugae SC11,378 (ATCC 31532)
+        term:
+          id: NCBITaxon:251747
+          label: Chromobacterium subtsugae
+      - preferred_term: Burkholderia thailandensis E264
+        term:
+          id: NCBITaxon:271848
+          label: Burkholderia thailandensis E264
+      - preferred_term: Pseudomonas syringae DC3000
+        term:
+          id: NCBITaxon:223283
+          label: Pseudomonas syringae pv. tomato str. DC3000
+    reference: PMID:29152587
+    source_locator: Results, Table 1 and Methods
+    evidence:
+    - reference: PMID:29152587
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: We observed both decreases in existing features (clusters A and B) and production of new
+        features over time (clusters D, E, and F)
+      explanation: Supports temporal mass-feature differences, not resolved exchange flux or mediator-specific
+        causality. The polar bactobolin measurement and live-cell counts are distinct readouts.
+  edges_before: []
+  edges_after: []
+  removed_node_decisions: []
+  removed_edge_decisions: []
+  renamed_nodes: {}
+  retained_edge_decisions: []
+  issues:
+  - 1467
+  references:
+  - PMID:29152587
+  - PMID:33159606
+  history_files:
+  - history/records/GLBRC_Exometabolite_Transwell_SynCom/2026-10-15T062520Z-claude-code-25fda9.yaml
+  - history/records/GLBRC_Exometabolite_Transwell_SynCom/2026-10-15T062752Z-codex-19565d.yaml
+  allowed_changed_fields:
+  - taxonomy
+  - ecological_interactions
+  - discussions
+  - curation_history
+  curation_events_added: 1
+  remaining_requirement: Reconcile SC11,368/SC11,378 stock identity, independently review cultivation
+    metadata and complete provider-assisted new-node research without assuming bactobolin mediation.

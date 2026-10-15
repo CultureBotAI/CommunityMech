@@ -2,6 +2,7 @@
 
 import hashlib
 import runpy
+import subprocess
 from pathlib import Path
 
 import yaml
@@ -175,7 +176,7 @@ def test_hashes_histories_and_canonical_identity_only_scope_are_explicit():
             )
 
 
-def test_current_scope_census_tracks_later_source_bounded_repairs():
+def test_current_scope_census_tracks_later_source_bounded_repairs(monkeypatch):
     # Batch119 moves Bacillus protection to all three THOR members: one more sole credit.
     # Batch124 adds yogurt's two named participants to mixed-scope records, not sole credit.
     # The two phage-bacteria records add 2 records and 11 taxa: 5 in the
@@ -185,10 +186,10 @@ def test_current_scope_census_tracks_later_source_bounded_repairs():
     # phage and its PA14 host, which carry pairwise infection edges. Removing
     # just these two records reproduces the previous census exactly, so the
     # whole delta is theirs.
-    survey = runpy.run_path(str(ROOT / "tests/test_community_level_connectivity_credit.py"))[
+    survey_fn = runpy.run_path(str(ROOT / "tests/test_community_level_connectivity_credit.py"))[
         "_survey"
-    ]()
-    assert survey == {
+    ]
+    previous = {
         "records": 462,
         "with_community_level": 417,
         "mixed": 138,
@@ -196,3 +197,36 @@ def test_current_scope_census_tracks_later_source_bounded_repairs():
         "taxa": 1581,
         "credited_solely_by_the_rule": 1290,
     }
+    # #2014: five Transwell strain entries replace one umbrella, with two
+    # pairwise reporter participants and three solely community-level members.
+    expected = {
+        **previous,
+        "mixed": 139,
+        "community_level_only": 278,
+        "taxa": 1585,
+        "credited_solely_by_the_rule": 1292,
+    }
+    assert survey_fn() == expected
+    target = ROOT / "kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml"
+    old = subprocess.check_output(
+        ["git", "show", f"616a2806e363f01a3727ea57dcf3bcd019999943:{target.relative_to(ROOT)}"],
+        cwd=ROOT,
+        text=True,
+    )
+    ledger = yaml.safe_load(
+        (
+            ROOT / "reports/causal_graph_review/decisions/20261006-three-records-batch42.yaml"
+        ).read_text()
+    )
+    assert hashlib.sha256(old.encode()).hexdigest() == ledger["records"][2]["record_sha256"]
+    original_read = Path.read_text
+
+    def predecessor_only(path, *args, **kwargs):
+        return old if path == target else original_read(path, *args, **kwargs)
+
+    with monkeypatch.context() as context:
+        context.setattr(Path, "read_text", predecessor_only)
+        assert target.read_text() == old
+        assert survey_fn() == previous
+    assert target.read_text() != old
+    assert survey_fn() == expected
