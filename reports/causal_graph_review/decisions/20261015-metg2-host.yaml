@@ -1,0 +1,138 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+recorded_at: '2026-10-15T04:33:40.541630+00:00'
+base_commit: 737a95eed17f606b30dd99fbec7dc82c19ad3f40
+source_manifest: reports/causal_graph_review/sources/20261015-metg2-host/manifest.json
+edison:
+  required_for_repair: false
+  provider_submissions: 0
+  credits_spent: 0
+limitations:
+- No new causal nodes or arrows; no provider calls or source cache changes.
+- Primary abstract and taxonomy ranks inspected; complete Methods, cultivar and strain spelling remain
+  unverified.
+- The aggregate functional-gene node remains unchanged pending native/inoculant participant reconciliation.
+- This partial source-based self-review is not independent approval, whole-record certification or corpus
+  completion.
+records:
+- path: kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml
+  id: CommunityMech:000302
+  original_sha256: a1fe9ffb3e47c18fa4d8ac5abb97a451dc8bffd7940b3b741d682729bb47bfb7
+  record_sha256: 75f43d8ae7e953f895bf8b2e13cd26de63c288cf9200c2476fd60750ba87afcd
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261015-metg2-host.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-four-records-batch108.yaml
+    record_sha256: a1fe9ffb3e47c18fa4d8ac5abb97a451dc8bffd7940b3b741d682729bb47bfb7
+  scope: Whole record and all existing graph evidence read; scoped host/participant repair, not complete
+    methods or membership certification.
+  summary: 'Remove unsupported sugarcane species precision and narrow two existing expression participants;
+    retain topology, evidence and unresolved #1847.'
+  node_decisions:
+  - node: Rhizosphere colonization-associated gene expression
+    rationale: Retain molecular expression and PARTIAL inferred colonization, not demonstrated movement
+      or facilitation. Name only the documented responding phylum, excluding the plant host; this is not
+      an inoculant roster.
+    field_path: ecological_interactions[0]
+    participants:
+      participating_taxa:
+      - preferred_term: Proteobacteria (rhizosphere community members)
+        term:
+          id: NCBITaxon:1224
+          label: Pseudomonadota
+    source_locator: doi:10.1016/j.rhisph.2025.101142; Abstract
+    evidence:
+    - reference: doi:10.1016/j.rhisph.2025.101142
+      supports: PARTIAL
+      evidence_source: IN_VIVO
+      snippet: an up-regulation of genes related to flagellar assembly, chemotaxis, quorum sensing, and
+        biofilm formation, particularly within Proteobacteria, indicating active microbial movement toward
+        root surfaces
+      explanation: Supports gene upregulation and the authors colonization interpretation; it does not
+        directly observe root movement or establish facilitation.
+  - node: Rhizosphere enrichment of plant-associated functional genes
+    rationale: Retain the bounded native-rhizosphere gene enrichment and existing HYPOTHESIZED/PARTIAL
+      contribution to host expression. It is not exclusive to one phylum or all inoculants; unchanged
+      unresolved aggregate participant scope is not recertified.
+    field_path: ecological_interactions[1]
+    participants: {}
+    source_locator: doi:10.1016/j.rhisph.2025.101142; Abstract
+    evidence:
+    - reference: doi:10.1016/j.rhisph.2025.101142
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: genes associated with nutrient acquisition, hormone synthesis, siderophore production,
+        and volatile organic compound (VOC) synthesis were enriched, suggesting stimulated beneficial
+        microbial activities
+      explanation: Supports functional gene enrichment and its proposed beneficial interpretation, not
+        demonstrated mutualism or metabolite transfer.
+  - node: Sugarcane hormone and nutrient-transporter response
+    rationale: Retain positive sugarcane molecular responses, not measured stress tolerance or reciprocal
+      benefit. Name the study plant only, using an explicit parent-only Saccharum anchor rather than an
+      unsupported species or genus-wide generalization.
+    field_path: ecological_interactions[2]
+    participants:
+      participating_taxa:
+      - preferred_term: sugarcane (Saccharum; species unresolved)
+        term:
+          id: NCBITaxon:4546
+          label: Saccharum
+    source_locator: doi:10.1016/j.rhisph.2025.101142; Abstract
+    evidence:
+    - reference: doi:10.1016/j.rhisph.2025.101142
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Sugarcane plants also exhibited dynamic responses, including the up-regulation of hormone-related
+        genes (auxin, cytokinin, salicylic acid) and nutrient transporter genes
+      explanation: Supports the sugarcane hormone and nutrient-transporter gene response after MetG2 inoculation.
+    - reference: doi:10.1016/j.rhisph.2025.101142
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Stress resistance genes such as trehalose 6-phosphate phosphatase, phenylalanine ammonia-lyase,
+        expansin, and antioxidant-related genes were also induced.
+      explanation: Supports host stress-response transcription, not a direct stress-challenge performance
+        measurement.
+  edges_before:
+  - source: Rhizosphere enrichment of plant-associated functional genes
+    target: Sugarcane hormone and nutrient-transporter response
+    description: 'HYPOTHESIZED/PARTIAL: the enriched microbial functions are proposed to contribute to
+      the host transcriptional response in the MetG2-associated plant-microbe system. The reviewed omics
+      evidence does not identify a transferred causal signal, establish that gene enrichment precedes
+      the host response, or isolate mediation by the inoculant from the native rhizosphere community.'
+  edges_after:
+  - source: Rhizosphere enrichment of plant-associated functional genes
+    target: Sugarcane hormone and nutrient-transporter response
+    description: 'HYPOTHESIZED/PARTIAL: the enriched microbial functions are proposed to contribute to
+      the host transcriptional response in the MetG2-associated plant-microbe system. The reviewed omics
+      evidence does not identify a transferred causal signal, establish that gene enrichment precedes
+      the host response, or isolate mediation by the inoculant from the native rhizosphere community.'
+  removed_node_decisions: []
+  removed_edge_decisions: []
+  renamed_nodes: {}
+  retained_edge_decisions:
+  - source: Rhizosphere enrichment of plant-associated functional genes
+    target: Sugarcane hormone and nutrient-transporter response
+    description: 'HYPOTHESIZED/PARTIAL: the enriched microbial functions are proposed to contribute to
+      the host transcriptional response in the MetG2-associated plant-microbe system. The reviewed omics
+      evidence does not identify a transferred causal signal, establish that gene enrichment precedes
+      the host response, or isolate mediation by the inoculant from the native rhizosphere community.'
+    reference: doi:10.1016/j.rhisph.2025.101142
+    rationale: Retain the existing explicitly hypothetical microbial-functional contribution; co-occurring
+      expression does not establish temporal order or isolated mediation.
+  references:
+  - doi:10.1016/j.rhisph.2025.101142
+  - https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4546
+  issues:
+  - 1847
+  allowed_changed_fields:
+  - taxonomy
+  - ecological_interactions
+  - discussions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience/2026-10-15T043151Z-codex-18bb87.yaml
+  remaining_requirement: Verify exact MetG2 inoculant roster, Chiliseed2/Chileseed2 discrepancy and experimental
+    host species/cultivar, without assigning native-community aggregate expression to every inoculant.

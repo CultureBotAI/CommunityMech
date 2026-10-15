@@ -1,0 +1,17 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "pytest",
+    "tests/test_metg2_host_scope.py::test_host_grounding_and_expression_participants",
+    "-q"
+  ],
+  "started_at": "2026-10-15T04:25:48.242663+00:00",
+  "finished_at": "2026-10-15T04:25:49.795357+00:00",
+  "git_revision": "737a95eed17f606b30dd99fbec7dc82c19ad3f40",
+  "record_sha256_before": "a1fe9ffb3e47c18fa4d8ac5abb97a451dc8bffd7940b3b741d682729bb47bfb7",
+  "record_sha256_after": "a1fe9ffb3e47c18fa4d8ac5abb97a451dc8bffd7940b3b741d682729bb47bfb7",
+  "exit_code": 1,
+  "stdout": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_______________ test_host_grounding_and_expression_participants ________________\n\n    def test_host_grounding_and_expression_participants():\n>       assert_host_scope(current())\n\ntests/test_metg2_host_scope.py:43: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ndoc = {'community_category': 'RHIZOSPHERE', 'community_origin': 'SYNTHETIC', 'curation_history': [{'action': 'REVIEW_CAUSAL_...stress-resistance genes, supporting MetG2 as a sustainable strategy to enhance crop productivity and resilience.', ...}\n\n    def assert_host_scope(doc):\n        host = doc[\"taxonomy\"][0][\"taxon_term\"]\n        phylum = doc[\"taxonomy\"][1][\"taxon_term\"]\n        colonization, functions, response = doc[\"ecological_interactions\"]\n>       assert host[\"term\"] == {\"id\": \"NCBITaxon:4546\", \"label\": \"Saccharum\"}\nE       AssertionError: assert {'id': 'NCBIT... officinarum'} == {'id': 'NCBIT...: 'Saccharum'}\nE         \nE         Differing items:\nE         {'label': 'Saccharum officinarum'} != {'label': 'Saccharum'}\nE         {'id': 'NCBITaxon:4547'} != {'id': 'NCBITaxon:4546'}\nE         Use -v to get more diff\n\ntests/test_metg2_host_scope.py:21: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_metg2_host_scope.py::test_host_grounding_and_expression_participants\n1 failed in 0.33s\n",
+  "stderr": ""
+}
