@@ -144,7 +144,9 @@ def test_the_mixed_records_are_where_the_coarseness_bites(survey):
     # The four-species phage record is mixed-scope (137 -> 138): its pairwise
     # infection edges sit alongside one community-scoped competitive-release
     # outcome. The PHA record is community-only, so it does not land here.
-    assert 35 <= survey["mixed"] <= 138, survey
+    # #1467 resolves the Transwell reporter endpoints while retaining its separate
+    # three-member community-level assay (138 -> 139); the share guard is unchanged.
+    assert 35 <= survey["mixed"] <= 139, survey
     assert survey["mixed"] + survey["community_level_only"] == survey["with_community_level"]
 
 

@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".venv/bin/pytest",
+    "tests/test_transwell_participants.py::test_exact_assay_scope",
+    "-q"
+  ],
+  "started_at": "2026-10-15T06:19:51.702402+00:00",
+  "finished_at": "2026-10-15T06:19:54.967288+00:00",
+  "exit_code": 1,
+  "git_revision": "616a2806e363f01a3727ea57dcf3bcd019999943",
+  "record_sha256_before": "8d1ef9c4d9c8b8b0f2c203a984747b02cfa32e10fe648d3fd5bf0a9548c8208f",
+  "record_sha256_after": "8d1ef9c4d9c8b8b0f2c203a984747b02cfa32e10fe648d3fd5bf0a9548c8208f",
+  "stdout": "F                                                                        [100%]\n=================================== FAILURES ===================================\n____________________________ test_exact_assay_scope ____________________________\n\n    def test_exact_assay_scope():\n>       assert_scope(current())\n\ntests/test_transwell_participants.py:49: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ndoc = {'community_category': 'BIOTECHNOLOGY', 'community_origin': 'SYNTHETIC', 'curation_history': [{'action': 'PRUNE_CAUSAL...tic community assay system for probing chemically mediated microbial interactions through shared exometabolites.', ...}\n\n    def assert_scope(doc):\n>       members = {t[\"strain_designation\"][\"strain_name\"]: t for t in doc[\"taxonomy\"]}\n                   ^^^^^^^^^^^^^^^^^^^^^^^\nE       KeyError: 'strain_designation'\n\ntests/test_transwell_participants.py:20: KeyError\n=============================== warnings summary ===============================\n.venv/lib/python3.13/site-packages/linkml/generators/pydanticgen/template.py:553: 12 warnings\n  /private/tmp/communitymech-causal-20261014/.venv/lib/python3.13/site-packages/linkml/generators/pydanticgen/template.py:553: PydanticDeprecatedSince211: Accessing the 'model_fields' attribute on the instance is deprecated. Instead, you should access this attribute from the model class. Deprecated in Pydantic V2.11 to be removed in V3.0.\n    imports=imports, **{k: getattr(self, k, None) for k in self.model_fields if k != \"imports\"}\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED tests/test_transwell_participants.py::test_exact_assay_scope - KeyErro...\n1 failed, 12 warnings in 2.09s\n",
+  "stderr": ""
+}
