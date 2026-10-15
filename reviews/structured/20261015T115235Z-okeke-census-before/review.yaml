@@ -1,0 +1,172 @@
+schema_version: 1.0.0
+review_id: 20261015T115235Z-okeke-census-before
+kind: repository
+repository: CultureBotAI/CommunityMech
+title: Okeke participant census before
+started_at: '2026-10-15T11:52:33.303748Z'
+finished_at: '2026-10-15T11:52:35.881594Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Implementing-agent technical adversarial review; no independent
+    approval.
+skill: communitymech-causal-graphs
+completion: partial
+verdict: needs_curation
+scientific_review: false
+summary: Track the CI-discovered participant-census omission without weakening any
+  connectivity gate.
+source:
+  git_revision: e92858eb2efc07bd6d76485d7212683a055ce96a
+  state: git_commit
+  inputs:
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+    sha256: 49138a663308a7331c64b2be0a72a6127ad800063b78a7648c27712fc9dd87ef
+    role: context
+  - path: reports/causal_graph_review/20261015-okeke-participants/census-before.json
+    sha256: 35f3279f654aff683f54fb0830867eabe08969d0030a01fb903aa1d2dffe4ed2
+    role: context
+  - path: reports/causal_graph_review/20261015-okeke-participants/census-measurement.json
+    sha256: 5a4d55159f03f064bb6fee4cee43a9557ef0ede4575d302c3d19257c12707025
+    role: context
+  - path: tests/test_community_level_connectivity_credit.py
+    sha256: 69af5ff490cde0307d60a1d59389647a158f9d7f16c9f11796c7bf48480747ce
+    role: context
+  - path: tests/test_participating_taxa.py
+    sha256: 15be3dd03a9bf754248cf4d9c622f40a6b988e921553ec52cd77aa6ce900057e
+    role: target
+targets:
+- kind: maintained
+  label: Explicit participant census
+  owner_paths:
+  - path: tests/test_participating_taxa.py
+    repository: CultureBotAI/CommunityMech
+    role: maintained_test
+  path: tests/test_participating_taxa.py
+  target_id: participant-census-okeke
+scope:
+  description: One maintained exact-set census and its integration with the Okeke
+    repair.
+  selection: Sole failing test in PR2018 run38725691675.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - participant-census-okeke
+checks:
+- check_id: census-before
+  name: census-before
+  status: failed
+  required: true
+  target_ids:
+  - participant-census-okeke
+  evidence_ids:
+  - census-before
+  command: .venv/bin/pytest tests/test_participating_taxa.py::test_the_corpus_is_unchanged_by_this_feature
+    -q --no-cov
+  exit_code: 1
+  expected_exit_code: 0
+  summary: Missing Okeke entry reproduced.
+- check_id: protected-ci
+  name: Revised PR and merge-queue checks
+  status: unavailable
+  required: true
+  target_ids:
+  - participant-census-okeke
+  evidence_ids:
+  - ci
+  summary: Fresh revised-head PR and queue checks must still pass; the original run
+    failed and is not counted as green.
+evidence:
+- evidence_id: census-before
+  kind: validation
+  reference: reports/causal_graph_review/20261015-okeke-participants/census-before.json
+  locator: command, timestamps, exit code and full output
+  accessed_at: '2026-10-15T11:52:35.881594Z'
+  support: supports
+  summary: Local reproduction of the missing exact-set entry.
+- evidence_id: measurement
+  kind: validation
+  reference: reports/causal_graph_review/20261015-okeke-participants/census-measurement.json
+  locator: Both-root before/after survey and explicit-user set difference
+  accessed_at: '2026-10-15T11:52:35.881594Z'
+  support: supports
+  summary: Only Okeke joins the explicit-user set (303 to 304); every connectivity
+    survey count is unchanged.
+- evidence_id: ci
+  kind: validation
+  reference: https://github.com/CultureBotAI/CommunityMech/actions/runs/38725691675
+  locator: Run tests, sole failure in test_the_corpus_is_unchanged_by_this_feature
+    at 262d1716
+  accessed_at: '2026-10-15T11:52:35.881594Z'
+  support: supports
+  summary: 'First PR run: 1 failed, 4962 passed, 86 skipped, 8 deselected; the local
+    scoped suite had omitted this module.'
+assessments:
+- assessment_id: census
+  area: consistency
+  topic: Explicit participant population and unchanged connectivity
+  outcome: concern
+  target_ids:
+  - participant-census-okeke
+  evidence_ids:
+  - census-before
+  - measurement
+  summary: Intentional Okeke participation is missing from the exact set.
+findings:
+- finding_id: census-entry
+  issue_key: okeke-participant-census-entry
+  title: Explicit participant census omitted the intentionally changed record
+  description: The new Okeke participant lists change the exact user set from 303
+    to 304, but USERS did not include the record.
+  category: consistency
+  severity: major
+  status: open
+  certainty: confirmed
+  target_ids:
+  - participant-census-okeke
+  field_paths:
+  - USERS
+  evidence_ids:
+  - census-before
+  - measurement
+  - ci
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_participating_taxa.py
+    role: maintained_test
+  rule_id: participant-census-exact-set
+  native_severity: P2
+  normalization_reason: Deterministic required CI failure blocks publication of this
+    curation change.
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2019
+actions:
+- action_id: update-set
+  finding_ids:
+  - census-entry
+  target_ids:
+  - participant-census-okeke
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: tests/test_participating_taxa.py
+    role: maintained_test
+  description: Add the measured intentional user and test the census without loosening
+    equality or bounds.
+  acceptance_checks:
+  - Only Okeke enters USERS.
+  - Connectivity measurements and thresholds stay unchanged.
+  - Omission mutation fails with restored green control.
+  - Fresh required CI passes before merge.
+limitations:
+- Technical regression review only; literature and scientific completeness were not
+  reassessed.
+- Original scientific review and needs_research status remain unchanged; issues1657
+  and1658 remain open.
+- Local checks do not replace revised-head PR and protected queue validation.

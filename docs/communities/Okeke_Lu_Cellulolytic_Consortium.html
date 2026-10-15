@@ -709,6 +709,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudoxanthomonas byssovorax DB1,
+
+                    Microbacterium oxydans DB2
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -778,6 +786,14 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Microbacterium oxydans DB2,
+
+                    Klebsiella sp. DB13
+
+                </p>
 
 
 
@@ -1428,6 +1444,19 @@
 
 
 
+            var participantKeys = [
+
+                "Pseudoxanthomonas byssovorax DB1",
+
+                "Microbacterium oxydans DB2"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1461,6 +1490,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Microbacterium oxydans DB2",
+
+                "Klebsiella sp. DB13"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

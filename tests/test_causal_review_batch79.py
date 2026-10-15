@@ -1,18 +1,27 @@
 """Preserve positive outcomes without promoting assay/model scope to resolved flux."""
 
 import hashlib
+import subprocess
 from pathlib import Path
 
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch79.yaml"
+OKEKE_BASE = "f42697b3660d8832a54852f9b3593aafe229bc6b"
+
+
+def record_bytes(path):
+    # Keep the original batch assertions; the Okeke successor has separate tests.
+    if Path(path).stem == "Okeke_Lu_Cellulolytic_Consortium":
+        return subprocess.check_output(["git", "show", f"{OKEKE_BASE}:{path}"], cwd=ROOT)
+    return (ROOT / path).read_bytes()
 
 
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
+    return ledger, rows, [yaml.safe_load(record_bytes(r["path"])) for r in rows]
 
 
 def test_frc_controlled_tolerance_and_selection_survive():
@@ -169,4 +178,4 @@ def test_history_and_research_lifecycle_are_explicit():
         assert row["curation_events_added"] == 1 and len(row["history_files"]) == 1
         assert all((ROOT / p).exists() for p in row["history_files"])
         assert doc["curation_history"][-1]["llm_assisted"] is True
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        assert hashlib.sha256(record_bytes(row["path"])).hexdigest() == row["record_sha256"]

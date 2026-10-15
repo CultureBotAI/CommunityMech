@@ -1,0 +1,101 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+recorded_at: '2026-10-15T10:58:54.960603+00:00'
+base_commit: 9144df3a872974c60c675cbb2b15b7cdd72940b5
+source_access: reports/causal_graph_review/20261015-okeke-participants/source-access.md
+edison:
+  required_for_repair: false
+  provider_submissions: 0
+  credits_spent: 0
+limitations:
+- No new nodes, arrows, evidence or canonical identities; primary full text remains uninspected.
+- No independent approval or full-corpus completion; the research and metadata issues remain open.
+records:
+- path: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+  id: CommunityMech:000048
+  original_sha256: 1992cf47e5fd154a6684b025a6117d7f10398c65beb8d8e5f65e8e2115ab8f42
+  record_sha256: 49138a663308a7331c64b2be0a72a6127ad800063b78a7648c27712fc9dd87ef
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261015-okeke-participants.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch79.yaml
+    record_sha256: 1992cf47e5fd154a6684b025a6117d7f10398c65beb8d8e5f65e8e2115ab8f42
+  scope: Whole record read; three graph nodes and two arrows assessed at primary-abstract scope. Only
+    two participant lists change; no whole-record scientific approval.
+  summary: Restrict the two isolate-assay nodes to their named subsets; preserve both hypothesis arrows
+    and unresolved full-text scope.
+  node_decisions:
+  - node: Cellulose-Hydrolyzing Isolate Enzyme Activities
+    field_path: ecological_interactions[0]
+    rationale: DB1/DB2 support the named cellulose isolate measurements, not every member or a joint pair
+      assay.
+    participants:
+    - Pseudoxanthomonas byssovorax DB1
+    - Microbacterium oxydans DB2
+    reference: PMID:20859703
+    source_locator: Complete primary abstract; full Methods/Results unavailable
+  - node: Xylan-Hydrolyzing Isolate Enzyme Activities
+    field_path: ecological_interactions[1]
+    rationale: DB2/DB13 support the named xylan isolate measurements, not every member or a joint pair
+      assay.
+    participants:
+    - Microbacterium oxydans DB2
+    - Klebsiella sp. DB13
+    reference: PMID:20859703
+    source_locator: Complete primary abstract; full Methods/Results unavailable
+  - node: Proposed Complementary Lignocellulose Hydrolysis
+    field_path: ecological_interactions[2]
+    rationale: Retain the qualified all-five consortium design; combined-culture superiority remains unverified.
+    participants: five-member design
+    reference: PMID:20859703
+    source_locator: Complete primary abstract; full Methods/Results unavailable
+  edges_before:
+  - source: Cellulose-Hydrolyzing Isolate Enzyme Activities
+    target: Proposed Complementary Lignocellulose Hydrolysis
+    description: HYPOTHESIZED - Measured isolate hydrolases provide the cellulose-hydrolysis branch proposed
+      to complement the other enzyme activities in the assembled consortium. The causal contribution is
+      biochemical potential inferred from isolate assays and consortium construction, not a measured increase
+      in combined-culture degradation or demonstrated synergistic flux.
+  - source: Xylan-Hydrolyzing Isolate Enzyme Activities
+    target: Proposed Complementary Lignocellulose Hydrolysis
+    description: HYPOTHESIZED - Measured isolate hydrolases provide the hemicellulose-hydrolysis branch
+      proposed to complement the other enzyme activities in the assembled consortium. The causal contribution
+      is biochemical potential inferred from isolate assays and consortium construction, not a measured
+      increase in combined-culture degradation or demonstrated synergistic flux.
+  edges_after:
+  - source: Cellulose-Hydrolyzing Isolate Enzyme Activities
+    target: Proposed Complementary Lignocellulose Hydrolysis
+    description: HYPOTHESIZED - Measured isolate hydrolases provide the cellulose-hydrolysis branch proposed
+      to complement the other enzyme activities in the assembled consortium. The causal contribution is
+      biochemical potential inferred from isolate assays and consortium construction, not a measured increase
+      in combined-culture degradation or demonstrated synergistic flux.
+  - source: Xylan-Hydrolyzing Isolate Enzyme Activities
+    target: Proposed Complementary Lignocellulose Hydrolysis
+    description: HYPOTHESIZED - Measured isolate hydrolases provide the hemicellulose-hydrolysis branch
+      proposed to complement the other enzyme activities in the assembled consortium. The causal contribution
+      is biochemical potential inferred from isolate assays and consortium construction, not a measured
+      increase in combined-culture degradation or demonstrated synergistic flux.
+  retained_edge_decisions:
+  - source: Cellulose-Hydrolyzing Isolate Enzyme Activities
+    target: Proposed Complementary Lignocellulose Hydrolysis
+    rationale: Retain explicitly hypothesized contribution; no stronger direction or measured synergistic
+      flux asserted.
+  - source: Xylan-Hydrolyzing Isolate Enzyme Activities
+    target: Proposed Complementary Lignocellulose Hydrolysis
+    rationale: Retain explicitly hypothesized contribution; no stronger direction or measured synergistic
+      flux asserted.
+  removed_edge_decisions: []
+  references:
+  - PMID:20859703
+  issues:
+  - 2017
+  open_research_issue: 1657
+  open_nongraph_issue: 1658
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Okeke_Lu_Cellulolytic_Consortium/2026-10-15T105736Z-codex-fca0d2.yaml

@@ -353,6 +353,7 @@ USERS = {
     "Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml",
     "ORNL_PMI_Populus_PD10_SynCom.yaml",
     "Ogataea_Met10_Str3_Sulfur_CrossFeeding_Coculture.yaml",
+    "Okeke_Lu_Cellulolytic_Consortium.yaml",
     "Ostreococcus_Dinoroseobacter_BVitamin_Mutualism.yaml",
     "PET_Artificial_FourSpecies_Degradation_Consortium.yaml",
     "PMI_Variovorax_Thermotolerance_Collection.yaml",

@@ -1,0 +1,336 @@
+schema_version: 1.0.0
+review_id: 20261015T105803Z-okeke-before
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Okeke-Lu assay participants before
+started_at: '2026-10-15T10:55:36.733807Z'
+finished_at: '2026-10-15T10:58:03.030202Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Implementing-agent adversarial review, not independent approval.
+skill: communitymech-causal-graphs
+completion: partial
+verdict: needs_curation
+native_verdict: needs_research
+scientific_review: true
+source:
+  git_revision: 9144df3a872974c60c675cbb2b15b7cdd72940b5
+  state: git_commit
+  inputs:
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+    sha256: b3843b5e2f64d179b4bc11a1558b7f977c025252fa6fe16d8ab82e0dfb292ec1
+    role: context
+  - path: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+    sha256: 1992cf47e5fd154a6684b025a6117d7f10398c65beb8d8e5f65e8e2115ab8f42
+    role: target
+  - path: references_cache/PMID_20859703.txt
+    sha256: 35e2a24b11e1c6656df8f680cb1734b9c6c30e9931b49694aba8b16fc11cee4d
+    role: context
+  - path: reports/causal_graph_review/20261015-okeke-participants/baseline-inventory.json
+    sha256: 5f4a93249af49ca1440f1413f749aef9f27f35f2d8f8e46dde9b6f9d6e1ddedb
+    role: context
+  - path: reports/causal_graph_review/20261015-okeke-participants/source-access.md
+    sha256: 72720106d68c9f66ab29707cee6a986e598d2b76471d489c9aae929583925fe7
+    role: context
+  - path: reports/causal_graph_review/decisions/20261007-four-records-batch79.yaml
+    sha256: 9dd19980fd51ff6885a8be6faf1aa5245931b8fb7b0adf4723fbdfa74ae3bb30
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: e5a87e5367609334ec0d6361f6ddafbe6bc4a1f7d93e5264c64688c28325910f
+    role: context
+  - path: tests/test_causal_review_batch79.py
+    sha256: 3abc1e03175be0e655fe07c8c119d6ed246ca81853d5ce7cfdbf1952e74b370d
+    role: context
+targets:
+- target_id: CommunityMech:000048
+  path: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+  label: Okeke-Lu Cellulolytic-Xylanolytic Consortium
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+    role: canonical_record
+summary: 'Assess the retained pre-repair Git snapshot, not the repaired working tree:
+  isolate-enzyme participant subsets are implicit while full-text research remains
+  unresolved.'
+scope:
+  description: All three nodes and two arrows assessed at available abstract scope;
+    no whole-record certification.
+  selection: Focused follow-up to participant finding2017 and existing source issue1657.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000048
+checks:
+- check_id: baseline-inventory
+  name: baseline-inventory
+  status: passed
+  required: true
+  target_ids:
+  - CommunityMech:000048
+  evidence_ids:
+  - baseline-inventory
+  command: /private/tmp/communitymech-causal-20261014/.venv/bin/python reports/causal_graph_review/build_inventory.py
+  exit_code: 0
+  expected_exit_code: 0
+  summary: Passed for the recorded command scope; full output retained.
+- check_id: full-source
+  name: Combined-culture Methods and Results
+  status: unavailable
+  required: true
+  target_ids:
+  - CommunityMech:000048
+  evidence_ids:
+  - access
+  summary: Full primary assays remain uninspected; this is partial review, not scientific
+    completion.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+  locator: ecological_interactions[0:3], taxonomy and discussions; whole record read
+  accessed_at: '2026-10-15T10:55:36.733807Z'
+  support: context_only
+  summary: Three nodes and two qualified arrows; two separate isolate-assay subsets
+    need explicit participants.
+- evidence_id: primary
+  kind: primary_source
+  reference: PMID:20859703
+  locator: Complete retained abstract, independently checked against indexed PubMed
+    abstract; source-access.md
+  accessed_at: '2026-10-15T10:55:36.733807Z'
+  support: partial
+  summary: DB1/DB2 cellulose and DB2/DB13 xylan measurements support the respective
+    isolate subsets; whole-consortium superiority is not verified.
+- evidence_id: semantics
+  kind: record_content
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: EcologicalInteraction.participating_taxa; src/communitymech/network/auditor.py
+    community-level branch
+  accessed_at: '2026-10-15T10:55:36.733807Z'
+  support: supports
+  summary: An absent or empty participant list credits every member; named subsets
+    must preserve strain-bearing preferred names.
+- evidence_id: access
+  kind: search
+  reference: reports/causal_graph_review/20261015-okeke-participants/source-access.md
+  locator: Dated access scope, exclusions and open issues
+  accessed_at: '2026-10-15T10:55:36.733807Z'
+  support: context_only
+  summary: No full-body, figure or supplementary review; no new source cache or provider
+    submission.
+  search_scope: Ignored/hidden files included in scoped local discovery; GitHub all-state
+    Okeke search, not exhaustive PR comments.
+- evidence_id: baseline-inventory
+  kind: validation
+  reference: reports/causal_graph_review/20261015-okeke-participants/baseline-inventory.json
+  locator: command, exit_code, timestamps and output
+  accessed_at: '2026-10-15T10:55:36.733807Z'
+  support: context_only
+  summary: Passed for the recorded command scope; full output retained.
+assessments:
+- assessment_id: node-0
+  area: graph
+  topic: Cellulose-Hydrolyzing Isolate Enzyme Activities
+  outcome: concern
+  target_ids:
+  - CommunityMech:000048
+  evidence_ids:
+  - record
+  - primary
+  - semantics
+  summary: Cellulose values belong to DB1/DB2 isolate assays.
+  details: Field ecological_interactions[0]. Canonical descriptors reused; species
+    identity is not independently recertified. Two retained incoming contributions
+    to node 2 are hypotheses, not measured inter-isolate flux.
+  dimensions:
+  - name: assay-scope
+    value: separate isolate cultures
+    definition: Do not infer pairwise exchange or joint measurement from subset membership
+    evidence_ids:
+    - primary
+- assessment_id: node-1
+  area: graph
+  topic: Xylan-Hydrolyzing Isolate Enzyme Activities
+  outcome: concern
+  target_ids:
+  - CommunityMech:000048
+  evidence_ids:
+  - record
+  - primary
+  - semantics
+  summary: Xylan values belong to DB2/DB13 isolate assays.
+  details: Field ecological_interactions[1]. Canonical descriptors reused; species
+    identity is not independently recertified. Two retained incoming contributions
+    to node 2 are hypotheses, not measured inter-isolate flux.
+  dimensions:
+  - name: assay-scope
+    value: separate isolate cultures
+    definition: Do not infer pairwise exchange or joint measurement from subset membership
+    evidence_ids:
+    - primary
+- assessment_id: node-2
+  area: graph
+  topic: Proposed Complementary Lignocellulose Hydrolysis
+  outcome: unknown
+  target_ids:
+  - CommunityMech:000048
+  evidence_ids:
+  - record
+  - primary
+  - semantics
+  summary: All-five design remains a proposed complementary process, not established
+    combined-culture synergy.
+  details: Field ecological_interactions[2]. Canonical descriptors reused; species
+    identity is not independently recertified. Two retained incoming contributions
+    to node 2 are hypotheses, not measured inter-isolate flux.
+  dimensions:
+  - name: assay-scope
+    value: five-isolate consortium design
+    definition: Do not infer pairwise exchange or joint measurement from subset membership
+    evidence_ids:
+    - primary
+- assessment_id: edge-0
+  area: graph
+  topic: Retained contribution 0
+  outcome: unknown
+  target_ids:
+  - CommunityMech:000048
+  evidence_ids:
+  - record
+  - primary
+  - access
+  summary: Retain explicitly hypothesized enzyme contribution; no stronger direction
+    or synergy asserted.
+  details: ecological_interactions[0].downstream[0] -> Proposed Complementary Lignocellulose
+    Hydrolysis. HYPOTHESIZED - Measured isolate hydrolases provide the cellulose-hydrolysis
+    branch proposed to complement the other enzyme activities in the assembled consortium.
+    The causal contribution is biochemical potential inferred from isolate assays
+    and consortium construction, not a measured increase in combined-culture degradation
+    or demonstrated synergistic flux.
+- assessment_id: edge-1
+  area: graph
+  topic: Retained contribution 1
+  outcome: unknown
+  target_ids:
+  - CommunityMech:000048
+  evidence_ids:
+  - record
+  - primary
+  - access
+  summary: Retain explicitly hypothesized enzyme contribution; no stronger direction
+    or synergy asserted.
+  details: ecological_interactions[1].downstream[0] -> Proposed Complementary Lignocellulose
+    Hydrolysis. HYPOTHESIZED - Measured isolate hydrolases provide the hemicellulose-hydrolysis
+    branch proposed to complement the other enzyme activities in the assembled consortium.
+    The causal contribution is biochemical potential inferred from isolate assays
+    and consortium construction, not a measured increase in combined-culture degradation
+    or demonstrated synergistic flux.
+findings:
+- finding_id: participants
+  issue_key: okeke-isolate-assay-participants
+  title: Implicit all-member assay attribution
+  description: Two subset-specific observations omit participating_taxa and therefore
+    credit all five strains. Name the supported subsets without claiming reciprocal
+    exchange or co-culture measurements.
+  category: evidence
+  severity: major
+  status: open
+  certainty: confirmed
+  target_ids:
+  - CommunityMech:000048
+  field_paths:
+  - ecological_interactions[0].participating_taxa
+  - ecological_interactions[1].participating_taxa
+  evidence_ids:
+  - record
+  - primary
+  - semantics
+  - access
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+    role: canonical_record
+  rule_id: CLAUDE.claim-level-evidence
+  native_severity: P2
+  normalization_reason: Participant or assay attribution affects scientific interpretation.
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2017
+- finding_id: source-gap
+  issue_key: okeke-fulltext-assay-gap
+  title: Combined-culture mechanisms remain unverified
+  description: Full text is required to assess combined-versus-isolate performance
+    and mediator controls. This observation does not claim those experiments are absent
+    or retire non-graph issue1658.
+  category: evidence
+  severity: major
+  status: open
+  certainty: confirmed
+  target_ids:
+  - CommunityMech:000048
+  field_paths:
+  - ecological_interactions
+  - discussions[0]
+  evidence_ids:
+  - record
+  - primary
+  - semantics
+  - access
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+    role: canonical_record
+  rule_id: CLAUDE.claim-level-evidence
+  native_severity: P2
+  normalization_reason: Participant or assay attribution affects scientific interpretation.
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1657
+actions:
+- action_id: restrict-participants
+  finding_ids:
+  - participants
+  target_ids:
+  - CommunityMech:000048
+  ownership_note: Canonical community YAML owns participant attribution.
+  description: Name the two assay-specific subsets using existing canonical descriptors.
+  acceptance_checks:
+  - DB1/DB2 cellulose and DB2/DB13 xylan subsets match the primary abstract.
+  - Isolated-node regression rejects implicit all-member attribution.
+  - No changes to topology, evidence, roster or non-graph claims.
+- action_id: full-source
+  finding_ids:
+  - source-gap
+  target_ids:
+  - CommunityMech:000048
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+    role: canonical_record
+  description: Obtain authorized primary methods and inspect actual combined-culture
+    controls before strengthening or extending the graph.
+  acceptance_checks:
+  - Resolve assay comparisons with exact evidence.
+  - Preserve isolate-versus-consortium boundaries.
+  - Use required Edison workflow before adding new topology.
+limitations:
+- Complete Methods/Results, original figures and supplements not inspected.
+- No new structure, provider submission, taxon replacement or independent approval.
+- Whole-record completeness and validation-quality scores are not assessed by this
+  graph-only review. Four evidence items span three nodes; this denominator is not
+  scientific completion.
+- Issue1658 non-graph identity/origin/medium work is preserved, not certified; issue1657
+  and native needs_research remain open.
