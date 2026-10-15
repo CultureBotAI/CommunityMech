@@ -130,6 +130,15 @@ ecological_interactions:
     snippet: 'Isolates DB1 and DB2 displayed the highest filter paper cellulase: 27.83 and 31.22 U mg⁻¹, respectively.'
     explanation: Directly supports individual DB1/DB2 cellulase activities rather than a proposed future processing
       benefit.
+  participating_taxa:
+  - preferred_term: Pseudoxanthomonas byssovorax DB1
+    term:
+      id: NCBITaxon:324747
+      label: Pseudoxanthomonas byssovorax
+  - preferred_term: Microbacterium oxydans DB2
+    term:
+      id: NCBITaxon:82380
+      label: Microbacterium oxydans
 - name: Xylan-Hydrolyzing Isolate Enzyme Activities
   description: Isolate DB2 produced the highest xylanase activity, 103.05 U per mg, and DB13 the highest beta-xylosidase
     activity, 7.72 U per mg, in the tested isolate panel. These observed activities support a hemicellulose-hydrolysis
@@ -163,6 +172,15 @@ ecological_interactions:
     snippet: Isolate DB2 produced the highest xylanase activity (103.05 U mg⁻¹), while the highest β-xylosidase
       activity (7.72 U mg⁻¹) was observed with DB13
     explanation: Directly reports DB2/DB13 isolate enzyme activities, not the activity of the assembled community.
+  participating_taxa:
+  - preferred_term: Microbacterium oxydans DB2
+    term:
+      id: NCBITaxon:82380
+      label: Microbacterium oxydans
+  - preferred_term: Klebsiella sp. DB13
+    term:
+      id: NCBITaxon:870530
+      label: Klebsiella sp. DB13
 - name: Proposed Complementary Lignocellulose Hydrolysis
   description: HYPOTHESIZED - Five selected isolates were assembled into a defined consortium with cellulolytic
     and xylanolytic capabilities. Their complementary enzyme activities could broaden cellulose/hemicellulose processing
@@ -424,4 +442,12 @@ curation_history:
     positive DB2/DB13 xylan-hydrolase results and qualify their proposed contribution.; Retain assembled-consortium
     potential and both hypothesis arrows without promoting prospective benefits to measured synergy. Issue #1654;
     reports/causal_graph_review/decisions/20261007-four-records-batch79.yaml'
+  llm_assisted: true
+- timestamp: '2026-10-15T10:55:47Z'
+  curator: codex
+  action: CORRECT_CAUSAL_PARTICIPANT_SCOPE
+  changes: 'Address issue #2017: name DB1/DB2 for the cellulose isolate-assay node and DB2/DB13 for the
+    xylan isolate-assay node, reusing canonical descriptors. Preserve all three nodes, both hypothesis
+    arrows, evidence and non-graph metadata. Full-text mechanism issue #1657 and non-graph issue #1658
+    remain open; graph remains needs_research.'
   llm_assisted: true
