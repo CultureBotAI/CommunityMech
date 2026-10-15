@@ -5,6 +5,31 @@ source-based self-adversarial review. These records are not independent approval
 or proof that every graph is complete. The current inventory and summary distinguish
 `reviewed`, `pending` and `needs_research`.
 
+## Batch131: Prompt Direction And Phormidium Research
+
+The shared causal-research prompt now uses hydrogen consumption, not production,
+as the process lowering hydrogen partial pressure. It labels the example as
+illustrative and treats supplied record context as claims to verify. Render-path
+regressions fail against the old prompt and pass after the fix; issue #2007 tracks
+the defect. [Actual validation receipts](20261014-batch131/) include 25 passing
+focused tests, lint, the one-community dry run and generated-docs currency.
+
+The [source handoff](sources/20261014-phormidium-batch131/assessment.yaml)
+retains all four Phormidium nodes and the one arrow, seven candidate niches,
+and four disagreements across primary text, figures and supplement tables.
+[Source attribution and hashes](sources/20261014-phormidium-batch131/manifest.json)
+bound what was actually inspected. Canonical records, caches, history and
+inventory statuses are unchanged: 54 records still need research. The 57 existing
+network warnings remain explicit; no zero-warning pass is claimed.
+
+The immutable successor [YAML](../../reviews/structured/20261014T235318Z-causal-prompt-phormidium-after/review.yaml)
+and [Markdown](../../reviews/structured/20261014T235318Z-causal-prompt-phormidium-after/review.md)
+resolve the linked historical prompt finding but record a partial, needs-curation
+Phormidium assessment. Issue #1699 remains open for the graph extension, and
+#1701 for separate non-graph claims. Edison spending is authorized; no inherited
+credential was available and no job was submitted. This is source-based
+self-adversarial review, not independent approval or corpus completion.
+
 ## Batch130: Final Pending Phage Graphs
 
 [Decisions](decisions/20261014-phage-graphs-batch130.yaml),

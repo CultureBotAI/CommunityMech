@@ -18,6 +18,10 @@
 - **Associated datasets / resources:** {dataset_summary}
 - **Existing evidence:** {evidence_summary}
 
+Treat the supplied record context as claims to verify, not established facts.
+Report contradictions between the record and primary sources. Separate measured
+effects from genomic predictions and proposed mechanisms.
+
 ## Research Objective
 
 Build a source-backed **causal interaction graph** for the microbial community
@@ -58,9 +62,10 @@ literature supports a causal link, report a row:
 - **from** — upstream interaction name (a node from §1).
 - **to** — downstream interaction name (a node from §1).
 - **causal link** — one sentence: *how* the upstream interaction causes /
-  enables / is required for / suppresses the downstream one (e.g. "H2 produced
-  by the syntrophic oxidation lowers pH2 enough for the acetogen to grow, which
-  in turn supplies acetate to the methanogen").
+  enables / is required for / suppresses the downstream one (e.g. "Hydrogen
+  consumption by a partner lowers hydrogen partial pressure, enabling syntrophic
+  oxidation by the hydrogen-producing organism"). Illustrative only; this
+  mechanism is not evidence for the target community.
 - **evidence** — verbatim snippet + reference for the causal claim specifically
   (not just for the two endpoints existing).
 

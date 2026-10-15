@@ -1,0 +1,26 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "pytest",
+    "tests/test_research_community.py",
+    "--no-cov",
+    "-q"
+  ],
+  "started_at": "2026-10-14T23:36:58.306893+00:00",
+  "finished_at": "2026-10-14T23:37:32.975920+00:00",
+  "git_revision": "ec5e6468b74e874f5474c52d1825fa91a0b595b7",
+  "input_sha256": {
+    "kb/communities/Phormidium_Alkaline_Consortium.yaml": "5bd6ec7333293e123e4b68212ddd64a6db8a8efd69f446912d154b260d79f2f5",
+    "templates/community_causal_graph_research.md": "9b6da51cf48437572e0319dbc0388f49c5fe3014e7c618e94127dae1110ef694",
+    "tests/test_research_community.py": "23e8c1fc0913c8f56bd6242a43a862eff41e80cab6a2fafa31138def55f486fa"
+  },
+  "after_sha256": {
+    "kb/communities/Phormidium_Alkaline_Consortium.yaml": "5bd6ec7333293e123e4b68212ddd64a6db8a8efd69f446912d154b260d79f2f5",
+    "templates/community_causal_graph_research.md": "9b6da51cf48437572e0319dbc0388f49c5fe3014e7c618e94127dae1110ef694",
+    "tests/test_research_community.py": "23e8c1fc0913c8f56bd6242a43a862eff41e80cab6a2fafa31138def55f486fa"
+  },
+  "exit_code": 1,
+  "stdout": "........FFF                                                              [100%]\n=================================== FAILURES ===================================\n_ test_causal_template_preserves_context_and_correct_hydrogen_direction[Phormidium_Alkaline_Consortium] _\n\ntarget = 'Phormidium_Alkaline_Consortium'\n\n    @pytest.mark.parametrize(\n        \"target\", [\"Phormidium_Alkaline_Consortium\", \"Yogurt_TwoSpecies_Starter_Culture\"]\n    )\n    def test_causal_template_preserves_context_and_correct_hydrogen_direction(target):\n        path = resolve_community_file(target)\n        doc = load_community(path)\n        query, variables = render_query(\n            path, REPO_ROOT / \"templates/community_causal_graph_research.md\", doc\n        )\n        normalized = \" \".join(query.split())\n        assert variables[\"community_id\"] == doc[\"id\"]\n        assert doc[\"name\"] in query and doc[\"description\"] in query\n>       assert \"Hydrogen consumption by a partner lowers hydrogen partial pressure\" in normalized\nE       AssertionError: assert 'Hydrogen consumption by a partner lowers hydrogen partial pressure' in '# Microbial Community Causal-Graph Research Template ## Target Community - **Community name:** Phormidium Alkaline Co...erbatim snippet and a reference. This report is reviewed by a curator before anything is written to `kb/communities/`.'\n\ntests/test_research_community.py:123: AssertionError\n_ test_causal_template_preserves_context_and_correct_hydrogen_direction[Yogurt_TwoSpecies_Starter_Culture] _\n\ntarget = 'Yogurt_TwoSpecies_Starter_Culture'\n\n    @pytest.mark.parametrize(\n        \"target\", [\"Phormidium_Alkaline_Consortium\", \"Yogurt_TwoSpecies_Starter_Culture\"]\n    )\n    def test_causal_template_preserves_context_and_correct_hydrogen_direction(target):\n        path = resolve_community_file(target)\n        doc = load_community(path)\n        query, variables = render_query(\n            path, REPO_ROOT / \"templates/community_causal_graph_research.md\", doc\n        )\n        normalized = \" \".join(query.split())\n        assert variables[\"community_id\"] == doc[\"id\"]\n        assert doc[\"name\"] in query and doc[\"description\"] in query\n>       assert \"Hydrogen consumption by a partner lowers hydrogen partial pressure\" in normalized\nE       AssertionError: assert 'Hydrogen consumption by a partner lowers hydrogen partial pressure' in '# Microbial Community Causal-Graph Research Template ## Target Community - **Community name:** Yogurt Two-Species Sta...erbatim snippet and a reference. This report is reviewed by a curator before anything is written to `kb/communities/`.'\n\ntests/test_research_community.py:123: AssertionError\n____ test_causal_template_does_not_treat_record_claims_as_verified_evidence ____\n\n    def test_causal_template_does_not_treat_record_claims_as_verified_evidence():\n        path = resolve_community_file(\"Phormidium_Alkaline_Consortium\")\n        query, _ = render_query(path, REPO_ROOT / \"templates/community_causal_graph_research.md\")\n        normalized = \" \".join(query.split())\n>       assert \"Treat the supplied record context as claims to verify, not established facts\" in normalized\nE       AssertionError: assert 'Treat the supplied record context as claims to verify, not established facts' in '# Microbial Community Causal-Graph Research Template ## Target Community - **Community name:** Phormidium Alkaline Co...erbatim snippet and a reference. This report is reviewed by a curator before anything is written to `kb/communities/`.'\n\ntests/test_research_community.py:133: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_research_community.py::test_causal_template_preserves_context_and_correct_hydrogen_direction[Phormidium_Alkaline_Consortium]\nFAILED tests/test_research_community.py::test_causal_template_preserves_context_and_correct_hydrogen_direction[Yogurt_TwoSpecies_Starter_Culture]\nFAILED tests/test_research_community.py::test_causal_template_does_not_treat_record_claims_as_verified_evidence\n3 failed, 8 passed in 32.92s\n",
+  "stderr": ""
+}

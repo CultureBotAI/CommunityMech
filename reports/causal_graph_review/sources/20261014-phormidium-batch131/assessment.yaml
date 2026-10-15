@@ -1,0 +1,124 @@
+schema_version: 1
+kind: source_research_handoff
+target_id: CommunityMech:000054
+record: kb/communities/Phormidium_Alkaline_Consortium.yaml
+status: needs_research
+not_a_completed_graph_extension: true
+issue: https://github.com/CultureBotAI/CommunityMech/issues/1699
+reference: doi:10.3389/fmicb.2022.780346
+source_manifest: manifest.json
+current_graph:
+  nodes: 4
+  arrows: 1
+  decisions:
+  - node: Photosynthetic CO2 Fixation
+    disposition: retain
+    basis: Figure 4 and the protein/SIP Results support cyanobacterial assimilation of supplied inorganic-carbon label.
+    limitation: No inference that each proposed organic-carbon release route was measured.
+  - node: Carbon Transfer to Heterotrophs
+    disposition: retain
+    basis: Figure 4 and Table S4 show the strongest heterotrophic peptide coverage for MAG34 and MAG57.
+    limitation: Label incorporation is not a compound-specific transfer assay or proof of nutrient return.
+  - node: Proposed Cyanobacterial Polymer Use by Verrucomicrobiota
+    disposition: retain_qualified
+    basis: Figure 3 and the Results assign hydrolase/sulfatase gene capacity to four MAGs.
+    limitation: Capacity and weak isotope signals do not isolate sulfated polymers as the exchanged substrate.
+  - node: Alphaproteobacterial Heterotrophic Carbon Use
+    disposition: retain_qualified
+    basis: Figure 4 and Table S4 retain a low-peptide MAG58 signal; Figure 3 separates predicted phototrophy.
+    limitation: No class-wide reciprocal vitamin, siderophore, nitrogen or protection service is established.
+  retained_arrow:
+    from: Photosynthetic CO2 Fixation
+    to: Carbon Transfer to Heterotrophs
+    basis: Primary protein/SIP Results and Figure 4 support the donor-to-heterotroph carbon direction.
+    limitation: Not a demonstrated compound-resolved trophic cascade.
+extension_candidates:
+- niche: supplementary_phototrophy
+  source_locator: Results niche 1; Figure 3
+  assessment: Bacteriochlorophyll-associated genes in MAG52 and MAG58 and rhodopsin genes in Bacteroidota/MAG57/MAG56 are genomic capacity, not measured light-dependent benefit.
+  proposed_state: computational_partial
+- niche: fermentation_product_use
+  source_locator: Results niche 2; Figure 3; Table S3
+  assessment: Candidate uptake/metabolism is distributed across MAGs; no single donor-recipient chain or universal product list is demonstrated.
+  proposed_state: computational_partial
+- niche: compatible_solute_use
+  source_locator: Results niche 3; Figure 3
+  assessment: Do not assign cyanobacterial glycine-betaine donation; the paper did not detect its biosynthesis capacity in the cyanobacterium and assigns candidate producers elsewhere.
+  proposed_state: computational_partial
+- niche: storage_compound_use
+  source_locator: Results niche 4; Figure 3; Table S3
+  assessment: Distinguish predicted external glycogen/cyanophycin use from intracellular storage and from isotope-based macromolecule interpretation.
+  proposed_state: computational_partial
+- niche: sulfated_glycopolymer_use
+  source_locator: Results niche 5; Figure 3
+  assessment: Already represented as a qualified Verrucomicrobiota node; do not duplicate it or add a cross-phylum handoff.
+  proposed_state: retain_existing
+- niche: predation
+  source_locator: Results niche 6; Figure 3
+  assessment: Biosynthetic-cluster predictions identify possible antagonists, not observed killing, a known prey, or demonstrated protection of this community.
+  proposed_state: hypothesis_without_prey_edge
+- niche: hydrocarbon_use
+  source_locator: Results niche 7; Figure 3; Table S3 Niche analysis rows 149-150
+  assessment: Keep genomic capacity separate from measured hydrocarbon exchange and reconcile the source discrepancies below before a MAG-specific claim.
+  proposed_state: unresolved_source_detail
+source_discrepancies:
+- id: mag58-alma
+  locators:
+  - Table_3.XLSX / Niche analysis / S2:S3, D149:D150, S149:S150
+  - Figure 3 / MAG58 hydrocarbon column
+  - Results paragraph beginning The ability to degrade hydrocarbons
+  observed: S149 lists bin58_01115 and bin58_03410 for alkB; S150 has no listed almA value. Figure 3 shows the alkB circle only, while the prose groups MAG58 with both genes.
+  implication: Do not assert both genes in MAG58. A blank source cell is not proof of genome-wide absence.
+- id: mag57-alkb
+  locators:
+  - Table_3.XLSX / Niche analysis / AB2:AB3, D149, AB149
+  - Figure 3 / MAG57 hydrocarbon column
+  observed: AB149 lists bin57_00670 for alkB, but Figure 3 omits the hydrocarbon symbol for MAG57.
+  implication: An individual annotation does not establish the pathway completeness criterion used by the figure, nor observed hydrocarbon use.
+- id: sip-timepoints
+  locators:
+  - Methods / 13C Labeled Proteomics
+  - Table_4.XLSX / Calisp statistics / D3:D7
+  observed: Methods text names 36 and 44 hours for late samples; Table S4 lists 38 and 46 hours.
+  implication: Preserve this mismatch; do not construct precisely timed causal mediation or silently reconcile the values.
+- id: sip-count-total
+  locators:
+  - Table_4.XLSX / Calisp statistics / E3:E7
+  - Figure 4 / Cyanobacteria panel
+  observed: Table S4 counts sum to 27220; the Figure 4 panel labels n=27222.
+  implication: Do not treat the two representations as numerically identical. Existing qualitative carbon-flow claims do not depend on this two-peptide difference.
+verified_coverage:
+  mag34:
+    table_cells: Table_4.XLSX / Calisp statistics / E13:E17
+    counts: [349, 208, 180, 153, 135]
+    sum: 1025
+    figure4_n: 1025
+  mag57:
+    table_cells: Table_4.XLSX / Calisp statistics / E28:E32
+    counts: [184, 106, 106, 139, 147]
+    sum: 682
+    figure4_n: 682
+  mag58:
+    table_cells: Table_4.XLSX / Calisp statistics / E23:E27
+    counts: [5, 6, 8, 10, 10]
+    sum: 39
+    figure4_n: 39
+  limitation: Peptide counts measure sampling coverage, not organism abundance or measured exchange flux.
+gates_before_extension:
+- Obtain the one-community Edison research report required by the invoked skill, or explicit authorization to use direct-primary-source research in its place.
+- Keep the corrected prompt and explicit warning about non-graph context claims tracked in issue 1701.
+- Resolve MAG-level participant mapping against source taxonomy and canonical identifiers without transferring related-species phenotypes.
+- Verify exact snippets and keep supplemental evidence separate from article caches.
+- Apply only supported nodes/arrows with guarded writes, append-only history, validators, generated-doc checks and a successor review.
+provider_status:
+  authorized_spend: true
+  inherited_credential_present: false
+  credential_values_inspected: false
+  dotenv_read: false
+  paid_jobs_submitted: 0
+  corrected_dry_run_query_chars: 17518
+limitations:
+- No canonical graph, ledger status, taxon grounding or source cache was changed by this handoff.
+- Table S2 full classification reconciliation, supplemental PDF, raw data and the proposed extension remain unreviewed.
+- The suggested robustness explanation is not an experimentally isolated redundancy mechanism.
+- This is source-research preparation and self-assessment, not independent approval or corpus completion.

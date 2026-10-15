@@ -5,6 +5,8 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+import pytest
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
@@ -16,6 +18,7 @@ from research_community import (  # noqa: E402
     resolve_community_file,
     template_vars,
 )
+from research_community_edison import render_query  # noqa: E402
 
 
 def test_resolve_community_file_finds_slug_record():
@@ -103,3 +106,36 @@ def test_research_env_preserves_existing_edison_key(monkeypatch):
     monkeypatch.setenv("FUTUREHOUSE_API_KEY", "futurehouse-key")
     env = research_env("falcon")
     assert env["EDISON_API_KEY"] == "edison-key"
+
+
+@pytest.mark.parametrize(
+    "target", ["Phormidium_Alkaline_Consortium", "Yogurt_TwoSpecies_Starter_Culture"]
+)
+def test_causal_template_preserves_context_and_correct_hydrogen_direction(target):
+    path = resolve_community_file(target)
+    doc = load_community(path)
+    query, variables = render_query(
+        path, REPO_ROOT / "templates/community_causal_graph_research.md", doc
+    )
+    normalized = " ".join(query.split())
+    assert variables["community_id"] == doc["id"]
+    assert doc["name"] in query and doc["description"] in query
+    assert "Hydrogen consumption by a partner lowers hydrogen partial pressure" in normalized
+    assert "enabling syntrophic oxidation by the hydrogen-producing organism" in normalized
+    assert "lowers pH2" not in normalized
+    assert (
+        "Illustrative only; this mechanism is not evidence for the target community" in normalized
+    )
+
+
+def test_causal_template_does_not_treat_record_claims_as_verified_evidence():
+    path = resolve_community_file("Phormidium_Alkaline_Consortium")
+    query, _ = render_query(path, REPO_ROOT / "templates/community_causal_graph_research.md")
+    normalized = " ".join(query.split())
+    assert (
+        "Treat the supplied record context as claims to verify, not established facts" in normalized
+    )
+    assert "Report contradictions between the record and primary sources" in normalized
+    assert (
+        "Separate measured effects from genomic predictions and proposed mechanisms" in normalized
+    )
