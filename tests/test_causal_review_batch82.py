@@ -1,18 +1,27 @@
 """Preserve positive phenotypes without cross-system or workflow causation."""
 
 import hashlib
+import subprocess
 from pathlib import Path
 
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261007-four-records-batch82.yaml"
+PARACHLORELLA_BASE = "a6feb9194b199d255148557d6c5b3c3e129631f0"
+
+
+def record_bytes(path):
+    # Preserve the old batch's assertions; the source-backed successor has its own tests.
+    if Path(path).stem == "Parachlorella_Saccharomyces_Mutualistic_Coculture":
+        return subprocess.check_output(["git", "show", f"{PARACHLORELLA_BASE}:{path}"], cwd=ROOT)
+    return (ROOT / path).read_bytes()
 
 
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     rows = ledger["records"]
-    return ledger, rows, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in rows]
+    return ledger, rows, [yaml.safe_load(record_bytes(r["path"])) for r in rows]
 
 
 def test_tailings_retains_assayed_biology_without_external_membership_credit():
@@ -162,4 +171,4 @@ def test_history_source_and_lifecycle_boundaries_are_explicit():
         assert row["curation_events_added"] == len(row["history_files"]) == 1
         assert all((ROOT / p).exists() for p in row["history_files"])
         assert doc["curation_history"][-1]["llm_assisted"] is True
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        assert hashlib.sha256(record_bytes(row["path"])).hexdigest() == row["record_sha256"]

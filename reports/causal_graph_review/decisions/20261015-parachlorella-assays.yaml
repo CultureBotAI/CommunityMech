@@ -1,0 +1,101 @@
+reviewer: codex
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+recorded_at: '2026-10-15T13:41:31.236881+00:00'
+base_commit: a6feb9194b199d255148557d6c5b3c3e129631f0
+source_access: reports/causal_graph_review/20261015-parachlorella-assays/source-access.md
+edison:
+  required_for_repair: false
+  provider_submissions: 0
+  credits_spent: 0
+limitations:
+- No new topology; separate supplements and raw data uninspected.
+- Unresolved research1681 and non-graph1683 remain; not independent approval.
+records:
+- path: kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml
+  id: CommunityMech:000295
+  original_sha256: ee3166c701c928154cb1f46337d3d43a5ee56946d75f93fcd6d4ac8ecb3f8b82
+  record_sha256: 1e5ee2a939774f3954bdb42b6c4124c1de1f0b36a3dc7b3e93e74ad52baa199b
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261015-parachlorella-assays.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch82.yaml
+    record_sha256: ee3166c701c928154cb1f46337d3d43a5ee56946d75f93fcd6d4ac8ecb3f8b82
+  scope: Whole record read; four existing nodes/two arrows reassessed against primary main article. No
+    whole-record certification.
+  summary: Distinguish algal counts, matched-medium comparison and bulk relative lipid fluorescence; preserve
+    source reporting conflicts and qualified mediation.
+  node_decisions:
+  - node: Proposed Reciprocal Oxygen and Carbon Dioxide Exchange
+    field_path: ecological_interactions[0]
+    rationale: Gas mediation remains hypothesized, not isolated flux.
+    reference: PMID:42217804
+    source_locator: Methods2.1-2.4, Results3.2-3.5 and Figures3,4,6
+  - node: Yeast support of microalgal growth and lipid accumulation
+    field_path: ecological_interactions[1]
+    rationale: Observed algal growth supported; medium and nutrient-competition interpretation kept distinct.
+    reference: PMID:42217804
+    source_locator: Methods2.1-2.4, Results3.2-3.5 and Figures3,4,6
+  - node: Proposed EPS-Derived Metabolic Support of Yeast
+    field_path: ecological_interactions[2]
+    rationale: Preserve viability/physical observations without EPS uptake claim.
+    reference: PMID:42217804
+    source_locator: Methods2.1-2.4, Results3.2-3.5 and Figures3,4,6
+  - node: Coculture Algal Cell Increase and Relative Lipid Signal
+    field_path: ecological_interactions[3]
+    rationale: Separate cell concentration from normalized lipid signal; preserve source conflicts.
+    reference: PMID:42217804
+    source_locator: Methods2.1-2.4, Results3.2-3.5 and Figures3,4,6
+  edges_before:
+  - source: Proposed Reciprocal Oxygen and Carbon Dioxide Exchange
+    target: Fourfold Coculture Biomass and Lipid Increase
+    description: HYPOTHESIZED - Photosynthetic oxygen and respiratory carbon dioxide exchange could support
+      coculture productivity. The accessible abstract does not isolate the contribution of gas exchange
+      to the observed fourfold biomass/lipid increase.
+  - source: Yeast support of microalgal growth and lipid accumulation
+    target: Fourfold Coculture Biomass and Lipid Increase
+    description: PARTIAL - Yeast-associated maintenance of algal growth and nutrient-competition-associated
+      lipid accumulation provide the reported physiological contribution to higher coculture biomass/lipid
+      production. This does not apportion the fourfold endpoint among growth support, gas exchange and
+      other mechanisms.
+  edges_after:
+  - source: Proposed Reciprocal Oxygen and Carbon Dioxide Exchange
+    target: Coculture Algal Cell Increase and Relative Lipid Signal
+    description: HYPOTHESIZED - Respiratory CO2 and photosynthetic oxygen could support coculture growth.
+      Main-text comparisons do not isolate gas exchange as the cause of the species-resolved algal cell
+      increase or bulk relative lipid signal; medium enrichment contributes to the growth comparison.
+  - source: Yeast support of microalgal growth and lipid accumulation
+    target: Coculture Algal Cell Increase and Relative Lipid Signal
+    description: PARTIAL - Yeast-associated maintenance of algal growth contributes to the cell-count
+      endpoint. Nutrient competition is the authors' proposed explanation of increased relative lipid
+      signal. The enriched-medium control also increases growth, so the full control-relative fold change
+      cannot be assigned to yeast or a particular exchanged metabolite.
+  retained_edge_decisions:
+  - source: Proposed Reciprocal Oxygen and Carbon Dioxide Exchange
+    target: Coculture Algal Cell Increase and Relative Lipid Signal
+    rationale: HYPOTHESIZED - Respiratory CO2 and photosynthetic oxygen could support coculture growth.
+      Main-text comparisons do not isolate gas exchange as the cause of the species-resolved algal cell
+      increase or bulk relative lipid signal; medium enrichment contributes to the growth comparison.
+  - source: Yeast support of microalgal growth and lipid accumulation
+    target: Coculture Algal Cell Increase and Relative Lipid Signal
+    rationale: PARTIAL - Yeast-associated maintenance of algal growth contributes to the cell-count endpoint.
+      Nutrient competition is the authors' proposed explanation of increased relative lipid signal. The
+      enriched-medium control also increases growth, so the full control-relative fold change cannot be
+      assigned to yeast or a particular exchanged metabolite.
+  removed_edge_decisions: []
+  renamed_nodes:
+    Fourfold Coculture Biomass and Lipid Increase: Coculture Algal Cell Increase and Relative Lipid Signal
+  references:
+  - PMID:42217804
+  issues:
+  - 2020
+  open_research_issue: 1681
+  open_nongraph_issue: 1683
+  allowed_changed_fields:
+  - ecological_interactions
+  - discussions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Parachlorella_Saccharomyces_Mutualistic_Coculture/2026-10-15T134007Z-claude-code-904656.yaml
