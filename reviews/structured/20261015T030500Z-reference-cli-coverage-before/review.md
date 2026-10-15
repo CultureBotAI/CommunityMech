@@ -1,0 +1,422 @@
+# Reference CLI count interpretation recurrence confirmed
+
+- Review: 20261015T030500Z-reference-cli-coverage-before
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-15T03:02:06.753415Z
+- Finished UTC: 2026-10-15T03:05:00.974732Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: false
+
+## Summary
+
+Correct the reporting interpretation only: Phormidium 21 checked/2 Discussion omissions, Alseth 27/1, PHA 24/0. Zero CLI findings is not zero checks. No scientific claim or graph status changes.
+
+## Scope And Provenance
+
+Four reporting surfaces and three exact current record fixtures; not a scientific review.
+
+Selection: Recurrence found while checking #1994/#1996 follow-up and existing #1469.
+Coverage: full; 4 reviewed / 4 in the declared population.
+Source: git_commit at Git base c8cc59ea4dd825525e0ffb5fef4dcb1201019c36.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| explained-cli | scripts/annotate_reference_errors.py | maintained | explained-cli |
+| review-index | reports/causal_graph_review/README.md | maintained | review-index |
+| batch132-coverage | reviews/structured/20261015T014050Z-phormidium-identity-after/review.yaml | maintained | batch132-coverage |
+| batch130-coverage | reviews/structured/20261014T222155Z-phage-graphs-after/review.yaml | maintained | batch130-coverage |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| Reporting regression and CLI controls | failed | False | explained-cli, review-index, batch132-coverage, batch130-coverage | in 'Validation Summary:\n  Total checks: 23\n'<br><br>tests/test_reference_error_annotation.py:54: AssertionError<br>=========================== short test summary info ============================<br>FAILED tests/test_reference_error_annotation.py::test_summary_labels_findings_not_excerpts[0]<br>FAILED tests/test_reference_error_annotation.py::test_summary_labels_findings_not_excerpts[1]<br>FAILED tests/test_reference_error_annotation.py::test_summary_labels_findings_not_excerpts[23]<br>3 failed, 10 passed in 0.56s |
+
+## Scientific And Domain Assessments
+
+### Counter semantics versus actual traversal
+
+provenance: concern. Targets: explained-cli, review-index, batch132-coverage, batch130-coverage.
+
+CLI canaries establish the concrete coverage counts and the remaining Discussion omission. This correction supersedes only the mistaken zero-coverage interpretation, not the prior scientific findings.
+
+## Findings
+
+### cli-count-recurrence: Issue-count output misclassified as zero validation coverage
+
+minor / open / confirmed; issue key: communitymech-1469-20261015-recurrence.
+
+Batch132 marked reference-cli failed from Total checks: 0. Batch130 and the current index also describe zero checks. Actual CLI probes trace 21, 27 and 24 checked excerpts with negative controls. The counter is not coverage.
+
+## Recommended Actions And Acceptance Checks
+
+### correct-reporting
+
+Clarify the explained CLI and append a successor observation; retain historical outputs.
+
+- Control, mutation and restoration through the real CLI
+- Reporting label tests
+- Immutable prior bundles
+- No scientific record changes
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| final-phormidium-cli | reports/reference_cli_coverage/final-phormidium-cli.json; actual CLI output, traced excerpt paths, mutation/restoration exits, input hashes | supports | Native CLI checks EvidenceItem snippets; the summary counts issues. Discussion mutations remain invisible where present. |
+| alseth-cli | reports/reference_cli_coverage/alseth-cli.json; actual CLI output, traced excerpt paths, mutation/restoration exits, input hashes | supports | Native CLI checks EvidenceItem snippets; the summary counts issues. Discussion mutations remain invisible where present. |
+| final-pha-cli | reports/reference_cli_coverage/final-pha-cli.json; actual CLI output, traced excerpt paths, mutation/restoration exits, input hashes | supports | Native CLI checks EvidenceItem snippets; the summary counts issues. Discussion mutations remain invisible where present. |
+| surfaces | scripts/annotate_reference_errors.py; main() summary handling and all four declared target surfaces | refutes | The explained command retains the ambiguous label; the current index and two saved reviews reuse the wrong interpretation. |
+| regression | reports/reference_cli_coverage/before-regression.json; command, exit, stdout/stderr, input hashes | supports | in 'Validation Summary:\n  Total checks: 23\n'<br><br>tests/test_reference_error_annotation.py:54: AssertionError<br>=========================== short test summary info ============================<br>FAILED tests/test_reference_error_annotation.py::test_summary_labels_findings_not_excerpts[0]<br>FAILED tests/test_reference_error_annotation.py::test_summary_labels_findings_not_excerpts[1]<br>FAILED tests/test_reference_error_annotation.py::test_summary_labels_findings_not_excerpts[23]<br>3 failed, 10 passed in 0.56s |
+
+## Limits And Additional Notes
+
+- Source-based implementing-agent self-review, not independent approval or scientific recertification.
+- Native Discussion traversal #476 and supplement routing #1996 remain open; no sources are combined and no matching thresholds change.
+- This scoped disposition does not retire unrelated findings in the two earlier reviews or claim whole-corpus completion.
+- Remote CI/protected merge is recorded separately after this immutable local snapshot.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261015T030500Z-reference-cli-coverage-before
+kind: repository
+repository: CultureBotAI/CommunityMech
+title: Reference CLI count interpretation recurrence confirmed
+started_at: '2026-10-15T03:02:06.753415Z'
+finished_at: '2026-10-15T03:05:00.974732Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Implementing-agent adversarial review and executable controls,
+    not independent approval.
+skill: communitymech-causal-graphs
+completion: completed
+verdict: needs_curation
+scientific_review: false
+source:
+  git_revision: c8cc59ea4dd825525e0ffb5fef4dcb1201019c36
+  state: git_commit
+  inputs:
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: justfile
+    sha256: 9057c89905786df56ec697d89e4617093b41df061ffd5d45571d097f6a57f306
+    role: context
+  - path: kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml
+    sha256: cef1f3c47035ef336cb809456b25a185e0397bb9f0a16c492becdb5b371529f5
+    role: context
+  - path: kb/communities/PHA_MixedCulture_Phage_Succession_Community.yaml
+    sha256: aebd6497b6d5a6f49e9e9ef956d4ec0847960acc0fd2413dce5e0960ed748488
+    role: context
+  - path: kb/communities/Phormidium_Alkaline_Consortium.yaml
+    sha256: 0f03389e79ddcf2e97ebb0f32bd51a776b6bcbaea3ddad52c21ada8feca2939b
+    role: context
+  - path: references_cache/PMID_38648198.txt
+    sha256: babc54ddb60c3ed882e817d1970ff9c7ba24069b0b06d67730e12eb974b58df3
+    role: context
+  - path: references_cache/PMID_40152616.txt
+    sha256: 65e30e4f8aed4b1c7cde1fb173376207bbf90d92306c7f59997fd41bfeddbe8b
+    role: context
+  - path: references_cache/doi_10.3389_fmicb.2022.780346.md
+    sha256: a3ba7f3dfd3bd6b6ae6338a05beead53f2cb15c89f70f0a89700cbfa0dc2b929
+    role: context
+  - path: reports/causal_graph_review/README.md
+    sha256: 891809ce64295a691d42407f4ab495ffaf866263ab3def8266e7d0a1b3df3e8f
+    role: target
+  - path: reports/reference_cli_coverage/alseth-cli.json
+    sha256: 9edf3eb3ce845487f281902920553b55dda524742d3d25fb030221c0c2108e1a
+    role: context
+  - path: reports/reference_cli_coverage/before-regression.json
+    sha256: b39451216b07b2640c37ca16594becbadd234b1ec1435e488cd9d2371527b4ae
+    role: context
+  - path: reports/reference_cli_coverage/final-pha-cli.json
+    sha256: fe7e70439857ea816419e49b4b54b218762c4cbad79a5d1a0b41663cf7933e62
+    role: context
+  - path: reports/reference_cli_coverage/final-phormidium-cli.json
+    sha256: 9398943cf653a07b92dafed684d4c0b7663678238b66ccfa3f54dd46749630e0
+    role: context
+  - path: reports/reference_cli_coverage/probe.py
+    sha256: 8e3782125ca5f5b022ec94527993bebca3e9a74fe93dc9d52037678dd4c127bd
+    role: context
+  - path: reviews/structured/20261014T222155Z-phage-graphs-after/review.yaml
+    sha256: 3367e0fc4cbde8c21001e47e7b3602d81cb66624a7bab14932645fe69202b854
+    role: target
+  - path: reviews/structured/20261015T014050Z-phormidium-identity-after/review.yaml
+    sha256: 73c90525c74399990d7f2689ac14f74ac487561dd96ab091dfb7b5d8188b5a0b
+    role: target
+  - path: scripts/annotate_reference_errors.py
+    sha256: a93a5dea26bfed03b2f301c52a105944e5b7f308296731b7734d40b20453eaec
+    role: target
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: e5a87e5367609334ec0d6361f6ddafbe6bc4a1f7d93e5264c64688c28325910f
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+  - path: tests/test_reference_cli_coverage.py
+    sha256: 193a54faa7742d15aeada599c8e8ffe8d0c33cc341418f061a6c3a5ead1e42e0
+    role: context
+  - path: tests/test_reference_error_annotation.py
+    sha256: a38ecf5ec88f72139fd6f1a83372cd5cb1f77f8205669ddb4ad1521b907cae1f
+    role: context
+  - path: uv.lock
+    sha256: 937fc64c52ddde9859c4231c12177e5b662ca40a7323fe21a5c0794d58ebbbc0
+    role: context
+targets:
+- target_id: explained-cli
+  path: scripts/annotate_reference_errors.py
+  label: explained-cli
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: scripts/annotate_reference_errors.py
+    role: maintained reporting surface
+  - repository: CultureBotAI/CommunityMech
+    path: reports/causal_graph_review/README.md
+    role: maintained reporting surface
+- target_id: review-index
+  path: reports/causal_graph_review/README.md
+  label: review-index
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: scripts/annotate_reference_errors.py
+    role: maintained reporting surface
+  - repository: CultureBotAI/CommunityMech
+    path: reports/causal_graph_review/README.md
+    role: maintained reporting surface
+- target_id: batch132-coverage
+  path: reviews/structured/20261015T014050Z-phormidium-identity-after/review.yaml
+  label: batch132-coverage
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: scripts/annotate_reference_errors.py
+    role: maintained reporting surface
+  - repository: CultureBotAI/CommunityMech
+    path: reports/causal_graph_review/README.md
+    role: maintained reporting surface
+- target_id: batch130-coverage
+  path: reviews/structured/20261014T222155Z-phage-graphs-after/review.yaml
+  label: batch130-coverage
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: scripts/annotate_reference_errors.py
+    role: maintained reporting surface
+  - repository: CultureBotAI/CommunityMech
+    path: reports/causal_graph_review/README.md
+    role: maintained reporting surface
+summary: 'Correct the reporting interpretation only: Phormidium 21 checked/2 Discussion
+  omissions, Alseth 27/1, PHA 24/0. Zero CLI findings is not zero checks. No scientific
+  claim or graph status changes.'
+scope:
+  description: Four reporting surfaces and three exact current record fixtures; not
+    a scientific review.
+  selection: 'Recurrence found while checking #1994/#1996 follow-up and existing #1469.'
+  coverage: full
+  population_size: 4
+  reviewed_target_ids:
+  - explained-cli
+  - review-index
+  - batch132-coverage
+  - batch130-coverage
+  exclusions:
+  - target: Scientific findings and the full graph corpus
+    reason: No new primary-source or graph assessment.
+checks:
+- check_id: regression
+  name: Reporting regression and CLI controls
+  status: failed
+  required: false
+  command: .venv/bin/python -m pytest tests/test_reference_error_annotation.py -q
+    --no-cov
+  exit_code: 1
+  summary: 'in ''Validation Summary:\n  Total checks: 23\n''
+
+
+    tests/test_reference_error_annotation.py:54: AssertionError
+
+    =========================== short test summary info ============================
+
+    FAILED tests/test_reference_error_annotation.py::test_summary_labels_findings_not_excerpts[0]
+
+    FAILED tests/test_reference_error_annotation.py::test_summary_labels_findings_not_excerpts[1]
+
+    FAILED tests/test_reference_error_annotation.py::test_summary_labels_findings_not_excerpts[23]
+
+    3 failed, 10 passed in 0.56s'
+  target_ids:
+  - explained-cli
+  - review-index
+  - batch132-coverage
+  - batch130-coverage
+  evidence_ids:
+  - regression
+evidence:
+- evidence_id: final-phormidium-cli
+  kind: validation
+  reference: reports/reference_cli_coverage/final-phormidium-cli.json
+  locator: actual CLI output, traced excerpt paths, mutation/restoration exits, input
+    hashes
+  accessed_at: '2026-10-15T03:05:00.974732Z'
+  support: supports
+  summary: Native CLI checks EvidenceItem snippets; the summary counts issues. Discussion
+    mutations remain invisible where present.
+- evidence_id: alseth-cli
+  kind: validation
+  reference: reports/reference_cli_coverage/alseth-cli.json
+  locator: actual CLI output, traced excerpt paths, mutation/restoration exits, input
+    hashes
+  accessed_at: '2026-10-15T03:05:00.974732Z'
+  support: supports
+  summary: Native CLI checks EvidenceItem snippets; the summary counts issues. Discussion
+    mutations remain invisible where present.
+- evidence_id: final-pha-cli
+  kind: validation
+  reference: reports/reference_cli_coverage/final-pha-cli.json
+  locator: actual CLI output, traced excerpt paths, mutation/restoration exits, input
+    hashes
+  accessed_at: '2026-10-15T03:05:00.974732Z'
+  support: supports
+  summary: Native CLI checks EvidenceItem snippets; the summary counts issues. Discussion
+    mutations remain invisible where present.
+- evidence_id: surfaces
+  kind: record_content
+  reference: scripts/annotate_reference_errors.py
+  locator: main() summary handling and all four declared target surfaces
+  accessed_at: '2026-10-15T03:05:00.974732Z'
+  support: refutes
+  summary: The explained command retains the ambiguous label; the current index and
+    two saved reviews reuse the wrong interpretation.
+- evidence_id: regression
+  kind: validation
+  reference: reports/reference_cli_coverage/before-regression.json
+  locator: command, exit, stdout/stderr, input hashes
+  accessed_at: '2026-10-15T03:05:00.974732Z'
+  support: supports
+  summary: 'in ''Validation Summary:\n  Total checks: 23\n''
+
+
+    tests/test_reference_error_annotation.py:54: AssertionError
+
+    =========================== short test summary info ============================
+
+    FAILED tests/test_reference_error_annotation.py::test_summary_labels_findings_not_excerpts[0]
+
+    FAILED tests/test_reference_error_annotation.py::test_summary_labels_findings_not_excerpts[1]
+
+    FAILED tests/test_reference_error_annotation.py::test_summary_labels_findings_not_excerpts[23]
+
+    3 failed, 10 passed in 0.56s'
+assessments:
+- assessment_id: reporting
+  area: provenance
+  topic: Counter semantics versus actual traversal
+  outcome: concern
+  summary: CLI canaries establish the concrete coverage counts and the remaining Discussion
+    omission. This correction supersedes only the mistaken zero-coverage interpretation,
+    not the prior scientific findings.
+  target_ids:
+  - explained-cli
+  - review-index
+  - batch132-coverage
+  - batch130-coverage
+  evidence_ids:
+  - final-phormidium-cli
+  - alseth-cli
+  - final-pha-cli
+  - surfaces
+  - regression
+findings:
+- finding_id: cli-count-recurrence
+  issue_key: communitymech-1469-20261015-recurrence
+  category: provenance
+  severity: minor
+  status: open
+  certainty: confirmed
+  title: Issue-count output misclassified as zero validation coverage
+  description: 'Batch132 marked reference-cli failed from Total checks: 0. Batch130
+    and the current index also describe zero checks. Actual CLI probes trace 21, 27
+    and 24 checked excerpts with negative controls. The counter is not coverage.'
+  target_ids:
+  - explained-cli
+  - review-index
+  - batch132-coverage
+  - batch130-coverage
+  field_paths:
+  - checks[reference-cli]
+  - limitations
+  - main()
+  - Batch130/Batch132 summaries
+  evidence_ids:
+  - final-phormidium-cli
+  - alseth-cli
+  - final-pha-cli
+  - surfaces
+  - regression
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: scripts/annotate_reference_errors.py
+    role: maintained reporting surface
+  - repository: CultureBotAI/CommunityMech
+    path: reports/causal_graph_review/README.md
+    role: maintained reporting surface
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1469
+actions:
+- action_id: correct-reporting
+  description: Clarify the explained CLI and append a successor observation; retain
+    historical outputs.
+  finding_ids:
+  - cli-count-recurrence
+  target_ids:
+  - explained-cli
+  - review-index
+  - batch132-coverage
+  - batch130-coverage
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: scripts/annotate_reference_errors.py
+    role: maintained reporting surface
+  - repository: CultureBotAI/CommunityMech
+    path: reports/causal_graph_review/README.md
+    role: maintained reporting surface
+  acceptance_checks:
+  - Control, mutation and restoration through the real CLI
+  - Reporting label tests
+  - Immutable prior bundles
+  - No scientific record changes
+limitations:
+- Source-based implementing-agent self-review, not independent approval or scientific
+  recertification.
+- 'Native Discussion traversal #476 and supplement routing #1996 remain open; no sources
+  are combined and no matching thresholds change.'
+- This scoped disposition does not retire unrelated findings in the two earlier reviews
+  or claim whole-corpus completion.
+- Remote CI/protected merge is recorded separately after this immutable local snapshot.
+related_reviews:
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261015T014050Z-phormidium-identity-after
+  relationship: Corrects CLI coverage interpretation only; other findings retained
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261014T222155Z-phage-graphs-after
+  relationship: Corrects CLI coverage interpretation only; other findings retained
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/1469
+```

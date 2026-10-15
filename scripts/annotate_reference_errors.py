@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Correct `validate-references`' misleading "only abstract available" note (#496).
+"""Clarify reference-validator diagnostics and its issue-count summary.
+
+The upstream "Total checks" counter counts reported issues, not examined
+excerpts (#257/#1469). Relabel it without inferring coverage from a clean run.
 
 The upstream validator annotates every failed match with
 
@@ -40,6 +43,7 @@ FULL_TEXT_MARKERS = ("===== OPEN-ACCESS FULL TEXT", "Full text (re-fetched")
 
 _NOTE = re.compile(r"\(note: only abstract available for (?P<ref>[^,]+), full text may[^)]*\)")
 _SNIPPET = re.compile(r"not found as substring: '(?P<snippet>.*?)'(?:\s|$)")
+_ISSUE_COUNT = re.compile(r"^([ \t]*)Total checks: ([0-9]+)[ \t]*(\r?\n)?$")
 
 
 def cached(reference: str) -> tuple[str, bool]:
@@ -115,7 +119,14 @@ def diagnose(reference: str, snippet: str) -> str:
 
 def main() -> int:
     replaced = 0
+    in_summary = False
+    relabeled = False
     for line in sys.stdin:
+        if line.strip() == "Validation Summary:":
+            in_summary = True
+        if in_summary and _ISSUE_COUNT.fullmatch(line):
+            line = _ISSUE_COUNT.sub(r"\1Reported validation issues: \2\3", line)
+            relabeled = True
         match = _NOTE.search(line)
         if match:
             snippet_match = _SNIPPET.search(line)
@@ -126,6 +137,11 @@ def main() -> int:
     if replaced:
         print(
             f"\n[annotate] rewrote {replaced} misleading 'only abstract available' note(s) (#496)"
+        )
+    if relabeled:
+        print(
+            "\n[annotate] This is not a count of checked excerpts (#1469). "
+            "Native Discussion evidence coverage remains incomplete (#476)."
         )
     return 0
 
