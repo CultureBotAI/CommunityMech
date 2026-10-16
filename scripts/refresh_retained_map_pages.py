@@ -27,7 +27,7 @@ def main() -> None:
             raise ValueError(f"No retained point data in {path}")
         data, _ = json.JSONDecoder().raw_decode(text[match.end() :])
         rendered = env.get_template("community_umap.html").render(
-            community_data_json=json.dumps(data, indent=2),
+            community_data_json=json.dumps(data, indent=2).replace("</", "<\\/"),
             num_communities=len(data),
             projection_label=label,
         )

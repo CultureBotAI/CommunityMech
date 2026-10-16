@@ -754,6 +754,12 @@
             });
         }
 
+        function esc(s) {
+            return String(s == null ? "" : s)
+                .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+        }
+
         function renderInspector(r) {
             const box = document.getElementById("inspector");
             if (!r) {
@@ -761,8 +767,8 @@
                 return;
             }
             const nnItems = (r.neighbors || []).map(nn => {
-                return `<li class="nn-item" data-acc="${nn.accession}">
-                    <span><strong>${nn.gene_symbol}</strong> &middot; ${nn.organism}</span>
+                return `<li class="nn-item" data-acc="${esc(nn.accession)}">
+                    <span><strong>${esc(nn.gene_symbol)}</strong> &middot; ${esc(nn.organism)}</span>
                     <span class="nn-sim">${nn.sim.toFixed(3)}</span>
                 </li>`;
             }).join("");
@@ -770,30 +776,30 @@
             const commItems = (r.communities || []).map(c => {
                 const href = "communities/" + encodeURIComponent(c.id) + ".html";
                 return `<li><a class="comm-item" href="${href}">
-                    <span>${c.name}</span>
-                    <span class="nn-sim">${c.community_id}</span>
+                    <span>${esc(c.name)}</span>
+                    <span class="nn-sim">${esc(c.community_id)}</span>
                 </a></li>`;
             }).join("");
 
             const uniprotHref = "https://www.uniprot.org/uniprotkb/" + encodeURIComponent(r.uniprot);
             const kbBadge = r.curated_in_taxa_kb
-                ? `<span class="badge badge-kb">Curated in ${r.source_taxon_yaml}</span>`
+                ? `<span class="badge badge-kb">Curated in ${esc(r.source_taxon_yaml)}</span>`
                 : "";
 
             box.innerHTML = `
-                <div class="inspector-title">${r.gene_symbol} — ${r.protein_name}</div>
-                <div class="inspector-id">${r.accession} &middot; ${r.organism} (${r.length} aa)</div>
+                <div class="inspector-title">${esc(r.gene_symbol)} — ${esc(r.protein_name)}</div>
+                <div class="inspector-id">${esc(r.accession)} &middot; ${esc(r.organism)} (${esc(r.length)} aa)</div>
                 <div class="badge-row">
                     ${kbBadge}
-                    <span class="badge">${r.guild}</span>
-                    <span class="badge">${r.localization}</span>
-                    <span class="badge">${r.cofactor}</span>
+                    <span class="badge">${esc(r.guild)}</span>
+                    <span class="badge">${esc(r.localization)}</span>
+                    <span class="badge">${esc(r.cofactor)}</span>
                 </div>
                 <div class="inspector-desc">
-                    <strong>Function:</strong> ${r.function}<br>
-                    ${r.phenotype ? `<strong>Phenotype:</strong> ${r.phenotype}` : ""}
+                    <strong>Function:</strong> ${esc(r.function)}<br>
+                    ${r.phenotype ? `<strong>Phenotype:</strong> ${esc(r.phenotype)}` : ""}
                 </div>
-                <a class="inspector-link" href="${uniprotHref}" target="_blank" rel="noopener">View ${r.accession} on UniProtKB &nearr;</a>
+                <a class="inspector-link" href="${uniprotHref}" target="_blank" rel="noopener">View ${esc(r.accession)} on UniProtKB &nearr;</a>
                 <div class="sidebar-label">Participating Communities (${(r.communities || []).length})</div>
                 <ul class="comm-list">${commItems || "<li class='inspector-desc'>No direct taxon match.</li>"}</ul>
                 <div class="sidebar-label">Nearest ESM-2 Sequence Neighbors</div>
@@ -880,8 +886,8 @@
                 tooltip.style.display = "block";
                 tooltip.style.left = Math.min(mx + 14, rect.width - 280) + "px";
                 tooltip.style.top = Math.max(my - 10, 10) + "px";
-                tooltip.innerHTML = `<div class="tooltip-title">${best.gene_symbol} (${best.organism})</div>
-                    <div class="tooltip-sub">${best.protein_name} &middot; ${best.guild}</div>`;
+                tooltip.innerHTML = `<div class="tooltip-title">${esc(best.gene_symbol)} (${esc(best.organism)})</div>
+                    <div class="tooltip-sub">${esc(best.protein_name)} &middot; ${esc(best.guild)}</div>`;
             } else {
                 tooltip.style.display = "none";
             }

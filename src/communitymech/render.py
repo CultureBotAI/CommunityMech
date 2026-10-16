@@ -496,7 +496,7 @@ class CommunityRenderer:
                 umap_template = self.env.get_template("community_umap.html")
                 umap_html = umap_template.render(
                     num_communities=len(umap_rows),
-                    community_data_json=json.dumps(umap_rows, indent=2, ensure_ascii=False),
+                    community_data_json=json.dumps(umap_rows, indent=2, ensure_ascii=False).replace("</", "<\\/"),
                 )
                 umap_path.write_text(_strip_trailing_whitespace(umap_html) + "\n", encoding="utf-8")
                 print(f"  ✓ Generated taxonomic UMAP at {umap_path}")
@@ -522,7 +522,7 @@ class CommunityRenderer:
             text_map_template = self.env.get_template("text_map.html")
             text_map_html = text_map_template.render(
                 corpus_map=corpus_payload,
-                corpus_map_json=json.dumps(corpus_payload, ensure_ascii=False),
+                corpus_map_json=json.dumps(corpus_payload, ensure_ascii=False).replace("</", "<\\/"),
             )
             text_map_path = output_dir.parent / "text_map.html"
             text_map_path.write_text(_strip_trailing_whitespace(text_map_html), encoding="utf-8")
@@ -549,7 +549,7 @@ class CommunityRenderer:
             seq_map_template = self.env.get_template("sequence_map.html")
             seq_map_html = seq_map_template.render(
                 sequence_map=seq_payload,
-                sequence_map_json=json.dumps(seq_payload, ensure_ascii=False),
+                sequence_map_json=json.dumps(seq_payload, ensure_ascii=False).replace("</", "<\\/"),
             )
             seq_map_path = output_dir.parent / "sequence_map.html"
             seq_map_path.write_text(_strip_trailing_whitespace(seq_map_html), encoding="utf-8")

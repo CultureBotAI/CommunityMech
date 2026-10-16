@@ -747,6 +747,12 @@
             });
         }
 
+        function esc(s) {
+            return String(s == null ? "" : s)
+                .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+        }
+
         function renderInspector(p) {
             const box = document.getElementById("inspector");
             if (!p) {
@@ -756,24 +762,24 @@
             const nnItems = (p.neighbors || []).map(nn => {
                 const target = POINT_BY_ID.get(nn.id);
                 if (!target) return "";
-                return `<li class="nn-item" data-id="${target.id}">
-                    <span>${target.title}</span>
+                return `<li class="nn-item" data-id="${esc(target.id)}">
+                    <span>${esc(target.title)}</span>
                     <span class="nn-sim">${nn.sim.toFixed(3)}</span>
                 </li>`;
             }).join("");
 
             const detailHref = "communities/" + encodeURIComponent(p.id) + ".html";
             box.innerHTML = `
-                <div class="inspector-title">${p.title}</div>
-                <div class="inspector-id">${p.community_id} &middot; ${p.id}</div>
+                <div class="inspector-title">${esc(p.title)}</div>
+                <div class="inspector-id">${esc(p.community_id)} &middot; ${esc(p.id)}</div>
                 <div class="badge-row">
-                    <span class="badge">${p.category}</span>
-                    <span class="badge">${p.ecological_state}</span>
-                    <span class="badge">${p.community_origin}</span>
-                    <span class="badge">${p.n_taxa} taxa</span>
-                    <span class="badge">${p.n_interactions} interactions</span>
+                    <span class="badge">${esc(p.category)}</span>
+                    <span class="badge">${esc(p.ecological_state)}</span>
+                    <span class="badge">${esc(p.community_origin)}</span>
+                    <span class="badge">${esc(p.n_taxa)} taxa</span>
+                    <span class="badge">${esc(p.n_interactions)} interactions</span>
                 </div>
-                <div class="inspector-desc">${p.summary || "No summary description."}</div>
+                <div class="inspector-desc">${esc(p.summary || "No summary description.")}</div>
                 <a class="inspector-link" href="${detailHref}">Open Community Page &rarr;</a>
                 <div class="sidebar-label">Nearest Cosine Neighbors (Text Embedding)</div>
                 <ul class="nn-list">${nnItems}</ul>
@@ -860,8 +866,8 @@
                 tooltip.style.display = "block";
                 tooltip.style.left = Math.min(mx + 14, rect.width - 260) + "px";
                 tooltip.style.top = Math.max(my - 10, 10) + "px";
-                tooltip.innerHTML = `<div class="tooltip-title">${best.title}</div>
-                    <div class="tooltip-sub">${best.category} &middot; ${best.ecological_state} (${best.n_taxa} taxa)</div>`;
+                tooltip.innerHTML = `<div class="tooltip-title">${esc(best.title)}</div>
+                    <div class="tooltip-sub">${esc(best.category)} &middot; ${esc(best.ecological_state)} (${esc(best.n_taxa)} taxa)</div>`;
             } else {
                 tooltip.style.display = "none";
             }
