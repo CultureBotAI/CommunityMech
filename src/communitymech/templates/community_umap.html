@@ -547,7 +547,12 @@
             <h1>Community Embedding Space</h1>
             <p class="subtitle">2D projection of {{ num_communities }} microbial communities based on taxonomic composition</p>
             <a href="index.html" class="nav-link">← Back to Community Index</a>
-            <a href="https://culturebotai.github.io/mechs/" class="nav-link">All Mech projects</a>
+            <a href="browser.html" class="nav-link" style="margin-left:1rem;">Browse</a>
+            <a href="text_map.html" class="nav-link" style="margin-left:1rem;">Text Map</a>
+            <a href="sequence_map.html" class="nav-link" style="margin-left:1rem;">Sequence Map</a>
+            <a href="community_graph.html" class="nav-link" style="margin-left:1rem;">Network</a>
+            <a href="schema.html" class="nav-link" style="margin-left:1rem;">Schema</a>
+            <a href="https://culturebotai.github.io/mechs/" class="nav-link" style="margin-left:1rem;">All Mech projects</a>
         </header>
 
         <div class="controls">
@@ -676,6 +681,10 @@
                 <li><strong>Zoom/Pan:</strong> Use mouse wheel to zoom, click and drag to pan</li>
             </ul>
         </div>
+
+        <footer style="margin-top:2rem;padding:1.25rem;text-align:center;color:var(--text-muted);font-size:0.85rem;">
+            <p>CommunityMech Knowledge Base ({{ num_communities }} communities) &bull; Schema: <a href="schema.html"><code>https://w3id.org/communitymech</code></a> &bull; Source: <a href="https://github.com/CultureBotAI/CommunityMech">kb/communities/</a> &bull; License: BSD-3-Clause</p>
+        </footer>
     </div>
 
     <script>
@@ -707,8 +716,13 @@
 
         if (typeof d3 === 'undefined') {
             const message = document.createElement('p');
-            message.setAttribute('role', 'status');
-            message.textContent = 'The plot could not be loaded. View the complete plotted dataset in the table below, or reload this page to retry.';
+            message.setAttribute('role', 'alert');
+            message.textContent = 'The plot could not be loaded. View the complete plotted dataset in the table below, or reload this page to retry. ';
+            const retryBtn = document.createElement('button');
+            retryBtn.type = 'button';
+            retryBtn.textContent = 'Retry';
+            retryBtn.onclick = function() { window.location.reload(); };
+            message.appendChild(retryBtn);
             document.getElementById('umap-plot').before(message);
             document.querySelector('.data-table-details').open = true;
         } else {
@@ -990,11 +1004,13 @@
         // Event listeners
         d3.select('#color-by').on('change', function() {
             currentColorBy = this.value;
+            syncQueryParam();
             updateVisualization();
         });
 
         d3.select('#size-by').on('change', function() {
             currentSizeBy = this.value;
+            syncQueryParam();
             updateVisualization();
         });
 
@@ -1142,6 +1158,7 @@
             d3.select('#results-count').text(filteredData.length);
             updateFilterCounts(filteredData);
             updateActiveFiltersSummary();
+            syncQueryParam();
         }
 
         // Update facet counts based on current filters
@@ -1250,6 +1267,24 @@
         }
 
         // Event handlers
+        function syncQueryParam() {
+            const url = new URL(window.location.href);
+            if (filterState.searchTerm) url.searchParams.set('q', filterState.searchTerm);
+            else url.searchParams.delete('q');
+            if (currentColorBy && currentColorBy !== 'category') url.searchParams.set('color', currentColorBy);
+            else url.searchParams.delete('color');
+            if (currentSizeBy && currentSizeBy !== 'num_taxa') url.searchParams.set('size', currentSizeBy);
+            else url.searchParams.delete('size');
+            const setFacetUrl = (key, set) => {
+                if (set && set.size > 0) url.searchParams.set(key, Array.from(set).join(','));
+                else url.searchParams.delete(key);
+            };
+            setFacetUrl('category', filterState.categories);
+            setFacetUrl('state', filterState.ecologicalStates);
+            setFacetUrl('origin', filterState.origins);
+            window.history.replaceState({}, '', url.toString());
+        }
+
         let searchTimeout;
         d3.select('#search').on('input', function() {
             clearTimeout(searchTimeout);
@@ -1349,8 +1384,40 @@
         // Initialize facets when page loads
         initializeFacets();
 
+        // Read initial URL parameters
+        const initParams = new URLSearchParams(window.location.search);
+        const initialQuery = (initParams.get('q') || '').trim();
+        if (initialQuery) {
+            d3.select('#search').node().value = initialQuery;
+            filterState.searchTerm = initialQuery;
+        }
+        const initColor = initParams.get('color');
+        if (initColor) {
+            currentColorBy = initColor;
+            d3.select('#color-by').property('value', initColor);
+        }
+        const initSize = initParams.get('size');
+        if (initSize) {
+            currentSizeBy = initSize;
+            d3.select('#size-by').property('value', initSize);
+        }
+        const restoreFacet = (paramKey, facetAttr, set) => {
+            const raw = initParams.get(paramKey);
+            if (!raw) return;
+            raw.split(',').filter(Boolean).forEach(v => {
+                set.add(v);
+                d3.select(`input[value="${v}"][data-facet="${facetAttr}"]`).property('checked', true);
+            });
+        };
+        restoreFacet('category', 'category', filterState.categories);
+        restoreFacet('state', 'ecologicalState', filterState.ecologicalStates);
+        restoreFacet('origin', 'origin', filterState.origins);
+
         // Initial render
         updateVisualization();
+        if (filterState.hasActiveFilters()) {
+            updateFiltering();
+        }
 
         // Add axes
         const xAxis = d3.axisBottom(xScale).ticks(5);

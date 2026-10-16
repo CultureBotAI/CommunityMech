@@ -385,6 +385,13 @@
 :root[data-theme="dark"] .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
 :root[data-theme="dark"] .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
 :root[data-theme="dark"] .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+.header-top-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.75rem}
+.header-nav-links{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap}
+.header-search-form{display:flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.75);border:1px solid var(--border);border-radius:999px;padding:.2rem .3rem .2rem .75rem}
+.header-search-form input{border:0;background:transparent;font-size:.85rem;color:var(--text);outline:none;min-width:190px}
+.header-search-form button{background:var(--primary);color:#fff;border:0;border-radius:999px;padding:.3rem .75rem;font-size:.8rem;font-weight:600;cursor:pointer}
+:root[data-theme="dark"] .header-search-form{background:rgba(26,31,46,.85)}
+:root[data-theme="dark"] .header-search-form button{color:#101420}
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
 }
@@ -393,8 +400,22 @@
 <body>
     <header>
         <div class="container">
-            <a href="../browser.html" class="back-link">← Back to Communities</a>
-            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
+            <div class="header-top-row">
+                <div class="header-nav-links">
+                    <a href="../index.html" class="back-link">Home</a>
+                    <a href="../browser.html" class="back-link">← Back to Communities</a>
+                    <a href="../text_map.html" class="back-link">Text Map</a>
+                    <a href="../community_umap.html" class="back-link">Taxonomic UMAP</a>
+                    <a href="../sequence_map.html" class="back-link">Sequence Map</a>
+                    <a href="../community_graph.html" class="back-link">Network</a>
+                    <a href="../schema.html" class="back-link">Schema</a>
+                    <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
+                </div>
+                <form class="header-search-form" action="../browser.html" method="get" role="search">
+                    <input type="search" name="q" placeholder="Search communities..." aria-label="Search communities" autocomplete="off">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
             <h1>Syntrophomonas-Methanospirillum Syntrophic Consortium</h1>
         </div>
     </header>
@@ -429,6 +450,8 @@
                            class="term-link" target="_blank" rel="noopener noreferrer">
                             ENVO:01001405
                         </a>
+                        · <a href="https://culturebotai.github.io/HabitatMech/browse.html?q=anaerobic%20digester"
+                             class="term-link" target="_blank" rel="noopener noreferrer">HabitatMech ↗</a>
                     </span>
                 </div>
 
@@ -469,6 +492,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:863
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_863.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Syntrophomonas%20wolfei" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -513,6 +540,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:2203
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_2203.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Methanospirillum%20hungatei" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -601,15 +632,27 @@
 
                     butyrate
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17968"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17968</a>),
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17968</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=butyrate"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=butyrate"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>),
 
                     acetate
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30089</a>),
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30089</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=acetate"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=acetate"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>),
 
                     dihydrogen
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18276"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>)
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=dihydrogen"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=dihydrogen"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>)
 
                 </p>
 
@@ -621,13 +664,17 @@
                     <li>
                         fatty acid beta-oxidation
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0006635"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006635</a>)
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006635</a>
+                        · <a href="https://culturebotai.github.io/PathwayMech/browse.html?q=fatty%20acid%20beta-oxidation"
+                             class="term-link" target="_blank" rel="noopener noreferrer">PathwayMech</a>)
                     </li>
 
                     <li>
                         butyrate catabolic process
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0046359"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0046359</a>)
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0046359</a>
+                        · <a href="https://culturebotai.github.io/PathwayMech/browse.html?q=butyrate%20catabolic%20process"
+                             class="term-link" target="_blank" rel="noopener noreferrer">PathwayMech</a>)
                     </li>
 
                 </ul>
@@ -699,11 +746,19 @@
 
                     dihydrogen
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18276"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>),
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=dihydrogen"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=dihydrogen"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>),
 
                     methane
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16183"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16183</a>)
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16183</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=methane"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=methane"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>)
 
                 </p>
 
@@ -715,7 +770,9 @@
                     <li>
                         methanogenesis
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0015948"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015948</a>)
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015948</a>
+                        · <a href="https://culturebotai.github.io/PathwayMech/browse.html?q=methanogenesis"
+                             class="term-link" target="_blank" rel="noopener noreferrer">PathwayMech</a>)
                     </li>
 
                 </ul>
@@ -796,15 +853,27 @@
 
                     butyrate
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17968"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17968</a>),
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17968</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=butyrate"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=butyrate"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>),
 
                     dihydrogen
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18276"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>),
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=dihydrogen"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=dihydrogen"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>),
 
                     methane
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16183"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16183</a>)
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16183</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=methane"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=methane"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>)
 
                 </p>
 
@@ -816,13 +885,17 @@
                     <li>
                         fatty acid beta-oxidation
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0006635"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006635</a>)
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006635</a>
+                        · <a href="https://culturebotai.github.io/PathwayMech/browse.html?q=fatty%20acid%20beta-oxidation"
+                             class="term-link" target="_blank" rel="noopener noreferrer">PathwayMech</a>)
                     </li>
 
                     <li>
                         methanogenesis
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0015948"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015948</a>)
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015948</a>
+                        · <a href="https://culturebotai.github.io/PathwayMech/browse.html?q=methanogenesis"
+                             class="term-link" target="_blank" rel="noopener noreferrer">PathwayMech</a>)
                     </li>
 
                 </ul>
@@ -1071,7 +1144,11 @@
                     <tbody>
 
                         <tr>
-                            <td><strong>Butyrate (sodium salt)</strong></td>
+                            <td>
+                                <strong>Butyrate (sodium salt)</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Butyrate%20%28sodium%20salt%29"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>10</td>
                             <td>mM</td>
                             <td>
@@ -1085,7 +1162,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>Sodium bicarbonate</strong></td>
+                            <td>
+                                <strong>Sodium bicarbonate</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Sodium%20bicarbonate"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>30</td>
                             <td>mM</td>
                             <td>
@@ -1099,7 +1180,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>Ammonium chloride</strong></td>
+                            <td>
+                                <strong>Ammonium chloride</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Ammonium%20chloride"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>20</td>
                             <td>mM</td>
                             <td>
@@ -1113,7 +1198,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>Sodium phosphate buffer</strong></td>
+                            <td>
+                                <strong>Sodium phosphate buffer</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Sodium%20phosphate%20buffer"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>2.8</td>
                             <td>mM</td>
                             <td>
@@ -1127,7 +1216,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>Potassium phosphate buffer</strong></td>
+                            <td>
+                                <strong>Potassium phosphate buffer</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Potassium%20phosphate%20buffer"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>3.5</td>
                             <td>mM</td>
                             <td>
@@ -1141,7 +1234,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>Magnesium chloride</strong></td>
+                            <td>
+                                <strong>Magnesium chloride</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Magnesium%20chloride"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>1</td>
                             <td>mM</td>
                             <td>
@@ -1155,7 +1252,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>Calcium chloride</strong></td>
+                            <td>
+                                <strong>Calcium chloride</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Calcium%20chloride"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>0.5</td>
                             <td>mM</td>
                             <td>
@@ -1169,7 +1270,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>Sodium sulfide</strong></td>
+                            <td>
+                                <strong>Sodium sulfide</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Sodium%20sulfide"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>1.2</td>
                             <td>mM</td>
                             <td>
@@ -1183,7 +1288,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>L-Cysteine hydrochloride</strong></td>
+                            <td>
+                                <strong>L-Cysteine hydrochloride</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=L-Cysteine%20hydrochloride"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>1.2</td>
                             <td>mM</td>
                             <td>
@@ -1197,7 +1306,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>Resazurin</strong></td>
+                            <td>
+                                <strong>Resazurin</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Resazurin"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>0.5</td>
                             <td>mg/L</td>
                             <td>
@@ -1211,7 +1324,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>Trace element solution SL-10</strong></td>
+                            <td>
+                                <strong>Trace element solution SL-10</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Trace%20element%20solution%20SL-10"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>1</td>
                             <td>mL/L</td>
                             <td>
@@ -1222,7 +1339,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>Vitamin solution</strong></td>
+                            <td>
+                                <strong>Vitamin solution</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Vitamin%20solution"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>1</td>
                             <td>mL/L</td>
                             <td>
@@ -1233,7 +1354,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>Yeast extract</strong></td>
+                            <td>
+                                <strong>Yeast extract</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Yeast%20extract"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>0.2</td>
                             <td>g/L</td>
                             <td>
@@ -1244,7 +1369,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>KNO3</strong></td>
+                            <td>
+                                <strong>KNO3</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=KNO3"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>0.25</td>
                             <td>G_PER_L</td>
                             <td>
@@ -1255,7 +1384,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>KH2PO4</strong></td>
+                            <td>
+                                <strong>KH2PO4</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=KH2PO4"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>0.1</td>
                             <td>G_PER_L</td>
                             <td>
@@ -1266,7 +1399,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>MgSO4 x 7 H2O</strong></td>
+                            <td>
+                                <strong>MgSO4 x 7 H2O</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=MgSO4%20x%207%20H2O"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>0.05</td>
                             <td>G_PER_L</td>
                             <td>
@@ -1277,7 +1414,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>CaCl2 x 2 H2O</strong></td>
+                            <td>
+                                <strong>CaCl2 x 2 H2O</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=CaCl2%20x%202%20H2O"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>0.01</td>
                             <td>G_PER_L</td>
                             <td>
@@ -1288,7 +1429,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>EDTA</strong></td>
+                            <td>
+                                <strong>EDTA</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=EDTA"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>5</td>
                             <td>G_PER_L</td>
                             <td>
@@ -1299,7 +1444,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>CuCl2 x 5 H2O</strong></td>
+                            <td>
+                                <strong>CuCl2 x 5 H2O</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=CuCl2%20x%205%20H2O"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>0.1</td>
                             <td>G_PER_L</td>
                             <td>
@@ -1310,7 +1459,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>FeSO4 x 7 H2O</strong></td>
+                            <td>
+                                <strong>FeSO4 x 7 H2O</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=FeSO4%20x%207%20H2O"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>2</td>
                             <td>G_PER_L</td>
                             <td>
@@ -1321,7 +1474,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>ZnSO4 x 7 H2O</strong></td>
+                            <td>
+                                <strong>ZnSO4 x 7 H2O</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=ZnSO4%20x%207%20H2O"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>0.1</td>
                             <td>G_PER_L</td>
                             <td>
@@ -1332,7 +1489,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>NiCl2 x 6 H2O</strong></td>
+                            <td>
+                                <strong>NiCl2 x 6 H2O</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=NiCl2%20x%206%20H2O"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>0.02</td>
                             <td>G_PER_L</td>
                             <td>
@@ -1343,7 +1504,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>CoCl2 x 6 H2O</strong></td>
+                            <td>
+                                <strong>CoCl2 x 6 H2O</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=CoCl2%20x%206%20H2O"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>0.2</td>
                             <td>G_PER_L</td>
                             <td>
@@ -1354,7 +1519,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>Na2MoO4</strong></td>
+                            <td>
+                                <strong>Na2MoO4</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Na2MoO4"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>0.03</td>
                             <td>G_PER_L</td>
                             <td>
@@ -1365,7 +1534,11 @@
                         </tr>
 
                         <tr>
-                            <td><strong>MnCl2 x 4 H2O</strong></td>
+                            <td>
+                                <strong>MnCl2 x 4 H2O</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=MnCl2%20x%204%20H2O"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
                             <td>0.03</td>
                             <td>G_PER_L</td>
                             <td>
@@ -1423,11 +1596,60 @@
 
         </section>
 
+
+        <!-- Cross-Mech Knowledge Graph Links (no <table> to preserve test_detail_table_accessibility) -->
+        <section class="cross-mech-section">
+            <h2>Cross-Mech Suite Links</h2>
+            <p class="muted" style="margin-bottom: 0.75rem;">Explore related entities across the CultureBotAI X-Mech knowledge bases:</p>
+            <div class="roles-list">
+
+                <a href="https://culturebotai.github.io/HabitatMech/browse.html?q=anaerobic%20digester"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    HabitatMech: anaerobic digester ↗
+                </a>
+
+
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_863.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Syntrophomonas wolfei ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Syntrophomonas%20wolfei"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Syntrophomonas wolfei ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_2203.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Methanospirillum hungatei ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Methanospirillum%20hungatei"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Methanospirillum hungatei ↗
+                </a>
+
+
+
+                <a href="https://culturebotai.github.io/CMMMech/browse.html?q=IRON"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    CMMMech (Critical Minerals &amp; REE) ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/CultureMech/"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    CultureMech Growth Media ↗
+                </a>
+                <a href="https://culturebotai.github.io/PathwayMech/"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    PathwayMech Pathways ↗
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+            <p>Generated by CommunityMech | Source YAML: <a href="https://github.com/CultureBotAI/CommunityMech/blob/main/kb/communities/Syntrophomonas_Methanospirillum_Syntrophy.yaml"><code>kb/communities/Syntrophomonas_Methanospirillum_Syntrophy.yaml</code></a> | <a href="../schema.html">LinkML Schema</a> (<code>https://w3id.org/communitymech</code>) | License: BSD-3-Clause | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
         </div>
     </footer>
 
@@ -1436,7 +1658,14 @@
     <script>
     (function() {
         if (typeof d3 === 'undefined') {
-            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            var statusEl = document.getElementById('network-status');
+            statusEl.setAttribute('role', 'alert');
+            statusEl.textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry. ';
+            var retryBtn = document.createElement('button');
+            retryBtn.type = 'button';
+            retryBtn.textContent = 'Retry';
+            retryBtn.onclick = function() { window.location.reload(); };
+            statusEl.appendChild(retryBtn);
             return;
         }
         var interactionColors = {

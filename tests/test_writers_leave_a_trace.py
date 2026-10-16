@@ -71,6 +71,10 @@ _EXEMPT = {
         "dispatcher — the commands it invokes carry their own events, and an "
         "event recorded here would name the CLI rather than the operation"
     ),
+    "src/communitymech/render.py": (
+        "renders static HTML/JSON site pages under docs/ and reads download.yaml; "
+        "never writes kb/communities records"
+    ),
 }
 
 # Edits existing kb/communities records in place and appends nothing. Each is

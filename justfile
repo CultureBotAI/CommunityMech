@@ -489,6 +489,20 @@ gen-umap:
     uv run communitymech generate-umap
     @echo "✅ UMAP visualization generated at docs/community_umap.html"
 
+# Generate text embeddings for all community records (local ML dependencies)
+embed:
+    python3 scripts/embed_records.py
+
+# Project community text embeddings to corpus_map.json and render docs/text_map.html
+embed-map:
+    python3 scripts/embed_map.py
+    uv run python -m communitymech.render --all
+
+# Build ESM-2 protein sequence embeddings + sequence_map.json and render docs/sequence_map.html
+sequence-map:
+    python3 scripts/build_sequence_map.py
+    uv run python -m communitymech.render --all
+
 # QC coverage dashboard (shared kg_microbe_qc generator in culturebotai-claw).
 # This repo is nested one level deeper, so PYTHONPATH is ../../culturebotai-claw/src.
 gen-qc-dashboard: (_require-claw "kg_microbe_qc")

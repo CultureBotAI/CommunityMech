@@ -385,6 +385,13 @@
 :root[data-theme="dark"] .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
 :root[data-theme="dark"] .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
 :root[data-theme="dark"] .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+.header-top-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.75rem}
+.header-nav-links{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap}
+.header-search-form{display:flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.75);border:1px solid var(--border);border-radius:999px;padding:.2rem .3rem .2rem .75rem}
+.header-search-form input{border:0;background:transparent;font-size:.85rem;color:var(--text);outline:none;min-width:190px}
+.header-search-form button{background:var(--primary);color:#fff;border:0;border-radius:999px;padding:.3rem .75rem;font-size:.8rem;font-weight:600;cursor:pointer}
+:root[data-theme="dark"] .header-search-form{background:rgba(26,31,46,.85)}
+:root[data-theme="dark"] .header-search-form button{color:#101420}
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
 }
@@ -393,8 +400,22 @@
 <body>
     <header>
         <div class="container">
-            <a href="../browser.html" class="back-link">← Back to Communities</a>
-            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
+            <div class="header-top-row">
+                <div class="header-nav-links">
+                    <a href="../index.html" class="back-link">Home</a>
+                    <a href="../browser.html" class="back-link">← Back to Communities</a>
+                    <a href="../text_map.html" class="back-link">Text Map</a>
+                    <a href="../community_umap.html" class="back-link">Taxonomic UMAP</a>
+                    <a href="../sequence_map.html" class="back-link">Sequence Map</a>
+                    <a href="../community_graph.html" class="back-link">Network</a>
+                    <a href="../schema.html" class="back-link">Schema</a>
+                    <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
+                </div>
+                <form class="header-search-form" action="../browser.html" method="get" role="search">
+                    <input type="search" name="q" placeholder="Search communities..." aria-label="Search communities" autocomplete="off">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
             <h1>Amsterdam 10-Species Gut Invasion SynCom</h1>
         </div>
     </header>
@@ -429,6 +450,8 @@
                            class="term-link" target="_blank" rel="noopener noreferrer">
                             ENVO:01001405
                         </a>
+                        · <a href="https://culturebotai.github.io/HabitatMech/browse.html?q=anaerobic%20laboratory%20human-gut%20SynCom"
+                             class="term-link" target="_blank" rel="noopener noreferrer">HabitatMech ↗</a>
                     </span>
                 </div>
 
@@ -443,6 +466,8 @@
                            class="term-link" target="_blank" rel="noopener noreferrer">
                             ENVO:2100002
                         </a>
+                        · <a href="https://culturebotai.github.io/HabitatMech/browse.html?q=human%20intestine%20environment"
+                             class="term-link" target="_blank" rel="noopener noreferrer">HabitatMech ↗</a>
 
 
                     </span>
@@ -483,6 +508,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:239935
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_239935.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Akkermansia%20muciniphila%20DSM%2022959" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -519,6 +548,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:28116
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_28116.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Bacteroides%20ovatus%20DSM%201896" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -555,6 +588,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:818
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_818.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Bacteroides%20thetaiotaomicron%20DSM%202079" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -591,6 +628,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:1680
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1680.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Bifidobacterium%20adolescentis%20DSM%2020083" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -627,6 +668,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:40520
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_40520.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Blautia%20obeum%20DSM%2025238" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -663,6 +708,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:562
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_562.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Escherichia%20coli%20DSM%2018039" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -699,6 +748,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:853
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_853.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Faecalibacterium%20prausnitzii%20DSM%20107838" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -735,6 +788,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:1898203
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1898203.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Lachnospiraceae%20bacterium%20DSM%2024404" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -771,6 +828,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:33959
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_33959.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Lactobacillus%20johnsonii%20DSM%2010533" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -807,6 +868,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:166486
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_166486.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Roseburia%20intestinalis%20DSM%2014610" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -883,7 +948,9 @@
                     <li>
                         biological process involved in interspecies interaction
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>
+                        · <a href="https://culturebotai.github.io/PathwayMech/browse.html?q=biological%20process%20involved%20in%20interspecies%20interaction"
+                             class="term-link" target="_blank" rel="noopener noreferrer">PathwayMech</a>)
                     </li>
 
                 </ul>
@@ -1162,11 +1229,91 @@
 
         </section>
 
+
+        <!-- Cross-Mech Knowledge Graph Links (no <table> to preserve test_detail_table_accessibility) -->
+        <section class="cross-mech-section">
+            <h2>Cross-Mech Suite Links</h2>
+            <p class="muted" style="margin-bottom: 0.75rem;">Explore related entities across the CultureBotAI X-Mech knowledge bases:</p>
+            <div class="roles-list">
+
+                <a href="https://culturebotai.github.io/HabitatMech/browse.html?q=anaerobic%20laboratory%20human-gut%20SynCom"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    HabitatMech: anaerobic laboratory human-gut SynCom ↗
+                </a>
+
+
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_239935.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Akkermansia muciniphila DSM 22959 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Akkermansia%20muciniphila%20DSM%2022959"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Akkermansia muciniphila DSM 22959 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_28116.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Bacteroides ovatus DSM 1896 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Bacteroides%20ovatus%20DSM%201896"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Bacteroides ovatus DSM 1896 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_818.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Bacteroides thetaiotaomicron DSM 2079 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Bacteroides%20thetaiotaomicron%20DSM%202079"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Bacteroides thetaiotaomicron DSM 2079 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1680.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Bifidobacterium adolescentis DSM 20083 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Bifidobacterium%20adolescentis%20DSM%2020083"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Bifidobacterium adolescentis DSM 20083 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_40520.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Blautia obeum DSM 25238 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Blautia%20obeum%20DSM%2025238"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Blautia obeum DSM 25238 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_562.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Escherichia coli DSM 18039 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Escherichia%20coli%20DSM%2018039"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Escherichia coli DSM 18039 ↗
+                </a>
+
+
+
+                <a href="https://culturebotai.github.io/CultureMech/"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    CultureMech Growth Media ↗
+                </a>
+                <a href="https://culturebotai.github.io/PathwayMech/"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    PathwayMech Pathways ↗
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+            <p>Generated by CommunityMech | Source YAML: <a href="https://github.com/CultureBotAI/CommunityMech/blob/main/kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml"><code>kb/communities/Amsterdam_10Species_Gut_Invasion_SynCom.yaml</code></a> | <a href="../schema.html">LinkML Schema</a> (<code>https://w3id.org/communitymech</code>) | License: BSD-3-Clause | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
         </div>
     </footer>
 
@@ -1175,7 +1322,14 @@
     <script>
     (function() {
         if (typeof d3 === 'undefined') {
-            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            var statusEl = document.getElementById('network-status');
+            statusEl.setAttribute('role', 'alert');
+            statusEl.textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry. ';
+            var retryBtn = document.createElement('button');
+            retryBtn.type = 'button';
+            retryBtn.textContent = 'Retry';
+            retryBtn.onclick = function() { window.location.reload(); };
+            statusEl.appendChild(retryBtn);
             return;
         }
         var interactionColors = {

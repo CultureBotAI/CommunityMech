@@ -48,12 +48,25 @@
   footer .fam{margin:.2em 0}
   footer .fam a{margin:0 .45em;white-space:nowrap;display:inline-block}
   footer strong{color:var(--ink)}
+  .site-header{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40}
+  .site-header-inner{max-width:1180px;margin:0 auto;padding:.65rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  .site-brand{font-weight:700;font-size:1.1rem;color:var(--ink);text-decoration:none}
+  .site-nav{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap}
+  .site-nav a{color:var(--ink);font-size:.86rem;font-weight:500;padding:.35rem .65rem;border-radius:6px;text-decoration:none}
+  .site-nav a:hover,.site-nav a[aria-current="page"]{background:rgba(61,125,214,.14);color:var(--accent);text-decoration:none}
+  .hero-search{max-width:640px;margin:26px auto 0;display:flex;gap:10px;background:rgba(255,255,255,.92);padding:6px;border-radius:999px;border:1px solid var(--line);box-shadow:0 4px 16px rgba(0,0,0,.07)}
+  .hero-search input{flex:1;border:0;background:transparent;padding:10px 18px;font-size:1rem;color:var(--ink);outline:none}
+  .hero-search button{background:var(--accent);color:#fff;border:0;border-radius:999px;padding:10px 22px;font-size:.95rem;font-weight:600;cursor:pointer}
+  .hero-search button:hover{filter:brightness(.93)}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 /* ---- Dark theme (OS default; superseded by the toggle) ---- */
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){--pastel-a:#1d2740; --pastel-b:#101420; --accent:#6ea6f0; --ink:#e8ecf4; --muted:#99a2b5; --card:#1a1f2e; --line:#2a3142;}
   :root:not([data-theme="light"]) .stat{background:rgba(255,255,255,.05)}
   :root:not([data-theme="light"]) footer{background:rgba(255,255,255,.05)}
   :root:not([data-theme="light"]) .btn{color:#101420}
+  :root:not([data-theme="light"]) .site-header{background:rgba(16,20,32,.85)}
+  :root:not([data-theme="light"]) .hero-search{background:rgba(26,31,46,.92)}
   /* brand pastel PAIR: darkened fill + vivid pastel top edge */
   :root:not([data-theme="light"]) .hero{background:linear-gradient(135deg,#574d5a,#485060);border-bottom:0;border-top:3px solid;border-image:linear-gradient(90deg,#FBD3E3,#CBDDF6) 1}
   :root:not([data-theme="light"]) .card{position:relative}
@@ -63,6 +76,8 @@
 :root[data-theme="dark"] .stat{background:rgba(255,255,255,.05)}
 :root[data-theme="dark"] footer{background:rgba(255,255,255,.05)}
 :root[data-theme="dark"] .btn{color:#101420}
+:root[data-theme="dark"] .site-header{background:rgba(16,20,32,.85)}
+:root[data-theme="dark"] .hero-search{background:rgba(26,31,46,.92)}
 /* brand pastel PAIR: darkened fill + vivid pastel top edge */
 :root[data-theme="dark"] .hero{background:linear-gradient(135deg,#574d5a,#485060);border-bottom:0;border-top:3px solid;border-image:linear-gradient(90deg,#FBD3E3,#CBDDF6) 1}
 :root[data-theme="dark"] .card{position:relative}
@@ -73,13 +88,37 @@
 </style>
 </head>
 <body>
+  <div class="site-header">
+    <div class="site-header-inner">
+      <a class="site-brand" href="index.html">CommunityMech</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="browser.html">Browse</a>
+        <a href="text_map.html">Text Map</a>
+        <a href="community_umap.html">Taxonomic UMAP</a>
+        <a href="sequence_map.html">Sequence Map</a>
+        <a href="community_graph.html">Network</a>
+        <a href="schema.html">Schema</a>
+        <a href="#downloads">Downloads</a>
+        <a href="https://github.com/CultureBotAI/CommunityMech">GitHub</a>
+        <a href="https://culturebotai.github.io/mechs/">All Mech projects</a>
+      </nav>
+    </div>
+  </div>
   <header class="hero">
     <h1>CommunityMech</h1>
     <p class="tagline">Microbial community knowledge base — curated, evidence-backed interaction networks.</p>
+    <form class="hero-search" action="browser.html" method="get" role="search">
+      <label class="sr-only" for="hero-search-input">Search communities</label>
+      <input id="hero-search-input" name="q" type="search" placeholder="Search {{ num_communities }} communities by taxon, interaction, metabolite, metal, or habitat..." autocomplete="off">
+      <button type="submit">Search</button>
+    </form>
     <div class="stats">
       <a class="stat" href="browser.html"><b>{{ num_communities }}</b><span>communities</span></a>
       <a class="stat" href="browser.html#category-facet"><b>{{ num_categories }}</b><span>categories</span></a>
+      <a class="stat" href="text_map.html"><b>384-D</b><span>text embeddings</span></a>
       <a class="stat" href="community_umap.html"><b>512-D</b><span>v3 embeddings</span></a>
+      <a class="stat" href="sequence_map.html"><b>1280-D</b><span>ESM-2 sequences</span></a>
     </div>
   </header>
   <main class="wrap">
@@ -90,9 +129,28 @@
         <p>Faceted browser of microbial communities — filter by category, ecological state, metals, and rare-earth elements.</p>
       </div>
       <div class="card">
-        <div class="actions"><a class="btn" href="community_umap.html">Explore embedding (PaCMAP) &rarr;</a><a class="btn" href="community_graph.html">Graph layout &rarr;</a></div>
+        <div class="actions"><a class="btn" href="text_map.html">Text embedding map &rarr;</a><a class="btn" href="community_umap.html">Taxonomic UMAP &rarr;</a><a class="btn" href="community_graph.html">Graph layout &rarr;</a></div>
         <h2>Embedding browser</h2>
-        <p>Interactive PaCMAP of community embedding space from taxonomic composition.</p>
+        <p>Interactive 2D PaCMAP &amp; PCA projections of text embeddings (BAAI/bge-small-en-v1.5) and KG-Microbe taxonomic DeepWalk embeddings.</p>
+      </div>
+      <div class="card">
+        <div class="actions"><a class="btn" href="sequence_map.html">ESM-2 sequence map &rarr;</a></div>
+        <h2>Protein sequence map (pLM)</h2>
+        <p>Interactive 1,280-D ESM-2 protein language model embedding space for CommunityMech functional genes and guild markers.</p>
+      </div>
+      <div class="card">
+        <div class="actions"><a class="btn" href="schema.html">Schema reference &rarr;</a></div>
+        <h2>LinkML Schema</h2>
+        <p>Browse classes, slots, ontology prefixes (NCBITaxon, ENVO, ChEBI, GO, METPO), and permissible enums in the CommunityMech schema.</p>
+      </div>
+      <div class="card" id="downloads">
+        <div class="actions">
+          <a class="btn" href="communities.json" download>Download JSON &darr;</a>
+          <a class="btn" href="communities.tsv" download>Download TSV &darr;</a>
+          <a class="btn" href="data.js" download>Browser index (JS) &darr;</a>
+        </div>
+        <h2>Downloads &amp; bulk data</h2>
+        <p>Download the full {{ num_communities }}-community dataset as structured JSON or tabular TSV, or inspect individual YAML records in <code>kb/communities/</code>.</p>
       </div>
       <div class="card">
         <div class="actions"><a class="btn" href="https://github.com/CultureBotAI/CommunityMech">View on GitHub &rarr;</a></div>
@@ -102,13 +160,14 @@
     </div>
   </main>
   <footer>
-    <p><a href="https://culturebotai.github.io/mechs/">All Mech projects</a></p>
+    <p><a href="https://culturebotai.github.io/mechs/">All Mech projects</a> &middot; <a href="schema.html">LinkML Schema</a> &middot; <a href="communities.json" download>JSON Export</a> &middot; <a href="communities.tsv" download>TSV Export</a></p>
     <div class="fam"><strong>KG-Microbe Mechs:</strong>
-      <a href="https://culturebotai.github.io/CultureMech/">CultureMech</a>&middot;<a href="https://culturebotai.github.io/MediaIngredientMech/">MediaIngredientMech</a>&middot;<span aria-current="page">CommunityMech</span>&middot;<a href="https://culturebotai.github.io/TraitMech/">TraitMech</a>&middot;<a href="https://culturebotai.github.io/proteintraitsmech/">ProteinTraitsMech</a>
+      <a href="https://culturebotai.github.io/CultureMech/">CultureMech</a>&middot;<a href="https://culturebotai.github.io/MediaIngredientMech/">MediaIngredientMech</a>&middot;<span aria-current="page">CommunityMech</span>&middot;<a href="https://culturebotai.github.io/TraitMech/">TraitMech</a>&middot;<a href="https://culturebotai.github.io/proteintraitsmech/">ProteinTraitsMech</a>&middot;<a href="https://culturebotai.github.io/TaxonMech/">TaxonMech</a>&middot;<a href="https://culturebotai.github.io/HabitatMech/">HabitatMech</a>&middot;<a href="https://culturebotai.github.io/PathwayMech/">PathwayMech</a>&middot;<a href="https://culturebotai.github.io/CMMMech/">CMMMech</a>
     </div>
     <div class="fam">
       <a href="https://github.com/Knowledge-Graph-Hub/kg-microbe">kg-microbe</a>&middot;<a href="https://bioportal.bioontology.org/ontologies/METPO">METPO</a>
     </div>
+    <p class="fam" style="margin-top:.55em;font-size:.82rem;">Provenance: Schema <code>https://w3id.org/communitymech</code> &middot; Source corpus: <code>kb/communities/</code> ({{ num_communities }} records) &middot; License: BSD-3-Clause</p>
   </footer>
     <script src="theme-toggle.js"></script>
 </body>
