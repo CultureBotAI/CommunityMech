@@ -263,7 +263,10 @@ class CommunityRenderer:
                         row.get("metal_relevance", ""),
                         ";".join(str(x) for x in (row.get("metals_present") or [])),
                         ";".join(str(x) for x in (row.get("rare_earth_elements_present") or [])),
-                        str(row.get("description", "")).replace("\t", " ").replace("\n", " ").strip(),
+                        str(row.get("description", ""))
+                        .replace("\t", " ")
+                        .replace("\n", " ")
+                        .strip(),
                     ]
                 )
         print(f"  ✓ Generated bulk exports at {json_path} and {tsv_path}")
@@ -329,6 +332,8 @@ class CommunityRenderer:
                 f"<td><code>{escape(pvs)}</code></td></tr>"
             )
 
+        gh_repo = "https://github.com/CultureBotAI/CommunityMech"
+        schema_src = f"{gh_repo}/blob/main/src/communitymech/schema/communitymech.yaml"
         schema_html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -336,17 +341,41 @@ class CommunityRenderer:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CommunityMech — LinkML Schema Documentation</title>
     <style>
-        body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; background: var(--bg-page); color: var(--text-primary); line-height: 1.6; }}
+        body {{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0; background: var(--bg-page);
+            color: var(--text-primary); line-height: 1.6;
+        }}
         .container {{ max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }}
-        header {{ background: var(--bg-card); padding: 1.5rem 2rem; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 1.5rem; }}
-        nav a {{ color: var(--accent); text-decoration: none; margin-right: 1rem; font-weight: 600; }}
-        section {{ background: var(--bg-card); padding: 1.5rem 2rem; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 1.5rem; }}
-        table {{ width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.9rem; }}
-        caption {{ text-align: left; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-secondary); }}
-        th, td {{ text-align: left; padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; }}
+        header, section {{
+            background: var(--bg-card); padding: 1.5rem 2rem;
+            border-radius: 8px; border: 1px solid var(--border); margin-bottom: 1.5rem;
+        }}
+        nav a {{
+            color: var(--accent); text-decoration: none;
+            margin-right: 1rem; font-weight: 600;
+        }}
+        table {{
+            width: 100%; border-collapse: collapse;
+            margin-top: 0.75rem; font-size: 0.9rem;
+        }}
+        caption {{
+            text-align: left; font-weight: 600;
+            margin-bottom: 0.5rem; color: var(--text-secondary);
+        }}
+        th, td {{
+            text-align: left; padding: 0.6rem 0.75rem;
+            border-bottom: 1px solid var(--border); vertical-align: top;
+        }}
         thead th {{ background: var(--bg-chip); font-weight: 600; }}
-        code {{ background: var(--bg-chip); padding: 0.12rem 0.35rem; border-radius: 4px; font-size: 0.85em; }}
-        footer {{ text-align: center; color: var(--text-muted); font-size: 0.85rem; padding: 1.5rem 0; }}
+        code {{
+            background: var(--bg-chip); padding: 0.12rem 0.35rem;
+            border-radius: 4px; font-size: 0.85em;
+        }}
+        footer {{
+            text-align: center; color: var(--text-muted);
+            font-size: 0.85rem; padding: 1.5rem 0;
+        }}
     </style>
 </head>
 <body>
@@ -364,7 +393,9 @@ class CommunityRenderer:
             </nav>
             <h1>CommunityMech LinkML Schema Documentation</h1>
             <p>{escape(schema_desc)}</p>
-            <p><strong>Schema URI:</strong> <code>{escape(schema_uri)}</code> &bull; <strong>Name:</strong> <code>{escape(schema_name)}</code> &bull; <a href="https://github.com/CultureBotAI/CommunityMech/blob/main/src/communitymech/schema/communitymech.yaml">View LinkML YAML source</a></p>
+            <p><strong>Schema URI:</strong> <code>{escape(schema_uri)}</code> &bull;
+            <strong>Name:</strong> <code>{escape(schema_name)}</code> &bull;
+            <a href="{schema_src}">View LinkML YAML source</a></p>
         </header>
         <main>
             <section>
@@ -372,7 +403,11 @@ class CommunityRenderer:
                 <table>
                     <caption>LinkML classes defined in the CommunityMech schema</caption>
                     <thead>
-                        <tr><th scope="col">Class</th><th scope="col">Description</th><th scope="col">Attributes</th></tr>
+                        <tr>
+                            <th scope="col">Class</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Attributes</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {"".join(class_rows)}
@@ -384,7 +419,11 @@ class CommunityRenderer:
                 <table>
                     <caption>LinkML slots and class attributes in CommunityMech</caption>
                     <thead>
-                        <tr><th scope="col">Slot / Attribute</th><th scope="col">Range</th><th scope="col">Description</th></tr>
+                        <tr>
+                            <th scope="col">Slot / Attribute</th>
+                            <th scope="col">Range</th>
+                            <th scope="col">Description</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {"".join(slot_rows)}
@@ -396,7 +435,11 @@ class CommunityRenderer:
                 <table>
                     <caption>Controlled vocabulary enumerations in CommunityMech</caption>
                     <thead>
-                        <tr><th scope="col">Enumeration</th><th scope="col">Description</th><th scope="col">Permissible Values</th></tr>
+                        <tr>
+                            <th scope="col">Enumeration</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Permissible Values</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {"".join(enum_rows)}
@@ -405,7 +448,10 @@ class CommunityRenderer:
             </section>
         </main>
         <footer>
-            <p>CommunityMech Knowledge Base ({num_communities} communities) &bull; Schema: <a href="schema.html"><code>{escape(schema_uri)}</code></a> &bull; Source: <a href="https://github.com/CultureBotAI/CommunityMech">kb/communities/</a> &bull; License: BSD-3-Clause</p>
+            <p>CommunityMech Knowledge Base ({num_communities} communities) &bull;
+            Schema: <a href="schema.html"><code>{escape(schema_uri)}</code></a> &bull;
+            Source: <a href="{gh_repo}">kb/communities/</a> &bull;
+            License: BSD-3-Clause</p>
         </footer>
     </div>
     <script src="theme-toggle.js"></script>
@@ -423,14 +469,35 @@ class CommunityRenderer:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found — CommunityMech</title>
     <style>
-        body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; background: var(--bg-page); color: var(--text-primary); line-height: 1.6; }}
+        body {{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0; background: var(--bg-page);
+            color: var(--text-primary); line-height: 1.6;
+        }}
         .container {{ max-width: 800px; margin: 3rem auto; padding: 2rem 1.5rem; }}
-        .card {{ background: var(--bg-card); padding: 2rem; border-radius: 10px; border: 1px solid var(--border); }}
-        nav a {{ color: var(--accent); text-decoration: none; margin-right: 1rem; font-weight: 600; }}
+        .card {{
+            background: var(--bg-card); padding: 2rem;
+            border-radius: 10px; border: 1px solid var(--border);
+        }}
+        nav a {{
+            color: var(--accent); text-decoration: none;
+            margin-right: 1rem; font-weight: 600;
+        }}
         .search-form {{ display: flex; gap: 0.5rem; margin: 1.25rem 0; }}
-        .search-form input {{ flex: 1; padding: 0.65rem 0.9rem; border: 1px solid var(--border-strong); border-radius: 6px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }}
-        .search-form button {{ padding: 0.65rem 1.2rem; border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-contrast); font-weight: 600; cursor: pointer; }}
-        footer {{ text-align: center; color: var(--text-muted); font-size: 0.85rem; padding: 1.5rem 0; }}
+        .search-form input {{
+            flex: 1; padding: 0.65rem 0.9rem;
+            border: 1px solid var(--border-strong); border-radius: 6px;
+            font-size: 1rem; background: var(--bg-input); color: var(--text-primary);
+        }}
+        .search-form button {{
+            padding: 0.65rem 1.2rem; border-radius: 6px;
+            border: 1px solid var(--accent); background: var(--accent);
+            color: var(--accent-contrast); font-weight: 600; cursor: pointer;
+        }}
+        footer {{
+            text-align: center; color: var(--text-muted);
+            font-size: 0.85rem; padding: 1.5rem 0;
+        }}
     </style>
 </head>
 <body>
@@ -446,26 +513,33 @@ class CommunityRenderer:
                 <a href="schema.html">Schema</a>
             </nav>
             <h1>Page Not Found (404)</h1>
-            <p>The requested CommunityMech page could not be found. Search the curated microbial community knowledge base below or navigate to one of the main views:</p>
+            <p>The requested CommunityMech page could not be found. Search the curated
+            microbial community knowledge base below or navigate to one of the main views:</p>
             <form class="search-form" action="browser.html" method="get" role="search">
                 <label for="q404" style="position:absolute;left:-9999px;">Search communities</label>
-                <input type="search" id="q404" name="q" placeholder="Search communities by name, taxon, metabolite, or habitat...">
+                <input type="search" id="q404" name="q"
+                    placeholder="Search communities by name, taxon, metabolite, or habitat...">
                 <button type="submit">Search</button>
             </form>
             <h2>Explore CommunityMech</h2>
             <ul>
                 <li><a href="index.html">Landing Page &amp; Overview</a></li>
-                <li><a href="browser.html">Interactive Community Browser ({num_communities} communities)</a></li>
+                <li><a href="browser.html">\
+Interactive Community Browser ({num_communities} communities)</a></li>
                 <li><a href="text_map.html">Community Text Embedding Map</a></li>
                 <li><a href="community_umap.html">Taxonomic UMAP Embedding</a></li>
                 <li><a href="sequence_map.html">ESM-2 Protein Sequence Map</a></li>
                 <li><a href="community_graph.html">Community Network Graph</a></li>
                 <li><a href="schema.html">LinkML Schema Documentation</a></li>
-                <li><a href="communities.json">Download All Communities (JSON)</a> &bull; <a href="communities.tsv">TSV</a></li>
+                <li><a href="communities.json">Download All Communities (JSON)</a> &bull;
+                <a href="communities.tsv">TSV</a></li>
             </ul>
         </div>
         <footer>
-            <p>CommunityMech Knowledge Base ({num_communities} communities) &bull; Schema: <a href="schema.html"><code>{escape(schema_uri)}</code></a> &bull; Source: <a href="https://github.com/CultureBotAI/CommunityMech">kb/communities/</a> &bull; License: BSD-3-Clause</p>
+            <p>CommunityMech Knowledge Base ({num_communities} communities) &bull;
+            Schema: <a href="schema.html"><code>{escape(schema_uri)}</code></a> &bull;
+            Source: <a href="{gh_repo}">kb/communities/</a> &bull;
+            License: BSD-3-Clause</p>
         </footer>
     </div>
     <script src="theme-toggle.js"></script>
@@ -490,13 +564,13 @@ class CommunityRenderer:
             existing_umap = umap_path.read_text(encoding="utf-8")
             m = re.search(r"const communityData = (\[.*?\]);", existing_umap, re.DOTALL)
             if m:
-                umap_rows = [
-                    row for row in json.loads(m.group(1)) if row.get("id") in valid_stems
-                ]
+                umap_rows = [row for row in json.loads(m.group(1)) if row.get("id") in valid_stems]
                 umap_template = self.env.get_template("community_umap.html")
                 umap_html = umap_template.render(
                     num_communities=len(umap_rows),
-                    community_data_json=json.dumps(umap_rows, indent=2, ensure_ascii=False).replace("</", "<\\/"),
+                    community_data_json=json.dumps(umap_rows, indent=2, ensure_ascii=False).replace(
+                        "</", "<\\/"
+                    ),
                 )
                 umap_path.write_text(_strip_trailing_whitespace(umap_html) + "\n", encoding="utf-8")
                 print(f"  ✓ Generated taxonomic UMAP at {umap_path}")
@@ -522,7 +596,9 @@ class CommunityRenderer:
             text_map_template = self.env.get_template("text_map.html")
             text_map_html = text_map_template.render(
                 corpus_map=corpus_payload,
-                corpus_map_json=json.dumps(corpus_payload, ensure_ascii=False).replace("</", "<\\/"),
+                corpus_map_json=json.dumps(corpus_payload, ensure_ascii=False).replace(
+                    "</", "<\\/"
+                ),
             )
             text_map_path = output_dir.parent / "text_map.html"
             text_map_path.write_text(_strip_trailing_whitespace(text_map_html), encoding="utf-8")
@@ -533,14 +609,14 @@ class CommunityRenderer:
             seq_data = json.loads(seq_json_path.read_text(encoding="utf-8"))
             records = []
             for rec in seq_data.get("records") or []:
-                comms = [
-                    c for c in (rec.get("communities") or []) if c.get("id") in valid_stems
-                ]
-                records.append({
-                    **rec,
-                    "communities": comms,
-                    "n_communities": len(comms),
-                })
+                comms = [c for c in (rec.get("communities") or []) if c.get("id") in valid_stems]
+                records.append(
+                    {
+                        **rec,
+                        "communities": comms,
+                        "n_communities": len(comms),
+                    }
+                )
             seq_payload = {
                 **seq_data,
                 "count": len(records),

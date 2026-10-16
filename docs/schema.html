@@ -5,17 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CommunityMech — LinkML Schema Documentation</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; background: var(--bg-page); color: var(--text-primary); line-height: 1.6; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0; background: var(--bg-page);
+            color: var(--text-primary); line-height: 1.6;
+        }
         .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
-        header { background: var(--bg-card); padding: 1.5rem 2rem; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 1.5rem; }
-        nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; font-weight: 600; }
-        section { background: var(--bg-card); padding: 1.5rem 2rem; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 1.5rem; }
-        table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.9rem; }
-        caption { text-align: left; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-secondary); }
-        th, td { text-align: left; padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+        header, section {
+            background: var(--bg-card); padding: 1.5rem 2rem;
+            border-radius: 8px; border: 1px solid var(--border); margin-bottom: 1.5rem;
+        }
+        nav a {
+            color: var(--accent); text-decoration: none;
+            margin-right: 1rem; font-weight: 600;
+        }
+        table {
+            width: 100%; border-collapse: collapse;
+            margin-top: 0.75rem; font-size: 0.9rem;
+        }
+        caption {
+            text-align: left; font-weight: 600;
+            margin-bottom: 0.5rem; color: var(--text-secondary);
+        }
+        th, td {
+            text-align: left; padding: 0.6rem 0.75rem;
+            border-bottom: 1px solid var(--border); vertical-align: top;
+        }
         thead th { background: var(--bg-chip); font-weight: 600; }
-        code { background: var(--bg-chip); padding: 0.12rem 0.35rem; border-radius: 4px; font-size: 0.85em; }
-        footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; padding: 1.5rem 0; }
+        code {
+            background: var(--bg-chip); padding: 0.12rem 0.35rem;
+            border-radius: 4px; font-size: 0.85em;
+        }
+        footer {
+            text-align: center; color: var(--text-muted);
+            font-size: 0.85rem; padding: 1.5rem 0;
+        }
     </style>
 </head>
 <body>
@@ -33,7 +57,9 @@
             </nav>
             <h1>CommunityMech LinkML Schema Documentation</h1>
             <p>Schema for modeling microbial community structure, function, and ecological interactions</p>
-            <p><strong>Schema URI:</strong> <code>https://w3id.org/communitymech</code> &bull; <strong>Name:</strong> <code>communitymech</code> &bull; <a href="https://github.com/CultureBotAI/CommunityMech/blob/main/src/communitymech/schema/communitymech.yaml">View LinkML YAML source</a></p>
+            <p><strong>Schema URI:</strong> <code>https://w3id.org/communitymech</code> &bull;
+            <strong>Name:</strong> <code>communitymech</code> &bull;
+            <a href="https://github.com/CultureBotAI/CommunityMech/blob/main/src/communitymech/schema/communitymech.yaml">View LinkML YAML source</a></p>
         </header>
         <main>
             <section>
@@ -41,7 +67,11 @@
                 <table>
                     <caption>LinkML classes defined in the CommunityMech schema</caption>
                     <thead>
-                        <tr><th scope="col">Class</th><th scope="col">Description</th><th scope="col">Attributes</th></tr>
+                        <tr>
+                            <th scope="col">Class</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Attributes</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr><th scope='row'><code>BiologicalProcessDescriptor</code></th><td>Describes a biological process with GO term</td><td><code>notes, preferred_term, term</code></td></tr><tr><th scope='row'><code>CommonTaxon</code></th><td>A reusable taxon record: an NCBITaxon-grounded organism together with its reference genome(s) and the genes known to support its community role(s) or specific ecological interactions. Maintained once and referenced by many community records.</td><td><code>curation_history, genes, genomes, id, notes, taxon_term</code></td></tr><tr><th scope='row'><code>CommunityEngineeringDesign</code></th><td>Design intent and implementation details for engineered or synthetic communities</td><td><code>assembly_strategy, counter_selection, evidence, inoculation_strategy, measurement_endpoints, notes, objective, passaging_regimen, perturbation_design, protocol_url</code></td></tr><tr><th scope='row'><code>ComputationalProvenance</code></th><td>Provenance for a computationally derived claim — the method category, the tool chain (each with an optional version and citation), and the model / inputs / simulated conditions behind a prediction. Attach to an EvidenceItem whose evidence_source is COMPUTATIONAL (e.g. cross-feeding predicted from a genome-scale metabolic model under flux balance analysis).</td><td><code>input_accession, model_name, model_source, parameters, prediction_type, simulated_medium, tools</code></td></tr><tr><th scope='row'><code>ComputationalTool</code></th><td>A single software tool used in a computational prediction, with optional version and citation.</td><td><code>role, tool_name, tool_reference, tool_version</code></td></tr><tr><th scope='row'><code>CounterSelection</code></th><td>A candidate, or set of candidates, excluded from a community during assembly, with the criterion that excluded it (#307).
@@ -54,7 +84,11 @@ Screening is how most synthetic communities are built, and &quot;we excluded X b
                 <table>
                     <caption>LinkML slots and class attributes in CommunityMech</caption>
                     <thead>
-                        <tr><th scope="col">Slot / Attribute</th><th scope="col">Range</th><th scope="col">Description</th></tr>
+                        <tr>
+                            <th scope="col">Slot / Attribute</th>
+                            <th scope="col">Range</th>
+                            <th scope="col">Description</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr><th scope='row'><code>BiologicalProcessDescriptor.notes</code></th><td><code>string</code></td><td>Additional notes</td></tr><tr><th scope='row'><code>BiologicalProcessDescriptor.preferred_term</code></th><td><code>string</code></td><td>Human-readable process name</td></tr><tr><th scope='row'><code>BiologicalProcessDescriptor.term</code></th><td><code>Term</code></td><td>GO biological process term</td></tr><tr><th scope='row'><code>CommonTaxon.curation_history</code></th><td><code>CurationEvent</code></td><td>Append-only audit trail of curation actions on this record.</td></tr><tr><th scope='row'><code>CommonTaxon.genes</code></th><td><code>GeneAnnotation</code></td><td>Genes known to support this taxon&#x27;s community role(s) or specific interactions, with standardized gene/genome ids and evidence.</td></tr><tr><th scope='row'><code>CommonTaxon.genomes</code></th><td><code>GenomeRecord</code></td><td>Reference genome assembly(ies) for this taxon.</td></tr><tr><th scope='row'><code>CommonTaxon.id</code></th><td><code>string</code></td><td>Unique identifier for this common-taxon record.</td></tr><tr><th scope='row'><code>CommonTaxon.notes</code></th><td><code>string</code></td><td>Additional notes about this taxon record.</td></tr><tr><th scope='row'><code>CommonTaxon.taxon_term</code></th><td><code>TaxonDescriptor</code></td><td>NCBITaxon-grounded organism this record describes.</td></tr><tr><th scope='row'><code>CommunityEngineeringDesign.assembly_strategy</code></th><td><code>string</code></td><td>How member strains were selected and assembled</td></tr><tr><th scope='row'><code>CommunityEngineeringDesign.counter_selection</code></th><td><code>CounterSelection</code></td><td>Candidates deliberately excluded during assembly, and why. The schema could express what a community IS but not what it was deliberately NOT, so a screening constraint had only two homes: an `ecological_interaction`, which asserts an edge between members and is wrong when the excluded strains are not members, or prose in `notes`, which no consumer can query (#307).
@@ -107,7 +141,11 @@ Spelled by the same `_curie()` the grounding uses, so a candidate is written exa
                 <table>
                     <caption>Controlled vocabulary enumerations in CommunityMech</caption>
                     <thead>
-                        <tr><th scope="col">Enumeration</th><th scope="col">Description</th><th scope="col">Permissible Values</th></tr>
+                        <tr>
+                            <th scope="col">Enumeration</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Permissible Values</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr><th scope='row'><code>AbundanceEnum</code></th><td>How prominent a member is **within its own record** - an ordinal rank among that community&#x27;s members, not a measured share of it (#748).
@@ -119,7 +157,10 @@ Only NOT_ATTEMPTED is unambiguously outstanding work — 0 taxa since #401 close
             </section>
         </main>
         <footer>
-            <p>CommunityMech Knowledge Base (458 communities) &bull; Schema: <a href="schema.html"><code>https://w3id.org/communitymech</code></a> &bull; Source: <a href="https://github.com/CultureBotAI/CommunityMech">kb/communities/</a> &bull; License: BSD-3-Clause</p>
+            <p>CommunityMech Knowledge Base (458 communities) &bull;
+            Schema: <a href="schema.html"><code>https://w3id.org/communitymech</code></a> &bull;
+            Source: <a href="https://github.com/CultureBotAI/CommunityMech">kb/communities/</a> &bull;
+            License: BSD-3-Clause</p>
         </footer>
     </div>
     <script src="theme-toggle.js"></script>

@@ -38,9 +38,7 @@ def _normalize_coords(coords: np.ndarray) -> np.ndarray:
     return np.round(c, 4)
 
 
-def _top_k_neighbors(
-    emb: np.ndarray, ids: list[str], k: int = 8
-) -> list[list[dict[str, Any]]]:
+def _top_k_neighbors(emb: np.ndarray, ids: list[str], k: int = 8) -> list[list[dict[str, Any]]]:
     sim = emb @ emb.T
     np.fill_diagonal(sim, -np.inf)
     n = emb.shape[0]
@@ -86,14 +84,16 @@ def main() -> None:
 
     points: list[dict[str, Any]] = []
     for i, m in enumerate(metas):
-        points.append({
-            **m,
-            "x_pacmap": float(pac_coords[i, 0]),
-            "y_pacmap": float(pac_coords[i, 1]),
-            "x_pca": float(pca_coords[i, 0]),
-            "y_pca": float(pca_coords[i, 1]),
-            "neighbors": knn[i],
-        })
+        points.append(
+            {
+                **m,
+                "x_pacmap": float(pac_coords[i, 0]),
+                "y_pacmap": float(pac_coords[i, 1]),
+                "x_pca": float(pca_coords[i, 0]),
+                "y_pca": float(pca_coords[i, 1]),
+                "neighbors": knn[i],
+            }
+        )
 
     payload = {
         "model": model_name,
@@ -104,7 +104,9 @@ def main() -> None:
     }
 
     args.out_json.parent.mkdir(parents=True, exist_ok=True)
-    args.out_json.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    args.out_json.write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
     print(f"Wrote {args.out_json.relative_to(REPO_ROOT)} ({len(points)} records)")
 
 

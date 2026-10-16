@@ -105,10 +105,7 @@ REFERENCE_PROTEINS: list[dict[str, Any]] = [
         "localization": "Extracellular pilus filament",
         "cofactor": "None (aromatic amino acid conductivity)",
         "taxon_keywords": ["Geobacter"],
-        "sequence": (
-            "MLQKLRNRKGFTLIELLIVVAIIGILAAIAIPQFSAYRVKAYNSAASSDLRNLKTALES"
-            "AFADDQTYPPES"
-        ),
+        "sequence": ("MLQKLRNRKGFTLIELLIVVAIIGILAAIAIPQFSAYRVKAYNSAASSDLRNLKTALES" "AFADDQTYPPES"),
     },
     {
         "accession": "UniProtKB:Q74E61",
@@ -230,7 +227,15 @@ REFERENCE_PROTEINS: list[dict[str, Any]] = [
         "pathway": "Methanogenesis terminal step",
         "localization": "Cytoplasm",
         "cofactor": "Coenzyme F430 (nickel porphinoid)",
-        "taxon_keywords": ["Methanosarcina", "Methanobacterium", "Methanococcus", "Methanosaeta", "Methanobrevibacter", "Methanospirillum", "Methanoculleus"],
+        "taxon_keywords": [
+            "Methanosarcina",
+            "Methanobacterium",
+            "Methanococcus",
+            "Methanosaeta",
+            "Methanobrevibacter",
+            "Methanospirillum",
+            "Methanoculleus",
+        ],
         "sequence": (
             "MADKLFINALKKKFEESPEEKKTTFYTLGGWKQSERKTEFVNAGDIVEKVPKGAPLGPA"
             "YVQKIGQKYGAAIADEMGLGKTVQSIALLAHLAEERKIWGPFLIISPAsTLNNWVNEIS"
@@ -248,7 +253,12 @@ REFERENCE_PROTEINS: list[dict[str, Any]] = [
         "pathway": "Flavin-based electron bifurcation in methanogenesis",
         "localization": "Cytoplasm",
         "cofactor": "FAD + [4Fe-4S] clusters",
-        "taxon_keywords": ["Methanobacterium", "Methanothermobacter", "Methanobrevibacter", "Methanococcus"],
+        "taxon_keywords": [
+            "Methanobacterium",
+            "Methanothermobacter",
+            "Methanobrevibacter",
+            "Methanococcus",
+        ],
         "sequence": (
             "MVKVVIVGGGPGGLAAARTLAKAGIPVVLLEKRDKIGGVWYTENPDIKAGAIVGAPLAA"
             "KAAKEAGVPVKLGTEVVERDGKVVGVRVENGEEYEADLVVATGSRPRIPPG"
@@ -318,7 +328,13 @@ REFERENCE_PROTEINS: list[dict[str, Any]] = [
         "pathway": "Sox sulfur oxidation system",
         "localization": "Periplasm",
         "cofactor": "Dimanganese center",
-        "taxon_keywords": ["Acidithiobacillus", "Thiomonas", "Halothiobacillus", "Sulfurovum", "Beggiatoa"],
+        "taxon_keywords": [
+            "Acidithiobacillus",
+            "Thiomonas",
+            "Halothiobacillus",
+            "Sulfurovum",
+            "Beggiatoa",
+        ],
         "sequence": (
             "MRKLLALALAAASLVAGAPAAQPVLTVHTNDVHGHLEPYDYGLAAAKAAVAAGVKVVAV"
             "GHTGGDVADLLAKAGVPVIVPGHGGDPDNPIYGGGGVVAIADGKPVV"
@@ -336,7 +352,13 @@ REFERENCE_PROTEINS: list[dict[str, Any]] = [
         "pathway": "Dissimilatory sulfate reduction",
         "localization": "Cytoplasm",
         "cofactor": "Siroheme + [4Fe-4S] cluster",
-        "taxon_keywords": ["Desulfovibrio", "Desulfobulbus", "Desulfotomaculum", "Desulfobacter", "Syntrophobacter"],
+        "taxon_keywords": [
+            "Desulfovibrio",
+            "Desulfobulbus",
+            "Desulfotomaculum",
+            "Desulfobacter",
+            "Syntrophobacter",
+        ],
         "sequence": (
             "MAKHVPKGPNGWYKGTVKKGDVLVVDRGKVVDVTEPLGGLGAAIVRALKDAGFEVVVVD"
             "DDVVAGKPVYGAAGKCVACHGVNGQAFAAGKPVYGAAGKTVKDFLAALKKAGVTPADLA"
@@ -353,7 +375,13 @@ REFERENCE_PROTEINS: list[dict[str, Any]] = [
         "pathway": "Interspecies hydrogen transfer (syntrophy)",
         "localization": "Periplasm / Cytoplasm",
         "cofactor": "H-cluster ([4Fe-4S]-[2Fe]H)",
-        "taxon_keywords": ["Desulfovibrio", "Syntrophomonas", "Syntrophobacter", "Pelotomaculum", "Clostridium"],
+        "taxon_keywords": [
+            "Desulfovibrio",
+            "Syntrophomonas",
+            "Syntrophobacter",
+            "Pelotomaculum",
+            "Clostridium",
+        ],
         "sequence": (
             "MSRTVMERIEYEMHTPDPKADPDKLHFVQIDEAKCIGCDTCSQYCPTAAIFGEMGEPHS"
             "IPHIEACINCGQCLTHCPENAIYEAQSWVPEVEKKLKDGKVKVAVAPAVRV"
@@ -371,7 +399,15 @@ REFERENCE_PROTEINS: list[dict[str, Any]] = [
         "pathway": "Biological nitrogen fixation",
         "localization": "Cytoplasm",
         "cofactor": "[4Fe-4S] cluster + MgATP",
-        "taxon_keywords": ["Azotobacter", "Rhizobium", "Bradyrhizobium", "Sinorhizobium", "Nostoc", "Anabaena", "Rhodopseudomonas"],
+        "taxon_keywords": [
+            "Azotobacter",
+            "Rhizobium",
+            "Bradyrhizobium",
+            "Sinorhizobium",
+            "Nostoc",
+            "Anabaena",
+            "Rhodopseudomonas",
+        ],
         "sequence": (
             "MRQCAIYGKGGIGKSTTTQNLVAALAEMGKKVMIVGCDPKADSTRLILHSKAQNTIMEM"
             "AAEVGSVEDLELEDVLKAGYGGVKCVESGGPEPGVGCAGRGVITAINFLEEEGAYEDDL"
@@ -406,7 +442,14 @@ REFERENCE_PROTEINS: list[dict[str, Any]] = [
         "pathway": "Calvin-Benson-Bassham carbon fixation",
         "localization": "Carboxysome / Cytoplasm",
         "cofactor": "Mg2+",
-        "taxon_keywords": ["Synechococcus", "Synechocystis", "Prochlorococcus", "Chlamydomonas", "Chlorella", "Rhodopseudomonas"],
+        "taxon_keywords": [
+            "Synechococcus",
+            "Synechocystis",
+            "Prochlorococcus",
+            "Chlamydomonas",
+            "Chlorella",
+            "Rhodopseudomonas",
+        ],
         "sequence": (
             "MPKTQSAAGYKAGVKDYKLTYYTPDYTPKDTDLLAAFRFSPQPGVPPEEAGAAVAAES"
             "STGTWTTVWTDLLTDMDRYKGRCYDIEPVPGEDNQYIAYVAYPIDLFEEGSVTNMFTSI"
@@ -442,7 +485,13 @@ REFERENCE_PROTEINS: list[dict[str, Any]] = [
         "pathway": "Acetate-to-butyrate cross-feeding fermentation",
         "localization": "Cytoplasm",
         "cofactor": "None",
-        "taxon_keywords": ["Faecalibacterium", "Roseburia", "Eubacterium", "Anaerostipes", "Clostridium"],
+        "taxon_keywords": [
+            "Faecalibacterium",
+            "Roseburia",
+            "Eubacterium",
+            "Anaerostipes",
+            "Clostridium",
+        ],
         "sequence": (
             "MKVLDAAKAAVAAGVPVVLIDGKVAVGGFGLGIPAPVADALAAKGVKVIISNGAAGVGL"
             "GAAKAAVAAGVPVVLIDGKVAVGGFGLGIPAPVADALAAKGVKVIISNGAA"
@@ -459,7 +508,14 @@ REFERENCE_PROTEINS: list[dict[str, Any]] = [
         "pathway": "Lactic acid fermentation & cross-feeding",
         "localization": "Cytoplasm",
         "cofactor": "NAD+",
-        "taxon_keywords": ["Lactobacillus", "Lactiplantibacillus", "Lactococcus", "Streptococcus", "Bifidobacterium", "Leuconostoc"],
+        "taxon_keywords": [
+            "Lactobacillus",
+            "Lactiplantibacillus",
+            "Lactococcus",
+            "Streptococcus",
+            "Bifidobacterium",
+            "Leuconostoc",
+        ],
         "sequence": (
             "MKISVVGAAGVGSTSYAFALLAKGDVVLIDKDKAKAEGDALDLNHGKVFAPKPVDIWAG"
             "DYDDCRDADLVVICAGANQKPGETRLDLVDKNIAIFRSIVESVMASGFQGLFLVATNPV"
@@ -536,24 +592,27 @@ def _load_communities() -> list[dict[str, Any]]:
             tterm = t.get("taxon_term") or {}
             if isinstance(tterm, dict):
                 term_obj = tterm.get("term") or {}
-                label = (
-                    tterm.get("preferred_term")
-                    or (term_obj.get("label") if isinstance(term_obj, dict) else "")
+                label = tterm.get("preferred_term") or (
+                    term_obj.get("label") if isinstance(term_obj, dict) else ""
                 )
                 if label:
                     taxa_names.append(str(label))
-        communities.append({
-            "stem": p.stem,
-            "community_id": str(doc.get("id") or p.stem),
-            "name": str(doc.get("name") or p.stem),
-            "category": str(doc.get("community_category") or "OTHER"),
-            "taxa": taxa_names,
-            "text_blob": " ".join([
-                str(doc.get("name") or ""),
-                str(doc.get("description") or ""),
-                " ".join(taxa_names),
-            ]).lower(),
-        })
+        communities.append(
+            {
+                "stem": p.stem,
+                "community_id": str(doc.get("id") or p.stem),
+                "name": str(doc.get("name") or p.stem),
+                "category": str(doc.get("community_category") or "OTHER"),
+                "taxa": taxa_names,
+                "text_blob": " ".join(
+                    [
+                        str(doc.get("name") or ""),
+                        str(doc.get("description") or ""),
+                        " ".join(taxa_names),
+                    ]
+                ).lower(),
+            }
+        )
     return communities
 
 
@@ -573,7 +632,11 @@ def _enrich_from_taxa_yaml(proteins: list[dict[str, Any]]) -> None:
                 entry["function"] = str(fg.get("function") or entry.get("pathway") or "")
                 entry["phenotype"] = str(fg.get("phenotype") or "")
                 ev_list = fg.get("evidence") or []
-                refs = [str(ev.get("reference")) for ev in ev_list if isinstance(ev, dict) and ev.get("reference")]
+                refs = [
+                    str(ev.get("reference"))
+                    for ev in ev_list
+                    if isinstance(ev, dict) and ev.get("reference")
+                ]
                 entry["references"] = refs
                 entry["source_taxon_yaml"] = f"kb/taxa/{p.name}"
 
@@ -586,12 +649,14 @@ def _match_communities(
     for c in communities:
         blob = c["text_blob"]
         if any(k in blob for k in keywords):
-            matched.append({
-                "id": c["stem"],
-                "community_id": c["community_id"],
-                "name": c["name"],
-                "category": c["category"],
-            })
+            matched.append(
+                {
+                    "id": c["stem"],
+                    "community_id": c["community_id"],
+                    "name": c["name"],
+                    "category": c["category"],
+                }
+            )
     return matched[:12]
 
 
@@ -712,31 +777,33 @@ def main() -> None:
             }
             for j in idx
         ]
-        records.append({
-            "accession": p["accession"],
-            "uniprot": p["uniprot"],
-            "gene_symbol": p["gene_symbol"],
-            "protein_name": p["protein_name"],
-            "organism": p["organism"],
-            "taxon_id": p["taxon_id"],
-            "guild": p["guild"],
-            "pathway": p["pathway"],
-            "function": p.get("function") or p["pathway"],
-            "phenotype": p.get("phenotype") or "",
-            "localization": p["localization"],
-            "cofactor": p["cofactor"],
-            "length": len(p["sequence"]),
-            "curated_in_taxa_kb": bool(p.get("source_taxon_yaml")),
-            "source_taxon_yaml": p.get("source_taxon_yaml") or "",
-            "references": p.get("references") or [],
-            "communities": matched_comms,
-            "n_communities": len(matched_comms),
-            "x_pacmap": float(pac_coords[i, 0]),
-            "y_pacmap": float(pac_coords[i, 1]),
-            "x_pca": float(pca_coords[i, 0]),
-            "y_pca": float(pca_coords[i, 1]),
-            "neighbors": neighbors,
-        })
+        records.append(
+            {
+                "accession": p["accession"],
+                "uniprot": p["uniprot"],
+                "gene_symbol": p["gene_symbol"],
+                "protein_name": p["protein_name"],
+                "organism": p["organism"],
+                "taxon_id": p["taxon_id"],
+                "guild": p["guild"],
+                "pathway": p["pathway"],
+                "function": p.get("function") or p["pathway"],
+                "phenotype": p.get("phenotype") or "",
+                "localization": p["localization"],
+                "cofactor": p["cofactor"],
+                "length": len(p["sequence"]),
+                "curated_in_taxa_kb": bool(p.get("source_taxon_yaml")),
+                "source_taxon_yaml": p.get("source_taxon_yaml") or "",
+                "references": p.get("references") or [],
+                "communities": matched_comms,
+                "n_communities": len(matched_comms),
+                "x_pacmap": float(pac_coords[i, 0]),
+                "y_pacmap": float(pac_coords[i, 1]),
+                "x_pca": float(pca_coords[i, 0]),
+                "y_pca": float(pca_coords[i, 1]),
+                "neighbors": neighbors,
+            }
+        )
 
     payload = {
         "model": args.model,

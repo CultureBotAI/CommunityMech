@@ -68,11 +68,15 @@ def record_to_text(path: Path, doc: dict[str, Any]) -> tuple[str, dict[str, Any]
             )
             if term_label and term_label not in env_name:
                 env_name = f"{env_name} ({term_label})" if env_name else term_label
-        env_bits = [b for b in [
-            env_name,
-            _clean(env.get("habitat")),
-            _clean(env.get("description")),
-        ] if b]
+        env_bits = [
+            b
+            for b in [
+                env_name,
+                _clean(env.get("habitat")),
+                _clean(env.get("description")),
+            ]
+            if b
+        ]
         if env_bits:
             lines.append("Environment: " + "; ".join(env_bits))
             keywords.append(env_name or env_bits[0])
@@ -133,7 +137,8 @@ def record_to_text(path: Path, doc: dict[str, Any]) -> tuple[str, dict[str, Any]
             if iname:
                 keywords.append(iname)
             chunk = " - ".join(
-                b for b in [
+                b
+                for b in [
                     f"{iname} ({itype})" if iname and itype else (iname or itype),
                     idesc,
                     ("Metabolites: " + ", ".join(met_names)) if met_names else "",
