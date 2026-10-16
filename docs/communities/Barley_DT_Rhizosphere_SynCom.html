@@ -385,6 +385,13 @@
 :root[data-theme="dark"] .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
 :root[data-theme="dark"] .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
 :root[data-theme="dark"] .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+.header-top-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.75rem}
+.header-nav-links{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap}
+.header-search-form{display:flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.75);border:1px solid var(--border);border-radius:999px;padding:.2rem .3rem .2rem .75rem}
+.header-search-form input{border:0;background:transparent;font-size:.85rem;color:var(--text);outline:none;min-width:190px}
+.header-search-form button{background:var(--primary);color:#fff;border:0;border-radius:999px;padding:.3rem .75rem;font-size:.8rem;font-weight:600;cursor:pointer}
+:root[data-theme="dark"] .header-search-form{background:rgba(26,31,46,.85)}
+:root[data-theme="dark"] .header-search-form button{color:#101420}
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
 }
@@ -393,8 +400,22 @@
 <body>
     <header>
         <div class="container">
-            <a href="../browser.html" class="back-link">← Back to Communities</a>
-            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
+            <div class="header-top-row">
+                <div class="header-nav-links">
+                    <a href="../index.html" class="back-link">Home</a>
+                    <a href="../browser.html" class="back-link">← Back to Communities</a>
+                    <a href="../text_map.html" class="back-link">Text Map</a>
+                    <a href="../community_umap.html" class="back-link">Taxonomic UMAP</a>
+                    <a href="../sequence_map.html" class="back-link">Sequence Map</a>
+                    <a href="../community_graph.html" class="back-link">Network</a>
+                    <a href="../schema.html" class="back-link">Schema</a>
+                    <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
+                </div>
+                <form class="header-search-form" action="../browser.html" method="get" role="search">
+                    <input type="search" name="q" placeholder="Search communities..." aria-label="Search communities" autocomplete="off">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
             <h1>Barley DT Rhizosphere SynCom</h1>
         </div>
     </header>
@@ -429,6 +450,8 @@
                            class="term-link" target="_blank" rel="noopener noreferrer">
                             ENVO:00005801
                         </a>
+                        · <a href="https://culturebotai.github.io/HabitatMech/browse.html?q=barley%20rhizosphere"
+                             class="term-link" target="_blank" rel="noopener noreferrer">HabitatMech ↗</a>
                     </span>
                 </div>
 
@@ -443,6 +466,8 @@
                            class="term-link" target="_blank" rel="noopener noreferrer">
                             ENVO:01001001
                         </a>
+                        · <a href="https://culturebotai.github.io/HabitatMech/browse.html?q=barley%20plant-associated%20environment"
+                             class="term-link" target="_blank" rel="noopener noreferrer">HabitatMech ↗</a>
 
 
                     </span>
@@ -484,6 +509,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:363867
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_363867.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Aeromicrobium%20ginsengisoli%20B1" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -520,6 +549,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:409291
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_409291.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Arthrobacter%20humicola%20B2" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -556,6 +589,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:39645
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_39645.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Mesorhizobium%20ciceri%20B3" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -592,6 +629,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:1641990
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1641990.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Mycolicibacterium%20montmartrense%20B4" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -628,6 +669,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:314235
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_314235.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Phyllobacterium%20brassicacearum%20B5" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -664,6 +709,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:1334106
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1334106.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Phyllobacterium%20loti%20B6" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -700,6 +749,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:412384
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_412384.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Priestia%20aryabhattai%20B7" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -736,6 +789,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:1404
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1404.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Priestia%20megaterium%20B8" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -773,6 +830,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:200451
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_200451.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Pseudomonas%20poae%20B9" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -809,6 +870,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:492774
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_492774.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Rhizobium%20alamii%20B10" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -845,6 +910,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:1673
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1673.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Rhizobium%20viscosum%20B11" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -881,6 +950,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:1828
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1828.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Rhodococcus%20fascians%20B12" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -917,6 +990,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:1920
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1920.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Streptomyces%20nigrescens%20B13" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -953,6 +1030,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:67356
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_67356.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Streptomyces%20resistomycificus%20B14" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -989,6 +1070,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:68264
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_68264.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Streptomyces%20rishiriensis%20B15" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -1025,6 +1110,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:68274
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_68274.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Streptomyces%20tauricus%20B16" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -1522,11 +1611,91 @@
 
         </section>
 
+
+        <!-- Cross-Mech Knowledge Graph Links (no <table> to preserve test_detail_table_accessibility) -->
+        <section class="cross-mech-section">
+            <h2>Cross-Mech Suite Links</h2>
+            <p class="muted" style="margin-bottom: 0.75rem;">Explore related entities across the CultureBotAI X-Mech knowledge bases:</p>
+            <div class="roles-list">
+
+                <a href="https://culturebotai.github.io/HabitatMech/browse.html?q=barley%20rhizosphere"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    HabitatMech: barley rhizosphere ↗
+                </a>
+
+
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_363867.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Aeromicrobium ginsengisoli B1 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Aeromicrobium%20ginsengisoli%20B1"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Aeromicrobium ginsengisoli B1 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_409291.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Arthrobacter humicola B2 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Arthrobacter%20humicola%20B2"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Arthrobacter humicola B2 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_39645.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Mesorhizobium ciceri B3 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Mesorhizobium%20ciceri%20B3"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Mesorhizobium ciceri B3 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1641990.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Mycolicibacterium montmartrense B4 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Mycolicibacterium%20montmartrense%20B4"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Mycolicibacterium montmartrense B4 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_314235.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Phyllobacterium brassicacearum B5 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Phyllobacterium%20brassicacearum%20B5"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Phyllobacterium brassicacearum B5 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1334106.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Phyllobacterium loti B6 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Phyllobacterium%20loti%20B6"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Phyllobacterium loti B6 ↗
+                </a>
+
+
+
+                <a href="https://culturebotai.github.io/CultureMech/"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    CultureMech Growth Media ↗
+                </a>
+                <a href="https://culturebotai.github.io/PathwayMech/"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    PathwayMech Pathways ↗
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+            <p>Generated by CommunityMech | Source YAML: <a href="https://github.com/CultureBotAI/CommunityMech/blob/main/kb/communities/Barley_DT_Rhizosphere_SynCom.yaml"><code>kb/communities/Barley_DT_Rhizosphere_SynCom.yaml</code></a> | <a href="../schema.html">LinkML Schema</a> (<code>https://w3id.org/communitymech</code>) | License: BSD-3-Clause | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
         </div>
     </footer>
 
@@ -1535,7 +1704,14 @@
     <script>
     (function() {
         if (typeof d3 === 'undefined') {
-            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            var statusEl = document.getElementById('network-status');
+            statusEl.setAttribute('role', 'alert');
+            statusEl.textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry. ';
+            var retryBtn = document.createElement('button');
+            retryBtn.type = 'button';
+            retryBtn.textContent = 'Retry';
+            retryBtn.onclick = function() { window.location.reload(); };
+            statusEl.appendChild(retryBtn);
             return;
         }
         var interactionColors = {

@@ -385,6 +385,13 @@
 :root[data-theme="dark"] .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
 :root[data-theme="dark"] .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
 :root[data-theme="dark"] .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+.header-top-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.75rem}
+.header-nav-links{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap}
+.header-search-form{display:flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.75);border:1px solid var(--border);border-radius:999px;padding:.2rem .3rem .2rem .75rem}
+.header-search-form input{border:0;background:transparent;font-size:.85rem;color:var(--text);outline:none;min-width:190px}
+.header-search-form button{background:var(--primary);color:#fff;border:0;border-radius:999px;padding:.3rem .75rem;font-size:.8rem;font-weight:600;cursor:pointer}
+:root[data-theme="dark"] .header-search-form{background:rgba(26,31,46,.85)}
+:root[data-theme="dark"] .header-search-form button{color:#101420}
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
 }
@@ -393,8 +400,22 @@
 <body>
     <header>
         <div class="container">
-            <a href="../browser.html" class="back-link">← Back to Communities</a>
-            <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
+            <div class="header-top-row">
+                <div class="header-nav-links">
+                    <a href="../index.html" class="back-link">Home</a>
+                    <a href="../browser.html" class="back-link">← Back to Communities</a>
+                    <a href="../text_map.html" class="back-link">Text Map</a>
+                    <a href="../community_umap.html" class="back-link">Taxonomic UMAP</a>
+                    <a href="../sequence_map.html" class="back-link">Sequence Map</a>
+                    <a href="../community_graph.html" class="back-link">Network</a>
+                    <a href="../schema.html" class="back-link">Schema</a>
+                    <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
+                </div>
+                <form class="header-search-form" action="../browser.html" method="get" role="search">
+                    <input type="search" name="q" placeholder="Search communities..." aria-label="Search communities" autocomplete="off">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
             <h1>ANME/SRB Anaerobic Methanotrophic Syntrophic Consortia</h1>
         </div>
     </header>
@@ -429,6 +450,8 @@
                            class="term-link" target="_blank" rel="noopener noreferrer">
                             ENVO:03000033
                         </a>
+                        · <a href="https://culturebotai.github.io/HabitatMech/browse.html?q=marine%20sediment"
+                             class="term-link" target="_blank" rel="noopener noreferrer">HabitatMech ↗</a>
                     </span>
                 </div>
 
@@ -468,6 +491,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:588814
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_588814.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=ANME-1%20%28anaerobic%20methanotrophic%20archaea%2C%20clade%201%29" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -512,6 +539,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:1902583
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1902583.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Desulfofervidus%20%28sulfate-reducing%20bacterial%20partner%20of%20ANME-1%29" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -556,6 +587,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:588816
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_588816.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=ANME-2a%20%28anaerobic%20methanotrophic%20archaea%2C%20clade%202a%29" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -600,6 +635,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:3386252
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_3386252.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=ANME-2c%20%28anaerobic%20methanotrophic%20archaea%2C%20clade%202c%29" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -644,6 +683,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:213119
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_213119.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Seep-SRB1%20%28sulfate-reducing%20bacterial%20partner%20of%20ANME-2a%29" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -688,6 +731,10 @@
                                class="term-link" target="_blank" rel="noopener noreferrer">
                                 NCBITaxon:213118
                             </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_213118.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Seep-SRB2%20%28additional%20sulfate-reducing%20bacterial%20partner%29" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
                         </td>
                         <td>
 
@@ -780,7 +827,11 @@
 
                     methane
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16183"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16183</a>)
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16183</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=methane"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=methane"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>)
 
                 </p>
 
@@ -792,7 +843,9 @@
                     <li>
                         methane metabolic process
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0015947"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015947</a>)
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015947</a>
+                        · <a href="https://culturebotai.github.io/PathwayMech/browse.html?q=methane%20metabolic%20process"
+                             class="term-link" target="_blank" rel="noopener noreferrer">PathwayMech</a>)
                     </li>
 
                 </ul>
@@ -883,7 +936,9 @@
                     <li>
                         electron transport chain
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0022900"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0022900</a>)
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0022900</a>
+                        · <a href="https://culturebotai.github.io/PathwayMech/browse.html?q=electron%20transport%20chain"
+                             class="term-link" target="_blank" rel="noopener noreferrer">PathwayMech</a>)
                     </li>
 
                 </ul>
@@ -978,7 +1033,11 @@
 
                     sulfate
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16189"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16189</a>)
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16189</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=sulfate"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=sulfate"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>)
 
                 </p>
 
@@ -990,7 +1049,9 @@
                     <li>
                         dissimilatory sulfate reduction
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0019420"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019420</a>)
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019420</a>
+                        · <a href="https://culturebotai.github.io/PathwayMech/browse.html?q=dissimilatory%20sulfate%20reduction"
+                             class="term-link" target="_blank" rel="noopener noreferrer">PathwayMech</a>)
                     </li>
 
                 </ul>
@@ -1120,11 +1181,91 @@
 
         </section>
 
+
+        <!-- Cross-Mech Knowledge Graph Links (no <table> to preserve test_detail_table_accessibility) -->
+        <section class="cross-mech-section">
+            <h2>Cross-Mech Suite Links</h2>
+            <p class="muted" style="margin-bottom: 0.75rem;">Explore related entities across the CultureBotAI X-Mech knowledge bases:</p>
+            <div class="roles-list">
+
+                <a href="https://culturebotai.github.io/HabitatMech/browse.html?q=marine%20sediment"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    HabitatMech: marine sediment ↗
+                </a>
+
+
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_588814.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: ANME-1 (anaerobic methanotrophic archaea, clade 1) ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=ANME-1%20%28anaerobic%20methanotrophic%20archaea%2C%20clade%201%29"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: ANME-1 (anaerobic methanotrophic archaea, clade 1) ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1902583.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Desulfofervidus (sulfate-reducing bacterial partner of ANME-1) ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Desulfofervidus%20%28sulfate-reducing%20bacterial%20partner%20of%20ANME-1%29"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Desulfofervidus (sulfate-reducing bacterial partner of ANME-1) ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_588816.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: ANME-2a (anaerobic methanotrophic archaea, clade 2a) ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=ANME-2a%20%28anaerobic%20methanotrophic%20archaea%2C%20clade%202a%29"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: ANME-2a (anaerobic methanotrophic archaea, clade 2a) ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_3386252.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: ANME-2c (anaerobic methanotrophic archaea, clade 2c) ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=ANME-2c%20%28anaerobic%20methanotrophic%20archaea%2C%20clade%202c%29"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: ANME-2c (anaerobic methanotrophic archaea, clade 2c) ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_213119.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Seep-SRB1 (sulfate-reducing bacterial partner of ANME-2a) ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Seep-SRB1%20%28sulfate-reducing%20bacterial%20partner%20of%20ANME-2a%29"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Seep-SRB1 (sulfate-reducing bacterial partner of ANME-2a) ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_213118.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Seep-SRB2 (additional sulfate-reducing bacterial partner) ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Seep-SRB2%20%28additional%20sulfate-reducing%20bacterial%20partner%29"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Seep-SRB2 (additional sulfate-reducing bacterial partner) ↗
+                </a>
+
+
+
+                <a href="https://culturebotai.github.io/CultureMech/"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    CultureMech Growth Media ↗
+                </a>
+                <a href="https://culturebotai.github.io/PathwayMech/"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    PathwayMech Pathways ↗
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+            <p>Generated by CommunityMech | Source YAML: <a href="https://github.com/CultureBotAI/CommunityMech/blob/main/kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml"><code>kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml</code></a> | <a href="../schema.html">LinkML Schema</a> (<code>https://w3id.org/communitymech</code>) | License: BSD-3-Clause | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
         </div>
     </footer>
 
@@ -1133,7 +1274,14 @@
     <script>
     (function() {
         if (typeof d3 === 'undefined') {
-            document.getElementById('network-status').textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry.';
+            var statusEl = document.getElementById('network-status');
+            statusEl.setAttribute('role', 'alert');
+            statusEl.textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry. ';
+            var retryBtn = document.createElement('button');
+            retryBtn.type = 'button';
+            retryBtn.textContent = 'Retry';
+            retryBtn.onclick = function() { window.location.reload(); };
+            statusEl.appendChild(retryBtn);
             return;
         }
         var interactionColors = {

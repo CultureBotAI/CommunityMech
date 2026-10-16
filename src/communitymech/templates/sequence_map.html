@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommunityMech — Protein Sequence Embedding Map (ESM-2)</title>
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --primary-light: #dbeafe;
+            --accent: #0ea5e9;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #0f172a;
+            --text-light: #475569;
+            --text-muted: #64748b;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
+        .site-header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .site-header-inner {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .site-brand {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .site-brand-badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 999px;
+        }
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            flex-wrap: wrap;
+        }
+        .site-nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.4rem 0.7rem;
+            border-radius: 6px;
+            transition: background 0.15s, color 0.15s;
+        }
+        .site-nav a:hover {
+            background: #f1f5f9;
+            color: var(--primary);
+        }
+        .site-nav a[aria-current="page"] {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        .page-banner {
+            background: linear-gradient(135deg, #312e81 0%, #0f172a 100%);
+            color: #ffffff;
+            padding: 1.25rem 1.5rem;
+        }
+        .page-banner-inner {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .page-banner h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+        .page-banner p {
+            font-size: 0.875rem;
+            color: #cbd5e1;
+            margin-top: 0.2rem;
+        }
+        .banner-meta {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            font-size: 0.78rem;
+        }
+        .banner-pill {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            color: #e2e8f0;
+        }
+        .workspace {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem 2rem;
+            display: grid;
+            grid-template-columns: 280px minmax(0, 1fr) 360px;
+            gap: 1.25rem;
+            align-items: start;
+        }
+        @media (max-width: 1200px) {
+            .workspace {
+                grid-template-columns: 260px minmax(0, 1fr);
+            }
+            .inspector-panel {
+                grid-column: 1 / -1;
+            }
+        }
+        @media (max-width: 860px) {
+            .workspace {
+                grid-template-columns: 1fr;
+            }
+        }
+        .facet-sidebar {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem;
+            position: sticky;
+            top: 4.25rem;
+            max-height: calc(100vh - 5.25rem);
+            overflow-y: auto;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+        }
+        .sidebar-section {
+            margin-bottom: 1rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .sidebar-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .sidebar-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+        .search-input, .select-input {
+            width: 100%;
+            padding: 0.5rem 0.65rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            color: var(--text);
+            background: #fff;
+        }
+        .search-input:focus, .select-input:focus {
+            outline: 2px solid var(--primary);
+            border-color: var(--primary);
+        }
+        .status-line {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.45rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-reset {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        details.facet {
+            margin-bottom: 0.65rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #f8fafc;
+            overflow: hidden;
+        }
+        details.facet summary {
+            padding: 0.5rem 0.7rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f1f5f9;
+        }
+        .facet-options {
+            padding: 0.45rem 0.65rem;
+            max-height: 200px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .facet-opt {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            color: var(--text);
+            cursor: pointer;
+        }
+        .facet-opt-left {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            min-width: 0;
+        }
+        .facet-opt-left span.label-text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .swatch {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .facet-count {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-variant-numeric: tabular-nums;
+        }
+        .canvas-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            min-height: 640px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+        }
+        .canvas-toolbar {
+            padding: 0.6rem 0.9rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            background: #f8fafc;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        .toolbar-btns {
+            display: flex;
+            gap: 0.4rem;
+        }
+        .toolbar-btn {
+            padding: 0.3rem 0.6rem;
+            border: 1px solid var(--border);
+            background: #fff;
+            border-radius: 5px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+        .toolbar-btn:hover {
+            background: #f1f5f9;
+        }
+        .canvas-wrap {
+            position: relative;
+            flex: 1;
+            min-height: 580px;
+            background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%);
+        }
+        #map-canvas {
+            width: 100%;
+            height: 580px;
+            display: block;
+            cursor: grab;
+        }
+        #map-canvas:active {
+            cursor: grabbing;
+        }
+        .tooltip {
+            position: absolute;
+            pointer-events: none;
+            background: rgba(15, 23, 42, 0.94);
+            color: #fff;
+            padding: 0.55rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            max-width: 300px;
+            z-index: 20;
+            display: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .tooltip-title {
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            color: #f8fafc;
+        }
+        .tooltip-sub {
+            color: #cbd5e1;
+            font-size: 0.72rem;
+        }
+        .inspector-panel {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.1rem;
+            position: sticky;
+            top: 4.25rem;
+            max-height: calc(100vh - 5.25rem);
+            overflow-y: auto;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+        }
+        .inspector-empty {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            padding: 1.5rem 0.5rem;
+            text-align: center;
+        }
+        .inspector-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.2rem;
+        }
+        .inspector-id {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            margin-bottom: 0.65rem;
+        }
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-bottom: 0.75rem;
+        }
+        .badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 999px;
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+        .badge-kb {
+            background: #dcfce7;
+            color: #166534;
+        }
+        .inspector-desc {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+        .inspector-link {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            padding: 0.45rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 0.9rem;
+        }
+        .inspector-link:hover {
+            background: var(--primary-dark);
+        }
+        .nn-list, .comm-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            margin-bottom: 0.9rem;
+        }
+        .nn-item, .comm-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.55rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            background: #f8fafc;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .nn-item:hover, .comm-item:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+        .nn-sim {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.72rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="site-brand" href="index.html">
+                CommunityMech
+                <span class="site-brand-badge">Knowledge Base</span>
+            </a>
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="index.html">Home</a>
+                <a href="browser.html">Browse</a>
+                <a href="text_map.html">Text Map</a>
+                <a href="community_umap.html">Taxonomic UMAP</a>
+                <a href="sequence_map.html" aria-current="page">Sequence Map</a>
+                <a href="community_graph.html">Network</a>
+                <a href="schema.html">Schema</a>
+                <a href="https://github.com/CultureBotAI/CommunityMech" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://culturebotai.github.io/mechs/" target="_blank" rel="noopener">All Mech projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="page-banner-inner">
+            <div>
+                <h1>Protein Language Model (ESM-2) Sequence Embedding Map</h1>
+                <p>2D PaCMAP &amp; PCA projection of 1,280-D ESM-2 protein sequence embeddings for CommunityMech functional genes and guild markers</p>
+            </div>
+            <div class="banner-meta">
+                <span class="banner-pill">pLM: {{ sequence_map.model }}</span>
+                <span class="banner-pill">Dimension: {{ sequence_map.dim }}D</span>
+                <span class="banner-pill">Proteins: {{ sequence_map.count }}</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="workspace">
+        <aside class="filter-panel facet-sidebar" aria-label="Sequence embedding filters">
+            <div class="sidebar-section">
+                <label class="sidebar-label" for="search">Search proteins &amp; taxa</label>
+                <input
+                    id="search"
+                    type="search"
+                    class="search-input"
+                    placeholder="Filter by gene (omcB, mcrA), taxon, guild..."
+                    autocomplete="off"
+                >
+                <div class="status-line">
+                    <span id="status-count" role="status" aria-live="polite" aria-atomic="true">
+                        Showing {{ sequence_map.count }} of {{ sequence_map.count }}
+                    </span>
+                    <button type="button" id="reset-btn" class="btn-reset">Reset all</button>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <label class="sidebar-label" for="projection-select">Projection layout</label>
+                <select id="projection-select" class="select-input">
+                    <option value="pacmap">PaCMAP 2D (ESM-2 1280D)</option>
+                    <option value="pca">PCA 2D (PC1 vs PC2)</option>
+                </select>
+            </div>
+
+            <div class="sidebar-section">
+                <label class="sidebar-label" for="color-select">Color points by</label>
+                <select id="color-select" class="select-input">
+                    <option value="guild">Functional Guild</option>
+                    <option value="organism">Source Organism</option>
+                    <option value="localization">Subcellular Localization</option>
+                </select>
+            </div>
+
+            <div class="sidebar-section" id="facets-container"></div>
+        </aside>
+
+        <section class="canvas-card" aria-label="2D ESM-2 protein embedding scatter plot">
+            <div class="canvas-toolbar">
+                <span>Drag to pan &middot; Scroll to zoom &middot; Click any protein node to inspect ESM-2 neighbors &amp; communities</span>
+                <div class="toolbar-btns">
+                    <button type="button" class="toolbar-btn" id="zoom-in-btn">Zoom +</button>
+                    <button type="button" class="toolbar-btn" id="zoom-out-btn">Zoom &minus;</button>
+                    <button type="button" class="toolbar-btn" id="zoom-reset-btn">Fit View</button>
+                </div>
+            </div>
+            <div class="canvas-wrap">
+                <canvas id="map-canvas"></canvas>
+                <div id="tooltip" class="tooltip"></div>
+            </div>
+        </section>
+
+        <aside class="inspector-panel" id="inspector" aria-label="Selected protein details">
+            <div class="inspector-empty">
+                Click any protein node in the ESM-2 embedding map to inspect its functional role, UniProt accession, nearest pLM sequence neighbors, and participating CommunityMech communities.
+            </div>
+        </aside>
+    </main>
+
+    <footer style="max-width:1400px;margin:0 auto 2rem;padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.85rem;">
+        <p>CommunityMech Knowledge Base ({{ sequence_map.count }} proteins) &bull; Schema: <a href="schema.html"><code>https://w3id.org/communitymech</code></a> &bull; Source: <a href="https://github.com/CultureBotAI/CommunityMech">kb/communities/</a> &bull; License: BSD-3-Clause</p>
+    </footer>
+
+    <script>
+        const SEQ_DATA = {{ sequence_map_json | safe }};
+        const RECORDS = SEQ_DATA.records || [];
+        const RECORD_BY_ACC = new Map(RECORDS.map(r => [r.accession, r]));
+
+        const PALETTE = [
+            "#2563eb", "#dc2626", "#16a34a", "#d97706", "#9333ea",
+            "#0891b2", "#db2777", "#4f46e5", "#65a30d", "#0d9488",
+            "#ea580c", "#64748b"
+        ];
+
+        const FACET_DEFS = [
+            { key: "guild", label: "Functional Guild" },
+            { key: "localization", label: "Subcellular Localization" },
+            { key: "organism", label: "Organism" }
+        ];
+
+        const state = {
+            q: "",
+            projection: "pacmap",
+            colorBy: "guild",
+            facets: {
+                guild: new Set(),
+                localization: new Set(),
+                organism: new Set()
+            },
+            selectedAcc: null,
+            hoveredAcc: null,
+            zoom: 1,
+            panX: 0,
+            panY: 0
+        };
+
+        const colorMaps = {};
+        FACET_DEFS.forEach(def => {
+            const vals = Array.from(new Set(RECORDS.map(r => r[def.key] || "Unknown"))).sort();
+            const map = new Map();
+            vals.forEach((v, idx) => map.set(v, PALETTE[idx % PALETTE.length]));
+            colorMaps[def.key] = map;
+        });
+
+        function matchesRecord(r, ignoreFacetKey = null) {
+            if (state.q) {
+                const commNames = (r.communities || []).map(c => c.name).join(" ");
+                const hay = (
+                    r.gene_symbol + " " + r.protein_name + " " + r.accession + " " +
+                    r.organism + " " + r.guild + " " + r.pathway + " " +
+                    r.function + " " + r.cofactor + " " + commNames
+                ).toLowerCase();
+                if (!hay.includes(state.q)) return false;
+            }
+            for (const def of FACET_DEFS) {
+                if (def.key === ignoreFacetKey) continue;
+                const active = state.facets[def.key];
+                if (active && active.size > 0 && !active.has(r[def.key] || "Unknown")) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function buildFacets() {
+            const container = document.getElementById("facets-container");
+            container.innerHTML = "";
+            FACET_DEFS.forEach(def => {
+                const details = document.createElement("details");
+                details.className = "facet";
+                details.open = true;
+                const summary = document.createElement("summary");
+                summary.textContent = def.label;
+                details.appendChild(summary);
+
+                const optsDiv = document.createElement("div");
+                optsDiv.className = "facet-options";
+                const cmap = colorMaps[def.key];
+                for (const [val, color] of cmap.entries()) {
+                    const label = document.createElement("label");
+                    label.className = "facet-opt";
+                    const left = document.createElement("span");
+                    left.className = "facet-opt-left";
+                    const cb = document.createElement("input");
+                    cb.type = "checkbox";
+                    cb.dataset.facet = def.key;
+                    cb.dataset.val = val;
+                    cb.checked = state.facets[def.key].has(val);
+                    cb.addEventListener("change", () => {
+                        if (cb.checked) state.facets[def.key].add(val);
+                        else state.facets[def.key].delete(val);
+                        syncUrlQuery();
+                        updateAll();
+                    });
+                    const sw = document.createElement("span");
+                    sw.className = "swatch";
+                    sw.style.background = color;
+                    const txt = document.createElement("span");
+                    txt.className = "label-text";
+                    txt.textContent = val;
+                    left.appendChild(cb);
+                    left.appendChild(sw);
+                    left.appendChild(txt);
+
+                    const cnt = document.createElement("span");
+                    cnt.className = "facet-count";
+                    cnt.id = `cnt-${def.key}-${val}`;
+                    cnt.textContent = "0";
+                    label.appendChild(left);
+                    label.appendChild(cnt);
+                    optsDiv.appendChild(label);
+                }
+                details.appendChild(optsDiv);
+                container.appendChild(details);
+            });
+        }
+
+        const canvas = document.getElementById("map-canvas");
+        const ctx = canvas.getContext("2d");
+        const tooltip = document.getElementById("tooltip");
+
+        function resizeCanvas() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = 580 * dpr;
+            canvas.style.height = "580px";
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            draw();
+        }
+
+        function getCoords(r) {
+            const x = state.projection === "pca" ? r.x_pca : r.x_pacmap;
+            const y = state.projection === "pca" ? r.y_pca : r.y_pacmap;
+            const w = canvas.clientWidth || 800;
+            const h = canvas.clientHeight || 580;
+            const pad = 56;
+            const cx = w / 2 + state.panX + x * ((w / 2 - pad) * state.zoom);
+            const cy = h / 2 + state.panY - y * ((h / 2 - pad) * state.zoom);
+            return [cx, cy];
+        }
+
+        function draw() {
+            const w = canvas.clientWidth || 800;
+            const h = canvas.clientHeight || 580;
+            ctx.clearRect(0, 0, w, h);
+
+            const cmap = colorMaps[state.colorBy] || colorMaps.guild;
+            let visibleCount = 0;
+
+            for (const r of RECORDS) {
+                r._visible = matchesRecord(r);
+                if (r._visible) visibleCount++;
+                const [cx, cy] = getCoords(r);
+                r._cx = cx;
+                r._cy = cy;
+            }
+
+            if (state.selectedAcc && RECORD_BY_ACC.has(state.selectedAcc)) {
+                const sel = RECORD_BY_ACC.get(state.selectedAcc);
+                ctx.save();
+                ctx.strokeStyle = "rgba(79, 70, 229, 0.38)";
+                ctx.lineWidth = 1.6;
+                for (const nn of sel.neighbors || []) {
+                    const target = RECORD_BY_ACC.get(nn.accession);
+                    if (!target) continue;
+                    ctx.beginPath();
+                    ctx.moveTo(sel._cx, sel._cy);
+                    ctx.lineTo(target._cx, target._cy);
+                    ctx.stroke();
+                }
+                ctx.restore();
+            }
+
+            for (const pass of [false, true]) {
+                for (const r of RECORDS) {
+                    if (r._visible !== pass) continue;
+                    const color = cmap.get(r[state.colorBy] || "Unknown") || "#2563eb";
+                    const isSelected = r.accession === state.selectedAcc;
+                    const isHovered = r.accession === state.hoveredAcc;
+                    const radius = isSelected ? 10 : (isHovered ? 8.5 : (r.curated_in_taxa_kb ? 7.2 : 6.2));
+                    ctx.save();
+                    ctx.globalAlpha = pass ? 0.94 : 0.14;
+                    ctx.beginPath();
+                    ctx.arc(r._cx, r._cy, radius, 0, Math.PI * 2);
+                    ctx.fillStyle = color;
+                    ctx.fill();
+                    ctx.lineWidth = (isSelected || isHovered) ? 2.4 : 1.2;
+                    ctx.strokeStyle = (isSelected || isHovered) ? "#0f172a" : "#ffffff";
+                    ctx.stroke();
+
+                    if (pass) {
+                        ctx.fillStyle = "#0f172a";
+                        ctx.font = "600 11px -apple-system, BlinkMacSystemFont, sans-serif";
+                        ctx.fillText(r.gene_symbol, r._cx + radius + 4, r._cy + 4);
+                    }
+                    ctx.restore();
+                }
+            }
+
+            document.getElementById("status-count").textContent =
+                `Showing ${visibleCount} of ${RECORDS.length}`;
+        }
+
+        function updateFacetCounts() {
+            FACET_DEFS.forEach(def => {
+                const counts = new Map();
+                for (const r of RECORDS) {
+                    if (matchesRecord(r, def.key)) {
+                        const v = r[def.key] || "Unknown";
+                        counts.set(v, (counts.get(v) || 0) + 1);
+                    }
+                }
+                for (const val of colorMaps[def.key].keys()) {
+                    const el = document.getElementById(`cnt-${def.key}-${val}`);
+                    if (el) el.textContent = String(counts.get(val) || 0);
+                }
+            });
+        }
+
+        function renderInspector(r) {
+            const box = document.getElementById("inspector");
+            if (!r) {
+                box.innerHTML = `<div class="inspector-empty">Click any protein node in the ESM-2 embedding map to inspect its functional role, UniProt accession, nearest pLM sequence neighbors, and participating CommunityMech communities.</div>`;
+                return;
+            }
+            const nnItems = (r.neighbors || []).map(nn => {
+                return `<li class="nn-item" data-acc="${nn.accession}">
+                    <span><strong>${nn.gene_symbol}</strong> &middot; ${nn.organism}</span>
+                    <span class="nn-sim">${nn.sim.toFixed(3)}</span>
+                </li>`;
+            }).join("");
+
+            const commItems = (r.communities || []).map(c => {
+                const href = "communities/" + encodeURIComponent(c.id) + ".html";
+                return `<li><a class="comm-item" href="${href}">
+                    <span>${c.name}</span>
+                    <span class="nn-sim">${c.community_id}</span>
+                </a></li>`;
+            }).join("");
+
+            const uniprotHref = "https://www.uniprot.org/uniprotkb/" + encodeURIComponent(r.uniprot);
+            const kbBadge = r.curated_in_taxa_kb
+                ? `<span class="badge badge-kb">Curated in ${r.source_taxon_yaml}</span>`
+                : "";
+
+            box.innerHTML = `
+                <div class="inspector-title">${r.gene_symbol} — ${r.protein_name}</div>
+                <div class="inspector-id">${r.accession} &middot; ${r.organism} (${r.length} aa)</div>
+                <div class="badge-row">
+                    ${kbBadge}
+                    <span class="badge">${r.guild}</span>
+                    <span class="badge">${r.localization}</span>
+                    <span class="badge">${r.cofactor}</span>
+                </div>
+                <div class="inspector-desc">
+                    <strong>Function:</strong> ${r.function}<br>
+                    ${r.phenotype ? `<strong>Phenotype:</strong> ${r.phenotype}` : ""}
+                </div>
+                <a class="inspector-link" href="${uniprotHref}" target="_blank" rel="noopener">View ${r.accession} on UniProtKB &nearr;</a>
+                <div class="sidebar-label">Participating Communities (${(r.communities || []).length})</div>
+                <ul class="comm-list">${commItems || "<li class='inspector-desc'>No direct taxon match.</li>"}</ul>
+                <div class="sidebar-label">Nearest ESM-2 Sequence Neighbors</div>
+                <ul class="nn-list">${nnItems}</ul>
+            `;
+            box.querySelectorAll(".nn-item").forEach(li => {
+                li.addEventListener("click", () => {
+                    state.selectedAcc = li.dataset.acc;
+                    renderInspector(RECORD_BY_ACC.get(state.selectedAcc));
+                    draw();
+                });
+            });
+        }
+
+        function syncUrlQuery() {
+            const url = new URL(window.location.href);
+            if (state.q) url.searchParams.set("q", state.q);
+            else url.searchParams.delete("q");
+            if (state.projection && state.projection !== "pacmap") url.searchParams.set("projection", state.projection);
+            else url.searchParams.delete("projection");
+            if (state.colorBy && state.colorBy !== "guild") url.searchParams.set("color", state.colorBy);
+            else url.searchParams.delete("color");
+            FACET_DEFS.forEach(d => {
+                const s = state.facets[d.key];
+                if (s && s.size > 0) url.searchParams.set(d.key, Array.from(s).join(","));
+                else url.searchParams.delete(d.key);
+            });
+            window.history.replaceState({}, "", url.toString());
+        }
+
+        function updateAll() {
+            updateFacetCounts();
+            draw();
+        }
+
+        let isDragging = false;
+        let dragStartX = 0;
+        let dragStartY = 0;
+        let moved = false;
+
+        canvas.addEventListener("mousedown", e => {
+            isDragging = true;
+            moved = false;
+            dragStartX = e.clientX - state.panX;
+            dragStartY = e.clientY - state.panY;
+        });
+
+        window.addEventListener("mouseup", () => {
+            isDragging = false;
+        });
+
+        canvas.addEventListener("mousemove", e => {
+            const rect = canvas.getBoundingClientRect();
+            const mx = e.clientX - rect.left;
+            const my = e.clientY - rect.top;
+
+            if (isDragging) {
+                moved = true;
+                state.panX = e.clientX - dragStartX;
+                state.panY = e.clientY - dragStartY;
+                draw();
+                return;
+            }
+
+            let best = null;
+            let bestDist = 144;
+            for (const r of RECORDS) {
+                if (!r._visible) continue;
+                const dx = r._cx - mx;
+                const dy = r._cy - my;
+                const d2 = dx * dx + dy * dy;
+                if (d2 < bestDist) {
+                    bestDist = d2;
+                    best = r;
+                }
+            }
+
+            const nextHover = best ? best.accession : null;
+            if (nextHover !== state.hoveredAcc) {
+                state.hoveredAcc = nextHover;
+                draw();
+            }
+            if (best) {
+                tooltip.style.display = "block";
+                tooltip.style.left = Math.min(mx + 14, rect.width - 280) + "px";
+                tooltip.style.top = Math.max(my - 10, 10) + "px";
+                tooltip.innerHTML = `<div class="tooltip-title">${best.gene_symbol} (${best.organism})</div>
+                    <div class="tooltip-sub">${best.protein_name} &middot; ${best.guild}</div>`;
+            } else {
+                tooltip.style.display = "none";
+            }
+        });
+
+        canvas.addEventListener("mouseleave", () => {
+            tooltip.style.display = "none";
+            state.hoveredAcc = null;
+            draw();
+        });
+
+        canvas.addEventListener("click", () => {
+            if (moved) return;
+            if (state.hoveredAcc && RECORD_BY_ACC.has(state.hoveredAcc)) {
+                state.selectedAcc = state.hoveredAcc;
+                renderInspector(RECORD_BY_ACC.get(state.selectedAcc));
+                draw();
+            }
+        });
+
+        canvas.addEventListener("wheel", e => {
+            e.preventDefault();
+            const factor = e.deltaY < 0 ? 1.15 : 0.87;
+            state.zoom = Math.max(0.5, Math.min(12, state.zoom * factor));
+            draw();
+        }, { passive: false });
+
+        document.getElementById("zoom-in-btn").addEventListener("click", () => {
+            state.zoom = Math.min(12, state.zoom * 1.25);
+            draw();
+        });
+        document.getElementById("zoom-out-btn").addEventListener("click", () => {
+            state.zoom = Math.max(0.5, state.zoom * 0.8);
+            draw();
+        });
+        document.getElementById("zoom-reset-btn").addEventListener("click", () => {
+            state.zoom = 1;
+            state.panX = 0;
+            state.panY = 0;
+            draw();
+        });
+
+        const searchInput = document.getElementById("search");
+        searchInput.addEventListener("input", () => {
+            state.q = searchInput.value.trim().toLowerCase();
+            syncUrlQuery();
+            updateAll();
+        });
+
+        document.getElementById("projection-select").addEventListener("change", e => {
+            state.projection = e.target.value;
+            syncUrlQuery();
+            draw();
+        });
+
+        document.getElementById("color-select").addEventListener("change", e => {
+            state.colorBy = e.target.value;
+            syncUrlQuery();
+            draw();
+        });
+
+        document.getElementById("reset-btn").addEventListener("click", () => {
+            state.q = "";
+            searchInput.value = "";
+            FACET_DEFS.forEach(d => state.facets[d.key].clear());
+            document.querySelectorAll("#facets-container input[type=checkbox]").forEach(cb => {
+                cb.checked = false;
+            });
+            syncUrlQuery();
+            updateAll();
+        });
+
+        // Initialize from URL parameters
+        const initParams = new URLSearchParams(window.location.search);
+        const initQ = initParams.get("q");
+        if (initQ) {
+            searchInput.value = initQ;
+            state.q = initQ.trim().toLowerCase();
+        }
+        const initProj = initParams.get("projection");
+        if (initProj) {
+            state.projection = initProj;
+            document.getElementById("projection-select").value = initProj;
+        }
+        const initColor = initParams.get("color");
+        if (initColor) {
+            state.colorBy = initColor;
+            document.getElementById("color-select").value = initColor;
+        }
+        FACET_DEFS.forEach(d => {
+            const raw = initParams.get(d.key);
+            if (raw) {
+                raw.split(",").filter(Boolean).forEach(v => state.facets[d.key].add(v));
+            }
+        });
+
+        buildFacets();
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+        updateAll();
+    </script>
+</body>
+</html>

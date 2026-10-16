@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommunityMech — Text Embedding Map</title>
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --primary-light: #dbeafe;
+            --accent: #0ea5e9;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #0f172a;
+            --text-light: #475569;
+            --text-muted: #64748b;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
+        .site-header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .site-header-inner {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .site-brand {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .site-brand-badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 999px;
+        }
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            flex-wrap: wrap;
+        }
+        .site-nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.4rem 0.7rem;
+            border-radius: 6px;
+            transition: background 0.15s, color 0.15s;
+        }
+        .site-nav a:hover {
+            background: #f1f5f9;
+            color: var(--primary);
+        }
+        .site-nav a[aria-current="page"] {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        .page-banner {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: #ffffff;
+            padding: 1.25rem 1.5rem;
+        }
+        .page-banner-inner {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .page-banner h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+        .page-banner p {
+            font-size: 0.875rem;
+            color: #cbd5e1;
+            margin-top: 0.2rem;
+        }
+        .banner-meta {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            font-size: 0.78rem;
+        }
+        .banner-pill {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            color: #e2e8f0;
+        }
+        .workspace {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem 2rem;
+            display: grid;
+            grid-template-columns: 280px minmax(0, 1fr) 340px;
+            gap: 1.25rem;
+            align-items: start;
+        }
+        @media (max-width: 1200px) {
+            .workspace {
+                grid-template-columns: 260px minmax(0, 1fr);
+            }
+            .inspector-panel {
+                grid-column: 1 / -1;
+            }
+        }
+        @media (max-width: 860px) {
+            .workspace {
+                grid-template-columns: 1fr;
+            }
+        }
+        .facet-sidebar {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem;
+            position: sticky;
+            top: 4.25rem;
+            max-height: calc(100vh - 5.25rem);
+            overflow-y: auto;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+        }
+        .sidebar-section {
+            margin-bottom: 1rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .sidebar-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .sidebar-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+        .search-input, .select-input {
+            width: 100%;
+            padding: 0.5rem 0.65rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            color: var(--text);
+            background: #fff;
+        }
+        .search-input:focus, .select-input:focus {
+            outline: 2px solid var(--primary);
+            border-color: var(--primary);
+        }
+        .status-line {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.45rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-reset {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        details.facet {
+            margin-bottom: 0.65rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #f8fafc;
+            overflow: hidden;
+        }
+        details.facet summary {
+            padding: 0.5rem 0.7rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f1f5f9;
+        }
+        .facet-options {
+            padding: 0.45rem 0.65rem;
+            max-height: 190px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .facet-opt {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--text);
+            cursor: pointer;
+        }
+        .facet-opt-left {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            min-width: 0;
+        }
+        .facet-opt-left span.label-text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .swatch {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .facet-count {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-variant-numeric: tabular-nums;
+        }
+        .canvas-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            min-height: 640px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+        }
+        .canvas-toolbar {
+            padding: 0.6rem 0.9rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            background: #f8fafc;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        .toolbar-btns {
+            display: flex;
+            gap: 0.4rem;
+        }
+        .toolbar-btn {
+            padding: 0.3rem 0.6rem;
+            border: 1px solid var(--border);
+            background: #fff;
+            border-radius: 5px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+        .toolbar-btn:hover {
+            background: #f1f5f9;
+        }
+        .canvas-wrap {
+            position: relative;
+            flex: 1;
+            min-height: 580px;
+            background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%);
+        }
+        #map-canvas {
+            width: 100%;
+            height: 580px;
+            display: block;
+            cursor: grab;
+        }
+        #map-canvas:active {
+            cursor: grabbing;
+        }
+        .tooltip {
+            position: absolute;
+            pointer-events: none;
+            background: rgba(15, 23, 42, 0.94);
+            color: #fff;
+            padding: 0.55rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            max-width: 280px;
+            z-index: 20;
+            display: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .tooltip-title {
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            color: #f8fafc;
+        }
+        .tooltip-sub {
+            color: #cbd5e1;
+            font-size: 0.72rem;
+        }
+        .inspector-panel {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.1rem;
+            position: sticky;
+            top: 4.25rem;
+            max-height: calc(100vh - 5.25rem);
+            overflow-y: auto;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+        }
+        .inspector-empty {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            padding: 1.5rem 0.5rem;
+            text-align: center;
+        }
+        .inspector-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+        .inspector-id {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            margin-bottom: 0.65rem;
+        }
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-bottom: 0.75rem;
+        }
+        .badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 999px;
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+        .inspector-desc {
+            font-size: 0.83rem;
+            color: var(--text-light);
+            margin-bottom: 0.85rem;
+            line-height: 1.5;
+        }
+        .inspector-link {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .inspector-link:hover {
+            background: var(--primary-dark);
+        }
+        .nn-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .nn-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.55rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            background: #f8fafc;
+        }
+        .nn-item:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+        .nn-sim {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.72rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="site-brand" href="index.html">
+                CommunityMech
+                <span class="site-brand-badge">Knowledge Base</span>
+            </a>
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="index.html">Home</a>
+                <a href="browser.html">Browse</a>
+                <a href="text_map.html" aria-current="page">Text Map</a>
+                <a href="community_umap.html">Taxonomic UMAP</a>
+                <a href="sequence_map.html">Sequence Map</a>
+                <a href="community_graph.html">Network</a>
+                <a href="schema.html">Schema</a>
+                <a href="https://github.com/CultureBotAI/CommunityMech" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://culturebotai.github.io/mechs/" target="_blank" rel="noopener">All Mech projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="page-banner-inner">
+            <div>
+                <h1>Community Text Embedding Browser</h1>
+                <p>Interactive 2D PaCMAP &amp; PCA projection of natural-language embeddings across all curated microbial communities</p>
+            </div>
+            <div class="banner-meta">
+                <span class="banner-pill">Model: {{ corpus_map.model }}</span>
+                <span class="banner-pill">Dimension: {{ corpus_map.dim }}D</span>
+                <span class="banner-pill">Communities: {{ corpus_map.count }}</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="workspace">
+        <aside class="filter-panel facet-sidebar" aria-label="Embedding map filters">
+            <div class="sidebar-section">
+                <label class="sidebar-label" for="search">Search communities</label>
+                <input
+                    id="search"
+                    type="search"
+                    class="search-input"
+                    placeholder="Filter by taxon, metal, habitat..."
+                    autocomplete="off"
+                >
+                <div class="status-line">
+                    <span id="status-count" role="status" aria-live="polite" aria-atomic="true">
+                        Showing {{ corpus_map.count }} of {{ corpus_map.count }}
+                    </span>
+                    <button type="button" id="reset-btn" class="btn-reset">Reset all</button>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <label class="sidebar-label" for="projection-select">Projection layout</label>
+                <select id="projection-select" class="select-input">
+                    <option value="pacmap">PaCMAP 2D (local + global structure)</option>
+                    <option value="pca">PCA 2D (PC1 vs PC2)</option>
+                </select>
+            </div>
+
+            <div class="sidebar-section">
+                <label class="sidebar-label" for="color-select">Color points by</label>
+                <select id="color-select" class="select-input">
+                    <option value="category">Community Category</option>
+                    <option value="ecological_state">Ecological State</option>
+                    <option value="community_origin">Community Origin</option>
+                </select>
+            </div>
+
+            <div class="sidebar-section" id="facets-container"></div>
+        </aside>
+
+        <section class="canvas-card" aria-label="2D embedding scatter plot">
+            <div class="canvas-toolbar">
+                <span>Drag to pan &middot; Scroll to zoom &middot; Click any community node to inspect cosine neighbors</span>
+                <div class="toolbar-btns">
+                    <button type="button" class="toolbar-btn" id="zoom-in-btn">Zoom +</button>
+                    <button type="button" class="toolbar-btn" id="zoom-out-btn">Zoom &minus;</button>
+                    <button type="button" class="toolbar-btn" id="zoom-reset-btn">Fit View</button>
+                </div>
+            </div>
+            <div class="canvas-wrap">
+                <canvas id="map-canvas"></canvas>
+                <div id="tooltip" class="tooltip"></div>
+            </div>
+        </section>
+
+        <aside class="inspector-panel" id="inspector" aria-label="Selected community details">
+            <div class="inspector-empty">
+                Click any point in the embedding map to inspect its community profile, ecological state, and nearest cosine neighbors in text-embedding space.
+            </div>
+        </aside>
+    </main>
+
+    <footer style="max-width:1400px;margin:0 auto 2rem;padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.85rem;">
+        <p>CommunityMech Knowledge Base ({{ corpus_map.count }} communities) &bull; Schema: <a href="schema.html"><code>https://w3id.org/communitymech</code></a> &bull; Source: <a href="https://github.com/CultureBotAI/CommunityMech">kb/communities/</a> &bull; License: BSD-3-Clause</p>
+    </footer>
+
+    <script>
+        const CORPUS_DATA = {{ corpus_map_json | safe }};
+        const POINTS = CORPUS_DATA.points || [];
+        const POINT_BY_ID = new Map(POINTS.map(p => [p.id, p]));
+
+        const PALETTE = [
+            "#2563eb", "#dc2626", "#16a34a", "#d97706", "#9333ea",
+            "#0891b2", "#db2777", "#4f46e5", "#65a30d", "#0d9488",
+            "#ea580c", "#64748b"
+        ];
+
+        const FACET_DEFS = [
+            { key: "category", label: "Community Category" },
+            { key: "ecological_state", label: "Ecological State" },
+            { key: "community_origin", label: "Community Origin" }
+        ];
+
+        const state = {
+            q: "",
+            projection: "pacmap",
+            colorBy: "category",
+            facets: {
+                category: new Set(),
+                ecological_state: new Set(),
+                community_origin: new Set()
+            },
+            selectedId: null,
+            hoveredId: null,
+            zoom: 1,
+            panX: 0,
+            panY: 0
+        };
+
+        const colorMaps = {};
+        FACET_DEFS.forEach(def => {
+            const vals = Array.from(new Set(POINTS.map(p => p[def.key] || "UNKNOWN"))).sort();
+            const map = new Map();
+            vals.forEach((v, idx) => map.set(v, PALETTE[idx % PALETTE.length]));
+            colorMaps[def.key] = map;
+        });
+
+        function matchesPoint(p, ignoreFacetKey = null) {
+            if (state.q) {
+                const hay = (
+                    p.title + " " + p.community_id + " " + p.category + " " +
+                    p.environment + " " + p.summary + " " + (p.keywords || []).join(" ")
+                ).toLowerCase();
+                if (!hay.includes(state.q)) return false;
+            }
+            for (const def of FACET_DEFS) {
+                if (def.key === ignoreFacetKey) continue;
+                const active = state.facets[def.key];
+                if (active && active.size > 0 && !active.has(p[def.key] || "UNKNOWN")) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function buildFacets() {
+            const container = document.getElementById("facets-container");
+            container.innerHTML = "";
+            FACET_DEFS.forEach(def => {
+                const details = document.createElement("details");
+                details.className = "facet";
+                details.open = true;
+                const summary = document.createElement("summary");
+                summary.textContent = def.label;
+                details.appendChild(summary);
+
+                const optsDiv = document.createElement("div");
+                optsDiv.className = "facet-options";
+                const cmap = colorMaps[def.key];
+                for (const [val, color] of cmap.entries()) {
+                    const label = document.createElement("label");
+                    label.className = "facet-opt";
+                    const left = document.createElement("span");
+                    left.className = "facet-opt-left";
+                    const cb = document.createElement("input");
+                    cb.type = "checkbox";
+                    cb.dataset.facet = def.key;
+                    cb.dataset.val = val;
+                    cb.checked = state.facets[def.key].has(val);
+                    cb.addEventListener("change", () => {
+                        if (cb.checked) state.facets[def.key].add(val);
+                        else state.facets[def.key].delete(val);
+                        syncUrlQuery();
+                        updateAll();
+                    });
+                    const sw = document.createElement("span");
+                    sw.className = "swatch";
+                    sw.style.background = color;
+                    const txt = document.createElement("span");
+                    txt.className = "label-text";
+                    txt.textContent = val;
+                    left.appendChild(cb);
+                    left.appendChild(sw);
+                    left.appendChild(txt);
+
+                    const cnt = document.createElement("span");
+                    cnt.className = "facet-count";
+                    cnt.id = `cnt-${def.key}-${val}`;
+                    cnt.textContent = "0";
+                    label.appendChild(left);
+                    label.appendChild(cnt);
+                    optsDiv.appendChild(label);
+                }
+                details.appendChild(optsDiv);
+                container.appendChild(details);
+            });
+        }
+
+        const canvas = document.getElementById("map-canvas");
+        const ctx = canvas.getContext("2d");
+        const tooltip = document.getElementById("tooltip");
+
+        function resizeCanvas() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = 580 * dpr;
+            canvas.style.height = "580px";
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            draw();
+        }
+
+        function getCoords(p) {
+            const x = state.projection === "pca" ? p.x_pca : p.x_pacmap;
+            const y = state.projection === "pca" ? p.y_pca : p.y_pacmap;
+            const w = canvas.clientWidth || 800;
+            const h = canvas.clientHeight || 580;
+            const pad = 48;
+            const cx = w / 2 + state.panX + x * ((w / 2 - pad) * state.zoom);
+            const cy = h / 2 + state.panY - y * ((h / 2 - pad) * state.zoom);
+            return [cx, cy];
+        }
+
+        function draw() {
+            const w = canvas.clientWidth || 800;
+            const h = canvas.clientHeight || 580;
+            ctx.clearRect(0, 0, w, h);
+
+            const cmap = colorMaps[state.colorBy] || colorMaps.category;
+            let visibleCount = 0;
+
+            for (const p of POINTS) {
+                p._visible = matchesPoint(p);
+                if (p._visible) visibleCount++;
+                const [cx, cy] = getCoords(p);
+                p._cx = cx;
+                p._cy = cy;
+            }
+
+            // Draw neighbor lines if selected
+            if (state.selectedId && POINT_BY_ID.has(state.selectedId)) {
+                const sel = POINT_BY_ID.get(state.selectedId);
+                ctx.save();
+                ctx.strokeStyle = "rgba(37, 99, 235, 0.35)";
+                ctx.lineWidth = 1.5;
+                for (const nn of sel.neighbors || []) {
+                    const target = POINT_BY_ID.get(nn.id);
+                    if (!target) continue;
+                    ctx.beginPath();
+                    ctx.moveTo(sel._cx, sel._cy);
+                    ctx.lineTo(target._cx, target._cy);
+                    ctx.stroke();
+                }
+                ctx.restore();
+            }
+
+            // Draw faded points first, then visible points
+            for (const pass of [false, true]) {
+                for (const p of POINTS) {
+                    if (p._visible !== pass) continue;
+                    const color = cmap.get(p[state.colorBy] || "UNKNOWN") || "#2563eb";
+                    const isSelected = p.id === state.selectedId;
+                    const isHovered = p.id === state.hoveredId;
+                    const r = isSelected ? 8 : (isHovered ? 7 : 5.2);
+                    ctx.save();
+                    ctx.globalAlpha = pass ? 0.92 : 0.12;
+                    ctx.beginPath();
+                    ctx.arc(p._cx, p._cy, r, 0, Math.PI * 2);
+                    ctx.fillStyle = color;
+                    ctx.fill();
+                    if (isSelected || isHovered) {
+                        ctx.lineWidth = 2.2;
+                        ctx.strokeStyle = "#0f172a";
+                        ctx.stroke();
+                    } else if (pass) {
+                        ctx.lineWidth = 1;
+                        ctx.strokeStyle = "#ffffff";
+                        ctx.stroke();
+                    }
+                    ctx.restore();
+                }
+            }
+
+            document.getElementById("status-count").textContent =
+                `Showing ${visibleCount} of ${POINTS.length}`;
+        }
+
+        function updateFacetCounts() {
+            FACET_DEFS.forEach(def => {
+                const counts = new Map();
+                for (const p of POINTS) {
+                    if (matchesPoint(p, def.key)) {
+                        const v = p[def.key] || "UNKNOWN";
+                        counts.set(v, (counts.get(v) || 0) + 1);
+                    }
+                }
+                for (const val of colorMaps[def.key].keys()) {
+                    const el = document.getElementById(`cnt-${def.key}-${val}`);
+                    if (el) el.textContent = String(counts.get(val) || 0);
+                }
+            });
+        }
+
+        function renderInspector(p) {
+            const box = document.getElementById("inspector");
+            if (!p) {
+                box.innerHTML = `<div class="inspector-empty">Click any point in the embedding map to inspect its community profile, ecological state, and nearest cosine neighbors in text-embedding space.</div>`;
+                return;
+            }
+            const nnItems = (p.neighbors || []).map(nn => {
+                const target = POINT_BY_ID.get(nn.id);
+                if (!target) return "";
+                return `<li class="nn-item" data-id="${target.id}">
+                    <span>${target.title}</span>
+                    <span class="nn-sim">${nn.sim.toFixed(3)}</span>
+                </li>`;
+            }).join("");
+
+            const detailHref = "communities/" + encodeURIComponent(p.id) + ".html";
+            box.innerHTML = `
+                <div class="inspector-title">${p.title}</div>
+                <div class="inspector-id">${p.community_id} &middot; ${p.id}</div>
+                <div class="badge-row">
+                    <span class="badge">${p.category}</span>
+                    <span class="badge">${p.ecological_state}</span>
+                    <span class="badge">${p.community_origin}</span>
+                    <span class="badge">${p.n_taxa} taxa</span>
+                    <span class="badge">${p.n_interactions} interactions</span>
+                </div>
+                <div class="inspector-desc">${p.summary || "No summary description."}</div>
+                <a class="inspector-link" href="${detailHref}">Open Community Page &rarr;</a>
+                <div class="sidebar-label">Nearest Cosine Neighbors (Text Embedding)</div>
+                <ul class="nn-list">${nnItems}</ul>
+            `;
+            box.querySelectorAll(".nn-item").forEach(li => {
+                li.addEventListener("click", () => {
+                    state.selectedId = li.dataset.id;
+                    renderInspector(POINT_BY_ID.get(state.selectedId));
+                    draw();
+                });
+            });
+        }
+
+        function syncUrlQuery() {
+            const url = new URL(window.location.href);
+            if (state.q) url.searchParams.set("q", state.q);
+            else url.searchParams.delete("q");
+            if (state.projection && state.projection !== "pacmap") url.searchParams.set("projection", state.projection);
+            else url.searchParams.delete("projection");
+            if (state.colorBy && state.colorBy !== "category") url.searchParams.set("color", state.colorBy);
+            else url.searchParams.delete("color");
+            FACET_DEFS.forEach(d => {
+                const s = state.facets[d.key];
+                if (s && s.size > 0) url.searchParams.set(d.key, Array.from(s).join(","));
+                else url.searchParams.delete(d.key);
+            });
+            window.history.replaceState({}, "", url.toString());
+        }
+
+        function updateAll() {
+            updateFacetCounts();
+            draw();
+        }
+
+        // Pointer interactions
+        let isDragging = false;
+        let dragStartX = 0;
+        let dragStartY = 0;
+        let moved = false;
+
+        canvas.addEventListener("mousedown", e => {
+            isDragging = true;
+            moved = false;
+            dragStartX = e.clientX - state.panX;
+            dragStartY = e.clientY - state.panY;
+        });
+
+        window.addEventListener("mouseup", () => {
+            isDragging = false;
+        });
+
+        canvas.addEventListener("mousemove", e => {
+            const rect = canvas.getBoundingClientRect();
+            const mx = e.clientX - rect.left;
+            const my = e.clientY - rect.top;
+
+            if (isDragging) {
+                moved = true;
+                state.panX = e.clientX - dragStartX;
+                state.panY = e.clientY - dragStartY;
+                draw();
+                return;
+            }
+
+            let best = null;
+            let bestDist = 100;
+            for (const p of POINTS) {
+                if (!p._visible) continue;
+                const dx = p._cx - mx;
+                const dy = p._cy - my;
+                const d2 = dx * dx + dy * dy;
+                if (d2 < bestDist) {
+                    bestDist = d2;
+                    best = p;
+                }
+            }
+
+            const nextHover = best ? best.id : null;
+            if (nextHover !== state.hoveredId) {
+                state.hoveredId = nextHover;
+                draw();
+            }
+            if (best) {
+                tooltip.style.display = "block";
+                tooltip.style.left = Math.min(mx + 14, rect.width - 260) + "px";
+                tooltip.style.top = Math.max(my - 10, 10) + "px";
+                tooltip.innerHTML = `<div class="tooltip-title">${best.title}</div>
+                    <div class="tooltip-sub">${best.category} &middot; ${best.ecological_state} (${best.n_taxa} taxa)</div>`;
+            } else {
+                tooltip.style.display = "none";
+            }
+        });
+
+        canvas.addEventListener("mouseleave", () => {
+            tooltip.style.display = "none";
+            state.hoveredId = null;
+            draw();
+        });
+
+        canvas.addEventListener("click", () => {
+            if (moved) return;
+            if (state.hoveredId && POINT_BY_ID.has(state.hoveredId)) {
+                state.selectedId = state.hoveredId;
+                renderInspector(POINT_BY_ID.get(state.selectedId));
+                draw();
+            }
+        });
+
+        canvas.addEventListener("wheel", e => {
+            e.preventDefault();
+            const factor = e.deltaY < 0 ? 1.15 : 0.87;
+            state.zoom = Math.max(0.5, Math.min(12, state.zoom * factor));
+            draw();
+        }, { passive: false });
+
+        document.getElementById("zoom-in-btn").addEventListener("click", () => {
+            state.zoom = Math.min(12, state.zoom * 1.25);
+            draw();
+        });
+        document.getElementById("zoom-out-btn").addEventListener("click", () => {
+            state.zoom = Math.max(0.5, state.zoom * 0.8);
+            draw();
+        });
+        document.getElementById("zoom-reset-btn").addEventListener("click", () => {
+            state.zoom = 1;
+            state.panX = 0;
+            state.panY = 0;
+            draw();
+        });
+
+        const searchInput = document.getElementById("search");
+        searchInput.addEventListener("input", () => {
+            state.q = searchInput.value.trim().toLowerCase();
+            syncUrlQuery();
+            updateAll();
+        });
+
+        document.getElementById("projection-select").addEventListener("change", e => {
+            state.projection = e.target.value;
+            syncUrlQuery();
+            draw();
+        });
+
+        document.getElementById("color-select").addEventListener("change", e => {
+            state.colorBy = e.target.value;
+            syncUrlQuery();
+            draw();
+        });
+
+        document.getElementById("reset-btn").addEventListener("click", () => {
+            state.q = "";
+            searchInput.value = "";
+            FACET_DEFS.forEach(d => state.facets[d.key].clear());
+            document.querySelectorAll("#facets-container input[type=checkbox]").forEach(cb => {
+                cb.checked = false;
+            });
+            syncUrlQuery();
+            updateAll();
+        });
+
+        // Initialize from URL parameters
+        const initParams = new URLSearchParams(window.location.search);
+        const initQ = initParams.get("q");
+        if (initQ) {
+            searchInput.value = initQ;
+            state.q = initQ.trim().toLowerCase();
+        }
+        const initProj = initParams.get("projection");
+        if (initProj) {
+            state.projection = initProj;
+            document.getElementById("projection-select").value = initProj;
+        }
+        const initColor = initParams.get("color");
+        if (initColor) {
+            state.colorBy = initColor;
+            document.getElementById("color-select").value = initColor;
+        }
+        FACET_DEFS.forEach(d => {
+            const raw = initParams.get(d.key);
+            if (raw) {
+                raw.split(",").filter(Boolean).forEach(v => state.facets[d.key].add(v));
+            }
+        });
+
+        buildFacets();
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+        updateAll();
+    </script>
+</body>
+</html>
