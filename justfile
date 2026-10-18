@@ -276,7 +276,7 @@ validate-gtdb-domain *files:
 # Also reports one GTDB taxon placed under two parent lineages (#454), which
 # only the whole corpus can show - a single record cannot disagree with itself.
 validate-gtdb-all:
-    PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/*.yaml data/isolates/*.yaml
+    PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/*.yaml data/isolates/*.yaml kb/taxa/*.yaml
 
 # Environmental coverage dashboard: per-ENVO counts of communities vs CultureMech
 # media vs MediaIngredientMech ingredients (issue #30). Reads sibling repos from

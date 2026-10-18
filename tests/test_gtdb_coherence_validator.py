@@ -28,6 +28,8 @@ from pathlib import Path
 import pytest
 import yaml
 
+from communitymech.paths import taxon_descriptor_roots
+from communitymech.taxon_blocks import iter_taxon_descriptors
 from communitymech.validators.gtdb_coherence import (
     _blocks,
     check_block,
@@ -36,6 +38,7 @@ from communitymech.validators.gtdb_coherence import (
 )
 
 REPO = Path(__file__).parent.parent
+RECORD_DIRS = tuple(str(p.relative_to(REPO)) for p in taxon_descriptor_roots())
 SCHEMA = REPO / "src/communitymech/schema/communitymech.yaml"
 FIXTURE = REPO / "kb/communities/Lake_Washington_Methane_Oxygen_Methylotroph_Community.yaml"
 
@@ -213,7 +216,7 @@ def test_linkml_still_rejects_what_the_schema_does_cover(tmp_path):
 def test_the_committed_kb_is_coherent():
     """Every record, not just the ones with counts."""
     issues, scanned, blocks = [], 0, 0
-    for directory in ("kb/communities", "data/isolates"):
+    for directory in RECORD_DIRS:
         for path in sorted((REPO / directory).glob("*.yaml")):
             scanned += 1
             blocks += len(list(_blocks(yaml.safe_load(path.read_text()))))
@@ -601,7 +604,11 @@ def test_the_withholds_are_marked_withheld_not_grounded():
         ("KBase_ORT_Workflow_Community_Model.yaml", "Nitrospiraceae bacterium"),
     ]:
         doc = yaml.safe_load((REPO / "kb/communities" / record).read_text())
-        terms = {t.get("preferred_term"): t for _, t in _taxon_terms(doc)}
+        terms = {
+            t.get("preferred_term"): t
+            for loc, t in _taxon_terms(doc)
+            if loc.startswith("taxonomy[")
+        }
         assert terms[preferred].get("gtdb_grounding_status") == "WITHHELD"
 
     # And the neighbours sharing those ids must be unaffected.
@@ -612,7 +619,9 @@ def test_the_withholds_are_marked_withheld_not_grounded():
     # this still guards is that the entry which legitimately holds 821 kept its
     # grounding when its former neighbour was corrected.
     siblings = [
-        t for _, t in _taxon_terms(doc) if (t.get("term") or {}).get("id") == "NCBITaxon:821"
+        t
+        for loc, t in _taxon_terms(doc)
+        if loc.startswith("taxonomy[") and (t.get("term") or {}).get("id") == "NCBITaxon:821"
     ]
     assert siblings, "expected an entry on NCBITaxon:821 in this record"
     for term_block in siblings:
@@ -689,7 +698,7 @@ def test_a_curation_note_survives_yaml_parsing_intact():
     import re
 
     truncated = []
-    for directory in ("kb/communities", "data/isolates"):
+    for directory in RECORD_DIRS:
         for path in sorted((REPO / directory).glob("*.yaml")):
             # No `if "curation_note:" not in text: continue` shortcut. It saved
             # a parse and decided coverage by substring: a note written with any
@@ -700,9 +709,9 @@ def test_a_curation_note_survives_yaml_parsing_intact():
             document = yaml.safe_load(text)
             parsed = [
                 block["curation_note"]
-                for entry in document.get("taxonomy") or []
-                for block in [(entry.get("taxon_term") or {}).get("gtdb_classification") or {}]
-                if block.get("curation_note")
+                for descriptor in iter_taxon_descriptors(document)
+                for block in [descriptor.get("gtdb_classification") or {}]
+                if isinstance(block, dict) and block.get("curation_note")
             ]
             raw = [m.group(1).strip() for m in re.finditer(r"^\s*curation_note: (.*)$", text, re.M)]
             for raw_line, value in zip(raw, parsed, strict=True):
@@ -819,3 +828,60 @@ def test_qc_runs_the_standalone_gates():
     for target in ("validate-gtdb-all", "validate-scalars"):
         assert target in recipe.split(), f"{target} is not a dependency of qc"
         assert target in summary, f"{target} is not a real recipe"
+
+
+def test_coherence_checks_reach_common_taxon_participating_taxa_and_counter_selection(tmp_path):
+    """Every TaxonDescriptor slot in the schema is reached by validate_gtdb_coherence."""
+    for path in sorted((REPO / "kb/taxa").glob("*.yaml")):
+        assert validate_gtdb_coherence(path) == []
+
+    bad_block = _valid_block()
+    bad_block.update(support_genomes=99, total_genomes=3)
+
+    common_path = tmp_path / "common.yaml"
+    common_path.write_text(
+        yaml.safe_dump(
+            {
+                "id": "CommunityMech:taxon:999999",
+                "name": "CommonTaxon probe",
+                "taxon_term": {
+                    "preferred_term": "Probe",
+                    "gtdb_grounding_status": "GROUNDED",
+                    "gtdb_classification": bad_block,
+                },
+            }
+        )
+    )
+    assert "support_exceeds_total" in {i.category for i in validate_gtdb_coherence(common_path)}
+
+    community_path = tmp_path / "community.yaml"
+    community_path.write_text(
+        yaml.safe_dump(
+            {
+                "ecological_interactions": [
+                    {
+                        "name": "Consortium interaction",
+                        "participating_taxa": [
+                            {
+                                "preferred_term": "ParticipantProbe",
+                                "gtdb_grounding_status": "GROUNDED",
+                            }
+                        ],
+                    }
+                ],
+                "engineering_design": {
+                    "counter_selection": [
+                        {
+                            "excluded_taxon": {
+                                "preferred_term": "ExcludedProbe",
+                                "gtdb_classification": bad_block,
+                            }
+                        }
+                    ]
+                },
+            }
+        )
+    )
+    categories = {i.category for i in validate_gtdb_coherence(community_path)}
+    assert "grounded_without_block" in categories
+    assert "support_exceeds_total" in categories

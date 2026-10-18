@@ -85,44 +85,26 @@ class CoherenceIssue:
 
 
 def _blocks(doc: Any) -> Iterator[tuple[str, dict]]:
-    """Yield (label, gtdb_classification) for each taxonomy entry that has one.
+    """Yield (label, gtdb_classification) for each taxon descriptor that has one.
 
     Positional index is included in the label because a record may legitimately
     list the same NCBITaxon id many times — `GLBRC_Populus_Variovorax_SynCom28`
     has 28 isolates on one id — and an id-keyed message would point at the wrong
     entry.
     """
-    # Every level is type-guarded, not just truth-tested. `validate_one` in
-    # scripts/validate_strict.py calls this outside its try/except, so an
-    # AttributeError here does not fail one file — it kills the run and the TSV
-    # report is never written, losing every other file's errors (#390 review).
-    if not isinstance(doc, dict):
-        return
-    taxonomy = doc.get("taxonomy")
-    if not isinstance(taxonomy, list):
-        return
-    for index, entry in enumerate(taxonomy):
-        if not isinstance(entry, dict):
-            continue
-        term_block = entry.get("taxon_term")
-        if not isinstance(term_block, dict):
-            continue
+    for label, term_block in _taxon_terms(doc):
         grounding = term_block.get("gtdb_classification")
         if isinstance(grounding, dict):
-            term = term_block.get("term")
-            name = (
-                term_block.get("preferred_term")
-                or (term.get("id") if isinstance(term, dict) else None)
-                or "?"
-            )
-            yield f"taxonomy[{index}] {name}", grounding
+            yield label, grounding
 
 
 def _taxon_terms(doc: Any) -> Iterator[tuple[str, dict]]:
-    """Yield (label, taxon_term) for every taxonomy entry, grounded or not.
+    """Yield (label, taxon_term) for every TaxonDescriptor, grounded or not.
 
-    `_blocks` only reaches taxa that already carry a grounding, which is exactly
-    the population the status enum exists to look past.
+    Every level is type-guarded, not just truth-tested. `validate_one` in
+    scripts/validate_strict.py calls this outside its try/except, so an
+    AttributeError here does not fail one file — it kills the run and the TSV
+    report is never written, losing every other file's errors (#390 review).
     """
     if not isinstance(doc, dict):
         return
@@ -135,6 +117,11 @@ def _taxon_terms(doc: Any) -> Iterator[tuple[str, dict]]:
             or "?"
         )
 
+    # CommonTaxon (`kb/taxa/`): the descriptor is at the top level.
+    top_level = doc.get("taxon_term")
+    if isinstance(top_level, dict):
+        yield f"taxon_term {_label(top_level)}", top_level
+
     taxonomy = doc.get("taxonomy")
     if isinstance(taxonomy, list):
         for index, entry in enumerate(taxonomy):
@@ -144,11 +131,11 @@ def _taxon_terms(doc: Any) -> Iterator[tuple[str, dict]]:
             if isinstance(term_block, dict):
                 yield f"taxonomy[{index}] {_label(term_block)}", term_block
 
-    # `EcologicalInteraction.source_taxon` / `target_taxon` also have range
-    # TaxonDescriptor, so they carry the same two slots — 1139 more instances
-    # than `taxonomy` alone. Walking only `taxonomy` meant an interaction taxon
-    # could claim GROUNDED with no block, or carry a single candidate, and every
-    # gate reported clean (#392 review).
+    # `EcologicalInteraction.source_taxon` / `target_taxon` / `participating_taxa`
+    # also have range TaxonDescriptor, so they carry the same GTDB slots —
+    # walking only `taxonomy` meant an interaction taxon could claim GROUNDED
+    # with no block, or carry an incoherent block, and every gate reported
+    # clean (#392 review).
     interactions = doc.get("ecological_interactions")
     if isinstance(interactions, list):
         for index, entry in enumerate(interactions):
@@ -161,6 +148,31 @@ def _taxon_terms(doc: Any) -> Iterator[tuple[str, dict]]:
                         f"ecological_interactions[{index}].{slot} {_label(term_block)}",
                         term_block,
                     )
+            participants = entry.get("participating_taxa")
+            if isinstance(participants, list):
+                for p_index, term_block in enumerate(participants):
+                    if isinstance(term_block, dict):
+                        loc = (
+                            f"ecological_interactions[{index}]"
+                            f".participating_taxa[{p_index}] {_label(term_block)}"
+                        )
+                        yield loc, term_block
+
+    # `CounterSelection.excluded_taxon` also has range TaxonDescriptor.
+    eng = doc.get("engineering_design")
+    if isinstance(eng, dict):
+        counter_selection = eng.get("counter_selection")
+        if isinstance(counter_selection, list):
+            for index, entry in enumerate(counter_selection):
+                if not isinstance(entry, dict):
+                    continue
+                term_block = entry.get("excluded_taxon")
+                if isinstance(term_block, dict):
+                    loc = (
+                        f"engineering_design.counter_selection[{index}]"
+                        f".excluded_taxon {_label(term_block)}"
+                    )
+                    yield loc, term_block
 
 
 def check_block(block: dict) -> list[tuple[str, str]]:

@@ -22,10 +22,12 @@ import pytest
 import yaml
 
 import communitymech.validators.prokaryotic_lineage as module
+from communitymech.paths import taxon_descriptor_roots
 from communitymech.validators.ncbi_domain import domain_of
 from communitymech.validators.prokaryotic_lineage import check_record, lineage_domain
 
 REPO = Path(__file__).parent.parent
+RECORD_DIRS = tuple(str(p.relative_to(REPO)) for p in taxon_descriptor_roots())
 BACTERIAL = "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales"
 ARCHAEAL = "d__Archaea;p__Methanobacteriota;c__Methanobacteria"
 
@@ -201,13 +203,69 @@ def test_an_interaction_participant_is_checked_too(requires_ncbi_adapter):
     assert "Syntrophic Partnership with Bosea" in problems[0]
 
 
+def test_common_taxon_participating_taxa_and_counter_selection_are_checked(monkeypatch):
+    """`CommonTaxon.taxon_term`, `participating_taxa`, and `counter_selection.excluded_taxon`
+    are `TaxonDescriptor` slots too and must reject eukaryotic ids carrying GTDB blocks.
+    """
+    if domain_of(PLANT_BOSEA) is None:
+        monkeypatch.setattr(module, "outside_gtdb_scope", lambda curie: curie == PLANT_BOSEA)
+        monkeypatch.setattr(
+            module,
+            "domain_of",
+            lambda curie: module.EUKARYOTA if curie == PLANT_BOSEA else module.BACTERIA,
+        )
+
+    for path in sorted((REPO / "kb/taxa").glob("*.yaml")):
+        assert check_record(yaml.safe_load(path.read_text()) or {}) == []
+
+    common_doc = {
+        "taxon_term": {
+            "preferred_term": "Bosea sp.",
+            "term": {"id": PLANT_BOSEA, "label": "Bosea"},
+            "gtdb_classification": {"gtdb_lineage": BACTERIAL},
+        }
+    }
+    common_problems = check_record(common_doc)
+    assert len(common_problems) == 1 and "taxon_term" in common_problems[0]
+
+    graph_doc = {
+        "ecological_interactions": [
+            {
+                "name": "Multi-partner interaction",
+                "participating_taxa": [
+                    {
+                        "preferred_term": "Bosea sp.",
+                        "term": {"id": PLANT_BOSEA, "label": "Bosea"},
+                        "gtdb_classification": {"gtdb_lineage": BACTERIAL},
+                    }
+                ],
+            }
+        ],
+        "engineering_design": {
+            "counter_selection": [
+                {
+                    "excluded_taxon": {
+                        "preferred_term": "Bosea sp.",
+                        "term": {"id": PLANT_BOSEA, "label": "Bosea"},
+                        "gtdb_classification": {"gtdb_lineage": BACTERIAL},
+                    }
+                }
+            ]
+        },
+    }
+    graph_problems = check_record(graph_doc)
+    assert len(graph_problems) == 2
+    assert any("participating_taxa[0]" in p for p in graph_problems)
+    assert any("counter_selection[0].excluded_taxon" in p for p in graph_problems)
+
+
 def test_the_committed_kb_is_clean(requires_ncbi_adapter):
     # Without this the test passes vacuously wherever NCBITaxon is missing:
     # every domain comes back None and nothing is judged (cf. #433).
     assert domain_of("NCBITaxon:2") == "NCBITaxon:2", "NCBITaxon unavailable; this proves nothing"
 
     scanned, problems = 0, []
-    for directory in ("kb/communities", "data/isolates"):
+    for directory in RECORD_DIRS:
         for path in sorted((REPO / directory).glob("*.yaml")):
             scanned += 1
             problems += [
@@ -241,7 +299,7 @@ def test_no_record_still_grounds_anything_on_the_plant_bosea():
     hits = sorted(
         {
             path.name
-            for directory in ("kb/communities", "data/isolates")
+            for directory in RECORD_DIRS
             for path in sorted((REPO / directory).glob("*.yaml"))
             if PLANT_BOSEA in set(_grounded_ids(yaml.safe_load(path.read_text()) or {}))
         }

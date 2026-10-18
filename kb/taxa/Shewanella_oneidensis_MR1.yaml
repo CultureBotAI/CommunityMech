@@ -4,6 +4,20 @@ taxon_term:
   term:
     id: NCBITaxon:211586
     label: Shewanella oneidensis MR-1
+  gtdb_grounding_status: GROUNDED
+  gtdb_classification:
+    gtdb_id: GTDB:s__Shewanella_oneidensis
+    gtdb_taxon: Shewanella oneidensis
+    gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Shewanellaceae;g__Shewanella;s__Shewanella oneidensis
+    ncbi_source_id: NCBITaxon:211586
+    majority_fraction: 1.0
+    total_genomes: 3
+    is_reclassified: false
+    mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  notes: >
+    Type strain MR-1 (= ATCC 700550 = CIP 106686) of validly published species
+    Shewanella oneidensis (Venkateswaran et al. 1999; LPSN species Shewanella
+    oneidensis, phylum Pseudomonadota, class Gammaproteobacteria).
 genomes:
 - id: GCF_000146165.2
   label: ASM14616v2
@@ -65,3 +79,12 @@ notes: >
   cell, metal-reduction, and DIET-style communities. Gene/role claims are
   literature-standard; per-interaction EvidenceItems can be added following the
   community-record evidence protocol.
+curation_history:
+- timestamp: '2026-10-18T00:00:00Z'
+  curator: gtdb_ground.py
+  action: GTDB_GROUND
+  changes: "Added 1 gtdb_classification block(s) from NCBI2GTDB.tsv.gz (#395, #2028)."
+- timestamp: '2026-10-18T00:00:00Z'
+  curator: gtdb_ground.py
+  action: GTDB_SET_STATUS
+  changes: "Wrote gtdb_grounding_status on 1 taxon_term entry (#294, #395, #2028)."

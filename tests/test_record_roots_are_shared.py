@@ -219,6 +219,9 @@ def test_the_gtdb_gates_sweep_every_root_a_grounding_can_live_in():
         "test_gtdb_grounding_freshness",
         "test_gtdb_not_attempted",
         "test_gtdb_uncurated_blocks_match_the_tool",
+        "test_gtdb_lineage_tree",
+        "test_gtdb_coherence_validator",
+        "test_prokaryotic_lineage",
     )
     wrong = {}
     for name in modules:
@@ -231,8 +234,24 @@ def test_the_gtdb_gates_sweep_every_root_a_grounding_can_live_in():
 
     assert not wrong, (
         f"these GTDB gates do not sweep every root a grounding can live in. "
-        f"Expected {expected}, got {wrong}. Use `taxon_descriptor_roots()` (#656)."
+        f"Expected {expected}, got {wrong}. Use `taxon_descriptor_roots()` (#656, #2027)."
     )
+
+
+def test_validate_gtdb_all_sweeps_every_taxon_descriptor_root():
+    """`just validate-gtdb-all` must pass every `taxon_descriptor_roots()` directory (#2027)."""
+    justfile_text = (REPO / "justfile").read_text(encoding="utf-8")
+    match = re.search(r"^validate-gtdb-all:\n((?:[ \t]+[^\n]+\n)+)", justfile_text, re.M)
+    assert match is not None, "validate-gtdb-all recipe not found in justfile"
+    body = match.group(1)
+    missing = [
+        f"{root.relative_to(REPO)}/*.yaml"
+        for root in taxon_descriptor_roots()
+        if f"{root.relative_to(REPO)}/*.yaml" not in body
+    ]
+    assert (
+        missing == []
+    ), f"just validate-gtdb-all omits taxon_descriptor_roots() globs: {missing} (#2027)"
 
 
 def test_the_two_root_lists_stay_distinct():

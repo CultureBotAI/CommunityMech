@@ -29,6 +29,8 @@ Measured when added: 727 blocks, 740 distinct taxa, zero conflicts.
 
 from __future__ import annotations
 
+from communitymech.taxon_blocks import iter_taxon_descriptors
+
 RANK_ORDER = ["d__", "p__", "c__", "o__", "f__", "g__", "s__"]
 
 
@@ -45,23 +47,12 @@ def _segments(lineage) -> list[str]:
 
 
 def _descriptors(document):
-    """Every taxon descriptor, in `taxonomy` and in the interactions.
-
-    `source_taxon`/`target_taxon` share `taxon_term`'s range, so the schema
-    permits a `gtdb_classification` there too, and the sibling #365 gate already
-    walks them (#439). None exist today; missing them would be a silent gap.
+    """Every taxon descriptor in the record (`CommonTaxon.taxon_term`,
+    `taxonomy[].taxon_term`, `ecological_interactions[].(source_taxon,
+    target_taxon, participating_taxa[])`, and
+    `engineering_design.counter_selection[].excluded_taxon`).
     """
-    if not isinstance(document, dict):
-        return
-    for entry in document.get("taxonomy") or []:
-        if isinstance(entry, dict) and isinstance(entry.get("taxon_term"), dict):
-            yield entry["taxon_term"]
-    for interaction in document.get("ecological_interactions") or []:
-        if not isinstance(interaction, dict):
-            continue
-        for role in ("source_taxon", "target_taxon"):
-            if isinstance(interaction.get(role), dict):
-                yield interaction[role]
+    yield from iter_taxon_descriptors(document)
 
 
 def _blocks(document):

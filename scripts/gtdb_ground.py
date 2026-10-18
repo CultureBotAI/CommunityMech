@@ -892,11 +892,16 @@ def emit_block(g: dict, mapping_source: str) -> str:
 
 
 def community_taxa(path: Path):
-    """Return (ncbi_id, canonical_label) for each taxonomy[].taxon_term in a community YAML."""
-    doc = yaml.safe_load(path.read_text())
-    out = []
+    """Return (ncbi_id, canonical_label) for each root/member taxon_term in a record YAML."""
+    doc = yaml.safe_load(path.read_text()) or {}
+    descriptors = []
+    if isinstance(doc.get("taxon_term"), dict):
+        descriptors.append(doc["taxon_term"])
     for tc in doc.get("taxonomy", []) or []:
-        tt = (tc or {}).get("taxon_term", {}) or {}
+        if isinstance(tc, dict) and isinstance(tc.get("taxon_term"), dict):
+            descriptors.append(tc["taxon_term"])
+    out = []
+    for tt in descriptors:
         term = tt.get("term", {}) or {}
         tid = term.get("id", "")
         if tid.startswith("NCBITaxon:"):

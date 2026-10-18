@@ -109,17 +109,36 @@ def _descriptors(document):
     """
     if not isinstance(document, dict):
         return
-    for entry in document.get("taxonomy") or []:
-        if isinstance(entry, dict) and isinstance(entry.get("taxon_term"), dict):
-            yield "taxonomy", entry["taxon_term"]
-    for interaction in document.get("ecological_interactions") or []:
-        if not isinstance(interaction, dict):
-            continue
-        name = interaction.get("name") or "unnamed interaction"
-        for role in ("source_taxon", "target_taxon"):
-            block = interaction.get(role)
-            if isinstance(block, dict):
-                yield f"{role} of {name!r}", block
+    top_level = document.get("taxon_term")
+    if isinstance(top_level, dict):
+        yield "taxon_term", top_level
+    taxonomy = document.get("taxonomy")
+    if isinstance(taxonomy, list):
+        for entry in taxonomy:
+            if isinstance(entry, dict) and isinstance(entry.get("taxon_term"), dict):
+                yield "taxonomy", entry["taxon_term"]
+    interactions = document.get("ecological_interactions")
+    if isinstance(interactions, list):
+        for interaction in interactions:
+            if not isinstance(interaction, dict):
+                continue
+            name = interaction.get("name") or "unnamed interaction"
+            for role in ("source_taxon", "target_taxon"):
+                block = interaction.get(role)
+                if isinstance(block, dict):
+                    yield f"{role} of {name!r}", block
+            participants = interaction.get("participating_taxa")
+            if isinstance(participants, list):
+                for p_i, participant in enumerate(participants):
+                    if isinstance(participant, dict):
+                        yield f"participating_taxa[{p_i}] of {name!r}", participant
+    eng = document.get("engineering_design")
+    if isinstance(eng, dict):
+        cs_list = eng.get("counter_selection")
+        if isinstance(cs_list, list):
+            for c_i, cs in enumerate(cs_list):
+                if isinstance(cs, dict) and isinstance(cs.get("excluded_taxon"), dict):
+                    yield f"counter_selection[{c_i}].excluded_taxon", cs["excluded_taxon"]
 
 
 def check_record(document) -> list[str]:
