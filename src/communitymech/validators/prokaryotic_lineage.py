@@ -109,6 +109,9 @@ def _descriptors(document):
     """
     if not isinstance(document, dict):
         return
+    top_level = document.get("taxon_term")
+    if isinstance(top_level, dict):
+        yield "taxon_term", top_level
     for entry in document.get("taxonomy") or []:
         if isinstance(entry, dict) and isinstance(entry.get("taxon_term"), dict):
             yield "taxonomy", entry["taxon_term"]
@@ -120,6 +123,14 @@ def _descriptors(document):
             block = interaction.get(role)
             if isinstance(block, dict):
                 yield f"{role} of {name!r}", block
+        for participant in interaction.get("participating_taxa") or []:
+            if isinstance(participant, dict):
+                yield f"participating_taxa of {name!r}", participant
+    eng = document.get("engineering_design")
+    if isinstance(eng, dict):
+        for cs in eng.get("counter_selection") or []:
+            if isinstance(cs, dict) and isinstance(cs.get("excluded_taxon"), dict):
+                yield "counter_selection.excluded_taxon", cs["excluded_taxon"]
 
 
 def check_record(document) -> list[str]:

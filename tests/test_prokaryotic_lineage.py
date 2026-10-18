@@ -201,6 +201,54 @@ def test_an_interaction_participant_is_checked_too(requires_ncbi_adapter):
     assert "Syntrophic Partnership with Bosea" in problems[0]
 
 
+def test_common_taxon_participating_taxa_and_counter_selection_are_checked(requires_ncbi_adapter):
+    """`CommonTaxon.taxon_term`, `participating_taxa`, and `counter_selection.excluded_taxon`
+    are `TaxonDescriptor` slots too and must reject eukaryotic ids carrying GTDB blocks.
+    """
+    for path in sorted((REPO / "kb/taxa").glob("*.yaml")):
+        assert check_record(yaml.safe_load(path.read_text()) or {}) == []
+
+    common_doc = {
+        "taxon_term": {
+            "preferred_term": "Bosea sp.",
+            "term": {"id": PLANT_BOSEA, "label": "Bosea"},
+            "gtdb_classification": {"gtdb_lineage": BACTERIAL},
+        }
+    }
+    common_problems = check_record(common_doc)
+    assert len(common_problems) == 1 and "taxon_term" in common_problems[0]
+
+    graph_doc = {
+        "ecological_interactions": [
+            {
+                "name": "Multi-partner interaction",
+                "participating_taxa": [
+                    {
+                        "preferred_term": "Bosea sp.",
+                        "term": {"id": PLANT_BOSEA, "label": "Bosea"},
+                        "gtdb_classification": {"gtdb_lineage": BACTERIAL},
+                    }
+                ],
+            }
+        ],
+        "engineering_design": {
+            "counter_selection": [
+                {
+                    "excluded_taxon": {
+                        "preferred_term": "Bosea sp.",
+                        "term": {"id": PLANT_BOSEA, "label": "Bosea"},
+                        "gtdb_classification": {"gtdb_lineage": BACTERIAL},
+                    }
+                }
+            ]
+        },
+    }
+    graph_problems = check_record(graph_doc)
+    assert len(graph_problems) == 2
+    assert any("participating_taxa[0]" in p for p in graph_problems)
+    assert any("counter_selection[0].excluded_taxon" in p for p in graph_problems)
+
+
 def test_the_committed_kb_is_clean(requires_ncbi_adapter):
     # Without this the test passes vacuously wherever NCBITaxon is missing:
     # every domain comes back None and nothing is judged (cf. #433).

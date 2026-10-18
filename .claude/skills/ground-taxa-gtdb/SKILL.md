@@ -52,8 +52,10 @@ release/build provenance — always keep it.
 ## Schema
 
 `gtdb_classification` lives on **`TaxonDescriptor`** (so it attaches to
-`taxonomy[].taxon_term`, and optionally to interaction `source_taxon`/
-`target_taxon`). Fields: `gtdb_id` (CURIE), `gtdb_taxon` (name), `gtdb_lineage`
+`taxonomy[].taxon_term`, `CommonTaxon.taxon_term` in `kb/taxa/*.yaml`, and
+optionally to interaction `source_taxon`, `target_taxon`, `participating_taxa[]`,
+and `engineering_design.counter_selection[].excluded_taxon` — all walked by
+`communitymech.taxon_blocks.iter_taxon_descriptors`). Fields: `gtdb_id` (CURIE), `gtdb_taxon` (name), `gtdb_lineage`
 (full lineage string), `ncbi_source_id` (the NCBITaxon it mapped from),
 `majority_fraction` (0-1 confidence), `is_reclassified` (GTDB name ≠ NCBI
 name — a string comparison, so it covers NCBI renames, dropped strain
@@ -319,6 +321,10 @@ taxonomy entries and their id anchors do not line up.
 
 ## Related
 
+- `ground-causal-graph-taxa` — comprehensive NCBITaxon + GTDB + LPSN/ICNP
+  grounding and coherence across causal graph edges (`source_taxon`,
+  `target_taxon`, `participating_taxa`), `taxonomy`, `counter_selection`, and
+  `kb/taxa/`.
 - `manage-identifiers`, `review-communities`, `id-label-correspondence` —
   minting, QC, and NCBITaxon id↔label validation.
 - `scout-communities`, `deep-research-community` — discovery + enrichment that

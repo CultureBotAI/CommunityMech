@@ -4,8 +4,11 @@ The GTDB slots — `gtdb_grounding_status`, `gtdb_candidates`,
 `gtdb_classification` — live on `TaxonDescriptor`, and the schema hangs that
 class off two different roots:
 
-    MicrobialCommunity.taxonomy[].taxon_term   -> TaxonDescriptor
-    CommonTaxon.taxon_term                     -> TaxonDescriptor
+    MicrobialCommunity.taxonomy[].taxon_term                        -> TaxonDescriptor
+    CommonTaxon.taxon_term                                          -> TaxonDescriptor
+    EcologicalInteraction.source_taxon / target_taxon               -> TaxonDescriptor
+    EcologicalInteraction.participating_taxa[]                      -> TaxonDescriptor
+     EngineeringDesign.counter_selection[].excluded_taxon           -> TaxonDescriptor
 
 `CommonTaxon` records live in `kb/taxa` and carry `taxon_term` at the **top
 level**, with no `taxonomy` key at all.
@@ -18,9 +21,11 @@ was not, because their walkers iterate `document["taxonomy"]` and a
 produced a green run. A gate can be pointed at a directory and still be blind to
 everything in it.
 
-Interaction endpoints are included because `source_taxon`/`target_taxon` share
-`taxon_term`'s range, so the schema permits a grounding there too — the same
-reasoning `gtdb_lineage_tree._descriptors` documents. None exist today.
+Interaction endpoints (`source_taxon`, `target_taxon`), multi-taxon
+`participating_taxa`, and `engineering_design.counter_selection[].excluded_taxon`
+are included because they share `taxon_term`'s `TaxonDescriptor` range, so the
+schema permits a grounding there too — the same reasoning
+`gtdb_lineage_tree._descriptors` documents. None exist today.
 """
 
 from __future__ import annotations
@@ -48,7 +53,7 @@ def iter_taxon_descriptors(document: object) -> Iterator[dict]:
         if isinstance(entry, dict) and isinstance(entry.get("taxon_term"), dict):
             yield entry["taxon_term"]
 
-    # Interaction endpoints share TaxonDescriptor's range.
+    # Interaction endpoints and participants share TaxonDescriptor's range.
     for interaction in document.get("ecological_interactions") or []:
         if not isinstance(interaction, dict):
             continue
@@ -56,3 +61,13 @@ def iter_taxon_descriptors(document: object) -> Iterator[dict]:
             block = interaction.get(role)
             if isinstance(block, dict):
                 yield block
+        for participant in interaction.get("participating_taxa") or []:
+            if isinstance(participant, dict):
+                yield participant
+
+    # Counter-selection excluded_taxon also has range TaxonDescriptor.
+    eng = document.get("engineering_design")
+    if isinstance(eng, dict):
+        for cs in eng.get("counter_selection") or []:
+            if isinstance(cs, dict) and isinstance(cs.get("excluded_taxon"), dict):
+                yield cs["excluded_taxon"]

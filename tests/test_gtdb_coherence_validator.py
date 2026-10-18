@@ -601,7 +601,11 @@ def test_the_withholds_are_marked_withheld_not_grounded():
         ("KBase_ORT_Workflow_Community_Model.yaml", "Nitrospiraceae bacterium"),
     ]:
         doc = yaml.safe_load((REPO / "kb/communities" / record).read_text())
-        terms = {t.get("preferred_term"): t for _, t in _taxon_terms(doc)}
+        terms = {
+            t.get("preferred_term"): t
+            for loc, t in _taxon_terms(doc)
+            if loc.startswith("taxonomy[")
+        }
         assert terms[preferred].get("gtdb_grounding_status") == "WITHHELD"
 
     # And the neighbours sharing those ids must be unaffected.
@@ -612,7 +616,9 @@ def test_the_withholds_are_marked_withheld_not_grounded():
     # this still guards is that the entry which legitimately holds 821 kept its
     # grounding when its former neighbour was corrected.
     siblings = [
-        t for _, t in _taxon_terms(doc) if (t.get("term") or {}).get("id") == "NCBITaxon:821"
+        t
+        for loc, t in _taxon_terms(doc)
+        if loc.startswith("taxonomy[") and (t.get("term") or {}).get("id") == "NCBITaxon:821"
     ]
     assert siblings, "expected an entry on NCBITaxon:821 in this record"
     for term_block in siblings:
@@ -819,3 +825,60 @@ def test_qc_runs_the_standalone_gates():
     for target in ("validate-gtdb-all", "validate-scalars"):
         assert target in recipe.split(), f"{target} is not a dependency of qc"
         assert target in summary, f"{target} is not a real recipe"
+
+
+def test_coherence_checks_reach_common_taxon_participating_taxa_and_counter_selection(tmp_path):
+    """Every TaxonDescriptor slot in the schema is reached by validate_gtdb_coherence."""
+    for path in sorted((REPO / "kb/taxa").glob("*.yaml")):
+        assert validate_gtdb_coherence(path) == []
+
+    bad_block = _valid_block()
+    bad_block.update(support_genomes=99, total_genomes=3)
+
+    common_path = tmp_path / "common.yaml"
+    common_path.write_text(
+        yaml.safe_dump(
+            {
+                "id": "CommunityMech:taxon:999999",
+                "name": "CommonTaxon probe",
+                "taxon_term": {
+                    "preferred_term": "Probe",
+                    "gtdb_grounding_status": "GROUNDED",
+                    "gtdb_classification": bad_block,
+                },
+            }
+        )
+    )
+    assert "support_exceeds_total" in {i.category for i in validate_gtdb_coherence(common_path)}
+
+    community_path = tmp_path / "community.yaml"
+    community_path.write_text(
+        yaml.safe_dump(
+            {
+                "ecological_interactions": [
+                    {
+                        "name": "Consortium interaction",
+                        "participating_taxa": [
+                            {
+                                "preferred_term": "ParticipantProbe",
+                                "gtdb_grounding_status": "GROUNDED",
+                            }
+                        ],
+                    }
+                ],
+                "engineering_design": {
+                    "counter_selection": [
+                        {
+                            "excluded_taxon": {
+                                "preferred_term": "ExcludedProbe",
+                                "gtdb_classification": bad_block,
+                            }
+                        }
+                    ]
+                },
+            }
+        )
+    )
+    categories = {i.category for i in validate_gtdb_coherence(community_path)}
+    assert "grounded_without_block" in categories
+    assert "support_exceeds_total" in categories

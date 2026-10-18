@@ -91,3 +91,63 @@ def test_taxoncomposition_accepts_separate_abundances(tmp_path):
     f.write_text(yaml.safe_dump(community))
     res = _validate("MicrobialCommunity", f)
     assert res.returncode == 0, f"abundance smoke test failed:\n{res.stdout}\n{res.stderr}"
+
+
+def test_taxa_records_have_gtdb_and_lpsn_grounding():
+    """Every CommonTaxon record in kb/taxa/ carries NCBITaxon, GTDB, and LPSN grounding."""
+    from communitymech.validators.gtdb_coherence import validate_gtdb_coherence
+    from communitymech.validators.gtdb_lineage_tree import check_lineage_shape
+
+    files = sorted(TAXA_DIR.glob("*.yaml"))
+    assert files, "no kb/taxa/*.yaml records found"
+    for path in files:
+        rec = yaml.safe_load(path.read_text())
+        taxon_term = rec["taxon_term"]
+        term = taxon_term["term"]
+        assert term["id"].startswith("NCBITaxon:")
+        assert term["label"]
+        assert taxon_term.get("gtdb_grounding_status") == "GROUNDED"
+        gtdb = taxon_term.get("gtdb_classification")
+        assert isinstance(gtdb, dict), f"{path} missing gtdb_classification"
+        assert gtdb["gtdb_id"].startswith("GTDB:")
+        assert gtdb["ncbi_source_id"] == term["id"]
+        assert gtdb["gtdb_lineage"].startswith("d__")
+        assert "LPSN" in (taxon_term.get("notes") or "")
+        assert validate_gtdb_coherence(path) == []
+        assert check_lineage_shape(rec) == []
+
+
+def test_iter_taxon_descriptors_reaches_all_six_schema_slots():
+    """iter_taxon_descriptors yields every TaxonDescriptor slot in the schema."""
+    from communitymech.taxon_blocks import iter_taxon_descriptors
+
+    common_doc = {"taxon_term": {"preferred_term": "RootTaxon"}}
+    assert [d["preferred_term"] for d in iter_taxon_descriptors(common_doc)] == ["RootTaxon"]
+
+    community_doc = {
+        "taxonomy": [{"taxon_term": {"preferred_term": "MemberTaxon"}}],
+        "ecological_interactions": [
+            {
+                "name": "Syntrophy",
+                "source_taxon": {"preferred_term": "SourceTaxon"},
+                "target_taxon": {"preferred_term": "TargetTaxon"},
+                "participating_taxa": [
+                    {"preferred_term": "ParticipantA"},
+                    {"preferred_term": "ParticipantB"},
+                ],
+            }
+        ],
+        "engineering_design": {
+            "counter_selection": [
+                {"excluded_taxon": {"preferred_term": "ExcludedTaxon"}},
+            ]
+        },
+    }
+    assert [d["preferred_term"] for d in iter_taxon_descriptors(community_doc)] == [
+        "MemberTaxon",
+        "SourceTaxon",
+        "TargetTaxon",
+        "ParticipantA",
+        "ParticipantB",
+        "ExcludedTaxon",
+    ]

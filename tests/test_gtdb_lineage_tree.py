@@ -152,3 +152,50 @@ def test_the_committed_kb_is_a_consistent_hierarchy():
 
     shape = [f"{name}: {m}" for name, doc in corpus for m in check_lineage_shape(doc)]
     assert shape == [], "\n".join(shape)
+
+
+def test_common_taxon_participating_taxa_and_counter_selection_lineages_are_checked():
+    """`CommonTaxon.taxon_term`, `participating_taxa`, and `counter_selection.excluded_taxon`
+    are also `TaxonDescriptor` slots and must be checked for lineage shape and hierarchy.
+    """
+    for path in sorted((REPO / "kb/taxa").glob("*.yaml")):
+        doc = yaml.safe_load(path.read_text())
+        assert list(_blocks(doc)), f"{path.name} expected to have a gtdb_classification block"
+        assert check_lineage_shape(doc) == []
+
+    bad_common = {
+        "taxon_term": {
+            "preferred_term": "X",
+            "gtdb_classification": {"gtdb_lineage": "d__Bacteria;c__Chlorobiia"},
+        }
+    }
+    assert check_lineage_shape(bad_common)
+
+    bad_participating = {
+        "ecological_interactions": [
+            {
+                "name": "Multi-taxon interaction",
+                "participating_taxa": [
+                    {
+                        "preferred_term": "Y",
+                        "gtdb_classification": {"gtdb_lineage": "d__Bacteria;c__Chlorobiia"},
+                    }
+                ],
+            }
+        ]
+    }
+    assert check_lineage_shape(bad_participating)
+
+    bad_excluded = {
+        "engineering_design": {
+            "counter_selection": [
+                {
+                    "excluded_taxon": {
+                        "preferred_term": "Z",
+                        "gtdb_classification": {"gtdb_lineage": "d__Bacteria;c__Chlorobiia"},
+                    }
+                }
+            ]
+        }
+    }
+    assert check_lineage_shape(bad_excluded)
