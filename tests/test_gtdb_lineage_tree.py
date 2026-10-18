@@ -25,6 +25,7 @@ import pathlib
 import pytest
 import yaml
 
+from communitymech.paths import taxon_descriptor_roots
 from communitymech.validators.gtdb_lineage_tree import (
     _blocks,
     check_corpus,
@@ -32,7 +33,7 @@ from communitymech.validators.gtdb_lineage_tree import (
 )
 
 REPO = pathlib.Path(__file__).parent.parent
-RECORD_DIRS = ("kb/communities", "data/isolates")
+RECORD_DIRS = tuple(str(p.relative_to(REPO)) for p in taxon_descriptor_roots())
 
 
 def _doc(lineage) -> dict:

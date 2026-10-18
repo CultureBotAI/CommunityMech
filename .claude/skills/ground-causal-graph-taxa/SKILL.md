@@ -114,9 +114,10 @@ For prokaryotic taxa (`NCBITaxon:2` and `NCBITaxon:2157`), resolve the GTDB clas
 uv run python scripts/gtdb_ground.py --ncbi-id NCBITaxon:35554 --emit-yaml
 uv run python scripts/gtdb_ground.py --name "Shewanella oneidensis" --emit-yaml
 
-# Ground an entire community record and write gtdb_grounding_status
+# Ground an entire community or CommonTaxon record (kb/communities/ or kb/taxa/) and write gtdb_grounding_status
 uv run python scripts/gtdb_ground.py --community kb/communities/<Record>.yaml --apply
 uv run python scripts/gtdb_ground.py --community kb/communities/<Record>.yaml --apply-status
+uv run python scripts/gtdb_ground.py --community kb/taxa/<Record>.yaml
 ```
 
 Verify the resulting `gtdb_grounding_status` and `gtdb_classification`:
@@ -167,7 +168,7 @@ taxon_term:
     majority_fraction: 1.0
     total_genomes: 19
     is_reclassified: false
-    mapping_source: kg-microbe NCBI2GTDB.tsv.gz (2025-07-02)
+    mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
 ```
 
 ---

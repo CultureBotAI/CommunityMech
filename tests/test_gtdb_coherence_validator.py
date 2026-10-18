@@ -28,6 +28,8 @@ from pathlib import Path
 import pytest
 import yaml
 
+from communitymech.paths import taxon_descriptor_roots
+from communitymech.taxon_blocks import iter_taxon_descriptors
 from communitymech.validators.gtdb_coherence import (
     _blocks,
     check_block,
@@ -36,6 +38,7 @@ from communitymech.validators.gtdb_coherence import (
 )
 
 REPO = Path(__file__).parent.parent
+RECORD_DIRS = tuple(str(p.relative_to(REPO)) for p in taxon_descriptor_roots())
 SCHEMA = REPO / "src/communitymech/schema/communitymech.yaml"
 FIXTURE = REPO / "kb/communities/Lake_Washington_Methane_Oxygen_Methylotroph_Community.yaml"
 
@@ -213,7 +216,7 @@ def test_linkml_still_rejects_what_the_schema_does_cover(tmp_path):
 def test_the_committed_kb_is_coherent():
     """Every record, not just the ones with counts."""
     issues, scanned, blocks = [], 0, 0
-    for directory in ("kb/communities", "data/isolates"):
+    for directory in RECORD_DIRS:
         for path in sorted((REPO / directory).glob("*.yaml")):
             scanned += 1
             blocks += len(list(_blocks(yaml.safe_load(path.read_text()))))
@@ -695,7 +698,7 @@ def test_a_curation_note_survives_yaml_parsing_intact():
     import re
 
     truncated = []
-    for directory in ("kb/communities", "data/isolates"):
+    for directory in RECORD_DIRS:
         for path in sorted((REPO / directory).glob("*.yaml")):
             # No `if "curation_note:" not in text: continue` shortcut. It saved
             # a parse and decided coverage by substring: a note written with any
@@ -706,9 +709,9 @@ def test_a_curation_note_survives_yaml_parsing_intact():
             document = yaml.safe_load(text)
             parsed = [
                 block["curation_note"]
-                for entry in document.get("taxonomy") or []
-                for block in [(entry.get("taxon_term") or {}).get("gtdb_classification") or {}]
-                if block.get("curation_note")
+                for descriptor in iter_taxon_descriptors(document)
+                for block in [descriptor.get("gtdb_classification") or {}]
+                if isinstance(block, dict) and block.get("curation_note")
             ]
             raw = [m.group(1).strip() for m in re.finditer(r"^\s*curation_note: (.*)$", text, re.M)]
             for raw_line, value in zip(raw, parsed, strict=True):

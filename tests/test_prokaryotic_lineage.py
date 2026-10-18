@@ -22,10 +22,12 @@ import pytest
 import yaml
 
 import communitymech.validators.prokaryotic_lineage as module
+from communitymech.paths import taxon_descriptor_roots
 from communitymech.validators.ncbi_domain import domain_of
 from communitymech.validators.prokaryotic_lineage import check_record, lineage_domain
 
 REPO = Path(__file__).parent.parent
+RECORD_DIRS = tuple(str(p.relative_to(REPO)) for p in taxon_descriptor_roots())
 BACTERIAL = "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales"
 ARCHAEAL = "d__Archaea;p__Methanobacteriota;c__Methanobacteria"
 
@@ -201,10 +203,18 @@ def test_an_interaction_participant_is_checked_too(requires_ncbi_adapter):
     assert "Syntrophic Partnership with Bosea" in problems[0]
 
 
-def test_common_taxon_participating_taxa_and_counter_selection_are_checked(requires_ncbi_adapter):
+def test_common_taxon_participating_taxa_and_counter_selection_are_checked(monkeypatch):
     """`CommonTaxon.taxon_term`, `participating_taxa`, and `counter_selection.excluded_taxon`
     are `TaxonDescriptor` slots too and must reject eukaryotic ids carrying GTDB blocks.
     """
+    if domain_of(PLANT_BOSEA) is None:
+        monkeypatch.setattr(module, "outside_gtdb_scope", lambda curie: curie == PLANT_BOSEA)
+        monkeypatch.setattr(
+            module,
+            "domain_of",
+            lambda curie: module.EUKARYOTA if curie == PLANT_BOSEA else module.BACTERIA,
+        )
+
     for path in sorted((REPO / "kb/taxa").glob("*.yaml")):
         assert check_record(yaml.safe_load(path.read_text()) or {}) == []
 
@@ -255,7 +265,7 @@ def test_the_committed_kb_is_clean(requires_ncbi_adapter):
     assert domain_of("NCBITaxon:2") == "NCBITaxon:2", "NCBITaxon unavailable; this proves nothing"
 
     scanned, problems = 0, []
-    for directory in ("kb/communities", "data/isolates"):
+    for directory in RECORD_DIRS:
         for path in sorted((REPO / directory).glob("*.yaml")):
             scanned += 1
             problems += [
@@ -289,7 +299,7 @@ def test_no_record_still_grounds_anything_on_the_plant_bosea():
     hits = sorted(
         {
             path.name
-            for directory in ("kb/communities", "data/isolates")
+            for directory in RECORD_DIRS
             for path in sorted((REPO / directory).glob("*.yaml"))
             if PLANT_BOSEA in set(_grounded_ids(yaml.safe_load(path.read_text()) or {}))
         }
