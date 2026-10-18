@@ -92,4 +92,3 @@ def iter_taxon_descriptors(document: object) -> Iterator[dict]:
             for cs in cs_list:
                 if isinstance(cs, dict) and isinstance(cs.get("excluded_taxon"), dict):
                     yield cs["excluded_taxon"]
-

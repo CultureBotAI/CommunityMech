@@ -249,9 +249,9 @@ def test_validate_gtdb_all_sweeps_every_taxon_descriptor_root():
         for root in taxon_descriptor_roots()
         if f"{root.relative_to(REPO)}/*.yaml" not in body
     ]
-    assert missing == [], (
-        f"just validate-gtdb-all omits taxon_descriptor_roots() globs: {missing} (#2027)"
-    )
+    assert (
+        missing == []
+    ), f"just validate-gtdb-all omits taxon_descriptor_roots() globs: {missing} (#2027)"
 
 
 def test_the_two_root_lists_stay_distinct():
