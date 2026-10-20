@@ -1,4 +1,4 @@
-id: CommunityMech:000485
+id: CommunityMech:000482
 name: Black-Soil Glucose-Activated Herbicide-Mixture Degrading Synthetic Community
 description: Simplified four-isolate bacterial synthetic community (SynCom) constructed from keystone taxa—Burkholderia-Caballeronia-Paraburkholderia
   complex, Rhodanobacter, and Achromobacter—identified in a natural microbial consortium enriched from herbicide-stressed
@@ -109,19 +109,10 @@ environmental_factors:
     explanation: Demonstrates strict requirement for glucose supplementation to activate multi-herbicide degradation.
 ecological_interactions:
 - name: Glucose-Driven Co-Metabolic Degradation of Atrazine, Nicosulfuron, and Mesotrione
-  description: In the presence of glucose, Burkholderia and Achromobacter isolates activate central carbon metabolism (glycolysis
-    and TCA cycle) and express atzF and gst to cooperatively degrade mixed nicosulfuron, mesotrione, and atrazine.
+  description: In the presence of glucose, the keystone SynCom taxa (Burkholderia-Caballeronia-Paraburkholderia complex, Rhodanobacter,
+    and Achromobacter) activate central carbon metabolism (glycolysis and TCA cycle) and express enriched catabolic genes
+    including atzF and gst to co-metabolically degrade mixed nicosulfuron, mesotrione, and atrazine.
   interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Burkholderia
-    term:
-      id: NCBITaxon:32008
-      label: Burkholderia
-  target_taxon:
-    preferred_term: Achromobacter
-    term:
-      id: NCBITaxon:222
-      label: Achromobacter
   metabolites:
   - preferred_term: glucose
     term:
@@ -143,20 +134,12 @@ ecological_interactions:
     snippet: Metagenomic screening showed that these taxa were enriched for functional genes associated with herbicide degradation,
       including atzF (allophanate hydrolase) and gst (glutathione S-transferase).
     explanation: Links the keystone taxa to atzF and gst herbicide-degrading genes.
-- name: Synergistic Four-Isolate Herbicide-Mixture Mineralization with Rhodanobacter
-  description: Rhodanobacter cooperates with Achromobacter and Burkholderia in the four-isolate SynCom to degrade herbicide
-    mixtures more efficiently than individual isolates or the parent natural consortium in the glucose-supplemented system.
+  scope: COMMUNITY_LEVEL
+- name: Synergistic Four-Isolate SynCom Herbicide-Mixture Mineralization
+  description: The simplified four-isolate SynCom constructed from Burkholderia, Rhodanobacter, and Achromobacter degrades
+    recalcitrant herbicide mixtures more efficiently than either the individual isolates or the parent natural microbial consortium
+    in the glucose-supplemented system.
   interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Rhodanobacter
-    term:
-      id: NCBITaxon:75309
-      label: Rhodanobacter
-  target_taxon:
-    preferred_term: Achromobacter
-    term:
-      id: NCBITaxon:222
-      label: Achromobacter
   metabolites:
   - preferred_term: glucose
     term:
@@ -169,6 +152,7 @@ ecological_interactions:
     snippet: A simplified four-isolate SynCom, constructed based on these functional associations, degraded the herbicide
       mixtures more efficiently than either the individual isolates or the NMC in the GSM system.
     explanation: Confirms emergent synergistic herbicide-mixture degradation by the four-isolate SynCom.
+  scope: COMMUNITY_LEVEL
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -177,7 +161,7 @@ curation_history:
 - timestamp: '2026-10-19T05:30:00Z'
   curator: claude
   action: INITIAL_CREATION
-  changes: Initial curation of CommunityMech:000485 (Black_Soil_Glucose_Activated_Herbicide_Mixture_SynCom) from PMID:41762466
+  changes: Initial curation of CommunityMech:000482 (Black_Soil_Glucose_Activated_Herbicide_Mixture_SynCom) from PMID:41762466
     using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
     groundings.
   llm_assisted: true

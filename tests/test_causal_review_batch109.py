@@ -189,23 +189,23 @@ def test_current_scope_census_tracks_later_source_bounded_repairs(monkeypatch):
     survey_fn = runpy.run_path(str(ROOT / "tests/test_community_level_connectivity_credit.py"))[
         "_survey"
     ]
-    # CommunityMech:000469-000486 add 18 pairwise-scoped records (+0 community-level).
+    # CommunityMech:000469-000483 add 15 records (10 pairwise-scoped, 4 community-level-only, 1 mixed).
     previous = {
-        "records": 480,
-        "with_community_level": 417,
-        "mixed": 138,
-        "community_level_only": 279,
-        "taxa": 1581,
-        "credited_solely_by_the_rule": 1290,
+        "records": 477,
+        "with_community_level": 422,
+        "mixed": 139,
+        "community_level_only": 283,
+        "taxa": 1603,
+        "credited_solely_by_the_rule": 1308,
     }
     # #2014: five Transwell strain entries replace one umbrella, with two
     # pairwise reporter participants and three solely community-level members.
     expected = {
         **previous,
-        "mixed": 139,
-        "community_level_only": 278,
-        "taxa": 1585,
-        "credited_solely_by_the_rule": 1292,
+        "mixed": 140,
+        "community_level_only": 282,
+        "taxa": 1607,
+        "credited_solely_by_the_rule": 1310,
     }
     assert survey_fn() == expected
     target = ROOT / "kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml"
