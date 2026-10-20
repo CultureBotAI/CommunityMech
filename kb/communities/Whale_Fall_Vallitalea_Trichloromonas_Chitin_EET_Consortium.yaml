@@ -1,0 +1,136 @@
+id: CommunityMech:000474
+name: Deep-Sea Whale-Fall Vallitalea and Trichloromonas Chitin-Degrading Electrogenic Consortium
+description: Anaerobic deep-sea whale-fall sediment microbial consortium and reconstituted defined co-culture enriched in
+  potentiostatically controlled bioelectrochemical reactors poised at +0.22 V vs. SHE mimicking iron-reducing conditions.
+  Primary chitin-degrading Vallitalea sp. hydrolyzes insoluble crystalline chitin and ferments oligomers to soluble intermediates
+  (N-acetylglucosamine, glucose, acetate) that are cross-fed to iron-reducing, electrogenic Trichloromonas sp. performing
+  extracellular electron transfer (EET) to electrodes or iron oxides.
+ecological_state: ENGINEERED
+community_origin: NATURAL
+community_category: DIET
+environment_term:
+  preferred_term: marine sediment
+  term:
+    id: ENVO:03000033
+    label: marine sediment
+  notes: Enriched from anoxic deep-sea whale-fall sediment (WF1018, 1018 m depth, Monterey Canyon) in poised bioelectrochemical
+    reactors (+0.22 V vs. SHE).
+taxonomy:
+- taxon_term:
+    preferred_term: Vallitalea
+    term:
+      id: NCBITaxon:1348611
+      label: Vallitalea
+    notes: Primary chitin-degrading isolate Vallitalea sp. enriched from deep-sea whale-fall sediment.
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42297039
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We isolated a chitin-degrading Vallitalea sp. and an iron-reducing, electrogenic Trichloromonas sp., and demonstrated
+      that, when reconstituted in co-culture, they cooperatively degrade chitin via acetate cross-feeding coupled to EET.
+    explanation: Establishes Vallitalea sp. as the primary chitin degrader and acetate donor in the co-culture.
+- taxon_term:
+    preferred_term: Trichloromonas
+    term:
+      id: NCBITaxon:3031666
+      label: Trichloromonas
+    notes: Iron-reducing, electrogenic Desulfobacterota isolate Trichloromonas sp. enriched on poised electrodes.
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: DOMINANT
+  functional_role:
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42297039
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We isolated a chitin-degrading Vallitalea sp. and an iron-reducing, electrogenic Trichloromonas sp., and demonstrated
+      that, when reconstituted in co-culture, they cooperatively degrade chitin via acetate cross-feeding coupled to EET.
+    explanation: Establishes Trichloromonas sp. as the iron-reducing, electrogenic partner respiring cross-fed acetate.
+environmental_factors:
+- name: Crystalline Chitin and Poised Anode (+0.22 V vs. SHE)
+  value: 0.01 g/mL colloidal chitin; +0.22 V vs. SHE poised carbon cloth electrode
+  description: Insoluble crystalline chitin serves as the sole carbon and nitrogen source while a potentiostatically poised
+    electrode (+0.22 V vs. SHE) or poorly crystalline iron(III) oxide acts as the terminal electron sink under anoxic marine
+    conditions.
+  evidence:
+  - reference: PMID:42297039
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we used potentiostatically controlled bioelectrochemical reactors poised at +0.22 V vs. Standard Hydrogen
+      Electrode, mimicking iron-reducing conditions, to enrich and characterize a chitin-degrading, metal-reducing microbial
+      community from an anoxic deep-sea whale-fall sediment.
+    explanation: Documents the poised bioelectrochemical reactor regime mimicking Fe(III)-reducing deep-sea sediment conditions.
+ecological_interactions:
+- name: Anaerobic Chitin Hydrolysis and Acetate Cross-Feeding to Electrogenic Respiration
+  description: Vallitalea sp. hydrolyzes insoluble chitin via extracellular chitinases and ferments monomers into acetate,
+    which is cross-fed to electrode- and iron-respiring Trichloromonas sp. to drive anodic current generation and Fe(III)
+    reduction.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Vallitalea
+    term:
+      id: NCBITaxon:1348611
+      label: Vallitalea
+  target_taxon:
+    preferred_term: Trichloromonas
+    term:
+      id: NCBITaxon:3031666
+      label: Trichloromonas
+  metabolites:
+  - preferred_term: chitin
+    term:
+      id: CHEBI:17029
+      label: chitin
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: iron(3+)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+  biological_processes:
+  - preferred_term: chitin catabolic process
+    term:
+      id: GO:0006032
+      label: chitin catabolic process
+  - preferred_term: acetate metabolic process
+    term:
+      id: GO:0006083
+      label: acetate metabolic process
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  evidence:
+  - reference: PMID:42297039
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We isolated a chitin-degrading Vallitalea sp. and an iron-reducing, electrogenic Trichloromonas sp., and demonstrated
+      that, when reconstituted in co-culture, they cooperatively degrade chitin via acetate cross-feeding coupled to EET.
+    explanation: Directly demonstrates cooperative chitin degradation coupled to EET via acetate cross-feeding.
+metals_present:
+- IRON
+rare_earth_elements_present: []
+metal_relevance: PRIMARY
+metal_notes: Community couples anaerobic chitin breakdown to dissimilatory reduction of poorly crystalline iron(III) oxides
+  and poised electrodes mimicking Fe(III) reduction.
+curation_history:
+- timestamp: '2026-10-19T05:30:00Z'
+  curator: claude
+  action: INITIAL_CREATION
+  changes: Initial curation of CommunityMech:000474 (Whale_Fall_Vallitalea_Trichloromonas_Chitin_EET_Consortium) from PMID:42297039
+    using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
+    groundings.
+  llm_assisted: true

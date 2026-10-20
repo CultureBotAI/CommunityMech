@@ -1,0 +1,116 @@
+id: CommunityMech:000478
+name: Bifidobacterium longum DSM20219 and Bacillus subtilis SOM8 Alginate Biofilm Probiotic Co-Culture
+description: Engineered probiotic co-culture of oxygen-sensitive anaerobic Bifidobacterium longum DSM20219 and biofilm-forming
+  Bacillus subtilis SOM8 co-encapsulated in sodium alginate hydrogel beads. Bacillus subtilis SOM8 promotes interspecies cell
+  aggregation, extracellular polymeric matrix development, and biofilm formation within the alginate matrix, enhancing B.
+  longum DSM20219 survival by ~3-log CFU/g (>7-log CFU/g) in simulated gastric and intestinal fluids and maintaining >6-log
+  CFU/g over 28 days of aerobic storage.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+environment_term:
+  preferred_term: laboratory environment
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Sodium alginate hydrogel bead co-encapsulation system exposed to simulated gastric fluid (SGF), simulated intestinal
+    fluid (SIF), and aerobic storage.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    notes: Strain SOM8; biofilm- and extracellular matrix-producing partner protecting anaerobic B. longum.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_subtilis
+      gtdb_taxon: Bacillus subtilis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis
+      ncbi_source_id: NCBITaxon:1423
+      majority_fraction: 0.91
+      total_genomes: 1256
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    gtdb_grounding_status: GROUNDED
+  abundance_level: DOMINANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42372892
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we developed an alginate-based, biofilm-assisted encapsulation system for the co-culture and co-delivery
+      of Bacillus subtilis SOM8 and Bifidobacterium longum DSM20219.
+    explanation: Identifies Bacillus subtilis SOM8 as the biofilm-forming partner in the co-encapsulated probiotic co-culture.
+- taxon_term:
+    preferred_term: Bifidobacterium longum
+    term:
+      id: NCBITaxon:216816
+      label: Bifidobacterium longum
+    notes: Strain DSM20219; oxygen- and acid-sensitive anaerobic probiotic protected by co-culture biofilm encapsulation.
+    gtdb_candidates:
+    - GTDB:s__Bifidobacterium_infantis
+    - GTDB:s__Bifidobacterium_longum
+    gtdb_grounding_status: AMBIGUOUS
+  abundance_level: DOMINANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42372892
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Biofilm-assisted encapsulation improved B. longum DSM20219 viability, maintaining survival above 7-log CFU/g
+      after 2 h in SGF and SIF, representing an approximately 3-log improvement over alginate-only encapsulation.
+    explanation: Quantifies the 3-log survival improvement of Bifidobacterium longum DSM20219 in SGF and SIF.
+environmental_factors:
+- name: Simulated Gastrointestinal Fluids and Aerobic Storage
+  value: 2 h in SGF and SIF; 28 days aerobic storage
+  description: Gastric acidity, bile salts, digestive enzymes, and ambient oxygen challenge during storage and gastrointestinal
+    transit.
+  evidence:
+  - reference: PMID:42372892
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This strategy enhanced probiotic tolerance to simulated gastric fluids (SGF) and simulated intestinal fluids
+      (SIF), and extended shelf life under aerobic conditions.
+    explanation: Documents the gastrointestinal and aerobic stress regimes.
+ecological_interactions:
+- name: Biofilm- and Extracellular Matrix-Mediated Stress Protection
+  description: Bacillus subtilis SOM8 and Bifidobacterium longum DSM20219 form a cooperative biofilm and extracellular matrix
+    inside alginate hydrogel beads that shields oxygen-sensitive B. longum from gastric acid, bile salts, and aerobic storage.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  target_taxon:
+    preferred_term: Bifidobacterium longum
+    term:
+      id: NCBITaxon:216816
+      label: Bifidobacterium longum
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:42372892
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Imaging and time-resolved co-culture analyses suggested that the enhanced protection was associated with biofilm
+      formation, cell aggregation, extracellular matrix development, and dynamic interspecies interactions within the alginate
+      system.
+    explanation: Establishes biofilm formation and cell aggregation as the protective interaction mechanism.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is reported for this community.
+curation_history:
+- timestamp: '2026-10-19T05:30:00Z'
+  curator: claude
+  action: INITIAL_CREATION
+  changes: Initial curation of CommunityMech:000478 (Bifidobacterium_Bacillus_Alginate_Biofilm_Probiotic_Coculture) from PMID:42372892
+    using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
+    groundings.
+  llm_assisted: true

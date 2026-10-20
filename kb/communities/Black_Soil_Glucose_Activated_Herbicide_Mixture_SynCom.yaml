@@ -1,0 +1,167 @@
+id: CommunityMech:000482
+name: Black-Soil Glucose-Activated Herbicide-Mixture Degrading Synthetic Community
+description: Simplified four-isolate bacterial synthetic community (SynCom) constructed from keystone taxa—Burkholderia-Caballeronia-Paraburkholderia
+  complex, Rhodanobacter, and Achromobacter—identified in a natural microbial consortium enriched from herbicide-stressed
+  agricultural black soil in Northeast China. Activated by glucose supplementation that fuels glycolytic and TCA cycle energy
+  supply and environmental acidification, the SynCom co-metabolically degrades a recalcitrant mixture of nicosulfuron (97.27%),
+  mesotrione (68.00%), and atrazine (22.91%) via enriched catabolic genes including atzF (allophanate hydrolase) and gst (glutathione
+  S-transferase).
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+environment_term:
+  preferred_term: contaminated soil
+  term:
+    id: ENVO:00002116
+    label: contaminated soil
+  notes: Derived from herbicide-stressed agricultural black soil in Northeast China and cultivated in glucose-supplemented
+    mineral salt medium (GSM).
+taxonomy:
+- taxon_term:
+    preferred_term: Burkholderia
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
+    notes: Keystone taxon from the Burkholderia-Caballeronia-Paraburkholderia complex enriched for atzF and gst herbicide-degrading
+      genes.
+    gtdb_classification:
+      gtdb_id: GTDB:g__Burkholderia
+      gtdb_taxon: Burkholderia
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Burkholderia
+      ncbi_source_id: NCBITaxon:32008
+      majority_fraction: 0.999
+      support_genomes: 8896
+      total_genomes: 8908
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
+        under the NCBI taxon]
+    gtdb_grounding_status: GROUNDED
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:41762466
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Combined random forest (RF) and co-occurrence network analyses identified the Burkholderia-Caballeronia-Paraburkholderia
+      complex, Rhodanobacter, and Achromobacter as the keystone taxa.
+    explanation: Identifies the Burkholderia complex as a keystone herbicide-degrading taxon in the SynCom.
+- taxon_term:
+    preferred_term: Rhodanobacter
+    term:
+      id: NCBITaxon:75309
+      label: Rhodanobacter
+    notes: Keystone bacterial genus in the four-isolate black-soil SynCom contributing to glucose-activated co-metabolic herbicide
+      degradation.
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:41762466
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Combined random forest (RF) and co-occurrence network analyses identified the Burkholderia-Caballeronia-Paraburkholderia
+      complex, Rhodanobacter, and Achromobacter as the keystone taxa.
+    explanation: Identifies Rhodanobacter as a keystone herbicide-degrading taxon in the SynCom.
+- taxon_term:
+    preferred_term: Achromobacter
+    term:
+      id: NCBITaxon:222
+      label: Achromobacter
+    notes: Keystone bacterial genus in the four-isolate black-soil SynCom carrying atzF and gst catabolic functions.
+    gtdb_classification:
+      gtdb_id: GTDB:g__Achromobacter
+      gtdb_taxon: Achromobacter
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Achromobacter
+      ncbi_source_id: NCBITaxon:222
+      majority_fraction: 0.991
+      support_genomes: 325
+      total_genomes: 328
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
+        under the NCBI taxon]
+    gtdb_grounding_status: GROUNDED
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:41762466
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Combined random forest (RF) and co-occurrence network analyses identified the Burkholderia-Caballeronia-Paraburkholderia
+      complex, Rhodanobacter, and Achromobacter as the keystone taxa.
+    explanation: Identifies Achromobacter as a keystone herbicide-degrading taxon in the SynCom.
+environmental_factors:
+- name: Glucose Co-Substrate Supplementation and Herbicide Mixture
+  value: Glucose-supplemented mineral salt medium (GSM) with atrazine, nicosulfuron, and mesotrione
+  description: Glucose amendment activates glycolysis and TCA cycle flux, providing cellular energy and medium acidification
+    required for co-metabolic degradation of nicosulfuron, mesotrione, and atrazine.
+  evidence:
+  - reference: PMID:41762466
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Significant herbicide degradation occurred only in the GSM system, with degradation rates of 97.27% for nicosulfuron,
+      68.00% for mesotrione, and 22.91% for atrazine after 8 days.
+    explanation: Demonstrates strict requirement for glucose supplementation to activate multi-herbicide degradation.
+ecological_interactions:
+- name: Glucose-Driven Co-Metabolic Degradation of Atrazine, Nicosulfuron, and Mesotrione
+  description: In the presence of glucose, the keystone SynCom taxa (Burkholderia-Caballeronia-Paraburkholderia complex, Rhodanobacter,
+    and Achromobacter) activate central carbon metabolism (glycolysis and TCA cycle) and express enriched catabolic genes
+    including atzF and gst to co-metabolically degrade mixed nicosulfuron, mesotrione, and atrazine.
+  interaction_type: SYNTROPHY
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: atrazine
+    term:
+      id: CHEBI:15930
+      label: atrazine
+  biological_processes:
+  - preferred_term: glucose metabolic process
+    term:
+      id: GO:0006006
+      label: glucose metabolic process
+  evidence:
+  - reference: PMID:41762466
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Metagenomic screening showed that these taxa were enriched for functional genes associated with herbicide degradation,
+      including atzF (allophanate hydrolase) and gst (glutathione S-transferase).
+    explanation: Links the keystone taxa to atzF and gst herbicide-degrading genes.
+  scope: COMMUNITY_LEVEL
+- name: Synergistic Four-Isolate SynCom Herbicide-Mixture Mineralization
+  description: The simplified four-isolate SynCom constructed from Burkholderia, Rhodanobacter, and Achromobacter degrades
+    recalcitrant herbicide mixtures more efficiently than either the individual isolates or the parent natural microbial consortium
+    in the glucose-supplemented system.
+  interaction_type: SYNTROPHY
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  evidence:
+  - reference: PMID:41762466
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A simplified four-isolate SynCom, constructed based on these functional associations, degraded the herbicide
+      mixtures more efficiently than either the individual isolates or the NMC in the GSM system.
+    explanation: Confirms emergent synergistic herbicide-mixture degradation by the four-isolate SynCom.
+  scope: COMMUNITY_LEVEL
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is reported for this community.
+curation_history:
+- timestamp: '2026-10-19T05:30:00Z'
+  curator: claude
+  action: INITIAL_CREATION
+  changes: Initial curation of CommunityMech:000482 (Black_Soil_Glucose_Activated_Herbicide_Mixture_SynCom) from PMID:41762466
+    using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
+    groundings.
+  llm_assisted: true
