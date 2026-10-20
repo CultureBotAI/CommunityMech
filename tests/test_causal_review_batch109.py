@@ -189,8 +189,9 @@ def test_current_scope_census_tracks_later_source_bounded_repairs(monkeypatch):
     survey_fn = runpy.run_path(str(ROOT / "tests/test_community_level_connectivity_credit.py"))[
         "_survey"
     ]
+    # CommunityMech:000469-000486 add 18 pairwise-scoped records (+0 community-level).
     previous = {
-        "records": 462,
+        "records": 480,
         "with_community_level": 417,
         "mixed": 138,
         "community_level_only": 279,

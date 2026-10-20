@@ -1,0 +1,148 @@
+id: CommunityMech:000476
+name: Cold-Seep ANME-2b and Seep-SRB1g Carbon Monoxide-Oxidizing Syntrophic Consortium
+description: Syntrophic consortium of anaerobic methane-oxidizing archaea (ANME-2b, family Candidatus Methanocomedenaceae
+  / Candidatus Methanomarinus) and sulfate-reducing bacteria (Seep-SRB1g, phylum Thermodesulfobacteriota) from deep-sea methane
+  seep sediments on the Costa Rica margin capable of oxidizing carbon monoxide (CO) in the absence of methane. CO oxidation
+  is coupled syntrophically to dissimilatory sulfate reduction and, under sulfate-free conditions, to CO2 (bicarbonate) reduction
+  to methane by ANME-2b to support cellular maintenance.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: marine sediment
+  term:
+    id: ENVO:03000033
+    label: marine sediment
+  notes: Deep-sea methane seep sediment from the Costa Rica margin incubated in anoxic microcosms with CO as electron donor.
+taxonomy:
+- taxon_term:
+    preferred_term: Candidatus Methanocomedenaceae
+    term:
+      id: NCBITaxon:3386223
+      label: Candidatus Methanocomedenaceae
+    notes: ANME-2b (Candidatus Methanomarinus) and ANME-2a archaea expressing anaerobic carbon monoxide dehydrogenase (cooS)
+      and methanogenesis pathways.
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:41980960
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The oxidation of CO was coupled with sulphate-reduction by syntrophic consortia, and, in the absence of sulphate,
+      through CO2 reduction to methane by ANME-2.
+    explanation: Demonstrates that ANME-2 archaea oxidize CO coupled to syntrophic sulfate reduction or CO2 reduction to methane.
+- taxon_term:
+    preferred_term: Thermodesulfobacteriota
+    term:
+      id: NCBITaxon:200940
+      label: Thermodesulfobacteriota
+    notes: Syntrophic sulfate-reducing bacterial partner Seep-SRB1g (Candidatus Desulfomellonium) expressing multi-heme cytochromes
+      (omcX, tmlA) and dissimilatory sulfate reduction genes.
+    gtdb_classification:
+      gtdb_id: GTDB:p__Desulfobacterota
+      gtdb_taxon: Desulfobacterota
+      gtdb_lineage: d__Bacteria;p__Desulfobacterota
+      ncbi_source_id: NCBITaxon:200940
+      majority_fraction: 0.998
+      support_genomes: 3673
+      total_genomes: 3681
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-07-25) [grounded at p__ rank; 3
+        GTDB taxa under the NCBI taxon]
+    gtdb_grounding_status: GROUNDED
+  abundance_level: ABUNDANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:41980960
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we show that environmental ANME-SRB consortia can oxidize CO in the absence of methane, in anoxic microcosm
+      experiments using a combination of stable isotope geochemical tracers, metatranscriptomics, and single cell activity
+      measurements (FISH-nanoSIMS).
+    explanation: Establishes the syntrophic SRB partner as co-active in CO-fueled sulfate reduction.
+environmental_factors:
+- name: Carbon Monoxide Partial Pressure and Sulfate Availability
+  value: 0.1 to 1.0 bar CO headspace; presence or absence of 5 mM sulfate
+  description: Carbon monoxide serves as a low-potential electron donor (-558 mV) in the absence of methane; lower CO partial
+    pressure (0.1 bar) supports peak CO oxidation and 15N assimilation, whereas elevated CO (0.4-1.0 bar) partially inhibits
+    SRB and ANME anabolism.
+  evidence:
+  - reference: PMID:41980960
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Carbon monoxide (CO) has been reported in seep environments and represents a thermodynamically favourable alternative
+      electron donor due to its low reduction potential.
+    explanation: Documents CO as the alternative electron donor for seep ANME-SRB consortia.
+ecological_interactions:
+- name: Syntrophic Carbon Monoxide Oxidation Coupled to Sulfate and Bicarbonate Reduction
+  description: ANME-2b archaea and Seep-SRB1g sulfate-reducing bacteria oxidize CO to dissolved inorganic carbon (bicarbonate/CO2)
+    coupled to dissimilatory sulfate reduction to hydrogen sulfide via interspecies electron transfer, while ANME-2b also
+    reduces bicarbonate to methane.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Candidatus Methanocomedenaceae
+    term:
+      id: NCBITaxon:3386223
+      label: Candidatus Methanocomedenaceae
+  target_taxon:
+    preferred_term: Thermodesulfobacteriota
+    term:
+      id: NCBITaxon:200940
+      label: Thermodesulfobacteriota
+  metabolites:
+  - preferred_term: carbon monoxide
+    term:
+      id: CHEBI:17245
+      label: carbon monoxide
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  - preferred_term: hydrogencarbonate
+    term:
+      id: CHEBI:17544
+      label: hydrogencarbonate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: hydrogen sulfide
+    term:
+      id: CHEBI:16136
+      label: hydrogen sulfide
+  biological_processes:
+  - preferred_term: dissimilatory sulfate reduction
+    term:
+      id: GO:0019420
+      label: dissimilatory sulfate reduction
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  evidence:
+  - reference: PMID:41980960
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The oxidation of CO was coupled with sulphate-reduction by syntrophic consortia, and, in the absence of sulphate,
+      through CO2 reduction to methane by ANME-2.
+    explanation: Confirms syntrophic coupling of CO oxidation to sulfate reduction and CO2 methanogenesis.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is experimentally tested in the CO microcosms.
+curation_history:
+- timestamp: '2026-10-19T05:30:00Z'
+  curator: claude
+  action: INITIAL_CREATION
+  changes: Initial curation of CommunityMech:000476 (Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium) from PMID:41980960
+    using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
+    groundings.
+  llm_assisted: true

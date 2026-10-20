@@ -1,0 +1,159 @@
+id: CommunityMech:000483
+name: Clostridium acetobutylicum and Clostridium ljungdahlii Carbon-Negative Isopropanol Syntrophic Coculture
+description: High-cell-density syntrophic bacterial coculture pairing genetically engineered Clostridium acetobutylicum (CACas9
+  delta-hbd-p95ace02_atoB, lacking 4-C metabolism and overexpressing an acetone-formation pathway) with the acetogen and ketoreductase
+  partner Clostridium ljungdahlii in a 3.6-L perfusion bioreactor. C. acetobutylicum ferments glucose to acetone, CO2, and
+  H2; C. ljungdahlii consumes dissolved H2—relieving the thermodynamic bottleneck of NADH-driven H2 evolution in C. acetobutylicum—and
+  reduces cross-fed acetone to isopropanol at supratheoretical yields in continuous carbon-negative glucose fermentation.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+environment_term:
+  preferred_term: bioreactor
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+  notes: High-cell-density pseudo-perfusion and 3.6-L continuous cell-retention perfusion bioreactor.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium acetobutylicum
+    term:
+      id: NCBITaxon:1488
+      label: Clostridium acetobutylicum
+    notes: Engineered strain CACas9 delta-hbd-p95ace02_atoB lacking 4-C butanol/butyrate pathway and overexpressing acetone
+      biosynthesis from glucose.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Clostridium_S_acetobutylicum
+      gtdb_taxon: Clostridium_S acetobutylicum
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Clostridiales;f__Clostridiaceae;g__Clostridium_S;s__Clostridium_S
+        acetobutylicum
+      ncbi_source_id: NCBITaxon:1488
+      majority_fraction: 1.0
+      total_genomes: 44
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-07-25) [mapped via NCBI species
+        name — no species-level NCBI id in table]
+    gtdb_grounding_status: GROUNDED
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41831593
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CACas9 Δhbd-p95ace02_atoB produces acetone without 4-C metabolites and C. ljungdahlii converts the acetone to
+      isopropanol.
+    explanation: Establishes engineered C. acetobutylicum as the glucose-fermenting acetone producer.
+- taxon_term:
+    preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+    notes: Syntrophic partner consuming H2 and CO2 while reducing cross-fed acetone to isopropanol.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Clostridium_B_ljungdahlii
+      gtdb_taxon: Clostridium_B ljungdahlii
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Clostridiales;f__Clostridiaceae;g__Clostridium_B;s__Clostridium_B
+        ljungdahlii
+      ncbi_source_id: NCBITaxon:1538
+      majority_fraction: 1.0
+      total_genomes: 4
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-07-25) [mapped via NCBI species
+        name — no species-level NCBI id in table]
+    gtdb_grounding_status: GROUNDED
+  abundance_level: DOMINANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:41831593
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To explore the potential of this coculture system to achieve supratheoretical isopropanol yields, we identify
+      NADH-driven hydrogen conversion in CACas9 Δhbd-p95ace02_atoB as the thermodynamically limiting step for acetone production
+      in monocultures and thus isopropanol production in cocultures.
+    explanation: Identifies NADH-driven H2 evolution as the thermodynamic bottleneck relieved by C. ljungdahlii.
+  - reference: PMID:41831593
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We then demonstrate the ability of C. ljungdahlii to mitigate this issue by eliminating detectable hydrogen accumulation
+      in the coculture.
+    explanation: Confirms syntrophic H2 scavenging by C. ljungdahlii in the coculture.
+environmental_factors:
+- name: Cell Density and C. ljungdahlii Population Fraction in Perfusion Bioreactor
+  value: 3.6-L continuous perfusion bioreactor with high C. ljungdahlii population fraction
+  description: High cell density and elevated C. ljungdahlii fraction eliminate dissolved H2 accumulation and unlock supratheoretical
+    isopropanol yields from glucose.
+  evidence:
+  - reference: PMID:41831593
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudo-perfusion cocultures showed that high cell densities combined with a high population fraction of C. ljungdahlii
+      enable dramatic increases in isopropanol yields beyond the thermodynamic limitation imposed in CACas9 Δhbd-p95ace02_atoB
+      monocultures.
+    explanation: Documents the operational parameters enabling supratheoretical isopropanol yield.
+ecological_interactions:
+- name: Syntrophic Hydrogen Scavenging and Acetone-to-Isopropanol Cross-Feeding
+  description: Clostridium acetobutylicum CACas9 delta-hbd-p95ace02_atoB ferments glucose to acetone and H2; Clostridium ljungdahlii
+    scavenges H2 to relieve NADH thermodynamic inhibition of acetone formation and reduces acetone to isopropanol.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Clostridium acetobutylicum
+    term:
+      id: NCBITaxon:1488
+      label: Clostridium acetobutylicum
+  target_taxon:
+    preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: acetone
+    term:
+      id: CHEBI:15347
+      label: acetone
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  biological_processes:
+  - preferred_term: glucose metabolic process
+    term:
+      id: GO:0006006
+      label: glucose metabolic process
+  - preferred_term: hydrogen biosynthetic process
+    term:
+      id: GO:1902422
+      label: hydrogen biosynthetic process
+  evidence:
+  - reference: PMID:41831593
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CACas9 Δhbd-p95ace02_atoB produces acetone without 4-C metabolites and C. ljungdahlii converts the acetone to
+      isopropanol.
+    explanation: Confirms acetone cross-feeding and conversion to isopropanol.
+  - reference: PMID:41831593
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We then demonstrate the ability of C. ljungdahlii to mitigate this issue by eliminating detectable hydrogen accumulation
+      in the coculture.
+    explanation: Confirms interspecies H2 scavenging relieving thermodynamic inhibition.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is reported for this community.
+curation_history:
+- timestamp: '2026-10-19T05:30:00Z'
+  curator: claude
+  action: INITIAL_CREATION
+  changes: Initial curation of CommunityMech:000483 (Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture)
+    from PMID:41831593 using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI,
+    GO, and ENVO groundings.
+  llm_assisted: true

@@ -1,0 +1,173 @@
+id: CommunityMech:000472
+name: Wetland Lindane-Degrading Organochlorine Bacterial Consortium
+description: Functional anaerobic organochlorine-degrading bacterial consortia (top-down consortium M and bottom-up consortium
+  Y13) constructed around generalist non-obligate organochlorine-degrading Enterococcus strains (Enterococcus casseliflavus
+  PseS3, R1, R3, R12) alongside organohalide-respiring and fermentative partners (Sulfurospirillum multivorans, Trichlorobacter
+  lovleyi, Dehalococcoides mccartyi, and Petrimonas sulfuriphila) for gamma-hexachlorocyclohexane (lindane) bioremediation
+  in coastal wetland sediment microcosms while suppressing CO2-reduction methanogenesis.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+environment_term:
+  preferred_term: wetland area
+  term:
+    id: ENVO:00000043
+    label: wetland area
+  notes: Anoxic coastal wetland sediment microcosms spiked with gamma-hexachlorocyclohexane (lindane).
+taxonomy:
+- taxon_term:
+    preferred_term: Enterococcus casseliflavus
+    term:
+      id: NCBITaxon:37734
+      label: Enterococcus casseliflavus
+    notes: Generalist non-obligate organochlorine-degrading Enterococcus (strains PseS3, R1, R3, R12) that colonizes sediment
+      microcosms and degrades gamma-HCH.
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42663479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Notably, Enterococcus was found to have successfully colonized inoculated groups.
+    explanation: Supports colonization and key role of Enterococcus in inoculated lindane-degrading consortia.
+- taxon_term:
+    preferred_term: Sulfurospirillum multivorans
+    term:
+      id: NCBITaxon:66821
+      label: Sulfurospirillum multivorans
+    notes: Organohalide-respiring bacterium harboring pceA reductive dehalogenase in the functional consortium.
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42663479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The well-known degradation gene pceA was enriched in the Y13 group, and the co-localization of pceA-encoding
+      contigs with mobile genetic elements was identified.
+    explanation: Supports enrichment of pceA-carrying organohalide-respiring members in consortium Y13.
+- taxon_term:
+    preferred_term: Trichlorobacter lovleyi
+    term:
+      id: NCBITaxon:313985
+      label: Trichlorobacter lovleyi
+    notes: Organohalide-respiring bacterium (formerly Geobacter lovleyi) included in the bottom-up organochlorine-degrading
+      consortium.
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: COMMON
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42663479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this study, we used both "top-down" and "bottom-up" strategies to construct two functional consortia (M and
+      Y13) based on non-obligate ODB.
+    explanation: Supports construction of the functional organochlorine-degrading consortia.
+- taxon_term:
+    preferred_term: Petrimonas sulfuriphila
+    term:
+      id: NCBITaxon:285070
+      label: Petrimonas sulfuriphila
+    notes: Fermentative partner strain PET included in the bottom-up organochlorine-degrading consortium.
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: COMMON
+  functional_role:
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42663479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both consortia demonstrated efficient degradation in sediment microcosms, reducing γ-HCH (C/C₀) to 63.0% (M)
+      and 56.1% (Y13).
+    explanation: Supports γ-HCH degradation performance of the constructed consortia in sediment microcosms.
+ecological_interactions:
+- name: Cooperative Organochlorine Dechlorination of Gamma-Hexachlorocyclohexane
+  description: Non-obligate organochlorine-degrading Enterococcus and pceA-carrying organohalide-respiring partners cooperatively
+    dechlorinate gamma-hexachlorocyclohexane (lindane) in anoxic wetland sediment microcosms.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Enterococcus casseliflavus
+    term:
+      id: NCBITaxon:37734
+      label: Enterococcus casseliflavus
+  target_taxon:
+    preferred_term: Sulfurospirillum multivorans
+    term:
+      id: NCBITaxon:66821
+      label: Sulfurospirillum multivorans
+  biological_processes:
+  - preferred_term: organohalide respiration
+    term:
+      id: GO:0070812
+      label: organohalide respiration
+  - preferred_term: halogenated hydrocarbon metabolic process
+    term:
+      id: GO:0042197
+      label: halogenated hydrocarbon metabolic process
+  downstream:
+  - target: Suppression of Carbon Dioxide Reduction Methanogenesis During Lindane Bioremediation
+    description: 'DIRECTLY IMPLIED: Bioaugmentation with the organochlorine-degrading consortia redirects electron flow toward
+      reductive dechlorination and suppresses CO2-reduction methanogenesis.'
+  evidence:
+  - reference: PMID:42663479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both consortia demonstrated efficient degradation in sediment microcosms, reducing γ-HCH (C/C₀) to 63.0% (M)
+      and 56.1% (Y13).
+    explanation: Demonstrates γ-HCH reductive degradation in inoculated wetland sediment microcosms.
+- name: Suppression of Carbon Dioxide Reduction Methanogenesis During Lindane Bioremediation
+  description: Fermentative Petrimonas sulfuriphila and organohalide-respiring Trichlorobacter lovleyi channel reducing equivalents
+    into reductive dechlorination, suppressing the CO2-reduction methanogenesis pathway and lowering the CH4/CO2 ratio in
+    wetland sediments.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Petrimonas sulfuriphila
+    term:
+      id: NCBITaxon:285070
+      label: Petrimonas sulfuriphila
+  target_taxon:
+    preferred_term: Trichlorobacter lovleyi
+    term:
+      id: NCBITaxon:313985
+      label: Trichlorobacter lovleyi
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: methanogenesis, from carbon dioxide
+    term:
+      id: GO:0019386
+      label: methanogenesis, from carbon dioxide
+  evidence:
+  - reference: PMID:42663479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Simultaneously, functional microbial consortia inoculation significantly suppressed the CO₂ reduction methanogenesis
+      pathway compared with the non-inoculated group (P < 0.05), as evidenced by a marked decline in the CH₄/CO₂ ratio in
+      inoculated groups.
+    explanation: Shows suppression of CO2-reduction methanogenesis and reduced CH4/CO2 ratio upon consortium inoculation.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is reported for this community.
+curation_history:
+- timestamp: '2026-10-19T05:30:00Z'
+  curator: claude
+  action: INITIAL_CREATION
+  changes: Initial curation of CommunityMech:000472 (Wetland_Lindane_Degrading_Organochlorine_Consortium) from PMID:42663479
+    using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
+    groundings.
+  llm_assisted: true

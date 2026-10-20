@@ -1,0 +1,106 @@
+id: CommunityMech:000479
+name: Watermelon Growth-Promoting Synthetic Bacterial Community SSC8
+description: Simplified synthetic bacterial community (SSC8) promoting the growth of ungrafted watermelon (Citrullus lanatus),
+  structured by directional metabolic complementarity where positive pairwise interactions account for 55% of combinations.
+  Stutzerimonas azotifigens (reported as Pseudomonas azotifigens) strain Q6 acts as a central community driver that benefits
+  from all other members and engages in mutualistic amino acid cross-feeding (including L-lysine and L-cysteine) with three
+  partner strains.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+environment_term:
+  preferred_term: rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: Synthetic bacterial community SSC8 promoting ungrafted watermelon growth and profiled in vitro via spent-media metabolomics.
+taxonomy:
+- taxon_term:
+    preferred_term: Stutzerimonas azotifigens
+    term:
+      id: NCBITaxon:291995
+      label: Stutzerimonas azotifigens
+    notes: Reported as Pseudomonas azotifigens strain Q6; keystone driver of SSC8 community composition via mutualistic amino
+      acid exchange.
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: DOMINANT
+  functional_role:
+  - CROSS_FEEDER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42702815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Integrating metabolic modeling with metabolomics further suggested that Pseudomonas azotifigens Q6 not only benefited
+      from all other community members, but also exhibited mutualistic interactions with the other three strains, with metabolite
+      exchange involving compounds such as L-lysine and L-cysteine.
+    explanation: Establishes Pseudomonas (Stutzerimonas) azotifigens Q6 as the mutualistic cross-feeding hub.
+- taxon_term:
+    preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    notes: Partner bacterial strains in synthetic bacterial community SSC8 exchanging amino acids with strain Q6.
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa
+        under the NCBI taxon]
+    gtdb_grounding_status: GROUNDED
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42702815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas azotifigens Q6 acted as an important driver of community composition by affecting the abundance of
+      several other consortium members in vitro.
+    explanation: Supports partner strain abundance modulation and metabolic complementarity within SSC8.
+ecological_interactions:
+- name: Mutualistic Amino Acid Cross-Feeding Driving SSC8 Community Structuring
+  description: Stutzerimonas azotifigens Q6 and partner strains in synthetic community SSC8 engage in bidirectional metabolite
+    exchange involving L-lysine and L-cysteine, promoting strain persistence and ungrafted watermelon growth.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Stutzerimonas azotifigens
+    term:
+      id: NCBITaxon:291995
+      label: Stutzerimonas azotifigens
+  target_taxon:
+    preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  metabolites:
+  - preferred_term: cysteine
+    term:
+      id: CHEBI:15356
+      label: cysteine
+  evidence:
+  - reference: PMID:42702815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Integrating metabolic modeling with metabolomics further suggested that Pseudomonas azotifigens Q6 not only benefited
+      from all other community members, but also exhibited mutualistic interactions with the other three strains, with metabolite
+      exchange involving compounds such as L-lysine and L-cysteine.
+    explanation: Demonstrates mutualistic amino acid cross-feeding centered on strain Q6.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is reported for this community.
+curation_history:
+- timestamp: '2026-10-19T05:30:00Z'
+  curator: claude
+  action: INITIAL_CREATION
+  changes: Initial curation of CommunityMech:000479 (Watermelon_Rhizosphere_Pseudomonas_Amino_Acid_Cross_Feeding_SynCom_SSC8)
+    from PMID:42702815 using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI,
+    GO, and ENVO groundings.
+  llm_assisted: true

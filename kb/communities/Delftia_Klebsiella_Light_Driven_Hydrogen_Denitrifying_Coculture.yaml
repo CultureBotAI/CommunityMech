@@ -1,0 +1,128 @@
+id: CommunityMech:000484
+name: Delftia acidovorans YP-3 and Klebsiella oxytoca DX-3 Light-Driven Hydrogen-Producing Denitrifying Co-Culture
+description: Catalyst-free, light-driven defined bacterial co-culture pairing the light-responsive electroactive bio-photosensitizer
+  bacterium Delftia acidovorans YP-3 with hydrogen-producing and nitrate-reducing Klebsiella oxytoca DX-3 for simultaneous
+  wastewater nitrogen removal and biohydrogen recovery. Through direct contact and soluble redox-active mediators that lower
+  electron-transfer resistance and stimulate NADH metabolism, the YP-3/DX-3 co-culture generates 345.52 mL/L H2 in 48 h and
+  achieves 90.25% nitrate removal with minimal nitrite accumulation in synthetic swine wastewater.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+environment_term:
+  preferred_term: anaerobic bioreactor
+  term:
+    id: ENVO:00002124
+    label: anaerobic bioreactor
+  notes: Light-illuminated batch cultures and synthetic swine wastewater-fed anaerobic sludge reactor.
+taxonomy:
+- taxon_term:
+    preferred_term: Delftia acidovorans
+    term:
+      id: NCBITaxon:80866
+      label: Delftia acidovorans
+    notes: Strain YP-3; light-responsive electroactive bacterium acting as a biological photosensitizer and electron donor.
+    gtdb_candidates:
+    - GTDB:s__Comamonas_acidovorans
+    - GTDB:s__Comamonas_tsuruhatensis
+    gtdb_grounding_status: AMBIGUOUS
+  abundance_level: DOMINANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42297253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, a catalyst-free, light-driven co-culture system was developed by pairing the light-responsive electroactive
+      bacterium Delftia acidovorans YP-3 with Klebsiella oxytoca DX-3, a strain that can produce hydrogen and reduce nitrate.
+    explanation: Identifies Delftia acidovorans YP-3 as the light-responsive electroactive partner.
+- taxon_term:
+    preferred_term: Klebsiella oxytoca
+    term:
+      id: NCBITaxon:571
+      label: Klebsiella oxytoca
+    notes: Strain DX-3; hydrogen-producing and nitrate/nitrite-reducing partner receiving photo-excited electrons.
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: DOMINANT
+  functional_role:
+  - ELECTRON_ACCEPTOR
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42297253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In batch cultures, the YP-3/DX-3 co-culture generated 345.52 mL/L H2 within 48 h and enhanced the removal of
+      nitrate, nitrite, and total nitrogen compared to the DX-3 monoculture.
+    explanation: Demonstrates enhanced H2 production and nitrate/nitrite removal by K. oxytoca DX-3 in co-culture with YP-3.
+environmental_factors:
+- name: Light Illumination and Synthetic Swine Wastewater Nitrate Load
+  value: Light-driven catalyst-free regime; synthetic swine wastewater
+  description: Illumination excites Delftia acidovorans YP-3 bio-photosensitizers to drive interspecies electron transfer
+    for H2 evolution and denitrification.
+  evidence:
+  - reference: PMID:42297253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In a synthetic swine wastewater-fed anaerobic sludge reactor, the co-culture accomplished 90.25 % nitrate removal,
+      minimized nitrite accumulation, and enriched functional groups related to electron transfer, hydrogen production, and
+      nitrogen removal.
+    explanation: Documents reactor performance under synthetic swine wastewater operation.
+ecological_interactions:
+- name: Light-Driven Interspecies Electron Transfer for Biohydrogen Production and Denitrification
+  description: Light-responsive electroactive Delftia acidovorans YP-3 transfers electrons via direct cell contact and soluble
+    redox mediators to Klebsiella oxytoca DX-3, enhancing NADH-linked hydrogen production (345.52 mL/L H2) and nitrate/nitrite
+    reduction (90.25% nitrate removal).
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Delftia acidovorans
+    term:
+      id: NCBITaxon:80866
+      label: Delftia acidovorans
+  target_taxon:
+    preferred_term: Klebsiella oxytoca
+    term:
+      id: NCBITaxon:571
+      label: Klebsiella oxytoca
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: hydrogen biosynthetic process
+    term:
+      id: GO:1902422
+      label: hydrogen biosynthetic process
+  - preferred_term: denitrification pathway
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  evidence:
+  - reference: PMID:42297253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Electrochemical, extracellular polymeric substance, and metabolomic analyses indicated enhanced redox activity,
+      decreased electron-transfer resistance, NADH-related metabolism, and potential interspecies electron transfer via direct
+      contact and soluble redox-active mediators.
+    explanation: Establishes interspecies electron transfer via direct contact and soluble redox mediators between YP-3 and
+      DX-3.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: Catalyst-free biological photosensitizer co-culture; no metal or rare earth element processing role is reported.
+curation_history:
+- timestamp: '2026-10-19T05:30:00Z'
+  curator: claude
+  action: INITIAL_CREATION
+  changes: Initial curation of CommunityMech:000484 (Delftia_Klebsiella_Light_Driven_Hydrogen_Denitrifying_Coculture) from
+    PMID:42297253 using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI,
+    GO, and ENVO groundings.
+  llm_assisted: true

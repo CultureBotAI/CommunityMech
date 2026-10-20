@@ -1,0 +1,129 @@
+id: CommunityMech:000480
+name: Chinese Fir Endophytic Phosphate-Solubilizing Synthetic Community SynCom-P6
+description: Six-strain synthetic microbial community (SynCom-P6) constructed from non-antagonistic endophytic phosphate-solubilizing
+  bacteria isolated from roots of Chinese fir (Cunninghamia lanceolata) capable of solubilizing calcium phosphate, iron phosphate,
+  aluminum phosphate, and organic phosphorus. Applied to Chinese fir seedlings, SynCom-P6 mobilizes insoluble soil phosphorus,
+  enriches beneficial rhizosphere genera Massilia and Dyadobacter, upregulates nitrogen fixation and hormone signaling genes,
+  and enhances root elongation and biomass accumulation.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+environment_term:
+  preferred_term: rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: Chinese fir (Cunninghamia lanceolata) root endosphere and rhizosphere soil.
+taxonomy:
+- taxon_term:
+    preferred_term: Massilia
+    term:
+      id: NCBITaxon:149698
+      label: Massilia
+    notes: Beneficial phosphate-solubilizing and rhizosphere-enriched bacterial genus in the SynCom-P6 system.
+    gtdb_classification:
+      gtdb_id: GTDB:g__Telluria
+      gtdb_taxon: Telluria
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Telluria
+      ncbi_source_id: NCBITaxon:149698
+      majority_fraction: 1.0
+      support_genomes: 140
+      total_genomes: 140
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+    gtdb_grounding_status: GROUNDED
+  abundance_level: ABUNDANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42765606
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Absolute quantification 16S amplicon and metagenomic sequencing revealed that SynCom-P6 reshaped the rhizosphere
+      bacterial community, enriching beneficial genera such as Massilia and Dyadobacter, and altered functional profiles,
+      including upregulation of hormone signaling and nitrogen fixation related genes.
+    explanation: Demonstrates enrichment of Massilia alongside upregulated P mobilization and N fixation functions.
+- taxon_term:
+    preferred_term: Dyadobacter
+    term:
+      id: NCBITaxon:120831
+      label: Dyadobacter
+    notes: Beneficial rhizosphere-enriched bacterial genus responding to SynCom-P6 inoculation in Chinese fir.
+    gtdb_grounding_status: UNRESOLVED
+  abundance_level: ABUNDANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42765606
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Absolute quantification 16S amplicon and metagenomic sequencing revealed that SynCom-P6 reshaped the rhizosphere
+      bacterial community, enriching beneficial genera such as Massilia and Dyadobacter, and altered functional profiles,
+      including upregulation of hormone signaling and nitrogen fixation related genes.
+    explanation: Demonstrates enrichment of Dyadobacter in the SynCom-P6-modified Chinese fir rhizosphere.
+environmental_factors:
+- name: Insoluble Inorganic and Organic Soil Phosphorus
+  value: Calcium phosphate, iron phosphate, aluminum phosphate, and organic phosphorus
+  description: Insoluble soil phosphorus pools mobilized by SynCom-P6 between day 7 and day 21 post-inoculation.
+  evidence:
+  - reference: PMID:42765606
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Among them, 42 isolates were screened for phosphate-solubilizing activity on media containing calcium phosphate,
+      iron phosphate, aluminum phosphate, and organic phosphorus.
+    explanation: Documents the four insoluble phosphorus substrates solubilized by the SynCom-P6 strains.
+ecological_interactions:
+- name: Insoluble Phosphate Mobilization and Rhizosphere Microbiome Restructuring
+  description: SynCom-P6 solubilizes fixed soil phosphorus and enriches Massilia and Dyadobacter in the Chinese fir rhizosphere,
+    upregulating nitrogen fixation and plant hormone signaling pathways to promote seedling root growth.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Massilia
+    term:
+      id: NCBITaxon:149698
+      label: Massilia
+  target_taxon:
+    preferred_term: Dyadobacter
+    term:
+      id: NCBITaxon:120831
+      label: Dyadobacter
+  metabolites:
+  - preferred_term: phosphate
+    term:
+      id: CHEBI:26020
+      label: phosphate
+  biological_processes:
+  - preferred_term: phosphate-containing compound metabolic process
+    term:
+      id: GO:0006796
+      label: phosphate-containing compound metabolic process
+  evidence:
+  - reference: PMID:42765606
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Soil available P content initially decreased but subsequently increased from day 7 to day 21 after SynCom-P6
+      inoculation, indicating effective mobilization of insoluble P in soil.
+    explanation: Confirms soil phosphorus mobilization by SynCom-P6.
+  - reference: PMID:42765606
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Absolute quantification 16S amplicon and metagenomic sequencing revealed that SynCom-P6 reshaped the rhizosphere
+      bacterial community, enriching beneficial genera such as Massilia and Dyadobacter, and altered functional profiles,
+      including upregulation of hormone signaling and nitrogen fixation related genes.
+    explanation: Links Massilia and Dyadobacter enrichment to functional gene upregulation and root growth.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: Strains solubilize iron and aluminum phosphate salts to release orthophosphate, without a primary metal bioprocessing
+  focus.
+curation_history:
+- timestamp: '2026-10-19T05:30:00Z'
+  curator: claude
+  action: INITIAL_CREATION
+  changes: Initial curation of CommunityMech:000480 (Chinese_Fir_Endophytic_Phosphate_Solubilizing_SynCom_P6) from PMID:42765606
+    using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
+    groundings.
+  llm_assisted: true

@@ -1,0 +1,211 @@
+id: CommunityMech:000470
+name: Rice Paddy Sediment Syntrophic Methanogenic Consortium Under Hypophosphite Inhibition
+description: Anoxic rice paddy field sediment and model Methanococcus maripaludis S2 syntrophic methanogenic system in which
+  primary fermenters (including Clostridium) convert organic substrates into interspecies electron carriers (formate and H2)
+  consumed by hydrogenotrophic and formate-utilizing methanogens (Methanococcus maripaludis S2, Methanobacterium, and Methanosarcina).
+  Hypophosphite (H2PO2-), an inorganic formate analogue, selectively inhibits syntrophic methanogenesis by targeting archaeal
+  formate metabolism without inhibiting primary fermentation.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: METHANOGENESIS
+environment_term:
+  preferred_term: sediment
+  term:
+    id: ENVO:00002007
+    label: sediment
+  notes: Anoxic rice field sediment microcosms and defined anaerobic methanogen cultures.
+taxonomy:
+- taxon_term:
+    preferred_term: Methanococcus maripaludis S2
+    term:
+      id: NCBITaxon:39152
+      label: Methanococcus maripaludis
+    notes: Model hydrogenotrophic and formate-utilizing methanogen used to identify formate metabolism as the target of hypophosphite
+      inhibition.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Methanococcus_maripaludis
+      gtdb_taxon: Methanococcus maripaludis
+      gtdb_lineage: d__Archaea;p__Methanobacteriota_A;c__Methanococci;o__Methanococcales;f__Methanococcaceae;g__Methanococcus;s__Methanococcus
+        maripaludis
+      ncbi_source_id: NCBITaxon:39152
+      majority_fraction: 0.93
+      total_genomes: 56
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    gtdb_grounding_status: GROUNDED
+  abundance_level: DOMINANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42285538
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Genetic screens and physiological assays in the model methanogen Methanococcus maripaludis S2 implicate formate
+      metabolism as the target of hypophosphite inhibition.
+    explanation: Supports Methanococcus maripaludis S2 as the model formate-utilizing methanogen in the study.
+- taxon_term:
+    preferred_term: Clostridium
+    term:
+      id: NCBITaxon:1485
+      label: Clostridium
+    notes: Primary fermentative bacteria in anoxic rice paddy sediment microcosms producing H2, formate, and volatile fatty
+      acids.
+    gtdb_candidates:
+    - GTDB:g__Clostridium
+    - GTDB:g__Otoolea
+    - GTDB:g__Sarcina
+    - GTDB:g__Clostridium_AQ
+    - GTDB:g__Clostridium_G
+    - GTDB:g__Clostridium_B
+    - GTDB:g__Clostridium_J
+    - GTDB:g__Clostridium_F
+    - GTDB:g__Clostridium_H
+    - GTDB:g__Clostridium_S
+    - GTDB:g__Enterocloster
+    - GTDB:g__Clostridium_L
+    - GTDB:g__Clostridium_AD
+    - GTDB:g__Clostridium_AM
+    - GTDB:g__Clostridium_X
+    - GTDB:g__Clostridium_I
+    - GTDB:g__Lawsonibacter
+    - GTDB:g__Clostridium_T
+    - GTDB:g__Clostridium_AO
+    - GTDB:g__Clostridium_AR
+    - GTDB:g__Pseudoclostridium
+    - GTDB:g__Clostridium_W
+    - GTDB:g__Clostridium_AA
+    - GTDB:g__Clostridium_AT
+    - GTDB:g__Clostridium_AU
+    - GTDB:g__Clostridium_Z
+    - GTDB:g__Clostridium_AH
+    - GTDB:g__Clostridium_AK
+    - GTDB:g__Clostridium_K
+    - GTDB:g__Clostridium_R
+    - GTDB:g__Clostridium_AW
+    - GTDB:g__Clostridium_AC
+    - GTDB:g__Massilioclostridium
+    - GTDB:g__Clostridium_AB
+    - GTDB:g__Clostridium_AE
+    - GTDB:g__Clostridium_AF
+    - GTDB:g__Clostridium_AG
+    - GTDB:g__Clostridium_AS
+    - GTDB:g__Clostridium_AV
+    - GTDB:g__Clostridium_C
+    - GTDB:g__Clostridium_D
+    - GTDB:g__Clostridium_E
+    - GTDB:g__Eubacterium
+    - GTDB:g__Aminipila
+    - GTDB:g__BRXR01
+    - GTDB:g__Lacrimispora
+    gtdb_grounding_status: AMBIGUOUS
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42285538
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: selective inhibitor of syntrophic methanogenesis versus primary fermentation in rice field sediments
+    explanation: Supports primary fermentative guild partnered with methanogens in rice field sediments.
+ecological_interactions:
+- name: Interspecies Formate and Hydrogen Transfer Driving Syntrophic Methanogenesis
+  description: Primary fermenters generate H2 and formate as interspecies electron carriers that fuel methanogenesis by formate-
+    and H2-utilizing methanogenic archaea.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Clostridium
+    term:
+      id: NCBITaxon:1485
+      label: Clostridium
+  target_taxon:
+    preferred_term: Methanococcus maripaludis S2
+    term:
+      id: NCBITaxon:39152
+      label: Methanococcus maripaludis
+  metabolites:
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  downstream:
+  - target: Selective Inhibition of Archaeal Formate-Dependent Methanogenesis by Hypophosphite
+    description: 'DIRECTLY IMPLIED: Reliance on interspecies formate transfer renders syntrophic methanogenesis vulnerable
+      to competitive inhibition by the inorganic formate analogue hypophosphite.'
+  evidence:
+  - reference: PMID:42285538
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: interference with the exchange of syntrophic electron carriers (H2 or formate) in methanogenic systems presents
+      an additional target for methane control.
+    explanation: Establishes interspecies H2 and formate transfer in syntrophic methanogenic systems.
+- name: Selective Inhibition of Archaeal Formate-Dependent Methanogenesis by Hypophosphite
+  description: Hypophosphite (H2PO2-), a structural analogue of formate, selectively inhibits formate-dependent methanogenesis
+    in Methanococcus maripaludis S2 and rice paddy sediment microcosms while sparing primary fermentation by Clostridium.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Clostridium
+    term:
+      id: NCBITaxon:1485
+      label: Clostridium
+  target_taxon:
+    preferred_term: Methanococcus maripaludis S2
+    term:
+      id: NCBITaxon:39152
+      label: Methanococcus maripaludis
+  metabolites:
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:42285538
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we show that hypophosphite (H2PO2-), an inorganic formate analogue, is a potent and selective inhibitor
+      of syntrophic methanogenesis versus primary fermentation in rice field sediments and cattle rumens.
+    explanation: Demonstrates selective inhibition of syntrophic methanogenesis by hypophosphite.
+  - reference: PMID:42285538
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Genetic screens and physiological assays in the model methanogen Methanococcus maripaludis S2 implicate formate
+      metabolism as the target of hypophosphite inhibition.
+    explanation: Identifies formate metabolism in M. maripaludis S2 as the mechanistic target of hypophosphite.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is reported for this community.
+curation_history:
+- timestamp: '2026-10-19T05:30:00Z'
+  curator: claude
+  action: INITIAL_CREATION
+  changes: Initial curation of CommunityMech:000470 (Rice_Paddy_Methanococcus_Hypophosphite_Syntrophic_Consortium) from PMID:42285538
+    using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
+    groundings.
+  llm_assisted: true
