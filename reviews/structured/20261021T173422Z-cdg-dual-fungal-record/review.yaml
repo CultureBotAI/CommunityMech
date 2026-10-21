@@ -1,0 +1,1109 @@
+schema_version: 1.0.0
+review_id: 20261021T173422Z-cdg-dual-fungal-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: CDG dual-fungal source and evidence review
+started_at: '2026-10-21T17:27:05.883972Z'
+finished_at: '2026-10-21T17:34:22.763160Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary evidence, auxiliary authorities
+    and provenance; no person-level independence is asserted.
+skill: review-yaml-record
+completion: partial
+verdict: needs_curation
+scientific_review: false
+summary: Direct abstract evidence supports the two fungal members, reported bulk endpoints
+  and qualified two-node/no-arrow graph. One minor finding clarifies functional staging
+  in overview and endpoint wording. Full main, figures and SI remain inaccessible,
+  so this is a partial scientific review despite eight passing focused checks.
+source:
+  git_revision: 95812d3412d5aab41fd03422340cf736ac7b56f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium/2026-09-22T135255Z-codex-421.yaml
+    sha256: 0afe84976af38edc1a70d9bd0bf93c8179b7bcd2cbef3fea1dca3b4c1d49d92e
+    role: context
+  - path: history/records/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium/2026-09-22T140251Z-codex-review.yaml
+    sha256: 432fabd1f1a33811e329b9a602ddabea33eb1d4e7448d2a5bfd1d56642863821
+    role: context
+  - path: history/records/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium/2026-10-05T184624Z-codex-879dd3.yaml
+    sha256: 74cf8259d00136c2967a5e08729283b6eba56d82a317e6b668cb1e7f79a9bba7
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+    sha256: bac337f785a683f7440bed49d1ec00fa8d4284eb0113978a702efdaad52b6ea6
+    role: target
+  - path: references_cache/PMID_42660361.txt
+    sha256: cb3e47c3e6ecd5205eabaa1df3cf692320e3dc3aee3090e5a5b997e3ed8b828c
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-four-records-batch11.yaml
+    sha256: f8d8ca3b5c79a2d255f82bff689ed3bb726539e781a836aedbeef0cdde6d13c4
+    role: context
+  - path: reports/yaml_record_review/20260922T140025Z-Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.md
+    sha256: 1d497a7b7e8c31762e64a5151ea85af73c5d6f80210fba7d91e1a9900e49768f
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000421
+  path: kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+  label: Chinese Distillers Grains Dual Fungal Lignin Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+    role: canonical_record
+scope:
+  description: Entire canonical record, each member and both nodes assessed against
+    direct abstract/title/IDs, current authorities, provenance and bounded access
+    evidence; full scientific verification remains partial.
+  selection: Only released CommunityMech:000421 in the owned batch 10 checkout.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000421
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema passed.
+  target_ids:
+  - CommunityMech:000421
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Fresh execution in the owned batch 10 checkout. Structural and lexical
+    success do not certify inaccessible scientific methods or results.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict validation passed.
+  target_ids:
+  - CommunityMech:000421
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-strict kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+    --out /private/tmp/cm-review-session/batch-10/000421/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Fresh execution in the owned batch 10 checkout. Structural and lexical
+    success do not certify inaccessible scientific methods or results.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Term validation passed.
+  target_ids:
+  - CommunityMech:000421
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-terms kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Fresh execution in the owned batch 10 checkout. Structural and lexical
+    success do not certify inaccessible scientific methods or results.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB structure/coherence passed.
+  target_ids:
+  - CommunityMech:000421
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Fresh execution in the owned batch 10 checkout. Structural and lexical
+    success do not certify inaccessible scientific methods or results.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Fungal domain applicability passed.
+  target_ids:
+  - CommunityMech:000421
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Fresh execution in the owned batch 10 checkout. Structural and lexical
+    success do not certify inaccessible scientific methods or results.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: History validation passed.
+  target_ids:
+  - CommunityMech:000421
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-history history/records/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Fresh execution in the owned batch 10 checkout. Structural and lexical
+    success do not certify inaccessible scientific methods or results.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only cache filename check passed.
+  target_ids:
+  - CommunityMech:000421
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Fresh execution in the owned batch 10 checkout. Structural and lexical
+    success do not certify inaccessible scientific methods or results.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Native reference validation passed against the unchanged cache; direct
+    checks separately partition abstract, title and DOI metadata.
+  target_ids:
+  - CommunityMech:000421
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-references-explained kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Fresh execution in the owned batch 10 checkout. Structural and lexical
+    success do not certify inaccessible scientific methods or results.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; focal graph
+    separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000421
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - metrics
+  scope_note: Explicit same-batch corpus reuse. Nonzero corpus status is not assigned
+    as a new defect to this target.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; focal graph
+    separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000421
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - metrics
+  scope_note: Explicit same-batch corpus reuse. Nonzero corpus status is not assigned
+    as a new defect to this target.
+- check_id: scientific-source
+  name: Full main and critical supplementary verification
+  status: unavailable
+  required: true
+  summary: Full Methods/Results, figures and SI remain inaccessible and uninspected.
+    Direct publisher requests failed; the article API returned metadata only.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - lead-read
+  - root-source
+  - source-scope
+- check_id: direct-snippets
+  name: Fresh reference-specific excerpt checks
+  status: passed
+  required: true
+  summary: Fourteen abstract excerpts, one title and one separately verified DOI metadata
+    display account for all sixteen occurrences; all match cache.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - snippets
+- check_id: supplements
+  name: Critical supplementary source access
+  status: unavailable
+  required: true
+  summary: No exact accessible supplementary asset was established. No claim about
+    file or dataset absence follows.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - lead-read
+  - resources
+- check_id: resources
+  name: Publication identity and bounded resource check
+  status: passed
+  required: true
+  summary: Direct metadata corroborates PMID/DOI and title. Resource incompleteness
+    remains unknown while full source is unavailable.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - publication
+  - resources
+- check_id: reanalysis
+  name: Raw data and experimental reproduction
+  status: skipped
+  required: false
+  summary: No raw omics, enzyme, culture or statistical reanalysis was performed.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - lead-read
+- check_id: adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Availability is bounded by the frozen runtime discovery; no outside-checkout
+    executable or paid provider was invoked.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+  locator: Entire maintained YAML, two taxa, two interaction nodes, zero arrows and
+    both discussions
+  summary: The record describes a deliberately constructed two-fungus solid-state
+    lignin-conversion system. Its graph already distinguishes proposed temporal function
+    from measured bulk endpoints. Overview dominance wording is less explicit than
+    that graph qualification.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.759164Z'
+- evidence_id: identity
+  kind: primary_source
+  reference: PMID:42660361
+  locator: 'Abstract: system construction and named members'
+  summary: The direct abstract identifies Phanerochaete chrysosporium and Pleurotus
+    eryngii in a constructed solid-state fermentation using Chinese Distillers’ grains.
+    These are microbial members; the substrate is not a member. The abstract does
+    not directly establish strain identifiers, mixture proportions or the complete
+    preparation protocol.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.759243Z'
+  snapshot_sha256: 9e72b100e32701a63885eb78d0b5bc19e1277a6bcf8d0145599bce3e6e0eec59
+- evidence_id: bulk
+  kind: primary_source
+  reference: PMID:42660361
+  locator: 'Abstract: lignin degradation and extracellular enzyme activity endpoints'
+  summary: The paper reports 58.66% lignin degradation. Laccase and manganese peroxidase
+    peak at day 10, at 38.54 and 50.36 U/g respectively; lignin peroxidase peaks at
+    day 15 at 51.67 U/g. These are abstract-reported bulk endpoints. Without the full
+    main, the total duration, assay denominator details, replicates, controls, uncertainty
+    and relative superiority remain unverified.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.759386Z'
+  snapshot_sha256: 9e72b100e32701a63885eb78d0b5bc19e1277a6bcf8d0145599bce3e6e0eec59
+- evidence_id: temporal
+  kind: primary_source
+  reference: PMID:42660361
+  locator: 'Abstract: integrated transcriptomic and metabolomic analyses'
+  summary: The authors infer temporal functional division from combined omics. Early
+    P. chrysosporium AA2 peroxidase expression and later P. eryngii AA1 laccase/aromatic-catabolic
+    expression support an attributed staging hypothesis, not a measured population
+    ranking, partner-resolved carbon flux or reciprocal fitness demonstration.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.759495Z'
+  snapshot_sha256: 9e72b100e32701a63885eb78d0b5bc19e1277a6bcf8d0145599bce3e6e0eec59
+  quote: temporal division of labor
+- evidence_id: pathways
+  kind: primary_source
+  reference: PMID:42660361
+  locator: 'Abstract: metabolic pathway reconstruction'
+  summary: Reconstructed H/G- and S-derived aromatic routes provide the authors’ metabolic
+    interpretation. The abstract does not establish traced interpartner transfer,
+    a necessary metabolite mediator or individual enzyme-specific flux. No additional
+    molecular node or arrow is required.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.759543Z'
+  snapshot_sha256: 9e72b100e32701a63885eb78d0b5bc19e1277a6bcf8d0145599bce3e6e0eec59
+- evidence_id: substrate
+  kind: primary_source
+  reference: PMID:42660361
+  locator: 'Abstract: opening substrate statement'
+  summary: Chinese Distillers’ grains are the recalcitrant lignin-containing substrate.
+    The current environmental factor and CHEBI lignin ingredient express substrate
+    context; no fermentation outcome remains stored as an environmental parameter.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.759582Z'
+  snapshot_sha256: 9e72b100e32701a63885eb78d0b5bc19e1277a6bcf8d0145599bce3e6e0eec59
+- evidence_id: publication
+  kind: primary_source
+  reference: PMID:42660361
+  locator: ArticleTitle and PubmedData/ArticleIdList
+  summary: PMID 42660361, the exact article title and DOI 10.1016/j.biortech.2026.135734
+    identify the focal publication. The two external resources are bibliographic links
+    rather than phenotype datasets. The labeled DOI excerpt is metadata-derived, not
+    a scientific prose sentence.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.759606Z'
+  snapshot_sha256: 9e72b100e32701a63885eb78d0b5bc19e1277a6bcf8d0145599bce3e6e0eec59
+- evidence_id: preview
+  kind: primary_source
+  reference: ScienceDirect indexed preview, DOI 10.1016/j.biortech.2026.135734
+  locator: Search-indexed Introduction; Cdgs and the origin of strains; Screening
+    of dominant fungal strains; truncated Conclusion
+  summary: 'The indexed preview supplies possible collection identifiers and a truncated
+    substrate recipe. A 20-day result belongs to individual-fungus screening. These
+    are follow-up leads only because direct publisher access failed: do not add a
+    complete recipe, infer dual-culture duration or certify collection aliases from
+    the index. No preview text is counted as a directly verified Methods excerpt.'
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.759628Z'
+  snapshot_sha256: 3401d56a37e5bcde40c1a9a4ed036dbeca69c3cd282a02f332fa619cc82c4e4a
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: FunctionalRoleEnum.PRIMARY_DEGRADER; InteractionTypeEnum.NICHE_PARTITIONING;
+    EcologicalStateEnum; CommunityOriginEnum
+  summary: PRIMARY_DEGRADER means degradation of complex substrates and can be retained
+    as the source’s functional assignment with its inference boundary. NICHE_PARTITIONING
+    includes competition reduction; the current PARTIAL graph explicitly excludes
+    proof of that consequence. ENGINEERED state and SYNTHETIC origin are valid for
+    the constructed system. No population-abundance enum is encoded.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.759839Z'
+  snapshot_sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+- evidence_id: ontology
+  kind: authority
+  reference: ontology-authority.json
+  locator: Whole frozen receipt and declared scope
+  summary: All five encoded ID-label pairs match across eight occurrences. Phanerodontia
+    chrysosporium is the current NCBI label, with the paper’s Phanerochaete name preserved
+    as a synonym; Pleurotus eryngii is correctly grounded. Laboratory environment,
+    lignin and lignin catabolism fit their stated scopes.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.759907Z'
+  snapshot_sha256: 0db3d13e19e9085d55472a1a083671535a24c0c0879e4a094925f84c9f640f41
+- evidence_id: semantics
+  kind: authority
+  reference: ontology-semantic-notes.json
+  locator: Whole frozen receipt and declared scope
+  summary: The child checks fungal taxonomy, source-attributed degrader roles and
+    the distinction between temporal functional staging, population dominance and
+    competition reduction. No further biological relation follows from a matching
+    ontology label.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.760030Z'
+  snapshot_sha256: efaf3b89c586c58cefc09e02ae27d4b1ca9bfcb174d6aa123616a2863cb332a8
+- evidence_id: resources
+  kind: database
+  reference: dataset-verification.json
+  locator: Whole frozen receipt and declared scope
+  summary: Public bibliographic metadata corroborates the paper. No concrete omics
+    accession, usable supplementary asset or exact culture/medium identity is established
+    within the accessible source scope; this is not proof that such resources are
+    absent.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.760164Z'
+  snapshot_sha256: c1b6b2664b353cae0a2841f5b5d5712cc3c2958416fd8dec8956ec672499ed4a
+- evidence_id: snippets
+  kind: validation
+  reference: snippet-audit.json
+  locator: Whole frozen receipt and declared scope
+  summary: 'Sixteen occurrences are source-supported: fourteen direct abstract excerpts,
+    one title and one explicitly labeled DOI metadata display. All sixteen match the
+    historical cache; no full-main or supplementary text match is claimed.'
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.760311Z'
+  snapshot_sha256: 2e3c91c471d2758977c8aeb40c9ebb2b3dbfb03352f757965f0c65c87f19d0c5
+- evidence_id: history
+  kind: record_content
+  reference: provenance-audit.json
+  locator: Whole frozen receipt and declared scope
+  summary: All three histories, the exact prior decision and the newly discovered
+    historical review are assessed. Closed issues 1053/1054 concern earlier repaired
+    design/environment claims. Issue 1290 provides graph-review context. Open issue
+    1293 explicitly covers both BL6 and CDG, including this record’s temporal-dominance
+    summary; retain its existing ownership.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.760441Z'
+  snapshot_sha256: 28343882b84cba3ce4545a6c52d85ca01c186d5fa7f103651752731527ec32e9
+- evidence_id: inspect-extension
+  kind: validation
+  reference: inspect-extension.json
+  locator: Whole frozen receipt and declared scope
+  summary: The original 25-input inspect is preserved byte-for-byte. A fresh official
+    inspect adds the discovered historical review as the twenty-sixth input; all prior
+    input hashes and target metadata remain unchanged.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.760589Z'
+  snapshot_sha256: 9cf73400983067ec1435e24811ee99ee248c0d44ecd7b29451bb6f2ab6efd48b
+- evidence_id: metrics
+  kind: validation
+  reference: support-audit.json
+  locator: Whole frozen receipt and declared scope
+  summary: Native COMPLETE covers two nodes, no arrows and six node-evidence entries.
+    Mechanical completeness is 65. Zero major and one minor finding give raw quality
+    133, capped at 100; these scores do not certify the inaccessible science.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.760716Z'
+  snapshot_sha256: c7e14178caa0ceb99fa72b6ada41246d9022b031f9ea1465f7b0abf2707ea697
+- evidence_id: lead-read
+  kind: validation
+  reference: lead-primary-read-scope.json
+  locator: Whole frozen receipt and declared scope
+  summary: Lead read the whole canonical record, fresh direct abstract/title/IDs,
+    local abstract cache and bounded access metadata. Indexed preview is separately
+    labeled; full main, figures and SI were not inspected.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.760750Z'
+  snapshot_sha256: 435a9ac66698227e235a207ff78ce3dc6062c7614a71970d3478222d27e6468a
+- evidence_id: issue-scope-clarification
+  kind: validation
+  reference: source-issue-scope-clarification.json
+  locator: Whole frozen receipt and declared scope
+  summary: 'The frozen source audit mistakenly characterized issue 1293 as BL6-specific.
+    This immutable clarification records the exact correction: the issue explicitly
+    covers both BL6 and CDG, and its CDG paragraph owns the current wording follow-up.'
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.760863Z'
+  snapshot_sha256: 68f45222e9faff28f745b4bfea8e541e028b084be343e9c3c166f2761ef8ba66
+- evidence_id: source-scope
+  kind: validation
+  reference: source-audit.json
+  locator: Whole frozen receipt and declared scope
+  summary: Frozen lead assessment records partial completion, scientific_review false,
+    zero major and one minor wording finding. Critical methods/results and supplementary
+    evidence remain unavailable.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.760897Z'
+  snapshot_sha256: 9ad42a02d0f65072d54f68e1914b0760f1675793c217d4200c92a07c410b43ab
+- evidence_id: root-source
+  kind: validation
+  reference: root-independent-source-audit.json
+  locator: Whole frozen receipt and declared scope
+  summary: Root independently checked the whole canonical record and fresh direct
+    abstract/metadata, source-access boundaries and scoped claims. Its separate receipt
+    records the exact reading scope and partial status.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.761025Z'
+  snapshot_sha256: 8cdd46f39f4d9e06a26de324d9a20fca30fc0b91791ab4bd26ca3b29d5a740f6
+- evidence_id: auxiliary
+  kind: validation
+  reference: auxiliary-frozen-manifest.json
+  locator: Whole frozen receipt and declared scope
+  summary: Eight focused native checks pass. Fungal lineage and GTDB applicability
+    are assessed independently; the immutable validator summary is not rewritten with
+    later metadata.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.761148Z'
+  snapshot_sha256: c24fa4c7f1bf89776a1ef4f62e809538c491cede9efe61deff8c3b9eb70de086
+- evidence_id: adapter
+  kind: validation
+  reference: adapter-check.json
+  locator: Whole frozen receipt and declared scope
+  summary: Optional source-adapter availability is bounded to the recorded runtime.
+    No paid provider or executable from another checkout was invoked.
+  support: supports
+  accessed_at: '2026-10-21T17:34:22.761250Z'
+  snapshot_sha256: dbe7ad9aa138c87727422c43b31de0b10b4ec0adff144659e8c95d90f98f1fab
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+  locator: Actual execution 2026-10-21T17:30:21.568196+00:00 to 2026-10-21T17:30:22.417454+00:00
+  summary: Schema passed.
+  support: supports
+  accessed_at: '2026-10-21T17:30:22.417454Z'
+  snapshot_sha256: 0bbc63e71644e8d5cd61915d500ab44274bbee30278f9eda041033ee4f945b98
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-strict kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+    --out /private/tmp/cm-review-session/batch-10/000421/strict-report.tsv
+  locator: Actual execution 2026-10-21T17:30:21.568452+00:00 to 2026-10-21T17:30:23.422019+00:00
+  summary: Strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T17:30:23.422019Z'
+  snapshot_sha256: f0ee7fb1840b7686d93947387fe4cfba15ed3293274c8d173202baa72c93ed74
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-terms kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+  locator: Actual execution 2026-10-21T17:30:21.568645+00:00 to 2026-10-21T17:30:23.231689+00:00
+  summary: Term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T17:30:23.231689Z'
+  snapshot_sha256: db9aa1ff59c8526f3b63bea6732bbdc2df0ab9a8e0dd0398e5f9468c46f7efed
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+  locator: Actual execution 2026-10-21T17:30:22.417688+00:00 to 2026-10-21T17:30:22.478708+00:00
+  summary: GTDB structure/coherence passed.
+  support: supports
+  accessed_at: '2026-10-21T17:30:22.478708Z'
+  snapshot_sha256: 839f8560b9385725d93f817a1dcae4858630bac15d3b1f31c88904ca56da570e
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+  locator: Actual execution 2026-10-21T17:30:22.478936+00:00 to 2026-10-21T17:30:23.468169+00:00
+  summary: Fungal domain applicability passed.
+  support: supports
+  accessed_at: '2026-10-21T17:30:23.468169Z'
+  snapshot_sha256: f178c0359571bbaace21dc2b9075ae404ef565de65d38c114f76cccf19d360cc
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-history history/records/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium
+  locator: Actual execution 2026-10-21T17:30:23.231968+00:00 to 2026-10-21T17:30:23.807291+00:00
+  summary: History validation passed.
+  support: supports
+  accessed_at: '2026-10-21T17:30:23.807291Z'
+  snapshot_sha256: 5d656234017e66377631ee7a81474350acd4ab17f88f2cc91297c78ee898e1d4
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T17:30:23.807862+00:00 to 2026-10-21T17:30:23.856500+00:00
+  summary: Read-only cache filename check passed.
+  support: supports
+  accessed_at: '2026-10-21T17:30:23.856500Z'
+  snapshot_sha256: 939b0bfd5e34631736952f6d06ade6d83269189a682c3e01f5dd49f75544b083
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-references-explained kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+  locator: Actual execution 2026-10-21T17:30:23.856742+00:00 to 2026-10-21T17:30:24.596114+00:00
+  summary: Native reference validation passed against the unchanged cache; direct
+    checks separately partition abstract, title and DOI metadata.
+  support: supports
+  accessed_at: '2026-10-21T17:30:24.596114Z'
+  snapshot_sha256: 28783dcd1de11053c648201fadc0ff259727cc7ad62ea25a57d04693884836af
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T17:04:17.819938+00:00 to 2026-10-21T17:04:25.370848+00:00
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; focal graph
+    separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T17:04:25.370848Z'
+  snapshot_sha256: 301cbda477198c0cff0f38601fdb49af8d805cafa7da106733150d64786d987d
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T17:04:17.819995+00:00 to 2026-10-21T17:04:26.163649+00:00
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; focal graph
+    separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T17:04:26.163649Z'
+  snapshot_sha256: f8dae0e292e8e2f8c221450aacc2bb120abe0e3f32c16ed59f8406e8b859a895
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Two-fungus community identity
+  outcome: supported
+  summary: Retain the source-declared two-member fungal system and species-level grounding.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - identity
+  - ontology
+  - semantics
+  details: The current NCBI label differs from the paper’s historic Phanerochaete
+    name, which is preserved. No exact collection strain has been independently established
+    in direct main text. Indexed collection codes remain leads; no speculative species
+    or strain replacement is warranted.
+- assessment_id: state
+  area: identity
+  topic: Origin, state, category and environment
+  outcome: supported
+  summary: ENGINEERED, SYNTHETIC, LIGNOCELLULOSE and laboratory environment fit the
+    constructed fermentation.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - identity
+  - substrate
+  - schema
+  - ontology
+  details: This says nothing about long-term equilibrium, in situ population stability
+    or a natural two-member community. Solid CDG substrate is the supported physical
+    context; no unreported atmosphere or medium recipe is inferred.
+- assessment_id: taxon-0
+  area: evidence
+  topic: 'taxonomy[0]: Phanerodontia chrysosporium'
+  outcome: supported
+  summary: Retain membership and source-attributed PRIMARY_DEGRADER function within
+    the abstract’s interpretation.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - identity
+  - temporal
+  - schema
+  - semantics
+  details: The abstract connects the fungi to lignin conversion and peroxidase/laccase-associated
+    expression. This is functional support, not an independently quantified per-member
+    share of the bulk degradation or direct enzyme-specific carbon flux. Do not infer
+    a new CROSS_FEEDER role or a measured population rank. Fungal NO_GTDB_EQUIVALENT
+    is appropriate and does not mean the taxon is unresolved.
+- assessment_id: taxon-1
+  area: evidence
+  topic: 'taxonomy[1]: Pleurotus eryngii'
+  outcome: supported
+  summary: Retain membership and source-attributed PRIMARY_DEGRADER function within
+    the abstract’s interpretation.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - identity
+  - temporal
+  - schema
+  - semantics
+  details: The abstract connects the fungi to lignin conversion and peroxidase/laccase-associated
+    expression. This is functional support, not an independently quantified per-member
+    share of the bulk degradation or direct enzyme-specific carbon flux. Do not infer
+    a new CROSS_FEEDER role or a measured population rank. Fungal NO_GTDB_EQUIVALENT
+    is appropriate and does not mean the taxon is unresolved.
+- assessment_id: design
+  area: evidence
+  topic: Engineering objective, assembly and endpoints
+  outcome: concern
+  summary: Construction for lignin conversion is supported; specify that the stage
+    endpoint is an omics-based functional interpretation.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - identity
+  - bulk
+  - temporal
+  - history
+  details: The earlier repaired assembly strategy correctly avoids claiming temporal
+    division was an a priori design objective. The final measurement endpoint uses
+    ambiguous stage-dominance wording. Align it with the graph’s explicit functional-staging
+    scope without altering exact source excerpts.
+- assessment_id: node-temporal
+  area: evidence
+  topic: 'ecological_interactions[0]: Temporal Dual-Fungal Lignin Conversion'
+  outcome: supported
+  summary: Retain the existing PARTIAL temporal-function node with its explicit limits.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - temporal
+  - pathways
+  - schema
+  - semantics
+  details: NICHE_PARTITIONING remains a proposed ecological interpretation. Current
+    description and all three PARTIAL evidence entries distinguish the authors’ staging
+    hypothesis from measured population dominance, reduced competition, interpartner
+    tracing and reciprocal fitness. No stronger support tag or necessary-transfer
+    mechanism is justified by the accessible abstract.
+- assessment_id: node-bulk
+  area: evidence
+  topic: 'ecological_interactions[1]: CDG Lignin Degradation by Dual-Fungal Fermentation'
+  outcome: supported
+  summary: Retain the untyped community-level bulk endpoint node.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - bulk
+  - ontology
+  details: The reported degradation and enzyme timing do not separately identify the
+    contribution of either fungus or establish that temporal partitioning caused the
+    bulk outcome. The record appropriately makes that distinction. No new graph edge
+    follows from the co-occurrence of these readouts.
+- assessment_id: arrows
+  area: evidence
+  topic: All downstream relations
+  outcome: supported
+  summary: There are no encoded arrows, and no new arrow is required.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - temporal
+  - bulk
+  - pathways
+  details: Association between omics staging and degradation does not independently
+    establish a directed causal connection. Zero arrows accurately preserves the present
+    evidentiary boundary.
+- assessment_id: overview
+  area: evidence
+  topic: description and engineering_design.measurement_endpoints[4]
+  outcome: concern
+  summary: Make functional expression staging explicit wherever dominance is summarized.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - record
+  - temporal
+  - schema
+  details: The overview connects dominance to transcriptomic/metabolomic evidence,
+    but does not state as clearly as the graph that this concerns functional activity.
+    The stage-dominance endpoint can also be read as an abundance measurement. This
+    is a minor consistency clarification, not a finding that the paper lacks the reported
+    omics pattern or that a population-abundance enum is wrongly assigned.
+- assessment_id: cultivation
+  area: completeness
+  topic: Growth conditions, strain precision and study resources
+  outcome: unknown
+  summary: Keep currently open conditions and resource gaps unresolved until direct
+    main/SI evidence is available.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - identity
+  - preview
+  - lead-read
+  - resources
+  details: No verified temperature, moisture, aeration, inoculum ratio, final recipe,
+    vessel geometry, total dual-culture duration or omics accession is recovered here.
+    The lack of accessible details is not graded as a confirmed source omission. The
+    indexed recipe is truncated and its screening duration cannot be generalized to
+    the pair.
+- assessment_id: substrate
+  area: evidence
+  topic: environmental_factors and related_ingredients
+  outcome: supported
+  summary: The single environmental factor and lignin ingredient now express substrate
+    context.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - substrate
+  - ontology
+  - history
+  details: Earlier outcome-valued environmental factors were repaired; do not reopen
+    them or add enzyme peaks as conditions. NOT_APPLICABLE metal relevance remains
+    appropriate. Manganese peroxidase terminology does not itself establish a metal-processing
+    community role.
+- assessment_id: provenance
+  area: provenance
+  topic: Evidence, publication links, history and source access
+  outcome: supported
+  summary: Retain exact bibliographic identity and repaired historical boundaries
+    while explicitly marking this review partial.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - publication
+  - snippets
+  - history
+  - inspect-extension
+  - lead-read
+  details: All sixteen evidence occurrences are accounted for by source type. The
+    direct DOI display is bibliographic metadata, not an abstract sentence. August
+    2026 online publication and the January 2027 issue assignment are distinct dates,
+    not a confirmed record error. Neither prior graph review nor native success substitutes
+    for reading the inaccessible main.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and immutable workflow
+  outcome: supported
+  summary: All eight focused checks pass, with one minor wording repair and a critical
+    scientific access limit.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - auxiliary
+  - ontology
+  - snippets
+  details: Canonical, cache, history and generated products remain unchanged. Any
+    review persistence is limited to a new immutable review bundle. Scientific review
+    remains false despite mechanical success because the main methods/results and
+    critical SI were not verified.
+- assessment_id: metrics
+  area: completeness
+  topic: Native mechanical scores
+  outcome: supported
+  summary: Completeness 65 and capped quality 100 are independent of the partial scientific
+    status.
+  target_ids:
+  - CommunityMech:000421
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 65
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required fields with taxon roles 50 + environment term 5 + external
+      resources 5 + node metabolites 5. Other bonuses do not apply. No unverified
+      field is added for points.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      P1=0,P2=0,P3=1,P4=0; six evidence entries/two nodes give the capped 20-point
+      evidence bonus, COMPLETE adds 15. Raw 133 is capped at 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: functional-stage-wording
+  issue_key: cm-000421-issue1293-functional-stage-wording
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded wording consistency repair. The overview already
+    links the claim to omics, and the graph retains the necessary qualification; no
+    unsupported population enum is encoded.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Clarify functional staging in the overview and endpoint
+  description: The description and stage-dominance endpoint can suggest a measured
+    population rank although the supporting abstract describes expression and metabolic
+    interpretation. State the same functional-staging limit already explicit in the
+    PARTIAL graph. Do not claim that the authors’ omics observation is absent.
+  target_ids:
+  - CommunityMech:000421
+  field_paths:
+  - description
+  - engineering_design.measurement_endpoints[4]
+  evidence_ids:
+  - record
+  - temporal
+  - schema
+  - semantics
+  - history
+  - issue-scope-clarification
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+    role: canonical_record
+actions:
+- action_id: clarify-functional-stage
+  description: Align summary and endpoint with the graph’s functional-staging interpretation.
+  finding_ids:
+  - functional-stage-wording
+  target_ids:
+  - CommunityMech:000421
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Describe early AA2-associated and later AA1/aromatic-catabolic expression as the
+    authors’ omics-based interpretation. Replace ambiguous stage dominance with temporal
+    functional expression/metabolic patterns; do not add a measured population ranking,
+    succession trajectory or fixed abundance threshold.
+  - Keep the exact existing source excerpts and retain the two qualified nodes with
+    zero arrows. Preserve PARTIAL support on the temporal node and the separation
+    between bulk degradation/enzyme timing and partner-resolved causal contributions.
+  - Retain the supported species concepts, fungal NO_GTDB_EQUIVALENT and source-attributed
+    PRIMARY_DEGRADER functions. Do not turn the wording clarification into a forced
+    role removal, new CROSS_FEEDER relation or strain replacement.
+  - Preserve the earlier repairs associated with issues 1053/1054 and the graph-review
+    context of 1290. Open issue 1293 explicitly owns the CDG temporal-dominance summary
+    follow-up alongside BL6 concerns. Reference its existing CDG scope rather than
+    create a duplicate; no issue is opened or closed here.
+- action_id: complete-source-followup
+  description: Complete the scientific assessment when direct main and critical SI
+    become available.
+  finding_ids: []
+  target_ids:
+  - CommunityMech:000421
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Obtain the exact paper’s complete Methods/Results and relevant figures/SI through
+    an authorized public or supplied copy; preserve source version and locator. Reassess
+    strain identity, complete recipe, moisture, inoculation, atmosphere, incubation,
+    controls, normalization, replicates and omics methods before changing partial
+    scientific status.
+  - Treat the indexed CGMCC identifiers and truncated recipe only as leads. Verify
+    them directly and independently before adding strain aliases or a CultureMech
+    link. Do not equate the indexed 20-day single-fungus screen with the dual-culture
+    endpoint or infer omitted recipe components.
+  - Check source-declared omics repositories only after recovering their exact identifiers.
+    Keep bibliographic links as publications, and do not infer resource absence, exact
+    accession completeness or a new dataset defect from the inaccessible body.
+  - Keep primary and supplementary provenance separate if new excerpts are added in
+    later authorized curation. Do not fill the abstract cache with unverified indexed
+    text or silently merge distinct sources to manufacture native matching.
+- action_id: validate-authorized-curation
+  description: Validate separately authorized curation while preserving history.
+  finding_ids:
+  - functional-stage-wording
+  target_ids:
+  - CommunityMech:000421
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chinese_Distillers_Grains_Dual_Fungal_Lignin_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Append fresh curation history, run focused schema/strict/term/reference/GTDB/domain/history
+    checks, then just gen-html and just check-docs-current after authorized canonical
+    changes. No canonical, source-cache, history or generated artifact is changed
+    by this review.
+  - Verify every added source excerpt against its exact declared source and section.
+    Preserve historical reviews and all access failures. Only a new immutable review
+    bundle is persisted here; validation alone does not change scientific completion.
+limitations:
+- The focal paper is PMID 42660361, DOI 10.1016/j.biortech.2026.135734. Fresh direct
+  abstract/title/IDs and access metadata were read. Complete main text, figures, tables
+  and supplementary science remain unavailable and unread, so completion is partial
+  and scientific_review is false.
+- Publisher main/abstract routes returned access challenges; the public article API
+  returned metadata only. EPMC has no PMC full text and OpenAlex lists closed access
+  without an available repository copy. These are bounded retrieval results, not a
+  claim that no authorized copy exists anywhere.
+- Search-indexed introduction and section fragments are explicitly weaker access evidence.
+  Possible CGMCC identifiers, a truncated CDG/bran/salt recipe and single-fungus screening
+  results are not promoted into direct verified culture conditions or collection equivalence.
+  No image or supplement was visually inspected.
+- The reported 58.66% and enzyme peaks are retained as abstract summaries. Their full
+  assay setup, denominator, controls, replication, error and statistical comparisons
+  remain unverified. Days 10 and 15 are enzyme peak times, not a proven complete fermentation
+  duration.
+- Temporal expression and pathway reconstruction do not independently demonstrate
+  population succession, reduced competition, traced carbon handoff, reciprocal fitness
+  or enzyme-specific flux. The graph already states these limits; the minor finding
+  harmonizes non-graph wording with that scope.
+- Fungal degrader roles are source-attributed functional assignments. Correct ontology
+  labels and broad roles do not establish strain-specific kinetics, per-member shares
+  of degradation or a causal transfer mechanism. No extra taxonomy abundance field,
+  causal edge or metabolic role is required.
+- Fourteen excerpts match fresh abstract text, one matches the title, and the labeled
+  DOI display is verified from article metadata. All sixteen match the unchanged local
+  cache; no body or SI literal-match claim is made.
+- Online publication in August 2026 and later issue metadata for January 2027 are
+  distinct source dates. Historical reviews and issues are read as provenance, not
+  inherited scientific certification or proof that present full-source access succeeded.
+- No paid provider, author contact, raw data download, statistical reanalysis, culture
+  reproduction or hypothetical archive query was performed. Neither the existing access
+  gaps nor the score of 65 justifies inventing cultivation details or dataset identifiers.
+- Whole-corpus diagnostic failures remain attributed to their original scope. All
+  eight focused native gates pass and the two-node/no-arrow graph is structurally
+  COMPLETE; this does not override the partial scientific review.
+notes:
+- All 26 official inspected inputs remain unchanged, with the original 25-input inspect
+  and exact extension preserved. No canonical, cache, history, generated or previously
+  saved artifact was edited.
+- Root and lead independently read the direct abstract and source-access evidence.
+  Child owns immutable native/ontology artifacts; sibling owns provenance, snippets,
+  resource metadata and score arithmetic.
+- Completeness 65 and quality 100/raw 133 are mechanical metrics. The explicit partial
+  status and scientific_review false remain controlling.
+tags:
+- record-review
+- dual-fungal-lignin
+- abstract-assessed
+- partial-source-access
+- batch-10
