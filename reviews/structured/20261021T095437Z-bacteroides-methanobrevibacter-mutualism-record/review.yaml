@@ -1,0 +1,1139 @@
+schema_version: 1.0.0
+review_id: 20261021T095437Z-bacteroides-methanobrevibacter-mutualism-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Bacteroides-Methanobrevibacter mouse mutualism: record review'
+started_at: '2026-10-21T09:48:09.451130Z'
+finished_at: '2026-10-21T09:54:37.589699Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents reviewed source science, ontology/native gates
+    and supporting provenance; canonical inputs are unchanged. No person-level independence
+    is asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Whole-record review finds one major ingredient-mechanism overclaim and two
+  minor role/context issues. Measured mutualism, three nodes and two PARTIAL arrows
+  remain supported. Scientific assessment uses the pinned complete main text and captions
+  with fresh abstract/metadata; figure pixels and SI were not inspected. Native reference
+  validation retains three cache-routing failures.
+source:
+  git_revision: c6e5a9b9af2d05e12eaafb2555a53f3a079268f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism/2026-10-05T112952Z-codex-34c940.yaml
+    sha256: 74df32aa7fe89c02f1ff0886f72550cfad7a51746cccdf00101a43684ce388ea
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+    sha256: ad17adfb48af6e2ca459d02eebd9cded64948ad0085a81c284fc6f21df8ae584
+    role: target
+  - path: references_cache/PMID_16782812.txt
+    sha256: dc3d8632ec77c3f6af3925eb04470a5343a9a88ff1abbf8b4cafd6d2fa7a7053
+    role: context
+  - path: references_cache/pmc_full_pmid_16782812.txt
+    sha256: eab16fa2e50eababee737122f313bc3ee8e1e181eb8e4f5b38ad68e1edd1c8d7
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml
+    sha256: 23f5fa6fc197e020f7cb3469749ebe4aa78886f8973cb6ed63fde321470a7f96
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000142
+  path: kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+  label: Bacteroides-Methanobrevibacter Gnotobiotic Mouse Mutualism
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+    role: canonical_record
+scope:
+  description: Whole record, both species and every node/arrow assessed from complete
+    pinned primary main/captions, fresh metadata/abstract, archive identity, schema
+    and ontology/native audits; no fresh main, SI or raw-data certification.
+  selection: Next assigned maintained path after CommunityMech:000158 in batch05;
+    focal pair resolved and comparator separated.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000142
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000142
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    the reference failure is preserved and reconciled without editing caches.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000142
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-strict kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+    --out /private/tmp/cm-review-session/batch-05/000142/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    the reference failure is preserved and reconciled without editing caches.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000142
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-terms kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    the reference failure is preserved and reconciled without editing caches.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000142
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    the reference failure is preserved and reconciled without editing caches.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000142
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    the reference failure is preserved and reconciled without editing caches.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000142
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-history history/records/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    the reference failure is preserved and reconciled without editing caches.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000142
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    the reference failure is preserved and reconciled without editing caches.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: failed
+  required: true
+  summary: Reference validation failed on three main-only snippets because the canonical
+    cache contains only the abstract.
+  target_ids:
+  - CommunityMech:000142
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-references-explained kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  - snippets
+  - history
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    the reference failure is preserved and reconciled without editing caches.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native graph has no issue.
+  target_ids:
+  - CommunityMech:000142
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Reused fresh full-corpus batch05 execution, not a target-specific pass
+    or mechanism certificate.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native graph has no issue.
+  target_ids:
+  - CommunityMech:000142
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Reused fresh full-corpus batch05 execution, not a target-specific pass
+    or mechanism certificate.
+- check_id: publication-and-source
+  name: Publication identity and current scientific claims
+  status: passed
+  required: true
+  summary: Fresh metadata/abstract plus the pinned complete main text and captions
+    support bounded assessment of current claims.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - pubmed
+  - crossref
+  - epmc
+  - main
+  - independent-source
+  scope_note: Main text was read from the provenance-marked cache; no fresh full-main
+    or image verification is claimed.
+- check_id: fresh-main-and-si
+  name: Fresh full main, figure pixels and supplements
+  status: unavailable
+  required: false
+  summary: Public routes did not supply usable main or supplemental content; figure
+    pixels and SI remain unreviewed.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - source-scope
+- check_id: dataset-identifier
+  name: DQ419923 identity and article link
+  status: passed
+  required: true
+  summary: Public metadata confirms the M. smithii formate-DH cluster and exact article
+    link.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - dataset
+- check_id: cross-mech
+  name: Encoded medium/ingredient-Mech links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech ID is encoded.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - record
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Same-runtime discovery is reused; no external runner or locus/module query
+    was executed.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+  locator: 'Whole record: two member species, three nodes and two PARTIAL arrows'
+  summary: The graph preserves measured mutualism and qualified mediation; non-graph
+    formate/sink wording and role/context metadata need correction.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.583155Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=16782812&retmode=xml
+  locator: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=16782812&retmode=xml
+  summary: Fresh PubMed verifies PMID 16782812, DOI 10.1073/pnas.0602187103, title
+    and abstract.
+  support: supports
+  accessed_at: '2026-10-21T09:48:29.307442Z'
+  snapshot_sha256: 4e15d0956240d7d7e8767bef76c05fcf418d2cd0856ef113c63c20e21b70ebde
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1073/pnas.0602187103
+  locator: https://api.crossref.org/works/10.1073/pnas.0602187103
+  summary: Crossref verifies DOI/title metadata and supplies the current public PDF
+    link.
+  support: supports
+  accessed_at: '2026-10-21T09:48:29.301538Z'
+  snapshot_sha256: b8df101d474e3e4632de8d19d45208a74b758ae5e4b55625dcba203b0bee9ca5
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16782812&format=json&resultType=core
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16782812&format=json&resultType=core
+  summary: Europe PMC verifies article metadata/abstract; its main-text service returned
+    an error.
+  support: supports
+  accessed_at: '2026-10-21T09:48:29.802132Z'
+  snapshot_sha256: 51029893665a96d813868a5bfc1b432854fe1462172827d9943cc92fdb8929cf
+- evidence_id: main
+  kind: primary_source
+  reference: PMID:16782812
+  locator: 'references_cache/pmc_full_pmid_16782812.txt: complete scientific main,
+    lines140-246; data footnote278'
+  summary: The pinned complete main text and four figure captions were read; it distinguishes
+    the focal pair from the Desulfovibrio comparator and documents host experiments
+    and assays.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.584604Z'
+  snapshot_sha256: eab16fa2e50eababee737122f313bc3ee8e1e181eb8e4f5b38ad68e1edd1c8d7
+- evidence_id: formate-pool
+  kind: primary_source
+  reference: PMID:16782812
+  locator: 'references_cache/pmc_full_pmid_16782812.txt: Metabolic Underpinnings,
+    paragraph beginning Although H2; line202'
+  summary: Similar cecal formate pools do not resolve production and consumption rates;
+    bacterial/archaeal expression supports the authors transfer interpretation.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.584607Z'
+  quote: formate levels were not significantly different
+  snapshot_sha256: eab16fa2e50eababee737122f313bc3ee8e1e181eb8e4f5b38ad68e1edd1c8d7
+- evidence_id: formate-use
+  kind: primary_source
+  reference: PMID:16782812
+  locator: 'references_cache/pmc_full_pmid_16782812.txt: same paragraph, in-vitro
+    growth and fdhCAB response; line202'
+  summary: Formate consumption is reported in an archaeal culture, while in-vivo formate-pathway
+    transcripts rise; no donor-specific tracer or necessary sink is established.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.584609Z'
+  quote: preferentially consumes formate
+  snapshot_sha256: eab16fa2e50eababee737122f313bc3ee8e1e181eb8e4f5b38ad68e1edd1c8d7
+- evidence_id: fructan-acetate
+  kind: primary_source
+  reference: PMID:16782812
+  locator: 'references_cache/pmc_full_pmid_16782812.txt: fructan Results lines184-188;
+    Metabolic Underpinnings line192'
+  summary: The methanogen-associated fructan depletion, expression and cecal acetate
+    increase differ from the D. piger comparison; acetate is measured as concentration.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.584610Z'
+  quote: significant increase in acetate
+  snapshot_sha256: eab16fa2e50eababee737122f313bc3ee8e1e181eb8e4f5b38ad68e1edd1c8d7
+- evidence_id: mutualism
+  kind: primary_source
+  reference: PMID:16782812
+  locator: 'references_cache/pmc_full_pmid_16782812.txt: first Results section line162
+    and Figure1 caption168'
+  summary: Both focal populations increase relative to their monoassociation controls;
+    this directly supports paired benefit without proving a particular mediator.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.584612Z'
+  quote: 100- to 1,000-fold enhancement
+  snapshot_sha256: eab16fa2e50eababee737122f313bc3ee8e1e181eb8e4f5b38ad68e1edd1c8d7
+- evidence_id: timing
+  kind: primary_source
+  reference: PMID:16782812
+  locator: 'references_cache/pmc_full_pmid_16782812.txt: first Results paragraph line156;
+    Colonization of GF Mice line228'
+  summary: Bacteroides monoassociation lasts 14 or 28 days, methanogen monoassociation
+    14 days, and the paired arm adds the archaeon after a 14-day bacterial phase.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.584613Z'
+  quote: followed by M. smithii for 14 d
+  snapshot_sha256: eab16fa2e50eababee737122f313bc3ee8e1e181eb8e4f5b38ad68e1edd1c8d7
+- evidence_id: methods
+  kind: primary_source
+  reference: PMID:16782812
+  locator: 'references_cache/pmc_full_pmid_16782812.txt: Materials and Methods lines228-246'
+  summary: Main Methods support NMRI/KI host, chow/light, single-strain gavage doses
+    and stock harvest contexts; isotope-labeled standards were added to collected
+    samples for analysis, not fed as tracers.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.584615Z'
+  snapshot_sha256: eab16fa2e50eababee737122f313bc3ee8e1e181eb8e4f5b38ad68e1edd1c8d7
+- evidence_id: source-scope
+  kind: validation
+  reference: Public primary retrieval and pinned cache provenance
+  locator: 'source-audit.json: actual request receipts and reading boundaries'
+  summary: Fresh main routes returned challenge/403/error responses; source science
+    relies on the pinned complete primary cache plus fresh abstract, without figure
+    pixels or SI content.
+  support: context_only
+  accessed_at: '2026-10-21T09:54:37.584867Z'
+  snapshot_sha256: 5da86bfe18862e2aaeaef89a1e4d04f8d4d8e743ed47bea79d8bf67ee4797086
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO, CHEBI and GO snapshots
+  locator: 'ontology-authority.json: nine unique pairs across 18 occurrences'
+  summary: All ID/label pairs match; both microbial IDs are species-level and chemical
+    terms distinguish substrate from product.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.585309Z'
+  snapshot_sha256: a322a395dc7aa0601a11b03f7a3b6d0a1288d9ce1fb4dd611e36c3c00cd3f24d
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: FunctionalRoleEnum.CROSS_FEEDER; InteractionTypeEnum.SYNTROPHY/MUTUALISM;
+    MetaboliteDescriptor.concentration/notes
+  summary: Recipient roles require metabolite use; benefit from product removal alone
+    is not uptake. Syntrophy does not require obligacy, and mechanism notes are not
+    concentration measurements.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.585313Z'
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+  locator: snippet-audit.json:16 occurrences, two pinned caches and fresh abstract
+  summary: All 16 occurrences match the cache union; 12 match the fresh abstract.
+    Three native failures are main-only text present in the noncanonical full-text
+    cache.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.585360Z'
+  snapshot_sha256: 8d01c11d224dec8be1b1059baf370d8d0fefaf8d97677cb534eb569115ca7e2b
+- evidence_id: dataset
+  kind: database
+  reference: GenBank DQ419923.1
+  locator: 'dataset-verification.json: record/source-feature/article-link metadata'
+  summary: The 13,648 bp M. smithii formate-DH gene cluster explicitly links the article
+    and taxon 2173; it is not a whole genome and has no source strain designation.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.585395Z'
+  snapshot_sha256: 83e067157582ecf41e6ef74f0b4a4e5793561d087e7bdea8c062e8fc45e8e97f
+- evidence_id: history
+  kind: record_content
+  reference: Graph-review sidecar and batch6 decision
+  locator: Target row lines598-672; provenance-audit.json
+  summary: The graph hash matches the prior repair and issue 1254 is closed. Open
+    issue 703 covers cache routing; generic open issue 1256 does not name this target
+    in its current body.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.585434Z'
+  snapshot_sha256: 51bfbe152f528f1743b6a03f46119b50a8ba8f55e343bf000ca4617301590e04
+- evidence_id: search
+  kind: search
+  reference: Owned maintained community, isolate and reusable-taxon roots
+  locator: 'local-search.json: ignored-inclusive bounded target/source/taxon lookup'
+  summary: Search scope is retained without inferring absent strains or archive data
+    from a bounded local miss.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.585492Z'
+  snapshot_sha256: 7cb340b8ec5807bc396941891def2e5d3c14e73364aef0ef6736bd23ac708e5a
+  search_scope: Recorded rg --no-ignore --hidden queries over named owned roots; exact
+    source/name/identifier terms.
+- evidence_id: adapter
+  kind: search
+  reference: Optional kg-microbe-sources runner
+  locator: 'adapter-check.json: same-runtime batch05 discovery reuse'
+  summary: No callable owned-runtime adapter was available; no external runner, gene
+    module or pathway query was executed.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.585646Z'
+  snapshot_sha256: 3fa39a523a1d87e1822a9cb149b93c6871b82fbe89f795c3df5940a6405aaa84
+  search_scope: Original batch05 timestamp, PATH/venv/module and ignored-inclusive
+    discovery scope retained.
+- evidence_id: native-target
+  kind: validation
+  reference: NetworkIntegrityAuditor().audit_community(target)
+  locator: 'support-audit.json: native target network and score components'
+  summary: Target network is COMPLETE; three node evidence items across three nodes
+    give mean 1, independently of mechanism certainty.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.585704Z'
+  snapshot_sha256: 3d29518dd5144468a30b7e1476cd24a3c363f4e48e53af2ad89615a04bed5a6f
+- evidence_id: independent-source
+  kind: validation
+  reference: PMID:16782812
+  locator: 'root-independent-source-audit.json: independent whole main-cache and fresh
+    metadata assessment'
+  summary: Independent assessment supports the same three findings and preservation
+    of all nodes/arrows within explicit cache/SI boundaries.
+  support: supports
+  accessed_at: '2026-10-21T09:54:37.585945Z'
+  snapshot_sha256: 8afe06cd928deef2bde91c3b2785f9e4410892e6c661a6bd86103c4ca547a2d5
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+  locator: Actual execution 2026-10-21T09:48:19.953582+00:00 to 2026-10-21T09:48:21.987449+00:00
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:48:21.987449Z'
+  snapshot_sha256: 86a2bee1cb9ec5654deaa58db0143fc3f52bc1cb34ee4c09ea0045a3af65838e
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-strict kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+    --out /private/tmp/cm-review-session/batch-05/000142/strict-report.tsv
+  locator: Actual execution 2026-10-21T09:48:19.953961+00:00 to 2026-10-21T09:48:24.944759+00:00
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:48:24.944759Z'
+  snapshot_sha256: a7219facc68efa13549a97be80b4b32d95f643e260fbf3c3df1a36666937ac37
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-terms kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+  locator: Actual execution 2026-10-21T09:48:19.954121+00:00 to 2026-10-21T09:48:23.732730+00:00
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:48:23.732730Z'
+  snapshot_sha256: 9bdffcec8fd8d737bb9d0568a3ee5ac86758a10d518e182e3cb90222c4813f22
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+  locator: Actual execution 2026-10-21T09:48:21.988143+00:00 to 2026-10-21T09:48:22.120054+00:00
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:48:22.120054Z'
+  snapshot_sha256: fa2f35f735d5cb7df8a09195ea93e213f34d1e3ab110347fa5ea55ee2c2c4eae
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+  locator: Actual execution 2026-10-21T09:48:22.120459+00:00 to 2026-10-21T09:48:25.100734+00:00
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:48:25.100734Z'
+  snapshot_sha256: 68b4102b256dd61f8b3bed569c7b10800a0baf93d083da16f98de93cd3bd0425
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-history history/records/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism
+  locator: Actual execution 2026-10-21T09:48:23.733093+00:00 to 2026-10-21T09:48:25.123083+00:00
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:48:25.123083Z'
+  snapshot_sha256: ab45a1fcc693fef0f2ca0b8b9231c1100ca8bf70653ac54d5b00ac21bc1ebcf3
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T09:48:25.124257+00:00 to 2026-10-21T09:48:25.212217+00:00
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T09:48:25.212217Z'
+  snapshot_sha256: 513a0d11b749d640e2c38d43b355ccc752ac5d703b972e6554cdfb30ce1860c8
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-references-explained kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+  locator: Actual execution 2026-10-21T09:48:25.212540+00:00 to 2026-10-21T09:48:27.028484+00:00
+  summary: Reference validation failed on three main-only snippets because the canonical
+    cache contains only the abstract.
+  support: supports
+  accessed_at: '2026-10-21T09:48:27.028484Z'
+  snapshot_sha256: 5360a21448a5ecc2484ec9ab899eb4bcd94bafd606d005125a500260b6c68650
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T08:44:47.720127+00:00 to 2026-10-21T08:45:04.195128+00:00
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native graph has no issue.
+  support: supports
+  accessed_at: '2026-10-21T08:45:04.195128Z'
+  snapshot_sha256: 83a73a6ead4c57534fef4ad456dae148cc75d2127e568a1d0815abaa8cf1b47b
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T08:44:47.737345+00:00 to 2026-10-21T08:45:04.925187+00:00
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native graph has no issue.
+  support: supports
+  accessed_at: '2026-10-21T08:45:04.925187Z'
+  snapshot_sha256: 8128f67a5d762dda726f1e6a0c0775a825d030d316c46765c08a359e6b621edb
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Defined bacterial-archaeal mouse model
+  outcome: supported
+  summary: The focal pair resolves; D. piger is a comparator, not a third community
+    member.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - record
+  - main
+  - pubmed
+  - ontology
+  dimensions:
+  - name: community_scope
+    value: B. thetaiotaomicron plus M. smithii
+    definition: Monoassociation and a separate Bacteroides-D. piger comparison support
+      the focal two-species experiment.
+    evidence_ids:
+    - main
+    - record
+  - name: source_strain
+    value: Human fecal-derived isolates; exact codes unresolved
+    definition: Species-level IDs are valid, but no culture accession or strain-specific
+      GTDB candidate is inferred from the main text or gene-cluster archive.
+    evidence_ids:
+    - main
+    - dataset
+    - ontology
+  - name: environment
+    value: Distal gut of gnotobiotic NMRI/KI mice
+    definition: Human gut-associated organisms were tested in mice; host adiposity
+      is an experimental mouse endpoint, not established human therapy.
+    evidence_ids:
+    - main
+    - methods
+    - ontology
+  - name: medium
+    value: Autoclaved polysaccharide-rich host chow; microbial stock contexts separated
+    definition: Current host light/chow/gavage facts are supported; exact in-vitro
+      recipe, temperature and atmosphere remain unverified in SI.
+    evidence_ids:
+    - methods
+    - source-scope
+  - name: experimental_setting
+    value: Monoassociation and sequential biassociation
+    definition: Bacterial 14/28-day controls and bacterial 14-day then archaeal 14-day
+      assembly must be distinguished from simultaneous inoculation.
+    evidence_ids:
+    - timing
+    - methods
+  - name: evidence_tier
+    value: Measured paired densities; inferred syntrophic mediation
+    definition: Population benefits are measured, while formate transfer, product
+      removal and their necessity relative to hydrogen are inferred from combined
+      assays.
+    evidence_ids:
+    - mutualism
+    - formate-pool
+    - formate-use
+    - fructan-acetate
+  - name: grounding_status
+    value: Species and process labels verified
+    definition: All nine term pairs match; historical GTDB ambiguity/statistics remain
+      unchanged and exact experimental strains are unresolved.
+    evidence_ids:
+    - ontology
+    - adapter
+- assessment_id: roles
+  area: grounding
+  topic: Donor/recipient roles and local evidence
+  outcome: concern
+  summary: Methanobrevibacter roles are source-supported; Bacteroides CROSS_FEEDER
+    needs a specified recipient mechanism.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - main
+  - formate-use
+  - schema
+  details: Bacteroides is the described primary degrader and formate donor. Its benefit
+    from archaeal product removal does not establish consumption of an archaeal metabolite.
+    Attach functional evidence to primary degradation and identify a supported provider/uptake
+    relation before retaining the recipient role; no reciprocal feeding is inferred.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Inferred Formate Transfer To Methanogenesis'
+  outcome: supported
+  summary: Preserve the Bacteroides-to-Methanobrevibacter proposed formate route and
+    PARTIAL evidence.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - formate-pool
+  - formate-use
+  - ontology
+  - schema
+  details: Formate is the proposed transferred substrate and methane the methanogenic
+    product. In-vitro consumption and in-vivo transcripts support the source model,
+    but unchanged formate pools do not quantify donor flux. SYNTROPHY describes proposed
+    product removal without obligacy or a uniquely necessary formate sink. Place mechanism
+    statements in notes rather than concentration fields.
+- assessment_id: arrow-0
+  area: graph
+  topic: ecological_interactions[0].downstream[0] → Biassociation Enhances Colonization
+    Density
+  outcome: supported
+  summary: Retain the PARTIAL link from proposed product removal to paired colonization
+    benefits.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - formate-use
+  - formate-pool
+  - mutualism
+  details: The arrow proposes that removal of bacterial formate benefits fermentation
+    and both populations. The source does not isolate formate necessity or distinguish
+    its contribution from hydrogen removal; measured mutualism does not remove that
+    mediation uncertainty.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Methanogen-Directed Fructan Fermentation'
+  outcome: supported
+  summary: Preserve the two-member community response and its qualified syntrophic
+    explanation.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - fructan-acetate
+  - main
+  - schema
+  details: The focal biassociation changes fructan utilization, bacterial expression/redox
+    and acetate concentration compared with Bacteroides alone, unlike the D. piger
+    comparator. The node does not establish a uniquely necessary sink or direct acetate
+    production rate.
+- assessment_id: arrow-1
+  area: graph
+  topic: ecological_interactions[1].downstream[0] → Biassociation Enhances Colonization
+    Density
+  outcome: supported
+  summary: Retain the PARTIAL metabolic-response-to-colonization interpretation.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - fructan-acetate
+  - mutualism
+  details: Enhanced fructan fermentation could support bacterial expansion within
+    the beneficial pair, but co-occurring metabolic changes and higher densities do
+    not selectively establish pathway mediation. No automatic causal-strength upgrade
+    is warranted.
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: Biassociation Enhances Colonization Density'
+  outcome: supported
+  summary: MUTUALISM is supported by increased representation of both focal partners
+    relative to monoassociation.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - mutualism
+  - main
+  - schema
+  details: The paired density result is an in-vivo population benefit, not a demonstrated
+    donor-specific flux or proof of obligacy. The comparator does not show the same
+    response. Preserve the community-level two-member scope.
+- assessment_id: ingredients
+  area: evidence
+  topic: Formate/methane certainty versus graph qualifications
+  outcome: concern
+  summary: Ingredient prose presents a proposed substrate/sink as the established
+    metabolic basis of the interaction.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - record
+  - formate-pool
+  - formate-use
+  - fructan-acetate
+  details: Source interpretation supports formate use and methane as a methanogenesis
+    product, but not a uniquely demonstrated driving sink. Acetate/fructan identities
+    remain supported; neither additional transfer species nor measured methane rates
+    are inferred.
+- assessment_id: cultivation
+  area: completeness
+  topic: Colonization chronology and existing host conditions
+  outcome: concern
+  summary: The supported host/chow/light/dose block omits the recoverable sequential
+    timing and control durations.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - timing
+  - methods
+  - record
+  details: Each strain was administered by a single gavage; this should not imply
+    a simultaneous two-strain inoculation. Keep D. piger stock preparation as comparator
+    context, and do not treat analytical extraction conditions or in-vitro monogrowth
+    as the host cultivation recipe.
+- assessment_id: datasets
+  area: evidence
+  topic: DQ419923 gene sequence identity
+  outcome: supported
+  summary: The encoded resource correctly describes an article-linked M. smithii gene
+    cluster.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - dataset
+  - main
+  details: Its complete-sequence status applies to 13,648 bp, not a complete genome.
+    No strain qualifier is present in the source feature. Expression data described
+    as available from authors do not justify an invented public accession or a missing-dataset
+    finding.
+- assessment_id: source-and-history
+  area: evidence
+  topic: Source access, native reference failure and prior repair
+  outcome: supported
+  summary: Main-source support is available in the pinned cache despite failed fresh-main
+    access and default cache routing.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - main
+  - source-scope
+  - snippets
+  - history
+  - independent-source
+  details: The reference failure is an actual gate failure, with three supported main-only
+    snippets missed by canonical abstract-cache selection. Preserve issue 703 and
+    the existing qualified graph; do not label these snippets fabricated or claim
+    fresh main-body fidelity, figure inspection or SI coverage.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and source support
+  outcome: concern
+  summary: Seven of eight native checks pass; three reference failures are explained
+    by cache selection, independently of the scientific findings.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - check-validate
+  - check-validate-strict
+  - check-validate-references-explained
+  - ontology
+  - snippets
+  - history
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and quality
+  outcome: supported
+  summary: Completeness 85 and capped quality 100 are native diagnostics, not direct-flux
+    certification.
+  target_ids:
+  - CommunityMech:000142
+  evidence_ids:
+  - record
+  - native-target
+  metrics:
+  - name: completeness
+    value: 85
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100,50 required metadata including all roles +5 environment +10
+      at least 3 factors +10 at least 3 nodes +5 resources +10 media +5 datasets +5
+      node metabolites). 50+5+0+10+0+10+5+5=85.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100-50P1-10P2-2P3+20 min(mean node evidence/2,1)+15 if native
+      COMPLETE,0,100). P1=0,P2=1,P3=2,P4=0;3 items/3 nodes=1;100-10-4+10+15=111 before
+      capping. Known cache-routing gate failure is not a fabricated-source P1.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+  - name: P2
+    value: 1
+    unit: findings
+    definition: Observed native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Observed native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+findings:
+- finding_id: ingredient-mechanism
+  issue_key: cm-000142-ingredient-mechanism
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: non-graph mechanism claims exceed the inspected
+    measurements and contradict retained uncertainty in the graph.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Qualify the formate and methane mechanism claims
+  description: Ingredient prose calls formate transfer the metabolic basis and methane
+    the sink driving the interaction, while the source and graph retain unresolved
+    formate flux and necessity relative to hydrogen.
+  target_ids:
+  - CommunityMech:000142
+  field_paths:
+  - related_ingredients[0].relevance
+  - related_ingredients[1].relevance
+  evidence_ids:
+  - formate-pool
+  - formate-use
+  - main
+  - record
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+    role: canonical_record
+- finding_id: recipient-role
+  issue_key: cm-000142-recipient-role
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded role-evidence or protocol-context correction;
+    community identity and supported graph remain intact.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Support the Bacteroides recipient role and attach functional evidence
+  description: The Bacteroides membership excerpt does not establish its functional
+    roles. Its documented product-removal benefit does not by itself satisfy CROSS_FEEDER,
+    which denotes metabolite consumption from another taxon.
+  target_ids:
+  - CommunityMech:000142
+  field_paths:
+  - taxonomy[0].functional_role
+  - taxonomy[0].evidence
+  evidence_ids:
+  - main
+  - formate-use
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+    role: canonical_record
+- finding_id: colonization-timing
+  issue_key: cm-000142-colonization-timing
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded role-evidence or protocol-context correction;
+    community identity and supported graph remain intact.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Represent sequential colonization and comparator durations
+  description: The design/growth block lacks the source-resolved schedule separating
+    Bacteroides monoassociation, Methanobrevibacter monoassociation and sequential
+    biassociation.
+  target_ids:
+  - CommunityMech:000142
+  field_paths:
+  - engineering_design.assembly_strategy
+  - growth_media[0].preparation_notes
+  evidence_ids:
+  - timing
+  - methods
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+    role: canonical_record
+actions:
+- action_id: repair-ingredient-mechanism
+  description: Qualify the formate and methane mechanism claims.
+  finding_ids:
+  - ingredient-mechanism
+  target_ids:
+  - CommunityMech:000142
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Describe formate transfer and product removal as the source-supported inference;
+    distinguish the methane product from direct measurement of its production or a
+    proven unique sink.
+  - Preserve measured mutualism, three current nodes and both PARTIAL arrows; do not
+    infer obligacy, donor-specific flux or necessary/sufficient pathway mediation.
+  - Move role/inference statements in ecological_interactions[0].metabolites[*].concentration
+    to appropriate notes without inventing concentrations or dropping the unmeasured-flux
+    qualifier.
+- action_id: repair-recipient-role
+  description: Support the Bacteroides recipient role and attach functional evidence.
+  finding_ids:
+  - recipient-role
+  target_ids:
+  - CommunityMech:000142
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Attach source-specific polysaccharide degradation evidence for PRIMARY_DEGRADER.
+  - Name the provider and consumed metabolite supporting CROSS_FEEDER, or qualify/remove
+    the role if that intended uptake is unestablished; do not infer archaeal-to-bacterial
+    return feeding.
+  - Retain the supported methanogen recipient/syntrophic roles and species identity
+    without forcing a strain or GTDB candidate.
+- action_id: repair-colonization-timing
+  description: Represent sequential colonization and comparator durations.
+  finding_ids:
+  - colonization-timing
+  target_ids:
+  - CommunityMech:000142
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+    role: canonical_record
+  acceptance_checks:
+  - State Bacteroides-only 14/28-day controls, methanogen-only 14-day controls, and
+    Bacteroides 14 days followed by methanogen 14 days in the paired arm.
+  - Clarify single gavage per strain while preserving the existing 10^8 dose, host
+    light/chow and separate bacterial/archaeal stock harvest contexts.
+  - Keep D. piger as comparator and avoid importing SI-only media/strain details,
+    assay extraction temperatures or simultaneous inoculation assumptions.
+- action_id: preserve-provenance-and-verify
+  description: After separately authorized curation, preserve source boundaries and
+    verify corrected fields.
+  finding_ids:
+  - ingredient-mechanism
+  - recipient-role
+  - colonization-timing
+  target_ids:
+  - CommunityMech:000142
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Use exact claim-level source snippets and retain a clear distinction between measured
+    benefits and inferred mediation.
+  - Record an appropriate history event and rerun schema, strict, term, history, reference
+    and network checks.
+  - Track the cache-discovery issue 703 separately; do not alter source quotations
+    or canonical caches merely to hide a failed validator.
+  - Leave exact microbial strains, SI protocols, figure inspection and raw-data analyses
+    unresolved until directly verified.
+limitations:
+- Fresh PMC main returned reCAPTCHA HTML, Europe PMC and publisher routes returned
+  errors/403, and the attempted supplementary index returned 404. Complete scientific
+  main/captions were read from the pinned full-text cache; current fresh-main fidelity
+  was not independently verified.
+- Figure 1-4 images, supplementary methods/tables/figures and underlying datasets
+  were not inspected or reanalyzed. Exact microbial strain codes, complete culture
+  formulations, temperature and atmosphere remain unresolved.
+- Formate uptake/transcripts and fermentation readouts support a mechanism model,
+  not donor-specific in-vivo flux, methane production rate or formate necessity relative
+  to hydrogen. Isotope-labeled analytical internal standards were not tracer-fed carbon
+  experiments.
+- D. piger is a separate comparison. Source host adiposity measurements do not establish
+  a human nutritional or therapeutic effect and do not require extra graph nodes.
+- DQ419923 is a complete gene-cluster sequence, not a complete genome or strain identifier.
+  Data available from authors are not assumed publicly archived or globally absent.
+- The native reference validator misses three main-only excerpts because it chooses
+  the abstract cache; independent matches in the pinned alternate cache establish
+  support without concealing the failed check.
+- Historical GTDB mapping statistics were not recomputed; optional-adapter discovery
+  and corpus network receipts are reused with original runtime/scope boundaries.
+notes:
+- No canonical, cache, history or generated file was changed.
+- All 24 repository inputs were pinned before assessment and rechecked.
+- Direct quotations total 24 words across this publication; graph assessments reuse
+  the same short excerpts.
+- Native quality 100 is capped from 111 and does not certify resolved metabolic flux.
+tags:
+- record-review
+- mutualism
+- cached-primary-source
+- batch-05

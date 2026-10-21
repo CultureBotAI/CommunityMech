@@ -1,0 +1,1260 @@
+# Carrageenan sulfate cross-feeding coculture: partial record review
+
+- Review: 20261021T093630Z-carrageenan-sulfate-coculture-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T09:31:22.940652Z
+- Finished UTC: 2026-10-21T09:36:30.730848Z
+- Reviewer: codex (unknown)
+- Completion: partial
+- Verdict: needs_curation
+- Scientific review: false
+
+## Summary
+
+Partial review: critical main Methods and supplements remain unavailable. One major finding corrects DIET, which denotes direct interspecies electron transfer, and one minor finding qualifies the donor's recipient role. The source explicitly supports sulfate cross-feeding and community remodeling; both nodes and zero arrows are retained at abstract scope.
+
+## Scope And Provenance
+
+Whole canonical record, both species, two nodes and zero arrows assessed against fresh primary abstract/metadata, abstract-only cache, actual schema and native/OAK checks. Inaccessible full Methods, figures, supplements and raw data remain unreviewed.
+
+Selection: Next assigned maintained path after CommunityMech:000347 in batch05; source coculture uniquely resolved while strains and protocols remain unknown.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base c6e5a9b9af2d05e12eaafb2555a53f3a079268f3.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000464 | kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml | maintained | Bacteroides-Desulfovibrio Carrageenan H2S Coculture |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000464 | Target schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000464 | Target strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000464 | Target term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000464 | Target GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000464 | Target GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000464 | Target history validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000464 | Read-only corpus cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000464 | Target reference validation passed against the abstract cache. |
+| audit-network | failed | True | CommunityMech:000464 | Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records and exit 1; this target has no native network issue. |
+| check-network-quality | failed | True | CommunityMech:000464 | Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records and exit 1; this target has no native network issue. |
+| Publication identifiers and fresh abstract | passed | True | CommunityMech:000464 | Fresh metadata and abstract identify the study and its reported sulfate cross-feeding. |
+| Critical Methods, strains, controls and pathway evidence | unavailable | True | CommunityMech:000464 | Full main text, figures and supplementary methods remain unavailable through the inspected public routes. |
+| Encoded dataset accessions | not_applicable | False | CommunityMech:000464 | No dataset accession is encoded or verified from accessible source content. |
+| Encoded medium/ingredient-Mech links | not_applicable | False | CommunityMech:000464 | No CultureMech or MediaIngredientMech ID is encoded; no recipe or commercial carrageenan formulation was inferred. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000464 | Same-runtime batch05 discovery is reused; no external runner or strain-module query was executed. |
+
+## Scientific And Domain Assessments
+
+### Defined laboratory coculture and modeled gut mechanism
+
+identity: supported. Targets: CommunityMech:000464.
+
+The two-species study resolves; source strain identity and critical experimental details remain unverified.
+
+### Community category DIET
+
+identity: concern. Targets: CommunityMech:000464.
+
+Dietary carrageenan is not the schema category for direct interspecies electron transfer.
+
+The supported mechanism supplies inorganic sulfate as substrate. Correct the category without adding conductive contact, pili, electrode activity or another unverified electron-transfer mechanism.
+
+### Both species and functional roles
+
+grounding: concern. Targets: CommunityMech:000464.
+
+Bacteroides primary degradation and Desulfovibrio recipient roles are supported; Bacteroides recipient status is not established by its attached evidence.
+
+D. desulfuricans CROSS_FEEDER fits sulfate utilization, and SYNTROPHIC_PARTNER may retain attributed author terminology with full-source limits. Do not add an obligacy requirement or automatically equate this role with every condition in the separate SYNTROPHY interaction definition.
+
+### ecological_interactions[0]: Carrageenan sulfate cross-feeding
+
+graph: supported. Targets: CommunityMech:000464.
+
+Retain the directed Bacteroides-to-Desulfovibrio CROSS_FEEDING relation at the reported in-vitro scope.
+
+B. thetaiotaomicron supplies sulfate and D. desulfuricans is the recipient. Sulfate is the transferred substrate; H2S is a downstream metabolic product, not an asserted return transfer. Gene expression and intermediate accumulation support the authors' interpretation without specifying isotope tracing, selective pathway necessity or electron transfer between cells. No downstream arrow is encoded or required.
+
+### ecological_interactions[1]: Co-culture metabolic remodeling
+
+graph: supported. Targets: CommunityMech:000464.
+
+Retain the abstract-reported community response without inventing a causal arrow from sulfide production.
+
+The source reports altered glycerophospholipid metabolism and inhibited cysteine synthesis at community scope. It does not identify a measured lipid, partner-specific recipient or mediation by H2S. Current broad interspecies-process annotation and absence of arrows preserve those limits; precise assays require the full source.
+
+### Engineering design, environmental input and cultivation gaps
+
+completeness: unknown. Targets: CommunityMech:000464.
+
+The design and carrageenan context are source-supported; the existing Methods discussion remains necessary.
+
+ENGINEERED/SYNTHETIC characterize assembly rather than proving genetic modification. No culture recipe, anaerobic atmosphere, sulfate-free control, CGN dose/type series, incubation time or vessel geometry is inferred from species physiology or common practice.
+
+### Sulfate, sulfide and carrageenan specificity
+
+grounding: supported. Targets: CommunityMech:000464.
+
+The source distinguishes donor substrate, sulfate transfer and sulfide output; exact carrageenan material remains unresolved.
+
+A curator can ground generic carrageenan to CHEBI:3435 and use CHEBI:10583 only for explicitly κ-specific context. Do not convert this family/type grounding into a commercial formulation, degree of sulfation, precise purity or dose. No metal-processing, gut injury or disease-causation claim follows from these in-vitro results.
+
+### Cache, references, history and access
+
+evidence: supported. Targets: CommunityMech:000464.
+
+Fresh abstract support and prior graph preservation verify, while critical full-source limits remain explicit.
+
+The cache is abstract-only. Native reference success cannot establish absent source methods or an exact strain/dataset identity; unavailable main/supplement content is not proof that experiments or data do not exist.
+
+### Native checks versus source semantics
+
+schema: concern. Targets: CommunityMech:000464.
+
+Eight native checks pass, but semantic category/role findings and unavailable critical main context remain.
+
+### Native diagnostics within partial scientific assessment
+
+completeness: supported. Targets: CommunityMech:000464.
+
+Completeness is 65 and capped quality 100; neither score certifies full-source mechanisms.
+
+## Findings
+
+### diet-category: Correct the direct-electron-transfer category
+
+major / open / confirmed; issue key: cm-000464-diet-category.
+
+The record uses DIET for a dietary-substrate experiment, but current schema DIET denotes direct interspecies electron transfer. The cited mechanism is sulfate release/utilization and H2S production, not direct electrical exchange.
+
+### donor-recipient-role: Align the Bacteroides role with sulfate donation
+
+minor / open / confirmed; issue key: cm-000464-donor-recipient-role.
+
+B. thetaiotaomicron is labeled CROSS_FEEDER even though its attached evidence establishes degradation and sulfate release. That role means utilization of another taxon's metabolites, which is not demonstrated for this donor in the inspected material.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-diet-category
+
+Correct the direct-electron-transfer category.
+
+- Replace DIET with a schema-valid category matching verified experiment scope, such as OTHER with an explicit rationale until a more specific category is justified.
+- Do not automatically substitute SYNTROPHY solely from author terminology or retain DIET because carrageenan is dietary.
+- Preserve the actual laboratory and modeled-intestine environments and the supported sulfate CROSS_FEEDING relation.
+
+### repair-donor-recipient-role
+
+Align the Bacteroides role with sulfate donation.
+
+- Retain PRIMARY_DEGRADER and qualify or remove the unsubstantiated recipient role unless source-specific uptake from its partner is verified.
+- Preserve D. desulfuricans CROSS_FEEDER and the source-reported syntrophic terminology with its evidence/access limits; no obligacy test is required.
+- Do not invert the sulfate direction or invent H2S return feeding, reciprocal benefit or another transferred metabolite.
+
+### complete-source-review
+
+When legitimate main/supplement access is available, resolve the existing strain, cultivation and data gaps before a complete scientific review.
+
+- Verify exact strains, medium formulation/background sulfate, carrageenan type/concentration, inoculum ratios, controls, time and vessel; do not infer these from standard gut-bacterium practice.
+- Assess actual desulfation, uptake, sulfide and metabolic-remodeling measurements and any selective interventions while preserving substrate/product directions.
+- Verify deposited transcriptomic/metabolomic identifiers before adding them; absence of accessible accessions is not a dataset omission finding.
+- Retain two current nodes and zero arrows unless newly inspected source evidence warrants a precise extension.
+- After separately authorized correction, add a history event and rerun schema, strict, term, reference, history and network checks.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml; Entire target: two species, two nodes and zero arrows | supports | The laboratory coculture and modeled intestine are separated; source strain/cultivation gaps are explicit, but DIET category and one recipient-role assignment need correction. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=42565261&amp;retmode=xml; https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=42565261&amp;retmode=xml | supports | Article-level PubMed PMID 42565261, DOI 10.1039/d6fo01013j, title and abstract verify. |
+| crossref | https://api.crossref.org/works/10.1039/d6fo01013j; https://api.crossref.org/works/10.1039/d6fo01013j | supports | Crossref DOI/title metadata identify the Food &amp; Function article and supply the current public PDF route. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42565261&amp;format=json&amp;resultType=core; https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42565261&amp;format=json&amp;resultType=core | supports | Europe PMC supplies the matching abstract, no PMC identifier and a subscription DOI route. |
+| access | Public DOI landing and Crossref-listed PDF; access-audit.json: exact request URLs, times, status and body hashes | context_only | Both current publisher requests returned 403 HTML; no critical main Methods, figures or supplements were obtained. |
+| donor | PMID:42565261; Fresh PubMed abstract: Bacteroides desulfation/depolymerization statement | supports | B. thetaiotaomicron is described as the polysaccharide degrader and sulfate donor, not as a recipient of Desulfovibrio metabolites. |
+| recipient | PMID:42565261; Fresh PubMed abstract: sulfate supports Desulfovibrio statement | supports | The source explicitly links released sulfate to D. desulfuricans growth and metabolism; electron transfer directly between cells is not the stated mechanism. |
+| sulfide | PMID:42565261; Fresh PubMed abstract: coculture H2S endpoint and sulfate-reduction genes | supports | Enhanced H2S, increased sulfate-reduction gene expression and pathway-intermediate accumulation are source-reported; exact assays, controls and flux quantification remain unreviewed. |
+| remodeling | PMID:42565261; Fresh PubMed abstract: glycerophospholipid/cysteine statement | supports | The reported remodeling is a community-level response; no particular lipid species, cellular recipient or selective causal mediation is identified. |
+| source-terminology | PMID:42565261; Fresh PubMed abstract: syntrophic pathway and CGN-type response | supports | The authors call the pathway syntrophic and report a stronger κ-type transcriptional response; this supports attributed terminology, not a full mechanistic or cultivation certificate. |
+| ontology | Local OAK NCBITaxon, ENVO, CHEBI and GO snapshots; ontology-authority.json: nine unique ID/label pairs across 14 occurrences | supports | All current species, environment, sulfate/H2S and process labels match; a valid label does not establish direct electron transfer or strain-level identity. |
+| chemical-candidates | Local OAK CHEBI snapshot; carrageenan-grounding-candidates.json: CHEBI:3435 and CHEBI:10583 | supports | Carrageenan has a verified family-level term, CHEBI:3435; kappa-carrageenan CHEBI:10583 is its asserted child and applies only to explicitly kappa-specific context. |
+| schema | src/communitymech/schema/communitymech.yaml; CommunityCategoryEnum.DIET; FunctionalRoleEnum.CROSS_FEEDER/SYNTROPHIC_PARTNER; InteractionTypeEnum.CROSS_FEEDING | supports | DIET means direct interspecies electron transfer. CROSS_FEEDER is a metabolite recipient; SYNTROPHIC_PARTNER directly denotes engagement in syntrophic metabolism and does not impose obligacy. |
+| snippets | kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml; snippet-audit.json: all 23 evidence occurrences | supports | All 23 match the cache; fresh checks verify 21 abstract spans, one title and one article-level DOI value, without validating missing Methods. |
+| datasets | Accessible abstract and metadata; dataset-verification.json: bounded accession/resource scope | supports | Both publication resources resolve; no concrete sequence or omics accession is encoded or established from the accessible material, without an inferred data-absence finding. |
+| history | Creation sidecar; 20261005-eleven-records-batch6.yaml; Target row lines 503-540; provenance-audit.json | supports | The prior graph review left the record unchanged and its hash matches. Fresh issues 1201/1202 are closed; generic open 1256 does not name this target. |
+| search | Owned community, isolate and reusable-taxon roots; Ignored-inclusive bounded record/source/taxon lookup | supports | No exact source strain or deposited identity is supplied by the bounded maintained-root search; species matches do not establish the unreported isolates. |
+| adapter | Optional kg-microbe-sources runner; Same batch05 runtime discovery reused from 000120 at 08:47:38Z | supports | No callable owned-runtime adapter was available; no external runner or strain/module query was executed. |
+| native-target | NetworkIntegrityAuditor().audit_community(target); support-audit.json: target audit and native score components | supports | The native graph is COMPLETE with no issues; five node evidence items across two nodes give mean 2.5, without establishing DIET. |
+| independent-source | PMID:42565261; root-independent-source-audit.json: independent abstract/schema/access review | supports | Independent review confirms category and donor-role mismatches while retaining the explicit source-reported cross-feeding and remodeling. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src just --no-dotenv validate kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml; Actual execution 2026-10-21T09:31:59.817261+00:00 to 2026-10-21T09:32:05.261842+00:00 | supports | Target schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src just --no-dotenv validate-strict kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml --out /private/tmp/cm-review-session/batch-05/000464/strict-report.tsv; Actual execution 2026-10-21T09:31:59.817518+00:00 to 2026-10-21T09:32:12.897871+00:00 | supports | Target strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src just --no-dotenv validate-terms kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml; Actual execution 2026-10-21T09:31:59.976550+00:00 to 2026-10-21T09:32:08.435672+00:00 | supports | Target term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src just --no-dotenv validate-gtdb kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml; Actual execution 2026-10-21T09:32:05.262198+00:00 to 2026-10-21T09:32:05.541809+00:00 | supports | Target GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src just --no-dotenv validate-gtdb-domain kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml; Actual execution 2026-10-21T09:32:05.542260+00:00 to 2026-10-21T09:32:13.776839+00:00 | supports | Target GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src just --no-dotenv validate-history history/records/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture; Actual execution 2026-10-21T09:32:08.436070+00:00 to 2026-10-21T09:32:12.804705+00:00 | supports | Target history validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T09:32:13.778558+00:00 to 2026-10-21T09:32:13.917348+00:00 | supports | Read-only corpus cache-filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src just --no-dotenv validate-references-explained kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml; Actual execution 2026-10-21T09:32:13.917636+00:00 to 2026-10-21T09:32:18.202779+00:00 | supports | Target reference validation passed against the abstract cache. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T08:44:47.720127+00:00 to 2026-10-21T08:45:04.195128+00:00 | supports | Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records and exit 1; this target has no native network issue. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T08:44:47.737345+00:00 to 2026-10-21T08:45:04.925187+00:00 | supports | Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records and exit 1; this target has no native network issue. |
+
+## Limits And Additional Notes
+
+- Public DOI and current Crossref-linked PDF requests returned 403 HTML. Root supplementary/institutional searches did not recover full content; this is bounded unsuccessful access, not proof of source or experimental absence.
+- Exact strain accessions, culture medium, background sulfate, carrageenan concentration/type series, controls, incubation time, atmosphere, inoculation ratio and vessel geometry remain unresolved.
+- The abstract explicitly reports syntrophy and cross-feeding; this review neither imposes obligacy nor certifies all mechanistic conditions from author terminology. Direct interspecies electron transfer is a different schema category.
+- Sulfate is the reported transferred substrate and H2S the output. No H2S return transfer, selective pathway necessity, quantified sulfur balance or human gut disease effect was independently established.
+- Metabolic remodeling is reported at community scope; exact lipid/metabolite identities, strain assignments, assay modalities and raw-data accessions were not inspected or reanalyzed.
+- Historical GTDB statistics and candidate assignments were not recomputed; optional adapter discovery and full-corpus network receipts are transparently reused.
+- Canonical records, caches, history and generated outputs remain unchanged.
+- Direct excerpts total 18 words for this publication.
+- All 23 repository inputs were pinned before assessment and rechecked; quality 100 is capped from 123 and is not scientific certification.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T093630Z-carrageenan-sulfate-coculture-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Carrageenan sulfate cross-feeding coculture: partial record review'
+started_at: '2026-10-21T09:31:22.940652Z'
+finished_at: '2026-10-21T09:36:30.730848Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Canonical inputs unchanged; separate agents assessed primary
+    abstract/access, ontology, native gates, snippets, history and metrics. No person-level
+    independence beyond task roles is claimed.
+skill: review-yaml-record
+completion: partial
+verdict: needs_curation
+scientific_review: false
+summary: 'Partial review: critical main Methods and supplements remain unavailable.
+  One major finding corrects DIET, which denotes direct interspecies electron transfer,
+  and one minor finding qualifies the donor''s recipient role. The source explicitly
+  supports sulfate cross-feeding and community remodeling; both nodes and zero arrows
+  are retained at abstract scope.'
+source:
+  git_revision: c6e5a9b9af2d05e12eaafb2555a53f3a079268f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture/2026-09-28T141640Z-codex-a623a7.yaml
+    sha256: ce6e6e7f3f7b3504f8d1cfc82511b8de33e956ae9896daca7443ecefb89f6919
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+    sha256: e44ebc56b370c51d94e86c411f50203f53284105a7771fbd3836a8447271f873
+    role: target
+  - path: references_cache/PMID_42565261.txt
+    sha256: 5c8caf5077cd1cc09cd05cd87cf22b111994fd3b8c76586aeb17a130e0181554
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml
+    sha256: 23f5fa6fc197e020f7cb3469749ebe4aa78886f8973cb6ed63fde321470a7f96
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000464
+  path: kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+  label: Bacteroides-Desulfovibrio Carrageenan H2S Coculture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+    role: canonical_record
+scope:
+  description: Whole canonical record, both species, two nodes and zero arrows assessed
+    against fresh primary abstract/metadata, abstract-only cache, actual schema and
+    native/OAK checks. Inaccessible full Methods, figures, supplements and raw data
+    remain unreviewed.
+  selection: Next assigned maintained path after CommunityMech:000347 in batch05;
+    source coculture uniquely resolved while strains and protocols remain unknown.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000464
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000464
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000464
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-strict kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-05/000464/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000464
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-terms kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000464
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000464
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000464
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-history history/records/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000464
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target reference validation passed against the abstract cache.
+  target_ids:
+  - CommunityMech:000464
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-references-explained kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  target_ids:
+  - CommunityMech:000464
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Reused fresh full-corpus batch05 execution, not a target-specific pass
+    or scientific certification.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  target_ids:
+  - CommunityMech:000464
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Reused fresh full-corpus batch05 execution, not a target-specific pass
+    or scientific certification.
+- check_id: publication-identity
+  name: Publication identifiers and fresh abstract
+  status: passed
+  required: true
+  summary: Fresh metadata and abstract identify the study and its reported sulfate
+    cross-feeding.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - pubmed
+  - crossref
+  - epmc
+  - snippets
+- check_id: full-primary-source
+  name: Critical Methods, strains, controls and pathway evidence
+  status: unavailable
+  required: true
+  summary: Full main text, figures and supplementary methods remain unavailable through
+    the inspected public routes.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - access
+  - independent-source
+  scope_note: Abstract support does not certify exact strains, cultivation, selective
+    mechanisms or raw-data accessions.
+- check_id: source-data
+  name: Encoded dataset accessions
+  status: not_applicable
+  required: false
+  summary: No dataset accession is encoded or verified from accessible source content.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - datasets
+- check_id: cross-mech
+  name: Encoded medium/ingredient-Mech links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech ID is encoded; no recipe or commercial
+    carrageenan formulation was inferred.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - record
+  - ontology
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Same-runtime batch05 discovery is reused; no external runner or strain-module
+    query was executed.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+  locator: 'Entire target: two species, two nodes and zero arrows'
+  summary: The laboratory coculture and modeled intestine are separated; source strain/cultivation
+    gaps are explicit, but DIET category and one recipient-role assignment need correction.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.724683Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42565261&retmode=xml
+  locator: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42565261&retmode=xml
+  summary: Article-level PubMed PMID 42565261, DOI 10.1039/d6fo01013j, title and abstract
+    verify.
+  support: supports
+  accessed_at: '2026-10-21T09:31:43.785136Z'
+  snapshot_sha256: 69022ec8c1a449592fc438a9fbb53265f3e50677a3ac0b8a693af216bf365065
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1039/d6fo01013j
+  locator: https://api.crossref.org/works/10.1039/d6fo01013j
+  summary: Crossref DOI/title metadata identify the Food & Function article and supply
+    the current public PDF route.
+  support: supports
+  accessed_at: '2026-10-21T09:31:43.812557Z'
+  snapshot_sha256: 21b0c40f942148c870909455c3c76711a2b6edbbfaba01fa4082767d96d281af
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42565261&format=json&resultType=core
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42565261&format=json&resultType=core
+  summary: Europe PMC supplies the matching abstract, no PMC identifier and a subscription
+    DOI route.
+  support: supports
+  accessed_at: '2026-10-21T09:31:44.187470Z'
+  snapshot_sha256: b4323fe17067800a1bc07d7cb7ac5afcbde8dc782b1419f6b865b09dab807160
+- evidence_id: access
+  kind: validation
+  reference: Public DOI landing and Crossref-listed PDF
+  locator: 'access-audit.json: exact request URLs, times, status and body hashes'
+  summary: Both current publisher requests returned 403 HTML; no critical main Methods,
+    figures or supplements were obtained.
+  support: context_only
+  accessed_at: '2026-10-21T09:36:30.725692Z'
+  snapshot_sha256: e041ec1c877050a938cd70bbbd1a93cd65973b5d15c78e0bc8a0a3daeec442a5
+- evidence_id: donor
+  kind: primary_source
+  reference: PMID:42565261
+  locator: 'Fresh PubMed abstract: Bacteroides desulfation/depolymerization statement'
+  summary: B. thetaiotaomicron is described as the polysaccharide degrader and sulfate
+    donor, not as a recipient of Desulfovibrio metabolites.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.725877Z'
+  quote: releasing inorganic sulfate
+  snapshot_sha256: 69022ec8c1a449592fc438a9fbb53265f3e50677a3ac0b8a693af216bf365065
+- evidence_id: recipient
+  kind: primary_source
+  reference: PMID:42565261
+  locator: 'Fresh PubMed abstract: sulfate supports Desulfovibrio statement'
+  summary: The source explicitly links released sulfate to D. desulfuricans growth
+    and metabolism; electron transfer directly between cells is not the stated mechanism.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.725994Z'
+  quote: This sulfate fuels the growth
+  snapshot_sha256: 69022ec8c1a449592fc438a9fbb53265f3e50677a3ac0b8a693af216bf365065
+- evidence_id: sulfide
+  kind: primary_source
+  reference: PMID:42565261
+  locator: 'Fresh PubMed abstract: coculture H2S endpoint and sulfate-reduction genes'
+  summary: Enhanced H2S, increased sulfate-reduction gene expression and pathway-intermediate
+    accumulation are source-reported; exact assays, controls and flux quantification
+    remain unreviewed.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.726066Z'
+  quote: enhanced hydrogen sulfide
+  snapshot_sha256: 69022ec8c1a449592fc438a9fbb53265f3e50677a3ac0b8a693af216bf365065
+- evidence_id: remodeling
+  kind: primary_source
+  reference: PMID:42565261
+  locator: 'Fresh PubMed abstract: glycerophospholipid/cysteine statement'
+  summary: The reported remodeling is a community-level response; no particular lipid
+    species, cellular recipient or selective causal mediation is identified.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.726110Z'
+  quote: inhibited bacterial cysteine synthesis
+  snapshot_sha256: 69022ec8c1a449592fc438a9fbb53265f3e50677a3ac0b8a693af216bf365065
+- evidence_id: source-terminology
+  kind: primary_source
+  reference: PMID:42565261
+  locator: 'Fresh PubMed abstract: syntrophic pathway and CGN-type response'
+  summary: The authors call the pathway syntrophic and report a stronger κ-type transcriptional
+    response; this supports attributed terminology, not a full mechanistic or cultivation
+    certificate.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.726143Z'
+  quote: a syntrophic pathway
+  snapshot_sha256: 69022ec8c1a449592fc438a9fbb53265f3e50677a3ac0b8a693af216bf365065
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO, CHEBI and GO snapshots
+  locator: 'ontology-authority.json: nine unique ID/label pairs across 14 occurrences'
+  summary: All current species, environment, sulfate/H2S and process labels match;
+    a valid label does not establish direct electron transfer or strain-level identity.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.726407Z'
+  snapshot_sha256: f910e70adb5fac2805363d37821a67d4d276c136295c99f12e712e3e0ba930ea
+- evidence_id: chemical-candidates
+  kind: authority
+  reference: Local OAK CHEBI snapshot
+  locator: 'carrageenan-grounding-candidates.json: CHEBI:3435 and CHEBI:10583'
+  summary: Carrageenan has a verified family-level term, CHEBI:3435; kappa-carrageenan
+    CHEBI:10583 is its asserted child and applies only to explicitly kappa-specific
+    context.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.726568Z'
+  snapshot_sha256: 034d75110ce9cb0f485cfc4613467b47a6085abfcbbf2550a138035ed2d3b544
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: CommunityCategoryEnum.DIET; FunctionalRoleEnum.CROSS_FEEDER/SYNTROPHIC_PARTNER;
+    InteractionTypeEnum.CROSS_FEEDING
+  summary: DIET means direct interspecies electron transfer. CROSS_FEEDER is a metabolite
+    recipient; SYNTROPHIC_PARTNER directly denotes engagement in syntrophic metabolism
+    and does not impose obligacy.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.726574Z'
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+  locator: 'snippet-audit.json: all 23 evidence occurrences'
+  summary: All 23 match the cache; fresh checks verify 21 abstract spans, one title
+    and one article-level DOI value, without validating missing Methods.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.726970Z'
+  snapshot_sha256: 67240766113a3dd1dbfd1f800066dd9fa0c2671737c10c5f0e27ce945fb7eae7
+- evidence_id: datasets
+  kind: validation
+  reference: Accessible abstract and metadata
+  locator: 'dataset-verification.json: bounded accession/resource scope'
+  summary: Both publication resources resolve; no concrete sequence or omics accession
+    is encoded or established from the accessible material, without an inferred data-absence
+    finding.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.727162Z'
+  snapshot_sha256: c274bc724d88344f9757b8658e0076af916ec1e2044e20f797a0cdd76a9d9013
+- evidence_id: history
+  kind: record_content
+  reference: Creation sidecar; 20261005-eleven-records-batch6.yaml
+  locator: Target row lines 503-540; provenance-audit.json
+  summary: The prior graph review left the record unchanged and its hash matches.
+    Fresh issues 1201/1202 are closed; generic open 1256 does not name this target.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.727333Z'
+  snapshot_sha256: 16cf25d8ad62ff3b42b0a9735548efd938d2d8b74cde056857333f6bdcc17d0e
+- evidence_id: search
+  kind: search
+  reference: Owned community, isolate and reusable-taxon roots
+  locator: Ignored-inclusive bounded record/source/taxon lookup
+  summary: No exact source strain or deposited identity is supplied by the bounded
+    maintained-root search; species matches do not establish the unreported isolates.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.727583Z'
+  snapshot_sha256: 912d8db6ac1633ec20a79782e2a33a2d79f76565b881ce27f89d1846e5c07c47
+  search_scope: Stored rg --no-ignore --hidden searches of named maintained roots;
+    bounded identifier/name queries, not a global absence claim.
+- evidence_id: adapter
+  kind: search
+  reference: Optional kg-microbe-sources runner
+  locator: Same batch05 runtime discovery reused from 000120 at 08:47:38Z
+  summary: No callable owned-runtime adapter was available; no external runner or
+    strain/module query was executed.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.727827Z'
+  snapshot_sha256: 08a286150460837672c85a28836ed2780dc5cbdb5b38acb71969d85dfae167ef
+  search_scope: Original PATH/venv/module and ignored-inclusive owned-root discovery
+    retained with actual timestamp and checkout boundary.
+- evidence_id: native-target
+  kind: validation
+  reference: NetworkIntegrityAuditor().audit_community(target)
+  locator: 'support-audit.json: target audit and native score components'
+  summary: The native graph is COMPLETE with no issues; five node evidence items across
+    two nodes give mean 2.5, without establishing DIET.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.728122Z'
+  snapshot_sha256: fe8a936a0e3f804af6dfbd78a5bd6964f751e25af96d1d24eb4a0cf511b28445
+- evidence_id: independent-source
+  kind: validation
+  reference: PMID:42565261
+  locator: 'root-independent-source-audit.json: independent abstract/schema/access
+    review'
+  summary: Independent review confirms category and donor-role mismatches while retaining
+    the explicit source-reported cross-feeding and remodeling.
+  support: supports
+  accessed_at: '2026-10-21T09:36:30.728280Z'
+  snapshot_sha256: 57c629d5b08aed77cba77abb0df9e2e7b997cb9dfcf431d6fa9c07d61a9fd11c
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+  locator: Actual execution 2026-10-21T09:31:59.817261+00:00 to 2026-10-21T09:32:05.261842+00:00
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:32:05.261842Z'
+  snapshot_sha256: 6840db1e8c0999d6d75471c7ca8d879b8208096f83ebd2c9a286458a78ab3fcb
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-strict kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-05/000464/strict-report.tsv
+  locator: Actual execution 2026-10-21T09:31:59.817518+00:00 to 2026-10-21T09:32:12.897871+00:00
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:32:12.897871Z'
+  snapshot_sha256: 06ddacbe183e7ab49425894ca3723e8a9deffa42d2fbadcdccc4610780030af7
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-terms kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+  locator: Actual execution 2026-10-21T09:31:59.976550+00:00 to 2026-10-21T09:32:08.435672+00:00
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:32:08.435672Z'
+  snapshot_sha256: dfdb1802c1608cdd5cce23e3f2942005af913969f8ca8352e4458f1cfb07ab48
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+  locator: Actual execution 2026-10-21T09:32:05.262198+00:00 to 2026-10-21T09:32:05.541809+00:00
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:32:05.541809Z'
+  snapshot_sha256: 01bc6dae61ad8a90054853c5e8447fb04982e468a2ba8e62eeeb38a02d7043df
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+  locator: Actual execution 2026-10-21T09:32:05.542260+00:00 to 2026-10-21T09:32:13.776839+00:00
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:32:13.776839Z'
+  snapshot_sha256: a9358a21903b32e24ab8f18bcabebb4c2e1332b298a2cc4a1c88209e1a066d3f
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-history history/records/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture
+  locator: Actual execution 2026-10-21T09:32:08.436070+00:00 to 2026-10-21T09:32:12.804705+00:00
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:32:12.804705Z'
+  snapshot_sha256: ac7db745d6ab6ca94c19b17760d1ffb5d1230db8c2bc853bb83abf21e75a97d7
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T09:32:13.778558+00:00 to 2026-10-21T09:32:13.917348+00:00
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T09:32:13.917348Z'
+  snapshot_sha256: 15c268963e623bd733296e1a1dc3d2d24c3197e85430b4e89a2540ea6ec183a0
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-references-explained kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+  locator: Actual execution 2026-10-21T09:32:13.917636+00:00 to 2026-10-21T09:32:18.202779+00:00
+  summary: Target reference validation passed against the abstract cache.
+  support: supports
+  accessed_at: '2026-10-21T09:32:18.202779Z'
+  snapshot_sha256: 16c1e6f25748881bf6887bd064354a8368de97445828a1661f90efaabcd2b51d
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T08:44:47.720127+00:00 to 2026-10-21T08:45:04.195128+00:00
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  support: supports
+  accessed_at: '2026-10-21T08:45:04.195128Z'
+  snapshot_sha256: 83a73a6ead4c57534fef4ad456dae148cc75d2127e568a1d0815abaa8cf1b47b
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T08:44:47.737345+00:00 to 2026-10-21T08:45:04.925187+00:00
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  support: supports
+  accessed_at: '2026-10-21T08:45:04.925187Z'
+  snapshot_sha256: 8128f67a5d762dda726f1e6a0c0775a825d030d316c46765c08a359e6b621edb
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Defined laboratory coculture and modeled gut mechanism
+  outcome: supported
+  summary: The two-species study resolves; source strain identity and critical experimental
+    details remain unverified.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - record
+  - pubmed
+  - donor
+  - recipient
+  - ontology
+  dimensions:
+  - name: community_scope
+    value: Defined two-species laboratory coculture
+    definition: The human intestine is modeled context, not an in-vivo experiment
+      or demonstrated health outcome.
+    evidence_ids:
+    - record
+    - donor
+    - recipient
+  - name: source_strain
+    value: B. thetaiotaomicron and D. desulfuricans, exact strains unresolved
+    definition: Species names do not establish accession, isolate provenance or a
+      strain-specific GTDB identity.
+    evidence_ids:
+    - record
+    - ontology
+    - access
+  - name: environment
+    value: Laboratory assay modeling intestinal carrageenan metabolism
+    definition: The actual laboratory ENVO and modeled intestine ENVO describe different
+      scopes.
+    evidence_ids:
+    - record
+    - ontology
+  - name: medium
+    value: Unresolved source formulation
+    definition: The abstract names carrageenan and κ-type responsiveness, but not
+      background sulfate, nutrients, concentration, vessel or incubation conditions.
+    evidence_ids:
+    - source-terminology
+    - access
+  - name: experimental_setting
+    value: In-vitro coculture with transcriptomic/metabolomic endpoints
+    definition: Co-culture treatment and reported output changes are explicit; exact
+      controls, timing and quantitative measures remain unavailable.
+    evidence_ids:
+    - sulfide
+    - remodeling
+    - access
+  - name: evidence_tier
+    value: Abstract-reported substrate cross-feeding and molecular response
+    definition: Sulfate provision and H2S formation are reported; no direct cell-to-cell
+      electron-transfer experiment or human outcome is described.
+    evidence_ids:
+    - donor
+    - recipient
+    - sulfide
+  - name: grounding_status
+    value: Species/process labels verified; historical GTDB status retained
+    definition: Bacteroides mapping statistics and Desulfovibrio candidate assignments
+      were not recomputed; optional adapter coverage was not queried.
+    evidence_ids:
+    - ontology
+    - adapter
+- assessment_id: category
+  area: identity
+  topic: Community category DIET
+  outcome: concern
+  summary: Dietary carrageenan is not the schema category for direct interspecies
+    electron transfer.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - record
+  - schema
+  - donor
+  - recipient
+  details: The supported mechanism supplies inorganic sulfate as substrate. Correct
+    the category without adding conductive contact, pili, electrode activity or another
+    unverified electron-transfer mechanism.
+- assessment_id: taxonomy
+  area: grounding
+  topic: Both species and functional roles
+  outcome: concern
+  summary: Bacteroides primary degradation and Desulfovibrio recipient roles are supported;
+    Bacteroides recipient status is not established by its attached evidence.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - donor
+  - recipient
+  - source-terminology
+  - schema
+  - ontology
+  details: D. desulfuricans CROSS_FEEDER fits sulfate utilization, and SYNTROPHIC_PARTNER
+    may retain attributed author terminology with full-source limits. Do not add an
+    obligacy requirement or automatically equate this role with every condition in
+    the separate SYNTROPHY interaction definition.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Carrageenan sulfate cross-feeding'
+  outcome: supported
+  summary: Retain the directed Bacteroides-to-Desulfovibrio CROSS_FEEDING relation
+    at the reported in-vitro scope.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - donor
+  - recipient
+  - sulfide
+  - schema
+  - ontology
+  details: B. thetaiotaomicron supplies sulfate and D. desulfuricans is the recipient.
+    Sulfate is the transferred substrate; H2S is a downstream metabolic product, not
+    an asserted return transfer. Gene expression and intermediate accumulation support
+    the authors' interpretation without specifying isotope tracing, selective pathway
+    necessity or electron transfer between cells. No downstream arrow is encoded or
+    required.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Co-culture metabolic remodeling'
+  outcome: supported
+  summary: Retain the abstract-reported community response without inventing a causal
+    arrow from sulfide production.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - remodeling
+  - sulfide
+  - ontology
+  details: The source reports altered glycerophospholipid metabolism and inhibited
+    cysteine synthesis at community scope. It does not identify a measured lipid,
+    partner-specific recipient or mediation by H2S. Current broad interspecies-process
+    annotation and absence of arrows preserve those limits; precise assays require
+    the full source.
+- assessment_id: cultivation
+  area: completeness
+  topic: Engineering design, environmental input and cultivation gaps
+  outcome: unknown
+  summary: The design and carrageenan context are source-supported; the existing Methods
+    discussion remains necessary.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - donor
+  - recipient
+  - source-terminology
+  - access
+  - record
+  details: ENGINEERED/SYNTHETIC characterize assembly rather than proving genetic
+    modification. No culture recipe, anaerobic atmosphere, sulfate-free control, CGN
+    dose/type series, incubation time or vessel geometry is inferred from species
+    physiology or common practice.
+- assessment_id: ingredients
+  area: grounding
+  topic: Sulfate, sulfide and carrageenan specificity
+  outcome: supported
+  summary: The source distinguishes donor substrate, sulfate transfer and sulfide
+    output; exact carrageenan material remains unresolved.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - donor
+  - recipient
+  - sulfide
+  - source-terminology
+  - ontology
+  - chemical-candidates
+  details: A curator can ground generic carrageenan to CHEBI:3435 and use CHEBI:10583
+    only for explicitly κ-specific context. Do not convert this family/type grounding
+    into a commercial formulation, degree of sulfation, precise purity or dose. No
+    metal-processing, gut injury or disease-causation claim follows from these in-vitro
+    results.
+- assessment_id: provenance
+  area: evidence
+  topic: Cache, references, history and access
+  outcome: supported
+  summary: Fresh abstract support and prior graph preservation verify, while critical
+    full-source limits remain explicit.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - pubmed
+  - crossref
+  - epmc
+  - snippets
+  - history
+  - access
+  - independent-source
+  details: The cache is abstract-only. Native reference success cannot establish absent
+    source methods or an exact strain/dataset identity; unavailable main/supplement
+    content is not proof that experiments or data do not exist.
+- assessment_id: validation
+  area: schema
+  topic: Native checks versus source semantics
+  outcome: concern
+  summary: Eight native checks pass, but semantic category/role findings and unavailable
+    critical main context remain.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - ontology
+  - snippets
+  - check-validate
+  - check-validate-strict
+  - native-target
+  - schema
+  - access
+- assessment_id: metrics
+  area: completeness
+  topic: Native diagnostics within partial scientific assessment
+  outcome: supported
+  summary: Completeness is 65 and capped quality 100; neither score certifies full-source
+    mechanisms.
+  target_ids:
+  - CommunityMech:000464
+  evidence_ids:
+  - record
+  - native-target
+  metrics:
+  - name: completeness
+    value: 65
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100, 50 required metadata including all taxon roles + 5 environment
+      + 10 at least 3 factors + 10 at least 3 nodes + 5 resources + 10 media + 5 datasets
+      + 5 node metabolites). 50 + 5 + 0 + 0 + 5 + 0 + 0 + 5 = 65.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 - 50P1 - 10P2 - 2P3 + 20 min(mean node evidence / 2, 1)
+      + 15 if native COMPLETE, 0, 100). P1=0, P2=1, P3=1, P4=0; 5 items / 2 nodes
+      = 2.5; native COMPLETE. 100 - 10 - 2 + 20 + 15 = 123 before capping; counts
+      apply to assessed material.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Observed native severity count within this partial record review.
+  - name: P2
+    value: 1
+    unit: findings
+    definition: Observed native severity count within this partial record review.
+  - name: P3
+    value: 1
+    unit: findings
+    definition: Observed native severity count within this partial record review.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Observed native severity count within this partial record review.
+findings:
+- finding_id: diet-category
+  issue_key: cm-000464-diet-category
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: the structured category asserts a different interspecies
+    mechanism from the source-supported substrate transfer.'
+  rule_id: review-checklist.scope-and-role-semantics
+  status: open
+  certainty: confirmed
+  title: Correct the direct-electron-transfer category
+  description: The record uses DIET for a dietary-substrate experiment, but current
+    schema DIET denotes direct interspecies electron transfer. The cited mechanism
+    is sulfate release/utilization and H2S production, not direct electrical exchange.
+  target_ids:
+  - CommunityMech:000464
+  field_paths:
+  - community_category
+  evidence_ids:
+  - schema
+  - donor
+  - recipient
+  - record
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+    role: canonical_record
+- finding_id: donor-recipient-role
+  issue_key: cm-000464-donor-recipient-role
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: a local role assigns recipient behavior to the
+    described donor without corresponding uptake evidence, while the graph direction
+    remains correct.'
+  rule_id: review-checklist.scope-and-role-semantics
+  status: open
+  certainty: confirmed
+  title: Align the Bacteroides role with sulfate donation
+  description: B. thetaiotaomicron is labeled CROSS_FEEDER even though its attached
+    evidence establishes degradation and sulfate release. That role means utilization
+    of another taxon's metabolites, which is not demonstrated for this donor in the
+    inspected material.
+  target_ids:
+  - CommunityMech:000464
+  field_paths:
+  - taxonomy[0].functional_role
+  evidence_ids:
+  - schema
+  - donor
+  - recipient
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+    role: canonical_record
+actions:
+- action_id: repair-diet-category
+  description: Correct the direct-electron-transfer category.
+  finding_ids:
+  - diet-category
+  target_ids:
+  - CommunityMech:000464
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Replace DIET with a schema-valid category matching verified experiment scope,
+    such as OTHER with an explicit rationale until a more specific category is justified.
+  - Do not automatically substitute SYNTROPHY solely from author terminology or retain
+    DIET because carrageenan is dietary.
+  - Preserve the actual laboratory and modeled-intestine environments and the supported
+    sulfate CROSS_FEEDING relation.
+- action_id: repair-donor-recipient-role
+  description: Align the Bacteroides role with sulfate donation.
+  finding_ids:
+  - donor-recipient-role
+  target_ids:
+  - CommunityMech:000464
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain PRIMARY_DEGRADER and qualify or remove the unsubstantiated recipient role
+    unless source-specific uptake from its partner is verified.
+  - Preserve D. desulfuricans CROSS_FEEDER and the source-reported syntrophic terminology
+    with its evidence/access limits; no obligacy test is required.
+  - Do not invert the sulfate direction or invent H2S return feeding, reciprocal benefit
+    or another transferred metabolite.
+- action_id: complete-source-review
+  description: When legitimate main/supplement access is available, resolve the existing
+    strain, cultivation and data gaps before a complete scientific review.
+  finding_ids:
+  - diet-category
+  - donor-recipient-role
+  target_ids:
+  - CommunityMech:000464
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Desulfovibrio_Carrageenan_H2S_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Verify exact strains, medium formulation/background sulfate, carrageenan type/concentration,
+    inoculum ratios, controls, time and vessel; do not infer these from standard gut-bacterium
+    practice.
+  - Assess actual desulfation, uptake, sulfide and metabolic-remodeling measurements
+    and any selective interventions while preserving substrate/product directions.
+  - Verify deposited transcriptomic/metabolomic identifiers before adding them; absence
+    of accessible accessions is not a dataset omission finding.
+  - Retain two current nodes and zero arrows unless newly inspected source evidence
+    warrants a precise extension.
+  - After separately authorized correction, add a history event and rerun schema,
+    strict, term, reference, history and network checks.
+limitations:
+- Public DOI and current Crossref-linked PDF requests returned 403 HTML. Root supplementary/institutional
+  searches did not recover full content; this is bounded unsuccessful access, not
+  proof of source or experimental absence.
+- Exact strain accessions, culture medium, background sulfate, carrageenan concentration/type
+  series, controls, incubation time, atmosphere, inoculation ratio and vessel geometry
+  remain unresolved.
+- The abstract explicitly reports syntrophy and cross-feeding; this review neither
+  imposes obligacy nor certifies all mechanistic conditions from author terminology.
+  Direct interspecies electron transfer is a different schema category.
+- Sulfate is the reported transferred substrate and H2S the output. No H2S return
+  transfer, selective pathway necessity, quantified sulfur balance or human gut disease
+  effect was independently established.
+- Metabolic remodeling is reported at community scope; exact lipid/metabolite identities,
+  strain assignments, assay modalities and raw-data accessions were not inspected
+  or reanalyzed.
+- Historical GTDB statistics and candidate assignments were not recomputed; optional
+  adapter discovery and full-corpus network receipts are transparently reused.
+notes:
+- Canonical records, caches, history and generated outputs remain unchanged.
+- Direct excerpts total 18 words for this publication.
+- All 23 repository inputs were pinned before assessment and rechecked; quality 100
+  is capped from 123 and is not scientific certification.
+tags:
+- record-review
+- partial
+- sulfate-cross-feeding
+- batch-05
+```
