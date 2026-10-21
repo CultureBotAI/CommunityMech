@@ -1,0 +1,135 @@
+schema_version: 1.0.0
+repository_key: communitymech
+github_repository: CultureBotAI/CommunityMech
+run_id: mech-goal-sequence-20261019
+cycle: 1
+stage: 4
+revision: 1
+outcome: completed
+summary: Reviewed all 479 eligible records in the frozen CommunityMech inventory at
+  commit 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b across all 3 declared record roots
+  (473 kb/communities/*.yaml, 4 data/isolates/*.yaml, 2 kb/taxa/*.yaml) and 19 domain
+  cohorts using review-yaml-record and review-yaml-category. Saved immutable structured
+  review bundles (20261021T101000Z-stage4-record-deep-audit and 20261021T101100Z-stage4-frozen-cohort-review)
+  and preserved 6 new actionable findings plus 7 carried-forward source-limited findings
+  (13 total carry_forward_ids) for Stage 5 grouped remediation.
+source_revision: 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b
+artifacts:
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md
+  sha256: a2a8650d1bdb1b4491a963392232ca2026a7652794a9bafe3b0a171668aaea4e
+  kind: review_report
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_findings.yaml
+  sha256: 75c468b85bd75aa0a39032a3438c38beab86c2d339df49392928b1d93d2e67b6
+  kind: review_findings
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/frozen_inventory_metrics.tsv
+  sha256: d5a47bbcc3745a489ff507680aa7360a6a65ce070ce4ec88f886b70128791313
+  kind: supporting
+findings:
+- finding_id: stage4-missing-community-origin-000434
+  status: open
+  summary: CommunityMech:000434 (kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml)
+    omits community_origin despite explicit synthetic co-culture assembly in PMID:42762737
+    (supports ENGINEERED).
+- finding_id: stage4-missing-ecological-state-000360
+  status: open
+  summary: CommunityMech:000360 (kb/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml)
+    omits ecological_state despite persistent multi-year endosphere retention in PMID:42304541
+    (supports STABLE).
+- finding_id: stage4-disconnected-syncom-participants
+  status: open
+  summary: Five SynCom/consortium records (CommunityMech:000339, 000399, 000415, 000433,
+    000447) omit 14 co-tested member taxa from COMMUNITY_LEVEL participating_taxa,
+    causing DISCONNECTED_TAXON warnings.
+- finding_id: stage4-external-host-pathogen-targets
+  status: open
+  summary: Three biocontrol/rhizosphere SynCom records (CommunityMech:000347, 000364,
+    000373) place external non-member hosts or pathogens in target_taxon on COMMUNITY_LEVEL
+    interactions, causing all 7 UNKNOWN_TARGET warnings.
+- finding_id: stage4-isolate-000273-unverified-ore-prose
+  status: open
+  summary: CommunityMech:000273 (data/isolates/Chromobacterium_Gold_Biocyanidation.yaml)
+    retains unverified arsenopyrite ore recovery claims (70-85% Au, 50-200 ppm CN-,
+    7-14 days) and 7 un-evidenced environmental_factors not supported by doi:10.1007/s10163-014-0276-4.
+- finding_id: stage4-isolate-000321-missing-functional-role
+  status: open
+  summary: CommunityMech:000321 (data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml)
+    omits functional_role and abundance_level on taxonomy[0] (Rothia, PMID:33452220).
+- finding_id: cheese-assay-evidence-gap
+  status: deferred
+  summary: CommunityMech:000153 (kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml)
+    pairwise assay specifics in PMID:25043025 require full-text tables beyond the
+    cached abstract.
+  disposition: 'Deferred: source-limited until full-text assay tables for PMID:25043025
+    are ingested.'
+- finding_id: communitymech-1467-source-discrepancy-and-extension
+  status: deferred
+  summary: CommunityMech:000091 (kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml)
+    broader 18-species Transwell campaign and strain table reconciliation require
+    full-text tables (#1467).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1467
+  disposition: 'Deferred: tracked in GitHub issue #1467 pending full-text table reconciliation.'
+- finding_id: communitymech-1699-coverage
+  status: deferred
+  summary: CommunityMech:000054 (kb/communities/Phormidium_Alkaline_Consortium.yaml)
+    additional heterotrophic co-isolates require full-text table verification (#1699).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1699
+  disposition: 'Deferred: tracked in GitHub issue #1699 pending full-text isolate
+    table verification.'
+- finding_id: communitymech-1841
+  status: deferred
+  summary: CommunityMech:000222 (kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml)
+    lower-rank isolate resolution requires full-text supplementary strain tables (#1841).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1841
+  disposition: 'Deferred: tracked in GitHub issue #1841 pending full-text supplementary
+    strain table inspection.'
+- finding_id: communitymech-1847-metg2-membership
+  status: deferred
+  summary: CommunityMech:000302 (kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml)
+    full 18-isolate membership and media composition require full-text tables (#1847).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1847
+  disposition: 'Deferred: tracked in GitHub issue #1847 pending full-text membership
+    and media table inspection.'
+- finding_id: okeke-fulltext-assay-gap
+  status: deferred
+  summary: CommunityMech:000048 (kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml)
+    kinetic and co-culture assay parameters require paywalled full text.
+  disposition: 'Deferred: source-limited because primary full text is paywalled.'
+- finding_id: parachlorella-remaining-research
+  status: deferred
+  summary: CommunityMech:000295 (kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml)
+    secondary bacterial satellite interactions require full-text data.
+  disposition: 'Deferred: source-limited pending full-text interaction data.'
+groups: []
+carry_forward_ids:
+- stage4-missing-community-origin-000434
+- stage4-missing-ecological-state-000360
+- stage4-disconnected-syncom-participants
+- stage4-external-host-pathogen-targets
+- stage4-isolate-000273-unverified-ore-prose
+- stage4-isolate-000321-missing-functional-role
+- cheese-assay-evidence-gap
+- communitymech-1467-source-discrepancy-and-extension
+- communitymech-1699-coverage
+- communitymech-1841
+- communitymech-1847-metg2-membership
+- okeke-fulltext-assay-gap
+- parachlorella-remaining-research
+infra_tasks:
+- task_id: communitymech-infra-0001
+  summary: Evaluate optional edge-level evidence on InteractionDownstream and decouple
+    scope-credit tests from hardcoded corpus counts
+  status: note
+  disposition: Captured during run mech-goal-sequence-20261019 cycle 1 stage 2 (causal_graphs);
+    pending issue linkage and Stage 6 evaluation.
+- task_id: communitymech-infra-0002
+  summary: Fix build_sequence_map.py CommonTaxon.genes key mismatch and evaluate optional
+    gene/protein linkage on EcologicalInteraction
+  status: note
+  disposition: Captured during run mech-goal-sequence-20261019 cycle 1 stage 3 (protein_examples);
+    pending issue linkage and Stage 6 evaluation.
+- task_id: communitymech-infra-0003
+  summary: Align audit_completeness.py scoring with proportional Completeness Score
+    rubric and include data/isolates in completeness and network audits
+  status: note
+  disposition: Captured during run mech-goal-sequence-20261019 cycle 1 stage 4 (record_review);
+    pending issue linkage and Stage 6 evaluation.

@@ -42,6 +42,10 @@ tasks:
     summary: Fix build_sequence_map.py CommonTaxon.genes key mismatch and evaluate optional gene/protein linkage on EcologicalInteraction
     status: note
     disposition: Captured during run mech-goal-sequence-20261019 cycle 1 stage 3 (protein_examples); pending issue linkage and Stage 6 evaluation.
+  - task_id: communitymech-infra-0003
+    summary: Align audit_completeness.py scoring with proportional Completeness Score rubric and include data/isolates in completeness and network audits
+    status: note
+    disposition: Captured during run mech-goal-sequence-20261019 cycle 1 stage 4 (record_review); pending issue linkage and Stage 6 evaluation.
 ```
 <!-- mech-infra-tasks:end -->
 
@@ -77,6 +81,21 @@ tasks:
   - `kb/taxa/Geobacter_sulfurreducens.yaml`
   - `src/communitymech/schema/communitymech.yaml`
 - **Priority**: P2
+- **Dependencies**: None
+- **Status**: `note` (pending issue linkage at Stage 6)
+
+### `communitymech-infra-0003` — Completeness audit rubric alignment and `data/isolates/` scanner coverage
+
+- **Origin**: `mech-goal-sequence-20261019`, cycle 1, stage 4 (`record_review`)
+- **Observation**:
+  1. `scripts/audit_completeness.py` scans only `kb/communities/*.yaml` (omitting `data/isolates/*.yaml`) and uses a binary presence check (e.g., `has_interactions`, `has_taxon_roles`) rather than the proportional 0–100 Completeness Score rubric defined in `.claude/skills/review-yaml-record/SKILL.md`.
+  2. `scripts/record_review.py` calls `Path(__file__).resolve()` at module import time (`REPO_ROOT = Path(__file__).resolve().parents[1]`), which raises `PermissionError` under macOS Seatbelt sandboxes that restrict `stat()` on parent `/Users` directories.
+- **Desired outcome**: Extend `scripts/audit_completeness.py` to optionally include `data/isolates/*.yaml` and compute the proportional 0–100 Completeness Score alongside the binary checklist, and wrap `Path(__file__).resolve()` in `scripts/record_review.py` with a fallback to `Path(__file__).absolute()` when parent directory traversal is sandbox-restricted.
+- **Evidence paths**:
+  - `scripts/audit_completeness.py`
+  - `scripts/record_review.py`
+  - `reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md`
+- **Priority**: P3
 - **Dependencies**: None
 - **Status**: `note` (pending issue linkage at Stage 6)
 
