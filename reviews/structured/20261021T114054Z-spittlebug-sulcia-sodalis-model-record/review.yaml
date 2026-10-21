@@ -1,0 +1,1136 @@
+schema_version: 1.0.0
+review_id: 20261021T114054Z-spittlebug-sulcia-sodalis-model-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Spittlebug Sulcia–Sodalis BioModels record review
+started_at: '2026-10-21T11:33:54.247286Z'
+finished_at: '2026-10-21T11:40:54.868913Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary science, native/ontology checks
+    and supporting snippets/provenance; no person-level independence is asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: The exact spittlebug metabolic model and all three qualified graph nodes
+  are supported, with no arrows. Two major findings address the insect in microbial
+  membership and unsupported STABLE equilibrium; two minor findings address structured
+  computational provenance and publication/data-resource organization. No simulation
+  was rerun.
+source:
+  git_revision: 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis/2026-10-05T124958Z-codex-427477.yaml
+    sha256: f5d211a640dd5fcfe2fce6d952b4189da6cf3965ae924d12245cbea37cc6209b
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+    sha256: f29ece197fbf2088caa649cbf78c0c2d0054d1434369353b29e7f6efdd05a848
+    role: target
+  - path: references_cache/PMID_30254121.md
+    sha256: a63558f5a1ea983a198551fa17e038566f4b07480182dce49161d50dbd8a9341
+    role: context
+  - path: references_cache/PMID_30254121.txt
+    sha256: bc2fabd308e36c1cfc6b596a80f0de06a9f320e15437e21cf66de7631aa7f6e1
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+    sha256: c96f00489d2ad14f63cd035adc778adbf72d7fe6a11c2dffd81cd1a904cc0a75
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000006
+  path: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  label: BioModels MODEL1806250003 Spittlebug Sulcia-Sodalis Symbiosis
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+    role: canonical_record
+scope:
+  description: Whole record against complete primary scientific main, all main/SI
+    figures, full supplementary methods, declared table scopes and direct model/project/repository
+    authorities.
+  selection: First official path in fresh batch 07; only CommunityMech:000006 reviewed.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000006
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000006
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000006
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-strict kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+    --out /private/tmp/cm-review-session/batch-07/000006/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000006
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-terms kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000006
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000006
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb-domain kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000006
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-history history/records/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000006
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target reference validation passed against the pinned cache.
+  target_ids:
+  - CommunityMech:000006
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-references-explained kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native structure has no issue.
+  target_ids:
+  - CommunityMech:000006
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Reused fresh full-corpus batch 07 execution, not a target-specific pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native structure has no issue.
+  target_ids:
+  - CommunityMech:000006
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Reused fresh full-corpus batch 07 execution, not a target-specific pass.
+- check_id: source-identity
+  name: Primary publication and model identity
+  status: passed
+  required: true
+  summary: Direct publication identifiers, BioModels metadata/checksummed XML and
+    focal input-project identity were verified.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - pubmed
+  - crossref
+  - epmc
+  - resources
+- check_id: scientific-source
+  name: Whole-record scientific assessment
+  status: passed
+  required: true
+  summary: Complete scientific main, all seven main and three SI figures, full Text
+    S1 and declared focal table/model scopes were inspected.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - source-scope
+  - independent-source
+  - supplement
+  - model-boundary
+- check_id: cross-mech
+  name: Encoded medium and ingredient links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech identifier is encoded; simulated
+    hemolymph is not a wet-lab culture recipe.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - record
+  - methods
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Fresh owned-runtime discovery found no runnable adapter; no task-specific
+    expression-module match was established.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  locator: 'Whole record: three taxonomy entries, three nodes, zero arrows, two dataset
+    entries'
+  summary: The intended spittlebug model is identifiable and its graph is qualified;
+    microbial membership, ecological state and structured provenance require follow-up.
+  support: supports
+  accessed_at: '2026-10-21T11:40:54.866831Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=30254121&retmode=xml
+  locator: Article-level metadata
+  summary: Article-level PMID, DOI, title and abstract are verified.
+  support: supports
+  accessed_at: '2026-10-21T11:34:36.970608Z'
+  snapshot_sha256: 67c9b795c61ef6b233cd3653148d2fceadd2d9d358db392a799b95f1cff1aab9
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1128/mBio.01433-18
+  locator: Article-level metadata
+  summary: DOI, publication title and bibliographic identity are verified.
+  support: supports
+  accessed_at: '2026-10-21T11:34:36.959795Z'
+  snapshot_sha256: 8a83688c6fc4be542fe2fabf90fc2335e840c140cfb1a2016bc025674992b47f
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:30254121&format=json&resultType=core
+  locator: Article-level metadata
+  summary: Article-level identifiers and the open-access full-text route are verified.
+  support: supports
+  accessed_at: '2026-10-21T11:34:37.319583Z'
+  snapshot_sha256: 380cf3335a10b34c73e12d27ce81bc676f91395377df21349c177952a3adca2d
+- evidence_id: sulcia
+  kind: primary_source
+  reference: PMID:30254121
+  locator: Fresh XML s2, Metabolic outputs and metabolic cost subsections; Figures
+    2c/f/g and 7a; Table S1e and S1i rows 1–31
+  summary: The spittlebug model releases seven Sulcia essential amino acids. Nitrogen-weighted
+    output is about 80% in this model; 66–80% is the explicitly pooled three-system
+    range.
+  support: supports
+  accessed_at: '2026-10-21T11:40:54.867040Z'
+  quote: 7 EAAs synthesized by Sulcia
+  snapshot_sha256: 0cac2dc3b4e28fd1686a41fd36364bdb57aca39edec3cc2818fe58e02405fdd1
+- evidence_id: sodalis
+  kind: primary_source
+  reference: PMID:30254121
+  locator: Fresh XML s2, Metabolic outputs and metabolic cost subsections; Figures
+    2c/f/g and 7a; Table S1e and S1i rows 34–53
+  summary: Sodalis exports histidine, methionine, tryptophan and threonine, but not
+    its synthesized arginine/lysine; approximately 15% refers to returned EAA nitrogen
+    relative to host-derived input.
+  support: supports
+  accessed_at: '2026-10-21T11:40:54.867184Z'
+  quote: 15% for Sodalis
+  snapshot_sha256: 0cac2dc3b4e28fd1686a41fd36364bdb57aca39edec3cc2818fe58e02405fdd1
+- evidence_id: reciprocal
+  kind: primary_source
+  reference: PMID:30254121
+  locator: Fresh XML s2, Metabolic inputs and cross-feeding paragraphs; s3 Discussion;
+    Figure 4 organism-labeled spittlebug panel b
+  summary: The model predicts extensive host–symbiont exchange and two pantothenate-pathway
+    intermediates exchanged between symbionts. Host regulatory control remains a hypothesis.
+  support: partial
+  accessed_at: '2026-10-21T11:40:54.867271Z'
+  quote: two exchanged metabolites
+  snapshot_sha256: 0cac2dc3b4e28fd1686a41fd36364bdb57aca39edec3cc2818fe58e02405fdd1
+- evidence_id: methods
+  kind: primary_source
+  reference: PMID:30254121
+  locator: Fresh XML s4, The insects, Metabolic model reconstruction and analysis,
+    Calculation of symbiont maintenance costs and data statements
+  summary: Field-derived bacteriome genomes/transcriptomes inform iNA761; COBRA Toolbox
+    3.0, MATLAB and Gurobi support FBA/FVA. The simulations are not a wet-lab coculture
+    or ecological stability experiment.
+  support: supports
+  accessed_at: '2026-10-21T11:40:54.867359Z'
+  snapshot_sha256: 0cac2dc3b4e28fd1686a41fd36364bdb57aca39edec3cc2818fe58e02405fdd1
+- evidence_id: inference
+  kind: primary_source
+  reference: PMID:30254121
+  locator: Fresh XML s3, opening Discussion paragraph; s1 vertical-transmission background
+  summary: The paper frames model outputs as hypotheses for empirical testing. Long-standing
+    vertically transmitted associations do not themselves demonstrate a stable ecological
+    equilibrium for this record.
+  support: partial
+  accessed_at: '2026-10-21T11:40:54.867441Z'
+  quote: quantitative hypotheses for empirical testing
+  snapshot_sha256: 0cac2dc3b4e28fd1686a41fd36364bdb57aca39edec3cc2818fe58e02405fdd1
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:30254121
+  locator: Text S1, all modeling methods; Table S1e, focal S1h/S1i rows and S5o; all
+    three supplementary figures
+  summary: Supplementary constraints and tabulated predicted fluxes support the bounded
+    graph. S5o gives run-specific exchange bounds; this is simulated hemolymph, not
+    a culture recipe.
+  support: supports
+  accessed_at: '2026-10-21T11:40:54.867503Z'
+  snapshot_sha256: af7e9c082f426a597222e8a81b4edd8ba7d6a14a610cf10323489fc0893e9079
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: MicrobialCommunity.taxonomy; EcologicalStateEnum; CommunityCategoryEnum;
+    FunctionalRoleEnum; EvidenceSourceEnum; ComputationalProvenance
+  summary: Hosts are excluded from microbial membership but allowed as outside interaction
+    participants. STABLE requires equilibrium; computational provenance has dedicated
+    model, tools, input and simulated-medium fields.
+  support: supports
+  accessed_at: '2026-10-21T11:40:54.867591Z'
+  snapshot_sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+- evidence_id: ontology
+  kind: authority
+  reference: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  locator: ontology-authority.json
+  summary: All six distinct ontology pairs across ten occurrences match. Host membership
+    and ecological-state semantics remain separate from label validity.
+  support: supports
+  accessed_at: '2026-10-21T11:40:54.867709Z'
+  snapshot_sha256: e537b6756c6bc3be1055e3c96a5207233858ea6f37a683ce1f921cfd44fa9c87
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  locator: snippet-audit.json
+  summary: 'All nine excerpts match directly retrieved sources: eight XML interaction
+    passages and one exact PubMed article title; both cache boundaries are documented.'
+  support: supports
+  accessed_at: '2026-10-21T11:40:54.867772Z'
+  snapshot_sha256: 7859b13116b6e912ee6a7316bf0ec47c13ca07d510c177b1c86c236d6cefb819
+- evidence_id: history
+  kind: record_content
+  reference: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  locator: provenance-audit.json
+  summary: Closed issue 1258 records the preserved graph repair; open issue 1262 does
+    not name this target. Prior graph-only certification does not certify non-graph
+    fields.
+  support: supports
+  accessed_at: '2026-10-21T11:40:54.867823Z'
+  snapshot_sha256: 355cfb4828a33813e1373d25e894f7c0e92a8c16091b57c8881e8763770f1753
+- evidence_id: resources
+  kind: database
+  reference: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  locator: dataset-verification.json
+  summary: BioModels file identity is verified; focal project PRJNA342845 and the
+    immutable author repository are distinct resources. PMID:30254121 is a publication,
+    not a dataset deposit.
+  support: supports
+  accessed_at: '2026-10-21T11:40:54.867863Z'
+  snapshot_sha256: 07defc144e39d234fe240ed4824f73ad0fe3e395dc0ae5df7d97aa8c1eebde2a
+- evidence_id: model-boundary
+  kind: validation
+  reference: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  locator: root-model-boundary.json
+  summary: Read-only SBML inspection distinguishes three biological actors, extracellular
+    compartment, stored defaults and published run constraints; it does not reproduce
+    the simulation.
+  support: context_only
+  accessed_at: '2026-10-21T11:40:54.867947Z'
+  snapshot_sha256: 919554020d23cc1c0c78e97bd986801d1bc17a7b24bd33b9f21adb10db2481db
+- evidence_id: native-target
+  kind: validation
+  reference: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  locator: support-audit.json
+  summary: Target network and mechanical metrics are recorded separately from scientific
+    and membership judgments.
+  support: supports
+  accessed_at: '2026-10-21T11:40:54.868020Z'
+  snapshot_sha256: cd3fb87f5445b7c7b2cab4f6725b0fc3bc8ffc83dbfc2b615a8f2ba780e828ea
+- evidence_id: source-scope
+  kind: validation
+  reference: PMID:30254121
+  locator: source-audit.json
+  summary: Complete scientific main, all main/SI figures and declared supplementary
+    table/model scopes were assessed.
+  support: supports
+  accessed_at: '2026-10-21T11:40:54.868063Z'
+  snapshot_sha256: 79c6d18ca9ab83925a374b41868632389e17d05ab7cb5012872f994b74bba41b
+- evidence_id: independent-source
+  kind: validation
+  reference: PMID:30254121
+  locator: root-independent-source-audit.json
+  summary: Independent source, figure, supplement and archive assessment agrees with
+    the bounded findings.
+  support: context_only
+  accessed_at: '2026-10-21T11:40:54.868103Z'
+  snapshot_sha256: ff3f06f2b1639a79e49869f619843bc4a30cbf6827e35cdc96a926f52b44f5d7
+- evidence_id: search
+  kind: search
+  reference: Owned maintained roots
+  locator: 'local-search.json: ignored-inclusive bounded lookup'
+  summary: Reusable identity and mapping discovery is limited to the recorded roots;
+    no global absence is inferred.
+  support: supports
+  accessed_at: '2026-10-21T11:40:54.868144Z'
+  snapshot_sha256: 325df195dffb837019949d24332a2a11f72291fa9f330d46850416b7d0a91128
+  search_scope: Ignored-inclusive maintained community, isolate and reusable-taxon
+    roots plus recorded mapping-file discovery.
+- evidence_id: adapter
+  kind: search
+  reference: Optional structured source adapter
+  locator: 'adapter-check.json: fresh batch 07 runtime discovery'
+  summary: No runnable optional adapter was available in the owned runtime. No external-checkout
+    runner or paid provider was invoked.
+  support: supports
+  accessed_at: '2026-10-21T11:40:54.868187Z'
+  snapshot_sha256: 2f7e96dc2d1ee7d40d5cd352291152f147394b162db4ade86192259f04215be4
+  search_scope: Recorded PATH, venv, module and ignored-inclusive filesystem discovery.
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  locator: Actual execution 2026-10-21T11:34:37.122602+00:00 to 2026-10-21T11:34:38.312543+00:00
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:34:38.312543Z'
+  snapshot_sha256: 256c1c4a18e8bc111b22b97d2d879424052411f26d2f2b8e9ff126f9ae2adf87
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-strict kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+    --out /private/tmp/cm-review-session/batch-07/000006/strict-report.tsv
+  locator: Actual execution 2026-10-21T11:34:37.122838+00:00 to 2026-10-21T11:34:40.751824+00:00
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:34:40.751824Z'
+  snapshot_sha256: 1b52ab4857653f5406c0c428972e52cdf9d047e14bdc1099bd2cd47a407a1ce8
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-terms kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  locator: Actual execution 2026-10-21T11:34:37.122904+00:00 to 2026-10-21T11:34:39.879974+00:00
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:34:39.879974Z'
+  snapshot_sha256: c44a654739ed963bc0962343383593bf4ef3e8c8544cc467caca3f2b1530c15a
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  locator: Actual execution 2026-10-21T11:34:38.313161+00:00 to 2026-10-21T11:34:38.416802+00:00
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:34:38.416802Z'
+  snapshot_sha256: ddfa1ae5d33c893d59120c6c9d831515a43c13ab9f12f3d93422046bd2d2940f
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb-domain kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  locator: Actual execution 2026-10-21T11:34:38.417413+00:00 to 2026-10-21T11:34:41.079720+00:00
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:34:41.079720Z'
+  snapshot_sha256: 9d3e2b1bd0f87d937256efe33f5ec871b57222e2f5fb66833ab8de5db85de5a9
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-history history/records/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis
+  locator: Actual execution 2026-10-21T11:34:39.880296+00:00 to 2026-10-21T11:34:41.048242+00:00
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:34:41.048242Z'
+  snapshot_sha256: 92d4e7f017467d0f06f392280b56c4ce32de73009822463378a0f11d3fb6ea5a
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T11:34:41.080604+00:00 to 2026-10-21T11:34:41.151284+00:00
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T11:34:41.151284Z'
+  snapshot_sha256: 1924f778d622c87b578ae737c3a25194f4f45a5715f319784855cd87ddbde506
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-references-explained kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  locator: Actual execution 2026-10-21T11:34:41.151664+00:00 to 2026-10-21T11:34:43.245486+00:00
+  summary: Target reference validation passed against the pinned cache.
+  support: supports
+  accessed_at: '2026-10-21T11:34:43.245486Z'
+  snapshot_sha256: 48c592f1d7cc218f033bda095c86dcf5f28bb5759c7816b13e84d740d2a5d505
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T11:32:06.425768+00:00 to 2026-10-21T11:32:16.427975+00:00
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native structure has no issue.
+  support: supports
+  accessed_at: '2026-10-21T11:32:16.427975Z'
+  snapshot_sha256: c16b3a28b790e90191e9c5fb067c97a8038a813593fbfbe1796bf78d116abafb
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T11:32:06.426382+00:00 to 2026-10-21T11:32:14.966232+00:00
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native structure has no issue.
+  support: supports
+  accessed_at: '2026-10-21T11:32:14.966232Z'
+  snapshot_sha256: 6a321df993e978ed76cacc843bf792ecb9969ab237ca14c6e8575723ee3410f3
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Exact model and biological actors
+  outcome: concern
+  summary: MODEL1806250003 is the intended iNA761 spittlebug model; the host should
+    remain external to microbial membership.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - record
+  - methods
+  - schema
+  - resources
+  dimensions:
+  - name: community_scope
+    value: Two endosymbiotic bacteria modeled with their insect host
+    definition: Three biological model compartments do not make the insect a microbial
+      community member.
+    evidence_ids:
+    - schema
+    - resources
+  - name: source_strain
+    value: Field-derived Sulcia and Sodalis associated with P. spumarius
+    definition: The paper identifies the host and source bacteriomes; genus-level
+      bacterial entries do not establish a particular culture-collection strain or
+      Sodalis glossinidius identity.
+    evidence_ids:
+    - methods
+    - ontology
+  - name: environment
+    value: Modeled intracellular bacteriocyte and external hemolymph
+    definition: The model compartment and biological host context can be recorded
+      without inventing a wet-lab environment or exact unverified ENVO term.
+    evidence_ids:
+    - methods
+    - supplement
+  - name: medium
+    value: In-silico minimal hemolymph with constrained exchange
+    definition: Use computational_provenance.simulated_medium, preserving published
+      run bounds and the S5o cystathionine detail; no growth_media recipe is warranted.
+    evidence_ids:
+    - methods
+    - supplement
+    - model-boundary
+  - name: experimental_setting
+    value: Genome/transcriptome-informed FBA and FVA
+    definition: P. spumarius adults were field-collected in Ithaca in June 2014; six
+      transcriptome samples informed reconstruction, not a dynamic stability assay.
+    evidence_ids:
+    - methods
+  - name: evidence_tier
+    value: Computational predictions with explicit assumptions
+    definition: Nitrogen accounting, reciprocal benefit and limited cross-feeding
+      are model outputs; host-control mediation and ecological equilibrium were not
+      demonstrated.
+    evidence_ids:
+    - sulcia
+    - sodalis
+    - reciprocal
+    - inference
+  - name: grounding_status
+    value: Valid host species, bacterial genera, amino acids and broad GO term
+    definition: Canonical Karelsulcia and preferred Sulcia are compatible; Sodalis
+      GTDB ambiguity and host NO_GTDB_EQUIVALENT remain bounded.
+    evidence_ids:
+    - ontology
+- assessment_id: taxonomy
+  area: grounding
+  topic: Membership, roles and names
+  outcome: concern
+  summary: Remove the host from the membership list while retaining its supported
+    graph endpoints.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - schema
+  - ontology
+  - methods
+  - reciprocal
+  details: The microbial partners and broad syntrophic-metabolism roles are compatible
+    with model-predicted cooperative metabolism. No extra obligacy or product-removal
+    test is imported into these broad category/role definitions. No new species or
+    exact strain assignment is justified by an allied-to description. Historical GTDB
+    mapping statistics were not re-certified.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Sulcia provisioning'
+  outcome: supported
+  summary: Retain the COMPUTATIONAL Sulcia → P. spumarius provisioning and modeled
+    reciprocal benefit.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - sulcia
+  - methods
+  - supplement
+  details: Seven EAA exports, including the two encoded L-amino acids, support the
+    node. The nitrogen percentage is weighted transport flux relative to host-derived
+    nitrogen input, not concentration or a tracer measurement. The current 66–80%
+    wording is explicitly pooled across systems; the spittlebug figure/table is approximately
+    80%. No downstream arrow is needed.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Sodalis complementarity'
+  outcome: supported
+  summary: Retain the COMPUTATIONAL Sodalis → P. spumarius model interpretation and
+    its limitations.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - sodalis
+  - reciprocal
+  - methods
+  details: The four exported EAAs include threonine overlapping Sulcia; synthesized
+    arginine/lysine are not exported. The approximately 15% nitrogen return is not
+    the separate 16% contribution to total EAA release. Host support is modeled, and
+    two symbiont exchanges prevent an absolute segregation claim. Host regulatory
+    control remains PARTIAL.
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: Host-mediated complementarity'
+  outcome: supported
+  summary: Retain community-level modeled reciprocal nutrition with PARTIAL host-control
+    interpretation.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - reciprocal
+  - methods
+  - inference
+  - supplement
+  details: The modeled actors are Sulcia, Sodalis and their host; two pantothenate-pathway
+    intermediates link the bacteria through the modeled host compartment. This does
+    not experimentally establish host regulation or absence of bacterial cross-feeding.
+    The broad GO:0044419 term is compatible with interspecies processes. The existing
+    zero-arrow graph correctly avoids component-to-summary causation.
+- assessment_id: state
+  area: evidence
+  topic: Ecological state versus computational steady state
+  outcome: concern
+  summary: STABLE is not established as ecological equilibrium by the inspected source.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - schema
+  - inference
+  - methods
+  details: The source describes an ancient, vertically transmitted natural association
+    and optimizes constrained metabolic fluxes. It does not measure community dynamics
+    or recovery to equilibrium. NATURAL remains appropriate to the modeled biological
+    association; creating a model does not imply ENGINEERED biological origin.
+- assessment_id: conditions
+  area: completeness
+  topic: Structured computational provenance
+  outcome: concern
+  summary: Recoverable model/run settings remain only in source text and the existing
+    discussion.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - schema
+  - methods
+  - supplement
+  - model-boundary
+  details: Record FBA/FVA, COBRA Toolbox 3.0, MATLAB/Gurobi without invented versions,
+    iNA761 and source accessions, objective and simulated hemolymph. Distinguish ordinary
+    growth from maintenance-cost simulations. BioModels glucose/ammonium defaults
+    of −1000 differ from published −100 run bounds; stored zero flux fields are not
+    observed optimal outputs. The discussion already captures important assumptions
+    and should be preserved.
+- assessment_id: resources
+  area: completeness
+  topic: Models, publication and input data
+  outcome: concern
+  summary: The model file is valid; the primary publication belongs in evidence/resources
+    rather than as a dataset.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - resources
+  - methods
+  details: PRJNA342845 is the focal spittlebug project; PRJNA341855 and PRJNA343314
+    are other insect systems. The author repository is pinned to commit bb20c83c112331442b19a7b5f16f6cd6389221b4.
+    Its model blob differs bytewise from BioModels; identity is supported, but scientific
+    or executable equivalence was not tested. NON_CURATED is archive status, not proof
+    of an invalid model.
+- assessment_id: provenance
+  area: provenance
+  topic: Snippets and previous graph repairs
+  outcome: supported
+  summary: The current graph preserves the earlier corrections and every quoted source
+    passage is directly confirmed.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - snippets
+  - history
+  - source-scope
+  details: The MD cache is labeled abstract_only despite appended main text; the TXT
+    is the abstract/bibliographic source. Issue 1258 is closed; generic open 1262
+    does not explicitly identify this record. Prior noninspection of figures/SI/model
+    files does not describe the present bounded assessment.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and source assessment
+  outcome: supported
+  summary: All eight native checks pass; semantic and evidence findings remain despite
+    those passes.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - check-validate
+  - check-validate-references-explained
+  - ontology
+  - source-scope
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and quality
+  outcome: supported
+  summary: Mechanical scores do not certify host membership, equilibrium or simulation
+    reproducibility.
+  target_ids:
+  - CommunityMech:000006
+  evidence_ids:
+  - native-target
+  - record
+  metrics:
+  - name: completeness
+    value: 75
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 'min(100,50 required metadata including all roles +5 environment +10
+      at least 3 factors +10 at least 3 nodes +5 resources +10 media +5 datasets +5
+      node metabolites). Current record: 50+0+0+10+5+0+5+5=75.'
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100-50P1-10P2-2P3+20 min(mean node evidence/2,1)+15 if native
+      COMPLETE,0,100). P1=0,P2=2,P3=2,P4=0; 8 evidence/3 nodes gives capped20 evidence
+      bonus, plus15 network bonus:111 before capping.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Observed native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Observed native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+findings:
+- finding_id: host-membership
+  issue_key: cm-000006-host-membership
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: the field materially misrepresents community membership
+    or asserts an unsupported ecological property; valid model identity and graph
+    are preserved.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Separate the insect host from microbial membership
+  description: taxonomy[0] contains P. spumarius despite the schema excluding hosts
+    from the microbial roster.
+  target_ids:
+  - CommunityMech:000006
+  field_paths:
+  - taxonomy[0]
+  evidence_ids:
+  - schema
+  - methods
+  - resources
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+    role: canonical_record
+- finding_id: ecological-equilibrium
+  issue_key: cm-000006-ecological-equilibrium
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: the field materially misrepresents community membership
+    or asserts an unsupported ecological property; valid model identity and graph
+    are preserved.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Qualify the unsupported STABLE designation
+  description: The source supports a natural symbiosis and steady-state metabolic
+    predictions, not the ecological equilibrium asserted by STABLE.
+  target_ids:
+  - CommunityMech:000006
+  field_paths:
+  - ecological_state
+  evidence_ids:
+  - schema
+  - methods
+  - inference
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+    role: canonical_record
+- finding_id: computational-provenance
+  issue_key: cm-000006-computational-provenance
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded structured-provenance/resource correction
+    preserves the identified model and scientific interpretation.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Structure the model and run assumptions
+  description: The eight interaction evidence items lack computational_provenance
+    despite recoverable methods and existing narrative assumptions.
+  target_ids:
+  - CommunityMech:000006
+  field_paths:
+  - ecological_interactions[0].evidence
+  - ecological_interactions[1].evidence
+  - ecological_interactions[2].evidence
+  evidence_ids:
+  - schema
+  - methods
+  - supplement
+  - model-boundary
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+    role: canonical_record
+- finding_id: resource-types
+  issue_key: cm-000006-resource-types
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded structured-provenance/resource correction
+    preserves the identified model and scientific interpretation.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Separate the publication from study resources
+  description: The Primary publication entry is classified as an associated dataset,
+    while verified focal input/repository links remain unstructured.
+  target_ids:
+  - CommunityMech:000006
+  field_paths:
+  - associated_datasets[1]
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - resources
+  - methods
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+    role: canonical_record
+actions:
+- action_id: repair-host-membership
+  description: Separate the insect host from microbial membership.
+  finding_ids:
+  - host-membership
+  target_ids:
+  - CommunityMech:000006
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove the insect from microbial taxonomy during authorized curation; retain Sulcia
+    and Sodalis as microbial members.
+  - Preserve P. spumarius as the external recipient/participant in the model graph
+    and narrative. Do not delete the host compartment from the scientific interpretation.
+  - Do not reinsert the host merely to satisfy external-participant network warnings;
+    assess those warnings against the schema.
+- action_id: repair-ecological-equilibrium
+  description: Qualify the unsupported STABLE designation.
+  finding_ids:
+  - ecological-equilibrium
+  target_ids:
+  - CommunityMech:000006
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Supply ecological evidence for stable equilibrium or explicitly document the unresolved
+    state; distinguish long evolutionary association from demonstrated equilibrium.
+  - 'Do not automatically substitute ENGINEERED or TRANSIENT: neither follows from
+    creating a metabolic model.'
+  - If the required enum cannot represent uncertainty truthfully, record the bounded
+    schema issue for separately authorized follow-up rather than inventing biological
+    dynamics.
+- action_id: repair-computational-provenance
+  description: Structure the model and run assumptions.
+  finding_ids:
+  - computational-provenance
+  target_ids:
+  - CommunityMech:000006
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Populate claim-level computational provenance with FBA/FVA, COBRA Toolbox 3.0,
+    MATLAB/Gurobi, iNA761, model source/input accession and modeled bacteriocyte/hemolymph
+    context; leave unreported software versions unset.
+  - Preserve oxygen uptake 20, published run uptake caps, equal bacterial biomass
+    lower bounds 0.01, objective and transport-cost assumptions with their units and
+    source scope. Distinguish maintenance-cost simulations from baseline growth.
+  - Retain the discrepancy between deposited exchange bounds and published runtime
+    settings, and S5o cystathionine versus closed proteinogenic-amino-acid exchanges.
+    Do not turn default zero FLUX_VALUE entries into results.
+  - Keep wet-lab growth_media absent; retain the existing discussion and all three
+    qualified nodes with no arrows.
+- action_id: repair-resource-types
+  description: Separate the publication from study resources.
+  finding_ids:
+  - resource-types
+  target_ids:
+  - CommunityMech:000006
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Move PMID:30254121 to an appropriate publication/evidence resource; preserve the
+    actual BioModels MODEL1806250003 file entry.
+  - Link the verified focal PRJNA342845 transcriptome project and immutable author
+    repository commit with their exact host/model scope. Do not import the two other
+    insect projects as focal data.
+  - Keep archive status, byte differences and unexecuted model boundaries explicit;
+    do not claim raw-data inspection, reproducibility or strain-resolution from this
+    metadata check.
+- action_id: preserve-model-graph
+  description: Preserve computational scope and the three-node, zero-arrow graph during
+    separately authorized curation.
+  finding_ids:
+  - host-membership
+  - ecological-equilibrium
+  - computational-provenance
+  - resource-types
+  target_ids:
+  - CommunityMech:000006
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Keep host-mediated regulation PARTIAL, the two bacterial exchanges explicit and
+    all nitrogen quantities source-scoped.
+  - Do not restore component-to-summary arrows or assert measured transfer, fitness,
+    equilibrium or model reproducibility.
+  - Preserve append-only history and rerun schema, strict, term, reference, history
+    and target/corpus network checks after authorized changes.
+limitations:
+- No FBA/FVA optimization, model/code execution, MATLAB payload, transcriptome reconstruction
+  or raw-sequence analysis was performed. Archive metadata and structural XML checks
+  do not establish reproducibility.
+- Supplementary workbook reading was bounded to inventories/headers and declared focal
+  sheets/rows; large reaction lists and other-insect numerical tables were not exhaustively
+  audited.
+- BioModels defaults differ from published runtime constraints; the author-repository
+  model is not byte-identical. Neither fact establishes wrong model identity, and
+  stored zero flux values are not published results.
+- Figure 4 caption and panel labels disagree on spittlebug panel lettering. S5o permits
+  cystathionine despite prose amino-acid exclusion; the twenty listed proteinogenic
+  amino-acid exchanges are closed. These source nuances constrain future provenance
+  expansion.
+- Exact bacterial culture-collection strains, a replacement ecological-state classification
+  and a new environment ontology term were not verified. No empirical host-control
+  or dynamic equilibrium assay was inferred.
+- Failed publisher/bin requests, CAPTCHA pages and OA-manifest responses were retained;
+  successful EPMC XML and supplement retrieval resolved current-claim access needs.
+notes:
+- No canonical, cache, history or generated file changed.
+- All 24 repository inputs were pinned before assessment and rechecked.
+- Sixteen quoted words from the focal publication, including its supplements as one
+  quotation budget.
+- Native quality100 is capped from111 and does not negate the two major/two minor
+  findings.
+tags:
+- record-review
+- metabolic-model
+- endosymbiosis
+- batch-07

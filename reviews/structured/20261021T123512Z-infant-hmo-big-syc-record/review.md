@@ -1,0 +1,1432 @@
+# Infant gut HMO BIG-Syc review
+
+- Review: 20261021T123512Z-infant-hmo-big-syc-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T12:26:14.467237Z
+- Finished UTC: 2026-10-21T12:35:12.677845Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+The 13-strain community and three qualified nodes/two PARTIAL arrows remain supported. Three minor findings address experimental context, claim-specific evidence/model provenance and public resource organization.
+
+## Scope And Provenance
+
+Whole record, direct primary main and critical supplementary figures/tables, culture authorities and focal model/data resources.
+
+Selection: Only released CommunityMech:000012 after 000011 save and both mandatory gates.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000012 | kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml | maintained | BioModels MODEL2405300001 Infant Gut HMO SynCom |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000012 | Schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000012 | Strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000012 | Term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000012 | GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000012 | GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000012 | History validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000012 | Read-only cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000012 | Reference validation passed against pinned cache. |
+| audit-network | failed | True | CommunityMech:000012 | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records; target-native structure is COMPLETE. |
+| check-network-quality | failed | True | CommunityMech:000012 | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records; target-native structure is COMPLETE. |
+| Primary source and resource identity | passed | True | CommunityMech:000012 | Direct publication and model/data identities verified within metadata/static-inspection scope. |
+| Whole-record scientific assessment | passed | True | CommunityMech:000012 | Complete main and critical figure/supplement scopes inspected; no simulation or raw-data reanalysis. |
+| Medium and ingredient external links | not_applicable | False | CommunityMech:000012 | No CultureMech or MediaIngredientMech identifier is encoded. No new external recipe identity was inferred. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000012 | No runnable applicable adapter was established in recorded discovery. |
+
+## Scientific And Domain Assessments
+
+### Cultured BIG-Syc and its model collection
+
+identity: supported. Targets: CommunityMech:000012.
+
+The 13-strain synthetic community is correctly identified; ENGINEERED/SYNTHETIC and the existing three-node/two-arrow scope are defensible.
+
+### Membership and functional-role evidence placement
+
+evidence: concern. Targets: CommunityMech:000012.
+
+All 13 members and conditional roles have source support, but the two attached taxonomy snippets do not establish their claimed degrader roles.
+
+Taxonomy[0] cites a general 13-strain assembly sentence; taxonomy[1] cites mutual suppression. Use precise membership and role passages. Preserve B. breve PRIMARY_DEGRADER for substrate-qualified capacity rather than declaring all-HMO utilization; recipient and secondary-fermenter roles remain source-reconstructed. Missing optional evidence lists are not schema failures.
+
+### ecological_interactions[0]: bifidobacterial HMO resource sharing
+
+graph: supported. Targets: CommunityMech:000012.
+
+Retain the three bifidobacteria as substrate-dependent contributors with PARTIAL donor-transfer evidence.
+
+B. infantis and B. bifidum vary by mixture and replicate. B. breve often consumes simpler products and has conditional LNT-related capacity. Measured community HMO depletion and proteomic patterns do not establish identical release or donor-resolved flux from all three.
+
+### ecological_interactions[0].downstream[0]
+
+graph: supported. Targets: CommunityMech:000012.
+
+Retain the qualified bifidobacterial-processing → recipient-use direction.
+
+Participants are the three bifidobacterial donors and the eight named recipient taxa of node 1. Simpler substrates and fermentation products plausibly connect the nodes in the authors reconstruction; the edge is PARTIAL and does not assert every donor-recipient route or necessary mediation.
+
+### ecological_interactions[1]: recipient utilization
+
+graph: supported. Targets: CommunityMech:000012.
+
+Retain the eight-recipient community network and its explicit inferred-gas/model-disagreement limits.
+
+Simple-sugar consumers, V. parvula lactate use and B. producta sugar/gas metabolism have distinct evidence. Supplied CO2 prevents unique bacterial-donor attribution. The current S. thermophilus grounding preserves the paper legacy subspecies name. Monosaccharide denotes a subset of simple carbohydrates, not lactose or LNB.
+
+### ecological_interactions[2]: non-bifidobacterial HMO capacity
+
+graph: supported. Targets: CommunityMech:000012.
+
+Retain B. fragilis and R. gnavus as qualified HMO-degrading contributors.
+
+The source combines growth, proteins, curated pathways and external literature; some extracellular locations and substrate release remain putative. Community depletion does not establish every specific donor output, and model curation gaps do not negate experimentally supported capacity.
+
+### ecological_interactions[2].downstream[0]
+
+graph: supported. Targets: CommunityMech:000012.
+
+Retain the PARTIAL non-bifidobacterial-processing → recipient-use direction.
+
+The source proposes B. fragilis/R. gnavus processing supplies simpler substrates to node 1 recipients. This is an evidence-bounded resource-sharing hypothesis, not tracer-confirmed transfer or proof every named member is necessary. No new arrows are warranted.
+
+### Assay conditions and experimental design
+
+completeness: concern. Targets: CommunityMech:000012.
+
+Most reactor parameters are correct; carbon wording and bench/model/monoculture context need refinement.
+
+Retain 300 mL, 37 °C, pH 6, gas mixture and continuous feed. Describe redox as below −300 mV rather than an exact measured equality. Recover mixture proportions and the late-inoculation arm without applying them to all experiments. The source basal recipe is referenced to earlier work; no uninspected complete recipe is invented.
+
+### Ingredient relevance and mechanism certainty
+
+evidence: concern. Targets: CommunityMech:000012.
+
+Broad chemical classes are suitable, but deterministic mixture wording should match the graph limits.
+
+The four-versus-five mix does not uniquely determine the dominant bifidobacterium in every replicate, and LNT is not the only changed component. Organic-acid and simple-carbohydrate sharing should remain source-reconstructed, without assigning universally resolved donor flux or complete depletion at every timepoint.
+
+### Individual-model and evidence-tier provenance
+
+provenance: concern. Targets: CommunityMech:000012.
+
+The record identifies a model set but should encode its separate computational scope and assumptions.
+
+Preserve IN_VITRO for culture measurements and add claim-specific COMPUTATIONAL provenance for model-only outputs. CarveMe/CobraPy FBA/FVA/pFBA with GLPK operate on individual GEMs, not a 13-species community simulation; model substrates, constraints and experimental disagreement belong with those claims.
+
+### Archive and public data organization
+
+provenance: concern. Targets: CommunityMech:000012.
+
+The exact BioModels archive is valid; publication and scientific datasets need separate representation.
+
+Link verified amplicon and metaproteomic deposits with their actual scopes. Repository metadata/access does not establish an immutable code version if the repository endpoint is unavailable. Catalogue/reference genomes are not newly generated study datasets.
+
+### Previous repairs and current source support
+
+provenance: supported. Targets: CommunityMech:000012.
+
+All 18 snippets directly match, and the earlier qualified topology and B. ovatus identity should be retained.
+
+The old unread-SI/figure limits remain historical. Current review expands inspected scope without closing linked issues or editing prior decisions. Later PMID 42020426 provides no evidence for this focal synthetic community.
+
+### Native checks and authority
+
+schema: supported. Targets: CommunityMech:000012.
+
+All eight native checks pass; source-context refinements remain.
+
+### Mechanical metrics
+
+completeness: supported. Targets: CommunityMech:000012.
+
+Native scores do not negate the three minor follow-ups.
+
+## Findings
+
+### experimental-context: Clarify medium and experimental context
+
+minor / open / confirmed; issue key: cm-000012-experimental-context.
+
+The in-silico-only environmental note omits actual continuous cultivation, and sole-carbon wording is too literal for basal medium containing yeast extract and supplied CO2. The generic design also leaves distinct assay/mixture contexts unresolved.
+
+### claim-provenance: Align claim-level evidence and computational scope
+
+minor / open / confirmed; issue key: cm-000012-claim-provenance.
+
+Taxonomy evidence is too broad for the stated roles; ingredient dominance wording is stronger than replicate-resolved observations, and model-only support lacks structured provenance distinguishing it from culture measurements.
+
+### resource-organization: Separate publication evidence from scientific data resources
+
+minor / open / confirmed; issue key: cm-000012-resource-organization.
+
+The primary paper occupies a dataset entry while directly reported amplicon/proteomics data and code-resource scope are not represented.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-experimental-context
+
+Clarify medium and experimental context.
+
+- Distinguish physical anaerobic reactors from modeled infant intestine and individual GEM assumptions. Retain supported ENGINEERED/SYNTHETIC identity.
+- Describe HMOs as the supplied test carbohydrate substrate in modified basal medium with 1 g/L yeast extract; retain the authors sole-carbon terminology only with this explicit scope. Do not infer all biomass carbon or CO2 derives from HMOs.
+- Preserve the 0.4% community mixture versus 0.2% single-strain assays and the B. producta monoculture bicarbonate/100% N2 modification. Record 4HMO/5HMO composition ratios from Table 1 rather than treating the comparison as LNT addition alone.
+- Refine design with actual endpoints and the 5HMO ten-member start/three-bifidobacteria addition at 73 h continuous time. Preserve batch/continuous time labels, 12.5 mL/h feed, 300 mL volume and redox below −300 mV.
+
+### repair-claim-provenance
+
+Align claim-level evidence and computational scope.
+
+- Attach exact membership/strain and role-specific passages to taxonomy claims. Retain all 13 strains and source-qualified roles; do not delete B. breve primary-degrader capacity merely because it also scavenges simpler substrates.
+- Replace deterministic HMO-mixture dominance wording with observed, replicate-dependent trends: B. infantis predominated in four of six 4HMO replicates; 5HMO favoured B. bifidum. Preserve mixture-ratio changes and the 6-SL depletion exception.
+- Keep ingredient resource sharing qualified consistently with the existing PARTIAL nodes/arrows; no donor-resolved carbon/gas flux, universal member necessity or complete degradation at every timepoint is established.
+- Use narrow IN_VITRO versus COMPUTATIONAL evidence and computational_provenance for individual CarveMe/CobraPy FBA/FVA/pFBA/GLPK models, source-specific medium assumptions and model/experiment disagreement. Do not describe a community FBA simulation or import reference-genome/proteome strains as cultured members.
+
+### repair-resource-organization
+
+Separate publication evidence from scientific data resources.
+
+- Keep the valid MODEL2405300001/Gap-filled_Curated_HMO_GEMs.zip resource and its 13-model scope; do not replace it with an uninspected version or treat archive reports as experimental certification.
+- Move the publication to bibliographic evidence/resources rather than a dataset. Add verified PRJEB72539 amplicon sequencing and PXD047785 metaproteomics with their actual treatment/sample scope.
+- Link the public WUR code project with explicit current access/version limits. Do not claim an inspected immutable commit, execution, raw-payload verification or study-specific new genomes without evidence.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml; Whole record: 13 strains, three community-level nodes and two PARTIAL arrows | supports | The synthetic cultured community and associated individual-model collection are identifiable. Existing graph descriptions preserve strain, condition and inference limits. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=39423288&amp;retmode=xml; Article-level metadata and abstract where supplied | supports | PMID 39423288, DOI and article-level title/abstract identify the focal 2024 study. |
+| crossref | https://api.crossref.org/works/10.1093/ismejo/wrae209; Article-level metadata and abstract where supplied | supports | DOI, title and bibliographic identity verified; no independent experimental certification. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1093/ismejo/wrae209&amp;format=json&amp;resultType=core; Article-level metadata and abstract where supplied | supports | PMID 39423288/PMC11542058 and DOI identify the direct full source. |
+| membership | doi:10.1093/ismejo/wrae209; Fresh XML Sec 6 and Sec 21; Supplementary Methods Table 1 and Table 5 | supports | Methods names all 13 strains and culture aliases. Literature/bioinformatics guided bottom-up selection of HMO degraders, sugar/acid consumers and an acetogen; the laboratory collection strains are not a single infant inoculum. |
+| culture | doi:10.1093/ismejo/wrae209; Fresh XML Sec 6–Sec 8 and Table 1; Supplementary Methods pre-cultures/quality control | supports | The community uses 300 mL, 37 °C, pH 6, 80:20 N2/CO2 and a batch-to-continuous transition at 12.5 mL/h. Basal medium contains 1 g/L yeast extract; 0.4% HMO mixtures are added substrates, not the only carbon-containing inputs. Individual assays use 0.2% substrate and distinct B. producta bicarbonate/headspace conditions. |
+| mixes | doi:10.1093/ismejo/wrae209; Fresh XML Abstract, Sec 22/Sec 27 and Table 1; Figure 2 | supports | B. infantis predominates in four of six 4HMO replicates; 5HMO favours B. bifidum. The mixes change proportions and add LNT, so this is not a universal deterministic switch or an isolated LNT effect. |
+| reconstruction | doi:10.1093/ismejo/wrae209; Fresh XML Sec 26/Figure 7; Supplementary Tables 9–10 | partial | Growth, community depletion and metaproteomics inform the authors resource-sharing reconstruction; many per-species outputs and gas routes are inferred or supported by data-not-shown observations. |
+| degraders | doi:10.1093/ismejo/wrae209; Fresh XML Sec 24/Sec 26/Sec 27; Figure 4; Supplementary Methods Table 2 and Table 9 | partial | HMO use is strain/substrate-dependent. B. breve has conditional LNT-related capacity and often scavenges simpler products; B. fragilis and R. gnavus routes incorporate literature and putative extracellular activity. |
+| model-scope | doi:10.1093/ismejo/wrae209; Fresh XML Sec 19/Sec 26; Supplementary Methods creation/critical evaluation and Methods Tables 1–3 | supports | CarveMe and CobraPy FBA/FVA/pFBA provide individual-strain predictions. The supplement explicitly excludes community simulation, supplies glucose/lactose plus HMOs in model media, and documents disagreement with experimental profiles. |
+| reintroduction | doi:10.1093/ismejo/wrae209; Fresh XML Sec 8/Sec 25; Figure 6 | supports | The 5HMO deletion experiment starts with ten non-bifidobacterial members; three bifidobacteria are introduced at 73 h of continuous fermentation and assessed later. This is separate from the all 13-strain inoculation experiments. |
+| resources-source | doi:10.1093/ismejo/wrae209; Fresh XML Data availability | supports | The source reports PRJEB72539 amplicon reads, PXD047785 metaproteomics, MODEL2405300001 individual GEMs and a public WUR code project. A paper is bibliographic evidence rather than a scientific dataset. |
+| supplement | doi:10.1093/ismejo/wrae209; supplement-text.json: Methods Tables 1–3; Tables 1/5/7/9/10; workbook-scope.json declared labels/rows | supports | The supplement separates model assumptions from culture conditions and makes donor-specific, gas and reference-input limits explicit. Methods Table 2 supports conditional B. breve LNT capacity; Tables 9–10 combine proteomic, monoculture and modeling evidence. |
+| schema | src/communitymech/schema/communitymech.yaml; MicrobialCommunity environment_term/modeled_environment; EvidenceItem and ComputationalProvenance; FunctionalRoleEnum | supports | Physical experimental context, model assumptions and source-specific evidence belong in distinct fields. Functional roles can be conditional; no universal all-HMO degradation or directly traced flux is implied by the role enum. |
+| ontology | kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml; ontology-authority.json | supports | All 19 unique pairs across 36 occurrences match current authority labels; broad chemical classes are valid within their stated scope. |
+| resources | kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml; dataset-verification.json | supports | Direct focal archive, ENA/PRIDE and public repository metadata inspected at their declared scopes; no model execution or raw-data processing. |
+| snippets | kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml; snippet-audit.json | supports | All 18 excerpts match direct full XML and the DOI cache; the separate later-pair-study cache is not focal evidence. |
+| history | kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml; provenance-audit.json | supports | Current issues 1259/292/293 are closed; 1262 remains open and explicitly tracks this target medium/environment follow-up. Prior corrected B. ovatus identity and qualified arrows are preserved. |
+| native-target | kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml; support-audit.json | supports | Mechanical completeness and quality are distinct from the three minor scientific/provenance follow-ups. |
+| source-scope | doi:10.1093/ismejo/wrae209; source-audit.json | supports | Whole main and declared critical supplement/figure/model scopes were inspected. |
+| independent-source | doi:10.1093/ismejo/wrae209; root-independent-source-audit.json | context_only | Independent source assessment corroborates the bounded record review and current graph preservation. |
+| search | Owned maintained roots; local-search.json: ignored-inclusive bounded discovery | supports | Reuse and identity-search results apply only to recorded roots. |
+| adapter | Optional structured source adapter; adapter-check.json | supports | No applicable runnable adapter was established in recorded discovery. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml; Actual execution 2026-10-21T12:26:58.418002+00:00 to 2026-10-21T12:26:59.653867+00:00 | supports | Schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-strict kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml --out /private/tmp/cm-review-session/batch-07/000012/strict-report.tsv; Actual execution 2026-10-21T12:26:58.418329+00:00 to 2026-10-21T12:27:01.148369+00:00 | supports | Strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-terms kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml; Actual execution 2026-10-21T12:26:58.418433+00:00 to 2026-10-21T12:27:00.846712+00:00 | supports | Term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-gtdb kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml; Actual execution 2026-10-21T12:26:59.654409+00:00 to 2026-10-21T12:26:59.784415+00:00 | supports | GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-gtdb-domain kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml; Actual execution 2026-10-21T12:26:59.784831+00:00 to 2026-10-21T12:27:01.363987+00:00 | supports | GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-history history/records/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom; Actual execution 2026-10-21T12:27:00.847118+00:00 to 2026-10-21T12:27:01.652512+00:00 | supports | History validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T12:27:01.653378+00:00 to 2026-10-21T12:27:01.862513+00:00 | supports | Read-only cache-filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-references-explained kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml; Actual execution 2026-10-21T12:27:01.863600+00:00 to 2026-10-21T12:27:04.398610+00:00 | supports | Reference validation passed against pinned cache. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T11:32:06.425768+00:00 to 2026-10-21T11:32:16.427975+00:00 | supports | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records; target-native structure is COMPLETE. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T11:32:06.426382+00:00 to 2026-10-21T11:32:14.966232+00:00 | supports | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records; target-native structure is COMPLETE. |
+| strain-authority | Culture collections and local NCBITaxon authority; strain-authority.json and strain-candidate-oak.json | supports | The primary Methods and local OAK establish the encoded roster; four archive aliases have direct catalogue support. ATCC 25285 and the LPSN thermophilus lookup were indexed-only leads, not direct catalogue confirmation. More specific NCBI candidates are optional and do not establish a different species or a strain-specific GTDB mapping. |
+
+## Limits And Additional Notes
+
+- No metabolic optimization, raw sequencing/proteomics analysis, donor tracing or unpublished data-not-shown experiment was performed. Source inference is not upgraded by lexical matches or static model checks.
+- Bench community fermentations, individual-strain growth assays, deletion/reintroduction experiments and individual GEM simulations are separate contexts. No community FBA, SteadyCom or MICOM was used in this paper.
+- The two HMO mixtures change proportions as well as LNT presence; replicate-dependent dominance and the 6-SL depletion exception remain explicit. Model and experimental metabolite profiles disagree.
+- Culture-collection aliases and reference genomes/proteomes are different provenance objects. E. faecalis TX2141 proteomics reference and the supplementary GG-or-HN001 genome wording do not replace cultured strains. Global GTDB mappings do not establish strain-specific reclassification.
+- Supplementary Table 6 was not audited cell by cell; Table 8 statistical significance was not recalculated. The later PMID 42020426 pair-study cache is context only and supplies no focal claim evidence.
+- ATCC 25285 and LPSN thermophilus catalogue leads were indexed-only; primary Methods plus local OAK support the roster independently. Current names/aliases do not authorize automatic strain-taxonomy or GTDB replacement.
+- The original basal-medium reference and underlying external strain-mechanism literature were not separately audited; no complete recipe or new mechanistic certainty is imported from them.
+- No canonical, cache, history or generated files changed. All 24 repository inputs remain pinned.
+- All quotations from the publication and supplements share one 25-word limit.
+- Native quality 100 is capped from 129; three minor scientific/provenance findings remain.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T123512Z-infant-hmo-big-syc-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Infant gut HMO BIG-Syc review
+started_at: '2026-10-21T12:26:14.467237Z'
+finished_at: '2026-10-21T12:35:12.677845Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary science, native/ontology checks
+    and supporting metadata; no person-level independence asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: The 13-strain community and three qualified nodes/two PARTIAL arrows remain
+  supported. Three minor findings address experimental context, claim-specific evidence/model
+  provenance and public resource organization.
+source:
+  git_revision: 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom/2026-10-05T124957Z-codex-572dab.yaml
+    sha256: 2ecd98744d07eb1b45be1a2cec6c6d918be12703cc7c34cc56429c60af3f2da5
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+    sha256: 365fbc2f8f5c39c550f6a8542f6bbdafffea1ac2634611db31fd637d1e2ece59
+    role: target
+  - path: references_cache/PMID_42020426.md
+    sha256: b9d67d6a9cceb1a072d6cfdf08d59a7c4b5edadb1759fa46bfb54aa05744d1fc
+    role: context
+  - path: references_cache/doi_10.1093_ismejo_wrae209.md
+    sha256: db537d6d64b887be43708f4b4a87ff18171ae7aab2211e99f8c4686658b74f04
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+    sha256: c96f00489d2ad14f63cd035adc778adbf72d7fe6a11c2dffd81cd1a904cc0a75
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000012
+  path: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  label: BioModels MODEL2405300001 Infant Gut HMO SynCom
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+    role: canonical_record
+scope:
+  description: Whole record, direct primary main and critical supplementary figures/tables,
+    culture authorities and focal model/data resources.
+  selection: Only released CommunityMech:000012 after 000011 save and both mandatory
+    gates.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000012
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema validation passed.
+  target_ids:
+  - CommunityMech:000012
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict validation passed.
+  target_ids:
+  - CommunityMech:000012
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-strict kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+    --out /private/tmp/cm-review-session/batch-07/000012/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Term validation passed.
+  target_ids:
+  - CommunityMech:000012
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-terms kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000012
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000012
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb-domain kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: History validation passed.
+  target_ids:
+  - CommunityMech:000012
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-history history/records/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000012
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Reference validation passed against pinned cache.
+  target_ids:
+  - CommunityMech:000012
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-references-explained kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records;
+    target-native structure is COMPLETE.
+  target_ids:
+  - CommunityMech:000012
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Explicit reuse of fresh batch 07 corpus receipts, not a target-specific
+    pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records;
+    target-native structure is COMPLETE.
+  target_ids:
+  - CommunityMech:000012
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Explicit reuse of fresh batch 07 corpus receipts, not a target-specific
+    pass.
+- check_id: source-identity
+  name: Primary source and resource identity
+  status: passed
+  required: true
+  summary: Direct publication and model/data identities verified within metadata/static-inspection
+    scope.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - pubmed
+  - resources
+  - strain-authority
+- check_id: scientific-source
+  name: Whole-record scientific assessment
+  status: passed
+  required: true
+  summary: Complete main and critical figure/supplement scopes inspected; no simulation
+    or raw-data reanalysis.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - source-scope
+  - independent-source
+- check_id: cross-mech
+  name: Medium and ingredient external links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech identifier is encoded. No new external
+    recipe identity was inferred.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - record
+  - culture
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: No runnable applicable adapter was established in recorded discovery.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  locator: 'Whole record: 13 strains, three community-level nodes and two PARTIAL
+    arrows'
+  summary: The synthetic cultured community and associated individual-model collection
+    are identifiable. Existing graph descriptions preserve strain, condition and inference
+    limits.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.077350Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39423288&retmode=xml
+  locator: Article-level metadata and abstract where supplied
+  summary: PMID 39423288, DOI and article-level title/abstract identify the focal
+    2024 study.
+  support: supports
+  accessed_at: '2026-10-21T12:26:58.543404Z'
+  snapshot_sha256: 0ba90aa2349a616023f0a0d61604039155d1248d0012fe30f1f1715c65106e0a
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1093/ismejo/wrae209
+  locator: Article-level metadata and abstract where supplied
+  summary: DOI, title and bibliographic identity verified; no independent experimental
+    certification.
+  support: supports
+  accessed_at: '2026-10-21T12:26:58.574053Z'
+  snapshot_sha256: 3c34043403e88161491272efde53405f763de66030203bbd5c24d05cc0e5c5be
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1093/ismejo/wrae209&format=json&resultType=core
+  locator: Article-level metadata and abstract where supplied
+  summary: PMID 39423288/PMC11542058 and DOI identify the direct full source.
+  support: supports
+  accessed_at: '2026-10-21T12:26:58.956443Z'
+  snapshot_sha256: d6f037d188b39f4d64dd2c8811dbf542053c187ce72a458edae6b1953ea29a95
+- evidence_id: membership
+  kind: primary_source
+  reference: doi:10.1093/ismejo/wrae209
+  locator: Fresh XML Sec 6 and Sec 21; Supplementary Methods Table 1 and Table 5
+  summary: Methods names all 13 strains and culture aliases. Literature/bioinformatics
+    guided bottom-up selection of HMO degraders, sugar/acid consumers and an acetogen;
+    the laboratory collection strains are not a single infant inoculum.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.078363Z'
+  snapshot_sha256: 15785f789908faf0c39493161e94aa572b61a9adcd4be5ee607cc3866d7cc74e
+- evidence_id: culture
+  kind: primary_source
+  reference: doi:10.1093/ismejo/wrae209
+  locator: Fresh XML Sec 6–Sec 8 and Table 1; Supplementary Methods pre-cultures/quality
+    control
+  summary: The community uses 300 mL, 37 °C, pH 6, 80:20 N2/CO2 and a batch-to-continuous
+    transition at 12.5 mL/h. Basal medium contains 1 g/L yeast extract; 0.4% HMO mixtures
+    are added substrates, not the only carbon-containing inputs. Individual assays
+    use 0.2% substrate and distinct B. producta bicarbonate/headspace conditions.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.078441Z'
+  snapshot_sha256: 15785f789908faf0c39493161e94aa572b61a9adcd4be5ee607cc3866d7cc74e
+- evidence_id: mixes
+  kind: primary_source
+  reference: doi:10.1093/ismejo/wrae209
+  locator: Fresh XML Abstract, Sec 22/Sec 27 and Table 1; Figure 2
+  summary: B. infantis predominates in four of six 4HMO replicates; 5HMO favours B.
+    bifidum. The mixes change proportions and add LNT, so this is not a universal
+    deterministic switch or an isolated LNT effect.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.078516Z'
+  snapshot_sha256: 15785f789908faf0c39493161e94aa572b61a9adcd4be5ee607cc3866d7cc74e
+  quote: in four of six replicates
+- evidence_id: reconstruction
+  kind: primary_source
+  reference: doi:10.1093/ismejo/wrae209
+  locator: Fresh XML Sec 26/Figure 7; Supplementary Tables 9–10
+  summary: Growth, community depletion and metaproteomics inform the authors resource-sharing
+    reconstruction; many per-species outputs and gas routes are inferred or supported
+    by data-not-shown observations.
+  support: partial
+  accessed_at: '2026-10-21T12:34:50.078591Z'
+  snapshot_sha256: 15785f789908faf0c39493161e94aa572b61a9adcd4be5ee607cc3866d7cc74e
+  quote: reconstruct the resource-sharing
+- evidence_id: degraders
+  kind: primary_source
+  reference: doi:10.1093/ismejo/wrae209
+  locator: Fresh XML Sec 24/Sec 26/Sec 27; Figure 4; Supplementary Methods Table 2
+    and Table 9
+  summary: HMO use is strain/substrate-dependent. B. breve has conditional LNT-related
+    capacity and often scavenges simpler products; B. fragilis and R. gnavus routes
+    incorporate literature and putative extracellular activity.
+  support: partial
+  accessed_at: '2026-10-21T12:34:50.078663Z'
+  snapshot_sha256: 15785f789908faf0c39493161e94aa572b61a9adcd4be5ee607cc3866d7cc74e
+  quote: with a preference for some structures
+- evidence_id: model-scope
+  kind: primary_source
+  reference: doi:10.1093/ismejo/wrae209
+  locator: Fresh XML Sec 19/Sec 26; Supplementary Methods creation/critical evaluation
+    and Methods Tables 1–3
+  summary: CarveMe and CobraPy FBA/FVA/pFBA provide individual-strain predictions.
+    The supplement explicitly excludes community simulation, supplies glucose/lactose
+    plus HMOs in model media, and documents disagreement with experimental profiles.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.078734Z'
+  snapshot_sha256: 15785f789908faf0c39493161e94aa572b61a9adcd4be5ee607cc3866d7cc74e
+  quote: did not fully align
+- evidence_id: reintroduction
+  kind: primary_source
+  reference: doi:10.1093/ismejo/wrae209
+  locator: Fresh XML Sec 8/Sec 25; Figure 6
+  summary: The 5HMO deletion experiment starts with ten non-bifidobacterial members;
+    three bifidobacteria are introduced at 73 h of continuous fermentation and assessed
+    later. This is separate from the all 13-strain inoculation experiments.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.078806Z'
+  snapshot_sha256: 15785f789908faf0c39493161e94aa572b61a9adcd4be5ee607cc3866d7cc74e
+- evidence_id: resources-source
+  kind: primary_source
+  reference: doi:10.1093/ismejo/wrae209
+  locator: Fresh XML Data availability
+  summary: The source reports PRJEB72539 amplicon reads, PXD047785 metaproteomics,
+    MODEL2405300001 individual GEMs and a public WUR code project. A paper is bibliographic
+    evidence rather than a scientific dataset.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.078879Z'
+  snapshot_sha256: 15785f789908faf0c39493161e94aa572b61a9adcd4be5ee607cc3866d7cc74e
+- evidence_id: supplement
+  kind: primary_source
+  reference: doi:10.1093/ismejo/wrae209
+  locator: 'supplement-text.json: Methods Tables 1–3; Tables 1/5/7/9/10; workbook-scope.json
+    declared labels/rows'
+  summary: The supplement separates model assumptions from culture conditions and
+    makes donor-specific, gas and reference-input limits explicit. Methods Table 2
+    supports conditional B. breve LNT capacity; Tables 9–10 combine proteomic, monoculture
+    and modeling evidence.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.078935Z'
+  snapshot_sha256: 2d6bc6d5b60412d05412e0fd9dad6cd58fd8d6c4a45f2282de103a6d511e58ea
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: MicrobialCommunity environment_term/modeled_environment; EvidenceItem and
+    ComputationalProvenance; FunctionalRoleEnum
+  summary: Physical experimental context, model assumptions and source-specific evidence
+    belong in distinct fields. Functional roles can be conditional; no universal all-HMO
+    degradation or directly traced flux is implied by the role enum.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.078997Z'
+  snapshot_sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+- evidence_id: ontology
+  kind: authority
+  reference: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  locator: ontology-authority.json
+  summary: All 19 unique pairs across 36 occurrences match current authority labels;
+    broad chemical classes are valid within their stated scope.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.079222Z'
+  snapshot_sha256: 26b9f5c1508ea9405cbef2995c88699a5eeb0568dfaabdf79d225bdab36fa360
+- evidence_id: resources
+  kind: database
+  reference: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  locator: dataset-verification.json
+  summary: Direct focal archive, ENA/PRIDE and public repository metadata inspected
+    at their declared scopes; no model execution or raw-data processing.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.079267Z'
+  snapshot_sha256: c12ad29cea841cde1736486df104c349e2f366db558f458d77cdf7627958509f
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  locator: snippet-audit.json
+  summary: All 18 excerpts match direct full XML and the DOI cache; the separate later-pair-study
+    cache is not focal evidence.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.079410Z'
+  snapshot_sha256: 5d653ed9ff3ee0bf2ec62d10e92daf224987a6ee047edc62a37a95ee07280e88
+- evidence_id: history
+  kind: record_content
+  reference: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  locator: provenance-audit.json
+  summary: Current issues 1259/292/293 are closed; 1262 remains open and explicitly
+    tracks this target medium/environment follow-up. Prior corrected B. ovatus identity
+    and qualified arrows are preserved.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.079567Z'
+  snapshot_sha256: 0f3b8f077bc283dd6f499450fca998c6d9213f57060d83a923d6110bc462a255
+- evidence_id: native-target
+  kind: validation
+  reference: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  locator: support-audit.json
+  summary: Mechanical completeness and quality are distinct from the three minor scientific/provenance
+    follow-ups.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.079610Z'
+  snapshot_sha256: 28648491ef5fcac33490902c1fe9d5cb178dfeb3372530d4b5397e8ab594429f
+- evidence_id: source-scope
+  kind: validation
+  reference: doi:10.1093/ismejo/wrae209
+  locator: source-audit.json
+  summary: Whole main and declared critical supplement/figure/model scopes were inspected.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.079639Z'
+  snapshot_sha256: 0e8bfc717d2d6aaa03ec931d49bb4216903bd04c046396e7e15918b1dcbf48ab
+- evidence_id: independent-source
+  kind: validation
+  reference: doi:10.1093/ismejo/wrae209
+  locator: root-independent-source-audit.json
+  summary: Independent source assessment corroborates the bounded record review and
+    current graph preservation.
+  support: context_only
+  accessed_at: '2026-10-21T12:34:50.079664Z'
+  snapshot_sha256: 18a54a08eb00f52265ef244fad052cc74d9377fe16c0be29e607f608b21f4716
+- evidence_id: search
+  kind: search
+  reference: Owned maintained roots
+  locator: 'local-search.json: ignored-inclusive bounded discovery'
+  summary: Reuse and identity-search results apply only to recorded roots.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.079805Z'
+  snapshot_sha256: 9702b44c9c1861428499785b42e2fb7e7e9bca43498f0b4bdffe1e82de19127e
+  search_scope: Ignored-inclusive maintained communities, isolates, reusable taxa
+    and recorded mapping-file discovery.
+- evidence_id: adapter
+  kind: search
+  reference: Optional structured source adapter
+  locator: adapter-check.json
+  summary: No applicable runnable adapter was established in recorded discovery.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.080042Z'
+  snapshot_sha256: e2d48c0c74a8b18247a63d52496b3e7527826a79ca836904c06f519c4fbc5b7c
+  search_scope: Recorded runtime and ignored-inclusive local discovery; no outside-checkout
+    execution or paid provider.
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  locator: Actual execution 2026-10-21T12:26:58.418002+00:00 to 2026-10-21T12:26:59.653867+00:00
+  summary: Schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T12:26:59.653867Z'
+  snapshot_sha256: 209b37e04328c8c8749bfd49aa72891be08fb7f332f39873716b0c33d2fb4900
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-strict kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+    --out /private/tmp/cm-review-session/batch-07/000012/strict-report.tsv
+  locator: Actual execution 2026-10-21T12:26:58.418329+00:00 to 2026-10-21T12:27:01.148369+00:00
+  summary: Strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T12:27:01.148369Z'
+  snapshot_sha256: bd27700925e6cd3f29919d2ecccfb98aa1d6da98ea3a531bbf6b2704c13984ce
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-terms kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  locator: Actual execution 2026-10-21T12:26:58.418433+00:00 to 2026-10-21T12:27:00.846712+00:00
+  summary: Term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T12:27:00.846712Z'
+  snapshot_sha256: 807aa53d4d9fdfd64e587df5faeb5f704ec3d13e90876747550fae536317f658
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  locator: Actual execution 2026-10-21T12:26:59.654409+00:00 to 2026-10-21T12:26:59.784415+00:00
+  summary: GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T12:26:59.784415Z'
+  snapshot_sha256: fc10b08e936d23f51e97b45de3be4dd285c7999905dd5ba3003eca05e15d01d8
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb-domain kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  locator: Actual execution 2026-10-21T12:26:59.784831+00:00 to 2026-10-21T12:27:01.363987+00:00
+  summary: GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T12:27:01.363987Z'
+  snapshot_sha256: c7895364f7fe4745e36273c0dba093758e6d630993afdd96bdfc6d37a37b87ca
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-history history/records/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom
+  locator: Actual execution 2026-10-21T12:27:00.847118+00:00 to 2026-10-21T12:27:01.652512+00:00
+  summary: History validation passed.
+  support: supports
+  accessed_at: '2026-10-21T12:27:01.652512Z'
+  snapshot_sha256: 9e32bb083aab44e3f48de8e5343577fe07deb565f5cd62a155acaf2e773eef19
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T12:27:01.653378+00:00 to 2026-10-21T12:27:01.862513+00:00
+  summary: Read-only cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T12:27:01.862513Z'
+  snapshot_sha256: 296441392bcdd6e6275b41b2b697839f6c89cd8c51c1a98dd099c4336707b707
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-references-explained kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+  locator: Actual execution 2026-10-21T12:27:01.863600+00:00 to 2026-10-21T12:27:04.398610+00:00
+  summary: Reference validation passed against pinned cache.
+  support: supports
+  accessed_at: '2026-10-21T12:27:04.398610Z'
+  snapshot_sha256: ab5b46c798a0a0356946eaa15590db5486f0583f293e49c424e5a02da5459859
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T11:32:06.425768+00:00 to 2026-10-21T11:32:16.427975+00:00
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records;
+    target-native structure is COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T11:32:16.427975Z'
+  snapshot_sha256: c16b3a28b790e90191e9c5fb067c97a8038a813593fbfbe1796bf78d116abafb
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T11:32:06.426382+00:00 to 2026-10-21T11:32:14.966232+00:00
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records;
+    target-native structure is COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T11:32:14.966232Z'
+  snapshot_sha256: 6a321df993e978ed76cacc843bf792ecb9969ab237ca14c6e8575723ee3410f3
+- evidence_id: strain-authority
+  kind: authority
+  reference: Culture collections and local NCBITaxon authority
+  locator: strain-authority.json and strain-candidate-oak.json
+  summary: The primary Methods and local OAK establish the encoded roster; four archive
+    aliases have direct catalogue support. ATCC 25285 and the LPSN thermophilus lookup
+    were indexed-only leads, not direct catalogue confirmation. More specific NCBI
+    candidates are optional and do not establish a different species or a strain-specific
+    GTDB mapping.
+  support: supports
+  accessed_at: '2026-10-21T12:34:50.083225Z'
+  snapshot_sha256: 9de220c85368e0961ad421274cd1656847630cf65731477a34b94aea083aec4f
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Cultured BIG-Syc and its model collection
+  outcome: supported
+  summary: The 13-strain synthetic community is correctly identified; ENGINEERED/SYNTHETIC
+    and the existing three-node/two-arrow scope are defensible.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - membership
+  - resources
+  - record
+  dimensions:
+  - name: community_scope
+    value: Defined 13-strain BIG-Syc and separate individual GEMs
+    definition: All 13 cultured members are encoded. Deletion/reintroduction and single-strain
+      experiments have distinct membership/conditions.
+    evidence_ids:
+    - membership
+    - reintroduction
+    - model-scope
+  - name: source_strain
+    value: Exact culture designations in Methods Sec 6
+    definition: Preserve strain aliases and distinguish experimental cultures from
+      reference genomes/proteomes. Source collection strains represent selected infant-gut
+      taxa.
+    evidence_ids:
+    - membership
+    - ontology
+  - name: environment
+    value: Physical laboratory reactors; modeled infant intestine
+    definition: The terms are compatible but the note describing exclusively in-silico
+      conditions omits the physical fermentations.
+    evidence_ids:
+    - culture
+    - schema
+  - name: medium
+    value: Modified basal medium with yeast extract and defined HMO mixtures
+    definition: The assay compares added HMO substrates. Model glucose/lactose inputs
+      and monoculture conditions are separate.
+    evidence_ids:
+    - culture
+    - model-scope
+  - name: experimental_setting
+    value: Batch-to-continuous cultures, single strains and later bifidobacterial
+      introduction
+    definition: Triplicate community runs use 0.4% HMO; individual growth assays use
+      0.2%. Two 4HMO runs and one 5HMO run are not identical replicates of one condition.
+    evidence_ids:
+    - culture
+    - mixes
+    - reintroduction
+  - name: evidence_tier
+    value: Measured culture/omics outputs plus inferred resource sharing and individual-model
+      predictions
+    definition: No donor-resolved tracing or community-model flux solution was established.
+    evidence_ids:
+    - reconstruction
+    - model-scope
+  - name: grounding_status
+    value: Current NCBI labels and bounded global GTDB mappings
+    definition: Source legacy names and culture aliases remain explicit. Global B.
+      producta-to-B. coccoides majority is not evidence to rename the tested JCM 1471
+      strain.
+    evidence_ids:
+    - membership
+    - ontology
+- assessment_id: taxonomy
+  area: evidence
+  topic: Membership and functional-role evidence placement
+  outcome: concern
+  summary: All 13 members and conditional roles have source support, but the two attached
+    taxonomy snippets do not establish their claimed degrader roles.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - membership
+  - degraders
+  - reconstruction
+  details: Taxonomy[0] cites a general 13-strain assembly sentence; taxonomy[1] cites
+    mutual suppression. Use precise membership and role passages. Preserve B. breve
+    PRIMARY_DEGRADER for substrate-qualified capacity rather than declaring all-HMO
+    utilization; recipient and secondary-fermenter roles remain source-reconstructed.
+    Missing optional evidence lists are not schema failures.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: bifidobacterial HMO resource sharing'
+  outcome: supported
+  summary: Retain the three bifidobacteria as substrate-dependent contributors with
+    PARTIAL donor-transfer evidence.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - mixes
+  - degraders
+  - reconstruction
+  details: B. infantis and B. bifidum vary by mixture and replicate. B. breve often
+    consumes simpler products and has conditional LNT-related capacity. Measured community
+    HMO depletion and proteomic patterns do not establish identical release or donor-resolved
+    flux from all three.
+- assessment_id: arrow-0
+  area: graph
+  topic: ecological_interactions[0].downstream[0]
+  outcome: supported
+  summary: Retain the qualified bifidobacterial-processing → recipient-use direction.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - reconstruction
+  - degraders
+  details: Participants are the three bifidobacterial donors and the eight named recipient
+    taxa of node 1. Simpler substrates and fermentation products plausibly connect
+    the nodes in the authors reconstruction; the edge is PARTIAL and does not assert
+    every donor-recipient route or necessary mediation.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: recipient utilization'
+  outcome: supported
+  summary: Retain the eight-recipient community network and its explicit inferred-gas/model-disagreement
+    limits.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - reconstruction
+  - model-scope
+  - supplement
+  details: Simple-sugar consumers, V. parvula lactate use and B. producta sugar/gas
+    metabolism have distinct evidence. Supplied CO2 prevents unique bacterial-donor
+    attribution. The current S. thermophilus grounding preserves the paper legacy
+    subspecies name. Monosaccharide denotes a subset of simple carbohydrates, not
+    lactose or LNB.
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: non-bifidobacterial HMO capacity'
+  outcome: supported
+  summary: Retain B. fragilis and R. gnavus as qualified HMO-degrading contributors.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - degraders
+  - reconstruction
+  - supplement
+  details: The source combines growth, proteins, curated pathways and external literature;
+    some extracellular locations and substrate release remain putative. Community
+    depletion does not establish every specific donor output, and model curation gaps
+    do not negate experimentally supported capacity.
+- assessment_id: arrow-2
+  area: graph
+  topic: ecological_interactions[2].downstream[0]
+  outcome: supported
+  summary: Retain the PARTIAL non-bifidobacterial-processing → recipient-use direction.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - degraders
+  - reconstruction
+  details: The source proposes B. fragilis/R. gnavus processing supplies simpler substrates
+    to node 1 recipients. This is an evidence-bounded resource-sharing hypothesis,
+    not tracer-confirmed transfer or proof every named member is necessary. No new
+    arrows are warranted.
+- assessment_id: cultivation
+  area: completeness
+  topic: Assay conditions and experimental design
+  outcome: concern
+  summary: Most reactor parameters are correct; carbon wording and bench/model/monoculture
+    context need refinement.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - culture
+  - mixes
+  - reintroduction
+  - model-scope
+  details: Retain 300 mL, 37 °C, pH 6, gas mixture and continuous feed. Describe redox
+    as below −300 mV rather than an exact measured equality. Recover mixture proportions
+    and the late-inoculation arm without applying them to all experiments. The source
+    basal recipe is referenced to earlier work; no uninspected complete recipe is
+    invented.
+- assessment_id: ingredients
+  area: evidence
+  topic: Ingredient relevance and mechanism certainty
+  outcome: concern
+  summary: Broad chemical classes are suitable, but deterministic mixture wording
+    should match the graph limits.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - mixes
+  - reconstruction
+  - degraders
+  - ontology
+  details: The four-versus-five mix does not uniquely determine the dominant bifidobacterium
+    in every replicate, and LNT is not the only changed component. Organic-acid and
+    simple-carbohydrate sharing should remain source-reconstructed, without assigning
+    universally resolved donor flux or complete depletion at every timepoint.
+- assessment_id: model
+  area: provenance
+  topic: Individual-model and evidence-tier provenance
+  outcome: concern
+  summary: The record identifies a model set but should encode its separate computational
+    scope and assumptions.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - model-scope
+  - supplement
+  - resources
+  - schema
+  details: Preserve IN_VITRO for culture measurements and add claim-specific COMPUTATIONAL
+    provenance for model-only outputs. CarveMe/CobraPy FBA/FVA/pFBA with GLPK operate
+    on individual GEMs, not a 13-species community simulation; model substrates, constraints
+    and experimental disagreement belong with those claims.
+- assessment_id: resources
+  area: provenance
+  topic: Archive and public data organization
+  outcome: concern
+  summary: The exact BioModels archive is valid; publication and scientific datasets
+    need separate representation.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - resources-source
+  - resources
+  details: Link verified amplicon and metaproteomic deposits with their actual scopes.
+    Repository metadata/access does not establish an immutable code version if the
+    repository endpoint is unavailable. Catalogue/reference genomes are not newly
+    generated study datasets.
+- assessment_id: history
+  area: provenance
+  topic: Previous repairs and current source support
+  outcome: supported
+  summary: All 18 snippets directly match, and the earlier qualified topology and
+    B. ovatus identity should be retained.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - snippets
+  - history
+  - record
+  details: The old unread-SI/figure limits remain historical. Current review expands
+    inspected scope without closing linked issues or editing prior decisions. Later
+    PMID 42020426 provides no evidence for this focal synthetic community.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and authority
+  outcome: supported
+  summary: All eight native checks pass; source-context refinements remain.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - check-validate
+  - check-validate-references-explained
+  - ontology
+  - strain-authority
+- assessment_id: metrics
+  area: completeness
+  topic: Mechanical metrics
+  outcome: supported
+  summary: Native scores do not negate the three minor follow-ups.
+  target_ids:
+  - CommunityMech:000012
+  evidence_ids:
+  - native-target
+  metrics:
+  - name: completeness
+    value: 90
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 50 required-fields/taxon-roles component +5 environment +10 three
+      nodes +5 resources +10 medium +5 datasets +5 node metabolites; environmental-factor
+      bonus 0.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 'clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      P1=0,P2=0,P3=3,P4=0; 6/3 mean evidence gives 20 bonus, network 15: 129 before
+      capping.'
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: experimental-context
+  issue_key: cm-000012-experimental-context
+  category: scope
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: a bounded context, wording or provenance correction;
+    the biological identity and qualified graph remain supported.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Clarify medium and experimental context
+  description: The in-silico-only environmental note omits actual continuous cultivation,
+    and sole-carbon wording is too literal for basal medium containing yeast extract
+    and supplied CO2. The generic design also leaves distinct assay/mixture contexts
+    unresolved.
+  target_ids:
+  - CommunityMech:000012
+  field_paths:
+  - environment_term.notes
+  - engineering_design
+  - growth_media[0].name
+  - growth_media[0].preparation_notes
+  - growth_media[0].redox_potential
+  - cultivation_setup[0].notes
+  evidence_ids:
+  - culture
+  - mixes
+  - reintroduction
+  - model-scope
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+    role: canonical_record
+- finding_id: claim-provenance
+  issue_key: cm-000012-claim-provenance
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: a bounded context, wording or provenance correction;
+    the biological identity and qualified graph remain supported.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Align claim-level evidence and computational scope
+  description: Taxonomy evidence is too broad for the stated roles; ingredient dominance
+    wording is stronger than replicate-resolved observations, and model-only support
+    lacks structured provenance distinguishing it from culture measurements.
+  target_ids:
+  - CommunityMech:000012
+  field_paths:
+  - taxonomy[0].evidence[0]
+  - taxonomy[1].evidence[0]
+  - related_ingredients[0].relevance
+  - related_ingredients[1].relevance
+  - related_ingredients[2].relevance
+  - engineering_design.evidence
+  - external_resources[0].evidence
+  - ecological_interactions[0].evidence
+  - ecological_interactions[1].evidence
+  - ecological_interactions[2].evidence
+  evidence_ids:
+  - membership
+  - mixes
+  - degraders
+  - reconstruction
+  - model-scope
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+    role: canonical_record
+- finding_id: resource-organization
+  issue_key: cm-000012-resource-organization
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: a bounded context, wording or provenance correction;
+    the biological identity and qualified graph remain supported.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Separate publication evidence from scientific data resources
+  description: The primary paper occupies a dataset entry while directly reported
+    amplicon/proteomics data and code-resource scope are not represented.
+  target_ids:
+  - CommunityMech:000012
+  field_paths:
+  - associated_datasets[1]
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - resources-source
+  - resources
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+    role: canonical_record
+actions:
+- action_id: repair-experimental-context
+  description: Clarify medium and experimental context.
+  finding_ids:
+  - experimental-context
+  target_ids:
+  - CommunityMech:000012
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Distinguish physical anaerobic reactors from modeled infant intestine and individual
+    GEM assumptions. Retain supported ENGINEERED/SYNTHETIC identity.
+  - Describe HMOs as the supplied test carbohydrate substrate in modified basal medium
+    with 1 g/L yeast extract; retain the authors sole-carbon terminology only with
+    this explicit scope. Do not infer all biomass carbon or CO2 derives from HMOs.
+  - Preserve the 0.4% community mixture versus 0.2% single-strain assays and the B.
+    producta monoculture bicarbonate/100% N2 modification. Record 4HMO/5HMO composition
+    ratios from Table 1 rather than treating the comparison as LNT addition alone.
+  - Refine design with actual endpoints and the 5HMO ten-member start/three-bifidobacteria
+    addition at 73 h continuous time. Preserve batch/continuous time labels, 12.5
+    mL/h feed, 300 mL volume and redox below −300 mV.
+- action_id: repair-claim-provenance
+  description: Align claim-level evidence and computational scope.
+  finding_ids:
+  - claim-provenance
+  target_ids:
+  - CommunityMech:000012
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Attach exact membership/strain and role-specific passages to taxonomy claims.
+    Retain all 13 strains and source-qualified roles; do not delete B. breve primary-degrader
+    capacity merely because it also scavenges simpler substrates.
+  - 'Replace deterministic HMO-mixture dominance wording with observed, replicate-dependent
+    trends: B. infantis predominated in four of six 4HMO replicates; 5HMO favoured
+    B. bifidum. Preserve mixture-ratio changes and the 6-SL depletion exception.'
+  - Keep ingredient resource sharing qualified consistently with the existing PARTIAL
+    nodes/arrows; no donor-resolved carbon/gas flux, universal member necessity or
+    complete degradation at every timepoint is established.
+  - Use narrow IN_VITRO versus COMPUTATIONAL evidence and computational_provenance
+    for individual CarveMe/CobraPy FBA/FVA/pFBA/GLPK models, source-specific medium
+    assumptions and model/experiment disagreement. Do not describe a community FBA
+    simulation or import reference-genome/proteome strains as cultured members.
+- action_id: repair-resource-organization
+  description: Separate publication evidence from scientific data resources.
+  finding_ids:
+  - resource-organization
+  target_ids:
+  - CommunityMech:000012
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Keep the valid MODEL2405300001/Gap-filled_Curated_HMO_GEMs.zip resource and its
+    13-model scope; do not replace it with an uninspected version or treat archive
+    reports as experimental certification.
+  - Move the publication to bibliographic evidence/resources rather than a dataset.
+    Add verified PRJEB72539 amplicon sequencing and PXD047785 metaproteomics with
+    their actual treatment/sample scope.
+  - Link the public WUR code project with explicit current access/version limits.
+    Do not claim an inspected immutable commit, execution, raw-payload verification
+    or study-specific new genomes without evidence.
+limitations:
+- No metabolic optimization, raw sequencing/proteomics analysis, donor tracing or
+  unpublished data-not-shown experiment was performed. Source inference is not upgraded
+  by lexical matches or static model checks.
+- Bench community fermentations, individual-strain growth assays, deletion/reintroduction
+  experiments and individual GEM simulations are separate contexts. No community FBA,
+  SteadyCom or MICOM was used in this paper.
+- The two HMO mixtures change proportions as well as LNT presence; replicate-dependent
+  dominance and the 6-SL depletion exception remain explicit. Model and experimental
+  metabolite profiles disagree.
+- Culture-collection aliases and reference genomes/proteomes are different provenance
+  objects. E. faecalis TX2141 proteomics reference and the supplementary GG-or-HN001
+  genome wording do not replace cultured strains. Global GTDB mappings do not establish
+  strain-specific reclassification.
+- Supplementary Table 6 was not audited cell by cell; Table 8 statistical significance
+  was not recalculated. The later PMID 42020426 pair-study cache is context only and
+  supplies no focal claim evidence.
+- ATCC 25285 and LPSN thermophilus catalogue leads were indexed-only; primary Methods
+  plus local OAK support the roster independently. Current names/aliases do not authorize
+  automatic strain-taxonomy or GTDB replacement.
+- The original basal-medium reference and underlying external strain-mechanism literature
+  were not separately audited; no complete recipe or new mechanistic certainty is
+  imported from them.
+notes:
+- No canonical, cache, history or generated files changed. All 24 repository inputs
+  remain pinned.
+- All quotations from the publication and supplements share one 25-word limit.
+- Native quality 100 is capped from 129; three minor scientific/provenance findings
+  remain.
+tags:
+- record-review
+- infant-gut
+- HMO
+- synthetic-community
+- metabolic-model
+- batch-07
+```
