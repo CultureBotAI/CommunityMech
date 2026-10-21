@@ -23,31 +23,60 @@ genomes:
   label: ASM14616v2
   notes: RefSeq reference assembly for Shewanella oneidensis MR-1.
 genes:
-- gene_id: KEGG:son:SO_1778
+- gene_id: UniProtKB:Q8EG33
   gene_symbol: mtrC
   locus_tag: SO_1778
   product: Outer-membrane decaheme c-type cytochrome (terminal extracellular electron-transfer reductase)
   genome: GCF_000146165.2
+  kegg_ortholog: K07234
   go_terms:
   - id: GO:0009055
     label: electron transfer activity
+  - id: GO:0020037
+    label: heme binding
   supports_roles:
   - ELECTRON_DONOR
   supports_interaction: >
     Terminal reductase of the Mtr extracellular electron transfer pathway; transfers
-    electrons to extracellular acceptors (e.g. Fe(III)/Mn(IV) oxides, electrodes),
-    underpinning direct interspecies / electrode electron transfer interactions.
-- gene_id: KEGG:son:SO_1776
+    electrons to extracellular acceptors (e.g. Fe(III)/Mn(IV) oxides, NCM metal oxides,
+    electrodes, and flavin electron shuttles), underpinning direct and mediated
+    interspecies/electrode electron transfer interactions.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: MtrC and OmcA decaheme c‐Cyts, MtrB β‐barrel trans‐OM protein, MtrA periplasmic decaheme c‐Cyts, CymA inner membrane tetraheme c‐Cyts.
+    explanation: Identifies MtrC as an outer-membrane decaheme c-type cytochrome component of the S. oneidensis MR-1 extracellular electron-transfer pathway.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: confirming that the disruption of MtrC and OmcA significantly inhibited the EET process in strain SO3.
+    explanation: Genetic deletion evidence showing that MtrC and OmcA mediate extracellular electron transfer in S. oneidensis MR-1 derivative SO3.
+- gene_id: UniProtKB:Q8EG34
   gene_symbol: mtrB
   locus_tag: SO_1776
   product: Outer-membrane beta-barrel that embeds the MtrA/MtrC cytochrome module
   genome: GCF_000146165.2
+  go_terms:
+  - id: GO:0015288
+    label: porin activity
   supports_roles:
   - ELECTRON_DONOR
   supports_interaction: >
     Forms the outer-membrane conduit of the MtrCAB porin-cytochrome complex enabling
     electron egress to extracellular acceptors.
-- gene_id: KEGG:son:SO_1777
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: MtrC and OmcA decaheme c‐Cyts, MtrB β‐barrel trans‐OM protein, MtrA periplasmic decaheme c‐Cyts, CymA inner membrane tetraheme c‐Cyts.
+    explanation: Identifies MtrB as the beta-barrel trans-outer-membrane protein of the S. oneidensis MR-1 Mtr extracellular electron-transfer conduit.
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Its porin-cytochrome complex MtrCAB spans the outer membrane, enabling electron flow through a 20-heme relay and can also release soluble flavins to transport electrons to electrodes or other microbes.
+    explanation: Supports the role of the MtrCAB outer-membrane porin-cytochrome complex in direct and flavin-mediated electron transfer in S. oneidensis.
+- gene_id: UniProtKB:Q8EG35
   gene_symbol: mtrA
   locus_tag: SO_1777
   product: Periplasmic decaheme c-type cytochrome of the Mtr pathway
@@ -55,12 +84,52 @@ genes:
   go_terms:
   - id: GO:0009055
     label: electron transfer activity
+  - id: GO:0020037
+    label: heme binding
   supports_roles:
   - ELECTRON_DONOR
   supports_interaction: >
     Conducts electrons across the outer membrane within the MtrCAB complex during
     extracellular electron transfer.
-- gene_id: KEGG:son:SO_4591
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: MtrC and OmcA decaheme c‐Cyts, MtrB β‐barrel trans‐OM protein, MtrA periplasmic decaheme c‐Cyts, CymA inner membrane tetraheme c‐Cyts.
+    explanation: Identifies MtrA as the periplasmic decaheme c-type cytochrome of the S. oneidensis MR-1 Mtr extracellular electron-transfer pathway.
+  - reference: PMID:41210787
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Its porin-cytochrome complex MtrCAB spans the outer membrane, enabling electron flow through a 20-heme relay and can also release soluble flavins to transport electrons to electrodes or other microbes.
+    explanation: Supports MtrA's role within the 20-heme MtrCAB outer-membrane electron relay in S. oneidensis.
+- gene_id: UniProtKB:Q8EG32
+  gene_symbol: omcA
+  locus_tag: SO_1779
+  product: Outer-membrane decaheme c-type cytochrome (extracellular electron-transfer lipoprotein)
+  genome: GCF_000146165.2
+  go_terms:
+  - id: GO:0009055
+    label: electron transfer activity
+  - id: GO:0020037
+    label: heme binding
+  supports_roles:
+  - ELECTRON_DONOR
+  supports_interaction: >
+    Works with MtrC at the outer membrane to transfer electrons directly to solid
+    electron acceptors, electrodes, and riboflavin/flavin shuttles during
+    extracellular and interspecies electron transfer.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: MtrC and OmcA decaheme c‐Cyts, MtrB β‐barrel trans‐OM protein, MtrA periplasmic decaheme c‐Cyts, CymA inner membrane tetraheme c‐Cyts.
+    explanation: Identifies OmcA as an outer-membrane decaheme c-type cytochrome of the S. oneidensis MR-1 extracellular electron-transfer pathway.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the electrons generated from strain SO3 could be either directly transferred to NCM via outer membrane c‐Cyts MtrC and OmcA, or first transferred to riboflavin molecules via MtrC and OmcA.
+    explanation: Supports OmcA's function alongside MtrC in direct and riboflavin-mediated extracellular electron transfer.
+- gene_id: UniProtKB:Q8E945
   gene_symbol: cymA
   locus_tag: SO_4591
   product: Inner-membrane tetraheme c-type cytochrome (menaquinol oxidase) feeding the Mtr pathway
@@ -68,17 +137,25 @@ genes:
   go_terms:
   - id: GO:0009055
     label: electron transfer activity
+  - id: GO:0020037
+    label: heme binding
   supports_roles:
   - ELECTRON_DONOR
   supports_interaction: >
     Branch point that delivers electrons from the menaquinone pool to periplasmic
     and outer-membrane cytochromes for extracellular electron transfer.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: MtrC and OmcA decaheme c‐Cyts, MtrB β‐barrel trans‐OM protein, MtrA periplasmic decaheme c‐Cyts, CymA inner membrane tetraheme c‐Cyts.
+    explanation: Identifies CymA as the inner-membrane tetraheme c-type cytochrome feeding the periplasmic and outer-membrane Mtr electron-transfer pathway in S. oneidensis MR-1.
 notes: >
-  Reusable taxon record capturing the Mtr extracellular-electron-transfer pathway
-  genes that underpin S. oneidensis MR-1's electron-donor role in microbial fuel
-  cell, metal-reduction, and DIET-style communities. Gene/role claims are
-  literature-standard; per-interaction EvidenceItems can be added following the
-  community-record evidence protocol.
+  Reusable taxon record capturing the verified UniProtKB protein accessions for the
+  Mtr extracellular-electron-transfer pathway genes (mtrC/Q8EG33, mtrB/Q8EG34,
+  mtrA/Q8EG35, omcA/Q8EG32, cymA/Q8E945) in the Shewanella oneidensis MR-1 reference
+  assembly (GCF_000146165.2) that underpin S. oneidensis MR-1's electron-donor role
+  in microbial fuel cell, metal-reduction, bioleaching, and electrosyntrophic communities.
 curation_history:
 - timestamp: '2026-10-18T00:00:00Z'
   curator: gtdb_ground.py
@@ -88,3 +165,8 @@ curation_history:
   curator: gtdb_ground.py
   action: GTDB_SET_STATUS
   changes: "Wrote gtdb_grounding_status on 1 taxon_term entry (#294, #395, #2028)."
+- timestamp: '2026-10-21T06:32:00Z'
+  curator: claude
+  action: ADD_UNIPROT_PROTEIN_EXAMPLES
+  changes: "Upgraded mtrC (SO_1778), mtrB (SO_1776), mtrA (SO_1777), and cymA (SO_4591) gene_id values to verified UniProtKB accessions (Q8EG33, Q8EG34, Q8EG35, Q8E945), added omcA (SO_1779, UniProtKB:Q8EG32), and attached verbatim cached evidence from PMID:42733304 and PMID:41210787."
+  llm_assisted: true

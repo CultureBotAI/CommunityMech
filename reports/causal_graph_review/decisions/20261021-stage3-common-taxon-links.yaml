@@ -1,0 +1,346 @@
+reviewer: claude
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+recorded_at: '2026-10-21T06:36:00Z'
+scope: Stage 3 protein_examples linkage of strain-verified Shewanella oneidensis MR-1
+  taxonomy entries to reusable CommonTaxon record CommunityMech:taxon:000001; ecological_interactions
+  causal graph nodes and edges unchanged.
+records:
+- path: kb/communities/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.yaml
+  id: CommunityMech:000298
+  original_sha256: 236e65e0a34ac546bcc54c39e37fd6f69d98943d2e6527324d96b800fe9a53bc
+  record_sha256: 52be42c07f33ad2b481d2ccadefd827d842568e463b5d1cb7d8c3ef905517dff
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261021-stage3-common-taxon-links.yaml
+  scope: Whole record and every existing node/arrow assessed. Non-graph fields preserved,
+    not certified.
+  summary: Retain biofilm-associated route as PARTIAL without contact-only DIET or
+    syntrophy proof.; Retain planktonic route as PARTIAL without exclusive or donor-resolved
+    mediator flux.; Retain acetate enhancement with the alternative-pair roster and
+    explicit cell-voltage/control boundaries.
+  renamed_nodes:
+    DIET from S. oneidensis to C. aceticum: Proposed Biofilm-Associated IET in the
+      S. oneidensis-C. aceticum Pair
+    H2/formate-mediated IET from S. oneidensis to A. woodii: Proposed Planktonic H2/Formate
+      IET in the S. oneidensis-A. woodii Pair
+  node_decisions:
+  - node: Proposed Biofilm-Associated IET in the S. oneidensis-C. aceticum Pair
+    rationale: Retain biofilm-associated route as PARTIAL without contact-only DIET
+      or syntrophy proof.
+  - node: Proposed Planktonic H2/Formate IET in the S. oneidensis-A. woodii Pair
+    rationale: Retain planktonic route as PARTIAL without exclusive or donor-resolved
+      mediator flux.
+  - node: Enhanced CO2-to-Acetate Conversion
+    rationale: Retain acetate enhancement with the alternative-pair roster and explicit
+      cell-voltage/control boundaries.
+  removed_node_decisions: []
+  edges_before:
+  - source: DIET from S. oneidensis to C. aceticum
+    target: Enhanced CO2-to-Acetate Conversion
+    description: 'Biofilm-localized DIET in the S. oneidensis-C. aceticum consortium
+      contributes electron flow for enhanced CO2-to-acetate electrosynthesis.
+
+      '
+  - source: H2/formate-mediated IET from S. oneidensis to A. woodii
+    target: Enhanced CO2-to-Acetate Conversion
+    description: 'H2/formate-mediated electron transfer in the S. oneidensis-A. woodii
+      consortium contributes planktonic electron flow for enhanced CO2-to-acetate
+      electrosynthesis.
+
+      '
+  edges_after:
+  - source: Proposed Biofilm-Associated IET in the S. oneidensis-C. aceticum Pair
+    target: Enhanced CO2-to-Acetate Conversion
+    description: 'PARTIAL: Biofilm-associated electron supply and riboflavin-responsive
+      transfer can support the C. aceticum pair''s acetate increase. Compartment removal
+      and add-back support this contribution, but do not isolate the necessity of
+      contact-only DIET or a specific cytochrome. This arrow concerns the CS pair,
+      not a simultaneous three-member culture.'
+  - source: Proposed Planktonic H2/Formate IET in the S. oneidensis-A. woodii Pair
+    target: Enhanced CO2-to-Acetate Conversion
+    description: 'PARTIAL: Diffusible reducing equivalents are a supported explanation
+      for suspension-associated acetate synthesis in the AS pair, including acetate
+      production where A. woodii alone failed at the tested lower cell voltage. This
+      does not establish exclusive hydrogen/formate mediation or identify the molecular
+      donor flux.'
+  retained_edge_decisions:
+  - source: Proposed Biofilm-Associated IET in the S. oneidensis-C. aceticum Pair
+    target: Enhanced CO2-to-Acetate Conversion
+    rationale: 'PARTIAL: Biofilm-associated electron supply and riboflavin-responsive
+      transfer can support the C. aceticum pair''s acetate increase. Compartment removal
+      and add-back support this contribution, but do not isolate the necessity of
+      contact-only DIET or a specific cytochrome. This arrow concerns the CS pair,
+      not a simultaneous three-member culture.'
+  - source: Proposed Planktonic H2/Formate IET in the S. oneidensis-A. woodii Pair
+    target: Enhanced CO2-to-Acetate Conversion
+    rationale: 'PARTIAL: Diffusible reducing equivalents are a supported explanation
+      for suspension-associated acetate synthesis in the AS pair, including acetate
+      production where A. woodii alone failed at the tested lower cell voltage. This
+      does not establish exclusive hydrogen/formate mediation or identify the molecular
+      donor flux.'
+  removed_edge_decisions: []
+  references:
+  - PMID:41236292
+  issues:
+  - 1452
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate/2026-10-21T063600Z-claude-stage3.yaml
+  source_review:
+    PMID:41236292:
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12866739/
+      scope: Full cached primary main body through Methods, including tables/captions.
+        No figure images, separate supplements or raw data reviewed.
+      cache: references_cache/PMID_41236292.md
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261006-three-records-batch40.yaml
+    record_sha256: 236e65e0a34ac546bcc54c39e37fd6f69d98943d2e6527324d96b800fe9a53bc
+- path: kb/communities/Shewanella_Streptococcus_Starch_Microbial_Fuel_Cell.yaml
+  id: CommunityMech:000203
+  original_sha256: 6917ed2f369a8a3bfb4ecc738a49e6aed50b59928193837164d20e8c87bed462
+  record_sha256: f13a67f791f7da3e05d9c44634eb88f39b4656ccf0240d6a0c2cf37f55ef4a0a
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261021-stage3-common-taxon-links.yaml
+  scope: Whole record and every existing node/direction reviewed; no new-mechanism
+    discovery or non-graph certification.
+  summary: Retain one-way lactate provisioning with explicit sequential versus simultaneous
+    scope.; Correct the reversed pairwise cross-feeding assignment to a Shewanella-scoped
+    electrical outcome; preserve both configurations and their evidence.
+  node_decisions:
+  - node: Starch-Derived Lactate Provisioning
+    rationale: Retain one-way lactate provisioning with explicit sequential versus
+      simultaneous scope.
+  - node: Lactate-Fed Current Generation
+    rationale: Correct the reversed pairwise cross-feeding assignment to a Shewanella-scoped
+      electrical outcome; preserve both configurations and their evidence.
+  removed_node_decisions:
+  - node: Parallel Starch Fermentation and Electrogenesis
+    rationale: Parallel operation is configuration context duplicating the retained
+      provisioning/current path, not a distinct third interaction; both supporting
+      snippets and its real electrical outcome are retained in the current node.
+  renamed_nodes:
+    Starch Fermentation to Lactic Acid: Starch-Derived Lactate Provisioning
+  edges_before:
+  - &id001
+    source: Starch Fermentation to Lactic Acid
+    target: Lactate-Fed Current Generation
+    description: Lactic acid produced from starch by S. bovis is the electron-donor
+      intermediate that S. oneidensis oxidizes for current production in the microbial
+      fuel cell.
+  - source: Parallel Starch Fermentation and Electrogenesis
+    target: Lactate-Fed Current Generation
+    description: In the parallel method, S. bovis starch fermentation occurs while
+      S. oneidensis oxidizes the resulting lactic acid for current generation rather
+      than after a separate S. bovis conversion step.
+  edges_after:
+  - &id002
+    source: Starch-Derived Lactate Provisioning
+    target: Lactate-Fed Current Generation
+    description: Starch-derived lactic acid supplies the substrate used by S. oneidensis
+      MR-1 for current generation. In EGT this is a sequential fermented-broth handoff
+      after fermenter removal; EGP couples conversion and electricity generation during
+      simultaneous cultivation. Neither configuration supports a reverse metabolite
+      transfer to S. bovis.
+  retained_edge_decisions:
+  - before: *id001
+    after: *id002
+    rationale: Existing direction retained with configuration-specific or PARTIAL
+      causal attribution where appropriate.
+  removed_edge_decisions:
+  - source: Parallel Starch Fermentation and Electrogenesis
+    target: Lactate-Fed Current Generation
+    description: In the parallel method, S. bovis starch fermentation occurs while
+      S. oneidensis oxidizes the resulting lactic acid for current generation rather
+      than after a separate S. bovis conversion step.
+    rationale: Duplicate workflow direction; the configuration and positive outcome
+      are preserved in the retained provisioning/current path.
+  references:
+  - PMID:28434977
+  issues:
+  - 1799
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Shewanella_Streptococcus_Starch_Microbial_Fuel_Cell/2026-10-21T063600Z-claude-stage3.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch101.yaml
+    record_sha256: 6917ed2f369a8a3bfb4ecc738a49e6aed50b59928193837164d20e8c87bed462
+- path: kb/communities/Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.yaml
+  id: CommunityMech:000279
+  original_sha256: 0d6ba37b5fc16d662cf8af50886da1c3822f57ef343f5e2587cbda30465d7301
+  record_sha256: ce91d403ce97a292953dca9c2259b0e7e9cc8d0effbf104c03a0a26d5151087b
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261021-stage3-common-taxon-links.yaml
+  scope: Whole record and every existing node/direction reviewed; no new-mechanism
+    discovery or non-graph certification.
+  summary: Scope coaggregation to both canonical members without a directed syntrophic
+    classification.; Retain the reported donor-to-recipient transfer shift with PARTIAL
+    causal attribution and no claim that mediated transfer disappears.; Retain the
+    measured methane-indicator increase without equating the proxy to total flux or
+    reciprocal fitness.
+  node_decisions:
+  - node: Polydopamine-Driven Cell-to-Cell Coaggregation
+    rationale: Scope coaggregation to both canonical members without a directed syntrophic
+      classification.
+  - node: Shift Toward Contact-Dependent Electron Transfer
+    rationale: Retain the reported donor-to-recipient transfer shift with PARTIAL
+      causal attribution and no claim that mediated transfer disappears.
+  - node: Enhanced Nitrogenase-Derived CH4 Indicator
+    rationale: Retain the measured methane-indicator increase without equating the
+      proxy to total flux or reciprocal fitness.
+  removed_node_decisions: []
+  renamed_nodes:
+    Engineered interspecies electron transfer (MIET-to-DIET shift): Shift Toward Contact-Dependent
+      Electron Transfer
+  edges_before:
+  - &id003
+    source: Polydopamine-Driven Cell-to-Cell Coaggregation
+    target: Engineered interspecies electron transfer (MIET-to-DIET shift)
+    description: The stable conductive PDA cell-to-cell interface precedes the shift
+      from diffusible H2-mediated IET toward contact-dependent electron transfer.
+  - &id005
+    source: Engineered interspecies electron transfer (MIET-to-DIET shift)
+    target: Enhanced Nitrogenase-Derived CH4 Indicator
+    description: Contact-dependent electron transfer increases the nitrogenase-derived
+      methane readout used to quantify IET efficiency.
+  edges_after:
+  - &id004
+    source: Polydopamine-Driven Cell-to-Cell Coaggregation
+    target: Shift Toward Contact-Dependent Electron Transfer
+    description: 'PARTIAL: the material-associated interface supports contact between
+      the two members and is reported to favor contact-dependent electron transfer.
+      The abstract does not isolate coaggregation from the interface''s conductive
+      properties as the causal mediator of the transfer-mode shift.'
+  - &id006
+    source: Shift Toward Contact-Dependent Electron Transfer
+    target: Enhanced Nitrogenase-Derived CH4 Indicator
+    description: 'PARTIAL: the reported transfer-mode shift is proposed to support
+      the increased nitrogenase-derived methane readout. The abstract presents methane
+      as an IET indicator, but does not establish a calibrated proportional increase
+      in all interspecies electron flux or separate the contribution of each transfer
+      route.'
+  retained_edge_decisions:
+  - before: *id003
+    after: *id004
+    rationale: Existing direction retained with configuration-specific or PARTIAL
+      causal attribution where appropriate.
+  - before: *id005
+    after: *id006
+    rationale: Existing direction retained with configuration-specific or PARTIAL
+      causal attribution where appropriate.
+  removed_edge_decisions: []
+  references:
+  - PMID:42285537
+  issues:
+  - 1800
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture/2026-10-21T063600Z-claude-stage3.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch101.yaml
+    record_sha256: 0d6ba37b5fc16d662cf8af50886da1c3822f57ef343f5e2587cbda30465d7301
+- path: kb/communities/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.yaml
+  id: CommunityMech:000211
+  original_sha256: 826172b3e4ec14cb21b506f830175d55dc982b3ee809bc7811e9a29cb67e231c
+  record_sha256: 5900d0ac6541c1dd5c1a676acc0021ac07dd1dab41971377019a024c03d1f281
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261021-stage3-common-taxon-links.yaml
+  scope: Whole record and every existing node/direction; graph repair, not whole-record
+    certification.
+  summary: Retain D-lactate supply and anode support without exclusive organic-input
+    claims.; Correct anode recipient and preserve source-proposed CO2 feedback as
+    hypothetical.; Retain abiotic compatibility and duration with distinct replenished-device
+    context.
+  node_decisions:
+  - node: Photosynthetic D-Lactate Cross-Feeding
+    rationale: Retain D-lactate supply and anode support without exclusive organic-input
+      claims.
+  - node: Shewanella Anode Electron Transfer
+    rationale: Correct anode recipient and preserve source-proposed CO2 feedback as
+      hypothetical.
+  - node: Spatial-Temporal Separation for Compatibility
+    rationale: Retain abiotic compatibility and duration with distinct replenished-device
+      context.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before:
+  - &id007
+    source: Photosynthetic D-Lactate Cross-Feeding
+    target: Shewanella Anode Electron Transfer
+    description: 'Photosynthetically produced D-lactate is the engineered carrier
+      oxidized by S. oneidensis as it releases electrons to the anode.
+
+      '
+  - &id009
+    source: Shewanella Anode Electron Transfer
+    target: Photosynthetic D-Lactate Cross-Feeding
+    description: 'Physical and temporal separation prevents light- and oxygen-associated
+      inhibition of S. oneidensis while preserving D-lactate transfer from the engineered
+      cyanobacterium.
+
+      '
+  edges_after:
+  - &id008
+    source: Photosynthetic D-Lactate Cross-Feeding
+    target: Shewanella Anode Electron Transfer
+    description: Photosynthetically produced D-lactate is oxidized by the engineered
+      Shewanella partner, supporting electron transfer to the anode. Lactate-free
+      and axenic comparisons support its contribution, not exclusive attribution of
+      all current to D-lactate.
+  - &id010
+    source: Shewanella Anode Electron Transfer
+    target: Photosynthetic D-Lactate Cross-Feeding
+    description: 'HYPOTHESIZED/PARTIAL: the source schematic proposes that CO2 released
+      during Shewanella oxidation can be re-assimilated by cyanobacteria for D-lactate
+      production. The reviewed main text does not demonstrate this carbon-return flux
+      or identify it as the cause of cyanobacterial growth benefit; electrons flow
+      to the anode, not the cyanobacterium.'
+  retained_edge_decisions:
+  - before: *id007
+    after: *id008
+    rationale: Photosynthetically produced D-lactate is oxidized by the engineered
+      Shewanella partner, supporting electron transfer to the anode. Lactate-free
+      and axenic comparisons support its contribution, not exclusive attribution of
+      all current to D-lactate.
+  - before: *id009
+    after: *id010
+    rationale: 'HYPOTHESIZED/PARTIAL: the source schematic proposes that CO2 released
+      during Shewanella oxidation can be re-assimilated by cyanobacteria for D-lactate
+      production. The reviewed main text does not demonstrate this carbon-return flux
+      or identify it as the cause of cyanobacterial growth benefit; electrons flow
+      to the anode, not the cyanobacterium.'
+  removed_edge_decisions: []
+  references:
+  - PMID:31537786
+  issues:
+  - 1859
+  - 1862
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium/2026-10-21T063600Z-claude-stage3.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-three-records-batch110.yaml
+    record_sha256: 826172b3e4ec14cb21b506f830175d55dc982b3ee809bc7811e9a29cb67e231c

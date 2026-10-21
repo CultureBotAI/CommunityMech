@@ -2,17 +2,21 @@
 abundance / common_taxon fields on TaxonomicComposition."""
 
 import subprocess
+import sys
 from pathlib import Path
 
 import yaml
 
 SCHEMA = "src/communitymech/schema/communitymech.yaml"
 TAXA_DIR = Path("kb/taxa")
+REFS_CACHE = Path("references_cache")
 
 
 def _validate(target_class: str, path: Path) -> subprocess.CompletedProcess:
+    bin_path = Path(sys.executable).parent / "linkml-validate"
+    cmd = [str(bin_path)] if bin_path.exists() else ["uv", "run", "linkml-validate"]
     return subprocess.run(
-        ["uv", "run", "linkml-validate", "-s", SCHEMA, "--target-class", target_class, str(path)],
+        [*cmd, "-s", SCHEMA, "--target-class", target_class, str(path)],
         capture_output=True,
         text=True,
     )
@@ -34,13 +38,47 @@ def test_taxa_record_structure():
     assert rec["taxon_term"]["term"]["id"] == "NCBITaxon:211586"
     # genomes use NCBI Assembly accessions
     assert rec["genomes"][0]["id"].startswith("GCF_")
-    # genes carry standardized ids + locus tags + GO function terms
+    # genes carry verified UniProtKB accessions + locus tags + GO function terms + evidence
     genes = {g["gene_symbol"]: g for g in rec["genes"]}
-    assert "mtrC" in genes
-    assert genes["mtrC"]["gene_id"].startswith("KEGG:")
+    assert set(genes) == {"mtrC", "mtrB", "mtrA", "omcA", "cymA"}
+    assert genes["mtrC"]["gene_id"] == "UniProtKB:Q8EG33"
     assert genes["mtrC"]["locus_tag"] == "SO_1778"
     assert genes["mtrC"]["go_terms"][0]["id"] == "GO:0009055"
     assert genes["mtrC"]["genome"] == rec["genomes"][0]["id"]
+    assert genes["omcA"]["gene_id"] == "UniProtKB:Q8EG32"
+    assert genes["omcA"]["locus_tag"] == "SO_1779"
+
+    geo = yaml.safe_load((TAXA_DIR / "Geobacter_sulfurreducens.yaml").read_text())
+    geo_genes = {g["gene_symbol"]: g for g in geo["genes"]}
+    assert set(geo_genes) == {"pilA", "omcS", "omcZ", "omcB"}
+    assert geo_genes["pilA"]["gene_id"] == "UniProtKB:Q74BW5"
+    assert geo_genes["omcS"]["gene_id"] == "UniProtKB:Q749X9"
+    assert geo_genes["omcZ"]["gene_id"] == "UniProtKB:Q74A90"
+    assert geo_genes["omcB"]["gene_id"] == "UniProtKB:Q74A86"
+
+
+def test_taxa_genes_have_verified_uniprot_and_cached_evidence():
+    """Every GeneAnnotation in kb/taxa/*.yaml uses a UniProtKB ID and cached evidence."""
+    for path in sorted(TAXA_DIR.glob("*.yaml")):
+        rec = yaml.safe_load(path.read_text())
+        for gene in rec.get("genes") or []:
+            assert gene["gene_id"].startswith(
+                "UniProtKB:"
+            ), f"{path} {gene['gene_symbol']} missing UniProtKB CURIE"
+            ev_list = gene.get("evidence") or []
+            assert ev_list, f"{path} {gene['gene_symbol']} missing evidence items"
+            for ev in ev_list:
+                ref = ev["reference"]
+                assert ref.startswith("PMID:"), f"Unexpected reference format {ref}"
+                pmid = ref.split(":", 1)[1]
+                cache_file = REFS_CACHE / f"PMID_{pmid}.txt"
+                assert cache_file.exists(), f"Missing cache file {cache_file}"
+                norm_cache = " ".join(cache_file.read_text().split())
+                norm_snip = " ".join(ev["snippet"].split())
+                assert norm_snip in norm_cache, (
+                    f"{path} {gene['gene_symbol']} snippet not verbatim in "
+                    f"{cache_file}: {ev['snippet']!r}"
+                )
 
 
 def test_schema_defines_new_fields():
@@ -59,7 +97,7 @@ def test_schema_defines_new_fields():
 
 
 def test_community_links_common_taxon():
-    """The demonstration community references the reusable taxon records."""
+    """MR-1 and Geobacter communities reference the reusable taxon records."""
     comm = yaml.safe_load(
         Path(
             "kb/communities/Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml"
@@ -67,6 +105,24 @@ def test_community_links_common_taxon():
     )
     refs = {t.get("common_taxon") for t in comm["taxonomy"] if t.get("common_taxon")}
     assert {"CommunityMech:taxon:000001", "CommunityMech:taxon:000002"} <= refs
+
+    expected_mr1_files = [
+        "kb/communities/Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml",
+        "kb/communities/Shewanella_Streptococcus_Starch_Microbial_Fuel_Cell.yaml",
+        "kb/communities/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.yaml",
+        "kb/communities/Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.yaml",
+        "kb/communities/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.yaml",
+        "kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
+        "kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml",
+    ]
+    for rel_path in expected_mr1_files:
+        doc = yaml.safe_load(Path(rel_path).read_text())
+        mr1_refs = {
+            t.get("common_taxon") for t in doc.get("taxonomy") or [] if t.get("common_taxon")
+        }
+        assert (
+            "CommunityMech:taxon:000001" in mr1_refs
+        ), f"{rel_path} missing CommunityMech:taxon:000001"
 
 
 def test_taxoncomposition_accepts_separate_abundances(tmp_path):
