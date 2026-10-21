@@ -81,11 +81,12 @@ environmental_factors:
       soil, while concurrently alleviating phytotoxic symptoms in soybean plants.
     explanation: Documents 500 mg/kg soil atrazine remediation and soybean phytotoxicity alleviation.
 ecological_interactions:
-- name: Fungal-to-Bacterial Cross-Feeding of Hydroxyatrazine and Biuret Intermediates
-  description: Trichoderma lentiforme HN154 degrades atrazine into hydroxyatrazine and biuret, which act as chemoattractants
-    and cross-fed substrates for Burkholderia strains (Bur-4, Bur-5, Bur-14) carrying atzB/atzC/atzE/atzF, accelerating complete
-    atrazine mineralization to 86.3% within 168 h and enhancing soybean antioxidant enzymes.
+- name: Fungal Atrazine Transformation and Chemotactic Recruitment of Burkholderia
+  description: Trichoderma lentiforme HN154 initiates atrazine transformation into hydroxyatrazine and biuret intermediates,
+    which stimulate Burkholderia chemotaxis, swarming, and swimming motility and enrich Burkholderiaceae encoding atzB, atzC,
+    atzE, and atzF.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Trichoderma lentiforme
     term:
@@ -106,22 +107,99 @@ ecological_interactions:
     term:
       id: GO:0006979
       label: response to oxidative stress
+  downstream:
+  - target: Fungal-to-Bacterial Cross-Feeding of Hydroxyatrazine and Biuret Intermediates
+    description: 'DIRECTLY IMPLIED: Chemotactic recruitment and motility stimulation of Burkholderia by Trichoderma-derived
+      hydroxyatrazine and biuret enable cross-feeding and synergistic atrazine mineralization.'
   evidence:
   - reference: PMID:42372060
     supports: SUPPORT
     evidence_source: IN_VIVO
+    snippet: Metagenomic analysis revealed that colonization by T. lentiforme HN154 drove restructuring of microbial networks,
+      enriching the keystone family Burkholderiaceae, which was strongly associated with atrazine catabolism and four key
+      catabolic enzymes (EC 3.5.4.43 (atzB), EC 3.5.1.131 (atzE), EC 3.5.1.54 (atzF), EC 3.5.4.42 (atzC)).
+  - reference: PMID:42372060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
     snippet: Mechanistically, intermediates (hydroxyatrazine and biuret) generated during T. lentiforme HN154-mediated degradation
       stimulated Burkholderia chemotaxis, swarming and swimming motility, while cross-feeding on these metabolites synergistically
       accelerated bioaugmentation (the Trichoderma-Burkholderia synthetic consortium achieved rapid atrazine degradation of
       86.3% within 168 h).
-    explanation: Directly establishes chemotactic recruitment and metabolite cross-feeding of hydroxyatrazine and biuret from
-      T. lentiforme to Burkholderia.
+- name: Fungal-to-Bacterial Cross-Feeding of Hydroxyatrazine and Biuret Intermediates
+  description: Trichoderma lentiforme HN154 transforms atrazine into hydroxyatrazine and biuret intermediates that stimulate
+    Burkholderia chemotaxis, swarming, and swimming motility; Burkholderia strains (encoding atzB, atzC, atzE, and atzF) cross-feed
+    on these intermediates to achieve 86.3% atrazine removal within 168 h.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Trichoderma lentiforme
+    term:
+      id: NCBITaxon:1567552
+      label: Trichoderma lentiforme
+  target_taxon:
+    preferred_term: Burkholderia
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
+  metabolites:
+  - preferred_term: atrazine
+    term:
+      id: CHEBI:15930
+      label: atrazine
+  biological_processes:
+  - preferred_term: response to oxidative stress
+    term:
+      id: GO:0006979
+      label: response to oxidative stress
+  downstream:
+  - target: Alleviation of Atrazine Phytotoxicity and Enhancement of Soybean Antioxidant Defense
+    description: 'DIRECTLY IMPLIED: Synergistic cross-feeding and rapid atrazine removal by the Trichoderma-Burkholderia consortium
+      alleviate herbicide phytotoxicity and boost antioxidant enzyme defenses in soybean.'
+  evidence:
+  - reference: PMID:42372060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Mechanistically, intermediates (hydroxyatrazine and biuret) generated during T. lentiforme HN154-mediated degradation
+      stimulated Burkholderia chemotaxis, swarming and swimming motility, while cross-feeding on these metabolites synergistically
+      accelerated bioaugmentation (the Trichoderma-Burkholderia synthetic consortium achieved rapid atrazine degradation of
+      86.3% within 168 h).
   - reference: PMID:42372060
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: A Trichoderma-Burkholderia synthetic consortium further enhanced remediation by boosting plant antioxidant defenses
       (SOD, POD, CAT) and reducing oxidative damage (MDA).
-    explanation: Demonstrates consortium enhancement of soybean antioxidant defense enzymes.
+- name: Alleviation of Atrazine Phytotoxicity and Enhancement of Soybean Antioxidant Defense
+  description: Bioaugmentation with the Trichoderma lentiforme HN154 and Burkholderia synthetic consortium removes 86.3% of
+    atrazine within 168 h and alleviates soybean phytotoxicity by increasing SOD, POD, and CAT antioxidant activities and
+    lowering malondialdehyde (MDA) oxidative damage.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Burkholderia
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
+  target_taxon:
+    preferred_term: Trichoderma lentiforme
+    term:
+      id: NCBITaxon:1567552
+      label: Trichoderma lentiforme
+  metabolites:
+  - preferred_term: atrazine
+    term:
+      id: CHEBI:15930
+      label: atrazine
+  biological_processes:
+  - preferred_term: response to oxidative stress
+    term:
+      id: GO:0006979
+      label: response to oxidative stress
+  evidence:
+  - reference: PMID:42372060
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: A Trichoderma-Burkholderia synthetic consortium further enhanced remediation by boosting plant antioxidant defenses
+      (SOD, POD, CAT) and reducing oxidative damage (MDA).
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -133,4 +211,10 @@ curation_history:
   changes: Initial curation of CommunityMech:000479 (Trichoderma_Burkholderia_Atrazine_Cross_Feeding_Consortium) from PMID:42372060
     using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
     groundings.
+  llm_assisted: true
+- timestamp: '2026-10-20T04:18:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Curate 3-node pairwise cross-feeding/mutualistic causal chain linking Trichoderma atrazine transformation and Burkholderia
+    chemotaxis to intermediate cross-feeding and soybean phytotoxicity alleviation.
   llm_assisted: true
