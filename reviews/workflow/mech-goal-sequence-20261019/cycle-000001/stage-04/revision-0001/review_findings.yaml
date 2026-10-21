@@ -14,13 +14,14 @@ findings:
   severity: major
   status: open
   certainty: confirmed
-  title: CommunityMech:000434 omits community_origin despite explicit synthetic co-culture
-    assembly in PMID:42762737
+  title: CommunityMech:000434 omits community_origin despite acidic nitrification
+    bioreactor operation in PMID:42762737
   description: 'Acidic_Nitrification_Minimal_Consortium.yaml (CommunityMech:000434)
     is the only MicrobialCommunity record in the 477-community corpus missing community_origin.
-    The cited abstract (PMID:42762737) states that isolates from acidic red soil were
-    assembled into a minimal two-species synthetic co-culture supporting community_origin:
-    ENGINEERED.'
+    The cited abstract (PMID:42762737) describes three acidic nitrification bioreactors
+    operated between pH 2.0 and 5.0 where the pH 2.0 bioreactor hosts a simplified
+    consortium dominated by "Candidatus Nitrosoglobus kelleri" and Mycobacterium species,
+    supporting community_origin: ENGINEERED.'
   target_ids:
   - CommunityMech:000434
   field_paths:
@@ -46,12 +47,13 @@ findings:
   severity: major
   status: open
   certainty: confirmed
-  title: CommunityMech:000360 omits ecological_state despite persistent multi-year
-    endosphere association in PMID:42304541
+  title: CommunityMech:000360 omits ecological_state despite persistent host-filtered
+    endosphere guild maintenance in PMID:42304541
   description: 'Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml (CommunityMech:000360)
     is the only MicrobialCommunity record in the 477-community corpus missing ecological_state.
-    The cited abstract (PMID:42304541) describes a persistent endosphere cobamide-producing
-    guild retained across multi-year cultivation supporting ecological_state: STABLE.'
+    The cited source (PMID:42304541) describes a persistent host-filtered endosphere
+    cobamide-producing guild assembled and maintained in a stable host-mediated niche,
+    supporting ecological_state: STABLE.'
   target_ids:
   - CommunityMech:000360
   field_paths:
@@ -79,15 +81,17 @@ findings:
   certainty: confirmed
   title: Five SynCom/consortium records omit co-tested member taxa from COMMUNITY_LEVEL
     participating_taxa
-  description: NetworkIntegrityAuditor flags 14 DISCONNECTED_TAXON warnings across
+  description: 'NetworkIntegrityAuditor flags 14 DISCONNECTED_TAXON warnings across
     five records (CommunityMech:000339 Space_Habitat_SevenMember_Stress_Tolerance_SynCom
-    [4 taxa], CommunityMech:000399 Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom
-    [5 strains], CommunityMech:000415 Algal_Methanotroph_Biogas_Valorization_Coculture
-    [1 backup methanotroph], CommunityMech:000433 Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium
-    [2 NOB guilds], and CommunityMech:000447 Brocadia_Low_Nitrogen_Anammox_Consortium
-    [2 syntrophic guilds]) where COMMUNITY_LEVEL ecological_interactions list only
-    a subset of participating_taxa even though the cited abstracts support community-wide
-    participation.
+    [6 disconnected taxa: Sphingomonas paucimobilis, Cupriavidus metallidurans, Ralstonia
+    pickettii, Acinetobacter radioresistens, Burkholderia cepacia, Chryseobacterium
+    gleum], CommunityMech:000399 Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom
+    [5 disconnected strains: H27, F2, F3, W6, M15], CommunityMech:000415 Algal_Methanotroph_Biogas_Valorization_Coculture
+    [1 disconnected cyanobacterial primary producer: Leptolyngbya, NCBITaxon:47251],
+    CommunityMech:000433 Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium [1 disconnected
+    taxon: Legionella MAGs, NCBITaxon:445], and CommunityMech:000447 Brocadia_Low_Nitrogen_Anammox_Consortium
+    [1 disconnected taxon: Candidatus Kuenenia early-acclimation lineage, NCBITaxon:174636])
+    where COMMUNITY_LEVEL ecological_interactions list only a subset of participating_taxa.'
   target_ids:
   - CommunityMech:000339
   - CommunityMech:000399
@@ -130,13 +134,14 @@ findings:
   certainty: confirmed
   title: Three biocontrol/rhizosphere SynCom records place external non-member hosts
     or pathogens in target_taxon
-  description: NetworkIntegrityAuditor flags all 7 UNKNOWN_TARGET warnings in the
+  description: 'NetworkIntegrityAuditor flags all 7 UNKNOWN_TARGET warnings in the
     corpus across three records (CommunityMech:000347 Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom
-    [Pinus massoniana], CommunityMech:000364 Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom
-    [Sclerotinia sclerotiorum and Brassica napus], and CommunityMech:000373 Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom
-    [Phytophthora nicotianae and Nicotiana tabacum]) because external host plants
-    and target phytopathogens outside taxonomy[] are modeled in target_taxon on COMMUNITY_LEVEL
-    interactions.
+    [3 warnings: Fusarium oxysporum on 1 interaction and Pinus massoniana on 2 interactions],
+    CommunityMech:000364 Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom [2 warnings:
+    Sclerotinia sclerotiorum on 2 interactions], and CommunityMech:000373 Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom
+    [2 warnings: Nicotiana tabacum (tobacco, NCBITaxon:4097) on 2 interactions]) because
+    external host plants and target phytopathogens outside taxonomy[] are modeled
+    in target_taxon on COMMUNITY_LEVEL interactions.'
   target_ids:
   - CommunityMech:000347
   - CommunityMech:000364
@@ -175,11 +180,13 @@ findings:
     and un-evidenced environmental_factors
   description: 'Although Stage 2 repaired ecological_interactions on data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
     (CommunityMech:000273), its top-level description, environment_term.notes, taxonomy[0].taxon_term.notes,
-    and 7 un-evidenced environmental_factors entries still assert refractory gold-bearing
-    sulfide ore (arsenopyrite/pyrite) bioleaching, 70-85% gold recovery, 50-200 ppm
-    CN-, and 7-14 day leaching time that do not come from the cited waste-PCB bioleaching
-    source (doi:10.1007/s10163-014-0276-4: 11.31% Au and 24.15% Cu recovery at pH
-    9).'
+    and 8 un-evidenced environmental_factors entries (7 ore/cyanide/pulp-density parameters
+    and 1 temperature entry) still assert refractory gold-bearing sulfide ore (arsenopyrite/pyrite)
+    bioleaching, 70-85% gold recovery, 50-200 ppm CN-, and 7-14 day leaching time
+    that do not come from the cited waste-PCB bioleaching source (doi:10.1007/s10163-014-0276-4:
+    Acidithiobacillus ferrooxidans pretreatment removing >80% Cu followed by Chromobacterium
+    violaceum bioleaching reaching 70.6% Au bioleaching efficiency vs 45.5% in direct
+    bioleaching).'
   target_ids:
   - CommunityMech:000273
   field_paths:
@@ -211,8 +218,8 @@ findings:
     taxon entry
   description: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml (CommunityMech:000321)
     is the only record in data/isolates/ missing functional_role and abundance_level
-    on taxonomy[0] (Rothia, NCBITaxon:32207), reducing its proportional Completeness
-    Score to 70/100.
+    on taxonomy[0] (Rothia, NCBITaxon:32207, supported by PMID:33398099 and PMID:28963201),
+    reducing its proportional Completeness Score to 80/100.
   target_ids:
   - CommunityMech:000321
   field_paths:
@@ -237,7 +244,7 @@ findings:
   issue_key: cheese-assay-evidence-gap
   category: evidence
   severity: minor
-  status: open
+  status: deferred
   certainty: confirmed
   title: Full-text-dependent cheese rind assay specifics remain deferred in CommunityMech:000153
   description: Cheese_Rind_InSitu_InVitro_Model_Community.yaml (CommunityMech:000153)
@@ -252,6 +259,8 @@ findings:
   rule_id: review-yaml-record:source-limited-gap
   native_severity: P3
   normalization_reason: Source-limited full-text assay detail gap preserved as minor.
+  disposition_reason: 'Deferred: source-limited until full-text assay tables for PMID:25043025
+    are ingested.'
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml
@@ -270,7 +279,7 @@ findings:
   issue_key: communitymech-1467-source-discrepancy-and-extension
   category: evidence
   severity: minor
-  status: open
+  status: deferred
   certainty: confirmed
   title: Broader 18-species Transwell campaign and strain/table discrepancies in CommunityMech:000091
     require full-text audit
@@ -287,6 +296,8 @@ findings:
   rule_id: review-yaml-record:source-limited-gap
   native_severity: P3
   normalization_reason: Source-limited full-text extension preserved as minor.
+  disposition_reason: 'Deferred: tracked in GitHub issue #1467 pending full-text table
+    reconciliation.'
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
@@ -307,7 +318,7 @@ findings:
   issue_key: communitymech-1699-coverage
   category: completeness
   severity: minor
-  status: open
+  status: deferred
   certainty: confirmed
   title: Additional Phormidium alkaline-lake co-isolates in CommunityMech:000054 require
     full-text table verification
@@ -324,6 +335,8 @@ findings:
   native_severity: P3
   normalization_reason: Source-limited full-text membership extension preserved as
     minor.
+  disposition_reason: 'Deferred: tracked in GitHub issue #1699 pending full-text isolate
+    table verification.'
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/Phormidium_Alkaline_Consortium.yaml
@@ -344,7 +357,7 @@ findings:
   issue_key: communitymech-1841
   category: grounding
   severity: minor
-  status: open
+  status: deferred
   certainty: confirmed
   title: Lower-rank taxon resolution for Sulfide Spring Autotrophic CPR Biofilm (CommunityMech:000222)
     requires full-text MAG table
@@ -361,6 +374,8 @@ findings:
   native_severity: P3
   normalization_reason: Source-limited lower-rank taxonomic grounding gap preserved
     as minor.
+  disposition_reason: 'Deferred: tracked in GitHub issue #1841 pending full-text supplementary
+    strain table inspection.'
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
@@ -378,7 +393,7 @@ findings:
   issue_key: communitymech-1847-metg2-membership
   category: completeness
   severity: minor
-  status: open
+  status: deferred
   certainty: confirmed
   title: Complete MetG2 rhizobacteria membership and host-assay specifics in CommunityMech:000302
     require full-text tables
@@ -396,6 +411,8 @@ findings:
   native_severity: P3
   normalization_reason: Source-limited full-text membership/cultivation gap preserved
     as minor.
+  disposition_reason: 'Deferred: tracked in GitHub issue #1847 pending full-text membership
+    and media table inspection.'
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml
@@ -416,7 +433,7 @@ findings:
   issue_key: okeke-fulltext-assay-gap
   category: evidence
   severity: minor
-  status: open
+  status: deferred
   certainty: confirmed
   title: Paywalled full-text assay parameters for Okeke-Lu cellulolytic consortium
     (CommunityMech:000048) remain deferred
@@ -433,6 +450,7 @@ findings:
   rule_id: review-yaml-record:source-limited-gap
   native_severity: P3
   normalization_reason: Paywalled full-text assay detail gap preserved as minor.
+  disposition_reason: 'Deferred: source-limited because primary full text is paywalled.'
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
@@ -451,7 +469,7 @@ findings:
   issue_key: parachlorella-remaining-research
   category: evidence
   severity: minor
-  status: open
+  status: deferred
   certainty: confirmed
   title: Secondary metabolite exchange specifics in Parachlorella-Saccharomyces co-culture
     (CommunityMech:000295) require full-text data
@@ -468,6 +486,7 @@ findings:
   native_severity: P3
   normalization_reason: Source-limited full-text interaction detail gap preserved
     as minor.
+  disposition_reason: 'Deferred: source-limited pending full-text interaction data.'
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml
@@ -486,13 +505,13 @@ workflow_findings:
 - finding_id: stage4-missing-community-origin-000434
   status: open
   summary: CommunityMech:000434 (kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml)
-    omits community_origin despite explicit synthetic co-culture assembly in PMID:42762737
-    (supports ENGINEERED).
+    omits community_origin despite explicit acidic nitrification bioreactor operation
+    (pH 2.0-5.0) in PMID:42762737 (supports ENGINEERED).
 - finding_id: stage4-missing-ecological-state-000360
   status: open
   summary: CommunityMech:000360 (kb/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml)
-    omits ecological_state despite persistent multi-year endosphere retention in PMID:42304541
-    (supports STABLE).
+    omits ecological_state despite persistent host-filtered endosphere guild retention
+    in a stable host-mediated niche in PMID:42304541 (supports STABLE).
 - finding_id: stage4-disconnected-syncom-participants
   status: open
   summary: Five SynCom/consortium records (CommunityMech:000339, 000399, 000415, 000433,
@@ -507,11 +526,13 @@ workflow_findings:
   status: open
   summary: CommunityMech:000273 (data/isolates/Chromobacterium_Gold_Biocyanidation.yaml)
     retains unverified arsenopyrite ore recovery claims (70-85% Au, 50-200 ppm CN-,
-    7-14 days) and 7 un-evidenced environmental_factors not supported by doi:10.1007/s10163-014-0276-4.
+    7-14 days) and 8 un-evidenced environmental_factors not supported by doi:10.1007/s10163-014-0276-4
+    (two-step waste-PCB bioleaching reaching 70.6% Au efficiency).
 - finding_id: stage4-isolate-000321-missing-functional-role
   status: open
   summary: CommunityMech:000321 (data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml)
-    omits functional_role and abundance_level on taxonomy[0] (Rothia, PMID:33452220).
+    omits functional_role and abundance_level on taxonomy[0] (Rothia, PMID:33398099,
+    PMID:28963201; Completeness Score 80/100).
 - finding_id: cheese-assay-evidence-gap
   status: deferred
   summary: CommunityMech:000153 (kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml)

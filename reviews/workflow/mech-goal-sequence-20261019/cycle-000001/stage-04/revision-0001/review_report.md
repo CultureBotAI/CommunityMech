@@ -11,7 +11,7 @@
 
 ## Summary
 
-Full-corpus frozen inventory and cohort review of all 479 eligible CommunityMech records (473 kb/communities/*.yaml, 4 data/isolates/*.yaml, 2 kb/taxa/*.yaml) partitioned into 19 disjoint domain cohorts at commit 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b. All 479 records pass LinkML schema validation and EvidenceSourceEnum checks; mean Completeness Score across 477 MicrobialCommunity records is 85.06/100 (median 90/100). Six actionable findings (3 major/P2, 3 minor/P3) across 10 records and 7 carried-forward source-limited open findings are preserved for Stage 5 grouped remediation.
+Full-corpus frozen inventory and cohort review of all 479 eligible CommunityMech records (473 kb/communities/*.yaml, 4 data/isolates/*.yaml, 2 kb/taxa/*.yaml) partitioned into 19 disjoint domain cohorts at commit 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b. All 479 records pass LinkML schema validation and EvidenceSourceEnum checks; mean Completeness Score across 477 MicrobialCommunity records is 85.06/100 (median 90/100). Six actionable open findings (3 major/P2, 3 minor/P3) across 12 records and 7 carried-forward source-limited deferred findings are preserved for Stage 5 grouped remediation.
 
 ## Scope And Provenance
 
@@ -227,83 +227,97 @@ Reviewed member records (2): CommunityMech:taxon:000001, CommunityMech:taxon:000
 
 ## Findings
 
-### stage4-missing-community-origin-000434: CommunityMech:000434 omits community_origin despite explicit synthetic co-culture assembly in PMID:42762737
+### stage4-missing-community-origin-000434: CommunityMech:000434 omits community_origin despite acidic nitrification bioreactor operation in PMID:42762737
 
 major / open / confirmed; issue key: communitymech-stage4-000434-missing-origin.
 
-Acidic_Nitrification_Minimal_Consortium.yaml (CommunityMech:000434) is the only MicrobialCommunity record in the 477-community corpus missing community_origin. The cited abstract (PMID:42762737) states that isolates from acidic red soil were assembled into a minimal two-species synthetic co-culture supporting community_origin: ENGINEERED.
+Acidic_Nitrification_Minimal_Consortium.yaml (CommunityMech:000434) is the only MicrobialCommunity record in the 477-community corpus missing community_origin. The cited abstract (PMID:42762737) describes three acidic nitrification bioreactors operated between pH 2.0 and 5.0 where the pH 2.0 bioreactor hosts a simplified consortium dominated by "Candidatus Nitrosoglobus kelleri" and Mycobacterium species, supporting community_origin: ENGINEERED.
 
-### stage4-missing-ecological-state-000360: CommunityMech:000360 omits ecological_state despite persistent multi-year endosphere association in PMID:42304541
+### stage4-missing-ecological-state-000360: CommunityMech:000360 omits ecological_state despite persistent host-filtered endosphere guild maintenance in PMID:42304541
 
 major / open / confirmed; issue key: communitymech-stage4-000360-missing-state.
 
-Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml (CommunityMech:000360) is the only MicrobialCommunity record in the 477-community corpus missing ecological_state. The cited abstract (PMID:42304541) describes a persistent endosphere cobamide-producing guild retained across multi-year cultivation supporting ecological_state: STABLE.
+Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml (CommunityMech:000360) is the only MicrobialCommunity record in the 477-community corpus missing ecological_state. The cited source (PMID:42304541) describes a persistent host-filtered endosphere cobamide-producing guild assembled and maintained in a stable host-mediated niche, supporting ecological_state: STABLE.
 
 ### stage4-disconnected-syncom-participants: Five SynCom/consortium records omit co-tested member taxa from COMMUNITY_LEVEL participating_taxa
 
 minor / open / confirmed; issue key: communitymech-stage4-disconnected-syncom-participants.
 
-NetworkIntegrityAuditor flags 14 DISCONNECTED_TAXON warnings across five records (CommunityMech:000339 Space_Habitat_SevenMember_Stress_Tolerance_SynCom [4 taxa], CommunityMech:000399 Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom [5 strains], CommunityMech:000415 Algal_Methanotroph_Biogas_Valorization_Coculture [1 backup methanotroph], CommunityMech:000433 Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium [2 NOB guilds], and CommunityMech:000447 Brocadia_Low_Nitrogen_Anammox_Consortium [2 syntrophic guilds]) where COMMUNITY_LEVEL ecological_interactions list only a subset of participating_taxa even though the cited abstracts support community-wide participation.
+NetworkIntegrityAuditor flags 14 DISCONNECTED_TAXON warnings across five records (CommunityMech:000339 Space_Habitat_SevenMember_Stress_Tolerance_SynCom [6 disconnected taxa: Sphingomonas paucimobilis, Cupriavidus metallidurans, Ralstonia pickettii, Acinetobacter radioresistens, Burkholderia cepacia, Chryseobacterium gleum], CommunityMech:000399 Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom [5 disconnected strains: H27, F2, F3, W6, M15], CommunityMech:000415 Algal_Methanotroph_Biogas_Valorization_Coculture [1 disconnected cyanobacterial primary producer: Leptolyngbya, NCBITaxon:47251], CommunityMech:000433 Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium [1 disconnected taxon: Legionella MAGs, NCBITaxon:445], and CommunityMech:000447 Brocadia_Low_Nitrogen_Anammox_Consortium [1 disconnected taxon: Candidatus Kuenenia early-acclimation lineage, NCBITaxon:174636]) where COMMUNITY_LEVEL ecological_interactions list only a subset of participating_taxa.
 
 ### stage4-external-host-pathogen-targets: Three biocontrol/rhizosphere SynCom records place external non-member hosts or pathogens in target_taxon
 
 minor / open / confirmed; issue key: communitymech-stage4-external-host-pathogen-targets.
 
-NetworkIntegrityAuditor flags all 7 UNKNOWN_TARGET warnings in the corpus across three records (CommunityMech:000347 Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom [Pinus massoniana], CommunityMech:000364 Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom [Sclerotinia sclerotiorum and Brassica napus], and CommunityMech:000373 Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom [Phytophthora nicotianae and Nicotiana tabacum]) because external host plants and target phytopathogens outside taxonomy[] are modeled in target_taxon on COMMUNITY_LEVEL interactions.
+NetworkIntegrityAuditor flags all 7 UNKNOWN_TARGET warnings in the corpus across three records (CommunityMech:000347 Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom [3 warnings: Fusarium oxysporum on 1 interaction and Pinus massoniana on 2 interactions], CommunityMech:000364 Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom [2 warnings: Sclerotinia sclerotiorum on 2 interactions], and CommunityMech:000373 Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom [2 warnings: Nicotiana tabacum (tobacco, NCBITaxon:4097) on 2 interactions]) because external host plants and target phytopathogens outside taxonomy[] are modeled in target_taxon on COMMUNITY_LEVEL interactions.
 
 ### stage4-isolate-000273-unverified-ore-prose: CommunityMech:000273 retains unverified arsenopyrite ore recovery claims and un-evidenced environmental_factors
 
 major / open / confirmed; issue key: communitymech-stage4-000273-unverified-ore-prose.
 
-Although Stage 2 repaired ecological_interactions on data/isolates/Chromobacterium_Gold_Biocyanidation.yaml (CommunityMech:000273), its top-level description, environment_term.notes, taxonomy[0].taxon_term.notes, and 7 un-evidenced environmental_factors entries still assert refractory gold-bearing sulfide ore (arsenopyrite/pyrite) bioleaching, 70-85% gold recovery, 50-200 ppm CN-, and 7-14 day leaching time that do not come from the cited waste-PCB bioleaching source (doi:10.1007/s10163-014-0276-4: 11.31% Au and 24.15% Cu recovery at pH 9).
+Although Stage 2 repaired ecological_interactions on data/isolates/Chromobacterium_Gold_Biocyanidation.yaml (CommunityMech:000273), its top-level description, environment_term.notes, taxonomy[0].taxon_term.notes, and 8 un-evidenced environmental_factors entries (7 ore/cyanide/pulp-density parameters and 1 temperature entry) still assert refractory gold-bearing sulfide ore (arsenopyrite/pyrite) bioleaching, 70-85% gold recovery, 50-200 ppm CN-, and 7-14 day leaching time that do not come from the cited waste-PCB bioleaching source (doi:10.1007/s10163-014-0276-4: Acidithiobacillus ferrooxidans pretreatment removing &gt;80% Cu followed by Chromobacterium violaceum bioleaching reaching 70.6% Au bioleaching efficiency vs 45.5% in direct bioleaching).
 
 ### stage4-isolate-000321-missing-functional-role: CommunityMech:000321 omits functional_role and abundance_level on its sole taxon entry
 
 minor / open / confirmed; issue key: communitymech-stage4-000321-missing-role.
 
-data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml (CommunityMech:000321) is the only record in data/isolates/ missing functional_role and abundance_level on taxonomy[0] (Rothia, NCBITaxon:32207), reducing its proportional Completeness Score to 70/100.
+data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml (CommunityMech:000321) is the only record in data/isolates/ missing functional_role and abundance_level on taxonomy[0] (Rothia, NCBITaxon:32207, supported by PMID:33398099 and PMID:28963201), reducing its proportional Completeness Score to 80/100.
 
 ### cheese-assay-evidence-gap: Full-text-dependent cheese rind assay specifics remain deferred in CommunityMech:000153
 
-minor / open / confirmed; issue key: cheese-assay-evidence-gap.
+minor / deferred / confirmed; issue key: cheese-assay-evidence-gap.
 
 Cheese_Rind_InSitu_InVitro_Model_Community.yaml (CommunityMech:000153) remains capped at abstract-verified taxa and interactions because strain-specific pairwise assay details in PMID:25043025 require full-text table inspection.
 
+Disposition: Deferred: source-limited until full-text assay tables for PMID:25043025 are ingested.
+
 ### communitymech-1467-source-discrepancy-and-extension: Broader 18-species Transwell campaign and strain/table discrepancies in CommunityMech:000091 require full-text audit
 
-minor / open / confirmed; issue key: communitymech-1467-source-discrepancy-and-extension.
+minor / deferred / confirmed; issue key: communitymech-1467-source-discrepancy-and-extension.
 
 GLBRC_Exometabolite_Transwell_SynCom.yaml (CommunityMech:000091) captures the abstract-supported exometabolite Transwell SynCom, while full-text table reconciliation for the broader 18-species campaign remains open under issue #1467.
 
+Disposition: Deferred: tracked in GitHub issue #1467 pending full-text table reconciliation.
+
 ### communitymech-1699-coverage: Additional Phormidium alkaline-lake co-isolates in CommunityMech:000054 require full-text table verification
 
-minor / open / confirmed; issue key: communitymech-1699-coverage.
+minor / deferred / confirmed; issue key: communitymech-1699-coverage.
 
 Phormidium_Alkaline_Consortium.yaml (CommunityMech:000054) models the primary cyanobacterial host and abstract-backed heterotrophic guild; additional heterotrophic co-isolates require full-text table verification (#1699).
 
+Disposition: Deferred: tracked in GitHub issue #1699 pending full-text isolate table verification.
+
 ### communitymech-1841: Lower-rank taxon resolution for Sulfide Spring Autotrophic CPR Biofilm (CommunityMech:000222) requires full-text MAG table
 
-minor / open / confirmed; issue key: communitymech-1841.
+minor / deferred / confirmed; issue key: communitymech-1841.
 
 Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml (CommunityMech:000222) retains parent-rank taxa from the abstract; resolving lower-rank MAG/isolate assignments requires full-text supplementary tables (#1841).
 
+Disposition: Deferred: tracked in GitHub issue #1841 pending full-text supplementary strain table inspection.
+
 ### communitymech-1847-metg2-membership: Complete MetG2 rhizobacteria membership and host-assay specifics in CommunityMech:000302 require full-text tables
 
-minor / open / confirmed; issue key: communitymech-1847-metg2-membership.
+minor / deferred / confirmed; issue key: communitymech-1847-metg2-membership.
 
 SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml (CommunityMech:000302) models the abstract-enumerated rhizobacterial taxa; full isolate membership and assay specifics require full-text tables (#1847).
 
+Disposition: Deferred: tracked in GitHub issue #1847 pending full-text membership and media table inspection.
+
 ### okeke-fulltext-assay-gap: Paywalled full-text assay parameters for Okeke-Lu cellulolytic consortium (CommunityMech:000048) remain deferred
 
-minor / open / confirmed; issue key: okeke-fulltext-assay-gap.
+minor / deferred / confirmed; issue key: okeke-fulltext-assay-gap.
 
 Okeke_Lu_Cellulolytic_Consortium.yaml (CommunityMech:000048) is grounded to abstract-verified cellulolytic-xylanolytic claims; full-text monoculture vs co-culture enzyme assay parameters remain paywalled.
 
+Disposition: Deferred: source-limited because primary full text is paywalled.
+
 ### parachlorella-remaining-research: Secondary metabolite exchange specifics in Parachlorella-Saccharomyces co-culture (CommunityMech:000295) require full-text data
 
-minor / open / confirmed; issue key: parachlorella-remaining-research.
+minor / deferred / confirmed; issue key: parachlorella-remaining-research.
 
 Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml (CommunityMech:000295) captures the primary abstract-supported algal-yeast mutualism; secondary metabolite exchange kinetics require full-text tables.
+
+Disposition: Deferred: source-limited pending full-text interaction data.
 
 ## Recommended Actions And Acceptance Checks
 
@@ -344,7 +358,7 @@ Align description, environment_term.notes, taxonomy[0].taxon_term.notes, and env
 
 ### act-populate-isolate-000321-role
 
-Populate functional_role and abundance_level on taxonomy[0] in data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml (CommunityMech:000321) supported by PMID:33452220.
+Populate functional_role and abundance_level on taxonomy[0] in data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml (CommunityMech:000321) supported by PMID:33398099 and PMID:28963201.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
 - uv run python scripts/verify_history_Changed_records.py
@@ -364,14 +378,14 @@ Retain source-limited full-text findings until open-access full text or suppleme
 | Evidence | Reference / locator | Support | Observation |
 | --- | --- | --- | --- |
 | ev-schema-validation-gate | src/communitymech/schema/communitymech.yaml; MicrobialCommunity and TaxonRecord classes | supports | All 473 kb/communities/*.yaml, 4 data/isolates/*.yaml, and 2 kb/taxa/*.yaml records pass LinkML schema validation with 0 errors and 100% EvidenceSourceEnum compliance. |
-| ev-completeness-audit | .claude/skills/review-communities/SKILL.md; Section 5: Completeness Score (0-100) and Validation Quality Score (0-100) | supports | Proportional Completeness Score audit across all 477 MicrobialCommunity records (min 40, median 90, mean 85.06, max 100) identified 2 core metadata omissions (CommunityMech:000434 missing community_origin; CommunityMech:000360 missing ecological_state) and 1 isolate missing functional_role (CommunityMech:000321). |
-| ev-network-integrity-audit | src/communitymech/network/auditor.py; NetworkIntegrityAuditor.audit_all() | supports | Network integrity audit across 473 kb/communities records found 452 records with 0 warnings and 21 records with 57 warnings (50 DISCONNECTED_TAXON, 7 UNKNOWN_TARGET across 44 issue categories), of which 5 SynCom/guild records have remediable incomplete participating_taxa and 3 biocontrol records place external hosts/pathogens in target_taxon. |
+| ev-completeness-audit | .claude/skills/review-communities/SKILL.md; Section 5: Completeness Score (0-100) and Validation Quality Score (0-100) | supports | Proportional Completeness Score audit across all 477 MicrobialCommunity records (min 40, median 90, mean 85.06, max 100) identified 2 core metadata omissions (CommunityMech:000434 missing community_origin; CommunityMech:000360 missing ecological_state) and 1 isolate missing functional_role (CommunityMech:000321, Completeness Score 80/100). |
+| ev-network-integrity-audit | src/communitymech/network/auditor.py; NetworkIntegrityAuditor.audit_all() | supports | Network integrity audit across 473 kb/communities records found 452 records with 0 warnings and 21 records with 57 warnings (50 DISCONNECTED_TAXON, 7 UNKNOWN_TARGET across 44 issue categories), of which 5 SynCom/guild records have 14 remediable disconnected member taxa and 3 biocontrol records place external hosts/pathogens in target_taxon across 7 interaction entries. |
 | ev-causal-inventory | reports/causal_graph_review/inventory.tsv; rows 1-478 | supports | Corpus-wide causal graph inventory covers all 477 MicrobialCommunity records (423 reviewed with evidence-backed causal structure, 54 needs_research source-limited, 0 unreviewed). |
-| ev-000434-pmid42762737 | PMID:42762737; references_cache/PMID_42762737.txt | supports | Cached PubMed abstract PMID:42762737 describes isolating Nitrosomonas sp. AP2 and Nitrobacter sp.NB1 from acidic red soil and co-culturing them as a minimal two-species synthetic consortium. |
-| ev-000360-pmid42304541 | PMID:42304541; references_cache/PMID_42304541.txt | supports | Cached PubMed abstract PMID:42304541 describes a stable endosphere cobamide-producing bacterial guild persistently associated with Wolffia globosa Mankai across multi-year cultivation. |
-| ev-isolate-000273-audit | data/isolates/Chromobacterium_Gold_Biocyanidation.yaml; description, environment_term.notes, taxonomy[0].taxon_term.notes, environmental_factors | refutes | Non-graph prose and 7 un-evidenced environmental_factors in CommunityMech:000273 still claim refractory arsenopyrite ore bioleaching (70-85% Au recovery, 50-200 ppm CN-, 7-14 days) rather than the waste-PCB bioleaching reported by doi:10.1007/s10163-014-0276-4 (11.31% Au, 24.15% Cu at pH 9). |
-| ev-isolate-000321-audit | data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml; taxonomy[0] | supports | CommunityMech:000321 is a valid single-species GSMM baseline record for Rothia (PMID:33452220) but omits functional_role and abundance_level on taxonomy[0]. |
-| ev-prior-structured-reviews | reviews/structured; 40 retained structured review bundles through 20261016T091936Z | context_only | Lineage inspection of all 40 prior structured reviews identified 7 record-scoped source-limited open findings that remain unresolved at commit 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b. |
+| ev-000434-pmid42762737 | PMID:42762737; references_cache/PMID_42762737.txt | supports | Cached PubMed abstract PMID:42762737 describes operating acidic nitrification bioreactors between pH 2.0 and 5.0, with the pH 2.0 bioreactor hosting a strongly simplified community dominated by "Candidatus Nitrosoglobus kelleri" and Mycobacterium species. |
+| ev-000360-pmid42304541 | PMID:42304541; references_cache/PMID_42304541.txt | supports | Cached PubMed abstract PMID:42304541 describes a persistent host-filtered endosphere cobamide-producing bacterial guild assembled and maintained in a stable host-mediated niche within Wolffia globosa Mankai. |
+| ev-isolate-000273-audit | data/isolates/Chromobacterium_Gold_Biocyanidation.yaml; description, environment_term.notes, taxonomy[0].taxon_term.notes, environmental_factors | refutes | Non-graph prose and 8 un-evidenced environmental_factors (7 ore/cyanide/pulp-density parameters and 1 temperature entry) in CommunityMech:000273 still claim refractory arsenopyrite ore bioleaching (70-85% Au recovery, 50-200 ppm CN-, 7-14 days) rather than the two-step waste-PCB bioleaching reported by doi:10.1007/s10163-014-0276-4 (Acidithiobacillus ferrooxidans pretreatment removing &gt;80% Cu followed by Chromobacterium violaceum bioleaching reaching 70.6% Au bioleaching efficiency vs 45.5% in direct bioleaching). |
+| ev-isolate-000321-audit | data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml; taxonomy[0] | supports | CommunityMech:000321 is a valid single-species GSMM baseline record for Rothia (PMID:33398099, PMID:28963201; Completeness Score 80/100) but omits functional_role and abundance_level on taxonomy[0]. |
+| ev-prior-structured-reviews | reviews/structured; 40 retained structured review bundles through 20261016T091936Z | context_only | Lineage inspection of all 40 prior structured reviews identified 7 record-scoped source-limited findings that remain unresolved at commit 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b and are carried forward as deferred. |
 
 ## Limits And Additional Notes
 
