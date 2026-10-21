@@ -125,11 +125,6 @@ ecological_interactions:
     reciprocal competitive harm or proof that plate inhibition mediates seedling protection. HT is distinct from
     the five-member C2 mixture.
   scope: COMMUNITY_LEVEL
-  target_taxon:
-    preferred_term: Fusarium oxysporum
-    term:
-      id: NCBITaxon:5507
-      label: Fusarium oxysporum
   evidence:
   - reference: PMID:42144568
     supports: SUPPORT
@@ -139,15 +134,10 @@ ecological_interactions:
     explanation: Supports HT as one of four constructed SynComs that inhibited the fungal pathogen more strongly
       than individual isolates.
 - name: HT SynCom Masson Pine Damping-Off Protection
-  description: HT inoculation increased Fusarium-challenged Masson pine seedling height by 9.44% and reduced disease
-    incidence by 36.67% relative to the control. These are HT-specific plant outcomes, not demonstrated reciprocal
-    benefit to the bacteria or proof that defense expression is downstream of protection.
+  description: HT inoculation increased Fusarium-challenged Masson pine (Pinus massoniana) seedling height by 9.44%
+    and reduced disease incidence by 36.67% relative to the control. These are HT-specific plant outcomes, not demonstrated
+    reciprocal benefit to the bacteria or proof that defense expression is downstream of protection.
   scope: COMMUNITY_LEVEL
-  target_taxon:
-    preferred_term: Pinus massoniana
-    term:
-      id: NCBITaxon:88730
-      label: Pinus massoniana
   biological_processes:
   - preferred_term: defense response to fungus
     term:
@@ -162,15 +152,10 @@ ecological_interactions:
     explanation: 'Supports the HT in vivo outcome: 9.44% higher seedling height and 36.67% lower disease incidence
       in Masson pine seedlings.'
 - name: Protective Enzyme and Resistance-Gene Activation
-  description: C2 and HT treatments enhanced protective enzyme activity, reduced membrane injury and altered PR1,
-    FLS2 and CAT1 expression. PARTIAL - plant-hormone and MAPK signaling mediation is the source's interpretation;
-    expression and parallel physiological outcomes do not alone establish pathway necessity.
+  description: C2 and HT treatments in Pinus massoniana seedlings enhanced protective enzyme activity, reduced membrane
+    injury and altered PR1, FLS2 and CAT1 expression. PARTIAL - plant-hormone and MAPK signaling mediation is the
+    source's interpretation; expression and parallel physiological outcomes do not alone establish pathway necessity.
   scope: COMMUNITY_LEVEL
-  target_taxon:
-    preferred_term: Pinus massoniana
-    term:
-      id: NCBITaxon:88730
-      label: Pinus massoniana
   biological_processes:
   - preferred_term: defense response to fungus
     term:
@@ -211,4 +196,9 @@ curation_history:
   action: REVIEW_CAUSAL_GRAPH
   changes: 'Separate HT plant endpoints from workflow and unverified defense mediation; decisions: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml;
     https://github.com/CultureBotAI/CommunityMech/issues/1253'
+  llm_assisted: true
+- timestamp: '2026-10-21T19:00:00Z'
+  curator: claude
+  action: CURATE_YAML_RECORD
+  changes: Removed external non-member pathogen/host target_taxon slots (Fusarium oxysporum, Pinus massoniana) from COMMUNITY_LEVEL interactions (#2049).
   llm_assisted: true

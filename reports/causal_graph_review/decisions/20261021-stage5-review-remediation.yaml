@@ -1,0 +1,476 @@
+reviewer: claude
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+recorded_at: '2026-10-21T19:00:00Z'
+scope: 'Stage 5 remediation of Stage 4 record and cohort review findings (#2047, #2048,
+  #2049, #2050); causal graph node lists and directed downstream edges unchanged.'
+records:
+- path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  id: CommunityMech:000321
+  original_sha256: b73ac6cd532c8fb20c7d1fa70979b2a220238069f0ce78c7b6c9d66af2524ab8
+  record_sha256: 3f3fe69bc250a439ff851305a95d485ad1deee50602335de11b36601542e04d4
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+  outcome: changed
+  scope: Whole record read; every current causal node and edge checked against primary-source
+    passages. Other metadata is not certified by this graph review.
+  summary: Remove laboratory provenance arrows from the Rothia ecological graph
+  node_decisions:
+  - node: Rothia KRP Genome-Scale Amino-Acid Flux Model
+    rationale: Retain explicitly computational amino-acid potential with its existing
+      model provenance; do not invent a measured exchange.
+  edges_before:
+  - source: Rothia KRP GAM Agar Isolation
+    target: Rothia KRP Whole-Genome Assembly
+    description: The cultured KRP isolate supplied genomic DNA for draft genome sequencing.
+  - source: Rothia KRP Whole-Genome Assembly
+    target: Rothia KRP Genome-Scale Amino-Acid Flux Model
+    description: The deposited KRP genome supported strain-specific metabolic reconstruction.
+  edges_after: []
+  references:
+  - PMID:28963201
+  - PMID:33398099
+  source_review:
+  - reference: PMID:28963201
+    local_source: references_cache/PMID_28963201.txt
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC5624747/
+    passages_read: Entire short genome announcement; isolate ISC 156, GAM cultivation,
+      sequencing, assembly, and accession.
+  - reference: PMID:33398099
+    local_source: references_cache/PMID_33398099.md
+    passages_read: Complete abstract, relevant modeling results, and methods including
+      CarveMe reconstruction and FBA of amino-acid uptake/secretion.
+  - url: https://github.com/cdanielmachado/kefir_paper
+    passages_read: Author README, species_list.tsv, model directory, and parsed KRP
+      SBML blob.
+    verified_identity: species_list.tsv maps 156_03182016 to Rothia kefirresidentii
+      KRP, distinct from the two R. dentocariosa models.
+    model_path: models/156_03182016.xml
+    model_git_blob_sha: 4b7ca24290259cc8d20e4ff415f26327c1f1b9e0
+    model_id: m_156_03182016
+    model_sbml_level: 3
+    model_sbml_version: 1
+    model_reaction_count: 1274
+    model_species_count: 893
+    model_annotation: Built with CarveMe version 1.6.1.
+    retrieval_note: Contents API omitted the large body; the Git blob endpoint returned
+      parseable XML.
+  removed_node_decisions:
+  - node: Rothia KRP GAM Agar Isolation
+    rationale: Laboratory isolation provenance belongs in the existing growth-media
+      metadata, not an ecological causal chain.
+  - node: Rothia KRP Whole-Genome Assembly
+    rationale: Genome assembly is a data-production step, retained in dataset provenance
+      rather than represented as biological causation.
+  history_file: history/records/BioModels_MODEL2204300002_Kefir_Rothia_Model/2026-10-05T071439Z-codex-9feb28.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1240
+  issues:
+  - 2050
+  curation_events_added: 1
+  history_files:
+  - history/records/BioModels_MODEL2204300002_Kefir_Rothia_Model/2026-10-21T190000Z-claude-2050.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+    record_sha256: b73ac6cd532c8fb20c7d1fa70979b2a220238069f0ce78c7b6c9d66af2524ab8
+- path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  id: CommunityMech:000273
+  original_sha256: 6f859fe8ba028743e55e8b77565c2ee747df5b436e7d3741728af6e037850fa2
+  record_sha256: 4eb42a867f2b2b1489c4ef4fa95e408d241a54d0e2bfb1cf9474dd407d036b86
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+  outcome: changed
+  scope: Whole record read; every current causal node and edge checked against primary-source
+    passages. Other metadata is not certified by this graph review.
+  summary: Bound the cyanogenic gold graph to tested PCB interventions and remove
+    unsupported ecological classifications
+  node_decisions:
+  - node: Biogenic Cyanide Production in Glycine-Supplemented Culture
+    rationale: Retain reported cyanogenesis and medium composition without a traced
+      glycine flux or unverified enzyme and concentration details.
+  - node: Gold Cyanide Complexation and Dissolution
+    rationale: Retain PCB leaching and the combined-condition endpoint; remove ore,
+      exact-complex, and purification overclaims.
+  - node: Oxygen-Supported PCB Gold Leaching
+    rationale: Retain directly reported oxygen supplementation effects without a commensalism
+      label or a new arrow.
+  - node: PCB Pretreatment and Particle Size Effects
+    rationale: Rename to the PCB system, separate prior biooxidation from the C. violaceum
+      culture, and avoid an unbounded finer-grinding claim.
+  edges_before:
+  - source: Biogenic Cyanide Production from Glycine
+    target: Gold Cyanide Complexation and Dissolution
+    description: Biogenic cyanide complexes metallic gold from ores and e-waste
+  - source: Ore Pretreatment and Particle Size Effects
+    target: Gold Cyanide Complexation and Dissolution
+    description: Grinding and particle-size reduction expose refractory gold surfaces
+      to biogenic cyanide
+  edges_after:
+  - source: Biogenic Cyanide Production in Glycine-Supplemented Culture
+    target: Gold Cyanide Complexation and Dissolution
+    description: Biogenic cyanide supplies the gold-cyanide reaction that mobilizes
+      gold from the tested waste PCBs.
+  - source: PCB Pretreatment and Particle Size Effects
+    target: Gold Cyanide Complexation and Dissolution
+    description: Base-metal removal by the separate pretreatment and particle-size
+      optimization improved subsequent PCB gold leaching; the abstract does not resolve
+      their individual causal contributions.
+  references:
+  - doi:10.1007/s10163-014-0276-4
+  source_review:
+  - reference: doi:10.1007/s10163-014-0276-4
+    url: https://link.springer.com/article/10.1007/s10163-014-0276-4
+    local_source: references_cache/doi_10.1007_s10163-014-0276-4.md
+    passages_read: Complete publisher abstract about waste PCBs, oxygen, base-metal
+      pretreatment, particle size, and optimized gold recovery.
+    cache_caution: The local file contained ABSTRACT EXCERPTS mislabeled abstract_only,
+      with abbreviated or paraphrased source text. Reclassified as selected_excerpts
+      under issue 1242; it is not an independently retrieved complete abstract.
+  renamed_nodes:
+    Biogenic Cyanide Production from Glycine: Biogenic Cyanide Production in Glycine-Supplemented
+      Culture
+    Ore Pretreatment and Particle Size Effects: PCB Pretreatment and Particle Size
+      Effects
+  limitations:
+  - Non-graph metadata remains outside this causal-graph certification.
+  - Local cache contains selected excerpts; primary publisher abstract was read separately.
+  history_file: history/records/Chromobacterium_Gold_Biocyanidation/2026-10-05T071440Z-codex-ec73a1.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1240
+  issues:
+  - 2050
+  curation_events_added: 1
+  history_files:
+  - history/records/Chromobacterium_Gold_Biocyanidation/2026-10-21T190000Z-claude-2050.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+    record_sha256: 6f859fe8ba028743e55e8b77565c2ee747df5b436e7d3741728af6e037850fa2
+- path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  id: CommunityMech:000434
+  record_sha256: 2e8a13c708e55df5858a0d32bb9b943677bdd82fb835982694fb645a5c23fc78
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+  scope: Whole record read; every existing causal node and edge checked against cited
+    primary-source passages. Other metadata is not certified by this graph review.
+  outcome: changed
+  summary: Retain the existing source-bounded causal graph after review
+  node_decisions:
+  - node: Putative acidic carbon and nitrogen cycling linkage
+    rationale: The sole node explicitly describes potential meta-omic carbon/nitrogen
+      linkages between the dominant pH 2 partners. It avoids identifying an exchanged
+      metabolite, transfer direction, reciprocal benefit, or isolated perturbation
+      not established by the abstract. The current abstract-scope qualification and
+      open methods/evidence gap are appropriate.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42762737
+  review_notes:
+  - Concurrent stress-response expression does not establish directed interspecies
+    detoxification or a rescue loop. New causal structure would require separate research
+    rather than arrows between co-responses.
+  original_sha256: 376423d5910b761cc88aa6d9afe44204a7c275ed3e8873fef1a56c4def1e19c9
+  issues:
+  - 2047
+  curation_events_added: 1
+  history_files:
+  - history/records/Acidic_Nitrification_Minimal_Consortium/2026-10-21T190000Z-claude-2047.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-seven-records.yaml
+    record_sha256: 376423d5910b761cc88aa6d9afe44204a7c275ed3e8873fef1a56c4def1e19c9
+- path: kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml
+  id: CommunityMech:000415
+  original_sha256: 3e009885b98b2aa6b6763fb5386ab60f764367d5436db204e0aede39dc6e3331
+  record_sha256: d317416542deab471a12785f688c23d08ed5a7eea2894dbde489f40c0df80806
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+  outcome: changed
+  scope: Whole record read; every current node and arrow checked against primary-source
+    passages. Non-graph metadata is outside certification.
+  summary: Separate algal-methanotroph gas measurements from inferred partner exchange
+  node_decisions:
+  - node: Photosynthetic O2 Support for Methane Oxidation
+    rationale: Retain gas dynamics and qualified photosynthetic support; remove unmeasured
+      reciprocal mutualism.
+  - node: Methane-Linked Methylotroph Cross-Feeding
+    rationale: Retain the source-proposed cross-feeding hypothesis with partial evidence,
+      not resolved transfer.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:41745484
+  source_review:
+  - reference: PMID:41745484
+    local_source: references_cache/PMID_41745484.txt
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12941554/
+    doi: 10.3390/md24020081
+    passages_read: Complete abstract; full-text gas dynamics section 2.1; metabolic
+      network section 2.3 and all subsections; methods 3.1-3.4; conclusion. Giant
+      cache line was folded to avoid output truncation for relevant sections.
+    access_note: MDPI URL returned 429. PMC primary article is accessible; local Europe
+      PMC full text supplied the detailed passages.
+  limitations: []
+  history_file: history/records/Algal_Methanotroph_Biogas_Valorization_Coculture/2026-10-05T084241Z-codex-0a0de5.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1244
+  issues:
+  - 2048
+  curation_events_added: 1
+  history_files:
+  - history/records/Algal_Methanotroph_Biogas_Valorization_Coculture/2026-10-21T190000Z-claude-2048.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+    record_sha256: 3e009885b98b2aa6b6763fb5386ab60f764367d5436db204e0aede39dc6e3331
+- path: kb/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml
+  id: CommunityMech:000373
+  original_sha256: e0126b602878c9abada427f906334f6a059784e07b29c33b709c9a9549f0689f
+  record_sha256: c9f62a78e6ca7a6c6fc3f3886a77fb9d7e0583f3ce931dd474aeefa2217a1e9d
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+  outcome: changed
+  scope: Whole record read; all current and removed graph nodes and arrows reviewed
+    against the precisely scoped sources below. Non-graph metadata is outside certification.
+  summary: Retain tobacco efficacy while separating assay outcomes from reciprocal
+    fitness
+  node_decisions:
+  - node: Mild-Inhibition Three-Strain SynCom Compatibility
+    rationale: 'Retain COMPETITION: reciprocal directional plate inhibition supports
+      negative effects on both partners under that assay; competition is not restricted
+      to resource depletion.'
+  - node: SynCom Indole-3-Acetic Acid Enhancement
+    rationale: Retain measured Salkowski IAA and its already-narrowed process annotation
+      without mutualism or hormonal mediation.
+  - node: Tobacco FO/PN Glasshouse Disease Suppression
+    rationale: Retain glasshouse disease-index reduction without reciprocal competition.
+  - node: Tobacco Root Activity Improvement
+    rationale: Retain TTC activity without direct-growth annotation or mutualism.
+  - node: Two-Site Field Disease Suppression and Yield Increase
+    rationale: Retain two-site disease and estimated middle-leaf yield outcomes without
+      reciprocal benefit or persistence claims.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42388034
+  source_review:
+  - reference: PMID:42388034
+    doi: 10.1002/ps.71069
+    local: references_cache/PMID_42388034.txt
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13569317/
+    passages_read: Complete local cache, including abstract and selected methods/results/discussion
+      passages, folded lines 1-165.
+    access_note: The cache's full-text separator overstates completeness; the body
+      is selected passages, not the entire article. PMC returned a CAPTCHA and Wiley
+      opening failed; no bypass or cache edit.
+  limitations:
+  - No new nodes or arrows. No paid Edison job submitted; graph-extension credential
+    remains unconfigured.
+  - Source coverage is limited to the passages explicitly recorded, not unreviewed
+    figures, supplements or full methods. Non-graph fields remain unchanged.
+  history_file: history/records/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom/2026-10-05T101150Z-codex-7933b3.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1248
+  related_issue: https://github.com/CultureBotAI/CommunityMech/issues/880
+  existing_resolution: 'GO:0009684 was already present before this batch; no new repair
+    of #880 is claimed.'
+  issues:
+  - 2049
+  curation_events_added: 1
+  history_files:
+  - history/records/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom/2026-10-21T190000Z-claude-2049.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+    record_sha256: e0126b602878c9abada427f906334f6a059784e07b29c33b709c9a9549f0689f
+- path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  id: CommunityMech:000347
+  original_sha256: c0cb1ddb17e22f1fba3db44ecdb5cf8cc8a3412d23be6910a043851f23ce51d6
+  record_sha256: 27ce7cf055aef35383089e1adeac31ea1cbab0c5c3b9765537b188da34a48cff
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+  outcome: changed
+  scope: Whole record and every graph node/edge read against the precisely scoped
+    sources below. Non-graph metadata is outside certification.
+  summary: Separate HT plant endpoints from workflow and unverified defense mediation
+  node_decisions:
+  - node: HT SynCom Suppression of Fusarium oxysporum
+    rationale: Keep HT-specific in-vitro inhibition without reciprocal competition
+      or a workflow arrow.
+  - node: HT SynCom Masson Pine Damping-Off Protection
+    rationale: Keep correct HT height/disease endpoints without reciprocal mutualism
+      or a co-outcome arrow.
+  - node: Protective Enzyme and Resistance-Gene Activation
+    rationale: Keep host physiology and expression; label pathway mediation partial,
+      not mutualism.
+  edges_before:
+  - source: HT SynCom Suppression of Fusarium oxysporum
+    target: HT SynCom Masson Pine Damping-Off Protection
+    description: In vitro suppression of F. oxysporum was carried into seedling challenge
+      assays, where HT reduced disease incidence and promoted Masson pine growth.
+  - source: HT SynCom Masson Pine Damping-Off Protection
+    target: Protective Enzyme and Resistance-Gene Activation
+    description: The disease-suppressive C2 and HT SynComs also enhanced protective
+      enzyme activity, reduced membrane injury, and activated plant defense genes.
+  edges_after: []
+  references:
+  - PMID:42144568
+  source_review:
+  - reference: PMID:42144568
+    doi: 10.1002/ps.70924
+    scope: Complete cached abstract plus selected Figure 4 strain/composition transcriptions;
+      figure image and full paper not read.
+    access: PMC13453252 presented CAPTCHA; Wiley retrieval failed. No bypass attempted.
+    unread: Full methods/results, figure images, and supplements.
+  limitations:
+  - No new nodes/arrows or paid Edison submission; this is bounded repair, not graph
+    extension.
+  - Source coverage does not include unread figures, supplements or methods; source
+    scopes are explicit.
+  - 'Non-graph fields preserved; follow-up #1256 remains outside this certificate.'
+  history_file: history/records/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom/2026-10-05T112951Z-codex-12cf22.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1253
+  removed_edge_decisions:
+  - source: HT SynCom Suppression of Fusarium oxysporum
+    target: HT SynCom Masson Pine Damping-Off Protection
+    rationale: This arrow describes temporal order, shared exposure, experimental
+      workflow or parallel outcomes, not demonstrated causal mediation.
+  - source: HT SynCom Masson Pine Damping-Off Protection
+    target: Protective Enzyme and Resistance-Gene Activation
+    rationale: This arrow describes temporal order, shared exposure, experimental
+      workflow or parallel outcomes, not demonstrated causal mediation.
+  issues:
+  - 2049
+  curation_events_added: 1
+  history_files:
+  - history/records/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom/2026-10-21T190000Z-claude-2049.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml
+    record_sha256: c0cb1ddb17e22f1fba3db44ecdb5cf8cc8a3412d23be6910a043851f23ce51d6
+- path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  id: CommunityMech:000447
+  original_sha256: 227362963f3008129281c29d08829d1bf49aa57230b126cc7986e592c6cd9a96
+  record_sha256: 0ea86ed4c4587ff6d6fcc424c9bf2a27163154962b8430576b2a6fd4bfb1b36c
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the
+    precise source scopes below. Non-graph metadata is not certified; cable bacteria
+    remains needs_research.
+  summary: Retain bounded Brocadia model-inferred complementarity with existing source
+    gaps
+  node_decisions:
+  - node: Brocadia complementary low-nitrogen auxotrophy
+    rationale: Retain potential SMETANA cross-feeding and explicit computational provenance;
+      no exchange-specific causal arrows, species claims or unsupported model source
+      are added.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42323145
+  source_review:
+  - reference: PMID:42323145
+    doi: 10.1016/j.biortech.2026.135206
+    cache: references_cache/PMID_42323145.txt
+    cache_sha256: dae56a2cb0f7223e87c5c6069c6437f02cfb7a7dc09c09135c30273626dfb018
+    scope: Complete cached primary abstract and publication metadata read. November
+      2026 issue date is preceded by June 20 online publication.
+    unread: Full text, methods, species/MAG identities, exact model construction,
+      growth conditions, figures, supplements and raw data; no new online full-text
+      retrieval attempted in this preparation.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated source scopes are certified, not unread images, supplements or
+    rerun models.
+  - 'Non-graph metadata remains under #1268; cable biofilm taxonomy and inherited
+    connectivity remain #1267.'
+  history_file: null
+  issue: null
+  related_issues:
+  - 1139
+  - 1140
+  - 1141
+  removed_node_decisions: []
+  removed_edge_decisions: []
+  issues:
+  - 2048
+  curation_events_added: 1
+  history_files:
+  - history/records/Brocadia_Low_Nitrogen_Anammox_Consortium/2026-10-21T190000Z-claude-2048.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+    record_sha256: 227362963f3008129281c29d08829d1bf49aa57230b126cc7986e592c6cd9a96
+- path: kb/communities/Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml
+  id: CommunityMech:000339
+  original_sha256: 0304999156eeec1556a337ff0138a6bfce205c38b9d5a8010051d864949a2a7f
+  record_sha256: 31961a821395f2b2f8731998529c4035f2dac3477154c8258239bc0f6cdfab48
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+  scope: Whole record and every existing node/direction reviewed; no new-mechanism
+    discovery or non-graph certification.
+  summary: Retain reduced B. subtilis colony recovery and its canonical participant;
+    remove categorical competition and distinguish cultivability from definitive viability
+    loss.
+  node_decisions:
+  - node: Whole-consortium reduction of recoverable Bacillus subtilis after co-cultivation
+    rationale: Retain reduced B. subtilis colony recovery and its canonical participant;
+      remove categorical competition and distinguish cultivability from definitive
+      viability loss.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42577390
+  issues:
+  - 1823
+  - 2048
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  curation_events_added: 1
+  history_files:
+  - history/records/Space_Habitat_SevenMember_Stress_Tolerance_SynCom/2026-10-21T190000Z-claude-2048.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-four-records-batch105.yaml
+    record_sha256: 0304999156eeec1556a337ff0138a6bfce205c38b9d5a8010051d864949a2a7f
+- path: kb/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml
+  id: CommunityMech:000360
+  original_sha256: 829d29dcebcb9ba30483df9d1ec71eafb945a6a3bf966539ee6a16d9abd9077d
+  record_sha256: 833bd34da10c0431673e87588bf31419546fc0e1574409dc9526ecc944dce742
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+  scope: Whole record and all existing nodes/arrows reviewed; existing-graph repair,
+    not whole-record certification.
+  summary: Keep observed compartment differences separate from selectively demonstrated
+    host filtering and niche partitioning.; Retain annotated producer-salvager potential
+    with computational provenance, not observed cross-feeding or strain-matched validation.
+  node_decisions:
+  - node: Mankai Compartment-Associated Community Differentiation
+    rationale: Keep observed compartment differences separate from selectively demonstrated
+      host filtering and niche partitioning.
+  - node: MAG-Inferred Cobamide Producer-Salvager Guild
+    rationale: Retain annotated producer-salvager potential with computational provenance,
+      not observed cross-feeding or strain-matched validation.
+  removed_node_decisions: []
+  renamed_nodes:
+    Mankai Compartment Host Filtering: Mankai Compartment-Associated Community Differentiation
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42304541
+  issues:
+  - 1956
+  - 1960
+  - 2047
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  - ecological_state
+  curation_events_added: 1
+  history_files:
+  - history/records/Wolffia_Mankai_Endosphere_Cobamide_Guild/2026-10-21T190000Z-claude-2047.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-four-records-batch123.yaml
+    record_sha256: 829d29dcebcb9ba30483df9d1ec71eafb945a6a3bf966539ee6a16d9abd9077d

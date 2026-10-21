@@ -160,8 +160,22 @@ def test_ledger_binds_topology_history_and_narrow_cache_append():
     assert hashlib.sha256((ROOT / cache["path"]).read_bytes()).hexdigest() == cache["after_sha256"]
     assert ledger["edison"]["provider_submissions"] == 0
     assert ledger["unresolved_non_graph_issues"] == [1958, 1959, 1960, 1961]
+    successor_file = (
+        ROOT / "reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml"
+    )
+    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        latest = row
+        if row["id"] == "CommunityMech:000360":
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )
         assert len(row["history_files"]) == 1 and doc["curation_history"][-1]["llm_assisted"]
         names = [n["name"] for n in doc["ecological_interactions"]]
         assert [n["node"] for n in row["node_decisions"]] == names
