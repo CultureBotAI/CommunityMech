@@ -48,12 +48,13 @@ tasks:
 - **Origin**: `mech-goal-sequence-20261019`, cycle 1, stage 2 (`causal_graphs`)
 - **Observation**:
   1. `InteractionDownstream` in `src/communitymech/schema/communitymech.yaml` defines only `target` and `description`; edge-specific supporting snippets must currently be stored on the parent `EcologicalInteraction.evidence` list and mirrored in `reports/causal_graph_review/decisions/*.yaml`.
-  2. `tests/test_community_level_connectivity_credit.py` and `tests/test_causal_review_batch109.py` assert exact corpus-wide `COMMUNITY_LEVEL` / `PAIRWISE` node-scope partition integers (`records: 477, with_community_level: 422, mixed: 140, community_level_only: 282, taxa: 1607, credited_solely_by_the_rule: 1310`), requiring synchronized test updates whenever corpus records or node scopes change.
-- **Desired outcome**: Evaluate adding an optional `evidence` slot on `InteractionDownstream` (or formalizing the decision-ledger contract) and refactoring `test_community_level_connectivity_credit.py` to test the connectivity-credit invariant without brittle hardcoded corpus totals.
+  2. `tests/test_community_level_connectivity_credit.py`, `tests/test_causal_review_batch109.py`, and `tests/test_participating_taxa.py` assert exact corpus-wide `COMMUNITY_LEVEL` / `PAIRWISE` node-scope partition integers (`records: 477, with_community_level: 422, mixed: 140, community_level_only: 282, taxa: 1607, credited_solely_by_the_rule: 1310`) and an exact `USERS` filename set, requiring synchronized test updates whenever corpus records or node scopes change.
+- **Desired outcome**: Evaluate adding an optional `evidence` slot on `InteractionDownstream` (or formalizing the decision-ledger contract) and refactoring `test_community_level_connectivity_credit.py` / `test_participating_taxa.py` to test the connectivity-credit invariant without brittle hardcoded corpus totals.
 - **Evidence paths**:
   - `src/communitymech/schema/communitymech.yaml`
   - `tests/test_community_level_connectivity_credit.py`
   - `tests/test_causal_review_batch109.py`
+  - `tests/test_participating_taxa.py`
   - `reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml`
 - **Priority**: P2
 - **Dependencies**: None
