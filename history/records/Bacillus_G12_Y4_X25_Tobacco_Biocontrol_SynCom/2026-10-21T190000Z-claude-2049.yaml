@@ -1,28 +1,15 @@
-history_version: 1
-target:
-  kind: record
-  path: kb/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml
-  slug: Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom
-session:
-  id: 2026-10-21T190000Z-claude-2049
-  timestamp: '2026-10-21T19:00:00Z'
-  actors:
-  - type: ai_agent
-    name: claude
-    model: claude-opus-4-6
-    agent_tool: antigravity
-links:
-  issues:
-  - https://github.com/CultureBotAI/CommunityMech/issues/2049
-events:
-- type: EDIT
-  outcome: changed
-  sections:
-  - ecological_interactions
-  - curation_history
-  summary: Remove external non-member tobacco host target_taxon from COMMUNITY_LEVEL nodes (#2049)
-  details: >
-    Resolved Stage 4 cohort finding stage4-cohort-20261021-0004 (#2049) by removing external
-    host target_taxon (tobacco, NCBITaxon:4097) from the two COMMUNITY_LEVEL rhizosphere
-    remodeling and biocontrol efficacy nodes while retaining all 3 Bacillus SynCom members in
-    participating_taxa per PMID:41955507.
+record_id: CommunityMech:000373
+record_slug: Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom
+timestamp: '2026-10-21T19:00:00Z'
+curator: claude
+action: CURATE_YAML_RECORD
+changes: Removed external host target_taxon (Nicotiana tabacum) from two COMMUNITY_LEVEL interactions while retaining host context in descriptions (#2049).
+details: >-
+  Resolved Stage 4 finding stage4-external-host-pathogen-targets (#2049) by
+  removing external Nicotiana tabacum (NCBITaxon:4097) target_taxon slots from
+  the COMMUNITY_LEVEL interactions 'Tobacco Root Activity Improvement' and
+  'Two-Site Field Disease Suppression and Yield Increase', keeping participating_taxa
+  closed over the 3 Bacillus SynCom members (Bacillus velezensis G12, Bacillus
+  amyloliquefaciens Y4, and Bacillus subtilis X25) under PMID:42388034.
+llm_assisted: true
+issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2049
