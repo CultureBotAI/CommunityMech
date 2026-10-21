@@ -1,0 +1,1308 @@
+# Barley DT rhizosphere SynCom: record review
+
+- Review: 20261021T102823Z-barley-dt-rhizosphere-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T10:23:03.202070Z
+- Finished UTC: 2026-10-21T10:28:23.886561Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Whole-record review finds two minor issues: missing closest-partial-16S/reference-accession qualification and incomplete cultivation/timing context. The sixteen source codes, author-reported assignments, two qualified community-level nodes and zero arrows remain supported. Methods/Figure 1 and Results conflict on inoculation age; the current multi-omics project remains nonpublic.
+
+## Scope And Provenance
+
+All record fields and both nodes assessed against fresh scientific main, all figure pixels, relevant supplementary tables, scoped prior identification methods, ontology and current archive/provenance checks.
+
+Selection: Next assigned maintained path after 000097 was saved and both mandatory post-save checks passed; only CommunityMech:000428 reviewed.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000428 | kb/communities/Barley_DT_Rhizosphere_SynCom.yaml | maintained | Barley DT Rhizosphere SynCom |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000428 | Target schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000428 | Target strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000428 | Target term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000428 | Target GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000428 | Target GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000428 | Target history validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000428 | Read-only corpus cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000428 | Target reference validation passed against the pinned cache. |
+| audit-network | failed | True | CommunityMech:000428 | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; the target-native graph has no issue. |
+| check-network-quality | failed | True | CommunityMech:000428 | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; the target-native graph has no issue. |
+| Publication identity and scientific source assessment | passed | True | CommunityMech:000428 | Fresh main, figures and relevant supplements support assessment of every current material assertion. |
+| Reference accession identity and project visibility | passed | True | CommunityMech:000428 | All fourteen NR reference summaries resolve; the project visibility check confirms the reported not-public boundary. |
+| Public sequencing-content inspection | unavailable | False | CommunityMech:000428 | PRJNA1405459 content remains nonpublic and was not analyzed; current claims are assessable from article and supplements. |
+| Encoded medium/ingredient-Mech links | not_applicable | False | CommunityMech:000428 | No CultureMech or MediaIngredientMech identifier is encoded. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000428 | No runnable adapter was available in the owned task runtime. |
+
+## Scientific And Domain Assessments
+
+### Sixteen-strain barley-origin DT-SynCom
+
+identity: supported. Targets: CommunityMech:000428.
+
+B1–B16 define the target; the comparator communities and host/pathogen remain separate.
+
+### All sixteen reported identifications and reference accessions
+
+grounding: concern. Targets: CommunityMech:000428.
+
+Retain source assignments with explicit closest-match uncertainty and reference-versus-isolate provenance.
+
+The species labels reproduce author assignments and no specific encoded species is disproven. B7 already notes its duplicated P. loti accession; B14 needs the analogous S. nigrescens reference caveat. Reference labels B8W22, NBRC 15308/ATCC 14581 and DSM identifiers must not become aliases of experimental B codes without evidence. Rhodococcus/Rhodococcoides is a nomenclature distinction, not a new identity error. Equal-volume input can support co-equal DOMINANT in formulation; it does not prove all sixteen dominate at harvest. Keep absent optional roles absent unless supported.
+
+### ecological_interactions[0]: Barley DT-SynCom powdery mildew resistance
+
+graph: supported. Targets: CommunityMech:000428.
+
+Retain the community-to-host disease-protection outcome and bounded ISR interpretation.
+
+Root inoculation with the barley-origin sixteen-member community is followed by reduced Bgh fungal-structure fluorescence on leaves compared with MgCl2 mock. Results reports the 50.4% mean reduction; the log-transformed Figure 2 supports direction and significance, not an independently calculated percentage. All three inoculants share a significance group. Specific JA/ET/SA pathways and individual-member necessity are unestablished; the current community-level node does not assert them.
+
+### ecological_interactions[1]: Barley DT-SynCom rhizosphere persistence
+
+graph: supported. Targets: CommunityMech:000428.
+
+Retain the detection phenotype with the explicit inability to confirm strain identity.
+
+The rhizosphere is sampled three weeks after the Methods inoculation, before pathogen challenge. OTUs match source 16S sequences at the stated 99% identity/coverage thresholds, but several matches are ambiguous across species and occur in mock samples. Do not infer live introduced-strain persistence, detection of all sixteen members, or their abundance from the nine flagged OTUs. No downstream arrows are encoded or warranted by the design sequence alone.
+
+### Preparation, host cultivation and conflicting timing
+
+completeness: concern. Targets: CommunityMech:000428.
+
+Current isolation and YME entries are correct; host context and the known timing discrepancy need explicit completion.
+
+Methods specify four-day NB germination, two-hour inoculation, three weeks in standard potting soil under inherited 14/10-hour day/night and 20/16°C conditions, then one week after Bgh challenge. Figure 1 agrees with this sequence, while Results says inoculation of 21-day seedlings. Do not silently reconcile those statements. Antonella is the isolation cultivar; Golden Promise is explicit for pathogen propagation but is not independently restated for the assay. The equal-strain mixture factor is principally design metadata; retain 10 mM MgCl2 as an inoculation condition in its proper context.
+
+### Current project visibility and source-reported predecessor resources
+
+evidence: supported. Targets: CommunityMech:000428.
+
+The current BioProject accession and explicit visibility discussion remain accurate at their respective evidence levels.
+
+The publication reports generated multi-omics data under PRJNA1405459, but the current repository response is not public. Keep this as source-reported deposition, not verified raw content. The earlier paper’s genome project, partial-16S range and Zenodo record are bounded follow-up leads; exact B-code mappings and archive contents were not certified. No arbitrary replacement for B7/B14 or a new dataset omission is inferred.
+
+### Ecological metadata, assay interpretation and metal relevance
+
+schema: supported. Targets: CommunityMech:000428.
+
+The source supports the engineered rhizosphere design and qualified measurement endpoints.
+
+Drought tolerance was a selection screen, not proof of drought treatment during the current mildew assay. Pre-challenge transcriptomes show selective responses without establishing specific host-defense pathways or member-resolved microbial activity. NOT_APPLICABLE describes the absence of a curated metal-transformation phenotype, not mineral-free media. No CultureMech or MediaIngredientMech identifier is encoded.
+
+### Exact evidence and earlier follow-up
+
+evidence: supported. Targets: CommunityMech:000428.
+
+All existing snippets match fresh source content; follow-up concerns interpretation and completeness.
+
+Preserve the prior 1069 wording correction and qualified graph. Issue 1262 is still open and specifically identifies this source timing conflict. The prior paper was consulted only for identification methodology and dataset context; neither a complete audit of that paper nor raw omics reanalysis is claimed.
+
+### Native validity and source qualification
+
+schema: supported. Targets: CommunityMech:000428.
+
+Eight native checks pass; the remaining two findings concern scientific provenance and cultivation completeness.
+
+### Native completeness and quality
+
+completeness: supported. Targets: CommunityMech:000428.
+
+Native scores are diagnostics, not proof of species identity or strain-resolved persistence.
+
+## Findings
+
+### reference-identity-scope: Qualify species identification and reference-accession provenance
+
+minor / open / confirmed; issue key: cm-000428-reference-identity-scope.
+
+The taxonomy presents author species assignments without their explicit closest-partial-16S-match basis; NR accessions refer to reference strains, and B14 lacks the duplicate-accession caveat already present for B7.
+
+### cultivation-timing-context: Complete host cultivation and retain the source timing discrepancy
+
+minor / open / confirmed; issue key: cm-000428-cultivation-timing-context.
+
+The record captures isolation and stock cultivation but omits recoverable host growth context, leaves the known conflicting inoculation-age account unexplained, and stores mixture assembly as an environmental factor.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-reference-identity-scope
+
+Qualify species identification and reference-accession provenance.
+
+- State the author-reported closest partial-16S identification basis for all sixteen members while preserving B1–B16 and the reported species assignments unless stronger isolate evidence warrants a change.
+- Distinguish each printed NR reference from an experimental-isolate deposit; record NR_133818.1 as P. loti and NR_117748.1 as S. nigrescens reference conflicts for B7 and B14 respectively.
+- Do not transfer reference-strain aliases to B codes, silently substitute accessions or declare all species invalid; require a documented isolate-to-deposit map before adding predecessor resources.
+- Keep DOMINANT scoped to co-equal formulation prominence, not proven rhizosphere persistence; do not invent missing functional roles or GTDB assignments.
+
+### repair-cultivation-timing-context
+
+Complete host cultivation and retain the source timing discrepancy.
+
+- Add source-backed germination and host-pot context separately from Pikovskaya isolation, YME preparation, PEG screening, pathogen propagation and DAF staining.
+- State that Methods and Figure 1 support germinated-seed inoculation followed by three weeks of growth, whereas Results describes inoculation of 21-day seedlings; retain the conflict explicitly.
+- Keep omics sampling before challenge and the disease readout one week after challenge, without inferring assay cultivar from Antonella isolation or Golden Promise propagation alone.
+- Move equal-strain assembly to design/cultivation fields while preserving the MgCl2 carrier condition; do not silently normalize the source YME agar mass/percentage inconsistency.
+
+### preserve-qualified-graph
+
+Preserve the two qualified nodes and zero arrows during separately authorized curation.
+
+- Keep disease resistance as a community-level phenotype with no specific hormone or member-necessity attribution.
+- Keep detection of matching OTUs distinct from introduced-strain viability, all-member persistence and abundance; do not turn the workflow into causal arrows.
+- After authorized curation, preserve history and rerun schema, strict, term, history, reference and target/corpus network checks.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Barley_DT_Rhizosphere_SynCom.yaml; Whole record: sixteen strains, two community-level nodes and zero arrows | supports | The barley-origin DT-SynCom is distinct from the wheat-origin comparator, WCS417r positive control, barley host and mildew pathogen. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=42453107&amp;retmode=xml; https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=42453107&amp;retmode=xml | supports | PubMed verifies PMID:42453107, DOI:10.3389/fmicb.2026.1818676, title and abstract. |
+| crossref | https://api.crossref.org/works/10.3389/fmicb.2026.1818676; https://api.crossref.org/works/10.3389/fmicb.2026.1818676 | supports | Crossref verifies the DOI/title and publisher route. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42453107&amp;format=json&amp;resultType=core; https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42453107&amp;format=json&amp;resultType=core | supports | Europe PMC verifies article metadata and supplies full scientific XML for PMC13365038. |
+| assembly | PMID:42453107; Full XML S2.SS1–S2.SS4 and Table 1 barley rows B1–B16 | supports | The sixteen PEG-tolerant barley isolates were selected by partial-16S overlap with climate/drought-associated ASVs, grown on YME, normalized and mixed equally; source collection and test cultivation are distinct. |
+| prior-identification | doi:10.3389/fbrio.2025.1572294; Related primary Methods 2.3/2.4/2.7, Results 3.2 Figure 3 caption and 3.3 Table 2 caption | supports | The explicitly cited isolate study identifies species names as best partial-16S matches to known/type-strain references, despite also generating isolate genomes; no genome-based species reassignment was performed in this review. |
+| resistance | PMID:42453107; Full XML S3.SS1; Figure 2B/C; Discussion S4.SS1 | supports | Results report 50.4% lower mean fluorescence for barley DT-SynCom versus mock. Figure 2 supports reduced fungal-structure fluorescence, with all inoculants sharing one significance group; no superiority to the other inoculants or specific hormone pathway is established. |
+| persistence | PMID:42453107; Full XML S2.SS9 and S3.SS2; Supplementary Table 4 taxtable/metadata | supports | Rhizosphere OTUs meet the stated 99% identity and coverage screen at the three-week sampling point. Matching taxa are not proof that all sixteen introduced strains remained viable or that matched organisms originated from the inoculum. |
+| timing | PMID:42453107; Full XML S2.SS6 versus S3.SS1; Figure 1 lower workflow | supports | Methods inoculate four-day germinated seeds, then grow plants for three weeks before omics sampling and pathogen challenge; Results instead says roots of 21-day seedlings were inoculated. Figure 1 corroborates the Methods sequence, not the Results wording. |
+| cultivation | PMID:42453107; Full XML S2.SS1/S2.SS4–S2.SS7; Supplementary Table 1 | supports | Pikovskaya isolation and YME preparation are correctly scoped. NB seed germination, MgCl2 inoculation, potting soil and inherited 14/10-hour, 20/16°C growth conditions are recoverable; DAF buffer is analytical, not growth medium. |
+| supplement | PMID:42453107; supplement-tables.json: S1/S2/S3/S5/S6/S10 and S4 flagged rows/sample metadata; supplementary captions | supports | S4 has nine flagged OTUs, some matching multiple source species, across samples including controls. Metadata marks three-week sampling. These tables support the existing qualified detection node without proving strain-resolved persistence. |
+| source-scope | PMID:42453107; source-audit.json: exact main, figure, table and related-source read scopes | context_only | Whole scientific main and all six main/three supplementary figure pixels were inspected; supplementary table review and the related 2025 paper were explicitly bounded, without raw-data reanalysis. |
+| ontology | Local OAK NCBITaxon and ENVO snapshots; ontology-authority.json: eighteen pairs and occurrences | supports | All sixteen species IDs and two ENVO labels match. NCBITaxon:1828 has canonical label Rhodococcoides fascians and includes the source Rhodococcus fascians synonym; label validity does not prove isolate-level identification. |
+| schema | src/communitymech/schema/communitymech.yaml; AbundanceEnum.DOMINANT; environmental_factors; taxonomy and strain_designation | supports | DOMINANT permits co-equal prominent members without a numeric threshold. Equal input does not establish later rhizosphere abundance; optional absent functional roles do not constitute a schema failure. |
+| snippets | kb/communities/Barley_DT_Rhizosphere_SynCom.yaml; snippet-audit.json: all 29 occurrence comparisons | supports | All 29 snippets match the cache and fresh main: thirteen prose/title occurrences and sixteen Table 1 rows. Printed reference conflicts are not fabricated snippets. |
+| archives | PRJNA1405459 and fourteen unique NR accessions from Table 1; dataset-verification.json: current visibility and reference-sequence metadata | supports | PRJNA1405459 still returns a not-public error. Fourteen NR records resolve as partial-16S references; NR_133818.1 is P. loti S658, and NR_117748.1 is S. nigrescens DSM 40276, conflicting with the printed B7/B14 species rows. These are not verified B1–B16 deposits. |
+| prior-resources | doi:10.3389/fbrio.2025.1572294; Related primary Data Availability; related-dataset-context.json | context_only | The prior paper reports PV299627–PV299871, PRJNA1219633 and Zenodo14816549. These remain source-reported leads without a verified mapping from current B1–B16 codes to individual deposits; do not replace reference accessions by guessing. |
+| history | Two target histories and exact batch7 decision; provenance-audit.json: current issue states and prior target row | supports | Closed issue 1069 concerns the preserved wording repair; open issue 1262 explicitly tracks the germinated-seed versus 21-day seedling inconsistency. Prior graph review did not certify all non-graph metadata. |
+| search | Owned maintained community, isolate and reusable-taxon roots; local-search.json: exact ignored-inclusive searches | supports | No reusable target identity was established within the recorded search scope; no global absence claim is made. |
+| adapter | Optional kg-microbe-sources runner; adapter-check.json: batch 06 owned-runtime availability | supports | No runnable structured adapter was available; fresh batch discovery was reused with provenance, and no external-checkout runner was invoked. |
+| native-target | NetworkIntegrityAuditor().audit_community(target); support-audit.json: target network and metric components | supports | The two-node graph is natively COMPLETE with zero issues; optional missing roles lower completeness without requiring invented functions. |
+| independent-source | PMID:42453107; root-independent-source-audit.json: main, figures, critical supplements and prior identification scope | context_only | Independent review agrees with two minor findings, preservation of both qualified nodes and zero arrows, and completed scientific assessment despite nonpublic raw sequencing data. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate kb/communities/Barley_DT_Rhizosphere_SynCom.yaml; Actual execution 2026-10-21T10:23:33.587273+00:00 to 2026-10-21T10:23:34.589492+00:00 | supports | Target schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-strict kb/communities/Barley_DT_Rhizosphere_SynCom.yaml --out /private/tmp/cm-review-session/batch-06/000428/strict-report.tsv; Actual execution 2026-10-21T10:23:33.587597+00:00 to 2026-10-21T10:23:37.328259+00:00 | supports | Target strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-terms kb/communities/Barley_DT_Rhizosphere_SynCom.yaml; Actual execution 2026-10-21T10:23:33.587719+00:00 to 2026-10-21T10:23:35.794707+00:00 | supports | Target term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-gtdb kb/communities/Barley_DT_Rhizosphere_SynCom.yaml; Actual execution 2026-10-21T10:23:34.589781+00:00 to 2026-10-21T10:23:34.682516+00:00 | supports | Target GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-gtdb-domain kb/communities/Barley_DT_Rhizosphere_SynCom.yaml; Actual execution 2026-10-21T10:23:34.682741+00:00 to 2026-10-21T10:23:37.322818+00:00 | supports | Target GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-history history/records/Barley_DT_Rhizosphere_SynCom; Actual execution 2026-10-21T10:23:35.795700+00:00 to 2026-10-21T10:23:37.589344+00:00 | supports | Target history validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T10:23:37.609612+00:00 to 2026-10-21T10:23:38.013685+00:00 | supports | Read-only corpus cache-filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-references-explained kb/communities/Barley_DT_Rhizosphere_SynCom.yaml; Actual execution 2026-10-21T10:23:38.015022+00:00 to 2026-10-21T10:23:39.380932+00:00 | supports | Target reference validation passed against the pinned cache. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T10:06:35.990708+00:00 to 2026-10-21T10:06:41.713287+00:00 | supports | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; the target-native graph has no issue. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T10:06:35.990845+00:00 to 2026-10-21T10:06:41.708376+00:00 | supports | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; the target-native graph has no issue. |
+
+## Limits And Additional Notes
+
+- The whole current scientific main, main Table 1, six main figures and three supplementary figures were inspected. S1/S2/S3/S5/S6/S10 were read completely; S4 review covered flagged taxonomy rows and sample metadata, not every OTU count; S7–S9 had bounded header/annotation inspection.
+- The related 2025 paper was inspected only for identification/selection/genome-method context, relevant Results and Figure 3/Table 2 captions, and Data Availability. Its full experimental conclusions and deposited genomes were not audited.
+- PRJNA1405459 returned a not-public error; no raw sequencing data were inspected. Fourteen NR metadata records verify reference identities, not B1–B16 sequence deposits; predecessor accessions remain source-reported leads without exact B-code mapping.
+- No 16S alignment, sequence classification, genome comparison, statistics or omics analysis was rerun. Detection of matching OTUs cannot establish viability, introduced origin or all-member persistence.
+- Methods/Figure 1 and Results disagree on inoculation age. Source YME agar mass versus percentage and unencoded analysis-threshold discrepancies were not silently corrected or converted into new record defects.
+- Golden Promise is explicit for pathogen propagation, Antonella for isolate origin; the assay cultivar is not inferred. Historical GTDB statistics were not recalculated, and corpus network checks remain separate from target-specific results.
+- No canonical, cache, history or generated file was changed.
+- All 24 repository inputs were pinned before assessment and rechecked.
+- Quoted text totals 14 words from the current paper and 3 from the related 2025 paper, within the separate publication limits.
+- Native quality 100 is capped from 126; absent optional roles are not restored to increase completeness.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T102823Z-barley-dt-rhizosphere-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Barley DT rhizosphere SynCom: record review'
+started_at: '2026-10-21T10:23:03.202070Z'
+finished_at: '2026-10-21T10:28:23.886561Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed source science/figures, ontology/native
+    checks and supporting provenance/archive metadata; canonical inputs are unchanged.
+    No person-level independence is asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: 'Whole-record review finds two minor issues: missing closest-partial-16S/reference-accession
+  qualification and incomplete cultivation/timing context. The sixteen source codes,
+  author-reported assignments, two qualified community-level nodes and zero arrows
+  remain supported. Methods/Figure 1 and Results conflict on inoculation age; the
+  current multi-omics project remains nonpublic.'
+source:
+  git_revision: 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Barley_DT_Rhizosphere_SynCom/2026-09-24T073321Z-codex-428.yaml
+    sha256: cd8d90e6df57f2f9fc73e18ca201d8c1f99668bbfccaafc6fe07fcb295e04f3b
+    role: context
+  - path: history/records/Barley_DT_Rhizosphere_SynCom/2026-09-24T074457Z-codex-1069.yaml
+    sha256: 94052e3d599a6b957e605c7b5667d36ceceabf5a8604c240d2c80cae351882c7
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+    sha256: b4cbe1a4ec5082d224bad75aeefecc74c6cce5bf6f3b3f6a77d41959f8b93e89
+    role: target
+  - path: references_cache/PMID_42453107.txt
+    sha256: 5682e995818c11a0c5f44063731dd42ac3734c6d28f30354c818592133674417
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+    sha256: c96f00489d2ad14f63cd035adc778adbf72d7fe6a11c2dffd81cd1a904cc0a75
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000428
+  path: kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+  label: Barley DT Rhizosphere SynCom
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+    role: canonical_record
+scope:
+  description: All record fields and both nodes assessed against fresh scientific
+    main, all figure pixels, relevant supplementary tables, scoped prior identification
+    methods, ontology and current archive/provenance checks.
+  selection: Next assigned maintained path after 000097 was saved and both mandatory
+    post-save checks passed; only CommunityMech:000428 reviewed.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000428
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000428
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    source science assessed separately.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000428
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-strict kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+    --out /private/tmp/cm-review-session/batch-06/000428/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    source science assessed separately.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000428
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-terms kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    source science assessed separately.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000428
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    source science assessed separately.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000428
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    source science assessed separately.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000428
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-history history/records/Barley_DT_Rhizosphere_SynCom
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    source science assessed separately.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000428
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    source science assessed separately.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target reference validation passed against the pinned cache.
+  target_ids:
+  - CommunityMech:000428
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-references-explained kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    source science assessed separately.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; the target-native graph has no issue.
+  target_ids:
+  - CommunityMech:000428
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Reused fresh full-corpus batch 06 execution, not a target-specific pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; the target-native graph has no issue.
+  target_ids:
+  - CommunityMech:000428
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Reused fresh full-corpus batch 06 execution, not a target-specific pass.
+- check_id: publication-and-source
+  name: Publication identity and scientific source assessment
+  status: passed
+  required: true
+  summary: Fresh main, figures and relevant supplements support assessment of every
+    current material assertion.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - pubmed
+  - crossref
+  - epmc
+  - source-scope
+  - independent-source
+- check_id: identifier-and-visibility
+  name: Reference accession identity and project visibility
+  status: passed
+  required: true
+  summary: All fourteen NR reference summaries resolve; the project visibility check
+    confirms the reported not-public boundary.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - archives
+- check_id: raw-project-content
+  name: Public sequencing-content inspection
+  status: unavailable
+  required: false
+  summary: PRJNA1405459 content remains nonpublic and was not analyzed; current claims
+    are assessable from article and supplements.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - archives
+  - source-scope
+- check_id: cross-mech
+  name: Encoded medium/ingredient-Mech links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech identifier is encoded.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - record
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: No runnable adapter was available in the owned task runtime.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+  locator: 'Whole record: sixteen strains, two community-level nodes and zero arrows'
+  summary: The barley-origin DT-SynCom is distinct from the wheat-origin comparator,
+    WCS417r positive control, barley host and mildew pathogen.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.880472Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42453107&retmode=xml
+  locator: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42453107&retmode=xml
+  summary: PubMed verifies PMID:42453107, DOI:10.3389/fmicb.2026.1818676, title and
+    abstract.
+  support: supports
+  accessed_at: '2026-10-21T10:23:24.932819Z'
+  snapshot_sha256: 6c7fea27f182f39f3d687203eab28e7bb780dc697ef5d4126e5998022109ac36
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.3389/fmicb.2026.1818676
+  locator: https://api.crossref.org/works/10.3389/fmicb.2026.1818676
+  summary: Crossref verifies the DOI/title and publisher route.
+  support: supports
+  accessed_at: '2026-10-21T10:23:24.869949Z'
+  snapshot_sha256: 275cf7150d918eda7556b277db4aa072a500360c3f4000fff578ed4c79059966
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42453107&format=json&resultType=core
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42453107&format=json&resultType=core
+  summary: Europe PMC verifies article metadata and supplies full scientific XML for
+    PMC13365038.
+  support: supports
+  accessed_at: '2026-10-21T10:23:25.289116Z'
+  snapshot_sha256: 38976b686d11a8ef166356b615de25c44cd33827be918fa4c8e61a619755d515
+- evidence_id: assembly
+  kind: primary_source
+  reference: PMID:42453107
+  locator: Full XML S2.SS1–S2.SS4 and Table 1 barley rows B1–B16
+  summary: The sixteen PEG-tolerant barley isolates were selected by partial-16S overlap
+    with climate/drought-associated ASVs, grown on YME, normalized and mixed equally;
+    source collection and test cultivation are distinct.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.881071Z'
+  snapshot_sha256: c8066e122aba23d26289edd0274a598b033506f553649e3c00aa457ae8d5a800
+- evidence_id: prior-identification
+  kind: primary_source
+  reference: doi:10.3389/fbrio.2025.1572294
+  locator: Related primary Methods 2.3/2.4/2.7, Results 3.2 Figure 3 caption and 3.3
+    Table 2 caption
+  summary: The explicitly cited isolate study identifies species names as best partial-16S
+    matches to known/type-strain references, despite also generating isolate genomes;
+    no genome-based species reassignment was performed in this review.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.881845Z'
+  quote: closest known strains
+  snapshot_sha256: 45525e691330f6f5e5a531ec075585db0328697e6580db3f913e677b7f7b4203
+- evidence_id: resistance
+  kind: primary_source
+  reference: PMID:42453107
+  locator: Full XML S3.SS1; Figure 2B/C; Discussion S4.SS1
+  summary: Results report 50.4% lower mean fluorescence for barley DT-SynCom versus
+    mock. Figure 2 supports reduced fungal-structure fluorescence, with all inoculants
+    sharing one significance group; no superiority to the other inoculants or specific
+    hormone pathway is established.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.881850Z'
+  quote: Mean fluorescence was reduced by 50.4%
+  snapshot_sha256: c8066e122aba23d26289edd0274a598b033506f553649e3c00aa457ae8d5a800
+- evidence_id: persistence
+  kind: primary_source
+  reference: PMID:42453107
+  locator: Full XML S2.SS9 and S3.SS2; Supplementary Table 4 taxtable/metadata
+  summary: Rhizosphere OTUs meet the stated 99% identity and coverage screen at the
+    three-week sampling point. Matching taxa are not proof that all sixteen introduced
+    strains remained viable or that matched organisms originated from the inoculum.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.881851Z'
+  quote: strain-level identity cannot be confirmed
+  snapshot_sha256: c8066e122aba23d26289edd0274a598b033506f553649e3c00aa457ae8d5a800
+- evidence_id: timing
+  kind: primary_source
+  reference: PMID:42453107
+  locator: Full XML S2.SS6 versus S3.SS1; Figure 1 lower workflow
+  summary: Methods inoculate four-day germinated seeds, then grow plants for three
+    weeks before omics sampling and pathogen challenge; Results instead says roots
+    of 21-day seedlings were inoculated. Figure 1 corroborates the Methods sequence,
+    not the Results wording.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.881852Z'
+  quote: After four days
+  snapshot_sha256: c8066e122aba23d26289edd0274a598b033506f553649e3c00aa457ae8d5a800
+- evidence_id: cultivation
+  kind: primary_source
+  reference: PMID:42453107
+  locator: Full XML S2.SS1/S2.SS4–S2.SS7; Supplementary Table 1
+  summary: Pikovskaya isolation and YME preparation are correctly scoped. NB seed
+    germination, MgCl2 inoculation, potting soil and inherited 14/10-hour, 20/16°C
+    growth conditions are recoverable; DAF buffer is analytical, not growth medium.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.881854Z'
+  snapshot_sha256: c8066e122aba23d26289edd0274a598b033506f553649e3c00aa457ae8d5a800
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:42453107
+  locator: 'supplement-tables.json: S1/S2/S3/S5/S6/S10 and S4 flagged rows/sample
+    metadata; supplementary captions'
+  summary: S4 has nine flagged OTUs, some matching multiple source species, across
+    samples including controls. Metadata marks three-week sampling. These tables support
+    the existing qualified detection node without proving strain-resolved persistence.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.882630Z'
+  snapshot_sha256: 7af080981262e4d3fad810c692d7d7a2b80e74753f346fda7e0e82974e589bbc
+- evidence_id: source-scope
+  kind: validation
+  reference: PMID:42453107
+  locator: 'source-audit.json: exact main, figure, table and related-source read scopes'
+  summary: Whole scientific main and all six main/three supplementary figure pixels
+    were inspected; supplementary table review and the related 2025 paper were explicitly
+    bounded, without raw-data reanalysis.
+  support: context_only
+  accessed_at: '2026-10-21T10:28:23.882934Z'
+  snapshot_sha256: 8e93b1628f6f44b181e1212d6a4acf033a037859ebc98937d20a9ba2e443da11
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon and ENVO snapshots
+  locator: 'ontology-authority.json: eighteen pairs and occurrences'
+  summary: All sixteen species IDs and two ENVO labels match. NCBITaxon:1828 has canonical
+    label Rhodococcoides fascians and includes the source Rhodococcus fascians synonym;
+    label validity does not prove isolate-level identification.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.883187Z'
+  snapshot_sha256: 0eb169e096170782645e3acbbca40d5d3200accb80e9dcbca66c8e67297b3156
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: AbundanceEnum.DOMINANT; environmental_factors; taxonomy and strain_designation
+  summary: DOMINANT permits co-equal prominent members without a numeric threshold.
+    Equal input does not establish later rhizosphere abundance; optional absent functional
+    roles do not constitute a schema failure.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.883190Z'
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+  locator: 'snippet-audit.json: all 29 occurrence comparisons'
+  summary: 'All 29 snippets match the cache and fresh main: thirteen prose/title occurrences
+    and sixteen Table 1 rows. Printed reference conflicts are not fabricated snippets.'
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.883329Z'
+  snapshot_sha256: 3ccbc46641a49584e2042f8433f9da4a672e49ef1fb5494b4e7e570232da61b5
+- evidence_id: archives
+  kind: database
+  reference: PRJNA1405459 and fourteen unique NR accessions from Table 1
+  locator: 'dataset-verification.json: current visibility and reference-sequence metadata'
+  summary: PRJNA1405459 still returns a not-public error. Fourteen NR records resolve
+    as partial-16S references; NR_133818.1 is P. loti S658, and NR_117748.1 is S.
+    nigrescens DSM 40276, conflicting with the printed B7/B14 species rows. These
+    are not verified B1–B16 deposits.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.883662Z'
+  snapshot_sha256: 2e39e8b4b3d4c6f183e73cee787c9ec567722eb12029713a92afbb00e8123230
+- evidence_id: prior-resources
+  kind: primary_source
+  reference: doi:10.3389/fbrio.2025.1572294
+  locator: Related primary Data Availability; related-dataset-context.json
+  summary: The prior paper reports PV299627–PV299871, PRJNA1219633 and Zenodo14816549.
+    These remain source-reported leads without a verified mapping from current B1–B16
+    codes to individual deposits; do not replace reference accessions by guessing.
+  support: context_only
+  accessed_at: '2026-10-21T10:28:23.883908Z'
+  snapshot_sha256: feddd4d3ad56e4d7b72a4c71443177d40675415d11436b150ea829f9d7a72957
+- evidence_id: history
+  kind: record_content
+  reference: Two target histories and exact batch7 decision
+  locator: 'provenance-audit.json: current issue states and prior target row'
+  summary: Closed issue 1069 concerns the preserved wording repair; open issue 1262
+    explicitly tracks the germinated-seed versus 21-day seedling inconsistency. Prior
+    graph review did not certify all non-graph metadata.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.884032Z'
+  snapshot_sha256: 5d42c137de70aa851c009682df337b8d61f0598091cccb426da72fc8cab55111
+- evidence_id: search
+  kind: search
+  reference: Owned maintained community, isolate and reusable-taxon roots
+  locator: 'local-search.json: exact ignored-inclusive searches'
+  summary: No reusable target identity was established within the recorded search
+    scope; no global absence claim is made.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.884171Z'
+  snapshot_sha256: f0bfcbcf7c220e14e13cfb49fb2cab3092930c3ace3e10da56f4ebd23a5f1fbc
+  search_scope: Recorded rg --no-ignore --hidden searches in the owned maintained
+    roots and bounded mapping discovery.
+- evidence_id: adapter
+  kind: search
+  reference: Optional kg-microbe-sources runner
+  locator: 'adapter-check.json: batch 06 owned-runtime availability'
+  summary: No runnable structured adapter was available; fresh batch discovery was
+    reused with provenance, and no external-checkout runner was invoked.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.884330Z'
+  snapshot_sha256: 9d1071fac267980a0fba42f9b7d446e066000255265175bc5701cae7a5478d45
+  search_scope: Reused fresh batch 06 PATH, venv/module and ignored-inclusive owned-worktree
+    discovery.
+- evidence_id: native-target
+  kind: validation
+  reference: NetworkIntegrityAuditor().audit_community(target)
+  locator: 'support-audit.json: target network and metric components'
+  summary: The two-node graph is natively COMPLETE with zero issues; optional missing
+    roles lower completeness without requiring invented functions.
+  support: supports
+  accessed_at: '2026-10-21T10:28:23.884494Z'
+  snapshot_sha256: d3b2d5a54e8646c171c98e46bbfcf05cb2c2600da51c26a4bf18d94bbd383517
+- evidence_id: independent-source
+  kind: validation
+  reference: PMID:42453107
+  locator: 'root-independent-source-audit.json: main, figures, critical supplements
+    and prior identification scope'
+  summary: Independent review agrees with two minor findings, preservation of both
+    qualified nodes and zero arrows, and completed scientific assessment despite nonpublic
+    raw sequencing data.
+  support: context_only
+  accessed_at: '2026-10-21T10:28:23.884760Z'
+  snapshot_sha256: 16644b5e526b0c12e62b3b67fb58372c8c1079b825d3f23f61b19b15b15d2382
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+  locator: Actual execution 2026-10-21T10:23:33.587273+00:00 to 2026-10-21T10:23:34.589492+00:00
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:23:34.589492Z'
+  snapshot_sha256: 7c0d73434670fefc95a2ee78b52749e6b2635f94413cd43b184cba0a76492f0a
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-strict kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+    --out /private/tmp/cm-review-session/batch-06/000428/strict-report.tsv
+  locator: Actual execution 2026-10-21T10:23:33.587597+00:00 to 2026-10-21T10:23:37.328259+00:00
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:23:37.328259Z'
+  snapshot_sha256: f1d121b24405d7ba4bf6529067e70466c12be971bdb565aabf07d42a302fe46a
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-terms kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+  locator: Actual execution 2026-10-21T10:23:33.587719+00:00 to 2026-10-21T10:23:35.794707+00:00
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:23:35.794707Z'
+  snapshot_sha256: 5484ba560a44597d1c682bab7e9e009d6291735f643c72850f48948f05439b7b
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+  locator: Actual execution 2026-10-21T10:23:34.589781+00:00 to 2026-10-21T10:23:34.682516+00:00
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:23:34.682516Z'
+  snapshot_sha256: c2aa545054ef3496ab8f2f757155de16fff0479eeff6e91d5c7a1a00555011e5
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+  locator: Actual execution 2026-10-21T10:23:34.682741+00:00 to 2026-10-21T10:23:37.322818+00:00
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:23:37.322818Z'
+  snapshot_sha256: b2205f99ce1a8dfe361fb32a8363c522aa825cee4b0478d8ef83897eb674e764
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-history history/records/Barley_DT_Rhizosphere_SynCom
+  locator: Actual execution 2026-10-21T10:23:35.795700+00:00 to 2026-10-21T10:23:37.589344+00:00
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:23:37.589344Z'
+  snapshot_sha256: ade6d817747884671ba8f3a3d922feb99cf5c8b4b32739c4cb6c449681603bac
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T10:23:37.609612+00:00 to 2026-10-21T10:23:38.013685+00:00
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T10:23:38.013685Z'
+  snapshot_sha256: 6187a10b54d3d43e7cb2bcf5824dbca0c811bf3fcdfe5053adb0f87b6eb9c0e6
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-references-explained kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+  locator: Actual execution 2026-10-21T10:23:38.015022+00:00 to 2026-10-21T10:23:39.380932+00:00
+  summary: Target reference validation passed against the pinned cache.
+  support: supports
+  accessed_at: '2026-10-21T10:23:39.380932Z'
+  snapshot_sha256: 70a869389cc8936d474b52b731a9ba83ff364bcb8a6b722fa0bf6c6467e2f4cb
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T10:06:35.990708+00:00 to 2026-10-21T10:06:41.713287+00:00
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; the target-native graph has no issue.
+  support: supports
+  accessed_at: '2026-10-21T10:06:41.713287Z'
+  snapshot_sha256: 330e4d9c9367a126afe7da9d93d310348e0ba6cc1289d806f4ff8df350be9620
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T10:06:35.990845+00:00 to 2026-10-21T10:06:41.708376+00:00
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; the target-native graph has no issue.
+  support: supports
+  accessed_at: '2026-10-21T10:06:41.708376Z'
+  snapshot_sha256: 0420f90879ef008b71c8bfcfe444d05d2c030519aca57834b4e2587766c5b854
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Sixteen-strain barley-origin DT-SynCom
+  outcome: supported
+  summary: B1–B16 define the target; the comparator communities and host/pathogen
+    remain separate.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - assembly
+  - record
+  - ontology
+  dimensions:
+  - name: community_scope
+    value: Sixteen barley-origin isolates in a defined equal-input community
+    definition: The wheat SynCom, WCS417r, barley host and Bgh challenge are experimental
+      comparators or external partners, not additional members.
+    evidence_ids:
+    - assembly
+    - record
+  - name: source_strain
+    value: B1–B16 codes with author-reported species matches
+    definition: The exact source codes are preserved; species names derive from closest
+      partial-16S matches, while NR accessions identify reference sequences rather
+      than the experimental isolates.
+    evidence_ids:
+    - assembly
+    - prior-identification
+    - archives
+  - name: environment
+    value: Barley rhizosphere origin and controlled potting-soil assay
+    definition: Antonella is the isolation host cultivar at GCEF; the model is not
+      the full field community. Synthetic origin, engineered state and rhizosphere
+      category are appropriate.
+    evidence_ids:
+    - assembly
+    - cultivation
+    - ontology
+  - name: medium
+    value: Pikovskaya isolation, YME stock growth, MgCl2 carrier and host potting
+      soil
+    definition: Separate the preparation steps and host conditions from PEG screening,
+      pathogen propagation and DAF analytical buffers.
+    evidence_ids:
+    - cultivation
+    - timing
+  - name: experimental_setting
+    value: Pre-challenge omics and post-challenge fungal fluorescence
+    definition: Methods/Figure 1 place three-week sampling before Bgh challenge and
+      DAF one week afterward; Results contains conflicting inoculation-age wording.
+    evidence_ids:
+    - timing
+    - resistance
+    - persistence
+  - name: evidence_tier
+    value: Community protection and sequence-matching detection
+    definition: Neither exact hormone dependence, all-strain persistence, species-specific
+      mediation nor changed ecosystem-wide activity follows from these endpoints.
+    evidence_ids:
+    - resistance
+    - persistence
+    - supplement
+  - name: grounding_status
+    value: Eighteen valid encoded ID/label pairs
+    definition: Ontology labels are verified independently of source species certainty.
+      GTDB remains unresolved; no historic or new genome mapping was invented.
+    evidence_ids:
+    - ontology
+    - prior-identification
+    - adapter
+- assessment_id: taxonomy
+  area: grounding
+  topic: All sixteen reported identifications and reference accessions
+  outcome: concern
+  summary: Retain source assignments with explicit closest-match uncertainty and reference-versus-isolate
+    provenance.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - assembly
+  - prior-identification
+  - ontology
+  - archives
+  details: The species labels reproduce author assignments and no specific encoded
+    species is disproven. B7 already notes its duplicated P. loti accession; B14 needs
+    the analogous S. nigrescens reference caveat. Reference labels B8W22, NBRC 15308/ATCC
+    14581 and DSM identifiers must not become aliases of experimental B codes without
+    evidence. Rhodococcus/Rhodococcoides is a nomenclature distinction, not a new
+    identity error. Equal-volume input can support co-equal DOMINANT in formulation;
+    it does not prove all sixteen dominate at harvest. Keep absent optional roles
+    absent unless supported.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Barley DT-SynCom powdery mildew resistance'
+  outcome: supported
+  summary: Retain the community-to-host disease-protection outcome and bounded ISR
+    interpretation.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - resistance
+  - timing
+  - record
+  details: Root inoculation with the barley-origin sixteen-member community is followed
+    by reduced Bgh fungal-structure fluorescence on leaves compared with MgCl2 mock.
+    Results reports the 50.4% mean reduction; the log-transformed Figure 2 supports
+    direction and significance, not an independently calculated percentage. All three
+    inoculants share a significance group. Specific JA/ET/SA pathways and individual-member
+    necessity are unestablished; the current community-level node does not assert
+    them.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Barley DT-SynCom rhizosphere persistence'
+  outcome: supported
+  summary: Retain the detection phenotype with the explicit inability to confirm strain
+    identity.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - persistence
+  - supplement
+  - timing
+  details: The rhizosphere is sampled three weeks after the Methods inoculation, before
+    pathogen challenge. OTUs match source 16S sequences at the stated 99% identity/coverage
+    thresholds, but several matches are ambiguous across species and occur in mock
+    samples. Do not infer live introduced-strain persistence, detection of all sixteen
+    members, or their abundance from the nine flagged OTUs. No downstream arrows are
+    encoded or warranted by the design sequence alone.
+- assessment_id: cultivation
+  area: completeness
+  topic: Preparation, host cultivation and conflicting timing
+  outcome: concern
+  summary: Current isolation and YME entries are correct; host context and the known
+    timing discrepancy need explicit completion.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - cultivation
+  - timing
+  - schema
+  details: Methods specify four-day NB germination, two-hour inoculation, three weeks
+    in standard potting soil under inherited 14/10-hour day/night and 20/16°C conditions,
+    then one week after Bgh challenge. Figure 1 agrees with this sequence, while Results
+    says inoculation of 21-day seedlings. Do not silently reconcile those statements.
+    Antonella is the isolation cultivar; Golden Promise is explicit for pathogen propagation
+    but is not independently restated for the assay. The equal-strain mixture factor
+    is principally design metadata; retain 10 mM MgCl2 as an inoculation condition
+    in its proper context.
+- assessment_id: datasets
+  area: evidence
+  topic: Current project visibility and source-reported predecessor resources
+  outcome: supported
+  summary: The current BioProject accession and explicit visibility discussion remain
+    accurate at their respective evidence levels.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - archives
+  - prior-resources
+  - record
+  details: The publication reports generated multi-omics data under PRJNA1405459,
+    but the current repository response is not public. Keep this as source-reported
+    deposition, not verified raw content. The earlier paper’s genome project, partial-16S
+    range and Zenodo record are bounded follow-up leads; exact B-code mappings and
+    archive contents were not certified. No arbitrary replacement for B7/B14 or a
+    new dataset omission is inferred.
+- assessment_id: remaining-fields
+  area: schema
+  topic: Ecological metadata, assay interpretation and metal relevance
+  outcome: supported
+  summary: The source supports the engineered rhizosphere design and qualified measurement
+    endpoints.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - assembly
+  - resistance
+  - persistence
+  - ontology
+  details: Drought tolerance was a selection screen, not proof of drought treatment
+    during the current mildew assay. Pre-challenge transcriptomes show selective responses
+    without establishing specific host-defense pathways or member-resolved microbial
+    activity. NOT_APPLICABLE describes the absence of a curated metal-transformation
+    phenotype, not mineral-free media. No CultureMech or MediaIngredientMech identifier
+    is encoded.
+- assessment_id: provenance
+  area: evidence
+  topic: Exact evidence and earlier follow-up
+  outcome: supported
+  summary: All existing snippets match fresh source content; follow-up concerns interpretation
+    and completeness.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - snippets
+  - history
+  - source-scope
+  - independent-source
+  details: Preserve the prior 1069 wording correction and qualified graph. Issue 1262
+    is still open and specifically identifies this source timing conflict. The prior
+    paper was consulted only for identification methodology and dataset context; neither
+    a complete audit of that paper nor raw omics reanalysis is claimed.
+- assessment_id: validation
+  area: schema
+  topic: Native validity and source qualification
+  outcome: supported
+  summary: Eight native checks pass; the remaining two findings concern scientific
+    provenance and cultivation completeness.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - check-validate
+  - check-validate-strict
+  - check-validate-references-explained
+  - ontology
+  - source-scope
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and quality
+  outcome: supported
+  summary: Native scores are diagnostics, not proof of species identity or strain-resolved
+    persistence.
+  target_ids:
+  - CommunityMech:000428
+  evidence_ids:
+  - native-target
+  - record
+  metrics:
+  - name: completeness
+    value: 35
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100,50 required metadata including all roles +5 environment +10
+      at least 3 factors +10 at least 3 nodes +5 resources +10 media +5 datasets +5
+      node metabolites). 0+5+10+0+5+10+5+0=35; absent optional roles withhold the
+      native 50 component but are not a schema defect.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100-50P1-10P2-2P3+20 min(mean node evidence/2,1)+15 if native
+      COMPLETE,0,100). P1=0, P2=0, P3=2, P4=0; 3 evidence items / 2 nodes = 1.5; 100-4+15+15=126
+      before capping.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+  - name: P2
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Observed native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+findings:
+- finding_id: reference-identity-scope
+  issue_key: cm-000428-reference-identity-scope
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: add source-method uncertainty or recoverable context;
+    correct B1–B16 membership and author-reported labels are preserved, with no species
+    identity disproven.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Qualify species identification and reference-accession provenance
+  description: The taxonomy presents author species assignments without their explicit
+    closest-partial-16S-match basis; NR accessions refer to reference strains, and
+    B14 lacks the duplicate-accession caveat already present for B7.
+  target_ids:
+  - CommunityMech:000428
+  field_paths:
+  - taxonomy
+  - taxonomy[13].taxon_term.notes
+  - discussions[0]
+  evidence_ids:
+  - assembly
+  - prior-identification
+  - archives
+  - ontology
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+    role: canonical_record
+- finding_id: cultivation-timing-context
+  issue_key: cm-000428-cultivation-timing-context
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: add source-method uncertainty or recoverable context;
+    correct B1–B16 membership and author-reported labels are preserved, with no species
+    identity disproven.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Complete host cultivation and retain the source timing discrepancy
+  description: The record captures isolation and stock cultivation but omits recoverable
+    host growth context, leaves the known conflicting inoculation-age account unexplained,
+    and stores mixture assembly as an environmental factor.
+  target_ids:
+  - CommunityMech:000428
+  field_paths:
+  - growth_media
+  - cultivation_setup
+  - engineering_design.inoculation_strategy
+  - environmental_factors[1]
+  - environmental_factors[2]
+  evidence_ids:
+  - cultivation
+  - timing
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+    role: canonical_record
+actions:
+- action_id: repair-reference-identity-scope
+  description: Qualify species identification and reference-accession provenance.
+  finding_ids:
+  - reference-identity-scope
+  target_ids:
+  - CommunityMech:000428
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - State the author-reported closest partial-16S identification basis for all sixteen
+    members while preserving B1–B16 and the reported species assignments unless stronger
+    isolate evidence warrants a change.
+  - Distinguish each printed NR reference from an experimental-isolate deposit; record
+    NR_133818.1 as P. loti and NR_117748.1 as S. nigrescens reference conflicts for
+    B7 and B14 respectively.
+  - Do not transfer reference-strain aliases to B codes, silently substitute accessions
+    or declare all species invalid; require a documented isolate-to-deposit map before
+    adding predecessor resources.
+  - Keep DOMINANT scoped to co-equal formulation prominence, not proven rhizosphere
+    persistence; do not invent missing functional roles or GTDB assignments.
+- action_id: repair-cultivation-timing-context
+  description: Complete host cultivation and retain the source timing discrepancy.
+  finding_ids:
+  - cultivation-timing-context
+  target_ids:
+  - CommunityMech:000428
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Add source-backed germination and host-pot context separately from Pikovskaya
+    isolation, YME preparation, PEG screening, pathogen propagation and DAF staining.
+  - State that Methods and Figure 1 support germinated-seed inoculation followed by
+    three weeks of growth, whereas Results describes inoculation of 21-day seedlings;
+    retain the conflict explicitly.
+  - Keep omics sampling before challenge and the disease readout one week after challenge,
+    without inferring assay cultivar from Antonella isolation or Golden Promise propagation
+    alone.
+  - Move equal-strain assembly to design/cultivation fields while preserving the MgCl2
+    carrier condition; do not silently normalize the source YME agar mass/percentage
+    inconsistency.
+- action_id: preserve-qualified-graph
+  description: Preserve the two qualified nodes and zero arrows during separately
+    authorized curation.
+  finding_ids:
+  - reference-identity-scope
+  - cultivation-timing-context
+  target_ids:
+  - CommunityMech:000428
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Barley_DT_Rhizosphere_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Keep disease resistance as a community-level phenotype with no specific hormone
+    or member-necessity attribution.
+  - Keep detection of matching OTUs distinct from introduced-strain viability, all-member
+    persistence and abundance; do not turn the workflow into causal arrows.
+  - After authorized curation, preserve history and rerun schema, strict, term, history,
+    reference and target/corpus network checks.
+limitations:
+- The whole current scientific main, main Table 1, six main figures and three supplementary
+  figures were inspected. S1/S2/S3/S5/S6/S10 were read completely; S4 review covered
+  flagged taxonomy rows and sample metadata, not every OTU count; S7–S9 had bounded
+  header/annotation inspection.
+- The related 2025 paper was inspected only for identification/selection/genome-method
+  context, relevant Results and Figure 3/Table 2 captions, and Data Availability.
+  Its full experimental conclusions and deposited genomes were not audited.
+- PRJNA1405459 returned a not-public error; no raw sequencing data were inspected.
+  Fourteen NR metadata records verify reference identities, not B1–B16 sequence deposits;
+  predecessor accessions remain source-reported leads without exact B-code mapping.
+- No 16S alignment, sequence classification, genome comparison, statistics or omics
+  analysis was rerun. Detection of matching OTUs cannot establish viability, introduced
+  origin or all-member persistence.
+- Methods/Figure 1 and Results disagree on inoculation age. Source YME agar mass versus
+  percentage and unencoded analysis-threshold discrepancies were not silently corrected
+  or converted into new record defects.
+- Golden Promise is explicit for pathogen propagation, Antonella for isolate origin;
+  the assay cultivar is not inferred. Historical GTDB statistics were not recalculated,
+  and corpus network checks remain separate from target-specific results.
+notes:
+- No canonical, cache, history or generated file was changed.
+- All 24 repository inputs were pinned before assessment and rechecked.
+- Quoted text totals 14 words from the current paper and 3 from the related 2025 paper,
+  within the separate publication limits.
+- Native quality 100 is capped from 126; absent optional roles are not restored to
+  increase completeness.
+tags:
+- record-review
+- rhizosphere
+- biocontrol
+- batch-06
+```
