@@ -38,6 +38,10 @@ tasks:
     summary: Evaluate optional edge-level evidence on InteractionDownstream and decouple scope-credit tests from hardcoded corpus counts
     status: note
     disposition: Captured during run mech-goal-sequence-20261019 cycle 1 stage 2 (causal_graphs); pending issue linkage and Stage 6 evaluation.
+  - task_id: communitymech-infra-0002
+    summary: Fix build_sequence_map.py CommonTaxon.genes key mismatch and evaluate optional gene/protein linkage on EcologicalInteraction
+    status: note
+    disposition: Captured during run mech-goal-sequence-20261019 cycle 1 stage 3 (protein_examples); pending issue linkage and Stage 6 evaluation.
 ```
 <!-- mech-infra-tasks:end -->
 
@@ -56,6 +60,22 @@ tasks:
   - `tests/test_causal_review_batch109.py`
   - `tests/test_participating_taxa.py`
   - `reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml`
+- **Priority**: P2
+- **Dependencies**: None
+- **Status**: `note` (pending issue linkage at Stage 6)
+
+### `communitymech-infra-0002` — `build_sequence_map.py` `CommonTaxon.genes` projection and interaction-node protein linkage
+
+- **Origin**: `mech-goal-sequence-20261019`, cycle 1, stage 3 (`protein_examples`)
+- **Observation**:
+  1. `scripts/build_sequence_map.py` (`load_curated_genes()`, lines 626–634) reads `doc.get("functional_genes")`, `fg.get("function")`, and `fg.get("phenotype")` instead of the schema-canonical `CommonTaxon` slots `doc.get("genes")`, `fg.get("product")`, and `fg.get("supports_interaction")`. As a result, `data/embeddings/sequence_map.json` reports `"curated_in_taxa_kb": false` and `"source_taxon_yaml": ""` even for UniProtKB proteins curated in `kb/taxa/*.yaml`.
+  2. `EcologicalInteraction` in `src/communitymech/schema/communitymech.yaml` provides `metabolites` and `biological_processes` slots on interaction nodes, whereas gene/protein mediation is represented at the reusable taxon level via `CommonTaxon.genes[].supports_interaction` and `TaxonomicComposition.common_taxon` rather than a direct gene/protein reference slot on `EcologicalInteraction`.
+- **Desired outcome**: Update `scripts/build_sequence_map.py` to read `CommonTaxon.genes` (`gene_id`, `gene_symbol`, `locus_tag`, `product`, `supports_interaction`) and evaluate whether `EcologicalInteraction` should optionally reference `CommonTaxon.genes` entries directly.
+- **Evidence paths**:
+  - `scripts/build_sequence_map.py`
+  - `kb/taxa/Shewanella_oneidensis_MR1.yaml`
+  - `kb/taxa/Geobacter_sulfurreducens.yaml`
+  - `src/communitymech/schema/communitymech.yaml`
 - **Priority**: P2
 - **Dependencies**: None
 - **Status**: `note` (pending issue linkage at Stage 6)

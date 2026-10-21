@@ -91,8 +91,22 @@ def test_decision_coverage_and_append_only_provenance():
     assert sum(len(r["renamed_nodes"]) for r in rows) == 3
     assert sum(len(r["retained_edge_decisions"]) for r in rows) == 5
     assert sum(len(r["removed_edge_decisions"]) for r in rows) == 1
+    successor_file = (
+        ROOT / "reports/causal_graph_review/decisions/20261021-stage3-common-taxon-links.yaml"
+    )
+    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        latest = row
+        if row["id"] in {"CommunityMech:000203", "CommunityMech:000279"}:
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )
         count = int(row["outcome"] == "changed")
         assert row["curation_events_added"] == len(row["history_files"]) == count
         if count:
