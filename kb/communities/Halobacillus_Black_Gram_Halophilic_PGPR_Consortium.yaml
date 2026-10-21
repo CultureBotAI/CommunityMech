@@ -52,9 +52,10 @@ taxonomy:
     explanation: Supports membership of Halobacillus halophilus strains MKM4 and MKM11 in the HPGPB consortium.
 ecological_interactions:
 - name: Synergistic Halobacillus Consortium Colonization and Rhizosphere Microbiome Restructuring
-  description: Compatible co-inoculation of Halobacillus marinus MKM3 with Halobacillus halophilus MKM4 and MKM11 restructures
-    the rhizosphere microbial community of Vigna mungo under 50 and 100 mM NaCl stress.
+  description: Co-inoculation of compatible halophilic strains Halobacillus marinus MKM3 and Halobacillus halophilus MKM4
+    and MKM11 reshapes the saline rhizosphere microbial community structure of black gram (Vigna mungo).
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Halobacillus marinus MKM3
     term:
@@ -71,7 +72,7 @@ ecological_interactions:
       id: GO:0009651
       label: response to salt stress
   downstream:
-  - target: Alleviation of Sodium Toxicity and Enhancement of Black Gram Growth Under Salt Stress
+  - target: Alleviation of Sodium Toxicity and Enhancement of Antioxidant Defense Under Salt Stress
     description: 'DIRECTLY IMPLIED: Consortium establishment in the saline rhizosphere supports reduced Na+ uptake and enhanced
       antioxidant protection in Vigna mungo.'
   evidence:
@@ -80,12 +81,16 @@ ecological_interactions:
     evidence_source: IN_VIVO
     snippet: Rhizosphere metagenomic analysis revealed consortium-associated shifts in microbial community structure under
       saline conditions.
-    explanation: Demonstrates consortium-driven restructuring of the saline rhizosphere community.
-- name: Alleviation of Sodium Toxicity and Enhancement of Black Gram Growth Under Salt Stress
-  description: Cooperative Halobacillus halophilus (MKM4, MKM11) and Halobacillus marinus (MKM3) activity reduces Na+ accumulation
-    and lipid peroxidation, boosts antioxidant enzyme activity, and increases Vigna mungo biomass and grain yield under salt
-    stress.
+  - reference: PMID:42643757
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Collectively, the results demonstrate that the HPGPB consortium enhances salinity tolerance through coordinated
+      physiological, biochemical, and microbiome-associated mechanisms.
+- name: Alleviation of Sodium Toxicity and Enhancement of Antioxidant Defense Under Salt Stress
+  description: Inoculation of Vigna mungo with the Halobacillus consortium under 50 and 100 mM NaCl stress reduces Na+ accumulation
+    and malondialdehyde levels while increasing antioxidant enzyme activities, nutrient uptake, and photosynthetic performance.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Halobacillus halophilus MKM4 and MKM11
     term:
@@ -110,6 +115,10 @@ ecological_interactions:
     term:
       id: GO:0006979
       label: response to oxidative stress
+  downstream:
+  - target: Enhancement of Black Gram Root Development, Biomass, and Grain Yield Under Saline Stress
+    description: 'DIRECTLY IMPLIED: Reduced Na+ toxicity, lower lipid peroxidation, and improved photosynthetic and ionic
+      balance support increased root development, plant biomass, and grain yield under salt stress.'
   evidence:
   - reference: PMID:42643757
     supports: SUPPORT
@@ -117,8 +126,37 @@ ecological_interactions:
     snippet: Consortium-inoculated plants exhibited improved photosynthetic performance, enhanced nutrient uptake and ionic
       balance, reduced Na+ accumulation and malondialdehyde content, and increased activities of antioxidant enzymes, indicating
       enhanced salinity tolerance.
-    explanation: Demonstrates reduced Na+ accumulation, enhanced antioxidant activity, and improved growth in inoculated Vigna
-      mungo.
+  - reference: PMID:42643757
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Consortium inoculation effectively mitigated these adverse effects by improving plant height, root development,
+      biomass, and grain yield by up to 46 and 38%, respectively, under saline conditions.
+- name: Enhancement of Black Gram Root Development, Biomass, and Grain Yield Under Saline Stress
+  description: Under 50 and 100 mM NaCl stress, inoculation with the Halobacillus consortium mitigates salt-induced growth
+    inhibition and increases plant height, root development, biomass, and grain yield by up to 46% and 38%.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Halobacillus marinus MKM3
+    term:
+      id: NCBITaxon:2699466
+      label: Halobacillus marinus
+  target_taxon:
+    preferred_term: Halobacillus halophilus MKM4 and MKM11
+    term:
+      id: NCBITaxon:1570
+      label: Halobacillus halophilus
+  biological_processes:
+  - preferred_term: response to salt stress
+    term:
+      id: GO:0009651
+      label: response to salt stress
+  evidence:
+  - reference: PMID:42643757
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Consortium inoculation effectively mitigated these adverse effects by improving plant height, root development,
+      biomass, and grain yield by up to 46 and 38%, respectively, under saline conditions.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -131,4 +169,10 @@ curation_history:
   changes: Initial curation of CommunityMech:000472 (Halobacillus_Black_Gram_Halophilic_PGPR_Consortium) from PMID:42643757
     using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
     groundings.
+  llm_assisted: true
+- timestamp: '2026-10-20T04:18:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Curate 3-node pairwise mutualistic causal chain linking Halobacillus rhizosphere restructuring to Na+ toxicity
+    alleviation and black gram yield improvement.
   llm_assisted: true

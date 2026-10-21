@@ -175,10 +175,36 @@ environmental_factors:
     explanation: Documents the low-phosphorus metabolite suite driving beneficial community recruitment.
 ecological_interactions:
 - name: Metabolite-Recruited Cross-Kingdom Pathogen Suppression of Fusarium oxysporum
-  description: Combined with low-phosphorus distinguished rhizosphere metabolites (succinic acid, azelaic acid, threonic acid,
-    and methionine), the 19-strain cross-kingdom SynCom (Bacillus, Devosia, Sphingopyxis, Cupriavidus, Aspergillus, and Amesomyces)
-    reduces Fusarium oxysporum f. sp. cucumerinum abundance by 85% and suppresses cucumber wilt under high-phosphorus conditions.
+  description: Low-phosphorus rhizosphere metabolites (succinic acid, azelaic acid, threonic acid, and methionine) recruit
+    a cross-kingdom synthetic community of bacterial (Bacillus, Devosia, Sphingopyxis, Cupriavidus) and fungal (Aspergillus,
+    Amesomyces) isolates that solubilize phosphate and reduce Fusarium oxysporum f. sp. cucumerinum abundance by 85%.
   interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+  - preferred_term: Devosia
+    term:
+      id: NCBITaxon:46913
+      label: Devosia
+  - preferred_term: Sphingopyxis
+    term:
+      id: NCBITaxon:165697
+      label: Sphingopyxis
+  - preferred_term: Cupriavidus
+    term:
+      id: NCBITaxon:106589
+      label: Cupriavidus
+  - preferred_term: Aspergillus
+    term:
+      id: NCBITaxon:5052
+      label: Aspergillus
+  - preferred_term: Amesomyces
+    term:
+      id: NCBITaxon:1934349
+      label: Amesomyces
   metabolites:
   - preferred_term: phosphate
     term:
@@ -208,12 +234,11 @@ ecological_interactions:
     snippet: To validate the functional role of microbes-metabolites interaction, we constructed a synthetic microbial community
       composed of the signature taxa from the low phosphorus microbiota, which, when combined with low phosphorus metabolites,
       reduced pathogen abundance by 85% and conferred disease suppression under high phosphorus conditions.
-    explanation: Validates 85% pathogen reduction and Fusarium wilt suppression by the cross-kingdom SynCom plus low-P metabolites.
-  scope: COMMUNITY_LEVEL
 - name: Cross-Kingdom Devosia and Amesomyces Biofilm and Colony Mutualism
-  description: Devosia (strain B2) and Amesomyces (reported as Amesia sp. F7) engage in direct cross-kingdom mutual promotion,
-    concurrently enhancing bacterial biofilm formation and fungal colony diameter in co-culture.
+  description: Pairwise co-cultivation of Devosia sp. B2 and Amesomyces (Amesia) sp. F7 mutually promotes bacterial biofilm
+    formation and fungal colony radial expansion.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Devosia
     term:
@@ -229,6 +254,10 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
+  downstream:
+  - target: Metabolite-Recruited Cross-Kingdom Pathogen Suppression of Fusarium oxysporum
+    description: 'DIRECTLY IMPLIED: Mutual promotion of bacterial biofilm formation and fungal colony growth between Devosia
+      and Amesomyces strengthens cross-kingdom SynCom assembly, contributing to 85% reduction of Fusarium oxysporum abundance.'
   evidence:
   - reference: PMID:41882811
     supports: SUPPORT
@@ -236,12 +265,15 @@ ecological_interactions:
     snippet: '(i) Mutual promotion (reflected by concurrent enhancement of bacterial biofilm formation and fungal colony diameter)
       was observed between specific fungal-bacterial pairs, including: Amesia sp. F7 & Devosia sp. B2; Amesia sp. F7 & Bacillus
       sp. B10; Aspergillus sp. F5 and Bacillus sp. B18.'
-    explanation: Directly demonstrates mutualistic enhancement of bacterial biofilm formation and fungal colony growth between
-      Amesia (Amesomyces) sp. F7 and Devosia sp. B2.
-  scope: PAIRWISE
+  - reference: PMID:41882811
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: To validate the functional role of microbes-metabolites interaction, we constructed a synthetic microbial community
+      composed of the signature taxa from the low phosphorus microbiota, which, when combined with low phosphorus metabolites,
+      reduced pathogen abundance by 85% and conferred disease suppression under high phosphorus conditions.
 - name: Unidirectional Cross-Kingdom Facilitation of Cupriavidus by Aspergillus
-  description: Aspergillus (strains F3 and F5) unidirectionally facilitates the growth and biofilm formation of Cupriavidus
-    (strain B12) in cross-kingdom co-culture assays.
+  description: Aspergillus isolates (F3 and F5) unidirectionally facilitate the growth and biofilm development of Cupriavidus
+    sp. B12 in cross-kingdom co-culture assays.
   interaction_type: COLONIZATION_FACILITATION
   scope: PAIRWISE
   source_taxon:
@@ -259,6 +291,10 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
+  downstream:
+  - target: Metabolite-Recruited Cross-Kingdom Pathogen Suppression of Fusarium oxysporum
+    description: 'DIRECTLY IMPLIED: Unidirectional growth facilitation of Cupriavidus by Aspergillus supports cross-kingdom
+      SynCom robustness and cooperative suppression of cucumber Fusarium wilt.'
   evidence:
   - reference: PMID:41882811
     supports: SUPPORT
@@ -266,8 +302,13 @@ ecological_interactions:
     snippet: (ii) Unidirectional facilitation (where one partner enhanced the growth of the other without a reciprocal benefit)
       characterized other interactions, including Aspergillus sp. F4 & Bacillus sp. B10; Aspergillus sp. F3 & Cupriavidus
       sp. B12; Aspergillus sp. F5 & Cupriavidus sp. B12).
-    explanation: Directly documents unidirectional cross-kingdom facilitation in Aspergillus sp. F3 & Cupriavidus sp. B12
-      and Aspergillus sp. F5 & Cupriavidus sp. B12 pairs.
+  - reference: PMID:41882811
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Amplicon sequencing analyses reveal that low phosphorus conditions promote microbial community stochastic assembly,
+      enriching beneficial genera (bacterial genera Bacillus, Devosia, Sphingopyxis, Cupriavidus, and fungal genera Aspergillus
+      and Amesia) with dual functions of phosphate solubilization and disease resistance, and enhancing cross-kingdom network
+      robustness.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -279,4 +320,10 @@ curation_history:
   changes: Initial curation of CommunityMech:000477 (Cucumber_Low_Phosphorus_Cross_Kingdom_Biocontrol_SynCom) from PMID:41882811
     using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
     groundings.
+  llm_assisted: true
+- timestamp: '2026-10-20T04:18:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Add explicit participating_taxa to the community-level biocontrol node and link both pairwise cross-kingdom facilitation/mutualism
+    nodes to community-level Fusarium wilt suppression.
   llm_assisted: true

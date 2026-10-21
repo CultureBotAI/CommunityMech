@@ -75,10 +75,11 @@ environmental_factors:
       (SIF), and extended shelf life under aerobic conditions.
     explanation: Documents the gastrointestinal and aerobic stress regimes.
 ecological_interactions:
-- name: Biofilm- and Extracellular Matrix-Mediated Stress Protection
-  description: Bacillus subtilis SOM8 and Bifidobacterium longum DSM20219 form a cooperative biofilm and extracellular matrix
-    inside alginate hydrogel beads that shields oxygen-sensitive B. longum from gastric acid, bile salts, and aerobic storage.
+- name: Biofilm Formation and Extracellular Matrix Development Within Alginate Hydrogel
+  description: Within alginate hydrogel beads, Bacillus subtilis SOM8 and Bifidobacterium longum DSM20219 engage in dynamic
+    interspecies interactions that promote biofilm formation, cell aggregation, and extracellular matrix development.
   interaction_type: COMMENSALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Bacillus subtilis
     term:
@@ -94,6 +95,10 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
+  downstream:
+  - target: Enhanced Probiotic Survival Against Simulated Gastric and Intestinal Fluid Stress
+    description: 'DIRECTLY IMPLIED: Biofilm formation, cell aggregation, and extracellular matrix development within the alginate
+      co-encapsulation system protect Bifidobacterium longum DSM20219 against gastric acid and bile salt stress.'
   evidence:
   - reference: PMID:42372892
     supports: SUPPORT
@@ -101,7 +106,72 @@ ecological_interactions:
     snippet: Imaging and time-resolved co-culture analyses suggested that the enhanced protection was associated with biofilm
       formation, cell aggregation, extracellular matrix development, and dynamic interspecies interactions within the alginate
       system.
-    explanation: Establishes biofilm formation and cell aggregation as the protective interaction mechanism.
+  - reference: PMID:42372892
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we developed an alginate-based, biofilm-assisted encapsulation system for the co-culture and co-delivery
+      of Bacillus subtilis SOM8 and Bifidobacterium longum DSM20219. This strategy enhanced probiotic tolerance to simulated
+      gastric fluids (SGF) and simulated intestinal fluids (SIF), and extended shelf life under aerobic conditions.
+- name: Enhanced Probiotic Survival Against Simulated Gastric and Intestinal Fluid Stress
+  description: Biofilm-assisted co-encapsulation with Bacillus subtilis SOM8 increases Bifidobacterium longum DSM20219 survival
+    by approximately 3-log over alginate-only encapsulation, maintaining viability above 7-log CFU/g after 2 h in simulated
+    gastric and intestinal fluids.
+  interaction_type: COMMENSALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  target_taxon:
+    preferred_term: Bifidobacterium longum
+    term:
+      id: NCBITaxon:216816
+      label: Bifidobacterium longum
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Extended Aerobic Storage Viability of Oxygen-Sensitive Bifidobacterium longum
+    description: 'DIRECTLY IMPLIED: Matrix and biofilm barrier formation within the Bacillus-Bifidobacterium alginate co-culture
+      also protects oxygen-sensitive Bifidobacterium longum during long-term aerobic storage.'
+  evidence:
+  - reference: PMID:42372892
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Biofilm-assisted encapsulation improved B. longum DSM20219 viability, maintaining survival above 7-log CFU/g
+      after 2 h in SGF and SIF, representing an approximately 3-log improvement over alginate-only encapsulation.
+  - reference: PMID:42372892
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: It also maintained over 6-log CFU/g after 28 days of aerobic storage.
+- name: Extended Aerobic Storage Viability of Oxygen-Sensitive Bifidobacterium longum
+  description: Alginate-based biofilm-assisted co-encapsulation of Bifidobacterium longum DSM20219 with Bacillus subtilis
+    SOM8 preserves anaerobic probiotic viability above 6-log CFU/g across 28 days of ambient aerobic storage.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bifidobacterium longum
+    term:
+      id: NCBITaxon:216816
+      label: Bifidobacterium longum
+  target_taxon:
+    preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:42372892
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: It also maintained over 6-log CFU/g after 28 days of aerobic storage.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -113,4 +183,10 @@ curation_history:
   changes: Initial curation of CommunityMech:000478 (Bifidobacterium_Bacillus_Alginate_Biofilm_Probiotic_Coculture) from PMID:42372892
     using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
     groundings.
+  llm_assisted: true
+- timestamp: '2026-10-20T04:18:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Curate 3-node pairwise commensal/mutualistic causal chain linking alginate biofilm and matrix formation to gastrointestinal
+    fluid survival and extended aerobic shelf life.
   llm_assisted: true

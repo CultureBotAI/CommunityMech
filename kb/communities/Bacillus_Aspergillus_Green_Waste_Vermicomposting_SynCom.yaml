@@ -142,11 +142,78 @@ taxonomy:
     explanation: Documents the complementary cellulase, lignin peroxidase (LiP), manganese peroxidase (MnP), and laccase (Lac)
       activities of the four non-antagonistic SynCom members.
 ecological_interactions:
-- name: Cross-Kingdom Fungal-Bacterial Lignocellulose Hydrolysis and Humification
-  description: The four-species cross-kingdom SynCom (Bacillus licheniformis, Bacillus subtilis, Aspergillus nidulans, and
-    Aspergillus rugulosus) stimulates lignocellulose-degrading enzyme and urease activities during green waste co-vermicomposting,
-    reducing the C/N ratio and increasing humic substance content.
+- name: Coordinated Carbohydrate Esterase Enrichment and Nitrification Gene Activation
+  description: Inoculation of the four-species Bacillus-Aspergillus synthetic community enriches nitrogen-cycling bacteria
+    (Luteimonas and Pseudomonas) and increases functional gene abundances for carbohydrate esterases, glycosyltransferases,
+    and hydroxylamine oxidoreductase (hao).
   interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus licheniformis
+    term:
+      id: NCBITaxon:1402
+      label: Bacillus licheniformis
+  - preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  - preferred_term: Aspergillus nidulans
+    term:
+      id: NCBITaxon:162425
+      label: Aspergillus nidulans
+  - preferred_term: Aspergillus rugulosus
+    term:
+      id: NCBITaxon:41736
+      label: Aspergillus rugulosus
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: nitrogen cycle metabolic process
+    term:
+      id: GO:0071941
+      label: nitrogen cycle metabolic process
+  downstream:
+  - target: Cross-Kingdom Fungal-Bacterial Lignocellulose Hydrolysis and Urease Activation
+    description: 'DIRECTLY IMPLIED: Enrichment of carbohydrate esterases, glycosyltransferases, and nitrogen-cycling genes
+      enhances lignocellulose-degrading enzyme and urease activities during co-vermicomposting.'
+  evidence:
+  - reference: PMID:42780861
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynComs further increased the abundances of carbohydrate esterases and glycosyltransferases, as well as the relative
+      abundance of the nitrification gene hao, thereby enhancing the potential for lignocellulose degradation, degradation
+      product transformation, and nitrification.
+  - reference: PMID:42780861
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Microbial analysis showed that the amendment treatments enriched nitrogen cycling related taxa, including Luteimonas
+      and Pseudomonas.
+- name: Cross-Kingdom Fungal-Bacterial Lignocellulose Hydrolysis and Urease Activation
+  description: Addition of 5% synthetic microbial community composed of Bacillus licheniformis, Bacillus subtilis, Aspergillus
+    nidulans, and Aspergillus rugulosus stimulates lignocellulose-degrading enzyme and urease activities during green waste
+    and cattle manure co-vermicomposting.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus licheniformis
+    term:
+      id: NCBITaxon:1402
+      label: Bacillus licheniformis
+  - preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  - preferred_term: Aspergillus nidulans
+    term:
+      id: NCBITaxon:162425
+      label: Aspergillus nidulans
+  - preferred_term: Aspergillus rugulosus
+    term:
+      id: NCBITaxon:41736
+      label: Aspergillus rugulosus
   metabolites:
   - preferred_term: lignocellulose
     term:
@@ -161,6 +228,10 @@ ecological_interactions:
     term:
       id: GO:0046274
       label: lignin catabolic process
+  downstream:
+  - target: Accelerated Co-Vermicomposting Maturity, Humification, and Nitrate Accumulation
+    description: 'DIRECTLY IMPLIED: Stimulated lignocellulose-degrading enzyme and urease activities reduce the C/N ratio
+      and increase humic substance content, nitrate nitrogen content, germination index, and vermicompost maturity.'
   evidence:
   - reference: PMID:42780861
     supports: SUPPORT
@@ -168,14 +239,38 @@ ecological_interactions:
     snippet: Compared with other treatments, 5% SynComs showed the strongest stimulatory effect on lignocellulose-degrading
       enzyme and urease activities, effectively reduced the C/N ratio, and increased the germination index, humic substance
       content, nitrate nitrogen content, and overall quality score.
-    explanation: Demonstrates stimulated lignocellulolytic and urease activities and humification by the SynCom.
-  scope: COMMUNITY_LEVEL
-- name: Coordinated Carbohydrate Esterase Enrichment and Nitrification Enhancement
-  description: Inoculation of the four-species cross-kingdom SynCom enriches carbohydrate esterases, glycosyltransferases,
-    and the nitrification gene hao in the vermicomposting microbiome, enhancing lignocellulose degradation product transformation
-    and nitrate accumulation.
+  - reference: PMID:42780861
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Overall, lignocellulose-degrading SynComs effectively accelerated co-vermicomposting maturity, improved product
+      quality, and promoted green waste resource utilization.
+- name: Accelerated Co-Vermicomposting Maturity, Humification, and Nitrate Accumulation
+  description: Lignocellulose-degrading SynCom activity lowers the C/N ratio and increases humic substance content, nitrate
+    nitrogen accumulation, seed germination index, and overall vermicompost quality.
   interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus licheniformis
+    term:
+      id: NCBITaxon:1402
+      label: Bacillus licheniformis
+  - preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  - preferred_term: Aspergillus nidulans
+    term:
+      id: NCBITaxon:162425
+      label: Aspergillus nidulans
+  - preferred_term: Aspergillus rugulosus
+    term:
+      id: NCBITaxon:41736
+      label: Aspergillus rugulosus
   metabolites:
+  - preferred_term: lignocellulose
+    term:
+      id: CHEBI:180683
+      label: lignocellulose
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
@@ -189,11 +284,8 @@ ecological_interactions:
   - reference: PMID:42780861
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: SynComs further increased the abundances of carbohydrate esterases and glycosyltransferases, as well as the relative
-      abundance of the nitrification gene hao, thereby enhancing the potential for lignocellulose degradation, degradation
-      product transformation, and nitrification.
-    explanation: Demonstrates coordinated enhancement of lignocellulose degradation and nitrification by the SynCom.
-  scope: COMMUNITY_LEVEL
+    snippet: Overall, lignocellulose-degrading SynComs effectively accelerated co-vermicomposting maturity, improved product
+      quality, and promoted green waste resource utilization.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -205,4 +297,10 @@ curation_history:
   changes: Initial curation of CommunityMech:000473 (Bacillus_Aspergillus_Green_Waste_Vermicomposting_SynCom) from PMID:42780861
     using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
     groundings.
+  llm_assisted: true
+- timestamp: '2026-10-20T04:18:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Curate 3-node community-level causal chain with explicit participating_taxa linking carbohydrate esterase/hao gene
+    enrichment to lignocellulose hydrolysis and vermicompost humification.
   llm_assisted: true

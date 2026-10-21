@@ -108,11 +108,121 @@ environmental_factors:
       68.00% for mesotrione, and 22.91% for atrazine after 8 days.
     explanation: Demonstrates strict requirement for glucose supplementation to activate multi-herbicide degradation.
 ecological_interactions:
-- name: Glucose-Driven Co-Metabolic Degradation of Atrazine, Nicosulfuron, and Mesotrione
-  description: In the presence of glucose, the keystone SynCom taxa (Burkholderia-Caballeronia-Paraburkholderia complex, Rhodanobacter,
-    and Achromobacter) activate central carbon metabolism (glycolysis and TCA cycle) and express enriched catabolic genes
-    including atzF and gst to co-metabolically degrade mixed nicosulfuron, mesotrione, and atrazine.
+- name: Glucose-Activated Central Carbon Metabolism and Environmental Acidification
+  description: Glucose supplementation activates glycolytic and tricarboxylic acid (TCA) cycle central carbon metabolism in
+    the black-soil consortium, enhancing cellular energy supply and environmental acidification required for co-metabolic
+    herbicide degradation.
   interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Burkholderia
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
+  - preferred_term: Rhodanobacter
+    term:
+      id: NCBITaxon:75309
+      label: Rhodanobacter
+  - preferred_term: Achromobacter
+    term:
+      id: NCBITaxon:222
+      label: Achromobacter
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: atrazine
+    term:
+      id: CHEBI:15930
+      label: atrazine
+  biological_processes:
+  - preferred_term: glucose metabolic process
+    term:
+      id: GO:0006006
+      label: glucose metabolic process
+  downstream:
+  - target: Keystone Degrader Enrichment of Allophanate Hydrolase (atzF) and Glutathione S-Transferase (gst)
+    description: 'DIRECTLY IMPLIED: Glucose-driven central carbon activation and community restructuring enrich keystone Burkholderia,
+      Rhodanobacter, and Achromobacter degraders carrying atzF and gst herbicide-catabolic genes.'
+  evidence:
+  - reference: PMID:41762466
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Integrated 16S rRNA gene sequencing and metagenomic analysis linked the glucose amendment to a specific shift
+      in the microbial community structure and activation of central carbon metabolism (tricarboxylic acid [TCA] and glycolytic),
+      which enhanced cellular energy supply and environmental acidification for co-metabolic degradation of herbicides.
+  - reference: PMID:41762466
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Combined random forest (RF) and co-occurrence network analyses identified the Burkholderia-Caballeronia-Paraburkholderia
+      complex, Rhodanobacter, and Achromobacter as the keystone taxa.
+- name: Keystone Degrader Enrichment of Allophanate Hydrolase (atzF) and Glutathione S-Transferase (gst)
+  description: Glucose-activated community assembly enriches keystone genera Burkholderia, Rhodanobacter, and Achromobacter
+    harboring herbicide-degrading genes including atzF (allophanate hydrolase) and gst (glutathione S-transferase).
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Burkholderia
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
+  - preferred_term: Rhodanobacter
+    term:
+      id: NCBITaxon:75309
+      label: Rhodanobacter
+  - preferred_term: Achromobacter
+    term:
+      id: NCBITaxon:222
+      label: Achromobacter
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: atrazine
+    term:
+      id: CHEBI:15930
+      label: atrazine
+  biological_processes:
+  - preferred_term: glucose metabolic process
+    term:
+      id: GO:0006006
+      label: glucose metabolic process
+  downstream:
+  - target: Synergistic Four-Isolate SynCom Herbicide-Mixture Mineralization
+    description: 'DIRECTLY IMPLIED: Functional association of the enriched keystone degraders enables a constructed four-isolate
+      SynCom to co-metabolically degrade the atrazine-nicosulfuron-mesotrione mixture more efficiently than single isolates
+      or the parent consortium.'
+  evidence:
+  - reference: PMID:41762466
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Metagenomic screening showed that these taxa were enriched for functional genes associated with herbicide degradation,
+      including atzF (allophanate hydrolase) and gst (glutathione S-transferase).
+  - reference: PMID:41762466
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A simplified four-isolate SynCom, constructed based on these functional associations, degraded the herbicide
+      mixtures more efficiently than either the individual isolates or the NMC in the GSM system.
+- name: Synergistic Four-Isolate SynCom Herbicide-Mixture Mineralization
+  description: A simplified four-isolate synthetic community constructed from the keystone genera degrades the nicosulfuron-mesotrione-atrazine
+    mixture more efficiently than individual isolates or the parent natural consortium under glucose supplementation.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Burkholderia
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
+  - preferred_term: Rhodanobacter
+    term:
+      id: NCBITaxon:75309
+      label: Rhodanobacter
+  - preferred_term: Achromobacter
+    term:
+      id: NCBITaxon:222
+      label: Achromobacter
   metabolites:
   - preferred_term: glucose
     term:
@@ -131,28 +241,8 @@ ecological_interactions:
   - reference: PMID:41762466
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Metagenomic screening showed that these taxa were enriched for functional genes associated with herbicide degradation,
-      including atzF (allophanate hydrolase) and gst (glutathione S-transferase).
-    explanation: Links the keystone taxa to atzF and gst herbicide-degrading genes.
-  scope: COMMUNITY_LEVEL
-- name: Synergistic Four-Isolate SynCom Herbicide-Mixture Mineralization
-  description: The simplified four-isolate SynCom constructed from Burkholderia, Rhodanobacter, and Achromobacter degrades
-    recalcitrant herbicide mixtures more efficiently than either the individual isolates or the parent natural microbial consortium
-    in the glucose-supplemented system.
-  interaction_type: SYNTROPHY
-  metabolites:
-  - preferred_term: glucose
-    term:
-      id: CHEBI:17234
-      label: glucose
-  evidence:
-  - reference: PMID:41762466
-    supports: SUPPORT
-    evidence_source: IN_VITRO
     snippet: A simplified four-isolate SynCom, constructed based on these functional associations, degraded the herbicide
       mixtures more efficiently than either the individual isolates or the NMC in the GSM system.
-    explanation: Confirms emergent synergistic herbicide-mixture degradation by the four-isolate SynCom.
-  scope: COMMUNITY_LEVEL
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -164,4 +254,10 @@ curation_history:
   changes: Initial curation of CommunityMech:000482 (Black_Soil_Glucose_Activated_Herbicide_Mixture_SynCom) from PMID:41762466
     using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
     groundings.
+  llm_assisted: true
+- timestamp: '2026-10-20T04:18:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Curate 3-node community-level causal chain with explicit participating_taxa linking glucose-activated central carbon
+    metabolism to atzF/gst keystone enrichment and SynCom herbicide-mixture degradation.
   llm_assisted: true

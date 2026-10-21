@@ -68,11 +68,57 @@ environmental_factors:
       nitrogen removal.
     explanation: Documents reactor performance under synthetic swine wastewater operation.
 ecological_interactions:
-- name: Light-Driven Interspecies Electron Transfer for Biohydrogen Production and Denitrification
-  description: Light-responsive electroactive Delftia acidovorans YP-3 transfers electrons via direct cell contact and soluble
-    redox mediators to Klebsiella oxytoca DX-3, enhancing NADH-linked hydrogen production (345.52 mL/L H2) and nitrate/nitrite
-    reduction (90.25% nitrate removal).
+- name: Light-Driven Interspecies Electron Transfer via Direct Contact and Soluble Redox Mediators
+  description: Light-responsive electroactive Delftia acidovorans YP-3 and Klebsiella oxytoca DX-3 establish interspecies
+    electron transfer via direct cell contact, extracellular polymeric substances, and soluble redox-active mediators, lowering
+    electron-transfer resistance and enhancing NADH-related redox metabolism.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Delftia acidovorans
+    term:
+      id: NCBITaxon:80866
+      label: Delftia acidovorans
+  target_taxon:
+    preferred_term: Klebsiella oxytoca
+    term:
+      id: NCBITaxon:571
+      label: Klebsiella oxytoca
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: Synergistic Biohydrogen Production and Nitrate Reduction in Co-Culture
+    description: 'DIRECTLY IMPLIED: Enhanced redox activity and decreased electron-transfer resistance between D. acidovorans
+      YP-3 and K. oxytoca DX-3 drive simultaneous biohydrogen production and nitrate reduction.'
+  evidence:
+  - reference: PMID:42297253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Electrochemical, extracellular polymeric substance, and metabolomic analyses indicated enhanced redox activity,
+      decreased electron-transfer resistance, NADH-related metabolism, and potential interspecies electron transfer via direct
+      contact and soluble redox-active mediators.
+  - reference: PMID:42297253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In batch cultures, the YP-3/DX-3 co-culture generated 345.52 mL/L H2 within 48 h and enhanced the removal of
+      nitrate, nitrite, and total nitrogen compared to the DX-3 monoculture.
+- name: Synergistic Biohydrogen Production and Nitrate Reduction in Co-Culture
+  description: In batch co-culture, Delftia acidovorans YP-3 and Klebsiella oxytoca DX-3 generate 345.52 mL/L H2 within 48
+    h while simultaneously accelerating nitrate, nitrite, and total nitrogen removal compared with K. oxytoca DX-3 monoculture.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Delftia acidovorans
     term:
@@ -101,6 +147,52 @@ ecological_interactions:
     term:
       id: GO:0019333
       label: denitrification pathway
+  downstream:
+  - target: High-Efficiency Swine Wastewater Denitrification with Minimal Nitrite Accumulation
+    description: 'DIRECTLY IMPLIED: Co-culture bioaugmentation in a synthetic swine wastewater-fed anaerobic sludge reactor
+      enriches electron-transfer and nitrogen-removal groups, achieving 90.25% nitrate removal with minimal nitrite accumulation.'
+  evidence:
+  - reference: PMID:42297253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In batch cultures, the YP-3/DX-3 co-culture generated 345.52 mL/L H2 within 48 h and enhanced the removal of
+      nitrate, nitrite, and total nitrogen compared to the DX-3 monoculture.
+  - reference: PMID:42297253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In a synthetic swine wastewater-fed anaerobic sludge reactor, the co-culture accomplished 90.25 % nitrate removal,
+      minimized nitrite accumulation, and enriched functional groups related to electron transfer, hydrogen production, and
+      nitrogen removal.
+- name: High-Efficiency Swine Wastewater Denitrification with Minimal Nitrite Accumulation
+  description: In a synthetic swine wastewater-fed anaerobic sludge reactor, the Delftia acidovorans YP-3 and Klebsiella oxytoca
+    DX-3 co-culture achieves 90.25% nitrate removal, minimizes nitrite accumulation, and enriches functional guilds for electron
+    transfer, hydrogen evolution, and denitrification.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Klebsiella oxytoca
+    term:
+      id: NCBITaxon:571
+      label: Klebsiella oxytoca
+  target_taxon:
+    preferred_term: Delftia acidovorans
+    term:
+      id: NCBITaxon:80866
+      label: Delftia acidovorans
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: denitrification pathway
+    term:
+      id: GO:0019333
+      label: denitrification pathway
   - preferred_term: electron transport chain
     term:
       id: GO:0022900
@@ -109,11 +201,9 @@ ecological_interactions:
   - reference: PMID:42297253
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Electrochemical, extracellular polymeric substance, and metabolomic analyses indicated enhanced redox activity,
-      decreased electron-transfer resistance, NADH-related metabolism, and potential interspecies electron transfer via direct
-      contact and soluble redox-active mediators.
-    explanation: Establishes interspecies electron transfer via direct contact and soluble redox mediators between YP-3 and
-      DX-3.
+    snippet: In a synthetic swine wastewater-fed anaerobic sludge reactor, the co-culture accomplished 90.25 % nitrate removal,
+      minimized nitrite accumulation, and enriched functional groups related to electron transfer, hydrogen production, and
+      nitrogen removal.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -125,4 +215,10 @@ curation_history:
   changes: Initial curation of CommunityMech:000481 (Delftia_Klebsiella_Light_Driven_Hydrogen_Denitrifying_Coculture) from
     PMID:42297253 using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI,
     GO, and ENVO groundings.
+  llm_assisted: true
+- timestamp: '2026-10-20T04:18:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Curate 3-node pairwise syntrophic causal chain linking light-driven interspecies electron transfer to batch H2/denitrification
+    synergy and swine wastewater nitrogen removal.
   llm_assisted: true

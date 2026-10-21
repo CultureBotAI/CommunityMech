@@ -1,0 +1,2251 @@
+reviewer: claude
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: ade4a9acdc245e1090522bb4f6ec5fe82ee88689
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+reviewed_counts:
+  retained_nodes: 45
+  removed_nodes: 0
+  retained_arrows: 30
+  removed_arrows: 0
+  renamed_nodes: 0
+  graph_quotations: 45
+  discussion_quotations: 0
+limitations:
+- Source-based causal-graph curation and review across all 15 previously unreviewed
+  Stage 1 records (CommunityMech:000469 through CommunityMech:000483).
+- Other 462 records verified via SHA-256 hash census against reports/causal_graph_review/inventory.tsv
+  (408 reviewed, 54 needs_research preserved unchanged).
+records:
+- path: kb/communities/Rhodopseudomonas_Escherichia_Multilayered_Cross_Feeding_Coculture.yaml
+  id: CommunityMech:000469
+  original_sha256: 7af2e2a449b56922db9befbbbe335e19172165120a4eedfc9ee7806ac111800a
+  record_sha256: f38c731dd3231481625691e93f4d730cdccdb40a28ee9c8496a1e9d40a8db15c
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Curate 3-node pairwise cross-feeding causal chain linking obligate C/N
+    exchange to iron/adenine cross-feeding and repression of recipient gene cost.
+  node_decisions:
+  - node: Obligate Carbon and Nitrogen Cross-Feeding Between Escherichia coli and
+      Rhodopseudomonas palustris
+    rationale: Supported by primary source PMID:42117636 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:42117636)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Rhodopseudomonas palustris CGA676
+        term:
+          id: NCBITaxon:1076
+          label: Rhodopseudomonas palustris
+      target_taxon:
+        preferred_term: Escherichia coli PFM2
+        term:
+          id: NCBITaxon:562
+          label: Escherichia coli
+    evidence:
+    - reference: PMID:42117636
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Here, we compared mutations that were differentially enriched in bacterial
+        monocultures versus cocultures pairing phototrophic Rhodopseudomonas palustris
+        with fermentative Escherichia coli in an obligate cross-feeding relationship
+        based on the exchange of nitrogen and carbon for 650-800 generations.
+    - reference: PMID:42117636
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: While coculture conditions required obligate exchange of nitrogen and
+        carbon, additional cross-feeding of adenine and iron likely occurred.
+  - node: Multilayered Iron and Adenine Cross-Feeding Repressing Recipient Gene Cost
+    rationale: Supported by primary source PMID:42117636 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:42117636)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Rhodopseudomonas palustris CGA676
+        term:
+          id: NCBITaxon:1076
+          label: Rhodopseudomonas palustris
+      target_taxon:
+        preferred_term: Escherichia coli PFM2
+        term:
+          id: NCBITaxon:562
+          label: Escherichia coli
+    evidence:
+    - reference: PMID:42117636
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Contrary to expectations, the emergence of additional dependencies
+        was observed in monoculture, but not in coculture, even though additional
+        layers of cross-feeding involving iron and adenine were present in coculture.
+    - reference: PMID:42117636
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: We reasoned that iron and adenine cross-feeding occurred at levels
+        sufficient to repress gene expression in the recipient, thereby promoting
+        gene retention by lowering gene cost.
+  - node: Repression of Iron Scavenging and Adenine Synthesis Gene Cost Promoting
+      Gene Retention
+    rationale: Supported by primary source PMID:42117636 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:42117636)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Escherichia coli PFM2
+        term:
+          id: NCBITaxon:562
+          label: Escherichia coli
+      target_taxon:
+        preferred_term: Rhodopseudomonas palustris CGA676
+        term:
+          id: NCBITaxon:1076
+          label: Rhodopseudomonas palustris
+    evidence:
+    - reference: PMID:42117636
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Low expression of iron scavenging and adenine synthesis genes in cocultures
+        suggested that cross-feeding repressed expression, thereby lowering gene cost.
+  edges_before:
+  - source: Obligate Carbon and Nitrogen Cross-Feeding Between Escherichia coli and
+      Rhodopseudomonas palustris
+    target: Multilayered Iron and Adenine Cross-Feeding Repressing Recipient Gene
+      Cost
+    description: 'DIRECTLY IMPLIED: Obligate carbon and nitrogen cross-feeding maintains
+      stable coculture coexistence across 650-800 generations, enabling concurrent
+      iron and adenine cross-feeding.'
+  edges_after:
+  - source: Obligate Carbon and Nitrogen Cross-Feeding Between Escherichia coli and
+      Rhodopseudomonas palustris
+    target: Multilayered Iron and Adenine Cross-Feeding Repressing Recipient Gene
+      Cost
+    description: 'DIRECTLY IMPLIED: Obligate carbon and nitrogen cross-feeding maintains
+      stable coculture coexistence across 650-800 generations, enabling concurrent
+      iron and adenine cross-feeding.'
+  - source: Multilayered Iron and Adenine Cross-Feeding Repressing Recipient Gene
+      Cost
+    target: Repression of Iron Scavenging and Adenine Synthesis Gene Cost Promoting
+      Gene Retention
+    description: 'DIRECTLY IMPLIED: Iron and adenine cross-feeding represses expression
+      of iron scavenging and adenine synthesis genes in the recipient, lowering gene
+      cost and promoting gene retention.'
+  retained_edge_decisions:
+  - source: Obligate Carbon and Nitrogen Cross-Feeding Between Escherichia coli and
+      Rhodopseudomonas palustris
+    target: Multilayered Iron and Adenine Cross-Feeding Repressing Recipient Gene
+      Cost
+    description: 'DIRECTLY IMPLIED: Obligate carbon and nitrogen cross-feeding maintains
+      stable coculture coexistence across 650-800 generations, enabling concurrent
+      iron and adenine cross-feeding.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42117636.
+    reference: PMID:42117636
+  - source: Multilayered Iron and Adenine Cross-Feeding Repressing Recipient Gene
+      Cost
+    target: Repression of Iron Scavenging and Adenine Synthesis Gene Cost Promoting
+      Gene Retention
+    description: 'DIRECTLY IMPLIED: Iron and adenine cross-feeding represses expression
+      of iron scavenging and adenine synthesis genes in the recipient, lowering gene
+      cost and promoting gene retention.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42117636.
+    reference: PMID:42117636
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42117636
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Rhodopseudomonas_Escherichia_Multilayered_Cross_Feeding_Coculture/2026-10-20T041800Z-antigravity-f38c73.yaml
+- path: kb/communities/Pseudomonas_Achromobacter_Stenotrophomonas_Prometryn_Degrading_Consortium.yaml
+  id: CommunityMech:000470
+  original_sha256: b36d648ae6c054256133d3ed0c065e89cf56b0cbc9c16ef4d25d36cf6979c001
+  record_sha256: 09a8536ba578485b2057befdd6eaf1df802813c7233cd54e5118e9f7ce3df8c9
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Curate 3-node pairwise syntrophic/mutualistic causal chain linking tri-strain
+    prometryn catabolism to soil microcosm remediation and maize growth restoration.
+  node_decisions:
+  - node: Cooperative Tri-Strain Degradation of Prometryn Herbicide
+    rationale: Supported by primary source PMID:42795638 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:42795638)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Pseudomonas sp. ZM-1
+        term:
+          id: NCBITaxon:286
+          label: Pseudomonas
+      target_taxon:
+        preferred_term: Achromobacter sp. ZM-2
+        term:
+          id: NCBITaxon:222
+          label: Achromobacter
+    evidence:
+    - reference: PMID:42795638
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The 1:1:1 synthetic consortium removed 96.8% of prometryn in 15 h,
+        showing markedly superior degradation efficiency compared with single strains,
+        and its 12-h degradation rate reached 96.87% with a half-life of 2.2 h following
+        response surface optimization.
+    - reference: PMID:42795638
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In soil microcosms spiked with 20 mg·kg-1 prometryn, the consortium
+        reduced the pollutant half-life from 58.2 days to 7.8 days and achieved 96.3%
+        removal after 30 days, alongside enhanced soil dehydrogenase, catalase and
+        urease activities.
+  - node: Accelerated Soil Microcosm Prometryn Removal and Soil Enzyme Stimulation
+    rationale: Supported by primary source PMID:42795638 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:42795638)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Achromobacter sp. ZM-2
+        term:
+          id: NCBITaxon:222
+          label: Achromobacter
+      target_taxon:
+        preferred_term: Stenotrophomonas sp. ZM-3
+        term:
+          id: NCBITaxon:40323
+          label: Stenotrophomonas
+    evidence:
+    - reference: PMID:42795638
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: High-throughput 16S rRNA gene sequencing revealed directional succession
+        of the soil bacterial community, enrichment of core degrading taxa, and predicted
+        enrichment of xenobiotic biodegradation pathways during remediation.
+    - reference: PMID:42795638
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Maize pot experiments confirmed that the consortium significantly alleviated
+        prometryn phytotoxicity at the tested concentration, restoring plant growth
+        parameters to 95-97% of the uncontaminated control.
+  - node: Alleviation of Prometryn Phytotoxicity and Restoration of Maize Growth
+    rationale: Supported by primary source PMID:42795638 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:42795638)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Pseudomonas sp. ZM-1
+        term:
+          id: NCBITaxon:286
+          label: Pseudomonas
+      target_taxon:
+        preferred_term: Stenotrophomonas sp. ZM-3
+        term:
+          id: NCBITaxon:40323
+          label: Stenotrophomonas
+    evidence:
+    - reference: PMID:42795638
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Maize pot experiments confirmed that the consortium significantly alleviated
+        prometryn phytotoxicity at the tested concentration, restoring plant growth
+        parameters to 95-97% of the uncontaminated control.
+  edges_before:
+  - source: Cooperative Tri-Strain Degradation of Prometryn Herbicide
+    target: Alleviation of Prometryn Phytotoxicity and Restoration of Maize Growth
+    description: 'DIRECTLY IMPLIED: Rapid consortium-mediated prometryn removal in
+      soil reduces herbicide exposure and restores maize growth.'
+  edges_after:
+  - source: Cooperative Tri-Strain Degradation of Prometryn Herbicide
+    target: Accelerated Soil Microcosm Prometryn Removal and Soil Enzyme Stimulation
+    description: 'DIRECTLY IMPLIED: Rapid cooperative prometryn catabolism by the
+      1:1:1 synthetic consortium drives accelerated pollutant removal and soil enzyme
+      activation in contaminated soil microcosms.'
+  - source: Accelerated Soil Microcosm Prometryn Removal and Soil Enzyme Stimulation
+    target: Alleviation of Prometryn Phytotoxicity and Restoration of Maize Growth
+    description: 'DIRECTLY IMPLIED: Accelerated soil prometryn removal and restoration
+      of soil enzymatic activity alleviate herbicide phytotoxicity and restore maize
+      growth.'
+  retained_edge_decisions:
+  - source: Cooperative Tri-Strain Degradation of Prometryn Herbicide
+    target: Accelerated Soil Microcosm Prometryn Removal and Soil Enzyme Stimulation
+    description: 'DIRECTLY IMPLIED: Rapid cooperative prometryn catabolism by the
+      1:1:1 synthetic consortium drives accelerated pollutant removal and soil enzyme
+      activation in contaminated soil microcosms.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42795638.
+    reference: PMID:42795638
+  - source: Accelerated Soil Microcosm Prometryn Removal and Soil Enzyme Stimulation
+    target: Alleviation of Prometryn Phytotoxicity and Restoration of Maize Growth
+    description: 'DIRECTLY IMPLIED: Accelerated soil prometryn removal and restoration
+      of soil enzymatic activity alleviate herbicide phytotoxicity and restore maize
+      growth.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42795638.
+    reference: PMID:42795638
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42795638
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Pseudomonas_Achromobacter_Stenotrophomonas_Prometryn_Degrading_Consortium/2026-10-20T041800Z-antigravity-09a853.yaml
+- path: kb/communities/Wetland_Lindane_Degrading_Organochlorine_Consortium.yaml
+  id: CommunityMech:000471
+  original_sha256: 85c78730bef5291fa8a0ac6270232e7bf86ca9d8d42139063f5f2db40f2dd3c5
+  record_sha256: 2191214bbc8d7f8bb6341c6493344e2180eb63fe2098375f44aab9f49d35d199
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Curate 3-node community-level causal chain with explicit participating_taxa
+    linking Enterococcus/pceA enrichment to lindane dechlorination and suppression
+    of CO2-reduction methanogenesis.
+  node_decisions:
+  - node: Enterococcus Colonization and pceA Reductive Dehalogenase Gene Enrichment
+    rationale: Supported by primary source PMID:42663479 with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:42663479)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Enterococcus casseliflavus
+        term:
+          id: NCBITaxon:37734
+          label: Enterococcus casseliflavus
+      - preferred_term: Sulfurospirillum multivorans
+        term:
+          id: NCBITaxon:66821
+          label: Sulfurospirillum multivorans
+      - preferred_term: Trichlorobacter lovleyi
+        term:
+          id: NCBITaxon:313985
+          label: Trichlorobacter lovleyi
+      - preferred_term: Petrimonas sulfuriphila
+        term:
+          id: NCBITaxon:285070
+          label: Petrimonas sulfuriphila
+      - preferred_term: Dehalococcoides mccartyi
+        term:
+          id: NCBITaxon:61435
+          label: Dehalococcoides mccartyi
+    evidence:
+    - reference: PMID:42663479
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The well-known degradation gene pceA was enriched in the Y13 group,
+        and the co-localization of pceA-encoding contigs with mobile genetic elements
+        was identified.
+    - reference: PMID:42663479
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Notably, Enterococcus was found to have successfully colonized inoculated
+        groups. It has strong environmental evolutionary adaptability and might acquire
+        organochlorine-degrading genes through horizontal gene transfer under pollution
+        stress.
+  - node: Cooperative Organochlorine Dechlorination of Gamma-Hexachlorocyclohexane
+    rationale: Supported by primary source PMID:42663479 with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:42663479)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Enterococcus casseliflavus
+        term:
+          id: NCBITaxon:37734
+          label: Enterococcus casseliflavus
+      - preferred_term: Sulfurospirillum multivorans
+        term:
+          id: NCBITaxon:66821
+          label: Sulfurospirillum multivorans
+      - preferred_term: Trichlorobacter lovleyi
+        term:
+          id: NCBITaxon:313985
+          label: Trichlorobacter lovleyi
+      - preferred_term: Petrimonas sulfuriphila
+        term:
+          id: NCBITaxon:285070
+          label: Petrimonas sulfuriphila
+      - preferred_term: Dehalococcoides mccartyi
+        term:
+          id: NCBITaxon:61435
+          label: Dehalococcoides mccartyi
+    evidence:
+    - reference: PMID:42663479
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Both consortia demonstrated efficient degradation in sediment microcosms,
+        reducing γ-HCH (C/C₀) to 63.0% (M) and 56.1% (Y13).
+    - reference: PMID:42663479
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Simultaneously, functional microbial consortia inoculation significantly
+        suppressed the CO₂ reduction methanogenesis pathway compared with the non-inoculated
+        group (P < 0.05), as evidenced by a marked decline in the CH₄/CO₂ ratio in
+        inoculated groups.
+  - node: Suppression of Carbon Dioxide Reduction Methanogenesis During Lindane Bioremediation
+    rationale: Supported by primary source PMID:42663479 with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:42663479)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Enterococcus casseliflavus
+        term:
+          id: NCBITaxon:37734
+          label: Enterococcus casseliflavus
+      - preferred_term: Sulfurospirillum multivorans
+        term:
+          id: NCBITaxon:66821
+          label: Sulfurospirillum multivorans
+      - preferred_term: Trichlorobacter lovleyi
+        term:
+          id: NCBITaxon:313985
+          label: Trichlorobacter lovleyi
+      - preferred_term: Petrimonas sulfuriphila
+        term:
+          id: NCBITaxon:285070
+          label: Petrimonas sulfuriphila
+      - preferred_term: Dehalococcoides mccartyi
+        term:
+          id: NCBITaxon:61435
+          label: Dehalococcoides mccartyi
+    evidence:
+    - reference: PMID:42663479
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Simultaneously, functional microbial consortia inoculation significantly
+        suppressed the CO₂ reduction methanogenesis pathway compared with the non-inoculated
+        group (P < 0.05), as evidenced by a marked decline in the CH₄/CO₂ ratio in
+        inoculated groups.
+  edges_before:
+  - source: Cooperative Organochlorine Dechlorination of Gamma-Hexachlorocyclohexane
+    target: Suppression of Carbon Dioxide Reduction Methanogenesis During Lindane
+      Bioremediation
+    description: 'DIRECTLY IMPLIED: Bioaugmentation with the organochlorine-degrading
+      consortia redirects electron flow toward reductive dechlorination and suppresses
+      CO2-reduction methanogenesis.'
+  edges_after:
+  - source: Enterococcus Colonization and pceA Reductive Dehalogenase Gene Enrichment
+    target: Cooperative Organochlorine Dechlorination of Gamma-Hexachlorocyclohexane
+    description: 'DIRECTLY IMPLIED: Colonization by organochlorine-degrading bacteria
+      and enrichment of pceA dehalogenase genes drive efficient anaerobic γ-HCH degradation
+      in wetland sediment microcosms.'
+  - source: Cooperative Organochlorine Dechlorination of Gamma-Hexachlorocyclohexane
+    target: Suppression of Carbon Dioxide Reduction Methanogenesis During Lindane
+      Bioremediation
+    description: 'DIRECTLY IMPLIED: Bioaugmentation with the organochlorine-degrading
+      consortia redirects electron flow toward reductive dechlorination and suppresses
+      CO2-reduction methanogenesis.'
+  retained_edge_decisions:
+  - source: Enterococcus Colonization and pceA Reductive Dehalogenase Gene Enrichment
+    target: Cooperative Organochlorine Dechlorination of Gamma-Hexachlorocyclohexane
+    description: 'DIRECTLY IMPLIED: Colonization by organochlorine-degrading bacteria
+      and enrichment of pceA dehalogenase genes drive efficient anaerobic γ-HCH degradation
+      in wetland sediment microcosms.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42663479.
+    reference: PMID:42663479
+  - source: Cooperative Organochlorine Dechlorination of Gamma-Hexachlorocyclohexane
+    target: Suppression of Carbon Dioxide Reduction Methanogenesis During Lindane
+      Bioremediation
+    description: 'DIRECTLY IMPLIED: Bioaugmentation with the organochlorine-degrading
+      consortia redirects electron flow toward reductive dechlorination and suppresses
+      CO2-reduction methanogenesis.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42663479.
+    reference: PMID:42663479
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42663479
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Wetland_Lindane_Degrading_Organochlorine_Consortium/2026-10-20T041800Z-antigravity-219121.yaml
+- path: kb/communities/Halobacillus_Black_Gram_Halophilic_PGPR_Consortium.yaml
+  id: CommunityMech:000472
+  original_sha256: 50fcdf49625d2b18ace51d091c9b2a9fd6f40c9231e882342530cfab1356b5ed
+  record_sha256: 717055c44771a75978216f589c25d3bb117810e9cf7ea288fa9387763d251976
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Curate 3-node pairwise mutualistic causal chain linking Halobacillus rhizosphere
+    restructuring to Na+ toxicity alleviation and black gram yield improvement.
+  node_decisions:
+  - node: Synergistic Halobacillus Consortium Colonization and Rhizosphere Microbiome
+      Restructuring
+    rationale: Supported by primary source PMID:42643757 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:42643757)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Halobacillus marinus MKM3
+        term:
+          id: NCBITaxon:2699466
+          label: Halobacillus marinus
+      target_taxon:
+        preferred_term: Halobacillus halophilus MKM4 and MKM11
+        term:
+          id: NCBITaxon:1570
+          label: Halobacillus halophilus
+    evidence:
+    - reference: PMID:42643757
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Rhizosphere metagenomic analysis revealed consortium-associated shifts
+        in microbial community structure under saline conditions.
+    - reference: PMID:42643757
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Collectively, the results demonstrate that the HPGPB consortium enhances
+        salinity tolerance through coordinated physiological, biochemical, and microbiome-associated
+        mechanisms.
+  - node: Alleviation of Sodium Toxicity and Enhancement of Antioxidant Defense Under
+      Salt Stress
+    rationale: Supported by primary source PMID:42643757 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:42643757)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Halobacillus halophilus MKM4 and MKM11
+        term:
+          id: NCBITaxon:1570
+          label: Halobacillus halophilus
+      target_taxon:
+        preferred_term: Halobacillus marinus MKM3
+        term:
+          id: NCBITaxon:2699466
+          label: Halobacillus marinus
+    evidence:
+    - reference: PMID:42643757
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Consortium-inoculated plants exhibited improved photosynthetic performance,
+        enhanced nutrient uptake and ionic balance, reduced Na+ accumulation and malondialdehyde
+        content, and increased activities of antioxidant enzymes, indicating enhanced
+        salinity tolerance.
+    - reference: PMID:42643757
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Consortium inoculation effectively mitigated these adverse effects
+        by improving plant height, root development, biomass, and grain yield by up
+        to 46 and 38%, respectively, under saline conditions.
+  - node: Enhancement of Black Gram Root Development, Biomass, and Grain Yield Under
+      Saline Stress
+    rationale: Supported by primary source PMID:42643757 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:42643757)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Halobacillus marinus MKM3
+        term:
+          id: NCBITaxon:2699466
+          label: Halobacillus marinus
+      target_taxon:
+        preferred_term: Halobacillus halophilus MKM4 and MKM11
+        term:
+          id: NCBITaxon:1570
+          label: Halobacillus halophilus
+    evidence:
+    - reference: PMID:42643757
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Consortium inoculation effectively mitigated these adverse effects
+        by improving plant height, root development, biomass, and grain yield by up
+        to 46 and 38%, respectively, under saline conditions.
+  edges_before:
+  - source: Synergistic Halobacillus Consortium Colonization and Rhizosphere Microbiome
+      Restructuring
+    target: Alleviation of Sodium Toxicity and Enhancement of Black Gram Growth Under
+      Salt Stress
+    description: 'DIRECTLY IMPLIED: Consortium establishment in the saline rhizosphere
+      supports reduced Na+ uptake and enhanced antioxidant protection in Vigna mungo.'
+  edges_after:
+  - source: Synergistic Halobacillus Consortium Colonization and Rhizosphere Microbiome
+      Restructuring
+    target: Alleviation of Sodium Toxicity and Enhancement of Antioxidant Defense
+      Under Salt Stress
+    description: 'DIRECTLY IMPLIED: Consortium establishment in the saline rhizosphere
+      supports reduced Na+ uptake and enhanced antioxidant protection in Vigna mungo.'
+  - source: Alleviation of Sodium Toxicity and Enhancement of Antioxidant Defense
+      Under Salt Stress
+    target: Enhancement of Black Gram Root Development, Biomass, and Grain Yield Under
+      Saline Stress
+    description: 'DIRECTLY IMPLIED: Reduced Na+ toxicity, lower lipid peroxidation,
+      and improved photosynthetic and ionic balance support increased root development,
+      plant biomass, and grain yield under salt stress.'
+  retained_edge_decisions:
+  - source: Synergistic Halobacillus Consortium Colonization and Rhizosphere Microbiome
+      Restructuring
+    target: Alleviation of Sodium Toxicity and Enhancement of Antioxidant Defense
+      Under Salt Stress
+    description: 'DIRECTLY IMPLIED: Consortium establishment in the saline rhizosphere
+      supports reduced Na+ uptake and enhanced antioxidant protection in Vigna mungo.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42643757.
+    reference: PMID:42643757
+  - source: Alleviation of Sodium Toxicity and Enhancement of Antioxidant Defense
+      Under Salt Stress
+    target: Enhancement of Black Gram Root Development, Biomass, and Grain Yield Under
+      Saline Stress
+    description: 'DIRECTLY IMPLIED: Reduced Na+ toxicity, lower lipid peroxidation,
+      and improved photosynthetic and ionic balance support increased root development,
+      plant biomass, and grain yield under salt stress.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42643757.
+    reference: PMID:42643757
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42643757
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Halobacillus_Black_Gram_Halophilic_PGPR_Consortium/2026-10-20T041800Z-antigravity-717055.yaml
+- path: kb/communities/Bacillus_Aspergillus_Green_Waste_Vermicomposting_SynCom.yaml
+  id: CommunityMech:000473
+  original_sha256: 582293646c355ad663aa94f1f6697e2e6e0b7b76bb785e38d8ff60748ffca574
+  record_sha256: 79d1950ceed0b63d7eed71a21cccb19fc7dde96ea32b0d8010714a4bfbff0769
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Curate 3-node community-level causal chain with explicit participating_taxa
+    linking carbohydrate esterase/hao gene enrichment to lignocellulose hydrolysis
+    and vermicompost humification.
+  node_decisions:
+  - node: Coordinated Carbohydrate Esterase Enrichment and Nitrification Gene Activation
+    rationale: Supported by primary source PMID:42780861 with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:42780861)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Bacillus licheniformis
+        term:
+          id: NCBITaxon:1402
+          label: Bacillus licheniformis
+      - preferred_term: Bacillus subtilis
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+      - preferred_term: Aspergillus nidulans
+        term:
+          id: NCBITaxon:162425
+          label: Aspergillus nidulans
+      - preferred_term: Aspergillus rugulosus
+        term:
+          id: NCBITaxon:41736
+          label: Aspergillus rugulosus
+    evidence:
+    - reference: PMID:42780861
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: SynComs further increased the abundances of carbohydrate esterases
+        and glycosyltransferases, as well as the relative abundance of the nitrification
+        gene hao, thereby enhancing the potential for lignocellulose degradation,
+        degradation product transformation, and nitrification.
+    - reference: PMID:42780861
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Microbial analysis showed that the amendment treatments enriched nitrogen
+        cycling related taxa, including Luteimonas and Pseudomonas.
+  - node: Cross-Kingdom Fungal-Bacterial Lignocellulose Hydrolysis and Urease Activation
+    rationale: Supported by primary source PMID:42780861 with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:42780861)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Bacillus licheniformis
+        term:
+          id: NCBITaxon:1402
+          label: Bacillus licheniformis
+      - preferred_term: Bacillus subtilis
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+      - preferred_term: Aspergillus nidulans
+        term:
+          id: NCBITaxon:162425
+          label: Aspergillus nidulans
+      - preferred_term: Aspergillus rugulosus
+        term:
+          id: NCBITaxon:41736
+          label: Aspergillus rugulosus
+    evidence:
+    - reference: PMID:42780861
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Compared with other treatments, 5% SynComs showed the strongest stimulatory
+        effect on lignocellulose-degrading enzyme and urease activities, effectively
+        reduced the C/N ratio, and increased the germination index, humic substance
+        content, nitrate nitrogen content, and overall quality score.
+    - reference: PMID:42780861
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Overall, lignocellulose-degrading SynComs effectively accelerated co-vermicomposting
+        maturity, improved product quality, and promoted green waste resource utilization.
+  - node: Accelerated Co-Vermicomposting Maturity, Humification, and Nitrate Accumulation
+    rationale: Supported by primary source PMID:42780861 with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:42780861)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Bacillus licheniformis
+        term:
+          id: NCBITaxon:1402
+          label: Bacillus licheniformis
+      - preferred_term: Bacillus subtilis
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+      - preferred_term: Aspergillus nidulans
+        term:
+          id: NCBITaxon:162425
+          label: Aspergillus nidulans
+      - preferred_term: Aspergillus rugulosus
+        term:
+          id: NCBITaxon:41736
+          label: Aspergillus rugulosus
+    evidence:
+    - reference: PMID:42780861
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Overall, lignocellulose-degrading SynComs effectively accelerated co-vermicomposting
+        maturity, improved product quality, and promoted green waste resource utilization.
+  edges_before: []
+  edges_after:
+  - source: Coordinated Carbohydrate Esterase Enrichment and Nitrification Gene Activation
+    target: Cross-Kingdom Fungal-Bacterial Lignocellulose Hydrolysis and Urease Activation
+    description: 'DIRECTLY IMPLIED: Enrichment of carbohydrate esterases, glycosyltransferases,
+      and nitrogen-cycling genes enhances lignocellulose-degrading enzyme and urease
+      activities during co-vermicomposting.'
+  - source: Cross-Kingdom Fungal-Bacterial Lignocellulose Hydrolysis and Urease Activation
+    target: Accelerated Co-Vermicomposting Maturity, Humification, and Nitrate Accumulation
+    description: 'DIRECTLY IMPLIED: Stimulated lignocellulose-degrading enzyme and
+      urease activities reduce the C/N ratio and increase humic substance content,
+      nitrate nitrogen content, germination index, and vermicompost maturity.'
+  retained_edge_decisions:
+  - source: Coordinated Carbohydrate Esterase Enrichment and Nitrification Gene Activation
+    target: Cross-Kingdom Fungal-Bacterial Lignocellulose Hydrolysis and Urease Activation
+    description: 'DIRECTLY IMPLIED: Enrichment of carbohydrate esterases, glycosyltransferases,
+      and nitrogen-cycling genes enhances lignocellulose-degrading enzyme and urease
+      activities during co-vermicomposting.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42780861.
+    reference: PMID:42780861
+  - source: Cross-Kingdom Fungal-Bacterial Lignocellulose Hydrolysis and Urease Activation
+    target: Accelerated Co-Vermicomposting Maturity, Humification, and Nitrate Accumulation
+    description: 'DIRECTLY IMPLIED: Stimulated lignocellulose-degrading enzyme and
+      urease activities reduce the C/N ratio and increase humic substance content,
+      nitrate nitrogen content, germination index, and vermicompost maturity.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42780861.
+    reference: PMID:42780861
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42780861
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Bacillus_Aspergillus_Green_Waste_Vermicomposting_SynCom/2026-10-20T041800Z-antigravity-79d195.yaml
+- path: kb/communities/Whale_Fall_Vallitalea_Trichloromonas_Chitin_EET_Consortium.yaml
+  id: CommunityMech:000474
+  original_sha256: 2238d7904b4cef5db3bde6f9e9d79475695152dd4e58d655b1d051024c312fda
+  record_sha256: afddcb4da0903a9eb3ba3859641c9cbb60e3b90742bc6bc7a928e38da1c86885
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Curate 3-node pairwise cross-feeding/syntrophic causal chain linking Vallitalea
+    chitin depolymerization to anodic biofilm acetate cross-feeding and Trichloromonas
+    EET respiration.
+  node_decisions:
+  - node: Anaerobic Exoenzyme Chitin Depolymerization and Fermentation by Vallitalea
+    rationale: Supported by primary source PMID:42297039 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:42297039)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Vallitalea
+        term:
+          id: NCBITaxon:1348611
+          label: Vallitalea
+      target_taxon:
+        preferred_term: Trichloromonas
+        term:
+          id: NCBITaxon:3031666
+          label: Trichloromonas
+    evidence:
+    - reference: PMID:42297039
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Exoenzyme assays, metabolite profiling, and current measurements confirmed
+        that active chitin degradation provided substrate(s) for extracellular electron
+        transfer (EET).
+    - reference: PMID:42297039
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Amendment with crystalline chitin generated stable anodic currents,
+        which increased upon addition of chitin-associated metabolites (N-acetylglucosamine,
+        glucose, acetate).
+  - node: Acetate Cross-Feeding Within the Anodic Electrode Biofilm
+    rationale: Supported by primary source PMID:42297039 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:42297039)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Vallitalea
+        term:
+          id: NCBITaxon:1348611
+          label: Vallitalea
+      target_taxon:
+        preferred_term: Trichloromonas
+        term:
+          id: NCBITaxon:3031666
+          label: Trichloromonas
+    evidence:
+    - reference: PMID:42297039
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Single-cell analyses using FISH-BONCAT and nanoSIMS showed that Vallitalea
+        (primary degrader) and electrode-respiring Desulfobacterota exhibited highest
+        activity within the electrode biofilm, particularly within ca.10 μm of the
+        surface.
+    - reference: PMID:42297039
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: We isolated a chitin-degrading Vallitalea sp. and an iron-reducing,
+        electrogenic Trichloromonas sp., and demonstrated that, when reconstituted
+        in co-culture, they cooperatively degrade chitin via acetate cross-feeding
+        coupled to EET.
+  - node: Electrogenic Acetate Oxidation Coupled to Extracellular Electron Transfer
+      and Iron Reduction
+    rationale: Supported by primary source PMID:42297039 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:42297039)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Trichloromonas
+        term:
+          id: NCBITaxon:3031666
+          label: Trichloromonas
+      target_taxon:
+        preferred_term: Vallitalea
+        term:
+          id: NCBITaxon:1348611
+          label: Vallitalea
+    evidence:
+    - reference: PMID:42297039
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: We isolated a chitin-degrading Vallitalea sp. and an iron-reducing,
+        electrogenic Trichloromonas sp., and demonstrated that, when reconstituted
+        in co-culture, they cooperatively degrade chitin via acetate cross-feeding
+        coupled to EET.
+  edges_before: []
+  edges_after:
+  - source: Anaerobic Exoenzyme Chitin Depolymerization and Fermentation by Vallitalea
+    target: Acetate Cross-Feeding Within the Anodic Electrode Biofilm
+    description: 'DIRECTLY IMPLIED: Extracellular chitin depolymerization and fermentation
+      by Vallitalea supply soluble chitin-derived metabolites and acetate to co-localized
+      Trichloromonas cells.'
+  - source: Acetate Cross-Feeding Within the Anodic Electrode Biofilm
+    target: Electrogenic Acetate Oxidation Coupled to Extracellular Electron Transfer
+      and Iron Reduction
+    description: 'DIRECTLY IMPLIED: Cross-fed acetate is oxidized by electrogenic
+      Trichloromonas sp. to drive extracellular electron transfer to poised electrodes
+      and Fe(III) oxides.'
+  retained_edge_decisions:
+  - source: Anaerobic Exoenzyme Chitin Depolymerization and Fermentation by Vallitalea
+    target: Acetate Cross-Feeding Within the Anodic Electrode Biofilm
+    description: 'DIRECTLY IMPLIED: Extracellular chitin depolymerization and fermentation
+      by Vallitalea supply soluble chitin-derived metabolites and acetate to co-localized
+      Trichloromonas cells.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42297039.
+    reference: PMID:42297039
+  - source: Acetate Cross-Feeding Within the Anodic Electrode Biofilm
+    target: Electrogenic Acetate Oxidation Coupled to Extracellular Electron Transfer
+      and Iron Reduction
+    description: 'DIRECTLY IMPLIED: Cross-fed acetate is oxidized by electrogenic
+      Trichloromonas sp. to drive extracellular electron transfer to poised electrodes
+      and Fe(III) oxides.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42297039.
+    reference: PMID:42297039
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42297039
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Whale_Fall_Vallitalea_Trichloromonas_Chitin_EET_Consortium/2026-10-20T041800Z-antigravity-afddcb.yaml
+- path: kb/communities/Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium.yaml
+  id: CommunityMech:000475
+  original_sha256: abf7fff6053b3484dbdcde5de93517212d4d19e4f646e8cd370f784835637e63
+  record_sha256: aa71bf0755e21633808d22d5e88a4da0fcb79f3a2c4f84b8037a2065155e1518
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Curate 3-node pairwise syntrophic causal chain linking ANME-2 CO oxidation
+    to sulfate/bicarbonate reduction and cellular maintenance under methane limitation.
+  node_decisions:
+  - node: Anaerobic Carbon Monoxide Oxidation by ANME-2 in Methane-Depleted Microcosms
+    rationale: Supported by primary source PMID:41980960 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:41980960)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Candidatus Methanocomedenaceae
+        term:
+          id: NCBITaxon:3386223
+          label: Candidatus Methanocomedenaceae
+      target_taxon:
+        preferred_term: Thermodesulfobacteriota
+        term:
+          id: NCBITaxon:200940
+          label: Thermodesulfobacteriota
+    evidence:
+    - reference: PMID:41980960
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Here, we show that environmental ANME-SRB consortia can oxidize CO
+        in the absence of methane, in anoxic microcosm experiments using a combination
+        of stable isotope geochemical tracers, metatranscriptomics, and single cell
+        activity measurements (FISH-nanoSIMS).
+    - reference: PMID:41980960
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The oxidation of CO was coupled with sulphate-reduction by syntrophic
+        consortia, and, in the absence of sulphate, through CO2 reduction to methane
+        by ANME-2.
+  - node: Syntrophic Carbon Monoxide Oxidation Coupled to Sulfate and Bicarbonate
+      Reduction
+    rationale: Supported by primary source PMID:41980960 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:41980960)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Candidatus Methanocomedenaceae
+        term:
+          id: NCBITaxon:3386223
+          label: Candidatus Methanocomedenaceae
+      target_taxon:
+        preferred_term: Thermodesulfobacteriota
+        term:
+          id: NCBITaxon:200940
+          label: Thermodesulfobacteriota
+    evidence:
+    - reference: PMID:41980960
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The oxidation of CO was coupled with sulphate-reduction by syntrophic
+        consortia, and, in the absence of sulphate, through CO2 reduction to methane
+        by ANME-2.
+    - reference: PMID:41980960
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Paired single cell FISH-nanoSIMS analysis of anabolic activity indicates
+        that CO respiration appears to support cell maintenance rather than active
+        growth, consistent with the observed down-regulation of energy generating
+        complexes in ANME (e.g., mtr, rnf, etc.).
+  - node: Carbon Monoxide-Driven Cellular Maintenance Under Energy-Generating Complex
+      Downregulation
+    rationale: Supported by primary source PMID:41980960 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:41980960)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Thermodesulfobacteriota
+        term:
+          id: NCBITaxon:200940
+          label: Thermodesulfobacteriota
+      target_taxon:
+        preferred_term: Candidatus Methanocomedenaceae
+        term:
+          id: NCBITaxon:3386223
+          label: Candidatus Methanocomedenaceae
+    evidence:
+    - reference: PMID:41980960
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Paired single cell FISH-nanoSIMS analysis of anabolic activity indicates
+        that CO respiration appears to support cell maintenance rather than active
+        growth, consistent with the observed down-regulation of energy generating
+        complexes in ANME (e.g., mtr, rnf, etc.).
+  edges_before: []
+  edges_after:
+  - source: Anaerobic Carbon Monoxide Oxidation by ANME-2 in Methane-Depleted Microcosms
+    target: Syntrophic Carbon Monoxide Oxidation Coupled to Sulfate and Bicarbonate
+      Reduction
+    description: 'DIRECTLY IMPLIED: Electrons derived from anaerobic CO oxidation
+      by ANME-2 are transferred to syntrophic sulfate-reducing bacterial partners
+      to reduce sulfate, or used by ANME-2 to reduce CO2 to methane when sulfate is
+      absent.'
+  - source: Syntrophic Carbon Monoxide Oxidation Coupled to Sulfate and Bicarbonate
+      Reduction
+    target: Carbon Monoxide-Driven Cellular Maintenance Under Energy-Generating Complex
+      Downregulation
+    description: 'DIRECTLY IMPLIED: Syntrophic CO respiration coupled to sulfate reduction
+      provides low-flux metabolic energy that sustains ANME-SRB cellular maintenance
+      while canonical methanotrophic energy-generating complexes (mtr, rnf) are downregulated.'
+  retained_edge_decisions:
+  - source: Anaerobic Carbon Monoxide Oxidation by ANME-2 in Methane-Depleted Microcosms
+    target: Syntrophic Carbon Monoxide Oxidation Coupled to Sulfate and Bicarbonate
+      Reduction
+    description: 'DIRECTLY IMPLIED: Electrons derived from anaerobic CO oxidation
+      by ANME-2 are transferred to syntrophic sulfate-reducing bacterial partners
+      to reduce sulfate, or used by ANME-2 to reduce CO2 to methane when sulfate is
+      absent.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:41980960.
+    reference: PMID:41980960
+  - source: Syntrophic Carbon Monoxide Oxidation Coupled to Sulfate and Bicarbonate
+      Reduction
+    target: Carbon Monoxide-Driven Cellular Maintenance Under Energy-Generating Complex
+      Downregulation
+    description: 'DIRECTLY IMPLIED: Syntrophic CO respiration coupled to sulfate reduction
+      provides low-flux metabolic energy that sustains ANME-SRB cellular maintenance
+      while canonical methanotrophic energy-generating complexes (mtr, rnf) are downregulated.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:41980960.
+    reference: PMID:41980960
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:41980960
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium/2026-10-20T041800Z-antigravity-aa71bf.yaml
+- path: kb/communities/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium.yaml
+  id: CommunityMech:000476
+  original_sha256: d4b9c7e57ce7da05a6e0cbeee2415b01e45853df92be8f60a2c0df3ebc922142
+  record_sha256: 78eae074be758e4f17f6c4c71b3271d2da3ca46033310ee3d2021a8741d35450
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Curate 3-node community-level causal chain with explicit participating_taxa
+    linking glutathione/phenylpropanoid defense reprogramming to HMA4 regulation and
+    shoot Cd phytoextraction.
+  node_decisions:
+  - node: Microbiome-Driven Glutathione Surge and Phenylpropanoid Cell Wall Reinforcement
+    rationale: Supported by primary source PMID:42043130 with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:42043130)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Pseudomonas izuensis
+        term:
+          id: NCBITaxon:2684212
+          label: Pseudomonas izuensis
+      - preferred_term: Leifsonia shinshuensis
+        term:
+          id: NCBITaxon:150026
+          label: Leifsonia shinshuensis
+      - preferred_term: Brucella anthropi
+        term:
+          id: NCBITaxon:529
+          label: Brucella anthropi
+      - preferred_term: Novosphingobium lindaniclasticum
+        term:
+          id: NCBITaxon:1329895
+          label: Novosphingobium lindaniclasticum
+    evidence:
+    - reference: PMID:42043130
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Multi-omics analysis demonstrated a systemic modulation of the host's
+        defense machinery, marked by a >3-fold surge in glutathione (GSH) levels and
+        the induction of phenylpropanoid biosynthesis for cell wall reinforcement.
+    - reference: PMID:42043130
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: SynCom-NS application also mediated tissue-specific regulation of the
+        key metal transporter HMA4, upregulating its expression in roots to accelerate
+        long-distance translocation while downregulating it in shoots.
+  - node: Synergistic Endophytic HMA4 Regulation and Root-to-Shoot Cadmium Translocation
+    rationale: Supported by primary source PMID:42043130 with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:42043130)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Pseudomonas izuensis
+        term:
+          id: NCBITaxon:2684212
+          label: Pseudomonas izuensis
+      - preferred_term: Leifsonia shinshuensis
+        term:
+          id: NCBITaxon:150026
+          label: Leifsonia shinshuensis
+      - preferred_term: Brucella anthropi
+        term:
+          id: NCBITaxon:529
+          label: Brucella anthropi
+      - preferred_term: Novosphingobium lindaniclasticum
+        term:
+          id: NCBITaxon:1329895
+          label: Novosphingobium lindaniclasticum
+    evidence:
+    - reference: PMID:42043130
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: SynCom-NS application also mediated tissue-specific regulation of the
+        key metal transporter HMA4, upregulating its expression in roots to accelerate
+        long-distance translocation while downregulating it in shoots.
+    - reference: PMID:42043130
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Crucially, the consortium bypassed the "growth-dilution" trade-off,
+        facilitating a 4.07-fold increase in shoot Cd accumulation.
+  - node: High-Biomass Cadmium Phytoextraction Bypassing the Growth-Dilution Trade-Off
+    rationale: Supported by primary source PMID:42043130 with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:42043130)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Pseudomonas izuensis
+        term:
+          id: NCBITaxon:2684212
+          label: Pseudomonas izuensis
+      - preferred_term: Leifsonia shinshuensis
+        term:
+          id: NCBITaxon:150026
+          label: Leifsonia shinshuensis
+      - preferred_term: Brucella anthropi
+        term:
+          id: NCBITaxon:529
+          label: Brucella anthropi
+      - preferred_term: Novosphingobium lindaniclasticum
+        term:
+          id: NCBITaxon:1329895
+          label: Novosphingobium lindaniclasticum
+    evidence:
+    - reference: PMID:42043130
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Pot experiments revealed that SynCom-NS root-zone application significantly
+        alleviated Cd toxicity, increasing total fresh weight by 82% and chlorophyll
+        content by 33%. Crucially, the consortium bypassed the "growth-dilution" trade-off,
+        facilitating a 4.07-fold increase in shoot Cd accumulation.
+  edges_before: []
+  edges_after:
+  - source: Microbiome-Driven Glutathione Surge and Phenylpropanoid Cell Wall Reinforcement
+    target: Synergistic Endophytic HMA4 Regulation and Root-to-Shoot Cadmium Translocation
+    description: 'DIRECTLY IMPLIED: Systemic antioxidant protection and cell wall
+      reinforcement enable tissue-specific HMA4 transporter regulation that accelerates
+      root-to-shoot Cd translocation without phytotoxic collapse.'
+  - source: Synergistic Endophytic HMA4 Regulation and Root-to-Shoot Cadmium Translocation
+    target: High-Biomass Cadmium Phytoextraction Bypassing the Growth-Dilution Trade-Off
+    description: 'DIRECTLY IMPLIED: Coordinated GSH detoxification and root HMA4 upregulation
+      increase Brassica juncea fresh weight by 82% and shoot Cd accumulation by 4.07-fold,
+      bypassing the growth-dilution trade-off.'
+  retained_edge_decisions:
+  - source: Microbiome-Driven Glutathione Surge and Phenylpropanoid Cell Wall Reinforcement
+    target: Synergistic Endophytic HMA4 Regulation and Root-to-Shoot Cadmium Translocation
+    description: 'DIRECTLY IMPLIED: Systemic antioxidant protection and cell wall
+      reinforcement enable tissue-specific HMA4 transporter regulation that accelerates
+      root-to-shoot Cd translocation without phytotoxic collapse.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42043130.
+    reference: PMID:42043130
+  - source: Synergistic Endophytic HMA4 Regulation and Root-to-Shoot Cadmium Translocation
+    target: High-Biomass Cadmium Phytoextraction Bypassing the Growth-Dilution Trade-Off
+    description: 'DIRECTLY IMPLIED: Coordinated GSH detoxification and root HMA4 upregulation
+      increase Brassica juncea fresh weight by 82% and shoot Cd accumulation by 4.07-fold,
+      bypassing the growth-dilution trade-off.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42043130.
+    reference: PMID:42043130
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42043130
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium/2026-10-20T041800Z-antigravity-78eae0.yaml
+- path: kb/communities/Cucumber_Low_Phosphorus_Cross_Kingdom_Biocontrol_SynCom.yaml
+  id: CommunityMech:000477
+  original_sha256: 78b635600d624d3279aed31b97e72c5c5212823ab970d6e0805edfff08a6f032
+  record_sha256: 2647853142ba6426234854ef5ec1c925ce72086f7e3fc480a4949b7d34fdf549
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Add explicit participating_taxa to the community-level biocontrol node
+    and link both pairwise cross-kingdom facilitation/mutualism nodes to community-level
+    Fusarium wilt suppression.
+  node_decisions:
+  - node: Metabolite-Recruited Cross-Kingdom Pathogen Suppression of Fusarium oxysporum
+    rationale: Supported by primary source PMID:41882811 with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:41882811)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Bacillus
+        term:
+          id: NCBITaxon:1386
+          label: Bacillus <firmicutes>
+      - preferred_term: Devosia
+        term:
+          id: NCBITaxon:46913
+          label: Devosia
+      - preferred_term: Sphingopyxis
+        term:
+          id: NCBITaxon:165697
+          label: Sphingopyxis
+      - preferred_term: Cupriavidus
+        term:
+          id: NCBITaxon:106589
+          label: Cupriavidus
+      - preferred_term: Aspergillus
+        term:
+          id: NCBITaxon:5052
+          label: Aspergillus
+      - preferred_term: Amesomyces
+        term:
+          id: NCBITaxon:1934349
+          label: Amesomyces
+    evidence:
+    - reference: PMID:41882811
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: To validate the functional role of microbes-metabolites interaction,
+        we constructed a synthetic microbial community composed of the signature taxa
+        from the low phosphorus microbiota, which, when combined with low phosphorus
+        metabolites, reduced pathogen abundance by 85% and conferred disease suppression
+        under high phosphorus conditions.
+  - node: Cross-Kingdom Devosia and Amesomyces Biofilm and Colony Mutualism
+    rationale: Supported by primary source PMID:41882811 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:41882811)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Devosia
+        term:
+          id: NCBITaxon:46913
+          label: Devosia
+      target_taxon:
+        preferred_term: Amesomyces
+        term:
+          id: NCBITaxon:1934349
+          label: Amesomyces
+    evidence:
+    - reference: PMID:41882811
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: '(i) Mutual promotion (reflected by concurrent enhancement of bacterial
+        biofilm formation and fungal colony diameter) was observed between specific
+        fungal-bacterial pairs, including: Amesia sp. F7 & Devosia sp. B2; Amesia
+        sp. F7 & Bacillus sp. B10; Aspergillus sp. F5 and Bacillus sp. B18.'
+    - reference: PMID:41882811
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: To validate the functional role of microbes-metabolites interaction,
+        we constructed a synthetic microbial community composed of the signature taxa
+        from the low phosphorus microbiota, which, when combined with low phosphorus
+        metabolites, reduced pathogen abundance by 85% and conferred disease suppression
+        under high phosphorus conditions.
+  - node: Unidirectional Cross-Kingdom Facilitation of Cupriavidus by Aspergillus
+    rationale: Supported by primary source PMID:41882811 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:41882811)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Aspergillus
+        term:
+          id: NCBITaxon:5052
+          label: Aspergillus
+      target_taxon:
+        preferred_term: Cupriavidus
+        term:
+          id: NCBITaxon:106589
+          label: Cupriavidus
+    evidence:
+    - reference: PMID:41882811
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: (ii) Unidirectional facilitation (where one partner enhanced the growth
+        of the other without a reciprocal benefit) characterized other interactions,
+        including Aspergillus sp. F4 & Bacillus sp. B10; Aspergillus sp. F3 & Cupriavidus
+        sp. B12; Aspergillus sp. F5 & Cupriavidus sp. B12).
+    - reference: PMID:41882811
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Amplicon sequencing analyses reveal that low phosphorus conditions
+        promote microbial community stochastic assembly, enriching beneficial genera
+        (bacterial genera Bacillus, Devosia, Sphingopyxis, Cupriavidus, and fungal
+        genera Aspergillus and Amesia) with dual functions of phosphate solubilization
+        and disease resistance, and enhancing cross-kingdom network robustness.
+  edges_before: []
+  edges_after:
+  - source: Cross-Kingdom Devosia and Amesomyces Biofilm and Colony Mutualism
+    target: Metabolite-Recruited Cross-Kingdom Pathogen Suppression of Fusarium oxysporum
+    description: 'DIRECTLY IMPLIED: Mutual promotion of bacterial biofilm formation
+      and fungal colony growth between Devosia and Amesomyces strengthens cross-kingdom
+      SynCom assembly, contributing to 85% reduction of Fusarium oxysporum abundance.'
+  - source: Unidirectional Cross-Kingdom Facilitation of Cupriavidus by Aspergillus
+    target: Metabolite-Recruited Cross-Kingdom Pathogen Suppression of Fusarium oxysporum
+    description: 'DIRECTLY IMPLIED: Unidirectional growth facilitation of Cupriavidus
+      by Aspergillus supports cross-kingdom SynCom robustness and cooperative suppression
+      of cucumber Fusarium wilt.'
+  retained_edge_decisions:
+  - source: Cross-Kingdom Devosia and Amesomyces Biofilm and Colony Mutualism
+    target: Metabolite-Recruited Cross-Kingdom Pathogen Suppression of Fusarium oxysporum
+    description: 'DIRECTLY IMPLIED: Mutual promotion of bacterial biofilm formation
+      and fungal colony growth between Devosia and Amesomyces strengthens cross-kingdom
+      SynCom assembly, contributing to 85% reduction of Fusarium oxysporum abundance.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:41882811.
+    reference: PMID:41882811
+  - source: Unidirectional Cross-Kingdom Facilitation of Cupriavidus by Aspergillus
+    target: Metabolite-Recruited Cross-Kingdom Pathogen Suppression of Fusarium oxysporum
+    description: 'DIRECTLY IMPLIED: Unidirectional growth facilitation of Cupriavidus
+      by Aspergillus supports cross-kingdom SynCom robustness and cooperative suppression
+      of cucumber Fusarium wilt.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:41882811.
+    reference: PMID:41882811
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:41882811
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Cucumber_Low_Phosphorus_Cross_Kingdom_Biocontrol_SynCom/2026-10-20T041800Z-antigravity-264785.yaml
+- path: kb/communities/Bifidobacterium_Bacillus_Alginate_Biofilm_Probiotic_Coculture.yaml
+  id: CommunityMech:000478
+  original_sha256: 68977650cf4ef3f21e4753877c3680c1f0e702109c810ac618e1a120b8bad579
+  record_sha256: 6d6b41f26553059039d96bac4e4e4a4e3d080d95f4ae11cc852761f905655c47
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Curate 3-node pairwise commensal/mutualistic causal chain linking alginate
+    biofilm and matrix formation to gastrointestinal fluid survival and extended aerobic
+    shelf life.
+  node_decisions:
+  - node: Biofilm Formation and Extracellular Matrix Development Within Alginate Hydrogel
+    rationale: Supported by primary source PMID:42372892 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:42372892)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Bacillus subtilis
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+      target_taxon:
+        preferred_term: Bifidobacterium longum
+        term:
+          id: NCBITaxon:216816
+          label: Bifidobacterium longum
+    evidence:
+    - reference: PMID:42372892
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Imaging and time-resolved co-culture analyses suggested that the enhanced
+        protection was associated with biofilm formation, cell aggregation, extracellular
+        matrix development, and dynamic interspecies interactions within the alginate
+        system.
+    - reference: PMID:42372892
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Here, we developed an alginate-based, biofilm-assisted encapsulation
+        system for the co-culture and co-delivery of Bacillus subtilis SOM8 and Bifidobacterium
+        longum DSM20219. This strategy enhanced probiotic tolerance to simulated gastric
+        fluids (SGF) and simulated intestinal fluids (SIF), and extended shelf life
+        under aerobic conditions.
+  - node: Enhanced Probiotic Survival Against Simulated Gastric and Intestinal Fluid
+      Stress
+    rationale: Supported by primary source PMID:42372892 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:42372892)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Bacillus subtilis
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+      target_taxon:
+        preferred_term: Bifidobacterium longum
+        term:
+          id: NCBITaxon:216816
+          label: Bifidobacterium longum
+    evidence:
+    - reference: PMID:42372892
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Biofilm-assisted encapsulation improved B. longum DSM20219 viability,
+        maintaining survival above 7-log CFU/g after 2 h in SGF and SIF, representing
+        an approximately 3-log improvement over alginate-only encapsulation.
+    - reference: PMID:42372892
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: It also maintained over 6-log CFU/g after 28 days of aerobic storage.
+  - node: Extended Aerobic Storage Viability of Oxygen-Sensitive Bifidobacterium longum
+    rationale: Supported by primary source PMID:42372892 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:42372892)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Bifidobacterium longum
+        term:
+          id: NCBITaxon:216816
+          label: Bifidobacterium longum
+      target_taxon:
+        preferred_term: Bacillus subtilis
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42372892
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: It also maintained over 6-log CFU/g after 28 days of aerobic storage.
+  edges_before: []
+  edges_after:
+  - source: Biofilm Formation and Extracellular Matrix Development Within Alginate
+      Hydrogel
+    target: Enhanced Probiotic Survival Against Simulated Gastric and Intestinal Fluid
+      Stress
+    description: 'DIRECTLY IMPLIED: Biofilm formation, cell aggregation, and extracellular
+      matrix development within the alginate co-encapsulation system protect Bifidobacterium
+      longum DSM20219 against gastric acid and bile salt stress.'
+  - source: Enhanced Probiotic Survival Against Simulated Gastric and Intestinal Fluid
+      Stress
+    target: Extended Aerobic Storage Viability of Oxygen-Sensitive Bifidobacterium
+      longum
+    description: 'DIRECTLY IMPLIED: Matrix and biofilm barrier formation within the
+      Bacillus-Bifidobacterium alginate co-culture also protects oxygen-sensitive
+      Bifidobacterium longum during long-term aerobic storage.'
+  retained_edge_decisions:
+  - source: Biofilm Formation and Extracellular Matrix Development Within Alginate
+      Hydrogel
+    target: Enhanced Probiotic Survival Against Simulated Gastric and Intestinal Fluid
+      Stress
+    description: 'DIRECTLY IMPLIED: Biofilm formation, cell aggregation, and extracellular
+      matrix development within the alginate co-encapsulation system protect Bifidobacterium
+      longum DSM20219 against gastric acid and bile salt stress.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42372892.
+    reference: PMID:42372892
+  - source: Enhanced Probiotic Survival Against Simulated Gastric and Intestinal Fluid
+      Stress
+    target: Extended Aerobic Storage Viability of Oxygen-Sensitive Bifidobacterium
+      longum
+    description: 'DIRECTLY IMPLIED: Matrix and biofilm barrier formation within the
+      Bacillus-Bifidobacterium alginate co-culture also protects oxygen-sensitive
+      Bifidobacterium longum during long-term aerobic storage.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42372892.
+    reference: PMID:42372892
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42372892
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Bifidobacterium_Bacillus_Alginate_Biofilm_Probiotic_Coculture/2026-10-20T041800Z-antigravity-6d6b41.yaml
+- path: kb/communities/Trichoderma_Burkholderia_Atrazine_Cross_Feeding_Consortium.yaml
+  id: CommunityMech:000479
+  original_sha256: f5e87812897c2c55719f6e3b525e1b5a2154d6366937bc48026ff2848ac64541
+  record_sha256: 776547790772ef8d81f0983014e5e8376517e5cf464544871cb7a5cb82e20dba
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Curate 3-node pairwise cross-feeding/mutualistic causal chain linking Trichoderma
+    atrazine transformation and Burkholderia chemotaxis to intermediate cross-feeding
+    and soybean phytotoxicity alleviation.
+  node_decisions:
+  - node: Fungal Atrazine Transformation and Chemotactic Recruitment of Burkholderia
+    rationale: Supported by primary source PMID:42372060 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:42372060)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Trichoderma lentiforme
+        term:
+          id: NCBITaxon:1567552
+          label: Trichoderma lentiforme
+      target_taxon:
+        preferred_term: Burkholderia
+        term:
+          id: NCBITaxon:32008
+          label: Burkholderia
+    evidence:
+    - reference: PMID:42372060
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Metagenomic analysis revealed that colonization by T. lentiforme HN154
+        drove restructuring of microbial networks, enriching the keystone family Burkholderiaceae,
+        which was strongly associated with atrazine catabolism and four key catabolic
+        enzymes (EC 3.5.4.43 (atzB), EC 3.5.1.131 (atzE), EC 3.5.1.54 (atzF), EC 3.5.4.42
+        (atzC)).
+    - reference: PMID:42372060
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Mechanistically, intermediates (hydroxyatrazine and biuret) generated
+        during T. lentiforme HN154-mediated degradation stimulated Burkholderia chemotaxis,
+        swarming and swimming motility, while cross-feeding on these metabolites synergistically
+        accelerated bioaugmentation (the Trichoderma-Burkholderia synthetic consortium
+        achieved rapid atrazine degradation of 86.3% within 168 h).
+  - node: Fungal-to-Bacterial Cross-Feeding of Hydroxyatrazine and Biuret Intermediates
+    rationale: Supported by primary source PMID:42372060 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:42372060)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Trichoderma lentiforme
+        term:
+          id: NCBITaxon:1567552
+          label: Trichoderma lentiforme
+      target_taxon:
+        preferred_term: Burkholderia
+        term:
+          id: NCBITaxon:32008
+          label: Burkholderia
+    evidence:
+    - reference: PMID:42372060
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Mechanistically, intermediates (hydroxyatrazine and biuret) generated
+        during T. lentiforme HN154-mediated degradation stimulated Burkholderia chemotaxis,
+        swarming and swimming motility, while cross-feeding on these metabolites synergistically
+        accelerated bioaugmentation (the Trichoderma-Burkholderia synthetic consortium
+        achieved rapid atrazine degradation of 86.3% within 168 h).
+    - reference: PMID:42372060
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: A Trichoderma-Burkholderia synthetic consortium further enhanced remediation
+        by boosting plant antioxidant defenses (SOD, POD, CAT) and reducing oxidative
+        damage (MDA).
+  - node: Alleviation of Atrazine Phytotoxicity and Enhancement of Soybean Antioxidant
+      Defense
+    rationale: Supported by primary source PMID:42372060 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:42372060)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Burkholderia
+        term:
+          id: NCBITaxon:32008
+          label: Burkholderia
+      target_taxon:
+        preferred_term: Trichoderma lentiforme
+        term:
+          id: NCBITaxon:1567552
+          label: Trichoderma lentiforme
+    evidence:
+    - reference: PMID:42372060
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: A Trichoderma-Burkholderia synthetic consortium further enhanced remediation
+        by boosting plant antioxidant defenses (SOD, POD, CAT) and reducing oxidative
+        damage (MDA).
+  edges_before: []
+  edges_after:
+  - source: Fungal Atrazine Transformation and Chemotactic Recruitment of Burkholderia
+    target: Fungal-to-Bacterial Cross-Feeding of Hydroxyatrazine and Biuret Intermediates
+    description: 'DIRECTLY IMPLIED: Chemotactic recruitment and motility stimulation
+      of Burkholderia by Trichoderma-derived hydroxyatrazine and biuret enable cross-feeding
+      and synergistic atrazine mineralization.'
+  - source: Fungal-to-Bacterial Cross-Feeding of Hydroxyatrazine and Biuret Intermediates
+    target: Alleviation of Atrazine Phytotoxicity and Enhancement of Soybean Antioxidant
+      Defense
+    description: 'DIRECTLY IMPLIED: Synergistic cross-feeding and rapid atrazine removal
+      by the Trichoderma-Burkholderia consortium alleviate herbicide phytotoxicity
+      and boost antioxidant enzyme defenses in soybean.'
+  retained_edge_decisions:
+  - source: Fungal Atrazine Transformation and Chemotactic Recruitment of Burkholderia
+    target: Fungal-to-Bacterial Cross-Feeding of Hydroxyatrazine and Biuret Intermediates
+    description: 'DIRECTLY IMPLIED: Chemotactic recruitment and motility stimulation
+      of Burkholderia by Trichoderma-derived hydroxyatrazine and biuret enable cross-feeding
+      and synergistic atrazine mineralization.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42372060.
+    reference: PMID:42372060
+  - source: Fungal-to-Bacterial Cross-Feeding of Hydroxyatrazine and Biuret Intermediates
+    target: Alleviation of Atrazine Phytotoxicity and Enhancement of Soybean Antioxidant
+      Defense
+    description: 'DIRECTLY IMPLIED: Synergistic cross-feeding and rapid atrazine removal
+      by the Trichoderma-Burkholderia consortium alleviate herbicide phytotoxicity
+      and boost antioxidant enzyme defenses in soybean.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42372060.
+    reference: PMID:42372060
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42372060
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Trichoderma_Burkholderia_Atrazine_Cross_Feeding_Consortium/2026-10-20T041800Z-antigravity-776547.yaml
+- path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+  id: CommunityMech:000480
+  original_sha256: 1d33a55bb9c0f2a02788d559caa096c5e3056fd5e111dd165830c5c8f2120529
+  record_sha256: 1f5ed8f26d6713fb0a7012fbd71a5c231ec4839548f19afcfcbd988c5cecc93f
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Curate 3-node pairwise syntrophic/cross-feeding causal chain linking C.
+    ljungdahlii H2 scavenging to acetone-to-isopropanol cross-feeding and continuous
+    carbon-negative fermentation.
+  node_decisions:
+  - node: Syntrophic Hydrogen Scavenging Relieving NADH-Driven Thermodynamic Limitation
+    rationale: Supported by primary source PMID:41831593 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:41831593)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Clostridium ljungdahlii
+        term:
+          id: NCBITaxon:1538
+          label: Clostridium ljungdahlii
+      target_taxon:
+        preferred_term: Clostridium acetobutylicum
+        term:
+          id: NCBITaxon:1488
+          label: Clostridium acetobutylicum
+    evidence:
+    - reference: PMID:41831593
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: To explore the potential of this coculture system to achieve supratheoretical
+        isopropanol yields, we identify NADH-driven hydrogen conversion in CACas9
+        Δhbd-p95ace02_atoB as the thermodynamically limiting step for acetone production
+        in monocultures and thus isopropanol production in cocultures. We then demonstrate
+        the ability of C. ljungdahlii to mitigate this issue by eliminating detectable
+        hydrogen accumulation in the coculture.
+    - reference: PMID:41831593
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: CACas9 Δhbd-p95ace02_atoB produces acetone without 4-C metabolites
+        and C. ljungdahlii converts the acetone to isopropanol.
+  - node: Acetone Cross-Feeding and Reduction to Isopropanol
+    rationale: Supported by primary source PMID:41831593 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:41831593)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Clostridium acetobutylicum
+        term:
+          id: NCBITaxon:1488
+          label: Clostridium acetobutylicum
+      target_taxon:
+        preferred_term: Clostridium ljungdahlii
+        term:
+          id: NCBITaxon:1538
+          label: Clostridium ljungdahlii
+    evidence:
+    - reference: PMID:41831593
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: CACas9 Δhbd-p95ace02_atoB produces acetone without 4-C metabolites
+        and C. ljungdahlii converts the acetone to isopropanol.
+    - reference: PMID:41831593
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Pseudo-perfusion cocultures showed that high cell densities combined
+        with a high population fraction of C. ljungdahlii enable dramatic increases
+        in isopropanol yields beyond the thermodynamic limitation imposed in CACas9
+        Δhbd-p95ace02_atoB monocultures.
+  - node: High-Cell-Density Continuous Carbon-Negative Isopropanol Fermentation
+    rationale: Supported by primary source PMID:41831593 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:41831593)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Clostridium acetobutylicum
+        term:
+          id: NCBITaxon:1488
+          label: Clostridium acetobutylicum
+      target_taxon:
+        preferred_term: Clostridium ljungdahlii
+        term:
+          id: NCBITaxon:1538
+          label: Clostridium ljungdahlii
+    evidence:
+    - reference: PMID:41831593
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Finally, we demonstrate a continuous carbon-negative fermentation of
+        glucose to isopropanol as the sole alcohol produced from glucose in a 3.6-L
+        scale perfusion bioreactor.
+  edges_before: []
+  edges_after:
+  - source: Syntrophic Hydrogen Scavenging Relieving NADH-Driven Thermodynamic Limitation
+    target: Acetone Cross-Feeding and Reduction to Isopropanol
+    description: 'DIRECTLY IMPLIED: Relief of NADH-driven H2 thermodynamic inhibition
+      enables high-yield acetone synthesis by C. acetobutylicum and subsequent cross-feeding
+      of acetone to C. ljungdahlii for reduction to isopropanol.'
+  - source: Acetone Cross-Feeding and Reduction to Isopropanol
+    target: High-Cell-Density Continuous Carbon-Negative Isopropanol Fermentation
+    description: 'DIRECTLY IMPLIED: Coupled H2 scavenging and acetone-to-isopropanol
+      cross-feeding at high C. ljungdahlii cell density achieve supratheoretical,
+      carbon-negative isopropanol production in perfusion bioreactors.'
+  retained_edge_decisions:
+  - source: Syntrophic Hydrogen Scavenging Relieving NADH-Driven Thermodynamic Limitation
+    target: Acetone Cross-Feeding and Reduction to Isopropanol
+    description: 'DIRECTLY IMPLIED: Relief of NADH-driven H2 thermodynamic inhibition
+      enables high-yield acetone synthesis by C. acetobutylicum and subsequent cross-feeding
+      of acetone to C. ljungdahlii for reduction to isopropanol.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:41831593.
+    reference: PMID:41831593
+  - source: Acetone Cross-Feeding and Reduction to Isopropanol
+    target: High-Cell-Density Continuous Carbon-Negative Isopropanol Fermentation
+    description: 'DIRECTLY IMPLIED: Coupled H2 scavenging and acetone-to-isopropanol
+      cross-feeding at high C. ljungdahlii cell density achieve supratheoretical,
+      carbon-negative isopropanol production in perfusion bioreactors.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:41831593.
+    reference: PMID:41831593
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:41831593
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture/2026-10-20T041800Z-antigravity-1f5ed8.yaml
+- path: kb/communities/Delftia_Klebsiella_Light_Driven_Hydrogen_Denitrifying_Coculture.yaml
+  id: CommunityMech:000481
+  original_sha256: 2947eaa6601aa3be7ed7932d4ecba246d4c09745cd5d05dbaa3bab564f14be18
+  record_sha256: d5b0cc764037fcc2ef088af1813bdbee8f99a7b9f976b7c61044dae1f181ca79
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Curate 3-node pairwise syntrophic causal chain linking light-driven interspecies
+    electron transfer to batch H2/denitrification synergy and swine wastewater nitrogen
+    removal.
+  node_decisions:
+  - node: Light-Driven Interspecies Electron Transfer via Direct Contact and Soluble
+      Redox Mediators
+    rationale: Supported by primary source PMID:42297253 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:42297253)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Delftia acidovorans
+        term:
+          id: NCBITaxon:80866
+          label: Delftia acidovorans
+      target_taxon:
+        preferred_term: Klebsiella oxytoca
+        term:
+          id: NCBITaxon:571
+          label: Klebsiella oxytoca
+    evidence:
+    - reference: PMID:42297253
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Electrochemical, extracellular polymeric substance, and metabolomic
+        analyses indicated enhanced redox activity, decreased electron-transfer resistance,
+        NADH-related metabolism, and potential interspecies electron transfer via
+        direct contact and soluble redox-active mediators.
+    - reference: PMID:42297253
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In batch cultures, the YP-3/DX-3 co-culture generated 345.52 mL/L H2
+        within 48 h and enhanced the removal of nitrate, nitrite, and total nitrogen
+        compared to the DX-3 monoculture.
+  - node: Synergistic Biohydrogen Production and Nitrate Reduction in Co-Culture
+    rationale: Supported by primary source PMID:42297253 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:42297253)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Delftia acidovorans
+        term:
+          id: NCBITaxon:80866
+          label: Delftia acidovorans
+      target_taxon:
+        preferred_term: Klebsiella oxytoca
+        term:
+          id: NCBITaxon:571
+          label: Klebsiella oxytoca
+    evidence:
+    - reference: PMID:42297253
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In batch cultures, the YP-3/DX-3 co-culture generated 345.52 mL/L H2
+        within 48 h and enhanced the removal of nitrate, nitrite, and total nitrogen
+        compared to the DX-3 monoculture.
+    - reference: PMID:42297253
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In a synthetic swine wastewater-fed anaerobic sludge reactor, the co-culture
+        accomplished 90.25 % nitrate removal, minimized nitrite accumulation, and
+        enriched functional groups related to electron transfer, hydrogen production,
+        and nitrogen removal.
+  - node: High-Efficiency Swine Wastewater Denitrification with Minimal Nitrite Accumulation
+    rationale: Supported by primary source PMID:42297253 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:42297253)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Klebsiella oxytoca
+        term:
+          id: NCBITaxon:571
+          label: Klebsiella oxytoca
+      target_taxon:
+        preferred_term: Delftia acidovorans
+        term:
+          id: NCBITaxon:80866
+          label: Delftia acidovorans
+    evidence:
+    - reference: PMID:42297253
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In a synthetic swine wastewater-fed anaerobic sludge reactor, the co-culture
+        accomplished 90.25 % nitrate removal, minimized nitrite accumulation, and
+        enriched functional groups related to electron transfer, hydrogen production,
+        and nitrogen removal.
+  edges_before: []
+  edges_after:
+  - source: Light-Driven Interspecies Electron Transfer via Direct Contact and Soluble
+      Redox Mediators
+    target: Synergistic Biohydrogen Production and Nitrate Reduction in Co-Culture
+    description: 'DIRECTLY IMPLIED: Enhanced redox activity and decreased electron-transfer
+      resistance between D. acidovorans YP-3 and K. oxytoca DX-3 drive simultaneous
+      biohydrogen production and nitrate reduction.'
+  - source: Synergistic Biohydrogen Production and Nitrate Reduction in Co-Culture
+    target: High-Efficiency Swine Wastewater Denitrification with Minimal Nitrite
+      Accumulation
+    description: 'DIRECTLY IMPLIED: Co-culture bioaugmentation in a synthetic swine
+      wastewater-fed anaerobic sludge reactor enriches electron-transfer and nitrogen-removal
+      groups, achieving 90.25% nitrate removal with minimal nitrite accumulation.'
+  retained_edge_decisions:
+  - source: Light-Driven Interspecies Electron Transfer via Direct Contact and Soluble
+      Redox Mediators
+    target: Synergistic Biohydrogen Production and Nitrate Reduction in Co-Culture
+    description: 'DIRECTLY IMPLIED: Enhanced redox activity and decreased electron-transfer
+      resistance between D. acidovorans YP-3 and K. oxytoca DX-3 drive simultaneous
+      biohydrogen production and nitrate reduction.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42297253.
+    reference: PMID:42297253
+  - source: Synergistic Biohydrogen Production and Nitrate Reduction in Co-Culture
+    target: High-Efficiency Swine Wastewater Denitrification with Minimal Nitrite
+      Accumulation
+    description: 'DIRECTLY IMPLIED: Co-culture bioaugmentation in a synthetic swine
+      wastewater-fed anaerobic sludge reactor enriches electron-transfer and nitrogen-removal
+      groups, achieving 90.25% nitrate removal with minimal nitrite accumulation.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42297253.
+    reference: PMID:42297253
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42297253
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Delftia_Klebsiella_Light_Driven_Hydrogen_Denitrifying_Coculture/2026-10-20T041800Z-antigravity-d5b0cc.yaml
+- path: kb/communities/Black_Soil_Glucose_Activated_Herbicide_Mixture_SynCom.yaml
+  id: CommunityMech:000482
+  original_sha256: 89d7d25171323805dca2156552bee7ded7878b61b539ea36ed68367036454af7
+  record_sha256: 87a017518764c8e6a0d55a6fd84810b5b69b7cab985de2ff14d7e65e8d505b5e
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Curate 3-node community-level causal chain with explicit participating_taxa
+    linking glucose-activated central carbon metabolism to atzF/gst keystone enrichment
+    and SynCom herbicide-mixture degradation.
+  node_decisions:
+  - node: Glucose-Activated Central Carbon Metabolism and Environmental Acidification
+    rationale: Supported by primary source PMID:41762466 with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:41762466)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Burkholderia
+        term:
+          id: NCBITaxon:32008
+          label: Burkholderia
+      - preferred_term: Rhodanobacter
+        term:
+          id: NCBITaxon:75309
+          label: Rhodanobacter
+      - preferred_term: Achromobacter
+        term:
+          id: NCBITaxon:222
+          label: Achromobacter
+    evidence:
+    - reference: PMID:41762466
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Integrated 16S rRNA gene sequencing and metagenomic analysis linked
+        the glucose amendment to a specific shift in the microbial community structure
+        and activation of central carbon metabolism (tricarboxylic acid [TCA] and
+        glycolytic), which enhanced cellular energy supply and environmental acidification
+        for co-metabolic degradation of herbicides.
+    - reference: PMID:41762466
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Combined random forest (RF) and co-occurrence network analyses identified
+        the Burkholderia-Caballeronia-Paraburkholderia complex, Rhodanobacter, and
+        Achromobacter as the keystone taxa.
+  - node: Keystone Degrader Enrichment of Allophanate Hydrolase (atzF) and Glutathione
+      S-Transferase (gst)
+    rationale: Supported by primary source PMID:41762466 with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:41762466)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Burkholderia
+        term:
+          id: NCBITaxon:32008
+          label: Burkholderia
+      - preferred_term: Rhodanobacter
+        term:
+          id: NCBITaxon:75309
+          label: Rhodanobacter
+      - preferred_term: Achromobacter
+        term:
+          id: NCBITaxon:222
+          label: Achromobacter
+    evidence:
+    - reference: PMID:41762466
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Metagenomic screening showed that these taxa were enriched for functional
+        genes associated with herbicide degradation, including atzF (allophanate hydrolase)
+        and gst (glutathione S-transferase).
+    - reference: PMID:41762466
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: A simplified four-isolate SynCom, constructed based on these functional
+        associations, degraded the herbicide mixtures more efficiently than either
+        the individual isolates or the NMC in the GSM system.
+  - node: Synergistic Four-Isolate SynCom Herbicide-Mixture Mineralization
+    rationale: Supported by primary source PMID:41762466 with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:41762466)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Burkholderia
+        term:
+          id: NCBITaxon:32008
+          label: Burkholderia
+      - preferred_term: Rhodanobacter
+        term:
+          id: NCBITaxon:75309
+          label: Rhodanobacter
+      - preferred_term: Achromobacter
+        term:
+          id: NCBITaxon:222
+          label: Achromobacter
+    evidence:
+    - reference: PMID:41762466
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: A simplified four-isolate SynCom, constructed based on these functional
+        associations, degraded the herbicide mixtures more efficiently than either
+        the individual isolates or the NMC in the GSM system.
+  edges_before: []
+  edges_after:
+  - source: Glucose-Activated Central Carbon Metabolism and Environmental Acidification
+    target: Keystone Degrader Enrichment of Allophanate Hydrolase (atzF) and Glutathione
+      S-Transferase (gst)
+    description: 'DIRECTLY IMPLIED: Glucose-driven central carbon activation and community
+      restructuring enrich keystone Burkholderia, Rhodanobacter, and Achromobacter
+      degraders carrying atzF and gst herbicide-catabolic genes.'
+  - source: Keystone Degrader Enrichment of Allophanate Hydrolase (atzF) and Glutathione
+      S-Transferase (gst)
+    target: Synergistic Four-Isolate SynCom Herbicide-Mixture Mineralization
+    description: 'DIRECTLY IMPLIED: Functional association of the enriched keystone
+      degraders enables a constructed four-isolate SynCom to co-metabolically degrade
+      the atrazine-nicosulfuron-mesotrione mixture more efficiently than single isolates
+      or the parent consortium.'
+  retained_edge_decisions:
+  - source: Glucose-Activated Central Carbon Metabolism and Environmental Acidification
+    target: Keystone Degrader Enrichment of Allophanate Hydrolase (atzF) and Glutathione
+      S-Transferase (gst)
+    description: 'DIRECTLY IMPLIED: Glucose-driven central carbon activation and community
+      restructuring enrich keystone Burkholderia, Rhodanobacter, and Achromobacter
+      degraders carrying atzF and gst herbicide-catabolic genes.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:41762466.
+    reference: PMID:41762466
+  - source: Keystone Degrader Enrichment of Allophanate Hydrolase (atzF) and Glutathione
+      S-Transferase (gst)
+    target: Synergistic Four-Isolate SynCom Herbicide-Mixture Mineralization
+    description: 'DIRECTLY IMPLIED: Functional association of the enriched keystone
+      degraders enables a constructed four-isolate SynCom to co-metabolically degrade
+      the atrazine-nicosulfuron-mesotrione mixture more efficiently than single isolates
+      or the parent consortium.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:41762466.
+    reference: PMID:41762466
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:41762466
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Black_Soil_Glucose_Activated_Herbicide_Mixture_SynCom/2026-10-20T041800Z-antigravity-87a017.yaml
+- path: kb/communities/Bacillus_Pseudomonas_Chili_Root_Rot_Antagonistic_SynCom_T7.yaml
+  id: CommunityMech:000483
+  original_sha256: ccf868f623277f51dd4119f35f4fcd6965127d356393b501caf7029951431438
+  record_sha256: 66593a279af2b82b3d45b4077c94965ff19e06fb965b303b953771df2d60d25d
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream
+    causal edge verified against cached primary source text.
+  summary: Curate 3-node pairwise mutualistic causal chain linking Bacillus-Pseudomonas
+    antagonism against Fusarium solani to root-rot suppression and systemic plant
+    immune pathway activation.
+  node_decisions:
+  - node: Cooperative Bacillus-Pseudomonas Antagonism Against Rhizosphere Fusarium
+      solani
+    rationale: Supported by primary source PMID:42693392 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:42693392)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Bacillus
+        term:
+          id: NCBITaxon:1386
+          label: Bacillus <firmicutes>
+      target_taxon:
+        preferred_term: Pseudomonas
+        term:
+          id: NCBITaxon:286
+          label: Pseudomonas
+    evidence:
+    - reference: PMID:42693392
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: LEfSe analysis showed that Bacillus and Pseudomonas were the core bacterial
+        biomarkers in chili continuous cropping soil, which were successfully isolated
+        and demonstrated significant antagonistic effects against Fusarium solani.
+    - reference: PMID:42693392
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Utilizing these antagonistic bacteria, nine different synthetic communities
+        (SynComs) were constructed. Among them, the T7 SynCom exhibited excellent
+        biocontrol efficacy.
+  - node: Pathogen Suppression and Reduction of Chili Root Rot Incidence by SynCom
+      T7
+    rationale: Supported by primary source PMID:42693392 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:42693392)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Bacillus
+        term:
+          id: NCBITaxon:1386
+          label: Bacillus <firmicutes>
+      target_taxon:
+        preferred_term: Pseudomonas
+        term:
+          id: NCBITaxon:286
+          label: Pseudomonas
+    evidence:
+    - reference: PMID:42693392
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Among them, the T7 SynCom exhibited excellent biocontrol efficacy.
+        It effectively suppressed the pathogen, reduced the incidence of root rot,
+        and enhanced systemic induced resistance by activating the plant immune-associated
+        pathways, including the MAPK signaling pathway, ethylene signaling pathway,
+        and pathways mediated by jasmonic acid and salicylic acid.
+    - reference: PMID:42693392
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: It effectively suppressed the pathogen, reduced the incidence of root
+        rot, and enhanced systemic induced resistance by activating the plant immune-associated
+        pathways, including the MAPK signaling pathway, ethylene signaling pathway,
+        and pathways mediated by jasmonic acid and salicylic acid.
+  - node: Activation of Plant MAPK, Ethylene, Jasmonic Acid, and Salicylic Acid Systemic
+      Resistance
+    rationale: Supported by primary source PMID:42693392 with explicit PAIRWISE scope
+      and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:42693392)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Pseudomonas
+        term:
+          id: NCBITaxon:286
+          label: Pseudomonas
+      target_taxon:
+        preferred_term: Bacillus
+        term:
+          id: NCBITaxon:1386
+          label: Bacillus <firmicutes>
+    evidence:
+    - reference: PMID:42693392
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: It effectively suppressed the pathogen, reduced the incidence of root
+        rot, and enhanced systemic induced resistance by activating the plant immune-associated
+        pathways, including the MAPK signaling pathway, ethylene signaling pathway,
+        and pathways mediated by jasmonic acid and salicylic acid.
+  edges_before: []
+  edges_after:
+  - source: Cooperative Bacillus-Pseudomonas Antagonism Against Rhizosphere Fusarium
+      solani
+    target: Pathogen Suppression and Reduction of Chili Root Rot Incidence by SynCom
+      T7
+    description: 'DIRECTLY IMPLIED: Combining antagonistic Bacillus and Pseudomonas
+      biomarker isolates into the T7 SynCom achieves strong pathogen suppression and
+      reduces chili root rot incidence.'
+  - source: Pathogen Suppression and Reduction of Chili Root Rot Incidence by SynCom
+      T7
+    target: Activation of Plant MAPK, Ethylene, Jasmonic Acid, and Salicylic Acid
+      Systemic Resistance
+    description: 'DIRECTLY IMPLIED: Rhizosphere colonization and pathogen suppression
+      by the T7 SynCom concurrently activate chili MAPK, ethylene, jasmonic acid,
+      and salicylic acid immune signaling pathways to confer systemic induced resistance.'
+  retained_edge_decisions:
+  - source: Cooperative Bacillus-Pseudomonas Antagonism Against Rhizosphere Fusarium
+      solani
+    target: Pathogen Suppression and Reduction of Chili Root Rot Incidence by SynCom
+      T7
+    description: 'DIRECTLY IMPLIED: Combining antagonistic Bacillus and Pseudomonas
+      biomarker isolates into the T7 SynCom achieves strong pathogen suppression and
+      reduces chili root rot incidence.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42693392.
+    reference: PMID:42693392
+  - source: Pathogen Suppression and Reduction of Chili Root Rot Incidence by SynCom
+      T7
+    target: Activation of Plant MAPK, Ethylene, Jasmonic Acid, and Salicylic Acid
+      Systemic Resistance
+    description: 'DIRECTLY IMPLIED: Rhizosphere colonization and pathogen suppression
+      by the T7 SynCom concurrently activate chili MAPK, ethylene, jasmonic acid,
+      and salicylic acid immune signaling pathways to confer systemic induced resistance.'
+    rationale: Directed downstream link supported by verbatim evidence in PMID:42693392.
+    reference: PMID:42693392
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42693392
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Bacillus_Pseudomonas_Chili_Root_Rot_Antagonistic_SynCom_T7/2026-10-20T041800Z-antigravity-66593a.yaml

@@ -85,11 +85,47 @@ environmental_factors:
       by a significant decline in antagonistic bacteria from the genera Bacillus and Pseudomonas.
     explanation: Documents continuous-cropping dysbiosis in the chili rhizosphere.
 ecological_interactions:
-- name: Cooperative Bacillus-Pseudomonas Suppression of Fusarium solani and Chili Immune Activation
-  description: Bacillus and Pseudomonas strains in T7 SynCom cooperate to antagonize the root rot pathogen Fusarium solani
-    and activate MAPK, ethylene, jasmonic acid, and salicylic acid immune signaling pathways in Capsicum annuum to suppress
-    root rot.
+- name: Cooperative Bacillus-Pseudomonas Antagonism Against Rhizosphere Fusarium solani
+  description: Core rhizosphere biomarker strains of Bacillus and Pseudomonas isolated from chili continuous-cropping soil
+    assemble into the T7 synthetic community and exert direct antagonistic activity against the root-rot pathogen Fusarium
+    solani.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+  target_taxon:
+    preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  downstream:
+  - target: Pathogen Suppression and Reduction of Chili Root Rot Incidence by SynCom T7
+    description: 'DIRECTLY IMPLIED: Combining antagonistic Bacillus and Pseudomonas biomarker isolates into the T7 SynCom
+      achieves strong pathogen suppression and reduces chili root rot incidence.'
+  evidence:
+  - reference: PMID:42693392
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: LEfSe analysis showed that Bacillus and Pseudomonas were the core bacterial biomarkers in chili continuous cropping
+      soil, which were successfully isolated and demonstrated significant antagonistic effects against Fusarium solani.
+  - reference: PMID:42693392
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Utilizing these antagonistic bacteria, nine different synthetic communities (SynComs) were constructed. Among
+      them, the T7 SynCom exhibited excellent biocontrol efficacy.
+- name: Pathogen Suppression and Reduction of Chili Root Rot Incidence by SynCom T7
+  description: Inoculation with the Bacillus-Pseudomonas T7 synthetic community suppresses rhizosphere Fusarium solani proliferation
+    and reduces the incidence of chili root rot under continuous cropping stress.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Bacillus
     term:
@@ -109,20 +145,55 @@ ecological_interactions:
     term:
       id: GO:0006952
       label: defense response
+  downstream:
+  - target: Activation of Plant MAPK, Ethylene, Jasmonic Acid, and Salicylic Acid Systemic Resistance
+    description: 'DIRECTLY IMPLIED: Rhizosphere colonization and pathogen suppression by the T7 SynCom concurrently activate
+      chili MAPK, ethylene, jasmonic acid, and salicylic acid immune signaling pathways to confer systemic induced resistance.'
   evidence:
   - reference: PMID:42693392
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Among them, the T7 SynCom exhibited excellent biocontrol efficacy.
-    explanation: Identifies T7 SynCom as the top-performing biocontrol consortium.
+    snippet: Among them, the T7 SynCom exhibited excellent biocontrol efficacy. It effectively suppressed the pathogen, reduced
+      the incidence of root rot, and enhanced systemic induced resistance by activating the plant immune-associated pathways,
+      including the MAPK signaling pathway, ethylene signaling pathway, and pathways mediated by jasmonic acid and salicylic
+      acid.
   - reference: PMID:42693392
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: It effectively suppressed the pathogen, reduced the incidence of root rot, and enhanced systemic induced resistance
       by activating the plant immune-associated pathways, including the MAPK signaling pathway, ethylene signaling pathway,
       and pathways mediated by jasmonic acid and salicylic acid.
-    explanation: Demonstrates pathogen suppression and activation of host MAPK, ethylene, JA, and SA immune pathways by T7
-      SynCom.
+- name: Activation of Plant MAPK, Ethylene, Jasmonic Acid, and Salicylic Acid Systemic Resistance
+  description: The Bacillus-Pseudomonas T7 synthetic community enhances systemic induced resistance in chili plants by activating
+    MAPK signaling, ethylene signaling, and jasmonic acid- and salicylic acid-mediated immune pathways.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  target_taxon:
+    preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  - preferred_term: defense response
+    term:
+      id: GO:0006952
+      label: defense response
+  evidence:
+  - reference: PMID:42693392
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: It effectively suppressed the pathogen, reduced the incidence of root rot, and enhanced systemic induced resistance
+      by activating the plant immune-associated pathways, including the MAPK signaling pathway, ethylene signaling pathway,
+      and pathways mediated by jasmonic acid and salicylic acid.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -134,4 +205,10 @@ curation_history:
   changes: Initial curation of CommunityMech:000483 (Bacillus_Pseudomonas_Chili_Root_Rot_Antagonistic_SynCom_T7) from PMID:42693392
     using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
     groundings.
+  llm_assisted: true
+- timestamp: '2026-10-20T04:18:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Curate 3-node pairwise mutualistic causal chain linking Bacillus-Pseudomonas antagonism against Fusarium solani
+    to root-rot suppression and systemic plant immune pathway activation.
   llm_assisted: true

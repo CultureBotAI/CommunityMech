@@ -125,11 +125,86 @@ taxonomy:
     explanation: Explicitly names Dehalococcoides mccartyi as the obligate organohalide-respiring bacterium in the constructed
       γ-HCH-degrading consortium.
 ecological_interactions:
-- name: Cooperative Organochlorine Dechlorination of Gamma-Hexachlorocyclohexane
-  description: Inoculated organochlorine-degrading consortia (comprising Enterococcus casseliflavus, Sulfurospirillum multivorans,
-    Trichlorobacter lovleyi, Dehalococcoides mccartyi, and Petrimonas sulfuriphila) cooperatively dechlorinate gamma-hexachlorocyclohexane
-    (lindane) in anoxic wetland sediment microcosms.
+- name: Enterococcus Colonization and pceA Reductive Dehalogenase Gene Enrichment
+  description: Colonization of inoculated sediment microcosms by adaptable non-obligate organochlorine-degrading bacteria
+    including Enterococcus casseliflavus together with obligate organohalide respirers enriches the reductive dehalogenase
+    gene pceA on mobile genetic elements.
   interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Enterococcus casseliflavus
+    term:
+      id: NCBITaxon:37734
+      label: Enterococcus casseliflavus
+  - preferred_term: Sulfurospirillum multivorans
+    term:
+      id: NCBITaxon:66821
+      label: Sulfurospirillum multivorans
+  - preferred_term: Trichlorobacter lovleyi
+    term:
+      id: NCBITaxon:313985
+      label: Trichlorobacter lovleyi
+  - preferred_term: Petrimonas sulfuriphila
+    term:
+      id: NCBITaxon:285070
+      label: Petrimonas sulfuriphila
+  - preferred_term: Dehalococcoides mccartyi
+    term:
+      id: NCBITaxon:61435
+      label: Dehalococcoides mccartyi
+  biological_processes:
+  - preferred_term: organohalide respiration
+    term:
+      id: GO:0070812
+      label: organohalide respiration
+  - preferred_term: halogenated hydrocarbon metabolic process
+    term:
+      id: GO:0042197
+      label: halogenated hydrocarbon metabolic process
+  downstream:
+  - target: Cooperative Organochlorine Dechlorination of Gamma-Hexachlorocyclohexane
+    description: 'DIRECTLY IMPLIED: Colonization by organochlorine-degrading bacteria and enrichment of pceA dehalogenase
+      genes drive efficient anaerobic γ-HCH degradation in wetland sediment microcosms.'
+  evidence:
+  - reference: PMID:42663479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The well-known degradation gene pceA was enriched in the Y13 group, and the co-localization of pceA-encoding
+      contigs with mobile genetic elements was identified.
+  - reference: PMID:42663479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Notably, Enterococcus was found to have successfully colonized inoculated groups. It has strong environmental
+      evolutionary adaptability and might acquire organochlorine-degrading genes through horizontal gene transfer under pollution
+      stress.
+- name: Cooperative Organochlorine Dechlorination of Gamma-Hexachlorocyclohexane
+  description: Constructed functional consortia combining generalist non-obligate organochlorine-degrading bacteria (including
+    Enterococcus casseliflavus, Sulfurospirillum multivorans, Trichlorobacter lovleyi, and Petrimonas sulfuriphila) with Dehalococcoides
+    mccartyi and enriched pceA reductive dehalogenase genes cooperatively degrade gamma-hexachlorocyclohexane (lindane) in
+    anoxic wetland sediment microcosms.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Enterococcus casseliflavus
+    term:
+      id: NCBITaxon:37734
+      label: Enterococcus casseliflavus
+  - preferred_term: Sulfurospirillum multivorans
+    term:
+      id: NCBITaxon:66821
+      label: Sulfurospirillum multivorans
+  - preferred_term: Trichlorobacter lovleyi
+    term:
+      id: NCBITaxon:313985
+      label: Trichlorobacter lovleyi
+  - preferred_term: Petrimonas sulfuriphila
+    term:
+      id: NCBITaxon:285070
+      label: Petrimonas sulfuriphila
+  - preferred_term: Dehalococcoides mccartyi
+    term:
+      id: NCBITaxon:61435
+      label: Dehalococcoides mccartyi
   biological_processes:
   - preferred_term: organohalide respiration
     term:
@@ -149,13 +224,38 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: Both consortia demonstrated efficient degradation in sediment microcosms, reducing γ-HCH (C/C₀) to 63.0% (M)
       and 56.1% (Y13).
-    explanation: Demonstrates γ-HCH reductive degradation in inoculated wetland sediment microcosms.
-  scope: COMMUNITY_LEVEL
+  - reference: PMID:42663479
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Simultaneously, functional microbial consortia inoculation significantly suppressed the CO₂ reduction methanogenesis
+      pathway compared with the non-inoculated group (P < 0.05), as evidenced by a marked decline in the CH₄/CO₂ ratio in
+      inoculated groups.
 - name: Suppression of Carbon Dioxide Reduction Methanogenesis During Lindane Bioremediation
-  description: Inoculation of the functional organochlorine-degrading consortia into anoxic wetland sediment microcosms redirects
-    electron flow toward reductive dechlorination and significantly suppresses the CO2-reduction methanogenesis pathway, lowering
-    the CH4/CO2 ratio.
+  description: Inoculation of the organochlorine-degrading consortia into wetland sediment microcosms significantly suppresses
+    the CO2-reduction methanogenesis pathway and lowers the CH4/CO2 emission ratio.
   interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Enterococcus casseliflavus
+    term:
+      id: NCBITaxon:37734
+      label: Enterococcus casseliflavus
+  - preferred_term: Sulfurospirillum multivorans
+    term:
+      id: NCBITaxon:66821
+      label: Sulfurospirillum multivorans
+  - preferred_term: Trichlorobacter lovleyi
+    term:
+      id: NCBITaxon:313985
+      label: Trichlorobacter lovleyi
+  - preferred_term: Petrimonas sulfuriphila
+    term:
+      id: NCBITaxon:285070
+      label: Petrimonas sulfuriphila
+  - preferred_term: Dehalococcoides mccartyi
+    term:
+      id: NCBITaxon:61435
+      label: Dehalococcoides mccartyi
   metabolites:
   - preferred_term: methane
     term:
@@ -177,8 +277,6 @@ ecological_interactions:
     snippet: Simultaneously, functional microbial consortia inoculation significantly suppressed the CO₂ reduction methanogenesis
       pathway compared with the non-inoculated group (P < 0.05), as evidenced by a marked decline in the CH₄/CO₂ ratio in
       inoculated groups.
-    explanation: Shows suppression of CO2-reduction methanogenesis and reduced CH4/CO2 ratio upon consortium inoculation.
-  scope: COMMUNITY_LEVEL
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -190,4 +288,10 @@ curation_history:
   changes: Initial curation of CommunityMech:000471 (Wetland_Lindane_Degrading_Organochlorine_Consortium) from PMID:42663479
     using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
     groundings.
+  llm_assisted: true
+- timestamp: '2026-10-20T04:18:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Curate 3-node community-level causal chain with explicit participating_taxa linking Enterococcus/pceA enrichment
+    to lindane dechlorination and suppression of CO2-reduction methanogenesis.
   llm_assisted: true
