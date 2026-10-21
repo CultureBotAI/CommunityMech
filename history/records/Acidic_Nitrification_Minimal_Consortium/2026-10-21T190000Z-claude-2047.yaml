@@ -1,14 +1,29 @@
-record_id: CommunityMech:000434
-record_slug: Acidic_Nitrification_Minimal_Consortium
-timestamp: '2026-10-21T19:00:00Z'
-curator: claude
-action: CURATE_YAML_RECORD
-changes: 'Added missing community_origin: ENGINEERED for the reconstituted two-member acidic nitrification co-culture (#2047).'
-details: >-
-  Resolved Stage 4 finding stage4-missing-community-origin-000434 (#2047) by adding
-  community_origin: ENGINEERED to CommunityMech:000434, consistent with its
-  engineered two-member acidic nitrification co-culture (ecological_state: ENGINEERED,
-  community_category: BIOTECHNOLOGY) of Candidatus Nitrosotalea devaniterrae ND1 and
-  Nitrobacter sp. Nb311A under PMID:42762737.
-llm_assisted: true
-issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2047
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  slug: Acidic_Nitrification_Minimal_Consortium
+session:
+  id: 2026-10-21T190000Z-claude-2047
+  timestamp: '2026-10-21T19:00:00Z'
+  actors:
+  - type: ai_agent
+    name: claude
+    model: claude-opus-4-6
+    agent_tool: antigravity
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2047
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - community_origin
+  - curation_history
+  summary: Populate missing community_origin as ENGINEERED for Stage 5 remediation (#2047)
+  details: >-
+    Resolved Stage 4 review findings F-P1-000359-01 and F-C-COHORT-15-01 (#2047) by setting
+    community_origin: ENGINEERED on CommunityMech:000359
+    (Acidic_Nitrification_Minimal_Consortium.yaml), consistent with its SYNTHETIC_COMMUNITY
+    category and constructed Nitrosoglobus/Nitrobacter minimal consortium design in
+    PMID:42762737.

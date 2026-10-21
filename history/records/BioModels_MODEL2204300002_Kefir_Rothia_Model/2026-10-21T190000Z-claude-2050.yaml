@@ -1,13 +1,28 @@
-record_id: CommunityMech:000321
-record_slug: BioModels_MODEL2204300002_Kefir_Rothia_Model
-timestamp: '2026-10-21T19:00:00Z'
-curator: claude
-action: CURATE_YAML_RECORD
-changes: 'Populated functional_role: [CROSS_FEEDER] and abundance_level: RARE on Rothia kefirresidentii KRP taxonomy entry (#2050).'
-details: >-
-  Resolved Stage 4 finding stage4-isolate-000321-missing-functional-role (#2050)
-  by populating functional_role: [CROSS_FEEDER] and abundance_level: RARE with
-  verbatim primary-source evidence from PMID:28963201 and PMID:33398099 on
-  taxonomy[0] (Rothia kefirresidentii KRP, NCBITaxon:32207) in CommunityMech:000321.
-llm_assisted: true
-issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2050
+history_version: 1
+target:
+  kind: record
+  path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  slug: BioModels_MODEL2204300002_Kefir_Rothia_Model
+session:
+  id: 2026-10-21T190000Z-claude-2050
+  timestamp: '2026-10-21T19:00:00Z'
+  actors:
+  - type: ai_agent
+    name: claude
+    model: claude-opus-4-6
+    agent_tool: antigravity
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2050
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - taxonomy
+  - curation_history
+  summary: Add functional_role CROSS_FEEDER and abundance_level RARE with primary-source evidence (#2050)
+  details: >-
+    Resolved Stage 4 review findings F-P3-000321-01 and F-C-COHORT-19-01 (#2050) on
+    CommunityMech:000321 (data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml) by
+    adding functional_role: [CROSS_FEEDER] and abundance_level: RARE to Rothia kefirresidentii
+    (NCBITaxon:2029524) backed by verbatim evidence from PMID:28963201 and PMID:33398099.
