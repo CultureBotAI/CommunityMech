@@ -1,0 +1,2222 @@
+# Copper biomining heap leach record review
+
+- Review: 20261022T004910Z-copper-biomining-heap-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-22T00:36:21.505249Z
+- Finished UTC: 2026-10-22T00:49:10.060304Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Three major findings concern open-heap/member-role scope, non-graph measurement interpretation, and medium/protocol representation. Two minor findings concern GTDB provenance and missing verified expression-study links. Preserve five qualified nodes and eight PARTIAL arrows. Whole focal sources and supplements support completed review despite a bounded supporting-isolate full-text limit. Eight focused native checks pass; completeness 90 and raw quality 101, capped 100.
+
+## Scope And Provenance
+
+Whole current record; four whole field/laboratory papers, genome announcement, all main figures and critical supplements; supporting isolate abstract/preview, local provenance, native authority and source-specific resources.
+
+Selection: Only released CommunityMech:000019 in owned batch13; no later record assessed.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base e117e3d37c65bfad2e04af53ab34e1325d8d7f98.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000019 | kb/communities/Copper_Biomining_Heap_Leach.yaml | maintained | Copper Biomining Heap Leach Consortium |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000019 | Native command exit 0. |
+| validate-strict | passed | True | CommunityMech:000019 | Native command exit 0. |
+| validate-terms | passed | True | CommunityMech:000019 | Native command exit 0. |
+| validate-references-explained | passed | True | CommunityMech:000019 | Native command exit 0. |
+| validate-gtdb | passed | True | CommunityMech:000019 | Native command exit 0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000019 | Native command exit 0. |
+| validate-history | passed | True | CommunityMech:000019 | Native command exit 0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000019 | Native command exit 0. |
+| audit-network corpus context | failed | False | CommunityMech:000019 | Actual corpus baseline exit 1;44 warnings across 16/477,zero errors. |
+| check-network-quality corpus context | failed | False | CommunityMech:000019 | Actual corpus baseline exit 1;44 warnings across 16/477,zero errors. |
+| Optional structured source adapter availability | unavailable | False | CommunityMech:000019 | Unavailable in owned runtime; external-checkout candidate was not executed. |
+
+## Scientific And Domain Assessments
+
+### Industrial process versus microbial assembly
+
+identity: concern. Targets: CommunityMech:000019.
+
+The industrial heap is real; deliberate five-member assembly and tailings scope are not supported.
+
+Retain BIOMINING and engineering of the installation while representing the indigenous open community. The five named taxa are selected representatives and laboratory comparators, not a complete assembled roster.
+
+### Member capability and source-local roles
+
+scope: concern. Targets: CommunityMech:000019.
+
+Ferroplasma carbon-fixation and Sulfobacillus partnership assertions need their own support.
+
+Iron oxidation/occurrence does not establish PRIMARY_PRODUCER. Mineral mediation can fit broad PRIMARY_DEGRADER when source-qualified; do not impose an organic-only substrate rule, obligatory exchange or a mandatory named currency.
+
+### DNA, RNA and field chemistry
+
+quantity: concern. Targets: CommunityMech:000019.
+
+Non-graph prose overstates counts, activity, causal gradients and measurement context.
+
+Correct Ferroplasma scale; pair exact Table 4 ages/pH/iron pools; separate stable DNA from flux. Retain source suggestions as suggestions and laboratory perturbations as laboratory evidence. Ordinal labels are not rejected for missing percentages.
+
+### Field operations and distinct laboratory media
+
+completeness: concern. Targets: CommunityMech:000019.
+
+The merged 9K recipe is neither a single reproducible variant nor evidence of focal heap use.
+
+Six duplicated salt pairs and different FeSO4·7H2O amounts require source-variant reconciliation. Correct hydrate/substance grounding and current links; recover MAC assay conditions separately, without importing them into the industrial heap.
+
+### Qualified reaction-cycle synthesis
+
+graph: supported. Targets: CommunityMech:000019.
+
+Retain five untyped nodes and all eight PARTIAL arrows.
+
+Existing wording already separates observed field associations, measured laboratory capacities and inferred chemical feedback. It excludes taxon-resolved field flux, exact closed syntrophy and a universal ferric-iron benefit.
+
+### Acidithiobacillus Iron Oxidation and Early-Heap Association
+
+graph: supported. Targets: CommunityMech:000019.
+
+Early field abundance and laboratory iron oxidation are supported; no direct field oxidation flux or competitive displacement.
+
+Field ecological_interactions[0]; name Acidithiobacillus Iron Oxidation and Early-Heap Association; scope PAIRWISE; no interaction_type asserted. Actual taxa: {"source": {"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, "target": null, "participants": []}. Canonical exact excerpts are inspected via [{"selector": "ecological_interactions[0].evidence[0].snippet", "sha256": "3d0d3f37e09b842a16711878c11895ffaa8dbf7b740196900edf195b51948beb", "reference": "doi:10.1111/j.1751-7915.2009.00112.x", "supports": "SUPPORT", "evidence_source": "IN_VIVO"}, {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "94e7db42840511403fb939ffbd027023499fd3945892c6102e5e8b11bb8a2010", "reference": "doi:10.3389/fmicb.2022.820052", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Source/locator evidence below and snippet-audit SHA256 c0af8c7a855263098aaed1612cc73133aa566c0609ced01aa42d86563945bc74 bind this assessment; no long quote is recopied. Early field abundance and laboratory iron oxidation are supported; no direct field oxidation flux or competitive displacement.
+
+### Direction 0 → 3
+
+graph: supported. Targets: CommunityMech:000019.
+
+Retain the source-qualified PARTIAL chemical or physiological contribution.
+
+Exact selector ecological_interactions[0].downstream[0]; direction ecological_interactions[0] (Acidithiobacillus Iron Oxidation and Early-Heap Association) → ecological_interactions[3] (Copper Sulfide Dissolution). Source taxa {"source": {"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, "target": null, "participants": []}; destination taxa {"source": null, "target": null, "participants": [{"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, {"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930", "label": "Acidithiobacillus thiooxidans"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"}, {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}]}. Retained tier PARTIAL. PARTIAL - A. ferrooxidans iron oxidation can replenish ferric oxidant for mineral attack. The chemical cycle and laboratory oxidation support this direction, but the SX assay shows that retained iron oxidation need not sustain copper recovery, and the field contribution is not taxon-resolved.. The source node excerpt selectors/hashes are enumerated in node-0; its cited PMID/DOI and exact section locators are in the linked evidence. No separate edge excerpt or unmeasured flux is invented.
+
+### Aged-Heap Iron-Oxidizer Association
+
+graph: supported. Targets: CommunityMech:000019.
+
+Aged-heap association is supported, with L. ferriphilum ~10^5 versus Ferroplasma ~10^3 DNA copies/mL; pH/redox drivers remain inferred.
+
+Field ecological_interactions[1]; name Aged-Heap Iron-Oxidizer Association; scope COMMUNITY_LEVEL; no interaction_type asserted. Actual taxa: {"source": null, "target": null, "participants": [{"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"}]}. Canonical exact excerpts are inspected via [{"selector": "ecological_interactions[1].evidence[0].snippet", "sha256": "420bd873328f49181ff418623136f47fe558c1999dcee30d86d7a356aa42c893", "reference": "doi:10.1111/j.1751-7915.2009.00112.x", "supports": "SUPPORT", "evidence_source": "IN_VIVO"}, {"selector": "ecological_interactions[1].evidence[1].snippet", "sha256": "185004030b966cb5e3b6c0da51b2ea5fad032c8cc0630f99777eee9d2900e396", "reference": "doi:10.1111/j.1751-7915.2009.00112.x", "supports": "PARTIAL", "evidence_source": "IN_VIVO"}]. Source/locator evidence below and snippet-audit SHA256 c0af8c7a855263098aaed1612cc73133aa566c0609ced01aa42d86563945bc74 bind this assessment; no long quote is recopied. Aged-heap association is supported, with L. ferriphilum ~10^5 versus Ferroplasma ~10^3 DNA copies/mL; pH/redox drivers remain inferred.
+
+### Direction 1 → 3
+
+graph: supported. Targets: CommunityMech:000019.
+
+Retain the source-qualified PARTIAL chemical or physiological contribution.
+
+Exact selector ecological_interactions[1].downstream[0]; direction ecological_interactions[1] (Aged-Heap Iron-Oxidizer Association) → ecological_interactions[3] (Copper Sulfide Dissolution). Source taxa {"source": null, "target": null, "participants": [{"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"}]}; destination taxa {"source": null, "target": null, "participants": [{"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, {"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930", "label": "Acidithiobacillus thiooxidans"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"}, {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}]}. Retained tier PARTIAL. PARTIAL - iron oxidation by the aged-heap associated taxa could replenish ferric oxidant for dissolution. Field succession and separate L. ferriphilum cultures support the proposed contribution without measuring their individual heap fluxes or proving displacement-driven leaching.. The source node excerpt selectors/hashes are enumerated in node-1; its cited PMID/DOI and exact section locators are in the linked evidence. No separate edge excerpt or unmeasured flux is invented.
+
+### Sulfur Oxidation to Sulfuric Acid
+
+graph: supported. Targets: CommunityMech:000019.
+
+Sulfur-oxidation capacity and field activity are supported; stable DNA does not prove constant acid flux, and A. caldus laboratory data are not A. thiooxidans data.
+
+Field ecological_interactions[2]; name Sulfur Oxidation to Sulfuric Acid; scope PAIRWISE; no interaction_type asserted. Actual taxa: {"source": {"id": "NCBITaxon:930", "label": "Acidithiobacillus thiooxidans"}, "target": null, "participants": []}. Canonical exact excerpts are inspected via [{"selector": "ecological_interactions[2].evidence[0].snippet", "sha256": "91ce3186b6d2c531df99f96c2b88bbc6dd39fe2fedf77047a521bf958215032c", "reference": "doi:10.1111/j.1751-7915.2009.00112.x", "supports": "PARTIAL", "evidence_source": "IN_VIVO"}, {"selector": "ecological_interactions[2].evidence[1].snippet", "sha256": "cf28f63a3f518dd212609090e75420b4fd17312cde824e55e673367fd8bd977f", "reference": "doi:10.3389/fmicb.2022.820052", "supports": "PARTIAL", "evidence_source": "OTHER"}]. Source/locator evidence below and snippet-audit SHA256 c0af8c7a855263098aaed1612cc73133aa566c0609ced01aa42d86563945bc74 bind this assessment; no long quote is recopied. Sulfur-oxidation capacity and field activity are supported; stable DNA does not prove constant acid flux, and A. caldus laboratory data are not A. thiooxidans data.
+
+### Direction 2 → 3
+
+graph: supported. Targets: CommunityMech:000019.
+
+Retain the source-qualified PARTIAL chemical or physiological contribution.
+
+Exact selector ecological_interactions[2].downstream[0]; direction ecological_interactions[2] (Sulfur Oxidation to Sulfuric Acid) → ecological_interactions[3] (Copper Sulfide Dissolution). Source taxa {"source": {"id": "NCBITaxon:930", "label": "Acidithiobacillus thiooxidans"}, "target": null, "participants": []}; destination taxa {"source": null, "target": null, "participants": [{"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, {"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930", "label": "Acidithiobacillus thiooxidans"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"}, {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}]}. Retained tier PARTIAL. PARTIAL - sulfur oxidation can generate acidity and limit reduced-sulfur accumulation, helping sustain mineral attack under suitable conditions. A. thiooxidans-specific acid flux and passivation removal were not selectively established in the field survey.. The source node excerpt selectors/hashes are enumerated in node-2; its cited PMID/DOI and exact section locators are in the linked evidence. No separate edge excerpt or unmeasured flux is invented.
+
+### Copper Sulfide Dissolution
+
+graph: supported. Targets: CommunityMech:000019.
+
+Conditional mineral dissolution and chemical feedback are supported; mixed ore and additional indigenous organisms prevent a closed-five-member interpretation.
+
+Field ecological_interactions[3]; name Copper Sulfide Dissolution; scope COMMUNITY_LEVEL; no interaction_type asserted. Actual taxa: {"source": null, "target": null, "participants": [{"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, {"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930", "label": "Acidithiobacillus thiooxidans"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"}, {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}]}. Canonical exact excerpts are inspected via [{"selector": "ecological_interactions[3].evidence[0].snippet", "sha256": "79c87cf6d3ad9802ad751a5ad6eeb7f3a1bcd410fcef69ca90e018c0a9cd514b", "reference": "doi:10.3389/fmicb.2022.820052", "supports": "PARTIAL", "evidence_source": "OTHER"}, {"selector": "ecological_interactions[3].evidence[1].snippet", "sha256": "f17dc849a24820d48f2b6dcf7244f194c36c3622d1e45c9178a769fde23a5c65", "reference": "doi:10.3389/fmicb.2022.820052", "supports": "PARTIAL", "evidence_source": "OTHER"}]. Source/locator evidence below and snippet-audit SHA256 c0af8c7a855263098aaed1612cc73133aa566c0609ced01aa42d86563945bc74 bind this assessment; no long quote is recopied. Conditional mineral dissolution and chemical feedback are supported; mixed ore and additional indigenous organisms prevent a closed-five-member interpretation.
+
+### Direction 3 → 0
+
+graph: supported. Targets: CommunityMech:000019.
+
+Retain the source-qualified PARTIAL chemical or physiological contribution.
+
+Exact selector ecological_interactions[3].downstream[0]; direction ecological_interactions[3] (Copper Sulfide Dissolution) → ecological_interactions[0] (Acidithiobacillus Iron Oxidation and Early-Heap Association). Source taxa {"source": null, "target": null, "participants": [{"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, {"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930", "label": "Acidithiobacillus thiooxidans"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"}, {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}]}; destination taxa {"source": {"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, "target": null, "participants": []}. Retained tier PARTIAL. PARTIAL - mineral attack releases ferrous iron that can supply A. ferrooxidans oxidation, regenerating ferric oxidant. This is a chemically grounded substrate feedback, not a measured taxon-resolved closed loop in the industrial heap.. The source node excerpt selectors/hashes are enumerated in node-3; its cited PMID/DOI and exact section locators are in the linked evidence. No separate edge excerpt or unmeasured flux is invented.
+
+### Direction 3 → 1
+
+graph: supported. Targets: CommunityMech:000019.
+
+Retain the source-qualified PARTIAL chemical or physiological contribution.
+
+Exact selector ecological_interactions[3].downstream[1]; direction ecological_interactions[3] (Copper Sulfide Dissolution) → ecological_interactions[1] (Aged-Heap Iron-Oxidizer Association). Source taxa {"source": null, "target": null, "participants": [{"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, {"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930", "label": "Acidithiobacillus thiooxidans"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"}, {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}]}; destination taxa {"source": null, "target": null, "participants": [{"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"}]}. Retained tier PARTIAL. PARTIAL - released ferrous iron can supply the iron-oxidizing taxa associated with older strips. Their individual uptake and feedback fluxes were not traced by the field abundance and RNA assays.. The source node excerpt selectors/hashes are enumerated in node-3; its cited PMID/DOI and exact section locators are in the linked evidence. No separate edge excerpt or unmeasured flux is invented.
+
+### Direction 3 → 2
+
+graph: supported. Targets: CommunityMech:000019.
+
+Retain the source-qualified PARTIAL chemical or physiological contribution.
+
+Exact selector ecological_interactions[3].downstream[2]; direction ecological_interactions[3] (Copper Sulfide Dissolution) → ecological_interactions[2] (Sulfur Oxidation to Sulfuric Acid). Source taxa {"source": null, "target": null, "participants": [{"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, {"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930", "label": "Acidithiobacillus thiooxidans"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"}, {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}]}; destination taxa {"source": {"id": "NCBITaxon:930", "label": "Acidithiobacillus thiooxidans"}, "target": null, "participants": []}. Retained tier PARTIAL. PARTIAL - mineral dissolution generates reduced inorganic sulfur substrates that can feed A. thiooxidans sulfur oxidation. The reaction-cycle context supports direction, not selective proof of its share of field acid generation or passivation control.. The source node excerpt selectors/hashes are enumerated in node-3; its cited PMID/DOI and exact section locators are in the linked evidence. No separate edge excerpt or unmeasured flux is invented.
+
+### Direction 3 → 4
+
+graph: supported. Targets: CommunityMech:000019.
+
+Retain the source-qualified PARTIAL chemical or physiological contribution.
+
+Exact selector ecological_interactions[3].downstream[3]; direction ecological_interactions[3] (Copper Sulfide Dissolution) → ecological_interactions[4] (Sulfobacillus Iron and Sulfur Oxidation Capacity). Source taxa {"source": null, "target": null, "participants": [{"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, {"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930", "label": "Acidithiobacillus thiooxidans"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"}, {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}]}; destination taxa {"source": {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}, "target": null, "participants": []}. Retained tier PARTIAL. PARTIAL - chalcopyrite-associated ferrous iron and reduced sulfur can feed Sulfobacillus oxidation in the tested cultures. This substrate feedback does not demonstrate exact-species transfer or activity in hotter industrial heap niches.. The source node excerpt selectors/hashes are enumerated in node-3; its cited PMID/DOI and exact section locators are in the linked evidence. No separate edge excerpt or unmeasured flux is invented.
+
+### Sulfobacillus Iron and Sulfur Oxidation Capacity
+
+graph: supported. Targets: CommunityMech:000019.
+
+Separate laboratory iron/sulfur oxidation is supported; older-strip Sulfobacillus genus RNA does not identify exact S. thermosulfidooxidans or a measured hot-zone contribution.
+
+Field ecological_interactions[4]; name Sulfobacillus Iron and Sulfur Oxidation Capacity; scope PAIRWISE; no interaction_type asserted. Actual taxa: {"source": {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}, "target": null, "participants": []}. Canonical exact excerpts are inspected via [{"selector": "ecological_interactions[4].evidence[0].snippet", "sha256": "7de825c554f7b36286744e748616f12e7529f34e75af22657d27c25c871fe8fb", "reference": "doi:10.1111/j.1751-7915.2009.00112.x", "supports": "PARTIAL", "evidence_source": "IN_VIVO"}, {"selector": "ecological_interactions[4].evidence[1].snippet", "sha256": "3c8269df35ed2b3385b3180e3787465a6ef2bfa9fa6c997a207d00584510828a", "reference": "doi:10.3389/fmicb.2018.03059", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Source/locator evidence below and snippet-audit SHA256 c0af8c7a855263098aaed1612cc73133aa566c0609ced01aa42d86563945bc74 bind this assessment; no long quote is recopied. Separate laboratory iron/sulfur oxidation is supported; older-strip Sulfobacillus genus RNA does not identify exact S. thermosulfidooxidans or a measured hot-zone contribution.
+
+### Direction 4 → 3
+
+graph: supported. Targets: CommunityMech:000019.
+
+Retain the source-qualified PARTIAL chemical or physiological contribution.
+
+Exact selector ecological_interactions[4].downstream[0]; direction ecological_interactions[4] (Sulfobacillus Iron and Sulfur Oxidation Capacity) → ecological_interactions[3] (Copper Sulfide Dissolution). Source taxa {"source": {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}, "target": null, "participants": []}; destination taxa {"source": null, "target": null, "participants": [{"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, {"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930", "label": "Acidithiobacillus thiooxidans"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"}, {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}]}. Retained tier PARTIAL. PARTIAL - Sulfobacillus iron/sulfur oxidation can support leaching in the tested laboratory systems, subject to redox potential and SX inhibition. The lower-ORP advantage contradicts a universal more-iron-oxidation benefit; exact field-species and hot-zone contributions remain unresolved.. The source node excerpt selectors/hashes are enumerated in node-4; its cited PMID/DOI and exact section locators are in the linked evidence. No separate edge excerpt or unmeasured flux is invented.
+
+### Exact labels and semantic identities
+
+grounding: concern. Targets: CommunityMech:000019.
+
+Labels match, but tailing, salt hydration and bulk-sulfur meanings need correction.
+
+Correct source-specific materials rather than changing valid labels to make a wrong ID appear right. All five taxon IDs resolve; laboratory species substitutions are a scope problem, not an ID-label failure.
+
+### Valid mappings with unproven release metadata
+
+provenance: concern. Targets: CommunityMech:000019.
+
+All five cores reproduce; latest/build provenance does not.
+
+Retain exact-ID/name routes and aggregate confidence/genome counts. Do not equate name differences with new field identification or genome counts with abundance.
+
+### Study archives and maintained medium links
+
+representation: concern. Targets: CommunityMech:000019.
+
+Two verified expression resources are unrepresented, and legacy medium links need source-aware repair.
+
+Resource omission is a bounded completeness finding; medium link defects stay within the medium major. No new heap sequencing archive, raw reanalysis or automatic MIM migration is claimed.
+
+### Exact text versus entailment
+
+evidence: supported. Targets: CommunityMech:000019.
+
+Thirty-two cache matches and thirty-one strict fresh matches are separately recorded.
+
+The single superscript-space projection is explicit. Matching does not rescue incorrect local evidence explanations, role claims or field/laboratory scope.
+
+### Original records and review boundaries
+
+provenance: supported. Targets: CommunityMech:000019.
+
+Prior graph work, current issues and original failures remain immutable.
+
+Official inspection binds36 safe files. The extra colon-named cache is discovery-only context; it is not a 37th official scientific input. No history or external issue was changed.
+
+### Complete current-claim audit with bounded supporting source
+
+scope: supported. Targets: CommunityMech:000019.
+
+The full field/laboratory sources and supplements suffice to assess current claims.
+
+PMID19104861 remains abstract/preview-only. Its closely-related-isolate claim is bounded; no unread Methods/figure claim is certified. Complete review still requires curation.
+
+### Native and contextual outcomes
+
+schema: supported. Targets: CommunityMech:000019.
+
+Eight focused checks pass; corpus and optional adapter outcomes are explicit.
+
+No maintained input changed. The failed initial inspection is administrative scope recovery, not a failed record/candidate validation.
+
+### Literal native scores
+
+completeness: supported. Targets: CommunityMech:000019.
+
+Completeness 90; raw quality 101, capped 100.
+
+## Findings
+
+### heap-scope: Restore open-heap and member-role scope
+
+major / open / confirmed; issue key: cm-000019-heap-scope.
+
+The record presents an engineered five-member assembly and tailings environment although the focal field source describes an open indigenous community on run-of-mine ore. Laboratory species/strains and inferred functions are promoted beyond their field resolution, including unsupported Ferroplasma PRIMARY_PRODUCER.
+
+### field-measurements: Correct field quantities and activity interpretations
+
+major / open / confirmed; issue key: cm-000019-field-measurements.
+
+Non-graph prose conflates DNA abundance with activity/flux, assigns Ferroplasma the wrong abundance scale, mixes heap ages and iron measurements, and extends source-specific temperature/oxygen/causal inferences beyond their evidence.
+
+### medium-protocol: Separate medium variants and source protocols
+
+major / open / confirmed; issue key: cm-000019-medium-protocol.
+
+The single 9K block combines duplicate source variants, different iron-salt quantities and mismatched chemical forms, while cited laboratory studies use separate MAC protocols and do not establish that recipe for the field heap.
+
+### gtdb-provenance: Correct GTDB snapshot provenance
+
+minor / open / confirmed; issue key: cm-000019-gtdb-provenance.
+
+GTDB latest-release/build-date wording is not established by the local mapping digest and filesystem modification time.
+
+### expression-resources: Link the verified laboratory expression studies
+
+minor / open / confirmed; issue key: cm-000019-expression-resources.
+
+The record cites transcriptomic findings without linking the two publicly verified study archives.
+
+## Recommended Actions And Acceptance Checks
+
+### restore-heap-scope
+
+Represent an indigenous community in an engineered industrial installation.
+
+- Remove the unsupported engineered-five-member assembly and designed-gradient assertions. Choose origin/state using literal schema definitions while preserving industrial engineering and BIOMINING context.
+- Use non-agglomerated run-of-mine mixed copper ore, not tailings or source-unreported crushing. ENVO:02000094 ore is an authority-verified material candidate; do not pretend it also encodes heap geometry.
+- Retain source-attributed representatives without treating them as exhaustive or deliberately inoculated. Separate field Sulfobacillus genus signals from S. thermosulfidooxidans laboratory species; preserve A. caldus in2018 and L. ferrooxidans in2022 as distinct comparators.
+- Retain Ferroplasma PRIMARY_PRODUCER only with local carbon-fixation support; otherwise omit that optional role without claiming global inability. Require actual source-supported partnership for SYNTROPHIC_PARTNER, without adding obligacy. Mineral PRIMARY_DEGRADER may remain as appropriately qualified capability.
+
+### repair-field-claims
+
+Align non-graph claims with measured observables and experiment context.
+
+- Correct Ferroplasma to approximately 10^3 DNA copies/mL in the field; keep L. ferriphilum approximately 10^5 distinct. Stable A. thiooxidans DNA counts and RNA activity proxies must not be called constant sulfur-oxidation flux. Retain ordinal categories without mandatory percentages.
+- Use the approximately 400-day source cycle and exact Table 4 pairings:30-day S10 pH 2.30/FeIII 0.87;150-day S8 pH 1.83/FeIII 1.86;330-day S5 pH 1.67/iron ND. Keep the separate300-day footnote FeIII 1.88 distinct from total Fe 1.9 and from S5.
+- Support or qualify20–60 °C,50–60 °C hot-zone and oxygen-gradient statements; the focal source directly reports base blowers, not spatial oxygen measurements. Keep pH/redox succession as author interpretation of field associations.
+- Attach exact Results/Table/Methods evidence to each quantitative or mechanistic claim. Laboratory DSF/SX assays remain IN_VITRO and dose/strain-specific; general chemical-cycle context remains partial background. Do not transfer L. ferrooxidans results to L. ferriphilum or A. caldus results to A. thiooxidans.
+- Retain all five individually assessed nodes and eight PARTIAL arrows, conditional copper recovery, and no inferred closed five-member exchange cycle or monotonically greater recovery with stronger iron oxidation.
+
+### reconcile-medium
+
+Represent sourced recipes and protocols without double-counting or chemical substitution.
+
+- Resolve all 14 rows into explicit recipe variants: six duplicated salt pairs are not separate additions. Do not sum or average44.22 and49.9501 g/L FeSO4·7H2O, or silently substitute a current external recipe for a cited study.
+- For the stated hydrates, use verified CHEBI:31795 and CHEBI:75836 as appropriate; bulk elemental sulfur can use CHEBI:33403. Preserve calcium-nitrate hydration uncertainty and source-specific acid addition/pH adjustment. Graph sulfur-atom context remains separately qualified.
+- Keep CultureMech:003277 identity and update its current normalized 9K link. The twelve legacy MIM identifiers require exact current identity resolution or removal of unresolved links; do not migrate IDs by label alone. Current CultureMech environment text backfilled from this record cannot support the field environment.
+- Represent2018 MAC mineral cultures separately from iron/tetrathionate precultures:100 mL/250 mL,pH 1.8,2%chalcopyrite,38±2 °C,120 rpm,10^7 cells/mL per species and14 days after ORP 400 mV versus Ag/AgCl. Keep material particle size and duration criterion source-local.
+- Separate2021 signal/iron/RNA assays and2022 bioleaching/biofilm/MPN protocols, with their actual strains, temperatures, volumes, agitation and additions. Field irrigation is not a 9K flask protocol. Preserve source internal inoculum/AHL dose discrepancies instead of silently resolving them.
+
+### repair-gtdb
+
+Replace unsupported release/build claims with verifiable local provenance.
+
+- Record exact crosswalk digest, lookup route and actual access time. Label filesystem mtime as mtime, not release/build identity; remove unsupported latest wording.
+- Retain all five current cores and source names:1.0/10,1.0/6,1.0/43,0.91/22 and1.0/6 for the ordered taxa. Name-fallback routes are valid; do not force exact-ID or exact-strain mapping.
+
+### link-expression-data
+
+Add verified source-specific expression resources.
+
+- Link PRJEB27534/ERP109624 to the 2018 A.caldus/L.ferriphilum/S.thermosulfidooxidans laboratory cultures, and E-MTAB-9845/ERP125500 to 2021 L.ferriphilum DSM14647 signal treatments.
+- Describe twelve archived2018 runs without equating them to the paper’s nine sequenced samples or independent heap samples. Describe twelve 2021 libraries/four per condition only at the metadata-supported scope.
+- Keep AFOH00000000.1 and source AFOH01000000 plus assembly references as background strain resources. Do not certify unread code or bypass its certificate failure.
+
+### validate-future-curation
+
+Validate separately authorized repairs and preserve review provenance.
+
+- After authorized curation, update claim-local evidence/history and run schema, strict, terms, references, GTDB, domain and history checks, then just gen-html and just check-docs-current. This review does not mutate canonical records or generated pages.
+- Retain original failed inspection,36-input successful boundary, discovery-only coloncache, all source/access versions and supporting-isolate full-text limitation. No external issue closure or raw transcript reanalysis follows automatically.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Copper_Biomining_Heap_Leach.yaml; Whole maintained YAML | supports | An industrial heap synthesis with five representative taxa, five untyped qualified nodes and eight PARTIAL arrows. The graph is more carefully bounded than the unqualified assembly, quantity and medium fields. |
+| heap-summary | PMID:21255296; DOI:10.1111/j.1751-7915.2009.00112.x; Abstract (Summary) | supports | The field study quantifies community dynamics and RNA-based activity in an industrial bioleaching heap. It identifies a broader indigenous community, not a deliberately assembled five-member coculture. |
+| heap-operation | PMID:21255296; DOI:10.1111/j.1751-7915.2009.00112.x; Experimental procedures → Industrial heap and samples, sole paragraph; Results → Composition of the microbial community in the industrial bioleaching system, paragraphs 1–3 | supports | Fourteen strips contain non-agglomerated run-of-mine ore, with 0.60% copper distributed across chalcocite, covellite and chalcopyrite. Irrigation/recycled solution and base blowers support an industrial process with a roughly 400-day cycle; monthly samples span two years. This does not establish crushed tailings, deliberately selected five-member inoculation, or a designed pH/temperature perturbation. |
+| field-identity | PMID:21255296; DOI:10.1111/j.1751-7915.2009.00112.x; Results → Composition of the microbial community in the industrial bioleaching system; Discussion → Acidophilic microorganisms in the heap leaching solutions; Supporting Table S1 | supports | The field study detects additional Acidiphilium-like, Firmicutes and other groups. Sulfobacillus signals are genus-level/Sulfobacillus-like rather than definitive S. thermosulfidooxidans strain identity. Laboratory comparators may explain plausible functions without making an exhaustive field membership list. |
+| field-counts | PMID:21255296; DOI:10.1111/j.1751-7915.2009.00112.x; Results → Dynamic of the microbial communities in the heap, paragraphs 1–4; Figures 1–2 | supports | Early A. ferrooxidans phylotype counts and later L. ferriphilum counts differ from Ferroplasma, which is approximately 10^3 DNA copies/mL rather than the shared 10^5 scale asserted outside the graph. A. thiooxidans DNA abundance is relatively stable. Counts are neither reaction fluxes nor mandatory relative-abundance percentages. |
+| field-activity | PMID:21255296; DOI:10.1111/j.1751-7915.2009.00112.x; Results → 16S rRNA accumulation levels analysis, paragraphs 1–3; Time-course strip monitoring with total RNA and prokaryotic acidophile microarray; Figures 3–4 | supports | RNA and PAM measurements support activity proxies and community associations. They do not establish constant A. thiooxidans sulfur-oxidation flux, exact species-resolved iron production, selective competition, or direct temperature/oxygen niche measurements. |
+| field-chemistry | PMID:21255296; DOI:10.1111/j.1751-7915.2009.00112.x; Table 4 and its footnote; Discussion → Active microorganisms by using RNA from an industrial heap, paragraphs 1–4 | supports | Table 4 pairs S10 at 30 days with pH 2.30 and FeIII 0.87 g/L; S8 at 150 days with pH 1.83 and FeIII 1.86 g/L; S5 at 330 days with pH 1.67 and iron not determined. The separate approximately 300-day footnote reports FeIII 1.88 g/L. Total iron and ferric iron are distinct, and these observations do not prove a monotonically beneficial ferric-iron effect. |
+| lab2018-protocol | PMID:30631311; DOI:10.3389/fmicb.2018.03059; Materials and Methods → Mineral; Bacterial Strains and Growth Conditions; Bioleaching Experiments | supports | The laboratory panel is A. caldus DSM 8584, L. ferriphilum DSM 14647 and S. thermosulfidooxidans DSM 9293. MAC medium, 100 mL in 250 mL flasks, pH 1.8, 2% chalcopyrite, 38 ± 2 °C, 120 rpm and 10^7 cells/mL per species describe these assays. Cultures ran 14 days after ORP exceeded 400 mV versus Ag/AgCl, giving different total durations. Preculture iron/tetrathionate conditions are separate. |
+| lab2018-results | PMID:30631311; DOI:10.3389/fmicb.2018.03059; Results and Discussion → Bioleaching of Chalcopyrite Concentrate, paragraphs 1–8; Figure 1; Transcriptomic Analysis; Supplementary Tables 2–4 | supports | The A. caldus/Sulfobacillus binary reached the highest copper release, while all binaries exceeded the triple culture. Weaker iron oxidation/lower ORP can favor chalcopyrite dissolution; transcript changes support conditional physiological interpretation rather than obligatory syntrophy or a universal benefit from stronger iron oxidation. |
+| dsf-protocol | PMID:34381075; DOI:10.1038/s41598-021-95324-9; Material and methods → Bacteria and growth conditions; Iron oxidation activity tests; RNA extraction, rRNA depletion, library preparation, and sequencing | supports | MAC cultures and species-specific temperatures are laboratory conditions. Signal exposure, iron-oxidation assays and the 50 mL/100 mL-flask, 37 °C, 140 rpm, two-hour RNA experiment must remain separate. Main Methods and Results/captions conflict on individual-versus-combined inoculum counts; do not silently select one when adding doses. |
+| dsf-results | PMID:34381075; DOI:10.1038/s41598-021-95324-9; Results → Presence of DSF-family compounds in cultures of L. ferrooxidans and L. ferriphilum; Physiological effects of synthetic DSF and BDSF on growth and iron oxidation; Discussion; Figures 1–9 | supports | Biogenic signal detection, exogenous signal assays and transcriptional response support laboratory effects. Niche protection remains the authors’ proposed interpretation; none of these experiments directly measures in situ competitive exclusion in the focal heap. Nanomolar biogenic signals and micromolar interventions have distinct scopes. |
+| sx-protocol | PMID:35369491; DOI:10.3389/fmicb.2022.820052; Materials and Methods → Strains and Cultivation; Preparation of Chalcopyrite Waste Rock Slices and Grains; Impact of the Solvent Extraction Reagent on Bioleaching and Biofilm Formation | supports | The panel uses A. ferrooxidans ATCC 53993, L. ferrooxidans DSM 2705 and S. thermosulfidooxidans DSM 9293, not the five field representatives. MAC growth/bioleaching, waste-rock mineral, SX concentrations, temperatures, 120 rpm leaching and 80 rpm biofilm assays are source-specific. Iron/sulfur/yeast-extract precultures do not supply a universal heap recipe. |
+| sx-results | PMID:35369491; DOI:10.3389/fmicb.2022.820052; Results and Discussion → three species-specific bioleaching subsections; Figures 4–11; Table 1 | supports | A. ferrooxidans can retain iron oxidation while SX lowers copper recovery toward the abiotic level; L. ferrooxidans is sensitive to 50 mg/L, and Sulfobacillus responses differ at 10 versus 50 mg/L. SYTO9/ConA images report cell location/EPS, not viability staining; viable iron oxidizers are assessed separately by MPN. Preserve the existing conditional graph. |
+| reaction-cycle | PMID:35369491; DOI:10.3389/fmicb.2022.820052; Introduction, paragraphs 1–3 | supports | General ferric attack, ferrous regeneration and reduced-sulfur oxidation explain directed chemical feedback. This background supports PARTIAL arrows, not a traced five-member exchange cycle or taxon-resolved field flux. |
+| genome-context | PMID:22123759; DOI:10.1128/JB.06281-11; ANNOUNCEMENT and Nucleotide sequence accession numbers | supports | The full genome announcement concerns A. thiooxidans ATCC 19377 and AFOH00000000/AFOH01000000. Annotation supports strain capability and background resource identity, not proof that this stock occupied the field heap or supplied a measured community flux. |
+| isolate-context | PMID:19104861; DOI:10.1007/s10295-008-0508-5; Publisher Abstract and explicit subscription-preview notice | supports | The abstract reports metal-tolerant isolates closely related to several species and no necessary link between stronger metal tolerance and bioleaching performance. Full main text was not recovered. This bounded supporting context does not establish exact S. thermosulfidooxidans identity or a 50–60 °C niche in the focal heap. |
+| supplements | PMID:21255296; DOI:10.1111/j.1751-7915.2009.00112.x; PMID:30631311; DOI:10.3389/fmicb.2018.03059; PMID:34381075; DOI:10.1038/s41598-021-95324-9; 2009 Supporting Figures S1–S3/Table S1/Methods; 2018 Data Sheet 1 Tables 1–4/Figures 1–2 and Data Sheet 2; 2021 Supplemental Figures S1–S5/Tables S1–S2 | supports | Whole supplemental text, all ten supplemental figures and the complete nonempty-cell mineral workbook values were inspected. Source taxon/gene assignments and assay controls support the bounded interpretation. DSF Supplemental Table S2 uses 2 µM AHL each versus 5 µM in main Methods. No raw transcript or numerical reanalysis is claimed. |
+| ontology | /private/tmp/cm-review-session/batch-13/000019/ontology-authority.json; Twenty-one exact labels/definitions across forty-two placements | supports | All labels match. Semantic agreement is separate: mine tailing denotes post-separation material, whereas the field heap contains run-of-mine ore. |
+| chemistry | /private/tmp/cm-review-session/batch-13/000019/child-chemical-environment-candidates.json; All fourteen recipe rows and verified candidate definitions/formulas | supports | Named MgSO4·7H2O can use CHEBI:31795; named FeSO4·7H2O conflicts with the anhydrous term and can use CHEBI:75836. Bulk elemental sulfur can use CHEBI:33403 without assuming S8. ENVO:02000094 ore is a material candidate, not a complete heap geometry term. |
+| schema | /private/tmp/cm-review-session/batch-13/000019/child-schema-semantics.json; Literal role, origin/state, evidence, abundance and interaction definitions | supports | PRIMARY_PRODUCER requires carbon fixation. PRIMARY_DEGRADER does not exclude complex inorganic minerals. SYNTROPHIC_PARTNER requires source-supported syntrophic metabolism without an invented obligacy rule. Ordinal abundance has no forced quantitative threshold. |
+| lineage | /private/tmp/cm-review-session/batch-13/000019/child-taxon-lineage.json; Five encoded species ranks and ancestry | supports | All five species identities resolve; exact field occurrence, strain equivalence and exhaustive membership still require source evidence. |
+| gtdb | /private/tmp/cm-review-session/batch-13/000019/child-gtdb-crosswalk.json; Two exact-ID and three documented name-fallback resolutions | supports | The five current mapping cores reproduce: A. ferrooxidans 1.0/10; L. ferriphilum to Leptospirillum_A rubarum 1.0/6; A. thiooxidans 1.0/43; F. acidiphilum to F. acidarmanus 0.91/22; S. thermosulfidooxidans 1.0/6. Genome support is not community abundance; latest/build-date wording is unsupported. |
+| semantics | /private/tmp/cm-review-session/batch-13/000019/ontology-semantic-notes.json; Whole final source-aware semantic assessment | supports | The agreed three major/two minor groups retain five nodes/eight arrows, ordinal abundance and broad mineral-degradation capacity. Field occurrence and optional roles remain qualified. |
+| medium-links | /private/tmp/cm-review-session/batch-13/000019/external-resource-verification.json; Current CultureMech 003277 identity; twelve exact legacy ingredient IDs/paths | supports | CultureMech 003277 resolves to JCM J92 9K at its current normalized YAML path; the encoded old URL is 404. Twelve distinct legacy MIM IDs/paths are absent from the complete current committed tree and 2953-record index. Current exact-form candidates need curator verification. CultureMech backfilled environment text is circular context, not independent field evidence. |
+| resources | /private/tmp/cm-review-session/batch-13/000019/dataset-verification.json; PRJEB27534/ERP109624; E-MTAB-9845/ERP125500; background accession metadata | supports | Both transcriptomic study identities are verified. PRJEB27534 has twelve public run/sample entries, not automatically the paper’s nine sequenced samples or heap replicates. E-MTAB-9845 describes twelve DSM14647 treatment libraries. AFOH and assembly references remain background strain resources. The code URL failed certificate validation; its code was not read or executed. |
+| snippets | /private/tmp/cm-review-session/batch-13/000019/snippet-audit.json; Thirty-two reference-specific excerpt occurrences | supports | All32 excerpts strictly match selected caches;31 strictly match fresh sources. One Fe3+/Fe2+ superscript-spacing difference has a separately preserved explicit rendering projection. Matching is distinct from claim entailment. |
+| snippet-projection | /private/tmp/cm-review-session/batch-13/000019/snippet-rendering-projection.json; Exact single superscript/spacing occurrence | supports | The one typography difference is not a separate biological finding and does not turn all 32 occurrences into strict fresh matches. |
+| contexts | /private/tmp/cm-review-session/batch-13/000019/snippet-source-contexts.json; Containing source contexts and exact excerpt selectors | supports | All current source-specific contexts were reviewed by the supporting reviewer. Canonical excerpt selectors and SHA256 values are retained in each graph assessment without repeating long quotations. |
+| provenance | /private/tmp/cm-review-session/batch-13/000019/provenance-audit.json; Exact batch25 records[0], history, safe caches and four cohort contexts | supports | Prior graph repair and closed1356 do not settle the remaining non-graph claims;1358 and explicitly relevant shared issues remain scoped. Cohort BIOMINING membership is aggregate context, not a focal scientific certification. |
+| inspect | /private/tmp/cm-review-session/batch-13/000019/inspect-v2.json; Thirty-six successful official input pins | supports | The target,21 authorities and14 safe focal files are bound. Ignored-inclusive focal discovery distinguishes the additional colon-named Crossref metadata as retrieval context only. |
+| inspect-boundary | /private/tmp/cm-review-session/batch-13/000019/inspect-path-contract-clarification.json; Original failed inspect and successful safe-path inspection | supports | Initial inspect rejected an existing colon-named metadata path. Its empty stdout is preserved as a failed command artifact, not JSON source evidence. No validator was relaxed and no candidate validation failed. |
+| assets | /private/tmp/cm-review-session/batch-13/000019/lead-source-assets.json; Four whole main sources, genome announcement, all main/SI visuals and bounded preview | supports | Four complete field/laboratory papers, the genome announcement, all 27 main figure numbers and all 10 supplemental figures were reviewed. PMID19104861 remains abstract/preview-only; its noncritical supporting scope is explicit. |
+| lead-read | /private/tmp/cm-review-session/batch-13/000019/lead-primary-read-scope.json; Actual whole-source, visual and delegated authority/support read scope | supports | Lead whole-source and supplemental reading is distinguished from child native/OAK executions and sibling raw upstream/provenance verification. No second independent raw database audit is claimed. |
+| source-scope | /private/tmp/cm-review-session/batch-13/000019/source-audit.json; Five final finding groups and preserved graph | supports | Completed scientific review with three major/two minor findings. All current claims can be adjudicated despite the bounded supporting-isolate full-text limit. |
+| root-source | /private/tmp/cm-review-session/batch-13/000019/root-independent-source-audit.json; Independent final scientific review and actual source scope | supports | Root independently agrees with completed review and the five groups, preserving field-versus-laboratory boundaries and exact chemical/quantitative interpretation. |
+| root-image-correction | /private/tmp/cm-review-session/batch-13/000019/root-image-interpretation-correction.json; Append-only correction of one root image description | supports | SYTO9/ConA is cell-location/EPS microscopy rather than viability staining. MPN is separate; no finding depends on the superseded phrase. |
+| metrics | /private/tmp/cm-review-session/batch-13/000019/support-final-audit.json; Distinct final support and literal rubric | supports | Completeness 90; five nodes with ten evidence occurrences and COMPLETE network give base 135. Three major/two minor deductions yield 101 raw, capped 100. The score is not a clean verdict. |
+| support-manifest | /private/tmp/cm-review-session/batch-13/000019/supporting-artifact-manifest.json; Final supporting pins after source/root/child freeze | supports | Initial support, original failed inspection and source responses remain immutable; successful official boundary is36 inputs. |
+| auxiliary | /private/tmp/cm-review-session/batch-13/000019/auxiliary-frozen-manifest.json; Thirty-one frozen auxiliary artifacts | supports | Eight focused checks pass;21 label pairs/42 placements match; all 36 official inputs unchanged. Direct native/authority scope is explicit. |
+| final-native | /private/tmp/cm-review-session/batch-13/000019/final-validator-summary.json; Eight actual focused command outcomes | supports | Passing native structure/reference checks do not validate the five scientific/provenance findings or source-specific chemical scope. |
+| adapter | /private/tmp/cm-review-session/batch-13/000019/adapter-check.json; Fresh owned-runtime availability with dated reused discovery | supports | Optional structured adapter unavailable in task runtime; the external checkout candidate was not executed. No global absence or negative biology inference. |
+| corpus-context | /private/tmp/cm-review-session/batch-13/000019/child-current-corpus-context.json; Actual fresh batch13 corpus diagnostic receipts | supports | Both corpus diagnostics exit 1 with 44 warnings across 16/477 records and zero errors; focal target is not listed. These are nonrequired contextual checks, separate from passing focused validation. |
+| check-validate | /private/tmp/cm-review-session/batch-13/000019/validate.json; Actual immutable command/output | supports | Focused native result; science is separately assessed. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-13/000019/validate-strict.json; Actual immutable command/output | supports | Focused native result; science is separately assessed. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-13/000019/validate-terms.json; Actual immutable command/output | supports | Focused native result; science is separately assessed. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-13/000019/validate-references-explained.json; Actual immutable command/output | supports | Focused native result; science is separately assessed. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-13/000019/validate-gtdb.json; Actual immutable command/output | supports | Focused native result; science is separately assessed. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-13/000019/validate-gtdb-domain.json; Actual immutable command/output | supports | Focused native result; science is separately assessed. |
+| check-validate-history | /private/tmp/cm-review-session/batch-13/000019/validate-history.json; Actual immutable command/output | supports | Focused native result; science is separately assessed. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-13/000019/normalize-cache-names-check.json; Actual immutable command/output | supports | Focused native result; science is separately assessed. |
+| context-audit-network | /private/tmp/cm-review-session/batch-13/audit-network.json; Actual fresh batch13 corpus baseline | supports | Exit1,44 warnings in 16/477 records,zero errors; focal target not listed. |
+| context-check-network-quality | /private/tmp/cm-review-session/batch-13/check-network-quality.json; Actual fresh batch13 corpus baseline | supports | Exit1,44 warnings in 16/477 records,zero errors; focal target not listed. |
+
+## Limits And Additional Notes
+
+- PMID19104861 main text/figures were not recovered; only its full abstract and publisher preview were read. This supports closely related isolate context, not exact focal heap membership or unread protocol claims. Other current claims are covered by whole primary sources.
+- No raw RNA reanalysis, gene-function validation, chemical remeasurement or donor-resolved field flux reconstruction. All supplemental text and figure numbers were inspected;2018 mineral workbook values were read without recalculation.
+- The2021 DSF source disagrees on individual-versus-combined inoculum counts and main versus supplemental AHL dose. A converted S3 chart has overlaid/partial plotting elements; no quantitative claim is derived from that rendering. Originals remain authoritative.
+- Field DNA, rRNA/PAM, laboratory cell counts, MPN and SYTO9/ConA images measure different things. Cell-location/EPS microscopy is not viability staining. Quantitative source conflicts must not be normalized into new facts.
+- The initial inspect failed on an existing colon-named metadata file. The empty stdout is a preserved failure artifact; successful inspect-v2 binds36 files. The extra metadata is discovery-only context, not a 37th officially inspected scientific input.
+- Current upstream inventories support bounded legacy-link conclusions, not absence from untracked upstream files. CultureMech identity does not prove field use, and its backfilled environment text is circular.
+- Thirty-two strict cache matches, thirty-one strict fresh matches and one explicit superscript-space projection are preserved. Ten node-evidence occurrences across five nodes yield the 20-point evidence bonus.
+- Completed scientific review is not a clean verdict. Native schema success and the capped score do not resolve three major and two minor findings.
+- The independent root microscopy interpretation was corrected append-only and pinned; all earlier receipts and historical graph decisions remain unchanged.
+- Actual corpus diagnostics exit 1 with 44 warnings in 16/477 records and zero errors; optional adapter is unavailable in this runtime. Both are explicit nonrequired checks. Parent alone saves after whole independent acceptance.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261022T004910Z-copper-biomining-heap-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Copper biomining heap leach record review
+started_at: '2026-10-22T00:36:21.505249Z'
+finished_at: '2026-10-22T00:49:10.060304Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate source, authority and supporting reviewers; no person-level
+    independence claim.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Three major findings concern open-heap/member-role scope, non-graph measurement
+  interpretation, and medium/protocol representation. Two minor findings concern GTDB
+  provenance and missing verified expression-study links. Preserve five qualified
+  nodes and eight PARTIAL arrows. Whole focal sources and supplements support completed
+  review despite a bounded supporting-isolate full-text limit. Eight focused native
+  checks pass; completeness 90 and raw quality 101, capped 100.
+source:
+  git_revision: e117e3d37c65bfad2e04af53ab34e1325d8d7f98
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Copper_Biomining_Heap_Leach/2026-10-06T025228Z-codex-9c8b7f.yaml
+    sha256: c91461f49aec444b96693be781bdb5b86396710039e139980f9d7f70002d9f92
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    sha256: 5c620e46ecbe040463098d40373531e88b5b2bc12f08bb57b4d926b3537a0c4e
+    role: target
+  - path: references_cache/PMID_19104861.txt
+    sha256: 8aa57bcf203a71cd9b5df4b79c3c668ed5eec29e43c787deeb347a72aa391538
+    role: context
+  - path: references_cache/PMID_22123759.txt
+    sha256: 7ced7a1e9863755e1af1bc7cf3de11d6c889770e4a7dd725423cd937134393f3
+    role: context
+  - path: references_cache/PMID_30631311.txt
+    sha256: 993677f2093d5b9810fe4dbc5bc8eaef3290187abada317228a28f50a6564741
+    role: context
+  - path: references_cache/doi_10.1038_s41598-021-95324-9.md
+    sha256: 9186374fcd627ba15f1d6f5cc3473c0032d872ab2073459e61068347b8995577
+    role: context
+  - path: references_cache/doi_10.1111_j.1751-7915.2009.00112.x.md
+    sha256: 9e3ea21b12625ecc4e829d5677761bd3dbf5aadb29b1970e0956cac93ace72e9
+    role: context
+  - path: references_cache/doi_10.3389_fmicb.2018.03059.md
+    sha256: a20b7009f3ea56dcba891cac42b9b8cae962b80ccb470e37ee8945f76122fffd
+    role: context
+  - path: references_cache/doi_10.3389_fmicb.2022.820052.md
+    sha256: 17d049e355cb0e99c41ab947a8336594a3bf6313204209ca59a1f8538d0cb2cd
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261005-batch25.yaml
+    sha256: 4edc573fc23b35ff987ade1a4266973a9e1ef1e1162ea63b621fc3f9af098278
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-two-records-batch25.yaml
+    sha256: d68fe65a9567b6df683fe31c876cae278348b4eca31590d64ba494dcc96cb053
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.md
+    sha256: e432615b147787c8d009d96d2f11e5b78a45927bf9c69e45ec0d31123d1fc2e9
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/frozen_inventory_metrics.tsv
+    sha256: d5a47bbcc3745a489ff507680aa7360a6a65ce070ce4ec88f886b70128791313
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md
+    sha256: 4e7781aa8cdfc4bb42d896ebe75920719d9dcade92ffc4a0ae07af7481cb37b3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000019
+  path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+  label: Copper Biomining Heap Leach Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    role: canonical_record
+scope:
+  description: Whole current record; four whole field/laboratory papers, genome announcement,
+    all main figures and critical supplements; supporting isolate abstract/preview,
+    local provenance, native authority and source-specific resources.
+  selection: Only released CommunityMech:000019 in owned batch13; no later record
+    assessed.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000019
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000019
+  command: just --no-dotenv validate kb/communities/Copper_Biomining_Heap_Leach.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused record/history check; cache-name preflight is corpus-wide.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000019
+  command: just --no-dotenv validate-strict kb/communities/Copper_Biomining_Heap_Leach.yaml
+    --out /private/tmp/cm-review-session/batch-13/000019/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused record/history check; cache-name preflight is corpus-wide.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000019
+  command: just --no-dotenv validate-terms kb/communities/Copper_Biomining_Heap_Leach.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused record/history check; cache-name preflight is corpus-wide.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000019
+  command: just --no-dotenv validate-references-explained kb/communities/Copper_Biomining_Heap_Leach.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused record/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000019
+  command: just --no-dotenv validate-gtdb kb/communities/Copper_Biomining_Heap_Leach.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused record/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000019
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Copper_Biomining_Heap_Leach.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused record/history check; cache-name preflight is corpus-wide.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000019
+  command: just --no-dotenv validate-history history/records/Copper_Biomining_Heap_Leach
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused record/history check; cache-name preflight is corpus-wide.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000019
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused record/history check; cache-name preflight is corpus-wide.
+- check_id: context-audit-network
+  name: audit-network corpus context
+  status: failed
+  required: false
+  summary: Actual corpus baseline exit 1;44 warnings across 16/477,zero errors.
+  target_ids:
+  - CommunityMech:000019
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-13/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-audit-network
+  - corpus-context
+  scope_note: Nonrequired parent-run corpus context, distinct from eight passing focal
+    checks.
+- check_id: context-check-network-quality
+  name: check-network-quality corpus context
+  status: failed
+  required: false
+  summary: Actual corpus baseline exit 1;44 warnings across 16/477,zero errors.
+  target_ids:
+  - CommunityMech:000019
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-13/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-check-network-quality
+  - corpus-context
+  scope_note: Nonrequired parent-run corpus context, distinct from eight passing focal
+    checks.
+- check_id: optional-structured-adapter
+  name: Optional structured source adapter availability
+  status: unavailable
+  required: false
+  summary: Unavailable in owned runtime; external-checkout candidate was not executed.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - adapter
+  scope_note: Fresh runtime checks with explicitly dated reused filename discovery;
+    no provider invocation or negative biological inference.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Copper_Biomining_Heap_Leach.yaml
+  locator: Whole maintained YAML
+  summary: An industrial heap synthesis with five representative taxa, five untyped
+    qualified nodes and eight PARTIAL arrows. The graph is more carefully bounded
+    than the unqualified assembly, quantity and medium fields.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.458596Z'
+- evidence_id: heap-summary
+  kind: primary_source
+  reference: PMID:21255296; DOI:10.1111/j.1751-7915.2009.00112.x
+  locator: Abstract (Summary)
+  summary: The field study quantifies community dynamics and RNA-based activity in
+    an industrial bioleaching heap. It identifies a broader indigenous community,
+    not a deliberately assembled five-member coculture.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.458667Z'
+  snapshot_sha256: 98fa9e2416d7d3e7a8505121448bd4aadd44eac77603d59fb3d3fecc1fa6fdc6
+  quote: active communities
+- evidence_id: heap-operation
+  kind: primary_source
+  reference: PMID:21255296; DOI:10.1111/j.1751-7915.2009.00112.x
+  locator: Experimental procedures → Industrial heap and samples, sole paragraph;
+    Results → Composition of the microbial community in the industrial bioleaching
+    system, paragraphs 1–3
+  summary: Fourteen strips contain non-agglomerated run-of-mine ore, with 0.60% copper
+    distributed across chalcocite, covellite and chalcopyrite. Irrigation/recycled
+    solution and base blowers support an industrial process with a roughly 400-day
+    cycle; monthly samples span two years. This does not establish crushed tailings,
+    deliberately selected five-member inoculation, or a designed pH/temperature perturbation.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.458743Z'
+  snapshot_sha256: 98fa9e2416d7d3e7a8505121448bd4aadd44eac77603d59fb3d3fecc1fa6fdc6
+- evidence_id: field-identity
+  kind: primary_source
+  reference: PMID:21255296; DOI:10.1111/j.1751-7915.2009.00112.x
+  locator: Results → Composition of the microbial community in the industrial bioleaching
+    system; Discussion → Acidophilic microorganisms in the heap leaching solutions;
+    Supporting Table S1
+  summary: The field study detects additional Acidiphilium-like, Firmicutes and other
+    groups. Sulfobacillus signals are genus-level/Sulfobacillus-like rather than definitive
+    S. thermosulfidooxidans strain identity. Laboratory comparators may explain plausible
+    functions without making an exhaustive field membership list.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.458805Z'
+  snapshot_sha256: 98fa9e2416d7d3e7a8505121448bd4aadd44eac77603d59fb3d3fecc1fa6fdc6
+- evidence_id: field-counts
+  kind: primary_source
+  reference: PMID:21255296; DOI:10.1111/j.1751-7915.2009.00112.x
+  locator: Results → Dynamic of the microbial communities in the heap, paragraphs
+    1–4; Figures 1–2
+  summary: Early A. ferrooxidans phylotype counts and later L. ferriphilum counts
+    differ from Ferroplasma, which is approximately 10^3 DNA copies/mL rather than
+    the shared 10^5 scale asserted outside the graph. A. thiooxidans DNA abundance
+    is relatively stable. Counts are neither reaction fluxes nor mandatory relative-abundance
+    percentages.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.458866Z'
+  snapshot_sha256: 98fa9e2416d7d3e7a8505121448bd4aadd44eac77603d59fb3d3fecc1fa6fdc6
+- evidence_id: field-activity
+  kind: primary_source
+  reference: PMID:21255296; DOI:10.1111/j.1751-7915.2009.00112.x
+  locator: Results → 16S rRNA accumulation levels analysis, paragraphs 1–3; Time-course
+    strip monitoring with total RNA and prokaryotic acidophile microarray; Figures
+    3–4
+  summary: RNA and PAM measurements support activity proxies and community associations.
+    They do not establish constant A. thiooxidans sulfur-oxidation flux, exact species-resolved
+    iron production, selective competition, or direct temperature/oxygen niche measurements.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.458926Z'
+  snapshot_sha256: 98fa9e2416d7d3e7a8505121448bd4aadd44eac77603d59fb3d3fecc1fa6fdc6
+- evidence_id: field-chemistry
+  kind: primary_source
+  reference: PMID:21255296; DOI:10.1111/j.1751-7915.2009.00112.x
+  locator: Table 4 and its footnote; Discussion → Active microorganisms by using RNA
+    from an industrial heap, paragraphs 1–4
+  summary: Table 4 pairs S10 at 30 days with pH 2.30 and FeIII 0.87 g/L; S8 at 150
+    days with pH 1.83 and FeIII 1.86 g/L; S5 at 330 days with pH 1.67 and iron not
+    determined. The separate approximately 300-day footnote reports FeIII 1.88 g/L.
+    Total iron and ferric iron are distinct, and these observations do not prove a
+    monotonically beneficial ferric-iron effect.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.458988Z'
+  snapshot_sha256: 98fa9e2416d7d3e7a8505121448bd4aadd44eac77603d59fb3d3fecc1fa6fdc6
+- evidence_id: lab2018-protocol
+  kind: primary_source
+  reference: PMID:30631311; DOI:10.3389/fmicb.2018.03059
+  locator: Materials and Methods → Mineral; Bacterial Strains and Growth Conditions;
+    Bioleaching Experiments
+  summary: The laboratory panel is A. caldus DSM 8584, L. ferriphilum DSM 14647 and
+    S. thermosulfidooxidans DSM 9293. MAC medium, 100 mL in 250 mL flasks, pH 1.8,
+    2% chalcopyrite, 38 ± 2 °C, 120 rpm and 10^7 cells/mL per species describe these
+    assays. Cultures ran 14 days after ORP exceeded 400 mV versus Ag/AgCl, giving
+    different total durations. Preculture iron/tetrathionate conditions are separate.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459048Z'
+  snapshot_sha256: 78bc2cc1d5990d5f151e3bb67114f5a850473a1f10eb92f7eca824c503a1039b
+- evidence_id: lab2018-results
+  kind: primary_source
+  reference: PMID:30631311; DOI:10.3389/fmicb.2018.03059
+  locator: Results and Discussion → Bioleaching of Chalcopyrite Concentrate, paragraphs
+    1–8; Figure 1; Transcriptomic Analysis; Supplementary Tables 2–4
+  summary: The A. caldus/Sulfobacillus binary reached the highest copper release,
+    while all binaries exceeded the triple culture. Weaker iron oxidation/lower ORP
+    can favor chalcopyrite dissolution; transcript changes support conditional physiological
+    interpretation rather than obligatory syntrophy or a universal benefit from stronger
+    iron oxidation.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459123Z'
+  snapshot_sha256: 78bc2cc1d5990d5f151e3bb67114f5a850473a1f10eb92f7eca824c503a1039b
+- evidence_id: dsf-protocol
+  kind: primary_source
+  reference: PMID:34381075; DOI:10.1038/s41598-021-95324-9
+  locator: Material and methods → Bacteria and growth conditions; Iron oxidation activity
+    tests; RNA extraction, rRNA depletion, library preparation, and sequencing
+  summary: MAC cultures and species-specific temperatures are laboratory conditions.
+    Signal exposure, iron-oxidation assays and the 50 mL/100 mL-flask, 37 °C, 140
+    rpm, two-hour RNA experiment must remain separate. Main Methods and Results/captions
+    conflict on individual-versus-combined inoculum counts; do not silently select
+    one when adding doses.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459186Z'
+  snapshot_sha256: 270ecd71152b8a853059699fa5ce84ad1f9c4c8482b8c54133c547bc68dc2ab4
+- evidence_id: dsf-results
+  kind: primary_source
+  reference: PMID:34381075; DOI:10.1038/s41598-021-95324-9
+  locator: Results → Presence of DSF-family compounds in cultures of L. ferrooxidans
+    and L. ferriphilum; Physiological effects of synthetic DSF and BDSF on growth
+    and iron oxidation; Discussion; Figures 1–9
+  summary: Biogenic signal detection, exogenous signal assays and transcriptional
+    response support laboratory effects. Niche protection remains the authors’ proposed
+    interpretation; none of these experiments directly measures in situ competitive
+    exclusion in the focal heap. Nanomolar biogenic signals and micromolar interventions
+    have distinct scopes.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459259Z'
+  snapshot_sha256: 270ecd71152b8a853059699fa5ce84ad1f9c4c8482b8c54133c547bc68dc2ab4
+- evidence_id: sx-protocol
+  kind: primary_source
+  reference: PMID:35369491; DOI:10.3389/fmicb.2022.820052
+  locator: Materials and Methods → Strains and Cultivation; Preparation of Chalcopyrite
+    Waste Rock Slices and Grains; Impact of the Solvent Extraction Reagent on Bioleaching
+    and Biofilm Formation
+  summary: The panel uses A. ferrooxidans ATCC 53993, L. ferrooxidans DSM 2705 and
+    S. thermosulfidooxidans DSM 9293, not the five field representatives. MAC growth/bioleaching,
+    waste-rock mineral, SX concentrations, temperatures, 120 rpm leaching and 80 rpm
+    biofilm assays are source-specific. Iron/sulfur/yeast-extract precultures do not
+    supply a universal heap recipe.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459322Z'
+  snapshot_sha256: 0aa10fd1dcac06b5e769dd0042ad638227aa38e54ccaa06d3607ab4bb108018a
+- evidence_id: sx-results
+  kind: primary_source
+  reference: PMID:35369491; DOI:10.3389/fmicb.2022.820052
+  locator: Results and Discussion → three species-specific bioleaching subsections;
+    Figures 4–11; Table 1
+  summary: A. ferrooxidans can retain iron oxidation while SX lowers copper recovery
+    toward the abiotic level; L. ferrooxidans is sensitive to 50 mg/L, and Sulfobacillus
+    responses differ at 10 versus 50 mg/L. SYTO9/ConA images report cell location/EPS,
+    not viability staining; viable iron oxidizers are assessed separately by MPN.
+    Preserve the existing conditional graph.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459387Z'
+  snapshot_sha256: 0aa10fd1dcac06b5e769dd0042ad638227aa38e54ccaa06d3607ab4bb108018a
+- evidence_id: reaction-cycle
+  kind: primary_source
+  reference: PMID:35369491; DOI:10.3389/fmicb.2022.820052
+  locator: Introduction, paragraphs 1–3
+  summary: General ferric attack, ferrous regeneration and reduced-sulfur oxidation
+    explain directed chemical feedback. This background supports PARTIAL arrows, not
+    a traced five-member exchange cycle or taxon-resolved field flux.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459447Z'
+  snapshot_sha256: 0aa10fd1dcac06b5e769dd0042ad638227aa38e54ccaa06d3607ab4bb108018a
+- evidence_id: genome-context
+  kind: primary_source
+  reference: PMID:22123759; DOI:10.1128/JB.06281-11
+  locator: ANNOUNCEMENT and Nucleotide sequence accession numbers
+  summary: The full genome announcement concerns A. thiooxidans ATCC 19377 and AFOH00000000/AFOH01000000.
+    Annotation supports strain capability and background resource identity, not proof
+    that this stock occupied the field heap or supplied a measured community flux.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459503Z'
+  snapshot_sha256: e9091ea25fc9fa8d656732c1064351f733c14ce6e492935b64ccfd73ac48f132
+- evidence_id: isolate-context
+  kind: primary_source
+  reference: PMID:19104861; DOI:10.1007/s10295-008-0508-5
+  locator: Publisher Abstract and explicit subscription-preview notice
+  summary: The abstract reports metal-tolerant isolates closely related to several
+    species and no necessary link between stronger metal tolerance and bioleaching
+    performance. Full main text was not recovered. This bounded supporting context
+    does not establish exact S. thermosulfidooxidans identity or a 50–60 °C niche
+    in the focal heap.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459571Z'
+  snapshot_sha256: 91c4876e43a104667a024e66be8a9ae81fd1176c6724ed7d2cae2489e7eb4136
+- evidence_id: supplements
+  kind: primary_source
+  reference: PMID:21255296; DOI:10.1111/j.1751-7915.2009.00112.x; PMID:30631311; DOI:10.3389/fmicb.2018.03059;
+    PMID:34381075; DOI:10.1038/s41598-021-95324-9
+  locator: 2009 Supporting Figures S1–S3/Table S1/Methods; 2018 Data Sheet 1 Tables
+    1–4/Figures 1–2 and Data Sheet 2; 2021 Supplemental Figures S1–S5/Tables S1–S2
+  summary: Whole supplemental text, all ten supplemental figures and the complete
+    nonempty-cell mineral workbook values were inspected. Source taxon/gene assignments
+    and assay controls support the bounded interpretation. DSF Supplemental Table
+    S2 uses 2 µM AHL each versus 5 µM in main Methods. No raw transcript or numerical
+    reanalysis is claimed.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459695Z'
+  snapshot_sha256: d51bc0d506a7781426e848f571c5e98a2c242968df78ba51f2c94abeb3f64608
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-13/000019/ontology-authority.json
+  locator: Twenty-one exact labels/definitions across forty-two placements
+  summary: 'All labels match. Semantic agreement is separate: mine tailing denotes
+    post-separation material, whereas the field heap contains run-of-mine ore.'
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459736Z'
+  snapshot_sha256: 1f7d99839abbca40984efe305d052a07185f67ef3ddf17b57ea39e88b3b67849
+- evidence_id: chemistry
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-13/000019/child-chemical-environment-candidates.json
+  locator: All fourteen recipe rows and verified candidate definitions/formulas
+  summary: Named MgSO4·7H2O can use CHEBI:31795; named FeSO4·7H2O conflicts with the
+    anhydrous term and can use CHEBI:75836. Bulk elemental sulfur can use CHEBI:33403
+    without assuming S8. ENVO:02000094 ore is a material candidate, not a complete
+    heap geometry term.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459774Z'
+  snapshot_sha256: e5f694c88d9ac8d61af7c4e3305e5889512f32572051af31d3d25d8eb8877c00
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-13/000019/child-schema-semantics.json
+  locator: Literal role, origin/state, evidence, abundance and interaction definitions
+  summary: PRIMARY_PRODUCER requires carbon fixation. PRIMARY_DEGRADER does not exclude
+    complex inorganic minerals. SYNTROPHIC_PARTNER requires source-supported syntrophic
+    metabolism without an invented obligacy rule. Ordinal abundance has no forced
+    quantitative threshold.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459811Z'
+  snapshot_sha256: 8562df92823cd294d5ffc4f9a931ce8f8d8098db7a9b6c3ab8c4a9f21aab5d12
+- evidence_id: lineage
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-13/000019/child-taxon-lineage.json
+  locator: Five encoded species ranks and ancestry
+  summary: All five species identities resolve; exact field occurrence, strain equivalence
+    and exhaustive membership still require source evidence.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459842Z'
+  snapshot_sha256: 2b4e8b83149e64ddb8a5171ea0f3011b37fbe62833c201afcf8e4a95c81f4e13
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-13/000019/child-gtdb-crosswalk.json
+  locator: Two exact-ID and three documented name-fallback resolutions
+  summary: 'The five current mapping cores reproduce: A. ferrooxidans 1.0/10; L. ferriphilum
+    to Leptospirillum_A rubarum 1.0/6; A. thiooxidans 1.0/43; F. acidiphilum to F.
+    acidarmanus 0.91/22; S. thermosulfidooxidans 1.0/6. Genome support is not community
+    abundance; latest/build-date wording is unsupported.'
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459870Z'
+  snapshot_sha256: 30b248c29df0198456e9a25815c169bb708f85c2c9277e6cf6844e69132933d9
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-13/000019/ontology-semantic-notes.json
+  locator: Whole final source-aware semantic assessment
+  summary: The agreed three major/two minor groups retain five nodes/eight arrows,
+    ordinal abundance and broad mineral-degradation capacity. Field occurrence and
+    optional roles remain qualified.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459895Z'
+  snapshot_sha256: c30ba0e989409bf53856079051011e95782b014b7c1d493cebd07c0635631165
+- evidence_id: medium-links
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/external-resource-verification.json
+  locator: Current CultureMech 003277 identity; twelve exact legacy ingredient IDs/paths
+  summary: CultureMech 003277 resolves to JCM J92 9K at its current normalized YAML
+    path; the encoded old URL is 404. Twelve distinct legacy MIM IDs/paths are absent
+    from the complete current committed tree and 2953-record index. Current exact-form
+    candidates need curator verification. CultureMech backfilled environment text
+    is circular context, not independent field evidence.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459933Z'
+  snapshot_sha256: dd9cca799e928271ab6ef4bb9c94b1bb40b7caf3f6a933865ebd390f54f78847
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/dataset-verification.json
+  locator: PRJEB27534/ERP109624; E-MTAB-9845/ERP125500; background accession metadata
+  summary: Both transcriptomic study identities are verified. PRJEB27534 has twelve
+    public run/sample entries, not automatically the paper’s nine sequenced samples
+    or heap replicates. E-MTAB-9845 describes twelve DSM14647 treatment libraries.
+    AFOH and assembly references remain background strain resources. The code URL
+    failed certificate validation; its code was not read or executed.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459963Z'
+  snapshot_sha256: 650107252d1d7db46ac8a4f157e26c5b6370f4d302e5390f817dc88a303519dd
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/snippet-audit.json
+  locator: Thirty-two reference-specific excerpt occurrences
+  summary: All32 excerpts strictly match selected caches;31 strictly match fresh sources.
+    One Fe3+/Fe2+ superscript-spacing difference has a separately preserved explicit
+    rendering projection. Matching is distinct from claim entailment.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.459993Z'
+  snapshot_sha256: c0af8c7a855263098aaed1612cc73133aa566c0609ced01aa42d86563945bc74
+- evidence_id: snippet-projection
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/snippet-rendering-projection.json
+  locator: Exact single superscript/spacing occurrence
+  summary: The one typography difference is not a separate biological finding and
+    does not turn all 32 occurrences into strict fresh matches.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460024Z'
+  snapshot_sha256: 2464e9f4e5b9da40204227e13f809ed2676e05fa13e78cda2b61f9fcb273f466
+- evidence_id: contexts
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/snippet-source-contexts.json
+  locator: Containing source contexts and exact excerpt selectors
+  summary: All current source-specific contexts were reviewed by the supporting reviewer.
+    Canonical excerpt selectors and SHA256 values are retained in each graph assessment
+    without repeating long quotations.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460050Z'
+  snapshot_sha256: 133f128e7e9d5568f760f154937e2026fb748144cf073375285f56d306b63813
+- evidence_id: provenance
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-13/000019/provenance-audit.json
+  locator: Exact batch25 records[0], history, safe caches and four cohort contexts
+  summary: Prior graph repair and closed1356 do not settle the remaining non-graph
+    claims;1358 and explicitly relevant shared issues remain scoped. Cohort BIOMINING
+    membership is aggregate context, not a focal scientific certification.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460081Z'
+  snapshot_sha256: 09baa5366e0a2f24fdefd95d7f5f0a748628d98cb16949c8d6b3704ba4846e15
+- evidence_id: inspect
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/inspect-v2.json
+  locator: Thirty-six successful official input pins
+  summary: The target,21 authorities and14 safe focal files are bound. Ignored-inclusive
+    focal discovery distinguishes the additional colon-named Crossref metadata as
+    retrieval context only.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460117Z'
+  snapshot_sha256: 1e2dbee721094868b5633a71dc3b287c8057ae5716eb3e7c038cad146df02ab2
+- evidence_id: inspect-boundary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/inspect-path-contract-clarification.json
+  locator: Original failed inspect and successful safe-path inspection
+  summary: Initial inspect rejected an existing colon-named metadata path. Its empty
+    stdout is preserved as a failed command artifact, not JSON source evidence. No
+    validator was relaxed and no candidate validation failed.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460137Z'
+  snapshot_sha256: 156a6ebef545de13a00df1cd0a22f7902fbc25eb72203f61e6aa062775dc63f9
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/lead-source-assets.json
+  locator: Four whole main sources, genome announcement, all main/SI visuals and bounded
+    preview
+  summary: Four complete field/laboratory papers, the genome announcement, all 27
+    main figure numbers and all 10 supplemental figures were reviewed. PMID19104861
+    remains abstract/preview-only; its noncritical supporting scope is explicit.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460161Z'
+  snapshot_sha256: d51bc0d506a7781426e848f571c5e98a2c242968df78ba51f2c94abeb3f64608
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/lead-primary-read-scope.json
+  locator: Actual whole-source, visual and delegated authority/support read scope
+  summary: Lead whole-source and supplemental reading is distinguished from child
+    native/OAK executions and sibling raw upstream/provenance verification. No second
+    independent raw database audit is claimed.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460191Z'
+  snapshot_sha256: 389fd6d29069553f35be2fb8539c508b305395f3a993e6fa5d8b385d04d055a7
+- evidence_id: source-scope
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/source-audit.json
+  locator: Five final finding groups and preserved graph
+  summary: Completed scientific review with three major/two minor findings. All current
+    claims can be adjudicated despite the bounded supporting-isolate full-text limit.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460217Z'
+  snapshot_sha256: d1c6e8b57ff517aa948e75b136925b2f6611fffd9970831191945a35eab83abb
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/root-independent-source-audit.json
+  locator: Independent final scientific review and actual source scope
+  summary: Root independently agrees with completed review and the five groups, preserving
+    field-versus-laboratory boundaries and exact chemical/quantitative interpretation.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460236Z'
+  snapshot_sha256: 7513087cdf770f96b2f5123724ad0a7bdc7efd862f2b627128adb0ac77bb3d14
+- evidence_id: root-image-correction
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/root-image-interpretation-correction.json
+  locator: Append-only correction of one root image description
+  summary: SYTO9/ConA is cell-location/EPS microscopy rather than viability staining.
+    MPN is separate; no finding depends on the superseded phrase.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460264Z'
+  snapshot_sha256: 30d3a47d79ca10a73b1d03e2ac2f7349c40f0427e2575ed7a3db253c5af9a6a8
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/support-final-audit.json
+  locator: Distinct final support and literal rubric
+  summary: Completeness 90; five nodes with ten evidence occurrences and COMPLETE
+    network give base 135. Three major/two minor deductions yield 101 raw, capped
+    100. The score is not a clean verdict.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460288Z'
+  snapshot_sha256: 6d1ae521e0dc40a2886add3bf2379619f71769dbe4e5755754feb1c609001539
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/supporting-artifact-manifest.json
+  locator: Final supporting pins after source/root/child freeze
+  summary: Initial support, original failed inspection and source responses remain
+    immutable; successful official boundary is36 inputs.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460309Z'
+  snapshot_sha256: 1c9e84015ee5966a2eac8efa04a5d0887413b069a2d8ad35f1e3987b9c0741d3
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/auxiliary-frozen-manifest.json
+  locator: Thirty-one frozen auxiliary artifacts
+  summary: Eight focused checks pass;21 label pairs/42 placements match; all 36 official
+    inputs unchanged. Direct native/authority scope is explicit.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460337Z'
+  snapshot_sha256: d8e9a31fdda6483bdec4bec0e2368a79271f1a0d29eab9f701ed5f6442cb85f4
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/final-validator-summary.json
+  locator: Eight actual focused command outcomes
+  summary: Passing native structure/reference checks do not validate the five scientific/provenance
+    findings or source-specific chemical scope.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460366Z'
+  snapshot_sha256: 000aa0ae36d611fb0fc9b2ff39f5449f2341c19cf0b562cb77161da88edd985e
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/adapter-check.json
+  locator: Fresh owned-runtime availability with dated reused discovery
+  summary: Optional structured adapter unavailable in task runtime; the external checkout
+    candidate was not executed. No global absence or negative biology inference.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460391Z'
+  snapshot_sha256: febe33ec36c049cea488b7801c669a95714eab4f30f535ac3bae65c98c64cdda
+- evidence_id: corpus-context
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/child-current-corpus-context.json
+  locator: Actual fresh batch13 corpus diagnostic receipts
+  summary: Both corpus diagnostics exit 1 with 44 warnings across 16/477 records and
+    zero errors; focal target is not listed. These are nonrequired contextual checks,
+    separate from passing focused validation.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460414Z'
+  snapshot_sha256: ba6fbfd6238aa5a323ae6b4d05c1baffba26850bc2008d94fff556fbe89085e2
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/validate.json
+  locator: Actual immutable command/output
+  summary: Focused native result; science is separately assessed.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460616Z'
+  snapshot_sha256: 407c56f283203d063aac0279eac4e1d0bdba3a9d999ed1d0631bab0e857c2b71
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/validate-strict.json
+  locator: Actual immutable command/output
+  summary: Focused native result; science is separately assessed.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460670Z'
+  snapshot_sha256: b5b77fc978384511a11234343a96e66097e125005ff849cc0433ecb2b6011c29
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/validate-terms.json
+  locator: Actual immutable command/output
+  summary: Focused native result; science is separately assessed.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460718Z'
+  snapshot_sha256: 0311e18195136538ebe55f562c0f7650f44fe28f28328843aa0d00db78d1d580
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/validate-references-explained.json
+  locator: Actual immutable command/output
+  summary: Focused native result; science is separately assessed.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460764Z'
+  snapshot_sha256: ef63ab3f2f4bee01d1b092ce85ad3aa1d7946995f008ae763ec7dc03ef948ff5
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/validate-gtdb.json
+  locator: Actual immutable command/output
+  summary: Focused native result; science is separately assessed.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460805Z'
+  snapshot_sha256: 89ac05d81f247fe9c3a9cae71c4a01dce3e744382eec6848f8577d6414599534
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/validate-gtdb-domain.json
+  locator: Actual immutable command/output
+  summary: Focused native result; science is separately assessed.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460846Z'
+  snapshot_sha256: 66c2f319a100fedc9a8e6eb1c1f139963a2e9bb13eb69339e94e73d1bc1038df
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/validate-history.json
+  locator: Actual immutable command/output
+  summary: Focused native result; science is separately assessed.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460887Z'
+  snapshot_sha256: 83020ded5a9d50c1b4db050f54281b8bf46011c65bfafa1e49d6d37ee9ceb102
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000019/normalize-cache-names-check.json
+  locator: Actual immutable command/output
+  summary: Focused native result; science is separately assessed.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.460931Z'
+  snapshot_sha256: d22e102fe85ede493183ae84b7397a15c22506cec5e4ec08bb1f26e19506d9ca
+- evidence_id: context-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/audit-network.json
+  locator: Actual fresh batch13 corpus baseline
+  summary: Exit1,44 warnings in 16/477 records,zero errors; focal target not listed.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.461003Z'
+  snapshot_sha256: 6760159390e2e4f424c5084dcfa9e720ec717b7a055f7e6a7561dc71eae0a088
+- evidence_id: context-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/check-network-quality.json
+  locator: Actual fresh batch13 corpus baseline
+  summary: Exit1,44 warnings in 16/477 records,zero errors; focal target not listed.
+  support: supports
+  accessed_at: '2026-10-22T00:47:03.461052Z'
+  snapshot_sha256: 21ceb139810361c7edb174cfa3d407ef5f8f691278da89c382f6148b904c7e69
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Industrial process versus microbial assembly
+  outcome: concern
+  summary: The industrial heap is real; deliberate five-member assembly and tailings
+    scope are not supported.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - heap-operation
+  - field-identity
+  - schema
+  - ontology
+  dimensions:
+  - name: focal_setting
+    value: Open indigenous community in an industrial run-of-mine copper heap
+    definition: Field observation rather than a closed five-member inoculation.
+    evidence_ids:
+    - heap-operation
+    - field-identity
+  - name: strain_scope
+    value: Field phylotypes/genus signals versus named laboratory stocks
+    definition: 2018 uses A. caldus;2022 uses L. ferrooxidans. Neither is silently
+      relabelled as a canonical field member.
+    evidence_ids:
+    - lab2018-protocol
+    - sx-protocol
+    - isolate-context
+  details: Retain BIOMINING and engineering of the installation while representing
+    the indigenous open community. The five named taxa are selected representatives
+    and laboratory comparators, not a complete assembled roster.
+- assessment_id: roles
+  area: scope
+  topic: Member capability and source-local roles
+  outcome: concern
+  summary: Ferroplasma carbon-fixation and Sulfobacillus partnership assertions need
+    their own support.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - schema
+  - semantics
+  - field-identity
+  - lab2018-results
+  details: Iron oxidation/occurrence does not establish PRIMARY_PRODUCER. Mineral
+    mediation can fit broad PRIMARY_DEGRADER when source-qualified; do not impose
+    an organic-only substrate rule, obligatory exchange or a mandatory named currency.
+- assessment_id: measurements
+  area: quantity
+  topic: DNA, RNA and field chemistry
+  outcome: concern
+  summary: Non-graph prose overstates counts, activity, causal gradients and measurement
+    context.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - field-counts
+  - field-activity
+  - field-chemistry
+  - dsf-results
+  details: Correct Ferroplasma scale; pair exact Table 4 ages/pH/iron pools; separate
+    stable DNA from flux. Retain source suggestions as suggestions and laboratory
+    perturbations as laboratory evidence. Ordinal labels are not rejected for missing
+    percentages.
+- assessment_id: cultivation
+  area: completeness
+  topic: Field operations and distinct laboratory media
+  outcome: concern
+  summary: The merged 9K recipe is neither a single reproducible variant nor evidence
+    of focal heap use.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - heap-operation
+  - lab2018-protocol
+  - dsf-protocol
+  - sx-protocol
+  - chemistry
+  - medium-links
+  details: Six duplicated salt pairs and different FeSO4·7H2O amounts require source-variant
+    reconciliation. Correct hydrate/substance grounding and current links; recover
+    MAC assay conditions separately, without importing them into the industrial heap.
+- assessment_id: graph-overview
+  area: graph
+  topic: Qualified reaction-cycle synthesis
+  outcome: supported
+  summary: Retain five untyped nodes and all eight PARTIAL arrows.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - field-counts
+  - field-activity
+  - lab2018-results
+  - sx-results
+  - reaction-cycle
+  - schema
+  details: Existing wording already separates observed field associations, measured
+    laboratory capacities and inferred chemical feedback. It excludes taxon-resolved
+    field flux, exact closed syntrophy and a universal ferric-iron benefit.
+- assessment_id: node-0
+  area: graph
+  topic: Acidithiobacillus Iron Oxidation and Early-Heap Association
+  outcome: supported
+  summary: Early field abundance and laboratory iron oxidation are supported; no direct
+    field oxidation flux or competitive displacement.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - field-counts
+  - sx-results
+  - snippets
+  - contexts
+  details: 'Field ecological_interactions[0]; name Acidithiobacillus Iron Oxidation
+    and Early-Heap Association; scope PAIRWISE; no interaction_type asserted. Actual
+    taxa: {"source": {"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"},
+    "target": null, "participants": []}. Canonical exact excerpts are inspected via
+    [{"selector": "ecological_interactions[0].evidence[0].snippet", "sha256": "3d0d3f37e09b842a16711878c11895ffaa8dbf7b740196900edf195b51948beb",
+    "reference": "doi:10.1111/j.1751-7915.2009.00112.x", "supports": "SUPPORT", "evidence_source":
+    "IN_VIVO"}, {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256":
+    "94e7db42840511403fb939ffbd027023499fd3945892c6102e5e8b11bb8a2010", "reference":
+    "doi:10.3389/fmicb.2022.820052", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Source/locator evidence below and snippet-audit SHA256 c0af8c7a855263098aaed1612cc73133aa566c0609ced01aa42d86563945bc74
+    bind this assessment; no long quote is recopied. Early field abundance and laboratory
+    iron oxidation are supported; no direct field oxidation flux or competitive displacement.'
+- assessment_id: edge-0-0
+  area: graph
+  topic: Direction 0 → 3
+  outcome: supported
+  summary: Retain the source-qualified PARTIAL chemical or physiological contribution.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - field-counts
+  - sx-results
+  - reaction-cycle
+  - snippets
+  - contexts
+  details: 'Exact selector ecological_interactions[0].downstream[0]; direction ecological_interactions[0]
+    (Acidithiobacillus Iron Oxidation and Early-Heap Association) → ecological_interactions[3]
+    (Copper Sulfide Dissolution). Source taxa {"source": {"id": "NCBITaxon:920", "label":
+    "Acidithiobacillus ferrooxidans"}, "target": null, "participants": []}; destination
+    taxa {"source": null, "target": null, "participants": [{"id": "NCBITaxon:920",
+    "label": "Acidithiobacillus ferrooxidans"}, {"id": "NCBITaxon:178606", "label":
+    "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930", "label": "Acidithiobacillus
+    thiooxidans"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"},
+    {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}]}. Retained
+    tier PARTIAL. PARTIAL - A. ferrooxidans iron oxidation can replenish ferric oxidant
+    for mineral attack. The chemical cycle and laboratory oxidation support this direction,
+    but the SX assay shows that retained iron oxidation need not sustain copper recovery,
+    and the field contribution is not taxon-resolved.. The source node excerpt selectors/hashes
+    are enumerated in node-0; its cited PMID/DOI and exact section locators are in
+    the linked evidence. No separate edge excerpt or unmeasured flux is invented.'
+- assessment_id: node-1
+  area: graph
+  topic: Aged-Heap Iron-Oxidizer Association
+  outcome: supported
+  summary: Aged-heap association is supported, with L. ferriphilum ~10^5 versus Ferroplasma
+    ~10^3 DNA copies/mL; pH/redox drivers remain inferred.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - field-counts
+  - field-chemistry
+  - lab2018-results
+  - snippets
+  - contexts
+  details: 'Field ecological_interactions[1]; name Aged-Heap Iron-Oxidizer Association;
+    scope COMMUNITY_LEVEL; no interaction_type asserted. Actual taxa: {"source": null,
+    "target": null, "participants": [{"id": "NCBITaxon:178606", "label": "Leptospirillum
+    ferriphilum"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"}]}.
+    Canonical exact excerpts are inspected via [{"selector": "ecological_interactions[1].evidence[0].snippet",
+    "sha256": "420bd873328f49181ff418623136f47fe558c1999dcee30d86d7a356aa42c893",
+    "reference": "doi:10.1111/j.1751-7915.2009.00112.x", "supports": "SUPPORT", "evidence_source":
+    "IN_VIVO"}, {"selector": "ecological_interactions[1].evidence[1].snippet", "sha256":
+    "185004030b966cb5e3b6c0da51b2ea5fad032c8cc0630f99777eee9d2900e396", "reference":
+    "doi:10.1111/j.1751-7915.2009.00112.x", "supports": "PARTIAL", "evidence_source":
+    "IN_VIVO"}]. Source/locator evidence below and snippet-audit SHA256 c0af8c7a855263098aaed1612cc73133aa566c0609ced01aa42d86563945bc74
+    bind this assessment; no long quote is recopied. Aged-heap association is supported,
+    with L. ferriphilum ~10^5 versus Ferroplasma ~10^3 DNA copies/mL; pH/redox drivers
+    remain inferred.'
+- assessment_id: edge-1-0
+  area: graph
+  topic: Direction 1 → 3
+  outcome: supported
+  summary: Retain the source-qualified PARTIAL chemical or physiological contribution.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - field-counts
+  - field-chemistry
+  - lab2018-results
+  - reaction-cycle
+  - snippets
+  - contexts
+  details: 'Exact selector ecological_interactions[1].downstream[0]; direction ecological_interactions[1]
+    (Aged-Heap Iron-Oxidizer Association) → ecological_interactions[3] (Copper Sulfide
+    Dissolution). Source taxa {"source": null, "target": null, "participants": [{"id":
+    "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:74969",
+    "label": "Ferroplasma acidiphilum"}]}; destination taxa {"source": null, "target":
+    null, "participants": [{"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"},
+    {"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930",
+    "label": "Acidithiobacillus thiooxidans"}, {"id": "NCBITaxon:74969", "label":
+    "Ferroplasma acidiphilum"}, {"id": "NCBITaxon:28034", "label": "Sulfobacillus
+    thermosulfidooxidans"}]}. Retained tier PARTIAL. PARTIAL - iron oxidation by the
+    aged-heap associated taxa could replenish ferric oxidant for dissolution. Field
+    succession and separate L. ferriphilum cultures support the proposed contribution
+    without measuring their individual heap fluxes or proving displacement-driven
+    leaching.. The source node excerpt selectors/hashes are enumerated in node-1;
+    its cited PMID/DOI and exact section locators are in the linked evidence. No separate
+    edge excerpt or unmeasured flux is invented.'
+- assessment_id: node-2
+  area: graph
+  topic: Sulfur Oxidation to Sulfuric Acid
+  outcome: supported
+  summary: Sulfur-oxidation capacity and field activity are supported; stable DNA
+    does not prove constant acid flux, and A. caldus laboratory data are not A. thiooxidans
+    data.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - field-activity
+  - reaction-cycle
+  - genome-context
+  - snippets
+  - contexts
+  details: 'Field ecological_interactions[2]; name Sulfur Oxidation to Sulfuric Acid;
+    scope PAIRWISE; no interaction_type asserted. Actual taxa: {"source": {"id": "NCBITaxon:930",
+    "label": "Acidithiobacillus thiooxidans"}, "target": null, "participants": []}.
+    Canonical exact excerpts are inspected via [{"selector": "ecological_interactions[2].evidence[0].snippet",
+    "sha256": "91ce3186b6d2c531df99f96c2b88bbc6dd39fe2fedf77047a521bf958215032c",
+    "reference": "doi:10.1111/j.1751-7915.2009.00112.x", "supports": "PARTIAL", "evidence_source":
+    "IN_VIVO"}, {"selector": "ecological_interactions[2].evidence[1].snippet", "sha256":
+    "cf28f63a3f518dd212609090e75420b4fd17312cde824e55e673367fd8bd977f", "reference":
+    "doi:10.3389/fmicb.2022.820052", "supports": "PARTIAL", "evidence_source": "OTHER"}].
+    Source/locator evidence below and snippet-audit SHA256 c0af8c7a855263098aaed1612cc73133aa566c0609ced01aa42d86563945bc74
+    bind this assessment; no long quote is recopied. Sulfur-oxidation capacity and
+    field activity are supported; stable DNA does not prove constant acid flux, and
+    A. caldus laboratory data are not A. thiooxidans data.'
+- assessment_id: edge-2-0
+  area: graph
+  topic: Direction 2 → 3
+  outcome: supported
+  summary: Retain the source-qualified PARTIAL chemical or physiological contribution.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - field-activity
+  - reaction-cycle
+  - genome-context
+  - snippets
+  - contexts
+  details: 'Exact selector ecological_interactions[2].downstream[0]; direction ecological_interactions[2]
+    (Sulfur Oxidation to Sulfuric Acid) → ecological_interactions[3] (Copper Sulfide
+    Dissolution). Source taxa {"source": {"id": "NCBITaxon:930", "label": "Acidithiobacillus
+    thiooxidans"}, "target": null, "participants": []}; destination taxa {"source":
+    null, "target": null, "participants": [{"id": "NCBITaxon:920", "label": "Acidithiobacillus
+    ferrooxidans"}, {"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"},
+    {"id": "NCBITaxon:930", "label": "Acidithiobacillus thiooxidans"}, {"id": "NCBITaxon:74969",
+    "label": "Ferroplasma acidiphilum"}, {"id": "NCBITaxon:28034", "label": "Sulfobacillus
+    thermosulfidooxidans"}]}. Retained tier PARTIAL. PARTIAL - sulfur oxidation can
+    generate acidity and limit reduced-sulfur accumulation, helping sustain mineral
+    attack under suitable conditions. A. thiooxidans-specific acid flux and passivation
+    removal were not selectively established in the field survey.. The source node
+    excerpt selectors/hashes are enumerated in node-2; its cited PMID/DOI and exact
+    section locators are in the linked evidence. No separate edge excerpt or unmeasured
+    flux is invented.'
+- assessment_id: node-3
+  area: graph
+  topic: Copper Sulfide Dissolution
+  outcome: supported
+  summary: Conditional mineral dissolution and chemical feedback are supported; mixed
+    ore and additional indigenous organisms prevent a closed-five-member interpretation.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - heap-operation
+  - lab2018-results
+  - sx-results
+  - reaction-cycle
+  - snippets
+  - contexts
+  details: 'Field ecological_interactions[3]; name Copper Sulfide Dissolution; scope
+    COMMUNITY_LEVEL; no interaction_type asserted. Actual taxa: {"source": null, "target":
+    null, "participants": [{"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"},
+    {"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930",
+    "label": "Acidithiobacillus thiooxidans"}, {"id": "NCBITaxon:74969", "label":
+    "Ferroplasma acidiphilum"}, {"id": "NCBITaxon:28034", "label": "Sulfobacillus
+    thermosulfidooxidans"}]}. Canonical exact excerpts are inspected via [{"selector":
+    "ecological_interactions[3].evidence[0].snippet", "sha256": "79c87cf6d3ad9802ad751a5ad6eeb7f3a1bcd410fcef69ca90e018c0a9cd514b",
+    "reference": "doi:10.3389/fmicb.2022.820052", "supports": "PARTIAL", "evidence_source":
+    "OTHER"}, {"selector": "ecological_interactions[3].evidence[1].snippet", "sha256":
+    "f17dc849a24820d48f2b6dcf7244f194c36c3622d1e45c9178a769fde23a5c65", "reference":
+    "doi:10.3389/fmicb.2022.820052", "supports": "PARTIAL", "evidence_source": "OTHER"}].
+    Source/locator evidence below and snippet-audit SHA256 c0af8c7a855263098aaed1612cc73133aa566c0609ced01aa42d86563945bc74
+    bind this assessment; no long quote is recopied. Conditional mineral dissolution
+    and chemical feedback are supported; mixed ore and additional indigenous organisms
+    prevent a closed-five-member interpretation.'
+- assessment_id: edge-3-0
+  area: graph
+  topic: Direction 3 → 0
+  outcome: supported
+  summary: Retain the source-qualified PARTIAL chemical or physiological contribution.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - heap-operation
+  - lab2018-results
+  - sx-results
+  - reaction-cycle
+  - snippets
+  - contexts
+  details: 'Exact selector ecological_interactions[3].downstream[0]; direction ecological_interactions[3]
+    (Copper Sulfide Dissolution) → ecological_interactions[0] (Acidithiobacillus Iron
+    Oxidation and Early-Heap Association). Source taxa {"source": null, "target":
+    null, "participants": [{"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"},
+    {"id": "NCBITaxon:178606", "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930",
+    "label": "Acidithiobacillus thiooxidans"}, {"id": "NCBITaxon:74969", "label":
+    "Ferroplasma acidiphilum"}, {"id": "NCBITaxon:28034", "label": "Sulfobacillus
+    thermosulfidooxidans"}]}; destination taxa {"source": {"id": "NCBITaxon:920",
+    "label": "Acidithiobacillus ferrooxidans"}, "target": null, "participants": []}.
+    Retained tier PARTIAL. PARTIAL - mineral attack releases ferrous iron that can
+    supply A. ferrooxidans oxidation, regenerating ferric oxidant. This is a chemically
+    grounded substrate feedback, not a measured taxon-resolved closed loop in the
+    industrial heap.. The source node excerpt selectors/hashes are enumerated in node-3;
+    its cited PMID/DOI and exact section locators are in the linked evidence. No separate
+    edge excerpt or unmeasured flux is invented.'
+- assessment_id: edge-3-1
+  area: graph
+  topic: Direction 3 → 1
+  outcome: supported
+  summary: Retain the source-qualified PARTIAL chemical or physiological contribution.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - heap-operation
+  - lab2018-results
+  - sx-results
+  - reaction-cycle
+  - snippets
+  - contexts
+  details: 'Exact selector ecological_interactions[3].downstream[1]; direction ecological_interactions[3]
+    (Copper Sulfide Dissolution) → ecological_interactions[1] (Aged-Heap Iron-Oxidizer
+    Association). Source taxa {"source": null, "target": null, "participants": [{"id":
+    "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, {"id": "NCBITaxon:178606",
+    "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930", "label": "Acidithiobacillus
+    thiooxidans"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"},
+    {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}]}; destination
+    taxa {"source": null, "target": null, "participants": [{"id": "NCBITaxon:178606",
+    "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma
+    acidiphilum"}]}. Retained tier PARTIAL. PARTIAL - released ferrous iron can supply
+    the iron-oxidizing taxa associated with older strips. Their individual uptake
+    and feedback fluxes were not traced by the field abundance and RNA assays.. The
+    source node excerpt selectors/hashes are enumerated in node-3; its cited PMID/DOI
+    and exact section locators are in the linked evidence. No separate edge excerpt
+    or unmeasured flux is invented.'
+- assessment_id: edge-3-2
+  area: graph
+  topic: Direction 3 → 2
+  outcome: supported
+  summary: Retain the source-qualified PARTIAL chemical or physiological contribution.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - heap-operation
+  - lab2018-results
+  - sx-results
+  - reaction-cycle
+  - snippets
+  - contexts
+  details: 'Exact selector ecological_interactions[3].downstream[2]; direction ecological_interactions[3]
+    (Copper Sulfide Dissolution) → ecological_interactions[2] (Sulfur Oxidation to
+    Sulfuric Acid). Source taxa {"source": null, "target": null, "participants": [{"id":
+    "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, {"id": "NCBITaxon:178606",
+    "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930", "label": "Acidithiobacillus
+    thiooxidans"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"},
+    {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}]}; destination
+    taxa {"source": {"id": "NCBITaxon:930", "label": "Acidithiobacillus thiooxidans"},
+    "target": null, "participants": []}. Retained tier PARTIAL. PARTIAL - mineral
+    dissolution generates reduced inorganic sulfur substrates that can feed A. thiooxidans
+    sulfur oxidation. The reaction-cycle context supports direction, not selective
+    proof of its share of field acid generation or passivation control.. The source
+    node excerpt selectors/hashes are enumerated in node-3; its cited PMID/DOI and
+    exact section locators are in the linked evidence. No separate edge excerpt or
+    unmeasured flux is invented.'
+- assessment_id: edge-3-3
+  area: graph
+  topic: Direction 3 → 4
+  outcome: supported
+  summary: Retain the source-qualified PARTIAL chemical or physiological contribution.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - heap-operation
+  - lab2018-results
+  - sx-results
+  - reaction-cycle
+  - snippets
+  - contexts
+  details: 'Exact selector ecological_interactions[3].downstream[3]; direction ecological_interactions[3]
+    (Copper Sulfide Dissolution) → ecological_interactions[4] (Sulfobacillus Iron
+    and Sulfur Oxidation Capacity). Source taxa {"source": null, "target": null, "participants":
+    [{"id": "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, {"id": "NCBITaxon:178606",
+    "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930", "label": "Acidithiobacillus
+    thiooxidans"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"},
+    {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}]}; destination
+    taxa {"source": {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"},
+    "target": null, "participants": []}. Retained tier PARTIAL. PARTIAL - chalcopyrite-associated
+    ferrous iron and reduced sulfur can feed Sulfobacillus oxidation in the tested
+    cultures. This substrate feedback does not demonstrate exact-species transfer
+    or activity in hotter industrial heap niches.. The source node excerpt selectors/hashes
+    are enumerated in node-3; its cited PMID/DOI and exact section locators are in
+    the linked evidence. No separate edge excerpt or unmeasured flux is invented.'
+- assessment_id: node-4
+  area: graph
+  topic: Sulfobacillus Iron and Sulfur Oxidation Capacity
+  outcome: supported
+  summary: Separate laboratory iron/sulfur oxidation is supported; older-strip Sulfobacillus
+    genus RNA does not identify exact S. thermosulfidooxidans or a measured hot-zone
+    contribution.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - field-identity
+  - lab2018-results
+  - sx-results
+  - snippets
+  - contexts
+  details: 'Field ecological_interactions[4]; name Sulfobacillus Iron and Sulfur Oxidation
+    Capacity; scope PAIRWISE; no interaction_type asserted. Actual taxa: {"source":
+    {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}, "target":
+    null, "participants": []}. Canonical exact excerpts are inspected via [{"selector":
+    "ecological_interactions[4].evidence[0].snippet", "sha256": "7de825c554f7b36286744e748616f12e7529f34e75af22657d27c25c871fe8fb",
+    "reference": "doi:10.1111/j.1751-7915.2009.00112.x", "supports": "PARTIAL", "evidence_source":
+    "IN_VIVO"}, {"selector": "ecological_interactions[4].evidence[1].snippet", "sha256":
+    "3c8269df35ed2b3385b3180e3787465a6ef2bfa9fa6c997a207d00584510828a", "reference":
+    "doi:10.3389/fmicb.2018.03059", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Source/locator evidence below and snippet-audit SHA256 c0af8c7a855263098aaed1612cc73133aa566c0609ced01aa42d86563945bc74
+    bind this assessment; no long quote is recopied. Separate laboratory iron/sulfur
+    oxidation is supported; older-strip Sulfobacillus genus RNA does not identify
+    exact S. thermosulfidooxidans or a measured hot-zone contribution.'
+- assessment_id: edge-4-0
+  area: graph
+  topic: Direction 4 → 3
+  outcome: supported
+  summary: Retain the source-qualified PARTIAL chemical or physiological contribution.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - field-identity
+  - lab2018-results
+  - sx-results
+  - reaction-cycle
+  - snippets
+  - contexts
+  details: 'Exact selector ecological_interactions[4].downstream[0]; direction ecological_interactions[4]
+    (Sulfobacillus Iron and Sulfur Oxidation Capacity) → ecological_interactions[3]
+    (Copper Sulfide Dissolution). Source taxa {"source": {"id": "NCBITaxon:28034",
+    "label": "Sulfobacillus thermosulfidooxidans"}, "target": null, "participants":
+    []}; destination taxa {"source": null, "target": null, "participants": [{"id":
+    "NCBITaxon:920", "label": "Acidithiobacillus ferrooxidans"}, {"id": "NCBITaxon:178606",
+    "label": "Leptospirillum ferriphilum"}, {"id": "NCBITaxon:930", "label": "Acidithiobacillus
+    thiooxidans"}, {"id": "NCBITaxon:74969", "label": "Ferroplasma acidiphilum"},
+    {"id": "NCBITaxon:28034", "label": "Sulfobacillus thermosulfidooxidans"}]}. Retained
+    tier PARTIAL. PARTIAL - Sulfobacillus iron/sulfur oxidation can support leaching
+    in the tested laboratory systems, subject to redox potential and SX inhibition.
+    The lower-ORP advantage contradicts a universal more-iron-oxidation benefit; exact
+    field-species and hot-zone contributions remain unresolved.. The source node excerpt
+    selectors/hashes are enumerated in node-4; its cited PMID/DOI and exact section
+    locators are in the linked evidence. No separate edge excerpt or unmeasured flux
+    is invented.'
+- assessment_id: grounding
+  area: grounding
+  topic: Exact labels and semantic identities
+  outcome: concern
+  summary: Labels match, but tailing, salt hydration and bulk-sulfur meanings need
+    correction.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - ontology
+  - chemistry
+  - lineage
+  details: Correct source-specific materials rather than changing valid labels to
+    make a wrong ID appear right. All five taxon IDs resolve; laboratory species substitutions
+    are a scope problem, not an ID-label failure.
+- assessment_id: gtdb
+  area: provenance
+  topic: Valid mappings with unproven release metadata
+  outcome: concern
+  summary: All five cores reproduce; latest/build provenance does not.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - gtdb
+  - semantics
+  details: Retain exact-ID/name routes and aggregate confidence/genome counts. Do
+    not equate name differences with new field identification or genome counts with
+    abundance.
+- assessment_id: resources
+  area: representation
+  topic: Study archives and maintained medium links
+  outcome: concern
+  summary: Two verified expression resources are unrepresented, and legacy medium
+    links need source-aware repair.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - resources
+  - medium-links
+  details: Resource omission is a bounded completeness finding; medium link defects
+    stay within the medium major. No new heap sequencing archive, raw reanalysis or
+    automatic MIM migration is claimed.
+- assessment_id: snippets
+  area: evidence
+  topic: Exact text versus entailment
+  outcome: supported
+  summary: Thirty-two cache matches and thirty-one strict fresh matches are separately
+    recorded.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - snippets
+  - snippet-projection
+  - contexts
+  details: The single superscript-space projection is explicit. Matching does not
+    rescue incorrect local evidence explanations, role claims or field/laboratory
+    scope.
+- assessment_id: provenance
+  area: provenance
+  topic: Original records and review boundaries
+  outcome: supported
+  summary: Prior graph work, current issues and original failures remain immutable.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - provenance
+  - inspect
+  - inspect-boundary
+  details: Official inspection binds36 safe files. The extra colon-named cache is
+    discovery-only context; it is not a 37th official scientific input. No history
+    or external issue was changed.
+- assessment_id: completion
+  area: scope
+  topic: Complete current-claim audit with bounded supporting source
+  outcome: supported
+  summary: The full field/laboratory sources and supplements suffice to assess current
+    claims.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - assets
+  - lead-read
+  - source-scope
+  - root-source
+  details: PMID19104861 remains abstract/preview-only. Its closely-related-isolate
+    claim is bounded; no unread Methods/figure claim is certified. Complete review
+    still requires curation.
+- assessment_id: native
+  area: schema
+  topic: Native and contextual outcomes
+  outcome: supported
+  summary: Eight focused checks pass; corpus and optional adapter outcomes are explicit.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - corpus-context
+  - adapter
+  details: No maintained input changed. The failed initial inspection is administrative
+    scope recovery, not a failed record/candidate validation.
+- assessment_id: metrics
+  area: completeness
+  topic: Literal native scores
+  outcome: supported
+  summary: Completeness 90; raw quality 101, capped 100.
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 90
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required fields/roles50 + environment5 + environmental factors10 +
+      interaction nodes10 + external resources0 + medium10 + datasets0 + node metabolites5.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 100−10×3 major−2×2 minor+20×min((10/5)/2,1)+15 COMPLETE =101 raw,
+      capped 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: heap-scope
+  issue_key: cm-000019-heap-scope
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: Assembly, material and role statements materially overstate
+    the focal biological scope.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Restore open-heap and member-role scope
+  description: The record presents an engineered five-member assembly and tailings
+    environment although the focal field source describes an open indigenous community
+    on run-of-mine ore. Laboratory species/strains and inferred functions are promoted
+    beyond their field resolution, including unsupported Ferroplasma PRIMARY_PRODUCER.
+  target_ids:
+  - CommunityMech:000019
+  field_paths:
+  - engineering_design
+  - community_origin
+  - ecological_state
+  - environment_term
+  - taxonomy[3].functional_role
+  - taxonomy[4].functional_role
+  - taxonomy[4].evidence
+  evidence_ids:
+  - heap-operation
+  - field-identity
+  - schema
+  - ontology
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    role: canonical_record
+  ownership_note: The maintained community record owns repair. Prior closed1356 concerns
+    graph curation;1358 and relevant shared medium/provenance issues retain their
+    own scope.
+- finding_id: field-measurements
+  issue_key: cm-000019-field-measurements
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Incorrect quantities and activity/causal interpretation change
+    the scientific meaning despite qualified graph wording.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Correct field quantities and activity interpretations
+  description: Non-graph prose conflates DNA abundance with activity/flux, assigns
+    Ferroplasma the wrong abundance scale, mixes heap ages and iron measurements,
+    and extends source-specific temperature/oxygen/causal inferences beyond their
+    evidence.
+  target_ids:
+  - CommunityMech:000019
+  field_paths:
+  - description
+  - environmental_factors
+  - taxonomy[1].abundance_value
+  - taxonomy[3].abundance_value
+  - taxonomy[1].taxon_term.notes
+  - taxonomy[3].taxon_term.notes
+  - related_ingredients
+  - taxonomy[1].evidence[1]
+  evidence_ids:
+  - field-counts
+  - field-activity
+  - field-chemistry
+  - dsf-results
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    role: canonical_record
+  ownership_note: The maintained community record owns repair. Prior closed1356 concerns
+    graph curation;1358 and relevant shared medium/provenance issues retain their
+    own scope.
+- finding_id: medium-protocol
+  issue_key: cm-000019-medium-protocol
+  category: grounding
+  severity: major
+  native_severity: P2
+  normalization_reason: Combined formulations, wrong chemical forms and unsupported
+    protocol attribution impede reproduction and grounding.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Separate medium variants and source protocols
+  description: The single 9K block combines duplicate source variants, different iron-salt
+    quantities and mismatched chemical forms, while cited laboratory studies use separate
+    MAC protocols and do not establish that recipe for the field heap.
+  target_ids:
+  - CommunityMech:000019
+  field_paths:
+  - growth_media[0]
+  evidence_ids:
+  - lab2018-protocol
+  - dsf-protocol
+  - sx-protocol
+  - chemistry
+  - medium-links
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    role: canonical_record
+  ownership_note: The maintained community record owns repair. Prior closed1356 concerns
+    graph curation;1358 and relevant shared medium/provenance issues retain their
+    own scope.
+- finding_id: gtdb-provenance
+  issue_key: cm-000019-gtdb-provenance
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Mapping cores are sound; the defect is nonblocking snapshot
+    provenance.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Correct GTDB snapshot provenance
+  description: GTDB latest-release/build-date wording is not established by the local
+    mapping digest and filesystem modification time.
+  target_ids:
+  - CommunityMech:000019
+  field_paths:
+  - taxonomy[0].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[1].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[2].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[3].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[4].taxon_term.gtdb_classification.mapping_source
+  evidence_ids:
+  - gtdb
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    role: canonical_record
+  ownership_note: The maintained community record owns repair. Prior closed1356 concerns
+    graph curation;1358 and relevant shared medium/provenance issues retain their
+    own scope.
+- finding_id: expression-resources
+  issue_key: cm-000019-expression-resources
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: Verified study links improve reproducibility without changing
+    the measured biological claim.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Link the verified laboratory expression studies
+  description: The record cites transcriptomic findings without linking the two publicly
+    verified study archives.
+  target_ids:
+  - CommunityMech:000019
+  field_paths:
+  - taxonomy[1].evidence[1]
+  - ecological_interactions[4].evidence
+  evidence_ids:
+  - resources
+  - lab2018-results
+  - dsf-results
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    role: canonical_record
+  ownership_note: The maintained community record owns repair. Prior closed1356 concerns
+    graph curation;1358 and relevant shared medium/provenance issues retain their
+    own scope.
+actions:
+- action_id: restore-heap-scope
+  description: Represent an indigenous community in an engineered industrial installation.
+  finding_ids:
+  - heap-scope
+  target_ids:
+  - CommunityMech:000019
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove the unsupported engineered-five-member assembly and designed-gradient assertions.
+    Choose origin/state using literal schema definitions while preserving industrial
+    engineering and BIOMINING context.
+  - Use non-agglomerated run-of-mine mixed copper ore, not tailings or source-unreported
+    crushing. ENVO:02000094 ore is an authority-verified material candidate; do not
+    pretend it also encodes heap geometry.
+  - Retain source-attributed representatives without treating them as exhaustive or
+    deliberately inoculated. Separate field Sulfobacillus genus signals from S. thermosulfidooxidans
+    laboratory species; preserve A. caldus in2018 and L. ferrooxidans in2022 as distinct
+    comparators.
+  - Retain Ferroplasma PRIMARY_PRODUCER only with local carbon-fixation support; otherwise
+    omit that optional role without claiming global inability. Require actual source-supported
+    partnership for SYNTROPHIC_PARTNER, without adding obligacy. Mineral PRIMARY_DEGRADER
+    may remain as appropriately qualified capability.
+- action_id: repair-field-claims
+  description: Align non-graph claims with measured observables and experiment context.
+  finding_ids:
+  - field-measurements
+  target_ids:
+  - CommunityMech:000019
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Correct Ferroplasma to approximately 10^3 DNA copies/mL in the field; keep L.
+    ferriphilum approximately 10^5 distinct. Stable A. thiooxidans DNA counts and
+    RNA activity proxies must not be called constant sulfur-oxidation flux. Retain
+    ordinal categories without mandatory percentages.
+  - Use the approximately 400-day source cycle and exact Table 4 pairings:30-day S10
+    pH 2.30/FeIII 0.87;150-day S8 pH 1.83/FeIII 1.86;330-day S5 pH 1.67/iron ND. Keep
+    the separate300-day footnote FeIII 1.88 distinct from total Fe 1.9 and from S5.
+  - Support or qualify20–60 °C,50–60 °C hot-zone and oxygen-gradient statements; the
+    focal source directly reports base blowers, not spatial oxygen measurements. Keep
+    pH/redox succession as author interpretation of field associations.
+  - Attach exact Results/Table/Methods evidence to each quantitative or mechanistic
+    claim. Laboratory DSF/SX assays remain IN_VITRO and dose/strain-specific; general
+    chemical-cycle context remains partial background. Do not transfer L. ferrooxidans
+    results to L. ferriphilum or A. caldus results to A. thiooxidans.
+  - Retain all five individually assessed nodes and eight PARTIAL arrows, conditional
+    copper recovery, and no inferred closed five-member exchange cycle or monotonically
+    greater recovery with stronger iron oxidation.
+- action_id: reconcile-medium
+  description: Represent sourced recipes and protocols without double-counting or
+    chemical substitution.
+  finding_ids:
+  - medium-protocol
+  target_ids:
+  - CommunityMech:000019
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    role: canonical_record
+  acceptance_checks:
+  - 'Resolve all 14 rows into explicit recipe variants: six duplicated salt pairs
+    are not separate additions. Do not sum or average44.22 and49.9501 g/L FeSO4·7H2O,
+    or silently substitute a current external recipe for a cited study.'
+  - For the stated hydrates, use verified CHEBI:31795 and CHEBI:75836 as appropriate;
+    bulk elemental sulfur can use CHEBI:33403. Preserve calcium-nitrate hydration
+    uncertainty and source-specific acid addition/pH adjustment. Graph sulfur-atom
+    context remains separately qualified.
+  - Keep CultureMech:003277 identity and update its current normalized 9K link. The
+    twelve legacy MIM identifiers require exact current identity resolution or removal
+    of unresolved links; do not migrate IDs by label alone. Current CultureMech environment
+    text backfilled from this record cannot support the field environment.
+  - Represent2018 MAC mineral cultures separately from iron/tetrathionate precultures:100
+    mL/250 mL,pH 1.8,2%chalcopyrite,38±2 °C,120 rpm,10^7 cells/mL per species and14
+    days after ORP 400 mV versus Ag/AgCl. Keep material particle size and duration
+    criterion source-local.
+  - Separate2021 signal/iron/RNA assays and2022 bioleaching/biofilm/MPN protocols,
+    with their actual strains, temperatures, volumes, agitation and additions. Field
+    irrigation is not a 9K flask protocol. Preserve source internal inoculum/AHL dose
+    discrepancies instead of silently resolving them.
+- action_id: repair-gtdb
+  description: Replace unsupported release/build claims with verifiable local provenance.
+  finding_ids:
+  - gtdb-provenance
+  target_ids:
+  - CommunityMech:000019
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Record exact crosswalk digest, lookup route and actual access time. Label filesystem
+    mtime as mtime, not release/build identity; remove unsupported latest wording.
+  - Retain all five current cores and source names:1.0/10,1.0/6,1.0/43,0.91/22 and1.0/6
+    for the ordered taxa. Name-fallback routes are valid; do not force exact-ID or
+    exact-strain mapping.
+- action_id: link-expression-data
+  description: Add verified source-specific expression resources.
+  finding_ids:
+  - expression-resources
+  target_ids:
+  - CommunityMech:000019
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Link PRJEB27534/ERP109624 to the 2018 A.caldus/L.ferriphilum/S.thermosulfidooxidans
+    laboratory cultures, and E-MTAB-9845/ERP125500 to 2021 L.ferriphilum DSM14647
+    signal treatments.
+  - Describe twelve archived2018 runs without equating them to the paper’s nine sequenced
+    samples or independent heap samples. Describe twelve 2021 libraries/four per condition
+    only at the metadata-supported scope.
+  - Keep AFOH00000000.1 and source AFOH01000000 plus assembly references as background
+    strain resources. Do not certify unread code or bypass its certificate failure.
+- action_id: validate-future-curation
+  description: Validate separately authorized repairs and preserve review provenance.
+  finding_ids:
+  - heap-scope
+  - field-measurements
+  - medium-protocol
+  - gtdb-provenance
+  - expression-resources
+  target_ids:
+  - CommunityMech:000019
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    role: canonical_record
+  acceptance_checks:
+  - After authorized curation, update claim-local evidence/history and run schema,
+    strict, terms, references, GTDB, domain and history checks, then just gen-html
+    and just check-docs-current. This review does not mutate canonical records or
+    generated pages.
+  - Retain original failed inspection,36-input successful boundary, discovery-only
+    coloncache, all source/access versions and supporting-isolate full-text limitation.
+    No external issue closure or raw transcript reanalysis follows automatically.
+limitations:
+- PMID19104861 main text/figures were not recovered; only its full abstract and publisher
+  preview were read. This supports closely related isolate context, not exact focal
+  heap membership or unread protocol claims. Other current claims are covered by whole
+  primary sources.
+- No raw RNA reanalysis, gene-function validation, chemical remeasurement or donor-resolved
+  field flux reconstruction. All supplemental text and figure numbers were inspected;2018
+  mineral workbook values were read without recalculation.
+- The2021 DSF source disagrees on individual-versus-combined inoculum counts and main
+  versus supplemental AHL dose. A converted S3 chart has overlaid/partial plotting
+  elements; no quantitative claim is derived from that rendering. Originals remain
+  authoritative.
+- Field DNA, rRNA/PAM, laboratory cell counts, MPN and SYTO9/ConA images measure different
+  things. Cell-location/EPS microscopy is not viability staining. Quantitative source
+  conflicts must not be normalized into new facts.
+- The initial inspect failed on an existing colon-named metadata file. The empty stdout
+  is a preserved failure artifact; successful inspect-v2 binds36 files. The extra
+  metadata is discovery-only context, not a 37th officially inspected scientific input.
+- Current upstream inventories support bounded legacy-link conclusions, not absence
+  from untracked upstream files. CultureMech identity does not prove field use, and
+  its backfilled environment text is circular.
+notes:
+- Thirty-two strict cache matches, thirty-one strict fresh matches and one explicit
+  superscript-space projection are preserved. Ten node-evidence occurrences across
+  five nodes yield the 20-point evidence bonus.
+- Completed scientific review is not a clean verdict. Native schema success and the
+  capped score do not resolve three major and two minor findings.
+- The independent root microscopy interpretation was corrected append-only and pinned;
+  all earlier receipts and historical graph decisions remain unchanged.
+- Actual corpus diagnostics exit 1 with 44 warnings in 16/477 records and zero errors;
+  optional adapter is unavailable in this runtime. Both are explicit nonrequired checks.
+  Parent alone saves after whole independent acceptance.
+tags:
+- record-review
+- biomining
+- copper
+- heap-leaching
+- batch-13
+```
