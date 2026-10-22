@@ -1,0 +1,60 @@
+schema_version: 1.0.0
+repository_key: communitymech
+github_repository: CultureBotAI/CommunityMech
+run_id: mech-goal-sequence-20261019
+cycle: 1
+stage: 6
+revision: 1
+outcome: completed
+summary: >
+  Stage 6 (infrastructure) frozen intake execution for CommunityMech at source
+  revision e117e3d37c65bfad2e04af53ab34e1325d8d7f98 and frozen scope cutoff
+  2026-10-22T01:34:25Z (INFRA_TASKS.md sha256
+  364efb1bac9f8140bffebe2923c871e30dd6a2186765083f11f371d2698b7246). Created
+  GitHub issues #2055, #2056, and #2057 for communitymech-infra-0001,
+  communitymech-infra-0002, and communitymech-infra-0003, implemented and
+  validated all three infrastructure upgrades across
+  tests/test_community_level_connectivity_credit.py,
+  scripts/build_sequence_map.py, scripts/audit_completeness.py,
+  scripts/generate_validation_report.py, and tests/test_stage6_infrastructure.py,
+  and updated INFRA_TASKS.md with resolved dispositions (0 carry-forward tasks).
+source_revision: e117e3d37c65bfad2e04af53ab34e1325d8d7f98
+scope_frozen_at: '2026-10-22T01:34:25Z'
+artifacts:
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-06/revision-0001/infra_snapshot.md
+  sha256: 364efb1bac9f8140bffebe2923c871e30dd6a2186765083f11f371d2698b7246
+  kind: infra_snapshot
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-06/revision-0001/implementation_plan.md
+  sha256: 011070b8f852c31a52637ca931f2616fdc229e305a1709320f95ab2cffd18095
+  kind: implementation_plan
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-06/revision-0001/validation.md
+  sha256: 99d14d28c66c050bcac83d184b430ab98c033c14b78d9f7d4af7b717557c4d04
+  kind: validation
+findings: []
+groups: []
+carry_forward_ids: []
+infra_tasks:
+- task_id: communitymech-infra-0001
+  summary: Evaluate optional edge-level evidence on InteractionDownstream and decouple scope-credit tests from hardcoded corpus counts
+  status: resolved
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2055
+  disposition: Resolved in Stage 6 (#2055). Decoupled test_community_level_connectivity_credit.py upper bounds from hardcoded corpus counts (bounding with_community_level by survey['records'] and mixed by survey['with_community_level'] while retaining non-vacuous floors and share ratio guards) and added automated contract tests in tests/test_stage6_infrastructure.py verifying that all InteractionDownstream edges resolve to in-record targets backed by parent EcologicalInteraction EvidenceItem citations and decision-ledger provenance.
+  resolution_evidence:
+  - reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-06/revision-0001/implementation_plan.md
+  - reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-06/revision-0001/validation.md
+- task_id: communitymech-infra-0002
+  summary: Fix build_sequence_map.py CommonTaxon.genes key mismatch and evaluate optional gene/protein linkage on EcologicalInteraction
+  status: resolved
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2056
+  disposition: Resolved in Stage 6 (#2056). Updated scripts/build_sequence_map.py (load_curated_genes and _enrich_from_taxa_yaml) to read both canonical CommonTaxon.genes (product, supports_interaction, gene_symbol, locus_tag, supports_roles, go_terms, evidence/references) and legacy functional_genes (function, phenotype), projecting all 9 curated UniProtKB accessions across kb/taxa/Shewanella_oneidensis_MR1.yaml and kb/taxa/Geobacter_sulfurreducens.yaml, with regression tests in tests/test_stage6_infrastructure.py.
+  resolution_evidence:
+  - reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-06/revision-0001/implementation_plan.md
+  - reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-06/revision-0001/validation.md
+- task_id: communitymech-infra-0003
+  summary: Align audit_completeness.py scoring with proportional Completeness Score rubric and include data/isolates in completeness and network audits
+  status: resolved
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2057
+  disposition: Resolved in Stage 6 (#2057). Implemented scripts/audit_completeness.py (and updated scripts/generate_validation_report.py) with Seatbelt-safe _repo_root() path resolution, proportional 0-100 calculate_completeness and calculate_validation_score metrics matching .claude/skills/review-communities/reference/metrics-and-reports.md, and multi-root scanning across kb/communities/*.yaml, data/isolates/*.yaml, and kb/taxa/*.yaml while preserving scripts/record_review.py byte-identical to its governed CLAW payload.
+  resolution_evidence:
+  - reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-06/revision-0001/implementation_plan.md
+  - reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-06/revision-0001/validation.md
