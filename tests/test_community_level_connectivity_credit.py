@@ -119,7 +119,11 @@ def test_most_records_carry_a_community_level_interaction(survey):
     # competitive release in the four-species community. Both name their
     # participants explicitly, so neither widens the rule's reach -- removing
     # just these two records reproduces 415 exactly.
-    assert 130 <= survey["with_community_level"] <= 422, survey
+    # #2055 decouples the upper bound from hardcoded corpus counts so adding
+    # source-backed records with explicit participating_taxa does not trip a
+    # count ceiling while the share guard below monitors the rule's reach.
+    assert 130 <= survey["with_community_level"] <= survey["records"], survey
+    assert 0.70 <= survey["with_community_level"] / survey["records"] <= 0.98, survey
 
 
 def test_the_mixed_records_are_where_the_coarseness_bites(survey):
@@ -146,7 +150,9 @@ def test_the_mixed_records_are_where_the_coarseness_bites(survey):
     # outcome. The PHA record is community-only, so it does not land here.
     # #1467 resolves the Transwell reporter endpoints while retaining its separate
     # three-member community-level assay (138 -> 139); the share guard is unchanged.
-    assert 35 <= survey["mixed"] <= 140, survey
+    # #2055 decouples the mixed-record ceiling from hardcoded corpus counts.
+    assert 35 <= survey["mixed"] <= survey["with_community_level"], survey
+    assert 0.15 <= survey["mixed"] / survey["with_community_level"] <= 0.60, survey
     assert survey["mixed"] + survey["community_level_only"] == survey["with_community_level"]
 
 
