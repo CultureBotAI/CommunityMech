@@ -1,0 +1,1361 @@
+schema_version: 1.0.0
+review_id: 20261021T210542Z-carboxidivorans-kluyveri-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: CO chain-elongation coculture source and cultivation review
+started_at: '2026-10-21T20:58:05.262859Z'
+finished_at: '2026-10-21T21:05:42.270906Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed science, auxiliary authorities and
+    support; no person-level independence asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Two major findings concern non-graph product/comparator claims and cultivation
+  feed/stage scope; two minor findings concern taxon/mapping and source-resource provenance.
+  Both exact-system papers and supplements were assessed. Retain the two species,
+  source-qualified roles and three-node/two-arrow graph. All eight focused native
+  checks pass.
+source:
+  git_revision: 95812d3412d5aab41fd03422340cf736ac7b56f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture/2026-10-05T232412Z-codex-96cf43.yaml
+    sha256: fbcdc2ec9305fda651ee0e4196521e41117f88389c3d1a6ecc557a7bc6295ffa
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+    sha256: dfc0feb9084b682e6d5f9dfc9529d9ae7f146e31371d63c63960ffe6a3fd391a
+    role: target
+  - path: references_cache/PMID_34669248.md
+    sha256: 198790e7d9ce5552b88eaa2ae815e8af09cc8fa3cdab0736f2d1e78d3fce0f35
+    role: context
+  - path: references_cache/PMID_37110426.md
+    sha256: dc71f42697cd1a44f604d697685f557165eae3f8597e754cf8059b148744c40e
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261005-batch18.yaml
+    sha256: 2b54425ea46c8012323f68e99005f7d8413cd20829b0f5098e363045013fc02f
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-three-records-batch18.yaml
+    sha256: 8641fb68113d8901fda5891dee85cc0eeec098cad5d2bffaeaf0300920550782
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000266
+  path: kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+  label: Clostridium carboxidivorans-Clostridium kluyveri CO Chain-Elongation Coculture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+    role: canonical_record
+scope:
+  description: Whole maintained record assessed against both exact-system mains, all
+    main figures, declared supplements and local source/authority checks.
+  selection: Only released CommunityMech:000266 in owned batch 11.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000266
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000266
+  command: just --no-dotenv validate kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Owned batch 11 runtime; canonical inputs unchanged.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000266
+  command: just --no-dotenv validate-strict kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-11/000266/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Owned batch 11 runtime; canonical inputs unchanged.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000266
+  command: just --no-dotenv validate-terms kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Owned batch 11 runtime; canonical inputs unchanged.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000266
+  command: just --no-dotenv validate-references-explained kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Owned batch 11 runtime; canonical inputs unchanged.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000266
+  command: just --no-dotenv validate-gtdb kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Owned batch 11 runtime; canonical inputs unchanged.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000266
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Owned batch 11 runtime; canonical inputs unchanged.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000266
+  command: just --no-dotenv validate-history history/records/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Owned batch 11 runtime; canonical inputs unchanged.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000266
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Owned batch 11 runtime; canonical inputs unchanged.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Same-batch corpus diagnostic retained.
+  target_ids:
+  - CommunityMech:000266
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - metrics
+  scope_note: Explicit batch 11 diagnostic reuse; no later record assessed.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Same-batch corpus diagnostic retained.
+  target_ids:
+  - CommunityMech:000266
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - metrics
+  scope_note: Explicit batch 11 diagnostic reuse; no later record assessed.
+- check_id: scientific-source
+  name: Exact-system primary and SI assessment
+  status: passed
+  required: true
+  summary: Both full papers, all main figures and declared SI assessed for current
+    claims.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - lead-read
+  - source-scope
+  - root-source
+- check_id: direct-excerpts
+  name: Reference-specific excerpt verification
+  status: passed
+  required: true
+  summary: '28 strict fresh/cache occurrences: 26 abstract and 2 title.'
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - snippets
+  - title-scope
+- check_id: authority-review
+  name: Ontology, strain and schema review
+  status: passed
+  required: true
+  summary: 13 pairs/32 occurrences match; source-specific semantics separately assessed.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - ontology
+  - schema
+  - strain
+  - gtdb
+- check_id: adapter
+  name: Optional structured adapter
+  status: unavailable
+  required: false
+  summary: Same-batch discovery reused with fresh compatibility; external runner not
+    executed.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - adapter
+- check_id: reanalysis
+  name: Raw-data or experimental reproduction
+  status: skipped
+  required: false
+  summary: No FISH event reanalysis, chromatogram integration, numerical refit or
+    culture reproduction.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - lead-read
+  - resources
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+  locator: Whole maintained YAML
+  summary: Two species, three nodes and two arrows describe C2 supply, organic-acid
+    conversion and engineered reactor staging. Graph qualifications are sound; non-graph
+    product and medium scope need repair.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.265177Z'
+- evidence_id: batch-products
+  kind: primary_source
+  reference: PMID:34669248; DOI:10.1111/1751-7915.13941
+  locator: 'Results and discussion: Autotrophic co‐cultivation of C. carboxidivorans
+    and C. kluyveri; Figures 3–6; Table 1'
+  summary: At 144 h, 800 mbar inlet CO and pH 6, the matched coculture produces about
+    three times the butanol and detectable hexanol versus the acetogen monoculture.
+    At lower CO, products and growth differ. This is a condition-specific comparison;
+    the paper also recognizes acetogen alcohol-forming capacity.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.265245Z'
+  snapshot_sha256: c80e657af6d15be058b1cd2aaa8335e07ae37669daa0163e8c316fc17ff18d17
+- evidence_id: cascade-products
+  kind: primary_source
+  reference: PMID:37110426; DOI:10.3390/microorganisms11041003
+  locator: 'Results and Discussion: 3.3. Co-Cultivation Studies in Two Bioreactors
+    in Series with Varying pH and pCO, paragraphs 5–13; Figures 6–9; Table 1'
+  summary: The matched cascade monoculture produces alcohols, including hexanol. The
+    coculture changes acid supply and produces about 10% higher alcohol concentrations
+    under the comparison conditions. Product balances support incoming-acid reduction
+    plus inferred de novo synthesis; all downstream alcohol is not assigned to exchanged
+    acids.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.265336Z'
+  snapshot_sha256: 69d6f30938a6843fd09bf15bafc68219a96552aa42b0b46ddc901b1785846a75
+  quote: de novo synthesis
+- evidence_id: sulfide
+  kind: primary_source
+  reference: PMID:37110426
+  locator: 3.2. Continuous Sulfide Supply in Autotrophic Batch Processes with C. carboxidivorans;
+    Figures 4–5; 3.3, paragraph 1
+  summary: The controlled sulfide comparison is an acetogen monoculture batch experiment
+    at 100 mbar inlet CO and pH 6. Feeding 0.05 mmol S per L per h starts at 24 h
+    and improves growth/ethanol versus no added feed. That selected regime is then
+    adopted in cascade reactor 1; the cascade does not separately isolate sulfide
+    from the other operating choices.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.265407Z'
+  snapshot_sha256: 69d6f30938a6843fd09bf15bafc68219a96552aa42b0b46ddc901b1785846a75
+- evidence_id: coupling
+  kind: primary_source
+  reference: PMID:37110426
+  locator: 3.1. CO-Inhibition Studies with C. kluyveri in Stirred-Tank Reactors; 3.3.
+    Co-Cultivation Studies in Two Bioreactors in Series with Varying pH and pCO; Figures
+    2–3 and 6–9
+  summary: Acetogen C2 products support chain elongation, and partner-derived acids
+    support acetogen alcohol formation. C. kluyveri can continue chain elongation
+    despite restricted growth. The source contrasts its results with prior batch behavior;
+    no molecule-resolved interspecies hydrogen flux is established.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.265470Z'
+  snapshot_sha256: 69d6f30938a6843fd09bf15bafc68219a96552aa42b0b46ddc901b1785846a75
+- evidence_id: batch-protocol
+  kind: primary_source
+  reference: PMID:34669248
+  locator: 'Experimental procedure: Microorganisms and medium; Preculture; Stirred‐tank
+    bioreactor and gas fermentation processes; Analytical methods'
+  summary: DSM 15243 and DSM 555 are separately precultured at 37°C and 100 rpm, with
+    5 g/L glucose for the acetogen or 10 g/L potassium acetate and 20 mL/L ethanol
+    for C. kluyveri. Cells are harvested and resuspended in PBS. The 1-L working batch
+    in a 2-L stirred reactor uses 37°C, pH 6, 1200 rpm and continuous gas supply.
+    These are distinct stages; PBS pH and analytical temperatures are not culture
+    setpoints.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.265529Z'
+  snapshot_sha256: c80e657af6d15be058b1cd2aaa8335e07ae37669daa0163e8c316fc17ff18d17
+- evidence_id: cascade-protocol
+  kind: primary_source
+  reference: PMID:37110426
+  locator: '2. Materials and Methods: 2.1. Microorganisms and Medium; 2.2. Preculture
+    Preparations; 2.3. Stirred-Tank Bioreactor Set-Up for Gas-Fermentation Processes;
+    Figure 1'
+  summary: Cascade reactor 1 has 1 L working volume, pH 6, 100 mbar inlet CO, 0.042
+    vvm and dilution 0.09 per h; reactor 2 has 1.5 L, pH 5, 800 mbar CO, 0.083 vvm
+    and dilution 0.06 per h. Both operate at 37°C and 200 mbar inlet CO2 with N2 balance
+    where applicable. Continuous operation follows a 24-h batch phase in reactor 1,
+    with reactor 2 inoculated at that transition.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.265596Z'
+  snapshot_sha256: 69d6f30938a6843fd09bf15bafc68219a96552aa42b0b46ddc901b1785846a75
+- evidence_id: inoculum
+  kind: primary_source
+  reference: PMID:34669248; PMID:37110426
+  locator: Batch Autotrophic co-cultivation opening versus Stirred-tank bioreactor
+    and gas fermentation processes; cascade 2.3, paragraphs 2 and 5
+  summary: The batch Results state 0.5 g/L each, whereas Methods state 0.05 g/L each
+    and 0.1 total. Cascade Methods also give 0.05 each but one parenthetical total
+    of 1.0, versus 0.1 earlier. Preserve these source discrepancies explicitly; do
+    not silently select or calculate a supposedly corrected source value.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.265655Z'
+  snapshot_sha256: 73843543e882aec2d5994bf83e30abac62581724f88c728740dcba6ed6de2000
+- evidence_id: batch-si
+  kind: primary_source
+  reference: PMID:34669248 supplementary DOCX MBT2-15-1471-s001.docx
+  locator: Tables S1–S3; Figures S1–S3
+  summary: Table S2 gives stock dilution factors 33.3-fold minerals and 100-fold vitamins/trace
+    elements, yeast extract 1 g/L and cysteine hydrochloride 0.4–0.5 g/L. MES is for
+    heterotrophic flask preculture; polypropylene glycol is for reactor work. Tables
+    S1/S3 concern probes and analytical FISH buffers. Calibration plots support the
+    conversion between counts, OD and CDW, not an invariant culture composition.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.265781Z'
+  snapshot_sha256: c86e87e29227384dd88fdd71e6057bd0a74096e5495807b504bb3f76da5dd9f7
+- evidence_id: cascade-si
+  kind: primary_source
+  reference: PMID:37110426 supplementary PDF within microorganisms-11-01003-s001.zip
+  locator: Table S1, pages 1–2; Figures S1–S2, pages 3–4
+  summary: The medium table gives stock factors, 1 g/L yeast extract and 0.5 g/L cysteine
+    hydrochloride, with MES/antifoam stage notes. HPLC/GC chromatograms document product
+    analysis and reactor samples at 167 h. Eluents, extraction solvents, column temperatures
+    and detector gas flows must not become cultivation conditions.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.266710Z'
+  snapshot_sha256: 46eb395492633771df0a703010ec59e3417b7e8cd0f03c1bf0ad62d21098d1b4
+- evidence_id: abundance
+  kind: primary_source
+  reference: PMID:37110426
+  locator: 3.3, paragraphs 2–3, 9 and 13; Figures 6 and 8; Table 1
+  summary: Calibrated steady-state CDW ratios of acetogen to C. kluyveri are 17:1
+    in reactor 1 and 35.5:1 in reactor 2. Initial CDW equality, measured cell counts,
+    biomass ratios and ordinal ABUNDANT express different things. Preserve the valid
+    ordinal categories with source-specific context; neither endpoint ratio is a universal
+    percentage.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.267196Z'
+  snapshot_sha256: 69d6f30938a6843fd09bf15bafc68219a96552aa42b0b46ddc901b1785846a75
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-11/000266/ontology-authority.json
+  locator: 13 ID-label pairs and 32 locations, definitions and GO metadata
+  summary: All labels match. Nine CHEBI identities include the broad sulfide class,
+    rather than an asserted pure ion; hexanoate is correctly anionic. GO fermentation
+    has explicit exceptions concerning organic substrates/electron transport, so industrial
+    syngas fermentation is not rejected from the short definition alone.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.267268Z'
+  snapshot_sha256: 2db6d810e973c6d95d53ab3d5f2248a96f48957afef9ba679752176f23b54ddc
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-11/000266/child-schema-semantics.json
+  locator: FunctionalRoleEnum, InteractionTypeEnum, AbundanceEnum and cultivation
+    slots
+  summary: PRIMARY_PRODUCER means carbon fixation; CROSS_FEEDER means utilization
+    of another taxon’s metabolites. Neither requires obligacy or a nutrient-only test.
+    ABUNDANT is ordinal. Inlet gas, maintained headspace and liquid cultivation mode
+    are distinct.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.267438Z'
+  snapshot_sha256: 3b0d98270bb75a2a697e74f4c5132aebb9341d972de62fbba7d0cdcee6331de7
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-11/000266/child-gtdb-crosswalk.json
+  locator: Encoded species exact-ID/name routes and mapping snapshot
+  summary: 217159 resolves by exact ID to Clostridium_AM carboxidivorans, 1.0/3 genomes;
+    1534 resolves by name fallback to Clostridium_B kluyveri, 1.0/5. Core classifications
+    are valid. File mtime does not establish release latest or a build date.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.267590Z'
+  snapshot_sha256: 64fb641a850ced0fc86d486131a607030616e690f77db52078c4964e8c0b1f74
+- evidence_id: strain
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-11/000266/child-strain-authority.json
+  locator: Both primary Methods, DSM 15243 direct catalogue and explicitly reused
+    DSM 555 catalogue; optional exact-strain rows
+  summary: Source DSM 15243 is P7, with ATCC BAA-624/KCTC 15178 aliases; DSM 555 is
+    K1 with verified catalogue aliases. Optional NCBITaxon strain IDs 536227 and 431943
+    have separate GTDB support 1.0/5 and 1.0/3. Keep these separate from current species
+    counts. Catalogue conditions are not experimental protocols.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.267699Z'
+  snapshot_sha256: 0f0181c713ade7c035f910fec445fd5dfd2ff48d398525a600975e2974450a10
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-11/000266/ontology-semantic-notes.json
+  locator: Final source-specific role, chemical and operating-scope assessment
+  summary: Retain source-qualified roles, two species and three-node/two-arrow graph.
+    No extra role, abundance-percentage, metal or taxon-identity finding is imposed;
+    source context governs optional refinements.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.267828Z'
+  snapshot_sha256: a489e641bd76f96760be1574361091195e3d48b8e5e80fc7de172c12ed21c053
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/dataset-verification.json
+  locator: Both PMID phenotype contexts; exact DOCX and ZIP/PDF links and resource
+    statements
+  summary: The PMIDs are valid publication identifiers and can remain explicit PHENOTYPE
+    study context. Verified supplements supply medium, calibration and analytical
+    evidence. They are not separately verified raw-data deposits; no missing archive
+    or required article removal is inferred.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.267947Z'
+  snapshot_sha256: 9be194f26baba3376a9157cdb48ad308348cf0d01616492465f2de51e5c973f8
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/snippet-source-audit.json
+  locator: 28 reference-specific excerpt occurrences
+  summary: All 28 occurrences strictly match their own source/cache. Most are short
+    abstract fragments; literal matching does not validate the expanded product, culture
+    or mechanism interpretation.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.268092Z'
+  snapshot_sha256: 4b14cfd119525961fec84468e9c431e1da246f886cfdb57fd07fe05c0a57ecdf
+- evidence_id: title-scope
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/snippet-title-scope-clarification.json
+  locator: 26 abstract and two article-title occurrences
+  summary: Two title excerpts identify the study rather than supporting its experimental
+    mechanism. The longer title matches XML directly and rendered metadata after its
+    inline markup is removed; there is no altered quotation.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.268259Z'
+  snapshot_sha256: fff033443ce0cca08987fb917d7c1cb7b934b4cb893b981603589f9016cad86d
+- evidence_id: history
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-11/000266/provenance-audit.json
+  locator: Sole history, focal batch 18 decision/adversarial scope, current 1321 and
+    timestamped 1322 reuse
+  summary: Target/cache hashes agree with the prior row. Issue 1321 is closed after
+    graph repair; shared 1322 remains open and directly covers this record’s non-graph
+    scope. Its retrieval from record 193 at 2026-10-21T20:45:36.642354+00:00 is explicitly
+    reused. Support read cache metadata/excerpt contexts, not independently every
+    appended main-text line.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.268392Z'
+  snapshot_sha256: fba27e11a959fee3ddd0205159a9d9231cf62c0be9aaf442bfc2aaad68176f6d
+- evidence_id: historical-bytes
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/historical-source-byte-identity.json
+  locator: Exact old recorded XML hashes versus newly fetched main XMLs
+  summary: Both fresh XML hashes reproduce historical source hashes. Missing historical
+    pathnames remain metadata; no special missing-pin exception or source substitution
+    is used.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.268540Z'
+  snapshot_sha256: 6458df1ce1223ec33e1f231a9a6408be5a7b396d105b1328342c0b37ce1db236
+- evidence_id: inspect
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/inspect.json
+  locator: Fresh official 27-input inspection before assessment
+  summary: Canonical owner, current base, authorities, two caches, history and exact
+    prior decision/adversarial input are pinned. Ignored-inclusive discovery supports
+    bounded local absence statements.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.268614Z'
+  snapshot_sha256: eaa47687f3d44f0472bb7e8b370302661e74297fbad1b98a2ccbc1d579a21b2f
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/lead-primary-read-scope.json
+  locator: Complete two-main reading, all 15 main figures and all declared SI
+  summary: Both scientific mains, tables/captions and references were read. All six
+    batch and nine cascade figures were viewed. Batch SI has three labeled tables
+    and three figure payloads; cascade SI is four pages with one table and two figures.
+    No raw-event or chromatogram reanalysis was performed.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.268641Z'
+  snapshot_sha256: 73843543e882aec2d5994bf83e30abac62581724f88c728740dcba6ed6de2000
+- evidence_id: source-scope
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/source-audit.json
+  locator: Final two-major/two-minor scientific assessment
+  summary: Current-claim scientific review is complete. Findings concern non-graph
+    comparator scope, cultivation stages, taxon/mapping context and source-resource
+    provenance; no critical source remains unavailable.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.268669Z'
+  snapshot_sha256: 40f7ecd28f9cc6c857801d18da9cbbb6e28f96babe3734ec545d14a6562d1d97
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/root-independent-source-audit.json
+  locator: Independent exact-system primary and authority review
+  summary: Root independently assessed both main texts, selected visual/source scopes,
+    supplementary information and authorities, agreeing with completed status and
+    the four grouped findings. Its exact visual subset remains in its receipt.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.268785Z'
+  snapshot_sha256: 38511d4ef089805cc3f24bd40973968f656d99e57c5dd1cbd1cefe9355323ff3
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/support-final-audit.json
+  locator: Final metrics, source boundaries and unchanged inputs
+  summary: Completeness 95; three nodes, two arrows and six node-evidence occurrences.
+    Two major/two minor findings yield raw quality 111, capped 100. Rubric scores
+    do not certify scientific correctness.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.268814Z'
+  snapshot_sha256: 182a0a306431d88195dcd85d7297fcda1aee4b5ebf030233fdbc494790af467a
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/supporting-artifact-manifest.json
+  locator: Distinct final support and immutable support artifacts
+  summary: Preliminary support is preserved separately. Final support pins the source-specific
+    title partition, resource identities, historical byte comparison and declared
+    read scopes.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.268840Z'
+  snapshot_sha256: 8cce1aa1b826ff15492395b3c3b8bcef069f284c83daf01effe35a4a323796db
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/auxiliary-frozen-manifest.json
+  locator: Final native/authority artifact manifest
+  summary: Eight native checks pass; all 27 inspected inputs and caches remain unchanged.
+    Thirteen ontology pairs across 32 occurrences match; initial and final native
+    summaries are separate.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.268948Z'
+  snapshot_sha256: 45fcd761577923032b291363a3dd077fa3cac117d0ae476ca64a7fe5f1379721
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/final-validator-summary.json
+  locator: Eight actual focused commands and final input integrity
+  summary: Schema, strict, terms, references, GTDB, domain, history and cache-name
+    checks pass. Native reference success is not a complete scientific review or a
+    count of independently verified claims.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.269086Z'
+  snapshot_sha256: affc2cdf38206334a0a73184e5ddbb39ed67e40e9e21918757f68cfa32dbb093
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/adapter-check.json
+  locator: Same-batch 403 discovery at 2026-10-21T19:20:45.556660+00:00 and fresh
+    runtime compatibility
+  summary: The optional adapter remains unavailable in the owned runtime. Ignored-inclusive
+    filename discovery is explicitly reused, while runtime availability is freshly
+    checked. An external other-checkout runner was not executed; no global absence
+    is asserted.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.269226Z'
+  snapshot_sha256: db41e066840f98fad06974cb21f78048fd6010d9571dbe785513cd4f51b96190
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/validate.json
+  locator: Recorded command, stdout/stderr and exit status
+  summary: Actual focused native result; not a scientific certification.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.269399Z'
+  snapshot_sha256: b684b8776ab069e5ed275b735447422309e5f3ebb37e2d43df7b9d5f72e8ca7e
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/validate-strict.json
+  locator: Recorded command, stdout/stderr and exit status
+  summary: Actual focused native result; not a scientific certification.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.269555Z'
+  snapshot_sha256: fa73fb577a972173e34b39079f11e36b7fc17736982e8e00ac177cfa818bc90c
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/validate-terms.json
+  locator: Recorded command, stdout/stderr and exit status
+  summary: Actual focused native result; not a scientific certification.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.269713Z'
+  snapshot_sha256: 65f81c89fb05b7e4632999a300006a665cfb003832e565861fc6605bc394c948
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/validate-references-explained.json
+  locator: Recorded command, stdout/stderr and exit status
+  summary: Actual focused native result; not a scientific certification.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.269868Z'
+  snapshot_sha256: c23e1dbc4ae53d43f2f8a0c9c3e8b8261c0c3ea76061eb3979ccd538446c6997
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/validate-gtdb.json
+  locator: Recorded command, stdout/stderr and exit status
+  summary: Actual focused native result; not a scientific certification.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.270017Z'
+  snapshot_sha256: f2db77fa0ec8ecbc2d9cf971d86a99ffd19be139687c71dbcab87b99598345c0
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/validate-gtdb-domain.json
+  locator: Recorded command, stdout/stderr and exit status
+  summary: Actual focused native result; not a scientific certification.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.270135Z'
+  snapshot_sha256: 68ae5a274f39e93c15e87fe91bdd98b951d73f4c27b4cad13d130909374790f4
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/validate-history.json
+  locator: Recorded command, stdout/stderr and exit status
+  summary: Actual focused native result; not a scientific certification.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.270264Z'
+  snapshot_sha256: b35c62d123561248cad830eede0e309d61890a2daa7bfb839d0a74a69613bc38
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000266/normalize-cache-names-check.json
+  locator: Recorded command, stdout/stderr and exit status
+  summary: Actual focused native result; not a scientific certification.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.270376Z'
+  snapshot_sha256: 73819de66fc5a01d14cf29160999a98807fbf63d0c903df9707828df6b6a28da
+- evidence_id: check-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/audit-network.json
+  locator: Same-batch corpus diagnostic; target metrics independently extracted
+  summary: Actual corpus exit 1 is retained; it is not reported as a new focused target
+    failure.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.270675Z'
+  snapshot_sha256: 5c91360a50ff296c596ef7b3fa3ca70cfa3f0423923df3104fa1aafcfcd96b61
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/check-network-quality.json
+  locator: Same-batch corpus diagnostic; target metrics independently extracted
+  summary: Actual corpus exit 1 is retained; it is not reported as a new focused target
+    failure.
+  support: supports
+  accessed_at: '2026-10-21T21:05:42.270816Z'
+  snapshot_sha256: 5052a95a78eea50710110e7c8d5488631b3eb5df1705369d5ba42b9c3c0ee9f7
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Defined two-species CO-converting coculture
+  outcome: supported
+  summary: The record denotes the intended laboratory pair and process family.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - record
+  - batch-protocol
+  - cascade-protocol
+  - strain
+  details: SYNTHETIC origin, ENGINEERED state and BIOTECHNOLOGY scope are appropriate.
+    Neither implies genetic engineering, natural community membership or equal steady-state
+    biomass. Both species IDs remain valid; exact collection strains can be added.
+- assessment_id: taxa
+  area: grounding
+  topic: Species, strains, roles and ordinal context
+  outcome: concern
+  summary: Core species and roles are supported; reproducible strain/mapping context
+    needs improvement.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - strain
+  - gtdb
+  - schema
+  - coupling
+  - abundance
+  details: Retain acetogen PRIMARY_PRODUCER and both CROSS_FEEDER roles with recipient-specific
+    source evidence. Do not infer new obligate syntrophy or reciprocal fitness. Preserve
+    ABUNDANT as an ordinal, separate from initial CDW and reactor-specific endpoint
+    ratios.
+- assessment_id: c-two-node
+  area: graph
+  topic: 'ecological_interactions[0]: acetogen to chain elongator'
+  outcome: supported
+  summary: C2 product utilization and growth/activity distinctions are source-supported.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - coupling
+  - batch-products
+  - cascade-products
+  details: Retain the PAIRWISE CROSS_FEEDING direction from C. carboxidivorans to
+    C. kluyveri. CO/CO2 feed and acetogen C2 production support the upstream substrate
+    context; high-CO growth restriction does not erase continuing chain elongation.
+    No molecule-resolved flux or hydrogen-transfer measurement is inferred.
+- assessment_id: acid-node
+  area: graph
+  topic: 'ecological_interactions[1]: chain elongator to acetogen'
+  outcome: supported
+  summary: Partner-derived acids support longer-alcohol formation within the stated
+    conditions.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - batch-products
+  - cascade-products
+  - coupling
+  details: Retain C. kluyveri to C. carboxidivorans CROSS_FEEDING. The node already
+    limits the batch alcohol comparison, preserves cascade monoculture capacity and
+    distinguishes acid reduction from de novo acetogen synthesis. Correct chemical
+    identities remain.
+- assessment_id: stage-node
+  area: graph
+  topic: 'ecological_interactions[2]: engineered cascade context'
+  outcome: supported
+  summary: Untyped community-level staging is appropriately qualified.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - cascade-protocol
+  - cascade-products
+  - sulfide
+  details: pH, inlet CO, gas flow, dilution/residence and sulfide context differ across
+    stages. Retain this as engineered operating context without NICHE_PARTITIONING
+    or isolated-CO causation. The existing source-inhibition discrepancy is correctly
+    disclosed.
+- assessment_id: relay-edge
+  area: graph
+  topic: ecological_interactions[0].downstream[0]
+  outcome: supported
+  summary: C2 consumption supplies chain-elongated acids for downstream reduction.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - coupling
+  - batch-products
+  - cascade-products
+  details: The directed link connects product supply to conversion, with the specified
+    partners and conditions. Preserve existing qualification rather than adding reciprocal-fitness
+    or exclusive-pathway claims.
+- assessment_id: stage-edge
+  area: graph
+  topic: ecological_interactions[2].downstream[0]
+  outcome: supported
+  summary: Staged acid supply and combined reduction conditions support the retained
+    arrow.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - cascade-products
+  - cascade-protocol
+  details: The first reactor supplies acids to the second. Keep the existing de novo
+    contribution and covarying-controls caveats; no factorial identification of CO
+    alone is supplied.
+- assessment_id: product-scope
+  area: consistency
+  topic: Non-graph ingredient and design interpretation
+  outcome: concern
+  summary: Threefold butanol, hexanol emergence and sulfide benefits need exact comparator
+    scope.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - batch-products
+  - cascade-products
+  - sulfide
+  details: Apply the graph’s existing precision to ingredient relevance and evidence
+    explanations. The batch hexanol observation is not universal monoculture incapacity.
+    The controlled sulfide comparison is monoculture batch work, followed by adoption
+    in the cascade.
+- assessment_id: cultivation
+  area: scope
+  topic: Media, gas feed, inoculum and reactor stages
+  outcome: concern
+  summary: The generic medium merges member supplements and exchanged products and
+    omits recoverable protocols.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - batch-protocol
+  - cascade-protocol
+  - batch-si
+  - cascade-si
+  - inoculum
+  details: Separate precultures, harvested/PBS-resuspended-inoculum batch, monoculture
+    controls and continuous cascade. Record stock versus final concentrations and
+    distinguish liquid mode from continuous gassing. Author-described autotrophy coexists
+    with yeast extract; it is not a sole-carbon analytical conclusion.
+- assessment_id: environment
+  area: grounding
+  topic: Laboratory, chemistry and metal context
+  outcome: supported
+  summary: The environment and chemical identities fit their qualified roles.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - ontology
+  - schema
+  - batch-si
+  - cascade-si
+  details: Keep laboratory environment, anion identities and broad sulfide class with
+    reagent/assay context. Trace metals in a medium are nutrients, not a demonstrated
+    metal-processing function. Retain NOT_APPLICABLE metal relevance; no light requirement
+    is invented.
+- assessment_id: evidence
+  area: evidence
+  topic: Claim-local citations and cache boundaries
+  outcome: concern
+  summary: All excerpt occurrences match; exact Methods/Results support is needed
+    for repaired interpretations.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - snippets
+  - title-scope
+  - history
+  - resources
+  details: Two title snippets identify a publication; short abstract fragments do
+    not validate broad product or protocol claims. Both cache headers say abstract_only
+    despite appended main text. Verify and repair their metadata through the maintained
+    cache owner, preserving source/version provenance.
+- assessment_id: resources
+  area: representation
+  topic: Article and supplementary phenotype resources
+  outcome: concern
+  summary: Existing publication contexts are valid but should expose the exact public
+    SI and its limits.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - resources
+  - batch-si
+  - cascade-si
+  details: PHENOTYPE/OTHER can describe published study data; no rule requires removing
+    these PMIDs. Link precise recipe/calibration/analytical assets without calling
+    them deposited raw datasets. No new archive accession or omission is inferred.
+- assessment_id: provenance
+  area: provenance
+  topic: Current ownership and historical context
+  outcome: supported
+  summary: Prior graph work and open non-graph follow-up are correctly distinguished.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - history
+  - historical-bytes
+  - inspect
+  details: Preserve closed 1321 and open shared 1322 context without closing neighboring
+    scopes or treating self-review as independent certification. Maintained YAML owns
+    content repairs; named caches own cache metadata. No public issue mutation occurred.
+- assessment_id: validation
+  area: schema
+  topic: Native validation and scientific completion
+  outcome: supported
+  summary: Eight focused native checks pass; source review is complete.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - source-scope
+  - root-source
+  details: Actual corpus diagnostic failures remain visible. Passing native checks
+    is not biological proof. Parent persistence may save only a new immutable review
+    bundle; canonical records, caches, history and generated products remain unchanged.
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: supported
+  summary: Completeness 95; raw quality 111, capped 100.
+  target_ids:
+  - CommunityMech:000266
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 95
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required fields with taxon roles 50 + environment term 5 + at least
+      three environmental factors 10 + at least three interaction nodes 10 + growth
+      media 10 + associated datasets 5 + node metabolites 5. No external-resource
+      bonus. Presence does not establish source support.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 − 50P1 − 10P2 − 2P3 + 20min(mean node evidence/2,1) + 15
+      if COMPLETE,0,100). P1=0, P2=2, P3=2, P4=0. Six evidence occurrences/three nodes
+      give mean 2 and bonus 20; COMPLETE adds 15. Raw 111 caps at 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: bound-product-comparisons
+  issue_key: cm-000266-bound-product-comparisons
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Scope inflation changes which culture and controlled intervention
+    are claimed to produce the phenotype.
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Bound non-graph product comparisons and sulfide evidence
+  description: Non-graph wording generalizes the matched batch hexanol comparison
+    to monoculture inability and attributes the sulfide benefit comparison to the
+    continuous cascade. Threefold butanol also needs its specific comparator. The
+    already qualified graph does not have these overstatements. State the 144-hour
+    800-mbar CO/pH-6 batch comparator for butanol/hexanol, retain monoculture cascade
+    alcohol capacity, and separate the monoculture batch sulfide experiment from adoption
+    of its regime in the cascade. Keep source-attributed product-balance inference
+    and no isolated-CO or universal-pathway claim.
+  target_ids:
+  - CommunityMech:000266
+  field_paths:
+  - related_ingredients[4].relevance
+  - related_ingredients[5].relevance
+  - related_ingredients[6].relevance
+  - related_ingredients[4].evidence[0].explanation
+  - related_ingredients[5].evidence[0].explanation
+  - related_ingredients[6].evidence[0].explanation
+  - engineering_design.perturbation_design
+  evidence_ids:
+  - batch-products
+  - cascade-products
+  - sulfide
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns content repairs; named cache files own metadata
+    corrections. Shared open issue 1322 already covers this record’s non-graph scope;
+    preserve closed 1321 graph repair. No issue or comment was posted.
+- finding_id: separate-cultivation-stages
+  issue_key: cm-000266-separate-cultivation-stages
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Feed/product and stage conflation materially affect interpretation
+    and reproducibility, beyond optional detail alone.
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Separate cultivation stages, feeds and products
+  description: One generic medium conflates ethanol/acetate exchange products and
+    member supplements with the focal autotrophic feed, while recoverable full recipes
+    and distinct batch/cascade protocols are not represented. Continuous inlet gassing
+    is not maintained vessel headspace or continuous liquid culture. Separate member
+    precultures and monoculture controls from harvested/PBS-resuspended-inoculum batch
+    and continuous cascade. Attach source-specific recipes/setpoints/working volumes/gas
+    flows/dilution and dose timing. Preserve both inoculum discrepancies, stock dilution
+    factors and source formula wording; do not import analytical or catalogue conditions.
+  target_ids:
+  - CommunityMech:000266
+  field_paths:
+  - growth_media[0].composition
+  - growth_media[0].preparation_notes
+  - growth_media[0].headspace_gas
+  - growth_media[0].evidence
+  - growth_media
+  - cultivation_setup
+  evidence_ids:
+  - batch-protocol
+  - cascade-protocol
+  - batch-si
+  - cascade-si
+  - inoculum
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns content repairs; named cache files own metadata
+    corrections. Shared open issue 1322 already covers this record’s non-graph scope;
+    preserve closed 1321 graph repair. No issue or comment was posted.
+- finding_id: document-taxon-context
+  issue_key: cm-000266-document-taxon-context
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Current identities, core mappings and ordinals are valid;
+    missing source strain context and release attribution are bounded provenance repairs.
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Document source strain and GTDB snapshot context
+  description: Source strain identities DSM 15243 and DSM 555 and reactor-specific
+    abundance bases are recoverable, while mapping provenance claims latest/build
+    date from an unverified release interpretation. Current species mappings and ordinal
+    ABUNDANT labels are valid. Add precise strain context and local role evidence;
+    retain ordinal categories and distinguish equal initial CDW, FISH counts, calibrated
+    CDW and endpoint biomass ratios. Replace latest/build claims with verified snapshot/hash
+    and exact-ID versus name method, preserving species-level 1.0/3 and 1.0/5. Optional
+    strain refinement requires its own distinct counts.
+  target_ids:
+  - CommunityMech:000266
+  field_paths:
+  - taxonomy[0].taxon_term.notes
+  - taxonomy[1].taxon_term.notes
+  - taxonomy[0].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[1].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[0].evidence
+  - taxonomy[1].evidence
+  evidence_ids:
+  - gtdb
+  - strain
+  - abundance
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns content repairs; named cache files own metadata
+    corrections. Shared open issue 1322 already covers this record’s non-graph scope;
+    preserve closed 1321 graph repair. No issue or comment was posted.
+- finding_id: clarify-source-resources
+  issue_key: cm-000266-clarify-source-resources
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Valid publication resources remain usable; exact SI linkage,
+    narrow evidence and cache labeling need localized improvement.
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Clarify article, supplementary and cache provenance
+  description: Publication-indexed phenotype context can remain, but exact supplementary
+    recipe/calibration/analytical resources and their scope should be linked. Both
+    maintained cache headers say abstract_only despite appended main-text content;
+    fragmented abstract/title excerpts alone do not carry every expanded claim. Identify
+    article/SI phenotype resources explicitly rather than raw deposited data; link
+    the verified DOCX and ZIP/PDF without claiming an absent archive. Reconcile cache
+    metadata to verified source bodies and attach exact Methods/Results/Table evidence
+    for curated claim repairs without silently overwriting provenance.
+  target_ids:
+  - CommunityMech:000266
+  field_paths:
+  - associated_datasets[0].description
+  - associated_datasets[1].description
+  - associated_datasets[0].url
+  - associated_datasets[1].url
+  - references_cache/PMID_34669248.md
+  - references_cache/PMID_37110426.md
+  evidence_ids:
+  - resources
+  - title-scope
+  - history
+  - snippets
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_34669248.md
+    role: source_cache
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_37110426.md
+    role: source_cache
+  ownership_note: Maintained YAML owns content repairs; named cache files own metadata
+    corrections. Shared open issue 1322 already covers this record’s non-graph scope;
+    preserve closed 1321 graph repair. No issue or comment was posted.
+actions:
+- action_id: bound-products
+  description: Apply exact experimental comparisons to non-graph claims.
+  finding_ids:
+  - bound-product-comparisons
+  target_ids:
+  - CommunityMech:000266
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - At related_ingredients[4:6] relevance and attached explanations, state the approximately
+    threefold butanol and detectable-hexanol comparison as the 144-h, 800-mbar inlet
+    CO, pH-6 batch coculture versus its matched acetogen monoculture. Do not generalize
+    to all monocultures or process conditions; cite batch Table 1/Figure 3.
+  - Explicitly retain C. carboxidivorans monoculture alcohol capacity in the matched
+    cascade comparison (2023 Results 3.3/Figure 9). Retain product-balance inference
+    of additional de novo alcohol synthesis; do not claim every molecule derives from
+    partner acids.
+  - At related_ingredients[6] and engineering_design.perturbation_design, separate
+    the controlled sulfide/no-sulfide monoculture batch experiment from use of its
+    selected regime in cascade reactor 1. Attach Results 3.2/Figures 4–5 and the cascade
+    setup; do not assert a factorial cascade sulfide effect.
+  - Preserve all three graph nodes, two qualified arrows and existing abstract/body
+    CO-inhibition discussion. No additional edge, obligate interaction or isolated-CO
+    causal claim is required.
+- action_id: separate-cultivation
+  description: Represent medium and reactor conditions by study and stage.
+  finding_ids:
+  - separate-cultivation-stages
+  target_ids:
+  - CommunityMech:000266
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Separate C. carboxidivorans preculture glucose (5 g/L, 21 h) and C. kluyveri preculture
+    potassium acetate/ethanol (10 g/L and 20 mL/L, 110 h), at 37°C/100 rpm, from harvested,
+    PBS-resuspended inocula and focal CO-fed coculture. Keep C. kluyveri monoculture
+    comparison supplements (6 g/L acetate, 15 g/L ethanol) distinct. Remove unsupported
+    ethanol/acetate fresh-feed implications from the focal growth_media composition
+    while retaining their exchange-product roles.
+  - Recover modified-Hurst composition from batch SI Table S2 and cascade SI Table
+    S1. Preserve 33.3-fold mineral and 100-fold vitamin/trace stocks versus final
+    concentrations, 1 g/L yeast extract, cysteine hydrochloride 0.4–0.5 g/L in batch
+    SI and 0.5 g/L in cascade SI. MES is preculture-only and polypropylene glycol
+    reactor-only. Do not call the yeast-containing medium chemically defined or sole-carbon
+    merely because the authors call the process autotrophic.
+  - 'Add source-supported batch setup: 37°C, controlled pH 6, 1-L working volume in
+    2-L stirred reactor, 1200 rpm, continuous CO/CO2/N2 inlet supply as applicable.
+    Separate continuous inlet gas from continuous liquid culture and measured headspace;
+    retain exact source flow and partial-pressure units.'
+  - 'Represent the continuous two-reactor cascade separately: 1-L working reactor
+    1 at pH 6 / 100 mbar inlet CO / 0.042 vvm / dilution 0.09 per h; 1.5-L reactor
+    2 at pH 5 / 800 mbar / 0.083 vvm / 0.06 per h; 37°C and 200 mbar CO2. Record 24-h
+    initial batch phase and subsequent inoculation/continuous transition. Bound sulfide
+    0.05 mmol S per L per h by stage; 24-h start is explicit for the monoculture batch
+    comparison.'
+  - 'Preserve inoculum source conflicts: batch Results 0.5 g/L each versus Methods
+    0.05 each / 0.1 total; cascade Methods 0.05 each with inconsistent parenthetical
+    1.0 total versus 0.1 earlier. Attribute them in notes instead of silently harmonizing.
+    PBS pH 7.4, FISH buffers, analytical 60°C and extraction solvents are not cultivation
+    settings.'
+- action_id: document-taxonomy
+  description: Add source strain context and verified mapping provenance.
+  finding_ids:
+  - document-taxon-context
+  target_ids:
+  - CommunityMech:000266
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Record DSM 15243/P7 and DSM 555/K1 with exact source Methods and catalogue provenance;
+    keep current species terms unless a deliberate strain-level refinement is separately
+    applied. Do not transfer catalogue maintenance conditions into the experiment.
+  - 'Replace unverified latest/build-date mapping_source text with the examined snapshot
+    hash and route: 217159 exact ID gives 1.0/3; 1534 name fallback gives 1.0/5. Preserve
+    both species lineages and correct name-comparison flags. Optional 536227/431943
+    refinements use their own 1.0/5 and 1.0/3 counts; no count substitution.'
+  - Retain source-qualified PRIMARY_PRODUCER/CROSS_FEEDER roles and attach recipient-specific
+    exchange evidence. Retain ordinal ABUNDANT; explain source-specific preparation/endpoint
+    context without requiring a percentage. If quantitative values are added, label
+    CDW biomass ratios 17:1/35.5:1 by reactor/time and distinguish them from FISH
+    counts and artificial calibration mixtures.
+- action_id: clarify-resources
+  description: Make exact article/SI and cache provenance visible.
+  finding_ids:
+  - clarify-source-resources
+  target_ids:
+  - CommunityMech:000266
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_34669248.md
+    role: source_cache
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_37110426.md
+    role: source_cache
+  acceptance_checks:
+  - Keep both PMID study contexts if desired, explicitly describing published phenotype/article
+    resources rather than independently deposited raw datasets. Link batch MBT2-15-1471-s001.docx
+    and cascade microorganisms-11-01003-s001.zip containing microorganisms-2313231-supplementary.pdf,
+    with exact supporting-information locators.
+  - Describe batch tables as probe sequences, medium and FISH buffers with calibration
+    figures; describe cascade Table S1 as medium and Figures S1/S2 as analytical chromatograms.
+    Do not claim raw event files, a sequencing archive or a missing deposition.
+  - Reconcile both named cache abstract_only headers with their verified appended
+    full-main contents through authorized cache maintenance, preserving exact identity,
+    payload and retrieval provenance. Add source-specific Methods/Results/SI evidence
+    for the repaired claims; titles and short abstract fragments are insufficient
+    support for expanded mechanism/recipe assertions.
+- action_id: validate-authorized-curation
+  description: Verify any separately authorized repair and preserve scientific limits.
+  finding_ids:
+  - bound-product-comparisons
+  - separate-cultivation-stages
+  - document-taxon-context
+  - clarify-source-resources
+  target_ids:
+  - CommunityMech:000266
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_34669248.md
+    role: source_cache
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_37110426.md
+    role: source_cache
+  acceptance_checks:
+  - Attach exact field-local evidence with correct source, section/table/figure and
+    evidence mode. Preserve source inoculum conflicts and current graph qualifications;
+    do not invent missing factorial controls, universal abundance, growth benefit
+    or molecule-resolved transfer.
+  - After authorized canonical changes, append history and run schema, strict, terms,
+    references, GTDB, domain and history checks, then just gen-html and just check-docs-current.
+    Keep actual failures and score limitations visible.
+  - This review changes no canonical record, cache, history or generated output. Parent
+    may persist only the new immutable review bundle after whole-candidate audits.
+    Preserve initial/final native receipts and preliminary/final support separately.
+limitations:
+- Complete current-claim scientific review includes both mains, all 15 main figures
+  and declared SI. Lead read all batch SI text/three labeled tables/three embedded
+  image payloads and all four cascade SI pages. Root visual scope is its separately
+  declared subset. No raw FISH event, chromatogram integration, kinetic fit, new statistical
+  test or culture reproduction was performed.
+- Both papers combine controlled monoculture experiments with coculture results. Sulfide
+  comparison is monoculture batch; cascade conditions co-vary. Product balances support
+  inferred de novo contributions but do not trace every carbon molecule or isolate
+  every process variable.
+- Source inoculum discrepancies remain unresolved and attributed. Batch SI supports
+  the cysteine 0.4–0.5 g/L range. Stock factors, final medium, supplied substrates,
+  exchange products and analytical reagents are distinct; author-described autotrophy
+  does not imply a yeast-free sole-carbon medium.
+- 'All 28 excerpt occurrences match their reference-specific fresh source/cache: 26
+  abstract and 2 title. Repetition is counted by occurrence. Literal agreement alone
+  does not validate attached interpretation. Both maintained cache headers still need
+  metadata reconciliation; no cache was refreshed.'
+- Species GTDB values are valid; release/build wording is not established by file
+  mtime. Optional strain mappings have different support counts. Ordinal prominence
+  is not endpoint biomass fraction; no abundance-percentage failure or forced role
+  removal is asserted.
+- Publication-indexed PHENOTYPE contexts are permitted and need not be removed. Exact
+  public supplements are verified; no separate raw-data archive, missing deposition
+  or media-database equivalence was inferred. No contact or paid source access occurred.
+- Ignored-inclusive local provenance searches, current 1321 and timestamped 1322 reuse
+  are explicit. Old XML paths remain historical metadata; fresh bytes independently
+  match their hashes. Optional adapter discovery is reused from 403 with fresh runtime
+  compatibility.
+- All 27 inspected inputs remain unchanged. Eight focused native checks pass; same-batch
+  corpus diagnostics retain their nonzero results. Completeness 95 and capped quality
+  100 are rubric outputs, not blanket scientific certification.
+notes:
+- Two major/two minor findings; completeness 95, raw quality 111/capped100.
+- No graph-topology, wrong-identity, forced-role-removal, invalid-PMID or missing-archive
+  finding.
+- No canonical edit or save by lead; parent persistence follows independent whole-candidate
+  checks.
+tags:
+- record-review
+- clostridia
+- chain-elongation
+- gas-fermentation
+- batch-11

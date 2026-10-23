@@ -1,0 +1,1637 @@
+# Cellulose MFC source, metabolite and medium review
+
+- Review: 20261021T212006Z-cellulose-mfc-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T21:11:44.124815Z
+- Finished UTC: 2026-10-21T21:20:06.217739Z
+- Reviewer: codex (unknown)
+- Completion: partial
+- Verdict: needs_curation
+- Scientific review: false
+
+## Summary
+
+Two major findings concern non-graph metabolite-use scope and CMC identity; two minors concern study-specific cultivation and strain/GTDB provenance. Both abstracts and the full recovered 2008 text were assessed. Critical 2007 main access and figure pixels remain unavailable. Retain the qualified three-node/one-arrow graph; all eight focused native checks pass.
+
+## Scope And Provenance
+
+Whole maintained record assessed against both exact-source abstracts, recovered 2008 text/captions, current authorities and provenance; critical 2007 main remains inaccessible.
+
+Selection: Only released CommunityMech:000175 in owned batch 11.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 95812d3412d5aab41fd03422340cf736ac7b56f3.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000175 | kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml | maintained | Clostridium cellulolyticum-Geobacter sulfurreducens Cellulose MFC Coculture |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000175 | Focused native command exit 0. |
+| validate-strict | passed | True | CommunityMech:000175 | Focused native command exit 0. |
+| validate-terms | passed | True | CommunityMech:000175 | Focused native command exit 0. |
+| validate-references-explained | passed | True | CommunityMech:000175 | Focused native command exit 0. |
+| validate-gtdb | passed | True | CommunityMech:000175 | Focused native command exit 0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000175 | Focused native command exit 0. |
+| validate-history | passed | True | CommunityMech:000175 | Focused native command exit 0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000175 | Focused native command exit 0. |
+| audit-network | failed | True | CommunityMech:000175 | Same-batch corpus diagnostic retained. |
+| check-network-quality | failed | True | CommunityMech:000175 | Same-batch corpus diagnostic retained. |
+| Claim-critical primary source assessment | unavailable | True | CommunityMech:000175 | Both abstracts and 2008 main text assessed; 2007 body and figure pixels unavailable. |
+| Reference-specific excerpt verification | passed | True | CommunityMech:000175 | All 28 excerpts match their fresh abstracts and caches. |
+| Ontology and source-specific schema assessment | passed | True | CommunityMech:000175 | Nine pairs/25 occurrences match; derivative and role scope separately assessed. |
+| Optional structured adapter | unavailable | False | CommunityMech:000175 | Same-batch discovery reused with fresh runtime compatibility. |
+| Raw-data or experimental reproduction | skipped | False | CommunityMech:000175 | No image, qPCR, current-trace or biological reanalysis. |
+
+## Scientific And Domain Assessments
+
+### Defined binary MFC and study boundaries
+
+identity: supported. Targets: CommunityMech:000175.
+
+The record denotes the intended laboratory pair.
+
+SYNTHETIC origin, ENGINEERED state and BIOTECHNOLOGY category fit deliberate assembly. Activated-sludge mixed cultures, monoculture controls, cloning hosts and catalogue environments are excluded.
+
+### Species, strains and GTDB provenance
+
+grounding: concern. Targets: CommunityMech:000175.
+
+Species identities are valid; exact 2008 culture and mapping provenance can be improved.
+
+Historical Clostridium naming corresponds to current Ruminiclostridium. Optional strain refinement is source-specific, not a mandatory replacement or proof of identical 2007 stocks. Preserve species counts and lineages.
+
+### Recipient roles and ordinal abundance
+
+scope: concern. Targets: CommunityMech:000175.
+
+Donor CROSS_FEEDER needs local recipient evidence; other supported roles and ordinals remain.
+
+Improved CMC degradation or product removal does not identify a Geobacter product utilized by Clostridium. Retain PRIMARY_DEGRADER, Geobacter CROSS_FEEDER and broad SYNTROPHIC_PARTNER. ABUNDANT is not a fixed percentage; qPCR/FISH context may clarify it without inventing a numerical threshold.
+
+### ecological_interactions[0]
+
+graph: supported. Targets: CommunityMech:000175.
+
+Qualified fermentation-to-anode-respiration CROSS_FEEDING is supported.
+
+Keep the C. cellulolyticum to G. sulfurreducens direction and residual-pool caveats. No obligacy, reciprocal fitness, direct electron transfer or molecule-resolved flux is established.
+
+### ecological_interactions[1]
+
+graph: supported. Targets: CommunityMech:000175.
+
+The untyped binary-current and degradation endpoint is appropriately bounded.
+
+Negative pure-culture current controls and greater CMC degradation support functional complementarity. They do not independently identify a unique product-removal mechanism or reciprocal fitness.
+
+### ecological_interactions[2]
+
+graph: supported. Targets: CommunityMech:000175.
+
+The untyped spatial observation preserves both substrate conditions.
+
+Retain FISH/qPCR substrate and compartment scope without restoring a causal localization arrow or niche-partitioning claim. Text and captions were read; no figure pixels were independently assessed.
+
+### ecological_interactions[0].downstream[0]
+
+graph: supported. Targets: CommunityMech:000175.
+
+The single retained supply-to-current arrow is appropriately qualified.
+
+Preserve the functional conversion link. No additional edge is justified by localization observations or residual-metabolite identity alone.
+
+### related_ingredients acetate and dihydrogen
+
+consistency: concern. Targets: CommunityMech:000175.
+
+Off-graph recipient-use wording exceeds its residual-pool evidence.
+
+Apply the graph’s existing uncertainty to related_ingredients[1] and [3]. Keep ethanol as a residual intermediate; generic fermentation-product supply remains supported.
+
+### growth_media[0].composition[0].chebi_term
+
+grounding: concern. Targets: CommunityMech:000175.
+
+CMC is a derivative and is not represented by unmodified cellulose.
+
+The 2008 reagent is sodium CMC. Preserve derivative and salt scope without inventing substitution degree. Valid cellulose/MN301 graph and ingredient annotations should not be globally replaced.
+
+### Medium, substrate arms and MFC operation
+
+scope: concern. Targets: CommunityMech:000175.
+
+Recoverable 2008 details should replace stale workflow prose with study-specific conditions.
+
+Separate alternative substrate reactors, anode and catholyte, capacity and working volume, and author terminology from native mode semantics. Keep 2007 values source-specific. Glyph-dependent resistance/temperature require independent rendering before exact numerical curation.
+
+### Environment, processes and metal scope
+
+grounding: supported. Targets: CommunityMech:000175.
+
+Laboratory environment, source-qualified processes and metal categorization are appropriate.
+
+Cellulose catabolism and fermentation describe the cellulolytic process; anode respiration is not thereby assigned the same process. Ferricyanide and trace nutrients do not establish a metal-processing purpose. Preserve NOT_APPLICABLE metal relevance.
+
+### Claim-local excerpts and source accessibility
+
+evidence: concern. Targets: CommunityMech:000175.
+
+All 28 abstract excerpts match, but expanded claims require narrower support.
+
+The maintained caches correctly remain abstract-only. Newly recovered 2008 Methods can support future cache/evidence enrichment with explicit author-copy provenance; no current cache refresh occurred. Critical 2007 main access remains unresolved.
+
+### External publications and dataset scope
+
+representation: supported. Targets: CommunityMech:000175.
+
+Both article links are correctly typed and identified.
+
+No deposit is inferred from primer-design databases or catalogue records, and the empty dataset list creates no separate finding. No media or ingredient cross-Mech IDs are encoded.
+
+### Prior review chain and current follow-up
+
+provenance: supported. Targets: CommunityMech:000175.
+
+Both exact prior rows and current issue states are preserved.
+
+The graph-only re-review is not full non-graph certification. Open issue 1327 already covers this record’s non-graph concerns; no issue was posted or closed. Old source paths are historical metadata, not active hash assertions.
+
+### Native checks and source completion
+
+schema: supported. Targets: CommunityMech:000175.
+
+Eight focused native checks pass; scientific review remains partial.
+
+Corpus diagnostics retain actual failures. Validation does not eliminate the 2007 access gap or certify biology. Only a new review bundle may be saved by parent; canonical inputs remain unchanged.
+
+### Native completeness and validation quality
+
+completeness: supported. Targets: CommunityMech:000175.
+
+Completeness 85; raw quality 111, capped 100.
+
+## Findings
+
+### qualify-metabolite-use: Qualify metabolite use and donor recipient-role claims
+
+major / open / confirmed; issue key: cm-000175-qualify-metabolite-use.
+
+The donor’s CROSS_FEEDER role lacks local evidence that it utilizes a Geobacter product. Acetate and hydrogen relevance also asserts partner use from residual-pool observations. Qualify the proposed currencies or attach direct recipient-specific support; omit the optional donor role if unsupported. Preserve the existing qualified graph and other supported roles.
+
+### ground-cmc-derivative: Ground the CMC component as a chemical derivative
+
+major / open / confirmed; issue key: cm-000175-ground-cmc-derivative.
+
+growth_media[0].composition[0] names CMC but grounds it to CHEBI:18246, unsubstituted cellulose. Use a verified derivative identity and source-specific sodium-salt context. Keep valid generic cellulose and MN301 annotations; no global replacement or invented substitution degree.
+
+### recover-study-protocol: Recover study-specific cultivation and evidence context
+
+minor / open / confirmed; issue key: cm-000175-recover-study-protocol.
+
+The cultivation notes contain unrelated workflow history and say Methods/medium are unavailable, although the 2008 main is now recovered. Represent separate substrate reactors and source-specific apparatus/recipe details, keeping 2007 access limits and power values distinct. Reconcile author fed-batch terminology with the reported medium replacement and native definition.
+
+### document-strain-mapping: Document source strains and reproducible mapping provenance
+
+minor / open / confirmed; issue key: cm-000175-document-strain-mapping.
+
+The 2008 source identifies exact culture stocks, while mapping_source claims a latest release/build date from insufficient provenance. Add source-specific strain context and verified snapshot/method. Preserve current species mappings, one/19 genome counts and ordinal ABUNDANT; optional strain rows have their own counts.
+
+## Recommended Actions And Acceptance Checks
+
+### qualify-recipient-use
+
+Align non-graph metabolite and role claims with their actual evidence.
+
+- At related_ingredients[1].relevance and [3].relevance, distinguish residual acetate/hydrogen from inferred partner use and directly measured uptake. Attach exact source-local support for any stronger molecule-specific claim; do not turn absent uptake evidence into proof that uptake cannot occur.
+- At taxonomy[0].functional_role, identify the other-taxon provider, metabolite and utilization evidence before retaining CROSS_FEEDER; otherwise omit or qualify this optional recipient role. Improved CMC conversion and donor fermentation alone do not establish it. No carbon/energy-only or obligacy requirement is imposed.
+- Retain C. cellulolyticum PRIMARY_DEGRADER, Geobacter CROSS_FEEDER and broad SYNTROPHIC_PARTNER with source attribution. Preserve all three nodes and the single qualified arrow, residual-pool limits, untyped endpoints and lack of a localization-causality edge.
+
+### ground-cmc
+
+Correct only the derivative-specific medium identity.
+
+- Replace the unmodified-cellulose grounding at growth_media[0].composition[0].chebi_term with verified CHEBI:85146 carboxymethylcellulose, or a separately justified exact sodium-salt grounding. The 2008 Methods explicitly says sodium CMC; CHEBI:234035 is a verified salt label with limited definition metadata. Preserve the distinction between chemical family and exact reagent.
+- Keep CHEBI:18246 for MN301 and explicitly generic cellulose contexts. Do not infer substitution degree, polymer molecular mass or an unreported supplier grade. Do not apply the 2008 salt statement automatically to uninspected 2007 Methods.
+
+### recover-protocol
+
+Represent the recovered 2008 protocol without merging studies or compartments.
+
+- Replace off-topic infant-HMO/#183/#543 and cache-size narrative in cultivation_setup[0].notes with biological study context. Retain the 2007 abstract as the source of 143/59.2 mW/m² and its author-described fed-batch tests; record 2008 power 153/83 separately if added.
+- Represent 2008 sodium CMC and MN301 as alternative 1 g/L reactor arms. Recover the per-litre recipe from MFC inoculum, construction, and operation: NH4Cl 1.05 g, KCl 0.1 g, NaH2PO4·H2O 4.90 g, Na2HPO4 9.15 g, yeast extract 0.2 g, NaHCO3 2.5 g, and 10 mL each trace-mineral/vitamin mixtures. Preserve the cited but unverified stock recipes. Do not call this chemically defined sole-carbon medium.
+- Record 310-mL bottle capacity only as capacity until working volume is verified; keep 16-cm² electrode geometry and ferricyanide/phosphate catholyte separate from anode medium. Catholyte pH 7.0 is not an anode pH setpoint, and external circuit resistance is not an applied potential. Do not transfer analytical or cloning-host conditions.
+- Preserve the authors’ fed-batch label in notes alongside actual medium/catholyte replacement below approximately 40 mV. Select a native mode only after checking its literal operation definition; do not force FED_BATCH with broth removal, SEMI_CONTINUOUS partial harvest or SEQUENCING_BATCH settle/draw without support. Scope this follow-up to the recovered 2008 protocol.
+- Verify ambiguous degree/ohm glyphs from an independently readable original before adding exact temperature or resistance. State the full-text and figure access limits honestly. If new Methods excerpts are cached, populate the exact source/version with author-copy locator and retrieval provenance; do not claim current caches were already refreshed. Update current access rationale while preserving historical review receipts.
+
+### document-taxonomy
+
+Add exact strain context and verifiable GTDB provenance.
+
+- Attach 2008 Methods and direct catalogue aliases for ATCC 35319/H10/DSM 5812 and ATCC 51573/PCA/DSM 12127. Retain valid species terms unless a deliberate optional strain refinement is justified. Keep exact 2007 strain identity a full-Methods verification item.
+- Replace unverified latest/build-date text with the examined crosswalk hash and exact-ID route. Preserve NCBITaxon 1521 mapping 1.0/one genome and 35554 mapping 1.0/19. Optional 394503/243231 strain rows each have 1.0/two genomes and must remain separate from species support counts.
+- Keep ordinal ABUNDANT. If adding abundance context, label substrate, compartment, time and FISH/qPCR method; gene-copy ratios are not universal cell fractions. Do not require percentages or silently reconcile qualitative FISH and quantitative sampling comparisons.
+
+### verify-future-curation
+
+Validate separately authorized curation and retain access boundaries.
+
+- Resolve the claim-critical 2007 body gap before certifying a completed full scientific review. Reassess exact uptake and protocol claims from inspected Methods/Results; preserve the partial status until that evidence is sufficient.
+- Attach precise reference/section evidence to each changed field and preserve the current graph qualifications. After authorized canonical edits, append history and run schema, strict, terms, references, GTDB, domain and history checks, then just gen-html and just check-docs-current.
+- This review edits no canonical YAML, cache, history or generated output. Parent may save only the new immutable review bundle after independent whole-candidate checks. Preserve all original and final receipts.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml; Whole maintained YAML | supports | Defined binary cellulose-fed MFC with three nodes and one qualified arrow. Non-graph metabolite use and CMC identity need correction; source-specific cultivation and mapping provenance need clarification. |
+| binary-current | PMID:17695929; DOI:10.1021/es070577h; Abstract: binary versus pure cultures, CMC degradation and power results | supports | The binary culture generates current whereas neither pure culture does. CMC degradation increases from 42% to 64%. The two-chamber ferricyanide tests report 143 and 59.2 mW/m² for CMC and MN301. These observations support functional complementarity, not reciprocal fitness or a uniquely isolated product-removal mechanism. |
+| residuals | PMID:17695929; Abstract: residual-metabolite sentence | supports | Hydrogen, acetate and ethanol are reported as residual metabolites. This does not measure uptake of each compound by Geobacter, transfer flux, or a metabolite supplied by Geobacter that the cellulolytic partner utilizes. The separate activated-sludge/air-cathode experiment is outside this defined pair. |
+| spatial | PMID:18725730; DOI:10.2166/wst.2008.431; Abstract; RESULT AND DISCUSSION: FISH analysis of suspension and biofilm samples; Figures 3–4 captions | supports | With MN301, Clostridium is associated mainly with suspended cellulose particles and Geobacter with the electrode. Soluble CMC supports both organisms in suspension and biofilm. This is substrate-dependent localization; no isolated localization perturbation establishes that spatial separation causes improved current. |
+| substrate-arms | PMID:18725730; METHODS: MFC inoculum, construction, and operation, displayed lines 249–307 | supports | The 2008 medium contains 1 g/L sodium CMC or MN301 in separate reactors, not both as a combined recipe. Per litre, the source lists NH4Cl 1.05 g, KCl 0.1 g, NaH2PO4·H2O 4.90 g, Na2HPO4 9.15 g, yeast extract 0.2 g, NaHCO3 2.5 g, and 10 mL each trace-mineral and vitamin mixtures. Stock compositions are cited elsewhere and not recovered here. |
+| mfc-protocol | PMID:18725730; METHODS: MFC inoculum, construction, and operation; Figure 1 caption | supports | Two 310-mL bottles give vessel capacity, not an established working volume. Anodes are 16-cm² graphite plates; cathodes are plain carbon paper. Catholyte contains 100 mM potassium ferricyanide in 100 mM phosphate buffer at pH 7.0, exposed to air. The sealed anode remains a separate anaerobic compartment; catholyte pH is not an anode setpoint. |
+| replacement | PMID:18725730; METHODS: MFC inoculum, construction, and operation, medium-replacement paragraph | supports | The authors call the process fed-batch and report replacing medium and catholyte when voltage falls below approximately 40 mV. The native FED_BATCH definition excludes broth removal. Preserve the reported operation and author terminology; the text does not establish partial harvest or a settle/draw cycle. Degree and ohm glyphs in the web rendering remain unverified by pixels. |
+| power-context | PMID:18725730; RESULT AND DISCUSSION: Power production; Figure 2 caption | supports | The follow-up reports 153 and 83 mW/m² for CMC and MN301 under higher-buffer conditions. These are separate from the 2007 abstract values of 143 and 59.2. Current and power are normalized to anode area; external resistance is not an applied electrode-potential setpoint. |
+| assay-abundance | PMID:18725730; METHODS: Real-time PCR; RESULT AND DISCUSSION: Real-time PCR analyses; Figure 5 caption | supports | qPCR compares gene-copy abundance by substrate and sampled compartment. Text-reported suspension Clostridium:Geobacter ratios of 21 and 370 and biofilm comparisons of 5000-fold and 25-fold have specific sampling bases. They are not universal cell fractions or replacements for ordinal ABUNDANT. Qualitative FISH and qPCR comparisons must remain attached to their methods. |
+| culture-identities | PMID:18725730; METHODS: MFC inoculum, construction, and operation; FISH procedure; Real-time PCR | supports | The source names C. cellulolyticum ATCC 35319 and G. sulfurreducens ATCC 51573. E. coli Top10/LB conditions, fixation and PCR buffers belong to analytical procedures, not focal membership or cultivation. The unavailable 2007 Methods have not independently confirmed its exact stocks. |
+| ontology | /private/tmp/cm-review-session/batch-11/000175/ontology-authority.json; Nine ID-label pairs across 25 occurrences, definitions and locations | supports | All encoded labels match their IDs. This does not establish that unsubstituted cellulose represents the named CMC derivative or that every node process is performed by both taxa. |
+| cmc-authority | /private/tmp/cm-review-session/batch-11/000175/child-cmc-grounding-candidates.json; CHEBI:18246, CHEBI:85146 and CHEBI:234035 authority results | supports | CHEBI:18246 is the unmodified cellulose backbone. CHEBI:85146 defines carboxymethylcellulose. CHEBI:234035 names its sodium salt, with limited metadata and no definition in the retrieved authority result. The initial receipt predates recovery of the explicit sodium wording; later source evidence supplies that context. No substitution degree is inferred. |
+| schema | /private/tmp/cm-review-session/batch-11/000175/child-schema-semantics.json; FunctionalRoleEnum, InteractionTypeEnum, AbundanceEnum and CultivationModeEnum | supports | CROSS_FEEDER means utilizing another taxon’s metabolites; PRIMARY_DEGRADER means degrading complex substrates. The broad SYNTROPHIC_PARTNER role is distinct from the fuller product-removal interaction definition. ABUNDANT is ordinal; FED_BATCH excludes broth removal. |
+| gtdb | /private/tmp/cm-review-session/batch-11/000175/child-gtdb-crosswalk.json; Current species exact-ID rows and crosswalk snapshot | supports | Species 1521 and 35554 resolve by exact ID with majority fraction 1.0 and one versus 19 genomes. Core assignments and lineages remain valid. File mtime does not establish a latest release or build date. |
+| strain | /private/tmp/cm-review-session/batch-11/000175/child-strain-authority.json; 2008 Methods, DSMZ collection aliases, NCBI ranks/parents and optional strain rows | supports | ATCC 35319 corresponds to H10/DSM 5812/JCM 6584; ATCC 51573 corresponds to PCA/DSM 12127. Optional strain IDs 394503 and 243231 each have separate GTDB support of 1.0/two genomes. These counts must not replace species one/19 counts. Catalogue maintenance conditions are not source protocols. |
+| semantics | /private/tmp/cm-review-session/batch-11/000175/ontology-semantic-notes.json; Final source-specific graph, roles, chemistry and cultivation interpretation | supports | Retain the three-node/one-arrow graph, valid species, ordinal categories, PRIMARY_DEGRADER and source-qualified Geobacter roles. The donor CROSS_FEEDER needs recipient evidence; CMC requires derivative identity. No obligacy, nutrient-only or percentage rule is imposed. |
+| resources | /private/tmp/cm-review-session/batch-11/000175/dataset-verification.json; Two external publication resources; bounded 2008 Methods-through-references resource scan | supports | Both PMIDs are valid publication contexts. RDP II, GenBank BLAST and NetPrimer support primer design; they are not newly deposited community datasets. Empty associated_datasets is not a defect. No archive absence or media-database equivalence is inferred. |
+| snippets | /private/tmp/cm-review-session/batch-11/000175/snippet-source-audit.json; 28 reference-specific field occurrences | supports | All 28 excerpts match their respective fresh abstracts and short caches under NFKC/whitespace normalization. These are occurrence counts, not 28 independent experiments or main-body evidence. Exact text does not establish claim entailment. |
+| history | /private/tmp/cm-review-session/batch-11/000175/provenance-audit.json; Sole history, exact batch 19 and batch 91 focal rows/adversarial context, current issues and comments | supports | The unchanged batch 91 re-review preserves the earlier graph repair. Current 1324 is closed; 1327 remains open and owns the non-graph follow-up; 1744 remains open and explicitly leaves this graph unchanged. All 1/0/2 comments were read. Four old source paths remain historical metadata, not active pins or reconstructed files. |
+| inspect | /private/tmp/cm-review-session/batch-11/000175/inspect.json; Initial official 27-input inspection | supports | The canonical owner and current base were inspected before assessment. Ignored-inclusive discovery subsequently identified the exact batch 91 decision/adversarial pair. |
+| inspect-extension | /private/tmp/cm-review-session/batch-11/000175/inspect-provenance-extension.json; Distinct official 29-input extension | supports | The initial 27 hashes are preserved; two exact batch 91 provenance files are added before their assessment. No old inspection was overwritten. |
+| access | /private/tmp/cm-review-session/batch-11/000175/lead-source-access.json; Bounded public source routes and actual signatures | supports | Fresh abstracts and the 2008 author-uploaded text are available. The 2007 main remains inaccessible; six source-linked PDF/image requests returned HTML errors. No figure pixels or PDF pages were read. Unrelated Figshare results are non-diagnostic, not evidence of absent SI. |
+| lead-read | /private/tmp/cm-review-session/batch-11/000175/lead-primary-read-scope.json; Both abstracts and complete recovered 2008 text/captions/references | supports | Lead read all focal 2008 text through displayed line 1064, five captions and 17 references, excluding later citing papers. No numerical reanalysis or image quantification. Claim-critical 2007 body access remains unresolved. |
+| source-scope | /private/tmp/cm-review-session/batch-11/000175/source-audit.json; Final partial scientific assessment and four finding groups | supports | Two major findings concern metabolic claim direction and CMC identity; two minors concern study-specific cultivation and strain/mapping provenance. Current source limits prevent a completed scientific review. |
+| root-source | /private/tmp/cm-review-session/batch-11/000175/root-independent-source-audit.json; Independent primary text and authority assessment | supports | Root independently read both abstracts and the entire recovered 2008 text, five captions and 17 references, with no pixels. Its source, authority and provenance assessment agrees with partial status and the four groups. |
+| metrics | /private/tmp/cm-review-session/batch-11/000175/support-final-audit.json; Distinct finalized support, exact metric components and unchanged inputs | supports | Completeness 85; three nodes, one arrow and eight node-evidence occurrences. Two major/two minor findings give raw quality 111, capped 100. All 29 inspected inputs are unchanged. |
+| support-manifest | /private/tmp/cm-review-session/batch-11/000175/supporting-artifact-manifest.json; Final support and supporting artifact hashes | supports | Preliminary support remains immutable. The final manifest pins source-specific resources, excerpts, provenance and exact read scopes. |
+| auxiliary | /private/tmp/cm-review-session/batch-11/000175/auxiliary-frozen-manifest.json; Final native and authority artifacts | supports | All eight focused native checks pass; nine ontology pairs across 25 occurrences match. Initial and final summaries are separate; all 29 inputs are unchanged. |
+| final-native | /private/tmp/cm-review-session/batch-11/000175/final-validator-summary.json; Eight actual commands and final input integrity | supports | Schema, strict, terms, references, GTDB, domain, history and cache-name checks pass. Native reference success does not certify all scientific interpretations or complete Discussion evidence coverage. |
+| adapter | /private/tmp/cm-review-session/batch-11/000175/adapter-check.json; Reused batch 11 discovery from 403 at 2026-10-21T19:20:45.556660+00:00; fresh runtime compatibility | supports | The optional structured adapter is unavailable in the owned runtime. Ignored-inclusive filename discovery is explicitly reused; an external other-checkout runner was not executed. No global absence claim or installation occurred. |
+| check-validate | /private/tmp/cm-review-session/batch-11/000175/validate.json; Actual focused command and output | supports | Recorded native result; scientific entailment assessed separately. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-11/000175/validate-strict.json; Actual focused command and output | supports | Recorded native result; scientific entailment assessed separately. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-11/000175/validate-terms.json; Actual focused command and output | supports | Recorded native result; scientific entailment assessed separately. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-11/000175/validate-references-explained.json; Actual focused command and output | supports | Recorded native result; scientific entailment assessed separately. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-11/000175/validate-gtdb.json; Actual focused command and output | supports | Recorded native result; scientific entailment assessed separately. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-11/000175/validate-gtdb-domain.json; Actual focused command and output | supports | Recorded native result; scientific entailment assessed separately. |
+| check-validate-history | /private/tmp/cm-review-session/batch-11/000175/validate-history.json; Actual focused command and output | supports | Recorded native result; scientific entailment assessed separately. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-11/000175/normalize-cache-names-check.json; Actual focused command and output | supports | Recorded native result; scientific entailment assessed separately. |
+| check-audit-network | /private/tmp/cm-review-session/batch-11/audit-network.json; Same-batch corpus diagnostic | supports | Actual corpus nonzero result is retained; no later record is assessed. |
+| check-check-network-quality | /private/tmp/cm-review-session/batch-11/check-network-quality.json; Same-batch corpus diagnostic | supports | Actual corpus nonzero result is retained; no later record is assessed. |
+
+## Limits And Additional Notes
+
+- The recovered 2008 author-uploaded text includes the entire focal article, five figure captions and 17 references through displayed line 1064; later citing papers were excluded. Original PDF byte equivalence and figure pixels were not verified. The 2007 main, Methods and any uninspected SI remain outside the source scope, so scientific_review is false.
+- PDF/image destination filenames conceal HTTP 403 HTML payloads; they are not usable visual evidence. Initial sandbox DNS errors are separate from actual public HTTP outcomes. OpenAlex flags and an unrelated Figshare search response do not prove global full-text or data absence.
+- Web extraction contains ambiguous degree/ohm glyphs. Source-specific bottle capacity, catholyte pH, anode geometry and medium replacement are readable; temperature/resistance require independent rendering before precise curation. No working volume, anode setpoint, partial-harvest or settling cycle is invented.
+- Residual metabolites are not partner-resolved uptake or flux. Binary current and CMC degradation establish functional complementarity without unique mechanism, reciprocal fitness or localization causality. qPCR gene-copy comparisons and qualitative FISH retain their compartment/substrate basis; no raw reanalysis was performed.
+- All 28 excerpt occurrences strictly match reference-specific fresh abstracts and their maintained caches. No main-body excerpt match is claimed. The caches remain correctly abstract-only; future enrichment requires exact source/version provenance.
+- Current species and ordinal abundance remain valid. Exact 2008 strain aliases do not independently prove 2007 stocks; optional strain GTDB counts differ from species counts. Snapshot mtime does not verify a release/build claim. No narrower obligacy or nutrient-only role criterion is imposed.
+- Both publication resources are valid. Empty associated_datasets is not evidence of missing deposition; primer-design databases and catalogue genome links are not new focal datasets. No paid access, contact, culture reproduction or cross-Mech medium equivalence was used.
+- Initial 27-input inspection and distinct 29-input extension remain immutable. Both exact prior rows and current 1324/1327/1744 states were read; old source paths remain historical metadata. Adapter discovery is explicitly reused from 403 with fresh runtime compatibility. Native scores are presence/validation metrics, not scientific certification.
+- Partial scientific review; two major/two minor findings; completeness 85, raw quality 111/capped 100.
+- No graph-topology change, forced ordinal replacement, dataset omission or metal-processing finding.
+- No canonical edits or save by lead; parent persistence follows whole-candidate checks.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T212006Z-cellulose-mfc-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Cellulose MFC source, metabolite and medium review
+started_at: '2026-10-21T21:11:44.124815Z'
+finished_at: '2026-10-21T21:20:06.217739Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed science, auxiliary authorities and
+    support; no person-level independence asserted.
+skill: review-yaml-record
+completion: partial
+verdict: needs_curation
+scientific_review: false
+summary: Two major findings concern non-graph metabolite-use scope and CMC identity;
+  two minors concern study-specific cultivation and strain/GTDB provenance. Both abstracts
+  and the full recovered 2008 text were assessed. Critical 2007 main access and figure
+  pixels remain unavailable. Retain the qualified three-node/one-arrow graph; all
+  eight focused native checks pass.
+source:
+  git_revision: 95812d3412d5aab41fd03422340cf736ac7b56f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture/2026-10-05T234230Z-codex-ce1a08.yaml
+    sha256: 8150812414eb1d2848f41aa078bea972aca0c7e78c50c2b06bfb58588d5fec12
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+    sha256: bafb8c0e58150b2e586e92c84725b0e3ad88001a64c2d1acb1d2889ede2810b3
+    role: target
+  - path: references_cache/PMID_17695929.md
+    sha256: 0a6d3e9ad135d3fe881f76e15e22b3e279efa320996df6bb82d2b598a2f07c87
+    role: context
+  - path: references_cache/PMID_18725730.md
+    sha256: 474fa53897b2d368427ee153d7dca517de6deb0a4282fda7c8c68d52e4b7b5d3
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261005-batch19.yaml
+    sha256: 08d6f18b92836076a26b7aad98a6bfdbfbcfcea4a27124ead6d0546fa7b0e70b
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261007-batch91.yaml
+    sha256: 973b2a59f1e53a1bb9405f813af5a20a8593a8f4efb1837e4fa847772636105e
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-three-records-batch19.yaml
+    sha256: 2f4684d88aa8b70f6ed84c0726aadad8dfb5f1b31c8a2e93b5f682264da69490
+    role: context
+  - path: reports/causal_graph_review/decisions/20261007-five-records-batch91.yaml
+    sha256: 55c2dafc3c10346c37f864ef5acc1fdadefd37967c51f21696eef562a0296bbe
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000175
+  path: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+  label: Clostridium cellulolyticum-Geobacter sulfurreducens Cellulose MFC Coculture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+    role: canonical_record
+scope:
+  description: Whole maintained record assessed against both exact-source abstracts,
+    recovered 2008 text/captions, current authorities and provenance; critical 2007
+    main remains inaccessible.
+  selection: Only released CommunityMech:000175 in owned batch 11.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000175
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000175
+  command: just --no-dotenv validate kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Owned batch 11 runtime; unchanged canonical inputs.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000175
+  command: just --no-dotenv validate-strict kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-11/000175/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Owned batch 11 runtime; unchanged canonical inputs.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000175
+  command: just --no-dotenv validate-terms kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Owned batch 11 runtime; unchanged canonical inputs.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000175
+  command: just --no-dotenv validate-references-explained kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Owned batch 11 runtime; unchanged canonical inputs.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000175
+  command: just --no-dotenv validate-gtdb kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Owned batch 11 runtime; unchanged canonical inputs.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000175
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Owned batch 11 runtime; unchanged canonical inputs.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000175
+  command: just --no-dotenv validate-history history/records/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Owned batch 11 runtime; unchanged canonical inputs.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000175
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Owned batch 11 runtime; unchanged canonical inputs.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Same-batch corpus diagnostic retained.
+  target_ids:
+  - CommunityMech:000175
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - metrics
+  scope_note: Explicit batch 11 diagnostic reuse; focused target checks pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Same-batch corpus diagnostic retained.
+  target_ids:
+  - CommunityMech:000175
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - metrics
+  scope_note: Explicit batch 11 diagnostic reuse; focused target checks pass.
+- check_id: scientific-source
+  name: Claim-critical primary source assessment
+  status: unavailable
+  required: true
+  summary: Both abstracts and 2008 main text assessed; 2007 body and figure pixels
+    unavailable.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - access
+  - lead-read
+  - source-scope
+  - root-source
+- check_id: direct-excerpts
+  name: Reference-specific excerpt verification
+  status: passed
+  required: true
+  summary: All 28 excerpts match their fresh abstracts and caches.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - snippets
+- check_id: authority-review
+  name: Ontology and source-specific schema assessment
+  status: passed
+  required: true
+  summary: Nine pairs/25 occurrences match; derivative and role scope separately assessed.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - ontology
+  - cmc-authority
+  - schema
+  - strain
+  - gtdb
+- check_id: adapter
+  name: Optional structured adapter
+  status: unavailable
+  required: false
+  summary: Same-batch discovery reused with fresh runtime compatibility.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - adapter
+- check_id: reanalysis
+  name: Raw-data or experimental reproduction
+  status: skipped
+  required: false
+  summary: No image, qPCR, current-trace or biological reanalysis.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - lead-read
+  - resources
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+  locator: Whole maintained YAML
+  summary: Defined binary cellulose-fed MFC with three nodes and one qualified arrow.
+    Non-graph metabolite use and CMC identity need correction; source-specific cultivation
+    and mapping provenance need clarification.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.212849Z'
+- evidence_id: binary-current
+  kind: primary_source
+  reference: PMID:17695929; DOI:10.1021/es070577h
+  locator: 'Abstract: binary versus pure cultures, CMC degradation and power results'
+  summary: The binary culture generates current whereas neither pure culture does.
+    CMC degradation increases from 42% to 64%. The two-chamber ferricyanide tests
+    report 143 and 59.2 mW/m² for CMC and MN301. These observations support functional
+    complementarity, not reciprocal fitness or a uniquely isolated product-removal
+    mechanism.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.212914Z'
+  snapshot_sha256: 75b3a28ea94497d29df8da9ba4eeaf319a113459efb18412e5aa00a8906b7a2f
+- evidence_id: residuals
+  kind: primary_source
+  reference: PMID:17695929
+  locator: 'Abstract: residual-metabolite sentence'
+  summary: Hydrogen, acetate and ethanol are reported as residual metabolites. This
+    does not measure uptake of each compound by Geobacter, transfer flux, or a metabolite
+    supplied by Geobacter that the cellulolytic partner utilizes. The separate activated-sludge/air-cathode
+    experiment is outside this defined pair.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.213117Z'
+  snapshot_sha256: 75b3a28ea94497d29df8da9ba4eeaf319a113459efb18412e5aa00a8906b7a2f
+- evidence_id: spatial
+  kind: primary_source
+  reference: PMID:18725730; DOI:10.2166/wst.2008.431
+  locator: 'Abstract; RESULT AND DISCUSSION: FISH analysis of suspension and biofilm
+    samples; Figures 3–4 captions'
+  summary: With MN301, Clostridium is associated mainly with suspended cellulose particles
+    and Geobacter with the electrode. Soluble CMC supports both organisms in suspension
+    and biofilm. This is substrate-dependent localization; no isolated localization
+    perturbation establishes that spatial separation causes improved current.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.213149Z'
+  snapshot_sha256: 94422b5b89adaad174285b6e413ada0e7d7003ac0bfad75f1c31281968316dc8
+- evidence_id: substrate-arms
+  kind: primary_source
+  reference: PMID:18725730
+  locator: 'METHODS: MFC inoculum, construction, and operation, displayed lines 249–307'
+  summary: The 2008 medium contains 1 g/L sodium CMC or MN301 in separate reactors,
+    not both as a combined recipe. Per litre, the source lists NH4Cl 1.05 g, KCl 0.1
+    g, NaH2PO4·H2O 4.90 g, Na2HPO4 9.15 g, yeast extract 0.2 g, NaHCO3 2.5 g, and
+    10 mL each trace-mineral and vitamin mixtures. Stock compositions are cited elsewhere
+    and not recovered here.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.213292Z'
+  snapshot_sha256: 94422b5b89adaad174285b6e413ada0e7d7003ac0bfad75f1c31281968316dc8
+  quote: different reactors
+- evidence_id: mfc-protocol
+  kind: primary_source
+  reference: PMID:18725730
+  locator: 'METHODS: MFC inoculum, construction, and operation; Figure 1 caption'
+  summary: Two 310-mL bottles give vessel capacity, not an established working volume.
+    Anodes are 16-cm² graphite plates; cathodes are plain carbon paper. Catholyte
+    contains 100 mM potassium ferricyanide in 100 mM phosphate buffer at pH 7.0, exposed
+    to air. The sealed anode remains a separate anaerobic compartment; catholyte pH
+    is not an anode setpoint.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.213321Z'
+  snapshot_sha256: 94422b5b89adaad174285b6e413ada0e7d7003ac0bfad75f1c31281968316dc8
+- evidence_id: replacement
+  kind: primary_source
+  reference: PMID:18725730
+  locator: 'METHODS: MFC inoculum, construction, and operation, medium-replacement
+    paragraph'
+  summary: The authors call the process fed-batch and report replacing medium and
+    catholyte when voltage falls below approximately 40 mV. The native FED_BATCH definition
+    excludes broth removal. Preserve the reported operation and author terminology;
+    the text does not establish partial harvest or a settle/draw cycle. Degree and
+    ohm glyphs in the web rendering remain unverified by pixels.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.213350Z'
+  snapshot_sha256: 94422b5b89adaad174285b6e413ada0e7d7003ac0bfad75f1c31281968316dc8
+- evidence_id: power-context
+  kind: primary_source
+  reference: PMID:18725730
+  locator: 'RESULT AND DISCUSSION: Power production; Figure 2 caption'
+  summary: The follow-up reports 153 and 83 mW/m² for CMC and MN301 under higher-buffer
+    conditions. These are separate from the 2007 abstract values of 143 and 59.2.
+    Current and power are normalized to anode area; external resistance is not an
+    applied electrode-potential setpoint.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.213375Z'
+  snapshot_sha256: 94422b5b89adaad174285b6e413ada0e7d7003ac0bfad75f1c31281968316dc8
+- evidence_id: assay-abundance
+  kind: primary_source
+  reference: PMID:18725730
+  locator: 'METHODS: Real-time PCR; RESULT AND DISCUSSION: Real-time PCR analyses;
+    Figure 5 caption'
+  summary: qPCR compares gene-copy abundance by substrate and sampled compartment.
+    Text-reported suspension Clostridium:Geobacter ratios of 21 and 370 and biofilm
+    comparisons of 5000-fold and 25-fold have specific sampling bases. They are not
+    universal cell fractions or replacements for ordinal ABUNDANT. Qualitative FISH
+    and qPCR comparisons must remain attached to their methods.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.213400Z'
+  snapshot_sha256: 83462d4b156bf3ec33ecd9b9864180f42a069a3be8a688659a896b8152b447b5
+- evidence_id: culture-identities
+  kind: primary_source
+  reference: PMID:18725730
+  locator: 'METHODS: MFC inoculum, construction, and operation; FISH procedure; Real-time
+    PCR'
+  summary: The source names C. cellulolyticum ATCC 35319 and G. sulfurreducens ATCC
+    51573. E. coli Top10/LB conditions, fixation and PCR buffers belong to analytical
+    procedures, not focal membership or cultivation. The unavailable 2007 Methods
+    have not independently confirmed its exact stocks.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.213574Z'
+  snapshot_sha256: 94422b5b89adaad174285b6e413ada0e7d7003ac0bfad75f1c31281968316dc8
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-11/000175/ontology-authority.json
+  locator: Nine ID-label pairs across 25 occurrences, definitions and locations
+  summary: All encoded labels match their IDs. This does not establish that unsubstituted
+    cellulose represents the named CMC derivative or that every node process is performed
+    by both taxa.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.213604Z'
+  snapshot_sha256: 176e0125b58e7c4951ab86b7182e68596bc497975083c952270b034f47796b76
+- evidence_id: cmc-authority
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-11/000175/child-cmc-grounding-candidates.json
+  locator: CHEBI:18246, CHEBI:85146 and CHEBI:234035 authority results
+  summary: CHEBI:18246 is the unmodified cellulose backbone. CHEBI:85146 defines carboxymethylcellulose.
+    CHEBI:234035 names its sodium salt, with limited metadata and no definition in
+    the retrieved authority result. The initial receipt predates recovery of the explicit
+    sodium wording; later source evidence supplies that context. No substitution degree
+    is inferred.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.213737Z'
+  snapshot_sha256: d49dbba0df9e8b01331c2e46681db42afb89759bf3ca0b7ac7699011c8944c95
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-11/000175/child-schema-semantics.json
+  locator: FunctionalRoleEnum, InteractionTypeEnum, AbundanceEnum and CultivationModeEnum
+  summary: CROSS_FEEDER means utilizing another taxon’s metabolites; PRIMARY_DEGRADER
+    means degrading complex substrates. The broad SYNTROPHIC_PARTNER role is distinct
+    from the fuller product-removal interaction definition. ABUNDANT is ordinal; FED_BATCH
+    excludes broth removal.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.213848Z'
+  snapshot_sha256: 5b0df07655912b782b414894fa16b249dbafe2c1db745ecec0adb007217f9710
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-11/000175/child-gtdb-crosswalk.json
+  locator: Current species exact-ID rows and crosswalk snapshot
+  summary: Species 1521 and 35554 resolve by exact ID with majority fraction 1.0 and
+    one versus 19 genomes. Core assignments and lineages remain valid. File mtime
+    does not establish a latest release or build date.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.213968Z'
+  snapshot_sha256: c221cd6812b5c51399c74593ac08ad4b8be2db73e09ad871c3c69da4e3266032
+- evidence_id: strain
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-11/000175/child-strain-authority.json
+  locator: 2008 Methods, DSMZ collection aliases, NCBI ranks/parents and optional
+    strain rows
+  summary: ATCC 35319 corresponds to H10/DSM 5812/JCM 6584; ATCC 51573 corresponds
+    to PCA/DSM 12127. Optional strain IDs 394503 and 243231 each have separate GTDB
+    support of 1.0/two genomes. These counts must not replace species one/19 counts.
+    Catalogue maintenance conditions are not source protocols.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.214070Z'
+  snapshot_sha256: e7e37e5737805ef164b7ca9ada30725780fae474b1193a42381979e82d2f29ec
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-11/000175/ontology-semantic-notes.json
+  locator: Final source-specific graph, roles, chemistry and cultivation interpretation
+  summary: Retain the three-node/one-arrow graph, valid species, ordinal categories,
+    PRIMARY_DEGRADER and source-qualified Geobacter roles. The donor CROSS_FEEDER
+    needs recipient evidence; CMC requires derivative identity. No obligacy, nutrient-only
+    or percentage rule is imposed.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.214204Z'
+  snapshot_sha256: 9bc317f477b321e72cd31879c6c1959760b80ea3aa392aff59b6ebf8391614c8
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/dataset-verification.json
+  locator: Two external publication resources; bounded 2008 Methods-through-references
+    resource scan
+  summary: Both PMIDs are valid publication contexts. RDP II, GenBank BLAST and NetPrimer
+    support primer design; they are not newly deposited community datasets. Empty
+    associated_datasets is not a defect. No archive absence or media-database equivalence
+    is inferred.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.214368Z'
+  snapshot_sha256: f6be906c21c63d57122a450b0e5b5342cfb3a2bf1a7c77687d8117aaf702973c
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/snippet-source-audit.json
+  locator: 28 reference-specific field occurrences
+  summary: All 28 excerpts match their respective fresh abstracts and short caches
+    under NFKC/whitespace normalization. These are occurrence counts, not 28 independent
+    experiments or main-body evidence. Exact text does not establish claim entailment.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.214495Z'
+  snapshot_sha256: 5d7d80efad3c78122a5e48fab7dabba98e86e239057292b612417509765c0900
+- evidence_id: history
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-11/000175/provenance-audit.json
+  locator: Sole history, exact batch 19 and batch 91 focal rows/adversarial context,
+    current issues and comments
+  summary: The unchanged batch 91 re-review preserves the earlier graph repair. Current
+    1324 is closed; 1327 remains open and owns the non-graph follow-up; 1744 remains
+    open and explicitly leaves this graph unchanged. All 1/0/2 comments were read.
+    Four old source paths remain historical metadata, not active pins or reconstructed
+    files.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.214683Z'
+  snapshot_sha256: c0adf709ec426115f2ef1b5e56e9d5fbaf450ec3af144f7ed16b8aab117324a1
+- evidence_id: inspect
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/inspect.json
+  locator: Initial official 27-input inspection
+  summary: The canonical owner and current base were inspected before assessment.
+    Ignored-inclusive discovery subsequently identified the exact batch 91 decision/adversarial
+    pair.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.214932Z'
+  snapshot_sha256: 019ea0708ac424554170c9f6b766727d667225aa1e674170260fb6cc6cfedec0
+- evidence_id: inspect-extension
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/inspect-provenance-extension.json
+  locator: Distinct official 29-input extension
+  summary: The initial 27 hashes are preserved; two exact batch 91 provenance files
+    are added before their assessment. No old inspection was overwritten.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.215053Z'
+  snapshot_sha256: baaa3e982ec8b0ffb2f2cb9086a6a5628c9c10a4a5ebec4e4cb77710944af8ef
+- evidence_id: access
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/lead-source-access.json
+  locator: Bounded public source routes and actual signatures
+  summary: Fresh abstracts and the 2008 author-uploaded text are available. The 2007
+    main remains inaccessible; six source-linked PDF/image requests returned HTML
+    errors. No figure pixels or PDF pages were read. Unrelated Figshare results are
+    non-diagnostic, not evidence of absent SI.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.215080Z'
+  snapshot_sha256: 079bb31576e564f0f87ab9fb47d2aaad3ab4e411df56cc9f93849a7f390c80a2
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/lead-primary-read-scope.json
+  locator: Both abstracts and complete recovered 2008 text/captions/references
+  summary: Lead read all focal 2008 text through displayed line 1064, five captions
+    and 17 references, excluding later citing papers. No numerical reanalysis or image
+    quantification. Claim-critical 2007 body access remains unresolved.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.215194Z'
+  snapshot_sha256: 08893c4efe1c1c67c4c99158b275f67a6b5e13348a3dd119f50aa5732b1c1efe
+- evidence_id: source-scope
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/source-audit.json
+  locator: Final partial scientific assessment and four finding groups
+  summary: Two major findings concern metabolic claim direction and CMC identity;
+    two minors concern study-specific cultivation and strain/mapping provenance. Current
+    source limits prevent a completed scientific review.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.215282Z'
+  snapshot_sha256: b03cf09e97467cbab6a967f4c39b3b3346c5471046c762c8f46f1adc04ff4e74
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/root-independent-source-audit.json
+  locator: Independent primary text and authority assessment
+  summary: Root independently read both abstracts and the entire recovered 2008 text,
+    five captions and 17 references, with no pixels. Its source, authority and provenance
+    assessment agrees with partial status and the four groups.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.215401Z'
+  snapshot_sha256: b9441bf564c472674474ff4ce30b1768d6b84cdc95cfa40594e2e3cd52108da9
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/support-final-audit.json
+  locator: Distinct finalized support, exact metric components and unchanged inputs
+  summary: Completeness 85; three nodes, one arrow and eight node-evidence occurrences.
+    Two major/two minor findings give raw quality 111, capped 100. All 29 inspected
+    inputs are unchanged.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.215429Z'
+  snapshot_sha256: 95c2c9b2a13ad21d74b38af0ea29bc747dd309a48e046b146fd81e35f338b5b2
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/supporting-artifact-manifest.json
+  locator: Final support and supporting artifact hashes
+  summary: Preliminary support remains immutable. The final manifest pins source-specific
+    resources, excerpts, provenance and exact read scopes.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.215456Z'
+  snapshot_sha256: 85f675718505bd7f3c9b5889ebc88a6669c659fab7e18e3e9c684a6a5df989a7
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/auxiliary-frozen-manifest.json
+  locator: Final native and authority artifacts
+  summary: All eight focused native checks pass; nine ontology pairs across 25 occurrences
+    match. Initial and final summaries are separate; all 29 inputs are unchanged.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.215572Z'
+  snapshot_sha256: 3ea95f24b752a12130a2df6612fe138f355edfd34315b2b348a8097d338483da
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/final-validator-summary.json
+  locator: Eight actual commands and final input integrity
+  summary: Schema, strict, terms, references, GTDB, domain, history and cache-name
+    checks pass. Native reference success does not certify all scientific interpretations
+    or complete Discussion evidence coverage.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.215672Z'
+  snapshot_sha256: 35cc31f15154966ee2049fa8a2c9174fcdae99b837a334aa4bcd26827a50506c
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/adapter-check.json
+  locator: Reused batch 11 discovery from 403 at 2026-10-21T19:20:45.556660+00:00;
+    fresh runtime compatibility
+  summary: The optional structured adapter is unavailable in the owned runtime. Ignored-inclusive
+    filename discovery is explicitly reused; an external other-checkout runner was
+    not executed. No global absence claim or installation occurred.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.215786Z'
+  snapshot_sha256: 17c78afd1294d370d9d6db6b0b8e9c6f416ba257efb0866b9c4f27aa669e6fb7
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/validate.json
+  locator: Actual focused command and output
+  summary: Recorded native result; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.216165Z'
+  snapshot_sha256: 849b6373c1d5316b9af3343f40a91a0c6550f97c80a116f20166aa92bb0e07bf
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/validate-strict.json
+  locator: Actual focused command and output
+  summary: Recorded native result; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.216323Z'
+  snapshot_sha256: a7c8c857123b09de4ed293fbabc14d155bb79ca5eca38956a251bfc960bb9cee
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/validate-terms.json
+  locator: Actual focused command and output
+  summary: Recorded native result; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.216471Z'
+  snapshot_sha256: b6957dc77b9b0d32d68a0d53dc839d5e9cadce9afcc2c8121a471738d079cb2a
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/validate-references-explained.json
+  locator: Actual focused command and output
+  summary: Recorded native result; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.216726Z'
+  snapshot_sha256: b6739da18241bcc67e956207af0e016348bcf02e24982b9976cdf07d4d292da0
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/validate-gtdb.json
+  locator: Actual focused command and output
+  summary: Recorded native result; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.216899Z'
+  snapshot_sha256: 31c02b0b6cbd5a9eb442b9a7f54cea99602fb98e01c1c7cb2c6cfed1f57683e1
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/validate-gtdb-domain.json
+  locator: Actual focused command and output
+  summary: Recorded native result; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.217023Z'
+  snapshot_sha256: ae063b4724e9ba5ce9128bfb83076468c311c02b506db4daf1133cadb682ec1a
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/validate-history.json
+  locator: Actual focused command and output
+  summary: Recorded native result; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.217172Z'
+  snapshot_sha256: aef15fdb6b8462a34105ab66e4f744d12f2ab3642ca0b935c29acd9c5ae698a7
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/000175/normalize-cache-names-check.json
+  locator: Actual focused command and output
+  summary: Recorded native result; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.217266Z'
+  snapshot_sha256: 91d1d809c52eef833c3ef19cae132042d9b113694d65e2e20ed6d4c7db50211e
+- evidence_id: check-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/audit-network.json
+  locator: Same-batch corpus diagnostic
+  summary: Actual corpus nonzero result is retained; no later record is assessed.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.217534Z'
+  snapshot_sha256: 5c91360a50ff296c596ef7b3fa3ca70cfa3f0423923df3104fa1aafcfcd96b61
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-11/check-network-quality.json
+  locator: Same-batch corpus diagnostic
+  summary: Actual corpus nonzero result is retained; no later record is assessed.
+  support: supports
+  accessed_at: '2026-10-21T21:20:06.217665Z'
+  snapshot_sha256: 5052a95a78eea50710110e7c8d5488631b3eb5df1705369d5ba42b9c3c0ee9f7
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Defined binary MFC and study boundaries
+  outcome: supported
+  summary: The record denotes the intended laboratory pair.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - record
+  - binary-current
+  - culture-identities
+  - strain
+  details: SYNTHETIC origin, ENGINEERED state and BIOTECHNOLOGY category fit deliberate
+    assembly. Activated-sludge mixed cultures, monoculture controls, cloning hosts
+    and catalogue environments are excluded.
+- assessment_id: taxonomy
+  area: grounding
+  topic: Species, strains and GTDB provenance
+  outcome: concern
+  summary: Species identities are valid; exact 2008 culture and mapping provenance
+    can be improved.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - ontology
+  - gtdb
+  - strain
+  - culture-identities
+  details: Historical Clostridium naming corresponds to current Ruminiclostridium.
+    Optional strain refinement is source-specific, not a mandatory replacement or
+    proof of identical 2007 stocks. Preserve species counts and lineages.
+- assessment_id: roles
+  area: scope
+  topic: Recipient roles and ordinal abundance
+  outcome: concern
+  summary: Donor CROSS_FEEDER needs local recipient evidence; other supported roles
+    and ordinals remain.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - schema
+  - semantics
+  - residuals
+  - assay-abundance
+  details: Improved CMC degradation or product removal does not identify a Geobacter
+    product utilized by Clostridium. Retain PRIMARY_DEGRADER, Geobacter CROSS_FEEDER
+    and broad SYNTROPHIC_PARTNER. ABUNDANT is not a fixed percentage; qPCR/FISH context
+    may clarify it without inventing a numerical threshold.
+- assessment_id: supply-node
+  area: graph
+  topic: ecological_interactions[0]
+  outcome: supported
+  summary: Qualified fermentation-to-anode-respiration CROSS_FEEDING is supported.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - binary-current
+  - residuals
+  - semantics
+  details: Keep the C. cellulolyticum to G. sulfurreducens direction and residual-pool
+    caveats. No obligacy, reciprocal fitness, direct electron transfer or molecule-resolved
+    flux is established.
+- assessment_id: current-node
+  area: graph
+  topic: ecological_interactions[1]
+  outcome: supported
+  summary: The untyped binary-current and degradation endpoint is appropriately bounded.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - binary-current
+  details: Negative pure-culture current controls and greater CMC degradation support
+    functional complementarity. They do not independently identify a unique product-removal
+    mechanism or reciprocal fitness.
+- assessment_id: localization-node
+  area: graph
+  topic: ecological_interactions[2]
+  outcome: supported
+  summary: The untyped spatial observation preserves both substrate conditions.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - spatial
+  - assay-abundance
+  details: Retain FISH/qPCR substrate and compartment scope without restoring a causal
+    localization arrow or niche-partitioning claim. Text and captions were read; no
+    figure pixels were independently assessed.
+- assessment_id: supply-edge
+  area: graph
+  topic: ecological_interactions[0].downstream[0]
+  outcome: supported
+  summary: The single retained supply-to-current arrow is appropriately qualified.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - binary-current
+  - residuals
+  details: Preserve the functional conversion link. No additional edge is justified
+    by localization observations or residual-metabolite identity alone.
+- assessment_id: ingredient-claims
+  area: consistency
+  topic: related_ingredients acetate and dihydrogen
+  outcome: concern
+  summary: Off-graph recipient-use wording exceeds its residual-pool evidence.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - residuals
+  - schema
+  details: Apply the graph’s existing uncertainty to related_ingredients[1] and [3].
+    Keep ethanol as a residual intermediate; generic fermentation-product supply remains
+    supported.
+- assessment_id: chemical-identity
+  area: grounding
+  topic: growth_media[0].composition[0].chebi_term
+  outcome: concern
+  summary: CMC is a derivative and is not represented by unmodified cellulose.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - substrate-arms
+  - cmc-authority
+  - ontology
+  details: The 2008 reagent is sodium CMC. Preserve derivative and salt scope without
+    inventing substitution degree. Valid cellulose/MN301 graph and ingredient annotations
+    should not be globally replaced.
+- assessment_id: cultivation
+  area: scope
+  topic: Medium, substrate arms and MFC operation
+  outcome: concern
+  summary: Recoverable 2008 details should replace stale workflow prose with study-specific
+    conditions.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - substrate-arms
+  - mfc-protocol
+  - replacement
+  - power-context
+  details: Separate alternative substrate reactors, anode and catholyte, capacity
+    and working volume, and author terminology from native mode semantics. Keep 2007
+    values source-specific. Glyph-dependent resistance/temperature require independent
+    rendering before exact numerical curation.
+- assessment_id: environment
+  area: grounding
+  topic: Environment, processes and metal scope
+  outcome: supported
+  summary: Laboratory environment, source-qualified processes and metal categorization
+    are appropriate.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - ontology
+  - schema
+  - mfc-protocol
+  details: Cellulose catabolism and fermentation describe the cellulolytic process;
+    anode respiration is not thereby assigned the same process. Ferricyanide and trace
+    nutrients do not establish a metal-processing purpose. Preserve NOT_APPLICABLE
+    metal relevance.
+- assessment_id: evidence
+  area: evidence
+  topic: Claim-local excerpts and source accessibility
+  outcome: concern
+  summary: All 28 abstract excerpts match, but expanded claims require narrower support.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - snippets
+  - access
+  - lead-read
+  details: The maintained caches correctly remain abstract-only. Newly recovered 2008
+    Methods can support future cache/evidence enrichment with explicit author-copy
+    provenance; no current cache refresh occurred. Critical 2007 main access remains
+    unresolved.
+- assessment_id: resources
+  area: representation
+  topic: External publications and dataset scope
+  outcome: supported
+  summary: Both article links are correctly typed and identified.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - resources
+  details: No deposit is inferred from primer-design databases or catalogue records,
+    and the empty dataset list creates no separate finding. No media or ingredient
+    cross-Mech IDs are encoded.
+- assessment_id: provenance
+  area: provenance
+  topic: Prior review chain and current follow-up
+  outcome: supported
+  summary: Both exact prior rows and current issue states are preserved.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - history
+  - inspect
+  - inspect-extension
+  details: The graph-only re-review is not full non-graph certification. Open issue
+    1327 already covers this record’s non-graph concerns; no issue was posted or closed.
+    Old source paths are historical metadata, not active hash assertions.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and source completion
+  outcome: supported
+  summary: Eight focused native checks pass; scientific review remains partial.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - source-scope
+  - root-source
+  details: Corpus diagnostics retain actual failures. Validation does not eliminate
+    the 2007 access gap or certify biology. Only a new review bundle may be saved
+    by parent; canonical inputs remain unchanged.
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: supported
+  summary: Completeness 85; raw quality 111, capped 100.
+  target_ids:
+  - CommunityMech:000175
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 85
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required fields with taxon roles 50 + environment term 5 + at least
+      three interaction nodes 10 + external resources 5 + growth media 10 + node metabolites
+      5. Two environmental factors earn no three-factor bonus; empty associated_datasets
+      earns none. Presence does not establish source support.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 − 50P1 − 10P2 − 2P3 + 20min(mean node evidence/2,1) + 15
+      if COMPLETE,0,100). P1=0, P2=2, P3=2, P4=0. Eight evidence occurrences/three
+      nodes give mean 8/3 and capped bonus 20; COMPLETE adds 15. Raw 111 caps at 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: qualify-metabolite-use
+  issue_key: cm-000175-qualify-metabolite-use
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Recipient-use and molecule-specific interpretation exceed
+    the local evidence, materially changing the proposed mechanism.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Qualify metabolite use and donor recipient-role claims
+  description: The donor’s CROSS_FEEDER role lacks local evidence that it utilizes
+    a Geobacter product. Acetate and hydrogen relevance also asserts partner use from
+    residual-pool observations. Qualify the proposed currencies or attach direct recipient-specific
+    support; omit the optional donor role if unsupported. Preserve the existing qualified
+    graph and other supported roles.
+  target_ids:
+  - CommunityMech:000175
+  field_paths:
+  - taxonomy[0].functional_role
+  - taxonomy[0].evidence
+  - related_ingredients[1].relevance
+  - related_ingredients[3].relevance
+  - related_ingredients[1].evidence
+  - related_ingredients[3].evidence
+  evidence_ids:
+  - residuals
+  - schema
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns the repair; source caches own any future exact-source
+    enrichment. Open issue 1327 is existing non-graph follow-up; preserve closed 1324
+    graph repair and current 1744 scope. No issue mutation.
+- finding_id: ground-cmc-derivative
+  issue_key: cm-000175-ground-cmc-derivative
+  category: grounding
+  severity: major
+  native_severity: P2
+  normalization_reason: The medium ingredient represents a substituted derivative
+    using an unsubstituted chemical term.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Ground the CMC component as a chemical derivative
+  description: growth_media[0].composition[0] names CMC but grounds it to CHEBI:18246,
+    unsubstituted cellulose. Use a verified derivative identity and source-specific
+    sodium-salt context. Keep valid generic cellulose and MN301 annotations; no global
+    replacement or invented substitution degree.
+  target_ids:
+  - CommunityMech:000175
+  field_paths:
+  - growth_media[0].composition[0].chebi_term
+  - growth_media[0].composition[0].name
+  evidence_ids:
+  - substrate-arms
+  - cmc-authority
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns the repair; source caches own any future exact-source
+    enrichment. Open issue 1327 is existing non-graph follow-up; preserve closed 1324
+    graph repair and current 1744 scope. No issue mutation.
+- finding_id: recover-study-protocol
+  issue_key: cm-000175-recover-study-protocol
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Recoverable protocol, obsolete notes and mode semantics require
+    bounded clarification; no optional field is falsely treated as schema-required.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Recover study-specific cultivation and evidence context
+  description: The cultivation notes contain unrelated workflow history and say Methods/medium
+    are unavailable, although the 2008 main is now recovered. Represent separate substrate
+    reactors and source-specific apparatus/recipe details, keeping 2007 access limits
+    and power values distinct. Reconcile author fed-batch terminology with the reported
+    medium replacement and native definition.
+  target_ids:
+  - CommunityMech:000175
+  field_paths:
+  - growth_media[0].composition
+  - growth_media[0].preparation_notes
+  - growth_media[0].evidence
+  - cultivation_setup[0].cultivation_mode
+  - cultivation_setup[0].instrument_detail
+  - cultivation_setup[0].electrode_detail
+  - cultivation_setup[0].notes
+  - cultivation_setup[0].evidence
+  - discussions[0].rationale
+  evidence_ids:
+  - substrate-arms
+  - mfc-protocol
+  - replacement
+  - power-context
+  - access
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_17695929.md
+    role: source_cache
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_18725730.md
+    role: source_cache
+  ownership_note: Maintained YAML owns the repair; source caches own any future exact-source
+    enrichment. Open issue 1327 is existing non-graph follow-up; preserve closed 1324
+    graph repair and current 1744 scope. No issue mutation.
+- finding_id: document-strain-mapping
+  issue_key: cm-000175-document-strain-mapping
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Species identities and ordinals remain valid; exact culture
+    context and snapshot provenance are localized improvements.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Document source strains and reproducible mapping provenance
+  description: The 2008 source identifies exact culture stocks, while mapping_source
+    claims a latest release/build date from insufficient provenance. Add source-specific
+    strain context and verified snapshot/method. Preserve current species mappings,
+    one/19 genome counts and ordinal ABUNDANT; optional strain rows have their own
+    counts.
+  target_ids:
+  - CommunityMech:000175
+  field_paths:
+  - taxonomy[0].taxon_term.notes
+  - taxonomy[1].taxon_term.notes
+  - taxonomy[0].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[1].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[0].evidence
+  - taxonomy[1].evidence
+  evidence_ids:
+  - strain
+  - gtdb
+  - assay-abundance
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns the repair; source caches own any future exact-source
+    enrichment. Open issue 1327 is existing non-graph follow-up; preserve closed 1324
+    graph repair and current 1744 scope. No issue mutation.
+actions:
+- action_id: qualify-recipient-use
+  description: Align non-graph metabolite and role claims with their actual evidence.
+  finding_ids:
+  - qualify-metabolite-use
+  target_ids:
+  - CommunityMech:000175
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - At related_ingredients[1].relevance and [3].relevance, distinguish residual acetate/hydrogen
+    from inferred partner use and directly measured uptake. Attach exact source-local
+    support for any stronger molecule-specific claim; do not turn absent uptake evidence
+    into proof that uptake cannot occur.
+  - At taxonomy[0].functional_role, identify the other-taxon provider, metabolite
+    and utilization evidence before retaining CROSS_FEEDER; otherwise omit or qualify
+    this optional recipient role. Improved CMC conversion and donor fermentation alone
+    do not establish it. No carbon/energy-only or obligacy requirement is imposed.
+  - Retain C. cellulolyticum PRIMARY_DEGRADER, Geobacter CROSS_FEEDER and broad SYNTROPHIC_PARTNER
+    with source attribution. Preserve all three nodes and the single qualified arrow,
+    residual-pool limits, untyped endpoints and lack of a localization-causality edge.
+- action_id: ground-cmc
+  description: Correct only the derivative-specific medium identity.
+  finding_ids:
+  - ground-cmc-derivative
+  target_ids:
+  - CommunityMech:000175
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Replace the unmodified-cellulose grounding at growth_media[0].composition[0].chebi_term
+    with verified CHEBI:85146 carboxymethylcellulose, or a separately justified exact
+    sodium-salt grounding. The 2008 Methods explicitly says sodium CMC; CHEBI:234035
+    is a verified salt label with limited definition metadata. Preserve the distinction
+    between chemical family and exact reagent.
+  - Keep CHEBI:18246 for MN301 and explicitly generic cellulose contexts. Do not infer
+    substitution degree, polymer molecular mass or an unreported supplier grade. Do
+    not apply the 2008 salt statement automatically to uninspected 2007 Methods.
+- action_id: recover-protocol
+  description: Represent the recovered 2008 protocol without merging studies or compartments.
+  finding_ids:
+  - recover-study-protocol
+  target_ids:
+  - CommunityMech:000175
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_17695929.md
+    role: source_cache
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_18725730.md
+    role: source_cache
+  acceptance_checks:
+  - Replace off-topic infant-HMO/#183/#543 and cache-size narrative in cultivation_setup[0].notes
+    with biological study context. Retain the 2007 abstract as the source of 143/59.2
+    mW/m² and its author-described fed-batch tests; record 2008 power 153/83 separately
+    if added.
+  - 'Represent 2008 sodium CMC and MN301 as alternative 1 g/L reactor arms. Recover
+    the per-litre recipe from MFC inoculum, construction, and operation: NH4Cl 1.05
+    g, KCl 0.1 g, NaH2PO4·H2O 4.90 g, Na2HPO4 9.15 g, yeast extract 0.2 g, NaHCO3
+    2.5 g, and 10 mL each trace-mineral/vitamin mixtures. Preserve the cited but unverified
+    stock recipes. Do not call this chemically defined sole-carbon medium.'
+  - Record 310-mL bottle capacity only as capacity until working volume is verified;
+    keep 16-cm² electrode geometry and ferricyanide/phosphate catholyte separate from
+    anode medium. Catholyte pH 7.0 is not an anode pH setpoint, and external circuit
+    resistance is not an applied potential. Do not transfer analytical or cloning-host
+    conditions.
+  - Preserve the authors’ fed-batch label in notes alongside actual medium/catholyte
+    replacement below approximately 40 mV. Select a native mode only after checking
+    its literal operation definition; do not force FED_BATCH with broth removal, SEMI_CONTINUOUS
+    partial harvest or SEQUENCING_BATCH settle/draw without support. Scope this follow-up
+    to the recovered 2008 protocol.
+  - Verify ambiguous degree/ohm glyphs from an independently readable original before
+    adding exact temperature or resistance. State the full-text and figure access
+    limits honestly. If new Methods excerpts are cached, populate the exact source/version
+    with author-copy locator and retrieval provenance; do not claim current caches
+    were already refreshed. Update current access rationale while preserving historical
+    review receipts.
+- action_id: document-taxonomy
+  description: Add exact strain context and verifiable GTDB provenance.
+  finding_ids:
+  - document-strain-mapping
+  target_ids:
+  - CommunityMech:000175
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Attach 2008 Methods and direct catalogue aliases for ATCC 35319/H10/DSM 5812 and
+    ATCC 51573/PCA/DSM 12127. Retain valid species terms unless a deliberate optional
+    strain refinement is justified. Keep exact 2007 strain identity a full-Methods
+    verification item.
+  - Replace unverified latest/build-date text with the examined crosswalk hash and
+    exact-ID route. Preserve NCBITaxon 1521 mapping 1.0/one genome and 35554 mapping
+    1.0/19. Optional 394503/243231 strain rows each have 1.0/two genomes and must
+    remain separate from species support counts.
+  - Keep ordinal ABUNDANT. If adding abundance context, label substrate, compartment,
+    time and FISH/qPCR method; gene-copy ratios are not universal cell fractions.
+    Do not require percentages or silently reconcile qualitative FISH and quantitative
+    sampling comparisons.
+- action_id: verify-future-curation
+  description: Validate separately authorized curation and retain access boundaries.
+  finding_ids:
+  - qualify-metabolite-use
+  - ground-cmc-derivative
+  - recover-study-protocol
+  - document-strain-mapping
+  target_ids:
+  - CommunityMech:000175
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_17695929.md
+    role: source_cache
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_18725730.md
+    role: source_cache
+  acceptance_checks:
+  - Resolve the claim-critical 2007 body gap before certifying a completed full scientific
+    review. Reassess exact uptake and protocol claims from inspected Methods/Results;
+    preserve the partial status until that evidence is sufficient.
+  - Attach precise reference/section evidence to each changed field and preserve the
+    current graph qualifications. After authorized canonical edits, append history
+    and run schema, strict, terms, references, GTDB, domain and history checks, then
+    just gen-html and just check-docs-current.
+  - This review edits no canonical YAML, cache, history or generated output. Parent
+    may save only the new immutable review bundle after independent whole-candidate
+    checks. Preserve all original and final receipts.
+limitations:
+- The recovered 2008 author-uploaded text includes the entire focal article, five
+  figure captions and 17 references through displayed line 1064; later citing papers
+  were excluded. Original PDF byte equivalence and figure pixels were not verified.
+  The 2007 main, Methods and any uninspected SI remain outside the source scope, so
+  scientific_review is false.
+- PDF/image destination filenames conceal HTTP 403 HTML payloads; they are not usable
+  visual evidence. Initial sandbox DNS errors are separate from actual public HTTP
+  outcomes. OpenAlex flags and an unrelated Figshare search response do not prove
+  global full-text or data absence.
+- Web extraction contains ambiguous degree/ohm glyphs. Source-specific bottle capacity,
+  catholyte pH, anode geometry and medium replacement are readable; temperature/resistance
+  require independent rendering before precise curation. No working volume, anode
+  setpoint, partial-harvest or settling cycle is invented.
+- Residual metabolites are not partner-resolved uptake or flux. Binary current and
+  CMC degradation establish functional complementarity without unique mechanism, reciprocal
+  fitness or localization causality. qPCR gene-copy comparisons and qualitative FISH
+  retain their compartment/substrate basis; no raw reanalysis was performed.
+- All 28 excerpt occurrences strictly match reference-specific fresh abstracts and
+  their maintained caches. No main-body excerpt match is claimed. The caches remain
+  correctly abstract-only; future enrichment requires exact source/version provenance.
+- Current species and ordinal abundance remain valid. Exact 2008 strain aliases do
+  not independently prove 2007 stocks; optional strain GTDB counts differ from species
+  counts. Snapshot mtime does not verify a release/build claim. No narrower obligacy
+  or nutrient-only role criterion is imposed.
+- Both publication resources are valid. Empty associated_datasets is not evidence
+  of missing deposition; primer-design databases and catalogue genome links are not
+  new focal datasets. No paid access, contact, culture reproduction or cross-Mech
+  medium equivalence was used.
+- Initial 27-input inspection and distinct 29-input extension remain immutable. Both
+  exact prior rows and current 1324/1327/1744 states were read; old source paths remain
+  historical metadata. Adapter discovery is explicitly reused from 403 with fresh
+  runtime compatibility. Native scores are presence/validation metrics, not scientific
+  certification.
+notes:
+- Partial scientific review; two major/two minor findings; completeness 85, raw quality
+  111/capped 100.
+- No graph-topology change, forced ordinal replacement, dataset omission or metal-processing
+  finding.
+- No canonical edits or save by lead; parent persistence follows whole-candidate checks.
+tags:
+- record-review
+- cellulose
+- microbial-fuel-cell
+- batch-11
+```
