@@ -1,0 +1,1305 @@
+schema_version: 1.0.0
+review_id: 20261020T032721Z-anme-srb-redox-enrichments
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'ANME/SRB redox enrichments: whole-record source and grounding review'
+started_at: '2026-10-19T23:37:46.701615Z'
+finished_at: '2026-10-20T03:27:21.883882Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: The reviewer did not author or edit this record during the session;
+    the earlier graph review uses the same codex identity, so person-level independence
+    is unknown.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Three nodes and two arrows preserve the measured redox-conduction mechanism
+  and its molecular uncertainty. Two major findings concern SRB clade grounding and
+  physical study setting; three minor findings concern cultivation-field semantics,
+  media linkage and structured environmental context. Focused checks pass; unrelated
+  corpus network warnings remain explicit.
+source:
+  git_revision: a4611c913c8da9619673df63a0c2cce3aa206a83
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    sha256: 33b202bc07eceb38a47c560434734e8b21f1b251bf20433964af97aef3568b6b
+    role: target
+  - path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    sha256: 45dd6c7f42e725c1e51ec80e03b32e78235377a99d9dc56bafae6acccdeb7bb7
+    role: context
+  - path: references_cache/PMID_40845095.md
+    sha256: 90796fd74df55c809a2cc6aa2b5d94a1ca83907889a24d49693f8756848724a9
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-seven-records.yaml
+    sha256: 064f7395bbb54d42023f3a0bceeb31a3dd990221e62094f6a51507fee81eea69
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: e5a87e5367609334ec0d6361f6ddafbe6bc4a1f7d93e5264c64688c28325910f
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000276
+  path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+  label: ANME/SRB Anaerobic Methanotrophic Syntrophic Consortia
+  record_class: MicrobialCommunity
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    role: canonical_record
+scope:
+  description: 'Entire target: six taxa, three nodes, two arrows, all evidence and
+    cultivation fields, environment, history and neighboring-record identity context.'
+  selection: Eighth initially uncovered record in the parent path-ordered review cohort;
+    one record per bundle, with saving handled separately in that order.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000276
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: 'No issues found
+
+    uv run linkml-validate -s src/communitymech/schema/communitymech.yaml kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml'
+  target_ids:
+  - CommunityMech:000276
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true just --no-dotenv validate kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target record, offline uv environment; no ontology skips.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: "uv run python scripts/validate_strict.py kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml\
+    \ --out /private/tmp/cm-review-session/000276/strict-report.tsv\nValidating 1\
+    \ files with 17 workers; schema=/private/tmp/communitymech-record-reviews-20261019/src/communitymech/schema/communitymech.yaml\n\
+    \n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:\
+    \   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/cm-review-session/000276/strict-report.tsv"
+  target_ids:
+  - CommunityMech:000276
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true just --no-dotenv validate-strict kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    --out /private/tmp/cm-review-session/000276/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target record, offline uv environment; no ontology skips.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: '✅ Validation passed
+
+    uv run linkml-term-validator validate-data kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    -s src/communitymech/schema/communitymech.yaml --labels'
+  target_ids:
+  - CommunityMech:000276
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true just --no-dotenv validate-terms kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target record, offline uv environment; no ontology skips.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: 'PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+
+
+    files checked: 1
+
+    incoherent blocks: 0
+
+    malformed lineages: 0
+
+    lineage conflicts: 0'
+  target_ids:
+  - CommunityMech:000276
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true just --no-dotenv validate-gtdb kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target record, offline uv environment; no ontology skips.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: 'files checked: 1
+
+    contradictory lineages: 0
+
+    PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml'
+  target_ids:
+  - CommunityMech:000276
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true just --no-dotenv validate-gtdb-domain kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target record, offline uv environment; no ontology skips.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: No issues found
+  target_ids:
+  - CommunityMech:000276
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true just --no-dotenv validate-history history
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Complete existing history corpus, because no target append-only directory
+    exists; not a focused target-history pass.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Command completed without reported issues.
+  target_ids:
+  - CommunityMech:000276
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Read-only corpus cache-name normalization precheck.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: "Validating kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml\
+    \ against schema src/communitymech/schema/communitymech.yaml\nCache directory:\
+    \ references_cache\n\nValidation Summary:\n  Reported validation issues: 0\n \
+    \ All validations passed!\n\n[annotate] This is not a count of checked excerpts\
+    \ (#1469). Native Discussion evidence coverage remains incomplete (#476)."
+  target_ids:
+  - CommunityMech:000276
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true just --no-dotenv validate-references-explained kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target record, offline uv environment; no ontology skips.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: 'Reused same-session complete corpus run: exit 1; 462 records; 57 warnings
+    in 21 records; zero errors. The target has no reported issue. Git base and canonical
+    record bytes remain unchanged.'
+  target_ids:
+  - CommunityMech:000276
+  command: just --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  scope_note: Complete corpus scope, retained as an actual failure; warnings elsewhere
+    are not assigned to this target.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: 'Reused same-session complete corpus run: exit 1; 462 records; 57 warnings
+    in 21 records; zero errors. The target has no reported issue. Git base and canonical
+    record bytes remain unchanged.'
+  target_ids:
+  - CommunityMech:000276
+  command: just --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  scope_note: Complete corpus scope, retained as an actual failure; warnings elsewhere
+    are not assigned to this target.
+- check_id: imodulondb-applicability
+  name: iModulonDB organism coverage
+  status: not_applicable
+  required: false
+  summary: No matching organism in the inspected public catalogue; no strain/module
+    query applies.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - imodulondb
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+  locator: 'Entire maintained YAML: six taxonomy entries, three nodes, two downstream
+    arrows, one growth-medium entry, embedded history'
+  summary: The record explicitly represents three distinct sediment-free enrichment
+    types, with paired members and temperatures retained in narrative. It does not
+    claim one obligate six-member culture.
+  support: supports
+  accessed_at: '2026-10-20T03:27:21.878282Z'
+- evidence_id: article
+  kind: primary_source
+  reference: PMID:40845095
+  locator: DOI:10.1126/sciadv.adw4289; references_cache/PMID_40845095.md, abstract
+    and appended full article including Results, Discussion and Materials and Methods
+  summary: The primary 2025 study measures dry conductance, cyclic voltammetry and
+    generator-collector transport in three ANME/SRB enrichments. The committed cache
+    contains full text despite abstract_only frontmatter. Supplemental figures were
+    not independently retrieved.
+  support: supports
+  accessed_at: '2026-10-20T03:27:21.878348Z'
+- evidence_id: bibliography
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A40845095%20AND%20SRC%3AMED&format=json&resultType=core&pageSize=1
+  locator: Europe PMC core metadata for PMID 40845095
+  summary: The live primary publication record resolves PMID 40845095, PMCID PMC12372872,
+    DOI 10.1126/sciadv.adw4289, the named title and publication date 2025-08-22. Initial
+    sandbox DNS failure was resolved by a read-only network retry.
+  support: supports
+  accessed_at: '2026-10-19T23:40:42.317056Z'
+  snapshot_sha256: 2c0eec53cf98db83753ae9fabe76e3b49d85ed3f138e4e52045be2e2439f2805
+- evidence_id: culture-results
+  kind: primary_source
+  reference: PMID:40845095
+  locator: 'Results: Dry conduction of ANME/SRB consortia; Methods: ANME/SRB enrichment
+    cultures'
+  summary: Three separately maintained cultures comprise ANME-1/Desulfofervidus at
+    50 C, ANME-2a/Seep-SRB1 at 10 C, and ANME-2a+2c/Seep-SRB1+2 at 20 C. Inocula came
+    respectively from Guaymas Basin hydrothermal sediments, Santa Monica Basin cold
+    seep, and Mediterranean Caldera mud volcano. These are long-maintained enrichments,
+    not pure isolates or a synthetic six-member assembly.
+  support: supports
+  accessed_at: '2026-10-20T03:27:21.878579Z'
+- evidence_id: electrochemistry
+  kind: primary_source
+  reference: PMID:40845095
+  locator: 'Results and Figures 1-3: dry conduction, redox properties, generator-collector
+    measurements; Discussion'
+  summary: Dry conductance and heat/oxygen/fixation responses support a biomolecular
+    conductor. Live biomass redox peaks and generator-collector currents across a
+    5 micrometer gap support redox transport. Multiheme cytochrome c is a plausible
+    carrier class, not an identified protein conduit; the discussion retains alternatives
+    and protein-level uncertainty.
+  support: supports
+  accessed_at: '2026-10-20T03:27:21.878581Z'
+- evidence_id: conditions
+  kind: primary_source
+  reference: PMID:40845095
+  locator: 'Materials and Methods: ANME/SRB enrichment cultures and Electrochemical
+    analysis'
+  summary: The defined seawater recipe, pH 7.3, trace elements without vitamins, N2
+    sparging during medium preparation, and subsequent 5 mM bicarbonate/0.5 mM sulfide
+    additions are reported. Preparation gas and dissolved additions do not identify
+    culture headspace. The electrochemical PBS/Gelrite assays are distinct from growth
+    conditions; Geobacter reactor headspace is a control protocol and cannot be copied
+    to ANME cultivation.
+  support: supports
+  accessed_at: '2026-10-20T03:27:21.878582Z'
+- evidence_id: electron-direction
+  kind: primary_source
+  reference: PMID:40845095
+  locator: Introduction; mechanistic direction relevant to nodes 0 and 2 and both
+    arrows
+  summary: Exact contiguous excerpt from the inspected article; associated assessments
+    retain assay and molecular limits.
+  support: supports
+  accessed_at: '2026-10-20T03:27:21.878589Z'
+  quote: methane-derived electrons are directly conducted from ANME to SRB to drive
+    sulfate reduction
+- evidence_id: transport-distance
+  kind: primary_source
+  reference: PMID:40845095
+  locator: 'Results: Redox conduction in ANME/SRB consortia; Figure 3 conclusion'
+  summary: Exact contiguous excerpt from the inspected article; associated assessments
+    retain assay and molecular limits.
+  support: supports
+  accessed_at: '2026-10-20T03:27:21.878595Z'
+  quote: capable of facilitating micrometer-scale electron transport
+- evidence_id: srb-phylogeny
+  kind: primary_source
+  reference: PMID:37747940
+  locator: 'DOI:10.1371/journal.pbio.3002292; Results: Taxonomic diversity of syntrophic
+    SRB, Figure 1 caption and adjacent phylogenetic discussion; Europe PMC fullTextXML'
+  summary: The inspected 2023 primary study, cited by the 2025 article, places Seep-SRB2
+    in Dissulfuribacterales and proposes Ca. Desulfomithrium. It distinguishes Seep-SRB1a
+    from Seep-SRB1g and explains that historical Seep-SRB1 is polyphyletic. This conflicts
+    with treating Desulfobacterales as a conservative parent for SRB2 and does not
+    establish one family for undifferentiated SRB1.
+  support: refutes
+  accessed_at: '2026-10-19T23:39:03.586130Z'
+  snapshot_sha256: 69704c54f4ea1afbbbda28969074a9482ca887e19cedda13ddf0c4bb1f65837f
+- evidence_id: srb2-placement
+  kind: primary_source
+  reference: PMID:37747940
+  locator: Figure 1 caption
+  summary: Exact contiguous excerpt from the inspected primary XML text.
+  support: refutes
+  accessed_at: '2026-10-19T23:39:03.586130Z'
+  quote: Seep-SRB2 is a genus within the order Dissulfuribacterales
+- evidence_id: srb1-scope
+  kind: primary_source
+  reference: PMID:37747940
+  locator: 'Results: Taxonomic diversity of syntrophic SRB'
+  summary: Exact contiguous excerpt from the inspected primary XML text.
+  support: refutes
+  accessed_at: '2026-10-19T23:39:03.586130Z'
+  quote: a historical name that refers to a polyphyletic clade
+- evidence_id: ontology-authority
+  kind: authority
+  reference: OAK local SemanticSQL NCBITaxon and ENVO snapshots
+  locator: 'Inspected labels and ancestor chains: Desulfobacterales, Dissulfuribacterales,
+    Desulfofervidus; ENVO:03000033 definition'
+  summary: The local snapshot distinguishes the Desulfobacterales and Dissulfuribacterales
+    branches and places Ca. Desulfofervidus outside Desulfobacterales. Marine sediment
+    requires sediment deposited through the marine water column. This snapshot does
+    not supply a direct named Seep-SRB2/Ca. Desulfomithrium mapping; the clade placement
+    comes from the primary phylogeny.
+  support: supports
+  accessed_at: '2026-10-19T23:40:14.593736Z'
+  snapshot_sha256: 4d8c86ecca413f577d131dc36c21e48bffd05564596b0da7c9761516314cfe9f
+- evidence_id: process-ontology
+  kind: authority
+  reference: OAK local SemanticSQL GO snapshot
+  locator: GO:0022900, GO:0015947 and GO:0019420 definitions
+  summary: Electron transport chain broadly describes electron carriers transferring
+    electrons from donors to terminal acceptors; its definition does not require a
+    membrane or proton gradient. Methane metabolic process includes methane reactions;
+    dissimilatory sulfate reduction covers sulfate-to-sulfide respiration. These broad
+    processes fit the graph without identifying a molecular conduit.
+  support: supports
+  accessed_at: '2026-10-19T23:41:33.600190Z'
+  snapshot_sha256: 0b1efb011295033b13899a66a108b186116c8521949fef4ae9efb0cb5901ebc8
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: MicrobialCommunity.environment_term/modeled_environment; GrowthMedia.headspace_gas,
+    vessel_type and temperature_range
+  summary: The schema distinguishes physical study setting from habitat of origin;
+    gas composition from preparation notes; physical vessel from culture type; and
+    growth range from discrete culture-specific temperatures.
+  support: supports
+  accessed_at: '2026-10-20T03:27:21.879304Z'
+- evidence_id: history
+  kind: prior_review
+  reference: reports/causal_graph_review/decisions/20261005-seven-records.yaml
+  locator: CommunityMech:000276 row and its three node/two arrow decisions; embedded
+    2026-07-02 cross-reference
+  summary: The earlier graph-only review retained all three nodes and both arrows
+    and explicitly did not certify other metadata. Embedded history relates this study-specific
+    record to CommunityMech:000134. No earlier structured finding is closed or superseded
+    by this review.
+  support: supports
+  accessed_at: '2026-10-20T03:27:21.879305Z'
+- evidence_id: history-search
+  kind: search
+  reference: CommunityMech:000276
+  locator: Ignored-inclusive exact ID, label and slug search in history, prior graph
+    decisions and kb/taxa
+  summary: The search found the graph decision but no target append-only history entry
+    or reusable taxon match in the searched roots. The documented history check therefore
+    ran across the existing history corpus; it is not a fictitious target-directory
+    pass.
+  support: context_only
+  accessed_at: '2026-10-19T23:41:40.681599Z'
+  snapshot_sha256: 02303e032fa31740bb0121ffcefb26d0310367a432ec28a20a20a60afd1ce942
+  search_scope: rg --no-ignore --hidden -n 'ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia|CommunityMech:000276|ANME/SRB
+    Anaerobic Methanotrophic Syntrophic Consortia' history reports/causal_graph_review/decisions
+    kb/taxa
+- evidence_id: neighbor
+  kind: record_content
+  reference: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  locator: Entire neighboring maintained record, CommunityMech:000134; comparison
+    limited to identity and source scope
+  summary: The neighboring record aggregates wider natural methane-seep syntrophy,
+    comparative genomics and sulfur perturbations from multiple sources. The present
+    target isolates the 2025 sediment-free electrochemical study. Related identity
+    does not erase distinct experimental contexts or authorize merging records.
+  support: context_only
+  accessed_at: '2026-10-20T03:27:21.879439Z'
+- evidence_id: imodulondb
+  kind: database
+  reference: https://imodulondb.org/api/datasets
+  locator: Same-session public API catalogue, all 20 organisms and 28 datasets inspected
+  summary: No ANME or named sulfate-reducing partner has organism coverage in this
+    response. No matching transcriptomic module query is applicable. This is not negative
+    biological evidence about the conductor or syntrophy.
+  support: context_only
+  accessed_at: '2026-10-19T23:31:07.726770Z'
+  snapshot_sha256: 155607e7023efdead5ebab3919279a0776d5665a7de9e28b67f02f8f521b0693
+- evidence_id: check-validate
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true just --no-dotenv validate kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+  locator: Actual command output; start 2026-10-19T23:38:30.226642+00:00; finish 2026-10-19T23:38:31.108417+00:00
+  summary: 'No issues found
+
+    uv run linkml-validate -s src/communitymech/schema/communitymech.yaml kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml'
+  support: context_only
+  accessed_at: '2026-10-19T23:38:31.108417Z'
+  snapshot_sha256: 6e6bb5027e959bb85c53cad66bf1934316bcd15a2b1801358066d53b9393ec09
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true just --no-dotenv validate-strict kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    --out /private/tmp/cm-review-session/000276/strict-report.tsv
+  locator: Actual command output; start 2026-10-19T23:38:30.228706+00:00; finish 2026-10-19T23:38:32.614991+00:00
+  summary: "uv run python scripts/validate_strict.py kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml\
+    \ --out /private/tmp/cm-review-session/000276/strict-report.tsv\nValidating 1\
+    \ files with 17 workers; schema=/private/tmp/communitymech-record-reviews-20261019/src/communitymech/schema/communitymech.yaml\n\
+    \n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:\
+    \   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/cm-review-session/000276/strict-report.tsv"
+  support: context_only
+  accessed_at: '2026-10-19T23:38:32.614991Z'
+  snapshot_sha256: f427ee253e048f04560456236a18c2ff6a2e508680965eaa2291f1884b0fa3bf
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true just --no-dotenv validate-terms kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+  locator: Actual command output; start 2026-10-19T23:38:30.230436+00:00; finish 2026-10-19T23:38:32.567873+00:00
+  summary: '✅ Validation passed
+
+    uv run linkml-term-validator validate-data kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    -s src/communitymech/schema/communitymech.yaml --labels'
+  support: context_only
+  accessed_at: '2026-10-19T23:38:32.567873Z'
+  snapshot_sha256: 45d66d13ee6dd1e7024c48687a239ca01c38d969fbe63cd05cb882a1b3624a89
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true just --no-dotenv validate-gtdb kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+  locator: Actual command output; start 2026-10-19T23:38:31.108702+00:00; finish 2026-10-19T23:38:31.198514+00:00
+  summary: 'PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+
+
+    files checked: 1
+
+    incoherent blocks: 0
+
+    malformed lineages: 0
+
+    lineage conflicts: 0'
+  support: context_only
+  accessed_at: '2026-10-19T23:38:31.198514Z'
+  snapshot_sha256: f871e84fae81c708deaee8b6fcfc31250f85677618a6ababebdd97271691d625
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true just --no-dotenv validate-gtdb-domain kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+  locator: Actual command output; start 2026-10-19T23:38:31.198791+00:00; finish 2026-10-19T23:38:32.677196+00:00
+  summary: 'files checked: 1
+
+    contradictory lineages: 0
+
+    PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml'
+  support: context_only
+  accessed_at: '2026-10-19T23:38:32.677196Z'
+  snapshot_sha256: a47c531e8b4f9233ecf0843cedc6b3c6dd481ca1d581e4434edabf5f85b5832f
+- evidence_id: check-validate-history
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true just --no-dotenv validate-history history
+  locator: Actual command output; start 2026-10-19T23:38:32.568357+00:00; finish 2026-10-19T23:38:34.399375+00:00
+  summary: No issues found
+  support: context_only
+  accessed_at: '2026-10-19T23:38:34.399375Z'
+  snapshot_sha256: 70808d05d3aeaa8d246de1507dfc0a9d3a51edc33c1dd1192be8d3bcd1f124e4
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true uv run python scripts/normalize_cache_names.py --check
+  locator: Actual command output; start 2026-10-19T23:38:34.399815+00:00; finish 2026-10-19T23:38:34.454462+00:00
+  summary: Command completed without reported issues.
+  support: context_only
+  accessed_at: '2026-10-19T23:38:34.454462Z'
+  snapshot_sha256: db821e9ea3082e031dd250e8c153dda097ab120db619af987dd638d3bb124ba0
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true
+    JUST_NO_DOTENV=true just --no-dotenv validate-references-explained kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+  locator: Actual command output; start 2026-10-19T23:38:34.454859+00:00; finish 2026-10-19T23:38:35.507255+00:00
+  summary: "Validating kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml\
+    \ against schema src/communitymech/schema/communitymech.yaml\nCache directory:\
+    \ references_cache\n\nValidation Summary:\n  Reported validation issues: 0\n \
+    \ All validations passed!\n\n[annotate] This is not a count of checked excerpts\
+    \ (#1469). Native Discussion evidence coverage remains incomplete (#476)."
+  support: context_only
+  accessed_at: '2026-10-19T23:38:35.507255Z'
+  snapshot_sha256: 6b63fe81d803f9f43d2cfd84b5b19f02ad2d0f47b2687453f892ae76f79b1099
+- evidence_id: check-audit-network
+  kind: validation
+  reference: just --no-dotenv audit-network
+  locator: Complete corpus output executed 2026-10-19T07:30:27.845593+00:00
+  summary: 'Reused same-session complete corpus run: exit 1; 462 records; 57 warnings
+    in 21 records; zero errors. The target has no reported issue. Git base and canonical
+    record bytes remain unchanged.'
+  support: context_only
+  accessed_at: '2026-10-19T07:30:27.845593Z'
+  snapshot_sha256: bedf3fd18a964bda429f7c6b5feb01b8918e1440b48a4329664501161c80e3f4
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: just --no-dotenv check-network-quality
+  locator: Complete corpus output executed 2026-10-19T07:30:43.193891+00:00
+  summary: 'Reused same-session complete corpus run: exit 1; 462 records; 57 warnings
+    in 21 records; zero errors. The target has no reported issue. Git base and canonical
+    record bytes remain unchanged.'
+  support: context_only
+  accessed_at: '2026-10-19T07:30:43.193891Z'
+  snapshot_sha256: 885e62e84ed8d3e69a6e5ef5be43f941ef64d756107c3b062846831f76e081aa
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Biological identity, scope and source strata
+  outcome: supported
+  summary: The target is a study-specific set of three natural-origin ANME/SRB enrichments.
+    The PMID/DOI identity is verified. Pairing and condition notes preserve separate
+    cultures; no strain-isolate identity, pure six-member community or synthetic assembly
+    is justified.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - article
+  - bibliography
+  - culture-results
+  dimensions:
+  - name: source_strain
+    value: Informal ANME/SRB lineages in three enrichments; no named pure strain
+    definition: Clade and partnership identities are the source resolution, not isolate
+      identifiers.
+    evidence_ids:
+    - culture-results
+  - name: community_scope
+    value: ANME-1/Desulfofervidus; ANME-2a/Seep-SRB1; ANME-2a+2c/Seep-SRB1+2
+    definition: Six taxonomy entries describe the union of three separately studied
+      enrichments.
+    evidence_ids:
+    - record
+    - culture-results
+  - name: experimental_setting
+    value: Sediment-free laboratory enrichments and biomass electrochemistry
+    definition: Marine sediment describes inoculum origin; dry and live/PBS assays
+      are distinguished.
+    evidence_ids:
+    - culture-results
+    - conditions
+  - name: medium
+    value: Defined HEPES-buffered artificial seawater, pH 7.3
+    definition: Common medium recipe with separate 50, 10 and 20 C culture settings;
+      not one validated continuous temperature tolerance.
+    evidence_ids:
+    - conditions
+  - name: source_category
+    value: Primary full article in committed cache, live bibliographic metadata and
+      inspected primary phylogeny XML
+    definition: Cache frontmatter is stale; actual assessed full-text sections are
+      explicit. Supplementary figures are uninspected.
+    evidence_ids:
+    - article
+    - bibliography
+    - srb-phylogeny
+  - name: taxonomic_resolution
+    value: ANME orders/clades/genus and SRB genus/family/order mappings
+    definition: Canonical term validation passes; two SRB informal-label mappings
+      require source-specific resolution.
+    evidence_ids:
+    - record
+    - srb-phylogeny
+  - name: ecological_state
+    value: Long-maintained natural-origin enrichments
+    definition: STABLE is compatible with maintained cultures but does not demonstrate
+      equilibrium or identical natural-community abundance.
+    evidence_ids:
+    - culture-results
+- assessment_id: taxon-0
+  area: grounding
+  topic: 'taxonomy[0]: ANME-1'
+  outcome: supported
+  summary: NCBITaxon:588814 is Ca. Methanophagales; the record explicitly retains
+    GTDB Alkanophagales naming. The article names ANME-1 in the 50 C Desulfofervidus
+    partnership. Roles as syntrophic partner and electron donor fit the mechanism;
+    abundance text is qualitative partnership context.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - culture-results
+  - process-ontology
+- assessment_id: taxon-1
+  area: grounding
+  topic: 'taxonomy[1]: Desulfofervidus'
+  outcome: supported
+  summary: NCBITaxon:1902583 is the named genus, with GTDB explicitly unresolved.
+    Ca. D. auxilii/HotSeep-1 context is compatible with the primary phylogeny, without
+    asserting a strain isolate. Syntrophic partner/electron acceptor roles fit the
+    bacterial sulfate reduction process.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - culture-results
+  - srb-phylogeny
+  - ontology-authority
+- assessment_id: taxon-2
+  area: grounding
+  topic: 'taxonomy[2]: ANME-2a'
+  outcome: supported
+  summary: The record explicitly uses the broader ANME-2 cluster (NCBITaxon:588816)
+    and unresolved GTDB status, retaining the narrower informal subclade in preferred
+    wording. Presence in the 10 C and mixed 20 C enrichments and electron-donor role
+    are supported; no species identity is inferred.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - culture-results
+- assessment_id: taxon-3
+  area: grounding
+  topic: 'taxonomy[3]: ANME-2c'
+  outcome: supported
+  summary: Ca. Methanogaster NCBITaxon:3386252 and its GTDB genus pass canonical/coherence
+    checks. The source names ANME-2c in the mixed 20 C enrichment. This is clade-level
+    participant representation, not proof of a cultured species or exact genome.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - culture-results
+- assessment_id: taxon-4
+  area: grounding
+  topic: 'taxonomy[4]: Seep-SRB1'
+  outcome: concern
+  summary: Presence and electron-accepting partner role are supported, but the asserted
+    universal Desulfobacteraceae family parent is not established by an undifferentiated
+    historical label. The primary phylogeny distinguishes Seep-SRB1a and Seep-SRB1g;
+    resolve the sampled subclades before assigning a shared family.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - culture-results
+  - srb-phylogeny
+  - srb1-scope
+- assessment_id: taxon-5
+  area: grounding
+  topic: 'taxonomy[5]: Seep-SRB2'
+  outcome: concern
+  summary: Presence in the mixed 20 C enrichment and electron-accepting role are supported.
+    Its Desulfobacterales NCBI/GTDB grounding conflicts with the primary phylogenetic
+    placement in Dissulfuribacterales. A valid existing order is not a conservative
+    parent merely because it contains other SRB.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - srb-phylogeny
+  - srb2-placement
+  - ontology-authority
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: ANME methane oxidation supplies syntrophic electrons'
+  outcome: supported
+  summary: ANME-1/2a/2c are the upstream archaeal participants within their respective
+    cultures, methane is the substrate, and electron donation is the direction. CHEBI:16183
+    and broad GO:0015947 fit this claim. The two attached evidence items support partnership
+    and electron direction, not a specific isolated methane-oxidation enzyme.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - culture-results
+  - article
+  - electron-direction
+  - process-ontology
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Redox-Conduction Direct Interspecies Electron
+    Transport'
+  outcome: concern
+  summary: All six named lineage descriptors represent the three culture contexts.
+    Redox conduction over micrometer distances is measured, while multiheme cytochrome
+    c remains a compatible carrier class. Broad GO:0022900 does not itself assert
+    membrane coupling or a proton gradient. The three direct evidence items support
+    redox activity and transport, but copied SRB1/SRB2 taxonomy mappings remain defective.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - electrochemistry
+  - transport-distance
+  - process-ontology
+  - srb-phylogeny
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: SRB sulfate reduction accepts methane-derived
+    electrons'
+  outcome: concern
+  summary: Desulfofervidus, Seep-SRB1 and Seep-SRB2 are the bacterial recipients across
+    the relevant enrichments. Methane-derived electron flow supports sulfate reduction;
+    CHEBI:16189 and GO:0019420 fit the receiving process. Both evidence items support
+    direction and pairing, while participant-copy taxonomy must be corrected alongside
+    taxonomy entries.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - culture-results
+  - electron-direction
+  - process-ontology
+  - srb-phylogeny
+- assessment_id: edge-0
+  area: graph
+  topic: ecological_interactions[0].downstream[0]
+  outcome: supported
+  summary: 'Direction: archaeal methane oxidation -> redox-conduction transport to
+    the bacterial partners. The source explicitly identifies methane-derived electrons
+    flowing from ANME to SRB; measurements establish a compatible redox transport
+    path in the three enrichments. This does not identify the individual protein carrier
+    or prove every lineage pair simultaneously exists.'
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - electron-direction
+  - electrochemistry
+  - transport-distance
+- assessment_id: edge-1
+  area: graph
+  topic: ecological_interactions[1].downstream[0]
+  outcome: supported
+  summary: 'Direction: redox-conduction transport -> bacterial sulfate reduction.
+    The source connects interpartner electron transport to the receiving sulfate-reducing
+    process. The claim is at consortium/process level, with no molecular carrier knockout,
+    individual electron trace or reciprocal feedback arrow asserted.'
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - electron-direction
+  - electrochemistry
+  - culture-results
+- assessment_id: graph-inventory
+  area: graph
+  topic: Graph completeness and molecular uncertainty
+  outcome: supported
+  summary: All three nodes, both arrows, their participants, process/metabolite terms
+    and seven directly attached evidence items were reviewed. Source/target directions
+    and internal node references resolve. Evidence comes from one study rather than
+    seven independent studies. No discussion block is present; molecular uncertainty
+    is already expressed in node prose.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - article
+  - history
+- assessment_id: environment
+  area: grounding
+  topic: environment_term and modeled_environment
+  outcome: concern
+  summary: Marine sediment correctly describes origin, and the notes disclose sediment-free
+    cultures. However, the populated environment_term denotes sediment while the experiment
+    physically used sediment-free laboratory enrichments. The schema provides modeled_environment
+    for source habitat; retaining a correct note does not correct the structured setting.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - culture-results
+  - ontology-authority
+  - schema
+- assessment_id: growth-medium
+  area: evidence
+  topic: 'growth_media[0]: recipe, pH, atmosphere, inoculum, gas, vessel and temperature'
+  outcome: concern
+  summary: The main article supports the detailed seawater recipe, pH 7.3, anoxic
+    preparation, inoculum origin and three discrete temperatures. The gas field mixes
+    N2 sparging during preparation with dissolved bicarbonate/sulfide additions; the
+    vessel field names a culture state rather than a vessel. A 10-50 C range flattens
+    three distinct culture settings. The two attached snippets support their narrow
+    temperature/preparation claims; they do not specify actual culture headspace.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - conditions
+  - culture-results
+  - schema
+- assessment_id: environmental-context
+  area: completeness
+  topic: environmental_factors, media links and associated resources
+  outcome: concern
+  summary: There are no environmental_factors, CultureMech/MediaIngredientMech media
+    identifiers, external_resources or associated_datasets blocks. The source provides
+    condition-specific temperature, pH and anoxia suitable for explicit environmental
+    context; no tolerance range or exact linked medium identity should be invented.
+    The source mentions BioProject PRJNA758896, but this review did not validate that
+    accession and does not assert a dataset link.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - conditions
+  - culture-results
+- assessment_id: provenance
+  area: provenance
+  topic: Embedded history, neighboring record and actual source access
+  outcome: supported
+  summary: The embedded cross-reference resolves to CommunityMech:000134, whose broader
+    multi-study scope differs from this electrochemical enrichment study. The prior
+    graph review retained the same causal graph but excluded metadata certification.
+    No target append-only history file was located by the ignored-inclusive search;
+    existing corpus history validates. This read-only review creates no history event
+    or status transition.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - history
+  - history-search
+  - neighbor
+- assessment_id: source-boundaries
+  area: evidence
+  topic: Abstract, full article and supplementary evidence
+  outcome: supported
+  summary: Full Results, Discussion and Methods were read from appended cached article
+    text, although its frontmatter still says abstract_only. Live metadata confirms
+    identity. The independently retrieved 2023 phylogeny was inspected at Results/Figure
+    1, not merely through a search snippet. Supplemental figures and raw amplicon
+    data were not independently analyzed; these limits remain explicit.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - article
+  - bibliography
+  - srb-phylogeny
+- assessment_id: structured-source
+  area: evidence
+  topic: iModulonDB applicability
+  outcome: not_applicable
+  summary: The public catalogue has no matching ANME or named SRB organism. Broad
+    cytochrome terminology does not justify substituting a different organism dataset;
+    no gene/module result is used as physiological proof.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - imodulondb
+- assessment_id: validation
+  area: schema
+  topic: Focused validators, source matching and honest corpus scope
+  outcome: supported
+  summary: Schema, strict, ontology labels, references-explained, GTDB coherence/domain
+    and existing corpus history all pass. Cache normalization was clean and the sole
+    cited cache hash is unchanged after reference validation. Required corpus network
+    runs retain unrelated warning failures. These checks verify representation and
+    reference matching, not SRB identity or experimental applicability.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - check-validate
+  - check-validate-strict
+  - check-validate-terms
+  - check-validate-references-explained
+  - check-validate-gtdb
+  - check-validate-gtdb-domain
+  - check-validate-history
+  - check-audit-network
+- assessment_id: native-metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: concern
+  summary: Completeness is 80 and validation quality is capped at 100 despite two
+    major and three minor findings. The native network bonus reflects participant/reference
+    integrity, not correctness of the taxonomic mapping or an experimentally identified
+    conduit.
+  target_ids:
+  - CommunityMech:000276
+  evidence_ids:
+  - record
+  - check-audit-network
+  metrics:
+  - name: completeness
+    value: 80
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100,50 required +5 environment +10 if at least 3 environmental_factors
+      +10 if at least 3 interactions +5 external_resources +10 growth_media +5 associated_datasets
+      +5 any interaction metabolites). Applied 50+5+0+10+0+10+0+5=80; field presence
+      is not scientific correctness.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100-50*P1-10*P2-2*P3+20*min(mean interaction evidence/2,1)+15
+      if native network COMPLETE,0,100). P1=0,P2=2,P3=3; 7/3 evidence items per node;
+      network COMPLETE. 100-20-6+20+15=109, capped at 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Final target findings with native severity P1.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Final target findings with native severity P2.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Final target findings with native severity P3.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Final target findings with native severity P4.
+  - name: interaction_evidence
+    value: 2.3333333333333335
+    unit: evidence items per interaction
+    denominator: 3
+    definition: Seven directly attached EvidenceItems across three interactions, all
+      citing one primary publication; not independent replication.
+findings:
+- finding_id: srb-taxonomic-grounding
+  issue_key: CommunityMech.000276.srb-taxonomic-grounding
+  category: grounding
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Informal SRB partner names are assigned unsupported taxonomic parents
+  description: Seep-SRB2 is mapped to Desulfobacterales in the main taxonomy, GTDB
+    lineage and two participant copies, whereas the inspected primary phylogeny places
+    this clade in Dissulfuribacterales. Calling the former a conservative parent is
+    not supported. The parallel Seep-SRB1-to-Desulfobacteraceae assertion also treats
+    a historically polyphyletic name as one family without resolving the actual sampled
+    subclades.
+  target_ids:
+  - CommunityMech:000276
+  field_paths:
+  - taxonomy[4].taxon_term
+  - taxonomy[5].taxon_term
+  - ecological_interactions[1].participating_taxa[4]
+  - ecological_interactions[1].participating_taxa[5]
+  - ecological_interactions[2].participating_taxa[1]
+  - ecological_interactions[2].participating_taxa[2]
+  evidence_ids:
+  - record
+  - srb-phylogeny
+  - srb2-placement
+  - srb1-scope
+  - ontology-authority
+  rule_id: docs/record-review-profile.md:grounding
+  native_severity: P2
+  normalization_reason: 'P2 major: the represented biological identity or physical
+    setting is incompatible with the inspected source; valid labels do not establish
+    applicability.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    role: canonical_record
+- finding_id: physical-setting-grounding
+  issue_key: CommunityMech.000276.physical-setting-grounding
+  category: grounding
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Marine sediment is encoded as the physical setting of sediment-free cultures
+  description: The marine sediment term is a valid ontology class for the source habitat.
+    The assessed study and graph concern long-maintained sediment-free enrichments
+    and biomass electrochemistry, while schema environment_term denotes the physical
+    study setting. The existing note acknowledges the distinction but the structured
+    fields do not preserve it.
+  target_ids:
+  - CommunityMech:000276
+  field_paths:
+  - environment_term
+  - modeled_environment
+  evidence_ids:
+  - record
+  - culture-results
+  - conditions
+  - ontology-authority
+  - schema
+  rule_id: docs/record-review-profile.md:grounding
+  native_severity: P2
+  normalization_reason: 'P2 major: the represented biological identity or physical
+    setting is incompatible with the inspected source; valid labels do not establish
+    applicability.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    role: canonical_record
+- finding_id: culture-condition-semantics
+  issue_key: CommunityMech.000276.culture-condition-semantics
+  category: representation
+  severity: minor
+  status: open
+  certainty: confirmed
+  title: Culture fields conflate medium preparation with headspace and flatten separate
+    conditions
+  description: headspace_gas contains an N2 sparging step and dissolved NaHCO3/NaHS
+    additions, which do not establish growth headspace composition. vessel_type gives
+    sediment-free enrichment culture rather than a physical vessel. temperature_range
+    10-50 can be read as a continuous supported range even though notes describe distinct
+    10, 20 and 50 C cultures.
+  target_ids:
+  - CommunityMech:000276
+  field_paths:
+  - growth_media[0].headspace_gas
+  - growth_media[0].vessel_type
+  - growth_media[0].temperature_range
+  - growth_media[0].preparation_notes
+  evidence_ids:
+  - record
+  - conditions
+  - culture-results
+  - schema
+  rule_id: CLAUDE.md:claim-level-evidence
+  native_severity: P3
+  normalization_reason: 'P3 minor: nonblocking condition representation or source-backed
+    enrichment gap; core mechanisms and target identity remain interpretable.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    role: canonical_record
+- finding_id: media-linkage
+  issue_key: CommunityMech.000276.media-linkage
+  category: completeness
+  severity: minor
+  status: open
+  certainty: confirmed
+  title: The documented medium has no verified cross-repository identifier
+  description: The growth medium contains source-backed preparation details but no
+    CultureMech or MediaIngredientMech identifiers, limiting reuse and cross-repository
+    discovery.
+  target_ids:
+  - CommunityMech:000276
+  field_paths:
+  - growth_media[0]
+  evidence_ids:
+  - record
+  - conditions
+  rule_id: P3.1
+  native_severity: P3
+  normalization_reason: 'P3 minor: nonblocking condition representation or source-backed
+    enrichment gap; core mechanisms and target identity remain interpretable.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    role: canonical_record
+- finding_id: environmental-factors-sparse
+  issue_key: CommunityMech.000276.environmental-factors-sparse
+  category: completeness
+  severity: minor
+  status: open
+  certainty: confirmed
+  title: Environmental factors are absent despite source-backed cultivation context
+  description: This multi-culture record has no environmental_factors list, although
+    the main article and growth-medium notes support pH, anoxia and culture-specific
+    temperatures. The omission reduces structured discovery under the native environmental-context
+    rubric.
+  target_ids:
+  - CommunityMech:000276
+  field_paths:
+  - environmental_factors
+  evidence_ids:
+  - record
+  - conditions
+  - culture-results
+  rule_id: P3.4
+  native_severity: P3
+  normalization_reason: 'P3 minor: nonblocking condition representation or source-backed
+    enrichment gap; core mechanisms and target identity remain interpretable.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    role: canonical_record
+actions:
+- action_id: fix-srb-taxonomic-grounding
+  description: Resolve each sampled SRB clade against primary phylogeny and available
+    taxonomy authorities; update all matching taxonomy and participant descriptors
+    together. Preserve an explicit unresolved status where no exact supported mapping
+    is available instead of selecting a nearby SRB order or family.
+  finding_ids:
+  - srb-taxonomic-grounding
+  target_ids:
+  - CommunityMech:000276
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    role: canonical_record
+  acceptance_checks:
+  - The Seep-SRB2 representation no longer asserts unsupported Desulfobacterales membership.
+  - Seep-SRB1 family membership is justified for the actual sampled subclades rather
+    than the historical umbrella label.
+  - Any replacement NCBI/GTDB terms are independently checked for rank, lineage and
+    source scope; run focused terms, strict, GTDB/domain and network gates after separately
+    authorized curation.
+- action_id: fix-physical-setting-grounding
+  description: Represent the verified physical culture setting in environment_term
+    and retain marine sediment as source or modeled habitat, preserving the natural
+    origin and the separate assay context.
+  finding_ids:
+  - physical-setting-grounding
+  target_ids:
+  - CommunityMech:000276
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Replacement environment semantics match the actual study setting; the marine source
+    habitat remains represented separately.
+  - Do not substitute another plausible ENVO term without checking its definition.
+  - Re-run term, strict and schema validation after separately authorized curation.
+- action_id: fix-culture-condition-semantics
+  description: Move medium preparation and dissolved additions to preparation notes,
+    retain actual headspace/vessel as unknown unless source-supported, and expose
+    the three discrete culture-specific temperatures without implying tolerance across
+    the interval.
+  finding_ids:
+  - culture-condition-semantics
+  target_ids:
+  - CommunityMech:000276
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    role: canonical_record
+  acceptance_checks:
+  - No Geobacter control gas mixture or guessed methane pressure is transferred to
+    ANME cultivation.
+  - Every retained gas, vessel and temperature claim has the correct source and culture
+    context.
+  - Reference-explained, schema and strict gates pass after separately authorized
+    curation.
+- action_id: fix-media-linkage
+  description: Check for an exact registered medium or ingredient match and add only
+    verified identifiers in separately authorized curation; otherwise record that
+    the custom formulation has no confirmed match.
+  finding_ids:
+  - media-linkage
+  target_ids:
+  - CommunityMech:000276
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Do not assign a related seawater medium as an exact recipe match.
+  - Any identifier resolves and its formulation/context is compatible; run the applicable
+    linkage and strict gates.
+- action_id: fix-environmental-factors-sparse
+  description: Add narrowly sourced environmental context for each relevant culture
+    without turning incubation setpoints into optima, tolerances or a continuous common
+    range.
+  finding_ids:
+  - environmental-factors-sparse
+  target_ids:
+  - CommunityMech:000276
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Each new factor states the correct culture and evidence locator.
+  - Avoid duplicative unsupported claims and distinguish cultivation from electrochemical
+    assay conditions.
+  - Run references-explained, strict and term checks after separately authorized curation.
+limitations:
+- The 2025 full article was inspected in the committed cache, whose abstract_only
+  frontmatter does not reflect the appended full text; live bibliographic metadata
+  independently confirms identity. Supplemental figures and raw amplicon data were
+  not independently analyzed.
+- The 2023 primary phylogeny supports the Seep-SRB2 conflict, but the available NCBITaxon
+  snapshot does not provide a direct named Ca. Desulfomithrium mapping. No automatic
+  replacement or unsupported species-level assignment is proposed.
+- Historical GTDB genome-count provenance was not reconstructed; canonical coherence
+  and domain checks pass, but they do not establish correct informal-clade applicability.
+- No target append-only history directory was located in the ignored-inclusive search.
+  The existing history corpus was validated and the embedded history/prior graph decision
+  were read.
+- Required network commands are reused full-corpus failures on unrelated warnings,
+  not newly executed target checks. Unchanged Git base and canonical corpus bytes
+  were verified.
+- Actual ANME culture headspace and physical vessel were not established from the
+  inspected main Methods. Medium preparation and Geobacter control gas conditions
+  cannot fill that gap.
+- The reviewer did not author or edit this record during the session; the earlier
+  graph review uses the same codex identity, so person-level independence is unknown.
+notes:
+- Original inspect completed before assessment at 2026-10-19T23:38:12.372249Z. Expanded
+  inspection adds review schema/helper hashes; every original input was rechecked
+  unchanged.
+- No canonical record, cache, history, scientific status or generated product was
+  changed. Proposed actions require separately authorized curation; this draft is
+  not a merge or consolidation decision.
+- No paid provider or outbound communication was used. Related record CommunityMech:000134
+  is independently reviewed in its own bundle.
+tags:
+- record-review
+- anme-srb
+- syntrophy
+- electrochemistry
+- batch-01
