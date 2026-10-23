@@ -1,0 +1,1573 @@
+# Bacteroides-Eubacterium gnotobiotic gut model: record review
+
+- Review: 20261021T094511Z-bacteroides-eubacterium-gnotobiotic-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T09:38:45.462949Z
+- Finished UTC: 2026-10-21T09:45:11.889191Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Whole-record review finds one major ingredient flux/medium overclaim and four minor chemical, role-evidence, host/diet and dataset-scope issues. The two strains, three nodes and two PARTIAL arrows remain supported at their stated scope. Complete main text and both figures were inspected; inaccessible SI-only protocols and tables remain explicit limitations.
+
+## Scope And Provenance
+
+Whole record, both strains, all three nodes and two directed arrows assessed against fresh primary main text/figures, current authorities and archive metadata; no supplementary or raw-data reanalysis.
+
+Selection: Next assigned maintained path after CommunityMech:000464 in batch05; exact two-strain source model resolved.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base c6e5a9b9af2d05e12eaafb2555a53f3a079268f3.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000158 | kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml | maintained | Bacteroides-Eubacterium Gnotobiotic Gut Model |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000158 | Target schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000158 | Target strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000158 | Target term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000158 | Target GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000158 | Target GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000158 | Target history validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000158 | Read-only corpus cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000158 | Target reference validation passed against the pinned cache. |
+| audit-network | failed | True | CommunityMech:000158 | Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records and exit 1; target diagnostics are recorded separately. |
+| check-network-quality | failed | True | CommunityMech:000158 | Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records and exit 1; target diagnostics are recorded separately. |
+| Primary identifiers and main-source assessment | passed | True | CommunityMech:000158 | Fresh identifiers, complete main scientific text and both main figures support assessment of current claims. |
+| SI methods, results and tables | unavailable | False | CommunityMech:000158 | Public SI routes did not supply the PDF or tables; SI-only details remain unresolved. |
+| Three GEO series, genome project and sequence | passed | True | CommunityMech:000158 | All encoded archive resources resolve, with host/bacterial array scopes distinguished. |
+| Encoded medium/ingredient-Mech links | not_applicable | False | CommunityMech:000158 | No CultureMech or MediaIngredientMech identifier is encoded. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000158 | Same-runtime discovery is reused; no external runner or expression-module query was executed. |
+
+## Scientific And Domain Assessments
+
+### Exact two-strain gnotobiotic model
+
+identity: supported. Targets: CommunityMech:000158.
+
+The record resolves the intended pair and separates human strain origin from experimental mouse host.
+
+### Functional roles and source provider
+
+grounding: concern. Targets: CommunityMech:000158.
+
+Roles are plausible at the proposed biological scope, but attached taxonomy snippets establish identity rather than each function.
+
+Bacteroides primary degradation and Eubacterium secondary fermentation/uptake have functional source passages. Bacteroides CROSS_FEEDER needs an explicit provider and claim-level evidence: host-derived glycan acquisition is possible, whereas return feeding from Eubacterium is not shown. Retain the source-attributed SYNTROPHY category without inventing obligacy or a fitness increase.
+
+### ecological_interactions[0]: Bacteroides Polysaccharide Niche Expansion
+
+graph: supported. Targets: CommunityMech:000158.
+
+Preserve Eubacterium-to-Bacteroides niche response in the mouse biassociation comparison.
+
+The directed pair denotes Bacteroides responding to Eubacterium presence by changing glycan-foraging expression; it does not assert Eubacterium donates mucin. NICHE_PARTITIONING describes divergence under co-occurrence, and host-only substrates remain distinct from shared dietary substrates.
+
+### ecological_interactions[0].downstream[0] → Cecal Short-Chain Fatty Acid Remodeling
+
+graph: supported. Targets: CommunityMech:000158.
+
+The existing PARTIAL dietary-substrate interpretation is appropriately bounded.
+
+This arrow links proposed Bacteroides dietary-glycan processing to community SCFA outcomes. It explicitly excludes host-mucin expansion as direct proof of carbon delivery to Eubacterium. Diet perturbation supports substrate dependence but does not isolate the transferred molecule or require an unqualified causal upgrade.
+
+### ecological_interactions[1]: Eubacterium Transport and Butyrate Shift
+
+graph: supported. Targets: CommunityMech:000158.
+
+Preserve the Bacteroides-to-Eubacterium proposed cross-feeding model and its PARTIAL flux qualification.
+
+Expression changes and the combined acetate/redox/host Mct1 observations support the source interpretation. Acetate is the inferred transferred substrate; butyrate is an output. Neither a measured donor-specific transfer rate nor increased epithelial uptake is established by these readouts.
+
+### ecological_interactions[1].downstream[0] → Cecal Short-Chain Fatty Acid Remodeling
+
+graph: supported. Targets: CommunityMech:000158.
+
+Retain the PARTIAL link from inferred acetate use to measured community pools.
+
+Lower acetate versus Bacteroides alone and similar butyrate versus Eubacterium alone are different comparisons. Mct1 expression is compatible with uptake but does not quantify it; the arrow already states these limitations.
+
+### ecological_interactions[2]: Cecal Short-Chain Fatty Acid Remodeling
+
+graph: supported. Targets: CommunityMech:000158.
+
+Preserve the two-member community endpoint and exact comparator-specific concentrations.
+
+This node reports pool changes rather than production rates or a separate ecological interaction type. Both strains colonized to similar levels in mono- and biassociation on polysaccharide-rich chow; that result does not imply diet-independent abundance or a fitness advantage.
+
+### Ingredient prose versus graph qualifications
+
+evidence: concern. Targets: CommunityMech:000158.
+
+Ingredient relevance/explanations overstate confirmed transfer, maintained flux and required media behavior.
+
+The graph already preserves the appropriate interpretation. Apply those same source boundaries to all ingredient prose rather than treating pools as flux or prescribing a required acetate gradient or mucin-containing medium.
+
+### Host-derived mucin glycans versus CHEBI:17089
+
+grounding: concern. Targets: CommunityMech:000158.
+
+The valid glycoprotein label does not identify the curated carbohydrate moiety.
+
+Distinguish intact mucin glycoprotein from attached/released glycans. No exact replacement glycan structure or commercial mucin formulation was verified; leave the broad source wording ungrounded if a faithful term cannot be supported.
+
+### Host, diet and culture metadata
+
+completeness: concern. Targets: CommunityMech:000158.
+
+The existing standard-chow timing is supported, while recoverable main-text host/diet context remains thin.
+
+Add source-specific NMRI male/young-adult context and separate LF/PP, HF/HS and LF/HS comparisons. Do not generalize 10-14 days to every assay, import methods from cited predecessors, or invent SI-only bacterial media, inoculum dose, temperature or atmosphere.
+
+### Publication, GEO series and genome accession scope
+
+evidence: concern. Targets: CommunityMech:000158.
+
+The archive references resolve, but one publication is represented as a phenotype dataset and three distinct array series are conflated.
+
+GSE14686 is host colonic expression, GSE14709 bacterial expression across diets, and GSE14737 mono/biassociation plus Eubacterium in-vitro expression. Preserve array methodology and source organism/conditions; do not call all three community RNA sequencing. PRJNA29071 and CP001107 are complementary project/sequence identifiers for the one isolate genome.
+
+### Claim-level snippets, source access and prior repair
+
+evidence: supported. Targets: CommunityMech:000158.
+
+Prior graph corrections remain intact; current support separates fresh main text from unread supplements.
+
+No inaccessible supplement result is certified. Data and culture metadata are bounded to actual archive responses and inspected main text; no raw expression, genome or proteomic reanalysis was performed.
+
+### Native gates and scientific scope
+
+schema: concern. Targets: CommunityMech:000158.
+
+All eight native checks pass; local semantic findings remain despite valid labels and matching snippets.
+
+### Native metrics and limits
+
+completeness: supported. Targets: CommunityMech:000158.
+
+Completeness and quality retain the native definitions without treating their scores as mechanistic proof.
+
+## Findings
+
+### ingredient-flux: Align ingredient claims with measured pools and inferred mechanisms
+
+major / open / confirmed; issue key: cm-000158-ingredient-flux.
+
+The acetate entry treats a lower concentration as confirmation of transfer and requires a gradient; the butyrate entry treats a similar concentration as maintained flux. The mucin entry adds a mandatory culture ingredient. These claims exceed the inspected source and contradict the qualified graph.
+
+### mucin-grounding: Separate mucin glycan moieties from whole glycoprotein grounding
+
+minor / open / confirmed; issue key: cm-000158-mucin-grounding.
+
+CHEBI:17089 correctly labels glycoprotein, but the preferred term names host-derived mucin glycans. A carbohydrate attached to protein and its glycan component are not interchangeable.
+
+### role-evidence: Attach functional evidence and identify the recipient-role provider
+
+minor / open / confirmed; issue key: cm-000158-role-evidence.
+
+The taxonomy snippets identify membership/strains but do not support every role. In particular, Bacteroides CROSS_FEEDER requires an explicit recipient context, which could involve host glycans rather than an unproven return metabolite from Eubacterium.
+
+### host-diet-context: Capture recoverable host and diet conditions with assay boundaries
+
+minor / open / confirmed; issue key: cm-000158-host-diet-context.
+
+The record gives generic three-diet and germ-free-host factors while the main article resolves mouse background and named diet comparisons. Its standard-chow growth block should not imply complete cultivation coverage.
+
+### dataset-scope: Separate publication evidence from organism-specific array datasets
+
+minor / open / confirmed; issue key: cm-000158-dataset-scope.
+
+A PubMed article is encoded as a phenotype dataset and three GEO series are grouped as metatranscriptomics despite different host/bacterial populations and array assays.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-ingredient-flux
+
+Align ingredient claims with measured pools and inferred mechanisms.
+
+- State lower acetate versus Bacteroides monoassociation and similar butyrate versus Eubacterium monoassociation as standing pools; identify transfer/production/uptake as the authors combined-evidence interpretation.
+- Remove unsupported required acetate-gradient and mucin-medium prescriptions; any experimental recipe must come from a verified applicable method.
+- Preserve all three current nodes and two PARTIAL arrows unless newly inspected evidence justifies a specific revision.
+
+### repair-mucin-grounding
+
+Separate mucin glycan moieties from whole glycoprotein grounding.
+
+- Clarify whether the source claim concerns intact mucin or a glycan component, and verify any replacement term against that exact scope.
+- Retain source wording without a forced CHEBI mapping if no faithful glycan term can be established; do not invent a molecular structure or commercial formulation.
+
+### repair-role-evidence
+
+Attach functional evidence and identify the recipient-role provider.
+
+- Add exact source passages for Bacteroides primary degradation and Eubacterium secondary fermentation/uptake, retaining inference qualifiers.
+- State the intended provider for Bacteroides CROSS_FEEDER and qualify or remove the role if its intended transfer cannot be supported; do not infer Eubacterium-to-Bacteroides donation.
+- Retain verified strain names/collection equivalents and source-attributed syntrophy without imposing obligacy.
+
+### repair-host-diet-context
+
+Capture recoverable host and diet conditions with assay boundaries.
+
+- Add young-adult male NMRI mouse context and distinguish LF/PP, HF/HS and LF/HS dietary comparisons using exact primary passages.
+- Keep the supported 10-14-day post-gavage standard-chow context separate from other assays and any future bacterial stock-culture entry.
+- Retain the SI-only culture gap until the actual methods are available; do not infer recipe, inoculum, temperature or atmosphere from common practice.
+
+### repair-dataset-scope
+
+Separate publication evidence from organism-specific array datasets.
+
+- Represent PMID19321416 as a publication/external resource rather than a deposited phenotype collection.
+- Separate GSE14686, GSE14709 and GSE14737 into NCBI_GEO records with their verified organism, array platform and treatment scope; use a schema-valid expression type without asserting community RNA sequencing.
+- Preserve verified PRJNA29071/CP001107 project-versus-sequence distinctions and do not import E. eligens genomic data as another community member.
+
+### verify-curation
+
+After separately authorized curation, retain claim-level provenance and revalidate the corrected record.
+
+- Use verbatim source passages and preserve all source/assay/strain qualifiers; no canonical change is applied by this review.
+- Record an appropriate history event and rerun schema, strict, term, reference, history and target network checks.
+- Keep unreviewed SI methods/tables and raw-data analyses explicitly outside the completed source scope.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml; Entire target: two strains, three nodes and two PARTIAL arrows | supports | The graph distinguishes measured concentrations from inferred transfer; ingredient claims, chemical scope and local metadata need follow-up. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=19321416&amp;retmode=xml; https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=19321416&amp;retmode=xml | supports | Article-level PMID 19321416, DOI 10.1073/pnas.0901529106, title and abstract verify. |
+| crossref | https://api.crossref.org/works/10.1073/pnas.0901529106; https://api.crossref.org/works/10.1073/pnas.0901529106 | supports | Crossref DOI and title identify the 2009 PNAS article. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:19321416&amp;format=json&amp;resultType=core; https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:19321416&amp;format=json&amp;resultType=core | supports | Europe PMC supplies the matching abstract and article identifiers; its full-text service failed in this session. |
+| main | PMID:19321416; Fresh PMC HTML: Introduction; Results/Discussion sections sec2-sec11; Methods sec13-sec15; Footnotes | supports | The complete main text identifies the strains, mouse comparison, diet perturbations, expression/proteomic assays and source data deposits. |
+| niche | PMID:19321416; PMC sec5: B. thetaiotaomicron response to E. rectale | supports | Induced PULs support expansion toward host and dietary glycans, including substrates E. rectale cannot access. |
+| transport | PMID:19321416; PMC sec6: E. rectale response to B. thetaiotaomicron | supports | Reduced GH expression and increased selected transport functions support the measured expression shift. |
+| acetate | PMID:19321416; PMC sec7: fermentative pathways, paragraph beginning In vitro studies | supports | The acetate comparator is Bacteroides monoassociation; combined expression, redox and metabolite observations support an inferred cross-feeding model. |
+| butyrate | PMID:19321416; PMC sec7: fermentative pathways, same comparator paragraph | supports | The butyrate comparator is Eubacterium monoassociation; a similar standing concentration is not a measured production or epithelial uptake rate. |
+| diet | PMID:19321416; PMC sec9: LF/PP versus HF/HS and LF/HS diets | supports | Diet changes affect E. rectale colonization and butyrate concentrations while Bacteroides persists; this supports substrate dependence without molecule-specific tracing. |
+| host | PMID:19321416; PMC sec8: host glycan synthesis; sec11: Prospectus | supports | The source discusses host glycan provisioning and describes nuanced syntrophy; it distinguishes this pair from the previously studied methanogen mutualism. |
+| figure-1 | PMID:19321416; Figure 1A metabolic scheme and 1B expression panels, visually inspected | supports | The proposed substrate routes and expression measurements do not constitute donor-resolved tracing or direct host-transport flux. |
+| figure-2 | PMID:19321416; Figure 2 acetate, butyrate, MCT-1, redox and propionate panels, visually inspected | supports | Axes distinguish cecal concentrations, NAD+/NADH ratio and Mct1 fold expression; the figure supports comparator-specific pools and expression. |
+| source-scope | Public primary main and supplementary routes; source-audit.json: complete main/figure reading and exact failed supplementary request receipts | context_only | Main text and both figures were inspected; SI PDF routes returned challenge/403 HTML and supplementary services returned errors, so SI-only protocols and tables remain unreviewed. |
+| ontology | Local OAK NCBITaxon, ENVO, CHEBI and GO snapshots; ontology-authority.json: ten unique pairs across 21 occurrences | supports | All labels match. CHEBI:17089 denotes a carbohydrate attached to protein, not an isolated mucin glycan moiety. |
+| aliases | Public NCBI taxonomy browser and local NCBITaxon snapshot; ncbi-taxonomy-browser-tool-snapshot.json: named strains and species type-strain aliases | supports | NCBI supports VPI-5482/ATCC29148/DSM2079 and ATCC33656/CIP105953 equivalence; browser rank and local ontology rank representations remain separate. |
+| schema | src/communitymech/schema/communitymech.yaml; src/communitymech/schema/mech_shared.yaml; FunctionalRoleEnum; Dataset and DatasetTypeEnum/DatasetRepositoryEnum | supports | Roles require claim-specific support; datasets distinguish single-organism expression, community RNA sequencing and publication references. |
+| snippets | kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml; snippet-audit.json: all 19 occurrences | supports | All 19 match the cache; 17 match fresh main text strictly and two differ only by cache-inserted punctuation spacing, with their scientific content confirmed. |
+| datasets | GEO GSE14686/GSE14709/GSE14737; PRJNA29071; CP001107; dataset-verification.json: each public archive response and population/type | supports | Three GEO series are array experiments with distinct host/bacterial scopes; the BioProject and sequence identify E. rectale ATCC33656. No raw data were reanalyzed. |
+| history | Graph-review sidecar and batch6 prior decision; Target decision lines 541-597; provenance-audit.json | supports | Closed issue 1254 records the preserved graph repair; open issue 1256 explicitly tracks this record's ingredient flux overclaim. The prior target hash matches current. |
+| search | Owned maintained community, isolate and reusable-taxon roots; local-search.json: ignored-inclusive bounded identity/source lookup | supports | Bounded searches preserve reuse scope without inferring global absence of strains, source files or data. |
+| adapter | Optional kg-microbe-sources runner; adapter-check.json: same-runtime batch05 discovery reuse | supports | No callable owned-runtime runner was available; no strain, expression-module or locus query was executed. |
+| native-target | NetworkIntegrityAuditor().audit_community(target); support-audit.json: targeted audit and native score components | supports | Target graph diagnostics and metrics are reported separately from mechanistic certification. |
+| independent-source | PMID:19321416; root-independent-source-audit.json: independent main/figure and scope assessment | supports | Independent source assessment corroborates the graph qualifications and bounded non-graph findings. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src just --no-dotenv validate kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml; Actual execution 2026-10-21T09:39:21.311645+00:00 to 2026-10-21T09:39:22.694120+00:00 | supports | Target schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src just --no-dotenv validate-strict kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml --out /private/tmp/cm-review-session/batch-05/000158/strict-report.tsv; Actual execution 2026-10-21T09:39:21.315672+00:00 to 2026-10-21T09:39:24.689917+00:00 | supports | Target strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src just --no-dotenv validate-terms kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml; Actual execution 2026-10-21T09:39:21.319652+00:00 to 2026-10-21T09:39:24.076834+00:00 | supports | Target term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src just --no-dotenv validate-gtdb kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml; Actual execution 2026-10-21T09:39:22.694478+00:00 to 2026-10-21T09:39:22.822356+00:00 | supports | Target GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src just --no-dotenv validate-gtdb-domain kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml; Actual execution 2026-10-21T09:39:22.822665+00:00 to 2026-10-21T09:39:25.056127+00:00 | supports | Target GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src just --no-dotenv validate-history history/records/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model; Actual execution 2026-10-21T09:39:24.077199+00:00 to 2026-10-21T09:39:25.074446+00:00 | supports | Target history validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T09:39:25.075200+00:00 to 2026-10-21T09:39:25.163139+00:00 | supports | Read-only corpus cache-filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src just --no-dotenv validate-references-explained kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml; Actual execution 2026-10-21T09:39:25.163523+00:00 to 2026-10-21T09:39:26.410343+00:00 | supports | Target reference validation passed against the pinned cache. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T08:44:47.720127+00:00 to 2026-10-21T08:45:04.195128+00:00 | supports | Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records and exit 1; target diagnostics are recorded separately. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T08:44:47.737345+00:00 to 2026-10-21T08:45:04.925187+00:00 | supports | Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records and exit 1; target diagnostics are recorded separately. |
+
+## Limits And Additional Notes
+
+- SI Methods/Results, FiguresS1-S6 and TablesS1-S8 were not inspected: exact PMC PDF route returned challenge HTML, PNAS public routes returned403, and EPMC supplementary services did not provide files. These outcomes are not evidence of absent experiments.
+- The source model interprets cross-feeding and increased butyrate uptake from combined observations. The inspected main/figures do not measure donor-specific carbon flux, epithelial transport rate or pathway necessity; existing PARTIAL graph qualifications are retained.
+- Host/diet metadata can be recovered from main text, but SI-only bacterial media, inoculum dose, atmosphere, temperature and detailed husbandry remain unresolved; no standard protocol or preceding study was imported.
+- Archive checks verify identity, type and study context, not raw expression, genome assembly accuracy or proteomic results. Host arrays, bacterial arrays and isolate genome data remain separate.
+- Local OAK and public NCBI rank conventions differ; stable strain identity and aliases agree. Historical GTDB mapping statistics were not recomputed. Public alias support is a rendered web-tool snapshot, not a raw HTTP response.
+- Optional adapter discovery and corpus network receipts are reused with their original batch05 scope and timestamps; neither establishes source-specific pathway coverage.
+- Canonical records, caches, history and generated outputs remain unchanged.
+- Primary-source direct quotations total 20 words across the article; source references are reused across graph assessments.
+- All 23 repository inputs were pinned before assessment and rechecked; native quality 100 is capped from 113.6666666667.
+- The requested PMC2660063 URL served matching article title, DOI and scientific text with instance2667083 figure/supplement links; exact request and asset receipts are preserved.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T094511Z-bacteroides-eubacterium-gnotobiotic-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Bacteroides-Eubacterium gnotobiotic gut model: record review'
+started_at: '2026-10-21T09:38:45.462949Z'
+finished_at: '2026-10-21T09:45:11.889191Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate task roles assessed primary science, ontology/native
+    gates and supporting provenance; canonical inputs were unchanged. No person-level
+    independence is asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Whole-record review finds one major ingredient flux/medium overclaim and
+  four minor chemical, role-evidence, host/diet and dataset-scope issues. The two
+  strains, three nodes and two PARTIAL arrows remain supported at their stated scope.
+  Complete main text and both figures were inspected; inaccessible SI-only protocols
+  and tables remain explicit limitations.
+source:
+  git_revision: c6e5a9b9af2d05e12eaafb2555a53f3a079268f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model/2026-10-05T112951Z-codex-c2e934.yaml
+    sha256: 56cd5bbf2e292ad42dc4a9bf50179832a2e73107d641ffc666d43d11c3aff170
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    sha256: 23b8a0eaf082032fadaa9296f7b6b5fde6a102aa3733f4dd90699150fb5f9523
+    role: target
+  - path: references_cache/PMID_19321416.txt
+    sha256: f32e7a460ff0cf2c00f16510cf913169f6b59478bfc2f1637713099d7394366f
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml
+    sha256: 23f5fa6fc197e020f7cb3469749ebe4aa78886f8973cb6ed63fde321470a7f96
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000158
+  path: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+  label: Bacteroides-Eubacterium Gnotobiotic Gut Model
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    role: canonical_record
+scope:
+  description: Whole record, both strains, all three nodes and two directed arrows
+    assessed against fresh primary main text/figures, current authorities and archive
+    metadata; no supplementary or raw-data reanalysis.
+  selection: Next assigned maintained path after CommunityMech:000464 in batch05;
+    exact two-strain source model resolved.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000158
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000158
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000158
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-strict kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    --out /private/tmp/cm-review-session/batch-05/000158/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000158
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-terms kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000158
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000158
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000158
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-history history/records/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000158
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target reference validation passed against the pinned cache.
+  target_ids:
+  - CommunityMech:000158
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-references-explained kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight
+    in the owned batch05 runtime.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target diagnostics are recorded separately.
+  target_ids:
+  - CommunityMech:000158
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Reused fresh full-corpus batch05 execution, not a target-specific pass
+    or scientific certification.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target diagnostics are recorded separately.
+  target_ids:
+  - CommunityMech:000158
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Reused fresh full-corpus batch05 execution, not a target-specific pass
+    or scientific certification.
+- check_id: publication-identity
+  name: Primary identifiers and main-source assessment
+  status: passed
+  required: true
+  summary: Fresh identifiers, complete main scientific text and both main figures
+    support assessment of current claims.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - pubmed
+  - crossref
+  - epmc
+  - main
+  - figure-1
+  - figure-2
+- check_id: supplementary-methods
+  name: SI methods, results and tables
+  status: unavailable
+  required: false
+  summary: Public SI routes did not supply the PDF or tables; SI-only details remain
+    unresolved.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - source-scope
+  scope_note: Current assertions can be assessed from inspected main/figures; this
+    does not certify missing culture protocols or supplementary measurements.
+- check_id: dataset-identifiers
+  name: Three GEO series, genome project and sequence
+  status: passed
+  required: true
+  summary: All encoded archive resources resolve, with host/bacterial array scopes
+    distinguished.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - datasets
+- check_id: cross-mech
+  name: Encoded medium/ingredient-Mech links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech identifier is encoded.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - record
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Same-runtime discovery is reused; no external runner or expression-module
+    query was executed.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+  locator: 'Entire target: two strains, three nodes and two PARTIAL arrows'
+  summary: The graph distinguishes measured concentrations from inferred transfer;
+    ingredient claims, chemical scope and local metadata need follow-up.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.886485Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=19321416&retmode=xml
+  locator: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=19321416&retmode=xml
+  summary: Article-level PMID 19321416, DOI 10.1073/pnas.0901529106, title and abstract
+    verify.
+  support: supports
+  accessed_at: '2026-10-21T09:39:12.889183Z'
+  snapshot_sha256: 99081ce2dbbef41355e9faf154ca74f52475b26a135d3921045e9487e8e019c0
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1073/pnas.0901529106
+  locator: https://api.crossref.org/works/10.1073/pnas.0901529106
+  summary: Crossref DOI and title identify the 2009 PNAS article.
+  support: supports
+  accessed_at: '2026-10-21T09:39:12.886344Z'
+  snapshot_sha256: eb9c4a8fcf8a0a642235d5d27172f98c585161d30cd47fe2ae0358a51c535bc5
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:19321416&format=json&resultType=core
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:19321416&format=json&resultType=core
+  summary: Europe PMC supplies the matching abstract and article identifiers; its
+    full-text service failed in this session.
+  support: supports
+  accessed_at: '2026-10-21T09:39:13.238863Z'
+  snapshot_sha256: 66f9ccc55c4c80faf08267d8859e24d171a8e38d1c2006c543b74aa07147017a
+- evidence_id: main
+  kind: primary_source
+  reference: PMID:19321416
+  locator: 'Fresh PMC HTML: Introduction; Results/Discussion sections sec2-sec11;
+    Methods sec13-sec15; Footnotes'
+  summary: The complete main text identifies the strains, mouse comparison, diet perturbations,
+    expression/proteomic assays and source data deposits.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.886905Z'
+  snapshot_sha256: d8b522f0d5bb7cf25bdb61f7e8dcaa9bfa43407b6c8c5c32a9945ab1bbc1ae0f
+- evidence_id: niche
+  kind: primary_source
+  reference: PMID:19321416
+  locator: 'PMC sec5: B. thetaiotaomicron response to E. rectale'
+  summary: Induced PULs support expansion toward host and dietary glycans, including
+    substrates E. rectale cannot access.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.887027Z'
+  quote: broaden its niche
+  snapshot_sha256: d8b522f0d5bb7cf25bdb61f7e8dcaa9bfa43407b6c8c5c32a9945ab1bbc1ae0f
+- evidence_id: transport
+  kind: primary_source
+  reference: PMID:19321416
+  locator: 'PMC sec6: E. rectale response to B. thetaiotaomicron'
+  summary: Reduced GH expression and increased selected transport functions support
+    the measured expression shift.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.887150Z'
+  quote: sugar transport systems
+  snapshot_sha256: d8b522f0d5bb7cf25bdb61f7e8dcaa9bfa43407b6c8c5c32a9945ab1bbc1ae0f
+- evidence_id: acetate
+  kind: primary_source
+  reference: PMID:19321416
+  locator: 'PMC sec7: fermentative pathways, paragraph beginning In vitro studies'
+  summary: The acetate comparator is Bacteroides monoassociation; combined expression,
+    redox and metabolite observations support an inferred cross-feeding model.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.887273Z'
+  quote: cecal acetate levels are significantly lower
+  snapshot_sha256: d8b522f0d5bb7cf25bdb61f7e8dcaa9bfa43407b6c8c5c32a9945ab1bbc1ae0f
+- evidence_id: butyrate
+  kind: primary_source
+  reference: PMID:19321416
+  locator: 'PMC sec7: fermentative pathways, same comparator paragraph'
+  summary: The butyrate comparator is Eubacterium monoassociation; a similar standing
+    concentration is not a measured production or epithelial uptake rate.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.887408Z'
+  quote: cecal butyrate levels are similar
+  snapshot_sha256: d8b522f0d5bb7cf25bdb61f7e8dcaa9bfa43407b6c8c5c32a9945ab1bbc1ae0f
+- evidence_id: diet
+  kind: primary_source
+  reference: PMID:19321416
+  locator: 'PMC sec9: LF/PP versus HF/HS and LF/HS diets'
+  summary: Diet changes affect E. rectale colonization and butyrate concentrations
+    while Bacteroides persists; this supports substrate dependence without molecule-specific
+    tracing.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.887538Z'
+  quote: 5-fold
+  snapshot_sha256: d8b522f0d5bb7cf25bdb61f7e8dcaa9bfa43407b6c8c5c32a9945ab1bbc1ae0f
+- evidence_id: host
+  kind: primary_source
+  reference: PMID:19321416
+  locator: 'PMC sec8: host glycan synthesis; sec11: Prospectus'
+  summary: The source discusses host glycan provisioning and describes nuanced syntrophy;
+    it distinguishes this pair from the previously studied methanogen mutualism.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.887670Z'
+  quote: classic syntrophy
+  snapshot_sha256: d8b522f0d5bb7cf25bdb61f7e8dcaa9bfa43407b6c8c5c32a9945ab1bbc1ae0f
+- evidence_id: figure-1
+  kind: primary_source
+  reference: PMID:19321416
+  locator: Figure 1A metabolic scheme and 1B expression panels, visually inspected
+  summary: The proposed substrate routes and expression measurements do not constitute
+    donor-resolved tracing or direct host-transport flux.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.887770Z'
+  snapshot_sha256: 3c9bbd070843634bdd169cf15aa0ed37d63c89f428d1a42493f3765d3dfc5d81
+- evidence_id: figure-2
+  kind: primary_source
+  reference: PMID:19321416
+  locator: Figure 2 acetate, butyrate, MCT-1, redox and propionate panels, visually
+    inspected
+  summary: Axes distinguish cecal concentrations, NAD+/NADH ratio and Mct1 fold expression;
+    the figure supports comparator-specific pools and expression.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.887837Z'
+  snapshot_sha256: 52af63f751f655ab5beb3d079be25ee85df0210322b86af3cd28390709b7e562
+- evidence_id: source-scope
+  kind: validation
+  reference: Public primary main and supplementary routes
+  locator: 'source-audit.json: complete main/figure reading and exact failed supplementary
+    request receipts'
+  summary: Main text and both figures were inspected; SI PDF routes returned challenge/403
+    HTML and supplementary services returned errors, so SI-only protocols and tables
+    remain unreviewed.
+  support: context_only
+  accessed_at: '2026-10-21T09:45:11.887883Z'
+  snapshot_sha256: c76b2726ffc97499495a15cd394fc3a7239c75ac923f96f28d9e8f01c0b02e88
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO, CHEBI and GO snapshots
+  locator: 'ontology-authority.json: ten unique pairs across 21 occurrences'
+  summary: All labels match. CHEBI:17089 denotes a carbohydrate attached to protein,
+    not an isolated mucin glycan moiety.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.887937Z'
+  snapshot_sha256: 71bc1a481bb2bcc4f1ffecf0cb223b8a2cd1d28d920258956ee3d6e4cfb18cf3
+- evidence_id: aliases
+  kind: authority
+  reference: Public NCBI taxonomy browser and local NCBITaxon snapshot
+  locator: 'ncbi-taxonomy-browser-tool-snapshot.json: named strains and species type-strain
+    aliases'
+  summary: NCBI supports VPI-5482/ATCC29148/DSM2079 and ATCC33656/CIP105953 equivalence;
+    browser rank and local ontology rank representations remain separate.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.887990Z'
+  snapshot_sha256: 3641cf1c9febc2b560465693beb3f0a2591b5cbf2e858ec65600d10f27996272
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml; src/communitymech/schema/mech_shared.yaml
+  locator: FunctionalRoleEnum; Dataset and DatasetTypeEnum/DatasetRepositoryEnum
+  summary: Roles require claim-specific support; datasets distinguish single-organism
+    expression, community RNA sequencing and publication references.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.887992Z'
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+  locator: 'snippet-audit.json: all 19 occurrences'
+  summary: All 19 match the cache; 17 match fresh main text strictly and two differ
+    only by cache-inserted punctuation spacing, with their scientific content confirmed.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.888038Z'
+  snapshot_sha256: a18cc46c1c9e0b1c9a9e9b4ff3181e2e55088a00a8e8a8a4f82c3f12d3aff915
+- evidence_id: datasets
+  kind: database
+  reference: GEO GSE14686/GSE14709/GSE14737; PRJNA29071; CP001107
+  locator: 'dataset-verification.json: each public archive response and population/type'
+  summary: Three GEO series are array experiments with distinct host/bacterial scopes;
+    the BioProject and sequence identify E. rectale ATCC33656. No raw data were reanalyzed.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.888088Z'
+  snapshot_sha256: e4cad1430cff68f48951a6b333a5e4255d011e3ef224b57b2b0e80ce5a1f2884
+- evidence_id: history
+  kind: record_content
+  reference: Graph-review sidecar and batch6 prior decision
+  locator: Target decision lines 541-597; provenance-audit.json
+  summary: Closed issue 1254 records the preserved graph repair; open issue 1256 explicitly
+    tracks this record's ingredient flux overclaim. The prior target hash matches
+    current.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.888144Z'
+  snapshot_sha256: bfda1c82baa50cfa765bed2f0e4c7afddbdb7e02b071242cbd71622d68ca9a74
+- evidence_id: search
+  kind: search
+  reference: Owned maintained community, isolate and reusable-taxon roots
+  locator: 'local-search.json: ignored-inclusive bounded identity/source lookup'
+  summary: Bounded searches preserve reuse scope without inferring global absence
+    of strains, source files or data.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.888181Z'
+  snapshot_sha256: 6d2174d997d0e1017412cabff46566fbcb8510d6d5a871c88867dac884bc812b
+  search_scope: Stored rg --no-ignore --hidden queries over named maintained roots
+    and exact identifiers/source terms.
+- evidence_id: adapter
+  kind: search
+  reference: Optional kg-microbe-sources runner
+  locator: 'adapter-check.json: same-runtime batch05 discovery reuse'
+  summary: No callable owned-runtime runner was available; no strain, expression-module
+    or locus query was executed.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.888216Z'
+  snapshot_sha256: a6df4fc7be9576f15398c47c26d59cd531247beb6c32efa4a8d0245b20580b2d
+  search_scope: Original batch05 discovery timestamp and command/root scope are retained;
+    no external checkout or runner was used.
+- evidence_id: native-target
+  kind: validation
+  reference: NetworkIntegrityAuditor().audit_community(target)
+  locator: 'support-audit.json: targeted audit and native score components'
+  summary: Target graph diagnostics and metrics are reported separately from mechanistic
+    certification.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.888257Z'
+  snapshot_sha256: ad5e3b34e33f2696512354a9fbd7f9f2540fd900170aa4fc61a53fb133e3d1fb
+- evidence_id: independent-source
+  kind: validation
+  reference: PMID:19321416
+  locator: 'root-independent-source-audit.json: independent main/figure and scope
+    assessment'
+  summary: Independent source assessment corroborates the graph qualifications and
+    bounded non-graph findings.
+  support: supports
+  accessed_at: '2026-10-21T09:45:11.888296Z'
+  snapshot_sha256: 374930391d59628083aa8961d6b8cde7138d7835d2187fbd532e2e83b537bbc7
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+  locator: Actual execution 2026-10-21T09:39:21.311645+00:00 to 2026-10-21T09:39:22.694120+00:00
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:39:22.694120Z'
+  snapshot_sha256: 7b924aac85a221d8e1a02fbadfeadef200b50b974d50e50fe12ee7de0af95ad8
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-strict kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    --out /private/tmp/cm-review-session/batch-05/000158/strict-report.tsv
+  locator: Actual execution 2026-10-21T09:39:21.315672+00:00 to 2026-10-21T09:39:24.689917+00:00
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:39:24.689917Z'
+  snapshot_sha256: 7b0a65f81336cdbcc05f74d02f75251e7d74d4d92cc1b4b3e40021d50b856322
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-terms kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+  locator: Actual execution 2026-10-21T09:39:21.319652+00:00 to 2026-10-21T09:39:24.076834+00:00
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:39:24.076834Z'
+  snapshot_sha256: ededbd0951ab2c49ff01c6ea21bb8067679fa8a4a99a8c4c8f3dc09e05c6cdd1
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+  locator: Actual execution 2026-10-21T09:39:22.694478+00:00 to 2026-10-21T09:39:22.822356+00:00
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:39:22.822356Z'
+  snapshot_sha256: 2602961d6fa9fcee9b1419d5f0bc62fefd3e0524047484c65faff87821c4866f
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+  locator: Actual execution 2026-10-21T09:39:22.822665+00:00 to 2026-10-21T09:39:25.056127+00:00
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:39:25.056127Z'
+  snapshot_sha256: 8f99779660f922ac7da85a83c730af735edad6e5dc9f0f67189936823c7d25d2
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-history history/records/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model
+  locator: Actual execution 2026-10-21T09:39:24.077199+00:00 to 2026-10-21T09:39:25.074446+00:00
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-10-21T09:39:25.074446Z'
+  snapshot_sha256: e502e91ddb0b90f4caf9fada46f0ae2f6af2945593dd82a298138a120ca18896
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T09:39:25.075200+00:00 to 2026-10-21T09:39:25.163139+00:00
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T09:39:25.163139Z'
+  snapshot_sha256: ea1842e8783fbd75b92ef6077a7a6147a7f446e7117d33ec0a85bb25e1e40c84
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-references-explained kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+  locator: Actual execution 2026-10-21T09:39:25.163523+00:00 to 2026-10-21T09:39:26.410343+00:00
+  summary: Target reference validation passed against the pinned cache.
+  support: supports
+  accessed_at: '2026-10-21T09:39:26.410343Z'
+  snapshot_sha256: 3a0d69562496a31b1a7d630d94d59ffed1d01f80dd7d409697f1b8ea41e207fb
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T08:44:47.720127+00:00 to 2026-10-21T08:45:04.195128+00:00
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target diagnostics are recorded separately.
+  support: supports
+  accessed_at: '2026-10-21T08:45:04.195128Z'
+  snapshot_sha256: 83a73a6ead4c57534fef4ad456dae148cc75d2127e568a1d0815abaa8cf1b47b
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T08:44:47.737345+00:00 to 2026-10-21T08:45:04.925187+00:00
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target diagnostics are recorded separately.
+  support: supports
+  accessed_at: '2026-10-21T08:45:04.925187Z'
+  snapshot_sha256: 8128f67a5d762dda726f1e6a0c0775a825d030d316c46765c08a359e6b621edb
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Exact two-strain gnotobiotic model
+  outcome: supported
+  summary: The record resolves the intended pair and separates human strain origin
+    from experimental mouse host.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - record
+  - main
+  - ontology
+  - aliases
+  dimensions:
+  - name: community_scope
+    value: Two-strain monoassociation/biassociation comparison
+    definition: B. thetaiotaomicron VPI-5482 and E. rectale ATCC33656 are the model
+      members; mouse host and comparative E. eligens genome are not additional members.
+    evidence_ids:
+    - main
+    - record
+  - name: source_strain
+    value: VPI-5482 and ATCC33656, with verified collection aliases
+    definition: Literature Eubacterium name and current Agathobacter label denote
+      the same curated strain; historical GTDB mapping statistics were not recomputed.
+    evidence_ids:
+    - main
+    - ontology
+    - aliases
+  - name: environment
+    value: Distal intestine of gnotobiotic mice
+    definition: Human gut-derived isolates were tested in mouse ceca/colon; findings
+      are not a direct human dietary intervention.
+    evidence_ids:
+    - main
+    - ontology
+  - name: medium
+    value: Host diet context; in-vitro culture details remain SI-only
+    definition: Standard polysaccharide-rich chow supports the principal comparison;
+      main text also identifies LF/PP, HF/HS and LF/HS perturbations. Missing SI recipes
+      are not replaced by inferred acetate gradients or mucin requirements.
+    evidence_ids:
+    - main
+    - diet
+    - source-scope
+  - name: experimental_setting
+    value: Young adult male germ-free NMRI mice and diet comparisons
+    definition: Main text gives 10-14 days after gavage for the standard-chow experiment;
+      in-vitro and host assays must remain distinct.
+    evidence_ids:
+    - main
+    - record
+  - name: evidence_tier
+    value: Expression/proteomic observations and standing metabolite pools
+    definition: Cross-feeding and increased butyrate uptake are author interpretations
+      from combined observations; donor-specific and host-transport rates were not
+      directly established by inspected main/figures.
+    evidence_ids:
+    - acetate
+    - butyrate
+    - figure-1
+    - figure-2
+  - name: grounding_status
+    value: Exact current labels with one chemical-scope mismatch
+    definition: Ten ID/label pairs match; glycoprotein is a whole conjugate class
+      and cannot silently stand for its glycan moiety.
+    evidence_ids:
+    - ontology
+- assessment_id: roles
+  area: grounding
+  topic: Functional roles and source provider
+  outcome: concern
+  summary: Roles are plausible at the proposed biological scope, but attached taxonomy
+    snippets establish identity rather than each function.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - niche
+  - transport
+  - acetate
+  - host
+  - schema
+  details: 'Bacteroides primary degradation and Eubacterium secondary fermentation/uptake
+    have functional source passages. Bacteroides CROSS_FEEDER needs an explicit provider
+    and claim-level evidence: host-derived glycan acquisition is possible, whereas
+    return feeding from Eubacterium is not shown. Retain the source-attributed SYNTROPHY
+    category without inventing obligacy or a fitness increase.'
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Bacteroides Polysaccharide Niche Expansion'
+  outcome: supported
+  summary: Preserve Eubacterium-to-Bacteroides niche response in the mouse biassociation
+    comparison.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - niche
+  - main
+  - ontology
+  details: The directed pair denotes Bacteroides responding to Eubacterium presence
+    by changing glycan-foraging expression; it does not assert Eubacterium donates
+    mucin. NICHE_PARTITIONING describes divergence under co-occurrence, and host-only
+    substrates remain distinct from shared dietary substrates.
+- assessment_id: arrow-0
+  area: graph
+  topic: ecological_interactions[0].downstream[0] → Cecal Short-Chain Fatty Acid Remodeling
+  outcome: supported
+  summary: The existing PARTIAL dietary-substrate interpretation is appropriately
+    bounded.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - niche
+  - diet
+  - acetate
+  - figure-1
+  details: This arrow links proposed Bacteroides dietary-glycan processing to community
+    SCFA outcomes. It explicitly excludes host-mucin expansion as direct proof of
+    carbon delivery to Eubacterium. Diet perturbation supports substrate dependence
+    but does not isolate the transferred molecule or require an unqualified causal
+    upgrade.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Eubacterium Transport and Butyrate Shift'
+  outcome: supported
+  summary: Preserve the Bacteroides-to-Eubacterium proposed cross-feeding model and
+    its PARTIAL flux qualification.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - transport
+  - acetate
+  - butyrate
+  - figure-1
+  details: Expression changes and the combined acetate/redox/host Mct1 observations
+    support the source interpretation. Acetate is the inferred transferred substrate;
+    butyrate is an output. Neither a measured donor-specific transfer rate nor increased
+    epithelial uptake is established by these readouts.
+- assessment_id: arrow-1
+  area: graph
+  topic: ecological_interactions[1].downstream[0] → Cecal Short-Chain Fatty Acid Remodeling
+  outcome: supported
+  summary: Retain the PARTIAL link from inferred acetate use to measured community
+    pools.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - acetate
+  - butyrate
+  - figure-2
+  details: Lower acetate versus Bacteroides alone and similar butyrate versus Eubacterium
+    alone are different comparisons. Mct1 expression is compatible with uptake but
+    does not quantify it; the arrow already states these limitations.
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: Cecal Short-Chain Fatty Acid Remodeling'
+  outcome: supported
+  summary: Preserve the two-member community endpoint and exact comparator-specific
+    concentrations.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - acetate
+  - butyrate
+  - figure-2
+  - main
+  details: This node reports pool changes rather than production rates or a separate
+    ecological interaction type. Both strains colonized to similar levels in mono-
+    and biassociation on polysaccharide-rich chow; that result does not imply diet-independent
+    abundance or a fitness advantage.
+- assessment_id: ingredients
+  area: evidence
+  topic: Ingredient prose versus graph qualifications
+  outcome: concern
+  summary: Ingredient relevance/explanations overstate confirmed transfer, maintained
+    flux and required media behavior.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - record
+  - acetate
+  - butyrate
+  - niche
+  - figure-2
+  details: The graph already preserves the appropriate interpretation. Apply those
+    same source boundaries to all ingredient prose rather than treating pools as flux
+    or prescribing a required acetate gradient or mucin-containing medium.
+- assessment_id: chemical-scope
+  area: grounding
+  topic: Host-derived mucin glycans versus CHEBI:17089
+  outcome: concern
+  summary: The valid glycoprotein label does not identify the curated carbohydrate
+    moiety.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - ontology
+  - niche
+  - host
+  details: Distinguish intact mucin glycoprotein from attached/released glycans. No
+    exact replacement glycan structure or commercial mucin formulation was verified;
+    leave the broad source wording ungrounded if a faithful term cannot be supported.
+- assessment_id: cultivation
+  area: completeness
+  topic: Host, diet and culture metadata
+  outcome: concern
+  summary: The existing standard-chow timing is supported, while recoverable main-text
+    host/diet context remains thin.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - main
+  - diet
+  - source-scope
+  details: Add source-specific NMRI male/young-adult context and separate LF/PP, HF/HS
+    and LF/HS comparisons. Do not generalize 10-14 days to every assay, import methods
+    from cited predecessors, or invent SI-only bacterial media, inoculum dose, temperature
+    or atmosphere.
+- assessment_id: resources
+  area: evidence
+  topic: Publication, GEO series and genome accession scope
+  outcome: concern
+  summary: The archive references resolve, but one publication is represented as a
+    phenotype dataset and three distinct array series are conflated.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - main
+  - datasets
+  - schema
+  details: GSE14686 is host colonic expression, GSE14709 bacterial expression across
+    diets, and GSE14737 mono/biassociation plus Eubacterium in-vitro expression. Preserve
+    array methodology and source organism/conditions; do not call all three community
+    RNA sequencing. PRJNA29071 and CP001107 are complementary project/sequence identifiers
+    for the one isolate genome.
+- assessment_id: provenance
+  area: evidence
+  topic: Claim-level snippets, source access and prior repair
+  outcome: supported
+  summary: Prior graph corrections remain intact; current support separates fresh
+    main text from unread supplements.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - snippets
+  - history
+  - source-scope
+  - main
+  - independent-source
+  details: No inaccessible supplement result is certified. Data and culture metadata
+    are bounded to actual archive responses and inspected main text; no raw expression,
+    genome or proteomic reanalysis was performed.
+- assessment_id: validation
+  area: schema
+  topic: Native gates and scientific scope
+  outcome: concern
+  summary: All eight native checks pass; local semantic findings remain despite valid
+    labels and matching snippets.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - ontology
+  - snippets
+  - check-validate
+  - check-validate-strict
+  - native-target
+  - schema
+- assessment_id: metrics
+  area: completeness
+  topic: Native metrics and limits
+  outcome: supported
+  summary: Completeness and quality retain the native definitions without treating
+    their scores as mechanistic proof.
+  target_ids:
+  - CommunityMech:000158
+  evidence_ids:
+  - record
+  - native-target
+  metrics:
+  - name: completeness
+    value: 85
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100, 50 required metadata including all taxon roles + 5 environment
+      + 10 at least 3 factors + 10 at least 3 nodes + 5 resources + 10 media + 5 datasets
+      + 5 node metabolites). 50 + 5 + 0 + 10 + 0 + 10 + 5 + 5 = 85.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 'clamp(100 - 50P1 - 10P2 - 2P3 + 20 min(mean node evidence / 2, 1)
+      + 15 if native COMPLETE, 0, 100). P1=0,P2=1,P3=4,P4=0; 5 evidence items / 3
+      nodes, native COMPLETE: 100 - 10 - 8 + 16.6666666667 + 15 = 113.6666666667 before
+      capping.'
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count from this whole-record review.
+  - name: P2
+    value: 1
+    unit: findings
+    definition: Native severity count from this whole-record review.
+  - name: P3
+    value: 4
+    unit: findings
+    definition: Native severity count from this whole-record review.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count from this whole-record review.
+findings:
+- finding_id: ingredient-flux
+  issue_key: cm-000158-ingredient-flux
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: non-graph claims convert observational pools into
+    confirmed flux and unsupported experimental requirements.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Align ingredient claims with measured pools and inferred mechanisms
+  description: The acetate entry treats a lower concentration as confirmation of transfer
+    and requires a gradient; the butyrate entry treats a similar concentration as
+    maintained flux. The mucin entry adds a mandatory culture ingredient. These claims
+    exceed the inspected source and contradict the qualified graph.
+  target_ids:
+  - CommunityMech:000158
+  field_paths:
+  - related_ingredients[0].relevance
+  - related_ingredients[0].evidence[0].explanation
+  - related_ingredients[1].relevance
+  - related_ingredients[1].evidence[0].explanation
+  - related_ingredients[2].relevance
+  evidence_ids:
+  - acetate
+  - butyrate
+  - niche
+  - figure-2
+  - record
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    role: canonical_record
+- finding_id: mucin-grounding
+  issue_key: cm-000158-mucin-grounding
+  category: grounding
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded metadata, specificity or local evidence
+    correction; the resolved model and qualified graph remain intact.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Separate mucin glycan moieties from whole glycoprotein grounding
+  description: CHEBI:17089 correctly labels glycoprotein, but the preferred term names
+    host-derived mucin glycans. A carbohydrate attached to protein and its glycan
+    component are not interchangeable.
+  target_ids:
+  - CommunityMech:000158
+  field_paths:
+  - related_ingredients[2].preferred_term
+  - related_ingredients[2].chebi_term
+  evidence_ids:
+  - ontology
+  - niche
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    role: canonical_record
+- finding_id: role-evidence
+  issue_key: cm-000158-role-evidence
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded metadata, specificity or local evidence
+    correction; the resolved model and qualified graph remain intact.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Attach functional evidence and identify the recipient-role provider
+  description: The taxonomy snippets identify membership/strains but do not support
+    every role. In particular, Bacteroides CROSS_FEEDER requires an explicit recipient
+    context, which could involve host glycans rather than an unproven return metabolite
+    from Eubacterium.
+  target_ids:
+  - CommunityMech:000158
+  field_paths:
+  - taxonomy[0].functional_role
+  - taxonomy[0].evidence
+  - taxonomy[1].functional_role
+  - taxonomy[1].evidence
+  evidence_ids:
+  - niche
+  - transport
+  - acetate
+  - host
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    role: canonical_record
+- finding_id: host-diet-context
+  issue_key: cm-000158-host-diet-context
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded metadata, specificity or local evidence
+    correction; the resolved model and qualified graph remain intact.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Capture recoverable host and diet conditions with assay boundaries
+  description: The record gives generic three-diet and germ-free-host factors while
+    the main article resolves mouse background and named diet comparisons. Its standard-chow
+    growth block should not imply complete cultivation coverage.
+  target_ids:
+  - CommunityMech:000158
+  field_paths:
+  - environmental_factors
+  - growth_media
+  - engineering_design.perturbation_design
+  evidence_ids:
+  - main
+  - diet
+  - source-scope
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    role: canonical_record
+- finding_id: dataset-scope
+  issue_key: cm-000158-dataset-scope
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded metadata, specificity or local evidence
+    correction; the resolved model and qualified graph remain intact.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Separate publication evidence from organism-specific array datasets
+  description: A PubMed article is encoded as a phenotype dataset and three GEO series
+    are grouped as metatranscriptomics despite different host/bacterial populations
+    and array assays.
+  target_ids:
+  - CommunityMech:000158
+  field_paths:
+  - associated_datasets[0]
+  - associated_datasets[1]
+  evidence_ids:
+  - datasets
+  - schema
+  - main
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    role: canonical_record
+actions:
+- action_id: repair-ingredient-flux
+  description: Align ingredient claims with measured pools and inferred mechanisms.
+  finding_ids:
+  - ingredient-flux
+  target_ids:
+  - CommunityMech:000158
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - State lower acetate versus Bacteroides monoassociation and similar butyrate versus
+    Eubacterium monoassociation as standing pools; identify transfer/production/uptake
+    as the authors combined-evidence interpretation.
+  - Remove unsupported required acetate-gradient and mucin-medium prescriptions; any
+    experimental recipe must come from a verified applicable method.
+  - Preserve all three current nodes and two PARTIAL arrows unless newly inspected
+    evidence justifies a specific revision.
+- action_id: repair-mucin-grounding
+  description: Separate mucin glycan moieties from whole glycoprotein grounding.
+  finding_ids:
+  - mucin-grounding
+  target_ids:
+  - CommunityMech:000158
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Clarify whether the source claim concerns intact mucin or a glycan component,
+    and verify any replacement term against that exact scope.
+  - Retain source wording without a forced CHEBI mapping if no faithful glycan term
+    can be established; do not invent a molecular structure or commercial formulation.
+- action_id: repair-role-evidence
+  description: Attach functional evidence and identify the recipient-role provider.
+  finding_ids:
+  - role-evidence
+  target_ids:
+  - CommunityMech:000158
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Add exact source passages for Bacteroides primary degradation and Eubacterium
+    secondary fermentation/uptake, retaining inference qualifiers.
+  - State the intended provider for Bacteroides CROSS_FEEDER and qualify or remove
+    the role if its intended transfer cannot be supported; do not infer Eubacterium-to-Bacteroides
+    donation.
+  - Retain verified strain names/collection equivalents and source-attributed syntrophy
+    without imposing obligacy.
+- action_id: repair-host-diet-context
+  description: Capture recoverable host and diet conditions with assay boundaries.
+  finding_ids:
+  - host-diet-context
+  target_ids:
+  - CommunityMech:000158
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Add young-adult male NMRI mouse context and distinguish LF/PP, HF/HS and LF/HS
+    dietary comparisons using exact primary passages.
+  - Keep the supported 10-14-day post-gavage standard-chow context separate from other
+    assays and any future bacterial stock-culture entry.
+  - Retain the SI-only culture gap until the actual methods are available; do not
+    infer recipe, inoculum, temperature or atmosphere from common practice.
+- action_id: repair-dataset-scope
+  description: Separate publication evidence from organism-specific array datasets.
+  finding_ids:
+  - dataset-scope
+  target_ids:
+  - CommunityMech:000158
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Represent PMID19321416 as a publication/external resource rather than a deposited
+    phenotype collection.
+  - Separate GSE14686, GSE14709 and GSE14737 into NCBI_GEO records with their verified
+    organism, array platform and treatment scope; use a schema-valid expression type
+    without asserting community RNA sequencing.
+  - Preserve verified PRJNA29071/CP001107 project-versus-sequence distinctions and
+    do not import E. eligens genomic data as another community member.
+- action_id: verify-curation
+  description: After separately authorized curation, retain claim-level provenance
+    and revalidate the corrected record.
+  finding_ids:
+  - ingredient-flux
+  - mucin-grounding
+  - role-evidence
+  - host-diet-context
+  - dataset-scope
+  target_ids:
+  - CommunityMech:000158
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Use verbatim source passages and preserve all source/assay/strain qualifiers;
+    no canonical change is applied by this review.
+  - Record an appropriate history event and rerun schema, strict, term, reference,
+    history and target network checks.
+  - Keep unreviewed SI methods/tables and raw-data analyses explicitly outside the
+    completed source scope.
+limitations:
+- 'SI Methods/Results, FiguresS1-S6 and TablesS1-S8 were not inspected: exact PMC
+  PDF route returned challenge HTML, PNAS public routes returned403, and EPMC supplementary
+  services did not provide files. These outcomes are not evidence of absent experiments.'
+- The source model interprets cross-feeding and increased butyrate uptake from combined
+  observations. The inspected main/figures do not measure donor-specific carbon flux,
+  epithelial transport rate or pathway necessity; existing PARTIAL graph qualifications
+  are retained.
+- Host/diet metadata can be recovered from main text, but SI-only bacterial media,
+  inoculum dose, atmosphere, temperature and detailed husbandry remain unresolved;
+  no standard protocol or preceding study was imported.
+- Archive checks verify identity, type and study context, not raw expression, genome
+  assembly accuracy or proteomic results. Host arrays, bacterial arrays and isolate
+  genome data remain separate.
+- Local OAK and public NCBI rank conventions differ; stable strain identity and aliases
+  agree. Historical GTDB mapping statistics were not recomputed. Public alias support
+  is a rendered web-tool snapshot, not a raw HTTP response.
+- Optional adapter discovery and corpus network receipts are reused with their original
+  batch05 scope and timestamps; neither establishes source-specific pathway coverage.
+notes:
+- Canonical records, caches, history and generated outputs remain unchanged.
+- Primary-source direct quotations total 20 words across the article; source references
+  are reused across graph assessments.
+- All 23 repository inputs were pinned before assessment and rechecked; native quality
+  100 is capped from 113.6666666667.
+- The requested PMC2660063 URL served matching article title, DOI and scientific text
+  with instance2667083 figure/supplement links; exact request and asset receipts are
+  preserved.
+tags:
+- record-review
+- gnotobiotic-model
+- source-scope
+- batch-05
+```
