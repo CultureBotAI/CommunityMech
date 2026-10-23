@@ -190,22 +190,23 @@ def test_current_scope_census_tracks_later_source_bounded_repairs(monkeypatch):
         "_survey"
     ]
     # CommunityMech:000469-000483 add 15 records (10 pairwise, 4 community-level, 1 mixed).
+    # CommunityMech:000484-000490 add 7 records (4 communities, 3 isolates).
     previous = {
-        "records": 477,
-        "with_community_level": 422,
-        "mixed": 139,
-        "community_level_only": 283,
-        "taxa": 1603,
-        "credited_solely_by_the_rule": 1308,
+        "records": 484,
+        "with_community_level": 426,
+        "mixed": 140,
+        "community_level_only": 286,
+        "taxa": 1616,
+        "credited_solely_by_the_rule": 1319,
     }
     # #2014: five Transwell strain entries replace one umbrella, with two
     # pairwise reporter participants and three solely community-level members.
     expected = {
         **previous,
-        "mixed": 140,
-        "community_level_only": 282,
-        "taxa": 1607,
-        "credited_solely_by_the_rule": 1310,
+        "mixed": 141,
+        "community_level_only": 285,
+        "taxa": 1620,
+        "credited_solely_by_the_rule": 1321,
     }
     assert survey_fn() == expected
     target = ROOT / "kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml"

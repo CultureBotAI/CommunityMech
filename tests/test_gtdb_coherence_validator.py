@@ -552,7 +552,11 @@ def test_the_status_distribution_is_what_was_measured():
     # CommunityMech:000469-000483 add 17 prokaryotic species/genus entries whose
     # local crosswalk lookup was unavailable during curation (494 -> 511), while
     # their 5 eukaryotic members are marked NO_GTDB_EQUIVALENT.
-    assert counts["UNRESOLVED"] < 512, (
+    # CommunityMech:000484-000490 add 2 genus entries (Candidatus Electronema and
+    # Sulfurovum in CommunityMech:000484) whose local crosswalk lookup was
+    # unavailable during curation (511 -> 513), while grounding 15 prokaryotic
+    # entries from existing corpus crosswalk blocks.
+    assert counts["UNRESOLVED"] < 514, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
