@@ -49,6 +49,11 @@ tasks:
     status: resolved
     issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2057
     disposition: Resolved in Stage 6 (#2057). Implemented scripts/audit_completeness.py (and updated scripts/generate_validation_report.py) with Seatbelt-safe _repo_root() path resolution, proportional 0-100 calculate_completeness and calculate_validation_score metrics matching .claude/skills/review-communities/reference/metrics-and-reports.md, and multi-root scanning across kb/communities/*.yaml, data/isolates/*.yaml, and kb/taxa/*.yaml while preserving scripts/record_review.py byte-identical to its governed CLAW payload.
+  - task_id: communitymech-infra-0004
+    summary: Decouple remaining count-pinned test suites (test_causal_review_batch109, test_gtdb_coherence_validator, test_is_reclassified_semantics, test_transwell_participants) from hardcoded corpus totals
+    status: open
+    issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2063
+    disposition: Captured during Cycle 2 Stage 1 (add_records); scheduled for Cycle 2 Stage 6 (infrastructure).
 ```
 <!-- mech-infra-tasks:end -->
 
@@ -113,4 +118,29 @@ tasks:
 - **Priority**: P3
 - **Dependencies**: None
 - **Status**: `resolved` (`#2057`)
+
+### `communitymech-infra-0004` — Decouple remaining count-pinned test suites from hardcoded corpus totals
+
+- **Origin**: `mech-goal-sequence-20261019`, cycle 2, stage 1 (`add_records`)
+- **Issue**: https://github.com/CultureBotAI/CommunityMech/issues/2063
+- **Observation**:
+  1. While `communitymech-infra-0001` (`#2055`) decoupled `tests/test_community_level_connectivity_credit.py` from hardcoded corpus counts, five additional test suites still assert exact corpus-wide record and classification counts:
+     - `tests/test_causal_review_batch109.py` (`test_current_scope_census_tracks_later_source_bounded_repairs`): pins exact integers (`records == 484`, `with_community_level == 428`, `mixed == 143`, `community_level_only == 285`, `taxa == 1639`, `credited_solely_by_the_rule == 1327`) and an exact `USERS` filename set.
+     - `tests/test_participating_taxa.py` (`USERS` and `test_the_corpus_is_unchanged_by_this_feature`, plus `tests/test_okeke_participant_census.py`): pins the exact set of 313 record filenames that use `participating_taxa`.
+     - `tests/test_gtdb_coherence_validator.py` (`test_corpus_has_zero_incoherent_gtdb_classifications` and `test_gtdb_grounding_status_is_populated_and_cross_consistent_with_blocks`): pins `report.files_checked == 486` and `counts["UNRESOLVED"] < 513`.
+     - `tests/test_is_reclassified_semantics.py` (`EXPECTED`, `TOTAL_TRUE = 143`, `ABOVE_SPECIES = 43`): pins the exact corpus-wide partition of `is_reclassified: true` occurrences across `kb/communities/*.yaml`, `kb/taxa/*.yaml`, and `data/isolates/*.yaml`.
+     - `tests/test_transwell_participants.py` (`test_only_transwell_accounts_for_gtdb_distribution_change`): pins `current_counts["UNRESOLVED"] == 512`.
+  2. Every Stage 1 (`add_records`) or Stage 2 (`causal_graphs`) curation batch that adds community/isolate records or `COMMUNITY_LEVEL` interactions must manually bump these five test files.
+- **Desired outcome**: Refactor `tests/test_causal_review_batch109.py`, `tests/test_participating_taxa.py`, `tests/test_gtdb_coherence_validator.py`, `tests/test_is_reclassified_semantics.py`, and `tests/test_transwell_participants.py` in Stage 6 (`infrastructure`) to derive corpus denominators dynamically from the repository record roots while retaining non-vacuous floors, exact invariant checks (`0` incoherent GTDB blocks, `0` semantic mismatches on `is_reclassified`, exact batch-109 record membership), and ratio guards.
+- **Evidence paths**:
+  - `tests/test_causal_review_batch109.py`
+  - `tests/test_participating_taxa.py`
+  - `tests/test_gtdb_coherence_validator.py`
+  - `tests/test_is_reclassified_semantics.py`
+  - `tests/test_transwell_participants.py`
+  - `reports/c2s1_bounded_frontier_discovery_20261023.md`
+- **Priority**: P2
+- **Dependencies**: None
+- **Status**: `open` (`#2063`)
+
 

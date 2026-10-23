@@ -150,7 +150,7 @@ def test_only_transwell_accounts_for_gtdb_distribution_change(monkeypatch):
     assert len(before_members) == 1
     assert before_members[0]["taxon_term"]["gtdb_grounding_status"] == "GROUNDED"
     current_counts = census()
-    assert current_counts["UNRESOLVED"] == 511
+    assert current_counts["UNRESOLVED"] == 512
     expected_previous = current_counts.copy()
     expected_previous["UNRESOLVED"] -= 5
     expected_previous["GROUNDED"] += 1
