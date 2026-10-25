@@ -177,9 +177,9 @@ def test_the_buckets_partition_the_whole_set():
     assert sum(tally.values()) == total_true
     assert tally.get("strain_dropped", 0) == 0
     assert tally.get("identical_after_normalisation", 0) == 0
-    assert set(tally) <= set(EXPECTED), (
-        f"classify() produced an unexpected bucket: {sorted(set(tally) - set(EXPECTED))}"
-    )
+    assert set(tally) <= set(
+        EXPECTED
+    ), f"classify() produced an unexpected bucket: {sorted(set(tally) - set(EXPECTED))}"
 
 
 @pytest.mark.parametrize("bucket", sorted(EXPECTED))
@@ -188,9 +188,9 @@ def test_each_bucket_holds_what_it_held(bucket: str):
     if EXPECTED[bucket] == 0:
         assert actual == 0, f"{bucket}: {actual}, expected 0 (#480 invariant). {_DRIFT}"
     else:
-        assert actual >= EXPECTED[bucket], (
-            f"{bucket}: {actual}, expected >= {EXPECTED[bucket]}. {_DRIFT}"
-        )
+        assert (
+            actual >= EXPECTED[bucket]
+        ), f"{bucket}: {actual}, expected >= {EXPECTED[bucket]}. {_DRIFT}"
 
 
 def test_the_majority_of_true_values_are_not_reclassifications():
@@ -217,9 +217,9 @@ def test_the_flag_is_not_confined_to_species_rank():
     """The description said "species"; a fifth of the data is not species."""
     blocks = list(_blocks())
     above = [gtdb_id for _, _, gtdb_id in blocks if gtdb_id and not gtdb_id.startswith("GTDB:s__")]
-    assert len(above) >= ABOVE_SPECIES, (
-        f"reclassified blocks above species rank: {len(above)}. {_DRIFT}"
-    )
+    assert (
+        len(above) >= ABOVE_SPECIES
+    ), f"reclassified blocks above species rank: {len(above)}. {_DRIFT}"
     assert 0.15 <= len(above) / len(blocks) <= 0.45
 
 

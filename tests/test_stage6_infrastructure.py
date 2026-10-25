@@ -242,4 +242,3 @@ def test_infra_0004_corpus_count_decoupling_preserves_invariants():
             pass
         else:
             raise AssertionError("strain_dropped regression was not caught")
-
