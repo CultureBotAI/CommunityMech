@@ -116,6 +116,8 @@ def test_community_links_common_taxon():
         "kb/communities/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.yaml",
         "kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
         "kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml",
+        "kb/communities/Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml",
+        "kb/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml",
     ]
     for rel_path in expected_mr1_files:
         doc = yaml.safe_load(Path(rel_path).read_text())
@@ -129,6 +131,10 @@ def test_community_links_common_taxon():
     expected_geobacter_files = [
         "kb/communities/Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml",
         "kb/communities/Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.yaml",
+        "kb/communities/Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture.yaml",
+        "kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml",
+        "kb/communities/ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model.yaml",
+        "kb/communities/Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture.yaml",
     ]
     for rel_path in expected_geobacter_files:
         doc = yaml.safe_load(Path(rel_path).read_text())

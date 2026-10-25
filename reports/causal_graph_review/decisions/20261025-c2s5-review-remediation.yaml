@@ -1,0 +1,940 @@
+reviewer: antigravity
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+recorded_at: '2026-10-25T15:12:00Z'
+scope: 'Cycle 2 Stage 5 remediation of Cycle 2 Stage 4 record and cohort review findings
+  (#2072, #2073); ecological_interactions causal graph nodes and directed downstream
+  edges unchanged.'
+records:
+- path: kb/communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.yaml
+  id: CommunityMech:000006
+  original_sha256: f29ece197fbf2088caa649cbf78c0c2d0054d1434369353b29e7f6efdd05a848
+  record_sha256: bb94d58347b0bbc04ebf7c25563d1096efbbd3294a3801e3732e0c95c61e6a24
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the
+    precise source scopes below. Non-graph metadata is not certified; Bayan Obo remains
+    needs_research.
+  summary: Bound spittlebug nutritional complementarity to model-specific fluxes and
+    assumptions
+  node_decisions:
+  - node: Sulcia Essential Amino Acid Provisioning
+    rationale: Retain computational mutualism, correct Sulcia nitrogen range and remove
+      nitrogen-atom concentration plus part-whole arrow.
+  - node: Sodalis Metabolic Complementarity
+    rationale: Retain computational Sodalis complementarity, correct partner-specific
+      outputs and remove the part-whole arrow.
+  - node: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Retain modeled reciprocal nutrition while marking host regulatory interpretation
+      partial.
+  edges_before:
+  - source: Sulcia Essential Amino Acid Provisioning
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    description: 'Sulcia recycles most host-derived nitrogen to essential amino acids,
+      one half of the complementary endosymbiont metabolism coordinated through the
+      spittlebug host.
+
+      '
+  - source: Sodalis Metabolic Complementarity
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    description: 'Sodalis supplies larger-genome coprimary symbiont functions that
+      complement Sulcia through host-mediated, rather than symbiont-to-symbiont, exchange.
+
+      '
+  edges_after: []
+  references:
+  - PMID:30254121
+  source_review:
+  - reference: PMID:30254121
+    doi: 10.1128/mBio.01433-18
+    cache: references_cache/PMID_30254121.md
+    cache_sha256: a63558f5a1ea983a198551fa17e038566f4b07480182dce49161d50dbd8a9341
+    abstract_cache: references_cache/PMID_30254121.txt
+    abstract_cache_sha256: bc2fabd308e36c1cfc6b596a80f0de06a9f320e15437e21cf66de7631aa7f6e1
+    scope: Entire cached abstract plus full main introduction/results/discussion/methods
+      and data availability, Table 1 text, figure 1-7 captions, supplemental inventory/captions
+      read in folded lines 1-500. Models and IDs confirmed in paper data-availability
+      section. Incorrect abstract_only cache header does not describe appended main
+      text.
+    unread: Figure images, supplementary spreadsheets/docx and model SBML/MATLAB files.
+      No simulations rerun.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements
+    or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains
+    under #1261.'
+  history_file: history/records/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis/2026-10-05T124958Z-codex-427477.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1258
+  removed_node_decisions: []
+  removed_edge_decisions:
+  - source: Sulcia Essential Amino Acid Provisioning
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Sulcia provisioning is one component of the target's same modeled reciprocal
+      nutrition, not a distinct upstream cause of experimentally established host
+      control.
+  - source: Sodalis Metabolic Complementarity
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Partner complementarity is another component of the target's same modeled
+      nutrition; the source does not establish complementarity causing host regulatory
+      control.
+  issues:
+  - 2072
+  allowed_changed_fields:
+  - curation_history
+  - environment_term
+  curation_events_added: 1
+  history_files:
+  - history/records/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis/2026-10-25T151200Z-antigravity-2072.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+    record_sha256: f29ece197fbf2088caa649cbf78c0c2d0054d1434369353b29e7f6efdd05a848
+- path: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  id: CommunityMech:000007
+  original_sha256: 3c0c3ec94b77750f8583de5ef0d9a8380bf28bd62a1857cdb28c95cc9ff4601b
+  record_sha256: 9cbcf07ed58d956c7b6da920f88893ba96bcad2d481afbda647e56ea7340f9ac
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the
+    precise source scopes below. Non-graph metadata is not certified; Bayan Obo remains
+    needs_research.
+  summary: Bound sharpshooter nutritional complementarity to model-specific fluxes
+    and assumptions
+  node_decisions:
+  - node: Sulcia Essential Amino Acid Provisioning
+    rationale: Retain computational mutualism, correct Sulcia nitrogen range and remove
+      nitrogen-atom concentration plus part-whole arrow.
+  - node: Baumannia Metabolic Complementarity
+    rationale: Retain computational Baumannia complementarity, correct partner-specific
+      outputs and remove the part-whole arrow.
+  - node: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Retain modeled reciprocal nutrition while marking host regulatory interpretation
+      partial.
+  edges_before:
+  - source: Sulcia Essential Amino Acid Provisioning
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    description: 'Sulcia recycles most host-derived nitrogen to essential amino acids,
+      one half of the complementary endosymbiont metabolism coordinated through the
+      sharpshooter host.
+
+      '
+  - source: Baumannia Metabolic Complementarity
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    description: 'Baumannia supplies larger-genome coprimary symbiont functions that
+      complement Sulcia through host-mediated, rather than symbiont-to-symbiont, exchange.
+
+      '
+  edges_after: []
+  references:
+  - PMID:30254121
+  source_review:
+  - reference: PMID:30254121
+    doi: 10.1128/mBio.01433-18
+    cache: references_cache/PMID_30254121.md
+    cache_sha256: a63558f5a1ea983a198551fa17e038566f4b07480182dce49161d50dbd8a9341
+    abstract_cache: references_cache/PMID_30254121.txt
+    abstract_cache_sha256: bc2fabd308e36c1cfc6b596a80f0de06a9f320e15437e21cf66de7631aa7f6e1
+    scope: Entire cached abstract plus full main introduction/results/discussion/methods
+      and data availability, Table 1 text, figure 1-7 captions, supplemental inventory/captions
+      read in folded lines 1-500. Models and IDs confirmed in paper data-availability
+      section. Incorrect abstract_only cache header does not describe appended main
+      text.
+    unread: Figure images, supplementary spreadsheets/docx and model SBML/MATLAB files.
+      No simulations rerun.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements
+    or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains
+    under #1261.'
+  history_file: history/records/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia/2026-10-05T124958Z-codex-06c5c7.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1258
+  removed_node_decisions: []
+  removed_edge_decisions:
+  - source: Sulcia Essential Amino Acid Provisioning
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Sulcia provisioning is one component of the target's same modeled reciprocal
+      nutrition, not a distinct upstream cause of experimentally established host
+      control.
+  - source: Baumannia Metabolic Complementarity
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Partner complementarity is another component of the target's same modeled
+      nutrition; the source does not establish complementarity causing host regulatory
+      control.
+  issues:
+  - 2072
+  allowed_changed_fields:
+  - curation_history
+  - environment_term
+  curation_events_added: 1
+  history_files:
+  - history/records/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia/2026-10-25T151200Z-antigravity-2072.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+    record_sha256: 3c0c3ec94b77750f8583de5ef0d9a8380bf28bd62a1857cdb28c95cc9ff4601b
+- path: kb/communities/BioModels_MODEL1806250005_Cicada_Sulcia_Hodgkinia.yaml
+  id: CommunityMech:000008
+  original_sha256: 599ef8dd4776e7b3b8fabbd06bdab35c7018b3794b8f7c225795820e33f5195d
+  record_sha256: 9f46ee662ca63b493b279b687a38603b5a517160f17b6f3d8ef44ea647318220
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the
+    precise source scopes below. Non-graph metadata is not certified; Bayan Obo remains
+    needs_research.
+  summary: Bound cicada nutritional complementarity to model-specific fluxes and assumptions
+  node_decisions:
+  - node: Sulcia Essential Amino Acid Provisioning
+    rationale: Retain computational mutualism, correct Sulcia nitrogen range and remove
+      nitrogen-atom concentration plus part-whole arrow.
+  - node: Hodgkinia Metabolic Complementarity
+    rationale: Retain computational Hodgkinia complementarity, correct partner-specific
+      outputs and remove the part-whole arrow.
+  - node: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Retain modeled reciprocal nutrition while marking host regulatory interpretation
+      partial.
+  edges_before:
+  - source: Sulcia Essential Amino Acid Provisioning
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    description: 'Sulcia recycles host-derived nitrogen to essential amino acids,
+      one half of the complementary endosymbiont metabolism coordinated through the
+      cicada host.
+
+      '
+  - source: Hodgkinia Metabolic Complementarity
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    description: 'Hodgkinia contributes nitrogen recycling plus essential amino-acid
+      and vitamin synthesis while remaining host-mediated rather than directly cross-fed
+      by Sulcia.
+
+      '
+  edges_after: []
+  references:
+  - PMID:30254121
+  source_review:
+  - reference: PMID:30254121
+    doi: 10.1128/mBio.01433-18
+    cache: references_cache/PMID_30254121.md
+    cache_sha256: a63558f5a1ea983a198551fa17e038566f4b07480182dce49161d50dbd8a9341
+    abstract_cache: references_cache/PMID_30254121.txt
+    abstract_cache_sha256: bc2fabd308e36c1cfc6b596a80f0de06a9f320e15437e21cf66de7631aa7f6e1
+    scope: Entire cached abstract plus full main introduction/results/discussion/methods
+      and data availability, Table 1 text, figure 1-7 captions, supplemental inventory/captions
+      read in folded lines 1-500. Models and IDs confirmed in paper data-availability
+      section. Incorrect abstract_only cache header does not describe appended main
+      text.
+    unread: Figure images, supplementary spreadsheets/docx and model SBML/MATLAB files.
+      No simulations rerun.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated main-text/caption scopes are certified, not unread images, supplements
+    or rerun models.
+  - 'Non-graph metadata is preserved with follow-up #1262; Bayan Obo provenance remains
+    under #1261.'
+  history_file: history/records/BioModels_MODEL1806250005_Cicada_Sulcia_Hodgkinia/2026-10-05T124958Z-codex-8517c4.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1258
+  removed_node_decisions: []
+  removed_edge_decisions:
+  - source: Sulcia Essential Amino Acid Provisioning
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Sulcia provisioning is one component of the target's same modeled reciprocal
+      nutrition, not a distinct upstream cause of experimentally established host
+      control.
+  - source: Hodgkinia Metabolic Complementarity
+    target: Host-Mediated Complementary Endosymbiont Metabolism
+    rationale: Partner complementarity is another component of the target's same modeled
+      nutrition; the source does not establish complementarity causing host regulatory
+      control.
+  issues:
+  - 2072
+  allowed_changed_fields:
+  - curation_history
+  - environment_term
+  curation_events_added: 1
+  history_files:
+  - history/records/BioModels_MODEL1806250005_Cicada_Sulcia_Hodgkinia/2026-10-25T151200Z-antigravity-2072.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+    record_sha256: 599ef8dd4776e7b3b8fabbd06bdab35c7018b3794b8f7c225795820e33f5195d
+- path: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  id: CommunityMech:000013
+  original_sha256: 2f4e9de54727970a957771c70add6bd6a8fc5a6d38c4cdda2316cc50ab509e7a
+  record_sha256: 2d2c5858211115cc74035f627a0a51376c22703929bfae077ebada161c6924c8
+  status: reviewed
+  review_file: reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml
+  outcome: changed
+  scope: Whole record and every original/current graph node/edge read against the
+    precise source scopes below. Non-graph metadata is not certified; cable bacteria
+    remains needs_research.
+  summary: Separate conditional sponge model mechanisms from host mutualism and summary
+    arrows
+  node_decisions:
+  - node: Coupled Nitrification in Stylissa Holobiont
+    rationale: Retain modeled nitrite cross-feeding and conditional growth-support
+      arrow, not thermodynamic syntrophy.
+  - node: Nutrient-Responsive Cross-Feeding Network
+    rationale: Retain input-dependent modeled exchange; remove component and common-input
+      summary arrows.
+  - node: Sponge-Derived Nutrient Provisioning to Microbiome
+    rationale: Retain candidate-input mechanism without measured secretion or reciprocal
+      host fitness.
+  - node: Stable Ammonia-Supported Nitrifying Consortium
+    rationale: 'Retain operational simulated composition endpoint: the normalized
+      final/initial AOA:NOB population ratio is bounded, not absolute population size.
+      No syntrophy or universal threshold claim.'
+  - node: Deltaporibacter Nitrogen-Linked Cross-Feeding
+    rationale: Retain conditional Deltaporibacter cross-feeding without active coordinator
+      language.
+  - node: Nutrient-Dependent Symbiont Trophic Balance
+    rationale: Retain microbial net carbon endpoint, not whole-host balance or a separate
+      exchange.
+  edges_before:
+  - source: Coupled Nitrification in Stylissa Holobiont
+    target: Stable Ammonia-Supported Nitrifying Consortium
+    description: Model simulations used AOA nitrite production to test how ammonia
+      flux can maintain an actively growing AOA-NOB community.
+  - source: Nutrient-Responsive Cross-Feeding Network
+    target: Deltaporibacter Nitrogen-Linked Cross-Feeding
+    description: Nutrient-responsive cross-feeding is centered on the newly described
+      Deltaporibacter symbiont.
+  - source: Nutrient-Responsive Cross-Feeding Network
+    target: Nutrient-Dependent Symbiont Trophic Balance
+    description: Organic-input-dependent exchange changes whether the modeled symbiont
+      community is net heterotrophic or net autotrophic.
+  - source: Sponge-Derived Nutrient Provisioning to Microbiome
+    target: Nutrient-Responsive Cross-Feeding Network
+    description: Sponge-derived nutrients define the model boundary conditions that
+      drive symbiont cross-feeding and community stability.
+  edges_after:
+  - source: Coupled Nitrification in Stylissa Holobiont
+    target: Stable Ammonia-Supported Nitrifying Consortium
+    description: COMPUTATIONAL - nitrite generated by archaeal ammonia oxidation supplies
+      the modeled nitrite oxidizer and can enable joint growth, conditional on imposed
+      ammonia supply and cell removal. This substrate-support mechanism does not establish
+      in-vivo stability or thermodynamic syntrophy.
+  - source: Sponge-Derived Nutrient Provisioning to Microbiome
+    target: Nutrient-Responsive Cross-Feeding Network
+    description: COMPUTATIONAL - supplying candidate host-derived organic substrates
+      changes the resources available for modeled microbial exchange. This conditional
+      input-to-exchange mechanism does not prove host secretion, reciprocal fitness
+      or the same fluxes in vivo.
+  references:
+  - PMID:39738126
+  source_review:
+  - reference: PMID:39738126
+    doi: 10.1038/s41467-024-55222-w
+    cache: references_cache/doi_10.1038_s41467-024-55222-w.md
+    cache_sha256: 824118196672b53f3c367488b5ccf1e5a57f1ddeca0c3d671915b89a8490f436
+    canonical_cache: references_cache/PMID_39738126.txt
+    canonical_cache_sha256: 9197188a018fe80ca6d1f44bc3ab9e102c254c2ce6fd131d82be516f45087d53
+    full_text_bodies_equal: true
+    full_text_body_sha256: c91dc7cbf28e8d3357c6c11816977f369ab4da7bc0f5216e6afcbcc56898e666
+    scope: Complete abstract, introduction, results/discussion, methods, figure captions
+      and data/code availability read in DOI-cache folded lines 1-480. Corresponding
+      full-text body in canonical PMID cache is byte-identical. Header still incorrectly
+      says abstract_only.
+    unread: Figure images, Supplementary Notes/Methods/Figures/Data, source data tables,
+      code/model assets, BioModels files and other cited papers; no simulation reruns.
+      Bibliography after first nine citations not inspected.
+  limitations:
+  - No new nodes/arrows and no paid Edison job; source-based repair, not graph extension.
+  - Only the stated source scopes are certified, not unread images, supplements or
+    rerun models.
+  - 'Non-graph metadata remains under #1268; cable biofilm taxonomy and inherited
+    connectivity remain #1267.'
+  history_file: history/records/BioModels_MODEL2407300002_Sponge_Holobiont_Network/2026-10-05T142601Z-codex-76c203.yaml
+  issue: https://github.com/CultureBotAI/CommunityMech/issues/1264
+  removed_node_decisions: []
+  removed_edge_decisions:
+  - source: Nutrient-Responsive Cross-Feeding Network
+    target: Deltaporibacter Nitrogen-Linked Cross-Feeding
+    rationale: Deltaporibacter is a component of the same modeled network, not an
+      independently established downstream effect of its summary.
+  - source: Nutrient-Responsive Cross-Feeding Network
+    target: Nutrient-Dependent Symbiont Trophic Balance
+    rationale: Net carbon balance and exchange patterns respond to imposed inputs;
+      their summary association does not isolate exchange-to-balance mediation.
+  adversarial_correction:
+    issue: 1264
+    finding: Initial draft confused a population-ratio stability criterion with population-size
+      bounds.
+    resolution: Corrected the ratio-of-ratios definition and explanation before commit;
+      no new node/edge or additional curation event.
+  issues:
+  - 2072
+  allowed_changed_fields:
+  - curation_history
+  - environment_term
+  curation_events_added: 1
+  history_files:
+  - history/records/BioModels_MODEL2407300002_Sponge_Holobiont_Network/2026-10-25T151200Z-antigravity-2072.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+    record_sha256: 2f4e9de54727970a957771c70add6bd6a8fc5a6d38c4cdda2316cc50ab509e7a
+- path: kb/communities/Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture.yaml
+  id: CommunityMech:000031
+  original_sha256: 2bfa8ffd6b7d147f3c471eb88aa26482f93b0cc8d7b23dc39838402715463329
+  record_sha256: c4d14762f14174fa4f51e7921d8c2c2105f141e12ca78451f39ade949ceabcd7
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml
+  scope: Whole record and every original node/arrow reviewed; measurements distinguished
+    from inferred mediator.
+  summary: Qualify growth-inferred electron transfer and its one retained arrow; restrict
+    product yields to responding cultures; remove duplicate outcome and unsupported
+    mutualism; correct controversy and exact anchors.
+  renamed_nodes:
+    Acetate Oxidation and Interspecies Electron Transfer: Proposed Acetate Oxidation
+      and Interspecies Electron Transfer
+    Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift: Coculture-Associated
+      Glycerol Fermentation Product Shift
+  node_decisions:
+  - node: Proposed Acetate Oxidation and Interspecies Electron Transfer
+    rationale: Retain only the HYPOTHESIZED growth-based acetate/IET model with both
+      canonical participants; not measured uptake or demonstrated syntrophy.
+  - node: Coculture-Associated Glycerol Fermentation Product Shift
+    rationale: Retain conditional measured product yields, remove mutualism and unproven
+      electron-chain annotation; incorporate duplicate outcome evidence.
+  removed_node_decisions:
+  - node: Increased 1,3-Propanediol and Butyrate Production
+    rationale: Same product shift as the fermentation-response node, not a distinct
+      downstream causal event; preserve its evidence in the surviving response.
+  edges_before:
+  - source: Acetate Oxidation and Interspecies Electron Transfer
+    target: Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift
+    description: Electrons taken up from G. sulfurreducens induce the metabolic shift
+      in C. pasteurianum toward 1,3-propanediol and butyrate. The transfer route is
+      unresolved, so this edge asserts electron uptake causing the shift, not a contact-dependent
+      mechanism.
+  - source: Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift
+    target: Increased 1,3-Propanediol and Butyrate Production
+    description: The electron-transfer-induced metabolic shift redirects glycerol
+      fermentation products toward higher 1,3-propanediol and butyrate yields.
+  edges_after:
+  - source: Proposed Acetate Oxidation and Interspecies Electron Transfer
+    target: Coculture-Associated Glycerol Fermentation Product Shift
+    description: 'HYPOTHESIZED: Acetate-derived electron transfer could alter Clostridium
+      redox regulation and thereby its glycerol-fermentation product profile. Growth/product
+      associations and an assumed electron balance motivate this direction, but do
+      not selectively establish electron uptake as the mediator. The follow-up proposes
+      cobamides and possible electron entry as alternatives or contributors, not verified
+      replacements.'
+  retained_edge_decisions:
+  - source: Proposed Acetate Oxidation and Interspecies Electron Transfer
+    target: Coculture-Associated Glycerol Fermentation Product Shift
+    description: 'HYPOTHESIZED: Acetate-derived electron transfer could alter Clostridium
+      redox regulation and thereby its glycerol-fermentation product profile. Growth/product
+      associations and an assumed electron balance motivate this direction, but do
+      not selectively establish electron uptake as the mediator. The follow-up proposes
+      cobamides and possible electron entry as alternatives or contributors, not verified
+      replacements.'
+    rationale: Explicit hypothesis of redox-mediated product regulation; association
+      and assumed balance do not selectively prove the mediator.
+  removed_edge_decisions:
+  - source: Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift
+    target: Increased 1,3-Propanediol and Butyrate Production
+    description: The electron-transfer-induced metabolic shift redirects glycerol
+      fermentation products toward higher 1,3-propanediol and butyrate yields.
+    rationale: A product-profile shift causing the same product-profile shift is a
+      restatement, not a separate causal link.
+  references:
+  - PMID:28287150
+  - PMID:34939136
+  issues:
+  - 2073
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture/2026-10-25T151200Z-antigravity-2073.yaml
+  source_review:
+    PMID:28287150:
+      cache: references_cache/PMID_28287150.txt
+      sha256: fdddff4829504900d4fcc745c214415a4cd3db3f57b1afe864237a4ec0c8c333
+      url: https://doi.org/10.1038/srep44334
+      scope: Complete appended primary main body/Methods/Table 1/captions, not figure
+        images or separate supplements.
+    PMID:34939136:
+      cache: references_cache/PMID_34939136.txt
+      sha256: 8e7d9b0ab75beb3caf39c10356a7f7b9cf97547b1c6388ba92154c00c7e9e4ba
+      url: https://link.springer.com/article/10.1007/s00253-021-11736-7
+      scope: Complete abstract only; subscription preview. Cell-free assay not verified.
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261006-clostridium-batch45.yaml
+    record_sha256: 2bfa8ffd6b7d147f3c471eb88aa26482f93b0cc8d7b23dc39838402715463329
+- path: kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml
+  id: CommunityMech:000175
+  original_sha256: bafb8c0e58150b2e586e92c84725b0e3ad88001a64c2d1acb1d2889ede2810b3
+  record_sha256: 20a878c274695f48d5ad4fd8fe4475e576d4210926f3a9cb901ff85001bf3eff
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml
+  scope: Whole record and all existing graph nodes/arrows rechecked for current interaction
+    semantics; not non-graph certification or exhaustive new-structure discovery.
+  summary: 'Retain CROSS_FEEDING: the existing explanation already distinguishes source
+    syntrophy wording from product-removal benefit.; Preserve binary electricity and
+    substrate-conversion comparisons without a unique feedback or reciprocal-fitness
+    claim.; Preserve substrate-dependent spatial observations without restoring a
+    causal localization arrow.'
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-five-records-batch91.yaml
+    record_sha256: bafb8c0e58150b2e586e92c84725b0e3ad88001a64c2d1acb1d2889ede2810b3
+  node_decisions:
+  - node: Cellulose Fermentation Feeding Electrode Respiration
+    rationale: 'Retain CROSS_FEEDING: the existing explanation already distinguishes
+      source syntrophy wording from product-removal benefit.'
+  - node: Defined Binary Electricity Production
+    rationale: Preserve binary electricity and substrate-conversion comparisons without
+      a unique feedback or reciprocal-fitness claim.
+  - node: Observed Substrate-Dependent Spatial Distribution
+    rationale: Preserve substrate-dependent spatial observations without restoring
+      a causal localization arrow.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before:
+  - source: Cellulose Fermentation Feeding Electrode Respiration
+    target: Defined Binary Electricity Production
+    description: Fermentative conversion of cellulose supplies electron-donor products
+      for G. sulfurreducens anode respiration, enabling current from substrates on
+      which neither pure culture produced electricity. The conversion is supported
+      by the binary-versus-pure-culture comparison; the accessible abstract does not
+      resolve each metabolite contribution or transfer rate.
+  edges_after:
+  - source: Cellulose Fermentation Feeding Electrode Respiration
+    target: Defined Binary Electricity Production
+    description: Fermentative conversion of cellulose supplies electron-donor products
+      for G. sulfurreducens anode respiration, enabling current from substrates on
+      which neither pure culture produced electricity. The conversion is supported
+      by the binary-versus-pure-culture comparison; the accessible abstract does not
+      resolve each metabolite contribution or transfer rate.
+  retained_edge_decisions:
+  - source: Cellulose Fermentation Feeding Electrode Respiration
+    target: Defined Binary Electricity Production
+    description: Fermentative conversion of cellulose supplies electron-donor products
+      for G. sulfurreducens anode respiration, enabling current from substrates on
+      which neither pure culture produced electricity. The conversion is supported
+      by the binary-versus-pure-culture comparison; the accessible abstract does not
+      resolve each metabolite contribution or transfer rate.
+    rationale: Retain the existing evidence-bounded direction and wording without
+      a new mechanism or endpoint.
+  removed_edge_decisions: []
+  mechanical_edge_source_corrections: []
+  references:
+  - PMID:17695929
+  - PMID:18725730
+  issues:
+  - 2073
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture/2026-10-25T151200Z-antigravity-2073.yaml
+- path: kb/communities/ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model.yaml
+  id: CommunityMech:000176
+  original_sha256: 151a414766ded2f1c8b094002819c6e620751b6344ef9753d1f3a988c1cf99dd
+  record_sha256: fdd3d6c6e4fccd5b1416af814ec60609f0353ddc01d5d3e6ec88b4b83da94edc
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml
+  scope: Whole record and all existing nodes/arrows; missing endpoint and exchange
+    structures tracked explicitly. Not whole-record certification.
+  summary: Retain both donor-to-partner arrows using full-text measurements while
+    separating modeled flux allocations.; Replace reciprocal-syntrophy overclaim with
+    experimentally supported trophic dependence and unresolved donor proportions.;
+    Retain fumarate-linked dependence and repair the fumarate grounding without claiming
+    directly traced acetate flux.; Bound inferred donor/acceptor limitation and possible
+    succinate effects; update the stale full-text-access discussion.
+  renamed_nodes: {}
+  node_decisions:
+  - node: Cellobiose Fermentation Supports Partner Growth
+    original_node: Cellobiose Fermentation Supports Partner Growth
+    rationale: Retain both donor-to-partner arrows using full-text measurements while
+      separating modeled flux allocations.
+  - node: Sulfate-Linked Dependence of D. vulgaris
+    original_node: Sulfate-Linked Dependence of D. vulgaris
+    rationale: Replace reciprocal-syntrophy overclaim with experimentally supported
+      trophic dependence and unresolved donor proportions.
+  - node: Fumarate-Linked Dependence of G. sulfurreducens
+    original_node: Fumarate-Linked Dependence of G. sulfurreducens
+    rationale: Retain fumarate-linked dependence and repair the fumarate grounding
+      without claiming directly traced acetate flux.
+  - node: Electron Donor and Acceptor Limitation
+    original_node: Electron Donor and Acceptor Limitation
+    rationale: Bound inferred donor/acceptor limitation and possible succinate effects;
+      update the stale full-text-access discussion.
+  removed_node_decisions: []
+  edges_before:
+  - source: Cellobiose Fermentation Supports Partner Growth
+    target: Sulfate-Linked Dependence of D. vulgaris
+    description: 'C. cellulolyticum cellobiose-fermentation products are the carbon/energy
+      (electron-donor) source D. vulgaris consumes while reducing its supplied sulfate
+      acceptor; the fermentation cross-feeding is required for D. vulgaris''s sulfate-linked
+      growth. (Abstract-level / directly implied, not perturbation-demonstrated.)
+
+      '
+  - source: Cellobiose Fermentation Supports Partner Growth
+    target: Fumarate-Linked Dependence of G. sulfurreducens
+    description: 'The same fermentation products support G. sulfurreducens, which
+      reduces its supplied fumarate acceptor; the cross-feeding is required for its
+      fumarate-linked growth. (Abstract-level / directly implied, not perturbation-demonstrated.)
+
+      '
+  edges_after:
+  - source: Cellobiose Fermentation Supports Partner Growth
+    target: Sulfate-Linked Dependence of D. vulgaris
+    description: C. cellulolyticum fermentation supplies carbon and reducing equivalents
+      that support D. vulgaris growth with supplied sulfate. Maintained coculture
+      and sulfate depletion support this dependence under the tested medium; hydrogen/ethanol
+      partitioning is proposed rather than selectively measured, and reciprocal obligate
+      dependence of the fermenter is not established.
+  - source: Cellobiose Fermentation Supports Partner Growth
+    target: Fumarate-Linked Dependence of G. sulfurreducens
+    description: Fermentation-derived substrates support G. sulfurreducens growth
+      with supplied fumarate; measured acetate availability, fumarate depletion and
+      succinate formation support the trophic interpretation. The allocation of acetate
+      specifically to G. sulfurreducens is model-based rather than isotope-traced,
+      so the arrow does not assert an independently measured donor-recipient flux.
+  retained_edge_decisions:
+  - source: Cellobiose Fermentation Supports Partner Growth
+    target: Sulfate-Linked Dependence of D. vulgaris
+    description: C. cellulolyticum fermentation supplies carbon and reducing equivalents
+      that support D. vulgaris growth with supplied sulfate. Maintained coculture
+      and sulfate depletion support this dependence under the tested medium; hydrogen/ethanol
+      partitioning is proposed rather than selectively measured, and reciprocal obligate
+      dependence of the fermenter is not established.
+    rationale: C. cellulolyticum fermentation supplies carbon and reducing equivalents
+      that support D. vulgaris growth with supplied sulfate. Maintained coculture
+      and sulfate depletion support this dependence under the tested medium; hydrogen/ethanol
+      partitioning is proposed rather than selectively measured, and reciprocal obligate
+      dependence of the fermenter is not established.
+  - source: Cellobiose Fermentation Supports Partner Growth
+    target: Fumarate-Linked Dependence of G. sulfurreducens
+    description: Fermentation-derived substrates support G. sulfurreducens growth
+      with supplied fumarate; measured acetate availability, fumarate depletion and
+      succinate formation support the trophic interpretation. The allocation of acetate
+      specifically to G. sulfurreducens is model-based rather than isotope-traced,
+      so the arrow does not assert an independently measured donor-recipient flux.
+    rationale: Fermentation-derived substrates support G. sulfurreducens growth with
+      supplied fumarate; measured acetate availability, fumarate depletion and succinate
+      formation support the trophic interpretation. The allocation of acetate specifically
+      to G. sulfurreducens is model-based rather than isotope-traced, so the arrow
+      does not assert an independently measured donor-recipient flux.
+  removed_edge_decisions: []
+  references:
+  - doi:10.1186/1471-2180-10-149
+  issues:
+  - 2073
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model/2026-10-25T151200Z-antigravity-2073.yaml
+  source_review:
+  - source: trophic
+    url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC2906461/fullTextXML
+    scope: Primary abstract and complete main body, embedded tables and captions;
+      not separate supplements, raw data or original figure pixels.
+  - source: optcom
+    url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3271020/fullTextXML
+    scope: Primary abstract and complete main body, embedded tables and captions;
+      not separate supplements, raw data or original figure pixels.
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch78.yaml
+    record_sha256: 151a414766ded2f1c8b094002819c6e620751b6344ef9753d1f3a988c1cf99dd
+- path: kb/communities/Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture.yaml
+  id: CommunityMech:000268
+  original_sha256: 21ea769fcc97b50c66ad0fd3ba76cca647ae23fde4a34ce2b7d1aea81bc69378
+  record_sha256: 143da9f7c6ce3d97701a9de829b13b48eead9113266dbf191c51f1e6f11d0912
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml
+  scope: Whole record and every existing node/direction reviewed, including source-access
+    limits. Not exhaustive new-mechanism discovery or non-graph certification.
+  summary: Retain mineral-mediated electron storage without direct donor-recipient
+    nutrient CROSS_FEEDING.; Retain light-driven oxidation and both existing directions,
+    correcting discharge terminology.; Retain reduction and both existing directions,
+    correcting charge terminology and removing transport misannotation.; Retain the
+    observed reusable reservoir without SYNTROPHY or perpetual-cycle claims; remove
+    secondary editorial evidence.
+  node_decisions:
+  - node: Magnetite-Mediated Electron Sharing
+    rationale: Retain mineral-mediated electron storage without direct donor-recipient
+      nutrient CROSS_FEEDING.
+  - node: Phototrophic Magnetite Fe(II) Oxidation
+    rationale: Retain light-driven oxidation and both existing directions, correcting
+      discharge terminology.
+  - node: Anaerobic Magnetite Fe(III) Reduction
+    rationale: Retain reduction and both existing directions, correcting charge terminology
+      and removing transport misannotation.
+  - node: Biogeochemical Battery Function
+    rationale: Retain the observed reusable reservoir without SYNTROPHY or perpetual-cycle
+      claims; remove secondary editorial evidence.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before:
+  - &id001
+    source: Magnetite-Mediated Electron Sharing
+    target: Biogeochemical Battery Function
+    description: 'Magnetite-mediated electron sharing between the phototrophic Fe(II)
+      oxidizer and the anaerobic Fe(III) reducer manifests as the emergent, reusable
+      mineral electron-storage system (the "battery").
+
+      '
+  - &id003
+    source: Phototrophic Magnetite Fe(II) Oxidation
+    target: Anaerobic Magnetite Fe(III) Reduction
+    description: 'Light-driven oxidation of magnetite Fe(II) to Fe(III) supplies the
+      oxidized Fe(III) that G. sulfurreducens subsequently uses as its anaerobic electron
+      acceptor.
+
+      '
+  - &id005
+    source: Phototrophic Magnetite Fe(II) Oxidation
+    target: Biogeochemical Battery Function
+    description: 'TIE-1 phototrophic Fe(II) oxidation is one half of the reversible
+      redox cycling that charges magnetite toward its oxidized state.
+
+      '
+  - &id007
+    source: Anaerobic Magnetite Fe(III) Reduction
+    target: Phototrophic Magnetite Fe(II) Oxidation
+    description: 'G. sulfurreducens reduction of magnetite Fe(III) regenerates the
+      reduced Fe(II) electron donor for TIE-1, closing the reversible redox loop (the
+      process is reversible in co-cultures).
+
+      '
+  - &id009
+    source: Anaerobic Magnetite Fe(III) Reduction
+    target: Biogeochemical Battery Function
+    description: 'Fe(III) reduction is the complementary half-reaction that restores
+      the mineral''s reduced electron-storage capacity, making the magnetite store
+      reusable.
+
+      '
+  edges_after:
+  - &id002
+    source: Magnetite-Mediated Electron Sharing
+    target: Biogeochemical Battery Function
+    description: Opposed microbial electron withdrawal and supply allow magnetite
+      to function as the shared redox reservoir under the tested externally controlled
+      conditions.
+  - &id004
+    source: Phototrophic Magnetite Fe(II) Oxidation
+    target: Anaerobic Magnetite Fe(III) Reduction
+    description: Oxidation regenerates magnetite Fe(III) that Geobacter can subsequently
+      reduce when electron donor is supplied under the tested reducing conditions;
+      the observed cycle depends on external conditions.
+  - &id006
+    source: Phototrophic Magnetite Fe(II) Oxidation
+    target: Biogeochemical Battery Function
+    description: Phototrophic Fe(II) oxidation withdraws electrons from magnetite
+      and discharges the mineral reservoir; it does not charge an oxidized electron
+      store.
+  - &id008
+    source: Anaerobic Magnetite Fe(III) Reduction
+    target: Phototrophic Magnetite Fe(II) Oxidation
+    description: Reduction regenerates magnetite Fe(II) that TIE-1 can oxidize during
+      a subsequent illuminated phase, closing the experimentally demonstrated conditional
+      redox cycle.
+  - &id010
+    source: Anaerobic Magnetite Fe(III) Reduction
+    target: Biogeochemical Battery Function
+    description: Fe(III) reduction charges magnetite with electrons and restores the
+      reduced electron reservoir for later phototrophic discharge.
+  retained_edge_decisions:
+  - before: *id001
+    after: *id002
+    rationale: Existing direction retained with source-specific experimental or hypothesis
+      limits; no new edge.
+  - before: *id003
+    after: *id004
+    rationale: Existing direction retained with source-specific experimental or hypothesis
+      limits; no new edge.
+  - before: *id005
+    after: *id006
+    rationale: Existing direction retained with source-specific experimental or hypothesis
+      limits; no new edge.
+  - before: *id007
+    after: *id008
+    rationale: Existing direction retained with source-specific experimental or hypothesis
+      limits; no new edge.
+  - before: *id009
+    after: *id010
+    rationale: Existing direction retained with source-specific experimental or hypothesis
+      limits; no new edge.
+  removed_edge_decisions: []
+  references:
+  - PMID:25814583
+  issues:
+  - 2073
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture/2026-10-25T151200Z-antigravity-2073.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch94.yaml
+    record_sha256: 21ea769fcc97b50c66ad0fd3ba76cca647ae23fde4a34ce2b7d1aea81bc69378
+- path: kb/communities/Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml
+  id: CommunityMech:000288
+  original_sha256: 1c9db92e6594e7744b051cec01e1f4cc33c3ff0370d73ca6419f56fd4edcc241
+  record_sha256: 9bdfc9d2f4aa351bf677c6d1b8838738592fe1b7358798860cd13d6bc10472ce
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml
+  scope: Whole record and every existing node/direction reviewed; no new-mechanism
+    discovery or non-graph certification.
+  summary: Retain donor electron harvesting without a separate SYNTROPHY classification.;
+    Retain the reported electron-transfer direction while distinguishing author terminology,
+    transcriptional response and unverified feedback.; Retain recipient nitrate reduction
+    without assigning reciprocal syntrophic benefit.
+  node_decisions:
+  - node: Shewanella Fe0-Biocorrosion Electron Harvesting
+    rationale: Retain donor electron harvesting without a separate SYNTROPHY classification.
+  - node: Fe0-Dependent Interspecies Electron Transfer
+    rationale: Retain the reported electron-transfer direction while distinguishing
+      author terminology, transcriptional response and unverified feedback.
+  - node: Pseudomonas Nitrate Reduction by Accepted Electrons
+    rationale: Retain recipient nitrate reduction without assigning reciprocal syntrophic
+      benefit.
+  removed_node_decisions: []
+  renamed_nodes:
+    Fe0-dependent electro-syntrophic electron transfer: Fe0-Dependent Interspecies
+      Electron Transfer
+  edges_before:
+  - &id011
+    source: Shewanella Fe0-Biocorrosion Electron Harvesting
+    target: Fe0-dependent electro-syntrophic electron transfer
+    description: Electron harvest from Fe0 by S. oneidensis feeds the direct electron
+      cross-feeding system that supplies P. aeruginosa.
+  - &id013
+    source: Fe0-dependent electro-syntrophic electron transfer
+    target: Pseudomonas Nitrate Reduction by Accepted Electrons
+    description: Electrons transferred from S. oneidensis to P. aeruginosa are accepted
+      by the denitrifier to drive nitrate reduction.
+  edges_after:
+  - &id012
+    source: Shewanella Fe0-Biocorrosion Electron Harvesting
+    target: Fe0-Dependent Interspecies Electron Transfer
+    description: Electron harvest from metallic iron supplies the electrons that the
+      source reports passing from S. oneidensis to P. aeruginosa in the model consortium.
+      This preserves the reported upstream-to-transfer direction without adding a
+      reciprocal feedback claim.
+  - &id014
+    source: Fe0-Dependent Interspecies Electron Transfer
+    target: Pseudomonas Nitrate Reduction by Accepted Electrons
+    description: Electrons transferred from S. oneidensis to P. aeruginosa are accepted
+      by the denitrifier to drive nitrate reduction.
+  retained_edge_decisions:
+  - before: *id011
+    after: *id012
+    rationale: Existing direction retained with configuration-specific or PARTIAL
+      causal attribution where appropriate.
+  - before: *id013
+    after: *id014
+    rationale: Existing direction retained with configuration-specific or PARTIAL
+      causal attribution where appropriate.
+  removed_edge_decisions: []
+  references:
+  - PMID:39504696
+  issues:
+  - 2073
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium/2026-10-25T151200Z-antigravity-2073.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch101.yaml
+    record_sha256: 1c9db92e6594e7744b051cec01e1f4cc33c3ff0370d73ca6419f56fd4edcc241
+- path: kb/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml
+  id: CommunityMech:000294
+  original_sha256: 1522534e0e993cff111c4fcde85182868aeae81389cb47120d97a3882b88250d
+  record_sha256: 12ec7d94161d772e79598564ae50e6f322c9cfd82e889a2fd5e0fbcde687f8f6
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml
+  scope: Whole record and every original node/arrow; source access bounded below.
+  summary: Retain the measured external-additive response at coculture scope without
+    asserting directed exchange or syntrophy.; Represent Corynebacterium transcript
+    response with its canonical source only and qualify inferred flux and causal mediation.;
+    Preserve distinct parent-strain and K1 intervention outcomes without assigning
+    parent results to the engineered derivative.
+  renamed_nodes:
+    Riboflavin-Mediated Redox Coupling: Riboflavin-Supplemented Coculture Response
+    Reprogrammed Corynebacterium Reductive TCA Flux: Corynebacterium Coculture Transcript
+      Response
+  node_decisions:
+  - node: Riboflavin-Supplemented Coculture Response
+    rationale: Retain the measured external-additive response at coculture scope without
+      asserting directed exchange or syntrophy.
+  - node: Corynebacterium Coculture Transcript Response
+    rationale: Represent Corynebacterium transcript response with its canonical source
+      only and qualify inferred flux and causal mediation.
+  - node: Enhanced Succinic Acid Production
+    rationale: Preserve distinct parent-strain and K1 intervention outcomes without
+      assigning parent results to the engineered derivative.
+  edges_before:
+  - source: Riboflavin-Mediated Redox Coupling
+    target: Reprogrammed Corynebacterium Reductive TCA Flux
+    description: Coculture redox coupling leads into the transcriptome-level reinforcement
+      of the C. glutamicum electron transport system and reductive TCA flux.
+  - source: Reprogrammed Corynebacterium Reductive TCA Flux
+    target: Enhanced Succinic Acid Production
+    description: Redistribution toward the reductive TCA pathway and suppression of
+      succinic-acid-consuming pathways provide the immediate metabolic basis for higher
+      succinic acid yield.
+  edges_after:
+  - source: Riboflavin-Supplemented Coculture Response
+    target: Corynebacterium Coculture Transcript Response
+    description: HYPOTHESIZED - altered coculture redox conditions could contribute
+      to the Corynebacterium transcript response. Additive screening and the transcriptomic
+      interpretation support this candidate link, but the accessible abstract does
+      not selectively establish riboflavin-dependent electron transfer as its cause.
+  - source: Corynebacterium Coculture Transcript Response
+    target: Enhanced Succinic Acid Production
+    description: PARTIAL - the transcript-based interpretation is consistent with
+      metabolic changes contributing to increased succinic acid yield. Positive coculture,
+      riboflavin and ldhA-deletion outcomes support the production strategy, but do
+      not selectively establish this transcript response or inferred flux redistribution
+      as the mediator of each yield comparison.
+  retained_edge_decisions:
+  - source: Riboflavin-Supplemented Coculture Response
+    target: Corynebacterium Coculture Transcript Response
+    rationale: HYPOTHESIZED - altered coculture redox conditions could contribute
+      to the Corynebacterium transcript response. Additive screening and the transcriptomic
+      interpretation support this candidate link, but the accessible abstract does
+      not selectively establish riboflavin-dependent electron transfer as its cause.
+  - source: Corynebacterium Coculture Transcript Response
+    target: Enhanced Succinic Acid Production
+    rationale: PARTIAL - the transcript-based interpretation is consistent with metabolic
+      changes contributing to increased succinic acid yield. Positive coculture, riboflavin
+      and ldhA-deletion outcomes support the production strategy, but do not selectively
+      establish this transcript response or inferred flux redistribution as the mediator
+      of each yield comparison.
+  removed_edge_decisions: []
+  references:
+  - PMID:42203120
+  issues:
+  - 2073
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture/2026-10-25T151200Z-antigravity-2073.yaml
+  source_review:
+    PMID:42203120:
+      url: https://pubmed.ncbi.nlm.nih.gov/42203120/
+      reviewed_scope: Complete primary abstract only; publisher body inaccessible
+        (403). No full Methods/Results or supplementary-material claim.
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-three-records-batch24.yaml
+    record_sha256: 1522534e0e993cff111c4fcde85182868aeae81389cb47120d97a3882b88250d

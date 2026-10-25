@@ -94,10 +94,15 @@ def test_decision_coverage_and_append_only_provenance():
     successor_file = (
         ROOT / "reports/causal_graph_review/decisions/20261021-stage3-common-taxon-links.yaml"
     )
-    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
+    c2s5_file = ROOT / "reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml"
+    successor_by_id = {
+        r["id"]: r
+        for f in (successor_file, c2s5_file)
+        for r in yaml.safe_load(f.read_text())["records"]
+    }
     for row, doc in zip(rows, docs, strict=True):
         latest = row
-        if row["id"] in {"CommunityMech:000203", "CommunityMech:000279"}:
+        if row["id"] in {"CommunityMech:000203", "CommunityMech:000279", "CommunityMech:000288"}:
             latest = successor_by_id[row["id"]]
             assert latest["supersedes_review"] == {
                 "review_file": str(LEDGER.relative_to(ROOT)),
