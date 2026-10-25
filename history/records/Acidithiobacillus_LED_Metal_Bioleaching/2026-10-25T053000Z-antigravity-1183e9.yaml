@@ -1,24 +1,31 @@
 history_version: 1
 target:
   kind: record
-  slug: Acidithiobacillus_LED_Metal_Bioleaching
-  record_id: CommunityMech:000489
   path: data/isolates/Acidithiobacillus_LED_Metal_Bioleaching.yaml
-  sha256: 1183e9ac2b3567f395e7f19cceb575ac15227bc4ce1323736c042d1fbd43fb4b
-previous_sha256: c16dd6b1f4fa4f3556b34bde4d0b421502a65bd7cfac7230ba07affb0f55d489
-timestamp: '2026-10-25T05:30:00Z'
-agent:
-  tool: antigravity
-  model: claude-opus-4-6
-skill: curate-causal-graphs
-mode: write
-Trigger: Cycle 2 Stage 2 causal_graphs review and curation of the 7 records added in Cycle 2 Stage 1 (CommunityMech:000484-000490).
-Summary: Added a 3-node physiological mechanism chain for adapted Acidithiobacillus ferrooxidans linking
-  five-step serial LED powder adaptation (5-25 g/L) to enhanced biogenic Fe3+ (4-5 g/L) and acidification,
-  and downstream to 83-84% Cu, 96-97% Ni, and 60-84% Ga bioleaching recovery.
-Files_changed:
-- path: data/isolates/Acidithiobacillus_LED_Metal_Bioleaching.yaml
-  change: updated
-  description: Added 3-node single-species physiological causal graph (Serial Heavy-Metal Acclimatization
+  slug: Acidithiobacillus_LED_Metal_Bioleaching
+session:
+  id: 2026-10-25T053000Z-antigravity-1183e9
+  timestamp: '2026-10-25T05:30:00Z'
+  actors:
+  - type: ai_agent
+    name: antigravity
+    model: claude-opus-4-6
+    agent_tool: antigravity
+links:
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/2066
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2067
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - ecological_interactions
+  - curation_history
+  summary: Added a 3-node physiological mechanism chain for adapted Acidithiobacillus ferrooxidans linking
+    five-step serial LED powder adaptation (5-25 g/L) to enhanced biogenic Fe3+ (4-5 g/L) and acidification,
+    and downstream to 83-84% Cu, 96-97% Ni, and 60-84% Ga bioleaching recovery.
+  details: 'Added 3-node single-species physiological causal graph (Serial Heavy-Metal Acclimatization
     to Waste LED Powder -> Biogenic Ferric Iron and Acid Generation -> Catalytic Ferric Bioleaching of
     Copper, Nickel, and Gallium from Waste LEDs) backed by verbatim snippets from PMID:30343816 and PMID:31203122.
+    Decision ledger: reports/causal_graph_review/decisions/20261025-stage2-seven-records-batch134.yaml'

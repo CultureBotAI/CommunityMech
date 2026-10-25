@@ -1,25 +1,32 @@
 history_version: 1
 target:
   kind: record
-  slug: Bacillus_licheniformis_Chromate_Biosorption
-  record_id: CommunityMech:000488
   path: data/isolates/Bacillus_licheniformis_Chromate_Biosorption.yaml
-  sha256: 7ad94b96c56469311346da8af429fb922eaa122a96464121697282771c45120e
-previous_sha256: c4f9e2736dc799da6ace0514a79ceb75048b84ebdf53c791217a227d076a8972
-timestamp: '2026-10-25T05:30:00Z'
-agent:
-  tool: antigravity
-  model: claude-opus-4-6
-skill: curate-causal-graphs
-mode: write
-Trigger: Cycle 2 Stage 2 causal_graphs review and curation of the 7 records added in Cycle 2 Stage 1 (CommunityMech:000484-000490).
-Summary: Added a 2-node physiological mechanism chain for Bacillus licheniformis chromate biosorption
-  linking FTIR-characterized cell-surface functional-group Cr(VI) complexation and phosphoryl deprotonation
-  to the zeta-potential shift (-10.63 to -39.53 mV) and EDX-measured chromium biosorption up to the 100
-  mg/L Cr6+ saturation limit.
-Files_changed:
-- path: data/isolates/Bacillus_licheniformis_Chromate_Biosorption.yaml
-  change: updated
-  description: Added 2-node single-species physiological causal graph (Cell-Surface Functional-Group Chromate
+  slug: Bacillus_licheniformis_Chromate_Biosorption
+session:
+  id: 2026-10-25T053000Z-antigravity-7ad94b
+  timestamp: '2026-10-25T05:30:00Z'
+  actors:
+  - type: ai_agent
+    name: antigravity
+    model: claude-opus-4-6
+    agent_tool: antigravity
+links:
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/2066
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2067
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - ecological_interactions
+  - curation_history
+  summary: Added a 2-node physiological mechanism chain for Bacillus licheniformis chromate biosorption
+    linking FTIR-characterized cell-surface functional-group Cr(VI) complexation and phosphoryl deprotonation
+    to the zeta-potential shift (-10.63 to -39.53 mV) and EDX-measured chromium biosorption up to the
+    100 mg/L Cr6+ saturation limit.
+  details: 'Added 2-node single-species physiological causal graph (Cell-Surface Functional-Group Chromate
     Complexation and Deprotonation -> Electrostatic Surface-Charge Shift and Chromium Biosorption Saturation)
     backed by verbatim FTIR deprotonation, zeta-potential, and EDX snippets from doi:10.3389/fmicb.2024.1423741.
+    Decision ledger: reports/causal_graph_review/decisions/20261025-stage2-seven-records-batch134.yaml'
