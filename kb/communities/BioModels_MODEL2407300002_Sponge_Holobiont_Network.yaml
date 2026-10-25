@@ -5,6 +5,12 @@ description: BioModels record MODEL2407300002 provides simulations and model ass
 ecological_state: STABLE
 community_origin: NATURAL
 community_category: OTHER
+environment_term:
+  preferred_term: marine sponge holobiont environment
+  term:
+    id: ENVO:01001002
+    label: animal-associated environment
+  notes: Genome-scale metabolic network modeling of the eight-species microbiome associated with the marine sponge Stylissa sp. (PMID:39738126).
 associated_datasets:
 - title: Primary publication
   dataset_type: OTHER
@@ -330,4 +336,9 @@ curation_history:
   action: REVIEW_CAUSAL_GRAPH
   changes: 'Separate conditional sponge model mechanisms from host mutualism and summary arrows; decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml;
     https://github.com/CultureBotAI/CommunityMech/issues/1264'
+  llm_assisted: true
+- timestamp: '2026-10-25T15:12:00Z'
+  curator: antigravity
+  action: CURATE_ENVIRONMENT
+  changes: 'Populate missing environment_term (ENVO:01001002 animal-associated environment) for the Stylissa sp. sponge holobiont network model; resolves c2s4-biomodels-missing-environment-term; https://github.com/CultureBotAI/CommunityMech/issues/2072'
   llm_assisted: true

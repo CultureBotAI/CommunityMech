@@ -109,6 +109,10 @@ def test_complete_dispositions_without_new_topology():
     assert sum(len(r["edges_before"]) for r in rows) == 14
     assert sum(len(r["removed_edge_decisions"]) for r in rows) == 1
     assert sum(len(r["retained_edge_decisions"]) for r in rows) == 13
+    successor_file = (
+        ROOT / "reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml"
+    )
+    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
     for row, doc in zip(rows, docs, strict=True):
         assert {r["node"] for r in row["node_decisions"]} == {
             n["name"] for n in doc["ecological_interactions"]
@@ -116,7 +120,17 @@ def test_complete_dispositions_without_new_topology():
         assert not row["renamed_nodes"]
         for decision in row["retained_edge_decisions"]:
             assert all(decision["before"][k] == decision["after"][k] for k in ["source", "target"])
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        latest = row
+        if row["id"] == "CommunityMech:000268":
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )
 
 
 def test_source_history_and_unresolved_scope():

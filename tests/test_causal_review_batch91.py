@@ -104,13 +104,27 @@ def test_existing_nodes_arrows_and_participant_assignments_remain_covered():
 
 def test_current_hashes_extend_the_immutable_prior_review_chain():
     _, rows, _ = records()
+    successor_file = (
+        ROOT / "reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml"
+    )
+    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
     for row in rows:
         link = row["supersedes_review"]
         prior = yaml.safe_load((ROOT / link["review_file"]).read_text())
         old = next(r for r in prior["records"] if r["path"] == row["path"])
         assert old["id"] == row["id"]
         assert old["record_sha256"] == link["record_sha256"] == row["original_sha256"]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        latest = row
+        if row["id"] == "CommunityMech:000175":
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )
 
 
 def test_unchanged_coverage_history_and_unfinished_research_are_explicit():
