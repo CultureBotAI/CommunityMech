@@ -1,0 +1,114 @@
+schema_version: 1.0.0
+repository_key: communitymech
+github_repository: CultureBotAI/CommunityMech
+run_id: mech-goal-sequence-20261019
+cycle: 2
+stage: 4
+revision: 1
+outcome: completed
+summary: Reviewed all 486 eligible records in the frozen CommunityMech inventory at
+  commit 9e6356de530ea961259cb5b8c93e5da4b44f5660 across all 3 declared record roots
+  (477 kb/communities/*.yaml, 7 data/isolates/*.yaml, 2 kb/taxa/*.yaml) and 20 domain
+  cohorts using review-yaml-record and review-yaml-category. Saved immutable structured
+  review bundles (20261025T113500Z-c2s4-record-deep-audit and 20261025T113600Z-c2s4-frozen-cohort-review)
+  and preserved 3 new actionable open findings across 10 records plus 7 carried-forward
+  source-limited deferred findings (10 total carry_forward_ids) for Cycle 2 Stage
+  5 grouped remediation.
+source_revision: 9e6356de530ea961259cb5b8c93e5da4b44f5660
+previous_evidence:
+  path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-05/revision-0001/evidence.yaml
+  sha256: 8f4206a1f4357373a97661c99ace898da063bd232172666f907fc007a59253f0
+artifacts:
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000002/stage-04/revision-0001/review_report.md
+  sha256: 31c48946637c535a32f75e831686ed78812c0058e69ad8d9a29e7084d3a6da74
+  kind: review_report
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000002/stage-04/revision-0001/review_findings.yaml
+  sha256: 9a3dee1e62d5be7869520ea9100f70b1de05557a7a499f7aa17684f93891a3f3
+  kind: review_findings
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000002/stage-04/revision-0001/frozen_inventory_metrics.tsv
+  sha256: bdda9205b058302ea899797bec267fc659fd936905be6b2af138a1a437081911
+  kind: supporting
+findings:
+- finding_id: c2s4-biomodels-missing-environment-term
+  status: open
+  summary: Four BioModels community records (CommunityMech:000006, 000007, 000008
+    in PMID:30254121; CommunityMech:000013 in PMID:39738126) omit top-level environment_term
+    despite explicit insect bacteriome and marine sponge host-associated habitat contexts
+    (supports ENVO:01001000 animal-associated habitat).
+- finding_id: c2s4-geobacter-common-taxon-linkage-gap
+  status: open
+  summary: 'Four Geobacter sulfurreducens community records (CommunityMech:000031,
+    000175, 000176, 000268) omit common_taxon: CommunityMech:taxon:000002 linkage
+    to kb/taxa/Geobacter_sulfurreducens.yaml.'
+- finding_id: c2s4-shewanella-common-taxon-linkage-gap
+  status: open
+  summary: 'Two Shewanella oneidensis community records (CommunityMech:000288, 000294)
+    omit common_taxon: CommunityMech:taxon:000001 linkage to kb/taxa/Shewanella_oneidensis_MR1.yaml.'
+- finding_id: cheese-assay-evidence-gap
+  status: deferred
+  carried_from: cheese-assay-evidence-gap
+  summary: CommunityMech:000153 (kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml)
+    pairwise assay specifics in PMID:25043025 require full-text tables beyond the
+    cached abstract (#765).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/765
+  disposition: 'Deferred: source-limited until full-text assay tables for PMID:25043025
+    are ingested (#765).'
+- finding_id: communitymech-1467-source-discrepancy-and-extension
+  status: deferred
+  carried_from: communitymech-1467-source-discrepancy-and-extension
+  summary: CommunityMech:000091 (kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml)
+    broader 18-species Transwell campaign and strain table reconciliation require
+    full-text tables (#1467).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1467
+  disposition: 'Deferred: tracked in GitHub issue #1467 pending full-text table reconciliation.'
+- finding_id: communitymech-1699-coverage
+  status: deferred
+  carried_from: communitymech-1699-coverage
+  summary: CommunityMech:000054 (kb/communities/Phormidium_Alkaline_Consortium.yaml)
+    additional heterotrophic co-isolates require full-text table verification (#1699).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1699
+  disposition: 'Deferred: tracked in GitHub issue #1699 pending full-text isolate
+    table verification.'
+- finding_id: communitymech-1841
+  status: deferred
+  carried_from: communitymech-1841
+  summary: CommunityMech:000222 (kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml)
+    lower-rank isolate resolution requires full-text supplementary strain tables (#1841).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1841
+  disposition: 'Deferred: tracked in GitHub issue #1841 pending full-text supplementary
+    strain table inspection.'
+- finding_id: communitymech-1847-metg2-membership
+  status: deferred
+  carried_from: communitymech-1847-metg2-membership
+  summary: CommunityMech:000302 (kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml)
+    full 18-isolate membership and media composition require full-text tables (#1847).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1847
+  disposition: 'Deferred: tracked in GitHub issue #1847 pending full-text membership
+    and media table inspection.'
+- finding_id: okeke-fulltext-assay-gap
+  status: deferred
+  carried_from: okeke-fulltext-assay-gap
+  summary: CommunityMech:000048 (kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml)
+    kinetic and co-culture assay parameters require paywalled full text (#1657).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1657
+  disposition: 'Deferred: source-limited because primary full text is paywalled (#1657).'
+- finding_id: parachlorella-remaining-research
+  status: deferred
+  carried_from: parachlorella-remaining-research
+  summary: CommunityMech:000295 (kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml)
+    secondary bacterial satellite interactions require full-text data (#1681).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1681
+  disposition: 'Deferred: source-limited pending full-text interaction data (#1681).'
+groups: []
+carry_forward_ids:
+- c2s4-biomodels-missing-environment-term
+- c2s4-geobacter-common-taxon-linkage-gap
+- c2s4-shewanella-common-taxon-linkage-gap
+- cheese-assay-evidence-gap
+- communitymech-1467-source-discrepancy-and-extension
+- communitymech-1699-coverage
+- communitymech-1841
+- communitymech-1847-metg2-membership
+- okeke-fulltext-assay-gap
+- parachlorella-remaining-research
+infra_tasks: []
