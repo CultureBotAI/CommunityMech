@@ -91,7 +91,17 @@ def test_all_original_nodes_and_arrows_have_hash_bound_decisions():
     assert row["removed_node_decisions"] == []
     assert len(row["edges_before"]) == 2 and len(row["edges_after"]) == 1
     assert len(row["retained_edge_decisions"]) == len(row["removed_edge_decisions"]) == 1
-    assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+    successor_file = (
+        ROOT / "reports/causal_graph_review/decisions/20261021-stage3-common-taxon-links.yaml"
+    )
+    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
+    latest = successor_by_id[row["id"]]
+    assert latest["supersedes_review"] == {
+        "review_file": str(LEDGER.relative_to(ROOT)),
+        "record_sha256": row["record_sha256"],
+    }
+    assert latest["original_sha256"] == row["record_sha256"]
+    assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
     assert len(row["history_files"]) == 1 and (ROOT / row["history_files"][0]).is_file()
     assert doc["curation_history"][-1]["llm_assisted"] is True
     for path, digest in ledger["reference_cache_original_hashes"].items():

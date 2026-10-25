@@ -72,6 +72,8 @@ def test_taxa_genes_have_verified_uniprot_and_cached_evidence():
                 assert ref.startswith("PMID:"), f"Unexpected reference format {ref}"
                 pmid = ref.split(":", 1)[1]
                 cache_file = REFS_CACHE / f"PMID_{pmid}.txt"
+                if not cache_file.exists():
+                    cache_file = REFS_CACHE / f"PMID_{pmid}.md"
                 assert cache_file.exists(), f"Missing cache file {cache_file}"
                 norm_cache = " ".join(cache_file.read_text().split())
                 norm_snip = " ".join(ev["snippet"].split())
@@ -123,6 +125,19 @@ def test_community_links_common_taxon():
         assert (
             "CommunityMech:taxon:000001" in mr1_refs
         ), f"{rel_path} missing CommunityMech:taxon:000001"
+
+    expected_geobacter_files = [
+        "kb/communities/Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml",
+        "kb/communities/Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.yaml",
+    ]
+    for rel_path in expected_geobacter_files:
+        doc = yaml.safe_load(Path(rel_path).read_text())
+        geo_refs = {
+            t.get("common_taxon") for t in doc.get("taxonomy") or [] if t.get("common_taxon")
+        }
+        assert (
+            "CommunityMech:taxon:000002" in geo_refs
+        ), f"{rel_path} missing CommunityMech:taxon:000002"
 
 
 def test_taxoncomposition_accepts_separate_abundances(tmp_path):

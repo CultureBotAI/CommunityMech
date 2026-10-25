@@ -37,6 +37,7 @@ genes:
     label: pilus
   supports_roles:
   - ELECTRON_DONOR
+  - SYNTROPHIC_PARTNER
   supports_interaction: >
     Conductive pili (e-pili) mediate long-range extracellular and direct
     interspecies electron transfer (DIET) to partner methanogens and to
@@ -52,6 +53,11 @@ genes:
     evidence_source: IN_VITRO
     snippet: Some studies propose that stacked π orbitals of aromatic residues in PilA facilitate conduction, while others suggest that micrometer-long filaments of polymerized hexaheme cytochrome OmcS are responsible for long-range electron transport.
     explanation: Supports the proposed role of PilA aromatic residues alongside OmcS filaments in long-range extracellular electron conduction.
+  - reference: PMID:37650614
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The gene coding for the pilin monomer, PilA, which is assembled into electrically conductive pili ( 79 ), was also 63 times more highly expressed in DIET-grown cells.
+    explanation: RNA-Seq differential expression in Geobacter sulfurreducens PCA (ATCC 51573, NC_002939 / GCF_000007985.2) DIET cocultures demonstrates 63-fold upregulation of pilA (GSU1496) during direct interspecies electron transfer.
 - gene_id: UniProtKB:Q749X9
   gene_symbol: omcS
   locus_tag: GSU2504
@@ -64,6 +70,7 @@ genes:
     label: heme binding
   supports_roles:
   - ELECTRON_DONOR
+  - SYNTROPHIC_PARTNER
   supports_interaction: >
     Cytochrome filament/decoration required for extracellular electron transfer
     to Fe(III) oxides and for direct interspecies electron transfer to partners.
@@ -73,6 +80,16 @@ genes:
     evidence_source: IN_VITRO
     snippet: Some studies propose that stacked π orbitals of aromatic residues in PilA facilitate conduction, while others suggest that micrometer-long filaments of polymerized hexaheme cytochrome OmcS are responsible for long-range electron transport.
     explanation: Identifies OmcS as the polymerized hexaheme c-type cytochrome forming filaments for long-range extracellular electron transport in Geobacter sulfurreducens.
+  - reference: PMID:37650614
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These included genes for over 25 c-type cytochromes, including omcS, omcB, omcX, and omcI, which encode multi-heme, outer-surface c-type cytochromes.
+    explanation: Transcriptomic profiling of Geobacter sulfurreducens PCA (ATCC 51573, NC_002939 / GCF_000007985.2) in DIET coculture identifies omcS (GSU2504) among outer-surface multiheme c-type cytochrome genes significantly upregulated during direct interspecies electron transfer.
+  - reference: PMID:28992596
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The syntrophy was not reliant on phenazine, since Δphz mutant strain cocultures grew, however appeared to rely on cytochromes as evidenced from the stunted growth G. sulfurreducens ΔomcZ and ΔomcS mutant cocultures.
+    explanation: Deletion mutant coculture assay demonstrating stunted syntrophic growth of Geobacter sulfurreducens ΔomcS (GSU2504) in formate-fumarate electroactive coculture with Pseudomonas aeruginosa.
 - gene_id: UniProtKB:Q74A90
   gene_symbol: omcZ
   locus_tag: GSU2076
@@ -85,15 +102,23 @@ genes:
     label: heme binding
   supports_roles:
   - ELECTRON_DONOR
+  - SYNTROPHIC_PARTNER
   supports_interaction: >
     Cytochrome essential for high-density current production at electrodes
-    (extracellular electron transfer to anodes).
+    (extracellular electron transfer to anodes) and required for normal
+    syntrophic coculture growth during cytochrome-associated interspecies
+    electron transfer.
   evidence:
   - reference: PMID:41210787
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: G. sulfurreducens performs direct electron transfer (DET) via multiheme cytochromes C and type IV pili (e-pili) composed of the PilA protein.
     explanation: Supports multiheme c-type cytochrome-mediated direct electron transfer in Geobacter sulfurreducens; OmcZ (GSU2076, UniProtKB:Q74A90) is an outer-surface octaheme c-type cytochrome from the PCA reference assembly GCF_000007985.2.
+  - reference: PMID:28992596
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The syntrophy was not reliant on phenazine, since Δphz mutant strain cocultures grew, however appeared to rely on cytochromes as evidenced from the stunted growth G. sulfurreducens ΔomcZ and ΔomcS mutant cocultures.
+    explanation: Deletion mutant coculture assay demonstrating stunted syntrophic growth of Geobacter sulfurreducens ΔomcZ (GSU2076) in formate-fumarate electroactive coculture with Pseudomonas aeruginosa.
 - gene_id: UniProtKB:Q74A86
   gene_symbol: omcB
   locus_tag: GSU2737
@@ -106,16 +131,22 @@ genes:
     label: heme binding
   supports_roles:
   - ELECTRON_DONOR
+  - SYNTROPHIC_PARTNER
   supports_interaction: >
     Outer-membrane multiheme c-type cytochrome subunit of the conserved OmbB-OmaB-OmcB
     porin-cytochrome-cytochrome (PCC) conduit that exports periplasmic electrons across
-    the outer membrane for extracellular Fe(III) and electrode reduction.
+    the outer membrane for extracellular Fe(III), electrode, and DIET coculture electron transfer.
   evidence:
   - reference: PMID:41876513
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: Periplasmic electrons exit through two porin-cytochrome-cytochrome (PCC3 architecture) conduits conserved among Desulfuromonadales, OmbB-OmaB-OmcB and ExtEFG
     explanation: Identifies OmcB as the outer-membrane cytochrome component of the conserved OmbB-OmaB-OmcB porin-cytochrome conduit exporting periplasmic electrons across the outer membrane in Geobacter sulfurreducens and related Desulfuromonadales.
+  - reference: PMID:37650614
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These included genes for over 25 c-type cytochromes, including omcS, omcB, omcX, and omcI, which encode multi-heme, outer-surface c-type cytochromes.
+    explanation: Transcriptomic profiling of Geobacter sulfurreducens PCA (ATCC 51573, NC_002939 / GCF_000007985.2) in DIET coculture demonstrates significant upregulation of omcB (GSU2737) during direct interspecies electron transfer.
 notes: >
   Reusable taxon record capturing the verified UniProtKB protein accessions for the
   conductive-pili and multiheme-cytochrome genes (pilA/Q74BW5, omcS/Q749X9,
@@ -136,4 +167,9 @@ curation_history:
   curator: claude
   action: ADD_UNIPROT_PROTEIN_EXAMPLES
   changes: "Upgraded pilA (GSU1496), omcS (GSU2504), and omcZ (GSU2076) gene_id values to verified UniProtKB accessions (Q74BW5, Q749X9, Q74A90), added omcB (GSU2737, UniProtKB:Q74A86), and attached verbatim cached evidence from PMID:41210787 and PMID:41876513."
+  llm_assisted: true
+- timestamp: '2026-10-25T09:20:00Z'
+  curator: claude
+  action: ADD_UNIPROT_PROTEIN_EXAMPLES
+  changes: "Added IN_VITRO experimental DIET coculture RNA-Seq evidence from PMID:37650614 to pilA (GSU1496, UniProtKB:Q74BW5), omcS (GSU2504, UniProtKB:Q749X9), and omcB (GSU2737, UniProtKB:Q74A86), and ΔomcZ/ΔomcS mutant coculture growth-perturbation evidence from PMID:28992596 to omcS (UniProtKB:Q749X9) and omcZ (GSU2076, UniProtKB:Q74A90), plus SYNTROPHIC_PARTNER role support."
   llm_assisted: true
