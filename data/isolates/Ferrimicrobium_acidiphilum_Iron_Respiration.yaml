@@ -52,6 +52,94 @@ taxonomy:
       disrupting the complexity of the live cellular environment.
     explanation: Documents direct in situ quantification of extracellular iron-respiratory electron transfer extents and rates
       in live Fm. acidiphilum.
+ecological_interactions:
+- name: Extracellular Ferrous Iron Oxidation and Whole-Cell Cytochrome Reduction
+  description: Intact Ferrimicrobium acidiphilum cells oxidize extracellular ferrous ions (Fe2+) to ferric ions (Fe3+) at
+    acidic pH via direct electron transfer into redox-active cellular cytochromes.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Ferrimicrobium acidiphilum
+    term:
+      id: NCBITaxon:121039
+      label: Ferrimicrobium acidiphilum
+  metabolites:
+  - preferred_term: iron(2+)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+  - preferred_term: iron(3+)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+  biological_processes:
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: Acidophilic Aerobic Respiratory Electron Transport Chain Coupling
+    description: Electrons transferred from extracellular Fe(II) into cellular redox proteins feed the acidophilic aerobic
+      respiratory chain to reduce dioxygen in intact live suspensions.
+  evidence:
+  - reference: doi:10.1128/aem.01906-20
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In situ absorbance measurements were conducted on Fm. acidiphilum as it respired on extracellular iron using
+      an integrating cavity absorption meter that permitted accurate optical measurements in turbid suspensions of the intact
+      bacterium under physiological conditions.
+    explanation: Establishes whole-cell respiration of live Ferrimicrobium acidiphilum on extracellular iron.
+  - reference: doi:10.1128/aem.01906-20
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The significance of these measurements is that they permitted a direct spectrophotometric examination of the
+      extents and rates of biological electron transfer events in situ under noninvasive physiological conditions without
+      disrupting the complexity of the live cellular environment.
+    explanation: Documents direct in situ kinetic measurement of biological electron transfer events coupling extracellular
+      iron oxidation to cellular respiration.
+- name: Acidophilic Aerobic Respiratory Electron Transport Chain Coupling
+  description: Whole-cell respiratory electron transfer in Ferrimicrobium acidiphilum couples extracellular ferrous iron oxidation
+    to aerobic oxygen reduction at acidic pH.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Ferrimicrobium acidiphilum
+    term:
+      id: NCBITaxon:121039
+      label: Ferrimicrobium acidiphilum
+  metabolites:
+  - preferred_term: dioxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  - preferred_term: hydron
+    term:
+      id: CHEBI:15378
+      label: hydron
+  biological_processes:
+  - preferred_term: aerobic respiration
+    term:
+      id: GO:0009060
+      label: aerobic respiration
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  evidence:
+  - reference: doi:10.1128/aem.01906-20
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The identities and functions of proteins involved in aerobic respiration on extracellular ferrous ions at acidic
+      pH are poorly understood in the four phyla of Gram-positive eukaryotes and archaea where such activities occur.
+    explanation: Frames the physiological coupling of extracellular ferrous ion oxidation to aerobic respiration at acidic
+      pH.
+  - reference: doi:10.1128/aem.01906-20
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In situ absorbance measurements were conducted on Fm. acidiphilum as it respired on extracellular iron using
+      an integrating cavity absorption meter that permitted accurate optical measurements in turbid suspensions of the intact
+      bacterium under physiological conditions.
+    explanation: Confirms aerobic respiratory electron transfer on extracellular iron in intact Fm. acidiphilum.
 environmental_factors:
 - name: Acidic Aerobic Extracellular Ferrous Iron Respiration Regime
   value: Turbid intact cell suspension respiring aerobically on extracellular Fe(II) at acidic pH
@@ -71,4 +159,10 @@ curation_history:
   action: CREATE
   changes: Added Ferrimicrobium acidiphilum Acidophilic Extracellular Iron Respiration Isolate (CommunityMech:000490) in data/isolates/
     from doi:10.1128/aem.01906-20.
+  llm_assisted: true
+- timestamp: '2026-10-25T05:30:00Z'
+  curator: curate-causal-graphs
+  action: CURATE_CAUSAL_GRAPH
+  changes: Added 2-node single-species physiological causal graph (Extracellular Ferrous Iron Oxidation and Whole-Cell Cytochrome
+    Reduction -> Acidophilic Aerobic Respiratory Electron Transport Chain Coupling) backed by verbatim snippets from doi:10.1128/aem.01906-20.
   llm_assisted: true

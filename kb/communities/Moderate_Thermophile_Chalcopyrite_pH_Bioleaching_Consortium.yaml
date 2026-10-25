@@ -121,10 +121,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:33059
       label: Acidithiobacillus caldus
-  - preferred_term: Ferroplasma thermophilum
-    term:
-      id: NCBITaxon:2591003
-      label: Ferroplasma sp.
   metabolites:
   - preferred_term: iron(2+)
     term:
@@ -145,8 +141,9 @@ ecological_interactions:
       label: electron transport chain
   downstream:
   - target: Late-Phase Ferroplasma Succession and pH-Regulated Iron-Sulfur Oxidation
-    description: Early iron and sulfur oxidation modifies solution redox and organic carbon conditions, driving late-phase
-      succession to Ferroplasma thermophilum dominance.
+    description: Early-stage chalcopyrite bioleaching dominated by free Sulfobacillus thermosulfidooxidans and mineral-attached
+      Acidithiobacillus caldus transitions in the later phase to Ferroplasma thermophilum predominance alongside pH-dependent
+      iron and sulfur oxidation gene expression.
   evidence:
   - reference: doi:10.1007/s13213-019-01453-y
     supports: SUPPORT
@@ -162,6 +159,13 @@ ecological_interactions:
       the early stage in free and attached cells, respectively, while Ferroplasma thermophilum became predominant in the later
       phase.
     explanation: Documents spatial partitioning between free S. thermosulfidooxidans and attached A. caldus during early leaching.
+  - reference: doi:10.1007/s13213-019-01453-y
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The gene expression in Sulfobacillus thermosulfidooxidans and Ferroplasma thermophilum was greatly affected by
+      pH values. On the other hand, the relationship between pH and gene expression in Acidithiobacillus caldus was not significant.
+    explanation: Supports pH-regulated iron and sulfur oxidation gene expression across the early-to-late phase consortium
+      succession.
 - name: Late-Phase Ferroplasma Succession and pH-Regulated Iron-Sulfur Oxidation
   description: Ferroplasma thermophilum succeeds early bacterial oxidizers to become predominant in the later phase of chalcopyrite
     bioleaching, with pH-dependent transcriptional regulation of iron/sulfur oxidation genes in S. thermosulfidooxidans and
@@ -208,6 +212,14 @@ ecological_interactions:
       pH values. On the other hand, the relationship between pH and gene expression in Acidithiobacillus caldus was not significant.
     explanation: Establishes differential pH sensitivity of iron/sulfur oxidation gene expression across the three consortium
       members.
+  - reference: doi:10.1007/s13213-019-01453-y
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: It was shown that Sulfobacillus thermosulfidooxidans and Acidithiobacillus caldus were the dominant species during
+      the early stage in free and attached cells, respectively, while Ferroplasma thermophilum became predominant in the later
+      phase.
+    explanation: Documents the late-phase succession to Ferroplasma thermophilum predominance following early S. thermosulfidooxidans
+      and A. caldus dominance.
 environmental_factors:
 - name: Initial pH Regime
   value: 1.0, 2.0, and 3.0 (optimal at pH 2.0)
@@ -231,4 +243,12 @@ curation_history:
   curator: claude
   action: CREATE
   changes: Added Moderate Thermophile Chalcopyrite pH-Regulated Bioleaching Consortium (CommunityMech:000487) from doi:10.1007/s13213-019-01453-y.
+  llm_assisted: true
+- timestamp: '2026-10-25T05:30:00Z'
+  curator: curate-causal-graphs
+  action: CURATE_CAUSAL_GRAPH
+  changes: 'Curated 2-node ecological_interactions causal graph from doi:10.1007/s13213-019-01453-y: restricted Node 1 participating_taxa
+    to the two early-stage dominant species (Sulfobacillus thermosulfidooxidans and Acidithiobacillus caldus), tightened downstream
+    edge description to remove unsupported ''organic carbon conditions'' phrasing, and added verbatim pH-regulation and community-succession
+    snippets across Nodes 1-2.'
   llm_assisted: true

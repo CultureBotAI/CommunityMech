@@ -66,8 +66,8 @@ taxonomy:
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 4 GTDB taxa
         under the NCBI taxon]
     notes: Genus-level Acidithiobacillus metagenomic guild (including dominant A. ferrivorans-like sequences alongside unclassified
-      Acidithiobacillus-like populations, grounded at genus rank NCBITaxon:119977 / GTDB:g__Acidithiobacillus) accounting for
-      the largest share (~47%) of Acidithiobacillus-related metagenomic reads in the Dexing bioleaching heap surface layer
+      Acidithiobacillus-like populations, grounded at genus rank NCBITaxon:119977 / GTDB:g__Acidithiobacillus) accounting
+      for the largest share (~47%) of Acidithiobacillus-related metagenomic reads in the Dexing bioleaching heap surface layer
       (PMID:26781463, doi:10.1186/s12863-016-0330-4).
   functional_role:
   - PRIMARY_PRODUCER
@@ -155,9 +155,9 @@ taxonomy:
     explanation: Establishes L. ferrooxidans-like organisms as the primary diazotrophic guild in the nitrogen-limited heap.
 ecological_interactions:
 - name: Cooperative Chemolithoautotrophic Carbon and Nitrogen Fixation
-  description: Acidithiobacillus, Thiobacillus, and Leptospirillum ferrooxidans partition autotrophic carbon fixation (Rubisco
-    and PRK in the CBB cycle alongside rTCA enzymes) and nitrogen fixation/assimilation to sustain primary production in nutrient-poor
-    acidic copper tailings.
+  description: Acidithiobacillus ferrooxidans, Acidithiobacillus (including A. ferrivorans-like populations), Thiobacillus,
+    and Leptospirillum ferrooxidans partition autotrophic carbon fixation (Rubisco and PRK in the CBB cycle alongside rTCA
+    enzymes) and nitrogen fixation/assimilation to sustain primary production in nutrient-poor acidic copper tailings.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -170,6 +170,10 @@ ecological_interactions:
     term:
       id: NCBITaxon:920
       label: Acidithiobacillus ferrooxidans
+  - preferred_term: Acidithiobacillus
+    term:
+      id: NCBITaxon:119977
+      label: Acidithiobacillus
   - preferred_term: Thiobacillus
     term:
       id: NCBITaxon:919
@@ -214,10 +218,18 @@ ecological_interactions:
       ferrooxidans-like species, suggesting the vital position of Leptospirillum-like organisms in bioleaching systems with
       limited fixed nitrogen from external sources.
     explanation: Documents nitrogen fixation gene enrichment in L. ferrooxidans-like populations.
+  - reference: PMID:26781463
+    supports: SUPPORT
+    evidence_source: FIELD_STUDY
+    snippet: Functional analysis illustrated that the principal participants related to the key metabolic pathways (carbon
+      fixation, nitrogen metabolism, Fe(II) oxidation and sulfur metabolism) were mainly identified to be Acidithiobacillus-like,
+      Thiobacillus-like and Leptospirillum-like microorganisms, indicating their vital roles.
+    explanation: Supports metabolic coupling of carbon/nitrogen fixation with Fe(II) and sulfur oxidation across Acidithiobacillus-like,
+      Thiobacillus-like, and Leptospirillum-like guilds.
 - name: Coupled Ferrous Iron and Reduced Sulfur Oxidation in Copper Tailings
-  description: Acidithiobacillus ferrooxidans, Acidithiobacillus (including A. ferrivorans-like populations), and Thiobacillus
-    oxidize ferrous iron and reduced inorganic sulfur compounds (via SQR, TQO, TetH, truncated SoxAX/B/YZ, and APS reductase
-    aprAB) to drive sulfide mineral dissolution in the copper bioleaching heap.
+  description: Acidithiobacillus ferrooxidans, Acidithiobacillus (including A. ferrivorans-like populations), Thiobacillus,
+    and Leptospirillum ferrooxidans couple ferrous iron oxidation and reduced inorganic sulfur oxidation (via SQR, TQO, TetH,
+    truncated SoxAX/B/YZ, and APS reductase aprAB) to drive sulfide mineral dissolution in the copper bioleaching heap.
   interaction_type: SYNTROPHY
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -238,6 +250,10 @@ ecological_interactions:
     term:
       id: NCBITaxon:919
       label: Thiobacillus
+  - preferred_term: Leptospirillum ferrooxidans
+    term:
+      id: NCBITaxon:180
+      label: Leptospirillum ferrooxidans
   metabolites:
   - preferred_term: iron(2+)
     term:
@@ -284,9 +300,17 @@ ecological_interactions:
       in Acidithiobacillus-like and Thiobacillus-like microorganisms.
     explanation: Identifies shared truncated Sox sulfur-oxidation genes across Acidithiobacillus-like and Thiobacillus-like
       populations.
+  - reference: doi:10.1186/s12863-016-0330-4
+    supports: SUPPORT
+    evidence_source: FIELD_STUDY
+    snippet: Based on sequence identities (30 % identity cut-off; E-value ≤1e−5), sequence homologs for those peroxiredoxin
+      coding genes (LcPxn1, LcPxn3 and LdPxn1) were mostly assigned to a Leptospirillum-like populations, indicating its key
+      role in the detoxification of hydroxyl radicals.
+    explanation: Supports downstream coupling from iron/sulfur bioleaching to Leptospirillum-mediated hydroxyl radical detoxification.
 - name: Peroxiredoxin-Mediated Hydroxyl Radical Detoxification
   description: Leptospirillum ferrooxidans-like populations supply peroxiredoxin genes (LcPxn1, LcPxn3, LdPxn1) to detoxify
-    hydroxyl radicals generated by Fenton reactions of ferrous iron with oxygen during acid bioleaching.
+    hydroxyl radicals generated by Fenton reactions of ferrous iron with oxygen during acid bioleaching alongside co-occurring
+    Acidithiobacillus ferrooxidans, Acidithiobacillus, and Thiobacillus guilds.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -320,6 +344,31 @@ ecological_interactions:
       coding genes (LcPxn1, LcPxn3 and LdPxn1) were mostly assigned to a Leptospirillum-like populations, indicating its key
       role in the detoxification of hydroxyl radicals.
     explanation: Links Leptospirillum-like peroxiredoxin genes to hydroxyl radical detoxification in the bioleaching heap.
+  - reference: PMID:26781463
+    supports: SUPPORT
+    evidence_source: FIELD_STUDY
+    snippet: Functional analysis illustrated that the principal participants related to the key metabolic pathways (carbon
+      fixation, nitrogen metabolism, Fe(II) oxidation and sulfur metabolism) were mainly identified to be Acidithiobacillus-like,
+      Thiobacillus-like and Leptospirillum-like microorganisms, indicating their vital roles.
+    explanation: Documents the co-occurring Acidithiobacillus-like, Thiobacillus-like, and Leptospirillum-like guilds protected
+      during oxidative Fe(II) and sulfur bioleaching.
+  participating_taxa:
+  - preferred_term: Leptospirillum ferrooxidans
+    term:
+      id: NCBITaxon:180
+      label: Leptospirillum ferrooxidans
+  - preferred_term: Acidithiobacillus ferrooxidans
+    term:
+      id: NCBITaxon:920
+      label: Acidithiobacillus ferrooxidans
+  - preferred_term: Acidithiobacillus
+    term:
+      id: NCBITaxon:119977
+      label: Acidithiobacillus
+  - preferred_term: Thiobacillus
+    term:
+      id: NCBITaxon:919
+      label: Thiobacillus
 environmental_factors:
 - name: Bioleaching Heap Habitat
   value: Surface layer of industrially bioleached low-grade copper tailings
@@ -337,4 +386,12 @@ curation_history:
   curator: claude
   action: CREATE
   changes: Added Dexing Copper Mine Bioleaching Heap Surface Community (CommunityMech:000485) from PMID:26781463 and doi:10.1186/s12863-016-0330-4.
+  llm_assisted: true
+- timestamp: '2026-10-25T05:30:00Z'
+  curator: curate-causal-graphs
+  action: CURATE_CAUSAL_GRAPH
+  changes: 'Curated 3-node ecological_interactions causal graph from PMID:26781463 and doi:10.1186/s12863-016-0330-4: completed
+    participating_taxa across all three COMMUNITY_LEVEL nodes (all 4 guilds on Nodes 1-3 including Leptospirillum ferrooxidans
+    NCBITaxon:180 on Node 2 and Acidithiobacillus/Thiobacillus guilds on Node 3), and added pathway-coupling and peroxiredoxin
+    snippets across Nodes 1-3 to directly support both downstream edges.'
   llm_assisted: true
