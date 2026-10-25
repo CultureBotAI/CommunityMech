@@ -159,3 +159,87 @@ def test_infra_0003_audit_completeness_and_seatbelt_safe_root():
         )
         == 50.0
     )
+
+
+def test_infra_0004_corpus_count_decoupling_preserves_invariants():
+    """#2063: decoupled test suites accept valid new records while catching invariant violations."""
+    spec_pt = importlib.util.spec_from_file_location(
+        "test_participating_taxa_infra0004",
+        REPO / "tests" / "test_participating_taxa.py",
+    )
+    assert spec_pt is not None and spec_pt.loader is not None
+    pt_mod = importlib.util.module_from_spec(spec_pt)
+    spec_pt.loader.exec_module(pt_mod)
+
+    valid_doc = {
+        "taxonomy": [
+            {
+                "taxon_term": {
+                    "preferred_term": "Escherichia coli K-12",
+                    "term": {"id": "NCBITaxon:83333", "label": "Escherichia coli K-12"},
+                }
+            }
+        ],
+        "ecological_interactions": [
+            {
+                "name": "Community acetate production",
+                "scope": "COMMUNITY_LEVEL",
+                "participating_taxa": [
+                    {
+                        "preferred_term": "Escherichia coli K-12",
+                        "term": {"id": "NCBITaxon:83333", "label": "Escherichia coli K-12"},
+                    }
+                ],
+            }
+        ],
+    }
+    assert pt_mod._is_legitimate_participating_taxa_user(valid_doc) is True
+
+    pairwise_doc = copy.deepcopy(valid_doc)
+    pairwise_doc["ecological_interactions"][0]["scope"] = "PAIRWISE"
+    assert pt_mod._is_legitimate_participating_taxa_user(pairwise_doc) is False
+
+    dangling_doc = copy.deepcopy(valid_doc)
+    dangling_doc["ecological_interactions"][0]["participating_taxa"] = [
+        {"preferred_term": "Nonexistent taxon", "term": {"id": "NCBITaxon:9999999"}}
+    ]
+    assert pt_mod._is_legitimate_participating_taxa_user(dangling_doc) is False
+    assert pt_mod.BASELINE_USERS <= pt_mod.USERS
+
+    spec_ir = importlib.util.spec_from_file_location(
+        "test_is_reclassified_infra0004",
+        REPO / "tests" / "test_is_reclassified_semantics.py",
+    )
+    assert spec_ir is not None and spec_ir.loader is not None
+    ir_mod = importlib.util.module_from_spec(spec_ir)
+    spec_ir.loader.exec_module(ir_mod)
+
+    base_blocks = list(ir_mod._blocks())
+    with patch.object(
+        ir_mod,
+        "_blocks",
+        side_effect=lambda: iter(
+            [*base_blocks, ("Agrobacterium deltae", "Agrobacterium leguminum", "GTDB:s__0001")]
+        ),
+    ):
+        ir_mod.test_the_flag_is_set_on_the_expected_number_of_blocks()
+        ir_mod.test_the_buckets_partition_the_whole_set()
+        for bucket in sorted(ir_mod.EXPECTED):
+            ir_mod.test_each_bucket_holds_what_it_held(bucket)
+        ir_mod.test_the_majority_of_true_values_are_not_reclassifications()
+        ir_mod.test_the_flag_is_not_confined_to_species_rank()
+
+    with patch.object(
+        ir_mod,
+        "_blocks",
+        side_effect=lambda: iter(
+            [*base_blocks, ("Escherichia coli K-12", "Escherichia coli", "GTDB:s__0002")]
+        ),
+    ):
+        try:
+            ir_mod.test_each_bucket_holds_what_it_held("strain_dropped")
+        except AssertionError:
+            pass
+        else:
+            raise AssertionError("strain_dropped regression was not caught")
+

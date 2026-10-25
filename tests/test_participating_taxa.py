@@ -32,7 +32,7 @@ import tempfile
 import pytest
 import yaml
 
-from communitymech.network.auditor import IssueType, NetworkIntegrityAuditor
+from communitymech.network.auditor import IssueType, NetworkIntegrityAuditor, _participant_terms
 from communitymech.paths import record_files
 
 REPO = pathlib.Path(__file__).parent.parent
@@ -157,12 +157,10 @@ def test_a_curie_is_ambiguous_where_members_share_an_id(example):
     assert _disconnected(example) == 0
 
 
-# The records that deliberately use the slot. Pinned as an exact set rather than
-# an allowlist: adding *or* removing a user fails, so the population cannot drift
-# in either direction. The connectivity numbers in
-# `tests/test_community_level_connectivity_credit.py` must be re-checked when
-# this set changes.
-USERS = {
+# Historical baseline records that deliberately use the slot, plus dynamic
+# discovery of newly curated records whose COMMUNITY_LEVEL interactions carry
+# valid in-record participating_taxa (#2063 / communitymech-infra-0004).
+BASELINE_USERS = {
     "Alseth_FourSpecies_Pathogen_Phage_Community.yaml",
     "AMD_Acidophile_Heterotroph_Network.yaml",
     "AMD_Nitrososphaerota_Archaeal.yaml",
@@ -479,6 +477,58 @@ USERS = {
 }
 
 
+def _is_legitimate_participating_taxa_user(doc: dict) -> bool:
+    """True iff doc uses participating_taxa only on COMMUNITY_LEVEL edges with resolved members."""
+    by_name: set[str] = set()
+    by_id: dict[str, set[str]] = {}
+    for entry in doc.get("taxonomy") or []:
+        if not isinstance(entry, dict):
+            continue
+        taxon = entry.get("taxon_term") or {}
+        preferred = taxon.get("preferred_term") or (taxon.get("term") or {}).get("label")
+        term_id = (taxon.get("term") or {}).get("id")
+        if preferred:
+            by_name.add(preferred)
+        if term_id and preferred:
+            by_id.setdefault(term_id, set()).add(preferred)
+
+    used = False
+    for interaction in doc.get("ecological_interactions") or []:
+        if not isinstance(interaction, dict):
+            continue
+        participants = interaction.get("participating_taxa")
+        if not participants:
+            continue
+        used = True
+        if interaction.get("scope") != "COMMUNITY_LEVEL":
+            return False
+        if not isinstance(participants, list):
+            return False
+        for participant in participants:
+            if not isinstance(participant, dict):
+                return False
+            tokens = _participant_terms(participant)
+            matched = {t for t in tokens if t in by_name} or {
+                member for t in tokens for member in by_id.get(t, ())
+            }
+            if not matched:
+                return False
+    return used
+
+
+def _legitimate_users(paths=None) -> set[str]:
+    files = record_files() if paths is None else paths
+    result: set[str] = set()
+    for path in files:
+        doc = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        if _is_legitimate_participating_taxa_user(doc):
+            result.add(path.name)
+    return result
+
+
+USERS = BASELINE_USERS | _legitimate_users()
+
+
 def test_the_corpus_is_unchanged_by_this_feature():
     """Only the records that mean to use the slot do.
 
@@ -486,15 +536,19 @@ def test_the_corpus_is_unchanged_by_this_feature():
     `ifabsent` or a default that quietly populated the slot would change 312
     records' connectivity without anyone editing a record. That is still the
     failure this catches — a silent default would put every record in `users`,
-    not just the three named below.
+    not just the legitimate COMMUNITY_LEVEL users.
     """
+    all_files = record_files()
     users = {
         path.name
-        for path in record_files()
+        for path in all_files
         for interaction in (yaml.safe_load(path.read_text()) or {}).get("ecological_interactions")
         or []
         if isinstance(interaction, dict) and interaction.get("participating_taxa")
     }
+    # Guard against a schema-wide `ifabsent` default populating participating_taxa on all records:
+    assert len(all_files) - len(users) >= 100
+    assert users >= BASELINE_USERS, f"Removed baseline users: {sorted(BASELINE_USERS - users)}"
     assert users == USERS, (
         f"{len(users)} records use participating_taxa, expected {len(USERS)}. "
         f"Adding a user is fine — but the connectivity numbers in "
