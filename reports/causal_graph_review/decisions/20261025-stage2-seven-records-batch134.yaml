@@ -1,0 +1,1018 @@
+reviewer: claude
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: edd740d502690303a691935d1ee8deef911362f8
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+reviewed_counts:
+  retained_nodes: 17
+  removed_nodes: 0
+  retained_arrows: 10
+  removed_arrows: 0
+  renamed_nodes: 0
+  graph_quotations: 37
+  discussion_quotations: 0
+limitations:
+- Source-based causal-graph curation and review across all 7 previously unreviewed Cycle 2 Stage 1 records
+  (CommunityMech:000484 through CommunityMech:000490).
+- Other 477 records verified via SHA-256 hash census against reports/causal_graph_review/inventory.tsv
+  (423 reviewed, 54 needs_research preserved unchanged).
+records:
+- path: kb/communities/Aquifer_Sediment_Cable_Bacteria_Sulfur_Community.yaml
+  id: CommunityMech:000484
+  original_sha256: eddfa7068e7041d5484d0160ffa97c6ac31e1d1af4a50b28a294577d68820fe2
+  record_sha256: 3b081e54f3497645f19bd73d7f8b9126225ccff1e00bccbbe51af360e60246d0
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-stage2-seven-records-batch134.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached primary source text.
+  summary: Added explicit participating_taxa (Desulfobulbaceae NCBITaxon:213121, Thiobacillus NCBITaxon:919,
+    Ignavibacteria NCBITaxon:1134404) on Node 2 and added two PMID:27058505 snippets on Node 1 to directly
+    back both outgoing downstream edges while preserving PAIRWISE competition on Node 3.
+  node_decisions:
+  - node: Long-Distance Electron Transfer Sulfide Oxidation and Sulfate Recycling
+    rationale: Supported by primary source (PMID:27058505) with explicit COMMUNITY_LEVEL scope and taxon
+      grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:27058505)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Desulfobulbaceae
+        term:
+          id: NCBITaxon:213121
+          label: Desulfobulbaceae
+      participating_taxa:
+      - preferred_term: Desulfobulbaceae
+        term:
+          id: NCBITaxon:213121
+          label: Desulfobulbaceae
+      - preferred_term: Thiobacillus
+        term:
+          id: NCBITaxon:919
+          label: Thiobacillus
+      - preferred_term: Ignavibacteria
+        term:
+          id: NCBITaxon:1134404
+          label: Ignavibacteriota
+    evidence:
+    - reference: PMID:27058505
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Here we provide primary evidence that such sulfur-oxidizing cable bacteria can also be
+        found at oxic–anoxic interfaces in aquifer sediments, where they provide a means for the direct
+        recycling of sulfate by electron transfer over 1–2-cm distance.
+    - reference: PMID:27058505
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: A plume fringe scenario including sulfide re-oxidation by cable bacteria leads to higher
+        availability of sulfate for toluene degradation by sulfate reduction (SR) and a broader zone of
+        biodegradation at the plume fringes.
+    - reference: PMID:27058505
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Other abundant sequences found at the capillary fringe and upper plume fringe belonged
+        to Ignavibacteria (T-RF 163) and Thiobacillus denitrificans (T-RF 477).
+  - node: Sulfate-Reducing Hydrocarbon Plume Fringe Biodegradation
+    rationale: Supported by primary source (PMID:27058505) with explicit COMMUNITY_LEVEL scope and taxon
+      grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:27058505)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Desulfobulbaceae
+        term:
+          id: NCBITaxon:213121
+          label: Desulfobulbaceae
+      participating_taxa:
+      - preferred_term: Desulfobulbaceae
+        term:
+          id: NCBITaxon:213121
+          label: Desulfobulbaceae
+      - preferred_term: Thiobacillus
+        term:
+          id: NCBITaxon:919
+          label: Thiobacillus
+      - preferred_term: Ignavibacteria
+        term:
+          id: NCBITaxon:1134404
+          label: Ignavibacteriota
+    evidence:
+    - reference: PMID:27058505
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: A plume fringe scenario including sulfide re-oxidation by cable bacteria leads to higher
+        availability of sulfate for toluene degradation by sulfate reduction (SR) and a broader zone of
+        biodegradation at the plume fringes.
+    - reference: PMID:27058505
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: It is also likely that sulfide produced by sulfate-reducing toluene degradation is immediately
+        re-oxidized by LDET ( Figure 4b ) or precipitated as FeS in the field.
+  - node: Redox-Gradient Niche Competition with Unicellular Sulfide Oxidizers
+    rationale: Supported by primary source (PMID:27058505) with explicit PAIRWISE scope and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:27058505)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Desulfobulbaceae
+        term:
+          id: NCBITaxon:213121
+          label: Desulfobulbaceae
+      target_taxon:
+        preferred_term: Thiobacillus
+        term:
+          id: NCBITaxon:919
+          label: Thiobacillus
+    evidence:
+    - reference: PMID:27058505
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: The high abundance of cable bacteria at the oxic–anoxic interface of aquifers indicates
+        an ecological competitiveness to other sulfide-oxidizing, chemo–litho–autotrophs such as, for
+        example, Thiobacillus.
+  edges_before:
+  - source: Long-Distance Electron Transfer Sulfide Oxidation and Sulfate Recycling
+    target: Sulfate-Reducing Hydrocarbon Plume Fringe Biodegradation
+    description: Sulfate regenerated by cable-bacterial anodic sulfide oxidation replenishes the electron
+      acceptor pool for sulfate-reducing toluene biodegradation at the plume fringe.
+  - source: Long-Distance Electron Transfer Sulfide Oxidation and Sulfate Recycling
+    target: Redox-Gradient Niche Competition with Unicellular Sulfide Oxidizers
+    description: Spatial decoupling of anodic sulfide oxidation and cathodic oxygen reduction across 1-2
+      cm gives filamentous cable bacteria a competitive advantage over unicellular Thiobacillus across
+      fluctuating redox gradients.
+  edges_after:
+  - source: Long-Distance Electron Transfer Sulfide Oxidation and Sulfate Recycling
+    target: Sulfate-Reducing Hydrocarbon Plume Fringe Biodegradation
+    description: Sulfate regenerated by cable-bacterial anodic sulfide oxidation replenishes the electron
+      acceptor pool for sulfate-reducing toluene biodegradation at the plume fringe.
+  - source: Long-Distance Electron Transfer Sulfide Oxidation and Sulfate Recycling
+    target: Redox-Gradient Niche Competition with Unicellular Sulfide Oxidizers
+    description: Spatial decoupling of anodic sulfide oxidation and cathodic oxygen reduction across 1-2
+      cm gives filamentous cable bacteria a competitive advantage over unicellular Thiobacillus across
+      fluctuating redox gradients.
+  retained_edge_decisions:
+  - edge: Long-Distance Electron Transfer Sulfide Oxidation and Sulfate Recycling -> Sulfate-Reducing
+      Hydrocarbon Plume Fringe Biodegradation
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:27058505 directly states that long-distance electron transfer by cable bacteria provides
+      direct recycling of sulfate over 1-2 cm, fueling a cryptic sulfur cycle and maintaining high sulfate-reducing
+      toluene biodegradation activity at hydrocarbon plume fringes.
+    evidence:
+    - reference: PMID:27058505
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Here we provide primary evidence that such sulfur-oxidizing cable bacteria can also be
+        found at oxic–anoxic interfaces in aquifer sediments, where they provide a means for the direct
+        recycling of sulfate by electron transfer over 1–2-cm distance.
+    - reference: PMID:27058505
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: A plume fringe scenario including sulfide re-oxidation by cable bacteria leads to higher
+        availability of sulfate for toluene degradation by sulfate reduction (SR) and a broader zone of
+        biodegradation at the plume fringes.
+  - edge: Long-Distance Electron Transfer Sulfide Oxidation and Sulfate Recycling -> Redox-Gradient Niche
+      Competition with Unicellular Sulfide Oxidizers
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:27058505 documents that high cable-bacterial abundance at aquifer oxic-anoxic interfaces
+      reflects ecological competitiveness over unicellular chemolithoautotrophic sulfide oxidizers such
+      as Thiobacillus across spatially separated redox half-reactions.
+    evidence:
+    - reference: PMID:27058505
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: The high abundance of cable bacteria at the oxic–anoxic interface of aquifers indicates
+        an ecological competitiveness to other sulfide-oxidizing, chemo–litho–autotrophs such as, for
+        example, Thiobacillus.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:27058505
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Aquifer_Sediment_Cable_Bacteria_Sulfur_Community/2026-10-25T053000Z-antigravity-3b081e.yaml
+- path: kb/communities/Dexing_Copper_Bioleaching_Heap_Community.yaml
+  id: CommunityMech:000485
+  original_sha256: b547eb71752dc71405bc1ed6e6d576187e37fd0ad4fed24572607326318fbd9d
+  record_sha256: 0f922defa9bef353537880b3c72a315c42ec9f57f1cc2a59e15d7698c979adba
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-stage2-seven-records-batch134.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached primary source text.
+  summary: Completed participating_taxa across all three COMMUNITY_LEVEL nodes and added verbatim PMID:26781463
+    / doi:10.1186/s12863-016-0330-4 snippets on Nodes 1-2 to directly back both retained downstream edges.
+  node_decisions:
+  - node: Cooperative Chemolithoautotrophic Carbon and Nitrogen Fixation
+    rationale: Supported by primary source (doi:10.1186/s12863-016-0330-4, PMID:26781463) with explicit
+      COMMUNITY_LEVEL scope and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (doi:10.1186/s12863-016-0330-4, PMID:26781463)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Acidithiobacillus ferrooxidans
+        term:
+          id: NCBITaxon:920
+          label: Acidithiobacillus ferrooxidans
+      participating_taxa:
+      - preferred_term: Acidithiobacillus ferrooxidans
+        term:
+          id: NCBITaxon:920
+          label: Acidithiobacillus ferrooxidans
+      - preferred_term: Acidithiobacillus
+        term:
+          id: NCBITaxon:119977
+          label: Acidithiobacillus
+      - preferred_term: Thiobacillus
+        term:
+          id: NCBITaxon:919
+          label: Thiobacillus
+      - preferred_term: Leptospirillum ferrooxidans
+        term:
+          id: NCBITaxon:180
+          label: Leptospirillum ferrooxidans
+    evidence:
+    - reference: doi:10.1186/s12863-016-0330-4
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: Our results indicated that genes coding for Rubisco were enriched in the metagenome, most
+        of which were affiliated with Acidithiobacillus-like populations (Additional file 5 ).
+    - reference: doi:10.1186/s12863-016-0330-4
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: The relevant genes were largely found in Leptospirillum-like and had the highest similarity
+        to those from L. ferrooxidans-like species, suggesting the vital position of Leptospirillum-like
+        organisms in bioleaching systems with limited fixed nitrogen from external sources.
+    - reference: PMID:26781463
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: Functional analysis illustrated that the principal participants related to the key metabolic
+        pathways (carbon fixation, nitrogen metabolism, Fe(II) oxidation and sulfur metabolism) were mainly
+        identified to be Acidithiobacillus-like, Thiobacillus-like and Leptospirillum-like microorganisms,
+        indicating their vital roles.
+  - node: Coupled Ferrous Iron and Reduced Sulfur Oxidation in Copper Tailings
+    rationale: Supported by primary source (doi:10.1186/s12863-016-0330-4, PMID:26781463) with explicit
+      COMMUNITY_LEVEL scope and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (doi:10.1186/s12863-016-0330-4, PMID:26781463)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Acidithiobacillus ferrooxidans
+        term:
+          id: NCBITaxon:920
+          label: Acidithiobacillus ferrooxidans
+      participating_taxa:
+      - preferred_term: Acidithiobacillus ferrooxidans
+        term:
+          id: NCBITaxon:920
+          label: Acidithiobacillus ferrooxidans
+      - preferred_term: Acidithiobacillus
+        term:
+          id: NCBITaxon:119977
+          label: Acidithiobacillus
+      - preferred_term: Thiobacillus
+        term:
+          id: NCBITaxon:919
+          label: Thiobacillus
+    evidence:
+    - reference: PMID:26781463
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: Functional analysis illustrated that the principal participants related to the key metabolic
+        pathways (carbon fixation, nitrogen metabolism, Fe(II) oxidation and sulfur metabolism) were mainly
+        identified to be Acidithiobacillus-like, Thiobacillus-like and Leptospirillum-like microorganisms,
+        indicating their vital roles.
+    - reference: doi:10.1186/s12863-016-0330-4
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: The genes encoding the truncated sulfur oxidation protein (Sox) system (SoxAX, SoxB and
+        SoxYZ) were identified in Acidithiobacillus-like and Thiobacillus-like microorganisms.
+    - reference: doi:10.1186/s12863-016-0330-4
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: Based on sequence identities (30 % identity cut-off; E-value ≤1e−5), sequence homologs
+        for those peroxiredoxin coding genes (LcPxn1, LcPxn3 and LdPxn1) were mostly assigned to a Leptospirillum-like
+        populations, indicating its key role in the detoxification of hydroxyl radicals.
+  - node: Peroxiredoxin-Mediated Hydroxyl Radical Detoxification
+    rationale: Supported by primary source (doi:10.1186/s12863-016-0330-4, PMID:26781463) with explicit
+      COMMUNITY_LEVEL scope and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (doi:10.1186/s12863-016-0330-4, PMID:26781463)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Leptospirillum ferrooxidans
+        term:
+          id: NCBITaxon:180
+          label: Leptospirillum ferrooxidans
+      participating_taxa:
+      - preferred_term: Leptospirillum ferrooxidans
+        term:
+          id: NCBITaxon:180
+          label: Leptospirillum ferrooxidans
+      - preferred_term: Acidithiobacillus ferrooxidans
+        term:
+          id: NCBITaxon:920
+          label: Acidithiobacillus ferrooxidans
+      - preferred_term: Acidithiobacillus
+        term:
+          id: NCBITaxon:119977
+          label: Acidithiobacillus
+    evidence:
+    - reference: doi:10.1186/s12863-016-0330-4
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: Based on sequence identities (30 % identity cut-off; E-value ≤1e−5), sequence homologs
+        for those peroxiredoxin coding genes (LcPxn1, LcPxn3 and LdPxn1) were mostly assigned to a Leptospirillum-like
+        populations, indicating its key role in the detoxification of hydroxyl radicals.
+  edges_before:
+  - source: Cooperative Chemolithoautotrophic Carbon and Nitrogen Fixation
+    target: Coupled Ferrous Iron and Reduced Sulfur Oxidation in Copper Tailings
+    description: Autotrophic carbon and fixed nitrogen supply supports chemolithotrophic iron- and sulfur-oxidizing
+      guilds across the bioleaching heap surface.
+  - source: Coupled Ferrous Iron and Reduced Sulfur Oxidation in Copper Tailings
+    target: Peroxiredoxin-Mediated Hydroxyl Radical Detoxification
+    description: Aerobic Fe(II) oxidation in acidic tailings generates Fenton-type reactive oxygen stress
+      that requires community peroxiredoxin detoxification.
+  edges_after:
+  - source: Cooperative Chemolithoautotrophic Carbon and Nitrogen Fixation
+    target: Coupled Ferrous Iron and Reduced Sulfur Oxidation in Copper Tailings
+    description: Autotrophic carbon and fixed nitrogen supply supports chemolithotrophic iron- and sulfur-oxidizing
+      guilds across the bioleaching heap surface.
+  - source: Coupled Ferrous Iron and Reduced Sulfur Oxidation in Copper Tailings
+    target: Peroxiredoxin-Mediated Hydroxyl Radical Detoxification
+    description: Aerobic Fe(II) oxidation in acidic tailings generates Fenton-type reactive oxygen stress
+      that requires community peroxiredoxin detoxification.
+  retained_edge_decisions:
+  - edge: Cooperative Chemolithoautotrophic Carbon and Nitrogen Fixation -> Coupled Ferrous Iron and Reduced
+      Sulfur Oxidation in Copper Tailings
+    action: keep_edge
+    support_status: DIRECTLY_IMPLIED
+    reason: PMID:26781463 / doi:10.1186/s12863-016-0330-4 show that Acidithiobacillus-like Rubisco carbon
+      fixation and Leptospirillum ferrooxidans-like nitrogen fixation supply the autotrophic C and N foundation
+      for the principal Fe(II)- and sulfur-oxidizing guilds in the nitrogen-limited bioleaching heap.
+    evidence:
+    - reference: doi:10.1186/s12863-016-0330-4
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: The relevant genes were largely found in Leptospirillum-like and had the highest similarity
+        to those from L. ferrooxidans-like species, suggesting the vital position of Leptospirillum-like
+        organisms in bioleaching systems with limited fixed nitrogen from external sources.
+    - reference: PMID:26781463
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: Functional analysis illustrated that the principal participants related to the key metabolic
+        pathways (carbon fixation, nitrogen metabolism, Fe(II) oxidation and sulfur metabolism) were mainly
+        identified to be Acidithiobacillus-like, Thiobacillus-like and Leptospirillum-like microorganisms,
+        indicating their vital roles.
+  - edge: Coupled Ferrous Iron and Reduced Sulfur Oxidation in Copper Tailings -> Peroxiredoxin-Mediated
+      Hydroxyl Radical Detoxification
+    action: keep_edge
+    support_status: DIRECTLY_IMPLIED
+    reason: doi:10.1186/s12863-016-0330-4 links iron and sulfur bioleaching in the acidic copper heap
+      to hydroxyl radical stress and assigns the peroxiredoxin genes (LcPxn1, LcPxn3, LdPxn1) to Leptospirillum-like
+      populations for hydroxyl radical detoxification.
+    evidence:
+    - reference: doi:10.1186/s12863-016-0330-4
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: Based on sequence identities (30 % identity cut-off; E-value ≤1e−5), sequence homologs
+        for those peroxiredoxin coding genes (LcPxn1, LcPxn3 and LdPxn1) were mostly assigned to a Leptospirillum-like
+        populations, indicating its key role in the detoxification of hydroxyl radicals.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - doi:10.1186/s12863-016-0330-4
+  - PMID:26781463
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Dexing_Copper_Bioleaching_Heap_Community/2026-10-25T053000Z-antigravity-0f922d.yaml
+- path: kb/communities/Stare_Ransko_Mine_Tailings_Bioleaching_Consortium.yaml
+  id: CommunityMech:000486
+  original_sha256: 728e6883509a9d9da5a43f8761cb3f0060ad4a547300c159d4d9a7d8a425127b
+  record_sha256: 65d9768713aa281dca229c73794ae3f825f22acb78d857b9eb189addfeeb7acf
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-stage2-seven-records-batch134.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached primary source text.
+  summary: Added the doi:10.3390/min14030255 Ag+ solubilization-enhancement snippet to Node 1 so its downstream
+    edge to Silver-Catalyzed Copper and Arsenic Bioleaching and Secondary Sulfate Precipitation is directly
+    backed on the source interaction.
+  node_decisions:
+  - node: Cooperative Iron and Sulfur Oxidation for Polymetallic Tailings Solubilization
+    rationale: Supported by primary source (doi:10.3390/min14030255) with explicit COMMUNITY_LEVEL scope
+      and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (doi:10.3390/min14030255)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Acidithiobacillus ferrooxidans
+        term:
+          id: NCBITaxon:920
+          label: Acidithiobacillus ferrooxidans
+      participating_taxa:
+      - preferred_term: Acidithiobacillus ferrooxidans
+        term:
+          id: NCBITaxon:920
+          label: Acidithiobacillus ferrooxidans
+      - preferred_term: Acidithiobacillus thiooxidans
+        term:
+          id: NCBITaxon:930
+          label: Acidithiobacillus thiooxidans
+      - preferred_term: Leptospirillum ferrooxidans
+        term:
+          id: NCBITaxon:180
+          label: Leptospirillum ferrooxidans
+    evidence:
+    - reference: doi:10.3390/min14030255
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: This research focused on applying and comparing the performance of microorganisms with
+        different temperature preferences, assessing the overall percentage recovery of elements (copper,
+        zinc, arsenic, and iron) from mine tailings in the Staré Ransko region (Czech Republic).
+    - reference: doi:10.3390/min14030255
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The study examined the solubilisation process using a mesophilic mixed bacterial culture,
+        including Acidithiobacillus ferrooxidans (AF), Acidithiobacillus thiooxidans (AT), Leptospirillum
+        ferrooxidans (LF), and the thermophilic species Sulfobacillus thermosulfidooxidans (ST).
+    - reference: doi:10.3390/min14030255
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The study observed that the most significant increase in solubilisation can be attributed
+        to the additive cation in the case of copper (AF, AT, LF/Ag+ by 40.33%; ST/Ag+ by 44.39%) and
+        arsenic (AF, AT, LF/Ag+ by 23.79%; ST/Ag+ by 26.08%).
+  - node: Silver-Catalyzed Copper and Arsenic Bioleaching and Secondary Sulfate Precipitation
+    rationale: Supported by primary source (doi:10.3390/min14030255) with explicit COMMUNITY_LEVEL scope
+      and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (doi:10.3390/min14030255)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Acidithiobacillus thiooxidans
+        term:
+          id: NCBITaxon:930
+          label: Acidithiobacillus thiooxidans
+      participating_taxa:
+      - preferred_term: Acidithiobacillus ferrooxidans
+        term:
+          id: NCBITaxon:920
+          label: Acidithiobacillus ferrooxidans
+      - preferred_term: Acidithiobacillus thiooxidans
+        term:
+          id: NCBITaxon:930
+          label: Acidithiobacillus thiooxidans
+      - preferred_term: Leptospirillum ferrooxidans
+        term:
+          id: NCBITaxon:180
+          label: Leptospirillum ferrooxidans
+    evidence:
+    - reference: doi:10.3390/min14030255
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The study observed that the most significant increase in solubilisation can be attributed
+        to the additive cation in the case of copper (AF, AT, LF/Ag+ by 40.33%; ST/Ag+ by 44.39%) and
+        arsenic (AF, AT, LF/Ag+ by 23.79%; ST/Ag+ by 26.08%).
+    - reference: doi:10.3390/min14030255
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: After 24 days of extraction, the emergence of secondary minerals, namely CaSO4·2H2O and
+        KFe3(SO4)2(OH)6, was identified.
+  edges_before:
+  - source: Cooperative Iron and Sulfur Oxidation for Polymetallic Tailings Solubilization
+    target: Silver-Catalyzed Copper and Arsenic Bioleaching and Secondary Sulfate Precipitation
+    description: Biogenic ferric iron and sulfate generated by the mesophilic consortium interact with
+      5 mg L-1 Ag+ catalyst to accelerate Cu and As extraction and precipitate gypsum and jarosite.
+  edges_after:
+  - source: Cooperative Iron and Sulfur Oxidation for Polymetallic Tailings Solubilization
+    target: Silver-Catalyzed Copper and Arsenic Bioleaching and Secondary Sulfate Precipitation
+    description: Biogenic ferric iron and sulfate generated by the mesophilic consortium interact with
+      5 mg L-1 Ag+ catalyst to accelerate Cu and As extraction and precipitate gypsum and jarosite.
+  retained_edge_decisions:
+  - edge: Cooperative Iron and Sulfur Oxidation for Polymetallic Tailings Solubilization -> Silver-Catalyzed
+      Copper and Arsenic Bioleaching and Secondary Sulfate Precipitation
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: doi:10.3390/min14030255 demonstrates that adding 5 mg L-1 Ag+ to the mesophilic AF, AT, LF
+      bioleaching consortium increases copper solubilization by 40.33% and arsenic solubilization by 23.79%
+      while precipitating gypsum and potassium jarosite after 24 days.
+    evidence:
+    - reference: doi:10.3390/min14030255
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The study observed that the most significant increase in solubilisation can be attributed
+        to the additive cation in the case of copper (AF, AT, LF/Ag+ by 40.33%; ST/Ag+ by 44.39%) and
+        arsenic (AF, AT, LF/Ag+ by 23.79%; ST/Ag+ by 26.08%).
+    - reference: doi:10.3390/min14030255
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: After 24 days of extraction, the emergence of secondary minerals, namely CaSO4·2H2O and
+        KFe3(SO4)2(OH)6, was identified.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - doi:10.3390/min14030255
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Stare_Ransko_Mine_Tailings_Bioleaching_Consortium/2026-10-25T053000Z-antigravity-65d976.yaml
+- path: kb/communities/Moderate_Thermophile_Chalcopyrite_pH_Bioleaching_Consortium.yaml
+  id: CommunityMech:000487
+  original_sha256: 6bb46e963a6321a3a8195310e22488a07af1a252ea9552145a4339b374bf50d7
+  record_sha256: cea2bc95d29e8eb52ef00f173ef5ab7514f92e2cbb5315ec0c87ce6a2fce5d41
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-stage2-seven-records-batch134.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached primary source text.
+  summary: Tightened the downstream edge description on Node 1 to match the cached abstract of doi:10.1007/s13213-019-01453-y
+    (removing unsupported 'organic carbon conditions' phrasing) and added supporting pH-regulation and
+    succession snippets across both nodes.
+  node_decisions:
+  - node: Early Planktonic-Attached Niche Partitioning in Chalcopyrite Oxidation
+    rationale: Supported by primary source (doi:10.1007/s13213-019-01453-y) with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (doi:10.1007/s13213-019-01453-y)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Sulfobacillus thermosulfidooxidans
+        term:
+          id: NCBITaxon:28034
+          label: Sulfobacillus thermosulfidooxidans
+      participating_taxa:
+      - preferred_term: Sulfobacillus thermosulfidooxidans
+        term:
+          id: NCBITaxon:28034
+          label: Sulfobacillus thermosulfidooxidans
+      - preferred_term: Acidithiobacillus caldus
+        term:
+          id: NCBITaxon:33059
+          label: Acidithiobacillus caldus
+      - preferred_term: Ferroplasma thermophilum
+        term:
+          id: NCBITaxon:2591003
+          label: Ferroplasma sp.
+    evidence:
+    - reference: doi:10.1007/s13213-019-01453-y
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Quantitative real-time PCR assay was used to monitor the dynamics of microbial community
+        structures and the expression of critical iron/sulfur oxidation genes (4Fe-4S ferredoxin and sulfate
+        adenylyltransferase genes, respectively).
+    - reference: doi:10.1007/s13213-019-01453-y
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: It was shown that Sulfobacillus thermosulfidooxidans and Acidithiobacillus caldus were
+        the dominant species during the early stage in free and attached cells, respectively, while Ferroplasma
+        thermophilum became predominant in the later phase.
+    - reference: doi:10.1007/s13213-019-01453-y
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The gene expression in Sulfobacillus thermosulfidooxidans and Ferroplasma thermophilum
+        was greatly affected by pH values. On the other hand, the relationship between pH and gene expression
+        in Acidithiobacillus caldus was not significant.
+  - node: Late-Phase Ferroplasma Succession and pH-Regulated Iron-Sulfur Oxidation
+    rationale: Supported by primary source (doi:10.1007/s13213-019-01453-y) with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (doi:10.1007/s13213-019-01453-y)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Ferroplasma thermophilum
+        term:
+          id: NCBITaxon:2591003
+          label: Ferroplasma sp.
+      participating_taxa:
+      - preferred_term: Sulfobacillus thermosulfidooxidans
+        term:
+          id: NCBITaxon:28034
+          label: Sulfobacillus thermosulfidooxidans
+      - preferred_term: Acidithiobacillus caldus
+        term:
+          id: NCBITaxon:33059
+          label: Acidithiobacillus caldus
+      - preferred_term: Ferroplasma thermophilum
+        term:
+          id: NCBITaxon:2591003
+          label: Ferroplasma sp.
+    evidence:
+    - reference: doi:10.1007/s13213-019-01453-y
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The gene expression in Sulfobacillus thermosulfidooxidans and Ferroplasma thermophilum
+        was greatly affected by pH values. On the other hand, the relationship between pH and gene expression
+        in Acidithiobacillus caldus was not significant.
+    - reference: doi:10.1007/s13213-019-01453-y
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: It was shown that Sulfobacillus thermosulfidooxidans and Acidithiobacillus caldus were
+        the dominant species during the early stage in free and attached cells, respectively, while Ferroplasma
+        thermophilum became predominant in the later phase.
+  edges_before:
+  - source: Early Planktonic-Attached Niche Partitioning in Chalcopyrite Oxidation
+    target: Late-Phase Ferroplasma Succession and pH-Regulated Iron-Sulfur Oxidation
+    description: Early iron and sulfur oxidation modifies solution redox and organic carbon conditions,
+      driving late-phase succession to Ferroplasma thermophilum dominance.
+  edges_after:
+  - source: Early Planktonic-Attached Niche Partitioning in Chalcopyrite Oxidation
+    target: Late-Phase Ferroplasma Succession and pH-Regulated Iron-Sulfur Oxidation
+    description: Early-stage chalcopyrite bioleaching dominated by free Sulfobacillus thermosulfidooxidans
+      and mineral-attached Acidithiobacillus caldus transitions in the later phase to Ferroplasma thermophilum
+      predominance alongside pH-dependent iron and sulfur oxidation gene expression.
+  retained_edge_decisions:
+  - edge: Early Planktonic-Attached Niche Partitioning in Chalcopyrite Oxidation -> Late-Phase Ferroplasma
+      Succession and pH-Regulated Iron-Sulfur Oxidation
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: doi:10.1007/s13213-019-01453-y directly documents that early-stage dominance by planktonic
+      Sulfobacillus thermosulfidooxidans and mineral-attached Acidithiobacillus caldus transitions in
+      the later phase of chalcopyrite bioleaching to Ferroplasma thermophilum predominance with pH-sensitive
+      iron/sulfur oxidation gene expression.
+    evidence:
+    - reference: doi:10.1007/s13213-019-01453-y
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: It was shown that Sulfobacillus thermosulfidooxidans and Acidithiobacillus caldus were
+        the dominant species during the early stage in free and attached cells, respectively, while Ferroplasma
+        thermophilum became predominant in the later phase.
+    - reference: doi:10.1007/s13213-019-01453-y
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The gene expression in Sulfobacillus thermosulfidooxidans and Ferroplasma thermophilum
+        was greatly affected by pH values. On the other hand, the relationship between pH and gene expression
+        in Acidithiobacillus caldus was not significant.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - doi:10.1007/s13213-019-01453-y
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Moderate_Thermophile_Chalcopyrite_pH_Bioleaching_Consortium/2026-10-25T053000Z-antigravity-cea2bc.yaml
+- path: data/isolates/Bacillus_licheniformis_Chromate_Biosorption.yaml
+  id: CommunityMech:000488
+  original_sha256: c4f9e2736dc799da6ace0514a79ceb75048b84ebdf53c791217a227d076a8972
+  record_sha256: 00db30e65f01d0732e5dafbd831942dd6ac1729eb4a459e17466a96213b80eb3
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-stage2-seven-records-batch134.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached primary source text.
+  summary: Added a 2-node physiological mechanism chain for Bacillus licheniformis chromate biosorption
+    linking FTIR-characterized cell-surface functional-group Cr(VI) complexation/deprotonation to the
+    zeta-potential shift (-10.63 to -39.53 mV) and EDX-measured chromium biosorption up to the 100 mg/L
+    Cr6+ saturation limit.
+  node_decisions:
+  - node: Cell-Surface Functional-Group Chromate Complexation and Deprotonation
+    rationale: Supported by primary source (doi:10.3389/fmicb.2024.1423741) with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (doi:10.3389/fmicb.2024.1423741)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Bacillus licheniformis
+        term:
+          id: NCBITaxon:1402
+          label: Bacillus licheniformis
+    evidence:
+    - reference: doi:10.3389/fmicb.2024.1423741
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In order to determine the impact of Cr6+ on the functional groups of the microbial cell
+        surface, 100 μL of preculture (24 h) of each strain was introduced into Luria-Bertani (LB) broth
+        containing 50 mg/L Cr6+ (30 °C, pH 7).
+    - reference: doi:10.3389/fmicb.2024.1423741
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: After exposure to chromium, the zeta potential of Bacillus licheniformis strains undergoes
+        a significant change from −10.63 ± 0.38 (0 mg/L Cr6+) to −39.53 ± 1 mV (100 mg/L Cr6+), indicating
+        that the cells in contact with Cr6+ have experienced an increase in negative charge.
+  - node: Electrostatic Surface-Charge Shift and Chromium Biosorption Saturation
+    rationale: Supported by primary source (doi:10.3389/fmicb.2024.1423741) with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (doi:10.3389/fmicb.2024.1423741)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Bacillus licheniformis
+        term:
+          id: NCBITaxon:1402
+          label: Bacillus licheniformis
+    evidence:
+    - reference: doi:10.3389/fmicb.2024.1423741
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: After treatment of the microorganisms with 5 mg/L Cr6+, the EDX analyses reveal Cr weight
+        percentages of 1.1, 0.52, 0.51, and 0.62 and atomic percentages of 0.30, 0.14, 0.13, and 0.17
+        for Bacillus licheniformis, Bacillus megaterium, Byssochlamys sp., and Candida maltosa, respectively.
+    - reference: doi:10.3389/fmicb.2024.1423741
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: These findings were supported by zeta potential measurements highlighting significant variations
+        in charge after treatment with Cr(VI) with an adsorption limit of 100 mg/L Cr6+ for all the strains.
+  edges_before: []
+  edges_after:
+  - source: Cell-Surface Functional-Group Chromate Complexation and Deprotonation
+    target: Electrostatic Surface-Charge Shift and Chromium Biosorption Saturation
+    description: Deprotonation of cell-surface phosphoryl and carboxyl groups upon Cr(VI) exposure shifts
+      the cellular zeta potential from -10.63 mV to -39.53 mV and drives surface Cr loading up to a 100
+      mg/L Cr6+ adsorption limit.
+  retained_edge_decisions:
+  - edge: Cell-Surface Functional-Group Chromate Complexation and Deprotonation -> Electrostatic Surface-Charge
+      Shift and Chromium Biosorption Saturation
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: doi:10.3389/fmicb.2024.1423741 shows that Cr6+ interaction with cell-surface functional groups
+      shifts the zeta potential of Bacillus licheniformis from -10.63 mV to -39.53 mV and drives surface
+      chromium accumulation up to an adsorption limit of 100 mg/L Cr6+.
+    evidence:
+    - reference: doi:10.3389/fmicb.2024.1423741
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: After exposure to chromium, the zeta potential of Bacillus licheniformis strains undergoes
+        a significant change from −10.63 ± 0.38 (0 mg/L Cr6+) to −39.53 ± 1 mV (100 mg/L Cr6+), indicating
+        that the cells in contact with Cr6+ have experienced an increase in negative charge.
+    - reference: doi:10.3389/fmicb.2024.1423741
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: These findings were supported by zeta potential measurements highlighting significant variations
+        in charge after treatment with Cr(VI) with an adsorption limit of 100 mg/L Cr6+ for all the strains.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - doi:10.3389/fmicb.2024.1423741
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Bacillus_licheniformis_Chromate_Biosorption/2026-10-25T053000Z-antigravity-00db30.yaml
+- path: data/isolates/Acidithiobacillus_LED_Metal_Bioleaching.yaml
+  id: CommunityMech:000489
+  original_sha256: c16dd6b1f4fa4f3556b34bde4d0b421502a65bd7cfac7230ba07affb0f55d489
+  record_sha256: 1183e9ac2b3567f395e7f19cceb575ac15227bc4ce1323736c042d1fbd43fb4b
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-stage2-seven-records-batch134.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached primary source text.
+  summary: Added a 3-node physiological mechanism chain for adapted Acidithiobacillus ferrooxidans linking
+    five-step serial LED powder adaptation (5-25 g/L) to enhanced biogenic Fe3+ (4-5 g/L) and acidification,
+    and downstream to 83-84% Cu, 96-97% Ni, and 60-84% Ga bioleaching recovery.
+  node_decisions:
+  - node: Serial Heavy-Metal Acclimatization to Waste LED Powder
+    rationale: Supported by primary source (PMID:30343816) with explicit COMMUNITY_LEVEL scope and taxon
+      grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:30343816)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Acidithiobacillus ferrooxidans
+        term:
+          id: NCBITaxon:920
+          label: Acidithiobacillus ferrooxidans
+    evidence:
+    - reference: PMID:30343816
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The adaptation of Acidithiobacillus ferrooxidans to LED powder was done through a serial
+        acclimatisation procedure in five steps of 5, 10, 15, 20, and 25 g/l.
+    - reference: PMID:30343816
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In the presence of 20 g/l of LED powder, adapted Acidithiobacillus ferrooxidans exhibits
+        higher Fe3+ level, cell amount, ORP, and lower pH than the non-adapted cells.
+  - node: Biogenic Ferric Iron and Acid Generation
+    rationale: Supported by primary source (PMID:30343816, PMID:31203122) with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:30343816, PMID:31203122)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Acidithiobacillus ferrooxidans
+        term:
+          id: NCBITaxon:920
+          label: Acidithiobacillus ferrooxidans
+    evidence:
+    - reference: PMID:30343816
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In the presence of 20 g/l of LED powder, adapted Acidithiobacillus ferrooxidans exhibits
+        higher Fe3+ level, cell amount, ORP, and lower pH than the non-adapted cells.
+    - reference: PMID:31203122
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: A novel step-wise indirect bioleaching process has been developed in this study for recycling
+        valuable metals from WLEDs using adapted Acidithiobacillus ferrooxidans. The ferric ion concentration
+        was controlled at 4-5 g/L with step-wise addition of biogenic ferric for faster bioleaching rate.
+  - node: Catalytic Ferric Bioleaching of Copper, Nickel, and Gallium from Waste LEDs
+    rationale: Supported by primary source (PMID:30343816, PMID:31203122) with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:30343816, PMID:31203122)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Acidithiobacillus ferrooxidans
+        term:
+          id: NCBITaxon:920
+          label: Acidithiobacillus ferrooxidans
+    evidence:
+    - reference: PMID:30343816
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The adapted A. ferrooxidans leached approximately 84%, 96%, and 60%, copper, nickel, and
+        gallium, respectively.
+    - reference: PMID:31203122
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: At a pulp density of 20 g/L, the copper, nickel, and gallium recovery efficiency was 83%,
+        97%, 84%, respectively. In addition, leaching time was reduced to 15 days from 30 days.
+  edges_before: []
+  edges_after:
+  - source: Serial Heavy-Metal Acclimatization to Waste LED Powder
+    target: Biogenic Ferric Iron and Acid Generation
+    description: Serial adaptation to 5-25 g/L LED powder enables higher cell density, elevated ORP, lower
+      pH, and sustained 4-5 g/L biogenic Fe3+ production in the presence of 20 g/L LED powder.
+  - source: Biogenic Ferric Iron and Acid Generation
+    target: Catalytic Ferric Bioleaching of Copper, Nickel, and Gallium from Waste LEDs
+    description: Controlled 4-5 g/L biogenic Fe3+ and acidic lixiviant drive oxidative solubilization
+      of copper, nickel, and gallium from 20 g/L waste LED powder while halving leaching duration from
+      30 days to 15 days.
+  retained_edge_decisions:
+  - edge: Serial Heavy-Metal Acclimatization to Waste LED Powder -> Biogenic Ferric Iron and Acid Generation
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:30343816 demonstrates that five-step serial acclimatization of Acidithiobacillus ferrooxidans
+      to 5-25 g/L LED powder results in higher Fe3+ concentration, higher cell density, higher ORP, and
+      lower pH than non-adapted cells at 20 g/L LED powder.
+    evidence:
+    - reference: PMID:30343816
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The adaptation of Acidithiobacillus ferrooxidans to LED powder was done through a serial
+        acclimatisation procedure in five steps of 5, 10, 15, 20, and 25 g/l.
+    - reference: PMID:30343816
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In the presence of 20 g/l of LED powder, adapted Acidithiobacillus ferrooxidans exhibits
+        higher Fe3+ level, cell amount, ORP, and lower pH than the non-adapted cells.
+  - edge: Biogenic Ferric Iron and Acid Generation -> Catalytic Ferric Bioleaching of Copper, Nickel,
+      and Gallium from Waste LEDs
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:30343816 and PMID:31203122 show that biogenic Fe3+ controlled at 4-5 g/L drives 83-84%
+      copper, 96-97% nickel, and 60-84% gallium extraction from 20 g/L waste LED powder while halving
+      leaching time from 30 days to 15 days.
+    evidence:
+    - reference: PMID:31203122
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: A novel step-wise indirect bioleaching process has been developed in this study for recycling
+        valuable metals from WLEDs using adapted Acidithiobacillus ferrooxidans. The ferric ion concentration
+        was controlled at 4-5 g/L with step-wise addition of biogenic ferric for faster bioleaching rate.
+    - reference: PMID:31203122
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: At a pulp density of 20 g/L, the copper, nickel, and gallium recovery efficiency was 83%,
+        97%, 84%, respectively. In addition, leaching time was reduced to 15 days from 30 days.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:30343816
+  - PMID:31203122
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Acidithiobacillus_LED_Metal_Bioleaching/2026-10-25T053000Z-antigravity-1183e9.yaml
+- path: data/isolates/Ferrimicrobium_acidiphilum_Iron_Respiration.yaml
+  id: CommunityMech:000490
+  original_sha256: 41c9f7178ffd2f5a592d32c9fb3d4b5cf6dc827df9ec034b4c457b5514d00feb
+  record_sha256: 58f2d2fd0be0be26c7519de2e31f5cc80a9dbb2a43932a242dc27fc832e1a492
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-stage2-seven-records-batch134.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached primary source text.
+  summary: Added a 2-node physiological mechanism chain for Ferrimicrobium acidiphilum linking in situ
+    extracellular Fe(II) oxidation and whole-cell cytochrome reduction to aerobic respiratory electron
+    transport at acidic pH.
+  node_decisions:
+  - node: Extracellular Ferrous Iron Oxidation and Whole-Cell Cytochrome Reduction
+    rationale: Supported by primary source (doi:10.1128/aem.01906-20) with explicit COMMUNITY_LEVEL scope
+      and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (doi:10.1128/aem.01906-20)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Ferrimicrobium acidiphilum
+        term:
+          id: NCBITaxon:121039
+          label: Ferrimicrobium acidiphilum
+    evidence:
+    - reference: doi:10.1128/aem.01906-20
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In situ absorbance measurements were conducted on Fm. acidiphilum as it respired on extracellular
+        iron using an integrating cavity absorption meter that permitted accurate optical measurements
+        in turbid suspensions of the intact bacterium under physiological conditions.
+    - reference: doi:10.1128/aem.01906-20
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The significance of these measurements is that they permitted a direct spectrophotometric
+        examination of the extents and rates of biological electron transfer events in situ under noninvasive
+        physiological conditions without disrupting the complexity of the live cellular environment.
+  - node: Acidophilic Aerobic Respiratory Electron Transport Chain Coupling
+    rationale: Supported by primary source (doi:10.1128/aem.01906-20) with explicit COMMUNITY_LEVEL scope
+      and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (doi:10.1128/aem.01906-20)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Ferrimicrobium acidiphilum
+        term:
+          id: NCBITaxon:121039
+          label: Ferrimicrobium acidiphilum
+    evidence:
+    - reference: doi:10.1128/aem.01906-20
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The identities and functions of proteins involved in aerobic respiration on extracellular
+        ferrous ions at acidic pH are poorly understood in the four phyla of Gram-positive eukaryotes
+        and archaea where such activities occur.
+    - reference: doi:10.1128/aem.01906-20
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In situ absorbance measurements were conducted on Fm. acidiphilum as it respired on extracellular
+        iron using an integrating cavity absorption meter that permitted accurate optical measurements
+        in turbid suspensions of the intact bacterium under physiological conditions.
+  edges_before: []
+  edges_after:
+  - source: Extracellular Ferrous Iron Oxidation and Whole-Cell Cytochrome Reduction
+    target: Acidophilic Aerobic Respiratory Electron Transport Chain Coupling
+    description: Electrons transferred from extracellular Fe(II) into cellular redox proteins feed the
+      acidophilic aerobic respiratory chain to reduce dioxygen in intact live suspensions.
+  retained_edge_decisions:
+  - edge: Extracellular Ferrous Iron Oxidation and Whole-Cell Cytochrome Reduction -> Acidophilic Aerobic
+      Respiratory Electron Transport Chain Coupling
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: doi:10.1128/aem.01906-20 directly measures whole-cell biological electron transfer extents
+      and rates in situ as intact Ferrimicrobium acidiphilum respires aerobically on extracellular ferrous
+      ions at acidic pH.
+    evidence:
+    - reference: doi:10.1128/aem.01906-20
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In situ absorbance measurements were conducted on Fm. acidiphilum as it respired on extracellular
+        iron using an integrating cavity absorption meter that permitted accurate optical measurements
+        in turbid suspensions of the intact bacterium under physiological conditions.
+    - reference: doi:10.1128/aem.01906-20
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The significance of these measurements is that they permitted a direct spectrophotometric
+        examination of the extents and rates of biological electron transfer events in situ under noninvasive
+        physiological conditions without disrupting the complexity of the live cellular environment.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - doi:10.1128/aem.01906-20
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Ferrimicrobium_acidiphilum_Iron_Respiration/2026-10-25T053000Z-antigravity-58f2d2.yaml

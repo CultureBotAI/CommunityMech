@@ -1,0 +1,70 @@
+# Cycle 2 Stage 2 (`causal_graphs`) Corpus Review & Curation Report (2026-10-25)
+
+## 1. Scope & Workflow Context
+- **Run ID**: `mech-goal-sequence-20261019`
+- **Cycle / Stage**: Cycle 2, Stage 2 (`causal_graphs` — Curation of Causal Graphs)
+- **Repository**: `CultureBotAI/CommunityMech`
+- **Base Commit**: `edd740d502690303a691935d1ee8deef911362f8` (`main` after Cycle 2 Stage 1 PR `#2064`)
+- **Eligible Corpus**:
+  - `477` community records in `kb/communities/*.yaml`
+  - `7` isolate records in `data/isolates/*.yaml`
+  - `2` shared taxon records in `kb/taxa/*.yaml` (`CommunityMechTaxon:000001` `Escherichia coli`, `CommunityMechTaxon:000002` `Saccharomyces cerevisiae`)
+  - **Total `MicrobialCommunity` records**: `484`
+
+## 2. Corpus-Wide SHA-256 Census & Review Status
+Every record in `kb/communities/*.yaml` and `data/isolates/*.yaml` was audited against `reports/causal_graph_review/inventory.tsv` and `reports/causal_graph_review/summary.json`:
+
+| Cohort | Record Count | Pre-Stage-2 Status | Post-Stage-2 Status | Notes |
+| --- | ---: | --- | --- | --- |
+| Previously reviewed records (`000001`–`000483`, 477 files) | 423 | `reviewed` | `reviewed` | Zero SHA-256 drift since Cycle 1 Stage 2 / Stage 5 remediation (`6683de7`). |
+| Source-limited / awaiting paid full-text DRC (`000001`–`000483`) | 54 | `needs_research` | `needs_research` | Zero SHA-256 drift; zero new files in `references_cache/` or `reports/drc/` since Cycle 1 Stage 2; paid Edison/PaperQA3 credits not spent per authorization policy. |
+| Cycle 2 Stage 1 additions (`000484`–`000490`, Batch 134) | 7 | `unreviewed` | `reviewed` | Curated in Batch 134 (`reports/causal_graph_review/decisions/20261025-stage2-seven-records-batch134.yaml`) via guarded `record_curation_event` + `write_validated_community`. |
+| **Total (`MicrobialCommunity`)** | **484** | **423 reviewed / 54 needs_research / 7 unreviewed** | **430 reviewed / 54 needs_research / 0 unreviewed** | **`1,445` nodes, `573` directed `downstream` causal edges, `0` structural defects.** |
+
+## 3. Batch 134 Causal-Graph Curation (`CommunityMech:000484`–`000490`)
+
+All seven records added in Cycle 2 Stage 1 were reviewed end-to-end against their cached primary sources in `references_cache/` and updated via `communitymech.ControlledCuration` (`record_curation_event` + `write_validated_community`):
+
+1. **`CommunityMech:000484` — `kb/communities/Aquifer_Sediment_Cable_Bacteria_Sulfur_Community.yaml`** (`PMID:27058505`)
+   - **Graph**: 3 nodes, 2 directed `downstream` causal edges (`Long-Distance Electron Transfer Sulfide Oxidation and Sulfate Recycling` $\to$ `Sulfate-Reducing Hydrocarbon Plume Fringe Biodegradation` and `Long-Distance Electron Transfer Sulfide Oxidation and Sulfate Recycling` $\to$ `Redox-Gradient Niche Competition with Unicellular Sulfide Oxidizers`).
+   - **Curation Updates**: Added explicit `participating_taxa` (`Desulfobulbaceae` `NCBITaxon:213121`, `Thiobacillus` `NCBITaxon:919`, `Ignavibacteria` `NCBITaxon:1134404`) on `COMMUNITY_LEVEL` Node 2 (`Sulfate-Reducing Hydrocarbon Plume Fringe Biodegradation`) with exact `{preferred_term, term}` coherence against `taxonomy`, and added two verbatim `PMID:27058505` snippets on Node 1 so the upstream node directly backs both outgoing `downstream` edges. Preserved `PAIRWISE` competition on Node 3 (`Desulfobulbaceae` vs `Thiobacillus`).
+
+2. **`CommunityMech:000485` — `kb/communities/Dexing_Copper_Bioleaching_Heap_Community.yaml`** (`doi:10.1186/s12863-016-0330-4`, `PMID:26781463`)
+   - **Graph**: 3 nodes, 2 directed `downstream` causal edges (`Cooperative Chemolithoautotrophic Carbon and Nitrogen Fixation` $\to$ `Coupled Ferrous Iron and Reduced Inorganic Sulfur Oxidation` $\to$ `Heavy Metal Resistance and Acid Stress Homeostasis`).
+   - **Curation Updates**: Added `Acidithiobacillus` (`NCBITaxon:119977`) to `participating_taxa` on `COMMUNITY_LEVEL` Node 1 so all three key functional genera (`Acidithiobacillus`, `Leptospirillum`, `Acidiphilium`) are represented; added explicit `participating_taxa` (`Acidithiobacillus`, `Leptospirillum`, `Acidiphilium`, `Thiomonas`) on `COMMUNITY_LEVEL` Node 3; and added verbatim `PMID:26781463` / `doi:10.1186/s12863-016-0330-4` snippets (`evidence_source: FIELD_STUDY`) on Nodes 1 and 2 to directly support both outgoing `downstream` edges.
+
+3. **`CommunityMech:000486` — `kb/communities/Stare_Ransko_Mine_Tailings_Bioleaching_Consortium.yaml`** (`doi:10.3390/min14030255`)
+   - **Graph**: 2 nodes, 1 directed `downstream` causal edge (`Coupled Iron and Sulfur Bio-oxidation of Sulfidic Tailings` $\to$ `Silver-Catalyzed Enhancement of Zinc and Nickel Extraction`).
+   - **Curation Updates**: Added the verbatim `Ag+` solubilization-enhancement snippet from `doi:10.3390/min14030255` onto Node 1 (`Coupled Iron and Sulfur Bio-oxidation of Sulfidic Tailings`) so the upstream node directly supports its outgoing `downstream` causal edge.
+
+4. **`CommunityMech:000487` — `kb/communities/Moderate_Thermophile_Chalcopyrite_pH_Bioleaching_Consortium.yaml`** (`doi:10.1007/s13213-019-01453-y`)
+   - **Graph**: 2 nodes, 1 directed `downstream` causal edge (`Cooperative Moderately Thermophilic Iron-Sulfur Chalcopyrite Bioleaching` $\to$ `pH-Driven Ecological Succession of Sulfobacillus and Acidithiobacillus`).
+   - **Curation Updates**: Tightened Node 1's `downstream[0].description` to remove unsupported `"organic carbon conditions"` phrasing (matching the paper's stationary vs unstationary pH control design) and added verbatim pH-regulation and succession snippets from `doi:10.1007/s13213-019-01453-y` across Nodes 1 and 2.
+
+5. **`CommunityMech:000488` — `data/isolates/Bacillus_licheniformis_Chromate_Biosorption.yaml`** (`doi:10.3389/fmicb.2024.1423741`)
+   - **Graph**: Added a 2-node, 1-edge single-species physiological causal graph (`scope: COMMUNITY_LEVEL` per `scripts/audit_causal_graphs.py` single-species convention):
+     - Node 1: `Cell-Surface Functional-Group Chromate Complexation and Deprotonation` (`source_taxon: Bacillus licheniformis`, `metabolites: [chromium(VI), chromate(2-)]`, `biological_processes: [response to transition metal nanoparticle, response to pH]`)
+     - Directed Edge ($\to$): `Proton release and chromate oxyanion complexation at cell-surface functional groups shift surface charge and drive biosorption equilibration across pH and temperature regimes.`
+     - Node 2: `Electrostatic Surface-Charge Shift and Chromium Biosorption Saturation` (`source_taxon: Bacillus licheniformis`, `metabolites: [chromium(VI), chromate(2-)]`, `biological_processes: [metal ion transport]`)
+
+6. **`CommunityMech:000489` — `data/isolates/Acidithiobacillus_LED_Metal_Bioleaching.yaml`** (`PMID:30343816`, `PMID:31203122`)
+   - **Graph**: Added a 3-node, 2-edge single-species physiological causal graph (`scope: COMMUNITY_LEVEL`):
+     - Node 1: `Serial Heavy-Metal Acclimatization to Waste LED Powder` (`source_taxon: Acidithiobacillus ferrooxidans`, `biological_processes: [response to metal ion]`)
+     - Directed Edge 1 ($\to$): `Stepwise adaptation of Acidithiobacillus ferrooxidans to elevated waste-LED powder concentrations sustains bacterial growth and oxidative activity during subsequent bioleaching.`
+     - Node 2: `Biogenic Ferric Iron and Acid Generation` (`source_taxon: Acidithiobacillus ferrooxidans`, `metabolites: [iron(2+), iron(3+)]`, `biological_processes: [ferrous iron oxidation, aerobic respiration]`)
+     - Directed Edge 2 ($\to$): `Biogenic ferric iron and protons generated by adapted Acidithiobacillus ferrooxidans oxidize and solubilize metallic copper, nickel, and gallium from waste LED powder.`
+     - Node 3: `Catalytic Ferric Bioleaching of Copper, Nickel, and Gallium from Waste LEDs` (`source_taxon: Acidithiobacillus ferrooxidans`, `metabolites: [iron(3+), copper(2+), nickel(2+)]`, `biological_processes: [metal ion transport]`)
+
+7. **`CommunityMech:000490` — `data/isolates/Ferrimicrobium_acidiphilum_Iron_Respiration.yaml`** (`doi:10.1128/aem.01906-20`)
+   - **Graph**: Added a 2-node, 1-edge single-species physiological causal graph (`scope: COMMUNITY_LEVEL`):
+     - Node 1: `Extracellular Ferrous Iron Oxidation and Whole-Cell Cytochrome Reduction` (`source_taxon: Ferrimicrobium acidiphilum`, `metabolites: [iron(2+), iron(3+)]`, `biological_processes: [ferrous iron oxidation, electron transport chain]`)
+     - Directed Edge ($\to$): `Electrons abstracted from soluble ferrous iron by cell-surface redox proteins reduce acid-stable cytochromes with a562 nm absorbance in intact cells and membrane fractions to drive aerobic proton reduction.`
+     - Node 2: `Acidophilic Aerobic Respiratory Electron Transport Chain Coupling` (`source_taxon: Ferrimicrobium acidiphilum`, `metabolites: [iron(2+), dioxygen]`, `biological_processes: [aerobic respiration, electron transport chain]`)
+
+## 4. Source-Limited Gaps & Representation/Writer Audit
+- **Source-Limited Cohort (`54` `needs_research` records)**:
+  - All 54 `needs_research` records (`44` with `1+` nodes and `0` directed edges where cached abstracts/metadata do not establish an explicit multi-step causal arrow between interaction nodes; `10` with `0` nodes where primary sources are paywalled or lack extractable interaction mechanisms in `references_cache/`) were verified to have no new cached full text in `references_cache/` and no new DRC bundles in `reports/drc/`. No unsupported edges or fabricated fields were added.
+- **Writer & Representation Audit**:
+  - `scripts/audit_writers.py` passes with zero unguarded writers (`every writer imports communitymech.ControlledCuration`).
+  - Single-species records in `data/isolates/*.yaml` represent multi-step physiological causal chains using `EcologicalInteraction` with `scope: COMMUNITY_LEVEL`, `source_taxon` (and no `target_taxon` or `participating_taxa`), and `downstream` edges (`target` + `description`), satisfying both `scripts/validate_strict.py` and `scripts/audit_causal_graphs.py` (`structural_defects == 0`).
+  - Existing deferred infrastructure tracking in `INFRA_TASKS.md` (`#2063` / `communitymech-infra-0004`: `scripts/validate_references.py` does not resolve `references_cache/DOI_*.txt` files when checking `doi:` references) remains documented for Stage 6.

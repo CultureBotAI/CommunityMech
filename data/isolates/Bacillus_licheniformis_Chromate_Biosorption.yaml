@@ -61,6 +61,85 @@ taxonomy:
       experienced an increase in negative charge.
     explanation: Demonstrates electrostatic surface modification and Cr(VI) adsorption limit at 100 mg/L Cr6+ in Bacillus
       licheniformis monoculture.
+ecological_interactions:
+- name: Cell-Surface Functional-Group Chromate Complexation and Deprotonation
+  description: Tannery-effluent Bacillus licheniformis binds hexavalent chromium (Cr6+) in Luria-Bertani broth (5-50 mg/L
+    Cr6+, 30 C, pH 7) via cell-surface phosphate/phosphoryl, amide, and carboxyl functional groups with deprotonation of surface
+    phosphoryl sites.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Bacillus licheniformis
+    term:
+      id: NCBITaxon:1402
+      label: Bacillus licheniformis
+  metabolites:
+  - preferred_term: chromate(2-)
+    term:
+      id: CHEBI:35404
+      label: chromate(2-)
+  - preferred_term: hydron
+    term:
+      id: CHEBI:15378
+      label: hydron
+  biological_processes:
+  - preferred_term: response to metal ion
+    term:
+      id: GO:0010038
+      label: response to metal ion
+  downstream:
+  - target: Electrostatic Surface-Charge Shift and Chromium Biosorption Saturation
+    description: Deprotonation of cell-surface phosphoryl and carboxyl groups upon Cr(VI) exposure shifts the cellular zeta
+      potential from -10.63 mV to -39.53 mV and drives surface Cr loading up to a 100 mg/L Cr6+ adsorption limit.
+  evidence:
+  - reference: doi:10.3389/fmicb.2024.1423741
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In order to determine the impact of Cr6+ on the functional groups of the microbial cell surface, 100 μL of preculture
+      (24 h) of each strain was introduced into Luria-Bertani (LB) broth containing 50 mg/L Cr6+ (30 °C, pH 7).
+    explanation: Documents FTIR characterization of cell-surface functional group interactions with 50 mg/L Cr6+ in LB broth.
+  - reference: doi:10.3389/fmicb.2024.1423741
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After exposure to chromium, the zeta potential of Bacillus licheniformis strains undergoes a significant change
+      from −10.63 ± 0.38 (0 mg/L Cr6+) to −39.53 ± 1 mV (100 mg/L Cr6+), indicating that the cells in contact with Cr6+ have
+      experienced an increase in negative charge.
+    explanation: Links Cr6+ surface interaction to the increase in negative cell-surface charge.
+- name: Electrostatic Surface-Charge Shift and Chromium Biosorption Saturation
+  description: Increased negative surface charge on Cr(VI)-exposed Bacillus licheniformis cells supports chromium accumulation
+    on the cell wall (1.10 wt.% / 0.30 at.% Cr at 5 mg/L Cr6+) until reaching a surface adsorption saturation limit at 100
+    mg/L Cr6+.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Bacillus licheniformis
+    term:
+      id: NCBITaxon:1402
+      label: Bacillus licheniformis
+  metabolites:
+  - preferred_term: chromate(2-)
+    term:
+      id: CHEBI:35404
+      label: chromate(2-)
+  biological_processes:
+  - preferred_term: response to metal ion
+    term:
+      id: GO:0010038
+      label: response to metal ion
+  evidence:
+  - reference: doi:10.3389/fmicb.2024.1423741
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After treatment of the microorganisms with 5 mg/L Cr6+, the EDX analyses reveal Cr weight percentages of 1.1,
+      0.52, 0.51, and 0.62 and atomic percentages of 0.30, 0.14, 0.13, and 0.17 for Bacillus licheniformis, Bacillus megaterium,
+      Byssochlamys sp., and Candida maltosa, respectively.
+    explanation: Quantifies cell-surface chromium loading (1.1 wt.%, 0.30 at.%) on Bacillus licheniformis by EDX.
+  - reference: doi:10.3389/fmicb.2024.1423741
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These findings were supported by zeta potential measurements highlighting significant variations in charge after
+      treatment with Cr(VI) with an adsorption limit of 100 mg/L Cr6+ for all the strains.
+    explanation: Establishes the 100 mg/L Cr6+ adsorption saturation limit from zeta potential measurements.
 environmental_factors:
 - name: Chromate Exposure and LB Cultivation Regime
   value: 0, 5, and 50 mg/L Cr6+ in LB broth at 30 C, pH 7 for 96 h (adsorption limit 100 mg/L Cr6+)
@@ -86,4 +165,11 @@ curation_history:
   action: CREATE
   changes: Added Bacillus licheniformis Tannery Effluent Chromate Biosorption Isolate (CommunityMech:000488) in data/isolates/
     from doi:10.3389/fmicb.2024.1423741.
+  llm_assisted: true
+- timestamp: '2026-10-25T05:30:00Z'
+  curator: curate-causal-graphs
+  action: CURATE_CAUSAL_GRAPH
+  changes: Added 2-node single-species physiological causal graph (Cell-Surface Functional-Group Chromate Complexation and
+    Deprotonation -> Electrostatic Surface-Charge Shift and Chromium Biosorption Saturation) backed by verbatim snippets from
+    doi:10.3389/fmicb.2024.1423741.
   llm_assisted: true
