@@ -45,7 +45,7 @@ def test_batch134_covers_all_seven_c2s1_records_with_verified_hashes_and_history
         "retained_arrows": 10,
         "removed_arrows": 0,
         "renamed_nodes": 0,
-        "graph_quotations": 37,
+        "graph_quotations": 39,
         "discussion_quotations": 0,
     }
     expected_ids = [f"CommunityMech:000{i}" for i in range(484, 491)]

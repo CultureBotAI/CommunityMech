@@ -13,14 +13,15 @@ community records in `kb/communities/` and three isolate physiology records in
 `data/isolates/`). In the four community records (`000484`–`000487`), all ten
 interaction nodes and six directed `downstream` causal edges are retained with
 source-verified snippets on every upstream node directly supporting its outgoing
-causal edge(s) and explicit `participating_taxa` on every `COMMUNITY_LEVEL` node
-(`000484` Node 2 and `000485` Nodes 1 and 3); `000487` Node 1's outgoing edge
+causal edge(s) and explicit `participating_taxa` aligned to node scope (`000484`
+Node 2, `000485` Nodes 1–3 across all four guilds, and `000487` Node 1 restricted
+to the two early-stage dominant species); `000487` Node 1's outgoing edge
 description is tightened to match the cited pH-treatment design without
 unsupported organic-carbon phrasing. In the three single-species isolate records
 (`000488`–`000490`), source-backed single-species physiological causal graphs
 (7 nodes, 4 directed `downstream` edges; 17 nodes and 10 edges across all 7 records)
-are added from cached primary abstracts (`doi:10.3389/fmicb.2024.1423741`,
-`PMID:30343816`, `PMID:31203122`, and `doi:10.1128/aem.01906-20`). All 477 previously
+are added from cached primary full text (`doi:10.3389/fmicb.2024.1423741`) and
+abstracts (`PMID:30343816`, `PMID:31203122`, and `doi:10.1128/aem.01906-20`). All 477 previously
 reviewed records retain identical SHA-256 hashes from Cycle 1 Stage 2 (`423 reviewed`,
 `54 needs_research`), so the rebuilt 484-record corpus inventory stands at `430 reviewed`,
 `54 needs_research` (source-limited / awaiting paid full-text DRC), `0 unreviewed`, and
