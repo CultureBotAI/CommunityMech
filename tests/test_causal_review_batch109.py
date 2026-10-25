@@ -189,26 +189,27 @@ def test_current_scope_census_tracks_later_source_bounded_repairs(monkeypatch):
     survey_fn = runpy.run_path(str(ROOT / "tests/test_community_level_connectivity_credit.py"))[
         "_survey"
     ]
-    # CommunityMech:000469-000483 add 15 records (10 pairwise, 4 community-level, 1 mixed).
-    # CommunityMech:000484-000490 add 7 records (4 communities, 3 isolates with causal graphs).
-    previous = {
-        "records": 484,
-        "with_community_level": 429,
-        "mixed": 140,
-        "community_level_only": 289,
-        "taxa": 1619,
-        "credited_solely_by_the_rule": 1322,
-    }
+    # Decoupled from exact corpus-wide totals (#2063 / communitymech-infra-0004):
+    # enforce non-vacuous post-#2014 floors and partition invariants, then verify
+    # that substituting only GLBRC_Exometabolite_Transwell_SynCom.yaml with its
+    # hash-pinned predecessor changes the census by the exact #2014 delta.
+    expected = survey_fn()
+    assert expected["records"] >= 484
+    assert expected["with_community_level"] >= 429
+    assert expected["mixed"] >= 141
+    assert expected["community_level_only"] >= 288
+    assert expected["mixed"] + expected["community_level_only"] == expected["with_community_level"]
+    assert expected["taxa"] >= 1623
+    assert expected["credited_solely_by_the_rule"] >= 1324
     # #2014: five Transwell strain entries replace one umbrella, with two
     # pairwise reporter participants and three solely community-level members.
-    expected = {
-        **previous,
-        "mixed": 141,
-        "community_level_only": 288,
-        "taxa": 1623,
-        "credited_solely_by_the_rule": 1324,
+    previous = {
+        **expected,
+        "mixed": expected["mixed"] - 1,
+        "community_level_only": expected["community_level_only"] + 1,
+        "taxa": expected["taxa"] - 4,
+        "credited_solely_by_the_rule": expected["credited_solely_by_the_rule"] - 2,
     }
-    assert survey_fn() == expected
     target = ROOT / "kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml"
     old = subprocess.check_output(
         ["git", "show", f"616a2806e363f01a3727ea57dcf3bcd019999943:{target.relative_to(ROOT)}"],

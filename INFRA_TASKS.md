@@ -51,9 +51,9 @@ tasks:
     disposition: Resolved in Stage 6 (#2057). Implemented scripts/audit_completeness.py (and updated scripts/generate_validation_report.py) with Seatbelt-safe _repo_root() path resolution, proportional 0-100 calculate_completeness and calculate_validation_score metrics matching .claude/skills/review-communities/reference/metrics-and-reports.md, and multi-root scanning across kb/communities/*.yaml, data/isolates/*.yaml, and kb/taxa/*.yaml while preserving scripts/record_review.py byte-identical to its governed CLAW payload.
   - task_id: communitymech-infra-0004
     summary: Decouple remaining count-pinned test suites (test_causal_review_batch109, test_gtdb_coherence_validator, test_is_reclassified_semantics, test_transwell_participants) from hardcoded corpus totals
-    status: open
+    status: resolved
     issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2063
-    disposition: Captured during Cycle 2 Stage 1 (add_records); scheduled for Cycle 2 Stage 6 (infrastructure).
+    disposition: Resolved in Cycle 2 Stage 6 (#2063). Refactored tests/test_causal_review_batch109.py, tests/test_participating_taxa.py, tests/test_gtdb_coherence_validator.py, tests/test_is_reclassified_semantics.py, and tests/test_transwell_participants.py to compute corpus denominators dynamically while preserving non-vacuous floors, exact #2014 predecessor deltas, the BASELINE_USERS subset guard, the strain_dropped == 0 invariant, and proportional ratio ceilings, with regression coverage in tests/test_stage6_infrastructure.py.
 ```
 <!-- mech-infra-tasks:end -->
 
@@ -132,15 +132,22 @@ tasks:
      - `tests/test_transwell_participants.py` (`test_only_transwell_accounts_for_gtdb_distribution_change`): pins `current_counts["UNRESOLVED"] == 512`.
   2. Every Stage 1 (`add_records`) or Stage 2 (`causal_graphs`) curation batch that adds community/isolate records or `COMMUNITY_LEVEL` interactions must manually bump these five test files.
 - **Desired outcome**: Refactor `tests/test_causal_review_batch109.py`, `tests/test_participating_taxa.py`, `tests/test_gtdb_coherence_validator.py`, `tests/test_is_reclassified_semantics.py`, and `tests/test_transwell_participants.py` in Stage 6 (`infrastructure`) to derive corpus denominators dynamically from the repository record roots while retaining non-vacuous floors, exact invariant checks (`0` incoherent GTDB blocks, `0` semantic mismatches on `is_reclassified`, exact batch-109 record membership), and ratio guards.
+- **Resolution**:
+  - Refactored `tests/test_causal_review_batch109.py` (`test_current_scope_census_tracks_later_source_bounded_repairs`) and `tests/test_transwell_participants.py` (`test_only_transwell_accounts_for_gtdb_distribution_change`) to enforce non-vacuous post-`#2014` floors and partition identities on `survey_fn()` / `census()` and verify the exact `#2014` Transwell predecessor delta dynamically.
+  - Refactored `tests/test_participating_taxa.py` to preserve all 314 historical records in `BASELINE_USERS`, discover legitimate `COMMUNITY_LEVEL` `participating_taxa` users via `_is_legitimate_participating_taxa_user` (requiring `scope == "COMMUNITY_LEVEL"` and in-record taxonomy resolution via `_participant_terms`), guard against schema-wide `ifabsent` defaults (`len(all_files) - len(users) >= 100`), and maintain full compatibility with `tests/test_okeke_participant_census.py`.
+  - Refactored `tests/test_gtdb_coherence_validator.py` (`test_the_status_distribution_is_what_was_measured`) to bound `counts["UNRESOLVED"]` proportionally (`counts["UNRESOLVED"] < total_taxa * 0.35` and `counts["GROUNDED"] > counts["UNRESOLVED"] * 1.6`) rather than a 1-taxon integer cliff (`< 513`).
+  - Refactored `tests/test_is_reclassified_semantics.py` to enforce the exact `strain_dropped == 0` and `identical_after_normalisation == 0` invariants (`#480`) alongside non-vacuous post-`#480` bucket floors and ratio bands (`0.30 < not_reclassified / total_true < 0.45`, `0.15 <= len(above) / len(blocks) <= 0.45`), while `test_the_corpus_agrees_with_the_tool` continues to verify every stored `is_reclassified` flag against `gtdb_ground.name_differs`.
+  - Added regression test `tests/test_stage6_infrastructure.py::test_infra_0004_corpus_count_decoupling_preserves_invariants`.
 - **Evidence paths**:
   - `tests/test_causal_review_batch109.py`
   - `tests/test_participating_taxa.py`
   - `tests/test_gtdb_coherence_validator.py`
   - `tests/test_is_reclassified_semantics.py`
   - `tests/test_transwell_participants.py`
+  - `tests/test_stage6_infrastructure.py`
   - `reports/c2s1_bounded_frontier_discovery_20261023.md`
 - **Priority**: P2
 - **Dependencies**: None
-- **Status**: `open` (`#2063`)
+- **Status**: `resolved` (`#2063`)
 
 
