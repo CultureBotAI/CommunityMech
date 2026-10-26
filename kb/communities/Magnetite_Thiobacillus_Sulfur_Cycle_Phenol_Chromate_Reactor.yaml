@@ -1,0 +1,159 @@
+id: CommunityMech:000493
+name: Magnetite-Mediated Thiobacillus Sulfur-Cycle Phenol and Chromate Bioreactor
+description: Magnetite-supplemented anaerobic sulfur-cycle bioreactor community enriched in chemolithotrophic sulfur-oxidizing
+  Thiobacillus species for simultaneous anaerobic phenol degradation and hexavalent chromium (Cr(VI)) reduction via Fe(III)/Fe(II)
+  transformation. Magnetite serves as an Fe(III) source that enriches Thiobacillus species to oxidize elemental sulfur to
+  sulfate, completing the microbial sulfur cycle, increasing aggregate sulfur retention (6.85% vs 4.49% without magnetite),
+  and lowering effluent Cr(VI) (18.0 mg/L vs 187.7 mg/L) and phenol (354.2 mgCOD/L vs 1256.0 mgCOD/L) under low-concentration
+  sulfate conditions (doi:10.1016/j.cej.2020.124801).
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOREMEDIATION
+environment_term:
+  preferred_term: anaerobic bioreactor
+  term:
+    id: ENVO:00002124
+    label: anaerobic bioreactor
+  notes: Magnetite-amended anaerobic sulfur-cycle bioreactor operating under low-concentration sulfate conditions for coupled
+    phenol degradation and Cr(VI) reduction (doi:10.1016/j.cej.2020.124801).
+taxonomy:
+- taxon_term:
+    preferred_term: Thiobacillus
+    term:
+      id: NCBITaxon:919
+      label: Thiobacillus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Thiobacillus
+      gtdb_taxon: Thiobacillus
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Thiobacillaceae;g__Thiobacillus
+      ncbi_source_id: NCBITaxon:919
+      majority_fraction: 1.0
+      support_genomes: 6
+      total_genomes: 6
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+    notes: Chemolithotrophic sulfur-oxidizing genus specifically enriched by magnetite supplementation to oxidize elemental
+      sulfur to sulfate and complete the bioreactor sulfur cycle (doi:10.1016/j.cej.2020.124801).
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: doi:10.1016/j.cej.2020.124801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Conversely, with magnetite, the special enrichments, Thiobacillus species, proceeded the oxidation of the elemental
+      sulphur to sulphate, lowering the loss of sulphur.
+    explanation: Identifies enriched Thiobacillus species as the chemolithotrophic sulfur-oxidizers converting elemental sulfur
+      to sulfate in the magnetite-supplemented reactor.
+ecological_interactions:
+- name: Magnetite-Driven Thiobacillus Oxidation of Elemental Sulfur to Sulfate
+  description: Magnetite serves as an Fe(III) source that enriches chemolithotrophic Thiobacillus species to oxidize elemental
+    sulfur to sulfate, lowering sulfur loss (6.85% vs 4.49% aggregate sulfur content) and completing the whole microbial sulfur
+    cycle.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Thiobacillus
+    term:
+      id: NCBITaxon:919
+      label: Thiobacillus
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  biological_processes:
+  - preferred_term: dissimilatory sulfate reduction
+    term:
+      id: GO:0019420
+      label: dissimilatory sulfate reduction
+  downstream:
+  - target: Coupled Anaerobic Phenol Degradation and Cr(VI) Reduction via Fe(III)/Fe(II) Transformation
+    description: Completion of the elemental sulfur-to-sulfate cycle by magnetite-enriched Thiobacillus drives coupled anaerobic
+      phenol degradation (354.2 vs 1256.0 mgCOD/L effluent) and Cr(VI) reduction (18.0 vs 187.7 mg/L effluent).
+  evidence:
+  - reference: doi:10.1016/j.cej.2020.124801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The study presented here utilized magnetite as an Fe(III) source to enrich the chemolithotrophic sulphur-oxidizing
+      bacteria to proceed the oxidation of the elemental sulphur, which further achieved the whole sulphur cycle.
+    explanation: Establishes magnetite as the Fe(III) source enriching chemolithotrophic sulfur-oxidizing bacteria to complete
+      the sulfur cycle.
+  - reference: doi:10.1016/j.cej.2020.124801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Conversely, with magnetite, the special enrichments, Thiobacillus species, proceeded the oxidation of the elemental
+      sulphur to sulphate, lowering the loss of sulphur.
+    explanation: Shows that enriched Thiobacillus species oxidize elemental sulfur to sulfate and reduce sulfur loss in the
+      magnetite reactor.
+- name: Coupled Anaerobic Phenol Degradation and Cr(VI) Reduction via Fe(III)/Fe(II) Transformation
+  description: Whole sulfur cycling and dissimilatory Fe(III)/Fe(II) transformation in the magnetite-amended reactor significantly
+    lower effluent Cr(VI) (18.0 mg/L vs 187.7 mg/L) and phenol (354.2 mgCOD/L vs 1256.0 mgCOD/L) while Fe(II) scavenges trace
+    dissolved oxygen to prevent Cr(III) re-oxidation.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Thiobacillus
+    term:
+      id: NCBITaxon:919
+      label: Thiobacillus
+  metabolites:
+  - preferred_term: phenol
+    term:
+      id: CHEBI:15882
+      label: phenol
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  - preferred_term: chromate(2-)
+    term:
+      id: CHEBI:35404
+      label: chromate(2-)
+  biological_processes:
+  - preferred_term: phenol-containing compound catabolic process
+    term:
+      id: GO:0019336
+      label: phenol-containing compound catabolic process
+  evidence:
+  - reference: doi:10.1016/j.cej.2020.124801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results showed that, under the low-concentration sulphate conditions, the effluent concentration of both
+      Cr(VI) (18.0 mg/L vs 187.7 mg/L) and phenol (354.2 mgCOD/L vs 1256.0 mgCOD/L) in the reactor with magnetite was significantly
+      lower than that without magnetite.
+    explanation: Quantifies the reduction in effluent Cr(VI) and phenol concentrations achieved by magnetite supplementation
+      under low-sulfate conditions.
+  - reference: doi:10.1016/j.cej.2020.124801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Considered that the re-oxidation of the reduced Cr(III) might occur in the aggregates without magnetite, the
+      generated Fe(II) might react with the slight dissolved oxygen (DO) to reduce the re-oxidation of the reduced Cr(III),
+      which further achieved the transformation of Fe(III)/Fe(II).
+    explanation: Explains how Fe(II) generated via dissimilatory Fe(III) reduction scavenges trace dissolved oxygen to prevent
+      Cr(III) re-oxidation.
+environmental_factors:
+- name: Low-Sulfate Magnetite-Amended Reactor Regime
+  value: Low-concentration sulfate with magnetite Fe(III) supplementation (effluent Cr(VI) 18.0 mg/L, phenol 354.2 mgCOD/L)
+  unit: mg/L
+  description: Low-sulfate anaerobic reactor amended with magnetite to sustain elemental sulfur oxidation, phenol degradation,
+    and Cr(VI) reduction.
+  evidence:
+  - reference: doi:10.1016/j.cej.2020.124801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results showed that, under the low-concentration sulphate conditions, the effluent concentration of both
+      Cr(VI) (18.0 mg/L vs 187.7 mg/L) and phenol (354.2 mgCOD/L vs 1256.0 mgCOD/L) in the reactor with magnetite was significantly
+      lower than that without magnetite.
+    explanation: Documents the low-concentration sulfate operating regime and resulting Cr(VI) and phenol effluent levels
+      with vs without magnetite.
+curation_history:
+- timestamp: '2026-10-25T22:45:00Z'
+  curator: antigravity
+  action: CREATE
+  changes: Added Magnetite-Mediated Thiobacillus Sulfur-Cycle Phenol and Chromate Bioreactor (CommunityMech:000493) in kb/communities/
+    from doi:10.1016/j.cej.2020.124801.
+  llm_assisted: true
