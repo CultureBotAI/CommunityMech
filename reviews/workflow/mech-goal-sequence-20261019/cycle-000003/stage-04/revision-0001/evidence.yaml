@@ -1,0 +1,122 @@
+schema_version: 1.0.0
+repository_key: communitymech
+github_repository: CultureBotAI/CommunityMech
+run_id: mech-goal-sequence-20261019
+cycle: 3
+stage: 4
+revision: 1
+outcome: completed
+summary: Reviewed all 491 eligible records in the frozen CommunityMech inventory at
+  commit b53ca7370eff04dec286a29a4b2c1b10af728dfb across all 3 declared record roots
+  (480 kb/communities/*.yaml, 9 data/isolates/*.yaml, 2 kb/taxa/*.yaml) and 21 domain
+  cohorts using review-yaml-record and review-yaml-category. Saved immutable structured
+  review bundles (20261026T063000Z-c3s4-record-deep-audit and 20261026T063100Z-c3s4-frozen-cohort-review)
+  and preserved 3 new actionable open findings across 3 records (CommunityMech:000280,
+  000434, 000448) plus 7 carried-forward source-limited deferred findings (10 total
+  carry_forward_ids) for Cycle 3 Stage 5 grouped remediation.
+source_revision: b53ca7370eff04dec286a29a4b2c1b10af728dfb
+previous_evidence:
+  path: reviews/workflow/mech-goal-sequence-20261019/cycle-000002/stage-05/revision-0001/evidence.yaml
+  sha256: 3b15dc49b5213b7f7fc1b8d5eb66313d2f110a8f1bad6a5b1bb37647f4fe0472
+artifacts:
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000003/stage-04/revision-0001/review_report.md
+  sha256: a3b0339e437b5a47f024cad77e40777c0203fb08fe1c7bdc7ce45776dc450f74
+  kind: review_report
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000003/stage-04/revision-0001/review_findings.yaml
+  sha256: 00eb6bcf7b403501640f7285434ac88d6b73e48ec240c19353bb22fccb45e8ef
+  kind: review_findings
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000003/stage-04/revision-0001/frozen_inventory_metrics.tsv
+  sha256: b06299fcd38588202b063b0f5dc83d47f7252da46d50358d92cd873fe80f1a41
+  kind: supporting
+findings:
+- finding_id: c3s4-000280-pinus-syncom-antagonist-roles-and-growth-process
+  status: open
+  summary: 'CommunityMech:000280 (kb/communities/Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml)
+    omits functional_role: [PATHOGEN_ANTAGONIST] on the three verified antagonistic
+    SynCom isolates (Paenibacillus terrae RE7, Bacillus velezensis NA3, Bacillus subtilis
+    NA11), omits abundance_level: ABUNDANT across all five equal-part SynCom members,
+    and omits biological_processes GO:0040007 (growth) on ''Pinus Seedling Growth
+    Promotion'' despite explicit support in PMID:42322490.'
+- finding_id: c3s4-000434-acidic-nitrification-functional-roles-and-processes
+  status: open
+  summary: CommunityMech:000434 (kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml)
+    omits functional_role and abundance_level on 'Candidatus Nitrosoglobus kelleri'
+    and Mycobacterium species and omits biological_processes (GO:0019329 ammonia oxidation,
+    GO:0009060 aerobic respiration, GO:0015977 carbon fixation) on 'Acidic Nitrification
+    Syntrophic Partnership' despite verbatim support in PMID:38378641.
+- finding_id: c3s4-000448-soymilk-starter-roles-and-crossfeeding-participants
+  status: open
+  summary: CommunityMech:000448 (kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml)
+    omits functional_role and abundance_level across all three starter taxa (Streptococcus
+    salivarius subsp. thermophilus, Lactobacillus delbrueckii subsp. bulgaricus, Lactiplantibacillus
+    plantarum) and omits participating_taxa and biological_processes (GO:0006113 fermentation)
+    on 'Inferred Soymilk Nutrient Cross-Feeding', leaving L. delbrueckii subsp. bulgaricus
+    disconnected from the interaction graph despite verbatim support in PMID:39952599.
+- finding_id: cheese-assay-evidence-gap
+  status: deferred
+  carried_from: cheese-assay-evidence-gap
+  summary: CommunityMech:000153 (kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml)
+    pairwise assay specifics in PMID:25043025 require full-text tables beyond the
+    cached abstract (#765).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/765
+  disposition: 'Deferred: source-limited until full-text assay tables for PMID:25043025
+    are ingested (#765).'
+- finding_id: communitymech-1467-source-discrepancy-and-extension
+  status: deferred
+  carried_from: communitymech-1467-source-discrepancy-and-extension
+  summary: CommunityMech:000091 (kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml)
+    broader 18-species Transwell campaign and strain table reconciliation require
+    full-text tables (#1467).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1467
+  disposition: 'Deferred: tracked in GitHub issue #1467 pending full-text table reconciliation.'
+- finding_id: communitymech-1699-coverage
+  status: deferred
+  carried_from: communitymech-1699-coverage
+  summary: CommunityMech:000054 (kb/communities/Phormidium_Alkaline_Consortium.yaml)
+    additional heterotrophic co-isolates require full-text table verification (#1699).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1699
+  disposition: 'Deferred: tracked in GitHub issue #1699 pending full-text isolate
+    table verification.'
+- finding_id: communitymech-1841
+  status: deferred
+  carried_from: communitymech-1841
+  summary: CommunityMech:000222 (kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml)
+    lower-rank isolate resolution requires full-text supplementary strain tables (#1841).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1841
+  disposition: 'Deferred: tracked in GitHub issue #1841 pending full-text supplementary
+    strain table inspection.'
+- finding_id: communitymech-1847-metg2-membership
+  status: deferred
+  carried_from: communitymech-1847-metg2-membership
+  summary: CommunityMech:000302 (kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml)
+    full 18-isolate membership and media composition require full-text tables (#1847).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1847
+  disposition: 'Deferred: tracked in GitHub issue #1847 pending full-text membership
+    and media table inspection.'
+- finding_id: okeke-fulltext-assay-gap
+  status: deferred
+  carried_from: okeke-fulltext-assay-gap
+  summary: CommunityMech:000048 (kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml)
+    kinetic and co-culture assay parameters require paywalled full text (#1657).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1657
+  disposition: 'Deferred: source-limited because primary full text is paywalled (#1657).'
+- finding_id: parachlorella-remaining-research
+  status: deferred
+  carried_from: parachlorella-remaining-research
+  summary: CommunityMech:000295 (kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml)
+    secondary bacterial satellite interactions require full-text data (#1681).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1681
+  disposition: 'Deferred: source-limited pending full-text interaction data (#1681).'
+groups: []
+carry_forward_ids:
+- c3s4-000280-pinus-syncom-antagonist-roles-and-growth-process
+- c3s4-000434-acidic-nitrification-functional-roles-and-processes
+- c3s4-000448-soymilk-starter-roles-and-crossfeeding-participants
+- cheese-assay-evidence-gap
+- communitymech-1467-source-discrepancy-and-extension
+- communitymech-1699-coverage
+- communitymech-1841
+- communitymech-1847-metg2-membership
+- okeke-fulltext-assay-gap
+- parachlorella-remaining-research
+infra_tasks: []
