@@ -61,8 +61,8 @@ Working-tree hashes do not imply those bytes were committed.
 | Check | Status | Required | Targets | Result |
 | --- | --- | --- | --- | --- |
 | LinkML schema validation across all 491 records | passed | True | CommunityMech:000048, CommunityMech:000054, CommunityMech:000091, CommunityMech:000153, CommunityMech:000222, CommunityMech:000280, CommunityMech:000295, CommunityMech:000302, CommunityMech:000434, CommunityMech:000448, cohort:AMD, cohort:BIOMINING, cohort:BIOREMEDIATION, cohort:BIOTECHNOLOGY, cohort:CARBON_SEQUESTRATION, cohort:DIET, cohort:EXTREME_ENVIRONMENT, cohort:ISOLATES:BIOMINING, cohort:ISOLATES:BIOREMEDIATION, cohort:ISOLATES:BIOTECHNOLOGY, cohort:ISOLATES:EXTREME_ENVIRONMENT, cohort:LIGNOCELLULOSE, cohort:METAL_REDUCTION, cohort:METHANOGENESIS, cohort:ORAL, cohort:OTHER, cohort:PHAGE_PREDATION, cohort:PHYTOPLANKTON, cohort:RHIZOSPHERE, cohort:SYNTROPHY, cohort:TAXA | All 489 MicrobialCommunity records and 2 TaxonRecord files pass LinkML schema validation with 0 errors and 100% EvidenceItem.evidence_source enum compliance. |
-| NetworkIntegrityAuditor check across kb/communities/ and data/isolates/ | passed | True | CommunityMech:000048, CommunityMech:000054, CommunityMech:000091, CommunityMech:000153, CommunityMech:000222, CommunityMech:000280, CommunityMech:000295, CommunityMech:000302, CommunityMech:000434, CommunityMech:000448, cohort:AMD, cohort:BIOMINING, cohort:BIOREMEDIATION, cohort:BIOTECHNOLOGY, cohort:CARBON_SEQUESTRATION, cohort:DIET, cohort:EXTREME_ENVIRONMENT, cohort:ISOLATES:BIOMINING, cohort:ISOLATES:BIOREMEDIATION, cohort:ISOLATES:BIOTECHNOLOGY, cohort:ISOLATES:EXTREME_ENVIRONMENT, cohort:LIGNOCELLULOSE, cohort:METAL_REDUCTION, cohort:METHANOGENESIS, cohort:ORAL, cohort:OTHER, cohort:PHAGE_PREDATION, cohort:PHYTOPLANKTON, cohort:RHIZOSPHERE, cohort:SYNTROPHY, cohort:TAXA | 464/480 community records and 9/9 isolate records have 0 network warnings; 16 community records have 44 non-fatal DISCONNECTED_TAXON warnings (0 UNKNOWN_TARGET, 0 broken downstream references), including 1 resolvable warning on CommunityMech:000448 queued for Stage 5 repair. |
-| review-communities Completeness Score rubric across all 491 records | passed | True | CommunityMech:000048, CommunityMech:000054, CommunityMech:000091, CommunityMech:000153, CommunityMech:000222, CommunityMech:000280, CommunityMech:000295, CommunityMech:000302, CommunityMech:000434, CommunityMech:000448, cohort:AMD, cohort:BIOMINING, cohort:BIOREMEDIATION, cohort:BIOTECHNOLOGY, cohort:CARBON_SEQUESTRATION, cohort:DIET, cohort:EXTREME_ENVIRONMENT, cohort:ISOLATES:BIOMINING, cohort:ISOLATES:BIOREMEDIATION, cohort:ISOLATES:BIOTECHNOLOGY, cohort:ISOLATES:EXTREME_ENVIRONMENT, cohort:LIGNOCELLULOSE, cohort:METAL_REDUCTION, cohort:METHANOGENESIS, cohort:ORAL, cohort:OTHER, cohort:PHAGE_PREDATION, cohort:PHYTOPLANKTON, cohort:RHIZOSPHERE, cohort:SYNTROPHY, cohort:TAXA | Computed proportional Completeness Score (min 40, median 90, mean 90.91, max 100 across 489 MicrobialCommunity records; 100/100 across 2 TaxonRecord files) and verified causal graph and reusable taxon coverage across all 21 cohorts. |
+| NetworkIntegrityAuditor check across kb/communities/ and data/isolates/ | passed | True | CommunityMech:000048, CommunityMech:000054, CommunityMech:000091, CommunityMech:000153, CommunityMech:000222, CommunityMech:000280, CommunityMech:000295, CommunityMech:000302, CommunityMech:000434, CommunityMech:000448, cohort:AMD, cohort:BIOMINING, cohort:BIOREMEDIATION, cohort:BIOTECHNOLOGY, cohort:CARBON_SEQUESTRATION, cohort:DIET, cohort:EXTREME_ENVIRONMENT, cohort:ISOLATES:BIOMINING, cohort:ISOLATES:BIOREMEDIATION, cohort:ISOLATES:BIOTECHNOLOGY, cohort:ISOLATES:EXTREME_ENVIRONMENT, cohort:LIGNOCELLULOSE, cohort:METAL_REDUCTION, cohort:METHANOGENESIS, cohort:ORAL, cohort:OTHER, cohort:PHAGE_PREDATION, cohort:PHYTOPLANKTON, cohort:RHIZOSPHERE, cohort:SYNTROPHY, cohort:TAXA | 464/480 community records and 9/9 isolate records have 0 network warnings (including CommunityMech:000448, which reports 0 auditor warnings because COMMUNITY_LEVEL interactions with empty participating_taxa implicitly connect all taxonomy entries); 16 community records have 44 non-fatal warnings (42 DISCONNECTED across 15 records and 2 COMMUNITY_LEVEL UNKNOWN_TARGET warnings on Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom; 0 error-severity issues, 0 broken downstream references). |
+| review-communities Completeness Score rubric across all 491 records | passed | True | CommunityMech:000048, CommunityMech:000054, CommunityMech:000091, CommunityMech:000153, CommunityMech:000222, CommunityMech:000280, CommunityMech:000295, CommunityMech:000302, CommunityMech:000434, CommunityMech:000448, cohort:AMD, cohort:BIOMINING, cohort:BIOREMEDIATION, cohort:BIOTECHNOLOGY, cohort:CARBON_SEQUESTRATION, cohort:DIET, cohort:EXTREME_ENVIRONMENT, cohort:ISOLATES:BIOMINING, cohort:ISOLATES:BIOREMEDIATION, cohort:ISOLATES:BIOTECHNOLOGY, cohort:ISOLATES:EXTREME_ENVIRONMENT, cohort:LIGNOCELLULOSE, cohort:METAL_REDUCTION, cohort:METHANOGENESIS, cohort:ORAL, cohort:OTHER, cohort:PHAGE_PREDATION, cohort:PHYTOPLANKTON, cohort:RHIZOSPHERE, cohort:SYNTROPHY, cohort:TAXA | Computed proportional 100-point review-communities Completeness Score (min 40, median 90, mean 90.91, max 100 across 489 MicrobialCommunity records; 100/100 across 2 TaxonRecord files; 000280=71/100, 000434=75/100, 000448=77/100; scripts/audit_completeness.py scores 25, 25, and 30 due to missing functional_role) and verified causal graph and reusable taxon coverage across all 21 cohorts. |
 
 ## Scientific And Domain Assessments
 
@@ -240,19 +240,19 @@ Reviewed member records (2): CommunityMech:taxon:000001, CommunityMech:taxon:000
 
 major / open / confirmed; issue key: communitymech-c3s4-000280-pinus-syncom-antagonist-roles-and-growth-process.
 
-CommunityMech:000280 (kb/communities/Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml, Completeness Score 76/100) models a five-strain synthetic community (Pseudomonas koreensis RC1, Paenibacillus terrae RE7, Bacillus velezensis OB3 and NA3, Bacillus subtilis NA11) in Pinus armandii (PMID:42322490). Three SynCom members (Paenibacillus terrae RE7, Bacillus velezensis NA3, and Bacillus subtilis NA11) are explicitly listed as participating_taxa in ecological_interactions[1] ('Antagonistic Activity of Selected Endophytic Isolates', backed by PMID:42322490 'nine strains with significant antagonistic activity' and Public Supplement Table S2 / Figures S1-S2), yet omit functional_role: [PATHOGEN_ANTAGONIST] in taxonomy (whereas RC1 and OB3 are appropriately excluded from PATHOGEN_ANTAGONIST because they were not among the nine spore-assay treatments). All five equal-part synthetic community members also omit abundance_level: ABUNDANT alongside abundance_value: 'One of five members of the synthetic community.', and ecological_interactions[2] ('Pinus Seedling Growth Promotion', backed by PMID:42322490 'significantly increased seedling height and biomass accumulation.') omits biological_processes GO:0040007 (growth).
+CommunityMech:000280 (kb/communities/Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml, proportional Completeness Score 71/100; scripts/audit_completeness.py score 25/100 due to missing functional_role) models a five-strain synthetic community (Pseudomonas koreensis RC1, Paenibacillus terrae RE7, Bacillus velezensis OB3 and NA3, Bacillus subtilis NA11) in Pinus armandii (PMID:42322490). Three SynCom members (Paenibacillus terrae RE7, Bacillus velezensis NA3, and Bacillus subtilis NA11) are explicitly listed as participating_taxa in ecological_interactions[1] ('Antagonistic Activity of Selected Endophytic Isolates', backed by PMID:42322490 'nine strains with significant antagonistic activity' and Public Supplement Table S2 / Figures S1-S2), yet omit functional_role: [PATHOGEN_ANTAGONIST] in taxonomy (whereas RC1 and OB3 are appropriately excluded from PATHOGEN_ANTAGONIST because they were not among the nine spore-assay treatments). All five equal-part synthetic community members also omit abundance_level: ABUNDANT alongside abundance_value: 'One of five members of the synthetic community.', and ecological_interactions[2] ('Pinus Seedling Growth Promotion', backed by PMID:42322490 'significantly increased seedling height and biomass accumulation.') omits biological_processes GO:0040007 (growth).
 
-### c3s4-000434-acidic-nitrification-functional-roles-and-processes: Acidic Nitrification Minimal Consortium (CommunityMech:000434) omits functional_role, abundance_level, and GO biological_processes despite verbatim support in PMID:38378641
+### c3s4-000434-acidic-nitrification-functional-roles-and-processes: Acidic Nitrification Minimal Consortium (CommunityMech:000434) omits PRIMARY_PRODUCER functional_role on Candidatus Nitrosoglobus kelleri and DOMINANT abundance_level on both dominant consortium taxa despite verbatim support in PMID:42762737
 
 major / open / confirmed; issue key: communitymech-c3s4-000434-acidic-nitrification-functional-roles-and-processes.
 
-CommunityMech:000434 (kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml, Completeness Score 70/100) models the two-member acidic nitrification consortium of 'Candidatus Nitrosoglobus kelleri' (NCBITaxon:3120726) and Mycobacterium species (NCBITaxon:1763) operating down to pH 1.5 (PMID:38378641). Both taxa omit functional_role and abundance_level in taxonomy, and ecological_interactions[0] ('Acidic Nitrification Syntrophic Partnership', interaction_type: SYNTROPHY) omits biological_processes, despite explicit verbatim support in the already-cited abstract snippets (PMID:38378641: 'At pH 5.0, the dominant ammonia-oxidising bacterium (AOB) across all conditions was a novel Nitrosococcaceae species, designated "Candidatus Nitrosoglobus kelleri."', 'It reached a relative abundance of up to 56% and possessed genes for ammonia oxidation, aerobic respiration, and carbon fixation', and 'At pH 2.0, the community was strongly simplified and dominated by "Ca. Nitrosoglobus kelleri" together with Mycobacterium species').
+CommunityMech:000434 (kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml, proportional Completeness Score 75/100; scripts/audit_completeness.py score 25/100 due to missing functional_role) models the minimal aerobic ammonia-oxidizing consortium of '"Candidatus Nitrosoglobus kelleri"' (NCBITaxon:3120726) and Mycobacterium species (NCBITaxon:1763) from three acidic nitrification bioreactors operated between pH 2.0 and 5.0 (PMID:42762737, doi:10.1016/j.watres.2026.126966). In taxonomy, '"Candidatus Nitrosoglobus kelleri"' omits functional_role: [PRIMARY_PRODUCER] and abundance_level: DOMINANT, and Mycobacterium species omits abundance_level: DOMINANT, despite explicit verbatim support in the already-cited abstract snippets (PMID:42762737: 'At pH 5.0, the dominant ammonia-oxidising bacterium (AOB) across all conditions was a novel Nitrosococcaceae species, designated "Candidatus Nitrosoglobus kelleri."', 'It reached a relative abundance of up to 56% and possessed genes for ammonia oxidation, aerobic respiration, and carbon fixation.', and 'At pH 2.0, the community was strongly simplified and dominated by "Ca. Nitrosoglobus kelleri" together with Mycobacterium species'). Consistent with curation_history (#1086, #1087, #1088), ecological_interactions[0] ('Putative acidic carbon and nitrogen cycling linkage', scope: COMMUNITY_LEVEL) and Mycobacterium functional_role remain bounded to the abstract's putative C/N cycling claim without assigning confirmed syntrophy or single-taxon pathways to the interspecies linkage.
 
-### c3s4-000448-soymilk-starter-roles-and-crossfeeding-participants: Soymilk Mixed-Starter Metabolic Division SynCom (CommunityMech:000448) omits starter functional roles, abundance levels, and cross-feeding participating_taxa (disconnecting L. delbrueckii subsp. bulgaricus)
+### c3s4-000448-soymilk-starter-roles-and-crossfeeding-participants: Soymilk Mixed-Starter Metabolic Division SynCom (CommunityMech:000448) omits PRIMARY_DEGRADER functional_role on Streptococcus thermophilus, starter abundance levels, and explicit participating_taxa on Inferred Soymilk Nutrient Cross-Feeding
 
 major / open / confirmed; issue key: communitymech-c3s4-000448-soymilk-starter-roles-and-crossfeeding-participants.
 
-CommunityMech:000448 (kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml, Completeness Score 70/100) models the three-species mixed starter community of Streptococcus salivarius subsp. thermophilus (NCBITaxon:1308), Lactobacillus delbrueckii subsp. bulgaricus (NCBITaxon:1585), and Lactiplantibacillus plantarum (NCBITaxon:1590) in fermented soymilk (PMID:39952599). All three taxa omit functional_role and abundance_level in taxonomy, and ecological_interactions[1] ('Inferred Soymilk Nutrient Cross-Feeding', scope: COMMUNITY_LEVEL, interaction_type: CROSS_FEEDING) omits participating_taxa and biological_processes, leaving Lactobacillus delbrueckii subsp. bulgaricus disconnected from the community interaction network (1 DISCONNECTED_TAXON warning in NetworkIntegrityAuditor) despite verbatim support in PMID:39952599 ('Specifically, S. thermophilus dominated the mid-stage fermentation, facilitating the subsequent dominance of L. plantarum in the late-stage.' and 'S. thermophilus acts as the primary oligosaccharide metabolizer, while L. bulgaricus functions as a key cross-feeding bacterium to support the auxotrophic community via cross-feeding.').
+CommunityMech:000448 (kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml, proportional Completeness Score 77/100; scripts/audit_completeness.py score 30/100 due to missing functional_role) models the three-species mixed starter community of Streptococcus salivarius subsp. thermophilus (NCBITaxon:1308), Lactobacillus delbrueckii subsp. bulgaricus (NCBITaxon:1585), and Lactiplantibacillus plantarum (NCBITaxon:1590) in fermented soymilk (PMID:42637460, doi:10.1016/j.foodres.2026.120134). In taxonomy, Streptococcus salivarius subsp. thermophilus omits functional_role: [PRIMARY_DEGRADER] and abundance_level: DOMINANT, Lactobacillus delbrueckii subsp. bulgaricus omits abundance_level: ABUNDANT, and Lactiplantibacillus plantarum omits abundance_level: DOMINANT (whereas functional_role on L. bulgaricus and L. plantarum remains intentionally omitted per discussions[1] soymilk_causal_attribution_batch104 because the dropout transcriptional response does not resolve exact transferred compounds, recipients, or whether L. plantarum ferments products from S. thermophilus). In addition, ecological_interactions[1] ('Inferred Soymilk Nutrient Cross-Feeding', scope: COMMUNITY_LEVEL, which intentionally omits interaction_type: CROSS_FEEDING per discussions[1] soymilk_causal_attribution_batch104) omits participating_taxa and biological_processes (GO:0006113 fermentation), leaving Lactobacillus delbrueckii subsp. bulgaricus unnamed in any interaction participating_taxa list (even though NetworkIntegrityAuditor reports 0 warnings because COMMUNITY_LEVEL interactions with empty participating_taxa implicitly connect all taxonomy entries) despite verbatim support in PMID:42637460 ('Taxonomic analysis revealed a cooperative succession pattern, where S. thermophilus dominated the mid-stage fermentation, facilitating the subsequent dominance of L. plantarum in the late-stage.', 'S. thermophilus acts as the primary oligosaccharide metabolizer', and 'the removal of L. bulgaricus led to the significant derepression of vitamin and amino acid biosynthetic gene clusters, providing transcriptional evidence that L. bulgaricus functions as a key cross-feeding bacterium to support the auxotrophic community via cross-feeding.').
 
 ### cheese-assay-evidence-gap: Full-text-dependent cheese rind assay specifics remain deferred in CommunityMech:000153
 
@@ -321,14 +321,14 @@ Add functional_role: [PATHOGEN_ANTAGONIST] to Paenibacillus terrae RE7, Bacillus
 
 ### act-populate-acidic-nitrification-roles-and-processes
 
-Add abundance_level: DOMINANT and functional_role: [PRIMARY_PRODUCER, SYNTROPHIC_PARTNER] to 'Candidatus Nitrosoglobus kelleri', add abundance_level: DOMINANT and functional_role: [SYNTROPHIC_PARTNER] to Mycobacterium species, add biological_processes GO:0019329 (ammonia oxidation), GO:0009060 (aerobic respiration), and GO:0015977 (carbon fixation) to ecological_interactions[0] on CommunityMech:000434, and append curation_history.
+Add functional_role: [PRIMARY_PRODUCER] and abundance_level: DOMINANT to '"Candidatus Nitrosoglobus kelleri"', add abundance_level: DOMINANT to Mycobacterium species on CommunityMech:000434 (while preserving ecological_interactions[0] 'Putative acidic carbon and nitrogen cycling linkage' and Mycobacterium functional_role bounded per curation_history #1086, #1087, #1088), and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
 - uv run python scripts/verify_history_Changed_records.py
 
 ### act-populate-soymilk-starter-roles-and-crossfeeding-participants
 
-Add functional_role: [PRIMARY_DEGRADER] and abundance_level: DOMINANT to Streptococcus salivarius subsp. thermophilus, functional_role: [CROSS_FEEDER] and abundance_level: ABUNDANT to Lactobacillus delbrueckii subsp. bulgaricus, functional_role: [SECONDARY_FERMENTER, CROSS_FEEDER] and abundance_level: DOMINANT to Lactiplantibacillus plantarum, populate participating_taxa (all three starter taxa) and biological_processes (GO:0006113 fermentation) on ecological_interactions[1] ('Inferred Soymilk Nutrient Cross-Feeding') in CommunityMech:000448, and append curation_history.
+Add functional_role: [PRIMARY_DEGRADER] and abundance_level: DOMINANT to Streptococcus salivarius subsp. thermophilus, abundance_level: ABUNDANT to Lactobacillus delbrueckii subsp. bulgaricus, and abundance_level: DOMINANT to Lactiplantibacillus plantarum, populate participating_taxa (all three starter taxa) and biological_processes (GO:0006113 fermentation) on ecological_interactions[1] ('Inferred Soymilk Nutrient Cross-Feeding', preserving scope: COMMUNITY_LEVEL without interaction_type: CROSS_FEEDING per discussions[1] soymilk_causal_attribution_batch104) in CommunityMech:000448, and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml
 - uv run python scripts/verify_history_Changed_records.py
@@ -348,13 +348,13 @@ Retain source-limited full-text findings until open-access full text or suppleme
 | Evidence | Reference / locator | Support | Observation |
 | --- | --- | --- | --- |
 | ev-schema-validation-gate | src/communitymech/schema/communitymech.yaml; MicrobialCommunity and TaxonRecord classes | supports | All 480 kb/communities/*.yaml, 9 data/isolates/*.yaml, and 2 kb/taxa/*.yaml records (491 total) pass LinkML schema validation with 0 errors and 100% EvidenceSourceEnum compliance. |
-| ev-completeness-audit | scripts/audit_completeness.py; calculate_completeness() and calculate_validation_score() across all 491 records | supports | Proportional Completeness Score audit across all 489 MicrobialCommunity records (min 40, median 90, mean 90.91, max 100) and 2 TaxonRecord files (100/100) confirmed 100% core metadata presence and 100% top-level environment_term coverage (489/489) following Cycle 2 Stage 5 remediation. |
-| ev-network-integrity-audit | src/communitymech/network/auditor.py; NetworkIntegrityAuditor.audit_all() | supports | Network integrity audit across 480 kb/communities and 9 data/isolates records found 464/480 communities and 9/9 isolates with 0 warnings; 16 community records carry 44 non-fatal DISCONNECTED_TAXON warnings (0 UNKNOWN_TARGET, 0 broken downstream references), including 1 resolvable warning on CommunityMech:000448 where Inferred Soymilk Nutrient Cross-Feeding omits participating_taxa. |
+| ev-completeness-audit | scripts/audit_completeness.py; 100-point proportional review-communities rubric and scripts/audit_completeness.py:calculate_completeness() across all 491 records | supports | Proportional 100-point review-communities Completeness Score audit across all 489 MicrobialCommunity records (min 40, median 90, mean 90.91, max 100; CommunityMech:000280 = 71/100, CommunityMech:000434 = 75/100, CommunityMech:000448 = 77/100) and 2 TaxonRecord files (100/100) confirmed 100% core metadata presence and 100% top-level environment_term coverage (489/489) following Cycle 2 Stage 5 remediation, while scripts/audit_completeness.py:calculate_completeness() (which requires every taxon to have functional_role for its 50-point required block) scores 000280 at 25/100, 000434 at 25/100, and 000448 at 30/100. |
+| ev-network-integrity-audit | src/communitymech/network/auditor.py; NetworkIntegrityAuditor.audit_all() | supports | NetworkIntegrityAuditor across 480 kb/communities and 9 data/isolates records found 464/480 communities and 9/9 isolates with 0 warnings (including all 25/25 MicrobialCommunity records in the 27-record deep audit; CommunityMech:000448 reports 0 auditor warnings because COMMUNITY_LEVEL interactions with empty participating_taxa implicitly connect all taxonomy entries, though L. delbrueckii subsp. bulgaricus is unnamed in explicit participating_taxa lists) and 16 community records with 44 non-fatal warnings (42 DISCONNECTED across 15 records and 2 COMMUNITY_LEVEL UNKNOWN_TARGET warnings on Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom; 0 error-severity issues, 0 broken downstream references). |
 | ev-causal-inventory | reports/causal_graph_review/inventory.tsv; rows 1-490 | supports | Corpus-wide causal graph inventory covers all 489 MicrobialCommunity records with 100% SHA-256 attestation in verify_causal_graph_reviews.py (0 unreviewed records). |
 | ev-common-taxon-linkage-audit | kb/taxa/Geobacter_sulfurreducens.yaml; TaxonomicComposition.common_taxon cross-references across kb/communities/*.yaml | supports | Corpus-wide audit of reusable taxon cross-references confirmed 6/6 Geobacter sulfurreducens communities linked to CommunityMech:taxon:000002 (4 UniProt EET genes) and 9/9 Shewanella oneidensis communities linked to CommunityMech:taxon:000001 (5 UniProt EET genes) following Cycle 2 Stage 5 remediation (#2073). |
 | ev-pinus-pmid42322490 | PMID:42322490; kb/communities/Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml | supports | PMID:42322490 and Public Supplement Table S2 / Figures S1-S2 establish that Paenibacillus terrae RE7, Bacillus velezensis NA3, and Bacillus subtilis NA11 are among the nine strains with significant antagonistic activity in the five-member Pinus armandii SynCom, and that the SynCom significantly increased seedling height and biomass accumulation. |
-| ev-nitrification-pmid38378641 | PMID:38378641; kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml | supports | PMID:38378641 establishes that 'Candidatus Nitrosoglobus kelleri' is the dominant ammonia-oxidising bacterium possessing genes for ammonia oxidation, aerobic respiration, and carbon fixation, and codominates at pH 2.0-1.5 in a syntrophic nitrification partnership with Mycobacterium species. |
-| ev-soymilk-pmid39952599 | PMID:39952599; kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml | supports | PMID:39952599 establishes that S. thermophilus acts as the primary oligosaccharide metabolizer and dominates mid-stage fermentation, L. bulgaricus functions as a key cross-feeding bacterium supporting the auxotrophic community, and L. plantarum dominates late-stage soymilk fermentation. |
+| ev-nitrification-pmid42762737 | PMID:42762737; kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml | supports | PMID:42762737 (doi:10.1016/j.watres.2026.126966) establishes that '"Candidatus Nitrosoglobus kelleri"' is the dominant ammonia-oxidising bacterium at pH 5.0 (reaching up to 56% relative abundance and possessing genes for ammonia oxidation, aerobic respiration, and carbon fixation) and codominates with Mycobacterium species at pH 2.0 across three acidic nitrification bioreactors operated between pH 2.0 and 5.0. |
+| ev-soymilk-pmid42637460 | PMID:42637460; kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml | supports | PMID:42637460 (doi:10.1016/j.foodres.2026.120134) establishes that S. thermophilus acts as the primary oligosaccharide metabolizer and dominated mid-stage fermentation, facilitating the subsequent dominance of L. plantarum in the late-stage, and that removal of L. bulgaricus led to significant derepression of vitamin and amino acid biosynthetic gene clusters. |
 | ev-prior-structured-reviews | reviews/structured; 46 retained structured review bundles through 20261025T161500Z-c2s5-remediation-verification | context_only | Lineage inspection of all 46 prior structured reviews and Cycle 2 Stage 5 evidence.yaml confirmed that all 3 Cycle 2 Stage 4 open findings across 10 community records were resolved in Cycle 2 Stage 5 (#2072, #2073) and 7 record-scoped source-limited findings remain deferred at commit b53ca7370eff04dec286a29a4b2c1b10af728dfb. |
 
 ## Limits And Additional Notes
@@ -830,10 +830,12 @@ checks:
   name: NetworkIntegrityAuditor check across kb/communities/ and data/isolates/
   status: passed
   required: true
-  summary: 464/480 community records and 9/9 isolate records have 0 network warnings;
-    16 community records have 44 non-fatal DISCONNECTED_TAXON warnings (0 UNKNOWN_TARGET,
-    0 broken downstream references), including 1 resolvable warning on CommunityMech:000448
-    queued for Stage 5 repair.
+  summary: 464/480 community records and 9/9 isolate records have 0 network warnings
+    (including CommunityMech:000448, which reports 0 auditor warnings because COMMUNITY_LEVEL
+    interactions with empty participating_taxa implicitly connect all taxonomy entries);
+    16 community records have 44 non-fatal warnings (42 DISCONNECTED across 15 records
+    and 2 COMMUNITY_LEVEL UNKNOWN_TARGET warnings on Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom;
+    0 error-severity issues, 0 broken downstream references).
   target_ids:
   - CommunityMech:000048
   - CommunityMech:000054
@@ -875,9 +877,11 @@ checks:
   name: review-communities Completeness Score rubric across all 491 records
   status: passed
   required: true
-  summary: Computed proportional Completeness Score (min 40, median 90, mean 90.91,
-    max 100 across 489 MicrobialCommunity records; 100/100 across 2 TaxonRecord files)
-    and verified causal graph and reusable taxon coverage across all 21 cohorts.
+  summary: Computed proportional 100-point review-communities Completeness Score (min
+    40, median 90, mean 90.91, max 100 across 489 MicrobialCommunity records; 100/100
+    across 2 TaxonRecord files; 000280=71/100, 000434=75/100, 000448=77/100; scripts/audit_completeness.py
+    scores 25, 25, and 30 due to missing functional_role) and verified causal graph
+    and reusable taxon coverage across all 21 cohorts.
   target_ids:
   - CommunityMech:000048
   - CommunityMech:000054
@@ -930,25 +934,33 @@ evidence:
 - evidence_id: ev-completeness-audit
   kind: validation
   reference: scripts/audit_completeness.py
-  locator: calculate_completeness() and calculate_validation_score() across all 491
-    records
+  locator: 100-point proportional review-communities rubric and scripts/audit_completeness.py:calculate_completeness()
+    across all 491 records
   accessed_at: '2026-10-26T06:23:00Z'
   support: supports
-  summary: Proportional Completeness Score audit across all 489 MicrobialCommunity
-    records (min 40, median 90, mean 90.91, max 100) and 2 TaxonRecord files (100/100)
-    confirmed 100% core metadata presence and 100% top-level environment_term coverage
-    (489/489) following Cycle 2 Stage 5 remediation.
+  summary: Proportional 100-point review-communities Completeness Score audit across
+    all 489 MicrobialCommunity records (min 40, median 90, mean 90.91, max 100; CommunityMech:000280
+    = 71/100, CommunityMech:000434 = 75/100, CommunityMech:000448 = 77/100) and 2
+    TaxonRecord files (100/100) confirmed 100% core metadata presence and 100% top-level
+    environment_term coverage (489/489) following Cycle 2 Stage 5 remediation, while
+    scripts/audit_completeness.py:calculate_completeness() (which requires every taxon
+    to have functional_role for its 50-point required block) scores 000280 at 25/100,
+    000434 at 25/100, and 000448 at 30/100.
 - evidence_id: ev-network-integrity-audit
   kind: validation
   reference: src/communitymech/network/auditor.py
   locator: NetworkIntegrityAuditor.audit_all()
   accessed_at: '2026-10-26T06:24:00Z'
   support: supports
-  summary: Network integrity audit across 480 kb/communities and 9 data/isolates records
-    found 464/480 communities and 9/9 isolates with 0 warnings; 16 community records
-    carry 44 non-fatal DISCONNECTED_TAXON warnings (0 UNKNOWN_TARGET, 0 broken downstream
-    references), including 1 resolvable warning on CommunityMech:000448 where Inferred
-    Soymilk Nutrient Cross-Feeding omits participating_taxa.
+  summary: NetworkIntegrityAuditor across 480 kb/communities and 9 data/isolates records
+    found 464/480 communities and 9/9 isolates with 0 warnings (including all 25/25
+    MicrobialCommunity records in the 27-record deep audit; CommunityMech:000448 reports
+    0 auditor warnings because COMMUNITY_LEVEL interactions with empty participating_taxa
+    implicitly connect all taxonomy entries, though L. delbrueckii subsp. bulgaricus
+    is unnamed in explicit participating_taxa lists) and 16 community records with
+    44 non-fatal warnings (42 DISCONNECTED across 15 records and 2 COMMUNITY_LEVEL
+    UNKNOWN_TARGET warnings on Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom; 0
+    error-severity issues, 0 broken downstream references).
 - evidence_id: ev-causal-inventory
   kind: record_content
   reference: reports/causal_graph_review/inventory.tsv
@@ -982,30 +994,34 @@ evidence:
   quote: The optimized SynCom, comprising Pseudomonas koreensis RC1, Paenibacillus
     terrae RE7, Bacillus velezensis OB3 and NA3, and Bacillus subtilis NA11, significantly
     increased seedling height and biomass accumulation.
-- evidence_id: ev-nitrification-pmid38378641
+- evidence_id: ev-nitrification-pmid42762737
   kind: primary_source
-  reference: PMID:38378641
+  reference: PMID:42762737
   locator: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
   accessed_at: '2026-10-26T06:28:00Z'
   support: supports
-  summary: PMID:38378641 establishes that 'Candidatus Nitrosoglobus kelleri' is the
-    dominant ammonia-oxidising bacterium possessing genes for ammonia oxidation, aerobic
-    respiration, and carbon fixation, and codominates at pH 2.0-1.5 in a syntrophic
-    nitrification partnership with Mycobacterium species.
+  summary: PMID:42762737 (doi:10.1016/j.watres.2026.126966) establishes that '"Candidatus
+    Nitrosoglobus kelleri"' is the dominant ammonia-oxidising bacterium at pH 5.0
+    (reaching up to 56% relative abundance and possessing genes for ammonia oxidation,
+    aerobic respiration, and carbon fixation) and codominates with Mycobacterium species
+    at pH 2.0 across three acidic nitrification bioreactors operated between pH 2.0
+    and 5.0.
   quote: It reached a relative abundance of up to 56% and possessed genes for ammonia
-    oxidation, aerobic respiration, and carbon fixation
-- evidence_id: ev-soymilk-pmid39952599
+    oxidation, aerobic respiration, and carbon fixation.
+- evidence_id: ev-soymilk-pmid42637460
   kind: primary_source
-  reference: PMID:39952599
+  reference: PMID:42637460
   locator: kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml
   accessed_at: '2026-10-26T06:29:00Z'
   support: supports
-  summary: PMID:39952599 establishes that S. thermophilus acts as the primary oligosaccharide
-    metabolizer and dominates mid-stage fermentation, L. bulgaricus functions as a
-    key cross-feeding bacterium supporting the auxotrophic community, and L. plantarum
-    dominates late-stage soymilk fermentation.
-  quote: S. thermophilus acts as the primary oligosaccharide metabolizer, while L.
-    bulgaricus functions as a key cross-feeding bacterium to support the auxotrophic
+  summary: PMID:42637460 (doi:10.1016/j.foodres.2026.120134) establishes that S. thermophilus
+    acts as the primary oligosaccharide metabolizer and dominated mid-stage fermentation,
+    facilitating the subsequent dominance of L. plantarum in the late-stage, and that
+    removal of L. bulgaricus led to significant derepression of vitamin and amino
+    acid biosynthetic gene clusters.
+  quote: the removal of L. bulgaricus led to the significant derepression of vitamin
+    and amino acid biosynthetic gene clusters, providing transcriptional evidence
+    that L. bulgaricus functions as a key cross-feeding bacterium to support the auxotrophic
     community via cross-feeding.
 - evidence_id: ev-prior-structured-reviews
   kind: prior_review
@@ -1809,7 +1825,8 @@ findings:
     PATHOGEN_ANTAGONIST functional roles, ABUNDANT ordinal ranks, and GO:0040007 growth
     biological process
   description: 'CommunityMech:000280 (kb/communities/Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml,
-    Completeness Score 76/100) models a five-strain synthetic community (Pseudomonas
+    proportional Completeness Score 71/100; scripts/audit_completeness.py score 25/100
+    due to missing functional_role) models a five-strain synthetic community (Pseudomonas
     koreensis RC1, Paenibacillus terrae RE7, Bacillus velezensis OB3 and NA3, Bacillus
     subtilis NA11) in Pinus armandii (PMID:42322490). Three SynCom members (Paenibacillus
     terrae RE7, Bacillus velezensis NA3, and Bacillus subtilis NA11) are explicitly
@@ -1850,35 +1867,42 @@ findings:
   severity: major
   status: open
   certainty: confirmed
-  title: Acidic Nitrification Minimal Consortium (CommunityMech:000434) omits functional_role,
-    abundance_level, and GO biological_processes despite verbatim support in PMID:38378641
+  title: Acidic Nitrification Minimal Consortium (CommunityMech:000434) omits PRIMARY_PRODUCER
+    functional_role on Candidatus Nitrosoglobus kelleri and DOMINANT abundance_level
+    on both dominant consortium taxa despite verbatim support in PMID:42762737
   description: 'CommunityMech:000434 (kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml,
-    Completeness Score 70/100) models the two-member acidic nitrification consortium
-    of ''Candidatus Nitrosoglobus kelleri'' (NCBITaxon:3120726) and Mycobacterium
-    species (NCBITaxon:1763) operating down to pH 1.5 (PMID:38378641). Both taxa omit
-    functional_role and abundance_level in taxonomy, and ecological_interactions[0]
-    (''Acidic Nitrification Syntrophic Partnership'', interaction_type: SYNTROPHY)
-    omits biological_processes, despite explicit verbatim support in the already-cited
-    abstract snippets (PMID:38378641: ''At pH 5.0, the dominant ammonia-oxidising
-    bacterium (AOB) across all conditions was a novel Nitrosococcaceae species, designated
-    "Candidatus Nitrosoglobus kelleri."'', ''It reached a relative abundance of up
-    to 56% and possessed genes for ammonia oxidation, aerobic respiration, and carbon
-    fixation'', and ''At pH 2.0, the community was strongly simplified and dominated
-    by "Ca. Nitrosoglobus kelleri" together with Mycobacterium species'').'
+    proportional Completeness Score 75/100; scripts/audit_completeness.py score 25/100
+    due to missing functional_role) models the minimal aerobic ammonia-oxidizing consortium
+    of ''"Candidatus Nitrosoglobus kelleri"'' (NCBITaxon:3120726) and Mycobacterium
+    species (NCBITaxon:1763) from three acidic nitrification bioreactors operated
+    between pH 2.0 and 5.0 (PMID:42762737, doi:10.1016/j.watres.2026.126966). In taxonomy,
+    ''"Candidatus Nitrosoglobus kelleri"'' omits functional_role: [PRIMARY_PRODUCER]
+    and abundance_level: DOMINANT, and Mycobacterium species omits abundance_level:
+    DOMINANT, despite explicit verbatim support in the already-cited abstract snippets
+    (PMID:42762737: ''At pH 5.0, the dominant ammonia-oxidising bacterium (AOB) across
+    all conditions was a novel Nitrosococcaceae species, designated "Candidatus Nitrosoglobus
+    kelleri."'', ''It reached a relative abundance of up to 56% and possessed genes
+    for ammonia oxidation, aerobic respiration, and carbon fixation.'', and ''At pH
+    2.0, the community was strongly simplified and dominated by "Ca. Nitrosoglobus
+    kelleri" together with Mycobacterium species''). Consistent with curation_history
+    (#1086, #1087, #1088), ecological_interactions[0] (''Putative acidic carbon and
+    nitrogen cycling linkage'', scope: COMMUNITY_LEVEL) and Mycobacterium functional_role
+    remain bounded to the abstract''s putative C/N cycling claim without assigning
+    confirmed syntrophy or single-taxon pathways to the interspecies linkage.'
   target_ids:
   - CommunityMech:000434
   field_paths:
-  - taxonomy[].functional_role
-  - taxonomy[].abundance_level
-  - ecological_interactions[0].biological_processes
+  - taxonomy[0].functional_role
+  - taxonomy[0].abundance_level
+  - taxonomy[1].abundance_level
   evidence_ids:
   - ev-completeness-audit
-  - ev-nitrification-pmid38378641
-  rule_id: review-communities:completeness-functional-roles-and-processes
+  - ev-nitrification-pmid42762737
+  rule_id: review-communities:completeness-functional-roles-and-abundance
   native_severity: P2
-  normalization_reason: CommunityMech P2 (missing 10-point functional_role and 5-point
-    GO biological_processes on a two-member syntrophic consortium with verbatim abstract
-    evidence) maps to major.
+  normalization_reason: CommunityMech P2 (missing PRIMARY_PRODUCER functional_role
+    and DOMINANT abundance_level on the dominant consortium members despite verbatim
+    abstract evidence in PMID:42762737) maps to major.
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
@@ -1894,45 +1918,59 @@ findings:
   status: open
   certainty: confirmed
   title: Soymilk Mixed-Starter Metabolic Division SynCom (CommunityMech:000448) omits
-    starter functional roles, abundance levels, and cross-feeding participating_taxa
-    (disconnecting L. delbrueckii subsp. bulgaricus)
+    PRIMARY_DEGRADER functional_role on Streptococcus thermophilus, starter abundance
+    levels, and explicit participating_taxa on Inferred Soymilk Nutrient Cross-Feeding
   description: 'CommunityMech:000448 (kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml,
-    Completeness Score 70/100) models the three-species mixed starter community of
-    Streptococcus salivarius subsp. thermophilus (NCBITaxon:1308), Lactobacillus delbrueckii
-    subsp. bulgaricus (NCBITaxon:1585), and Lactiplantibacillus plantarum (NCBITaxon:1590)
-    in fermented soymilk (PMID:39952599). All three taxa omit functional_role and
-    abundance_level in taxonomy, and ecological_interactions[1] (''Inferred Soymilk
-    Nutrient Cross-Feeding'', scope: COMMUNITY_LEVEL, interaction_type: CROSS_FEEDING)
-    omits participating_taxa and biological_processes, leaving Lactobacillus delbrueckii
-    subsp. bulgaricus disconnected from the community interaction network (1 DISCONNECTED_TAXON
-    warning in NetworkIntegrityAuditor) despite verbatim support in PMID:39952599
-    (''Specifically, S. thermophilus dominated the mid-stage fermentation, facilitating
-    the subsequent dominance of L. plantarum in the late-stage.'' and ''S. thermophilus
-    acts as the primary oligosaccharide metabolizer, while L. bulgaricus functions
-    as a key cross-feeding bacterium to support the auxotrophic community via cross-feeding.'').'
+    proportional Completeness Score 77/100; scripts/audit_completeness.py score 30/100
+    due to missing functional_role) models the three-species mixed starter community
+    of Streptococcus salivarius subsp. thermophilus (NCBITaxon:1308), Lactobacillus
+    delbrueckii subsp. bulgaricus (NCBITaxon:1585), and Lactiplantibacillus plantarum
+    (NCBITaxon:1590) in fermented soymilk (PMID:42637460, doi:10.1016/j.foodres.2026.120134).
+    In taxonomy, Streptococcus salivarius subsp. thermophilus omits functional_role:
+    [PRIMARY_DEGRADER] and abundance_level: DOMINANT, Lactobacillus delbrueckii subsp.
+    bulgaricus omits abundance_level: ABUNDANT, and Lactiplantibacillus plantarum
+    omits abundance_level: DOMINANT (whereas functional_role on L. bulgaricus and
+    L. plantarum remains intentionally omitted per discussions[1] soymilk_causal_attribution_batch104
+    because the dropout transcriptional response does not resolve exact transferred
+    compounds, recipients, or whether L. plantarum ferments products from S. thermophilus).
+    In addition, ecological_interactions[1] (''Inferred Soymilk Nutrient Cross-Feeding'',
+    scope: COMMUNITY_LEVEL, which intentionally omits interaction_type: CROSS_FEEDING
+    per discussions[1] soymilk_causal_attribution_batch104) omits participating_taxa
+    and biological_processes (GO:0006113 fermentation), leaving Lactobacillus delbrueckii
+    subsp. bulgaricus unnamed in any interaction participating_taxa list (even though
+    NetworkIntegrityAuditor reports 0 warnings because COMMUNITY_LEVEL interactions
+    with empty participating_taxa implicitly connect all taxonomy entries) despite
+    verbatim support in PMID:42637460 (''Taxonomic analysis revealed a cooperative
+    succession pattern, where S. thermophilus dominated the mid-stage fermentation,
+    facilitating the subsequent dominance of L. plantarum in the late-stage.'', ''S.
+    thermophilus acts as the primary oligosaccharide metabolizer'', and ''the removal
+    of L. bulgaricus led to the significant derepression of vitamin and amino acid
+    biosynthetic gene clusters, providing transcriptional evidence that L. bulgaricus
+    functions as a key cross-feeding bacterium to support the auxotrophic community
+    via cross-feeding.'').'
   target_ids:
   - CommunityMech:000448
   field_paths:
-  - taxonomy[].functional_role
+  - taxonomy[0].functional_role
   - taxonomy[].abundance_level
   - ecological_interactions[1].participating_taxa
   - ecological_interactions[1].biological_processes
   evidence_ids:
   - ev-completeness-audit
-  - ev-network-integrity-audit
-  - ev-soymilk-pmid39952599
-  rule_id: review-communities:network-integrity-and-functional-roles
+  - ev-soymilk-pmid42637460
+  rule_id: review-communities:completeness-functional-roles-and-participants
   native_severity: P2
-  normalization_reason: CommunityMech P2 (missing functional_role and participating_taxa
-    causing a DISCONNECTED_TAXON network-integrity warning on a 3-species starter
-    SynCom) maps to major.
+  normalization_reason: CommunityMech P2 (missing PRIMARY_DEGRADER functional_role
+    on S. thermophilus, missing abundance_level across all 3 starter taxa, and missing
+    explicit participating_taxa and GO:0006113 fermentation on ecological_interactions[1])
+    maps to major.
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml
     role: canonical_record
   tags:
   - completeness
-  - network-integrity
+  - grounding
   - stage5-remediation
 - finding_id: cheese-assay-evidence-gap
   issue_key: cheese-assay-evidence-gap
@@ -2307,12 +2345,11 @@ actions:
     MicrobialCommunity kb/communities/Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml
   - uv run python scripts/verify_history_Changed_records.py
 - action_id: act-populate-acidic-nitrification-roles-and-processes
-  description: 'Add abundance_level: DOMINANT and functional_role: [PRIMARY_PRODUCER,
-    SYNTROPHIC_PARTNER] to ''Candidatus Nitrosoglobus kelleri'', add abundance_level:
-    DOMINANT and functional_role: [SYNTROPHIC_PARTNER] to Mycobacterium species, add
-    biological_processes GO:0019329 (ammonia oxidation), GO:0009060 (aerobic respiration),
-    and GO:0015977 (carbon fixation) to ecological_interactions[0] on CommunityMech:000434,
-    and append curation_history.'
+  description: 'Add functional_role: [PRIMARY_PRODUCER] and abundance_level: DOMINANT
+    to ''"Candidatus Nitrosoglobus kelleri"'', add abundance_level: DOMINANT to Mycobacterium
+    species on CommunityMech:000434 (while preserving ecological_interactions[0] ''Putative
+    acidic carbon and nitrogen cycling linkage'' and Mycobacterium functional_role
+    bounded per curation_history #1086, #1087, #1088), and append curation_history.'
   finding_ids:
   - c3s4-000434-acidic-nitrification-functional-roles-and-processes
   target_ids:
@@ -2327,13 +2364,13 @@ actions:
   - uv run python scripts/verify_history_Changed_records.py
 - action_id: act-populate-soymilk-starter-roles-and-crossfeeding-participants
   description: 'Add functional_role: [PRIMARY_DEGRADER] and abundance_level: DOMINANT
-    to Streptococcus salivarius subsp. thermophilus, functional_role: [CROSS_FEEDER]
-    and abundance_level: ABUNDANT to Lactobacillus delbrueckii subsp. bulgaricus,
-    functional_role: [SECONDARY_FERMENTER, CROSS_FEEDER] and abundance_level: DOMINANT
-    to Lactiplantibacillus plantarum, populate participating_taxa (all three starter
+    to Streptococcus salivarius subsp. thermophilus, abundance_level: ABUNDANT to
+    Lactobacillus delbrueckii subsp. bulgaricus, and abundance_level: DOMINANT to
+    Lactiplantibacillus plantarum, populate participating_taxa (all three starter
     taxa) and biological_processes (GO:0006113 fermentation) on ecological_interactions[1]
-    (''Inferred Soymilk Nutrient Cross-Feeding'') in CommunityMech:000448, and append
-    curation_history.'
+    (''Inferred Soymilk Nutrient Cross-Feeding'', preserving scope: COMMUNITY_LEVEL
+    without interaction_type: CROSS_FEEDING per discussions[1] soymilk_causal_attribution_batch104)
+    in CommunityMech:000448, and append curation_history.'
   finding_ids:
   - c3s4-000448-soymilk-starter-roles-and-crossfeeding-participants
   target_ids:

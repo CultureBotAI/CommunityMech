@@ -20,10 +20,10 @@ previous_evidence:
   sha256: 3b15dc49b5213b7f7fc1b8d5eb66313d2f110a8f1bad6a5b1bb37647f4fe0472
 artifacts:
 - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000003/stage-04/revision-0001/review_report.md
-  sha256: a3b0339e437b5a47f024cad77e40777c0203fb08fe1c7bdc7ce45776dc450f74
+  sha256: 545713aabc1568f04e0a2c8c49c41681749850fa51616962c077714660cf4668
   kind: review_report
 - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000003/stage-04/revision-0001/review_findings.yaml
-  sha256: 00eb6bcf7b403501640f7285434ac88d6b73e48ec240c19353bb22fccb45e8ef
+  sha256: 9537e205248a553254be7af2bf0afc1c6d42febff4f1a0723fca705ff866a108
   kind: review_findings
 - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000003/stage-04/revision-0001/frozen_inventory_metrics.tsv
   sha256: b06299fcd38588202b063b0f5dc83d47f7252da46d50358d92cd873fe80f1a41
@@ -39,19 +39,23 @@ findings:
     Promotion'' despite explicit support in PMID:42322490.'
 - finding_id: c3s4-000434-acidic-nitrification-functional-roles-and-processes
   status: open
-  summary: CommunityMech:000434 (kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml)
-    omits functional_role and abundance_level on 'Candidatus Nitrosoglobus kelleri'
-    and Mycobacterium species and omits biological_processes (GO:0019329 ammonia oxidation,
-    GO:0009060 aerobic respiration, GO:0015977 carbon fixation) on 'Acidic Nitrification
-    Syntrophic Partnership' despite verbatim support in PMID:38378641.
+  summary: 'CommunityMech:000434 (kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml)
+    omits functional_role: [PRIMARY_PRODUCER] and abundance_level: DOMINANT on ''"Candidatus
+    Nitrosoglobus kelleri"'' and omits abundance_level: DOMINANT on Mycobacterium
+    species across three acidic nitrification bioreactors (pH 2.0-5.0) despite verbatim
+    support in PMID:42762737 (doi:10.1016/j.watres.2026.126966), while preserving
+    ''Putative acidic carbon and nitrogen cycling linkage'' and Mycobacterium functional_role
+    bounded per curation_history (#1086, #1087, #1088).'
 - finding_id: c3s4-000448-soymilk-starter-roles-and-crossfeeding-participants
   status: open
-  summary: CommunityMech:000448 (kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml)
-    omits functional_role and abundance_level across all three starter taxa (Streptococcus
-    salivarius subsp. thermophilus, Lactobacillus delbrueckii subsp. bulgaricus, Lactiplantibacillus
-    plantarum) and omits participating_taxa and biological_processes (GO:0006113 fermentation)
-    on 'Inferred Soymilk Nutrient Cross-Feeding', leaving L. delbrueckii subsp. bulgaricus
-    disconnected from the interaction graph despite verbatim support in PMID:39952599.
+  summary: 'CommunityMech:000448 (kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml)
+    omits functional_role: [PRIMARY_DEGRADER] and abundance_level: DOMINANT on Streptococcus
+    salivarius subsp. thermophilus, omits abundance_level: ABUNDANT on Lactobacillus
+    delbrueckii subsp. bulgaricus, omits abundance_level: DOMINANT on Lactiplantibacillus
+    plantarum, and omits explicit participating_taxa and biological_processes (GO:0006113
+    fermentation) on ''Inferred Soymilk Nutrient Cross-Feeding'' (leaving L. delbrueckii
+    subsp. bulgaricus unnamed in any interaction participating_taxa list despite verbatim
+    support in PMID:42637460, doi:10.1016/j.foodres.2026.120134).'
 - finding_id: cheese-assay-evidence-gap
   status: deferred
   carried_from: cheese-assay-evidence-gap
