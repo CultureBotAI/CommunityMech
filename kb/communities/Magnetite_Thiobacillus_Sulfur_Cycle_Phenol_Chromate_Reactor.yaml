@@ -51,8 +51,8 @@ taxonomy:
 ecological_interactions:
 - name: Magnetite-Driven Thiobacillus Oxidation of Elemental Sulfur to Sulfate
   description: Magnetite serves as an Fe(III) source that enriches chemolithotrophic Thiobacillus species to oxidize elemental
-    sulfur to sulfate, lowering sulfur loss (6.85% vs 4.49% aggregate sulfur content) and completing the whole microbial sulfur
-    cycle.
+    sulfur to sulfate, increasing aggregate sulfur content (6.85% with magnetite vs 4.49% without magnetite) and completing
+    the whole microbial sulfur cycle.
   interaction_type: SYNTROPHY
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -61,19 +61,24 @@ ecological_interactions:
       id: NCBITaxon:919
       label: Thiobacillus
   metabolites:
+  - preferred_term: elemental sulfur
+    term:
+      id: CHEBI:33403
+      label: elemental sulfur
   - preferred_term: sulfate
     term:
       id: CHEBI:16189
       label: sulfate
   biological_processes:
-  - preferred_term: dissimilatory sulfate reduction
+  - preferred_term: sulfur oxidation
     term:
-      id: GO:0019420
-      label: dissimilatory sulfate reduction
+      id: GO:0019417
+      label: sulfur oxidation
   downstream:
-  - target: Coupled Anaerobic Phenol Degradation and Cr(VI) Reduction via Fe(III)/Fe(II) Transformation
-    description: Completion of the elemental sulfur-to-sulfate cycle by magnetite-enriched Thiobacillus drives coupled anaerobic
-      phenol degradation (354.2 vs 1256.0 mgCOD/L effluent) and Cr(VI) reduction (18.0 vs 187.7 mg/L effluent).
+  - target: Sulfur-Cycle-Coupled Anaerobic Phenol Degradation and Cr(VI) Reduction
+    description: Completion of the elemental sulfur-to-sulfate cycle by magnetite-enriched Thiobacillus sustains sulfate availability
+      and drives coupled anaerobic phenol degradation (354.2 vs 1256.0 mgCOD/L effluent) and Cr(VI) reduction (18.0 vs 187.7
+      mg/L effluent).
   evidence:
   - reference: doi:10.1016/j.cej.2020.124801
     supports: SUPPORT
@@ -89,10 +94,17 @@ ecological_interactions:
       sulphur to sulphate, lowering the loss of sulphur.
     explanation: Shows that enriched Thiobacillus species oxidize elemental sulfur to sulfate and reduce sulfur loss in the
       magnetite reactor.
-- name: Coupled Anaerobic Phenol Degradation and Cr(VI) Reduction via Fe(III)/Fe(II) Transformation
-  description: Whole sulfur cycling and dissimilatory Fe(III)/Fe(II) transformation in the magnetite-amended reactor significantly
-    lower effluent Cr(VI) (18.0 mg/L vs 187.7 mg/L) and phenol (354.2 mgCOD/L vs 1256.0 mgCOD/L) while Fe(II) scavenges trace
-    dissolved oxygen to prevent Cr(III) re-oxidation.
+  - reference: doi:10.1016/j.cej.2020.124801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results showed that, under the low-concentration sulphate conditions, the effluent concentration of both
+      Cr(VI) (18.0 mg/L vs 187.7 mg/L) and phenol (354.2 mgCOD/L vs 1256.0 mgCOD/L) in the reactor with magnetite was significantly
+      lower than that without magnetite.
+    explanation: Supports the downstream coupling between whole sulfur cycling and lowered effluent Cr(VI) and phenol concentrations.
+- name: Sulfur-Cycle-Coupled Anaerobic Phenol Degradation and Cr(VI) Reduction
+  description: Whole microbial sulfur cycling in the magnetite-amended anaerobic bioreactor significantly lowers effluent
+    phenol (354.2 mgCOD/L vs 1256.0 mgCOD/L without magnetite) and Cr(VI) (18.0 mg/L vs 187.7 mg/L without magnetite) under
+    low-concentration sulfate conditions while driving dissimilatory Fe(III) reduction of crystalline magnetite.
   interaction_type: SYNTROPHY
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -113,11 +125,23 @@ ecological_interactions:
     term:
       id: CHEBI:35404
       label: chromate(2-)
+  - preferred_term: iron(3+)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
   biological_processes:
   - preferred_term: phenol-containing compound catabolic process
     term:
       id: GO:0019336
       label: phenol-containing compound catabolic process
+  - preferred_term: dissimilatory sulfate reduction
+    term:
+      id: GO:0019420
+      label: dissimilatory sulfate reduction
+  downstream:
+  - target: Dissimilatory Fe(II)-Mediated Dissolved Oxygen Scavenging and Cr(III) Stabilization
+    description: Dissimilatory Fe(III) reduction of crystalline magnetite under sulfate-reducing conditions generates Fe(II)
+      that reacts with trace dissolved oxygen (DO) to prevent re-oxidation of reduced Cr(III).
   evidence:
   - reference: doi:10.1016/j.cej.2020.124801
     supports: SUPPORT
@@ -127,6 +151,65 @@ ecological_interactions:
       lower than that without magnetite.
     explanation: Quantifies the reduction in effluent Cr(VI) and phenol concentrations achieved by magnetite supplementation
       under low-sulfate conditions.
+  - reference: doi:10.1016/j.cej.2020.124801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Further analysis by X-ray Diffraction (XRD) and X-ray photoelectron spectroscopy (XPS) observed the disappearance
+      of the crystalline structure in magnetite as well as the loss of iron via the dissimilatory Fe(III) reduction in the
+      aggregates.
+    explanation: Demonstrates dissimilatory Fe(III) reduction of crystalline magnetite within the sulfate-reducing reactor
+      aggregates.
+  - reference: doi:10.1016/j.cej.2020.124801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Considered that the re-oxidation of the reduced Cr(III) might occur in the aggregates without magnetite, the
+      generated Fe(II) might react with the slight dissolved oxygen (DO) to reduce the re-oxidation of the reduced Cr(III),
+      which further achieved the transformation of Fe(III)/Fe(II).
+    explanation: Supports the downstream transition from dissimilatory Fe(III) reduction to Fe(II)-mediated scavenging of
+      trace dissolved oxygen and stabilization of reduced Cr(III).
+- name: Dissimilatory Fe(II)-Mediated Dissolved Oxygen Scavenging and Cr(III) Stabilization
+  description: Fe(II) generated via dissimilatory Fe(III) reduction of magnetite reacts with slight dissolved oxygen (DO)
+    in the sulfate-reducing aggregates, preventing re-oxidation of reduced Cr(III) and completing the Fe(III)/Fe(II) redox
+    cycle.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Thiobacillus
+    term:
+      id: NCBITaxon:919
+      label: Thiobacillus
+  metabolites:
+  - preferred_term: iron(2+)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+  - preferred_term: iron(3+)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+  - preferred_term: chromate(2-)
+    term:
+      id: CHEBI:35404
+      label: chromate(2-)
+  biological_processes:
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  - preferred_term: response to metal ion
+    term:
+      id: GO:0010038
+      label: response to metal ion
+  evidence:
+  - reference: doi:10.1016/j.cej.2020.124801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Further analysis by X-ray Diffraction (XRD) and X-ray photoelectron spectroscopy (XPS) observed the disappearance
+      of the crystalline structure in magnetite as well as the loss of iron via the dissimilatory Fe(III) reduction in the
+      aggregates. However, under the sulphate-reducing conditions, the evident peaks of both Fe2O3 and FeO were detected in
+      the aggregates.
+    explanation: Confirms transformation of crystalline magnetite into Fe2O3 and FeO via dissimilatory Fe(III) reduction under
+      sulfate-reducing conditions.
   - reference: doi:10.1016/j.cej.2020.124801
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -156,4 +239,12 @@ curation_history:
   action: CREATE
   changes: Added Magnetite-Mediated Thiobacillus Sulfur-Cycle Phenol and Chromate Bioreactor (CommunityMech:000493) in kb/communities/
     from doi:10.1016/j.cej.2020.124801.
+  llm_assisted: true
+- timestamp: '2026-10-26T02:00:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Expanded the 2-node reactor graph into a 3-node, 2-edge causal mechanism separating (1) magnetite-driven Thiobacillus
+    oxidation of elemental sulfur to sulfate (GO:0019417 sulfur oxidation; 6.85% vs 4.49% aggregate sulfur retention), (2)
+    sulfur-cycle-coupled anaerobic phenol degradation (354.2 vs 1256.0 mgCOD/L) and Cr(VI) reduction (18.0 vs 187.7 mg/L),
+    and (3) dissimilatory Fe(II)-mediated dissolved oxygen scavenging that prevents Cr(III) re-oxidation in reactor aggregates.
   llm_assisted: true

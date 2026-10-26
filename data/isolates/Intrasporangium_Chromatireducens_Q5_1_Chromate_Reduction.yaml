@@ -58,9 +58,58 @@ taxonomy:
       Cr(VI) reduction.
     explanation: Demonstrates resting-cell Cr(VI) reduction and stimulation by 1 mmol/L acetate.
 ecological_interactions:
-- name: Acetate-Stimulated Aerobic and Resting-Cell Chromate Reduction
-  description: Intrasporangium chromatireducens Q5-1 tolerates up to 17 mmol/L Cr(VI) and reduces toxic hexavalent chromate
-    into insoluble Cr(III) aerobically (optimal at pH 8.0 and 37 degrees C) and in resting cells stimulated by 1 mmol/L acetate.
+- name: High-Tolerance Aerobic Chromate Reduction by Free Cells
+  description: Intrasporangium chromatireducens strain Q5-1 isolated from Mn/Cr-contaminated mining soil tolerates up to 17
+    mmol/L Cr(VI) and aerobically reduces toxic hexavalent chromate into insoluble trivalent Cr(III), with optimal reduction
+    activity at pH 8.0 and 37 degrees C.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Intrasporangium chromatireducens Q5-1
+    term:
+      id: NCBITaxon:1386088
+      label: Intrasporangium chromatireducens
+  metabolites:
+  - preferred_term: chromate(2-)
+    term:
+      id: CHEBI:35404
+      label: chromate(2-)
+  biological_processes:
+  - preferred_term: response to metal ion
+    term:
+      id: GO:0010038
+      label: response to metal ion
+  downstream:
+  - target: Acetate-Stimulated Resting-Cell Chromate Reduction
+    description: Intrinsic aerobic Cr(VI) resistance (MIC 17 mmol/L) and chromate reductase activity enable non-growing resting
+      cells of strain Q5-1 to reduce Cr(VI) across multiple carbon sources, maximally stimulated by 1 mmol/L acetate.
+  evidence:
+  - reference: PMID:21441371
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A gram-positive, aerobic actinobacterium with high chromate [Cr(VI)]-reducing ability, designated strain Q5-1(T),
+      was isolated from manganese mining soil in Hunan Province, central-south China.
+    explanation: Establishes the isolation and high aerobic Cr(VI)-reducing activity of Intrasporangium chromatireducens strain
+      Q5-1(T).
+  - reference: doi:10.1007/s11274-009-0047-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This bacterium has high Cr(VI) resistance with a MIC of 17 mmol l⁻¹ and is able to reduce Cr(VI) aerobically.
+      The best condition of Cr(VI) reduction for Q5-1 is pH 8.0 at 37°C.
+    explanation: Quantifies Cr(VI) resistance (MIC 17 mmol/L) and optimal aerobic Cr(VI) reduction conditions (pH 8.0 at 37
+      degrees C) in free Q5-1 cells.
+  - reference: doi:10.1007/s11274-009-0047-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strain Q5-1 is also able to reduce Cr(VI) in resting (non-growth) conditions using a variety of carbon sources
+      as well as in the absence of a carbon source. Acetate (1 mmol l⁻¹) is the most efficient carbon source for stimulating
+      Cr(VI) reduction.
+    explanation: Supports the downstream transition from aerobic free-cell Cr(VI) reduction to acetate-stimulated resting-cell
+      Cr(VI) reduction.
+- name: Acetate-Stimulated Resting-Cell Chromate Reduction
+  description: Non-growing resting cells of Intrasporangium chromatireducens Q5-1 reduce toxic Cr(VI) into insoluble Cr(III)
+    both without an exogenous carbon source and across multiple carbon substrates, with 1 mmol/L acetate serving as the most
+    efficient electron donor for stimulating Cr(VI) reduction.
   interaction_type: COMMENSALISM
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -78,32 +127,34 @@ ecological_interactions:
       id: CHEBI:30089
       label: acetate
   biological_processes:
-  - preferred_term: response to metal ion
+  - preferred_term: aerobic respiration
     term:
-      id: GO:0010038
-      label: response to metal ion
+      id: GO:0009060
+      label: aerobic respiration
   downstream:
   - target: Immobilized Compounding-Bead Chromate Bioremediation in Continuous Systems
-    description: High aerobic and resting-cell Cr(VI) reduction activity enables immobilization of Q5-1 cells in PVA-alginate-carbon-diatomite
-      beads for stable, reusable continuous-system wastewater treatment.
+    description: Sustained resting-cell Cr(VI) reduction activity allows Q5-1 cells to be embedded in PVA-alginate-carbon-diatomite
+      compounding beads that retain free-cell Cr(VI) reduction rates for reusable continuous-system wastewater treatment.
   evidence:
-  - reference: doi:10.1007/s11274-009-0047-x
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: This bacterium has high Cr(VI) resistance with a MIC of 17 mmol l⁻¹ and is able to reduce Cr(VI) aerobically.
-      The best condition of Cr(VI) reduction for Q5-1 is pH 8.0 at 37°C.
-    explanation: Establishes high Cr(VI) resistance (MIC 17 mmol/L) and aerobic Cr(VI) reduction at pH 8.0 and 37 degrees C.
   - reference: doi:10.1007/s11274-009-0047-x
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Strain Q5-1 is also able to reduce Cr(VI) in resting (non-growth) conditions using a variety of carbon sources
       as well as in the absence of a carbon source. Acetate (1 mmol l⁻¹) is the most efficient carbon source for stimulating
       Cr(VI) reduction.
-    explanation: Shows resting-cell Cr(VI) reduction and stimulation by 1 mmol/L acetate.
+    explanation: Demonstrates resting-cell Cr(VI) reduction and maximal stimulation by 1 mmol/L acetate.
+  - reference: doi:10.1007/s11274-009-0047-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Q5-1 cells embedded with compounding beads containing 4% PVA, 3% sodium alginate, 1.5% active carbon and 3% diatomite
+      showed a similar Cr(VI) reduction rates to that of free cells. In addition, the immobilized Q5-1 cells have the advantages
+      over free cells in being more stable, easier to re-use and minimal clogging in continuous systems.
+    explanation: Supports the downstream application of non-growing Q5-1 cells immobilized in compounding beads for continuous-system
+      Cr(VI) removal.
 - name: Immobilized Compounding-Bead Chromate Bioremediation in Continuous Systems
   description: Immobilization of Intrasporangium chromatireducens Q5-1 in compounding beads (4% PVA, 3% sodium alginate, 1.5%
-    active carbon, and 3% diatomite) maintains Cr(VI) reduction rates comparable to free cells while improving stability and
-    reuse in continuous wastewater treatment.
+    active carbon, and 3% diatomite) maintains Cr(VI) reduction rates comparable to free cells while improving stability,
+    reuse, and resistance to clogging in continuous wastewater treatment.
   interaction_type: COMMENSALISM
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -117,10 +168,10 @@ ecological_interactions:
       id: CHEBI:35404
       label: chromate(2-)
   biological_processes:
-  - preferred_term: aerobic respiration
+  - preferred_term: response to metal ion
     term:
-      id: GO:0009060
-      label: aerobic respiration
+      id: GO:0010038
+      label: response to metal ion
   evidence:
   - reference: doi:10.1007/s11274-009-0047-x
     supports: SUPPORT
@@ -148,4 +199,13 @@ curation_history:
   action: CREATE
   changes: Added Intrasporangium chromatireducens Q5-1 Chromate Reduction Isolate (CommunityMech:000492) in data/isolates/
     from PMID:21441371 and doi:10.1007/s11274-009-0047-x.
+  llm_assisted: true
+- timestamp: '2026-10-26T02:00:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Expanded the 2-node isolate graph into a 3-node, 2-edge physiological mechanism chain linking high-tolerance aerobic
+    Cr(VI) reduction by free cells (MIC 17 mmol/L, optimal pH 8.0 at 37 degrees C) to 1 mmol/L acetate-stimulated resting-cell
+    Cr(VI) reduction and downstream to compounding-bead immobilization (4% PVA, 3% sodium alginate, 1.5% active carbon, 3%
+    diatomite) for continuous-system Cr(VI) bioremediation, with verbatim source snippets on each upstream node directly backing
+    its outgoing edge.
   llm_assisted: true
