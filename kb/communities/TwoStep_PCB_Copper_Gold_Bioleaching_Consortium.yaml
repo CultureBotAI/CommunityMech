@@ -148,7 +148,7 @@ ecological_interactions:
 - name: First-Step Acidophilic Copper Bioleaching from Waste PCBs
   description: Chemolithotrophic acidophiles Acidithiobacillus ferrivorans and Acidithiobacillus thiooxidans co-leach 98.4%
     of copper from 1% pulp density (10 g/L PCB concentration) at pH 1.0-1.6 and ambient temperature (23 +/- 2 degrees C) in
-    7 days, generating Cu-leached PCB material.
+    7 days, generating Cu-leached PCB material for subsequent alkaline gold recovery.
   interaction_type: SYNTROPHY
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -156,11 +156,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:160808
       label: Acidithiobacillus ferrivorans
-  target_taxon:
-    preferred_term: Acidithiobacillus thiooxidans
-    term:
-      id: NCBITaxon:930
-      label: Acidithiobacillus thiooxidans
   participating_taxa:
   - preferred_term: Acidithiobacillus ferrivorans
     term:
@@ -181,9 +176,9 @@ ecological_interactions:
       id: GO:0022900
       label: electron transport chain
   downstream:
-  - target: Second-Step Glycine-Assisted Cyanogenic Gold Mobilization
-    description: Solubilization of 98.4% of copper in step 1 produces Cu-leached PCB material for subsequent alkaline cyanogenic
-      gold mobilization by Pseudomonas putida and Pseudomonas fluorescens.
+  - target: Second-Step Alkaline Cyanogenic Gold Mobilization from Cu-Leached PCBs
+    description: Solubilization of 98.4% of copper in step 1 removes interfering copper and produces Cu-leached PCB material
+      for subsequent alkaline cyanogenic gold mobilization by Pseudomonas putida and Pseudomonas fluorescens.
   evidence:
   - reference: PMID:26704063
     supports: SUPPORT
@@ -204,11 +199,11 @@ ecological_interactions:
     snippet: This gold complexing agent was used in the subsequent bioleaching step using the Cu-leached (by A. ferrivorans
       and A. thiooxidans) PCB material, 44.0% of the gold was mobilized in alkaline conditions at pH 7.3-8.6, and 30°C in
       2days.
-    explanation: Supports the downstream transition from first-step Cu-leached PCB material to second-step gold mobilization.
-- name: Second-Step Glycine-Assisted Cyanogenic Gold Mobilization
-  description: Cyanide-producing heterotrophs Pseudomonas putida (strain WCS361, generating 21.5 +/- 1.5 mg/L cyanide from
-    10 g/L glycine) and Pseudomonas fluorescens mobilize 44.0% of gold from the Cu-leached PCB material at pH 7.3-8.6 and
-    30 degrees C in 2 days.
+    explanation: Supports the downstream transition from first-step Cu-leached PCB material to second-step alkaline gold mobilization.
+- name: Heterotrophic Glycine-Dependent Cyanide Lixiviant Biosynthesis
+  description: Cyanide-producing heterotrophs Pseudomonas putida (strain WCS361) and Pseudomonas fluorescens convert glycine
+    substrate (10 g/L) into biogenic cyanide (21.5 +/- 1.5 mg/L cyanide in P. putida WCS361) that serves as the gold-complexing
+    lixiviant.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -216,11 +211,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:303
       label: Pseudomonas putida
-  target_taxon:
-    preferred_term: Pseudomonas fluorescens
-    term:
-      id: NCBITaxon:294
-      label: Pseudomonas fluorescens
   participating_taxa:
   - preferred_term: Pseudomonas putida
     term:
@@ -235,11 +225,19 @@ ecological_interactions:
     term:
       id: CHEBI:15428
       label: glycine
+  - preferred_term: cyanide
+    term:
+      id: CHEBI:17514
+      label: cyanide
   biological_processes:
   - preferred_term: glycine metabolic process
     term:
       id: GO:0006544
       label: glycine metabolic process
+  downstream:
+  - target: Second-Step Alkaline Cyanogenic Gold Mobilization from Cu-Leached PCBs
+    description: Biogenic cyanide (21.5 +/- 1.5 mg/L produced from 10 g/L glycine by Pseudomonas putida WCS361) acts as the
+      gold-complexing lixiviant applied to Cu-leached PCB material in the second alkaline bioleaching step.
   evidence:
   - reference: PMID:26704063
     supports: SUPPORT
@@ -253,8 +251,58 @@ ecological_interactions:
     snippet: A pure culture of P. putida (strain WCS361) produced 21.5 (±1.5)mg/L cyanide with 10g/L glycine as the substrate.
       This gold complexing agent was used in the subsequent bioleaching step using the Cu-leached (by A. ferrivorans and A.
       thiooxidans) PCB material, 44.0% of the gold was mobilized in alkaline conditions at pH 7.3-8.6, and 30°C in 2days.
-    explanation: Quantifies 21.5 mg/L cyanide production with 10 g/L glycine and 44.0% gold mobilization from Cu-leached PCB
-      material at pH 7.3-8.6 and 30 degrees C in 2 days.
+    explanation: Demonstrates 21.5 +/- 1.5 mg/L cyanide biosynthesis from 10 g/L glycine by P. putida WCS361 and its direct
+      application as the gold-complexing agent in the second bioleaching step.
+- name: Second-Step Alkaline Cyanogenic Gold Mobilization from Cu-Leached PCBs
+  description: Application of bacterially produced cyanide lixiviant from Pseudomonas putida (strain WCS361) and Pseudomonas
+    fluorescens to Cu-leached PCB material mobilizes 44.0% of gold under alkaline conditions (pH 7.3-8.6) at 30 degrees C
+    in 2 days.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Pseudomonas putida
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  participating_taxa:
+  - preferred_term: Pseudomonas putida
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  - preferred_term: Pseudomonas fluorescens
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+  metabolites:
+  - preferred_term: cyanide
+    term:
+      id: CHEBI:17514
+      label: cyanide
+  - preferred_term: gold atom
+    term:
+      id: CHEBI:29287
+      label: gold atom
+  biological_processes:
+  - preferred_term: glycine metabolic process
+    term:
+      id: GO:0006544
+      label: glycine metabolic process
+  evidence:
+  - reference: PMID:26704063
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A pure culture of P. putida (strain WCS361) produced 21.5 (±1.5)mg/L cyanide with 10g/L glycine as the substrate.
+      This gold complexing agent was used in the subsequent bioleaching step using the Cu-leached (by A. ferrivorans and A.
+      thiooxidans) PCB material, 44.0% of the gold was mobilized in alkaline conditions at pH 7.3-8.6, and 30°C in 2days.
+    explanation: Quantifies 44.0% gold mobilization from Cu-leached PCB material at pH 7.3-8.6 and 30 degrees C in 2 days
+      using the biogenic cyanide complexing agent.
+  - reference: PMID:26704063
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study provided a proof-of-concept of a two-step approach in metal bioleaching from PCB, by bacterially produced
+      lixiviants.
+    explanation: Summarizes the two-step bacterially produced lixiviant mechanism for sequential copper and gold recovery
+      from discarded PCBs.
 environmental_factors:
 - name: First-Step Copper Bioleaching Regime
   value: pH 1.0-1.6, 23 +/- 2 degrees C, 1% pulp density (10 g/L PCB), 7 days
@@ -285,4 +333,13 @@ curation_history:
   curator: antigravity
   action: CREATE
   changes: Added Two-Step PCB Copper and Gold Bioleaching Consortium (CommunityMech:000491) in kb/communities/ from PMID:26704063.
+  llm_assisted: true
+- timestamp: '2026-10-26T02:00:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Expanded the 2-node PCB bioleaching graph into a 3-node, 2-edge converging causal mechanism separating first-step
+    acidophilic copper bioleaching (A. ferrivorans + A. thiooxidans, 98.4% Cu recovery) and heterotrophic glycine-dependent
+    cyanide lixiviant biosynthesis (P. putida WCS361 + P. fluorescens, 21.5 mg/L cyanide from 10 g/L glycine), both feeding
+    second-step alkaline gold mobilization (44.0% Au from Cu-leached PCBs), and removed redundant pairwise target_taxon slots
+    on COMMUNITY_LEVEL nodes.
   llm_assisted: true

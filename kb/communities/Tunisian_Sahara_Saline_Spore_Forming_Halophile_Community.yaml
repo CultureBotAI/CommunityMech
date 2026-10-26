@@ -195,11 +195,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:156205
       label: Halobacillus trueperi
-  target_taxon:
-    preferred_term: Bacillus
-    term:
-      id: NCBITaxon:1386
-      label: Bacillus <firmicutes>
   participating_taxa:
   - preferred_term: Halobacillus trueperi
     term:
@@ -260,6 +255,15 @@ ecological_interactions:
       in all the sites and presented a large intraspecific diversity with a multiplicity of ITS types.'
     explanation: Documents the seven co-occurring Firmicutes genera and the dominance of Halobacillus trueperi across all
       sites.
+  - reference: PMID:23949950
+    supports: SUPPORT
+    evidence_source: FIELD_STUDY
+    snippet: A high intraspecific microdiversity was documented by 14 BOX-PCR genotypes whose distribution correlated with
+      the strain geographic origin. Interestingly, H. trueperi isolates presented an uneven geographic distribution among
+      sites with the highest frequency of isolation from the coastal sites, suggesting a marine rather than terrestrial origin
+      of the strains.
+    explanation: Supports the downstream link from broad salinity-guild adaptation across the five saline systems to geographic
+      and coastal microdiversity structuring of dominant H. trueperi genotypes.
 - name: Geographic and Microdiversity Structuring of Halobacillus trueperi Across Coastal and Inland Saline Sites
   description: Halobacillus trueperi exhibits 14 BOX-PCR genotypes correlated with geographic origin and an uneven distribution
     peaking at coastal saline sites within the seven-genus spore-forming assemblage.
@@ -314,6 +318,13 @@ ecological_interactions:
       of the strains.
     explanation: Shows geographic correlation of 14 BOX-PCR genotypes and coastal enrichment of H. trueperi across the sampled
       Tunisian Sahara saline systems.
+  - reference: PMID:23949950
+    supports: SUPPORT
+    evidence_source: FIELD_STUDY
+    snippet: The high frequency and diversity of H. trueperi suggest that it is a major ecosystem-adapted microbial component
+      of the Tunisian Sahara harsh saline systems of marine origin.
+    explanation: Confirms the ecological dominance and marine-origin saline adaptation of H. trueperi within the southern
+      Tunisian Sahara spore-forming community.
 environmental_factors:
 - name: Salt-Saturated Brines and Soils Across Hyper-Arid Chott and Sebkha Systems
   value: Five salt-saturated brines and soils selecting for extremely halotolerant (44.3%), strict halophilic (32.7%), and
@@ -333,4 +344,11 @@ curation_history:
   curator: antigravity
   action: CREATE
   changes: Added Tunisian Sahara Saline Spore-Forming Halophile Community (CommunityMech:000494) in kb/communities/ from PMID:23949950.
+  llm_assisted: true
+- timestamp: '2026-10-26T02:00:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Removed redundant pairwise target_taxon (Bacillus) on COMMUNITY_LEVEL Node 1 (where all 7 Firmicutes genera are
+    already listed in participating_taxa) and added the verbatim PMID:23949950 geographic/BOX-PCR microdiversity snippet to
+    Node 1 so its outgoing downstream edge is directly backed on the source interaction.
   llm_assisted: true

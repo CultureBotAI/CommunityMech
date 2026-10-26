@@ -1,0 +1,887 @@
+reviewer: claude
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: bce50b6f793bf1a600dcf60b444e14e5b478f9c0
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+reviewed_counts:
+  retained_nodes: 14
+  removed_nodes: 0
+  retained_arrows: 9
+  removed_arrows: 0
+  renamed_nodes: 0
+  graph_quotations: 49
+  discussion_quotations: 0
+limitations:
+- Source-based causal-graph curation and review across all 5 previously unreviewed Cycle 3 Stage 1 records
+  (CommunityMech:000491 through CommunityMech:000495).
+- Other 484 records verified via SHA-256 hash census against reports/causal_graph_review/inventory.tsv
+  (430 reviewed, 54 needs_research preserved unchanged).
+records:
+- path: kb/communities/TwoStep_PCB_Copper_Gold_Bioleaching_Consortium.yaml
+  id: CommunityMech:000491
+  original_sha256: d132e9a7595ba6eb94897f189aaaa779f564771f087d35086b4417b776001227
+  record_sha256: 1d08be9793a28d66c9dabd74e48ea132d3b8dc44a16e394d7c259fbfca0aa486
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-stage2-five-records-batch135.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached primary source text.
+  summary: Expanded the 2-node PCB bioleaching graph into a 3-node, 2-edge converging causal mechanism
+    separating first-step acidophilic copper bioleaching (A. ferrivorans + A. thiooxidans, 98.4% Cu recovery)
+    and heterotrophic glycine-dependent cyanide lixiviant biosynthesis (P. putida WCS361 + P. fluorescens,
+    21.5 mg/L cyanide from 10 g/L glycine), both feeding second-step alkaline gold mobilization (44.0%
+    Au from Cu-leached PCBs), and removed redundant pairwise target_taxon slots on COMMUNITY_LEVEL nodes.
+  node_decisions:
+  - node: First-Step Acidophilic Copper Bioleaching from Waste PCBs
+    rationale: Supported by primary source (PMID:26704063) with explicit COMMUNITY_LEVEL scope and taxon
+      grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:26704063)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Acidithiobacillus ferrivorans
+        term:
+          id: NCBITaxon:160808
+          label: Acidithiobacillus ferrivorans
+      participating_taxa:
+      - preferred_term: Acidithiobacillus ferrivorans
+        term:
+          id: NCBITaxon:160808
+          label: Acidithiobacillus ferrivorans
+      - preferred_term: Acidithiobacillus thiooxidans
+        term:
+          id: NCBITaxon:930
+          label: Acidithiobacillus thiooxidans
+    evidence:
+    - reference: PMID:26704063
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In the first step, chemolithotrophic acidophilic Acidithiobacillus ferrivorans and Acidithiobacillus
+        thiooxidans were used. In the second step, cyanide-producing heterotrophic Pseudomonas fluorescens
+        and Pseudomonas putida were used.
+    - reference: PMID:26704063
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Results showed that at a 1% pulp density (10g/L PCB concentration), 98.4% of the copper
+        was bioleached by a mixture of A. ferrivorans and A. thiooxidans at pH 1.0-1.6 and ambient temperature
+        (23±2°C) in 7days.
+    - reference: PMID:26704063
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: This gold complexing agent was used in the subsequent bioleaching step using the Cu-leached
+        (by A. ferrivorans and A. thiooxidans) PCB material, 44.0% of the gold was mobilized in alkaline
+        conditions at pH 7.3-8.6, and 30°C in 2days.
+  - node: Heterotrophic Glycine-Dependent Cyanide Lixiviant Biosynthesis
+    rationale: Supported by primary source (PMID:26704063) with explicit COMMUNITY_LEVEL scope and taxon
+      grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:26704063)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Pseudomonas putida
+        term:
+          id: NCBITaxon:303
+          label: Pseudomonas putida
+      participating_taxa:
+      - preferred_term: Pseudomonas putida
+        term:
+          id: NCBITaxon:303
+          label: Pseudomonas putida
+      - preferred_term: Pseudomonas fluorescens
+        term:
+          id: NCBITaxon:294
+          label: Pseudomonas fluorescens
+    evidence:
+    - reference: PMID:26704063
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In the first step, chemolithotrophic acidophilic Acidithiobacillus ferrivorans and Acidithiobacillus
+        thiooxidans were used. In the second step, cyanide-producing heterotrophic Pseudomonas fluorescens
+        and Pseudomonas putida were used.
+    - reference: PMID:26704063
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: A pure culture of P. putida (strain WCS361) produced 21.5 (±1.5)mg/L cyanide with 10g/L
+        glycine as the substrate. This gold complexing agent was used in the subsequent bioleaching step
+        using the Cu-leached (by A. ferrivorans and A. thiooxidans) PCB material, 44.0% of the gold was
+        mobilized in alkaline conditions at pH 7.3-8.6, and 30°C in 2days.
+  - node: Second-Step Alkaline Cyanogenic Gold Mobilization from Cu-Leached PCBs
+    rationale: Supported by primary source (PMID:26704063) with explicit COMMUNITY_LEVEL scope and taxon
+      grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:26704063)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Pseudomonas putida
+        term:
+          id: NCBITaxon:303
+          label: Pseudomonas putida
+      participating_taxa:
+      - preferred_term: Pseudomonas putida
+        term:
+          id: NCBITaxon:303
+          label: Pseudomonas putida
+      - preferred_term: Pseudomonas fluorescens
+        term:
+          id: NCBITaxon:294
+          label: Pseudomonas fluorescens
+    evidence:
+    - reference: PMID:26704063
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: A pure culture of P. putida (strain WCS361) produced 21.5 (±1.5)mg/L cyanide with 10g/L
+        glycine as the substrate. This gold complexing agent was used in the subsequent bioleaching step
+        using the Cu-leached (by A. ferrivorans and A. thiooxidans) PCB material, 44.0% of the gold was
+        mobilized in alkaline conditions at pH 7.3-8.6, and 30°C in 2days.
+    - reference: PMID:26704063
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: This study provided a proof-of-concept of a two-step approach in metal bioleaching from
+        PCB, by bacterially produced lixiviants.
+  edges_before:
+  - source: First-Step Acidophilic Copper Bioleaching from Waste PCBs
+    target: Second-Step Glycine-Assisted Cyanogenic Gold Mobilization
+    description: Solubilization of 98.4% of copper in step 1 produces Cu-leached PCB material for subsequent
+      alkaline cyanogenic gold mobilization by Pseudomonas putida and Pseudomonas fluorescens.
+  edges_after:
+  - source: First-Step Acidophilic Copper Bioleaching from Waste PCBs
+    target: Second-Step Alkaline Cyanogenic Gold Mobilization from Cu-Leached PCBs
+    description: Solubilization of 98.4% of copper in step 1 removes interfering copper and produces Cu-leached
+      PCB material for subsequent alkaline cyanogenic gold mobilization by Pseudomonas putida and Pseudomonas
+      fluorescens.
+  - source: Heterotrophic Glycine-Dependent Cyanide Lixiviant Biosynthesis
+    target: Second-Step Alkaline Cyanogenic Gold Mobilization from Cu-Leached PCBs
+    description: Biogenic cyanide (21.5 +/- 1.5 mg/L produced from 10 g/L glycine by Pseudomonas putida
+      WCS361) acts as the gold-complexing lixiviant applied to Cu-leached PCB material in the second alkaline
+      bioleaching step.
+  retained_edge_decisions:
+  - edge: First-Step Acidophilic Copper Bioleaching from Waste PCBs -> Second-Step Alkaline Cyanogenic
+      Gold Mobilization from Cu-Leached PCBs
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:26704063 directly states that 98.4% copper bioleaching by the A. ferrivorans and A. thiooxidans
+      mixture at 1% pulp density (10 g/L PCB), pH 1.0-1.6, and 23 +/- 2 degrees C in 7 days generates
+      the Cu-leached PCB material used in the subsequent alkaline gold bioleaching step.
+    evidence:
+    - reference: PMID:26704063
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Results showed that at a 1% pulp density (10g/L PCB concentration), 98.4% of the copper
+        was bioleached by a mixture of A. ferrivorans and A. thiooxidans at pH 1.0-1.6 and ambient temperature
+        (23±2°C) in 7days.
+    - reference: PMID:26704063
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: This gold complexing agent was used in the subsequent bioleaching step using the Cu-leached
+        (by A. ferrivorans and A. thiooxidans) PCB material, 44.0% of the gold was mobilized in alkaline
+        conditions at pH 7.3-8.6, and 30°C in 2days.
+  - edge: Heterotrophic Glycine-Dependent Cyanide Lixiviant Biosynthesis -> Second-Step Alkaline Cyanogenic
+      Gold Mobilization from Cu-Leached PCBs
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:26704063 directly states that P. putida strain WCS361 produces 21.5 +/- 1.5 mg/L cyanide
+      with 10 g/L glycine as the substrate and that this gold-complexing agent is used in the subsequent
+      bioleaching step to mobilize 44.0% of gold from Cu-leached PCB material at pH 7.3-8.6 and 30 degrees
+      C in 2 days.
+    evidence:
+    - reference: PMID:26704063
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: A pure culture of P. putida (strain WCS361) produced 21.5 (±1.5)mg/L cyanide with 10g/L
+        glycine as the substrate. This gold complexing agent was used in the subsequent bioleaching step
+        using the Cu-leached (by A. ferrivorans and A. thiooxidans) PCB material, 44.0% of the gold was
+        mobilized in alkaline conditions at pH 7.3-8.6, and 30°C in 2days.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:26704063
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/TwoStep_PCB_Copper_Gold_Bioleaching_Consortium/2026-10-26T020000Z-antigravity-1d08be.yaml
+- path: data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml
+  id: CommunityMech:000492
+  original_sha256: d1d34fb74fdf424806c03aae95917d9cc228c5e7b8b0e1f2005216a998348b0d
+  record_sha256: 3be922d81b044ad742cd52ae866f3007d2f17141fc7355c4a34ad9f96ca304c4
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-stage2-five-records-batch135.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached primary source text.
+  summary: Expanded the 2-node isolate graph into a 3-node, 2-edge physiological mechanism chain linking
+    high-tolerance aerobic Cr(VI) reduction by free cells (MIC 17 mmol/L, optimal pH 8.0 at 37 degrees
+    C) to 1 mmol/L acetate-stimulated resting-cell Cr(VI) reduction and downstream to compounding-bead
+    immobilization (4% PVA, 3% sodium alginate, 1.5% active carbon, 3% diatomite) for continuous-system
+    Cr(VI) bioremediation, with verbatim source snippets on each upstream node directly backing its outgoing
+    edge.
+  node_decisions:
+  - node: High-Tolerance Aerobic Chromate Reduction by Free Cells
+    rationale: Supported by primary source (PMID:21441371, doi:10.1007/s11274-009-0047-x) with explicit
+      COMMUNITY_LEVEL scope and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:21441371, doi:10.1007/s11274-009-0047-x)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Intrasporangium chromatireducens Q5-1
+        term:
+          id: NCBITaxon:1386088
+          label: Intrasporangium chromatireducens
+    evidence:
+    - reference: PMID:21441371
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: designated strain Q5-1(T), was isolated from manganese mining soil in Hunan Province, central-south
+        China. The organism formed branching hyphae and contained ll-diaminopimelic acid in the cell-wall
+        peptidoglycan.
+    - reference: doi:10.1007/s11274-009-0047-x
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: This bacterium has high Cr(VI) resistance with a MIC of 17 mmol l⁻¹ and is able to reduce
+        Cr(VI) aerobically. The best condition of Cr(VI) reduction for Q5-1 is pH 8.0 at 37°C.
+    - reference: doi:10.1007/s11274-009-0047-x
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Strain Q5-1 is also able to reduce Cr(VI) in resting (non-growth) conditions using a variety
+        of carbon sources as well as in the absence of a carbon source. Acetate (1 mmol l⁻¹) is the most
+        efficient carbon source for stimulating Cr(VI) reduction.
+  - node: Acetate-Stimulated Resting-Cell Chromate Reduction
+    rationale: Supported by primary source (PMID:21441371, doi:10.1007/s11274-009-0047-x) with explicit
+      COMMUNITY_LEVEL scope and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:21441371, doi:10.1007/s11274-009-0047-x)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Intrasporangium chromatireducens Q5-1
+        term:
+          id: NCBITaxon:1386088
+          label: Intrasporangium chromatireducens
+    evidence:
+    - reference: doi:10.1007/s11274-009-0047-x
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Strain Q5-1 is also able to reduce Cr(VI) in resting (non-growth) conditions using a variety
+        of carbon sources as well as in the absence of a carbon source. Acetate (1 mmol l⁻¹) is the most
+        efficient carbon source for stimulating Cr(VI) reduction.
+    - reference: doi:10.1007/s11274-009-0047-x
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Q5-1 cells embedded with compounding beads containing 4% PVA, 3% sodium alginate, 1.5%
+        active carbon and 3% diatomite showed a similar Cr(VI) reduction rates to that of free cells.
+        In addition, the immobilized Q5-1 cells have the advantages over free cells in being more stable,
+        easier to re-use and minimal clogging in continuous systems.
+  - node: Immobilized Compounding-Bead Chromate Bioremediation in Continuous Systems
+    rationale: Supported by primary source (PMID:21441371, doi:10.1007/s11274-009-0047-x) with explicit
+      COMMUNITY_LEVEL scope and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:21441371, doi:10.1007/s11274-009-0047-x)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Intrasporangium chromatireducens Q5-1
+        term:
+          id: NCBITaxon:1386088
+          label: Intrasporangium chromatireducens
+    evidence:
+    - reference: doi:10.1007/s11274-009-0047-x
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Q5-1 cells embedded with compounding beads containing 4% PVA, 3% sodium alginate, 1.5%
+        active carbon and 3% diatomite showed a similar Cr(VI) reduction rates to that of free cells.
+        In addition, the immobilized Q5-1 cells have the advantages over free cells in being more stable,
+        easier to re-use and minimal clogging in continuous systems.
+  edges_before:
+  - source: Acetate-Stimulated Aerobic and Resting-Cell Chromate Reduction
+    target: Immobilized Compounding-Bead Chromate Bioremediation in Continuous Systems
+    description: High aerobic and resting-cell Cr(VI) reduction activity enables immobilization of Q5-1
+      cells in PVA-alginate-carbon-diatomite beads for stable, reusable continuous-system wastewater treatment.
+  edges_after:
+  - source: High-Tolerance Aerobic Chromate Reduction by Free Cells
+    target: Acetate-Stimulated Resting-Cell Chromate Reduction
+    description: Intrinsic aerobic Cr(VI) resistance (MIC 17 mmol/L) and chromate reductase activity enable
+      non-growing resting cells of strain Q5-1 to reduce Cr(VI) across multiple carbon sources, maximally
+      stimulated by 1 mmol/L acetate.
+  - source: Acetate-Stimulated Resting-Cell Chromate Reduction
+    target: Immobilized Compounding-Bead Chromate Bioremediation in Continuous Systems
+    description: Sustained resting-cell Cr(VI) reduction activity allows Q5-1 cells to be embedded in
+      PVA-alginate-carbon-diatomite compounding beads that retain free-cell Cr(VI) reduction rates for
+      reusable continuous-system wastewater treatment.
+  retained_edge_decisions:
+  - edge: High-Tolerance Aerobic Chromate Reduction by Free Cells -> Acetate-Stimulated Resting-Cell Chromate
+      Reduction
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: doi:10.1007/s11274-009-0047-x establishes that strain Q5-1 combines high aerobic Cr(VI) resistance
+      (MIC 17 mmol/L; optimal reduction at pH 8.0 and 37 degrees C) with resting-cell Cr(VI) reduction
+      across multiple carbon sources, maximally stimulated by 1 mmol/L acetate.
+    evidence:
+    - reference: doi:10.1007/s11274-009-0047-x
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: This bacterium has high Cr(VI) resistance with a MIC of 17 mmol l⁻¹ and is able to reduce
+        Cr(VI) aerobically. The best condition of Cr(VI) reduction for Q5-1 is pH 8.0 at 37°C.
+    - reference: doi:10.1007/s11274-009-0047-x
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Strain Q5-1 is also able to reduce Cr(VI) in resting (non-growth) conditions using a variety
+        of carbon sources as well as in the absence of a carbon source. Acetate (1 mmol l⁻¹) is the most
+        efficient carbon source for stimulating Cr(VI) reduction.
+  - edge: Acetate-Stimulated Resting-Cell Chromate Reduction -> Immobilized Compounding-Bead Chromate
+      Bioremediation in Continuous Systems
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: doi:10.1007/s11274-009-0047-x shows that non-growing Q5-1 cells embedded in compounding beads
+      (4% PVA, 3% sodium alginate, 1.5% active carbon, 3% diatomite) achieve Cr(VI) reduction rates similar
+      to free cells while enabling stability, re-use, and minimal clogging in continuous wastewater treatment
+      systems.
+    evidence:
+    - reference: doi:10.1007/s11274-009-0047-x
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Q5-1 cells embedded with compounding beads containing 4% PVA, 3% sodium alginate, 1.5%
+        active carbon and 3% diatomite showed a similar Cr(VI) reduction rates to that of free cells.
+        In addition, the immobilized Q5-1 cells have the advantages over free cells in being more stable,
+        easier to re-use and minimal clogging in continuous systems.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:21441371
+  - doi:10.1007/s11274-009-0047-x
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction/2026-10-26T020000Z-antigravity-3be922.yaml
+- path: kb/communities/Magnetite_Thiobacillus_Sulfur_Cycle_Phenol_Chromate_Reactor.yaml
+  id: CommunityMech:000493
+  original_sha256: 68904b11f4544d4847b0b1603fc3e7ba04285235e9de1db51c054c3585bc1c2e
+  record_sha256: 4c9c616655f567840e3c70b680825405cc5871bd144b4c0348c1648a22be6ff6
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-stage2-five-records-batch135.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached primary source text.
+  summary: Expanded the 2-node reactor graph into a 3-node, 2-edge causal mechanism separating (1) magnetite-driven
+    Thiobacillus oxidation of elemental sulfur to sulfate (GO:0019417 sulfur oxidation; 6.85% vs 4.49%
+    aggregate sulfur retention), (2) sulfur-cycle-coupled anaerobic phenol degradation (354.2 vs 1256.0
+    mgCOD/L) and Cr(VI) reduction (18.0 vs 187.7 mg/L), and (3) dissimilatory Fe(II)-mediated dissolved
+    oxygen scavenging that prevents Cr(III) re-oxidation in reactor aggregates.
+  node_decisions:
+  - node: Magnetite-Driven Thiobacillus Oxidation of Elemental Sulfur to Sulfate
+    rationale: Supported by primary source (doi:10.1016/j.cej.2020.124801) with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (doi:10.1016/j.cej.2020.124801)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Thiobacillus
+        term:
+          id: NCBITaxon:919
+          label: Thiobacillus
+    evidence:
+    - reference: doi:10.1016/j.cej.2020.124801
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The study presented here utilized magnetite as an Fe(III) source to enrich the chemolithotrophic
+        sulphur-oxidizing bacteria to proceed the oxidation of the elemental sulphur, which further achieved
+        the whole sulphur cycle.
+    - reference: doi:10.1016/j.cej.2020.124801
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Conversely, with magnetite, the special enrichments, Thiobacillus species, proceeded the
+        oxidation of the elemental sulphur to sulphate, lowering the loss of sulphur.
+    - reference: doi:10.1016/j.cej.2020.124801
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results showed that, under the low-concentration sulphate conditions, the effluent
+        concentration of both Cr(VI) (18.0 mg/L vs 187.7 mg/L) and phenol (354.2 mgCOD/L vs 1256.0 mgCOD/L)
+        in the reactor with magnetite was significantly lower than that without magnetite.
+  - node: Sulfur-Cycle-Coupled Anaerobic Phenol Degradation and Cr(VI) Reduction
+    rationale: Supported by primary source (doi:10.1016/j.cej.2020.124801) with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (doi:10.1016/j.cej.2020.124801)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Thiobacillus
+        term:
+          id: NCBITaxon:919
+          label: Thiobacillus
+    evidence:
+    - reference: doi:10.1016/j.cej.2020.124801
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results showed that, under the low-concentration sulphate conditions, the effluent
+        concentration of both Cr(VI) (18.0 mg/L vs 187.7 mg/L) and phenol (354.2 mgCOD/L vs 1256.0 mgCOD/L)
+        in the reactor with magnetite was significantly lower than that without magnetite.
+    - reference: doi:10.1016/j.cej.2020.124801
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Further analysis by X-ray Diffraction (XRD) and X-ray photoelectron spectroscopy (XPS)
+        observed the disappearance of the crystalline structure in magnetite as well as the loss of iron
+        via the dissimilatory Fe(III) reduction in the aggregates.
+    - reference: doi:10.1016/j.cej.2020.124801
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Considered that the re-oxidation of the reduced Cr(III) might occur in the aggregates without
+        magnetite, the generated Fe(II) might react with the slight dissolved oxygen (DO) to reduce the
+        re-oxidation of the reduced Cr(III), which further achieved the transformation of Fe(III)/Fe(II).
+  - node: Dissimilatory Fe(II)-Mediated Dissolved Oxygen Scavenging and Cr(III) Stabilization
+    rationale: Supported by primary source (doi:10.1016/j.cej.2020.124801) with explicit COMMUNITY_LEVEL
+      scope and taxon grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (doi:10.1016/j.cej.2020.124801)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Thiobacillus
+        term:
+          id: NCBITaxon:919
+          label: Thiobacillus
+    evidence:
+    - reference: doi:10.1016/j.cej.2020.124801
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Further analysis by X-ray Diffraction (XRD) and X-ray photoelectron spectroscopy (XPS)
+        observed the disappearance of the crystalline structure in magnetite as well as the loss of iron
+        via the dissimilatory Fe(III) reduction in the aggregates. However, under the sulphate-reducing
+        conditions, the evident peaks of both Fe2O3 and FeO were detected in the aggregates.
+    - reference: doi:10.1016/j.cej.2020.124801
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Considered that the re-oxidation of the reduced Cr(III) might occur in the aggregates without
+        magnetite, the generated Fe(II) might react with the slight dissolved oxygen (DO) to reduce the
+        re-oxidation of the reduced Cr(III), which further achieved the transformation of Fe(III)/Fe(II).
+  edges_before:
+  - source: Magnetite-Driven Thiobacillus Oxidation of Elemental Sulfur to Sulfate
+    target: Coupled Anaerobic Phenol Degradation and Cr(VI) Reduction via Fe(III)/Fe(II) Transformation
+    description: Completion of the elemental sulfur-to-sulfate cycle by magnetite-enriched Thiobacillus
+      drives coupled anaerobic phenol degradation (354.2 vs 1256.0 mgCOD/L effluent) and Cr(VI) reduction
+      (18.0 vs 187.7 mg/L effluent).
+  edges_after:
+  - source: Magnetite-Driven Thiobacillus Oxidation of Elemental Sulfur to Sulfate
+    target: Sulfur-Cycle-Coupled Anaerobic Phenol Degradation and Cr(VI) Reduction
+    description: Completion of the elemental sulfur-to-sulfate cycle by magnetite-enriched Thiobacillus
+      sustains sulfate availability and drives coupled anaerobic phenol degradation (354.2 vs 1256.0 mgCOD/L
+      effluent) and Cr(VI) reduction (18.0 vs 187.7 mg/L effluent).
+  - source: Sulfur-Cycle-Coupled Anaerobic Phenol Degradation and Cr(VI) Reduction
+    target: Dissimilatory Fe(II)-Mediated Dissolved Oxygen Scavenging and Cr(III) Stabilization
+    description: Dissimilatory Fe(III) reduction of crystalline magnetite under sulfate-reducing conditions
+      generates Fe(II) that reacts with trace dissolved oxygen (DO) to prevent re-oxidation of reduced
+      Cr(III).
+  retained_edge_decisions:
+  - edge: Magnetite-Driven Thiobacillus Oxidation of Elemental Sulfur to Sulfate -> Sulfur-Cycle-Coupled
+      Anaerobic Phenol Degradation and Cr(VI) Reduction
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: doi:10.1016/j.cej.2020.124801 shows that magnetite enriches chemolithotrophic Thiobacillus
+      species to oxidize elemental sulfur to sulfate, completing the whole sulfur cycle and significantly
+      lowering effluent Cr(VI) (18.0 vs 187.7 mg/L) and phenol (354.2 vs 1256.0 mgCOD/L) under low-concentration
+      sulfate conditions.
+    evidence:
+    - reference: doi:10.1016/j.cej.2020.124801
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The study presented here utilized magnetite as an Fe(III) source to enrich the chemolithotrophic
+        sulphur-oxidizing bacteria to proceed the oxidation of the elemental sulphur, which further achieved
+        the whole sulphur cycle.
+    - reference: doi:10.1016/j.cej.2020.124801
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results showed that, under the low-concentration sulphate conditions, the effluent
+        concentration of both Cr(VI) (18.0 mg/L vs 187.7 mg/L) and phenol (354.2 mgCOD/L vs 1256.0 mgCOD/L)
+        in the reactor with magnetite was significantly lower than that without magnetite.
+  - edge: Sulfur-Cycle-Coupled Anaerobic Phenol Degradation and Cr(VI) Reduction -> Dissimilatory Fe(II)-Mediated
+      Dissolved Oxygen Scavenging and Cr(III) Stabilization
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: doi:10.1016/j.cej.2020.124801 demonstrates via XRD and XPS that dissimilatory Fe(III) reduction
+      of magnetite under sulfate-reducing conditions generates Fe(II), which reacts with trace dissolved
+      oxygen (DO) to reduce re-oxidation of reduced Cr(III) and complete Fe(III)/Fe(II) transformation.
+    evidence:
+    - reference: doi:10.1016/j.cej.2020.124801
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Further analysis by X-ray Diffraction (XRD) and X-ray photoelectron spectroscopy (XPS)
+        observed the disappearance of the crystalline structure in magnetite as well as the loss of iron
+        via the dissimilatory Fe(III) reduction in the aggregates.
+    - reference: doi:10.1016/j.cej.2020.124801
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Considered that the re-oxidation of the reduced Cr(III) might occur in the aggregates without
+        magnetite, the generated Fe(II) might react with the slight dissolved oxygen (DO) to reduce the
+        re-oxidation of the reduced Cr(III), which further achieved the transformation of Fe(III)/Fe(II).
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - doi:10.1016/j.cej.2020.124801
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Magnetite_Thiobacillus_Sulfur_Cycle_Phenol_Chromate_Reactor/2026-10-26T020000Z-antigravity-4c9c61.yaml
+- path: kb/communities/Tunisian_Sahara_Saline_Spore_Forming_Halophile_Community.yaml
+  id: CommunityMech:000494
+  original_sha256: e89ec5f203e2be0e5d3f97ededa85e3321e26addcec5708d44116c3c6984b0da
+  record_sha256: c6f381d8af6c86618d0d64bedf8d7e16f2c19aa7286be81579d6d8d9600d210b
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-stage2-five-records-batch135.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached primary source text.
+  summary: Removed redundant pairwise target_taxon (Bacillus) on COMMUNITY_LEVEL Node 1 (where all 7 Firmicutes
+    genera are already listed in participating_taxa) and added the verbatim PMID:23949950 geographic/BOX-PCR
+    microdiversity snippet to Node 1 so its outgoing downstream edge is directly backed on the source
+    interaction.
+  node_decisions:
+  - node: Salinity Tolerance Guild Partitioning Across Seven Spore-Forming Genera
+    rationale: Supported by primary source (PMID:23949950) with explicit COMMUNITY_LEVEL scope and taxon
+      grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:23949950)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Halobacillus trueperi
+        term:
+          id: NCBITaxon:156205
+          label: Halobacillus trueperi
+      participating_taxa:
+      - preferred_term: Halobacillus trueperi
+        term:
+          id: NCBITaxon:156205
+          label: Halobacillus trueperi
+      - preferred_term: Bacillus
+        term:
+          id: NCBITaxon:1386
+          label: Bacillus <firmicutes>
+      - preferred_term: Virgibacillus
+        term:
+          id: NCBITaxon:84406
+          label: Virgibacillus
+      - preferred_term: Oceanobacillus
+        term:
+          id: NCBITaxon:182709
+          label: Oceanobacillus
+      - preferred_term: Gracilibacillus
+        term:
+          id: NCBITaxon:74385
+          label: Gracilibacillus
+      - preferred_term: Paenibacillus
+        term:
+          id: NCBITaxon:44249
+          label: Paenibacillus
+      - preferred_term: Pontibacillus
+        term:
+          id: NCBITaxon:289201
+          label: Pontibacillus
+    evidence:
+    - reference: PMID:23949950
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: 44.3 % of the isolates were extremely halotolerant, 23 % were moderate halotolerant, and
+        32.7 % were strict halophiles, indicating that they are adapted to thrive in these saline ecosystems.
+    - reference: PMID:23949950
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: 'A wide genetic diversity was documented based on 16S-23S rRNA internal transcribed spacer
+        fingerprinting profiles (ITS) and 16S rRNA gene sequences that clustered the strains into seven
+        genera: Bacillus, Gracilibacillus, Halobacillus, Oceanobacillus, Paenibacillus, Pontibacillus,
+        and Virgibacillus. Halobacillus trueperi was the most encountered species in all the sites and
+        presented a large intraspecific diversity with a multiplicity of ITS types.'
+    - reference: PMID:23949950
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: A high intraspecific microdiversity was documented by 14 BOX-PCR genotypes whose distribution
+        correlated with the strain geographic origin. Interestingly, H. trueperi isolates presented an
+        uneven geographic distribution among sites with the highest frequency of isolation from the coastal
+        sites, suggesting a marine rather than terrestrial origin of the strains.
+  - node: Geographic and Microdiversity Structuring of Halobacillus trueperi Across Coastal and Inland
+      Saline Sites
+    rationale: Supported by primary source (PMID:23949950) with explicit COMMUNITY_LEVEL scope and taxon
+      grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:23949950)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Halobacillus trueperi
+        term:
+          id: NCBITaxon:156205
+          label: Halobacillus trueperi
+      participating_taxa:
+      - preferred_term: Halobacillus trueperi
+        term:
+          id: NCBITaxon:156205
+          label: Halobacillus trueperi
+      - preferred_term: Bacillus
+        term:
+          id: NCBITaxon:1386
+          label: Bacillus <firmicutes>
+      - preferred_term: Virgibacillus
+        term:
+          id: NCBITaxon:84406
+          label: Virgibacillus
+      - preferred_term: Oceanobacillus
+        term:
+          id: NCBITaxon:182709
+          label: Oceanobacillus
+      - preferred_term: Gracilibacillus
+        term:
+          id: NCBITaxon:74385
+          label: Gracilibacillus
+      - preferred_term: Paenibacillus
+        term:
+          id: NCBITaxon:44249
+          label: Paenibacillus
+      - preferred_term: Pontibacillus
+        term:
+          id: NCBITaxon:289201
+          label: Pontibacillus
+    evidence:
+    - reference: PMID:23949950
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: A high intraspecific microdiversity was documented by 14 BOX-PCR genotypes whose distribution
+        correlated with the strain geographic origin. Interestingly, H. trueperi isolates presented an
+        uneven geographic distribution among sites with the highest frequency of isolation from the coastal
+        sites, suggesting a marine rather than terrestrial origin of the strains.
+    - reference: PMID:23949950
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: The high frequency and diversity of H. trueperi suggest that it is a major ecosystem-adapted
+        microbial component of the Tunisian Sahara harsh saline systems of marine origin.
+  edges_before:
+  - source: Salinity Tolerance Guild Partitioning Across Seven Spore-Forming Genera
+    target: Geographic and Microdiversity Structuring of Halobacillus trueperi Across Coastal and Inland
+      Saline Sites
+    description: Adaptation to wide salinity ranges across the five Chott and Sebkha ecosystems structures
+      intraspecific BOX-PCR genotype distribution and coastal-vs-inland enrichment of dominant Halobacillus
+      trueperi populations.
+  edges_after:
+  - source: Salinity Tolerance Guild Partitioning Across Seven Spore-Forming Genera
+    target: Geographic and Microdiversity Structuring of Halobacillus trueperi Across Coastal and Inland
+      Saline Sites
+    description: Adaptation to wide salinity ranges across the five Chott and Sebkha ecosystems structures
+      intraspecific BOX-PCR genotype distribution and coastal-vs-inland enrichment of dominant Halobacillus
+      trueperi populations.
+  retained_edge_decisions:
+  - edge: Salinity Tolerance Guild Partitioning Across Seven Spore-Forming Genera -> Geographic and Microdiversity
+      Structuring of Halobacillus trueperi Across Coastal and Inland Saline Sites
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:23949950 shows that across the five salt-saturated Chott and Sebkha sites partitioned
+      into extremely halotolerant (44.3%), strict halophilic (32.7%), and moderately halotolerant (23%)
+      guilds, Halobacillus trueperi dominates all sites with 14 site-correlated BOX-PCR genotypes peaking
+      at coastal sites of marine origin.
+    evidence:
+    - reference: PMID:23949950
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: 'A wide genetic diversity was documented based on 16S-23S rRNA internal transcribed spacer
+        fingerprinting profiles (ITS) and 16S rRNA gene sequences that clustered the strains into seven
+        genera: Bacillus, Gracilibacillus, Halobacillus, Oceanobacillus, Paenibacillus, Pontibacillus,
+        and Virgibacillus. Halobacillus trueperi was the most encountered species in all the sites and
+        presented a large intraspecific diversity with a multiplicity of ITS types.'
+    - reference: PMID:23949950
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: A high intraspecific microdiversity was documented by 14 BOX-PCR genotypes whose distribution
+        correlated with the strain geographic origin. Interestingly, H. trueperi isolates presented an
+        uneven geographic distribution among sites with the highest frequency of isolation from the coastal
+        sites, suggesting a marine rather than terrestrial origin of the strains.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:23949950
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Tunisian_Sahara_Saline_Spore_Forming_Halophile_Community/2026-10-26T020000Z-antigravity-c6f381.yaml
+- path: data/isolates/Ferroplasma_Acidiphilum_ZJ_AMD_Genomic_Island_Adaptation.yaml
+  id: CommunityMech:000495
+  original_sha256: d671f0f67de16aa59472cc4ac6a79e7718088f6e8b9577ec33a6510c40913727
+  record_sha256: cc05785add2613ee69f29971820f913e038de75e44d584a3d8ec22015377c0f1
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261025-stage2-five-records-batch135.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached primary source text.
+  summary: 'Expanded the 2-node archaeal isolate graph into a 3-node, 2-edge physiological and genomic
+    mechanism chain backed by PMC12302457 (PMID:40722006) full text: (1) horizontal gene transfer and
+    integration of 5 genomic islands (131 genes; GC content 32.3-38.9% vs 36.9% host genome; COG categories
+    L, E, and M), (2) 3rd-genomic-island CRISPR/Cas immune defense (Cas2, Cas4) and toxin-antitoxin maintenance,
+    and (3) acidophilic iron oxidation and heavy-metal stress adaptation in pH 1.6 modified 9K medium
+    (22.4 g/L FeSO4.7H2O, 40 degrees C).'
+  node_decisions:
+  - node: Horizontal Gene Transfer and Integration of Five Genomic Islands in Ferroplasma acidiphilum
+      ZJ
+    rationale: Supported by primary source (PMID:40722006) with explicit COMMUNITY_LEVEL scope and taxon
+      grounding.
+    field_path: ecological_interactions[0]
+    source_locator: Abstract and cached text (PMID:40722006)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Ferroplasma acidiphilum ZJ
+        term:
+          id: NCBITaxon:74969
+          label: Ferroplasma acidiphilum
+    evidence:
+    - reference: PMID:40722006
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: One hundred thirty-one genes total amongst 5 GIs were predicted in F. acidiphilum ZJ. A
+        total of 171 GIs were identified across the genomes of other 25 acidophilic archaea.
+    - reference: PMID:40722006
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: The GC content of F. acidiphilum ZJ genome was 36.9%, and that of the five Gis was 37.1%,
+        32.3%, 32.9%, 37.0% and 38.9%, respectively.
+    - reference: PMID:40722006
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: There was also a group of Cas proteins in the 3rd GI of F. acidiphilum ZJ and 4th GI of
+        F. acidiphilum Y, which, constituted a specific immune defense system known as the CRISPR/Cas
+        system along with CRISPR (Fig. 7 a and b). Cas2 and Cas4 genes were predominantly identified,
+        arranged adjacent to CRISPR loci, and encode Cas proteins possessing nuclease, helicase, integrase,
+        and other enzymatic activities.
+  - node: Third-Genomic-Island CRISPR/Cas Immune Defense and Toxin-Antitoxin Maintenance
+    rationale: Supported by primary source (PMID:40722006) with explicit COMMUNITY_LEVEL scope and taxon
+      grounding.
+    field_path: ecological_interactions[1]
+    source_locator: Abstract and cached text (PMID:40722006)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Ferroplasma acidiphilum ZJ
+        term:
+          id: NCBITaxon:74969
+          label: Ferroplasma acidiphilum
+    evidence:
+    - reference: PMID:40722006
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: There was also a group of Cas proteins in the 3rd GI of F. acidiphilum ZJ and 4th GI of
+        F. acidiphilum Y, which, constituted a specific immune defense system known as the CRISPR/Cas
+        system along with CRISPR (Fig. 7 a and b). Cas2 and Cas4 genes were predominantly identified,
+        arranged adjacent to CRISPR loci, and encode Cas proteins possessing nuclease, helicase, integrase,
+        and other enzymatic activities.
+    - reference: PMID:40722006
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: The presence of the above genes brought the host strains stronger metal metabolism and
+        might helped them mitigate the impact of the heavy metal environment. They also enhanced the resistance
+        of the host to the invasion of external substances, such as toxins and viruses.
+  - node: Acidophilic Iron Oxidation and Heavy-Metal Stress Adaptation in pH 1.6 AMD
+    rationale: Supported by primary source (PMID:40722006) with explicit COMMUNITY_LEVEL scope and taxon
+      grounding.
+    field_path: ecological_interactions[2]
+    source_locator: Abstract and cached text (PMID:40722006)
+    scope: COMMUNITY_LEVEL
+    participants:
+      source_taxon:
+        preferred_term: Ferroplasma acidiphilum ZJ
+        term:
+          id: NCBITaxon:74969
+          label: Ferroplasma acidiphilum
+    evidence:
+    - reference: PMID:40722006
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The isolation process involved inoculating 10.0 mL aliquots of liquid samples into modified
+        9 K medium (pH 1.6) supplemented with 22.4 g/L FeSO4·7H2O and 0.02% (w/v) yeast extract. Cultivation
+        was conducted at 40 °C under aerobic conditions using a rotary shaker at 170 rpm.
+    - reference: PMID:40722006
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: Several GIs were identified to carry genes involved in iron oxidation, mercury reduction,
+        and various toxin-antitoxin systems, which enhance the adaptability of the strains to highly acidic
+        environments.
+  edges_before:
+  - source: Horizontal Gene Transfer of Five Genomic Islands and 3rd-GI CRISPR/Cas Defense in Ferroplasma
+      acidiphilum ZJ
+    target: Acidophilic Iron Oxidation and Heavy-Metal Stress Adaptation in pH 1.6 AMD
+    description: Genomic island genes for iron oxidation, heavy-metal resistance, and CRISPR/Cas defense
+      enhance host adaptability to hyperacidic (pH 1.6), ferrous-iron-rich (22.4 g/L FeSO4.7H2O) acid
+      mine drainage.
+  edges_after:
+  - source: Horizontal Gene Transfer and Integration of Five Genomic Islands in Ferroplasma acidiphilum
+      ZJ
+    target: Third-Genomic-Island CRISPR/Cas Immune Defense and Toxin-Antitoxin Maintenance
+    description: Horizontal integration of the 5 genomic islands (131 genes) delivers the 3rd-GI CRISPR/Cas
+      locus (Cas2 and Cas4 adjacent to CRISPR repeats) and mobile genetic defense modules into the Ferroplasma
+      acidiphilum ZJ chromosome.
+  - source: Third-Genomic-Island CRISPR/Cas Immune Defense and Toxin-Antitoxin Maintenance
+    target: Acidophilic Iron Oxidation and Heavy-Metal Stress Adaptation in pH 1.6 AMD
+    description: Genomic-island CRISPR/Cas immune defense, toxin-antitoxin regulation, and co-transferred
+      iron-oxidation and heavy-metal metabolism genes enhance host survival and aerobic Fe(II)-oxidizing
+      growth in hyperacidic (pH 1.6) acid mine drainage.
+  retained_edge_decisions:
+  - edge: Horizontal Gene Transfer and Integration of Five Genomic Islands in Ferroplasma acidiphilum
+      ZJ -> Third-Genomic-Island CRISPR/Cas Immune Defense and Toxin-Antitoxin Maintenance
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:40722006 (PMC12302457) shows that F. acidiphilum ZJ contains 131 genes across 5 genomic
+      islands (GC content 32.3-38.9% vs 36.9% genome average), and specifically identifies a CRISPR/Cas
+      immune defense cluster (Cas2 and Cas4 adjacent to CRISPR loci) located on the 3rd genomic island.
+    evidence:
+    - reference: PMID:40722006
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: One hundred thirty-one genes total amongst 5 GIs were predicted in F. acidiphilum ZJ. A
+        total of 171 GIs were identified across the genomes of other 25 acidophilic archaea.
+    - reference: PMID:40722006
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: There was also a group of Cas proteins in the 3rd GI of F. acidiphilum ZJ and 4th GI of
+        F. acidiphilum Y, which, constituted a specific immune defense system known as the CRISPR/Cas
+        system along with CRISPR (Fig. 7 a and b). Cas2 and Cas4 genes were predominantly identified,
+        arranged adjacent to CRISPR loci, and encode Cas proteins possessing nuclease, helicase, integrase,
+        and other enzymatic activities.
+  - edge: Third-Genomic-Island CRISPR/Cas Immune Defense and Toxin-Antitoxin Maintenance -> Acidophilic
+      Iron Oxidation and Heavy-Metal Stress Adaptation in pH 1.6 AMD
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:40722006 (PMC12302457) demonstrates that the genomic-island CRISPR/Cas defense proteins,
+      toxin-antitoxin systems, and heavy-metal/iron-oxidation genes mitigate heavy-metal and viral/toxin
+      stress and enhance adaptability of F. acidiphilum ZJ isolated aerobically in pH 1.6 modified 9K
+      medium with 22.4 g/L FeSO4.7H2O at 40 degrees C.
+    evidence:
+    - reference: PMID:40722006
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: The presence of the above genes brought the host strains stronger metal metabolism and
+        might helped them mitigate the impact of the heavy metal environment. They also enhanced the resistance
+        of the host to the invasion of external substances, such as toxins and viruses.
+    - reference: PMID:40722006
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The isolation process involved inoculating 10.0 mL aliquots of liquid samples into modified
+        9 K medium (pH 1.6) supplemented with 22.4 g/L FeSO4·7H2O and 0.02% (w/v) yeast extract. Cultivation
+        was conducted at 40 °C under aerobic conditions using a rotary shaker at 170 rpm.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:40722006
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Ferroplasma_Acidiphilum_ZJ_AMD_Genomic_Island_Adaptation/2026-10-26T020000Z-antigravity-cc0578.yaml

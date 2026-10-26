@@ -62,11 +62,53 @@ taxonomy:
     explanation: Identifies the CRISPR/Cas immune defense locus (Cas2 and Cas4 adjacent to CRISPR repeats) on the 3rd genomic
       island of F. acidiphilum ZJ.
 ecological_interactions:
-- name: Horizontal Gene Transfer of Five Genomic Islands and 3rd-GI CRISPR/Cas Defense in Ferroplasma acidiphilum ZJ
+- name: Horizontal Gene Transfer and Integration of Five Genomic Islands in Ferroplasma acidiphilum ZJ
   description: Ferroplasma acidiphilum ZJ harbors 131 genes across 5 horizontally transferred genomic islands (GC content
-    32.3-38.9% vs 36.9% host genome), including Cas2 and Cas4 CRISPR/Cas defense genes on its 3rd genomic island and predominantly
-    COG category L (replication, recombination, and repair), E (amino acid transport/metabolism), and M (cell wall/membrane/envelope
-    biogenesis) functions.
+    37.1%, 32.3%, 32.9%, 37.0%, and 38.9% vs 36.9% host genome) enriched in COG category L (replication, recombination, and
+    repair), E (amino acid transport and metabolism), and M (cell wall/membrane/envelope biogenesis) functions.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Ferroplasma acidiphilum ZJ
+    term:
+      id: NCBITaxon:74969
+      label: Ferroplasma acidiphilum
+  biological_processes:
+  - preferred_term: response to metal ion
+    term:
+      id: GO:0010038
+      label: response to metal ion
+  downstream:
+  - target: Third-Genomic-Island CRISPR/Cas Immune Defense and Toxin-Antitoxin Maintenance
+    description: Horizontal integration of the 5 genomic islands (131 genes) delivers the 3rd-GI CRISPR/Cas locus (Cas2 and
+      Cas4 adjacent to CRISPR repeats) and mobile genetic defense modules into the Ferroplasma acidiphilum ZJ chromosome.
+  evidence:
+  - reference: PMID:40722006
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: One hundred thirty-one genes total amongst 5 GIs were predicted in F. acidiphilum ZJ. A total of 171 GIs were
+      identified across the genomes of other 25 acidophilic archaea.
+    explanation: Establishes the 5 genomic islands carrying 131 genes in F. acidiphilum ZJ.
+  - reference: PMID:40722006
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The GC content of F. acidiphilum ZJ genome was 36.9%, and that of the five Gis was 37.1%, 32.3%, 32.9%, 37.0%
+      and 38.9%, respectively.
+    explanation: Documents the exact GC content of the F. acidiphilum ZJ host genome (36.9%) and each of its five genomic
+      islands.
+  - reference: PMID:40722006
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: There was also a group of Cas proteins in the 3rd GI of F. acidiphilum ZJ and 4th GI of F. acidiphilum Y, which,
+      constituted a specific immune defense system known as the CRISPR/Cas system along with CRISPR (Fig. 7 a and b). Cas2
+      and Cas4 genes were predominantly identified, arranged adjacent to CRISPR loci, and encode Cas proteins possessing nuclease,
+      helicase, integrase, and other enzymatic activities.
+    explanation: Supports the downstream link from genomic island integration to the 3rd-GI CRISPR/Cas immune defense system
+      in F. acidiphilum ZJ.
+- name: Third-Genomic-Island CRISPR/Cas Immune Defense and Toxin-Antitoxin Maintenance
+  description: The 3rd genomic island of Ferroplasma acidiphilum ZJ encodes Cas2 and Cas4 nuclease/helicase/integrase proteins
+    arranged adjacent to CRISPR loci alongside genomic-island toxin-antitoxin and metal-resistance determinants that protect
+    the host against foreign genetic invasion and environmental stress.
   interaction_type: COMMENSALISM
   scope: COMMUNITY_LEVEL
   source_taxon:
@@ -81,15 +123,10 @@ ecological_interactions:
       label: maintenance of CRISPR repeat elements
   downstream:
   - target: Acidophilic Iron Oxidation and Heavy-Metal Stress Adaptation in pH 1.6 AMD
-    description: Genomic island genes for iron oxidation, heavy-metal resistance, and CRISPR/Cas defense enhance host adaptability
-      to hyperacidic (pH 1.6), ferrous-iron-rich (22.4 g/L FeSO4.7H2O) acid mine drainage.
+    description: Genomic-island CRISPR/Cas immune defense, toxin-antitoxin regulation, and co-transferred iron-oxidation and
+      heavy-metal metabolism genes enhance host survival and aerobic Fe(II)-oxidizing growth in hyperacidic (pH 1.6) acid
+      mine drainage.
   evidence:
-  - reference: PMID:40722006
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: One hundred thirty-one genes total amongst 5 GIs were predicted in F. acidiphilum ZJ. A total of 171 GIs were
-      identified across the genomes of other 25 acidophilic archaea.
-    explanation: Establishes the 5 genomic islands carrying 131 genes in F. acidiphilum ZJ.
   - reference: PMID:40722006
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
@@ -98,6 +135,14 @@ ecological_interactions:
       and Cas4 genes were predominantly identified, arranged adjacent to CRISPR loci, and encode Cas proteins possessing nuclease,
       helicase, integrase, and other enzymatic activities.
     explanation: Documents the CRISPR/Cas locus (Cas2 and Cas4) located on the 3rd genomic island of F. acidiphilum ZJ.
+  - reference: PMID:40722006
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The presence of the above genes brought the host strains stronger metal metabolism and might helped them mitigate
+      the impact of the heavy metal environment. They also enhanced the resistance of the host to the invasion of external
+      substances, such as toxins and viruses.
+    explanation: Links the genomic-island defense and metal-metabolism genes to enhanced host resistance against heavy metals,
+      toxins, and viruses in AMD.
 - name: Acidophilic Iron Oxidation and Heavy-Metal Stress Adaptation in pH 1.6 AMD
   description: Ferroplasma acidiphilum ZJ grows aerobically at pH 1.6 and 40 degrees C on 22.4 g/L FeSO4.7H2O in modified
     9K medium while genomic island genes for iron oxidation, mercury reduction, and toxin-antitoxin systems support survival
@@ -159,4 +204,13 @@ curation_history:
   curator: antigravity
   action: CREATE
   changes: Added Ferroplasma acidiphilum ZJ Acid Mine Drainage Isolate (CommunityMech:000495) in data/isolates/ from PMID:40722006.
+  llm_assisted: true
+- timestamp: '2026-10-26T02:00:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: 'Expanded the 2-node archaeal isolate graph into a 3-node, 2-edge physiological and genomic mechanism chain backed
+    by PMC12302457 (PMID:40722006) full text: (1) horizontal gene transfer and integration of 5 genomic islands (131 genes;
+    GC content 32.3-38.9% vs 36.9% host genome; COG categories L, E, and M), (2) 3rd-genomic-island CRISPR/Cas immune defense
+    (Cas2, Cas4) and toxin-antitoxin maintenance, and (3) acidophilic iron oxidation and heavy-metal stress adaptation in
+    pH 1.6 modified 9K medium (22.4 g/L FeSO4.7H2O, 40 degrees C).'
   llm_assisted: true
