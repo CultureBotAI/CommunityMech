@@ -1,6 +1,316 @@
-# CommunityMech Agent Entry Point
+# CLAUDE.md
 
-Read [CLAUDE.md](CLAUDE.md) for the authoritative working agreements, validation gates, and curation rules for this repository.
+Operational guidance for Claude Code and other coding agents working in this
+repository.
 
-- Project skills live in `.claude/skills/` and are exposed at `.agents/skills/` so both Claude Code and `.agents/skills`-aware agents (Antigravity, Codex) discover the same canonical skill definitions (including `review-open-issues`).
-- Before running record or category reviews, read [docs/record-reviews.md](docs/record-reviews.md).
+## Python runtime
+
+Python 3.13 is the maintained development and GitHub Actions runtime, selected
+by `.python-version`. CI runs each test tier on this one minor version to
+avoid duplicate environment installation and test runs. The broader
+`requires-python` metadata remains the package installation compatibility
+floor; it is not a promise of a CI matrix. Add another CI version only for a
+documented dependency or consumer requirement.
+
+## Project model
+
+CommunityMech is a LinkML knowledge base for microbial community composition,
+ecological interactions, cultivation, environments, and evidence. Curated YAML
+is the canonical record format. Validators, Python models, HTML, and KGX files
+are derived products.
+
+The repository currently runs as a source checkout. `communitymech.paths`
+anchors the KB, reference cache, reports, and generated site to the checkout.
+Do not assume an installed wheel has those repository data paths; the long-term
+packaging decision is tracked in issue #668.
+
+Before changing anything:
+
+- Read any applicable `AGENTS.md` plus this file.
+- Inspect `git status` and preserve unrelated or uncommitted user work.
+- Work in a dedicated branch/worktree for multi-file changes.
+- Never read, print, modify, or commit `.env` or credential values.
+- Do not make network calls, spend provider credits, or apply generated curation
+  unless the task authorizes it.
+
+## Fact-based answers only
+
+Never state a comparison, count, status, or historical claim without having
+verified it in the current conversation via a tool call (`gh`, `git`, `grep`,
+`Read`, etc.). "I recall," "this is typically the case," or a prior summary
+are not verification -- the KB, issue tracker, and generated artifacts change
+between turns and across concurrent sessions.
+
+- Prefer a live check over memory: `gh api`/`gh issue view`/`gh pr view` over
+  a remembered issue list; `git log`/`git blame` over a recalled commit; a
+  fresh `Read` of a `kb/communities/` or `kb/taxa/` record over trusting an
+  earlier read of the same file.
+- Tracking issues with checklists (for example #669) record priority and
+  sequencing, not current state -- their sub-issue checkboxes and P0/P1/P2
+  counts move as work lands. Re-fetch with `gh issue view` before citing what
+  is open, closed, or "done" rather than repeating a count from earlier in
+  the conversation.
+- If a claim can't be verified this session, say so ("I did not check X" /
+  "I don't know") instead of presenting a plausible guess as fact.
+- Re-verify rather than repeat: restating an earlier claim in this same
+  conversation without re-checking it is exactly the failure mode this rule
+  exists to prevent.
+
+## Canonical and generated files
+
+| Path | Role | Editing rule |
+|---|---|---|
+| `src/communitymech/schema/communitymech.yaml` | Main LinkML schema | Edit first for model changes |
+| `src/communitymech/schema/mech_shared.yaml` | Shared discussion types | Keep synchronized with its canonical source |
+| `src/communitymech/schema/history.yaml` | Vendored history schema | Do not diverge casually from shared tooling |
+| `src/communitymech/datamodel/communitymech.py` | Generated Python model | Never hand-edit; run `just gen-python` |
+| `kb/communities/` | Canonical community records | Root class `MicrobialCommunity` |
+| `data/isolates/` | Additional community records | Root class `MicrobialCommunity` |
+| `kb/taxa/` | Reusable taxon/gene records | Root class `CommonTaxon` |
+| `references_cache/` | Committed evidence source text | Preserve source/provenance boundaries |
+| `history/` | Append-only curation provenance | Never revise old history entries |
+| `src/communitymech/templates/` | HTML templates | Regenerate committed HTML after edits |
+| `docs/` | Published GitHub Pages tree and guides | Do not hand-edit generated community pages |
+| `scripts/` | Repository curation utilities | Not part of the public package API |
+
+The generated datamodel and published HTML are tracked. `just clean` must never
+delete them.
+
+## Environment
+
+- Maintained development and CI runtime: Python 3.13; package metadata floor: Python 3.10+.
+- Deep research and Edison: Python 3.12+.
+- Package/environment manager: `uv`; do not add `requirements.txt`.
+- Task runner: `just`.
+- Style: Black and Ruff, line length 100.
+- Static typing: mypy over `src/`.
+
+Install development dependencies with:
+
+```bash
+just install
+```
+
+Several optional repository commands use modules from a sibling
+`culturebotai-claw` checkout. They resolve `CLAW_SRC`, defaulting to
+`../../culturebotai-claw/src`, and fail loudly when it is absent. These include
+`just gen-qc-dashboard`, `just knowledge-gap-scan`,
+`just gen-discussions-data`, and `just new-history`.
+
+The reusable backlog condition is in `prompts/backlog-loop-goal.md`.
+Kept under 4000 characters for /goal, it is measured on the trimmed string. Claude Code
+rejects an over-long condition rather than truncating it.
+
+## Schema and ontology invariants
+
+- Change `src/communitymech/schema/communitymech.yaml`, then run
+  `just gen-python`. Never patch the generated datamodel directly.
+- Taxa use NCBITaxon; environments use ENVO; chemicals/metabolites use CHEBI;
+  biological processes use GO; anatomy uses UBERON; cells use CL; experimental
+  concepts may use OBI.
+- Ontology values use `{id, label}` pairs. The `label` is the canonical ontology
+  label; curator wording belongs in `preferred_term` or notes.
+- A pairwise ecological interaction normally names source and target taxa from
+  the record taxonomy. Community-level interactions use `scope` and optionally
+  `participating_taxa`.
+- `kb/taxa` has a different root class and therefore needs the dedicated taxon
+  validation recipes.
+
+## Evidence policy
+
+Every curated claim should have evidence at the assertion it supports. This is
+a curation policy, not a blanket schema guarantee: taxonomy, interaction, and
+environment evidence lists are optional in LinkML. Schema validity alone does
+not prove evidence completeness.
+
+An `EvidenceItem` requires:
+
+- a stable `PMID:`, `doi:`, or supported dataset reference;
+- `supports`;
+- `evidence_source`;
+- an exact supporting `snippet`.
+
+The pinned reference validator matches committed article caches (abstracts and
+cached open-access full text), not separate supplementary files. Preserve
+supplementary text separately and report supplement-only validator failures
+explicitly; source-specific routing is tracked in #1996. Do not paraphrase a
+snippet, combine non-contiguous text, remove meaningful bracketed text, or move
+supplement text into the article cache. If support is absent, omit the claim or
+record uncertainty instead of weakening the validator.
+
+`just qc-references` is separate from `just qc`: it can use the network and the
+corpus has a known evidence-repair backlog (#417). It is not a CI gate.
+
+## Editing a community or taxon record
+
+Use [curate-yaml-record](.claude/skills/curate-yaml-record/SKILL.md) when the
+request is to audit or improve one named community, isolate, or reusable taxon
+record. It is read-only for review requests and applies the evidence, guarded
+write, and append-only history contracts below.
+
+Use [review-yaml-category](.claude/skills/review-yaml-category/SKILL.md) to
+audit a coherent community, isolate, or reusable taxon category without editing
+records, including member selection and lump/split boundaries.
+
+1. Read the target, schema, and strong neighboring records.
+2. Check whether the same taxon should reference a reusable record in `kb/taxa`.
+3. Make the smallest source-supported change; preserve experimental context and
+   do not generalize strain-pair evidence to a natural community.
+4. Verify CURIEs and canonical labels from authoritative local/source data.
+5. Add evidence at each changed assertion.
+6. Create a new append-only history record following `history/README.md`.
+   `just new-history` requires the shared claw checkout.
+7. Run focused validators, review the diff, then run the proportional wider
+   checks.
+8. If a community record or renderer changed, regenerate/check `docs/`.
+
+Never change the schema, validator, exception list, threshold, or baseline merely
+to make generated prose pass.
+
+## Validation commands
+
+```bash
+just test
+just lint
+just validate FILE
+just validate-strict FILE
+just validate-gtdb FILE
+just validate-gtdb-domain FILE
+just validate-terms FILE
+just validate-references-explained FILE
+just validate-history PATH
+```
+
+Corpus-level validation:
+
+```bash
+just validate-all
+just validate-taxa
+just validate-terms-all
+just validate-terms-taxa
+just qc
+just qc-references
+```
+
+Use a focused test during development:
+
+```bash
+uv run pytest tests/test_datamodel.py::test_name -v
+```
+
+`just qc` runs lint, pytest, schema validation, closed-schema/cross-field checks,
+GTDB checks, scalar checks, and ontology-term checks. Evidence/reference checking
+is deliberately outside it.
+
+## Generated outputs
+
+```bash
+just gen-python
+just gen-html
+just check-docs-current
+just gen-browser
+just kgx-export
+just kgx-validate
+```
+
+- `just gen-html` renders the committed `docs/` site.
+- `just check-docs-current` is the drift gate after community or template edits.
+- `just gen-umap` needs a large local embedding artifact that is absent in CI.
+- `just kgx-export` uses the custom Python emitter under
+  `src/communitymech/export/`; it is not a Koza transform.
+
+## Deep research
+
+Provider ranking is read-only and does not call a provider:
+
+```bash
+just deep-research-providers
+just deep-research-provider claude_code ecological_mechanism
+```
+
+Commands that invoke `deep-research-client` or Edison require Python 3.12+, an
+available provider, and appropriate authorization. They can incur cost. Use a
+dry run before an authorized call:
+
+```bash
+just research-community claude_code CommunityMech:000164 --dry-run
+```
+
+Raw reports under `research/` are not schema-compliant deliverables. Verify each
+accepted taxon, strain, metabolite, condition, causal direction, accession,
+citation, and snippet before curating it into YAML. Record LLM assistance in the
+new history entry.
+
+## Proving a gate can fail
+
+Gate tests here are defended by mutation testing -- break the thing, confirm the
+specific test goes red, restore. A dozen modules carry an explicit
+`test_the_check_can_actually_fail`. The ritual has three ways to lie, and two of
+them produce a **false green**: a test certified as able to fail when it cannot
+(#696).
+
+1. **Prove the mutation applied** before trusting a red. `grep -c` the new text,
+   or assert the replacement count. A red from an unapplied mutation is
+   impossible, so this only ever catches false greens -- which is the point.
+   Two real cases: a tuple entry Black had collapsed onto one line, and
+   `parents[2]` in `paths.py`, which appears twice.
+2. **Prove the restore took.** The suite must be green on the *very next* run.
+   Needing a second run is the stale-bytecode symptom fixed in #693; if it
+   happens again, something is serving a module that is not on disk.
+3. **Choose a mutation this machine can see.** `kb/taxa` -> `kb/TAXA` is a real
+   change on Linux and a no-op on macOS. Prefer changing a value the assertion
+   names over a path, a filename, or anything the filesystem may normalise.
+4. **Back up by copy, not by `git checkout --`.** Restoring with `git checkout`
+   discards unrelated uncommitted work in the same file. `cp` to a scratch path
+   and copy back.
+5. **Run a control arm.** Rules 1-3 all interrogate the *mutated* run, and
+   rule 4 the restore. None of them catches a red that had a second sufficient
+   cause. So
+   before attributing a red to the mutation, put an **unmutated** copy through
+   the identical harness and confirm it is GREEN.
+
+   `test_the_check_can_actually_fail` in `test_ncbitaxon_adapter_is_shared.py`
+   shipped without one (#709). It copied a test module to `tmp_path`, removed a
+   fixture argument, and asserted a red. It got a red -- from `fixture
+   'requires_ncbi_adapter' not found`, because pytest loads a conftest from the
+   test file's own directory and the copy had none. The unmutated copy failed
+   identically. The mutation applied, the restore took, the filesystem saw it,
+   and the check still could not fail.
+
+### A guard may narrow, never excuse
+
+Related failure, same shape (#700): **a substring may decide what a guard LOOKS
+AT; it must never decide that something is FINE.**
+
+`test_record_roots_are_shared.py` skipped any module whose text contained
+`record_files`, treating the presence of a name as proof of its use. A module
+imported it, never called it, and `ruff --fix` then deleted the unused import --
+leaving something that read as converted, was not, and passed the guard twice.
+
+Deciding membership by substring is fine when it widens the candidate set and a
+structural check follows. Exempting on presence is how a rename, an auto-fix, or
+an unused import turns a gate off with nobody noticing.
+
+## Code changes
+
+- Keep reusable runtime code under `src/communitymech/`; keep one-off curation
+  workflows under `scripts/`.
+- Add regression tests for the failure being fixed, including command/CI wiring
+  when relevant.
+- The console entry point is implemented in `src/communitymech/cli.py` and
+  currently exposes network audit/repair and UMAP generation commands.
+- Preserve vendored byte-identical files and their synchronization guards.
+- Finish with focused tests, `just lint`, `git diff --check`, and the widest
+  validation justified by the change.
+
+## Agent entry points
+
+- This file is read by Codex and Antigravity directly and by Claude Code through
+  the `CLAUDE.md` symlink; keep it the only instruction file.
+- Project skills live in `.claude/skills/` and are exposed at `.agents/skills/`
+  so both Claude Code and `.agents/skills`-aware agents (Antigravity, Codex)
+  discover the same canonical skill definitions (including
+  `review-open-issues`).
+
+- Before running record or category reviews, read
+  [docs/record-reviews.md](docs/record-reviews.md).
