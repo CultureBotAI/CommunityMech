@@ -1,0 +1,675 @@
+id: CommunityMech:000496
+name: Brachypodium Natural-Variation Hydroponic Dopamine SynCom16
+description: The 16-member switchgrass (Panicum virgatum) soil bacterial SynCom inoculated onto ten natural inbred Brachypodium
+  distachyon lines grown hydroponically in 0.5x MS, used to link natural variation in root exudates to SynCom composition.
+  Dopamine was one of the most intense LC-MS/MS peaks in roots and root exudates; across lines, exudate dopamine was positively
+  correlated with the relative abundance of Rhodococcus OAS809, Marmoricola OAE513, Rhizobium OAE497, Lysobacter OAE881 and
+  Bosea OAE506 and negatively with Paraburkholderia (Burkholderia) OAS925. In monoculture, 100 ug/mL dopamine stimulated growth
+  of the five positively correlated isolates and inhibited OAS925. SynCom inoculation was associated with lower exudate dopamine.
+  A separate soil microcosm experiment in the same study (agricultural soil amended with dopamine) enriched Actinobacteria;
+  that native soil community is not this record.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Use natural variation in Brachypodium distachyon root exudates to identify exometabolites associated with rhizosphere
+    SynCom assembly.
+  assembly_strategy: Equal-OD pool of 16 switchgrass rhizosphere and bulk-soil isolates (the LBNL SynCom of CommunityMech:000087)
+    inoculated at final OD600 ~0.02 into hydroponic vessels containing one-week-old plants of ten B. distachyon inbred lines.
+  perturbation_design: 'Host genotype (ten inbred lines: Adi9, ABR6, Bd1-1, Bd2-3, Bd21, Bd21-3, Bd3-1, Bd30-1, BdTR10h, BdTR1f)
+    with axenic and no-plant controls; follow-up monoculture assays with 0, 50 and 100 ug/mL dopamine.'
+  measurement_endpoints:
+  - 16S rRNA amplicon relative abundance in plant spent medium
+  - untargeted LC-MS/MS root exudate metabolomics
+  - Spearman correlation of exudate dopamine with member abundance
+  - isolate OD600 growth curves with dopamine
+  - plant biomass and root phenotypes
+  evidence:
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: we colonized ten natural B. distachyon lines with a 16-member bacterial synthetic community (SynCom), collected
+      metabolomic and 16S rRNA sequencing data, and performed an association analysis
+    explanation: 'Abstract statement of the design: ten host lines, 16-member SynCom, paired metabolomics and 16S.'
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Individual bacterial strains were resuspended to have an OD600 at 1.0, and then equal volumes were pooled together
+      to make the 16-member SynCom.
+    explanation: Equal-volume, equal-OD inoculum assembly.
+environment_term:
+  preferred_term: hydroponic plant culture vessel
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: PTL-100 culture vessels with 40 mL 0.5x MS; two B. distachyon seedlings per vessel on a floating holder.
+modeled_environment:
+- preferred_term: grass rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: Members were isolated from soil surrounding a switchgrass plant; the system models a grass rhizosphere.
+taxonomy:
+- taxon_term:
+    preferred_term: Lysobacter sp. OAE881
+    term:
+      id: NCBITaxon:68
+      label: Lysobacter
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Lysobacter
+      gtdb_taxon: Lysobacter
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Xanthomonadales;f__Xanthomonadaceae;g__Lysobacter
+      ncbi_source_id: NCBITaxon:68
+      majority_fraction: 0.758
+      support_genomes: 25
+      total_genomes: 33
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 4 GTDB taxa
+        under the NCBI taxon]
+  strain_designation:
+    strain_name: OAE881
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - &id001
+    reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Strains were cultured at 30 °C and 200 rpm in the following liquid media: Lysobacter OAE881, Burkholderia OAS925,
+      Variovorax OAS795, Chitinophaga OAE865, Bosea OAE506, Rhodococcus OAS809, Marmoricola OAE513, Paenibacillus OAE614,
+      Methylobacterium OAE515, Arthrobacter OAP107, Mucilaginibacter OAE612, and Brevibacillus OAP136 in Reasoner’s 2 A (R2A)
+      medium'
+    explanation: Methods roster (first 12 of 16 strains); the remaining four are named in the same sentence.
+- taxon_term:
+    preferred_term: Paraburkholderia sp. OAS925
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Paraburkholderia
+      gtdb_taxon: Paraburkholderia
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Paraburkholderia
+      ncbi_source_id: NCBITaxon:1822464
+      majority_fraction: 0.993
+      support_genomes: 680
+      total_genomes: 685
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
+        under the NCBI taxon]
+    notes: Reported as Burkholderia OAS925 in PMID:42660928; name and grounding follow CommunityMech:000025.
+  strain_designation:
+    strain_name: OAS925
+    culture_collections:
+    - collection: DSM
+      accession: 200000SY
+      notes: Available as part of complete SynCom collection DSM 200000SY from DSMZ
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Variovorax sp. OAS795
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Variovorax
+      gtdb_taxon: Variovorax
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Variovorax
+      ncbi_source_id: NCBITaxon:34072
+      majority_fraction: 1.0
+      support_genomes: 40
+      total_genomes: 40
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+  strain_designation:
+    strain_name: OAS795
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Chitinophaga sp. OAE865
+    term:
+      id: NCBITaxon:79328
+      label: Chitinophaga
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Chitinophaga
+      gtdb_taxon: Chitinophaga
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Chitinophagales;f__Chitinophagaceae;g__Chitinophaga
+      ncbi_source_id: NCBITaxon:79328
+      majority_fraction: 1.0
+      support_genomes: 133
+      total_genomes: 133
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+  strain_designation:
+    strain_name: OAE865
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Bosea sp. OAE506
+    term:
+      id: NCBITaxon:85413
+      label: Allobosea
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      curated: true
+      curation_note: NCBITaxon:169215 is the plant genus Bosea (Amaranthaceae); this entry had it, and so asserted a plant
+        was a bacterium (#365). The bacterium is NCBITaxon:85413, which NCBI renamed Allobosea and aliases "Bosea Das et al.
+        1996" — the two genera are homonyms. The lineage below was always right for the organism, so it is pinned rather than
+        dropped; the tool cannot re-derive it because the mapping snapshot still carries the pre-rename genus name, and matching
+        it on the corrected label finds nothing.
+      gtdb_id: GTDB:g__Bosea
+      gtdb_taxon: Bosea
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Beijerinckiaceae;g__Bosea
+      ncbi_source_id: NCBITaxon:85413
+      majority_fraction: 1.0
+      support_genomes: 34
+      total_genomes: 34
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+  strain_designation:
+    strain_name: OAE506
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Rhodococcus sp. OAS809
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Rhodococcus
+      gtdb_taxon: Rhodococcus
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Mycobacteriaceae;g__Rhodococcus
+      ncbi_source_id: NCBITaxon:1827
+      majority_fraction: 1.0
+      support_genomes: 514
+      total_genomes: 514
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+  strain_designation:
+    strain_name: OAS809
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Marmoricola sp. OAE513
+    term:
+      id: NCBITaxon:86795
+      label: Marmoricola
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Marmoricola
+      gtdb_taxon: Marmoricola
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Propionibacteriales;f__Nocardioidaceae;g__Marmoricola
+      ncbi_source_id: NCBITaxon:86795
+      majority_fraction: 1.0
+      support_genomes: 3
+      total_genomes: 3
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+  strain_designation:
+    strain_name: OAE513
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Paenibacillus sp. OAE614
+    term:
+      id: NCBITaxon:44249
+      label: Paenibacillus
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:g__Paenibacillus
+    - GTDB:g__Paenibacillus_A
+    - GTDB:g__Paenibacillus_B
+    - GTDB:g__Paenibacillus_G
+    - GTDB:g__Pristimantibacillus
+    - GTDB:g__Paenibacillus_H
+    - GTDB:g__Paenibacillus_E
+    - GTDB:g__Paenibacillus_Z
+    - GTDB:g__Paenibacillus_S
+    - GTDB:g__Paenibacillus_J
+    - GTDB:g__Paenibacillus_D
+    - GTDB:g__Paenibacillus_AB
+    - GTDB:g__Paenibacillus_O
+    - GTDB:g__Paenibacillus_T
+    - GTDB:g__Paenibacillus_I
+    - GTDB:g__Paenibacillus_AE
+    - GTDB:g__Paenibacillus_K
+    - GTDB:g__Paenibacillus_F
+    - GTDB:g__Paenibacillus_L
+    - GTDB:g__Bacillus
+    - GTDB:g__Paenibacillus_AF
+    - GTDB:g__Paenibacillus_AM
+    - GTDB:g__Paenibacillus_AC
+    - GTDB:g__Paenibacillus_AG
+    - GTDB:g__Paenibacillus_AH
+    - GTDB:g__Paenibacillus_AI
+    - GTDB:g__Paenibacillus_AK
+    - GTDB:g__Paenibacillus_AN
+    - GTDB:g__Paenibacillus_N
+    - GTDB:g__Paenibacillus_V
+    - GTDB:g__Paenibacillus_W
+    - GTDB:g__Paenibacillus_AA
+    - GTDB:g__CC-CFT747
+  strain_designation:
+    strain_name: OAE614
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Methylobacterium sp. OAE515
+    term:
+      id: NCBITaxon:407
+      label: Methylobacterium
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Methylobacterium
+      gtdb_taxon: Methylobacterium
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Beijerinckiaceae;g__Methylobacterium
+      ncbi_source_id: NCBITaxon:407
+      majority_fraction: 1.0
+      support_genomes: 279
+      total_genomes: 279
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+  strain_designation:
+    strain_name: OAE515
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Arthrobacter sp. OAP107
+    term:
+      id: NCBITaxon:1667
+      label: Arthrobacter sp.
+    gtdb_grounding_status: UNRESOLVED
+  strain_designation:
+    strain_name: OAP107
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Mucilaginibacter sp. OAE612
+    term:
+      id: NCBITaxon:423349
+      label: Mucilaginibacter
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Mucilaginibacter
+      gtdb_taxon: Mucilaginibacter
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Sphingobacteriales;f__Sphingobacteriaceae;g__Mucilaginibacter
+      ncbi_source_id: NCBITaxon:423349
+      majority_fraction: 1.0
+      support_genomes: 173
+      total_genomes: 173
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+    notes: Inoculated but not recovered by 16S rRNA amplicon sequencing from plant spent medium in PMID:42660928.
+  strain_designation:
+    strain_name: OAE612
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - *id001
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Mucilaginibacter OAE612, was not recovered by 16S rRNA gene amplicon sequencing
+    explanation: Member was inoculated but undetected in the hydroponic plant spent medium.
+- taxon_term:
+    preferred_term: Brevibacillus sp. OAP136
+    term:
+      id: NCBITaxon:55080
+      label: Brevibacillus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Brevibacillus
+      gtdb_taxon: Brevibacillus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Brevibacillales;f__Brevibacillaceae;g__Brevibacillus
+      ncbi_source_id: NCBITaxon:55080
+      majority_fraction: 0.803
+      support_genomes: 151
+      total_genomes: 188
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 5 GTDB taxa
+        under the NCBI taxon]
+  strain_designation:
+    strain_name: OAP136
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Niastella sp. OAS944
+    term:
+      id: NCBITaxon:354354
+      label: Niastella
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Niastella
+      gtdb_taxon: Niastella
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Chitinophagales;f__Chitinophagaceae;g__Niastella
+      ncbi_source_id: NCBITaxon:354354
+      majority_fraction: 1.0
+      support_genomes: 21
+      total_genomes: 21
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+  strain_designation:
+    strain_name: OAS944
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - &id002
+    reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Niastella OAS944, Rhizobium OAE497, and Mycobacterium OAE908 in 0.1 × R2A, and Bacillus OAE603 in Luria-Bertani
+      (LB) medium
+    explanation: Methods roster (remaining four of 16 strains).
+- taxon_term:
+    preferred_term: Rhizobium sp. OAE497
+    term:
+      id: NCBITaxon:379
+      label: Rhizobium
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Rhizobium
+      gtdb_taxon: Rhizobium
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Rhizobiaceae;g__Rhizobium
+      ncbi_source_id: NCBITaxon:379
+      majority_fraction: 0.87
+      support_genomes: 694
+      total_genomes: 798
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 12 GTDB taxa
+        under the NCBI taxon]
+  strain_designation:
+    strain_name: OAE497
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - *id002
+- taxon_term:
+    preferred_term: Mycobacterium sp. OAE908
+    term:
+      id: NCBITaxon:1763
+      label: Mycobacterium
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Mycobacterium
+      gtdb_taxon: Mycobacterium
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Mycobacteriaceae;g__Mycobacterium
+      ncbi_source_id: NCBITaxon:1763
+      majority_fraction: 1.0
+      support_genomes: 18589
+      total_genomes: 18589
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+  strain_designation:
+    strain_name: OAE908
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - *id002
+- taxon_term:
+    preferred_term: Gottfriedia sp. OAE603
+    term:
+      id: NCBITaxon:2837503
+      label: Gottfriedia
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Gottfriedia
+      gtdb_taxon: Gottfriedia
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae_G;g__Gottfriedia
+      ncbi_source_id: NCBITaxon:2837503
+      majority_fraction: 1.0
+      support_genomes: 7
+      total_genomes: 7
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+    notes: Reported as Bacillus OAE603 in PMID:42660928; name and grounding follow CommunityMech:000025.
+  strain_designation:
+    strain_name: OAE603
+    isolation_source: Switchgrass rhizosphere soil
+  evidence:
+  - *id002
+ecological_interactions:
+- name: Exudate Dopamine Correlates With Six Member Abundances
+  description: 'Across ten host lines, root-exudate dopamine (LC-MS/MS ion intensity) was positively correlated (Spearman,
+    n = 28) with relative abundance of Rhodococcus OAS809, Marmoricola OAE513, Rhizobium OAE497, Bosea OAE506 and Lysobacter
+    OAE881, and negatively with Paraburkholderia OAS925. Correlational: no multiple-comparison adjustment was applied, abundances
+    are relative 16S reads, and dopamine co-varies with other genotype-dependent exudate features.'
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - &id003
+    preferred_term: Rhodococcus sp. OAS809
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  - &id004
+    preferred_term: Marmoricola sp. OAE513
+    term:
+      id: NCBITaxon:86795
+      label: Marmoricola
+  - &id005
+    preferred_term: Rhizobium sp. OAE497
+    term:
+      id: NCBITaxon:379
+      label: Rhizobium
+  - &id006
+    preferred_term: Lysobacter sp. OAE881
+    term:
+      id: NCBITaxon:68
+      label: Lysobacter
+  - &id007
+    preferred_term: Bosea sp. OAE506
+    term:
+      id: NCBITaxon:85413
+      label: Allobosea
+  - &id009
+    preferred_term: Paraburkholderia sp. OAS925
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
+  metabolites:
+  - preferred_term: dopamine
+    term: &id008
+      id: CHEBI:18243
+      label: dopamine
+    notes: Plant-exuded; measured in spent medium, not supplied.
+  biological_processes:
+  - &id011
+    preferred_term: plant-microbe interaction
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Dopamine was positively associated with the relative abundances of two Actinobacteria, Rhodococcus OAS809 and
+      Marmoricola OAE513, and three Proteobacteria, Rhizobium OAE497, Lysobacter OAE881, and Bosea OAE506, whereas it was
+      negatively associated with another Proteobacteria, Burkholderia OAS925
+    explanation: Direction of each of the six significant correlations.
+  - reference: PMID:42660928
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: No multiple-comparison adjustment was applied.
+    explanation: Figure 3a legend; correlations are unadjusted and hypothesis-generating.
+- name: Dopamine Stimulates Growth of Five Positively Correlated Isolates
+  description: 'In monoculture (R2A or 0.1x R2A, 30 °C), 100 ug/mL dopamine significantly increased final OD600 of Rhodococcus
+    OAS809, Marmoricola OAE513, Rhizobium OAE497, Bosea OAE506 and Lysobacter OAE881, the same members whose abundance correlated
+    positively with exudate dopamine. Single-strain assays: they show a direct dopamine effect on each isolate, not a demonstrated
+    mechanism inside the SynCom, and OD600 cannot distinguish dopamine use as a substrate from signalling.'
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - *id003
+  - *id004
+  - *id005
+  - *id006
+  - *id007
+  metabolites:
+  - preferred_term: dopamine
+    term: *id008
+    notes: Supplied exogenously at 50 and 100 ug/mL.
+  biological_processes:
+  - &id010
+    preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we observed that dopamine at 100 μg/mL significantly stimulated the growth of all five isolates whose abundances
+      were positively associated with dopamine
+    explanation: Monoculture growth-curve result for the five positively correlated members.
+- name: Dopamine Inhibits Paraburkholderia OAS925 Growth
+  description: In monoculture, dopamine reduced final OD600 of Paraburkholderia (reported as Burkholderia) OAS925, the only
+    member negatively correlated with exudate dopamine. Single-strain assay; mechanism of inhibition was not examined.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - *id009
+  metabolites:
+  - preferred_term: dopamine
+    term: *id008
+    notes: Supplied exogenously at 50 and 100 ug/mL.
+  biological_processes:
+  - *id010
+  evidence:
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: while inhibiting the growth of Burkholderia OAS925, whose abundance was negatively correlated with dopamine
+    explanation: Monoculture growth-curve result for OAS925.
+- name: SynCom Colonization Lowers Exudate Dopamine
+  description: Across lines, plants inoculated with the SynCom had lower dopamine in spent medium than axenic plants (pooled
+    two-sided t-test). The authors suggest microbial consumption and/or altered plant production or exudation; neither was
+    distinguished, so this is not established catabolism.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - *id006
+  - *id009
+  - preferred_term: Variovorax sp. OAS795
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Chitinophaga sp. OAE865
+    term:
+      id: NCBITaxon:79328
+      label: Chitinophaga
+  - *id007
+  - *id003
+  - *id004
+  - preferred_term: Paenibacillus sp. OAE614
+    term:
+      id: NCBITaxon:44249
+      label: Paenibacillus
+  - preferred_term: Methylobacterium sp. OAE515
+    term:
+      id: NCBITaxon:407
+      label: Methylobacterium
+  - preferred_term: Arthrobacter sp. OAP107
+    term:
+      id: NCBITaxon:1667
+      label: Arthrobacter sp.
+  - preferred_term: Mucilaginibacter sp. OAE612
+    term:
+      id: NCBITaxon:423349
+      label: Mucilaginibacter
+  - preferred_term: Brevibacillus sp. OAP136
+    term:
+      id: NCBITaxon:55080
+      label: Brevibacillus
+  - preferred_term: Niastella sp. OAS944
+    term:
+      id: NCBITaxon:354354
+      label: Niastella
+  - *id005
+  - preferred_term: Mycobacterium sp. OAE908
+    term:
+      id: NCBITaxon:1763
+      label: Mycobacterium
+  - preferred_term: Gottfriedia sp. OAE603
+    term:
+      id: NCBITaxon:2837503
+      label: Gottfriedia
+  metabolites:
+  - preferred_term: dopamine
+    term: *id008
+  biological_processes:
+  - *id011
+  evidence:
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom inoculation was consistently associated with reduced dopamine abundance across lines
+    explanation: Axenic versus SynCom comparison of exudate dopamine.
+  - reference: PMID:42660928
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: suggesting potential microbial utilization of dopamine and/or altered dopamine production or exudation in response
+      to microbial colonization
+    explanation: Authors leave the cause unresolved; microbial utilization is a hypothesis.
+environmental_factors:
+- name: host genotype
+  value: ten natural inbred Brachypodium distachyon lines
+  description: Line-specific root exudate profiles and SynCom compositions; exudate dopamine varied between lines under axenic
+    conditions with high replicate variability.
+  evidence:
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: which revealed line-to-line variation in dopamine abundance in root exudates
+    explanation: Axenic experiment with n = 6 per line.
+growth_media:
+- name: 0.5x Murashige-Skoog salts (hydroponic plant medium)
+  temperature: '22'
+  temperature_unit: °C
+  light_regime: 16 h light / 8 h dark
+  light_intensity: '150'
+  light_intensity_unit: µmol/m²/s
+  vessel_type: PTL-100 culture vessel
+  preparation_notes: 40 mL 0.5x MS per vessel, 50% relative humidity; SynCom added at week one and plants harvested at week
+    four. Isolates were precultured at 30 °C and 200 rpm in R2A, 0.1x R2A or LB and washed in 0.5x MS before pooling.
+  evidence:
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Plants were grown in a 16 h light/8 h dark regime at 22 °C and 50% relative humidity with 150 μmol m−2 s−1 illumination
+      for four weeks.
+    explanation: Plant growth conditions in the hydroponic vessels.
+discussions:
+- discussion_id: dopamine_substrate_or_signal
+  prompt: Do the five dopamine-stimulated members catabolize dopamine, and does dopamine shift SynCom composition when supplied
+    to the community rather than to single isolates?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Dopamine Stimulates Growth of Five Positively Correlated Isolates
+  - ecological_interactions#SynCom Colonization Lowers Exudate Dopamine
+  rationale: The study links exudate dopamine to member abundance by correlation and tests single isolates; it does not supplement
+    the assembled SynCom, measure dopamine depletion by isolates, or use dopamine-deficient plants. The Actinobacteria enrichment
+    was shown in a native soil microcosm, not in this SynCom.
+  posed_by: claude
+  posed_date: '2026-10-28'
+curation_history:
+- timestamp: '2026-10-28T21:41:19Z'
+  curator: claude
+  action: CREATE
+  changes: Created from PMID:42660928 (Ding et al. 2026, Nat Commun; OA full text PMC13522444).
+  llm_assisted: true
