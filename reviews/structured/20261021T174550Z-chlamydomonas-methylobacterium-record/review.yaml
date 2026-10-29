@@ -1,0 +1,1551 @@
+schema_version: 1.0.0
+review_id: 20261021T174550Z-chlamydomonas-methylobacterium-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Chlamydomonas–Methylobacterium source and experimental-scope review
+started_at: '2026-10-21T17:36:20.856614Z'
+finished_at: '2026-10-21T17:45:50.441211Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary evidence, auxiliary authorities
+    and provenance; no person-level independence is asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Full-source review confirms the two members and the qualified three-node/two-arrow
+  graph. Three major findings correct natural/stable identity, non-graph mechanism/substrate
+  claims and pooled cultivation conditions; two minors address iron metadata and resource
+  provenance. Current claims are scientifically assessed with optional unread 2018
+  genomic SI and ancillary video explicitly bounded.
+source:
+  git_revision: 95812d3412d5aab41fd03422340cf736ac7b56f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Chlamydomonas_Methylobacterium_Mutualism/2026-10-05T184625Z-codex-c1baea.yaml
+    sha256: de166116a768c3391d90f9623c0a69fc3cc1962d3f0ecb9343546eb842d6524b
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    sha256: dd3b4dcd34d3fd452e895b325226ee0528fbde269d1e2e53af5666631849b295
+    role: target
+  - path: references_cache/PMID_29385570.md
+    sha256: e3d8bd5fa24730abb5ec84ca4694c1d0964d122a676e3b2b83031ed5cbce8952
+    role: context
+  - path: references_cache/PMID_38269098.md
+    sha256: 8a522515a221026cb066cb78f1e364cdd7be51047f9f063d3750b06defd8da65
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-four-records-batch11.yaml
+    sha256: f8d8ca3b5c79a2d255f82bff689ed3bb726539e781a836aedbeef0cdde6d13c4
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000015
+  path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+  label: Chlamydomonas-Methylobacterium Mutualistic Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    role: canonical_record
+scope:
+  description: Entire canonical record, both members, each node/arrow and non-graph
+    metadata assessed against both full scientific mains, critical 2024 SI, current
+    authorities and exact resource/provenance checks.
+  selection: Only released CommunityMech:000015 in the owned batch 10 checkout.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000015
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema passed.
+  target_ids:
+  - CommunityMech:000015
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not validate biological interpretation or recipe equivalence.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict validation passed.
+  target_ids:
+  - CommunityMech:000015
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-strict kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    --out /private/tmp/cm-review-session/batch-10/000015/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not validate biological interpretation or recipe equivalence.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Term validation passed.
+  target_ids:
+  - CommunityMech:000015
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-terms kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not validate biological interpretation or recipe equivalence.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB structure/coherence passed.
+  target_ids:
+  - CommunityMech:000015
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not validate biological interpretation or recipe equivalence.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Algal and bacterial GTDB applicability passed.
+  target_ids:
+  - CommunityMech:000015
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not validate biological interpretation or recipe equivalence.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: History validation passed.
+  target_ids:
+  - CommunityMech:000015
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-history history/records/Chlamydomonas_Methylobacterium_Mutualism
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not validate biological interpretation or recipe equivalence.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only cache filename check passed.
+  target_ids:
+  - CommunityMech:000015
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not validate biological interpretation or recipe equivalence.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Native references passed against unchanged source-specific caches; direct
+    checks separately verify all nineteen occurrences.
+  target_ids:
+  - CommunityMech:000015
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-references-explained kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not validate biological interpretation or recipe equivalence.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal
+    graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000015
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - metrics
+  scope_note: Explicit same-batch corpus reuse. Nonzero corpus status is not assigned
+    as a new defect to this target.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal
+    graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000015
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - metrics
+  scope_note: Explicit same-batch corpus reuse. Nonzero corpus status is not assigned
+    as a new defect to this target.
+- check_id: scientific-source
+  name: Main and critical supplementary verification
+  status: passed
+  required: true
+  summary: Both scientific main texts, all main figures and current-claim-critical
+    2024 SI were assessed. Source contradictions are confirmed findings rather than
+    access gaps.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - lead-read
+  - root-source
+  - source-scope
+- check_id: direct-snippets
+  name: Fresh reference-specific excerpt checks
+  status: passed
+  required: true
+  summary: 'All nineteen occurrences match: fifteen 2018 abstract and four 2024 main
+    body, with all nineteen cache matches.'
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - snippets
+- check_id: optional-2018-si
+  name: 2018 genomic supplementary Table S1
+  status: unavailable
+  required: false
+  summary: The ancillary reciprocal-BLAST inventory was not retrieved. No specific
+    current gene-inventory claim depends on this unread table; main Figure 4 and its
+    stated putative scope were inspected.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - proline-model
+  - lead-read
+- check_id: resources
+  name: Exact source-linked resource and cross-Mech metadata
+  status: passed
+  required: true
+  summary: Deposits and current external identities were checked; unresolved numbered
+    aliases and failed encoded routes remain explicit curation findings.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - resources
+  - cross-mech
+- check_id: ancillary-video
+  name: Figure360 author presentation
+  status: skipped
+  required: false
+  summary: Video inventoried and hash-pinned but not viewed; the corresponding main
+    Figure 4 was read and visually inspected.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - lead-read
+- check_id: reanalysis
+  name: Raw data and experimental reproduction
+  status: skipped
+  required: false
+  summary: No raw spectra, new statistical testing, code execution or culture reproduction.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - lead-read
+  - resources
+- check_id: adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Availability is bounded by frozen runtime discovery; public primary sources
+    and archives supplied the required evidence.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+  locator: Entire maintained YAML, both taxa, three interaction nodes and two arrows
+  summary: The graph distinguishes the 2018 proline experiment from the 2024 IAA experiments.
+    Non-graph identity, mechanisms, cultivation, metal and resource metadata remain
+    inconsistent with those qualified claims.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.410236Z'
+- evidence_id: identity-2018
+  kind: primary_source
+  reference: PMID:29385570
+  locator: 'Materials and Methods: Strains, culture media and pre-culture conditions;
+    Table 1; Results and Discussion: Methylobacterium complements the inability of
+    Chlamydomonas to grow using peptides'
+  summary: The focal algal strain is CC-1690 and the bacterium is M. aquaticum GR16T,
+    DSM 16371. Table 1 reports drinking-water origin for the bacterium. The accidental
+    M017 isolate from an algal laboratory culture is a different organism; its marker
+    MG287145 does not belong to GR16T. The experimental pair is not demonstrated to
+    be a naturally co-isolated freshwater community or at stable equilibrium.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.410725Z'
+  snapshot_sha256: 4cddfcf7f5a4768cb6f9d5ad9047e7af73e943aac6c9933a2623c95a0592ef06
+- evidence_id: hyp
+  kind: primary_source
+  reference: PMID:29385570
+  locator: 'Results and Discussion: Methylobacterium complements the inability of
+    Chlamydomonas to grow using peptides; Figure 1, especially the free-Hyp column'
+  summary: No assayed methylobacterium complemented algal growth on free L-hydroxyproline.
+    Certain hydroxyproline-containing peptides give different results. The current
+    ingredient explanation wrongly turns the broad abstract sentence into a positive
+    free-Hyp rescue claim. Preserve the negative substrate result and the distinction
+    between the free amino acid and peptide forms.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.413867Z'
+  snapshot_sha256: 4cddfcf7f5a4768cb6f9d5ad9047e7af73e943aac6c9933a2623c95a0592ef06
+  quote: lack of growth on L-Hyp
+- evidence_id: proline-exchange
+  kind: primary_source
+  reference: PMID:29385570
+  locator: 'Results and Discussion: A Chlamydomonas–Methylobacterium obligate mutualism
+    underlying growth on L-Pro; Figures 2–3'
+  summary: Both partners grow together in the proline context when neither monoculture
+    grows. Bacterial ammonium production, algal glycerol accumulation, lack of glycerol
+    accumulation in coculture and bacterial glycerol supplementation support the source-described
+    carbon/nitrogen exchange. These measurements do not establish a traced exclusive
+    mediator, an oxygen-mediated benefit, IAA metabolism or a keystone removal experiment.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.416707Z'
+  snapshot_sha256: 4cddfcf7f5a4768cb6f9d5ad9047e7af73e943aac6c9933a2623c95a0592ef06
+- evidence_id: proline-model
+  kind: primary_source
+  reference: PMID:29385570
+  locator: 'Results and Discussion: Methylobacterium genome analysis for L-Pro metabolism;
+    A carbon–nitrogen metabolic circuit between Chlamydomonas and Methylobacterium;
+    Figures 4–5'
+  summary: The main figures distinguish putative genomic proline pathways and a proposed
+    ecological exchange model from the growth and metabolite experiments. Hypotheses
+    about cell-wall peptides and natural associations do not demonstrate coisolation
+    or equilibrium. Unread supplementary Table S1 contains an ancillary genomic inventory;
+    no exact encoded gene claim requires its certification.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.419085Z'
+  snapshot_sha256: 4cddfcf7f5a4768cb6f9d5ad9047e7af73e943aac6c9933a2623c95a0592ef06
+- evidence_id: cultivation-2018
+  kind: primary_source
+  reference: PMID:29385570
+  locator: 'Materials and Methods: Strains, culture media and pre-culture conditions;
+    Growth on amino acids and peptides; Figures 1–3 captions'
+  summary: 'Algal TAP preculture contains 8 mM ammonium chloride and runs 2–3 days
+    at 25 C, continuous light and 120 rpm. Bacterial MeM preculture is distinct: modified
+    salts plus potassium nitrate 1 g/L, peptone 2.5 g/L and methanol 0.5%, for 2–3
+    days at 25 C and 120 rpm. Experimental CYB has 8 mM indicated amino acid or peptide,
+    adjusted pH 7.2±0.1, three CYB washes, initial algal A750 0.025 and bacterial
+    A600 0.002, and 250 µL in V-bottom 96-well plates at 25 C under continuous light.
+    Figure 1 reads amino acids after 8 days and peptides after 12; Figure 2 illustrates
+    the proline pair after 11 days. No numerical light intensity is reported in these
+    main methods. Preculture agitation must not be silently transferred to the plate
+    assay.'
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.422582Z'
+  snapshot_sha256: 4cddfcf7f5a4768cb6f9d5ad9047e7af73e943aac6c9933a2623c95a0592ef06
+- evidence_id: identity-2024
+  kind: primary_source
+  reference: PMID:38269098
+  locator: 'STAR Methods: Key resources table; Experimental model and study participant
+    details'
+  summary: The later study uses C. reinhardtii CC-5325 and its separate lao1 mutant
+    comparison with M. aquaticum GR16T/DSM 16371. These strain and assay contexts
+    differ from the 2018 CC-1690/CYB experiment. General ecological discussion about
+    phycospheres or rhizospheres does not establish a naturally sampled stable two-member
+    community.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.425099Z'
+  snapshot_sha256: 4fc9862bf561f624bc10f62481e89349c81eda5a0983e6e44cf443ed2afec46b
+- evidence_id: algal-production
+  kind: primary_source
+  reference: PMID:38269098
+  locator: 'Results: Chlamydomonas produces IAA from tryptophan using the extracellular
+    L-amino acid oxidase LAO1; Figure 1; STAR Methods: LC-MS/MS analysis'
+  summary: Wild-type versus lao1 comparisons and HPLC/MS evidence establish algal
+    LAO1-dependent production of IAA from supplied tryptophan. The later enzymatic
+    route remains incomplete. This source does not establish bacterial IAA production.
+    The raw analytical dataset concerns the algal production time course, separately
+    from coculture indole depletion.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.425926Z'
+  snapshot_sha256: 4fc9862bf561f624bc10f62481e89349c81eda5a0983e6e44cf443ed2afec46b
+- evidence_id: iaa-cooperation
+  kind: primary_source
+  reference: PMID:38269098
+  locator: 'Results: IAA production in Chlamydomonas facilitates a mutualistic interaction
+    with Methylobacterium aquaticum; Figure 3; Discussion; Limitations of the study'
+  summary: Coculture depletes the indole signal from supplied IAA and both populations
+    attain higher densities than their respective monocultures. Algal photosynthates
+    are a proposed enabling factor; the bacterial catabolic pathway and algal contribution
+    remain unresolved. Depletion uses Salkowski rather than the production assay’s
+    HPLC/MS specificity. The supplied acetate in T-N prevents importing the 2018 autotrophic
+    glycerol mechanism as a demonstrated explanation.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.426081Z'
+  snapshot_sha256: 4fc9862bf561f624bc10f62481e89349c81eda5a0983e6e44cf443ed2afec46b
+  quote: both microbes are necessary
+- evidence_id: iaa-response
+  kind: primary_source
+  reference: PMID:38269098
+  locator: 'Results: IAA prevents Chlamydomonas from multiplying and attenuates chlorophyll
+    degradation under N limitation; Figures 2–3'
+  summary: The measured responses are cell multiplication and chlorophyll content/degradation
+    under the tested nitrogen-limited conditions. High IAA inhibits multiplication
+    and attenuates chlorophyll loss; coculture relieves the displayed IAA-associated
+    effects. This is not an assay of general stress survival, ecological keystone
+    status or an oxygen-mediated benefit. Source panel crossreferences are imperfect;
+    the actual displayed panels and assay descriptions govern the interpretation.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.426266Z'
+  snapshot_sha256: 4fc9862bf561f624bc10f62481e89349c81eda5a0983e6e44cf443ed2afec46b
+- evidence_id: cultivation-2024
+  kind: primary_source
+  reference: PMID:38269098
+  locator: 'STAR Methods: Experimental model and study participant details; Method
+    details: Chlamydomonas cell growth tests; Indole-3-acetic acid degradation tests;
+    Figure 3 caption'
+  summary: Algal TAP preculture is 2–3 days at 23 C under continuous light and 120
+    rpm; bacterial MeMT preculture is 2–3 days at 28 C and 150 rpm. T-N is TAP without
+    added ammonium, still containing acetate. Cells are washed three times for relevant
+    assays. Growth tests use 48-well plates; the depletion protocol states initial
+    algal density 1.5×10^6 cells/mL and bacterial A600 0.01 with one-week incubation
+    and 120 rpm, while figure-specific captions/readouts use different initial density
+    or five-/eight-day endpoints. Preserve source-specific assay attribution rather
+    than invent one merged range. Analytical Salkowski incubation at 23–26 C is not
+    a culture temperature range.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.426420Z'
+  snapshot_sha256: 4fc9862bf561f624bc10f62481e89349c81eda5a0983e6e44cf443ed2afec46b
+- evidence_id: iron
+  kind: primary_source
+  reference: PMID:38269098
+  locator: 'STAR Methods: Method details: Indole-3-acetic acid degradation tests;
+    Discussion'
+  summary: FeCl3 is part of the acidic Salkowski analytical reagent. Neither the inspected
+    experiments nor the ecological discussion establishes the record’s claimed iron
+    environmental measurement or significant metal-processing community role. Trace
+    nutrients or reagent ingredients cannot independently support SIGNIFICANT metal
+    relevance.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.426535Z'
+  snapshot_sha256: 4fc9862bf561f624bc10f62481e89349c81eda5a0983e6e44cf443ed2afec46b
+- evidence_id: data-statement
+  kind: primary_source
+  reference: PMID:38269098
+  locator: 'STAR Methods: Key resources table, Deposited data; Resource availability:
+    Data and code availability; Method details: LC-MS/MS analysis'
+  summary: The paper declares Mendeley Data DOI 10.17632/bf5d3hn32z.1 and MassIVE
+    MSV000092315. The first retains a preprint-era version/title; the second is the
+    algal tryptophan UHPLC-MS/MS production experiment. No original code is reported.
+    Neither deposit is evidence that the 2018 exchange or the coculture depletion
+    assay was reanalysed here.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.426646Z'
+  snapshot_sha256: 4fc9862bf561f624bc10f62481e89349c81eda5a0983e6e44cf443ed2afec46b
+- evidence_id: si-2024
+  kind: primary_source
+  reference: PMID:38269098, Document S1
+  locator: Complete Tables S1–S3 and Figures S1–S9, PDF pages 2–13
+  summary: All three tables, nine captions and nine figure images were inspected.
+    Table S1 lists expected LAO1 products, not measured partner exchange. Table S2
+    has no detected IAA in its tested IPyA/cell/peroxide conditions. Table S3 reports
+    no detected ammonium in ten bacterial monocultures on IAA; it does not exclude
+    coculture mineralization. Production controls and analytical figures support the
+    main results without identifying the complete downstream pathway. S9 is an indole
+    assay with its own displayed statistical comparison scope; no new significance
+    or flux is inferred.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.427448Z'
+  snapshot_sha256: 589c53b21d0cf5d7f8d8a05d797121cd86da78e39ac2160f1ca3479571dc538d
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: CommunityOriginEnum; EcologicalStateEnum; FunctionalRoleEnum; abundance_value;
+    MetalRelevanceEnum
+  summary: NATURAL describes a naturally occurring environmental community and STABLE
+    requires stable equilibrium. Experimental assembly supports a synthetic-origin
+    interpretation; state is optional. PRIMARY_PRODUCER concerns carbon fixation.
+    SYNTROPHIC_PARTNER has a broad metabolism description distinct from the fuller
+    SYNTROPHY interaction test. abundance_value is deprecated quantitative abundance,
+    not a place for keystone or functional-role prose. SIGNIFICANT metal relevance
+    requires significant metal/REE metabolism, not reagent presence.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.430323Z'
+  snapshot_sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+- evidence_id: ontology
+  kind: authority
+  reference: ontology-authority.json
+  locator: Whole frozen receipt and declared scope
+  summary: All 22 encoded pairs match across 31 occurrences. The algal and bacterial
+    species concepts are valid. Chemical class identities do not independently resolve
+    stereoisomers, hydrate forms or assay use; GO:0042436 is broad indole-containing
+    compound catabolism, compatible with the retained assay caveat.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.430459Z'
+  snapshot_sha256: 389440930ccd6b5375809a7cec3dcfd27ba687cbf7bae49356e2b54277f1c5eb
+- evidence_id: semantics
+  kind: authority
+  reference: ontology-semantic-notes.json
+  locator: Whole frozen receipt and declared scope
+  summary: Exact schema and ontology scope supports retaining broad source-qualified
+    roles and the graph, while correcting natural/stable provenance, IAA explanations,
+    role prose in abundance fields, medium claims and unsupported metal relevance.
+    These checks alone do not certify complete source science.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.430949Z'
+  snapshot_sha256: 482135dc3194b85e8774a9c5b30868679bcf93b4b62f0f134cef57f95f932589
+- evidence_id: child-source
+  kind: authority
+  reference: child-source-scope-confirmation.json
+  locator: Whole frozen receipt and declared scope
+  summary: The separate post-freeze receipt attributes lead source findings accurately
+    and independently distinguishes the broad role enum from the stricter SYNTROPHY
+    interaction definition. No frozen auxiliary artifact was overwritten.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.431202Z'
+  snapshot_sha256: f0fd7c028ce412a2d72e74208016a8fecdb03c4bb8d167b540113dacba5a8ff5
+- evidence_id: cross-mech
+  kind: database
+  reference: cross-mech-verification.json
+  locator: Whole frozen receipt and declared scope
+  summary: CultureMech 000139 resolves to the current CCAP TAP record at its actual
+    data/normalized_yaml path; its encoded route returns 404. All four encoded numbered
+    MIM routes also return 404 and the inspected complete ingredient authority does
+    not resolve those aliases. Chemical candidates are separately verified; none proves
+    an old numeric alias or study concentration. The generic composition placeholder
+    is not an ingredient.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.431674Z'
+  snapshot_sha256: aa6a3214806a43dffa35ee4f8ed3008093a9954d8541fef66440a73791881912
+- evidence_id: resources
+  kind: database
+  reference: dataset-verification.json
+  locator: Whole frozen receipt and declared scope
+  summary: The two source-declared 2024 deposits are directly verified as metadata.
+    Mendeley version 1 retains the 2022 preprint-era title; MassIVE is Partial Public
+    and scoped to algal tryptophan analytical samples, not coculture depletion. No
+    raw file analysis or deposit completeness claim is made.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.432098Z'
+  snapshot_sha256: d4f41ba65d9fd0f6b10bf16ab99dec07164351c22d19fd58c0d0a2143d2a1956
+- evidence_id: snippets
+  kind: validation
+  reference: snippet-audit.json
+  locator: Whole frozen receipt and declared scope
+  summary: 'All nineteen occurrences match the exact fresh sources and maintained
+    caches: fifteen 2018 abstract excerpts and four 2024 body excerpts. Literal support
+    is distinct from the incorrect broader explanations and ingredient interpretation.'
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.432349Z'
+  snapshot_sha256: 05444ceeff3468af8f2427d08b9575f3a9ba7dacb5c58b61abacbf40d2e737cf
+- evidence_id: history
+  kind: record_content
+  reference: provenance-audit.json
+  locator: Whole frozen receipt and declared scope
+  summary: The complete history and exact prior decision match current record/cache
+    hashes. Prior graph curation deliberately left non-graph debt. Fresh issue 1292
+    is open with zero comments and directly owns that follow-up; closed 1290 is explicitly
+    reused from its preserved same-session response. No previous review substitutes
+    for the fresh full-source assessment.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.432583Z'
+  snapshot_sha256: ab4231afa59d112decbd55db47609070496207c4628e5ef5e700dec64cdc05ac
+- evidence_id: inspect-extension
+  kind: validation
+  reference: inspect-extension.json
+  locator: Whole frozen receipt and declared scope
+  summary: The original 24-input inspection is preserved. The fresh official extension
+    adds the consulted GTDB skill as input 25 with target metadata and every earlier
+    hash unchanged.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.432813Z'
+  snapshot_sha256: 360f9ec1605ed212cd76b9a87a35ba39fe486bfbaae40fc390c10e317484bdcf
+- evidence_id: metrics
+  kind: validation
+  reference: support-audit.json
+  locator: Whole frozen receipt and declared scope
+  summary: Native COMPLETE covers three nodes, two arrows and six evidence entries.
+    Completeness is 90. Three major and two minor findings give raw quality 101, capped
+    at 100; no field is invented to improve those scores.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.433513Z'
+  snapshot_sha256: ad7418e8de2a0d5af6328b3ad966c1ee883ddd0b54d291db49a6b07324a97e22
+- evidence_id: lead-read
+  kind: validation
+  reference: lead-primary-read-scope.json
+  locator: Whole frozen receipt and declared scope
+  summary: Lead read both complete scientific main texts and all main figures, the
+    2018 Table 1, and all 2024 SI tables/figures. Optional 2018 genomic Table S1 remains
+    unavailable and the ancillary Figure360 video unviewed. Rights-restricted 2018
+    content remains scratch-only.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.433561Z'
+  snapshot_sha256: 6ef09fac3f124ec2476fb93a9aad29b0e2ee4fc4826c81b58709e455da7278a0
+- evidence_id: source-scope
+  kind: validation
+  reference: source-audit.json
+  locator: Whole frozen receipt and declared scope
+  summary: Frozen source assessment records completed current-claim review, three
+    major and two minor findings, retained qualified graph/roles and explicit source,
+    assay and archive limits.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.433988Z'
+  snapshot_sha256: 21e3632eee81f17e229f0c4cf6ee94b2a3348be74b01b84a4f662e46e6a3bfab
+- evidence_id: root-source
+  kind: validation
+  reference: root-independent-source-audit.json
+  locator: Whole frozen receipt and declared scope
+  summary: Root independently read both scientific main texts, all main figures and
+    the declared subset of SI visuals, with full SI text and its exact scope recorded.
+    It agrees with completed current-claim status and all five findings.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.434251Z'
+  snapshot_sha256: 4825f597974118775023d0f6c7ec2c28d46446c73d6b3f6c37431e7174f89bd6
+- evidence_id: auxiliary
+  kind: validation
+  reference: auxiliary-frozen-manifest.json
+  locator: Whole frozen receipt and declared scope
+  summary: Eight focused native checks pass, all source inputs remain unchanged, and
+    the auxiliary filenames and summaries are immutable. No exact local M. aquaticum
+    GTDB mapping is established; preserve UNRESOLVED.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.434622Z'
+  snapshot_sha256: 65a82a1d91e9cd8c263a52f9e50eca74abf1f685562228221790d442def60b2c
+- evidence_id: adapter
+  kind: validation
+  reference: adapter-check.json
+  locator: Whole frozen receipt and declared scope
+  summary: Optional adapter discovery is bounded to the recorded runtime. No paid
+    source provider, outside-checkout executable or unapproved credential was used.
+  support: supports
+  accessed_at: '2026-10-21T17:45:50.434818Z'
+  snapshot_sha256: d0f8e0ca7a9335728bc11205cbe5332c1c272bf6f195ee45478e22eae8b1ba44
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+  locator: Actual execution 2026-10-21T17:37:17.714504+00:00 to 2026-10-21T17:37:18.281690+00:00
+  summary: Schema passed.
+  support: supports
+  accessed_at: '2026-10-21T17:37:18.281690Z'
+  snapshot_sha256: 891fe22f67777f96fd5c3f51195f925319f5a631a1e4143c148f9bd157e4bf0c
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-strict kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    --out /private/tmp/cm-review-session/batch-10/000015/strict-report.tsv
+  locator: Actual execution 2026-10-21T17:37:17.714673+00:00 to 2026-10-21T17:37:19.404267+00:00
+  summary: Strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T17:37:19.404267Z'
+  snapshot_sha256: 0ab1a59a7c3f96b8b5d9a5e7ef10251e43b67a670b88de0115c8335f25950527
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-terms kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+  locator: Actual execution 2026-10-21T17:37:17.714737+00:00 to 2026-10-21T17:37:19.293108+00:00
+  summary: Term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T17:37:19.293108Z'
+  snapshot_sha256: 0406f852eb5608a5bb3dced87b5c1316ce08ad853c4260512cc829e5feee55aa
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+  locator: Actual execution 2026-10-21T17:37:18.281929+00:00 to 2026-10-21T17:37:18.353424+00:00
+  summary: GTDB structure/coherence passed.
+  support: supports
+  accessed_at: '2026-10-21T17:37:18.353424Z'
+  snapshot_sha256: c557bb3012485528bc1c096f238b147acf60c5fd9c2d37f803297b3a1de00f2b
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+  locator: Actual execution 2026-10-21T17:37:18.353673+00:00 to 2026-10-21T17:37:19.456701+00:00
+  summary: Algal and bacterial GTDB applicability passed.
+  support: supports
+  accessed_at: '2026-10-21T17:37:19.456701Z'
+  snapshot_sha256: 2ae2d0c27b1738db5018813be0d4626a0bc1c830b73b3f767e305617f08f3df7
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-history history/records/Chlamydomonas_Methylobacterium_Mutualism
+  locator: Actual execution 2026-10-21T17:37:19.293533+00:00 to 2026-10-21T17:37:19.889938+00:00
+  summary: History validation passed.
+  support: supports
+  accessed_at: '2026-10-21T17:37:19.889938Z'
+  snapshot_sha256: 902ad9cbc079ddd386657f572374e7781ee5ceec5fc253d9a1e0bf68697fc466
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T17:37:19.890430+00:00 to 2026-10-21T17:37:19.930269+00:00
+  summary: Read-only cache filename check passed.
+  support: supports
+  accessed_at: '2026-10-21T17:37:19.930269Z'
+  snapshot_sha256: 88a4bd8a4b78d75f7ee83d6a4e27eec555fd4e3c1980909a020252bfc87b7ab0
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-references-explained kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+  locator: Actual execution 2026-10-21T17:37:19.930498+00:00 to 2026-10-21T17:37:20.727069+00:00
+  summary: Native references passed against unchanged source-specific caches; direct
+    checks separately verify all nineteen occurrences.
+  support: supports
+  accessed_at: '2026-10-21T17:37:20.727069Z'
+  snapshot_sha256: 7a7a69168529f63656a6b2c1db7de91999ae49073950dc0d9fc8b9b6692c931f
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T17:04:17.819938+00:00 to 2026-10-21T17:04:25.370848+00:00
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal
+    graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T17:04:25.370848Z'
+  snapshot_sha256: 301cbda477198c0cff0f38601fdb49af8d805cafa7da106733150d64786d987d
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T17:04:17.819995+00:00 to 2026-10-21T17:04:26.163649+00:00
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal
+    graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T17:04:26.163649Z'
+  snapshot_sha256: f8dae0e292e8e2f8c221450aacc2bb120abe0e3f32c16ed59f8406e8b859a895
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Community membership and exact experimental identity
+  outcome: concern
+  summary: Retain both species while correcting the claimed naturally co-isolated
+    stable community.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - identity-2018
+  - identity-2024
+  - ontology
+  - schema
+  details: The two studies assemble GR16T with different Chlamydomonas strains. A
+    source strain’s drinking-water origin and the separate M017 contaminant do not
+    establish joint freshwater isolation. Record the laboratory assembly and exact
+    study-strain context. SYNTHETIC origin is supported; optional ecological_state
+    can be omitted if no source-supported replacement is available. PHYTOPLANKTON
+    can remain as the algae-associated community category without certifying field
+    sampling.
+- assessment_id: environment
+  area: identity
+  topic: Environment and nitrogen/light factors
+  outcome: concern
+  summary: Separate organism habitat context from the actual culture environment.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - identity-2018
+  - identity-2024
+  - cultivation-2018
+  - cultivation-2024
+  - schema
+  details: The valid freshwater ENVO label is not proof of community provenance. Replace
+    or scope environment_term and the Aquatic Environment factor to the experimental
+    system without inferring an unmeasured natural habitat. Nitrogen limitation and
+    continuous illumination are supported assay conditions; attach their actual Methods
+    evidence rather than the broad nitrogen-introduction sentence or generic algal
+    growth statement. Do not frame all nitrogen-stress effects as proven IAA mediation.
+- assessment_id: taxon-alga
+  area: evidence
+  topic: 'taxonomy[0]: Chlamydomonas reinhardtii'
+  outcome: concern
+  summary: PRIMARY_PRODUCER and the species identity are supported; keystone and abundance
+    prose are not.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - proline-exchange
+  - identity-2018
+  - identity-2024
+  - schema
+  - semantics
+  details: Retain carbon fixation as the functional role and NO_GTDB_EQUIVALENT as
+    appropriate to a eukaryote. State CC-1690 for the 2018 experiment and CC-5325/its
+    lao1 comparison for 2024. Remove unsupported keystone and generalized increased-susceptibility
+    interpretations. Move supported role prose out of abundance_value; do not invent
+    a rank or quantitative abundance.
+- assessment_id: taxon-bacterium
+  area: evidence
+  topic: 'taxonomy[1]: Methylobacterium aquaticum'
+  outcome: concern
+  summary: Retain the correct species and broad metabolic-cooperation role, with source-specific
+    evidence.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - proline-exchange
+  - algal-production
+  - iaa-cooperation
+  - schema
+  - semantics
+  - child-source
+  details: The 2018 membership/exchange excerpt cannot support an IAA-based explanation.
+    Correct bacterial IAA production to algal LAO1-dependent production and coculture-associated
+    removal in the later experiment. Do not force a stricter thermodynamic definition
+    on the broad SYNTROPHIC_PARTNER role or claim obligacy across all media. Species-level
+    GTDB remains UNRESOLVED under the recorded exact-ID/name search; no strain mapping
+    is inferred.
+- assessment_id: node-proline
+  area: evidence
+  topic: 'ecological_interactions[0]: Algal Glycerol Provision in Proline-Dependent
+    Mutualism'
+  outcome: supported
+  summary: Retain the condition-specific 2018 mutualism and its evidence.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - proline-exchange
+  - proline-model
+  - cultivation-2018
+  details: The node correctly separates the CYB/proline/CC-1690 observations from
+    oxygen benefit and 2024 IAA turnover. Metabolite measurements and glycerol supplementation
+    support the source-described exchange without requiring new exclusive-flux or
+    gene-causality claims. Its PARTIAL later-source excerpt is explicitly a mechanistic
+    proposal.
+- assessment_id: edge-photosynthate
+  area: evidence
+  topic: ecological_interactions[0].downstream[0]
+  outcome: supported
+  summary: Retain HYPOTHESIZED photosynthate support for later cooperative removal.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - proline-exchange
+  - iaa-cooperation
+  - cultivation-2024
+  details: This link crosses distinct experimental contexts and already says that
+    glycerol from the 2018 assay is not proven as the 2024 mediator. Acetate is supplied
+    in T-N, and alternative algal metabolites/proteins remain possible. Do not upgrade
+    the edge to demonstrated necessity or replace the mediator with oxygen.
+- assessment_id: node-iaa
+  area: evidence
+  topic: 'ecological_interactions[1]: Cooperative IAA Degradation'
+  outcome: supported
+  summary: Retain reciprocal supplied-IAA growth and coculture-specific removal with
+    its analytical limit.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - algal-production
+  - iaa-cooperation
+  - si-2024
+  details: The node correctly attributes IAA production to the alga and does not identify
+    the bacterial catabolic pathway. Salkowski indole reactivity is distinct from
+    production HPLC/MS. Table S3 concerns monocultures only and does not exclude coculture
+    nitrogen mineralization. Broad GO indole-catabolism annotation does not certify
+    an exact IAA enzyme pathway.
+- assessment_id: edge-response
+  area: evidence
+  topic: ecological_interactions[1].downstream[0]
+  outcome: supported
+  summary: Retain PARTIAL support for removal-associated cell-division and chlorophyll
+    effects.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - iaa-response
+  - iaa-cooperation
+  - si-2024
+  details: IAA addition and coculture comparisons support the displayed response,
+    while mediator necessity and exact pathway remain unresolved. No generic survival
+    mechanism or broad ecological stress resilience follows. The edge does not require
+    another node or stronger support tag.
+- assessment_id: node-response
+  area: evidence
+  topic: 'ecological_interactions[2]: IAA-Associated Algal Cell Division and Chlorophyll
+    Responses'
+  outcome: supported
+  summary: Retain the untyped community-level response node with its current limits.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - iaa-response
+  - si-2024
+  details: High IAA inhibits cell multiplication and chlorophyll degradation in the
+    tested context. The existing node distinguishes these outcomes from broad stress
+    tolerance and bacterial production. Its participating taxa and process terms are
+    correctly scoped; no further causal arrow is warranted.
+- assessment_id: ingredients
+  area: evidence
+  topic: All seven related_ingredients entries
+  outcome: concern
+  summary: Correct free hydroxyproline rescue while preserving condition-specific
+    substrate context.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - hyp
+  - proline-exchange
+  - proline-model
+  - ontology
+  details: CO2, glycerol, ammonium and proline are supported in the 2018 context.
+    Make that scope explicit where necessary so they do not become mandatory 2024
+    mediators. Free L-Hyp rescue is contradicted; qualify it as a tested non-supporting
+    substrate or remove the positive entry, distinguishing Hyp-containing peptides.
+    Nitrate and nitrite are stated background nitrogen-metabolism context, not required
+    components of the focal shared assay. CHEBI class validity does not prove a substrate
+    phenotype.
+- assessment_id: cultivation
+  area: evidence
+  topic: growth_media and culture design
+  outcome: concern
+  summary: Replace the unsupported unified TAP recipe with study- and stage-specific
+    source conditions.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - cultivation-2018
+  - cultivation-2024
+  - cross-mech
+  - schema
+  details: The 25 C value is supported for the 2018 protocol, not as one universal
+    optimum. The encoded pH 7.0, range 7.0–7.5, temperature range 22–28 and light
+    intensity 100 are not established as shared conditions. The source states 8 mM
+    ammonium chloride for preculture rather than the encoded 7.5 mM. Other generic
+    TAP composition values must be verified against the exact study formulation or
+    omitted; an external CCAP recipe cannot provide retroactive source support. Explicitly
+    distinguish MeM/MeMT bacterial preculture, CYB/proline and acetate-containing
+    T-N from algal TAP maintenance. Preserve continuous illumination and the source’s
+    aerobic context without inventing gas composition or maintained oxygen concentration.
+- assessment_id: metals
+  area: evidence
+  topic: metals_present, metal_relevance and metal_notes
+  outcome: concern
+  summary: Remove unsupported significant iron influence and environmental-measurement
+    wording.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - iron
+  - schema
+  - semantics
+  details: No measured community iron phenotype supports these optional fields. FeCl3
+    in a colorimetric reagent and hypothetical siderophore chemistry in discussion
+    do not make iron metabolism a demonstrated community function. Omit unsupported
+    fields or choose only a schema value justified by the actual study; do not infer
+    that iron is biologically absent.
+- assessment_id: crossmech
+  area: provenance
+  topic: CultureMech and MediaIngredientMech links
+  outcome: concern
+  summary: Repair current link provenance without equating a reference medium to the
+    tested media.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - cross-mech
+  - cultivation-2018
+  - cultivation-2024
+  details: The exact CCAP TAP identity is verified at its current path, but the encoded
+    route is obsolete. Four numbered ingredient aliases remain unresolved in the bounded
+    current authority, even though three chemical identities have current CHEBI-keyed
+    candidates. Do not automatically substitute those candidates for old IDs. Remove
+    the generic See source for composition row as a falsely structured ingredient;
+    store provenance in an appropriate medium note.
+- assessment_id: datasets
+  area: completeness
+  topic: Source-declared deposited data
+  outcome: concern
+  summary: Add the verified 2024 resources with their distinct assay and version scope.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - data-statement
+  - resources
+  details: Mendeley version 1 and MassIVE MSV000092315 are directly linked by the
+    source. The 2022 deposit title is not a date error in the 2024 publication. MassIVE
+    Partial Public is an archive status, not partial review completion. No payload,
+    manifest completeness or derived reanalysis is certified, and no corresponding
+    2018 deposit is invented.
+- assessment_id: provenance
+  area: provenance
+  topic: Evidence, history and existing follow-up
+  outcome: supported
+  summary: All excerpts are source-matched, with the incorrect interpretation handled
+    separately.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - snippets
+  - history
+  - inspect-extension
+  - lead-read
+  details: Nineteen matches are partitioned as fifteen 2018 abstract and four 2024
+    body occurrences. The older cache remains abstract-only; the later cache remains
+    selected licensed excerpts. The exact historical decision and current issue 1292
+    explicitly retain these non-graph concerns; closed 1290 remains graph-repair history.
+    Use the existing follow-up rather than create duplicate issues. The rights-restricted
+    2018 full body must remain outside the maintained repository.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and immutable workflow
+  outcome: supported
+  summary: All eight focused checks pass; scientific review confirms five non-graph
+    findings.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - auxiliary
+  - ontology
+  - snippets
+  details: Canonical, caches, history and generated products remain unchanged. Persistence
+    is limited to a new immutable review bundle. Completed scientific review describes
+    the current claims, not a claim that every optional asset or raw dataset has been
+    inspected.
+- assessment_id: metrics
+  area: completeness
+  topic: Native mechanical scores
+  outcome: supported
+  summary: Completeness 90 and quality 100/raw 101 are mechanical metrics.
+  target_ids:
+  - CommunityMech:000015
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 90
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 'Native rubric: required fields with roles 50 + environment 5 + three
+      environmental factors 10 + at least three interaction nodes 10 + growth media
+      10 + interaction metabolites 5. Resources are not yet encoded; no invented data
+      are added for points.'
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      P1=0, P2=3, P3=2, P4=0. Six evidence entries over three nodes give 20 evidence
+      points; COMPLETE adds 15. Raw 101 is capped at 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: experimental-identity
+  issue_key: cm-000015-experimental-identity
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: substantive source scope or unsupported evidence affects
+    encoded biological or experimental meaning.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Correct experimental origin and unsupported equilibrium
+  description: The record calls the pair a naturally isolated stable freshwater community.
+    The source uses constructed strain combinations and does not demonstrate joint
+    field isolation or equilibrium. Species habitat and a separate accidental M017
+    isolate cannot provide the missing provenance.
+  target_ids:
+  - CommunityMech:000015
+  field_paths:
+  - description
+  - community_origin
+  - ecological_state
+  - environment_term
+  - environmental_factors[2]
+  evidence_ids:
+  - identity-2018
+  - identity-2024
+  - schema
+  - history
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    role: canonical_record
+- finding_id: non-graph-source-scope
+  issue_key: cm-000015-non-graph-source-scope
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: substantive source scope or unsupported evidence affects
+    encoded biological or experimental meaning.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Separate source mechanisms and correct free hydroxyproline rescue
+  description: Non-graph claims assign bacterial IAA production, IAA-based 2018 exchange,
+    oxygen and broad stress/keystone effects not established by the cited experiments.
+    The positive free-Hyp ingredient directly contradicts the full 2018 result. Role
+    prose is misplaced in quantitative abundance fields. The graph already preserves
+    the necessary distinctions.
+  target_ids:
+  - CommunityMech:000015
+  field_paths:
+  - description
+  - taxonomy[0].taxon_term.notes
+  - taxonomy[0].abundance_value
+  - taxonomy[0].evidence
+  - taxonomy[1].taxon_term.notes
+  - taxonomy[1].abundance_value
+  - taxonomy[1].evidence
+  - related_ingredients[4]
+  - environmental_factors[0]
+  evidence_ids:
+  - hyp
+  - proline-exchange
+  - algal-production
+  - iaa-cooperation
+  - iaa-response
+  - schema
+  - semantics
+  - history
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    role: canonical_record
+- finding_id: cultivation-protocols
+  issue_key: cm-000015-cultivation-protocols
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: substantive source scope or unsupported evidence affects
+    encoded biological or experimental meaning.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Replace the unsupported pooled TAP protocol
+  description: Generic TAP composition and pH/light/temperature ranges are presented
+    as the shared source protocol although the studies distinguish algal and bacterial
+    precultures and CYB/proline versus acetate-containing T-N tests. The attached
+    nitrogen-use excerpt does not establish these numerical values.
+  target_ids:
+  - CommunityMech:000015
+  field_paths:
+  - growth_media[0]
+  - environmental_factors[1]
+  evidence_ids:
+  - cultivation-2018
+  - cultivation-2024
+  - cross-mech
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    role: canonical_record
+- finding_id: metal-scope
+  issue_key: cm-000015-metal-scope
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded optional metadata or resource-provenance repair
+    without changing membership or the qualified graph.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Remove unsupported significant iron metadata
+  description: No environmental iron measurement or significant community metal-processing
+    function supports the optional iron metadata. The relevant FeCl3 is an analytical
+    reagent. Do not infer ecological metal significance from assay chemistry.
+  target_ids:
+  - CommunityMech:000015
+  field_paths:
+  - metals_present
+  - metal_relevance
+  - metal_notes
+  evidence_ids:
+  - iron
+  - schema
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    role: canonical_record
+- finding_id: resource-provenance
+  issue_key: cm-000015-resource-provenance
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded optional metadata or resource-provenance repair
+    without changing membership or the qualified graph.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Resolve cross-Mech links and add scoped study deposits
+  description: The exact current cross-Mech routes fail. CCAP TAP identity is verified
+    at a different path, while four historical numbered ingredient aliases remain
+    unresolved. A placeholder row is not an ingredient. Two directly verified 2024
+    deposits are omitted from the record and should be linked with accurate assay/version
+    scope.
+  target_ids:
+  - CommunityMech:000015
+  field_paths:
+  - growth_media[0].culturemech_url
+  - growth_media[0].composition[3].media_ingredient_mech_id
+  - growth_media[0].composition[4].media_ingredient_mech_id
+  - growth_media[0].composition[5].media_ingredient_mech_id
+  - growth_media[0].composition[6]
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - cross-mech
+  - resources
+  - data-statement
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    role: canonical_record
+actions:
+- action_id: reframe-experimental-pair
+  description: Represent the experimentally assembled community and source-specific
+    strains.
+  finding_ids:
+  - experimental-identity
+  target_ids:
+  - CommunityMech:000015
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Replace the unsupported natural coisolation narrative with the laboratory pairing.
+    Scope CC-1690/GR16T to 2018 and CC-5325/GR16T plus the distinct lao1 comparison
+    to 2024. Do not assign M017 or MG287145 to GR16T.
+  - Use SYNTHETIC origin for the assembled pair. Omit STABLE unless a source specifically
+    establishes community equilibrium; do not automatically substitute a different
+    unsupported state. Retain an appropriate algae-associated category without implying
+    natural collection.
+  - Revise environment_term and Aquatic Environment prose to distinguish cultivation
+    setting from source-organism habitat. Ground any replacement environment term
+    against OAK and the actual experiment, rather than treating a matching freshwater
+    label as provenance.
+- action_id: correct-non-graph-claims
+  description: Align description, taxonomy prose, ingredients and evidence with the
+    two experiments.
+  finding_ids:
+  - non-graph-source-scope
+  target_ids:
+  - CommunityMech:000015
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain supported 2018 proline-dependent glycerol/ammonium exchange and later cooperative
+    IAA removal as distinct observations. Attribute LAO1-dependent IAA biosynthesis
+    to the alga; remove unsupported bacterial IAA production, oxygen-mediated benefit,
+    generalized stress-survival and keystone claims.
+  - Correct related_ingredients[4] to the tested failure of free L-hydroxyproline
+    rescue, or remove the positive-utilization entry. Distinguish free L-Hyp from
+    Hyp-containing peptides. A matching abstract sentence cannot retain a contradictory
+    explanation; keep source version and exact Figure 1/Results locator.
+  - Retain PRIMARY_PRODUCER and the broad source-qualified metabolic-cooperation role,
+    without imposing obligatory or demonstrated energetic product-removal syntrophy.
+    Remove functional-role text from abundance_value and move supported prose to notes/evidence;
+    do not invent abundance numbers or ranks.
+  - Replace generic nitrogen-introduction evidence where it is used to establish a
+    specific mediator or method. Attach 2018 exchange evidence only to its context
+    and 2024 production/removal/response evidence to its own claims. Nitrate/nitrite
+    may remain explicitly contextual, not required assay ingredients.
+  - Preserve all three nodes and two arrows, including HYPOTHESIZED photosynthate
+    mediation and PARTIAL response mediation. Keep Salkowski versus HPLC/MS, supplied
+    acetate, unresolved pathway and monoculture-only Table S3 limits explicit. Reference
+    existing open issue 1292 and preserve closed 1290 graph history; create no duplicate
+    issue.
+- action_id: rebuild-cultivation
+  description: Recover study- and stage-specific conditions with direct evidence.
+  finding_ids:
+  - cultivation-protocols
+  target_ids:
+  - CommunityMech:000015
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Separate 2018 algal TAP and bacterial MeM precultures from the CYB/proline experiment.
+    Record source-supported 8 mM nitrogen substrate, pH 7.2±0.1, 250 µL V-bottom 96-well
+    assay, 25 C, continuous light and the distinct source endpoints/initial absorbances.
+    Scope 120 rpm to the preculture where stated, not an assumed plate-assay speed.
+  - Separate 2024 algal TAP preculture at 23 C/120 rpm from bacterial MeMT at 28 C/150
+    rpm and the T-N growth/depletion assays. Preserve acetate-containing nitrogen-free
+    formulation, specific washing/inoculum/assay conditions and the Methods versus
+    figure-caption timing differences rather than merge them into one range.
+  - Remove unsupported pH 7.0/range 7.0–7.5, temperature range 22–28 and light intensity
+    100 unless an exact source and stage independently supports each. Preserve the
+    25 C value only for its demonstrated 2018 context. Do not transfer the analytical
+    Salkowski 23–26 C temperature to cultivation.
+  - Audit every composition value against the exact study medium and preparation stage.
+    The source states 8 mM ammonium chloride for TAP preculture; nitrogen-free assays
+    omit it. Do not borrow generic CCAP TAP quantities, replace hydrates silently
+    or use a standard recipe name as evidence for the encoded concentrations.
+  - Supply concise exact-source method evidence and accurate locators for the recovered
+    conditions. Keep 2018 rights-restricted body/PDF outside the repository; use appropriately
+    limited excerpts or permitted citation/provenance, and preserve the 2024 licensed
+    excerpt boundary. No source-cache merge or full restricted-body import is authorized.
+- action_id: correct-metal-metadata
+  description: Remove the unsupported ecological iron interpretation.
+  finding_ids:
+  - metal-scope
+  target_ids:
+  - CommunityMech:000015
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove unsupported IRON and environmental-measurement prose. Omit metal relevance
+    or choose only a value supported by the study; do not assert significant iron
+    metabolism from FeCl3 reagent inclusion or trace-medium chemistry.
+  - If retaining any metal fact, state its analytical or medium role explicitly and
+    attach source-specific evidence. Do not infer iron absence or an untested physiological
+    incapacity.
+- action_id: repair-resource-links
+  description: Resolve maintained resource references and add the exact deposits.
+  finding_ids:
+  - resource-provenance
+  target_ids:
+  - CommunityMech:000015
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Correct the CultureMech 000139 link to its verified current CCAP TAP path only
+    where a reference-medium link is useful. Label it as a reference formulation,
+    not demonstrated equivalence to CYB, MeMT or T-N. Do not substitute the distinct
+    UTEX TAP record solely because it has the same short name.
+  - Resolve each numbered MIM identifier through an authoritative exact alias or explicitly
+    omit/mark unresolved the unsupported mapping. Current CHEBI-keyed K2HPO4, magnesium
+    sulfate and CaCl2 candidates verify chemical identity only. Repair links without
+    inventing aliases or transferring concentrations/hydration states.
+  - Remove the generic See source for composition row from structured ingredients.
+    Preserve its useful source pointer in medium provenance instead; no fictitious
+    MediaIngredientMech 000002 identity is established.
+  - Add Mendeley Data DOI 10.17632/bf5d3hn32z.1 as the source-linked version 1 deposit,
+    retaining its 2022 title/date. Add MassIVE MSV000092315/DOI 10.25345/C5862BN6C
+    with Partial Public status and algal Trp UHPLC-MS/MS production scope. Do not
+    describe either as proof of reanalysed coculture depletion, 2018 exchange or complete
+    data availability.
+  - Preserve the current immutable external-authority versions and source URLs. No
+    external repository edit, contact, raw payload download or new archive search
+    is required by this review.
+- action_id: validate-authorized-curation
+  description: Validate separately authorized changes and preserve the immutable review
+    trail.
+  finding_ids:
+  - experimental-identity
+  - non-graph-source-scope
+  - cultivation-protocols
+  - metal-scope
+  - resource-provenance
+  target_ids:
+  - CommunityMech:000015
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlamydomonas_Methylobacterium_Mutualism.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Append fresh curation history after authorized canonical changes. Run focused
+    schema, strict, term/label, reference, GTDB/domain and history checks; then just
+    gen-html and just check-docs-current. This review changes no canonical, source
+    cache, history or generated artifact and persists only a new immutable review
+    bundle.
+  - Verify every new excerpt against its exact declared source and section, with source-specific
+    rights and cache boundaries. Retain old review/source snapshots and access receipts.
+    Keep the qualified graph unchanged unless new direct causal evidence independently
+    supports a revision.
+limitations:
+- 'Both focal scientific main texts were read: the 2018 coauthor-hosted nine-page
+  PDF through the scientific conclusions and the 2024 fresh full XML. Lead viewed
+  all five 2018 figures/Table 1, all four 2024 figures and graphical abstract, and
+  all 2024 SI tables and nine figures. Root visual scope is separately recorded and
+  does not imply it viewed every SI image.'
+- The 2018 reciprocal-BLAST supplementary Table S1 was not obtained. No exact gene-inventory
+  claim in the current record depends on it; main Figure 4 remains explicitly putative.
+  The 2024 Figure360 video was inventoried but not viewed. Completed current-claim
+  review does not mean every ancillary asset or deposited raw file was inspected.
+- The 2018 abstract overgeneralizes substrate rescue relative to the clear free-L-Hyp
+  failure in main Results/Figure 1. The review preserves the exact source distinction
+  instead of converting the positive ingredient statement into a supported fact. Hyp-containing
+  peptides are different substrates.
+- The two papers use different algal strains and experimental media. Natural habitat
+  of a source organism, accidental M017 isolation, successful coculture growth and
+  a conceptual rhizosphere diagram do not establish natural pair coisolation, stable
+  equilibrium or field prevalence.
+- 2018 glycerol/ammonium evidence supports source-described exchange but is not exclusive
+  isotope-resolved transfer. The 2024 enabling algal factor and bacterial IAA catabolic
+  pathway remain unresolved. Salkowski measures acidic indoles and production HPLC/MS
+  is a different experiment; no detected ammonium in bacterial monocultures does not
+  exclude coculture mineralization.
+- 2024 prose/caption panel references and initial density/incubation descriptions
+  vary across assays. Preserve exact Methods and actual figure-panel attribution;
+  do not merge five-, seven- and eight-day endpoints or use a reagent-incubation temperature
+  as a culture range. No new statistical or biochemical reanalysis resolves these
+  source differences.
+- The broad SYNTROPHIC_PARTNER role does not itself encode the stricter SYNTROPHY
+  interaction test. Retaining it as source-qualified metabolic cooperation does not
+  assert obligatory dependence or a demonstrated energetic product-removal constraint.
+  No exact GTDB identity is available from the bounded local species lookup.
+- Cross-Mech identity does not prove study-recipe equivalence. All five encoded routes
+  fail at pinned current authorities, but the CCAP TAP ID is recovered at its actual
+  path. Four old numbered ingredient aliases remain unresolved; this is not proof
+  that they never existed. Chemical candidates do not resolve historical aliases or
+  hydrate concentrations.
+- Archive work is metadata-only. Mendeley version 1 has preprint-era metadata, and
+  MassIVE is Partial Public for the algal analytical production experiment. No file
+  completeness, raw spectrum validation, coculture data reuse or code execution is
+  claimed.
+- All nineteen existing snippets match fresh sources and caches, partitioned as fifteen
+  2018 abstract and four 2024 body occurrences. The maintained caches remain abstract-only
+  and selected licensed excerpts respectively. Lexical success does not validate their
+  incorrect surrounding interpretation. The rights-restricted 2018 PDF/body remains
+  scratch-only.
+- Current issue 1292 owns the non-graph follow-up; closed 1290 is prior graph-repair
+  provenance. Their text is not inherited source certification. Original inspection
+  and the exact skill-input extension remain preserved, and all 25 inspected inputs
+  are unchanged.
+- Eight focused native checks pass; corpus-level diagnostic nonzero exits retain their
+  original wider scope. Completeness 90 and raw quality 101/capped 100 are mechanical
+  scores, not a declaration that the five source-backed findings are resolved. No
+  canonical, cache, history, generated, paid-provider or author-contact action occurred.
+notes:
+- All 25 official inspected inputs remain unchanged. Original inspection and exact
+  skill-input extension are preserved. No canonical, cache, history, generated or
+  previously saved artifact was edited.
+- Lead and root independently assessed full scientific mains with exact separate SI/visual
+  scopes. Child owns immutable native/ontology receipts; sibling owns provenance,
+  resources, snippets and score arithmetic.
+- Three major and two minor findings give raw quality 101/capped 100; completeness
+  is 90. Current-claim completion preserves the explicit optional-source and metadata-only
+  limits.
+tags:
+- record-review
+- algal-bacterial-mutualism
+- main-and-critical-si-assessed
+- batch-10
