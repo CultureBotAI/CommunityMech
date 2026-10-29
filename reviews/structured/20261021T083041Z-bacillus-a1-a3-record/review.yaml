@@ -1,0 +1,1200 @@
+schema_version: 1.0.0
+review_id: 20261021T083041Z-bacillus-a1-a3-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Bacillus A1/A3 naphthalene biofilm consortium: whole-record review'
+started_at: '2026-10-21T08:26:05.615016Z'
+finished_at: '2026-10-21T08:30:41.129347Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Canonical target unchanged; prior codex curation prevents person-level
+    independence claims. Separate agents assessed primary text/figures, ontology,
+    native checks, accession metadata, snippets, history and metrics.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: One major finding corrects 150 rpm assigned to the static biofilm assay.
+  Two minor findings qualify B8-1-specific degradation optimization and resolve the
+  source-strain accession gap. All three graph nodes retain supported substrate-removal
+  interpretations and no arrows. Seven focused gates and cache preflight pass; corpus
+  network warning failures remain explicit.
+source:
+  git_revision: c6e5a9b9af2d05e12eaafb2555a53f3a079268f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium/2026-09-13T074018Z-codex-ed3941.yaml
+    sha256: 39539840a0220f4854d9cae545b344279fbf32128b79e416ccaf21b7f0b201a9
+    role: context
+  - path: history/records/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium/2026-10-02T055533Z-codex-bac425.yaml
+    sha256: 892d7b3aa1cc7ad9f7086e49d5453897ec5d7285c3f8862167d91c006f79f765
+    role: context
+  - path: history/records/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium/2026-10-05T101150Z-codex-63df6d.yaml
+    sha256: eaca0698fedf49745abdbd78c7b24fc7b486fca3d97bdaba9ed8f19cdd8f9815
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+    sha256: 9cf8152f3fd9b327db9471bcd6319706b40f2a65d4c92c162e8f79366a4db8d0
+    role: target
+  - path: references_cache/PMID_42587276.txt
+    sha256: 7bb5736b9f958ed0e4ab54005bac19761fa622a36af5e34bc6713241a1415cfd
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+    sha256: 5076ec8295dacfaae0ae1d829836e4380a312a702c4a43df5f604c3b1b1e0ad3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000358
+  path: kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  label: Bacillus A1-A3 Naphthalene Biofilm Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+    role: canonical_record
+scope:
+  description: 'Entire record: both source strains, three nodes, zero arrows, three
+    cultivation contexts and all twenty-eight evidence occurrences. Fresh main text,
+    Table 1, relevant figures, publication identity and all three source-reported
+    marker accessions were reviewed without sequence or raw-data reanalysis.'
+  selection: Next uncovered maintained path after CommunityMech:000383 in batch04;
+    one resolved two-isolate engineered consortium.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000358
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000358
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    all pinned inputs unchanged.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000358
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-strict kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+    --out /private/tmp/cm-review-session/batch-04/000358/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    all pinned inputs unchanged.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000358
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-terms kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    all pinned inputs unchanged.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000358
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    all pinned inputs unchanged.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000358
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    all pinned inputs unchanged.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000358
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-history history/records/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    all pinned inputs unchanged.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000358
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    all pinned inputs unchanged.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target native references passed; all twenty-eight snippets also match fresh
+    XML.
+  target_ids:
+  - CommunityMech:000358
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-references-explained kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    all pinned inputs unchanged.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  target_ids:
+  - CommunityMech:000358
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Reused fresh full-corpus batch04 execution; neither a target-specific
+    failure nor a pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  target_ids:
+  - CommunityMech:000358
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Reused fresh full-corpus batch04 execution; neither a target-specific
+    failure nor a pass.
+- check_id: primary-source
+  name: Publication identity and full scientific assessment
+  status: passed
+  required: true
+  summary: Fresh main text, Table 1 and relevant figures support a completed review
+    with explicit source inconsistencies.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - fulltext
+  - root-publisher-pdf
+  - pubmed
+  - crossref
+  - epmc
+  - independent-source
+- check_id: source-data
+  name: Marker-sequence identity and accession mapping
+  status: passed
+  required: true
+  summary: All three public partial-16S records verify the figure mappings; A1 and
+    A3 are separated from nonmember B8-1.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - figure12
+  - datasets
+  - archive-PV848451
+  - archive-PV848453
+  - archive-PV848454
+- check_id: cross-mech
+  name: Encoded medium and ingredient-Mech links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech ID is encoded; no unique MSM/TSB
+    recipe equivalence was certified.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - record
+  - conditions
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Same-runtime discovery was reused; no strain-module coverage was queried.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  locator: 'Entire target: two isolates, three nodes, zero arrows, three factors and
+    three medium contexts'
+  summary: The curated system is Consortium 3, A1 plus A3; B8-1 belongs to the broader
+    source screen and other consortia.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.121206Z'
+- evidence_id: fulltext
+  kind: primary_source
+  reference: PMID:42587276
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13471667/fullTextXML
+  summary: Fresh Europe PMC XML supplied the complete Introduction, Methods, Results/Discussion,
+    Conclusions and data statement.
+  support: supports
+  accessed_at: '2026-10-21T08:27:01.568668Z'
+  snapshot_sha256: 6e63e38b9ea11ececd0c84b70aa007287dfa0941092272caa65720ac17454a6c
+- evidence_id: root-publisher-pdf
+  kind: primary_source
+  reference: PMID:42587276
+  locator: https://bmcmicrobiol.biomedcentral.com/counter/pdf/10.1186/s12866-026-05144-y.pdf
+  summary: Fresh publisher PDF independently supplied full main text, Table 1 and
+    figures; Figures 8 and 12 were visually inspected by the lead reviewer.
+  support: supports
+  accessed_at: '2026-10-21T08:26:21.412965Z'
+  snapshot_sha256: 948386bc16bba82025403515a14f158f7e007c600018cd82772a0f7b5940d094
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42587276&retmode=xml
+  locator: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42587276&retmode=xml
+  summary: Fresh PubMed verifies PMID, DOI, PMCID, title and abstract.
+  support: supports
+  accessed_at: '2026-10-21T08:26:31.782433Z'
+  snapshot_sha256: 8e05193bf0e46a339151794844762391a52951b7cbd33929753c1dedb413c23b
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1186/s12866-026-05144-y
+  locator: https://api.crossref.org/works/10.1186/s12866-026-05144-y
+  summary: Fresh Crossref verifies the DOI and publication title.
+  support: supports
+  accessed_at: '2026-10-21T08:26:31.788567Z'
+  snapshot_sha256: a0a65136041a6008978dc288895662d50b96a3f66f38583e46792c650dad262c
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42587276&format=json&resultType=core
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42587276&format=json&resultType=core
+  summary: Fresh Europe PMC metadata identifies PMC13471667 and the matching publication.
+  support: supports
+  accessed_at: '2026-10-21T08:26:32.147729Z'
+  snapshot_sha256: 8eb7a2edbc382bd65e37cea1de9bb83a2ad5870676790f607006fe328b554bbb
+- evidence_id: identity-source
+  kind: primary_source
+  reference: PMID:42587276
+  locator: Methods Sec3-Sec5, Sec11/Table 1 and Sec15-Sec18; Results Sec20 and Sec30
+  summary: Petroleum-contaminated subsurface soil from Ras Gharib supplied the isolates.
+    Consortium 3 contains Bacillus paranthracis A1 and Bacillus licheniformis A3.
+    Table 1 reports 3458 uL A1 plus 1560 uL A3, despite equal-volume/final-5-mL prose;
+    neither a corrected ratio nor equal final abundance is inferred.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.122272Z'
+- evidence_id: naphthalene
+  kind: primary_source
+  reference: PMID:42587276
+  locator: Results Sec27; Figure 8b, PDF p.9
+  summary: Consortium 3 gives 92.43% planktonic and 94.69% biofilm parent removal,
+    versus A1/A3 41.01/38.92% and 87.72/64.57%, respectively. The authors interpret
+    enhancement as synergy; B8-1 alone can exceed the pair in the separate planktonic
+    comparison.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.122619Z'
+  quote: highest synergistic interaction
+  snapshot_sha256: 48ddb7346419d70101117e488659b85d622adf76b98fd6eff1d67dbd92715825
+- evidence_id: phenanthrene
+  kind: primary_source
+  reference: PMID:42587276
+  locator: Results Sec26 and Sec28; Figure 8a
+  summary: The pair removes 15.05% planktonically and 47.77% as biofilm, below both
+    member monocultures. Competition and antagonism are interpretations rather than
+    measured member harm.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.122622Z'
+  quote: may relate to an antagonistic effect
+- evidence_id: soil
+  kind: primary_source
+  reference: PMID:42587276
+  locator: Methods Sec14; Results Sec29; Figures 10-11
+  summary: A preformed Consortium 3 biofilm removes the reported fraction from artificially
+    contaminated soil over seven days; A1 is tested separately on phenanthrene. Negative
+    no-biofilm controls are described, without field or carbon-mineralization evidence.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.122623Z'
+  quote: 81.47% of naphthalene
+- evidence_id: regimes
+  kind: primary_source
+  reference: PMID:42587276
+  locator: Methods Sec12-Sec14, especially final sentence of Sec13; PDF pp.3-4
+  summary: The planktonic degradation tubes use 150 rpm; biofilm degradation tubes
+    are tightly sealed and static after TSB preformation and washing. Both use 7 mL
+    MSM, 37 C and seven days in the written PAH protocol.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.122625Z'
+  quote: without shaking for 7 days
+- evidence_id: optimization
+  kind: primary_source
+  reference: PMID:42587276
+  locator: Results Sec22-Sec23; Figures 3-6; PDF pp.5-7
+  summary: Growth responses were examined in all three selected isolates, but the
+    HPLC degradation optimization experiments were performed on B8-1. This supports
+    assay choices without establishing an A1/A3 consortium degradation optimum.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.122626Z'
+  quote: isolate B8-1 was selected
+- evidence_id: conditions
+  kind: primary_source
+  reference: PMID:42587276
+  locator: Methods Sec4, Sec7 and Sec12-Sec14
+  summary: Enrichment MSM starts at pH 7.0 +/- 0.2. Biofilm screening uses OD550 0.2
+    starter with an equal TSB volume; the degradation preformation protocol uses 3
+    mL TSB. Soil biofilms are preformed in 50 mL TSB in 100 mL flasks, liquid is removed,
+    and 5 g soil receives source-reported 200 mg/g PAH before seven-day closed-flask
+    incubation.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.122627Z'
+- evidence_id: mechanism
+  kind: primary_source
+  reference: PMID:42587276
+  locator: Results Sec26-Sec28; Discussion within these sections; Conclusion Sec31
+  summary: HPLC parent-compound disappearance and crystal-violet attachment are the
+    measured endpoints. Proposed metabolic exchange, pathway enzymes, competition
+    and bioavailability mechanisms were not tested as member-resolved causation or
+    carbon balance.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.122628Z'
+- evidence_id: figure12
+  kind: primary_source
+  reference: PMID:42587276
+  locator: Figure 12, PDF p.13; Methods Sec18 and Data availability notes3
+  summary: The figure explicitly maps PV848451 to B8-1, PV848453 to A1 and PV848454
+    to A3; this resolves the flattened-text mapping limitation without relying on
+    accession order.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.123016Z'
+  snapshot_sha256: e1f1c89482fd78b36d162278d586ab990877f7dfb7976b3f5ee724fc9bc39502
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO and CHEBI snapshots
+  locator: Six unique ID/label pairs at fourteen occurrences
+  summary: All labels match; both taxon anchors have species rank, laboratory/soil
+    terms fit distinct contexts, and naphthalene/phenanthrene remain distinct parent
+    chemicals.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.123201Z'
+  snapshot_sha256: bb41eb9339873542481fa089dde53719f6feefe58c774dd7f36f336f9c8119fb
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml; src/communitymech/schema/mech_shared.yaml
+  locator: AbundanceEnum; FunctionalRoleEnum; strain and medium fields
+  summary: DOMINANT permits co-equal prominence and is not a fixed percentage. PRIMARY_DEGRADER
+    is compatible with the source parent-substrate phenotype; 16S records must not
+    be represented as genome assemblies.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.123205Z'
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  locator: 'All source snippets: snippet-audit.json'
+  summary: All twenty-eight snippets match the pinned cache and fresh XML after NFKC/whitespace
+    normalization; five also match the fresh PubMed abstract. Lexical support is separate
+    from claim entailment.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.123340Z'
+  snapshot_sha256: 70ea51b62fb07a939ddd3bff5f43c82c2c39de406ddde760bb4a420d09c5bdc0
+- evidence_id: datasets
+  kind: validation
+  reference: ENA public sequence feature metadata
+  locator: 'dataset-verification.json: PV848451, PV848453 and PV848454'
+  summary: All three partial 16S records resolve with explicit strain names matching
+    Figure 12. Only A1 and A3 belong to Consortium 3; no raw sequence analysis or
+    independent taxonomic reassignment was performed.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.123522Z'
+  snapshot_sha256: 76d0a4dbf33f7046f81457a5851d2b1595914f9e691fabcf66fac567671e06ea
+- evidence_id: archive-PV848451
+  kind: database
+  reference: https://www.ebi.ac.uk/ena/browser/view/PV848451
+  locator: 'Public EMBL record: identification, description and source features'
+  summary: The deposited sequence is partial 16S, not a whole genome; strain and organism
+    features provide the accession mapping.
+  support: supports
+  accessed_at: '2026-10-21T08:27:29.240096Z'
+  snapshot_sha256: f148c2ed447b2fc5526e5565bdb57cd1e7c509c02a773b9e9fb28d66f78a520c
+- evidence_id: archive-PV848453
+  kind: database
+  reference: https://www.ebi.ac.uk/ena/browser/view/PV848453
+  locator: 'Public EMBL record: identification, description and source features'
+  summary: The deposited sequence is partial 16S, not a whole genome; strain and organism
+    features provide the accession mapping.
+  support: supports
+  accessed_at: '2026-10-21T08:27:29.227804Z'
+  snapshot_sha256: 66f60cdcf9efed6acb4fa8b49090c72948706112d98f1bd2e59ae3df4e8d0676
+- evidence_id: archive-PV848454
+  kind: database
+  reference: https://www.ebi.ac.uk/ena/browser/view/PV848454
+  locator: 'Public EMBL record: identification, description and source features'
+  summary: The deposited sequence is partial 16S, not a whole genome; strain and organism
+    features provide the accession mapping.
+  support: supports
+  accessed_at: '2026-10-21T08:27:29.237687Z'
+  snapshot_sha256: 1dbfa294d596670c64a2ea351086f2cfeff605d8b95b5dced1275899fdf2747a
+- evidence_id: history
+  kind: record_content
+  reference: history/records/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium; reports/causal_graph_review/decisions
+  locator: Three sidecars; batch5 target lines419-455
+  summary: The later graph decision matches the target hash; removal of the workflow
+    edge, obsolete GO terms and liquid-volume conflation remains intact.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.125302Z'
+  snapshot_sha256: 7c4d244a0b9333f6ff224df1f7d54f7a68d75abe32e16b085d11059788499baf
+- evidence_id: issue-1250
+  kind: database
+  reference: https://github.com/CultureBotAI/CommunityMech/issues/1250
+  locator: Fresh public issue body and state
+  summary: Closed graph-qualification repair; it does not certify cultivation metadata
+    or sequence completeness.
+  support: supports
+  accessed_at: '2026-10-21T08:27:29.603769Z'
+  snapshot_sha256: ae1f40dbe4e463207480ae1bb2bc78927f1d9c6da882071dcd72d920c4813bf3
+- evidence_id: issue-832
+  kind: database
+  reference: https://github.com/CultureBotAI/CommunityMech/issues/832
+  locator: Fresh public issue body and state
+  summary: Closed cultivation-volume repair distinguishes removed TSB liquid from
+    the subsequent soil assay.
+  support: supports
+  accessed_at: '2026-10-21T08:27:28.899708Z'
+  snapshot_sha256: 59cadd9c333596b9e8a5b5d556b6abadcf6f34d7acd8b014d5dd47604a5d6c5f
+- evidence_id: issue-833
+  kind: database
+  reference: https://github.com/CultureBotAI/CommunityMech/issues/833
+  locator: Fresh public issue body and state
+  summary: Closed obsolete-GO repair; obsolete identifiers remain historical prose,
+    not active process links.
+  support: supports
+  accessed_at: '2026-10-21T08:27:29.273715Z'
+  snapshot_sha256: 988781aabc2ea5bc38c3448e50458e13d0d739191e7ca07042718e0761e5e8ce
+- evidence_id: search
+  kind: search
+  reference: Owned-worktree kb/taxa, community/isolate records and source IDs
+  locator: Ignored-inclusive bounded identity lookup
+  summary: No reusable taxon or isolate matches the queried identities. Other community
+    records share species terms but do not establish the same A1/A3 strains; no exhaustive
+    synonym claim is made.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.126374Z'
+  snapshot_sha256: 3d7639167e6d2698877789b71f8ea3f5b590edea8e6880a1ce198ac4055f6409
+  search_scope: rg --no-ignore --hidden over the recorded taxon IDs, isolate names,
+    source PMID/DOI and record ID.
+- evidence_id: adapter
+  kind: search
+  reference: Optional kg-microbe-sources adapter
+  locator: Explicit same-batch04-runtime discovery reuse
+  summary: No installed runner/module was available in the recorded runtime; no strain-module
+    query or external-checkout execution occurred.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.126533Z'
+  snapshot_sha256: 8f92c2549036993fbfa606be6ec81d16f3bcb0d74ce591773b8a601771d9f81a
+  search_scope: Reused batch04 runtime/module and ignored-inclusive bounded discovery
+    with original timestamps.
+- evidence_id: native-target
+  kind: validation
+  reference: NetworkIntegrityAuditor().audit_community(target)
+  locator: 'support-audit.json: actual targeted API and native rubric'
+  summary: Targeted native audit is COMPLETE with no issues; six evidence items across
+    three nodes give mean evidence 2.0, independently from scientific claim assessment.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.126657Z'
+  snapshot_sha256: 81a6297e192ea2cfb4dff51be60b24c8526916c716512348dabd82325b3e6c40
+- evidence_id: independent-source
+  kind: validation
+  reference: PMID:42587276
+  locator: 'root-source-audit.json: full main text, Table 1, figures and archive metadata'
+  summary: Independent source reading agrees with the cultivation correction, optimization
+    qualification and resolvable accession gap.
+  support: supports
+  accessed_at: '2026-10-21T08:30:41.126888Z'
+  snapshot_sha256: b8f2b0a79a9f6af86945a3cb0fe2afd1ab5bdb1cfbda143c3ba1a0ef7e8ccb1a
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  locator: Actual execution 2026-10-21T08:26:19.386915+00:00 to 2026-10-21T08:26:20.164756+00:00
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T08:26:20.164756Z'
+  snapshot_sha256: e5ebf781120749635b73854caaf58ea04838613696fe3396f07ca7e7f285ee39
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-strict kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+    --out /private/tmp/cm-review-session/batch-04/000358/strict-report.tsv
+  locator: Actual execution 2026-10-21T08:26:19.387179+00:00 to 2026-10-21T08:26:22.512216+00:00
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T08:26:22.512216Z'
+  snapshot_sha256: 3db6b372a5f4fc049a467d111b4b7322f66df6c6f6b7e193c6a950161507e07a
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-terms kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  locator: Actual execution 2026-10-21T08:26:19.387266+00:00 to 2026-10-21T08:26:21.229727+00:00
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T08:26:21.229727Z'
+  snapshot_sha256: d3317b90d48672e0b82b05229d53850c9dd621a59dc44c55c8fc82bd7be8ce6b
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  locator: Actual execution 2026-10-21T08:26:20.165124+00:00 to 2026-10-21T08:26:20.261795+00:00
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T08:26:20.261795Z'
+  snapshot_sha256: 6125b7bc6dce87d82034a71c5e791025178e60d79a4029d261024f95c4547830
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  locator: Actual execution 2026-10-21T08:26:20.262097+00:00 to 2026-10-21T08:26:22.800503+00:00
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T08:26:22.800503Z'
+  snapshot_sha256: fb5a59bade641c986b5205c5606e5e7ee1d0209313bb4c93a9da3f0c50a84ade
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-history history/records/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium
+  locator: Actual execution 2026-10-21T08:26:21.230107+00:00 to 2026-10-21T08:26:23.064982+00:00
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-10-21T08:26:23.064982Z'
+  snapshot_sha256: 3aa3a8f82f05dd2a34991e75daaca29d3297a6b50907018ea84403e9d258f089
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T08:26:23.067136+00:00 to 2026-10-21T08:26:23.257042+00:00
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T08:26:23.257042Z'
+  snapshot_sha256: 5c5ce7bb04f26f2466b6cfab5d00df6756d6339652733cb11fb0c8b3127a306d
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-references-explained kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+  locator: Actual execution 2026-10-21T08:26:23.257922+00:00 to 2026-10-21T08:26:25.904394+00:00
+  summary: Target native references passed; all twenty-eight snippets also match fresh
+    XML.
+  support: supports
+  accessed_at: '2026-10-21T08:26:25.904394Z'
+  snapshot_sha256: f88663714322527e5b8adb4d77c64f1243e261fa77a895dadaa631dbdca7f7e6
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T07:06:05.543108+00:00 to 2026-10-21T07:06:16.498440+00:00
+  summary: Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  support: supports
+  accessed_at: '2026-10-21T07:06:16.498440Z'
+  snapshot_sha256: 7e9c998a5a9fe2b1a28c809bd5eb651205b3256dd64666ef7a9ca6fbde7504fa
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T07:06:16.498920+00:00 to 2026-10-21T07:06:23.361213+00:00
+  summary: Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  support: supports
+  accessed_at: '2026-10-21T07:06:23.361213Z'
+  snapshot_sha256: 5ba6a0b7c789574c80df1b60d81f0e54454b66e4f919949ad352cff92dd9744e
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Community, source strains and experiment
+  outcome: supported
+  summary: The defined two-isolate Consortium 3 resolves across Methods, Table 1,
+    Figure 12 and explicit archive features.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - record
+  - identity-source
+  - figure12
+  - datasets
+  - ontology
+  dimensions:
+  - name: community_scope
+    value: Engineered A1/A3 Consortium 3
+    definition: Two selected isolates form this consortium; the three-isolate screen
+      and other consortia are separate comparators.
+    evidence_ids:
+    - identity-source
+  - name: source_strain
+    value: B. paranthracis A1 and B. licheniformis A3
+    definition: Partial 16S accessions PV848453 and PV848454 resolve source isolate
+      names; species attribution remains source/database metadata rather than genome-based
+      reassignment.
+    evidence_ids:
+    - figure12
+    - datasets
+    - ontology
+  - name: environment
+    value: Laboratory culture with a modeled contaminated-soil application
+    definition: Ras Gharib petroleum soil supplies the isolates; the later artificial-soil
+      test uses soil from a non-contaminated environment.
+    evidence_ids:
+    - identity-source
+    - soil
+    - ontology
+  - name: medium
+    value: MSM PAH cultures, TSB preformation and artificial soil
+    definition: Distinct growth forms require distinct shaking regimes; initial liquid
+      PAH concentration and soil loading have different units.
+    evidence_ids:
+    - conditions
+    - regimes
+  - name: experimental_setting
+    value: Seven-day liquid and artificial-soil removal assays
+    definition: Static attached-biofilm and shaken planktonic cultures are compared;
+      TSB preformation precedes MSM or soil exposure.
+    evidence_ids:
+    - regimes
+    - conditions
+    - soil
+  - name: evidence_tier
+    value: In-vitro HPLC parent disappearance and biofilm staining
+    definition: Performance supports qualified consortium effects, not complete mineralization,
+      field efficacy, reciprocal member fitness or directional exchange.
+    evidence_ids:
+    - naphthalene
+    - phenanthrene
+    - soil
+    - mechanism
+  - name: grounding_status
+    value: Six canonical term pairs and explicit marker-sequence mapping
+    definition: Species labels and chemical identities verify; GTDB remains unresolved
+      and no assembly accession is inferred.
+    evidence_ids:
+    - ontology
+    - datasets
+    - adapter
+- assessment_id: taxonomy
+  area: grounding
+  topic: Both members, roles and ordinal abundance
+  outcome: supported
+  summary: Membership and individual PAH-removal results support the two source strains
+    and phenotype-level degradation role.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - identity-source
+  - naphthalene
+  - phenanthrene
+  - schema
+  - ontology
+  - datasets
+  details: The membership-only snippets could be supplemented with the already available
+    assay Results for role-level evidence. DOMINANT is interpreted as prominence of
+    both defined members, not a measured equilibrium ratio. OD standardization, unequal
+    Table 1 volumes and species terms do not establish final cell proportions or exact
+    strain taxIDs.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Consortium 3 naphthalene synergy'
+  outcome: supported
+  summary: The A1/A3 pair outperforms its two member monocultures at the stated HPLC
+    endpoints, with synergy retained as a qualified interpretation.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - record
+  - naphthalene
+  - mechanism
+  - ontology
+  details: Participants are A1 (NCBITaxon:2026186) and A3 (NCBITaxon:1402), compared
+    with each monoculture in the respective seven-day planktonic or biofilm assay.
+    The direction is increased parent-naphthalene disappearance by the pair; no metabolite
+    donor/recipient direction is established. B8-1 is excluded from membership and
+    from the claimed pair-versus-member comparison.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Lower Consortium Phenanthrene Removal'
+  outcome: supported
+  summary: The lower phenanthrene-removal phenotype and tentative antagonism interpretation
+    are appropriately separated.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - record
+  - phenanthrene
+  - mechanism
+  - ontology
+  details: A1/A3 Consortium 3 is the subject; both member monocultures are comparators
+    under matched planktonic or biofilm modes. The direction is reduced parent removal
+    by the combined culture. PARTIAL support does not demonstrate harm to both taxa
+    or nutrient competition as the cause.
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: Consortium 3 soil naphthalene removal'
+  outcome: supported
+  summary: The 81.47% seven-day artificial-soil result is supported without field
+    or mineralization claims.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - record
+  - soil
+  - conditions
+  - ontology
+  details: Participants are the preformed A1/A3 attached biofilm and naphthalene in
+    5 g artificially contaminated soil within a closed flask. Parent disappearance
+    is the endpoint; a no-biofilm negative control is reported. A1-only phenanthrene
+    performance is a different substrate test, not a matched member comparator for
+    the soil naphthalene result.
+- assessment_id: arrows
+  area: graph
+  topic: All downstream lists
+  outcome: not_applicable
+  summary: There are no directed arrows; the removed liquid-to-soil workflow edge
+    should remain absent.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - record
+  - history
+  - mechanism
+  - native-target
+- assessment_id: environment
+  area: scope
+  topic: Origin, category, state and environmental factors
+  outcome: concern
+  summary: SYNTHETIC, ENGINEERED, BIOREMEDIATION and the laboratory/soil grounding
+    fit, but the degradation-optimum claim extends beyond the tested isolate.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - record
+  - identity-source
+  - optimization
+  - ontology
+  details: The source-reported soil loading is retained in mg/g, distinct from liquid
+    mg/L. Empty metals/REE and NOT_APPLICABLE are consistent with the absence of a
+    demonstrated metal-processing role.
+- assessment_id: cultivation
+  area: scope
+  topic: All three media and the soil flask setup
+  outcome: concern
+  summary: Most conditions are source-backed, but the combined MSM entry gives a shaken
+    regime to an explicitly static biofilm assay.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - regimes
+  - conditions
+  - identity-source
+  details: TSB starter OD550 0.2 is recorded before dilution, not the final mixture
+    OD. The 50 mL TSB volume is removed before soil addition, so it is not soil working
+    volume. Soil pH and dissolved-oxygen control are not reported. MSM composition
+    is referred to another paper; that recipe authority was not independently audited
+    or inferred.
+- assessment_id: datasets
+  area: completeness
+  topic: Marker-sequence accession mapping and open discussion
+  outcome: concern
+  summary: Figure 12 and archive features resolve the current accession question;
+    those source-linked data can be added with marker scope.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - figure12
+  - datasets
+  - archive-PV848453
+  - archive-PV848454
+  details: PV848451 belongs to B8-1 and must not become a Consortium 3 member. The
+    three records are partial 16S sequences; no genome identity or independently verified
+    pathway follows.
+- assessment_id: provenance
+  area: provenance
+  topic: Cache, snippets, prior curation and current issues
+  outcome: supported
+  summary: The graph-only history and earlier cultivation/ontology repairs remain
+    distinct from the present non-graph findings.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - snippets
+  - history
+  - issue-1250
+  - issue-832
+  - issue-833
+  - search
+- assessment_id: validation
+  area: schema
+  topic: Native checks, ontology and source fidelity
+  outcome: supported
+  summary: Seven focused gates and cache preflight pass; six term pairs and all twenty-eight
+    source snippets verify, while corpus network warning failures remain explicit.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - ontology
+  - snippets
+  - check-validate
+  - check-validate-strict
+  - check-audit-network
+  - native-target
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and quality
+  outcome: supported
+  summary: Completeness is 95 and capped quality is 100; the native metrics do not
+    override the cultivation and scope findings.
+  target_ids:
+  - CommunityMech:000358
+  evidence_ids:
+  - record
+  - native-target
+  metrics:
+  - name: completeness
+    value: 95
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100, 50 required metadata including all taxon roles + 5 environment
+      + 10 at least 3 factors + 10 at least 3 nodes + 5 resources + 10 media + 5 datasets
+      + 5 node metabolites). 50 + 5 + 10 + 10 + 5 + 10 + 0 + 5 = 95.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 - 50P1 - 10P2 - 2P3 + 20 min(mean node evidence / 2, 1)
+      + 15 if native COMPLETE, 0, 100). P1=0, P2=1, P3=2, P4=0; 6 items / 3 nodes
+      = 2.0; native COMPLETE. 100 - 10 - 4 + 20 + 15 = 121 before capping; this is
+      not scientific approval.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P2
+    value: 1
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count for this reviewed target.
+findings:
+- finding_id: cultivation-regime
+  issue_key: cm-000358-cultivation-regime
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: a wrong physical cultivation regime changes the
+    source assay.'
+  rule_id: review-checklist.cultivation
+  status: open
+  certainty: confirmed
+  title: Combined MSM entry incorrectly applies shaking to the biofilm assay
+  description: growth_media[0] assigns 150 rpm to an entry covering both planktonic
+    and sealed biofilm degradation tubes. Methods explicitly incubates the biofilm
+    tubes without shaking. This changes the physical assay context and must not be
+    inherited from the planktonic experiment.
+  target_ids:
+  - CommunityMech:000358
+  field_paths:
+  - growth_media[0].shaking_speed
+  - growth_media[0].shaking_speed_unit
+  - growth_media[0].vessel_type
+  - growth_media[0].preparation_notes
+  - growth_media[0].evidence
+  evidence_ids:
+  - regimes
+  - conditions
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+    role: canonical_record
+- finding_id: optimization-scope
+  issue_key: cm-000358-optimization-scope
+  category: scope
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded optimization scope or resolvable sequence-resource
+    completeness; community identity and qualified graph remain intact.'
+  rule_id: review-checklist.claim_support
+  status: open
+  certainty: confirmed
+  title: Degradation optimization is generalized beyond B8-1
+  description: environmental_factors[2] says phenanthrene and naphthalene degradation
+    by the selected isolates was maximal at 37 C and pH 7. Detailed Results tests
+    growth in all three isolates, then selects B8-1 for HPLC degradation optimization;
+    it does not establish the same degradation optimum for A1/A3 Consortium 3.
+  target_ids:
+  - CommunityMech:000358
+  field_paths:
+  - environmental_factors[2].name
+  - environmental_factors[2].description
+  - environmental_factors[2].evidence[0].explanation
+  evidence_ids:
+  - optimization
+  - identity-source
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+    role: canonical_record
+- finding_id: accession-mapping
+  issue_key: cm-000358-accession-mapping
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded optimization scope or resolvable sequence-resource
+    completeness; community identity and qualified graph remain intact.'
+  rule_id: review-checklist.datasets
+  status: open
+  certainty: confirmed
+  title: The open accession gap is now resolvable
+  description: Engineering notes and the accession discussion retain uncertainty from
+    flattened text. Fresh Figure 12 and explicit archive strain features resolve A1
+    to PV848453 and A3 to PV848454; associated_datasets is absent despite these deposited
+    marker sequences.
+  target_ids:
+  - CommunityMech:000358
+  field_paths:
+  - engineering_design.notes
+  - discussions[0]
+  - taxonomy[0].strain_designation
+  - taxonomy[1].strain_designation
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - figure12
+  - datasets
+  - archive-PV848451
+  - archive-PV848453
+  - archive-PV848454
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+    role: canonical_record
+actions:
+- action_id: fix-cultivation-regime
+  description: Separate the planktonic and biofilm MSM assay regimes or otherwise
+    scope the shaking field so it cannot describe the static biofilm test.
+  finding_ids:
+  - cultivation-regime
+  target_ids:
+  - CommunityMech:000358
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain 150 rpm for planktonic degradation and explicitly static sealed incubation
+    for biofilm degradation.
+  - Keep source-backed 37 C, seven days, 7 mL MSM and 200 mg/L PAH in their respective
+    contexts.
+  - Distinguish screening TSB induction, 3 mL TSB degradation preformation and 50
+    mL TSB soil preformation.
+  - Do not assign the removed TSB volume to the soil assay.
+  - Add the claim-level Methods evidence and run strict, reference and network checks.
+- action_id: fix-optimization-scope
+  description: Separate all-isolate growth optima, B8-1-specific degradation optimization
+    and the selected conditions used in consortium assays.
+  finding_ids:
+  - optimization-scope
+  target_ids:
+  - CommunityMech:000358
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Use Results Sec22-Sec23 and Figures 3-6 for exact subject and endpoint.
+  - Retain 37 C and pH 7 as supported assay choices without calling them a measured
+    Consortium 3 degradation optimum.
+  - Do not add B8-1 to the curated pair.
+  - Run strict and reference validation.
+- action_id: fix-accession-mapping
+  description: Record the verified strain-to-marker mapping and resolve the discussion
+    with source and archive provenance.
+  finding_ids:
+  - accession-mapping
+  target_ids:
+  - CommunityMech:000358
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Represent A1/PV848453 and A3/PV848454 as partial 16S marker records rather than
+    genome assemblies.
+  - Keep B8-1/PV848451 outside Consortium 3 membership.
+  - Preserve source-reported species attribution and do not claim whole-genome taxonomic
+    verification.
+  - Use schema-appropriate notes, supporting evidence and dataset/resource fields;
+    do not force a marker into genome_accession.
+  - Update the open mapping discussion through normal history and run strict/reference
+    checks.
+limitations:
+- Both species identifications remain source-reported and archive-labeled partial
+  16S assignments. Each sequence is 820 bp; no whole-genome taxonomic resolution,
+  independent sequence analysis or isolate-specific NCBITaxon was inferred.
+- The article describes Illumina sequencing while archive metadata records Sanger.
+  The target does not encode a sequencing platform, so this is a source discrepancy
+  rather than an additional record finding.
+- Consortium-preparation prose says equal volumes and final 5 mL, but Table 1 lists
+  3458 uL A1 plus 1560 uL A3, totaling 5018 uL. The record preserves the table values;
+  no corrected ratio or final community abundance was invented.
+- Figure 8 caption misstates panel meaning; the plotted axes, values and Results identify
+  phenanthrene in panel a and naphthalene in panel b, with both growth modes in each.
+  No unreported significance test or complete mass balance is certified.
+- The source reports 200 mg/g soil loading, distinct from 200 mg/L liquid assays.
+  The unusual soil value was retained as reported, not silently converted. Soil pH
+  and dissolved-oxygen control are not specified in the inspected protocol.
+- The cited MSM recipe authority was not independently audited; no complete salt formulation
+  or unique CultureMech recipe is certified. TSB starter OD and distinct preformation
+  volumes were assessed without conflating them with final assay volume.
+- HPLC parent disappearance does not establish mineralization, exact transfer intermediates,
+  reciprocal fitness or field efficacy. The source pathway discussion was not treated
+  as measured gene/enzyme evidence.
+- Optional structured-adapter discovery was reused with its original same-runtime
+  scope. No external runner or strain-module query was executed; unresolved GTDB status
+  was not replaced with an inferred mapping.
+notes:
+- Canonical records, caches, history and generated outputs remain unchanged.
+- Direct source excerpts total 21 words for this publication.
+- All repository inputs were pinned by official inspect before assessment and rechecked
+  during candidate construction.
+tags:
+- record-review
+- synthetic-community
+- biofilm
+- pah
+- batch-04
