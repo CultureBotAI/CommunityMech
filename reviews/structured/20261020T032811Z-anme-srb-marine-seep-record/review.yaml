@@ -1,0 +1,1451 @@
+schema_version: 1.0.0
+review_id: 20261020T032811Z-anme-srb-marine-seep-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Marine ANME-SRB consortium: whole-record source and mechanism review'
+started_at: '2026-10-19T23:38:40.678792Z'
+finished_at: '2026-10-20T03:28:11.545405Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: This agent did not create or modify the target in this session.
+    Historical curation also used codex identity, so person-level independence is
+    unknown. Parent agent will assess and save in path order.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Natural ANME-SRB syntrophy and three qualified causal arrows are supported,
+  but the record overnarrows the SRB guild, assigns a complex-substrate role to methane
+  oxidation, overinterprets sulfur partner responses and tags chemical inhibition
+  as an evolved interspecies process. Four major and three minor findings remain.
+  All focused gates pass; corpus network warnings retain failed required checks.
+source:
+  git_revision: a4611c913c8da9619673df63a0c2cce3aa206a83
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/evidence-curation/SKILL.md
+    sha256: 5c5e3c62dc733c762afbf790b270b978b5c523930dbe6c74a88beda81007f396
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/records/ANME_SRB_Marine_Methane_Seep_Consortium/2026-10-05T035546Z-claude-code-4e4f45.yaml
+    sha256: 2c58d228c3b70795d86095ea278090a63fafb016d2b9b37b518d27d240756a32
+    role: context
+  - path: history/records/ANME_SRB_Marine_Methane_Seep_Consortium/2026-10-05T035647Z-codex-c58798.yaml
+    sha256: 0f566ba70bb8e90784329375e3f80ab8dbe89fa8106b19e8519200dc6ef3d8c3
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+    sha256: 33b202bc07eceb38a47c560434734e8b21f1b251bf20433964af97aef3568b6b
+    role: context
+  - path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    sha256: 45dd6c7f42e725c1e51ec80e03b32e78235377a99d9dc56bafae6acccdeb7bb7
+    role: target
+  - path: references_cache/PMID_30559729.txt
+    sha256: 1d943439fef6412758366f5c9484d00cae154a76f8ee86e5c83db26ca2b11380
+    role: context
+  - path: references_cache/PMID_33975943.txt
+    sha256: 811b528559e96e18ba965ae838b5695d23489e818e6ec72c142314e9863ace5d
+    role: context
+  - path: references_cache/PMID_34986141.md
+    sha256: b80c683492ae4f62f0b8d428133da45951adca660be52fafc3ffe7af2b0091af
+    role: context
+  - path: references_cache/PMID_37747940.md
+    sha256: c5b2b9130daf5651a556bf7ccb7118c7b8bf2fbf7386ca373598e042df2c76de
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261004.yaml
+    sha256: 20766bd0133d941c0bf91d42f485b12022b3e2ac59fdaa8f434ffb291e61f8d5
+    role: context
+  - path: reports/causal_graph_review/decisions/20261004-four-records.yaml
+    sha256: 78e90ab701090461d09df57d1fbc348e97676e4d96197f26f58fbe0427845f32
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: e5a87e5367609334ec0d6361f6ddafbe6bc4a1f7d93e5264c64688c28325910f
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000134
+  path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  label: ANME-SRB Marine Methane Seep Consortium
+  record_class: MicrobialCommunity
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    role: canonical_record
+scope:
+  description: Entire one maintained marine ANME-SRB record; every taxon, condition,
+    resource and provenance field, four interaction nodes and all three downstream
+    arrows.
+  selection: Ninth uncovered repository-relative path in the parent goal queue over
+    kb/communities/*.yaml and data/isolates/*.yaml. One resolved target; parent saves
+    in path order.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000134
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Focused recipe passed with exit 0; no ontology skip.
+  target_ids:
+  - CommunityMech:000134
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Single target; exact history directory. Cache-name precheck has corpus
+    scope.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Focused recipe passed with exit 0; no ontology skip.
+  target_ids:
+  - CommunityMech:000134
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-strict kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    --out /private/tmp/cm-review-session/000134/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Single target; exact history directory. Cache-name precheck has corpus
+    scope.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Focused recipe passed with exit 0; no ontology skip.
+  target_ids:
+  - CommunityMech:000134
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-terms kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Single target; exact history directory. Cache-name precheck has corpus
+    scope.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Focused recipe passed with exit 0; no ontology skip.
+  target_ids:
+  - CommunityMech:000134
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-gtdb kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Single target; exact history directory. Cache-name precheck has corpus
+    scope.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Focused recipe passed with exit 0; no ontology skip.
+  target_ids:
+  - CommunityMech:000134
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-gtdb-domain kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Single target; exact history directory. Cache-name precheck has corpus
+    scope.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Focused recipe passed with exit 0; no ontology skip.
+  target_ids:
+  - CommunityMech:000134
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-history history/records/ANME_SRB_Marine_Methane_Seep_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Single target; exact history directory. Cache-name precheck has corpus
+    scope.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Corpus cache-name precheck passed; cited cache hashes unchanged after reference
+    recipe.
+  target_ids:
+  - CommunityMech:000134
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Single target; exact history directory. Cache-name precheck has corpus
+    scope.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Focused recipe passed with exit 0; no ontology skip.
+  target_ids:
+  - CommunityMech:000134
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-references-explained kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Single target; exact history directory. Cache-name precheck has corpus
+    scope.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: 'Full-corpus exit 1: 462 records, 57 warnings in 21 records, zero errors.
+    No target-specific finding. Reused current-session output at same Git base with
+    unchanged corpus, not a new execution.'
+  target_ids:
+  - CommunityMech:000134
+  command: just --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  scope_note: Complete community/isolate corpus; unrelated warnings remain failed
+    required gates.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: 'Full-corpus exit 1: 462 records, 57 warnings in 21 records, zero errors.
+    No target-specific finding. Reused current-session output at same Git base with
+    unchanged corpus, not a new execution.'
+  target_ids:
+  - CommunityMech:000134
+  command: just --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  scope_note: Complete community/isolate corpus; unrelated warnings remain failed
+    required gates.
+- check_id: source-adapter
+  name: Structured-source runner discovery
+  status: unavailable
+  required: false
+  summary: Runner unavailable in bounded current-session discovery; public iModulonDB
+    catalog fallback completed with no matching ANME/SRB dataset.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - imodulondb
+  scope_note: Optional runner unavailable; source-catalog applicability is assessed,
+    not silently skipped.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  locator: 'Entire 410-line maintained record: two taxonomic guild descriptors, four
+    interaction nodes, three downstream arrows, four environmental factors, two related
+    ingredients, one dataset, one medium and discussion/history'
+  accessed_at: '2026-10-19T23:38:40.678792Z'
+  support: supports
+  summary: The target denotes the natural marine ANME-SRB consortium type, combining
+    genomic/mechanistic synthesis with two sulfur-perturbation experiments. It is
+    not a single cultured strain pair.
+- evidence_id: sr-biology
+  kind: primary_source
+  reference: PMID:37747940
+  locator: PMC10553843; DOI:10.1371/journal.pbio.3002292; abstract and Introduction;
+    retrieved https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10553843/fullTextXML
+  accessed_at: '2026-10-19T23:39:03.586130Z'
+  support: supports
+  summary: Murali et al. 2023, PLOS Biology, analyzes four common syntrophic SRB clades
+    and their archaeal partners. The paper supports the natural multicellular partnership
+    and heterogeneous partner associations.
+  snapshot_sha256: 69704c54f4ea1afbbbda28969074a9482ca887e19cedda13ddf0c4bb1f65837f
+  quote: obligate syntrophic partnership
+- evidence_id: sr-diet
+  kind: primary_source
+  reference: PMID:37747940
+  locator: Abstract, DIET complexes; Results conserved outer-membrane electron uptake;
+    retrieved https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10553843/fullTextXML
+  accessed_at: '2026-10-19T23:39:03.586130Z'
+  support: supports
+  summary: Comparative metagenomics supports conserved candidate electron-transfer
+    machinery from ANME to the SRB outer membrane. Molecular conservation is not direct
+    identification of every conductive structure in the mixed consortium type.
+  snapshot_sha256: 69704c54f4ea1afbbbda28969074a9482ca887e19cedda13ddf0c4bb1f65837f
+  quote: direct interspecies electron transfer (DIET)
+- evidence_id: sr-taxonomy
+  kind: primary_source
+  reference: PMID:37747940
+  locator: Main-text Fig1 caption and Results phylogenetic placement; extracted body
+    paragraphs7-8; retrieved https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10553843/fullTextXML
+  accessed_at: '2026-10-19T23:39:03.586130Z'
+  support: supports
+  summary: The study places Seep-SRB1a within Desulfobacterales, Seep-SRB2 within
+    Dissulfuribacterales, HotSeep-1 within Desulfofervidales, and Seep-SRB1g in a
+    sister order to Desulfobacterales. Thus the record order is not a conservative
+    ancestor of all its source-covered SRB.
+  snapshot_sha256: 69704c54f4ea1afbbbda28969074a9482ca887e19cedda13ddf0c4bb1f65837f
+  quote: Seep-SRB2 is a genus within the order Dissulfuribacterales
+- evidence_id: sr-cultivation
+  kind: primary_source
+  reference: PMID:37747940
+  locator: Methods, Sample collection and microcosm incubations; body paragraphs42-43;
+    retrieved https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10553843/fullTextXML
+  accessed_at: '2026-10-19T23:39:03.586130Z'
+  support: supports
+  summary: Source explicitly separates sediment methane/HPG incubations at 4°C, a
+    no-donor 24°C push-core incubation, a pyruvate 24°C rock incubation, and methane
+    50°C rock incubations. It also distinguishes N2 storage at 4°C from incubation.
+    The record preparation notes largely preserve these variants.
+  snapshot_sha256: 69704c54f4ea1afbbbda28969074a9482ca887e19cedda13ddf0c4bb1f65837f
+  quote: supplemented with pyruvate at 24°C
+- evidence_id: anme-genomics
+  kind: primary_source
+  reference: PMID:34986141
+  locator: PMC9012536; DOI:10.1371/journal.pbio.3001508; abstract, Introduction and
+    ANME metabolism; retrieved https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9012536/fullTextXML
+  accessed_at: '2026-10-19T23:39:00.909318Z'
+  support: supports
+  summary: Chadwick et al. 2022 describes environmental ANME diversity and genomic
+    electron-transfer potential. Marine ANME are multiple clades, and absence of pure
+    cultures is a source-era statement; broad domain grounding is expressly a coarse
+    guild representation.
+  snapshot_sha256: 94cb7ae781637f75318ea592f5a35ad7fd9ace351a2e7e40cba675dc2ff40c23
+  quote: syntrophic partnership between anaerobic methanotrophic (ANME) archaea and
+    sulfate-reducing bacteria (SRB)
+- evidence_id: anme-data
+  kind: primary_source
+  reference: PMID:34986141
+  locator: Abstract, Table1 accession column and Data Availability; retrieved https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9012536/fullTextXML
+  accessed_at: '2026-10-19T23:39:00.909318Z'
+  support: supports
+  summary: The paper reports 28 newly reconstructed genomes and a larger comparative
+    collection. Actual genome accession values are supplied in Table 1, with alignments/annotation
+    data in supplements. The record stores the publication PMID as its dataset accession
+    rather than one of those data identifiers.
+  snapshot_sha256: 94cb7ae781637f75318ea592f5a35ad7fd9ace351a2e7e40cba675dc2ff40c23
+  quote: reconstruct 28 ANME genomes
+- evidence_id: diet-model
+  kind: primary_source
+  reference: PMID:33975943
+  locator: PMC8263020; DOI:10.1128/mBio.03620-20; Introduction paragraph2, model Results
+    and limitations; retrieved https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8263020/fullTextXML
+  accessed_at: '2026-10-19T23:39:00.622050Z'
+  support: supports
+  summary: The 2021 article models electron transport and consortium size. Pili, cytochromes
+    and S-layer-associated multiheme proteins motivate a possible DIET conduit, but
+    the specific structures and parameters were incompletely characterized. This is
+    a modeling hypothesis, not a causal perturbation proving each component.
+  snapshot_sha256: f2fbfa873fd69fbfb2d7acf94dceef8c80ec321d4a36842b3748c2f1c2571118
+  quote: this hypothesis awaits direct experimental confirmation
+- evidence_id: sulfite
+  kind: primary_source
+  reference: PMID:30559729
+  locator: PMC6286981; DOI:10.3389/fmicb.2018.02917; Methods microcosm assay and Results
+    paragraph35/Fig5A; retrieved https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6286981/fullTextXML
+  accessed_at: '2026-10-19T23:39:01.500323Z'
+  support: supports
+  summary: Sediment 7142, dominated by ANME-2a/2c, showed reduced labeled methane
+    oxidation after 1.0 mM sulfite addition. Readout was labeled dissolved inorganic
+    carbon, so the observed consortium-rate decline should remain distinct from a
+    proven cell-intrinsic toxic mechanism.
+  snapshot_sha256: fde1e90f9e1a419140e2fb773b9ef8c8a8a9bf8340a73040c8c038df129d2595
+  quote: immediate decrease in the rate of AOM
+- evidence_id: zero-sulfur
+  kind: primary_source
+  reference: PMID:30559729
+  locator: Results paragraph37 and Fig5B/caption; short-term sediment 7142 assay;
+    retrieved https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6286981/fullTextXML
+  accessed_at: '2026-10-19T23:39:01.500323Z'
+  support: supports
+  summary: Polythionate and polysulfide treatments inhibited methane oxidation. Main
+    text associates 1.0 mM with polythionate and 0.25 mM with polysulfide, while the
+    figure caption says greater than 0.25 mM polysulfide. This source difference and
+    compound-specific doses should not become one continuous interchangeable range.
+  snapshot_sha256: fde1e90f9e1a419140e2fb773b9ef8c8a8a9bf8340a73040c8c038df129d2595
+  quote: polythionate and polysulfide
+- evidence_id: srb-response
+  kind: primary_source
+  reference: PMID:30559729
+  locator: Abstract and Results final sulfur-amendment paragraph; separate partner-enrichment
+    observations; retrieved https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6286981/fullTextXML
+  accessed_at: '2026-10-19T23:39:01.500323Z'
+  support: refutes
+  summary: The paper reports failure to obtain partner SRB growth/enrichment under
+    sulfur amendments. That is not a demonstrated unchanged SRB response, and does
+    not support environmental_factors wording that the partner was comparatively unaffected.
+  snapshot_sha256: fde1e90f9e1a419140e2fb773b9ef8c8a8a9bf8340a73040c8c038df129d2595
+  quote: growth in their syntrophic SRB partner was not observed
+- evidence_id: authority
+  kind: authority
+  reference: https://semanticsql.berkeleybop.io/
+  locator: Read-only local NCBITaxon/GO/ENVO queries; exact extracted query JSON is
+    /private/tmp/cm-review-session/000134/ontology-authority.json; its SHA256 is recorded,
+    not a whole database checksum
+  accessed_at: '2026-10-19T23:40:14.593736Z'
+  support: supports
+  summary: NCBI places Candidatus Desulfofervidus/auxilii in Desulfofervidales, outside
+    Desulfobacterales; Dissulfuribacterales is another distinct order. GO:0044419
+    denotes a process evolved to enable an interaction with a different species. ENVO
+    sediment is broad but correct, with a more specific marine-sediment term available.
+  snapshot_sha256: 4d8c86ecca413f577d131dc36c21e48bffd05564596b0da7c9761516314cfe9f
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: FunctionalRoleEnum, GrowthMedium, AssociatedDataset and InteractionDownstream
+  accessed_at: '2026-10-19T23:43:16.047786Z'
+  support: supports
+  summary: PRIMARY_DEGRADER means degradation of complex substrates; methane oxidation
+    alone does not establish that role. Growth-medium composition is a single ingredient
+    list; conditions in alternatives need explicit context. Chemical perturbation
+    is distinguishable from an evolved interspecies mechanism.
+- evidence_id: history
+  kind: record_content
+  reference: history/records/ANME_SRB_Marine_Methane_Seep_Consortium/
+  locator: Both append-only files; embedded history; target entry in reports/causal_graph_review/decisions/20261004-four-records.yaml
+  accessed_at: '2026-10-19T23:43:16.048534Z'
+  support: supports
+  summary: Previous curation consolidated DIET into one qualified edge and separated
+    sulfur toxicity from organismal competition. Append-only actor correction preserves
+    the initial event. The open discussion asks about the actual conduit and does
+    not claim that sulfur-inhibition experiments identify it.
+- evidence_id: related-record
+  kind: record_content
+  reference: kb/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.yaml
+  locator: Identity and introductory description of CommunityMech:000276; cross-reference
+    from target embedded history
+  accessed_at: '2026-10-19T23:43:16.048537Z'
+  support: supports
+  summary: The cross-reference resolves to the related 2025 record, which describes
+    specific sediment-free enrichment types and conductance measurements. It overlaps
+    the natural consortium type while preserving distinct study and assay scope. Its
+    title or existence alone does not justify automatic consolidation.
+- evidence_id: cache-metadata
+  kind: record_content
+  reference: references_cache/PMID_37747940.md
+  locator: Header line5 Source:mBio,2023 versus appended source XML journal-title
+    PLOS Biology and DOI:10.1371/journal.pbio.3002292
+  accessed_at: '2026-10-19T23:43:16.048541Z'
+  support: refutes
+  summary: The cache header misidentifies the journal; primary metadata/full text
+    consistently identify PLOS Biology. The PMID, title and appended article identity
+    still resolve correctly.
+- evidence_id: imodulondb
+  kind: database
+  reference: https://imodulondb.org/api/datasets
+  locator: Complete public catalog snapshot with 20 organisms/28 datasets, independently
+    inspected for ANME and marine partner lineages
+  accessed_at: '2026-10-19T23:31:07.726770Z'
+  support: context_only
+  summary: The catalog has no matching ANME or target marine SRB lineage. Its Sulfolobus
+    dataset does not represent ANME simply because both belong to Archaea. Candidate
+    conduit/pathway assertions therefore have no matching iModulonDB dataset key in
+    this catalog.
+  snapshot_sha256: 155607e7023efdead5ebab3919279a0776d5665a7de9e28b67f02f8f521b0693
+  search_scope: Runner discovery was bounded to PATH and the isolated checkout runtime;
+    the user excluded execution in other checkouts. The public API fallback covers
+    every organism/dataset row in the retained response. Catalog absence is not negative
+    biological evidence.
+- evidence_id: search
+  kind: search
+  reference: kb/taxa; references_cache; history/records; reports/causal_graph_review
+  locator: Gitignore-independent bounded identifier/slug and taxon searches
+  accessed_at: '2026-10-19T23:43:16.049747Z'
+  support: context_only
+  summary: All four cited caches and both history files were located. No reusable
+    taxon record was returned for the bounded ANME/Desulfobacterales/Desulfofervidus/Desulfomithrium/Methanophagales
+    query in kb/taxa. No external_resources entry occurs in the full target.
+  search_scope: rg --no-ignore --hidden --files searched references_cache/history
+    for PMID:30559729,33975943,34986141,37747940 and target slug; rg --no-ignore --hidden
+    -l searched kb/taxa for ANME|Desulfobacterales|Desulfofervidus|Desulfomithrium|Methanophagales.
+    Ignored files included; no credential files read. Source analysis covers the cited
+    main articles, not every linked supplement or all future publications.
+- evidence_id: snippet-audit
+  kind: validation
+  reference: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  locator: Independent normalized match of all 21 EvidenceItem snippets against four
+    current Europe PMC full-text XML snapshots
+  accessed_at: '2026-10-19T23:43:16.050242Z'
+  support: supports
+  summary: Every stored snippet occurs in the inspected source after whitespace normalization.
+    Narrow experimental scope, ontology semantics and the interpretation of SRB growth
+    remain separate from matching text.
+  snapshot_sha256: cb2369a491c2e3c15a91b5a104273355a61f380a07c1d1f67b72bb58013c0621
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  locator: Actual execution started 2026-10-19T23:38:50.431259+00:00; finished 2026-10-19T23:38:51.245192+00:00
+  accessed_at: '2026-10-19T23:38:51.245192Z'
+  support: supports
+  summary: Focused recipe passed with exit 0; no ontology skip.
+  snapshot_sha256: 55b30b44a1fdd1f35a93a80e8c4c0b28e501e2e8eb149da41d9ac4e0508c4ac6
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-strict kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    --out /private/tmp/cm-review-session/000134/strict-report.tsv
+  locator: Actual execution started 2026-10-19T23:38:50.431460+00:00; finished 2026-10-19T23:38:52.939844+00:00
+  accessed_at: '2026-10-19T23:38:52.939844Z'
+  support: supports
+  summary: Focused recipe passed with exit 0; no ontology skip.
+  snapshot_sha256: 2ef4f6eab4b7437dbd3cc925970e15dc4f09dc6ebc15c53c36cc8650bd326313
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-terms kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  locator: Actual execution started 2026-10-19T23:38:50.431557+00:00; finished 2026-10-19T23:38:52.766771+00:00
+  accessed_at: '2026-10-19T23:38:52.766771Z'
+  support: supports
+  summary: Focused recipe passed with exit 0; no ontology skip.
+  snapshot_sha256: 43c6338a2473e4030b70019dc14612c4a96b917831508a3a50ab1df639550320
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-gtdb kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  locator: Actual execution started 2026-10-19T23:38:51.245483+00:00; finished 2026-10-19T23:38:51.348400+00:00
+  accessed_at: '2026-10-19T23:38:51.348400Z'
+  support: supports
+  summary: Focused recipe passed with exit 0; no ontology skip.
+  snapshot_sha256: c55fce49f2519de0febba6fd53a7d12f7a1c5e292ed797577df4b7f263e09276
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-gtdb-domain kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  locator: Actual execution started 2026-10-19T23:38:51.348752+00:00; finished 2026-10-19T23:38:53.061820+00:00
+  accessed_at: '2026-10-19T23:38:53.061820Z'
+  support: supports
+  summary: Focused recipe passed with exit 0; no ontology skip.
+  snapshot_sha256: 04cef1c155b438ef182cdfa73469569de91f38796496077775abd325e12cb213
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-history history/records/ANME_SRB_Marine_Methane_Seep_Consortium
+  locator: Actual execution started 2026-10-19T23:38:52.767133+00:00; finished 2026-10-19T23:38:54.263060+00:00
+  accessed_at: '2026-10-19T23:38:54.263060Z'
+  support: supports
+  summary: Focused recipe passed with exit 0; no ontology skip.
+  snapshot_sha256: 95aa42e7271c366ec7f642c78153dc0b7937a80561404f2d8b383c3a6e578f60
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution started 2026-10-19T23:38:54.268004+00:00; finished 2026-10-19T23:38:54.374670+00:00
+  accessed_at: '2026-10-19T23:38:54.374670Z'
+  support: supports
+  summary: Corpus cache-name precheck passed; cited cache hashes unchanged after reference
+    recipe.
+  snapshot_sha256: febe81cb3a6562f7c144fe7435e2ba20e4f893451e73c5d8bc7a1fadde85260e
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-references-explained kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+  locator: Actual execution started 2026-10-19T23:38:54.375129+00:00; finished 2026-10-19T23:38:57.145400+00:00
+  accessed_at: '2026-10-19T23:38:57.145400Z'
+  support: supports
+  summary: Focused recipe passed with exit 0; no ontology skip.
+  snapshot_sha256: 31b03a0dbb9460711d598af25675ad9d0f66ce7106c3a0d0f92232192d02466c
+- evidence_id: check-audit-network
+  kind: validation
+  reference: just --no-dotenv audit-network
+  locator: Actual corpus execution finished 2026-10-19T07:30:27.845593+00:00
+  accessed_at: '2026-10-19T07:30:27.845593Z'
+  support: context_only
+  summary: 'Full-corpus exit 1: 462 records, 57 warnings in 21 records, zero errors.
+    No target-specific finding. Reused current-session output at same Git base with
+    unchanged corpus, not a new execution.'
+  snapshot_sha256: bedf3fd18a964bda429f7c6b5feb01b8918e1440b48a4329664501161c80e3f4
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: just --no-dotenv check-network-quality
+  locator: Actual corpus execution finished 2026-10-19T07:30:43.193891+00:00
+  accessed_at: '2026-10-19T07:30:43.193891Z'
+  support: context_only
+  summary: 'Full-corpus exit 1: 462 records, 57 warnings in 21 records, zero errors.
+    No target-specific finding. Reused current-session output at same Git base with
+    unchanged corpus, not a new execution.'
+  snapshot_sha256: 885e62e84ed8d3e69a6e5ef5be43f941ef64d756107c3b062846831f76e081aa
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Natural consortium-type scope and related record
+  outcome: supported
+  summary: The target clearly denotes marine ANME-SRB syntrophy as a recurring community
+    type rather than a specified two-isolate culture. NATURAL origin and SYNTROPHY
+    category are supported. STABLE is a broad catalog characterization without a defined
+    longitudinal stability assay in the record. Related 000276 overlaps this type
+    but covers different experimental evidence; no record merge is performed or inferred.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - sr-biology
+  - anme-genomics
+  - related-record
+  - history
+  dimensions:
+  - name: community_scope
+    value: Natural ANME-SRB consortium type across marine methane seeps
+    definition: Different ANME/SRB lineages and source samples are not one exact strain
+      pair.
+    evidence_ids:
+    - record
+    - sr-biology
+  - name: experimental_setting
+    value: Marine sediments/rocks plus laboratory microcosms and comparative genomes
+    definition: Perturbation and growth conditions belong to particular sampled material.
+    evidence_ids:
+    - sr-cultivation
+    - sulfite
+  - name: biomass_state
+    value: Environmental multicellular aggregates; separately incubated sediment and
+      rock samples
+    definition: FACS-isolated aggregates provide genomic material, not axenic partner
+      isolates.
+    evidence_ids:
+    - sr-biology
+    - sr-cultivation
+  - name: source_category
+    value: Comparative genomics, mathematical modeling and in vitro chemical perturbations
+    definition: Keep computational mechanism support separate from measured AOM changes.
+    evidence_ids:
+    - sr-diet
+    - diet-model
+    - sulfite
+- assessment_id: taxonomy-anme
+  area: grounding
+  topic: taxonomy[0] ANME descriptor and functional role
+  outcome: concern
+  summary: Archaea/domain grounding is intentionally broad and canonical labels resolve.
+    It preserves the polyphyletic functional guild without inventing a species or
+    strain. Lack of pure culture is not itself a reason that clade-level taxonomy
+    cannot exist. The assigned PRIMARY_DEGRADER role is inconsistent with the schema
+    complex-substrate definition for the demonstrated methane substrate.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - anme-genomics
+  - schema
+  - authority
+  dimensions:
+  - name: taxon_rank
+    value: 'NCBITaxon:2157 and GTDB:d__Archaea: domain'
+    definition: Broad functional-guild annotation, not all Archaea performing AOM.
+    evidence_ids:
+    - record
+    - authority
+  - name: source_clades
+    value: Multiple ANME clades; perturbation sediment dominated by ANME-2a/2c
+    definition: The domain descriptor must not erase assay-specific clade limitations.
+    evidence_ids:
+    - anme-genomics
+    - sulfite
+- assessment_id: taxonomy-srb
+  area: grounding
+  topic: taxonomy[1] SRB order grounding
+  outcome: concern
+  summary: The generic SRB guild and syntrophic role are supported, but Desulfobacterales
+    cannot represent all common lineages covered by the source. The 2023 phylogeny
+    places several partners in other orders; the NCBI Desulfofervidus chain confirms
+    one exclusion independently. Correct spelling and GTDB arithmetic do not resolve
+    this semantic mismatch.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - sr-taxonomy
+  - authority
+  dimensions:
+  - name: taxon_rank
+    value: 'NCBITaxon:213118/GTDB:o__Desulfobacterales: order'
+    definition: Current descriptor is narrower than the source-covered SRB guild.
+    evidence_ids:
+    - record
+    - sr-taxonomy
+  - name: gtdb_grounding
+    value: Two GROUNDED blocks pass coherence/domain gates
+    definition: Support counts and original mapping aggregation were not regenerated.
+    evidence_ids:
+    - record
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Sulfate-Coupled Anaerobic Methane Oxidation'
+  outcome: concern
+  summary: Syntrophic methane oxidation coupled to bacterial sulfate reduction is
+    source-supported, with methane, sulfate and carbon dioxide appropriate to the
+    carbon/electron context. The source-to-target direction is archaeal oxidation
+    toward bacterial electron acceptance. The represented SRB taxon inherits the over-narrow
+    order grounding.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - sr-biology
+  - anme-genomics
+  - sr-taxonomy
+  details: 'Exact paths: ecological_interactions[0].source_taxon, target_taxon, interaction_type,
+    metabolites[0:3], evidence[0:2]. Participants are ANME and associated SRB, not
+    arbitrary members of Archaea/Desulfobacterales. Sign: positive syntrophic coupling.
+    Context: natural consortium synthesis from comparative-genomic papers. Exact source
+    quotes and locators are in sr-biology and anme-genomics. No outgoing arrow from
+    this node.'
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Direct Interspecies Electron Transfer'
+  outcome: concern
+  summary: The node preserves computational support for candidate conserved electron-transfer
+    components and marks the specific pili/multiheme conduit as hypothesized. Source
+    direction ANME to SRB is correct. The molecular mechanism remains more specific
+    than a generic observation of conductivity, and its SRB order inherits the taxonomy
+    finding.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - sr-diet
+  - diet-model
+  - sr-taxonomy
+  details: 'Paths: ecological_interactions[1].source_taxon, target_taxon, biological_processes[0],
+    evidence[0:2]. GO:0044419 fits a putative evolved interspecies process at this
+    node. Participants: environmental ANME/SRB with different source clade associations.
+    Proposed mechanism: conductive extracellular structures and multiheme cytochromes.
+    Source 2021 explicitly lacked experimental confirmation; no claim that every pili-like
+    structure is conductive is justified.'
+- assessment_id: edge-1-0
+  area: graph
+  topic: ecological_interactions[1].downstream[0] to sulfate-coupled AOM
+  outcome: supported
+  summary: The HYPOTHESIZED arrow links transfer of methane-derived electrons from
+    the archaeal partner to bacterial sulfate reduction. Positive enabling direction
+    and computational evidence tier are preserved; it does not claim a component-specific
+    intervention or measured mediation fraction.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - sr-diet
+  - diet-model
+  - history
+  details: 'Source node: Direct Interspecies Electron Transfer; target: Sulfate-Coupled
+    Anaerobic Methane Oxidation. Participants: ANME to SRB, with target-taxonomy scope
+    requiring curation. Mechanism: electron transfer enabling coupled metabolism.
+    Context: comparative metagenomics and mathematical model. Exact quotes/locators:
+    sr-diet and diet-model. The older conduit caveat is retained as a molecular question,
+    not a claim that later conductance studies do not exist.'
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: Sulfite Inhibition of ANME Methane Oxidation'
+  outcome: concern
+  summary: The measured immediate AOM decrease after 1.0 mM sulfite is supported for
+    sediment 7142 with ANME-2a/2c. The node correctly treats sulfite as a chemical
+    perturbation without a microbial source. Its generic evolved-interspecies-process
+    GO annotation is not established by the chemical-dose experiment.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - sulfite
+  - authority
+  details: 'Paths: ecological_interactions[2].target_taxon, participating_taxa[0],
+    metabolites[0], biological_processes[0], evidence[0]. Sign: negative effect on
+    labeled methane oxidation. Target guild: ANME, assay-specific clades 2a/2c. No
+    donor organism or unaffected bacterial target is measured. Source ligand CHEBI:17359
+    is correctly sulfite. This is a consortium readout attributed by authors to ANME
+    inhibition, not a demonstrated intracellular molecular target.'
+- assessment_id: edge-2-0
+  area: graph
+  topic: ecological_interactions[2].downstream[0] to sulfate-coupled AOM
+  outcome: supported
+  summary: The negative arrow is supported by decreased methane oxidation following
+    sulfite addition. It need not assert a species competition relationship or the
+    SRB response. The graph uses the chemical intervention as a source node and the
+    measured consortium function as the target.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - sulfite
+  - history
+  details: 'Context: short-term sediment 7142 microcosms; participants ANME-2a/2c
+    with unisolated partners. Direction: sulfite addition suppresses AOM, not an identified
+    SRB action against ANME. Mechanism at this evidence level is inhibitory perturbation;
+    molecular toxic mechanism remains unestablished. Source: PMID:30559729 Results/Fig
+    5A and sulfite exact quote.'
+- assessment_id: node-3
+  area: graph
+  topic: 'ecological_interactions[3]: Zero-Valent Sulfur Inhibition of ANME Methane
+    Oxidation'
+  outcome: concern
+  summary: Polythionate/polysulfide inhibition is supported in ANME-2a/2c-dominated
+    microcosms, and the source argues against productive diffusible sulfur transfer.
+    The node appropriately avoids elemental-sulfur CHEBI substitution. The biological-process
+    annotation again implies an evolved interspecies process that this chemical intervention
+    does not establish.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - zero-sulfur
+  - srb-response
+  - authority
+  details: 'Paths: ecological_interactions[3].target_taxon, participating_taxa[0],
+    biological_processes[0], evidence[0]. Sign: negative AOM response. Chemical source:
+    polythionate/polysulfide amendments; no microbial source organism. Source counterpart
+    SRB enrichment failed; this is not an unaffected-partner demonstration. No unsupported
+    single chemical CURIE is forced onto the mixture.'
+- assessment_id: edge-3-0
+  area: graph
+  topic: ecological_interactions[3].downstream[0] to sulfate-coupled AOM
+  outcome: supported
+  summary: The negative arrow correctly carries the observed suppression of ANME-2a/2c
+    methane oxidation to consortium AOM. It does not restore the rejected sulfur-cross-feeding
+    interpretation. Dose and partner-response qualifications belong in the accompanying
+    environmental metadata.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - zero-sulfur
+  - srb-response
+  - history
+  details: 'Participants: ANME-2a/2c-dominated sediment 7142 and associated SRB. Direction:
+    sulfur amendment to reduced methane oxidation; molecular toxic mechanism is unknown.
+    Source: PMID:30559729 Results paragraph 37/Fig 5B; zero-sulfur evidence quote
+    identifies the actual chemical forms. Three total downstream arrows occur in the
+    full record; all target names resolve.'
+- assessment_id: environment
+  area: grounding
+  topic: environment_term and environmental_factors[0:2] natural substrate context
+  outcome: supported
+  summary: Sediment is an accurate broad ENVO class for marine methane-rich, anoxic
+    source settings. Preferred wording preserves the marine context, although a more
+    specific authoritative marine-sediment class exists. Methane and sulfate availability
+    are source-supported substrate/electron-acceptor context, without invented concentrations.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - anme-genomics
+  - sr-biology
+  - authority
+- assessment_id: environment-perturbations
+  area: quantity
+  topic: environmental_factors[2:4] sulfur effects and partner response
+  outcome: concern
+  summary: The sulfite dose and negative AOM effect are supported. The assertion that
+    SRB were comparatively unaffected is not supported by the absence of partner growth.
+    Polythionate/polysulfide doses are compound-specific, and the text/caption differ
+    at the polysulfide boundary; the combined 0.25-1.0 mM range hides this. These
+    are experimental interventions, not ambient sediment concentrations.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - sulfite
+  - zero-sulfur
+  - srb-response
+- assessment_id: ingredients
+  area: evidence
+  topic: related_ingredients[0:2] methane and sulfate
+  outcome: supported
+  summary: Methane is the oxidized electron/carbon substrate and sulfate the reduced
+    terminal acceptor in the described partnership. These roles follow the source
+    AOM context. The methane wording need not be interpreted as proof that all biomass
+    carbon comes directly from methane; the genomic paper discusses inorganic-carbon
+    assimilation separately.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - sr-biology
+  - anme-genomics
+- assessment_id: cultivation
+  area: evidence
+  topic: growth_media[0] source conditions and assay boundaries
+  outcome: concern
+  summary: Preparation notes accurately separate the source microcosm variants, including
+    N2 storage, sample origins, methane/HPG labeling, pyruvate and no-donor branches,
+    and FACS provenance. The flat composition nevertheless lists methane and pyruvate
+    together, while temperature_range 4-50 compresses discrete sample conditions.
+    Consumers need explicit variant associations to avoid treating these as one common
+    recipe or growth-tolerance range.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - sr-cultivation
+  - schema
+  dimensions:
+  - name: medium
+    value: Artificial seawater; source-specific methane, pyruvate or no-added-donor
+      variants
+    definition: No single common supplemented medium is established.
+    evidence_ids:
+    - sr-cultivation
+  - name: incubation
+    value: Distinct 4°C, 24°C and 50°C conditions by sample
+    definition: These are experimental settings, not the growth range of one consortium.
+    evidence_ids:
+    - sr-cultivation
+  - name: atmosphere
+    value: Anaerobic incubations; N2 storage at 4°C
+    definition: Storage atmosphere is separated from methane supply during relevant
+      incubation.
+    evidence_ids:
+    - sr-cultivation
+  - name: inoculum
+    value: Costa Rica, Santa Monica and Pescadero sediment/rock material
+    definition: Specific collection locations and samples belong to different incubations.
+    evidence_ids:
+    - sr-cultivation
+- assessment_id: dataset
+  area: provenance
+  topic: associated_datasets[0] comparative ANME genomes
+  outcome: concern
+  summary: The PMID resolves to the stated genomic publication, and its abstract supports
+    28 reconstructed genomes. The resource entry locates a paper rather than a reusable
+    deposited dataset. Table 1 contains actual genome accessions, so a curator can
+    anchor this entry to data after selecting its intended scope.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - anme-data
+- assessment_id: provenance
+  area: provenance
+  topic: Citation identity, evidence placement and cached journal metadata
+  outcome: concern
+  summary: All four PMIDs resolve to the correct primary articles, and 21 snippets
+    match current article text. Computational versus in vitro evidence is generally
+    separated appropriately. PMID:37747940 cache header incorrectly says mBio although
+    both the primary source and its own appended text identify PLOS Biology. The original
+    source remains retrievable.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - sr-biology
+  - diet-model
+  - anme-genomics
+  - sulfite
+  - cache-metadata
+  - snippet-audit
+- assessment_id: history-discussion
+  area: provenance
+  topic: History, related study and unresolved conduit question
+  outcome: supported
+  summary: The append-only graph events and actor correction are coherent, and the
+    cross-reference to 000276 resolves. The open question asks which extracellular
+    components conduct electrons; the sulfur experiments do not answer it. The related
+    2025 assay record is relevant to future reconciliation but does not by itself
+    settle molecular component identity or authorize merging records.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - history
+  - related-record
+  - diet-model
+- assessment_id: imodulondb
+  area: evidence
+  topic: Expression-module source applicability
+  outcome: not_applicable
+  summary: Conduit proteins and pathways prompted structured-source discovery. No
+    relevant ANME/SRB organism/dataset appears in the public catalog; an unrelated
+    archaeal dataset cannot substitute for the target functional guild. Module membership
+    is not used to establish DIET or chemical inhibition.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - imodulondb
+- assessment_id: validation
+  area: schema
+  topic: Focused gates and graph reference integrity
+  outcome: supported
+  summary: All focused schema, strict, term, reference, GTDB coherence/domain and
+    history gates pass. All participant descriptors refer to declared taxonomy and
+    downstream names resolve. This deterministic integrity cannot detect an overly
+    narrow but valid taxonomic order or unsupported experimental interpretation. Required
+    corpus network gates retain warnings elsewhere.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - check-validate
+  - check-validate-strict
+  - check-validate-terms
+  - check-validate-gtdb
+  - check-validate-gtdb-domain
+  - check-validate-history
+  - check-validate-references-explained
+  - check-audit-network
+- assessment_id: scores
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: concern
+  summary: Completeness 95 reflects present required fields and enrichment, without
+    judging their source correctness. Validation quality 84 includes four major and
+    three minor findings, six interaction excerpts across four nodes, and the native
+    COMPLETE participant/reference-integrity bonus. A high presence score does not
+    resolve these findings.
+  target_ids:
+  - CommunityMech:000134
+  evidence_ids:
+  - record
+  - schema
+  - snippet-audit
+  - check-audit-network
+  metrics:
+  - name: completeness
+    value: 95
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100,50 required id/name/description/taxonomy-with-roles/state/category
+      +5 environment +10 at least 3 environmental factors +10 at least 3 interactions
+      +5 external resources +10 growth_media +5 associated_datasets +5 any interaction
+      metabolites). Applied 50+5+10+10+0+10+5+5=95. Presence only; role correctness
+      is separately assessed.
+  - name: validation_quality
+    value: 84
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100-50*P1-10*P2-2*P3+20*min(mean_interaction_evidence/2,1)+15
+      for COMPLETE network,0,100). P1=0, P2=4, P3=3; mean 6/4=1.5 gives 15 evidence
+      points; COMPLETE participant/reference integrity gives 15. Raw 100-40-6+15+15=84.
+      Biological completeness is not implied.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Target blocker findings.
+  - name: P2
+    value: 4
+    unit: findings
+    definition: Target major findings.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Target minor findings, including the source cache metadata affecting
+      this review.
+  - name: interaction_evidence
+    value: 1.5
+    unit: evidence items per interaction
+    denominator: 4
+    definition: Six EvidenceItem entries directly attached to four nodes, from four
+      publications. Multiple excerpts do not establish independent replication.
+findings:
+- finding_id: srb-order-scope
+  issue_key: cm-000134-srb-order-scope
+  category: grounding
+  severity: major
+  native_severity: P2
+  rule_id: review-checklist.taxonomy
+  normalization_reason: 'P2 major: taxonomic, functional or experimental interpretation
+    materially exceeds the source-supported assertion.'
+  status: open
+  certainty: confirmed
+  title: Desulfobacterales is too narrow for the represented partner guild
+  description: The taxonomic descriptor and both pairwise nodes represent generic
+    marine sulfate-reducing partners with Desulfobacterales. The cited 2023 paper
+    includes four common clades in multiple orders, and NCBI independently places
+    HotSeep-1 genus Desulfofervidus outside Desulfobacterales. This is not merely
+    coarse conservative grounding; it excludes covered partners.
+  target_ids:
+  - CommunityMech:000134
+  field_paths:
+  - taxonomy[1].taxon_term
+  - ecological_interactions[0].target_taxon
+  - ecological_interactions[1].target_taxon
+  evidence_ids:
+  - record
+  - sr-taxonomy
+  - authority
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    role: canonical_record
+- finding_id: anme-role
+  issue_key: cm-000134-anme-role
+  category: consistency
+  severity: major
+  native_severity: P2
+  rule_id: P2.4
+  normalization_reason: 'P2 major: taxonomic, functional or experimental interpretation
+    materially exceeds the source-supported assertion.'
+  status: open
+  certainty: confirmed
+  title: Primary-degrader role does not match the demonstrated methane metabolism
+  description: PRIMARY_DEGRADER denotes complex-substrate degradation in the maintained
+    schema. The cited ANME activity is methane oxidation coupled to partner sulfate
+    reduction, without evidence for the complex-substrate role. The source supports
+    syntrophic/electron-transfer function rather than this assigned catalog role.
+  target_ids:
+  - CommunityMech:000134
+  field_paths:
+  - taxonomy[0].functional_role
+  evidence_ids:
+  - record
+  - schema
+  - anme-genomics
+  - sr-biology
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    role: canonical_record
+- finding_id: sulfur-response-context
+  issue_key: cm-000134-sulfur-response-context
+  category: evidence
+  severity: major
+  native_severity: P2
+  rule_id: CLAUDE.claim-level-evidence
+  normalization_reason: 'P2 major: taxonomic, functional or experimental interpretation
+    materially exceeds the source-supported assertion.'
+  status: open
+  certainty: confirmed
+  title: Sulfur metadata converts absent partner growth into an unaffected partner
+  description: environmental_factors[2:4] say SRB were comparatively unaffected. The
+    source reports lack of observed growth/enrichment under sulfur amendments; it
+    does not establish a neutral SRB response. The zero-valent entry also treats compound-specific
+    doses as a shared interval, although the source separates polythionate and polysulfide
+    and has a text/caption boundary difference for the latter.
+  target_ids:
+  - CommunityMech:000134
+  field_paths:
+  - environmental_factors[2].description
+  - environmental_factors[3].description
+  - environmental_factors[3].value
+  evidence_ids:
+  - record
+  - sulfite
+  - zero-sulfur
+  - srb-response
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    role: canonical_record
+- finding_id: chemical-process-grounding
+  issue_key: cm-000134-chemical-process-grounding
+  category: grounding
+  severity: major
+  native_severity: P2
+  rule_id: review-checklist.grounding
+  normalization_reason: 'P2 major: taxonomic, functional or experimental interpretation
+    materially exceeds the source-supported assertion.'
+  status: open
+  certainty: confirmed
+  title: Chemical inhibition nodes inherit an unsupported interspecies-process annotation
+  description: GO:0044419 denotes a process evolved to enable interspecies interaction.
+    The sulfite and zero-valent sulfur nodes describe externally imposed chemical
+    inhibition, with no microbial source or evolved interaction mechanism. Their source
+    assays support negative chemical effects, not this process grounding.
+  target_ids:
+  - CommunityMech:000134
+  field_paths:
+  - ecological_interactions[2].biological_processes[0]
+  - ecological_interactions[3].biological_processes[0]
+  evidence_ids:
+  - record
+  - sulfite
+  - zero-sulfur
+  - authority
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    role: canonical_record
+- finding_id: cultivation-variants
+  issue_key: cm-000134-cultivation-variants
+  category: representation
+  severity: minor
+  native_severity: P3
+  rule_id: review-checklist.cultivation
+  normalization_reason: 'P3 minor: bounded structured-context or source-provenance
+    weakness; the underlying observation remains identifiable.'
+  status: open
+  certainty: confirmed
+  title: Flat medium fields mix alternative incubations
+  description: The preparation notes correctly preserve distinct source protocols,
+    but composition lists methane and pyruvate in one medium while temperature_range
+    4-50 suggests a common interval. Source variants used different samples, donors
+    and temperatures; a consumer relying on structured fields can combine incompatible
+    conditions.
+  target_ids:
+  - CommunityMech:000134
+  field_paths:
+  - growth_media[0].composition
+  - growth_media[0].temperature_range
+  - growth_media[0].headspace_gas
+  - growth_media[0].preparation_notes
+  evidence_ids:
+  - record
+  - sr-cultivation
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    role: canonical_record
+- finding_id: dataset-locator
+  issue_key: cm-000134-dataset-locator
+  category: provenance
+  severity: minor
+  native_severity: P3
+  rule_id: review-checklist.datasets
+  normalization_reason: 'P3 minor: bounded structured-context or source-provenance
+    weakness; the underlying observation remains identifiable.'
+  status: open
+  certainty: confirmed
+  title: Dataset accession is a publication identifier
+  description: The sole METAGENOMICS dataset entry uses PMID:34986141 and a PubMed
+    URL. These resolve to the cited paper but do not identify a deposited genome dataset.
+    The paper provides accession-level data in Table 1, so the entry can be made directly
+    reusable without changing its scientific interpretation.
+  target_ids:
+  - CommunityMech:000134
+  field_paths:
+  - associated_datasets[0].repository
+  - associated_datasets[0].accession
+  - associated_datasets[0].url
+  evidence_ids:
+  - record
+  - anme-data
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    role: canonical_record
+- finding_id: cached-journal
+  issue_key: cm-000134-cached-journal
+  category: provenance
+  severity: minor
+  native_severity: P3
+  rule_id: CLAUDE.source-provenance
+  normalization_reason: 'P3 minor: bounded structured-context or source-provenance
+    weakness; the underlying observation remains identifiable.'
+  status: open
+  certainty: confirmed
+  title: Cached source header names the wrong journal
+  description: references_cache/PMID_37747940.md labels the 2023 source as mBio, while
+    its DOI and primary metadata identify PLOS Biology. The appended article text
+    is the correct publication, so this is a bounded header/provenance error rather
+    than a broken reference.
+  target_ids:
+  - CommunityMech:000134
+  field_paths:
+  - references_cache/PMID_37747940.md:Source
+  evidence_ids:
+  - cache-metadata
+  - sr-biology
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_37747940.md
+    role: canonical_source_cache
+actions:
+- action_id: fix-srb-order-scope
+  description: 'Choose a source-supported scope and consistent grounding: identify
+    the actual clade/consortium represented or use a justified broader ancestor for
+    a declared guild. Preserve distinct NCBI/GTDB naming systems.'
+  finding_ids:
+  - srb-order-scope
+  target_ids:
+  - CommunityMech:000134
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Every named source SRB partner falls within its asserted canonical taxon.
+  - Taxonomy and all graph descriptor copies remain consistent.
+  - Do not infer one universal species/family or replace unresolved clades by a convenient
+    adjacent order.
+  - just validate-terms kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml;
+    just validate-gtdb kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml;
+    just audit-network
+- action_id: fix-anme-role
+  description: Use a functional role whose schema definition matches the demonstrated
+    ANME activity and partnership.
+  finding_ids:
+  - anme-role
+  target_ids:
+  - CommunityMech:000134
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retained role is justified by matching source physiology and schema definition.
+  - Do not add complex-substrate claims to justify an existing label.
+  - just validate-strict kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml;
+    just audit-network
+- action_id: fix-sulfur-response-context
+  description: Preserve the measured negative AOM response, remove unsupported unaffected-partner
+    wording, and separate chemical-specific dose statements with the source boundary
+    uncertainty retained.
+  finding_ids:
+  - sulfur-response-context
+  target_ids:
+  - CommunityMech:000134
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - No claim of unchanged SRB growth/viability is inferred from failure to observe
+    growth.
+  - Polythionate and polysulfide concentrations are attached to their respective assays.
+  - The polysulfide 0.25 mM main-text versus greater-than 0.25 mM caption difference
+    is resolved from underlying figure/data or explicitly preserved.
+  - just validate-references-explained kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml;
+    just validate-strict kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+- action_id: fix-chemical-process-grounding
+  description: Ground the demonstrated chemical-response process if a suitable supported
+    term is available, or omit the unsupported annotation while preserving the measured
+    inhibition edges.
+  finding_ids:
+  - chemical-process-grounding
+  target_ids:
+  - CommunityMech:000134
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Ontology definition matches the observed chemical perturbation and evidence tier.
+  - Do not convert chemical toxicity back into organismal competition or an unmeasured
+    interspecies mechanism.
+  - just validate-terms kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml;
+    just audit-network
+- action_id: fix-cultivation-variants
+  description: Represent the source variants as separately scoped conditions/media,
+    or make alternatives explicit in structured fields without fabricating shared
+    supplementation or tolerance.
+  finding_ids:
+  - cultivation-variants
+  target_ids:
+  - CommunityMech:000134
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Methane, pyruvate and no-added-donor conditions retain their exact sample association.
+  - Discrete incubation temperatures are not represented as experimentally measured
+    growth tolerance.
+  - N2 storage is not confused with incubation atmosphere.
+  - just validate-strict kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml;
+    just validate-references-explained kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+- action_id: fix-dataset-locator
+  description: Curate a precise deposited dataset or clearly label this entry as a
+    publication-associated collection, preserving the selected data scope.
+  finding_ids:
+  - dataset-locator
+  target_ids:
+  - CommunityMech:000134
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Any added accession resolves to the intended data and is cross-checked with Table
+    1/Data Availability.
+  - Do not treat all paper genomes as one particular source community or select unrelated
+    samples.
+  - just validate-strict kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml;
+    just validate-references-explained kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+- action_id: fix-cached-journal
+  description: Correct only the cache journal metadata against the primary publication,
+    preserving authentic article text and provenance boundaries.
+  finding_ids:
+  - cached-journal
+  target_ids:
+  - CommunityMech:000134
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_37747940.md
+    role: canonical_source_cache
+  acceptance_checks:
+  - Header journal agrees with PMID:37747940/DOI:10.1371/journal.pbio.3002292.
+  - Source article text and snippets are not paraphrased to fit metadata.
+  - just validate-references-explained kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml
+limitations:
+- All four cited main articles were inspected through public full-text XML. Linked
+  supplementary files were not exhaustively downloaded; the polysulfide text/caption
+  boundary discrepancy remains explicit.
+- Genomic mechanisms and modeling were assessed as source interpretations; no genome
+  reconstruction, simulation or laboratory assay was reproduced. Original GTDB mapping
+  counts were not independently recalculated.
+- The related 000276 record was inspected for identity and introductory assay scope
+  only, not reviewed again as part of this target. Its presence is not sufficient
+  evidence for consolidation or a molecular conduit assignment.
+- The optional structured-source adapter runner was unavailable; the public catalog
+  fallback had no matching ANME/SRB dataset. Required corpus network gates fail on
+  unrelated warnings while focused target checks pass.
+- The reviewers did not create or modify the target in this session. Historical curation
+  also used the codex identity, so person-level independence is unknown. The parent
+  reviewer checked the draft and primary passages before saving in path order.
+notes:
+- No canonical record, reference cache, history or generated product was edited. Findings
+  propose separately authorized curation only.
+- All 21 stored snippets match current source passages after whitespace normalization.
+  The four PMIDs identify four publications.
+- Source snapshot URLs, timestamps and SHA256 hashes are retained in evidence; repository
+  input hashes are retained in source.inputs.
+tags:
+- record-review
+- marine
+- anme-srb
+- batch-01
