@@ -1,0 +1,1510 @@
+# Sponge holobiont model record review
+
+- Review: 20261021T124426Z-sponge-holobiont-model-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T12:36:52.272643Z
+- Finished UTC: 2026-10-21T12:44:26.067688Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+The six qualified computational nodes and two conditional arrows remain supported. Two major findings concern incomplete eight-member composition and unqualified ecological stability; two minor findings concern model/context provenance and resources.
+
+## Scope And Provenance
+
+Entire record, direct primary main, critical SI/figures/tables and bounded model/archive/ontology metadata.
+
+Selection: Only released CommunityMech:000013 after 000012 save and both mandatory gates.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000013 | kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml | maintained | BioModels MODEL2407300002 Sponge Holobiont Network |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000013 | Schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000013 | Strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000013 | Term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000013 | GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000013 | GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000013 | History validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000013 | Read-only cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000013 | Reference validation passed against pinned cache. |
+| audit-network | failed | True | CommunityMech:000013 | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records; target-native structure is COMPLETE. |
+| check-network-quality | failed | True | CommunityMech:000013 | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records; target-native structure is COMPLETE. |
+| Primary source and public resource identity | passed | True | CommunityMech:000013 | Focal paper/BioModels identity verified; source MassIVE mismatch explicitly retained, not silently certified. |
+| Whole-record scientific assessment | passed | True | CommunityMech:000013 | Complete primary main and critical supplementary/figure scope inspected; no model or raw-data reanalysis. |
+| Medium and ingredient external links | not_applicable | False | CommunityMech:000013 | No CultureMech or MediaIngredientMech identifier encoded. No physical-culture recipe inferred from simulated media. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000013 | No applicable runnable adapter established in recorded discovery. |
+
+## Scientific And Domain Assessments
+
+### Sponge microbiome model scope
+
+identity: concern. Targets: CommunityMech:000013.
+
+The archive identity is correct, but three guild entries do not represent all eight reconstructed members.
+
+### Eight-member composition and roles
+
+grounding: concern. Targets: CommunityMech:000013.
+
+The current three broad entries have supported conditional roles but omit five named reconstructions.
+
+Missing Spongiicolonus versatilis, Spongiihabitans thiooxidans, Oxydemutator thiolithooxidans, Parasynechococcus marinus and Gammaporibacter thiotrophicus materially changes the represented metabolic roster. Cenoporarchaeum/Nitrospongiibacter producer roles and Deltaporibacter cross-feeding are source-supported in modeled regimes; attach specific evidence rather than the generic network snippet.
+
+### ecological_state: STABLE
+
+evidence: concern. Targets: CommunityMech:000013.
+
+An unqualified ecological-equilibrium label is not established by the conditional simulation endpoints.
+
+Distinguish the ratio-of-ratios criterion for the nitrifying model from eight-member Bray–Curtis similarity and late-cycle stabilization. The optional schema field may be omitted or supported with an explicit scope; do not automatically substitute ENGINEERED or TRANSIENT. NATURAL origin remains appropriate for the modeled microbiome.
+
+### ecological_interactions[0]
+
+graph: supported. Targets: CommunityMech:000013.
+
+Retain modeled nitrite cross-feeding.
+
+C. stylissae ammonia oxidation provides nitrite to N. stylissae. NO-reaction disabling and nutrient/removal constraints are explicit; neither measured transfer nor thermodynamic obligacy is established.
+
+### ecological_interactions[0].downstream[0]
+
+graph: supported. Targets: CommunityMech:000013.
+
+Retain conditional nitrification → nitrifier growth support.
+
+C. stylissae supplies the substrate for N. stylissae growth; joint persistence depends on imposed ammonia and removal. This is a source-supported model mechanism, not a general ecological stability claim.
+
+### ecological_interactions[1]
+
+graph: supported. Targets: CommunityMech:000013.
+
+Retain the nutrient-responsive eight-member exchange network.
+
+Alternative input regimes affect predicted exchanges; Deltaporibacter is a participant, not a demonstrated active coordinator. Preserve the removal of part-whole/common-input summary arrows.
+
+### ecological_interactions[2]
+
+graph: supported. Targets: CommunityMech:000013.
+
+Retain candidate host nutrient inputs with the existing uncertainty.
+
+Tissue-enriched substrates are treated as available to microbial models. Origin and delivery are assumptions, and the host is an external context rather than a modeled fitness beneficiary.
+
+### ecological_interactions[2].downstream[0]
+
+graph: supported. Targets: CommunityMech:000013.
+
+Retain conditional candidate-input → microbial exchange direction.
+
+Supplying selected substrates changes the available model resources and predicted exchanges. It does not establish host secretion, reciprocal fitness or the same fluxes in vivo.
+
+### ecological_interactions[3]
+
+graph: supported. Targets: CommunityMech:000013.
+
+Retain the operational nitrifier stability endpoint.
+
+The final/initial AOA:NOB population-ratio criterion is correctly stated as 0.5–2. It is not an absolute abundance bound, measured environmental threshold or independent syntrophic interaction.
+
+### ecological_interactions[4]
+
+graph: supported. Targets: CommunityMech:000013.
+
+Retain condition-specific Deltaporibacter nitrogen-linked exchange.
+
+Hypotaurine scenarios predict nitrate reduction and NO release; mixed-input scenarios predict laurate use and acetate donation. Neither active coordination nor measured flux is asserted.
+
+### ecological_interactions[5]
+
+graph: supported. Targets: CommunityMech:000013.
+
+Retain nutrient-dependent microbial carbon balance.
+
+This aggregate model endpoint excludes host respiration. Carbon fixation is a contributing process and does not make every input regime or the whole living holobiont autotrophic.
+
+### Model assumptions, source context and cultivation
+
+provenance: concern. Targets: CommunityMech:000013.
+
+All evidence is computational, but structured model provenance and environmental context are missing.
+
+Recover methods, software, MAG merging/gap-filling, scenario-specific medium and population parameters without adding fictitious cultivation. Empty wetlab growth/cultivation blocks are appropriate. Sampling context and modeled mesohyl can be described separately with verified environment grounding during curation.
+
+### Model, code and data resources
+
+provenance: concern. Targets: CommunityMech:000013.
+
+The exact RDS listing is valid; the bibliography-as-dataset and omitted source-resource context need repair.
+
+PRJNA602572 is a broad prior marine-sponge project, not solely the four focal specimens or a metabolomics archive. STY8 v1.0.0 and Zenodo 14030749 are verified metadata/code inventories. The paper-linked MSV000083743 currently describes EMP soil/fecal samples; resolve before claiming a focal metabolomics link. RDS objects were not parsed or executed.
+
+### Prior repairs, evidence and current limitations
+
+provenance: supported. Targets: CommunityMech:000013.
+
+All 14 quotations match; previous six-node/two-arrow repairs remain scientifically appropriate.
+
+The earlier unread-figure/SI/model limits remain historical. This review expands source scope without closing issue 1268 or altering any record/history. The unsafe colon-named duplicate cache was not used as an inspected input; its omission was path-contract handling, not evidence that it is absent.
+
+### Native checks and ontology semantics
+
+schema: supported. Targets: CommunityMech:000013.
+
+Eight native checks pass; this does not resolve membership or scope findings.
+
+### Native mechanical scores
+
+completeness: supported. Targets: CommunityMech:000013.
+
+Scores remain distinct from the four scientific/provenance findings.
+
+## Findings
+
+### eight-member-roster: Represent all eight modeled microbial members
+
+major / open / confirmed; issue key: cm-000013-eight-member-roster.
+
+Three domain-grounded guild entries omit five named reconstructions and do not preserve the full source model composition.
+
+### stable-state: Bound ecological state to the demonstrated evidence
+
+major / open / confirmed; issue key: cm-000013-stable-state.
+
+STABLE globally asserts ecological equilibrium while the source demonstrates conditional model composition outcomes under imposed inputs and turnover.
+
+### computational-context: Record structured model and environmental provenance
+
+minor / open / confirmed; issue key: cm-000013-computational-context.
+
+The record lacks structured provenance for fourteen computational evidence items and omits recoverable natural/model context, although its graph prose already states important assumptions.
+
+### resource-scope: Separate publication evidence and reconcile public resource scope
+
+minor / open / confirmed; issue key: cm-000013-resource-scope.
+
+The publication is listed as a dataset while recoverable data/code provenance is absent; the reported metabolomics accession has a current scope mismatch that must not be imported uncritically.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-eight-member-roster
+
+Represent all eight modeled microbial members.
+
+- Represent all eight source members and their model/MAG identifiers, keeping the seven-bacteria/one-archaeon scope and excluding the sponge host. Preserve the 98.3% MAG-mapped-read denominator.
+- Use verified NCBI species candidates for Candidatus Spongiicolonus versatilis (2973585), Candidatus Spongiihabitans thiooxidans (1671877) and Candidatus Oxydemutator thiolithooxidans (2973566) with exact labels and source-name notes. Parasynechococcus (2881427) is only genus-level in the inspected authority. Preserve explicit uncertainty for unresolved names rather than inventing species CURIEs or GTDB assignments.
+- Attach narrow membership and condition-specific role evidence; distinguish merged MAG reconstructions from experimental isolates. Revalidate taxonomy, terms and GTDB/domain after curation.
+
+### repair-stable-state
+
+Bound ecological state to the demonstrated evidence.
+
+- Omit the optional ecological_state field if ecological equilibrium cannot be supported, or supply an explicit source-grounded scope that does not present simulated stability as observed in-vivo persistence.
+- Preserve NATURAL origin and the existing operational node definition; do not replace the state automatically with ENGINEERED/TRANSIENT or confuse the 0.5–2 ratio-of-ratios criterion with absolute population bounds.
+
+### repair-computational-context
+
+Record structured model and environmental provenance.
+
+- Add claim-specific computational_provenance for gapseq v1.1 b568a4e reconstruction/manual curation/gap-filling and BacArena v1.8.2 pFBA, preserving model identifiers and the source scenarios.
+- Separate individual, two-/three-member and eight-member runs. Record the relevant input/removal/death/replenishment assumptions; the eight-member model uses 100 one-hour cycles, 10 mM ammonia, 10% removal and 5% death. Do not generalize those settings to every simulation.
+- Describe natural sampling and modeled sponge mesohyl separately. Put simulated nutrient media in model provenance, not wetlab cultivation; do not invent vessels, culture temperature or salinity. Preserve host-input origin and host-respiration limitations.
+
+### repair-resource-scope
+
+Separate publication evidence and reconcile public resource scope.
+
+- Keep the verified BioModels entry and exact combined-input RDS filename, while stating listing/metadata verification rather than parsed payload or reproduced simulation.
+- Move the paper to bibliographic evidence/resources. Link PRJNA602572 with its broad prior-project scope and source-reported focal subset; link STY8 v1.0.0 commit 17fd9c4eb5bd1f4cdf2c6402a2cdf3958e380546 and Zenodo 10.5281/zenodo.14030749 without claiming execution.
+- Record the MSV000083743 source/archive discrepancy and resolve the focal metabolomics deposit before adding a verified dataset link. Do not invent a replacement or label the upstream unencoded discrepancy as an existing wrong record accession.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml; Whole record: three taxonomy entries, six nodes, two arrows | supports | The model resource is identifiable and graph descriptions already distinguish predictions from measured host flux or whole-holobiont mutualism. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=39738126&amp;retmode=xml; Article-level metadata and abstract where supplied | supports | PMID 39738126, DOI and article title/abstract identify the focal paper. |
+| crossref | https://api.crossref.org/works/10.1038/s41467-024-55222-w; Article-level metadata and abstract where supplied | supports | DOI/title and bibliographic metadata agree; no experimental certification. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1038/s41467-024-55222-w&amp;format=json&amp;resultType=core; Article-level metadata and abstract where supplied | supports | PMID 39738126/PMC11685487 identifies the directly retrieved full article. |
+| roster | doi:10.1038/s41467-024-55222-w; Fresh XML Sec1/Sec3/Sec15–17; Figure 1; SD2 rows4–11 | supports | Eight named reconstructions derive from representative/merged MAGs of four Stylissa individuals. The three recorded guild entries omit five members and collapse source identities to domains. |
+| nitrification | doi:10.1038/s41467-024-55222-w; Fresh XML Sec6 and Figure 3; SI curation of CenSfMM8/NitSfMM6 | supports | C. stylissae supplies modeled nitrite supporting N. stylissae. The NO-forming reaction was disabled to approximate extracellular oxidation chemistry; these are conditional predictions. |
+| stability | doi:10.1038/s41467-024-55222-w; Fresh XML Sec6–7, Figures 3–4 and Sec21 | supports | The two-member criterion normalizes the final AOA:NOB ratio by its initial ratio, with a 0.5–2 range. Eight-member outcomes depend on nutrient inputs, removal, death and imposed grid dynamics. |
+| host-input | doi:10.1038/s41467-024-55222-w; Fresh XML Sec4/Figure 2 and Sec8/Sec13 | supports | Tissue-enriched compounds were candidate sponge-derived inputs. Two-sample metabolomics does not determine origin or transport; host metabolism and respiration were excluded. |
+| network | doi:10.1038/s41467-024-55222-w; Fresh XML Sec7–12 and Figures 4–6 | supports | Hypotaurine, laurate and combined-input regimes change predicted exchanges. The network is not independently coordinated by Deltaporibacter. |
+| deltaporibacter | doi:10.1038/s41467-024-55222-w; Fresh XML Sec10–11; Figures 5–6; SD7/SD11 | supports | D. stylissae reduces nitrate and releases NO under hypotaurine; with combined inputs it consumes laurate and donates acetate. These routes are conditional modeled fluxes. |
+| carbon | doi:10.1038/s41467-024-55222-w; Fresh XML Sec8/Sec11–13 and Figures 5–6 | supports | Predicted net microbial carbon exchange depends on inputs; host respiration is outside the modeled system. Carbon fixation is a pathway descriptor, not proof every scenario is net autotrophic. |
+| model-methods | doi:10.1038/s41467-024-55222-w; Fresh XML Sec15–21; SI Methods; SD5/SD9/SD13 | supports | gapseq v1.1 b568a4e, manual curation/gap-filling and BacArena v1.8.2 pFBA support individual and community simulations. Eight-member runs use 100 one-hour cycles, 10 mM ammonia, 10% removal and 5% death; those settings are not wetlab cultivation conditions. |
+| source-resources | doi:10.1038/s41467-024-55222-w; Fresh XML Data/Code Availability | supports | The paper reports BioModels, a prior broad marine-sponge BioProject and STY8 v1.0.0. Its metabolomics pointer requires reconciliation against current archive metadata. |
+| supplement | doi:10.1038/s41467-024-55222-w; MOESM1 scientific Methods/Notes/Tables S1–S3; focal-supplement-rows.json SD2/5/7/9/11/12/13 | supports | Supplementary model/roster context supports the qualified graph. Model identifier spellings and compound-ID conflicts are preserved as source boundaries; no external reference organisms are imported into the focal roster. |
+| schema | src/communitymech/schema/communitymech.yaml; MicrobialCommunity.taxonomy/ecological_state; EcologicalStateEnum; EvidenceItem.computational_provenance and ComputationalProvenance | supports | Microbial membership excludes the host; STABLE denotes ecological equilibrium. ecological_state is optional in the schema, despite inclusion in the native completeness rubric. Computational provenance is available but not required:true. |
+| ontology | kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml; ontology-authority.json | supports | All 10 distinct ontology pairs across 19 occurrences match labels; broad process terms fit the qualified modeled scope. |
+| roster-authority | kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml; roster-authority-candidates.json | supports | Three source species resolve to Candidatus-prefixed NCBI species and Parasynechococcus to a genus; four names remain unresolved in a bounded local snapshot search, not globally absent. |
+| resources | kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml; dataset-verification.json | supports | Exact BioModels filename/listing, source-linked BioProject and versioned code/software metadata verified. Current MassIVE sample scope conflicts with the paper pointer. |
+| snippets | kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml; snippet-audit.json | supports | All 14 excerpts match directly retrieved full XML and pinned source caches. |
+| history | kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml; provenance-audit.json | supports | Prior graph repair and ratio definition preserved; issue 1264 is closed and non-graph follow-up 1268 remains open, with both current comments inspected. |
+| native-target | kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml; support-audit.json | supports | Completeness/quality are mechanical scores, distinct from four source-based follow-ups. |
+| source-scope | doi:10.1038/s41467-024-55222-w; source-audit.json | supports | Full main and declared supplementary/table/figure scopes inspected without simulation. |
+| independent-source | doi:10.1038/s41467-024-55222-w; root-independent-source-audit.json | context_only | Independent source assessment corroborates the source bounds and retained graph. |
+| search | Owned maintained roots; local-search.json: ignored-inclusive bounded discovery | supports | Identity/reuse results are limited to the recorded maintained roots. |
+| adapter | Optional structured source adapter; adapter-check.json | supports | No applicable runnable structured adapter was established in recorded discovery. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml; Actual execution 2026-10-21T12:37:33.514854+00:00 to 2026-10-21T12:37:36.844819+00:00 | supports | Schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-strict kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml --out /private/tmp/cm-review-session/batch-07/000013/strict-report.tsv; Actual execution 2026-10-21T12:37:33.515172+00:00 to 2026-10-21T12:37:55.757526+00:00 | supports | Strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-terms kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml; Actual execution 2026-10-21T12:37:33.515302+00:00 to 2026-10-21T12:37:40.651141+00:00 | supports | Term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-gtdb kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml; Actual execution 2026-10-21T12:37:36.845120+00:00 to 2026-10-21T12:37:37.028296+00:00 | supports | GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-gtdb-domain kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml; Actual execution 2026-10-21T12:37:37.029157+00:00 to 2026-10-21T12:37:43.588833+00:00 | supports | GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-history history/records/BioModels_MODEL2407300002_Sponge_Holobiont_Network; Actual execution 2026-10-21T12:37:40.652170+00:00 to 2026-10-21T12:37:43.796101+00:00 | supports | History validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T12:37:55.762681+00:00 to 2026-10-21T12:37:55.921872+00:00 | supports | Read-only cache-filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-references-explained kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml; Actual execution 2026-10-21T12:37:55.922248+00:00 to 2026-10-21T12:37:59.454662+00:00 | supports | Reference validation passed against pinned cache. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T11:32:06.425768+00:00 to 2026-10-21T11:32:16.427975+00:00 | supports | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records; target-native structure is COMPLETE. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T11:32:06.426382+00:00 to 2026-10-21T11:32:14.966232+00:00 | supports | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records; target-native structure is COMPLETE. |
+
+## Limits And Additional Notes
+
+- The eight models are seven bacterial and one archaeal reconstruction; the host is not modeled. They cover 98.3% of reads mapped to 35 MAGs, not 98.3% of all reads. Merged MAGs are not cultured strains.
+- Candidate host inputs are inferred from tissue-versus-cell metabolite enrichment with two samples per group; host synthesis, delivery, respiration and reciprocal fitness were not resolved.
+- Two-/three-member operational population-ratio stability and eight-member similarity to starting composition are conditional model endpoints, not measured ecological equilibrium.
+- No model execution, RDS deserialization, raw sequencing/spectra, FISH counting, genomic reannotation or flux/statistical reanalysis. Source model inventories and metadata do not reproduce numerical results.
+- SD11 lists NO with cpd00418 and nitrite with cpd00075, unlike the SD7 identifiers; retain this unencoded source discrepancy rather than importing those IDs or creating a canonical finding. SD7 species header placement also differs from the paired numeric-column layout; narrative/Figures 5–6 corroborate the focal directions.
+- The reported MSV000083743 pointer resolves to soil/fecal EMP data in current metadata; it is not verified as the focal sponge metabolomics deposit. No replacement accession inferred.
+- Other cited studies and the complete raw Source Data matrices were not independently reanalysed. Local exact-name authority misses are not global absence; SeqCode registration is source-reported rather than separately audited.
+- The initial inspect wrapper/path-safety failures were retained separately and resolved before this valid inspection. The unsafe colon-named duplicate cache was not read as review evidence; canonical caches were unchanged.
+- No canonical, cache, history, generated or saved-review files changed. All 25 inspected inputs remain pinned.
+- Publication and supplements share one 25-word direct-quotation limit.
+- Native completeness 75 and capped quality 100/raw 106 do not certify the unresolved findings.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T124426Z-sponge-holobiont-model-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Sponge holobiont model record review
+started_at: '2026-10-21T12:36:52.272643Z'
+finished_at: '2026-10-21T12:44:26.067688Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed source science, native/ontology checks
+    and supporting metadata; no person-level independence asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: The six qualified computational nodes and two conditional arrows remain supported.
+  Two major findings concern incomplete eight-member composition and unqualified ecological
+  stability; two minor findings concern model/context provenance and resources.
+source:
+  git_revision: 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/BioModels_MODEL2407300002_Sponge_Holobiont_Network/2026-10-05T142601Z-codex-76c203.yaml
+    sha256: 283858e364f718cdf1d04f09a035e19b5e8a5223edd8c80221191e55c06b2624
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+    sha256: 2f4e9de54727970a957771c70add6bd6a8fc5a6d38c4cdda2316cc50ab509e7a
+    role: target
+  - path: references_cache/PMID_39738126.txt
+    sha256: 9197188a018fe80ca6d1f44bc3ab9e102c254c2ce6fd131d82be516f45087d53
+    role: context
+  - path: references_cache/doi_10.1038_s41467-024-55222-w.json
+    sha256: 1ef65854921cbf7f63876353922b315b71ac8a507f1f8b4f8bef55f0214c0bd2
+    role: context
+  - path: references_cache/doi_10.1038_s41467-024-55222-w.md
+    sha256: 824118196672b53f3c367488b5ccf1e5a57f1ddeca0c3d671915b89a8490f436
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+    sha256: a03eceb4ca205fdd9092a4f18c0fa4c068e8ec91ee5a62d09da97b87a4f50a25
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000013
+  path: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  label: BioModels MODEL2407300002 Sponge Holobiont Network
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+    role: canonical_record
+scope:
+  description: Entire record, direct primary main, critical SI/figures/tables and
+    bounded model/archive/ontology metadata.
+  selection: Only released CommunityMech:000013 after 000012 save and both mandatory
+    gates.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000013
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema validation passed.
+  target_ids:
+  - CommunityMech:000013
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict validation passed.
+  target_ids:
+  - CommunityMech:000013
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-strict kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+    --out /private/tmp/cm-review-session/batch-07/000013/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Term validation passed.
+  target_ids:
+  - CommunityMech:000013
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-terms kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000013
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000013
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb-domain kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: History validation passed.
+  target_ids:
+  - CommunityMech:000013
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-history history/records/BioModels_MODEL2407300002_Sponge_Holobiont_Network
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000013
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Reference validation passed against pinned cache.
+  target_ids:
+  - CommunityMech:000013
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-references-explained kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Fresh target/history checks plus corpus cache-filename preflight; structural
+    success does not certify scientific scope.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records;
+    target-native structure is COMPLETE.
+  target_ids:
+  - CommunityMech:000013
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Explicit reuse of fresh batch 07 corpus receipts, not a target-specific
+    pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records;
+    target-native structure is COMPLETE.
+  target_ids:
+  - CommunityMech:000013
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Explicit reuse of fresh batch 07 corpus receipts, not a target-specific
+    pass.
+- check_id: source-identity
+  name: Primary source and public resource identity
+  status: passed
+  required: true
+  summary: Focal paper/BioModels identity verified; source MassIVE mismatch explicitly
+    retained, not silently certified.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - pubmed
+  - resources
+  - roster-authority
+- check_id: scientific-source
+  name: Whole-record scientific assessment
+  status: passed
+  required: true
+  summary: Complete primary main and critical supplementary/figure scope inspected;
+    no model or raw-data reanalysis.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - source-scope
+  - independent-source
+- check_id: cross-mech
+  name: Medium and ingredient external links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech identifier encoded. No physical-culture
+    recipe inferred from simulated media.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - record
+  - model-methods
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: No applicable runnable adapter established in recorded discovery.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  locator: 'Whole record: three taxonomy entries, six nodes, two arrows'
+  summary: The model resource is identifiable and graph descriptions already distinguish
+    predictions from measured host flux or whole-holobiont mutualism.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.554273Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39738126&retmode=xml
+  locator: Article-level metadata and abstract where supplied
+  summary: PMID 39738126, DOI and article title/abstract identify the focal paper.
+  support: supports
+  accessed_at: '2026-10-21T12:37:47.054139Z'
+  snapshot_sha256: 945ee20efa2461b5aee0df1f198d7ba73f32d4dedfe14e0815c59c2609193d8e
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1038/s41467-024-55222-w
+  locator: Article-level metadata and abstract where supplied
+  summary: DOI/title and bibliographic metadata agree; no experimental certification.
+  support: supports
+  accessed_at: '2026-10-21T12:37:47.105707Z'
+  snapshot_sha256: 8a77044692ebe5ee7db6f176dd4a512ff1332109786ec6e1326162183bea48e0
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1038/s41467-024-55222-w&format=json&resultType=core
+  locator: Article-level metadata and abstract where supplied
+  summary: PMID 39738126/PMC11685487 identifies the directly retrieved full article.
+  support: supports
+  accessed_at: '2026-10-21T12:37:47.499057Z'
+  snapshot_sha256: 1a99c9538fb8609965cecadc79adc869c8c47cd955f164c1162d946e2a7180fb
+- evidence_id: roster
+  kind: primary_source
+  reference: doi:10.1038/s41467-024-55222-w
+  locator: Fresh XML Sec1/Sec3/Sec15–17; Figure 1; SD2 rows4–11
+  summary: Eight named reconstructions derive from representative/merged MAGs of four
+    Stylissa individuals. The three recorded guild entries omit five members and collapse
+    source identities to domains.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.554982Z'
+  snapshot_sha256: 4abe065eaece8d6942cc7549bef83efb8015d6648441b9f4a320680f60b88768
+  quote: seven bacterial and one archaeal species
+- evidence_id: nitrification
+  kind: primary_source
+  reference: doi:10.1038/s41467-024-55222-w
+  locator: Fresh XML Sec6 and Figure 3; SI curation of CenSfMM8/NitSfMM6
+  summary: C. stylissae supplies modeled nitrite supporting N. stylissae. The NO-forming
+    reaction was disabled to approximate extracellular oxidation chemistry; these
+    are conditional predictions.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.555054Z'
+  snapshot_sha256: 4abe065eaece8d6942cc7549bef83efb8015d6648441b9f4a320680f60b88768
+  quote: ammonia oxidation
+- evidence_id: stability
+  kind: primary_source
+  reference: doi:10.1038/s41467-024-55222-w
+  locator: Fresh XML Sec6–7, Figures 3–4 and Sec21
+  summary: The two-member criterion normalizes the final AOA:NOB ratio by its initial
+    ratio, with a 0.5–2 range. Eight-member outcomes depend on nutrient inputs, removal,
+    death and imposed grid dynamics.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.555124Z'
+  snapshot_sha256: 4abe065eaece8d6942cc7549bef83efb8015d6648441b9f4a320680f60b88768
+  quote: p/p ratio
+- evidence_id: host-input
+  kind: primary_source
+  reference: doi:10.1038/s41467-024-55222-w
+  locator: Fresh XML Sec4/Figure 2 and Sec8/Sec13
+  summary: Tissue-enriched compounds were candidate sponge-derived inputs. Two-sample
+    metabolomics does not determine origin or transport; host metabolism and respiration
+    were excluded.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.555194Z'
+  snapshot_sha256: 4abe065eaece8d6942cc7549bef83efb8015d6648441b9f4a320680f60b88768
+  quote: assumed to originate
+- evidence_id: network
+  kind: primary_source
+  reference: doi:10.1038/s41467-024-55222-w
+  locator: Fresh XML Sec7–12 and Figures 4–6
+  summary: Hypotaurine, laurate and combined-input regimes change predicted exchanges.
+    The network is not independently coordinated by Deltaporibacter.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.555267Z'
+  snapshot_sha256: 4abe065eaece8d6942cc7549bef83efb8015d6648441b9f4a320680f60b88768
+  quote: cross-feeding processes
+- evidence_id: deltaporibacter
+  kind: primary_source
+  reference: doi:10.1038/s41467-024-55222-w
+  locator: Fresh XML Sec10–11; Figures 5–6; SD7/SD11
+  summary: D. stylissae reduces nitrate and releases NO under hypotaurine; with combined
+    inputs it consumes laurate and donates acetate. These routes are conditional modeled
+    fluxes.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.555337Z'
+  snapshot_sha256: 4abe065eaece8d6942cc7549bef83efb8015d6648441b9f4a320680f60b88768
+  quote: release substantial amounts of acetate
+- evidence_id: carbon
+  kind: primary_source
+  reference: doi:10.1038/s41467-024-55222-w
+  locator: Fresh XML Sec8/Sec11–13 and Figures 5–6
+  summary: Predicted net microbial carbon exchange depends on inputs; host respiration
+    is outside the modeled system. Carbon fixation is a pathway descriptor, not proof
+    every scenario is net autotrophic.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.555408Z'
+  snapshot_sha256: 4abe065eaece8d6942cc7549bef83efb8015d6648441b9f4a320680f60b88768
+  quote: net autotrophic
+- evidence_id: model-methods
+  kind: primary_source
+  reference: doi:10.1038/s41467-024-55222-w
+  locator: Fresh XML Sec15–21; SI Methods; SD5/SD9/SD13
+  summary: gapseq v1.1 b568a4e, manual curation/gap-filling and BacArena v1.8.2 pFBA
+    support individual and community simulations. Eight-member runs use 100 one-hour
+    cycles, 10 mM ammonia, 10% removal and 5% death; those settings are not wetlab
+    cultivation conditions.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.555479Z'
+  snapshot_sha256: 4abe065eaece8d6942cc7549bef83efb8015d6648441b9f4a320680f60b88768
+- evidence_id: source-resources
+  kind: primary_source
+  reference: doi:10.1038/s41467-024-55222-w
+  locator: Fresh XML Data/Code Availability
+  summary: The paper reports BioModels, a prior broad marine-sponge BioProject and
+    STY8 v1.0.0. Its metabolomics pointer requires reconciliation against current
+    archive metadata.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.555547Z'
+  snapshot_sha256: 4abe065eaece8d6942cc7549bef83efb8015d6648441b9f4a320680f60b88768
+- evidence_id: supplement
+  kind: primary_source
+  reference: doi:10.1038/s41467-024-55222-w
+  locator: MOESM1 scientific Methods/Notes/Tables S1–S3; focal-supplement-rows.json
+    SD2/5/7/9/11/12/13
+  summary: Supplementary model/roster context supports the qualified graph. Model
+    identifier spellings and compound-ID conflicts are preserved as source boundaries;
+    no external reference organisms are imported into the focal roster.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.555591Z'
+  snapshot_sha256: 42d1eeb9dddde3aac918a01d1c3a1266c82f98d08a86ac80852aec100d5fc7c0
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: MicrobialCommunity.taxonomy/ecological_state; EcologicalStateEnum; EvidenceItem.computational_provenance
+    and ComputationalProvenance
+  summary: Microbial membership excludes the host; STABLE denotes ecological equilibrium.
+    ecological_state is optional in the schema, despite inclusion in the native completeness
+    rubric. Computational provenance is available but not required:true.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.555652Z'
+  snapshot_sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+- evidence_id: ontology
+  kind: authority
+  reference: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  locator: ontology-authority.json
+  summary: All 10 distinct ontology pairs across 19 occurrences match labels; broad
+    process terms fit the qualified modeled scope.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.555778Z'
+  snapshot_sha256: 9ff6333b2c96f568349cf6d2b793511536354cef433882d13a801953a339e286
+- evidence_id: roster-authority
+  kind: authority
+  reference: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  locator: roster-authority-candidates.json
+  summary: Three source species resolve to Candidatus-prefixed NCBI species and Parasynechococcus
+    to a genus; four names remain unresolved in a bounded local snapshot search, not
+    globally absent.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.555928Z'
+  snapshot_sha256: 633eb69bb2fcee7ce1fb5c4c1c0920c3872863e5db7aba6fc1f6fab4632f1c5e
+- evidence_id: resources
+  kind: database
+  reference: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  locator: dataset-verification.json
+  summary: Exact BioModels filename/listing, source-linked BioProject and versioned
+    code/software metadata verified. Current MassIVE sample scope conflicts with the
+    paper pointer.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.555955Z'
+  snapshot_sha256: 26bf7ba0363ef4f48884aca24b194faa730844cea23502f5453db9e1968b9ad3
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  locator: snippet-audit.json
+  summary: All 14 excerpts match directly retrieved full XML and pinned source caches.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.556080Z'
+  snapshot_sha256: 6bb64992acd265d54660c96d8105f1393636caf1c94c81ca81e2078420b2e9aa
+- evidence_id: history
+  kind: record_content
+  reference: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  locator: provenance-audit.json
+  summary: Prior graph repair and ratio definition preserved; issue 1264 is closed
+    and non-graph follow-up 1268 remains open, with both current comments inspected.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.556188Z'
+  snapshot_sha256: f54c1ba9ec437ab11d7a994e9379af0855e9814364593d12b808fb2c8a03a4b5
+- evidence_id: native-target
+  kind: validation
+  reference: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  locator: support-audit.json
+  summary: Completeness/quality are mechanical scores, distinct from four source-based
+    follow-ups.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.556216Z'
+  snapshot_sha256: 88a155bd2a6364de872ee6be715323f2b2afa7b8f34029e85e39c23b65788031
+- evidence_id: source-scope
+  kind: validation
+  reference: doi:10.1038/s41467-024-55222-w
+  locator: source-audit.json
+  summary: Full main and declared supplementary/table/figure scopes inspected without
+    simulation.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.556236Z'
+  snapshot_sha256: 56f7db145e46d66e43949f98794917b2f45c2c6350de5cedde46c70941b72752
+- evidence_id: independent-source
+  kind: validation
+  reference: doi:10.1038/s41467-024-55222-w
+  locator: root-independent-source-audit.json
+  summary: Independent source assessment corroborates the source bounds and retained
+    graph.
+  support: context_only
+  accessed_at: '2026-10-21T12:44:15.556258Z'
+  snapshot_sha256: 96be3b29ac9382b439c994fc80c214210a71f5dbc805a4844a5e22361884d8ed
+- evidence_id: search
+  kind: search
+  reference: Owned maintained roots
+  locator: 'local-search.json: ignored-inclusive bounded discovery'
+  summary: Identity/reuse results are limited to the recorded maintained roots.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.556358Z'
+  snapshot_sha256: d982dea9976e2975039371357b26373c19e02b51695a5c827f38d4fac3d1b645
+  search_scope: Ignored-inclusive communities, isolates, reusable taxa and recorded
+    mapping discovery.
+- evidence_id: adapter
+  kind: search
+  reference: Optional structured source adapter
+  locator: adapter-check.json
+  summary: No applicable runnable structured adapter was established in recorded discovery.
+  support: supports
+  accessed_at: '2026-10-21T12:44:15.556457Z'
+  snapshot_sha256: 37ea1bcfdbbcd43779ad31196d959b1e6d9bb67b909c51733a6af768a1c63968
+  search_scope: Runtime and ignored-inclusive local discovery; no paid provider or
+    outside-checkout execution.
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  locator: Actual execution 2026-10-21T12:37:33.514854+00:00 to 2026-10-21T12:37:36.844819+00:00
+  summary: Schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T12:37:36.844819Z'
+  snapshot_sha256: 2d0d75e6620c742f5eb76ba2009bc71546c496efa0d9001901412526658bcfec
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-strict kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+    --out /private/tmp/cm-review-session/batch-07/000013/strict-report.tsv
+  locator: Actual execution 2026-10-21T12:37:33.515172+00:00 to 2026-10-21T12:37:55.757526+00:00
+  summary: Strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T12:37:55.757526Z'
+  snapshot_sha256: e7785e26040cf7daa6d33eb07cb4bdf4ecf3335c8d93f47e616b929e96088341
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-terms kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  locator: Actual execution 2026-10-21T12:37:33.515302+00:00 to 2026-10-21T12:37:40.651141+00:00
+  summary: Term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T12:37:40.651141Z'
+  snapshot_sha256: c181067c7d1365916b2b1c06fe65580f094c45b2352957a250b2f17b5c786990
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  locator: Actual execution 2026-10-21T12:37:36.845120+00:00 to 2026-10-21T12:37:37.028296+00:00
+  summary: GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T12:37:37.028296Z'
+  snapshot_sha256: 37b71b7285806be2204a63e900b47c3c4011c6be4c7eb1bd459bb0b26e3793b0
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb-domain kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  locator: Actual execution 2026-10-21T12:37:37.029157+00:00 to 2026-10-21T12:37:43.588833+00:00
+  summary: GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T12:37:43.588833Z'
+  snapshot_sha256: 7f9ba97d35deef8c383e05dfeaefcbdcbd5b1b77863b620b2e258105a3850f9a
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-history history/records/BioModels_MODEL2407300002_Sponge_Holobiont_Network
+  locator: Actual execution 2026-10-21T12:37:40.652170+00:00 to 2026-10-21T12:37:43.796101+00:00
+  summary: History validation passed.
+  support: supports
+  accessed_at: '2026-10-21T12:37:43.796101Z'
+  snapshot_sha256: bc498e70bfd6203b1f2b3346284be346686a28fa0dbb8883eb84e8cbe4c0023e
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T12:37:55.762681+00:00 to 2026-10-21T12:37:55.921872+00:00
+  summary: Read-only cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T12:37:55.921872Z'
+  snapshot_sha256: a4daae299f23e33cc4c56b26236f33065463100008679c39b281c82549faa5d4
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-references-explained kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+  locator: Actual execution 2026-10-21T12:37:55.922248+00:00 to 2026-10-21T12:37:59.454662+00:00
+  summary: Reference validation passed against pinned cache.
+  support: supports
+  accessed_at: '2026-10-21T12:37:59.454662Z'
+  snapshot_sha256: be211ed4804616e4a24cf86599a60b23d0800ec671c81eae87ed38b540462638
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T11:32:06.425768+00:00 to 2026-10-21T11:32:16.427975+00:00
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records;
+    target-native structure is COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T11:32:16.427975Z'
+  snapshot_sha256: c16b3a28b790e90191e9c5fb067c97a8038a813593fbfbe1796bf78d116abafb
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T11:32:06.426382+00:00 to 2026-10-21T11:32:14.966232+00:00
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records;
+    target-native structure is COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T11:32:14.966232Z'
+  snapshot_sha256: 6a321df993e978ed76cacc843bf792ecb9969ab237ca14c6e8575723ee3410f3
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Sponge microbiome model scope
+  outcome: concern
+  summary: The archive identity is correct, but three guild entries do not represent
+    all eight reconstructed members.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - roster
+  - roster-authority
+  - resources
+  dimensions:
+  - name: community_scope
+    value: Eight modeled microbial species, seven bacteria and one archaeon
+    definition: A dominant modeled subset of the natural Stylissa microbiome; no host
+      reconstruction and no cultured eight-strain consortium.
+    evidence_ids:
+    - roster
+    - host-input
+  - name: source_strain
+    value: Representative and merged MAG identities
+    definition: Preserve species, model identifiers and MAG provenance; merged MAGs
+      are not culture-collection strains.
+    evidence_ids:
+    - roster
+    - supplement
+  - name: environment
+    value: Natural shallow-water Stylissa mesohyl represented computationally
+    definition: Four sponge specimens were sampled at the Great Barrier Reef in December
+      2015. Grid geometry and replenishment are model inputs, not vessel or culture
+      conditions.
+    evidence_ids:
+    - roster
+    - model-methods
+  - name: medium
+    value: Seawater-derived in-silico media with scenario-specific inputs
+    definition: Hypotaurine, laurate, ammonia, diffusion, removal and death settings
+      belong to computational provenance.
+    evidence_ids:
+    - model-methods
+    - supplement
+  - name: experimental_setting
+    value: Metagenome/metabolomics-informed pFBA simulations
+    definition: Individual growth tests and two-/three-/eight-member simulations use
+      distinct settings; tissue enrichment informs candidate host inputs.
+    evidence_ids:
+    - model-methods
+    - host-input
+  - name: evidence_tier
+    value: COMPUTATIONAL predictions informed by environmental observations
+    definition: Fluxes and host origin are not validated by direct partner-transfer
+      or host-fitness measurements.
+    evidence_ids:
+    - host-input
+    - network
+  - name: grounding_status
+    value: Current broad terms valid; more specific identities partly recoverable
+    definition: Use verified names/CURIEs where available and explicit uncertainty
+      elsewhere. No guessed species or species-level GTDB mapping.
+    evidence_ids:
+    - ontology
+    - roster-authority
+- assessment_id: taxonomy
+  area: grounding
+  topic: Eight-member composition and roles
+  outcome: concern
+  summary: The current three broad entries have supported conditional roles but omit
+    five named reconstructions.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - roster
+  - roster-authority
+  - supplement
+  details: Missing Spongiicolonus versatilis, Spongiihabitans thiooxidans, Oxydemutator
+    thiolithooxidans, Parasynechococcus marinus and Gammaporibacter thiotrophicus
+    materially changes the represented metabolic roster. Cenoporarchaeum/Nitrospongiibacter
+    producer roles and Deltaporibacter cross-feeding are source-supported in modeled
+    regimes; attach specific evidence rather than the generic network snippet.
+- assessment_id: state
+  area: evidence
+  topic: 'ecological_state: STABLE'
+  outcome: concern
+  summary: An unqualified ecological-equilibrium label is not established by the conditional
+    simulation endpoints.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - stability
+  - schema
+  details: Distinguish the ratio-of-ratios criterion for the nitrifying model from
+    eight-member Bray–Curtis similarity and late-cycle stabilization. The optional
+    schema field may be omitted or supported with an explicit scope; do not automatically
+    substitute ENGINEERED or TRANSIENT. NATURAL origin remains appropriate for the
+    modeled microbiome.
+- assessment_id: node-0
+  area: graph
+  topic: ecological_interactions[0]
+  outcome: supported
+  summary: Retain modeled nitrite cross-feeding.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - nitrification
+  - supplement
+  details: C. stylissae ammonia oxidation provides nitrite to N. stylissae. NO-reaction
+    disabling and nutrient/removal constraints are explicit; neither measured transfer
+    nor thermodynamic obligacy is established.
+- assessment_id: arrow-0
+  area: graph
+  topic: ecological_interactions[0].downstream[0]
+  outcome: supported
+  summary: Retain conditional nitrification → nitrifier growth support.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - nitrification
+  - stability
+  details: C. stylissae supplies the substrate for N. stylissae growth; joint persistence
+    depends on imposed ammonia and removal. This is a source-supported model mechanism,
+    not a general ecological stability claim.
+- assessment_id: node-1
+  area: graph
+  topic: ecological_interactions[1]
+  outcome: supported
+  summary: Retain the nutrient-responsive eight-member exchange network.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - network
+  - deltaporibacter
+  details: Alternative input regimes affect predicted exchanges; Deltaporibacter is
+    a participant, not a demonstrated active coordinator. Preserve the removal of
+    part-whole/common-input summary arrows.
+- assessment_id: node-2
+  area: graph
+  topic: ecological_interactions[2]
+  outcome: supported
+  summary: Retain candidate host nutrient inputs with the existing uncertainty.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - host-input
+  - model-methods
+  details: Tissue-enriched substrates are treated as available to microbial models.
+    Origin and delivery are assumptions, and the host is an external context rather
+    than a modeled fitness beneficiary.
+- assessment_id: arrow-2
+  area: graph
+  topic: ecological_interactions[2].downstream[0]
+  outcome: supported
+  summary: Retain conditional candidate-input → microbial exchange direction.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - host-input
+  - network
+  details: Supplying selected substrates changes the available model resources and
+    predicted exchanges. It does not establish host secretion, reciprocal fitness
+    or the same fluxes in vivo.
+- assessment_id: node-3
+  area: graph
+  topic: ecological_interactions[3]
+  outcome: supported
+  summary: Retain the operational nitrifier stability endpoint.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - stability
+  - nitrification
+  details: The final/initial AOA:NOB population-ratio criterion is correctly stated
+    as 0.5–2. It is not an absolute abundance bound, measured environmental threshold
+    or independent syntrophic interaction.
+- assessment_id: node-4
+  area: graph
+  topic: ecological_interactions[4]
+  outcome: supported
+  summary: Retain condition-specific Deltaporibacter nitrogen-linked exchange.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - deltaporibacter
+  - network
+  - supplement
+  details: Hypotaurine scenarios predict nitrate reduction and NO release; mixed-input
+    scenarios predict laurate use and acetate donation. Neither active coordination
+    nor measured flux is asserted.
+- assessment_id: node-5
+  area: graph
+  topic: ecological_interactions[5]
+  outcome: supported
+  summary: Retain nutrient-dependent microbial carbon balance.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - carbon
+  - host-input
+  details: This aggregate model endpoint excludes host respiration. Carbon fixation
+    is a contributing process and does not make every input regime or the whole living
+    holobiont autotrophic.
+- assessment_id: provenance
+  area: provenance
+  topic: Model assumptions, source context and cultivation
+  outcome: concern
+  summary: All evidence is computational, but structured model provenance and environmental
+    context are missing.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - model-methods
+  - host-input
+  - schema
+  details: Recover methods, software, MAG merging/gap-filling, scenario-specific medium
+    and population parameters without adding fictitious cultivation. Empty wetlab
+    growth/cultivation blocks are appropriate. Sampling context and modeled mesohyl
+    can be described separately with verified environment grounding during curation.
+- assessment_id: resources
+  area: provenance
+  topic: Model, code and data resources
+  outcome: concern
+  summary: The exact RDS listing is valid; the bibliography-as-dataset and omitted
+    source-resource context need repair.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - resources
+  - source-resources
+  details: PRJNA602572 is a broad prior marine-sponge project, not solely the four
+    focal specimens or a metabolomics archive. STY8 v1.0.0 and Zenodo 14030749 are
+    verified metadata/code inventories. The paper-linked MSV000083743 currently describes
+    EMP soil/fecal samples; resolve before claiming a focal metabolomics link. RDS
+    objects were not parsed or executed.
+- assessment_id: history
+  area: provenance
+  topic: Prior repairs, evidence and current limitations
+  outcome: supported
+  summary: All 14 quotations match; previous six-node/two-arrow repairs remain scientifically
+    appropriate.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - history
+  - snippets
+  - source-scope
+  details: The earlier unread-figure/SI/model limits remain historical. This review
+    expands source scope without closing issue 1268 or altering any record/history.
+    The unsafe colon-named duplicate cache was not used as an inspected input; its
+    omission was path-contract handling, not evidence that it is absent.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and ontology semantics
+  outcome: supported
+  summary: Eight native checks pass; this does not resolve membership or scope findings.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - check-validate
+  - check-validate-references-explained
+  - ontology
+  - schema
+- assessment_id: metrics
+  area: completeness
+  topic: Native mechanical scores
+  outcome: supported
+  summary: Scores remain distinct from the four scientific/provenance findings.
+  target_ids:
+  - CommunityMech:000013
+  evidence_ids:
+  - native-target
+  metrics:
+  - name: completeness
+    value: 75
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 50 required-fields/taxon-roles component +10 interaction nodes +5
+      external resources +5 datasets +5 metabolites. Environment, environmental-factor
+      and medium bonuses are zero.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      P1=0/P2=2/P3=2/P4=0; 9/6 mean evidence gives 15 bonus; network 15; raw 106,
+      capped 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: eight-member-roster
+  issue_key: cm-000013-eight-member-roster
+  category: completeness
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: material membership or evidence-scope defect; graph qualifications
+    remain intact.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Represent all eight modeled microbial members
+  description: Three domain-grounded guild entries omit five named reconstructions
+    and do not preserve the full source model composition.
+  target_ids:
+  - CommunityMech:000013
+  field_paths:
+  - taxonomy
+  evidence_ids:
+  - roster
+  - roster-authority
+  - resources
+  - supplement
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+    role: canonical_record
+- finding_id: stable-state
+  issue_key: cm-000013-stable-state
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: material membership or evidence-scope defect; graph qualifications
+    remain intact.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Bound ecological state to the demonstrated evidence
+  description: STABLE globally asserts ecological equilibrium while the source demonstrates
+    conditional model composition outcomes under imposed inputs and turnover.
+  target_ids:
+  - CommunityMech:000013
+  field_paths:
+  - ecological_state
+  evidence_ids:
+  - stability
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+    role: canonical_record
+- finding_id: computational-context
+  issue_key: cm-000013-computational-context
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded recoverable provenance/resource gap; graph qualifications
+    remain intact.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Record structured model and environmental provenance
+  description: The record lacks structured provenance for fourteen computational evidence
+    items and omits recoverable natural/model context, although its graph prose already
+    states important assumptions.
+  target_ids:
+  - CommunityMech:000013
+  field_paths:
+  - environment_term
+  - modeled_environment
+  - external_resources[0].evidence[0]
+  - external_resources[1].evidence[0]
+  - taxonomy[0].evidence
+  - taxonomy[1].evidence
+  - taxonomy[2].evidence
+  - ecological_interactions[0].evidence
+  - ecological_interactions[1].evidence
+  - ecological_interactions[2].evidence
+  - ecological_interactions[3].evidence
+  - ecological_interactions[4].evidence
+  - ecological_interactions[5].evidence
+  evidence_ids:
+  - model-methods
+  - host-input
+  - supplement
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+    role: canonical_record
+- finding_id: resource-scope
+  issue_key: cm-000013-resource-scope
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded recoverable provenance/resource gap; graph qualifications
+    remain intact.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Separate publication evidence and reconcile public resource scope
+  description: The publication is listed as a dataset while recoverable data/code
+    provenance is absent; the reported metabolomics accession has a current scope
+    mismatch that must not be imported uncritically.
+  target_ids:
+  - CommunityMech:000013
+  field_paths:
+  - associated_datasets[0]
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - resources
+  - source-resources
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+    role: canonical_record
+actions:
+- action_id: repair-eight-member-roster
+  description: Represent all eight modeled microbial members.
+  finding_ids:
+  - eight-member-roster
+  target_ids:
+  - CommunityMech:000013
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Represent all eight source members and their model/MAG identifiers, keeping the
+    seven-bacteria/one-archaeon scope and excluding the sponge host. Preserve the
+    98.3% MAG-mapped-read denominator.
+  - Use verified NCBI species candidates for Candidatus Spongiicolonus versatilis
+    (2973585), Candidatus Spongiihabitans thiooxidans (1671877) and Candidatus Oxydemutator
+    thiolithooxidans (2973566) with exact labels and source-name notes. Parasynechococcus
+    (2881427) is only genus-level in the inspected authority. Preserve explicit uncertainty
+    for unresolved names rather than inventing species CURIEs or GTDB assignments.
+  - Attach narrow membership and condition-specific role evidence; distinguish merged
+    MAG reconstructions from experimental isolates. Revalidate taxonomy, terms and
+    GTDB/domain after curation.
+- action_id: repair-stable-state
+  description: Bound ecological state to the demonstrated evidence.
+  finding_ids:
+  - stable-state
+  target_ids:
+  - CommunityMech:000013
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Omit the optional ecological_state field if ecological equilibrium cannot be supported,
+    or supply an explicit source-grounded scope that does not present simulated stability
+    as observed in-vivo persistence.
+  - Preserve NATURAL origin and the existing operational node definition; do not replace
+    the state automatically with ENGINEERED/TRANSIENT or confuse the 0.5–2 ratio-of-ratios
+    criterion with absolute population bounds.
+- action_id: repair-computational-context
+  description: Record structured model and environmental provenance.
+  finding_ids:
+  - computational-context
+  target_ids:
+  - CommunityMech:000013
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Add claim-specific computational_provenance for gapseq v1.1 b568a4e reconstruction/manual
+    curation/gap-filling and BacArena v1.8.2 pFBA, preserving model identifiers and
+    the source scenarios.
+  - Separate individual, two-/three-member and eight-member runs. Record the relevant
+    input/removal/death/replenishment assumptions; the eight-member model uses 100
+    one-hour cycles, 10 mM ammonia, 10% removal and 5% death. Do not generalize those
+    settings to every simulation.
+  - Describe natural sampling and modeled sponge mesohyl separately. Put simulated
+    nutrient media in model provenance, not wetlab cultivation; do not invent vessels,
+    culture temperature or salinity. Preserve host-input origin and host-respiration
+    limitations.
+- action_id: repair-resource-scope
+  description: Separate publication evidence and reconcile public resource scope.
+  finding_ids:
+  - resource-scope
+  target_ids:
+  - CommunityMech:000013
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Keep the verified BioModels entry and exact combined-input RDS filename, while
+    stating listing/metadata verification rather than parsed payload or reproduced
+    simulation.
+  - Move the paper to bibliographic evidence/resources. Link PRJNA602572 with its
+    broad prior-project scope and source-reported focal subset; link STY8 v1.0.0 commit
+    17fd9c4eb5bd1f4cdf2c6402a2cdf3958e380546 and Zenodo 10.5281/zenodo.14030749 without
+    claiming execution.
+  - Record the MSV000083743 source/archive discrepancy and resolve the focal metabolomics
+    deposit before adding a verified dataset link. Do not invent a replacement or
+    label the upstream unencoded discrepancy as an existing wrong record accession.
+limitations:
+- The eight models are seven bacterial and one archaeal reconstruction; the host is
+  not modeled. They cover 98.3% of reads mapped to 35 MAGs, not 98.3% of all reads.
+  Merged MAGs are not cultured strains.
+- Candidate host inputs are inferred from tissue-versus-cell metabolite enrichment
+  with two samples per group; host synthesis, delivery, respiration and reciprocal
+  fitness were not resolved.
+- Two-/three-member operational population-ratio stability and eight-member similarity
+  to starting composition are conditional model endpoints, not measured ecological
+  equilibrium.
+- No model execution, RDS deserialization, raw sequencing/spectra, FISH counting,
+  genomic reannotation or flux/statistical reanalysis. Source model inventories and
+  metadata do not reproduce numerical results.
+- SD11 lists NO with cpd00418 and nitrite with cpd00075, unlike the SD7 identifiers;
+  retain this unencoded source discrepancy rather than importing those IDs or creating
+  a canonical finding. SD7 species header placement also differs from the paired numeric-column
+  layout; narrative/Figures 5–6 corroborate the focal directions.
+- The reported MSV000083743 pointer resolves to soil/fecal EMP data in current metadata;
+  it is not verified as the focal sponge metabolomics deposit. No replacement accession
+  inferred.
+- Other cited studies and the complete raw Source Data matrices were not independently
+  reanalysed. Local exact-name authority misses are not global absence; SeqCode registration
+  is source-reported rather than separately audited.
+- The initial inspect wrapper/path-safety failures were retained separately and resolved
+  before this valid inspection. The unsafe colon-named duplicate cache was not read
+  as review evidence; canonical caches were unchanged.
+notes:
+- No canonical, cache, history, generated or saved-review files changed. All 25 inspected
+  inputs remain pinned.
+- Publication and supplements share one 25-word direct-quotation limit.
+- Native completeness 75 and capped quality 100/raw 106 do not certify the unresolved
+  findings.
+tags:
+- record-review
+- sponge
+- metabolic-model
+- computational
+- batch-07
+```

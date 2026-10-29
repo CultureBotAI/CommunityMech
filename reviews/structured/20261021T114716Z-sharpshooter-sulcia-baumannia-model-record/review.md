@@ -1,0 +1,1412 @@
+# Sharpshooter Sulcia–Baumannia BioModels record review
+
+- Review: 20261021T114716Z-sharpshooter-sulcia-baumannia-model-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T11:43:39.670122Z
+- Finished UTC: 2026-10-21T11:47:16.499341Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+The exact sharpshooter metabolic model and all three qualified graph nodes are supported, with no arrows. Two major findings address the insect in microbial membership and unsupported STABLE equilibrium; two minor findings address structured computational provenance and publication/data-resource organization. No simulation was rerun.
+
+## Scope And Provenance
+
+Whole record against complete primary scientific main, all main/SI figures, full supplementary methods, declared table scopes and direct model/project/repository authorities.
+
+Selection: Next released path after 000006 was saved and both mandatory checks passed; only CommunityMech:000007 reviewed.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000007 | kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml | maintained | BioModels MODEL1806250004 Sharpshooter Sulcia-Baumannia Symbiosis |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000007 | Target schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000007 | Target strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000007 | Target term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000007 | Target GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000007 | Target GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000007 | Target history validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000007 | Read-only corpus cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000007 | Target reference validation passed against the pinned cache. |
+| audit-network | failed | True | CommunityMech:000007 | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records and exit 1; target-native structure has no issue. |
+| check-network-quality | failed | True | CommunityMech:000007 | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records and exit 1; target-native structure has no issue. |
+| Primary publication and model identity | passed | True | CommunityMech:000007 | Direct publication identifiers, BioModels metadata/checksummed XML and focal input-project identity were verified. |
+| Whole-record scientific assessment | passed | True | CommunityMech:000007 | Complete scientific main, all seven main and three SI figures, full Text S1 and declared focal table/model scopes were inspected. |
+| Encoded medium and ingredient links | not_applicable | False | CommunityMech:000007 | No CultureMech or MediaIngredientMech identifier is encoded; simulated hemolymph is not a wet-lab culture recipe. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000007 | Same-runtime discovery, reused with original receipt, found no runnable adapter; no task-specific expression-module match was established. |
+
+## Scientific And Domain Assessments
+
+### Exact model and biological actors
+
+identity: concern. Targets: CommunityMech:000007.
+
+MODEL1806250004 is the intended iNA629 sharpshooter model; the host should remain external to microbial membership.
+
+### Membership, roles and names
+
+grounding: concern. Targets: CommunityMech:000007.
+
+Remove the host from the membership list while retaining its supported graph endpoints.
+
+The microbial partners and broad syntrophic-metabolism roles are compatible with model-predicted cooperative metabolism. No extra obligacy or product-removal test is imported into these broad category/role definitions. The current source-based bacterial ranks are retained; no unverified exact strain or extra taxon is added. Historical GTDB mapping statistics were not re-certified.
+
+### ecological_interactions[0]: Sulcia provisioning
+
+graph: supported. Targets: CommunityMech:000007.
+
+Retain the COMPUTATIONAL Sulcia → G. coccinea provisioning and modeled reciprocal benefit.
+
+Eight EAA exports, including the two encoded L-amino acids, support the node. The nitrogen percentage is weighted transport flux relative to host-derived nitrogen input, not concentration or a tracer measurement. The current 66–80% wording is explicitly pooled across systems; the sharpshooter figure/table is approximately 66%. No downstream arrow is needed.
+
+### ecological_interactions[1]: Baumannia complementarity
+
+graph: supported. Targets: CommunityMech:000007.
+
+Retain the COMPUTATIONAL Baumannia → G. coccinea model interpretation and its limitations.
+
+The two exported EAAs are histidine and methionine. The approximately 10% nitrogen return is not the separate 8% contribution to total EAA release. Host support and three Sulcia-to-Baumannia intermediates are modeled; they prevent an absolute segregation claim. Host regulatory control remains PARTIAL.
+
+### ecological_interactions[2]: Host-mediated complementarity
+
+graph: supported. Targets: CommunityMech:000007.
+
+Retain community-level modeled reciprocal nutrition with PARTIAL host-control interpretation.
+
+The modeled actors are Sulcia, Baumannia and their host; three intermediates (homoserine, LL-2,6-diaminoheptanedioate and 3-methyl-2-oxobutanoate) pass from Sulcia to Baumannia through the modeled host compartment. This does not experimentally establish host regulation or absence of bacterial cross-feeding. The broad GO:0044419 term is compatible with interspecies processes. The existing zero-arrow graph correctly avoids component-to-summary causation.
+
+### Ecological state versus computational steady state
+
+evidence: concern. Targets: CommunityMech:000007.
+
+STABLE is not established as ecological equilibrium by the inspected source.
+
+The source describes an ancient, vertically transmitted natural association and optimizes constrained metabolic fluxes. It does not measure community dynamics or recovery to equilibrium. NATURAL remains appropriate to the modeled biological association; creating a model does not imply ENGINEERED biological origin.
+
+### Structured computational provenance
+
+completeness: concern. Targets: CommunityMech:000007.
+
+Recoverable model/run settings remain only in source text and the existing discussion.
+
+Record FBA/FVA, COBRA Toolbox 3.0, MATLAB/Gurobi without invented versions, iNA629 and source accessions, objective and simulated hemolymph. Distinguish ordinary growth from maintenance-cost simulations. BioModels glucose/ammonium defaults of −1000 differ from published −100 run bounds; stored zero flux fields are not observed optimal outputs. The discussion already captures important assumptions and should be preserved.
+
+### Models, publication and input data
+
+completeness: concern. Targets: CommunityMech:000007.
+
+The model file is valid; the primary publication belongs in evidence/resources rather than as a dataset.
+
+PRJNA341855 is the focal sharpshooter project; PRJNA342845 and PRJNA343314 are other insect systems. The author repository is pinned to commit bb20c83c112331442b19a7b5f16f6cd6389221b4. Its model blob differs bytewise from BioModels; identity is supported, but scientific or executable equivalence was not tested. NON_CURATED is archive status, not proof of an invalid model.
+
+### Snippets and previous graph repairs
+
+provenance: supported. Targets: CommunityMech:000007.
+
+The current graph preserves the earlier corrections and every quoted source passage is directly confirmed.
+
+The MD cache is labeled abstract_only despite appended main text; the TXT is the abstract/bibliographic source. Issue 1258 is closed; generic open 1262 does not explicitly identify this record. Prior noninspection of figures/SI/model files does not describe the present bounded assessment.
+
+### Native checks and source assessment
+
+schema: supported. Targets: CommunityMech:000007.
+
+All eight native checks pass; semantic and evidence findings remain despite those passes.
+
+### Native completeness and quality
+
+completeness: supported. Targets: CommunityMech:000007.
+
+Mechanical scores do not certify host membership, equilibrium or simulation reproducibility.
+
+## Findings
+
+### host-membership: Separate the insect host from microbial membership
+
+major / open / confirmed; issue key: cm-000007-host-membership.
+
+taxonomy[0] contains G. coccinea despite the schema excluding hosts from the microbial roster.
+
+### ecological-equilibrium: Qualify the unsupported STABLE designation
+
+major / open / confirmed; issue key: cm-000007-ecological-equilibrium.
+
+The source supports a natural symbiosis and steady-state metabolic predictions, not the ecological equilibrium asserted by STABLE.
+
+### computational-provenance: Structure the model and run assumptions
+
+minor / open / confirmed; issue key: cm-000007-computational-provenance.
+
+The eight interaction evidence items lack computational_provenance despite recoverable methods and existing narrative assumptions.
+
+### resource-types: Separate the publication from study resources
+
+minor / open / confirmed; issue key: cm-000007-resource-types.
+
+The Primary publication entry is classified as an associated dataset, while verified focal input/repository links remain unstructured.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-host-membership
+
+Separate the insect host from microbial membership.
+
+- Remove the insect from microbial taxonomy during authorized curation; retain Sulcia and Baumannia as microbial members.
+- Preserve G. coccinea as the external recipient/participant in the model graph and narrative. Do not delete the host compartment from the scientific interpretation.
+- Do not reinsert the host merely to satisfy external-participant network warnings; assess those warnings against the schema.
+
+### repair-ecological-equilibrium
+
+Qualify the unsupported STABLE designation.
+
+- Supply ecological evidence for stable equilibrium or explicitly document the unresolved state; distinguish long evolutionary association from demonstrated equilibrium.
+- Do not automatically substitute ENGINEERED or TRANSIENT: neither follows from creating a metabolic model.
+- If the required enum cannot represent uncertainty truthfully, record the bounded schema issue for separately authorized follow-up rather than inventing biological dynamics.
+
+### repair-computational-provenance
+
+Structure the model and run assumptions.
+
+- Populate claim-level computational provenance with FBA/FVA, COBRA Toolbox 3.0, MATLAB/Gurobi, iNA629, model source/input accession and modeled bacteriocyte/hemolymph context; leave unreported software versions unset.
+- Preserve oxygen uptake 20, published run uptake caps, equal bacterial biomass lower bounds 0.01, objective and transport-cost assumptions with their units and source scope. Distinguish maintenance-cost simulations from baseline growth.
+- Retain the discrepancy between deposited exchange bounds and published runtime settings, and S5o cystathionine versus closed proteinogenic-amino-acid exchanges. Do not turn default zero FLUX_VALUE entries into results.
+- Keep wet-lab growth_media absent; retain the existing discussion and all three qualified nodes with no arrows.
+
+### repair-resource-types
+
+Separate the publication from study resources.
+
+- Move PMID:30254121 to an appropriate publication/evidence resource; preserve the actual BioModels MODEL1806250004 file entry.
+- Link the verified focal PRJNA341855 host-transcriptome/symbiont-genome project and immutable author repository commit with their exact host/model scope. Do not import the two other insect projects as focal data.
+- Keep archive status, byte differences and unexecuted model boundaries explicit; do not claim raw-data inspection, reproducibility or strain-resolution from this metadata check.
+
+### preserve-model-graph
+
+Preserve computational scope and the three-node, zero-arrow graph during separately authorized curation.
+
+- Keep host-mediated regulation PARTIAL, the three bacterial exchanges explicit and all nitrogen quantities source-scoped.
+- Do not restore component-to-summary arrows or assert measured transfer, fitness, equilibrium or model reproducibility.
+- Preserve append-only history and rerun schema, strict, term, reference, history and target/corpus network checks after authorized changes.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml; Whole record: three taxonomy entries, three nodes, zero arrows, two dataset entries | supports | The intended sharpshooter model is identifiable and its graph is qualified; microbial membership, ecological state and structured provenance require follow-up. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=30254121&amp;retmode=xml; Article-level metadata | supports | Article-level PMID, DOI, title and abstract are verified. |
+| crossref | https://api.crossref.org/works/10.1128/mBio.01433-18; Article-level metadata | supports | DOI, publication title and bibliographic identity are verified. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:30254121&amp;format=json&amp;resultType=core; Article-level metadata | supports | Article-level identifiers and the open-access full-text route are verified. |
+| sulcia | PMID:30254121; Reused direct XML s2, Metabolic outputs and metabolic cost subsections; Figures 2a/d/g and 7b; Table S1f and S1i rows 56–84 | supports | The sharpshooter model releases eight Sulcia essential amino acids. Nitrogen-weighted output is about 66% in this model; 66–80% is the explicitly pooled three-system range. |
+| baumannia | PMID:30254121; Reused direct XML s2, Metabolic outputs and metabolic cost subsections; Figures 2a/d/g and 7b; Table S1f and S1i rows 87–121 | supports | Baumannia exports histidine and methionine, complementing the eight Sulcia EAAs; approximately 10% refers to returned EAA nitrogen relative to host-derived input. |
+| reciprocal | PMID:30254121; Reused direct XML s2, Metabolic inputs and cross-feeding paragraphs; s3 Discussion; Figure 4 organism-labeled sharpshooter panel a | partial | The model predicts extensive host–symbiont exchange and three Sulcia-to-Baumannia intermediates serving methionine, peptidoglycan and pantothenate synthesis. Host regulatory control remains a hypothesis. |
+| methods | PMID:30254121; Reused direct XML s4, The insects, Metabolic model reconstruction and analysis, Calculation of symbiont maintenance costs and data statements | supports | Field-derived bacteriome genomes/transcriptomes inform iNA629; COBRA Toolbox 3.0, MATLAB and Gurobi support FBA/FVA. The simulations are not a wet-lab coculture or ecological stability experiment. |
+| inference | PMID:30254121; Reused direct XML s3, opening Discussion paragraph; s1 vertical-transmission background | partial | The paper frames model outputs as hypotheses for empirical testing. Long-standing vertically transmitted associations do not themselves demonstrate a stable ecological equilibrium for this record. |
+| supplement | PMID:30254121; Text S1, all modeling methods; Table S1f, focal S1h/S1i/S5o rows and S6d; all three supplementary figures | supports | Supplementary constraints and tabulated predicted fluxes support the bounded graph. S5o gives run-specific exchange bounds; this is simulated hemolymph, not a culture recipe. |
+| schema | src/communitymech/schema/communitymech.yaml; MicrobialCommunity.taxonomy; EcologicalStateEnum; CommunityCategoryEnum; FunctionalRoleEnum; EvidenceSourceEnum; ComputationalProvenance | supports | Hosts are excluded from microbial membership but allowed as outside interaction participants. STABLE requires equilibrium; computational provenance has dedicated model, tools, input and simulated-medium fields. |
+| ontology | kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml; ontology-authority.json | supports | All six distinct ontology pairs across ten occurrences match. Host membership and ecological-state semantics remain separate from label validity. |
+| snippets | kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml; snippet-audit.json | supports | All nine excerpts match directly retrieved sources: eight XML interaction passages and one exact PubMed article title; both cache boundaries are documented. |
+| history | kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml; provenance-audit.json | supports | Closed issue 1258 records the preserved graph repair; open issue 1262 does not name this target. Prior graph-only certification does not certify non-graph fields. |
+| resources | kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml; dataset-verification.json | supports | BioModels file identity is verified; focal project PRJNA341855 and the immutable author repository are distinct resources. PMID:30254121 is a publication, not a dataset deposit. |
+| model-boundary | kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml; root-model-boundary.json | context_only | Read-only SBML inspection distinguishes three biological actors, extracellular compartment, stored defaults and published run constraints; it does not reproduce the simulation. |
+| native-target | kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml; support-audit.json | supports | Target network and mechanical metrics are recorded separately from scientific and membership judgments. |
+| source-reuse | kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml; source-reuse.json | supports | Frozen primary bytes and original fetch timestamps are explicitly pinned for this independent focal review. |
+| source-scope | PMID:30254121; source-audit.json | supports | Complete scientific main, all main/SI figures and declared supplementary table/model scopes were assessed. |
+| independent-source | PMID:30254121; root-independent-source-audit.json | context_only | Independent source, figure, supplement and archive assessment agrees with the bounded findings. |
+| search | Owned maintained roots; local-search.json: ignored-inclusive bounded lookup | supports | Reusable identity and mapping discovery is limited to the recorded roots; no global absence is inferred. |
+| adapter | Optional structured source adapter; adapter-check.json: same-runtime 000006 discovery reused with original time | supports | No runnable optional adapter was available in the owned runtime. No external-checkout runner or paid provider was invoked. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml; Actual execution 2026-10-21T11:44:11.757129+00:00 to 2026-10-21T11:44:12.801666+00:00 | supports | Target schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-strict kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml --out /private/tmp/cm-review-session/batch-07/000007/strict-report.tsv; Actual execution 2026-10-21T11:44:11.757320+00:00 to 2026-10-21T11:44:14.899323+00:00 | supports | Target strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-terms kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml; Actual execution 2026-10-21T11:44:11.761051+00:00 to 2026-10-21T11:44:14.346329+00:00 | supports | Target term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-gtdb kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml; Actual execution 2026-10-21T11:44:12.802050+00:00 to 2026-10-21T11:44:12.895378+00:00 | supports | Target GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-gtdb-domain kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml; Actual execution 2026-10-21T11:44:12.895775+00:00 to 2026-10-21T11:44:15.019885+00:00 | supports | Target GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-history history/records/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia; Actual execution 2026-10-21T11:44:14.346630+00:00 to 2026-10-21T11:44:15.183375+00:00 | supports | Target history validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T11:44:15.184444+00:00 to 2026-10-21T11:44:15.262396+00:00 | supports | Read-only corpus cache-filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-references-explained kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml; Actual execution 2026-10-21T11:44:15.262702+00:00 to 2026-10-21T11:44:16.458857+00:00 | supports | Target reference validation passed against the pinned cache. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T11:32:06.425768+00:00 to 2026-10-21T11:32:16.427975+00:00 | supports | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records and exit 1; target-native structure has no issue. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T11:32:06.426382+00:00 to 2026-10-21T11:32:14.966232+00:00 | supports | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records and exit 1; target-native structure has no issue. |
+
+## Limits And Additional Notes
+
+- No FBA/FVA optimization, model/code execution, MATLAB payload, transcriptome reconstruction or raw-sequence analysis was performed. Archive metadata and structural XML checks do not establish reproducibility.
+- Supplementary workbook reading was bounded to inventories/headers and declared focal sheets/rows; large reaction lists and other-insect numerical tables were not exhaustively audited.
+- BioModels defaults differ from published runtime constraints; the author-repository model is not byte-identical. Neither fact establishes wrong model identity, and stored zero flux values are not published results.
+- Figure 4 caption and panel labels disagree on sharpshooter panel lettering. S5o permits cystathionine despite prose amino-acid exclusion; the twenty listed proteinogenic amino-acid exchanges are closed. S6d uses component-model header names iNA81/iNA258 whereas main Methods uses iNA74/iNA234; preserve that source naming discrepancy. These source nuances constrain future provenance expansion.
+- Exact bacterial culture-collection strains, a replacement ecological-state classification and a new environment ontology term were not verified. No empirical host-control or dynamic equilibrium assay was inferred.
+- Frozen 000006 primary paper/asset bytes were reused with explicit hashes and original request times; no new paper request or inherited target-level certification is claimed. Current BioModels retrieval is focal to 000007.
+- No canonical, cache, history or generated file changed.
+- All 24 repository inputs were pinned before assessment and rechecked.
+- Sixteen quoted words from the focal publication, including its supplements as one quotation budget.
+- Native quality100 is capped from111 and does not negate the two major/two minor findings.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T114716Z-sharpshooter-sulcia-baumannia-model-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Sharpshooter Sulcia–Baumannia BioModels record review
+started_at: '2026-10-21T11:43:39.670122Z'
+finished_at: '2026-10-21T11:47:16.499341Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary science, native/ontology checks
+    and supporting snippets/provenance; no person-level independence is asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: The exact sharpshooter metabolic model and all three qualified graph nodes
+  are supported, with no arrows. Two major findings address the insect in microbial
+  membership and unsupported STABLE equilibrium; two minor findings address structured
+  computational provenance and publication/data-resource organization. No simulation
+  was rerun.
+source:
+  git_revision: 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia/2026-10-05T124958Z-codex-06c5c7.yaml
+    sha256: 5611edb5b42b2d192ca8f0d838e2f35ac71722109ea1f6efe1bad22a5712ee00
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+    sha256: 3c0c3ec94b77750f8583de5ef0d9a8380bf28bd62a1857cdb28c95cc9ff4601b
+    role: target
+  - path: references_cache/PMID_30254121.md
+    sha256: a63558f5a1ea983a198551fa17e038566f4b07480182dce49161d50dbd8a9341
+    role: context
+  - path: references_cache/PMID_30254121.txt
+    sha256: bc2fabd308e36c1cfc6b596a80f0de06a9f320e15437e21cf66de7631aa7f6e1
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+    sha256: c96f00489d2ad14f63cd035adc778adbf72d7fe6a11c2dffd81cd1a904cc0a75
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000007
+  path: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  label: BioModels MODEL1806250004 Sharpshooter Sulcia-Baumannia Symbiosis
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+    role: canonical_record
+scope:
+  description: Whole record against complete primary scientific main, all main/SI
+    figures, full supplementary methods, declared table scopes and direct model/project/repository
+    authorities.
+  selection: Next released path after 000006 was saved and both mandatory checks passed;
+    only CommunityMech:000007 reviewed.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000007
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000007
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000007
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-strict kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+    --out /private/tmp/cm-review-session/batch-07/000007/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000007
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-terms kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000007
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000007
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb-domain kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000007
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-history history/records/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000007
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target reference validation passed against the pinned cache.
+  target_ids:
+  - CommunityMech:000007
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-references-explained kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native structure has no issue.
+  target_ids:
+  - CommunityMech:000007
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Reused fresh full-corpus batch 07 execution, not a target-specific pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native structure has no issue.
+  target_ids:
+  - CommunityMech:000007
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Reused fresh full-corpus batch 07 execution, not a target-specific pass.
+- check_id: source-identity
+  name: Primary publication and model identity
+  status: passed
+  required: true
+  summary: Direct publication identifiers, BioModels metadata/checksummed XML and
+    focal input-project identity were verified.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - pubmed
+  - crossref
+  - epmc
+  - resources
+- check_id: scientific-source
+  name: Whole-record scientific assessment
+  status: passed
+  required: true
+  summary: Complete scientific main, all seven main and three SI figures, full Text
+    S1 and declared focal table/model scopes were inspected.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - source-scope
+  - independent-source
+  - supplement
+  - model-boundary
+- check_id: cross-mech
+  name: Encoded medium and ingredient links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech identifier is encoded; simulated
+    hemolymph is not a wet-lab culture recipe.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - record
+  - methods
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Same-runtime discovery, reused with original receipt, found no runnable
+    adapter; no task-specific expression-module match was established.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  locator: 'Whole record: three taxonomy entries, three nodes, zero arrows, two dataset
+    entries'
+  summary: The intended sharpshooter model is identifiable and its graph is qualified;
+    microbial membership, ecological state and structured provenance require follow-up.
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.487064Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=30254121&retmode=xml
+  locator: Article-level metadata
+  summary: Article-level PMID, DOI, title and abstract are verified.
+  support: supports
+  accessed_at: '2026-10-21T11:34:36.970608Z'
+  snapshot_sha256: 67c9b795c61ef6b233cd3653148d2fceadd2d9d358db392a799b95f1cff1aab9
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1128/mBio.01433-18
+  locator: Article-level metadata
+  summary: DOI, publication title and bibliographic identity are verified.
+  support: supports
+  accessed_at: '2026-10-21T11:34:36.959795Z'
+  snapshot_sha256: 8a83688c6fc4be542fe2fabf90fc2335e840c140cfb1a2016bc025674992b47f
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:30254121&format=json&resultType=core
+  locator: Article-level metadata
+  summary: Article-level identifiers and the open-access full-text route are verified.
+  support: supports
+  accessed_at: '2026-10-21T11:34:37.319583Z'
+  snapshot_sha256: 380cf3335a10b34c73e12d27ce81bc676f91395377df21349c177952a3adca2d
+- evidence_id: sulcia
+  kind: primary_source
+  reference: PMID:30254121
+  locator: Reused direct XML s2, Metabolic outputs and metabolic cost subsections;
+    Figures 2a/d/g and 7b; Table S1f and S1i rows 56–84
+  summary: The sharpshooter model releases eight Sulcia essential amino acids. Nitrogen-weighted
+    output is about 66% in this model; 66–80% is the explicitly pooled three-system
+    range.
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.488224Z'
+  quote: 8 EAAs by Sulcia
+  snapshot_sha256: 0cac2dc3b4e28fd1686a41fd36364bdb57aca39edec3cc2818fe58e02405fdd1
+- evidence_id: baumannia
+  kind: primary_source
+  reference: PMID:30254121
+  locator: Reused direct XML s2, Metabolic outputs and metabolic cost subsections;
+    Figures 2a/d/g and 7b; Table S1f and S1i rows 87–121
+  summary: Baumannia exports histidine and methionine, complementing the eight Sulcia
+    EAAs; approximately 10% refers to returned EAA nitrogen relative to host-derived
+    input.
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.488735Z'
+  quote: 10% for Baumannia
+  snapshot_sha256: 0cac2dc3b4e28fd1686a41fd36364bdb57aca39edec3cc2818fe58e02405fdd1
+- evidence_id: reciprocal
+  kind: primary_source
+  reference: PMID:30254121
+  locator: Reused direct XML s2, Metabolic inputs and cross-feeding paragraphs; s3
+    Discussion; Figure 4 organism-labeled sharpshooter panel a
+  summary: The model predicts extensive host–symbiont exchange and three Sulcia-to-Baumannia
+    intermediates serving methionine, peptidoglycan and pantothenate synthesis. Host
+    regulatory control remains a hypothesis.
+  support: partial
+  accessed_at: '2026-10-21T11:47:16.488879Z'
+  quote: three instances of transfer
+  snapshot_sha256: 0cac2dc3b4e28fd1686a41fd36364bdb57aca39edec3cc2818fe58e02405fdd1
+- evidence_id: methods
+  kind: primary_source
+  reference: PMID:30254121
+  locator: Reused direct XML s4, The insects, Metabolic model reconstruction and analysis,
+    Calculation of symbiont maintenance costs and data statements
+  summary: Field-derived bacteriome genomes/transcriptomes inform iNA629; COBRA Toolbox
+    3.0, MATLAB and Gurobi support FBA/FVA. The simulations are not a wet-lab coculture
+    or ecological stability experiment.
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.488968Z'
+  snapshot_sha256: 0cac2dc3b4e28fd1686a41fd36364bdb57aca39edec3cc2818fe58e02405fdd1
+- evidence_id: inference
+  kind: primary_source
+  reference: PMID:30254121
+  locator: Reused direct XML s3, opening Discussion paragraph; s1 vertical-transmission
+    background
+  summary: The paper frames model outputs as hypotheses for empirical testing. Long-standing
+    vertically transmitted associations do not themselves demonstrate a stable ecological
+    equilibrium for this record.
+  support: partial
+  accessed_at: '2026-10-21T11:47:16.489053Z'
+  quote: quantitative hypotheses for empirical testing
+  snapshot_sha256: 0cac2dc3b4e28fd1686a41fd36364bdb57aca39edec3cc2818fe58e02405fdd1
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:30254121
+  locator: Text S1, all modeling methods; Table S1f, focal S1h/S1i/S5o rows and S6d;
+    all three supplementary figures
+  summary: Supplementary constraints and tabulated predicted fluxes support the bounded
+    graph. S5o gives run-specific exchange bounds; this is simulated hemolymph, not
+    a culture recipe.
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.489113Z'
+  snapshot_sha256: e30b6b8baa2afe900a5ee3a42c90a67ef104472e3af644e91dd5c11d529d63fa
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: MicrobialCommunity.taxonomy; EcologicalStateEnum; CommunityCategoryEnum;
+    FunctionalRoleEnum; EvidenceSourceEnum; ComputationalProvenance
+  summary: Hosts are excluded from microbial membership but allowed as outside interaction
+    participants. STABLE requires equilibrium; computational provenance has dedicated
+    model, tools, input and simulated-medium fields.
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.489182Z'
+  snapshot_sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+- evidence_id: ontology
+  kind: authority
+  reference: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  locator: ontology-authority.json
+  summary: All six distinct ontology pairs across ten occurrences match. Host membership
+    and ecological-state semantics remain separate from label validity.
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.489969Z'
+  snapshot_sha256: d97da02ed0a0368ca4c96a91abb9db801a007c0c37d40e3d7a53b05726e3eae0
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  locator: snippet-audit.json
+  summary: 'All nine excerpts match directly retrieved sources: eight XML interaction
+    passages and one exact PubMed article title; both cache boundaries are documented.'
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.490311Z'
+  snapshot_sha256: 49834889e7fe8a003e739cb2d0c4f000955edb82460cde5f9657f2bb42f24c2e
+- evidence_id: history
+  kind: record_content
+  reference: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  locator: provenance-audit.json
+  summary: Closed issue 1258 records the preserved graph repair; open issue 1262 does
+    not name this target. Prior graph-only certification does not certify non-graph
+    fields.
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.490582Z'
+  snapshot_sha256: e54f771a65202b62ba26d74b70f3915e0f9e9462d901ca92cec24c28da334aee
+- evidence_id: resources
+  kind: database
+  reference: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  locator: dataset-verification.json
+  summary: BioModels file identity is verified; focal project PRJNA341855 and the
+    immutable author repository are distinct resources. PMID:30254121 is a publication,
+    not a dataset deposit.
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.490822Z'
+  snapshot_sha256: c9b0dd0a71b10c340e35042defbd90e27b10d85274d485a4aaeb67d2a40f5f3c
+- evidence_id: model-boundary
+  kind: validation
+  reference: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  locator: root-model-boundary.json
+  summary: Read-only SBML inspection distinguishes three biological actors, extracellular
+    compartment, stored defaults and published run constraints; it does not reproduce
+    the simulation.
+  support: context_only
+  accessed_at: '2026-10-21T11:47:16.491346Z'
+  snapshot_sha256: 41f61b531657080d34b99c8e070a02a57b4141913018f91e7e00eef91f29f9f7
+- evidence_id: native-target
+  kind: validation
+  reference: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  locator: support-audit.json
+  summary: Target network and mechanical metrics are recorded separately from scientific
+    and membership judgments.
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.491638Z'
+  snapshot_sha256: 4b9ee0cc82b6ca9bb11c6937248167307d3f2f3079e6c0a1607b950571119258
+- evidence_id: source-reuse
+  kind: validation
+  reference: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  locator: source-reuse.json
+  summary: Frozen primary bytes and original fetch timestamps are explicitly pinned
+    for this independent focal review.
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.491781Z'
+  snapshot_sha256: ea7aa9e49449c16f08294337b2017e97963c5905ead09ab4c3798690ea365673
+- evidence_id: source-scope
+  kind: validation
+  reference: PMID:30254121
+  locator: source-audit.json
+  summary: Complete scientific main, all main/SI figures and declared supplementary
+    table/model scopes were assessed.
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.491818Z'
+  snapshot_sha256: ee007b12dd316df1732e6d90e1fbc66795e33b9b50facea1a4dfefb6ce166eae
+- evidence_id: independent-source
+  kind: validation
+  reference: PMID:30254121
+  locator: root-independent-source-audit.json
+  summary: Independent source, figure, supplement and archive assessment agrees with
+    the bounded findings.
+  support: context_only
+  accessed_at: '2026-10-21T11:47:16.492169Z'
+  snapshot_sha256: c99015fd40e1b74053e8567b5d76a977d4769d18b9a3a92f619fba71e4896adf
+- evidence_id: search
+  kind: search
+  reference: Owned maintained roots
+  locator: 'local-search.json: ignored-inclusive bounded lookup'
+  summary: Reusable identity and mapping discovery is limited to the recorded roots;
+    no global absence is inferred.
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.492402Z'
+  snapshot_sha256: f65603b49a46312793889eb82afef3f1e29f0c623d04f02a2b30a4f05c97d644
+  search_scope: Ignored-inclusive maintained community, isolate and reusable-taxon
+    roots plus recorded mapping-file discovery.
+- evidence_id: adapter
+  kind: search
+  reference: Optional structured source adapter
+  locator: 'adapter-check.json: same-runtime 000006 discovery reused with original
+    time'
+  summary: No runnable optional adapter was available in the owned runtime. No external-checkout
+    runner or paid provider was invoked.
+  support: supports
+  accessed_at: '2026-10-21T11:47:16.492603Z'
+  snapshot_sha256: 914039f8b255dc7fb6625b3c69f5b8ac93c49719ead99c596dfe9011c74b4791
+  search_scope: Recorded PATH, venv, module and ignored-inclusive filesystem discovery.
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  locator: Actual execution 2026-10-21T11:44:11.757129+00:00 to 2026-10-21T11:44:12.801666+00:00
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:44:12.801666Z'
+  snapshot_sha256: f3c7d2503c6341b277f8642f85c536127c53a59125603cba4c1cbddd3f054fa6
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-strict kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+    --out /private/tmp/cm-review-session/batch-07/000007/strict-report.tsv
+  locator: Actual execution 2026-10-21T11:44:11.757320+00:00 to 2026-10-21T11:44:14.899323+00:00
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:44:14.899323Z'
+  snapshot_sha256: 175091c00262ac736d818d918320c9a0a257b9b0b8383eca372c0e45ad38b6af
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-terms kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  locator: Actual execution 2026-10-21T11:44:11.761051+00:00 to 2026-10-21T11:44:14.346329+00:00
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:44:14.346329Z'
+  snapshot_sha256: 5d04da62661f570aba21a99d6da227e1c7e558170fac467e3fc90216f9324d60
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  locator: Actual execution 2026-10-21T11:44:12.802050+00:00 to 2026-10-21T11:44:12.895378+00:00
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:44:12.895378Z'
+  snapshot_sha256: fb780cae0b56d7447f169e0b436751524ae1c692634f8be69ed940acba2b3b59
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb-domain kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  locator: Actual execution 2026-10-21T11:44:12.895775+00:00 to 2026-10-21T11:44:15.019885+00:00
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:44:15.019885Z'
+  snapshot_sha256: 5748a6bd07be288b9b0f1512c76d7336c2a7093f85780a650d9166f20cba7cae
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-history history/records/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia
+  locator: Actual execution 2026-10-21T11:44:14.346630+00:00 to 2026-10-21T11:44:15.183375+00:00
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:44:15.183375Z'
+  snapshot_sha256: c113a6625581ddec6cdb2c89fbea69c7004c191d25b38549f75a18cbfc77e6fd
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T11:44:15.184444+00:00 to 2026-10-21T11:44:15.262396+00:00
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T11:44:15.262396Z'
+  snapshot_sha256: c8cd643bd0f5e5e1c6f4f64538f4a0b7c49ed70041b4c3321ad8c7262779cf59
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-references-explained kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+  locator: Actual execution 2026-10-21T11:44:15.262702+00:00 to 2026-10-21T11:44:16.458857+00:00
+  summary: Target reference validation passed against the pinned cache.
+  support: supports
+  accessed_at: '2026-10-21T11:44:16.458857Z'
+  snapshot_sha256: a591372bfe035244603088c3f610055c9f545de1ea08b210819b818a86d78a09
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T11:32:06.425768+00:00 to 2026-10-21T11:32:16.427975+00:00
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native structure has no issue.
+  support: supports
+  accessed_at: '2026-10-21T11:32:16.427975Z'
+  snapshot_sha256: c16b3a28b790e90191e9c5fb067c97a8038a813593fbfbe1796bf78d116abafb
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T11:32:06.426382+00:00 to 2026-10-21T11:32:14.966232+00:00
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native structure has no issue.
+  support: supports
+  accessed_at: '2026-10-21T11:32:14.966232Z'
+  snapshot_sha256: 6a321df993e978ed76cacc843bf792ecb9969ab237ca14c6e8575723ee3410f3
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Exact model and biological actors
+  outcome: concern
+  summary: MODEL1806250004 is the intended iNA629 sharpshooter model; the host should
+    remain external to microbial membership.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - record
+  - methods
+  - schema
+  - resources
+  dimensions:
+  - name: community_scope
+    value: Two endosymbiotic bacteria modeled with their insect host
+    definition: Three biological model compartments do not make the insect a microbial
+      community member.
+    evidence_ids:
+    - schema
+    - resources
+  - name: source_strain
+    value: Field-derived Sulcia and Baumannia associated with G. coccinea
+    definition: The paper identifies the host and source bacteriomes; the source supports
+      Sulcia at its recorded broad rank and Baumannia cicadellinicola; neither identifies
+      a culture-collection strain.
+    evidence_ids:
+    - methods
+    - ontology
+  - name: environment
+    value: Modeled intracellular bacteriocyte and external hemolymph
+    definition: The model compartment and biological host context can be recorded
+      without inventing a wet-lab environment or exact unverified ENVO term.
+    evidence_ids:
+    - methods
+    - supplement
+  - name: medium
+    value: In-silico minimal hemolymph with constrained exchange
+    definition: Use computational_provenance.simulated_medium, preserving published
+      run bounds and the S5o cystathionine detail; no growth_media recipe is warranted.
+    evidence_ids:
+    - methods
+    - supplement
+    - model-boundary
+  - name: experimental_setting
+    value: Genome/transcriptome-informed FBA and FVA
+    definition: G. coccinea adults were field-collected in Ithaca in July 2015; four
+      transcriptome samples informed reconstruction, not a dynamic stability assay.
+    evidence_ids:
+    - methods
+  - name: evidence_tier
+    value: Computational predictions with explicit assumptions
+    definition: Nitrogen accounting, reciprocal benefit and limited cross-feeding
+      are model outputs; host-control mediation and ecological equilibrium were not
+      demonstrated.
+    evidence_ids:
+    - sulcia
+    - baumannia
+    - reciprocal
+    - inference
+  - name: grounding_status
+    value: Valid host and Baumannia species, Sulcia genus, amino acids and broad GO
+      term
+    definition: Canonical Karelsulcia and Palibaumannia labels coexist with source
+      preferred names; encoded bacterial GTDB grounding and host NO_GTDB_EQUIVALENT
+      remain bounded.
+    evidence_ids:
+    - ontology
+- assessment_id: taxonomy
+  area: grounding
+  topic: Membership, roles and names
+  outcome: concern
+  summary: Remove the host from the membership list while retaining its supported
+    graph endpoints.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - schema
+  - ontology
+  - methods
+  - reciprocal
+  details: The microbial partners and broad syntrophic-metabolism roles are compatible
+    with model-predicted cooperative metabolism. No extra obligacy or product-removal
+    test is imported into these broad category/role definitions. The current source-based
+    bacterial ranks are retained; no unverified exact strain or extra taxon is added.
+    Historical GTDB mapping statistics were not re-certified.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Sulcia provisioning'
+  outcome: supported
+  summary: Retain the COMPUTATIONAL Sulcia → G. coccinea provisioning and modeled
+    reciprocal benefit.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - sulcia
+  - methods
+  - supplement
+  details: Eight EAA exports, including the two encoded L-amino acids, support the
+    node. The nitrogen percentage is weighted transport flux relative to host-derived
+    nitrogen input, not concentration or a tracer measurement. The current 66–80%
+    wording is explicitly pooled across systems; the sharpshooter figure/table is
+    approximately 66%. No downstream arrow is needed.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Baumannia complementarity'
+  outcome: supported
+  summary: Retain the COMPUTATIONAL Baumannia → G. coccinea model interpretation and
+    its limitations.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - baumannia
+  - reciprocal
+  - methods
+  details: The two exported EAAs are histidine and methionine. The approximately 10%
+    nitrogen return is not the separate 8% contribution to total EAA release. Host
+    support and three Sulcia-to-Baumannia intermediates are modeled; they prevent
+    an absolute segregation claim. Host regulatory control remains PARTIAL.
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: Host-mediated complementarity'
+  outcome: supported
+  summary: Retain community-level modeled reciprocal nutrition with PARTIAL host-control
+    interpretation.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - reciprocal
+  - methods
+  - inference
+  - supplement
+  details: The modeled actors are Sulcia, Baumannia and their host; three intermediates
+    (homoserine, LL-2,6-diaminoheptanedioate and 3-methyl-2-oxobutanoate) pass from
+    Sulcia to Baumannia through the modeled host compartment. This does not experimentally
+    establish host regulation or absence of bacterial cross-feeding. The broad GO:0044419
+    term is compatible with interspecies processes. The existing zero-arrow graph
+    correctly avoids component-to-summary causation.
+- assessment_id: state
+  area: evidence
+  topic: Ecological state versus computational steady state
+  outcome: concern
+  summary: STABLE is not established as ecological equilibrium by the inspected source.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - schema
+  - inference
+  - methods
+  details: The source describes an ancient, vertically transmitted natural association
+    and optimizes constrained metabolic fluxes. It does not measure community dynamics
+    or recovery to equilibrium. NATURAL remains appropriate to the modeled biological
+    association; creating a model does not imply ENGINEERED biological origin.
+- assessment_id: conditions
+  area: completeness
+  topic: Structured computational provenance
+  outcome: concern
+  summary: Recoverable model/run settings remain only in source text and the existing
+    discussion.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - schema
+  - methods
+  - supplement
+  - model-boundary
+  details: Record FBA/FVA, COBRA Toolbox 3.0, MATLAB/Gurobi without invented versions,
+    iNA629 and source accessions, objective and simulated hemolymph. Distinguish ordinary
+    growth from maintenance-cost simulations. BioModels glucose/ammonium defaults
+    of −1000 differ from published −100 run bounds; stored zero flux fields are not
+    observed optimal outputs. The discussion already captures important assumptions
+    and should be preserved.
+- assessment_id: resources
+  area: completeness
+  topic: Models, publication and input data
+  outcome: concern
+  summary: The model file is valid; the primary publication belongs in evidence/resources
+    rather than as a dataset.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - resources
+  - methods
+  details: PRJNA341855 is the focal sharpshooter project; PRJNA342845 and PRJNA343314
+    are other insect systems. The author repository is pinned to commit bb20c83c112331442b19a7b5f16f6cd6389221b4.
+    Its model blob differs bytewise from BioModels; identity is supported, but scientific
+    or executable equivalence was not tested. NON_CURATED is archive status, not proof
+    of an invalid model.
+- assessment_id: provenance
+  area: provenance
+  topic: Snippets and previous graph repairs
+  outcome: supported
+  summary: The current graph preserves the earlier corrections and every quoted source
+    passage is directly confirmed.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - snippets
+  - history
+  - source-scope
+  details: The MD cache is labeled abstract_only despite appended main text; the TXT
+    is the abstract/bibliographic source. Issue 1258 is closed; generic open 1262
+    does not explicitly identify this record. Prior noninspection of figures/SI/model
+    files does not describe the present bounded assessment.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and source assessment
+  outcome: supported
+  summary: All eight native checks pass; semantic and evidence findings remain despite
+    those passes.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - check-validate
+  - check-validate-references-explained
+  - ontology
+  - source-scope
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and quality
+  outcome: supported
+  summary: Mechanical scores do not certify host membership, equilibrium or simulation
+    reproducibility.
+  target_ids:
+  - CommunityMech:000007
+  evidence_ids:
+  - native-target
+  - record
+  metrics:
+  - name: completeness
+    value: 75
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 'min(100,50 required metadata including all roles +5 environment +10
+      at least 3 factors +10 at least 3 nodes +5 resources +10 media +5 datasets +5
+      node metabolites). Current record: 50+0+0+10+5+0+5+5=75.'
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100-50P1-10P2-2P3+20 min(mean node evidence/2,1)+15 if native
+      COMPLETE,0,100). P1=0,P2=2,P3=2,P4=0; 8 evidence/3 nodes gives capped20 evidence
+      bonus, plus15 network bonus:111 before capping.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Observed native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Observed native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+findings:
+- finding_id: host-membership
+  issue_key: cm-000007-host-membership
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: the field materially misrepresents community membership
+    or asserts an unsupported ecological property; valid model identity and graph
+    are preserved.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Separate the insect host from microbial membership
+  description: taxonomy[0] contains G. coccinea despite the schema excluding hosts
+    from the microbial roster.
+  target_ids:
+  - CommunityMech:000007
+  field_paths:
+  - taxonomy[0]
+  evidence_ids:
+  - schema
+  - methods
+  - resources
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+    role: canonical_record
+- finding_id: ecological-equilibrium
+  issue_key: cm-000007-ecological-equilibrium
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: the field materially misrepresents community membership
+    or asserts an unsupported ecological property; valid model identity and graph
+    are preserved.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Qualify the unsupported STABLE designation
+  description: The source supports a natural symbiosis and steady-state metabolic
+    predictions, not the ecological equilibrium asserted by STABLE.
+  target_ids:
+  - CommunityMech:000007
+  field_paths:
+  - ecological_state
+  evidence_ids:
+  - schema
+  - methods
+  - inference
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+    role: canonical_record
+- finding_id: computational-provenance
+  issue_key: cm-000007-computational-provenance
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded structured-provenance/resource correction
+    preserves the identified model and scientific interpretation.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Structure the model and run assumptions
+  description: The eight interaction evidence items lack computational_provenance
+    despite recoverable methods and existing narrative assumptions.
+  target_ids:
+  - CommunityMech:000007
+  field_paths:
+  - ecological_interactions[0].evidence
+  - ecological_interactions[1].evidence
+  - ecological_interactions[2].evidence
+  evidence_ids:
+  - schema
+  - methods
+  - supplement
+  - model-boundary
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+    role: canonical_record
+- finding_id: resource-types
+  issue_key: cm-000007-resource-types
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded structured-provenance/resource correction
+    preserves the identified model and scientific interpretation.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Separate the publication from study resources
+  description: The Primary publication entry is classified as an associated dataset,
+    while verified focal input/repository links remain unstructured.
+  target_ids:
+  - CommunityMech:000007
+  field_paths:
+  - associated_datasets[1]
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - resources
+  - methods
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+    role: canonical_record
+actions:
+- action_id: repair-host-membership
+  description: Separate the insect host from microbial membership.
+  finding_ids:
+  - host-membership
+  target_ids:
+  - CommunityMech:000007
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove the insect from microbial taxonomy during authorized curation; retain Sulcia
+    and Baumannia as microbial members.
+  - Preserve G. coccinea as the external recipient/participant in the model graph
+    and narrative. Do not delete the host compartment from the scientific interpretation.
+  - Do not reinsert the host merely to satisfy external-participant network warnings;
+    assess those warnings against the schema.
+- action_id: repair-ecological-equilibrium
+  description: Qualify the unsupported STABLE designation.
+  finding_ids:
+  - ecological-equilibrium
+  target_ids:
+  - CommunityMech:000007
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Supply ecological evidence for stable equilibrium or explicitly document the unresolved
+    state; distinguish long evolutionary association from demonstrated equilibrium.
+  - 'Do not automatically substitute ENGINEERED or TRANSIENT: neither follows from
+    creating a metabolic model.'
+  - If the required enum cannot represent uncertainty truthfully, record the bounded
+    schema issue for separately authorized follow-up rather than inventing biological
+    dynamics.
+- action_id: repair-computational-provenance
+  description: Structure the model and run assumptions.
+  finding_ids:
+  - computational-provenance
+  target_ids:
+  - CommunityMech:000007
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Populate claim-level computational provenance with FBA/FVA, COBRA Toolbox 3.0,
+    MATLAB/Gurobi, iNA629, model source/input accession and modeled bacteriocyte/hemolymph
+    context; leave unreported software versions unset.
+  - Preserve oxygen uptake 20, published run uptake caps, equal bacterial biomass
+    lower bounds 0.01, objective and transport-cost assumptions with their units and
+    source scope. Distinguish maintenance-cost simulations from baseline growth.
+  - Retain the discrepancy between deposited exchange bounds and published runtime
+    settings, and S5o cystathionine versus closed proteinogenic-amino-acid exchanges.
+    Do not turn default zero FLUX_VALUE entries into results.
+  - Keep wet-lab growth_media absent; retain the existing discussion and all three
+    qualified nodes with no arrows.
+- action_id: repair-resource-types
+  description: Separate the publication from study resources.
+  finding_ids:
+  - resource-types
+  target_ids:
+  - CommunityMech:000007
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Move PMID:30254121 to an appropriate publication/evidence resource; preserve the
+    actual BioModels MODEL1806250004 file entry.
+  - Link the verified focal PRJNA341855 host-transcriptome/symbiont-genome project
+    and immutable author repository commit with their exact host/model scope. Do not
+    import the two other insect projects as focal data.
+  - Keep archive status, byte differences and unexecuted model boundaries explicit;
+    do not claim raw-data inspection, reproducibility or strain-resolution from this
+    metadata check.
+- action_id: preserve-model-graph
+  description: Preserve computational scope and the three-node, zero-arrow graph during
+    separately authorized curation.
+  finding_ids:
+  - host-membership
+  - ecological-equilibrium
+  - computational-provenance
+  - resource-types
+  target_ids:
+  - CommunityMech:000007
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Keep host-mediated regulation PARTIAL, the three bacterial exchanges explicit
+    and all nitrogen quantities source-scoped.
+  - Do not restore component-to-summary arrows or assert measured transfer, fitness,
+    equilibrium or model reproducibility.
+  - Preserve append-only history and rerun schema, strict, term, reference, history
+    and target/corpus network checks after authorized changes.
+limitations:
+- No FBA/FVA optimization, model/code execution, MATLAB payload, transcriptome reconstruction
+  or raw-sequence analysis was performed. Archive metadata and structural XML checks
+  do not establish reproducibility.
+- Supplementary workbook reading was bounded to inventories/headers and declared focal
+  sheets/rows; large reaction lists and other-insect numerical tables were not exhaustively
+  audited.
+- BioModels defaults differ from published runtime constraints; the author-repository
+  model is not byte-identical. Neither fact establishes wrong model identity, and
+  stored zero flux values are not published results.
+- Figure 4 caption and panel labels disagree on sharpshooter panel lettering. S5o
+  permits cystathionine despite prose amino-acid exclusion; the twenty listed proteinogenic
+  amino-acid exchanges are closed. S6d uses component-model header names iNA81/iNA258
+  whereas main Methods uses iNA74/iNA234; preserve that source naming discrepancy.
+  These source nuances constrain future provenance expansion.
+- Exact bacterial culture-collection strains, a replacement ecological-state classification
+  and a new environment ontology term were not verified. No empirical host-control
+  or dynamic equilibrium assay was inferred.
+- Frozen 000006 primary paper/asset bytes were reused with explicit hashes and original
+  request times; no new paper request or inherited target-level certification is claimed.
+  Current BioModels retrieval is focal to 000007.
+notes:
+- No canonical, cache, history or generated file changed.
+- All 24 repository inputs were pinned before assessment and rechecked.
+- Sixteen quoted words from the focal publication, including its supplements as one
+  quotation budget.
+- Native quality100 is capped from111 and does not negate the two major/two minor
+  findings.
+tags:
+- record-review
+- metabolic-model
+- endosymbiosis
+- batch-07
+```
