@@ -30,7 +30,9 @@ ORDER = ["RARE", "COMMON", "ABUNDANT", "DOMINANT"]
 
 # Not a ceiling — a tripwire. When this changes, the consistency check below has
 # a new measured-abundance case worth auditing.
-TAXA_WITH_A_NUMBER = 20
+# 20 -> 26: six phyla in Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm carry
+# measured control-soil shares and no abundance_level, so nothing new to reconcile.
+TAXA_WITH_A_NUMBER = 26
 
 
 def _enum() -> dict:

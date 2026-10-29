@@ -10,6 +10,21 @@ ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-three-records-batch36.yaml"
 
 
+SUCCESSOR = ROOT / "reports/causal_graph_review/decisions/20261029-host-soil-related-communities-paper-test.yaml"
+
+
+def latest_record_sha256(row):
+    """Follow a non-graph successor review (host/soil/related-communities paper test)."""
+    for successor in yaml.safe_load(SUCCESSOR.read_text())["records"]:
+        if successor["supersedes_review"] == {
+            "review_file": str(LEDGER.relative_to(ROOT)),
+            "record_sha256": row["record_sha256"],
+        }:
+            assert successor["original_sha256"] == row["record_sha256"]
+            return successor["record_sha256"]
+    return row["record_sha256"]
+
+
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     return ledger, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in ledger["records"]]
@@ -125,7 +140,7 @@ def test_batch36_canonical_participants_anchors_history_and_hashes():
             assert set(gap["attaches_to"]) <= {"ecological_interactions#" + n for n in names}
         assert row["curation_events_added"] == 1 and len(row["history_files"]) == 1
         assert doc["curation_history"][-1]["llm_assisted"] is True
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest_record_sha256(row)
 
 
 def test_batch36_all_original_nodes_and_arrows_have_dispositions():

@@ -1,0 +1,79 @@
+{#- Host, soils and related communities (docs/HOST_SOIL_AND_RELATED_COMMUNITIES.md). Emits nothing when all three are absent. -#}
+        {%- macro evidence_block(items) -%}
+        {% if items %}
+        <ul class="evidence-list">
+            {% for ev in items %}
+            <li class="evidence-item">
+                {{ ev.reference|reference_link }} - {{ ev.supports }} ({{ ev.evidence_source }})
+                {% if ev.snippet %}<div class="snippet">"{{ ev.snippet }}"</div>{% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {%- endmacro -%}
+        {%- macro term_ref(term) -%}
+        {% if term and term.id %}<a href="https://www.ebi.ac.uk/ols4/search?q={{ term.id|urlencode }}"
+            class="term-link" target="_blank" rel="noopener noreferrer">{{ term.id }}</a>{% if term.label %} {{ term.label }}{% endif %}{% endif %}
+        {%- endmacro -%}
+        {%- macro quantity(q) -%}
+        {% if q %}{{ q.value }} {{ q.unit.label if q.unit else '' }}{% if q.conditions %} <span class="muted">({{ q.conditions }})</span>{% endif %}{% endif %}
+        {%- endmacro -%}
+
+        {%- if community.host %}
+        {% set host = community.host %}
+        <section id="host">
+            <h2>Host</h2>
+            <div class="metadata">
+                <p><strong>{{ host.preferred_term }}</strong> ({{ term_ref(host.term) }})
+                    {% if host.microbial_status %}<span class="badge">{{ host.microbial_status }}</span>{% endif %}</p>
+                {% if host.genotypes %}
+                <p><strong>Genotypes:</strong> {% for g in host.genotypes %}{{ g.name }}{% if g.description %} ({{ g.description }}){% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+                {% endif %}
+                {% if host.anatomical_sites %}
+                <p><strong>Anatomical sites:</strong> {% for s in host.anatomical_sites %}{{ s.preferred_term }} ({{ term_ref(s.term) }}){% if s.description %} <span class="muted">{{ s.description }}</span>{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}</p>
+                {% endif %}
+                {% if host.developmental_stage %}
+                <p><strong>Developmental stage:</strong> {{ host.developmental_stage.preferred_term }} ({{ term_ref(host.developmental_stage.term) }})</p>
+                {% endif %}
+                {% if host.description %}<p class="prewrap">{{ host.description }}</p>{% endif %}
+                {{ evidence_block(host.evidence) }}
+            </div>
+        </section>
+        {%- endif -%}
+
+        {%- if community.soils %}
+        <section id="soils">
+            <h2>Soils</h2>
+            {% for soil in community.soils %}
+            <div class="metadata">
+                <h3>{{ soil.preferred_term }}</h3>
+                <dl class="kv">
+                    {% if soil.term %}<dt>Soil type</dt><dd>{{ term_ref(soil.term) }}</dd>{% endif %}
+                    {% if soil.texture %}<dt>Texture</dt><dd>{{ term_ref(soil.texture) }}</dd>{% endif %}
+                    {% if soil.location %}<dt>Location</dt><dd>{{ soil.location.place_name or '' }}{% if soil.location.latitude is not none and soil.location.longitude is not none %} ({{ soil.location.latitude }}, {{ soil.location.longitude }}){% endif %}</dd>{% endif %}
+                    {% for key, label in [("sampling_depth", "Sampling depth"), ("sieve_size", "Sieve size"), ("ph", "pH"), ("water_content", "Water content"), ("organic_carbon", "Organic carbon")] %}
+                    {% if soil[key] %}<dt>{{ label }}</dt><dd>{{ quantity(soil[key]) }}</dd>{% endif %}
+                    {% endfor %}
+                    {% if soil.sterilization %}<dt>Sterilization</dt><dd>{{ soil.sterilization }}</dd>{% endif %}
+                </dl>
+                {% if soil.description %}<p class="prewrap">{{ soil.description }}</p>{% endif %}
+                {{ evidence_block(soil.evidence) }}
+            </div>
+            {% endfor %}
+        </section>
+        {%- endif -%}
+
+        {%- if community.related_communities %}
+        <section id="related-communities">
+            <h2>Related Communities</h2>
+            {% for link in community.related_communities %}
+            <div class="metadata">
+                <p><span class="badge">{{ link.relation }}</span>
+                    {% if related_pages.get(link.identifier) %}<a href="{{ related_pages[link.identifier] }}.html">{{ link.identifier }}</a>{% else %}{{ link.identifier }}{% endif %}
+                    <span class="muted">(basis: {{ link.basis }})</span></p>
+                {% if link.description %}<p class="prewrap">{{ link.description }}</p>{% endif %}
+                {{ evidence_block(link.evidence) }}
+            </div>
+            {% endfor %}
+        </section>
+        {%- endif -%}

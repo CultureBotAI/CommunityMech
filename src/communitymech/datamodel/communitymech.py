@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-10-10T01:26:02
+# Generation date: 2026-10-29T14:27:56
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -37,7 +37,9 @@ GO = CurieNamespace("GO", "http://purl.obolibrary.org/obo/GO_")
 NCBITAXON = CurieNamespace("NCBITaxon", "http://purl.obolibrary.org/obo/NCBITaxon_")
 OBI = CurieNamespace("OBI", "http://purl.obolibrary.org/obo/OBI_")
 PMID = CurieNamespace("PMID", "http://www.ncbi.nlm.nih.gov/pubmed/")
+PO = CurieNamespace("PO", "http://purl.obolibrary.org/obo/PO_")
 UBERON = CurieNamespace("UBERON", "http://purl.obolibrary.org/obo/UBERON_")
+UO = CurieNamespace("UO", "http://purl.obolibrary.org/obo/UO_")
 COMMUNITYMECH = CurieNamespace("communitymech", "https://w3id.org/communitymech/")
 DOI = CurieNamespace("doi", "https://doi.org/")
 LINKML = CurieNamespace("linkml", "https://w3id.org/linkml/")
@@ -705,6 +707,8 @@ class EcologicalInteraction(YAMLRoot):
             Union[dict, BiologicalProcessDescriptor], list[Union[dict, BiologicalProcessDescriptor]]
         ]
     ] = empty_list()
+    host_participation: Optional[Union[str, "HostParticipationEnum"]] = None
+    effect_direction: Optional[Union[str, "EffectDirectionEnum"]] = None
     downstream: Optional[
         Union[Union[dict, InteractionDownstream], list[Union[dict, InteractionDownstream]]]
     ] = empty_list()
@@ -755,6 +759,16 @@ class EcologicalInteraction(YAMLRoot):
             key_name="preferred_term",
             keyed=False,
         )
+
+        if self.host_participation is not None and not isinstance(
+            self.host_participation, HostParticipationEnum
+        ):
+            self.host_participation = HostParticipationEnum(self.host_participation)
+
+        if self.effect_direction is not None and not isinstance(
+            self.effect_direction, EffectDirectionEnum
+        ):
+            self.effect_direction = EffectDirectionEnum(self.effect_direction)
 
         self._normalize_inlined_as_dict(
             slot_name="downstream", slot_type=InteractionDownstream, key_name="target", keyed=False
@@ -1424,6 +1438,369 @@ class CultivationSetup(YAMLRoot):
 
 
 @dataclass(repr=False)
+class CommunityRelation(YAMLRoot):
+    """
+    A directed, evidence-bearing link from this community record to another CommunityMech record. Field names follow
+    mech_shared CrossCorpusLink (identifier, relation, basis); the corpus is always CommunityMech, so it is not a
+    field. See docs/HOST_SOIL_AND_RELATED_COMMUNITIES.md.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["CommunityRelation"]
+    class_class_curie: ClassVar[str] = "communitymech:CommunityRelation"
+    class_name: ClassVar[str] = "CommunityRelation"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.CommunityRelation
+
+    identifier: str = None
+    relation: Union[str, "CommunityRelationEnum"] = None
+    basis: Union[str, "CommunityRelationBasisEnum"] = None
+    description: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
+        empty_list()
+    )
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.identifier):
+            self.MissingRequiredField("identifier")
+        if not isinstance(self.identifier, str):
+            self.identifier = str(self.identifier)
+
+        if self._is_empty(self.relation):
+            self.MissingRequiredField("relation")
+        if not isinstance(self.relation, CommunityRelationEnum):
+            self.relation = CommunityRelationEnum(self.relation)
+
+        if self._is_empty(self.basis):
+            self.MissingRequiredField("basis")
+        if not isinstance(self.basis, CommunityRelationBasisEnum):
+            self.basis = CommunityRelationBasisEnum(self.basis)
+
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
+
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [
+            v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence
+        ]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class HostDescriptor(YAMLRoot):
+    """
+    The organism the community lives on or in, or was inoculated onto. Not a member (#319): it never appears in
+    `taxonomy`. One host per record; a study of the same community on two host species is two records joined by
+    `related_communities` SAME_MEMBERSHIP_AS.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["HostDescriptor"]
+    class_class_curie: ClassVar[str] = "communitymech:HostDescriptor"
+    class_name: ClassVar[str] = "HostDescriptor"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.HostDescriptor
+
+    preferred_term: str = None
+    term: Union[dict, Term] = None
+    genotypes: Optional[Union[Union[dict, "HostGenotype"], list[Union[dict, "HostGenotype"]]]] = (
+        empty_list()
+    )
+    anatomical_sites: Optional[
+        Union[Union[dict, "HostAnatomyDescriptor"], list[Union[dict, "HostAnatomyDescriptor"]]]
+    ] = empty_list()
+    developmental_stage: Optional[Union[dict, "HostDevelopmentalStageDescriptor"]] = None
+    microbial_status: Optional[Union[str, "HostMicrobialStatusEnum"]] = None
+    description: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
+        empty_list()
+    )
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.preferred_term):
+            self.MissingRequiredField("preferred_term")
+        if not isinstance(self.preferred_term, str):
+            self.preferred_term = str(self.preferred_term)
+
+        if self._is_empty(self.term):
+            self.MissingRequiredField("term")
+        if not isinstance(self.term, Term):
+            self.term = Term(**as_dict(self.term))
+
+        if not isinstance(self.genotypes, list):
+            self.genotypes = [self.genotypes] if self.genotypes is not None else []
+        self.genotypes = [
+            v if isinstance(v, HostGenotype) else HostGenotype(**as_dict(v)) for v in self.genotypes
+        ]
+
+        if not isinstance(self.anatomical_sites, list):
+            self.anatomical_sites = (
+                [self.anatomical_sites] if self.anatomical_sites is not None else []
+            )
+        self.anatomical_sites = [
+            v if isinstance(v, HostAnatomyDescriptor) else HostAnatomyDescriptor(**as_dict(v))
+            for v in self.anatomical_sites
+        ]
+
+        if self.developmental_stage is not None and not isinstance(
+            self.developmental_stage, HostDevelopmentalStageDescriptor
+        ):
+            self.developmental_stage = HostDevelopmentalStageDescriptor(
+                **as_dict(self.developmental_stage)
+            )
+
+        if self.microbial_status is not None and not isinstance(
+            self.microbial_status, HostMicrobialStatusEnum
+        ):
+            self.microbial_status = HostMicrobialStatusEnum(self.microbial_status)
+
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
+
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [
+            v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence
+        ]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class HostGenotype(YAMLRoot):
+    """
+    A host line, accession, cultivar, ecotype or mutant, as the source names it.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["HostGenotype"]
+    class_class_curie: ClassVar[str] = "communitymech:HostGenotype"
+    class_name: ClassVar[str] = "HostGenotype"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.HostGenotype
+
+    name: str = None
+    description: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.name):
+            self.MissingRequiredField("name")
+        if not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class HostAnatomyDescriptor(YAMLRoot):
+    """
+    A host anatomical site, bound to PO (plants) or UBERON (animals).
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["HostAnatomyDescriptor"]
+    class_class_curie: ClassVar[str] = "communitymech:HostAnatomyDescriptor"
+    class_name: ClassVar[str] = "HostAnatomyDescriptor"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.HostAnatomyDescriptor
+
+    preferred_term: str = None
+    term: Optional[Union[dict, Term]] = None
+    description: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.preferred_term):
+            self.MissingRequiredField("preferred_term")
+        if not isinstance(self.preferred_term, str):
+            self.preferred_term = str(self.preferred_term)
+
+        if self.term is not None and not isinstance(self.term, Term):
+            self.term = Term(**as_dict(self.term))
+
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class HostDevelopmentalStageDescriptor(YAMLRoot):
+    """
+    A host developmental stage, bound to PO (plants) or UBERON (animals).
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["HostDevelopmentalStageDescriptor"]
+    class_class_curie: ClassVar[str] = "communitymech:HostDevelopmentalStageDescriptor"
+    class_name: ClassVar[str] = "HostDevelopmentalStageDescriptor"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.HostDevelopmentalStageDescriptor
+
+    preferred_term: str = None
+    term: Optional[Union[dict, Term]] = None
+    description: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.preferred_term):
+            self.MissingRequiredField("preferred_term")
+        if not isinstance(self.preferred_term, str):
+            self.preferred_term = str(self.preferred_term)
+
+        if self.term is not None and not isinstance(self.term, Term):
+            self.term = Term(**as_dict(self.term))
+
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class SoilDescriptor(YAMLRoot):
+    """
+    A soil the community lives in or was studied in (field soil, pot soil, microcosm). Measured properties are
+    Quantities with UO units, never strings. Leave a property empty when the source does not report it.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["SoilDescriptor"]
+    class_class_curie: ClassVar[str] = "communitymech:SoilDescriptor"
+    class_name: ClassVar[str] = "SoilDescriptor"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.SoilDescriptor
+
+    preferred_term: str = None
+    term: Optional[Union[dict, Term]] = None
+    texture: Optional[Union[dict, Term]] = None
+    location: Optional[Union[dict, "GeoLocation"]] = None
+    sampling_depth: Optional[Union[dict, "Quantity"]] = None
+    sieve_size: Optional[Union[dict, "Quantity"]] = None
+    ph: Optional[Union[dict, "Quantity"]] = None
+    water_content: Optional[Union[dict, "Quantity"]] = None
+    organic_carbon: Optional[Union[dict, "Quantity"]] = None
+    sterilization: Optional[Union[str, "SoilSterilizationEnum"]] = None
+    description: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
+        empty_list()
+    )
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.preferred_term):
+            self.MissingRequiredField("preferred_term")
+        if not isinstance(self.preferred_term, str):
+            self.preferred_term = str(self.preferred_term)
+
+        if self.term is not None and not isinstance(self.term, Term):
+            self.term = Term(**as_dict(self.term))
+
+        if self.texture is not None and not isinstance(self.texture, Term):
+            self.texture = Term(**as_dict(self.texture))
+
+        if self.location is not None and not isinstance(self.location, GeoLocation):
+            self.location = GeoLocation(**as_dict(self.location))
+
+        if self.sampling_depth is not None and not isinstance(self.sampling_depth, Quantity):
+            self.sampling_depth = Quantity(**as_dict(self.sampling_depth))
+
+        if self.sieve_size is not None and not isinstance(self.sieve_size, Quantity):
+            self.sieve_size = Quantity(**as_dict(self.sieve_size))
+
+        if self.ph is not None and not isinstance(self.ph, Quantity):
+            self.ph = Quantity(**as_dict(self.ph))
+
+        if self.water_content is not None and not isinstance(self.water_content, Quantity):
+            self.water_content = Quantity(**as_dict(self.water_content))
+
+        if self.organic_carbon is not None and not isinstance(self.organic_carbon, Quantity):
+            self.organic_carbon = Quantity(**as_dict(self.organic_carbon))
+
+        if self.sterilization is not None and not isinstance(
+            self.sterilization, SoilSterilizationEnum
+        ):
+            self.sterilization = SoilSterilizationEnum(self.sterilization)
+
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
+
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [
+            v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence
+        ]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class Quantity(YAMLRoot):
+    """
+    A measured or set value with a UO unit.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["Quantity"]
+    class_class_curie: ClassVar[str] = "communitymech:Quantity"
+    class_name: ClassVar[str] = "Quantity"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.Quantity
+
+    value: float = None
+    unit: Union[dict, Term] = None
+    conditions: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.value):
+            self.MissingRequiredField("value")
+        if not isinstance(self.value, float):
+            self.value = float(self.value)
+
+        if self._is_empty(self.unit):
+            self.MissingRequiredField("unit")
+        if not isinstance(self.unit, Term):
+            self.unit = Term(**as_dict(self.unit))
+
+        if self.conditions is not None and not isinstance(self.conditions, str):
+            self.conditions = str(self.conditions)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class GeoLocation(YAMLRoot):
+    """
+    A collection site, as a point in decimal degrees (WGS84).
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["GeoLocation"]
+    class_class_curie: ClassVar[str] = "communitymech:GeoLocation"
+    class_name: ClassVar[str] = "GeoLocation"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.GeoLocation
+
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
+    place_name: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.latitude is not None and not isinstance(self.latitude, float):
+            self.latitude = float(self.latitude)
+
+        if self.longitude is not None and not isinstance(self.longitude, float):
+            self.longitude = float(self.longitude)
+
+        if self.place_name is not None and not isinstance(self.place_name, str):
+            self.place_name = str(self.place_name)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class MicrobialCommunity(YAMLRoot):
     """
     A microbial community with composition and interactions
@@ -1447,6 +1824,13 @@ class MicrobialCommunity(YAMLRoot):
     modeled_environment: Optional[
         Union[Union[dict, EnvironmentDescriptor], list[Union[dict, EnvironmentDescriptor]]]
     ] = empty_list()
+    related_communities: Optional[
+        Union[Union[dict, CommunityRelation], list[Union[dict, CommunityRelation]]]
+    ] = empty_list()
+    host: Optional[Union[dict, HostDescriptor]] = None
+    soils: Optional[Union[Union[dict, SoilDescriptor], list[Union[dict, SoilDescriptor]]]] = (
+        empty_list()
+    )
     taxonomy: Optional[
         Union[Union[dict, TaxonomicComposition], list[Union[dict, TaxonomicComposition]]]
     ] = empty_list()
@@ -1535,6 +1919,24 @@ class MicrobialCommunity(YAMLRoot):
         self.modeled_environment = [
             v if isinstance(v, EnvironmentDescriptor) else EnvironmentDescriptor(**as_dict(v))
             for v in self.modeled_environment
+        ]
+
+        if not isinstance(self.related_communities, list):
+            self.related_communities = (
+                [self.related_communities] if self.related_communities is not None else []
+            )
+        self.related_communities = [
+            v if isinstance(v, CommunityRelation) else CommunityRelation(**as_dict(v))
+            for v in self.related_communities
+        ]
+
+        if self.host is not None and not isinstance(self.host, HostDescriptor):
+            self.host = HostDescriptor(**as_dict(self.host))
+
+        if not isinstance(self.soils, list):
+            self.soils = [self.soils] if self.soils is not None else []
+        self.soils = [
+            v if isinstance(v, SoilDescriptor) else SoilDescriptor(**as_dict(v)) for v in self.soils
         ]
 
         self._normalize_inlined_as_dict(
@@ -3095,6 +3497,22 @@ class CultivationSystemEnum(EnumDefinitionImpl):
         description="Bioreactor of unspecified type.",
         meaning=OBI["0001046"],
     )
+    PLANT_POT = PermissibleValue(
+        text="PLANT_POT",
+        description="Pot or container of soil or substrate holding a growing plant.",
+    )
+    SOIL_MICROCOSM = PermissibleValue(
+        text="SOIL_MICROCOSM",
+        description="Closed or semi-closed container of soil without a plant, incubated under set conditions.",
+    )
+    HYDROPONIC_VESSEL = PermissibleValue(
+        text="HYDROPONIC_VESSEL",
+        description="Vessel in which plant roots grow in liquid nutrient medium without soil.",
+    )
+    FABRICATED_ECOSYSTEM_DEVICE = PermissibleValue(
+        text="FABRICATED_ECOSYSTEM_DEVICE",
+        description="""Standardized fabricated ecosystem device for plant-microbe experiments, such as EcoFAB or EcoFAB 2.0.""",
+    )
     OTHER = PermissibleValue(
         text="OTHER", description="Other cultivation system not covered by the listed values."
     )
@@ -3157,6 +3575,221 @@ A fitted dynamic model is evidence about the model, and the fit can fail informa
     _defn = EnumDefinition(
         name="ComputationalPredictionTypeEnum",
         description="""Category of computational method that produced a predicted claim. Used to make model-derived evidence (e.g. cross-feeding predicted from a genome-scale metabolic model) queryable rather than buried in free text. Populate ComputationalProvenance.prediction_type when EvidenceItem.evidence_source is COMPUTATIONAL.""",
+    )
+
+
+class CommunityRelationEnum(EnumDefinitionImpl):
+    """
+    Directed relation from the containing community record to another CommunityMech record, named in
+    `related_communities`. The three membership values are decided by comparing strain designations and are checked by
+    `communitymech.validators.related_communities`; the other values are claims a source must state.
+    """
+
+    SAME_MEMBERSHIP_AS = PermissibleValue(
+        text="SAME_MEMBERSHIP_AS",
+        description="""Both records list the same strains (equal sets of `strain_designation.strain_name`), studied in a different host, system, condition or study. Example: one SynCom inoculated onto a different plant species. Symmetric.""",
+    )
+    MEMBER_SUBSET_OF = PermissibleValue(
+        text="MEMBER_SUBSET_OF",
+        description="""Every strain of this record is a strain of the target, and the target has at least one more. Covers dropout, leave-one-out and reduced variants of a larger SynCom. The inverse is MEMBER_SUPERSET_OF.""",
+    )
+    MEMBER_SUPERSET_OF = PermissibleValue(
+        text="MEMBER_SUPERSET_OF",
+        description="""Every strain of the target is a strain of this record, and this record has at least one more. Inverse of MEMBER_SUBSET_OF.""",
+    )
+    OVERLAPPING_MEMBERSHIP = PermissibleValue(
+        text="OVERLAPPING_MEMBERSHIP",
+        description="""The records share at least one strain and neither contains the other, as when two SynComs are drawn from one isolate collection.""",
+    )
+    DERIVED_FROM = PermissibleValue(
+        text="DERIVED_FROM",
+        description="""This community was assembled, enriched, transferred or isolated from the community the target describes, as a source states. Example: a SynCom built from isolates of a natural rhizosphere community that has its own record. Membership need not overlap.""",
+    )
+    SAME_STUDY_AS = PermissibleValue(
+        text="SAME_STUDY_AS",
+        description="""A different community studied in the same publication, for example a native soil microcosm treated in parallel with a SynCom experiment. Use only when no membership or derivation relation holds.""",
+    )
+
+    _defn = EnumDefinition(
+        name="CommunityRelationEnum",
+        description="""Directed relation from the containing community record to another CommunityMech record, named in `related_communities`. The three membership values are decided by comparing strain designations and are checked by `communitymech.validators.related_communities`; the other values are claims a source must state.""",
+    )
+
+
+class CommunityRelationBasisEnum(EnumDefinitionImpl):
+    """
+    How a `related_communities` relation was established.
+    """
+
+    SHARED_STRAIN_DESIGNATIONS = PermissibleValue(
+        text="SHARED_STRAIN_DESIGNATIONS",
+        description="""Computed by comparing the two records' strain designations. Required for the four membership relations; the validator recomputes it.""",
+    )
+    SOURCE_STATEMENT = PermissibleValue(
+        text="SOURCE_STATEMENT",
+        description="""A source states the relation (a Methods sentence naming the parent community or collection). The relation must carry evidence quoting it.""",
+    )
+
+    _defn = EnumDefinition(
+        name="CommunityRelationBasisEnum",
+        description="How a `related_communities` relation was established.",
+    )
+
+
+class HostMicrobialStatusEnum(EnumDefinitionImpl):
+    """
+    Microbial status of the host before the community was introduced.
+    """
+
+    AXENIC = PermissibleValue(
+        text="AXENIC",
+        description="""The host was free of detectable microbes before inoculation (surface- sterilized seed grown sterile, germ-free animal). Includes gnotobiotic systems in which only the defined community is added.""",
+    )
+    CONVENTIONAL = PermissibleValue(
+        text="CONVENTIONAL",
+        description="""The host carried its own resident microbiota (field plant, conventional animal, non-sterile soil) when the community was introduced or sampled.""",
+    )
+    NOT_REPORTED = PermissibleValue(text="NOT_REPORTED", description="The source does not say.")
+
+    _defn = EnumDefinition(
+        name="HostMicrobialStatusEnum",
+        description="Microbial status of the host before the community was introduced.",
+    )
+
+
+class HostParticipationEnum(EnumDefinitionImpl):
+    """
+    How the record's `host` takes part in an ecological interaction. Hosts are not members (#319), so they cannot be a
+    `source_taxon` or `target_taxon`; this slot names the host's role instead.
+    """
+
+    HOST_IS_SOURCE = PermissibleValue(
+        text="HOST_IS_SOURCE",
+        description="""The host produces the factor that acts on community members, as when a root exudate metabolite alters member growth.""",
+    )
+    HOST_IS_TARGET = PermissibleValue(
+        text="HOST_IS_TARGET",
+        description="""Community members act on the host, as in growth promotion, disease suppression or altered host metabolism.""",
+    )
+    RECIPROCAL = PermissibleValue(
+        text="RECIPROCAL", description="Both directions are shown for the same exchange."
+    )
+
+    _defn = EnumDefinition(
+        name="HostParticipationEnum",
+        description="""How the record's `host` takes part in an ecological interaction. Hosts are not members (#319), so they cannot be a `source_taxon` or `target_taxon`; this slot names the host's role instead.""",
+    )
+
+
+class EffectDirectionEnum(EnumDefinitionImpl):
+    """
+    Sign of the effect an interaction describes: what the source (the `source_taxon`, the host when
+    `host_participation` is HOST_IS_SOURCE, or the named `metabolites` when supplied) does to the measured response of
+    the target (the `target_taxon`, the `participating_taxa`, or the host). The response is the one named in
+    `biological_processes` or the description, usually growth or abundance.
+    """
+
+    INCREASES = PermissibleValue(
+        text="INCREASES",
+        description="The response rises (growth stimulation, enrichment, promotion).",
+    )
+    DECREASES = PermissibleValue(
+        text="DECREASES",
+        description="The response falls (growth inhibition, depletion, suppression).",
+    )
+    NO_DETECTED_CHANGE = PermissibleValue(
+        text="NO_DETECTED_CHANGE", description="The source tested for an effect and found none."
+    )
+    MIXED = PermissibleValue(
+        text="MIXED",
+        description="""The direction depends on dose, member or condition within this one interaction. Prefer splitting into separate interactions when possible.""",
+    )
+
+    _defn = EnumDefinition(
+        name="EffectDirectionEnum",
+        description="""Sign of the effect an interaction describes: what the source (the `source_taxon`, the host when `host_participation` is HOST_IS_SOURCE, or the named `metabolites` when supplied) does to the measured response of the target (the `target_taxon`, the `participating_taxa`, or the host). The response is the one named in `biological_processes` or the description, usually growth or abundance.""",
+    )
+
+
+class SoilSterilizationEnum(EnumDefinitionImpl):
+    """
+    Treatment applied to remove the soil's resident microbes before use.
+    """
+
+    NONE = PermissibleValue(
+        text="NONE", description="Used as collected; resident microbiota intact."
+    )
+    AUTOCLAVED = PermissibleValue(text="AUTOCLAVED", description="Steam-sterilized.")
+    GAMMA_IRRADIATED = PermissibleValue(
+        text="GAMMA_IRRADIATED", description="Sterilized by gamma irradiation."
+    )
+    OTHER = PermissibleValue(
+        text="OTHER", description="Another treatment, described in the soil's description."
+    )
+    NOT_REPORTED = PermissibleValue(text="NOT_REPORTED", description="The source does not say.")
+
+    _defn = EnumDefinition(
+        name="SoilSterilizationEnum",
+        description="Treatment applied to remove the soil's resident microbes before use.",
+    )
+
+
+class HostTaxonTerm(EnumDefinitionImpl):
+    """
+    Host organisms. Hosts are eukaryotes (plants, animals, fungi, protists); bacteria that host phages are community
+    members, not hosts.
+    """
+
+    _defn = EnumDefinition(
+        name="HostTaxonTerm",
+        description="""Host organisms. Hosts are eukaryotes (plants, animals, fungi, protists); bacteria that host phages are community members, not hosts.""",
+    )
+
+
+class HostAnatomyTerm(EnumDefinitionImpl):
+    """
+    The host part the community occupies or was sampled from: a PO plant anatomical entity (root, rhizoplane-bearing
+    root epidermis, leaf) or an UBERON anatomical entity (intestine, skin).
+    """
+
+    _defn = EnumDefinition(
+        name="HostAnatomyTerm",
+        description="""The host part the community occupies or was sampled from: a PO plant anatomical entity (root, rhizoplane-bearing root epidermis, leaf) or an UBERON anatomical entity (intestine, skin).""",
+    )
+
+
+class HostDevelopmentalStageTerm(EnumDefinitionImpl):
+    """
+    Host developmental stage at inoculation or sampling: a PO plant structure development stage or an UBERON life
+    cycle stage.
+    """
+
+    _defn = EnumDefinition(
+        name="HostDevelopmentalStageTerm",
+        description="""Host developmental stage at inoculation or sampling: a PO plant structure development stage or an UBERON life cycle stage.""",
+    )
+
+
+class SoilTerm(EnumDefinitionImpl):
+    """
+    Kinds of soil in ENVO: provenance or use classes (agricultural soil, grassland soil, forest soil) and texture
+    classes (loam, silty loam, sandy loam), which ENVO models as subclasses of soil.
+    """
+
+    _defn = EnumDefinition(
+        name="SoilTerm",
+        description="""Kinds of soil in ENVO: provenance or use classes (agricultural soil, grassland soil, forest soil) and texture classes (loam, silty loam, sandy loam), which ENVO models as subclasses of soil.""",
+    )
+
+
+class UnitTerm(EnumDefinitionImpl):
+    """
+    Units of measurement from the Units of Measurement Ontology (UO).
+    """
+
+    _defn = EnumDefinition(
+        name="UnitTerm",
+        description="Units of measurement from the Units of Measurement Ontology (UO).",
     )
 
 
@@ -4115,6 +4748,24 @@ slots.ecologicalInteraction__biological_processes = Slot(
     ],
 )
 
+slots.ecologicalInteraction__host_participation = Slot(
+    uri=COMMUNITYMECH.host_participation,
+    name="ecologicalInteraction__host_participation",
+    curie=COMMUNITYMECH.curie("host_participation"),
+    model_uri=COMMUNITYMECH.ecologicalInteraction__host_participation,
+    domain=None,
+    range=Optional[Union[str, "HostParticipationEnum"]],
+)
+
+slots.ecologicalInteraction__effect_direction = Slot(
+    uri=COMMUNITYMECH.effect_direction,
+    name="ecologicalInteraction__effect_direction",
+    curie=COMMUNITYMECH.curie("effect_direction"),
+    model_uri=COMMUNITYMECH.ecologicalInteraction__effect_direction,
+    domain=None,
+    range=Optional[Union[str, "EffectDirectionEnum"]],
+)
+
 slots.ecologicalInteraction__downstream = Slot(
     uri=COMMUNITYMECH.downstream,
     name="ecologicalInteraction__downstream",
@@ -5021,6 +5672,360 @@ slots.cultivationSetup__evidence = Slot(
     range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
 )
 
+slots.communityRelation__identifier = Slot(
+    uri=COMMUNITYMECH.identifier,
+    name="communityRelation__identifier",
+    curie=COMMUNITYMECH.curie("identifier"),
+    model_uri=COMMUNITYMECH.communityRelation__identifier,
+    domain=None,
+    range=str,
+    pattern=re.compile(r"^CommunityMech:\d{6}$"),
+)
+
+slots.communityRelation__relation = Slot(
+    uri=COMMUNITYMECH.relation,
+    name="communityRelation__relation",
+    curie=COMMUNITYMECH.curie("relation"),
+    model_uri=COMMUNITYMECH.communityRelation__relation,
+    domain=None,
+    range=Union[str, "CommunityRelationEnum"],
+)
+
+slots.communityRelation__basis = Slot(
+    uri=COMMUNITYMECH.basis,
+    name="communityRelation__basis",
+    curie=COMMUNITYMECH.curie("basis"),
+    model_uri=COMMUNITYMECH.communityRelation__basis,
+    domain=None,
+    range=Union[str, "CommunityRelationBasisEnum"],
+)
+
+slots.communityRelation__description = Slot(
+    uri=COMMUNITYMECH.description,
+    name="communityRelation__description",
+    curie=COMMUNITYMECH.curie("description"),
+    model_uri=COMMUNITYMECH.communityRelation__description,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.communityRelation__evidence = Slot(
+    uri=COMMUNITYMECH.evidence,
+    name="communityRelation__evidence",
+    curie=COMMUNITYMECH.curie("evidence"),
+    model_uri=COMMUNITYMECH.communityRelation__evidence,
+    domain=None,
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
+)
+
+slots.hostDescriptor__preferred_term = Slot(
+    uri=COMMUNITYMECH.preferred_term,
+    name="hostDescriptor__preferred_term",
+    curie=COMMUNITYMECH.curie("preferred_term"),
+    model_uri=COMMUNITYMECH.hostDescriptor__preferred_term,
+    domain=None,
+    range=str,
+)
+
+slots.hostDescriptor__term = Slot(
+    uri=COMMUNITYMECH.term,
+    name="hostDescriptor__term",
+    curie=COMMUNITYMECH.curie("term"),
+    model_uri=COMMUNITYMECH.hostDescriptor__term,
+    domain=None,
+    range=Union[dict, Term],
+)
+
+slots.hostDescriptor__genotypes = Slot(
+    uri=COMMUNITYMECH.genotypes,
+    name="hostDescriptor__genotypes",
+    curie=COMMUNITYMECH.curie("genotypes"),
+    model_uri=COMMUNITYMECH.hostDescriptor__genotypes,
+    domain=None,
+    range=Optional[Union[Union[dict, HostGenotype], list[Union[dict, HostGenotype]]]],
+)
+
+slots.hostDescriptor__anatomical_sites = Slot(
+    uri=COMMUNITYMECH.anatomical_sites,
+    name="hostDescriptor__anatomical_sites",
+    curie=COMMUNITYMECH.curie("anatomical_sites"),
+    model_uri=COMMUNITYMECH.hostDescriptor__anatomical_sites,
+    domain=None,
+    range=Optional[
+        Union[Union[dict, HostAnatomyDescriptor], list[Union[dict, HostAnatomyDescriptor]]]
+    ],
+)
+
+slots.hostDescriptor__developmental_stage = Slot(
+    uri=COMMUNITYMECH.developmental_stage,
+    name="hostDescriptor__developmental_stage",
+    curie=COMMUNITYMECH.curie("developmental_stage"),
+    model_uri=COMMUNITYMECH.hostDescriptor__developmental_stage,
+    domain=None,
+    range=Optional[Union[dict, HostDevelopmentalStageDescriptor]],
+)
+
+slots.hostDescriptor__microbial_status = Slot(
+    uri=COMMUNITYMECH.microbial_status,
+    name="hostDescriptor__microbial_status",
+    curie=COMMUNITYMECH.curie("microbial_status"),
+    model_uri=COMMUNITYMECH.hostDescriptor__microbial_status,
+    domain=None,
+    range=Optional[Union[str, "HostMicrobialStatusEnum"]],
+)
+
+slots.hostDescriptor__description = Slot(
+    uri=COMMUNITYMECH.description,
+    name="hostDescriptor__description",
+    curie=COMMUNITYMECH.curie("description"),
+    model_uri=COMMUNITYMECH.hostDescriptor__description,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.hostDescriptor__evidence = Slot(
+    uri=COMMUNITYMECH.evidence,
+    name="hostDescriptor__evidence",
+    curie=COMMUNITYMECH.curie("evidence"),
+    model_uri=COMMUNITYMECH.hostDescriptor__evidence,
+    domain=None,
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
+)
+
+slots.hostGenotype__name = Slot(
+    uri=COMMUNITYMECH.name,
+    name="hostGenotype__name",
+    curie=COMMUNITYMECH.curie("name"),
+    model_uri=COMMUNITYMECH.hostGenotype__name,
+    domain=None,
+    range=str,
+)
+
+slots.hostGenotype__description = Slot(
+    uri=COMMUNITYMECH.description,
+    name="hostGenotype__description",
+    curie=COMMUNITYMECH.curie("description"),
+    model_uri=COMMUNITYMECH.hostGenotype__description,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.hostAnatomyDescriptor__preferred_term = Slot(
+    uri=COMMUNITYMECH.preferred_term,
+    name="hostAnatomyDescriptor__preferred_term",
+    curie=COMMUNITYMECH.curie("preferred_term"),
+    model_uri=COMMUNITYMECH.hostAnatomyDescriptor__preferred_term,
+    domain=None,
+    range=str,
+)
+
+slots.hostAnatomyDescriptor__term = Slot(
+    uri=COMMUNITYMECH.term,
+    name="hostAnatomyDescriptor__term",
+    curie=COMMUNITYMECH.curie("term"),
+    model_uri=COMMUNITYMECH.hostAnatomyDescriptor__term,
+    domain=None,
+    range=Optional[Union[dict, Term]],
+)
+
+slots.hostAnatomyDescriptor__description = Slot(
+    uri=COMMUNITYMECH.description,
+    name="hostAnatomyDescriptor__description",
+    curie=COMMUNITYMECH.curie("description"),
+    model_uri=COMMUNITYMECH.hostAnatomyDescriptor__description,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.hostDevelopmentalStageDescriptor__preferred_term = Slot(
+    uri=COMMUNITYMECH.preferred_term,
+    name="hostDevelopmentalStageDescriptor__preferred_term",
+    curie=COMMUNITYMECH.curie("preferred_term"),
+    model_uri=COMMUNITYMECH.hostDevelopmentalStageDescriptor__preferred_term,
+    domain=None,
+    range=str,
+)
+
+slots.hostDevelopmentalStageDescriptor__term = Slot(
+    uri=COMMUNITYMECH.term,
+    name="hostDevelopmentalStageDescriptor__term",
+    curie=COMMUNITYMECH.curie("term"),
+    model_uri=COMMUNITYMECH.hostDevelopmentalStageDescriptor__term,
+    domain=None,
+    range=Optional[Union[dict, Term]],
+)
+
+slots.hostDevelopmentalStageDescriptor__description = Slot(
+    uri=COMMUNITYMECH.description,
+    name="hostDevelopmentalStageDescriptor__description",
+    curie=COMMUNITYMECH.curie("description"),
+    model_uri=COMMUNITYMECH.hostDevelopmentalStageDescriptor__description,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.soilDescriptor__preferred_term = Slot(
+    uri=COMMUNITYMECH.preferred_term,
+    name="soilDescriptor__preferred_term",
+    curie=COMMUNITYMECH.curie("preferred_term"),
+    model_uri=COMMUNITYMECH.soilDescriptor__preferred_term,
+    domain=None,
+    range=str,
+)
+
+slots.soilDescriptor__term = Slot(
+    uri=COMMUNITYMECH.term,
+    name="soilDescriptor__term",
+    curie=COMMUNITYMECH.curie("term"),
+    model_uri=COMMUNITYMECH.soilDescriptor__term,
+    domain=None,
+    range=Optional[Union[dict, Term]],
+)
+
+slots.soilDescriptor__texture = Slot(
+    uri=COMMUNITYMECH.texture,
+    name="soilDescriptor__texture",
+    curie=COMMUNITYMECH.curie("texture"),
+    model_uri=COMMUNITYMECH.soilDescriptor__texture,
+    domain=None,
+    range=Optional[Union[dict, Term]],
+)
+
+slots.soilDescriptor__location = Slot(
+    uri=COMMUNITYMECH.location,
+    name="soilDescriptor__location",
+    curie=COMMUNITYMECH.curie("location"),
+    model_uri=COMMUNITYMECH.soilDescriptor__location,
+    domain=None,
+    range=Optional[Union[dict, GeoLocation]],
+)
+
+slots.soilDescriptor__sampling_depth = Slot(
+    uri=COMMUNITYMECH.sampling_depth,
+    name="soilDescriptor__sampling_depth",
+    curie=COMMUNITYMECH.curie("sampling_depth"),
+    model_uri=COMMUNITYMECH.soilDescriptor__sampling_depth,
+    domain=None,
+    range=Optional[Union[dict, Quantity]],
+)
+
+slots.soilDescriptor__sieve_size = Slot(
+    uri=COMMUNITYMECH.sieve_size,
+    name="soilDescriptor__sieve_size",
+    curie=COMMUNITYMECH.curie("sieve_size"),
+    model_uri=COMMUNITYMECH.soilDescriptor__sieve_size,
+    domain=None,
+    range=Optional[Union[dict, Quantity]],
+)
+
+slots.soilDescriptor__ph = Slot(
+    uri=COMMUNITYMECH.ph,
+    name="soilDescriptor__ph",
+    curie=COMMUNITYMECH.curie("ph"),
+    model_uri=COMMUNITYMECH.soilDescriptor__ph,
+    domain=None,
+    range=Optional[Union[dict, Quantity]],
+)
+
+slots.soilDescriptor__water_content = Slot(
+    uri=COMMUNITYMECH.water_content,
+    name="soilDescriptor__water_content",
+    curie=COMMUNITYMECH.curie("water_content"),
+    model_uri=COMMUNITYMECH.soilDescriptor__water_content,
+    domain=None,
+    range=Optional[Union[dict, Quantity]],
+)
+
+slots.soilDescriptor__organic_carbon = Slot(
+    uri=COMMUNITYMECH.organic_carbon,
+    name="soilDescriptor__organic_carbon",
+    curie=COMMUNITYMECH.curie("organic_carbon"),
+    model_uri=COMMUNITYMECH.soilDescriptor__organic_carbon,
+    domain=None,
+    range=Optional[Union[dict, Quantity]],
+)
+
+slots.soilDescriptor__sterilization = Slot(
+    uri=COMMUNITYMECH.sterilization,
+    name="soilDescriptor__sterilization",
+    curie=COMMUNITYMECH.curie("sterilization"),
+    model_uri=COMMUNITYMECH.soilDescriptor__sterilization,
+    domain=None,
+    range=Optional[Union[str, "SoilSterilizationEnum"]],
+)
+
+slots.soilDescriptor__description = Slot(
+    uri=COMMUNITYMECH.description,
+    name="soilDescriptor__description",
+    curie=COMMUNITYMECH.curie("description"),
+    model_uri=COMMUNITYMECH.soilDescriptor__description,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.soilDescriptor__evidence = Slot(
+    uri=COMMUNITYMECH.evidence,
+    name="soilDescriptor__evidence",
+    curie=COMMUNITYMECH.curie("evidence"),
+    model_uri=COMMUNITYMECH.soilDescriptor__evidence,
+    domain=None,
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
+)
+
+slots.quantity__value = Slot(
+    uri=COMMUNITYMECH.value,
+    name="quantity__value",
+    curie=COMMUNITYMECH.curie("value"),
+    model_uri=COMMUNITYMECH.quantity__value,
+    domain=None,
+    range=float,
+)
+
+slots.quantity__unit = Slot(
+    uri=COMMUNITYMECH.unit,
+    name="quantity__unit",
+    curie=COMMUNITYMECH.curie("unit"),
+    model_uri=COMMUNITYMECH.quantity__unit,
+    domain=None,
+    range=Union[dict, Term],
+)
+
+slots.quantity__conditions = Slot(
+    uri=COMMUNITYMECH.conditions,
+    name="quantity__conditions",
+    curie=COMMUNITYMECH.curie("conditions"),
+    model_uri=COMMUNITYMECH.quantity__conditions,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.geoLocation__latitude = Slot(
+    uri=COMMUNITYMECH.latitude,
+    name="geoLocation__latitude",
+    curie=COMMUNITYMECH.curie("latitude"),
+    model_uri=COMMUNITYMECH.geoLocation__latitude,
+    domain=None,
+    range=Optional[float],
+)
+
+slots.geoLocation__longitude = Slot(
+    uri=COMMUNITYMECH.longitude,
+    name="geoLocation__longitude",
+    curie=COMMUNITYMECH.curie("longitude"),
+    model_uri=COMMUNITYMECH.geoLocation__longitude,
+    domain=None,
+    range=Optional[float],
+)
+
+slots.geoLocation__place_name = Slot(
+    uri=COMMUNITYMECH.place_name,
+    name="geoLocation__place_name",
+    curie=COMMUNITYMECH.curie("place_name"),
+    model_uri=COMMUNITYMECH.geoLocation__place_name,
+    domain=None,
+    range=Optional[str],
+)
+
 slots.microbialCommunity__id = Slot(
     uri=COMMUNITYMECH.id,
     name="microbialCommunity__id",
@@ -5103,6 +6108,33 @@ slots.microbialCommunity__modeled_environment = Slot(
     range=Optional[
         Union[Union[dict, EnvironmentDescriptor], list[Union[dict, EnvironmentDescriptor]]]
     ],
+)
+
+slots.microbialCommunity__related_communities = Slot(
+    uri=COMMUNITYMECH.related_communities,
+    name="microbialCommunity__related_communities",
+    curie=COMMUNITYMECH.curie("related_communities"),
+    model_uri=COMMUNITYMECH.microbialCommunity__related_communities,
+    domain=None,
+    range=Optional[Union[Union[dict, CommunityRelation], list[Union[dict, CommunityRelation]]]],
+)
+
+slots.microbialCommunity__host = Slot(
+    uri=COMMUNITYMECH.host,
+    name="microbialCommunity__host",
+    curie=COMMUNITYMECH.curie("host"),
+    model_uri=COMMUNITYMECH.microbialCommunity__host,
+    domain=None,
+    range=Optional[Union[dict, HostDescriptor]],
+)
+
+slots.microbialCommunity__soils = Slot(
+    uri=COMMUNITYMECH.soils,
+    name="microbialCommunity__soils",
+    curie=COMMUNITYMECH.curie("soils"),
+    model_uri=COMMUNITYMECH.microbialCommunity__soils,
+    domain=None,
+    range=Optional[Union[Union[dict, SoilDescriptor], list[Union[dict, SoilDescriptor]]]],
 )
 
 slots.microbialCommunity__taxonomy = Slot(

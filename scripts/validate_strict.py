@@ -44,6 +44,7 @@ from communitymech.paths import default_record_roots
 from communitymech.validators.gtdb_coherence import validate_gtdb_coherence
 from communitymech.validators.gtdb_lineage_tree import check_lineage_shape
 from communitymech.validators.prokaryotic_lineage import check_record as check_prokaryotic_lineage
+from communitymech.validators.related_communities import check_record as check_related_communities
 from communitymech.validators.shared_taxon_ids import check_record as check_shared_taxon_ids
 from communitymech.validators.yaml_scalars import find_truncated_scalars
 
@@ -229,6 +230,20 @@ def validate_one(path: Path) -> list[dict]:
                 "file": str(path),
                 "category": "gtdb_lineage_contradicts_id_domain",
                 "detail": message.split(" ", 1)[0],
+                "path": "",
+                "message": message[:300],
+            }
+        )
+
+    # Links between records and the host/member boundary (#319). A membership
+    # relation is recomputed from both records' strain designations, so it needs
+    # the corpus, not just this file.
+    for category, message in check_related_communities(instance):
+        rows.append(
+            {
+                "file": str(path),
+                "category": category,
+                "detail": message.split(":", 1)[0],
                 "path": "",
                 "message": message[:300],
             }

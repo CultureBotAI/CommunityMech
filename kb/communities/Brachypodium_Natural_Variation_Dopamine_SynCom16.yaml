@@ -14,8 +14,10 @@ community_category: RHIZOSPHERE
 engineering_design:
   objective: Use natural variation in Brachypodium distachyon root exudates to identify exometabolites associated with rhizosphere
     SynCom assembly.
-  assembly_strategy: Equal-OD pool of 16 switchgrass rhizosphere and bulk-soil isolates (the LBNL SynCom of CommunityMech:000087)
-    inoculated at final OD600 ~0.02 into hydroponic vessels containing one-week-old plants of ten B. distachyon inbred lines.
+  assembly_strategy: Equal-OD pool of 16 switchgrass rhizosphere and bulk-soil isolates inoculated at final OD600 ~0.02 into
+    hydroponic vessels containing one-week-old plants of ten B. distachyon inbred lines. The roster differs by one strain
+    from the Coker et al. final 16 (CommunityMech:000087) and is the ring-trial SynCom17 (CommunityMech:000025) without Bradyrhizobium
+    OAE829.
   perturbation_design: 'Host genotype (ten inbred lines: Adi9, ABR6, Bd1-1, Bd2-3, Bd21, Bd21-3, Bd3-1, Bd30-1, BdTR10h, BdTR1f)
     with axenic and no-plant controls; follow-up monoculture assays with 0, 50 and 100 ug/mL dopamine.'
   measurement_endpoints:
@@ -49,6 +51,86 @@ modeled_environment:
     id: ENVO:00005801
     label: rhizosphere
   notes: Members were isolated from soil surrounding a switchgrass plant; the system models a grass rhizosphere.
+related_communities:
+- identifier: CommunityMech:000025
+  relation: MEMBER_SUBSET_OF
+  basis: SHARED_STRAIN_DESIGNATIONS
+  description: Same strains as the ring-trial SynCom17 except Bradyrhizobium OAE829.
+- identifier: CommunityMech:000087
+  relation: OVERLAPPING_MEMBERSHIP
+  basis: SOURCE_STATEMENT
+  description: Shares 15 strains with the Coker et al. final 16-member SynCom; this roster has Bacillus (Gottfriedia) OAE603
+    where Coker et al. have Bradyrhizobium OAE829.
+  evidence:
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Niastella OAS944, Rhizobium OAE497, and Mycobacterium OAE908 in 0.1 × R2A, and Bacillus OAE603 in Luria-Bertani
+      (LB) medium
+    explanation: The dopamine-study roster includes Bacillus (Gottfriedia) OAE603; its 16 strains name no Bradyrhizobium.
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113524 (Arthrobacter OAP107), DSM 113628 (Bosea OAE506), DSM 113701 (Bradyrhizobium OAE829), DSM 113525 (Brevibacillus
+      OAP136), DSM 113627 (Burkholderia OAS925), DSM 113563 (Chitinophaga OAE865), DSM 113522 (Lysobacter OAE881), DSM 114042
+      (Marmoricola OAE513), DSM 113562 (Mucilaginibacter OAE612), DSM 113602 (Methylobacterium OAE515), DSM 113539 (Mycobacterium
+      OAE908), DSM 113593 (Niastella OAS944), DSM 113526 (Paenibacillus OAE614), DSM 113517 (Rhizobium OAE497), DSM 113518
+      (Rhodococcus OAS809), and DSM 113622 (Variovorax OAS795)
+    explanation: 'Coker et al. final 16-member roster: includes Bradyrhizobium OAE829 and no OAE603.'
+- identifier: CommunityMech:000497
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: The dopamine-amended native soil microcosm from the same study.
+  evidence:
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: MESOCOSM
+    snippet: Given that dopamine is correlated with the SynCom composition and regulates soil bacterial growth in vitro, we
+      hypothesized that dopamine likely impacts soil microbial communities in a native context.
+    explanation: The soil microcosm was run in the same study as the hydroponic SynCom experiment.
+host:
+  preferred_term: Brachypodium distachyon
+  term:
+    id: NCBITaxon:15368
+    label: Brachypodium distachyon
+  genotypes:
+  - name: Adi9
+  - name: ABR6
+  - name: Bd1-1
+  - name: Bd2-3
+  - name: Bd21
+  - name: Bd21-3
+  - name: Bd3-1
+  - name: Bd30-1
+  - name: BdTR10h
+  - name: BdTR1f
+  anatomical_sites:
+  - preferred_term: root
+    term:
+      id: PO:0009005
+      label: root
+    description: Plant spent medium bathing the roots in hydroponics.
+  microbial_status: AXENIC
+  description: Plants grown hydroponically for four weeks; SynCom added at week one.
+  evidence:
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Ten inbred B. distachyon lines (Adi9, ABR6, Bd1-1, Bd2-3, Bd21, Bd21-3, Bd3-1, Bd30-1, BdTR10h, and BdTR1f) were
+      used in this study
+    explanation: Host species and the ten lines.
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Dehusked seeds were surface sterilized in 70% (v/v) ethanol for 30 s and 5 min in 6% (w/v) sodium hypochlorite,
+      followed by five washes with sterile water.
+    explanation: Seeds were surface-sterilized; plants were axenic before inoculation.
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The sterility of the hydroponic setup was examined before exudate collection by plating 50 μL of medium on Luria-Bertani
+      (LB) plates
+    explanation: Sterility of the axenic set-up was checked.
 taxonomy:
 - taxon_term:
     preferred_term: Lysobacter sp. OAE881
@@ -71,8 +153,7 @@ taxonomy:
     strain_name: OAE881
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - &id001
-    reference: PMID:42660928
+  - reference: PMID:42660928
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: 'Strains were cultured at 30 °C and 200 rpm in the following liquid media: Lysobacter OAE881, Burkholderia OAS925,
@@ -106,7 +187,14 @@ taxonomy:
       notes: Available as part of complete SynCom collection DSM 200000SY from DSMZ
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - *id001
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Strains were cultured at 30 °C and 200 rpm in the following liquid media: Lysobacter OAE881, Burkholderia OAS925,
+      Variovorax OAS795, Chitinophaga OAE865, Bosea OAE506, Rhodococcus OAS809, Marmoricola OAE513, Paenibacillus OAE614,
+      Methylobacterium OAE515, Arthrobacter OAP107, Mucilaginibacter OAE612, and Brevibacillus OAP136 in Reasoner’s 2 A (R2A)
+      medium'
+    explanation: Methods roster (first 12 of 16 strains); the remaining four are named in the same sentence.
 - taxon_term:
     preferred_term: Variovorax sp. OAS795
     term:
@@ -128,7 +216,14 @@ taxonomy:
     strain_name: OAS795
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - *id001
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Strains were cultured at 30 °C and 200 rpm in the following liquid media: Lysobacter OAE881, Burkholderia OAS925,
+      Variovorax OAS795, Chitinophaga OAE865, Bosea OAE506, Rhodococcus OAS809, Marmoricola OAE513, Paenibacillus OAE614,
+      Methylobacterium OAE515, Arthrobacter OAP107, Mucilaginibacter OAE612, and Brevibacillus OAP136 in Reasoner’s 2 A (R2A)
+      medium'
+    explanation: Methods roster (first 12 of 16 strains); the remaining four are named in the same sentence.
 - taxon_term:
     preferred_term: Chitinophaga sp. OAE865
     term:
@@ -150,7 +245,14 @@ taxonomy:
     strain_name: OAE865
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - *id001
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Strains were cultured at 30 °C and 200 rpm in the following liquid media: Lysobacter OAE881, Burkholderia OAS925,
+      Variovorax OAS795, Chitinophaga OAE865, Bosea OAE506, Rhodococcus OAS809, Marmoricola OAE513, Paenibacillus OAE614,
+      Methylobacterium OAE515, Arthrobacter OAP107, Mucilaginibacter OAE612, and Brevibacillus OAP136 in Reasoner’s 2 A (R2A)
+      medium'
+    explanation: Methods roster (first 12 of 16 strains); the remaining four are named in the same sentence.
 - taxon_term:
     preferred_term: Bosea sp. OAE506
     term:
@@ -178,7 +280,14 @@ taxonomy:
     strain_name: OAE506
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - *id001
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Strains were cultured at 30 °C and 200 rpm in the following liquid media: Lysobacter OAE881, Burkholderia OAS925,
+      Variovorax OAS795, Chitinophaga OAE865, Bosea OAE506, Rhodococcus OAS809, Marmoricola OAE513, Paenibacillus OAE614,
+      Methylobacterium OAE515, Arthrobacter OAP107, Mucilaginibacter OAE612, and Brevibacillus OAP136 in Reasoner’s 2 A (R2A)
+      medium'
+    explanation: Methods roster (first 12 of 16 strains); the remaining four are named in the same sentence.
 - taxon_term:
     preferred_term: Rhodococcus sp. OAS809
     term:
@@ -200,7 +309,14 @@ taxonomy:
     strain_name: OAS809
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - *id001
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Strains were cultured at 30 °C and 200 rpm in the following liquid media: Lysobacter OAE881, Burkholderia OAS925,
+      Variovorax OAS795, Chitinophaga OAE865, Bosea OAE506, Rhodococcus OAS809, Marmoricola OAE513, Paenibacillus OAE614,
+      Methylobacterium OAE515, Arthrobacter OAP107, Mucilaginibacter OAE612, and Brevibacillus OAP136 in Reasoner’s 2 A (R2A)
+      medium'
+    explanation: Methods roster (first 12 of 16 strains); the remaining four are named in the same sentence.
 - taxon_term:
     preferred_term: Marmoricola sp. OAE513
     term:
@@ -222,7 +338,14 @@ taxonomy:
     strain_name: OAE513
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - *id001
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Strains were cultured at 30 °C and 200 rpm in the following liquid media: Lysobacter OAE881, Burkholderia OAS925,
+      Variovorax OAS795, Chitinophaga OAE865, Bosea OAE506, Rhodococcus OAS809, Marmoricola OAE513, Paenibacillus OAE614,
+      Methylobacterium OAE515, Arthrobacter OAP107, Mucilaginibacter OAE612, and Brevibacillus OAP136 in Reasoner’s 2 A (R2A)
+      medium'
+    explanation: Methods roster (first 12 of 16 strains); the remaining four are named in the same sentence.
 - taxon_term:
     preferred_term: Paenibacillus sp. OAE614
     term:
@@ -267,7 +390,14 @@ taxonomy:
     strain_name: OAE614
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - *id001
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Strains were cultured at 30 °C and 200 rpm in the following liquid media: Lysobacter OAE881, Burkholderia OAS925,
+      Variovorax OAS795, Chitinophaga OAE865, Bosea OAE506, Rhodococcus OAS809, Marmoricola OAE513, Paenibacillus OAE614,
+      Methylobacterium OAE515, Arthrobacter OAP107, Mucilaginibacter OAE612, and Brevibacillus OAP136 in Reasoner’s 2 A (R2A)
+      medium'
+    explanation: Methods roster (first 12 of 16 strains); the remaining four are named in the same sentence.
 - taxon_term:
     preferred_term: Methylobacterium sp. OAE515
     term:
@@ -289,7 +419,14 @@ taxonomy:
     strain_name: OAE515
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - *id001
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Strains were cultured at 30 °C and 200 rpm in the following liquid media: Lysobacter OAE881, Burkholderia OAS925,
+      Variovorax OAS795, Chitinophaga OAE865, Bosea OAE506, Rhodococcus OAS809, Marmoricola OAE513, Paenibacillus OAE614,
+      Methylobacterium OAE515, Arthrobacter OAP107, Mucilaginibacter OAE612, and Brevibacillus OAP136 in Reasoner’s 2 A (R2A)
+      medium'
+    explanation: Methods roster (first 12 of 16 strains); the remaining four are named in the same sentence.
 - taxon_term:
     preferred_term: Arthrobacter sp. OAP107
     term:
@@ -300,7 +437,14 @@ taxonomy:
     strain_name: OAP107
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - *id001
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Strains were cultured at 30 °C and 200 rpm in the following liquid media: Lysobacter OAE881, Burkholderia OAS925,
+      Variovorax OAS795, Chitinophaga OAE865, Bosea OAE506, Rhodococcus OAS809, Marmoricola OAE513, Paenibacillus OAE614,
+      Methylobacterium OAE515, Arthrobacter OAP107, Mucilaginibacter OAE612, and Brevibacillus OAP136 in Reasoner’s 2 A (R2A)
+      medium'
+    explanation: Methods roster (first 12 of 16 strains); the remaining four are named in the same sentence.
 - taxon_term:
     preferred_term: Mucilaginibacter sp. OAE612
     term:
@@ -323,7 +467,14 @@ taxonomy:
     strain_name: OAE612
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - *id001
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Strains were cultured at 30 °C and 200 rpm in the following liquid media: Lysobacter OAE881, Burkholderia OAS925,
+      Variovorax OAS795, Chitinophaga OAE865, Bosea OAE506, Rhodococcus OAS809, Marmoricola OAE513, Paenibacillus OAE614,
+      Methylobacterium OAE515, Arthrobacter OAP107, Mucilaginibacter OAE612, and Brevibacillus OAP136 in Reasoner’s 2 A (R2A)
+      medium'
+    explanation: Methods roster (first 12 of 16 strains); the remaining four are named in the same sentence.
   - reference: PMID:42660928
     supports: SUPPORT
     evidence_source: IN_VIVO
@@ -350,7 +501,14 @@ taxonomy:
     strain_name: OAP136
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - *id001
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Strains were cultured at 30 °C and 200 rpm in the following liquid media: Lysobacter OAE881, Burkholderia OAS925,
+      Variovorax OAS795, Chitinophaga OAE865, Bosea OAE506, Rhodococcus OAS809, Marmoricola OAE513, Paenibacillus OAE614,
+      Methylobacterium OAE515, Arthrobacter OAP107, Mucilaginibacter OAE612, and Brevibacillus OAP136 in Reasoner’s 2 A (R2A)
+      medium'
+    explanation: Methods roster (first 12 of 16 strains); the remaining four are named in the same sentence.
 - taxon_term:
     preferred_term: Niastella sp. OAS944
     term:
@@ -372,8 +530,7 @@ taxonomy:
     strain_name: OAS944
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - &id002
-    reference: PMID:42660928
+  - reference: PMID:42660928
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Niastella OAS944, Rhizobium OAE497, and Mycobacterium OAE908 in 0.1 × R2A, and Bacillus OAE603 in Luria-Bertani
@@ -400,7 +557,12 @@ taxonomy:
     strain_name: OAE497
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - *id002
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Niastella OAS944, Rhizobium OAE497, and Mycobacterium OAE908 in 0.1 × R2A, and Bacillus OAE603 in Luria-Bertani
+      (LB) medium
+    explanation: Methods roster (remaining four of 16 strains).
 - taxon_term:
     preferred_term: Mycobacterium sp. OAE908
     term:
@@ -422,7 +584,12 @@ taxonomy:
     strain_name: OAE908
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - *id002
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Niastella OAS944, Rhizobium OAE497, and Mycobacterium OAE908 in 0.1 × R2A, and Bacillus OAE603 in Luria-Bertani
+      (LB) medium
+    explanation: Methods roster (remaining four of 16 strains).
 - taxon_term:
     preferred_term: Gottfriedia sp. OAE603
     term:
@@ -445,57 +612,88 @@ taxonomy:
     strain_name: OAE603
     isolation_source: Switchgrass rhizosphere soil
   evidence:
-  - *id002
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Niastella OAS944, Rhizobium OAE497, and Mycobacterium OAE908 in 0.1 × R2A, and Bacillus OAE603 in Luria-Bertani
+      (LB) medium
+    explanation: Methods roster (remaining four of 16 strains).
 ecological_interactions:
-- name: Exudate Dopamine Correlates With Six Member Abundances
+- name: Exudate Dopamine Correlates Positively With Five Members
   description: 'Across ten host lines, root-exudate dopamine (LC-MS/MS ion intensity) was positively correlated (Spearman,
     n = 28) with relative abundance of Rhodococcus OAS809, Marmoricola OAE513, Rhizobium OAE497, Bosea OAE506 and Lysobacter
-    OAE881, and negatively with Paraburkholderia OAS925. Correlational: no multiple-comparison adjustment was applied, abundances
-    are relative 16S reads, and dopamine co-varies with other genotype-dependent exudate features.'
+    OAE881. Correlational: no multiple-comparison adjustment was applied, abundances are relative 16S reads, and dopamine
+    co-varies with other genotype-dependent exudate features.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
-  - &id003
-    preferred_term: Rhodococcus sp. OAS809
+  - preferred_term: Rhodococcus sp. OAS809
     term:
       id: NCBITaxon:1827
       label: Rhodococcus <high G+C Gram-positive bacteria>
-  - &id004
-    preferred_term: Marmoricola sp. OAE513
+  - preferred_term: Marmoricola sp. OAE513
     term:
       id: NCBITaxon:86795
       label: Marmoricola
-  - &id005
-    preferred_term: Rhizobium sp. OAE497
+  - preferred_term: Rhizobium sp. OAE497
     term:
       id: NCBITaxon:379
       label: Rhizobium
-  - &id006
-    preferred_term: Lysobacter sp. OAE881
+  - preferred_term: Lysobacter sp. OAE881
     term:
       id: NCBITaxon:68
       label: Lysobacter
-  - &id007
-    preferred_term: Bosea sp. OAE506
+  - preferred_term: Bosea sp. OAE506
     term:
       id: NCBITaxon:85413
       label: Allobosea
-  - &id009
-    preferred_term: Paraburkholderia sp. OAS925
+  metabolites:
+  - preferred_term: dopamine
+    term:
+      id: CHEBI:18243
+      label: dopamine
+    notes: Plant-exuded; measured in spent medium, not supplied.
+  biological_processes:
+  - preferred_term: plant-microbe interaction
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  host_participation: HOST_IS_SOURCE
+  effect_direction: INCREASES
+  evidence:
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Dopamine was positively associated with the relative abundances of two Actinobacteria, Rhodococcus OAS809 and
+      Marmoricola OAE513, and three Proteobacteria, Rhizobium OAE497, Lysobacter OAE881, and Bosea OAE506, whereas it was
+      negatively associated with another Proteobacteria, Burkholderia OAS925
+    explanation: Direction of each of the six significant correlations.
+  - reference: PMID:42660928
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: No multiple-comparison adjustment was applied.
+    explanation: Figure 3a legend; correlations are unadjusted and hypothesis-generating.
+- name: Exudate Dopamine Correlates Negatively With Paraburkholderia OAS925
+  description: Across ten host lines, root-exudate dopamine was negatively correlated (Spearman, n = 28) with the relative
+    abundance of Paraburkholderia (reported as Burkholderia) OAS925. Correlational, as above.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Paraburkholderia sp. OAS925
     term:
       id: NCBITaxon:1822464
       label: Paraburkholderia
   metabolites:
   - preferred_term: dopamine
-    term: &id008
+    term:
       id: CHEBI:18243
       label: dopamine
     notes: Plant-exuded; measured in spent medium, not supplied.
   biological_processes:
-  - &id011
-    preferred_term: plant-microbe interaction
+  - preferred_term: plant-microbe interaction
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  host_participation: HOST_IS_SOURCE
+  effect_direction: DECREASES
   evidence:
   - reference: PMID:42660928
     supports: SUPPORT
@@ -516,21 +714,38 @@ ecological_interactions:
     mechanism inside the SynCom, and OD600 cannot distinguish dopamine use as a substrate from signalling.'
   scope: COMMUNITY_LEVEL
   participating_taxa:
-  - *id003
-  - *id004
-  - *id005
-  - *id006
-  - *id007
+  - preferred_term: Rhodococcus sp. OAS809
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  - preferred_term: Marmoricola sp. OAE513
+    term:
+      id: NCBITaxon:86795
+      label: Marmoricola
+  - preferred_term: Rhizobium sp. OAE497
+    term:
+      id: NCBITaxon:379
+      label: Rhizobium
+  - preferred_term: Lysobacter sp. OAE881
+    term:
+      id: NCBITaxon:68
+      label: Lysobacter
+  - preferred_term: Bosea sp. OAE506
+    term:
+      id: NCBITaxon:85413
+      label: Allobosea
   metabolites:
   - preferred_term: dopamine
-    term: *id008
+    term:
+      id: CHEBI:18243
+      label: dopamine
     notes: Supplied exogenously at 50 and 100 ug/mL.
   biological_processes:
-  - &id010
-    preferred_term: growth
+  - preferred_term: growth
     term:
       id: GO:0040007
       label: growth
+  effect_direction: INCREASES
   evidence:
   - reference: PMID:42660928
     supports: SUPPORT
@@ -543,13 +758,22 @@ ecological_interactions:
     member negatively correlated with exudate dopamine. Single-strain assay; mechanism of inhibition was not examined.
   scope: COMMUNITY_LEVEL
   participating_taxa:
-  - *id009
+  - preferred_term: Paraburkholderia sp. OAS925
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
   metabolites:
   - preferred_term: dopamine
-    term: *id008
+    term:
+      id: CHEBI:18243
+      label: dopamine
     notes: Supplied exogenously at 50 and 100 ug/mL.
   biological_processes:
-  - *id010
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  effect_direction: DECREASES
   evidence:
   - reference: PMID:42660928
     supports: SUPPORT
@@ -562,8 +786,14 @@ ecological_interactions:
     distinguished, so this is not established catabolism.
   scope: COMMUNITY_LEVEL
   participating_taxa:
-  - *id006
-  - *id009
+  - preferred_term: Lysobacter sp. OAE881
+    term:
+      id: NCBITaxon:68
+      label: Lysobacter
+  - preferred_term: Paraburkholderia sp. OAS925
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
   - preferred_term: Variovorax sp. OAS795
     term:
       id: NCBITaxon:34072
@@ -572,9 +802,18 @@ ecological_interactions:
     term:
       id: NCBITaxon:79328
       label: Chitinophaga
-  - *id007
-  - *id003
-  - *id004
+  - preferred_term: Bosea sp. OAE506
+    term:
+      id: NCBITaxon:85413
+      label: Allobosea
+  - preferred_term: Rhodococcus sp. OAS809
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  - preferred_term: Marmoricola sp. OAE513
+    term:
+      id: NCBITaxon:86795
+      label: Marmoricola
   - preferred_term: Paenibacillus sp. OAE614
     term:
       id: NCBITaxon:44249
@@ -599,7 +838,10 @@ ecological_interactions:
     term:
       id: NCBITaxon:354354
       label: Niastella
-  - *id005
+  - preferred_term: Rhizobium sp. OAE497
+    term:
+      id: NCBITaxon:379
+      label: Rhizobium
   - preferred_term: Mycobacterium sp. OAE908
     term:
       id: NCBITaxon:1763
@@ -610,9 +852,16 @@ ecological_interactions:
       label: Gottfriedia
   metabolites:
   - preferred_term: dopamine
-    term: *id008
+    term:
+      id: CHEBI:18243
+      label: dopamine
   biological_processes:
-  - *id011
+  - preferred_term: plant-microbe interaction
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  host_participation: HOST_IS_TARGET
+  effect_direction: DECREASES
   evidence:
   - reference: PMID:42660928
     supports: SUPPORT
@@ -653,6 +902,16 @@ growth_media:
     snippet: Plants were grown in a 16 h light/8 h dark regime at 22 °C and 50% relative humidity with 150 μmol m−2 s−1 illumination
       for four weeks.
     explanation: Plant growth conditions in the hydroponic vessels.
+cultivation_setup:
+- system_type: HYDROPONIC_VESSEL
+  instrument_detail: PTL-100 culture vessels (PhytoTech Labs), 40 mL 0.5x MS, two seedlings on a floating holder
+  evidence:
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Two seedlings of B. distachyon were placed onto a plastic floating holder and then transferred to each vessel
+      with 40 mL of 0.5 × MS.
+    explanation: Hydroponic vessel set-up.
 discussions:
 - discussion_id: dopamine_substrate_or_signal
   prompt: Do the five dopamine-stimulated members catabolize dopamine, and does dopamine shift SynCom composition when supplied
@@ -672,4 +931,9 @@ curation_history:
   curator: claude
   action: CREATE
   changes: Created from PMID:42660928 (Ding et al. 2026, Nat Commun; OA full text PMC13522444).
+  llm_assisted: true
+- timestamp: '2026-10-29T12:52:36Z'
+  curator: claude
+  action: EDIT
+  changes: Schema paper test for related_communities, host, soils, host_participation and effect_direction (docs/HOST_SOIL_AND_RELATED_COMMUNITIES.md).
   llm_assisted: true

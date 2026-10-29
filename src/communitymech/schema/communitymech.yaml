@@ -23,6 +23,8 @@ prefixes:
   UBERON: http://purl.obolibrary.org/obo/UBERON_
   CL: http://purl.obolibrary.org/obo/CL_
   OBI: http://purl.obolibrary.org/obo/OBI_
+  PO: http://purl.obolibrary.org/obo/PO_
+  UO: http://purl.obolibrary.org/obo/UO_
   PMID: http://www.ncbi.nlm.nih.gov/pubmed/
   doi: https://doi.org/
   GITHUB: https://github.com/
@@ -804,6 +806,16 @@ enums:
       BIOREACTOR_UNSPECIFIED:
         meaning: OBI:0001046
         description: Bioreactor of unspecified type.
+      PLANT_POT:
+        description: Pot or container of soil or substrate holding a growing plant.
+      SOIL_MICROCOSM:
+        description: Closed or semi-closed container of soil without a plant, incubated under set conditions.
+      HYDROPONIC_VESSEL:
+        description: Vessel in which plant roots grow in liquid nutrient medium without soil.
+      FABRICATED_ECOSYSTEM_DEVICE:
+        description: >-
+          Standardized fabricated ecosystem device for plant-microbe experiments,
+          such as EcoFAB or EcoFAB 2.0.
       OTHER:
         description: Other cultivation system not covered by the listed values.
 
@@ -859,6 +871,195 @@ enums:
           established, not what the framework assumes.
       OTHER:
         description: Other computational prediction method not covered by the listed values.
+
+  CommunityRelationEnum:
+    description: >-
+      Directed relation from the containing community record to another
+      CommunityMech record, named in `related_communities`. The three
+      membership values are decided by comparing strain designations and are
+      checked by `communitymech.validators.related_communities`; the other
+      values are claims a source must state.
+    permissible_values:
+      SAME_MEMBERSHIP_AS:
+        description: >-
+          Both records list the same strains (equal sets of
+          `strain_designation.strain_name`), studied in a different host,
+          system, condition or study. Example: one SynCom inoculated onto a
+          different plant species. Symmetric.
+      MEMBER_SUBSET_OF:
+        description: >-
+          Every strain of this record is a strain of the target, and the target
+          has at least one more. Covers dropout, leave-one-out and reduced
+          variants of a larger SynCom. The inverse is MEMBER_SUPERSET_OF.
+      MEMBER_SUPERSET_OF:
+        description: >-
+          Every strain of the target is a strain of this record, and this
+          record has at least one more. Inverse of MEMBER_SUBSET_OF.
+      OVERLAPPING_MEMBERSHIP:
+        description: >-
+          The records share at least one strain and neither contains the other,
+          as when two SynComs are drawn from one isolate collection.
+      DERIVED_FROM:
+        description: >-
+          This community was assembled, enriched, transferred or isolated from
+          the community the target describes, as a source states. Example: a
+          SynCom built from isolates of a natural rhizosphere community that has
+          its own record. Membership need not overlap.
+      SAME_STUDY_AS:
+        description: >-
+          A different community studied in the same publication, for example a
+          native soil microcosm treated in parallel with a SynCom experiment.
+          Use only when no membership or derivation relation holds.
+
+  CommunityRelationBasisEnum:
+    description: How a `related_communities` relation was established.
+    permissible_values:
+      SHARED_STRAIN_DESIGNATIONS:
+        description: >-
+          Computed by comparing the two records' strain designations. Required
+          for the four membership relations; the validator recomputes it.
+      SOURCE_STATEMENT:
+        description: >-
+          A source states the relation (a Methods sentence naming the parent
+          community or collection). The relation must carry evidence quoting it.
+
+  HostMicrobialStatusEnum:
+    description: Microbial status of the host before the community was introduced.
+    permissible_values:
+      AXENIC:
+        description: >-
+          The host was free of detectable microbes before inoculation (surface-
+          sterilized seed grown sterile, germ-free animal). Includes gnotobiotic
+          systems in which only the defined community is added.
+      CONVENTIONAL:
+        description: >-
+          The host carried its own resident microbiota (field plant, conventional
+          animal, non-sterile soil) when the community was introduced or sampled.
+      NOT_REPORTED:
+        description: The source does not say.
+
+  HostParticipationEnum:
+    description: >-
+      How the record's `host` takes part in an ecological interaction. Hosts are
+      not members (#319), so they cannot be a `source_taxon` or `target_taxon`;
+      this slot names the host's role instead.
+    permissible_values:
+      HOST_IS_SOURCE:
+        description: >-
+          The host produces the factor that acts on community members, as when a
+          root exudate metabolite alters member growth.
+      HOST_IS_TARGET:
+        description: >-
+          Community members act on the host, as in growth promotion, disease
+          suppression or altered host metabolism.
+      RECIPROCAL:
+        description: Both directions are shown for the same exchange.
+
+  EffectDirectionEnum:
+    description: >-
+      Sign of the effect an interaction describes: what the source (the
+      `source_taxon`, the host when `host_participation` is HOST_IS_SOURCE, or
+      the named `metabolites` when supplied) does to the measured response of
+      the target (the `target_taxon`, the `participating_taxa`, or the host).
+      The response is the one named in `biological_processes` or the
+      description, usually growth or abundance.
+    permissible_values:
+      INCREASES:
+        description: The response rises (growth stimulation, enrichment, promotion).
+      DECREASES:
+        description: The response falls (growth inhibition, depletion, suppression).
+      NO_DETECTED_CHANGE:
+        description: The source tested for an effect and found none.
+      MIXED:
+        description: >-
+          The direction depends on dose, member or condition within this one
+          interaction. Prefer splitting into separate interactions when possible.
+
+  SoilSterilizationEnum:
+    description: Treatment applied to remove the soil's resident microbes before use.
+    permissible_values:
+      NONE:
+        description: Used as collected; resident microbiota intact.
+      AUTOCLAVED:
+        description: Steam-sterilized.
+      GAMMA_IRRADIATED:
+        description: Sterilized by gamma irradiation.
+      OTHER:
+        description: Another treatment, described in the soil's description.
+      NOT_REPORTED:
+        description: The source does not say.
+
+  HostTaxonTerm:
+    description: >-
+      Host organisms. Hosts are eukaryotes (plants, animals, fungi, protists);
+      bacteria that host phages are community members, not hosts.
+    reachable_from:
+      source_ontology: obo:ncbitaxon
+      source_nodes:
+        # Eukaryota
+        - NCBITaxon:2759
+      is_direct: false
+      include_self: false
+      relationship_types:
+        - rdfs:subClassOf
+
+  HostAnatomyTerm:
+    description: >-
+      The host part the community occupies or was sampled from: a PO plant
+      anatomical entity (root, rhizoplane-bearing root epidermis, leaf) or an
+      UBERON anatomical entity (intestine, skin).
+    reachable_from:
+      source_nodes:
+        # plant anatomical entity
+        - PO:0025131
+        # anatomical entity
+        - UBERON:0001062
+      is_direct: false
+      include_self: false
+      relationship_types:
+        - rdfs:subClassOf
+
+  HostDevelopmentalStageTerm:
+    description: >-
+      Host developmental stage at inoculation or sampling: a PO plant structure
+      development stage or an UBERON life cycle stage.
+    reachable_from:
+      source_nodes:
+        # plant structure development stage
+        - PO:0009012
+        # life cycle stage
+        - UBERON:0000105
+      is_direct: false
+      include_self: false
+      relationship_types:
+        - rdfs:subClassOf
+
+  SoilTerm:
+    description: >-
+      Kinds of soil in ENVO: provenance or use classes (agricultural soil,
+      grassland soil, forest soil) and texture classes (loam, silty loam, sandy
+      loam), which ENVO models as subclasses of soil.
+    reachable_from:
+      source_ontology: obo:envo
+      source_nodes:
+        # soil
+        - ENVO:00001998
+      is_direct: false
+      include_self: true
+      relationship_types:
+        - rdfs:subClassOf
+
+  UnitTerm:
+    description: Units of measurement from the Units of Measurement Ontology (UO).
+    reachable_from:
+      source_ontology: obo:uo
+      source_nodes:
+        # unit
+        - UO:0000000
+      is_direct: false
+      include_self: false
+      relationship_types:
+        - rdfs:subClassOf
 
 classes:
   Term:
@@ -1482,6 +1683,18 @@ classes:
         description: Biological processes involved
         range: BiologicalProcessDescriptor
         multivalued: true
+      host_participation:
+        description: >-
+          The record's host's role in this interaction, when the host is a
+          participant. Requires the record to have a `host`. Use with
+          COMMUNITY_LEVEL scope and `participating_taxa` naming the members
+          involved; never name the host as `source_taxon` or `target_taxon`.
+        range: HostParticipationEnum
+      effect_direction:
+        description: >-
+          Sign of the effect on the target's measured response. Set it only when
+          the source reports a direction; see EffectDirectionEnum.
+        range: EffectDirectionEnum
       downstream:
         description: Downstream effects in causal graph
         range: InteractionDownstream
@@ -1875,6 +2088,227 @@ classes:
         range: EvidenceItem
         multivalued: true
 
+  CommunityRelation:
+    description: >-
+      A directed, evidence-bearing link from this community record to another
+      CommunityMech record. Field names follow mech_shared CrossCorpusLink
+      (identifier, relation, basis); the corpus is always CommunityMech, so it
+      is not a field. See docs/HOST_SOIL_AND_RELATED_COMMUNITIES.md.
+    attributes:
+      identifier:
+        range: string
+        description: The target record's id, verbatim (CommunityMech:NNNNNN).
+        required: true
+        pattern: "^CommunityMech:\\d{6}$"
+      relation:
+        description: Directed relation from this record to the target.
+        range: CommunityRelationEnum
+        required: true
+      basis:
+        description: How the relation was established.
+        range: CommunityRelationBasisEnum
+        required: true
+      description:
+        range: string
+        description: What differs between the two records (host, system, dropped member, study).
+      evidence:
+        description: >-
+          Quotes supporting the relation. Required when basis is
+          SOURCE_STATEMENT; for SHARED_STRAIN_DESIGNATIONS the strain lists of
+          both records are the evidence and this may be empty.
+        range: EvidenceItem
+        multivalued: true
+        inlined_as_list: true
+
+  HostDescriptor:
+    description: >-
+      The organism the community lives on or in, or was inoculated onto. Not a
+      member (#319): it never appears in `taxonomy`. One host per record; a
+      study of the same community on two host species is two records joined by
+      `related_communities` SAME_MEMBERSHIP_AS.
+    attributes:
+      preferred_term:
+        range: string
+        description: The host as the source names it, e.g. "Brachypodium distachyon".
+        required: true
+      term:
+        description: NCBITaxon term for the host, under Eukaryota.
+        range: Term
+        required: true
+        bindings:
+          - binds_value_of: id
+            range: HostTaxonTerm
+            obligation_level: REQUIRED
+      genotypes:
+        description: >-
+          Host lines, accessions, cultivars, ecotypes or mutants used, as the
+          source names them. Leave empty when only the species is given.
+        range: HostGenotype
+        multivalued: true
+        inlined_as_list: true
+      anatomical_sites:
+        description: The host parts the community occupies or was sampled from.
+        range: HostAnatomyDescriptor
+        multivalued: true
+        inlined_as_list: true
+      developmental_stage:
+        description: Host stage at inoculation or sampling, when the source states it.
+        range: HostDevelopmentalStageDescriptor
+      microbial_status:
+        description: Whether the host carried its own microbiota before the community was introduced.
+        range: HostMicrobialStatusEnum
+      description:
+        range: string
+        description: Host facts with no slot of their own (growth system, age in days, treatment).
+      evidence:
+        description: Quotes naming the host and supporting each filled slot.
+        range: EvidenceItem
+        multivalued: true
+        inlined_as_list: true
+
+  HostGenotype:
+    description: A host line, accession, cultivar, ecotype or mutant, as the source names it.
+    attributes:
+      name:
+        range: string
+        description: The line name exactly as the source writes it, e.g. "Bd21-3", "Col-0", "C57BL/6J".
+        required: true
+      description:
+        range: string
+        description: What distinguishes the line, when the source says (wild type, knockout of a named gene, natural accession).
+
+  HostAnatomyDescriptor:
+    description: A host anatomical site, bound to PO (plants) or UBERON (animals).
+    attributes:
+      preferred_term:
+        range: string
+        description: The site as the source names it.
+        required: true
+      term:
+        description: PO plant anatomical entity or UBERON anatomical entity.
+        range: Term
+        bindings:
+          - binds_value_of: id
+            range: HostAnatomyTerm
+            obligation_level: REQUIRED
+      description:
+        range: string
+        description: Qualifications, such as "plant spent medium bathing the roots".
+
+  HostDevelopmentalStageDescriptor:
+    description: A host developmental stage, bound to PO (plants) or UBERON (animals).
+    attributes:
+      preferred_term:
+        range: string
+        description: The stage as the source names it, e.g. "four-week-old plants".
+        required: true
+      term:
+        description: PO plant structure development stage or UBERON life cycle stage.
+        range: Term
+        bindings:
+          - binds_value_of: id
+            range: HostDevelopmentalStageTerm
+            obligation_level: REQUIRED
+      description:
+        range: string
+        description: Qualifications on the stage.
+
+  SoilDescriptor:
+    description: >-
+      A soil the community lives in or was studied in (field soil, pot soil,
+      microcosm). Measured properties are Quantities with UO units, never
+      strings. Leave a property empty when the source does not report it.
+    attributes:
+      preferred_term:
+        range: string
+        description: >-
+          The soil as the source names it, including series or site, e.g.
+          "Yolo silt loam from an agricultural field at UC Davis".
+        required: true
+      term:
+        description: >-
+          ENVO class for the soil's origin or use (agricultural soil, grassland
+          soil, forest soil). Use plain `soil` when nothing narrower fits.
+        range: Term
+        bindings:
+          - binds_value_of: id
+            range: SoilTerm
+            obligation_level: REQUIRED
+      texture:
+        description: >-
+          ENVO texture class (loam, silty loam, sandy loam, clay loam), when the
+          source states the texture.
+        range: Term
+        bindings:
+          - binds_value_of: id
+            range: SoilTerm
+            obligation_level: REQUIRED
+      location:
+        description: Where the soil was collected.
+        range: GeoLocation
+      sampling_depth:
+        description: Depth the soil was collected from (lower bound for a range such as 0-10 cm).
+        range: Quantity
+      sieve_size:
+        description: Mesh the soil was passed through.
+        range: Quantity
+      ph:
+        description: Soil pH, with unit UO:0000196 pH.
+        range: Quantity
+      water_content:
+        description: Water content maintained or measured during the experiment.
+        range: Quantity
+      organic_carbon:
+        description: Soil organic carbon content.
+        range: Quantity
+      sterilization:
+        description: Treatment applied to remove resident microbes.
+        range: SoilSterilizationEnum
+      description:
+        range: string
+        description: Handling with no slot of its own (drying, storage, amendments).
+      evidence:
+        description: Quotes supporting the soil identity and each filled property.
+        range: EvidenceItem
+        multivalued: true
+        inlined_as_list: true
+
+  Quantity:
+    description: A measured or set value with a UO unit.
+    attributes:
+      value:
+        description: The number as the source gives it.
+        range: float
+        required: true
+      unit:
+        description: UO unit term, e.g. UO:0000187 percent, UO:0000016 millimeter.
+        range: Term
+        required: true
+        bindings:
+          - binds_value_of: id
+            range: UnitTerm
+            obligation_level: REQUIRED
+      conditions:
+        range: string
+        description: The basis of the value when it matters, e.g. "w/w, dry soil" or "approximately".
+
+  GeoLocation:
+    description: A collection site, as a point in decimal degrees (WGS84).
+    attributes:
+      latitude:
+        description: Decimal degrees, north positive.
+        range: float
+        minimum_value: -90
+        maximum_value: 90
+      longitude:
+        description: Decimal degrees, east positive.
+        range: float
+        minimum_value: -180
+        maximum_value: 180
+      place_name:
+        range: string
+        description: The site as the source names it.
+
   MicrobialCommunity:
     tree_root: true
     description: A microbial community with composition and interactions
@@ -1918,6 +2352,28 @@ classes:
         range: EnvironmentDescriptor
         multivalued: true
         required: false
+        inlined_as_list: true
+      related_communities:
+        description: >-
+          Other CommunityMech records this one is related to: same strains in a
+          different host or system, a dropout or subset variant, a parent
+          community it was derived from, or a different community from the same
+          study. Membership relations are recomputed from strain designations
+          by `just validate-strict`.
+        range: CommunityRelation
+        multivalued: true
+        inlined_as_list: true
+      host:
+        description: >-
+          The host organism, for host-associated communities (rhizosphere,
+          phyllosphere, gut). Not a member; see HostDescriptor.
+        range: HostDescriptor
+      soils:
+        description: >-
+          Soils the community lives in or was studied in, with measured
+          properties. Not for liquid or agar media, which are `growth_media`.
+        range: SoilDescriptor
+        multivalued: true
         inlined_as_list: true
       taxonomy:
         description: >-

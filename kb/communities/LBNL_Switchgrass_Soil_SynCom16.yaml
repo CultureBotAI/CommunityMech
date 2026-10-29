@@ -32,6 +32,47 @@ environment_term:
     label: soil
   notes: Sixteen soil microorganisms isolated from soil surrounding switchgrass were optimized as a reproducible
     rhizosphere SynCom.
+related_communities:
+- identifier: CommunityMech:000025
+  relation: MEMBER_SUBSET_OF
+  basis: SOURCE_STATEMENT
+  description: The ring-trial SynCom17 is this final 16 plus Gottfriedia (formerly Bacillus) OAE603.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113524 (Arthrobacter OAP107), DSM 113628 (Bosea OAE506), DSM 113701 (Bradyrhizobium OAE829), DSM 113525 (Brevibacillus
+      OAP136), DSM 113627 (Burkholderia OAS925), DSM 113563 (Chitinophaga OAE865), DSM 113522 (Lysobacter OAE881), DSM 114042
+      (Marmoricola OAE513), DSM 113562 (Mucilaginibacter OAE612), DSM 113602 (Methylobacterium OAE515), DSM 113539 (Mycobacterium
+      OAE908), DSM 113593 (Niastella OAS944), DSM 113526 (Paenibacillus OAE614), DSM 113517 (Rhizobium OAE497), DSM 113518
+      (Rhodococcus OAS809), and DSM 113622 (Variovorax OAS795)
+    explanation: 'Coker et al. final 16-member roster: includes Bradyrhizobium OAE829 and no OAE603.'
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: formerly known as Bacillus sp. OAE603
+    explanation: The ring-trial SynCom17 adds OAE603.
+- identifier: CommunityMech:000496
+  relation: OVERLAPPING_MEMBERSHIP
+  basis: SOURCE_STATEMENT
+  description: Shares 15 strains with the dopamine-study SynCom, which has Bacillus (Gottfriedia) OAE603 in place of Bradyrhizobium
+    OAE829.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113524 (Arthrobacter OAP107), DSM 113628 (Bosea OAE506), DSM 113701 (Bradyrhizobium OAE829), DSM 113525 (Brevibacillus
+      OAP136), DSM 113627 (Burkholderia OAS925), DSM 113563 (Chitinophaga OAE865), DSM 113522 (Lysobacter OAE881), DSM 114042
+      (Marmoricola OAE513), DSM 113562 (Mucilaginibacter OAE612), DSM 113602 (Methylobacterium OAE515), DSM 113539 (Mycobacterium
+      OAE908), DSM 113593 (Niastella OAS944), DSM 113526 (Paenibacillus OAE614), DSM 113517 (Rhizobium OAE497), DSM 113518
+      (Rhodococcus OAS809), and DSM 113622 (Variovorax OAS795)
+    explanation: 'Coker et al. final 16-member roster: includes Bradyrhizobium OAE829 and no OAE603.'
+  - reference: PMID:42660928
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Niastella OAS944, Rhizobium OAE497, and Mycobacterium OAE908 in 0.1 × R2A, and Bacillus OAE603 in Luria-Bertani
+      (LB) medium
+    explanation: The dopamine-study roster includes Bacillus (Gottfriedia) OAE603; its 16 strains name no Bradyrhizobium.
 taxonomy:
 - taxon_term:
     preferred_term: soil bacterial SynCom members
@@ -187,6 +228,12 @@ curation_history:
   curator: codex
   action: REVIEW_CAUSAL_GRAPH
   changes: 'Separate soil SynCom assay variants and remove assembly/storage graph procedures. Issue #1547; reports/causal_graph_review/decisions/20261006-lbnl-batch61.yaml'
+  llm_assisted: true
+- timestamp: '2026-10-29T12:52:37Z'
+  curator: claude
+  action: EDIT
+  changes: Schema paper test for related_communities, host, soils, host_participation and effect_direction
+    (docs/HOST_SOIL_AND_RELATED_COMMUNITIES.md).
   llm_assisted: true
 discussions:
 - discussion_id: lbnl_soil_variant_scope_and_ecological_mediators

@@ -55,6 +55,19 @@ _NOT_STAGED_FOR_METPO = {
     "AtmosphereEnum": "candidate, not yet staged; plausibly ENVO/METPO",
     "MediaRelationshipEnum": "candidate, not yet staged; adjacent to the growth-media work in #183",
     "EcologicalStateEnum": "candidate, not yet staged; plausibly ENVO",
+    # Host, soil and related-community additions (docs/HOST_SOIL_AND_RELATED_COMMUNITIES.md).
+    # Dynamic enums are ontology slices by definition; nothing to stage.
+    "HostTaxonTerm": "dynamic enum over NCBITaxon; already an ontology",
+    "HostAnatomyTerm": "dynamic enum over PO and UBERON; already an ontology",
+    "HostDevelopmentalStageTerm": "dynamic enum over PO and UBERON; already an ontology",
+    "SoilTerm": "dynamic enum over ENVO; already an ontology",
+    "UnitTerm": "dynamic enum over UO; already an ontology",
+    "CommunityRelationEnum": "how two records in this repo relate; record-linking bookkeeping",
+    "CommunityRelationBasisEnum": "how a record link was established; curation bookkeeping",
+    "HostParticipationEnum": "host role in an interaction edge; a graph-modelling distinction",
+    "EffectDirectionEnum": "sign of an interaction edge; a graph-modelling distinction",
+    "HostMicrobialStatusEnum": "candidate, not yet staged; axenic/gnotobiotic status is plausibly OBI",
+    "SoilSterilizationEnum": "candidate, not yet staged; sterilization processes are plausibly OBI",
 }
 
 

@@ -115,6 +115,17 @@ rejects an over-long condition rather than truncating it.
   `participating_taxa`.
 - `kb/taxa` has a different root class and therefore needs the dedicated taxon
   validation recipes.
+- A host is never a `taxonomy` member (#319). Name it in `host` (NCBITaxon under
+  Eukaryota; PO/UBERON sites and stages), and give its role in an interaction
+  with `host_participation`, not `source_taxon`/`target_taxon`.
+- Soils go in `soils` with ENVO soil classes and measured values as `Quantity`
+  (number plus UO unit), never strings. Liquid and agar media stay in
+  `growth_media`.
+- Link records with `related_communities`. Membership relations between two
+  records that both name every strain use `basis: SHARED_STRAIN_DESIGNATIONS`,
+  and `just validate-strict` recomputes them; otherwise quote the source with
+  `basis: SOURCE_STATEMENT`. Add the inverse link on the target in the same
+  change. Rules and examples: `docs/HOST_SOIL_AND_RELATED_COMMUNITIES.md`.
 
 ## Evidence policy
 

@@ -47,6 +47,62 @@ environment_term:
     light/dark cycle). Protocol available at https://dx.doi.org/10.17504/protocols.io.kxygxyydkl8j/v1.
 
     '
+related_communities:
+- identifier: CommunityMech:000496
+  relation: MEMBER_SUPERSET_OF
+  basis: SHARED_STRAIN_DESIGNATIONS
+  description: SynCom17 plus Bradyrhizobium OAE829 is the dopamine-study 16-strain SynCom's superset.
+- identifier: CommunityMech:000087
+  relation: MEMBER_SUPERSET_OF
+  basis: SOURCE_STATEMENT
+  description: SynCom17 is the Coker et al. final 16 plus Gottfriedia (formerly Bacillus) OAE603; CommunityMech:000087 does
+    not yet list strains, so this is not recomputed.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 113524 (Arthrobacter OAP107), DSM 113628 (Bosea OAE506), DSM 113701 (Bradyrhizobium OAE829), DSM 113525 (Brevibacillus
+      OAP136), DSM 113627 (Burkholderia OAS925), DSM 113563 (Chitinophaga OAE865), DSM 113522 (Lysobacter OAE881), DSM 114042
+      (Marmoricola OAE513), DSM 113562 (Mucilaginibacter OAE612), DSM 113602 (Methylobacterium OAE515), DSM 113539 (Mycobacterium
+      OAE908), DSM 113593 (Niastella OAS944), DSM 113526 (Paenibacillus OAE614), DSM 113517 (Rhizobium OAE497), DSM 113518
+      (Rhodococcus OAS809), and DSM 113622 (Variovorax OAS795)
+    explanation: 'Coker et al. final 16-member roster: includes Bradyrhizobium OAE829 and no OAE603.'
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: formerly known as Bacillus sp. OAE603
+    explanation: The ring-trial SynCom17 includes OAE603, which the Coker et al. roster lacks.
+host:
+  preferred_term: Brachypodium distachyon
+  term:
+    id: NCBITaxon:15368
+    label: Brachypodium distachyon
+  genotypes:
+  - name: Bd21-3
+  anatomical_sites:
+  - preferred_term: root
+    term:
+      id: PO:0009005
+      label: root
+  microbial_status: AXENIC
+  description: Grown in sterile EcoFAB 2.0 devices from surface-sterilized seed.
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: We constructed fabricated ecosystems using two SynComs, the model plant B. distachyon Bd21-3, and sterile EcoFAB
+      2.0 devices
+    explanation: Host species, line and sterile device.
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: B. distachyon Bd21-3 seeds were surface-sterilized
+    explanation: Axenic start.
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: gathered root and unfiltered media samples for 16S rRNA amplicon sequencing
+    explanation: Roots were the sampled host site.
 taxonomy:
 - taxon_term:
     preferred_term: Paraburkholderia sp. OAS925
@@ -1077,6 +1133,12 @@ curation_history:
     composition without competition or metabolome mediation.; Retain net spent-medium profiles without assigning
     direct cross-feeding.; Retain measured whole-treatment plant growth effects without a competition mechanism.
     Issue #1424; reports/causal_graph_review/decisions/20261006-three-records-batch36.yaml'
+  llm_assisted: true
+- timestamp: '2026-10-29T12:52:37Z'
+  curator: claude
+  action: EDIT
+  changes: Schema paper test for related_communities, host, soils, host_participation and effect_direction
+    (docs/HOST_SOIL_AND_RELATED_COMMUNITIES.md).
   llm_assisted: true
 discussions:
 - discussion_id: ecofab_syncom17_mediation_and_study_scope
