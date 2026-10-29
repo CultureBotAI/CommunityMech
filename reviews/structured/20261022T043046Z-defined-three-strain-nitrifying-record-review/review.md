@@ -1,0 +1,1256 @@
+# Defined three-strain organic-nitrogen nitrifying community review
+
+- Review: 20261022T043046Z-defined-three-strain-nitrifying-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-22T04:24:33.922469Z
+- Finished UTC: 2026-10-22T04:30:46.828739Z
+- Reviewer: codex (unknown)
+- Completion: partial
+- Verdict: pass_with_limitations
+- Scientific review: false
+
+## Summary
+
+The abstract, public supplement and graphical abstract support the three-stock model and its selected-condition sequential nitrogen conversion. Two minor findings address newly recoverable supplementary cultivation context and GTDB completion/provenance. Main experimental details remain inaccessible, so scientific completion is false. Eight focused checks pass; literal completeness is 15 and raw quality 131 is capped 100.
+
+## Scope And Provenance
+
+Whole maintained record, fresh abstract/public publisher page, all three supplementary pages and graphical abstract, exact authorities and relevant prior context. Main manuscript experimental details remain unavailable.
+
+Selection: Only released CommunityMech:000397 in owned batch 15.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base cb7a782c8ba80299dca8761ad0a2c90bccd8a117.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000397 | kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml | maintained | Defined Three-Strain Organic-Nitrogen Nitrifying Community |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000397 | Actual native exit 0. |
+| validate-strict | passed | True | CommunityMech:000397 | Actual native exit 0. |
+| validate-terms | passed | True | CommunityMech:000397 | Actual native exit 0. |
+| validate-references-explained | passed | True | CommunityMech:000397 | Actual native exit 0. |
+| validate-gtdb | passed | True | CommunityMech:000397 | Actual native exit 0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000397 | Actual native exit 0. |
+| validate-history | passed | True | CommunityMech:000397 | Actual native exit 0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000397 | Actual native exit 0. |
+| audit-network corpus context | failed | False | CommunityMech:000397 | Actual corpus exit 1 retained. |
+| check-network-quality corpus context | failed | False | CommunityMech:000397 | Actual corpus exit 1 retained. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000397 | Unavailable in the owned runtime. |
+
+## Scientific And Domain Assessments
+
+### Three-stock laboratory model
+
+identity: supported. Targets: CommunityMech:000397.
+
+The record denotes the source-defined community rather than a natural soil assemblage.
+
+Retain the current source names, NBRC 15713/14298/14297 stock descriptors, SYNTHETIC origin, ENGINEERED state and BIOTECHNOLOGY category. Pseudobacillus badius is the current species label corresponding to the source Bacillus badius name.
+
+### Sequential organic-nitrogen conversion
+
+graph: supported. Targets: CommunityMech:000397.
+
+Retain the selected-condition community-level sequential nitrogen-conversion claim.
+
+Exact selector ecological_interactions[0]; interaction_type CROSS_FEEDING; scope COMMUNITY_LEVEL. Actual taxa: {"source": null, "target": null, "participants": [{"id": "NCBITaxon:1455", "label": "Pseudobacillus badius"}, {"id": "NCBITaxon:915", "label": "Nitrosomonas europaea"}, {"id": "NCBITaxon:913", "label": "Nitrobacter winogradskyi"}]}. Canonical evidence bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet", "sha256": "0a1d0d1dfaa1379ba9df48f9ff7cde142aa2368507165e66cab0b42214c443c4", "reference": "PMID:42668143", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}, {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "4faa31e56824f4e0abc9b81d22331b4d573b7b3e6deb98a8b1b0782dd5402b0a", "reference": "PMID:42668143", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 43c31c0ebad73732c5665638414ab78ec70abbd5b4bd220d6a84f0b876438a12. PMID:42668143 locators: fresh Abstract sentences 1–2; graphical abstract named conversion schematic; Supplement FiguresS1–S2. Retain both SUPPORT / IN_VITRO tiers for the aggregate conversion. No donor-resolved flux, obligate reciprocity, universal organic-substrate success or unreported pairwise intervention is inferred. There are zero downstream arrows and no encoded source/target taxon; no extra edge is required.
+
+### Selected outcome and abundance association
+
+quantity: supported. Targets: CommunityMech:000397.
+
+The approximately 56 mg-N/L nitrate endpoint and absent residual nitrite remain restricted to selected conditions.
+
+S2(a) retains late nitrite and S2(b) differs by delayed inoculation; neither is automatically the abstract endpoint arm. S1 repeat/refeeding nitrate is a different result. RT-qPCR relative abundance remains an association with nitrogen concentrations, not measured taxon-specific flux. CHEBI identities do not change mg-N/L into whole-ion mass.
+
+### Laboratory environment and partial cultivation recovery
+
+scope: concern. Targets: CommunityMech:000397.
+
+Supplementary assay details can enrich the existing open gap without supplying a complete protocol.
+
+Retain laboratory environment and broad organic-N scope. Distinguish S2 Polypepton NF and delayed-inoculation context, S1 repeat/refeeding, and S3 separate-isolate conditions. The missing full medium, ratio, atmosphere, vessel and community temperature remain unresolved.
+
+### Ontology and species/stock scope
+
+grounding: supported. Targets: CommunityMech:000397.
+
+All eight current ID-label pairs match their authority.
+
+Ammonium, nitrite and nitrate denote the appropriate ions. GO:0019329 ammonia oxidation is an appropriate component of the broad nitrification node, not a complete annotation for all sequential steps. Existing qualitative abundance_value strings express membership/function; no optional role is fabricated to improve a score.
+
+### Recoverable mapping and release provenance
+
+provenance: concern. Targets: CommunityMech:000397.
+
+Resolve the first species mapping and correct two unsupported release/build statements.
+
+The two existing classifications reproduce. Preserve their species-level mapping routes and denominators and the Nitrobacter name comparison; do not substitute finer stock mappings or interpret is_reclassified as independent nomenclatural proof.
+
+### Publication, snippets and resources
+
+evidence: supported. Targets: CommunityMech:000397.
+
+Eighteen excerpt placements and both publication resources resolve within their actual source tiers.
+
+Seventeen fresh Abstract matches and one DOI metadata projection are distinct. No study accession is identified in the inspected source scope; this creates no deposit-omission finding and says nothing about unread main availability.
+
+### Prior decisions and maintained repair owner
+
+ownership: supported. Targets: CommunityMech:000397.
+
+Future changes belong to the maintained focal record.
+
+Batch 27 records[1], all three history events and the four cohort contexts remain dated evidence. Closed 977/978 corrections are preserved; shared 596 and 1362 do not become new focal defects or terminal dispositions. No history, cache, issue or generated output changes in this review.
+
+### Partial source coverage
+
+scope: unknown. Targets: CommunityMech:000397.
+
+Public supplementary evidence does not replace the inaccessible main manuscript.
+
+The complete abstract, public page, three-page SI and graphical abstract are assessed. Main Methods, main figures, including referenced Figure 4(d) and complete treatment comparisons were not recovered; the reference to Figure 4(d) in SI is not a read of that main figure. Scientific completion remains false.
+
+### Focused validation and contextual checks
+
+schema: supported. Targets: CommunityMech:000397.
+
+All eight required focused checks pass.
+
+The corpus exit 1 results and optional adapter unavailability are explicitly nonrequired. Native validation does not resolve the inaccessible main protocol.
+
+### Literal native metrics
+
+completeness: supported. Targets: CommunityMech:000397.
+
+Completeness 15; raw quality 131, capped 100.
+
+## Findings
+
+### cultivation-context: Recover supplementary cultivation context while keeping the main-protocol gap
+
+minor / open / confirmed; issue key: cm-000397-cultivation-context.
+
+The open discussion accurately described the cached abstract. Accessible S1/S2 now provide bounded assay information that the record does not capture; this supports enrichment rather than inventing a complete recipe.
+
+### gtdb-provenance: Complete the recoverable species mapping and correct provenance
+
+minor / open / confirmed; issue key: cm-000397-gtdb-provenance.
+
+Pseudobacillus badius is currently resolvable. The valid two existing GTDB cores carry unsupported latest-release/build-date wording inferred from a local snapshot mtime.
+
+## Recommended Actions And Acceptance Checks
+
+### enrich-cultivation
+
+Add the recovered supplementary assay context and narrow the remaining open gap.
+
+- Cite Supplement Figure S2 caption, physical page 2: Polypepton NF 2 g/L and the separate arm with N. europaea NBRC 14298 and N. winogradskyi NBRC 14297 introduced two days after B. badius NBRC 15713. Do not assign either arm to the approximately 56 mg-N/L abstract endpoint without main experimental mapping.
+- Cite Figure S1 caption and physical page 1 feed arrow for transfer of post-nitrification cells to fresh medium and day 3 organic feeding. Preserve assay context without inventing operating mode, basal composition, feed quantity, inoculum ratio, atmosphere or vessel.
+- Keep the main protocol unresolved. Figure S3 HEPES/Boon media and 20–37°C tests concern separate isolates; NBRC maintenance media and the schematic flask cannot supply community conditions. Preserve the dated discussion rationale and add a traceable follow-up rather than rewriting historical facts.
+
+### repair-gtdb
+
+Use current species-level mapping evidence and accurate snapshot provenance.
+
+- For taxonomy[0].taxon_term, use GROUNDED with GTDB:s__Pseudobacillus_badius; lineage d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales_B;f__Domibacillaceae;g__Pseudobacillus;s__Pseudobacillus badius; NCBITaxon:1455, fraction 1.0,26 genomes, is_reclassified false, exact ncbi_id route.
+- Retain taxonomy[1] Nitrosomonas europaea via ncbi_name, fraction 1.0/2 genomes, and taxonomy[2] Nitrobacter winogradskyi_A via ncbi_id, fraction 0.88/8 genomes. Record mapping snapshot SHA256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd. Label filesystem mtime as mtime; leave unknown upstream release/build metadata unknown.
+- Species aggregates do not classify the exact experimental genome. Existing NBRC stock descriptors remain valid; optional finer NCBI terms require their own labels and mapping denominators rather than silent substitution.
+
+### validate-curation
+
+Validate any separately authorized record repair.
+
+- Recheck exact source/treatment scope, ontology labels and excerpt support; run focused schema, strict, terms, explained references, GTDB/domain and history gates, then just gen-html and just check-docs-current for authorized record changes.
+- Preserve original source responses, caches, histories and prior decisions. This review changes no canonical record or scientific status and authorizes no contact, paid research, issue or Git mutation.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml; Whole maintained YAML | supports | Three named NBRC stocks form a laboratory nitrogen-conversion community; one aggregate interaction and no arrows are encoded. |
+| abstract | PMID:42668143; DOI:10.1093/bbb/zbag131; Fresh MED Abstract, complete four sentences | supports | The three stocks, selected-condition nitrate endpoint of approximately 56 mg-N/L, absence of residual nitrite and relative-abundance association are explicitly reported. These statements do not establish every organic substrate condition or a taxon-specific flux. |
+| publication | PMID:42668143; DOI:10.1093/bbb/zbag131; Fresh MED PMID/DOI/title and public publisher article identity | supports | PMID and DOI identify the same article. The public publisher page offers its abstract, graphical abstract and one supplement; the main article requires access. MED availability flags do not negate the recovered public supplement. |
+| publisher | PMID:42668143; DOI:10.1093/bbb/zbag131; Public OUP Abstract, Graphical Abstract and Supplementary data sections; main access notice | supports | The accessible publisher text confirms the source identity and selected-condition wording, but does not expose the main Methods or complete experimental comparisons. |
+| cultivation | PMID:42668143; DOI:10.1093/bbb/zbag131; Supplement Figure S2 caption, physical PDF page 2, first two sentences (quoted words); third sentence for the delayed-inoculation arm; Figure S1 caption and feed arrow, physical page 1 | supports | S2 identifies a Polypepton NF condition and a separate arm in which both nitrifiers are introduced two days after B. badius. S1 reuses post-nitrification cells in fresh medium and marks organic feeding on day 3. These assays can enrich the open protocol discussion without supplying the missing basal recipe. |
+| isolate-conditions | PMID:42668143; DOI:10.1093/bbb/zbag131; Supplement Figure S3 caption and panels(a,b), physical PDF page 3 | supports | The 20–37°C series concerns separate N. europaea cultures in HEPES medium and N. winogradskyi cultures in Boon medium. These are not established three-member culture conditions. |
+| graphical | PMID:42668143; DOI:10.1093/bbb/zbag131; Graphical abstract: named three-strain conversion schematic and plotted selected-condition course | supports | The schematic attributes organic-N ammonification to B. badius and successive ammonia/nitrite oxidation to the named nitrifiers. The pictured flask is illustrative and does not identify the actual vessel. |
+| ontology | /private/tmp/cm-review-session/batch-15/000397/ontology-authority.json; Eight ID-label pairs, definitions/ranks and 14 placements | supports | All labels match. GO ammonia oxidation denotes one component of nitrification; the three CHEBI ions retain nitrogen-equivalent concentration units. |
+| schema | /private/tmp/cm-review-session/batch-15/000397/child-schema-semantics.json; Literal community, interaction, role and cultivation definitions | supports | Engineered state, synthetic origin and community-level metabolite exchange fit the scoped model. Optional absent roles are not fabricated. |
+| stocks | /private/tmp/cm-review-session/batch-15/000397/child-strain-authority.json; Three direct NBRC/DBRP stock identities and bounded local strain candidates | supports | All three NBRC stocks resolve. Collection-maintenance conditions are distinct from the focal experiment; optional finer strain terms do not force a species-level replacement. |
+| gtdb | /private/tmp/cm-review-session/batch-15/000397/child-gtdb-crosswalk.json; Exact species/name mapping routes and immutable snapshot | supports | Species1455 resolves to Pseudobacillus_badius at 1.0/26; current 915 name route 1.0/2 and 913 exact ID route 0.88/8 cores remain valid. Mtime does not establish an upstream release or build date. |
+| semantics | /private/tmp/cm-review-session/batch-15/000397/ontology-semantic-notes.json; Final auxiliary interpretation | supports | Confirms bounded supplementary cultivation and GTDB findings, retaining the aggregate graph, ionic identities and current species/stock distinction. |
+| resources | /private/tmp/cm-review-session/batch-15/000397/dataset-verification.json; Existing publication resources and inspected source-resource scope | supports | Publication identities match. No concrete study deposit is declared in the inspected abstract/page/SI; inaccessible main availability remains unknown. Reference-stock sequence links are not study deposits. |
+| snippets | /private/tmp/cm-review-session/batch-15/000397/snippet-audit.json; All 18 canonical excerpt placements | supports | Seventeen placements match fresh Abstract text and one reproduces DOI metadata; all 18 match the committed cache. Exact matching does not establish unread main details. |
+| provenance | /private/tmp/cm-review-session/batch-15/000397/provenance-audit.json; Three histories; batch 27 records[1]; cohort context; current selected issues | supports | The prior selected-condition and nitrite fixes remain present. Cohort context is not an individual scientific completion claim; this review closes no shared issue. |
+| inspection | /private/tmp/cm-review-session/batch-15/000397/inspect.json; 32 immutable official inputs | supports | Target, 21 authorities and 10 focal contexts are pinned after ignored-inclusive discovery. |
+| assets | /private/tmp/cm-review-session/batch-15/000397/lead-source-assets.json; Actual retrievals and asset inventory | supports | Preserved bare-route403 responses precede successful exact public signed-link downloads. Whole main remains unavailable in bounded routes. |
+| lead-read | /private/tmp/cm-review-session/batch-15/000397/lead-primary-read-scope.json; Actual lead source reading | supports | Whole target, fresh metadata/public page, all three SI text/pages and graphical abstract were read; no main-manuscript or raw-data reanalysis is claimed. |
+| locators | /private/tmp/cm-review-session/batch-15/000397/source-locator-verification.json; All proposed source locators and exact quote origin | supports | Figure S2 caption on physical page 2 contains the four quoted words. S1/S3 and Abstract boundaries are checked directly. |
+| source-audit | /private/tmp/cm-review-session/batch-15/000397/source-audit.json; Final lead scientific judgment | supports | Available claims are supported with two minor enrichment/provenance findings; critical main-protocol limits retain partial scientific status. |
+| root-source | /private/tmp/cm-review-session/batch-15/000397/root-independent-source-audit.json; Independent root scientific assessment | supports | Root independently assessed available primary evidence, authority and graph scope, with explicit actual reading limits. |
+| metrics | /private/tmp/cm-review-session/batch-15/000397/support-final-audit.json; Final supporting reconciliation and literal metrics | supports | Completeness 15; quality base 135 minus 4 for two minor findings gives raw 131, capped 100. Neither score establishes full scientific completion. |
+| support-manifest | /private/tmp/cm-review-session/batch-15/000397/support-frozen-manifest.json; Frozen final supporting artifacts | supports | Final support follows reconciled lead/root/auxiliary evidence and preserves preliminary receipts. |
+| auxiliary | /private/tmp/cm-review-session/batch-15/000397/auxiliary-frozen-manifest.json; Frozen authority/native artifacts | supports | Eight focused native checks pass; all 32 inspected inputs remain unchanged. |
+| final-native | /private/tmp/cm-review-session/batch-15/000397/final-validator-summary.json; Actual eight command/stdout/stderr receipts | supports | Focused native checks pass; reference zero is not a count of all independently checked scientific claims. |
+| corpus-context | /private/tmp/cm-review-session/batch-15/000397/child-corpus-context.json; Fresh batch 15 baseline receipts | supports | Both corpus commands returned exit 1 with 44 warnings across 16 of 477 records and zero errors; these are nonrequired context. |
+| adapter | /private/tmp/cm-review-session/batch-15/000397/adapter-check.json; Fresh owned-runtime availability and dated earlier filename discovery | supports | Optional adapter is unavailable in this runtime; no external-checkout adapter was executed and no global absence is asserted. |
+| check-validate | /private/tmp/cm-review-session/batch-15/000397/validate.json; Actual command/stdout/stderr | supports | Native exit 0; scientific source entailment is assessed separately. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-15/000397/validate-strict.json; Actual command/stdout/stderr | supports | Native exit 0; scientific source entailment is assessed separately. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-15/000397/validate-terms.json; Actual command/stdout/stderr | supports | Native exit 0; scientific source entailment is assessed separately. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-15/000397/validate-references-explained.json; Actual command/stdout/stderr | supports | Native exit 0; scientific source entailment is assessed separately. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-15/000397/validate-gtdb.json; Actual command/stdout/stderr | supports | Native exit 0; scientific source entailment is assessed separately. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-15/000397/validate-gtdb-domain.json; Actual command/stdout/stderr | supports | Native exit 0; scientific source entailment is assessed separately. |
+| check-validate-history | /private/tmp/cm-review-session/batch-15/000397/validate-history.json; Actual command/stdout/stderr | supports | Native exit 0; scientific source entailment is assessed separately. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-15/000397/normalize-cache-names-check.json; Actual command/stdout/stderr | supports | Native exit 0; scientific source entailment is assessed separately. |
+| context-audit-network | /private/tmp/cm-review-session/batch-15/audit-network.json; Fresh batch 15 corpus baseline | supports | Actual exit 1,44 warnings in16/477 records and zero errors. |
+| context-check-network-quality | /private/tmp/cm-review-session/batch-15/check-network-quality.json; Fresh batch 15 corpus baseline | supports | Actual exit 1,44 warnings in16/477 records and zero errors. |
+
+## Limits And Additional Notes
+
+- Bounded ordinary public routes recovered the abstract, declared three-page supplement and graphical abstract, but not the main Methods/results or main figures. This is not a global assertion that no full text exists.
+- The supplement does not identify the complete basal coculture recipe, common temperature, vessel, atmosphere or inoculum ratio, nor map the approximately 56 mg-N/L abstract outcome to its S2 arms. S3 is separate-isolate evidence.
+- Supplement curves were visually inspected without digitization, statistical reanalysis or inferred detection limits. No raw sequence, assay dataset or taxon-specific flux was analyzed.
+- One node assessment binds its two exact canonical excerpt SHA256 values, all actual participants and retained evidence tiers. No downstream arrows are encoded.
+- The sole quotation is four words from Figure S2 caption on physical PDF page 2; other source statements are paraphrased or referred to by exact canonical selector/hash.
+- All 32 inspected inputs remain unchanged. Candidate validation and parent-owned saving/post-save gates occur after this assessment and are not asserted in advance.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261022T043046Z-defined-three-strain-nitrifying-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Defined three-strain organic-nitrogen nitrifying community review
+started_at: '2026-10-22T04:24:33.922469Z'
+finished_at: '2026-10-22T04:30:46.828739Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate lead, root, auxiliary authority and supporting reviewers;
+    no person-level independence claim.
+skill: review-yaml-record
+completion: partial
+verdict: pass_with_limitations
+scientific_review: false
+summary: The abstract, public supplement and graphical abstract support the three-stock
+  model and its selected-condition sequential nitrogen conversion. Two minor findings
+  address newly recoverable supplementary cultivation context and GTDB completion/provenance.
+  Main experimental details remain inaccessible, so scientific completion is false.
+  Eight focused checks pass; literal completeness is 15 and raw quality 131 is capped
+  100.
+source:
+  git_revision: cb7a782c8ba80299dca8761ad0a2c90bccd8a117
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community/2026-09-20T191942Z-claude-code-4905aa.yaml
+    sha256: 122732c407ccb2a0a58020c25219384c6204f8ce7a7f5e56a26d0b6a1a2e400f
+    role: context
+  - path: history/records/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community/2026-09-20T192210Z-claude-code-fcd5a0.yaml
+    sha256: a841d7e498ef6266fb004e675984ab485fdc577211535bbd00db5a80cba504d5
+    role: context
+  - path: history/records/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community/2026-09-20T193925Z-claude-code-62165d.yaml
+    sha256: 3fdb5db759f7f16756a32e1027c53cb01ca1198d192a0c9205dc598fdf73c77b
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+    sha256: b3843b5e2f64d179b4bc11a1558b7f977c025252fa6fe16d8ab82e0dfb292ec1
+    role: target
+  - path: references_cache/PMID_42668143.txt
+    sha256: 534023632f8dd66866ee7d231899d31656d90877316f87f60448b2a3e2adc4c6
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261006-batch27.yaml
+    sha256: e643b8f12adfc71acdd4f9bca108689885b70c32ea93b44b1055d73f3022cad0
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-three-records-batch27.yaml
+    sha256: 90e6a0ad3e095a1301744958f706782510d03bdf40852999837d12401019ded0
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.md
+    sha256: e432615b147787c8d009d96d2f11e5b78a45927bf9c69e45ec0d31123d1fc2e9
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/frozen_inventory_metrics.tsv
+    sha256: d5a47bbcc3745a489ff507680aa7360a6a65ce070ce4ec88f886b70128791313
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md
+    sha256: 4e7781aa8cdfc4bb42d896ebe75920719d9dcade92ffc4a0ae07af7481cb37b3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000397
+  path: kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+  label: Defined Three-Strain Organic-Nitrogen Nitrifying Community
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+    role: canonical_record
+scope:
+  description: Whole maintained record, fresh abstract/public publisher page, all
+    three supplementary pages and graphical abstract, exact authorities and relevant
+    prior context. Main manuscript experimental details remain unavailable.
+  selection: Only released CommunityMech:000397 in owned batch 15.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000397
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000397
+  command: just --no-dotenv validate kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000397
+  command: just --no-dotenv validate-strict kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+    --out /private/tmp/cm-review-session/batch-15/000397/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000397
+  command: just --no-dotenv validate-terms kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000397
+  command: just --no-dotenv validate-references-explained kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000397
+  command: just --no-dotenv validate-gtdb kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000397
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000397
+  command: just --no-dotenv validate-history history/records/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000397
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: context-audit-network
+  name: audit-network corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit 1 retained.
+  target_ids:
+  - CommunityMech:000397
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-15/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-audit-network
+  - corpus-context
+  scope_note: Nonrequired corpus context, separate from focused passes.
+- check_id: context-check-network-quality
+  name: check-network-quality corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit 1 retained.
+  target_ids:
+  - CommunityMech:000397
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-15/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-check-network-quality
+  - corpus-context
+  scope_note: Nonrequired corpus context, separate from focused passes.
+- check_id: optional-structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Unavailable in the owned runtime.
+  target_ids:
+  - CommunityMech:000397
+  evidence_ids:
+  - adapter
+  scope_note: No external-checkout adapter executed; no study expression-module mapping
+    asserted.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+  locator: Whole maintained YAML
+  summary: Three named NBRC stocks form a laboratory nitrogen-conversion community;
+    one aggregate interaction and no arrows are encoded.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.823047Z'
+- evidence_id: abstract
+  kind: primary_source
+  reference: PMID:42668143; DOI:10.1093/bbb/zbag131
+  locator: Fresh MED Abstract, complete four sentences
+  summary: The three stocks, selected-condition nitrate endpoint of approximately
+    56 mg-N/L, absence of residual nitrite and relative-abundance association are
+    explicitly reported. These statements do not establish every organic substrate
+    condition or a taxon-specific flux.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.823120Z'
+  snapshot_sha256: e1ac6d2e6801fd7b51363841bb0f4903fdeb4a2b518e64f95c21f47c3cb475f8
+- evidence_id: publication
+  kind: database
+  reference: PMID:42668143; DOI:10.1093/bbb/zbag131
+  locator: Fresh MED PMID/DOI/title and public publisher article identity
+  summary: PMID and DOI identify the same article. The public publisher page offers
+    its abstract, graphical abstract and one supplement; the main article requires
+    access. MED availability flags do not negate the recovered public supplement.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.823316Z'
+  snapshot_sha256: e1ac6d2e6801fd7b51363841bb0f4903fdeb4a2b518e64f95c21f47c3cb475f8
+- evidence_id: publisher
+  kind: primary_source
+  reference: PMID:42668143; DOI:10.1093/bbb/zbag131
+  locator: Public OUP Abstract, Graphical Abstract and Supplementary data sections;
+    main access notice
+  summary: The accessible publisher text confirms the source identity and selected-condition
+    wording, but does not expose the main Methods or complete experimental comparisons.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.823355Z'
+  snapshot_sha256: 7d2bc51daaed74b06086732f95c352b6af68c3d962da10989b8a4182e60919d6
+- evidence_id: cultivation
+  kind: primary_source
+  reference: PMID:42668143; DOI:10.1093/bbb/zbag131
+  locator: Supplement Figure S2 caption, physical PDF page 2, first two sentences
+    (quoted words); third sentence for the delayed-inoculation arm; Figure S1 caption
+    and feed arrow, physical page 1
+  summary: S2 identifies a Polypepton NF condition and a separate arm in which both
+    nitrifiers are introduced two days after B. badius. S1 reuses post-nitrification
+    cells in fresh medium and marks organic feeding on day 3. These assays can enrich
+    the open protocol discussion without supplying the missing basal recipe.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.823518Z'
+  snapshot_sha256: e42576f83d113d7f1e546913483f1ac35628a3d28cc365abd3456b6428a36d3d
+  quote: 2 g/L Polypepton NF
+- evidence_id: isolate-conditions
+  kind: primary_source
+  reference: PMID:42668143; DOI:10.1093/bbb/zbag131
+  locator: Supplement Figure S3 caption and panels(a,b), physical PDF page 3
+  summary: The 20–37°C series concerns separate N. europaea cultures in HEPES medium
+    and N. winogradskyi cultures in Boon medium. These are not established three-member
+    culture conditions.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.824045Z'
+  snapshot_sha256: e42576f83d113d7f1e546913483f1ac35628a3d28cc365abd3456b6428a36d3d
+- evidence_id: graphical
+  kind: primary_source
+  reference: PMID:42668143; DOI:10.1093/bbb/zbag131
+  locator: 'Graphical abstract: named three-strain conversion schematic and plotted
+    selected-condition course'
+  summary: The schematic attributes organic-N ammonification to B. badius and successive
+    ammonia/nitrite oxidation to the named nitrifiers. The pictured flask is illustrative
+    and does not identify the actual vessel.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.824231Z'
+  snapshot_sha256: 178e3488b4a2c40f8eef5aedfe0428beef3e50ed7648ff8758a26cdc73a8f98e
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000397/ontology-authority.json
+  locator: Eight ID-label pairs, definitions/ranks and 14 placements
+  summary: All labels match. GO ammonia oxidation denotes one component of nitrification;
+    the three CHEBI ions retain nitrogen-equivalent concentration units.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.824540Z'
+  snapshot_sha256: 30416f72bcaec946714b54f0c859011d3dbd4dbd670d361d651484bb6d4ca714
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000397/child-schema-semantics.json
+  locator: Literal community, interaction, role and cultivation definitions
+  summary: Engineered state, synthetic origin and community-level metabolite exchange
+    fit the scoped model. Optional absent roles are not fabricated.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.824719Z'
+  snapshot_sha256: e7377439e5d505f01f138332aee83508d776ad2d25aab16f32cd268699a40b77
+- evidence_id: stocks
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000397/child-strain-authority.json
+  locator: Three direct NBRC/DBRP stock identities and bounded local strain candidates
+  summary: All three NBRC stocks resolve. Collection-maintenance conditions are distinct
+    from the focal experiment; optional finer strain terms do not force a species-level
+    replacement.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.824886Z'
+  snapshot_sha256: 6db21dc13121dcb797f0d347bb98e875a370963aff9068616b69d472d9e0360f
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000397/child-gtdb-crosswalk.json
+  locator: Exact species/name mapping routes and immutable snapshot
+  summary: Species1455 resolves to Pseudobacillus_badius at 1.0/26; current 915 name
+    route 1.0/2 and 913 exact ID route 0.88/8 cores remain valid. Mtime does not establish
+    an upstream release or build date.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.825040Z'
+  snapshot_sha256: c245c841e5c18e079844a8756ad53e8ac1a0f9a19abd2fd271ec4f23c4bdf038
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000397/ontology-semantic-notes.json
+  locator: Final auxiliary interpretation
+  summary: Confirms bounded supplementary cultivation and GTDB findings, retaining
+    the aggregate graph, ionic identities and current species/stock distinction.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.825165Z'
+  snapshot_sha256: 02772bf378ff227cd775c045f0144329239ad15e5dc0b5184a75aa00cae1f7a1
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/dataset-verification.json
+  locator: Existing publication resources and inspected source-resource scope
+  summary: Publication identities match. No concrete study deposit is declared in
+    the inspected abstract/page/SI; inaccessible main availability remains unknown.
+    Reference-stock sequence links are not study deposits.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.825306Z'
+  snapshot_sha256: d477e9b6f07a2428dd5adad8d9710bb5620ee97ebe7bfe9ae08e274f19051295
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/snippet-audit.json
+  locator: All 18 canonical excerpt placements
+  summary: Seventeen placements match fresh Abstract text and one reproduces DOI metadata;
+    all 18 match the committed cache. Exact matching does not establish unread main
+    details.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.825442Z'
+  snapshot_sha256: 43c31c0ebad73732c5665638414ab78ec70abbd5b4bd220d6a84f0b876438a12
+- evidence_id: provenance
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-15/000397/provenance-audit.json
+  locator: Three histories; batch 27 records[1]; cohort context; current selected
+    issues
+  summary: The prior selected-condition and nitrite fixes remain present. Cohort context
+    is not an individual scientific completion claim; this review closes no shared
+    issue.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.825585Z'
+  snapshot_sha256: 8d23d1e0ebd7138de7ec28b7337c9f2d391ff47be8eebea17a81eed9950ef9f5
+- evidence_id: inspection
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/inspect.json
+  locator: 32 immutable official inputs
+  summary: Target, 21 authorities and 10 focal contexts are pinned after ignored-inclusive
+    discovery.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.825717Z'
+  snapshot_sha256: ec10f95e9317348a076f1332dfbec8efbc1c0c01b9e1a54ed9199bc18d2c1f77
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/lead-source-assets.json
+  locator: Actual retrievals and asset inventory
+  summary: Preserved bare-route403 responses precede successful exact public signed-link
+    downloads. Whole main remains unavailable in bounded routes.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.825744Z'
+  snapshot_sha256: d445c95e9e96d841b08d950b4c71a252ba0b03b68c65712d18e034bb7ea26a60
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/lead-primary-read-scope.json
+  locator: Actual lead source reading
+  summary: Whole target, fresh metadata/public page, all three SI text/pages and graphical
+    abstract were read; no main-manuscript or raw-data reanalysis is claimed.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.825869Z'
+  snapshot_sha256: 69ccdb2a0d6631e95687f9f07a6b7b185cd12527bfc52216f6a580f464671ca0
+- evidence_id: locators
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/source-locator-verification.json
+  locator: All proposed source locators and exact quote origin
+  summary: Figure S2 caption on physical page 2 contains the four quoted words. S1/S3
+    and Abstract boundaries are checked directly.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.825986Z'
+  snapshot_sha256: e6a49969382a33210cff79df90062696242bfac76d97dad57aac3b233a6a8387
+- evidence_id: source-audit
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/source-audit.json
+  locator: Final lead scientific judgment
+  summary: Available claims are supported with two minor enrichment/provenance findings;
+    critical main-protocol limits retain partial scientific status.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.826105Z'
+  snapshot_sha256: ca9e6d335f8fbc3e2e162b6463b06c6aec76e3df3e9f206aba725ea963ec5d95
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/root-independent-source-audit.json
+  locator: Independent root scientific assessment
+  summary: Root independently assessed available primary evidence, authority and graph
+    scope, with explicit actual reading limits.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.826197Z'
+  snapshot_sha256: 34748dacabf6b8448e95734b47517e67f10714c007790d29c4abc1e4ecb4b518
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/support-final-audit.json
+  locator: Final supporting reconciliation and literal metrics
+  summary: Completeness 15; quality base 135 minus 4 for two minor findings gives
+    raw 131, capped 100. Neither score establishes full scientific completion.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.826332Z'
+  snapshot_sha256: e05bda512a94de40d9f9ba2c44d5afae2854992a5cd58de27592d23b5e2fe92d
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/support-frozen-manifest.json
+  locator: Frozen final supporting artifacts
+  summary: Final support follows reconciled lead/root/auxiliary evidence and preserves
+    preliminary receipts.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.826360Z'
+  snapshot_sha256: 13a64e8c4220b3bc0553d022b7458772f2323a4f96b30766f17416b0e6227f8f
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/auxiliary-frozen-manifest.json
+  locator: Frozen authority/native artifacts
+  summary: Eight focused native checks pass; all 32 inspected inputs remain unchanged.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.826494Z'
+  snapshot_sha256: c94e06c79496767ff538579c064e3689a697d5e53d4eb4dd8f7c1046d401a2db
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/final-validator-summary.json
+  locator: Actual eight command/stdout/stderr receipts
+  summary: Focused native checks pass; reference zero is not a count of all independently
+    checked scientific claims.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.826613Z'
+  snapshot_sha256: 0b829d2ff4f92046f129b977ef0d013f84567268973a0b0ffa1f10e5e08822e6
+- evidence_id: corpus-context
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/child-corpus-context.json
+  locator: Fresh batch 15 baseline receipts
+  summary: Both corpus commands returned exit 1 with 44 warnings across 16 of 477
+    records and zero errors; these are nonrequired context.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.826744Z'
+  snapshot_sha256: f1c589686cf1aac1ac5476160fc0271a69342c27b2bd6f773666edff810a12d5
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/adapter-check.json
+  locator: Fresh owned-runtime availability and dated earlier filename discovery
+  summary: Optional adapter is unavailable in this runtime; no external-checkout adapter
+    was executed and no global absence is asserted.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.826870Z'
+  snapshot_sha256: b603abbb8df43046d1a929bcac5c349cede5b44a36d912d85e282d2263a5b784
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/validate.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific source entailment is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.827217Z'
+  snapshot_sha256: 68c1eecb81c2e947d59267fd0c2fdbff8ab18ae939d53ef64adf1a2a5987339e
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/validate-strict.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific source entailment is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.827382Z'
+  snapshot_sha256: 916cb1bd0c5caa127b98e5bc2e8600a3edfc47100e7956da45798eabb33079e0
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/validate-terms.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific source entailment is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.827527Z'
+  snapshot_sha256: 99e124326c3bb9661c350d9cbb245dd26f27219368656c7499488f2036702506
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/validate-references-explained.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific source entailment is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.827682Z'
+  snapshot_sha256: 345f491b4dc93f81f1c2a4b0aadfc11f22922a5815f203e22e610fb720a20569
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/validate-gtdb.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific source entailment is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.827869Z'
+  snapshot_sha256: 3fc579ec5fa66311319b2195d11d662ec817ed1010edd9d27ac8079049b782eb
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/validate-gtdb-domain.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific source entailment is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.828038Z'
+  snapshot_sha256: 3ce1385fc66209f5b81a1c7f367f24127949f6f9786d849d4d1a19cd72dc62ad
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/validate-history.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific source entailment is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.828213Z'
+  snapshot_sha256: 35f8854086169c7ebcde5dcf0f24e332efe50fb7e40bd2a13fa7ad38a27d921f
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000397/normalize-cache-names-check.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific source entailment is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.828344Z'
+  snapshot_sha256: e2f0557b51150fa49f903095f986b2b5bb69bf55c8977d727ea3a06bc44e2839
+- evidence_id: context-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/audit-network.json
+  locator: Fresh batch 15 corpus baseline
+  summary: Actual exit 1,44 warnings in16/477 records and zero errors.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.828535Z'
+  snapshot_sha256: b92af84b02acf105f8dc7c3625cc2a7e52a436b24a8243fe7e1d53012c9be1d9
+- evidence_id: context-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/check-network-quality.json
+  locator: Fresh batch 15 corpus baseline
+  summary: Actual exit 1,44 warnings in16/477 records and zero errors.
+  support: supports
+  accessed_at: '2026-10-22T04:30:46.828703Z'
+  snapshot_sha256: 10b4cbb4180b20137e22c994ff8cd71d5ca52ab6ac3ef21fef5580eb4c9200fc
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Three-stock laboratory model
+  outcome: supported
+  summary: The record denotes the source-defined community rather than a natural soil
+    assemblage.
+  target_ids:
+  - CommunityMech:000397
+  evidence_ids:
+  - record
+  - abstract
+  - stocks
+  - schema
+  dimensions:
+  - name: taxon_scope
+    value: Three explicit NBRC stocks
+    definition: Source names plus current NCBI species 1455,915,913; species mapping
+      is distinct from stock/genome identity.
+    evidence_ids:
+    - record
+    - stocks
+  - name: experimental_setting
+    value: Laboratory organic-nitrogen coculture
+    definition: Selected-condition engineered model; soil-like analogy is not a field
+      origin.
+    evidence_ids:
+    - abstract
+    - graphical
+  details: Retain the current source names, NBRC 15713/14298/14297 stock descriptors,
+    SYNTHETIC origin, ENGINEERED state and BIOTECHNOLOGY category. Pseudobacillus
+    badius is the current species label corresponding to the source Bacillus badius
+    name.
+- assessment_id: node-0
+  area: graph
+  topic: Sequential organic-nitrogen conversion
+  outcome: supported
+  summary: Retain the selected-condition community-level sequential nitrogen-conversion
+    claim.
+  target_ids:
+  - CommunityMech:000397
+  evidence_ids:
+  - abstract
+  - graphical
+  - cultivation
+  - snippets
+  - schema
+  details: 'Exact selector ecological_interactions[0]; interaction_type CROSS_FEEDING;
+    scope COMMUNITY_LEVEL. Actual taxa: {"source": null, "target": null, "participants":
+    [{"id": "NCBITaxon:1455", "label": "Pseudobacillus badius"}, {"id": "NCBITaxon:915",
+    "label": "Nitrosomonas europaea"}, {"id": "NCBITaxon:913", "label": "Nitrobacter
+    winogradskyi"}]}. Canonical evidence bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet",
+    "sha256": "0a1d0d1dfaa1379ba9df48f9ff7cde142aa2368507165e66cab0b42214c443c4",
+    "reference": "PMID:42668143", "supports": "SUPPORT", "evidence_source": "IN_VITRO"},
+    {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "4faa31e56824f4e0abc9b81d22331b4d573b7b3e6deb98a8b1b0782dd5402b0a",
+    "reference": "PMID:42668143", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 43c31c0ebad73732c5665638414ab78ec70abbd5b4bd220d6a84f0b876438a12.
+    PMID:42668143 locators: fresh Abstract sentences 1–2; graphical abstract named
+    conversion schematic; Supplement FiguresS1–S2. Retain both SUPPORT / IN_VITRO
+    tiers for the aggregate conversion. No donor-resolved flux, obligate reciprocity,
+    universal organic-substrate success or unreported pairwise intervention is inferred.
+    There are zero downstream arrows and no encoded source/target taxon; no extra
+    edge is required.'
+- assessment_id: readouts
+  area: quantity
+  topic: Selected outcome and abundance association
+  outcome: supported
+  summary: The approximately 56 mg-N/L nitrate endpoint and absent residual nitrite
+    remain restricted to selected conditions.
+  target_ids:
+  - CommunityMech:000397
+  evidence_ids:
+  - abstract
+  - cultivation
+  - graphical
+  details: S2(a) retains late nitrite and S2(b) differs by delayed inoculation; neither
+    is automatically the abstract endpoint arm. S1 repeat/refeeding nitrate is a different
+    result. RT-qPCR relative abundance remains an association with nitrogen concentrations,
+    not measured taxon-specific flux. CHEBI identities do not change mg-N/L into whole-ion
+    mass.
+- assessment_id: environment
+  area: scope
+  topic: Laboratory environment and partial cultivation recovery
+  outcome: concern
+  summary: Supplementary assay details can enrich the existing open gap without supplying
+    a complete protocol.
+  target_ids:
+  - CommunityMech:000397
+  evidence_ids:
+  - cultivation
+  - isolate-conditions
+  - assets
+  dimensions:
+  - name: medium
+    value: S2:2 g/L Polypepton NF amendment; complete basal recipe unresolved
+    definition: Supplement-specific condition, not assigned to the abstract endpoint
+      or all assays.
+    evidence_ids:
+    - cultivation
+  - name: environmental_context
+    value: Laboratory organic-N model
+    definition: S3 temperature/media belong to separate nitrifier assays.
+    evidence_ids:
+    - isolate-conditions
+    - ontology
+  details: Retain laboratory environment and broad organic-N scope. Distinguish S2
+    Polypepton NF and delayed-inoculation context, S1 repeat/refeeding, and S3 separate-isolate
+    conditions. The missing full medium, ratio, atmosphere, vessel and community temperature
+    remain unresolved.
+- assessment_id: grounding
+  area: grounding
+  topic: Ontology and species/stock scope
+  outcome: supported
+  summary: All eight current ID-label pairs match their authority.
+  target_ids:
+  - CommunityMech:000397
+  evidence_ids:
+  - ontology
+  - schema
+  - stocks
+  details: Ammonium, nitrite and nitrate denote the appropriate ions. GO:0019329 ammonia
+    oxidation is an appropriate component of the broad nitrification node, not a complete
+    annotation for all sequential steps. Existing qualitative abundance_value strings
+    express membership/function; no optional role is fabricated to improve a score.
+- assessment_id: gtdb-provenance
+  area: provenance
+  topic: Recoverable mapping and release provenance
+  outcome: concern
+  summary: Resolve the first species mapping and correct two unsupported release/build
+    statements.
+  target_ids:
+  - CommunityMech:000397
+  evidence_ids:
+  - gtdb
+  - semantics
+  details: The two existing classifications reproduce. Preserve their species-level
+    mapping routes and denominators and the Nitrobacter name comparison; do not substitute
+    finer stock mappings or interpret is_reclassified as independent nomenclatural
+    proof.
+- assessment_id: evidence
+  area: evidence
+  topic: Publication, snippets and resources
+  outcome: supported
+  summary: Eighteen excerpt placements and both publication resources resolve within
+    their actual source tiers.
+  target_ids:
+  - CommunityMech:000397
+  evidence_ids:
+  - publication
+  - snippets
+  - resources
+  details: Seventeen fresh Abstract matches and one DOI metadata projection are distinct.
+    No study accession is identified in the inspected source scope; this creates no
+    deposit-omission finding and says nothing about unread main availability.
+- assessment_id: ownership
+  area: ownership
+  topic: Prior decisions and maintained repair owner
+  outcome: supported
+  summary: Future changes belong to the maintained focal record.
+  target_ids:
+  - CommunityMech:000397
+  evidence_ids:
+  - inspection
+  - provenance
+  details: Batch 27 records[1], all three history events and the four cohort contexts
+    remain dated evidence. Closed 977/978 corrections are preserved; shared 596 and
+    1362 do not become new focal defects or terminal dispositions. No history, cache,
+    issue or generated output changes in this review.
+- assessment_id: access
+  area: scope
+  topic: Partial source coverage
+  outcome: unknown
+  summary: Public supplementary evidence does not replace the inaccessible main manuscript.
+  target_ids:
+  - CommunityMech:000397
+  evidence_ids:
+  - assets
+  - lead-read
+  - source-audit
+  - root-source
+  details: The complete abstract, public page, three-page SI and graphical abstract
+    are assessed. Main Methods, main figures, including referenced Figure 4(d) and
+    complete treatment comparisons were not recovered; the reference to Figure 4(d)
+    in SI is not a read of that main figure. Scientific completion remains false.
+- assessment_id: native
+  area: schema
+  topic: Focused validation and contextual checks
+  outcome: supported
+  summary: All eight required focused checks pass.
+  target_ids:
+  - CommunityMech:000397
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - corpus-context
+  - adapter
+  details: The corpus exit 1 results and optional adapter unavailability are explicitly
+    nonrequired. Native validation does not resolve the inaccessible main protocol.
+- assessment_id: metrics
+  area: completeness
+  topic: Literal native metrics
+  outcome: supported
+  summary: Completeness 15; raw quality 131, capped 100.
+  target_ids:
+  - CommunityMech:000397
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 15
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required fields/roles block 0 + environment 5 + external resources
+      5 + interaction metabolites 5; fewer than 3 factors/nodes and absent growth_media/datasets
+      add 0. Optional role absence is not itself a defect.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 100 - 0 major*10 - 2 minor*2  + 20*min((2 evidence / 1 node)/2,1)  +
+      15 COMPLETE =131 raw, capped 100. One typed node, zero arrows; structural COMPLETE
+      is not scientific completion.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: cultivation-context
+  issue_key: cm-000397-cultivation-context
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded recoverable context or provenance; the existing selected-condition
+    community identity and outcomes remain supported.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Recover supplementary cultivation context while keeping the main-protocol
+    gap
+  description: The open discussion accurately described the cached abstract. Accessible
+    S1/S2 now provide bounded assay information that the record does not capture;
+    this supports enrichment rather than inventing a complete recipe.
+  target_ids:
+  - CommunityMech:000397
+  field_paths:
+  - discussions[0]
+  - environmental_factors[0]
+  - engineering_design.assembly_strategy
+  - growth_media
+  - cultivation_setup
+  evidence_ids:
+  - cultivation
+  - isolate-conditions
+  - assets
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+    role: canonical_record
+  ownership_note: The maintained record owns a future authorized repair; no dated/shared
+    finding is silently closed or superseded.
+- finding_id: gtdb-provenance
+  issue_key: cm-000397-gtdb-provenance
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded recoverable context or provenance; the existing selected-condition
+    community identity and outcomes remain supported.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Complete the recoverable species mapping and correct provenance
+  description: Pseudobacillus badius is currently resolvable. The valid two existing
+    GTDB cores carry unsupported latest-release/build-date wording inferred from a
+    local snapshot mtime.
+  target_ids:
+  - CommunityMech:000397
+  field_paths:
+  - taxonomy[0].taxon_term.gtdb_grounding_status
+  - taxonomy[0].taxon_term
+  - taxonomy[1].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[2].taxon_term.gtdb_classification.mapping_source
+  evidence_ids:
+  - gtdb
+  - stocks
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+    role: canonical_record
+  ownership_note: The maintained record owns a future authorized repair; no dated/shared
+    finding is silently closed or superseded.
+actions:
+- action_id: enrich-cultivation
+  description: Add the recovered supplementary assay context and narrow the remaining
+    open gap.
+  finding_ids:
+  - cultivation-context
+  target_ids:
+  - CommunityMech:000397
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - 'Cite Supplement Figure S2 caption, physical page 2: Polypepton NF 2 g/L and the
+    separate arm with N. europaea NBRC 14298 and N. winogradskyi NBRC 14297 introduced
+    two days after B. badius NBRC 15713. Do not assign either arm to the approximately
+    56 mg-N/L abstract endpoint without main experimental mapping.'
+  - Cite Figure S1 caption and physical page 1 feed arrow for transfer of post-nitrification
+    cells to fresh medium and day 3 organic feeding. Preserve assay context without
+    inventing operating mode, basal composition, feed quantity, inoculum ratio, atmosphere
+    or vessel.
+  - Keep the main protocol unresolved. Figure S3 HEPES/Boon media and 20–37°C tests
+    concern separate isolates; NBRC maintenance media and the schematic flask cannot
+    supply community conditions. Preserve the dated discussion rationale and add a
+    traceable follow-up rather than rewriting historical facts.
+- action_id: repair-gtdb
+  description: Use current species-level mapping evidence and accurate snapshot provenance.
+  finding_ids:
+  - gtdb-provenance
+  target_ids:
+  - CommunityMech:000397
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - For taxonomy[0].taxon_term, use GROUNDED with GTDB:s__Pseudobacillus_badius; lineage
+    d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales_B;f__Domibacillaceae;g__Pseudobacillus;s__Pseudobacillus
+    badius; NCBITaxon:1455, fraction 1.0,26 genomes, is_reclassified false, exact
+    ncbi_id route.
+  - Retain taxonomy[1] Nitrosomonas europaea via ncbi_name, fraction 1.0/2 genomes,
+    and taxonomy[2] Nitrobacter winogradskyi_A via ncbi_id, fraction 0.88/8 genomes.
+    Record mapping snapshot SHA256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd.
+    Label filesystem mtime as mtime; leave unknown upstream release/build metadata
+    unknown.
+  - Species aggregates do not classify the exact experimental genome. Existing NBRC
+    stock descriptors remain valid; optional finer NCBI terms require their own labels
+    and mapping denominators rather than silent substitution.
+- action_id: validate-curation
+  description: Validate any separately authorized record repair.
+  finding_ids:
+  - cultivation-context
+  - gtdb-provenance
+  target_ids:
+  - CommunityMech:000397
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Recheck exact source/treatment scope, ontology labels and excerpt support; run
+    focused schema, strict, terms, explained references, GTDB/domain and history gates,
+    then just gen-html and just check-docs-current for authorized record changes.
+  - Preserve original source responses, caches, histories and prior decisions. This
+    review changes no canonical record or scientific status and authorizes no contact,
+    paid research, issue or Git mutation.
+limitations:
+- Bounded ordinary public routes recovered the abstract, declared three-page supplement
+  and graphical abstract, but not the main Methods/results or main figures. This is
+  not a global assertion that no full text exists.
+- The supplement does not identify the complete basal coculture recipe, common temperature,
+  vessel, atmosphere or inoculum ratio, nor map the approximately 56 mg-N/L abstract
+  outcome to its S2 arms. S3 is separate-isolate evidence.
+- Supplement curves were visually inspected without digitization, statistical reanalysis
+  or inferred detection limits. No raw sequence, assay dataset or taxon-specific flux
+  was analyzed.
+notes:
+- One node assessment binds its two exact canonical excerpt SHA256 values, all actual
+  participants and retained evidence tiers. No downstream arrows are encoded.
+- The sole quotation is four words from Figure S2 caption on physical PDF page 2;
+  other source statements are paraphrased or referred to by exact canonical selector/hash.
+- All 32 inspected inputs remain unchanged. Candidate validation and parent-owned
+  saving/post-save gates occur after this assessment and are not asserted in advance.
+tags:
+- record-review
+- nitrification
+- syncom
+- partial-source
+- batch-15
+```
