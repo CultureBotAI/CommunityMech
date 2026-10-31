@@ -67,6 +67,16 @@ def test_taxa_record_structure():
     assert geo_genes["omcS"]["gene_id"] == "UniProtKB:Q749X9"
     assert geo_genes["omcZ"]["gene_id"] == "UniProtKB:Q74A90"
     assert geo_genes["omcB"]["gene_id"] == "UniProtKB:Q74A86"
+    assert {"PMID:41210787", "PMID:37650614", "PMID:41236292"} <= {
+        ev["reference"] for ev in geo_genes["pilA"]["evidence"]
+    }
+    assert {
+        "PMID:41210787",
+        "PMID:37650614",
+        "PMID:28992596",
+        "PMID:41236292",
+        "PMID:31537786",
+    } <= {ev["reference"] for ev in geo_genes["omcS"]["evidence"]}
 
 
 def test_taxa_genes_have_verified_uniprot_and_cached_evidence():
