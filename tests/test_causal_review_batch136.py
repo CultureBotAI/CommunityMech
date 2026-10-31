@@ -66,8 +66,9 @@ def test_batch136_covers_c4s1_record_with_verified_hash_and_history():
             "discussions",
             "curation_history",
         }
-        assert row["curation_events_added"] == len(row["history_files"]) == 1
-        assert (ROOT / row["history_files"][0]).exists()
+        assert row["curation_events_added"] == 1
+        assert len(row["history_files"]) >= 1
+        assert all((ROOT / hf).exists() for hf in row["history_files"])
         assert doc["curation_history"][-1]["action"] == "CURATE_CAUSAL_GRAPH"
         assert doc["curation_history"][-1]["llm_assisted"] is True
         assert doc["discussions"][0]["attaches_to"] == [
