@@ -236,23 +236,23 @@ Reviewed member records (2): CommunityMech:taxon:000001, CommunityMech:taxon:000
 
 ## Findings
 
-### c4s4-000083-smutans-calbicans-roles-metabolites-and-sucrose: Streptococcus mutans-Candida albicans ECC Biofilm (CommunityMech:000083) omits source-backed functional_role and DOMINANT abundance_level on both co-species biofilm members, exopolysaccharide (CHEBI:72813) on ecological_interactions[1], and environmental_factors for 1% sucrose availability
+### c4s4-000083-smutans-calbicans-roles-metabolites-and-sucrose: Streptococcus mutans-Candida albicans ECC Biofilm (CommunityMech:000083) omits source-backed functional_role and DOMINANT/ABUNDANT abundance_level on both co-species biofilm members, exopolysaccharide (CHEBI:72813) on ecological_interactions[1], and environmental_factors for 1% sucrose availability
 
 major / open / confirmed; issue key: communitymech-c4s4-000083-smutans-calbicans-roles-metabolites-and-sucrose.
 
-CommunityMech:000083 (kb/communities/SMutans_CAlbicans_ECC_Biofilm.yaml, proportional Completeness Score 80/100; scripts/audit_completeness.py score 25/100) models the cariogenic plaque biofilm co-infection of Streptococcus mutans UA159 (NCBITaxon:1309) and Candida albicans SC5314 (NCBITaxon:5476) in early childhood caries (PMID:24566629, PMID:32424264). In taxonomy, Streptococcus mutans omits functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT, and Candida albicans omits functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level: DOMINANT, despite verbatim support in the already-curated PMID:24566629 and PMID:32424264 snippets. In addition, ecological_interactions[1] ('Candida-Driven EPS Amplification of Streptococcus mutans') omits metabolites exopolysaccharide (CHEBI:72813, which is already curated in related_ingredients[0] backed by the same PMID:24566629 snippet), and environmental_factors is absent despite growth_media[0].evidence[0] (PMID:24566629) establishing 1% (30 mM) sucrose availability in the cariogenic biofilm.
+CommunityMech:000083 (kb/communities/SMutans_CAlbicans_ECC_Biofilm.yaml, proportional Completeness Score 80/100; scripts/audit_completeness.py score 25/100) models the cariogenic plaque biofilm co-infection of Streptococcus mutans UA159 (NCBITaxon:1309) and Candida albicans SC5314 (NCBITaxon:5476) in early childhood caries (PMID:24566629). In taxonomy, Streptococcus mutans omits functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT, and Candida albicans omits functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level: ABUNDANT, despite verbatim support in the already-curated PMID:24566629 snippets (S. mutans GtfB synthesizes glucan exopolysaccharides from 1% sucrose and binds fungal mannan and beta-1,3-glucan sites, while C. albicans augments EPS production and viable S. mutans carriage in cospecies biofilms inoculated at ~2 x 10^6 CFU/mL S. mutans and ~2 x 10^4 CFU/mL C. albicans). In addition, ecological_interactions[1] ('Candida-Driven EPS Amplification of Streptococcus mutans') omits metabolites exopolysaccharide (CHEBI:72813, which is already curated in related_ingredients[0] backed by the identical PMID:24566629 snippet), and environmental_factors is absent despite growth_media[0].evidence[0] (PMID:24566629) establishing 1% (30 mM) sucrose availability in UFYTE broth at 37 °C under 5% CO2.
 
-### c4s4-000357-ecoli-gl10-xl12-roles-and-abundance: E. coli GL10-XL12 D-Lactate Mixed-Sugar SynCom (CommunityMech:000357) omits PRIMARY_DEGRADER functional_role and DOMINANT abundance_level on both engineered specialist strains and environmental_factors for mixed-sugar carbon source and incubation temperature
+### c4s4-000357-ecoli-gl10-xl12-roles-and-abundance: E. coli GL10-XL12 D-Lactate Mixed-Sugar SynCom (CommunityMech:000357) omits PRIMARY_DEGRADER functional_role and DOMINANT abundance_level on both engineered specialist strains
 
 major / open / confirmed; issue key: communitymech-c4s4-000357-ecoli-gl10-xl12-roles-and-abundance.
 
-CommunityMech:000357 (kb/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml, proportional Completeness Score 90/100; scripts/audit_completeness.py score 35/100) models the two-strain division-of-labor consortium of glucose-preferring Escherichia coli GL10 and xylose-preferring Escherichia coli XL12 (NCBITaxon:562) for simultaneous mixed-sugar fermentation to D-lactate (PMID:42038008, doi:10.1016/j.biortech.2026.134294). Both taxonomy entries omit functional_role: [PRIMARY_DEGRADER] and abundance_level: DOMINANT despite verbatim support in PMID:42038008 ('glucose-utilizing E. coli GL10 and xylose-utilizing E. coli XL12 at an inoculation ratio of 2:1'), and environmental_factors is absent despite growth_media[0].evidence[1] (PMID:42038008) establishing 100 g/L total mixed sugars (glucose:xylose 2:1) and 37 °C batch fermentation.
+CommunityMech:000357 (kb/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml, proportional Completeness Score 90/100; scripts/audit_completeness.py score 35/100) models the two-strain division-of-labor consortium of glucose-specialized Escherichia coli GL10 and xylose-utilizing Escherichia coli XL12 (NCBITaxon:562) for mixed glucose/xylose co-fermentation to optically pure D-lactate in M9 medium containing 5 g/L glucose and 5 g/L xylose (PMID:42038008, doi:10.1016/j.bidere.2026.100072). Both taxonomy entries omit functional_role: [PRIMARY_DEGRADER] and abundance_level: DOMINANT despite verbatim support in the already-curated PMID:42038008 snippets ('Two division-of-labor engineered E. coli strains, XL12 and GL10, were constructed and characterized in terms of sugar utilization and D-lactate synthesis capabilities.' and 'The initial OD600 was adjust to 0.2, with the inoculation ratio of GL10 and XL12 was 1:1.').
 
-### c4s4-000397-nitrifying-syncom-roles-and-abundance: Defined Three-Strain Organic-Nitrogen Nitrifying Community (CommunityMech:000397) omits functional_role and ABUNDANT abundance_level across all three synthetic consortium members and environmental_factors for organic nitrogen condition
+### c4s4-000397-nitrifying-syncom-roles-and-abundance: Defined Three-Strain Organic-Nitrogen Nitrifying Community (CommunityMech:000397) omits functional_role and ABUNDANT abundance_level across all three synthetic consortium members
 
 major / open / confirmed; issue key: communitymech-c4s4-000397-nitrifying-syncom-roles-and-abundance.
 
-CommunityMech:000397 (kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml, proportional Completeness Score 85/100; scripts/audit_completeness.py score 15/100) models the defined three-species nitrifying consortium of Bacillus badius NBRC 15713 (NCBITaxon:1394), Nitrosomonas europaea NBRC 14298 (NCBITaxon:915), and Nitrobacter winogradskyi NBRC 14297 (NCBITaxon:913) under organic nitrogen conditions (PMID:42668143, doi:10.1016/j.jbiosc.2026.06.004). In taxonomy, ammonifying heterotroph Bacillus badius omits functional_role: [PRIMARY_DEGRADER] and abundance_level: ABUNDANT, chemolithoautotrophic ammonia oxidizer Nitrosomonas europaea omits functional_role: [PRIMARY_PRODUCER, CROSS_FEEDER] and abundance_level: ABUNDANT, and chemolithoautotrophic nitrite oxidizer Nitrobacter winogradskyi omits functional_role: [PRIMARY_PRODUCER, CROSS_FEEDER] and abundance_level: ABUNDANT despite verbatim support in PMID:42668143 ('ammonification by B. badius followed by sequential oxidation of ammonium to nitrite by N. europaea and nitrite to nitrate by N. winogradskyi.'). In addition, environmental_factors is absent despite taxonomy[0].evidence[0] (PMID:42668143) establishing organic nitrogen substrate conditions.
+CommunityMech:000397 (kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml, proportional Completeness Score 85/100; scripts/audit_completeness.py score 15/100) models the defined three-species nitrifying consortium of Bacillus badius NBRC 15713 (NCBITaxon:1455, Pseudobacillus badius), Nitrosomonas europaea NBRC 14298 (NCBITaxon:915), and Nitrobacter winogradskyi NBRC 14297 (NCBITaxon:913) under selected organic nitrogen conditions (PMID:42668143, doi:10.1093/bbb/zbag131). In taxonomy, ammonifying heterotroph Bacillus badius NBRC 15713 omits functional_role: [PRIMARY_DEGRADER] and abundance_level: ABUNDANT, chemolithoautotrophic ammonia oxidizer Nitrosomonas europaea NBRC 14298 omits functional_role: [PRIMARY_PRODUCER, CROSS_FEEDER] and abundance_level: ABUNDANT, and chemolithoautotrophic nitrite oxidizer Nitrobacter winogradskyi NBRC 14297 omits functional_role: [PRIMARY_PRODUCER, CROSS_FEEDER] and abundance_level: ABUNDANT despite verbatim support in the already-curated PMID:42668143 snippets for sequential ammonification and nitrification by the three defined strains.
 
 ### cheese-assay-evidence-gap: Full-text-dependent cheese rind assay specifics remain deferred in CommunityMech:000153
 
@@ -314,21 +314,21 @@ Disposition: Deferred: source-limited pending full-text interaction data (#1681)
 
 ### act-populate-smutans-calbicans-roles-metabolites-and-sucrose
 
-Add functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT to Streptococcus mutans, add functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level: DOMINANT to Candida albicans, add metabolites exopolysaccharide (CHEBI:72813) to ecological_interactions[1] ('Candida-Driven EPS Amplification of Streptococcus mutans'), add environmental_factors for 1% (30 mM) sucrose availability backed by PMID:24566629 on CommunityMech:000083, and append curation_history.
+Add functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT to Streptococcus mutans, add functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level: ABUNDANT to Candida albicans, add metabolites exopolysaccharide (CHEBI:72813) to ecological_interactions[1] ('Candida-Driven EPS Amplification of Streptococcus mutans'), add environmental_factors for 1% (30 mM) sucrose availability backed by PMID:24566629 on CommunityMech:000083, and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/SMutans_CAlbicans_ECC_Biofilm.yaml
 - uv run python scripts/verify_history_Changed_records.py
 
 ### act-populate-ecoli-gl10-xl12-roles-and-abundance
 
-Add functional_role: [PRIMARY_DEGRADER] and abundance_level: DOMINANT to Escherichia coli GL10 and Escherichia coli XL12, add environmental_factors for mixed-sugar carbon source (100 g/L total sugars, glucose:xylose 2:1) and incubation temperature (37 °C) backed by PMID:42038008 on CommunityMech:000357, and append curation_history.
+Add functional_role: [PRIMARY_DEGRADER] and abundance_level: DOMINANT to Escherichia coli GL10 and Escherichia coli XL12 backed by PMID:42038008 (doi:10.1016/j.bidere.2026.100072) on CommunityMech:000357, and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml
 - uv run python scripts/verify_history_Changed_records.py
 
 ### act-populate-nitrifying-syncom-roles-and-abundance
 
-Add functional_role: [PRIMARY_DEGRADER] and abundance_level: ABUNDANT to Bacillus badius NBRC 15713, add functional_role: [PRIMARY_PRODUCER, CROSS_FEEDER] and abundance_level: ABUNDANT to Nitrosomonas europaea NBRC 14298 and Nitrobacter winogradskyi NBRC 14297, add environmental_factors for organic nitrogen condition backed by PMID:42668143 on CommunityMech:000397, and append curation_history.
+Add functional_role: [PRIMARY_DEGRADER] and abundance_level: ABUNDANT to Bacillus badius NBRC 15713 (NCBITaxon:1455, Pseudobacillus badius), add functional_role: [PRIMARY_PRODUCER, CROSS_FEEDER] and abundance_level: ABUNDANT to Nitrosomonas europaea NBRC 14298 and Nitrobacter winogradskyi NBRC 14297 backed by PMID:42668143 (doi:10.1093/bbb/zbag131) on CommunityMech:000397, and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
 - uv run python scripts/verify_history_Changed_records.py
@@ -352,9 +352,9 @@ Retain source-limited full-text findings until open-access full text or suppleme
 | ev-network-integrity-audit | src/communitymech/network/auditor.py; NetworkIntegrityAuditor.audit_all() | supports | NetworkIntegrityAuditor across 481 kb/communities and 9 data/isolates records found 465/481 communities and 9/9 isolates with 0 warnings (including all 16/16 MicrobialCommunity records in the 18-record deep audit) and 16 community records with 44 non-fatal warnings (42 DISCONNECTED across 15 records and 2 COMMUNITY_LEVEL UNKNOWN_TARGET warnings on Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom; 0 error-severity issues, 0 broken downstream references). |
 | ev-causal-inventory | reports/causal_graph_review/inventory.tsv; rows 1-491 | supports | Corpus-wide causal graph inventory covers all 490 MicrobialCommunity records with 100% SHA-256 attestation in verify_causal_graph_reviews.py (0 unreviewed records). |
 | ev-common-taxon-linkage-audit | kb/taxa/Geobacter_sulfurreducens.yaml; TaxonomicComposition.common_taxon cross-references across kb/communities/*.yaml | supports | Corpus-wide audit of reusable taxon cross-references confirmed 6/6 Geobacter sulfurreducens communities linked to CommunityMech:taxon:000002 (4 UniProt EET genes) and 9/9 Shewanella oneidensis communities linked to CommunityMech:taxon:000001 (5 UniProt EET genes) with Cycle 4 Stage 3 inline gene expansion (#2091). |
-| ev-smutans-calbicans-pmid24566629 | PMID:24566629; kb/communities/SMutans_CAlbicans_ECC_Biofilm.yaml | supports | PMID:24566629 and PMID:32424264 establish that Streptococcus mutans and Candida albicans are the two co-species cariogenic biofilm members under 1% (30 mM) sucrose availability, with S. mutans GtfB exoenzymes converting sucrose to glucan exopolysaccharides (CHEBI:72813) while C. albicans enhances EPS production and cospecies biofilm accumulation. |
-| ev-ecoli-gl10-xl12-pmid42038008 | PMID:42038008; kb/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml | supports | PMID:42038008 (doi:10.1016/j.biortech.2026.134294) establishes that glucose-utilizing E. coli GL10 and xylose-utilizing E. coli XL12 (2:1 inoculation ratio) act as the two primary sugar-degrading consortium members converting 100 g/L mixed glucose and xylose at 37 °C to 91.6 g/L D-lactate. |
-| ev-nitrifying-syncom-pmid42668143 | PMID:42668143; kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml | supports | PMID:42668143 (doi:10.1016/j.jbiosc.2026.06.004) establishes that Bacillus badius NBRC 15713 performs ammonification of organic nitrogen, supplying ammonium for sequential chemolithoautotrophic oxidation by Nitrosomonas europaea NBRC 14298 and Nitrobacter winogradskyi NBRC 14297 in the defined three-species nitrifying consortium. |
+| ev-smutans-calbicans-pmid24566629 | PMID:24566629; kb/communities/SMutans_CAlbicans_ECC_Biofilm.yaml | supports | PMID:24566629 establishes that Streptococcus mutans and Candida albicans are the two co-species cariogenic biofilm members under 1% (30 mM) sucrose availability in UFYTE broth at 37 °C under 5% CO2, with C. albicans augmenting exopolysaccharide (EPS, CHEBI:72813) accumulation and viable S. mutans carriage while fungal mannan and beta-1,3-glucan provide sites for S. mutans GtfB binding and activity. |
+| ev-ecoli-gl10-xl12-pmid42038008 | PMID:42038008; kb/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml | supports | PMID:42038008 (doi:10.1016/j.bidere.2026.100072) establishes that glucose-specialized E. coli GL10 and xylose-utilizing E. coli XL12 act as the two division-of-labor sugar-degrading consortium members co-fermenting 5 g/L glucose and 5 g/L xylose in M9 medium at 37 °C to optically pure D-lactate (3.76 g/L at a 1:1 GL10:XL12 inoculation ratio and 4.53 g/L at a 1:5 ratio). |
+| ev-nitrifying-syncom-pmid42668143 | PMID:42668143; kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml | supports | PMID:42668143 (doi:10.1093/bbb/zbag131) establishes that Bacillus badius NBRC 15713 (NCBITaxon:1455, Pseudobacillus badius), Nitrosomonas europaea NBRC 14298 (NCBITaxon:915), and Nitrobacter winogradskyi NBRC 14297 (NCBITaxon:913) form a defined three-strain nitrifying microbial community performing sequential ammonification and nitrification under selected organic nitrogen conditions. |
 | ev-prior-structured-reviews | reviews/structured; 49 retained structured review bundles through 20261031T081500Z-c3s5-remediation-verification | context_only | Lineage inspection of all 49 prior structured reviews and Cycle 3 Stage 5 evidence.yaml confirmed that all 3 Cycle 3 Stage 4 open findings across CommunityMech:000280, 000434, and 000448 were resolved in Cycle 3 Stage 5 (#2084, PR #2085) and 7 record-scoped source-limited findings remain deferred at commit 0b03bdf7f9250e686bb9d0be5d3b99b71d1a0795. |
 
 ## Limits And Additional Notes
@@ -981,43 +981,42 @@ evidence:
   locator: kb/communities/SMutans_CAlbicans_ECC_Biofilm.yaml
   accessed_at: '2026-10-31T19:58:30Z'
   support: supports
-  summary: PMID:24566629 and PMID:32424264 establish that Streptococcus mutans and
-    Candida albicans are the two co-species cariogenic biofilm members under 1% (30
-    mM) sucrose availability, with S. mutans GtfB exoenzymes converting sucrose to
-    glucan exopolysaccharides (CHEBI:72813) while C. albicans enhances EPS production
-    and cospecies biofilm accumulation.
-  quote: Here we show how the presence of Candida albicans dramatically modifies the
-    physical environment of the cariogenic bacterium Streptococcus mutans by increasing
-    the production of exopolysaccharides (EPS), inducing the expression of virulence
-    genes (such as gtfB and fabM), and ultimately increasing the biomass of the cospecies
-    biofilm.
+  summary: PMID:24566629 establishes that Streptococcus mutans and Candida albicans
+    are the two co-species cariogenic biofilm members under 1% (30 mM) sucrose availability
+    in UFYTE broth at 37 °C under 5% CO2, with C. albicans augmenting exopolysaccharide
+    (EPS, CHEBI:72813) accumulation and viable S. mutans carriage while fungal mannan
+    and beta-1,3-glucan provide sites for S. mutans GtfB binding and activity.
+  quote: The presence of C. albicans augments the production of exopolysaccharides
+    (EPS), such that cospecies biofilms accrue more biomass and harbor more viable
+    S. mutans cells than single-species biofilms.
 - evidence_id: ev-ecoli-gl10-xl12-pmid42038008
   kind: primary_source
   reference: PMID:42038008
   locator: kb/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml
   accessed_at: '2026-10-31T19:59:00Z'
   support: supports
-  summary: PMID:42038008 (doi:10.1016/j.biortech.2026.134294) establishes that glucose-utilizing
-    E. coli GL10 and xylose-utilizing E. coli XL12 (2:1 inoculation ratio) act as
-    the two primary sugar-degrading consortium members converting 100 g/L mixed glucose
-    and xylose at 37 °C to 91.6 g/L D-lactate.
-  quote: In batch fermentation with 100 g/L total sugars (glucose/xylose = 2:1) at
-    37 °C, the consortium (GL10:XL12 = 2:1) produced 91.6 g/L D-lactate within 36
-    h with a productivity of 2.54 g/L/h and a yield of 0.92 g/g.
+  summary: PMID:42038008 (doi:10.1016/j.bidere.2026.100072) establishes that glucose-specialized
+    E. coli GL10 and xylose-utilizing E. coli XL12 act as the two division-of-labor
+    sugar-degrading consortium members co-fermenting 5 g/L glucose and 5 g/L xylose
+    in M9 medium at 37 °C to optically pure D-lactate (3.76 g/L at a 1:1 GL10:XL12
+    inoculation ratio and 4.53 g/L at a 1:5 ratio).
+  quote: Two division-of-labor engineered E. coli strains, XL12 and GL10, were constructed
+    and characterized in terms of sugar utilization and D-lactate synthesis capabilities.
 - evidence_id: ev-nitrifying-syncom-pmid42668143
   kind: primary_source
   reference: PMID:42668143
   locator: kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
   accessed_at: '2026-10-31T19:59:20Z'
   support: supports
-  summary: PMID:42668143 (doi:10.1016/j.jbiosc.2026.06.004) establishes that Bacillus
-    badius NBRC 15713 performs ammonification of organic nitrogen, supplying ammonium
-    for sequential chemolithoautotrophic oxidation by Nitrosomonas europaea NBRC 14298
-    and Nitrobacter winogradskyi NBRC 14297 in the defined three-species nitrifying
-    consortium.
-  quote: To elucidate the mechanism of nitrification under organic nitrogen conditions,
-    a defined microbial community consisting of Bacillus badius NBRC 15713, Nitrosomonas
-    europaea NBRC 14298, and Nitrobacter winogradskyi NBRC 14297 was constructed.
+  summary: PMID:42668143 (doi:10.1093/bbb/zbag131) establishes that Bacillus badius
+    NBRC 15713 (NCBITaxon:1455, Pseudobacillus badius), Nitrosomonas europaea NBRC
+    14298 (NCBITaxon:915), and Nitrobacter winogradskyi NBRC 14297 (NCBITaxon:913)
+    form a defined three-strain nitrifying microbial community performing sequential
+    ammonification and nitrification under selected organic nitrogen conditions.
+  quote: 'A simplified synthetic nitrifying microbial community capable of sequential
+    ammonification and nitrification under organic conditions was constructed using
+    three defined strains: Bacillus badius NBRC 15713, Nitrosomonas europaea NBRC
+    14298, and Nitrobacter winogradskyi NBRC 14297.'
 - evidence_id: ev-prior-structured-reviews
   kind: prior_review
   reference: reviews/structured
@@ -1818,23 +1817,26 @@ findings:
   status: open
   certainty: confirmed
   title: Streptococcus mutans-Candida albicans ECC Biofilm (CommunityMech:000083)
-    omits source-backed functional_role and DOMINANT abundance_level on both co-species
-    biofilm members, exopolysaccharide (CHEBI:72813) on ecological_interactions[1],
+    omits source-backed functional_role and DOMINANT/ABUNDANT abundance_level on both
+    co-species biofilm members, exopolysaccharide (CHEBI:72813) on ecological_interactions[1],
     and environmental_factors for 1% sucrose availability
   description: 'CommunityMech:000083 (kb/communities/SMutans_CAlbicans_ECC_Biofilm.yaml,
     proportional Completeness Score 80/100; scripts/audit_completeness.py score 25/100)
     models the cariogenic plaque biofilm co-infection of Streptococcus mutans UA159
     (NCBITaxon:1309) and Candida albicans SC5314 (NCBITaxon:5476) in early childhood
-    caries (PMID:24566629, PMID:32424264). In taxonomy, Streptococcus mutans omits
-    functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT,
-    and Candida albicans omits functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]
-    and abundance_level: DOMINANT, despite verbatim support in the already-curated
-    PMID:24566629 and PMID:32424264 snippets. In addition, ecological_interactions[1]
+    caries (PMID:24566629). In taxonomy, Streptococcus mutans omits functional_role:
+    [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT, and Candida albicans
+    omits functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level:
+    ABUNDANT, despite verbatim support in the already-curated PMID:24566629 snippets
+    (S. mutans GtfB synthesizes glucan exopolysaccharides from 1% sucrose and binds
+    fungal mannan and beta-1,3-glucan sites, while C. albicans augments EPS production
+    and viable S. mutans carriage in cospecies biofilms inoculated at ~2 x 10^6 CFU/mL
+    S. mutans and ~2 x 10^4 CFU/mL C. albicans). In addition, ecological_interactions[1]
     (''Candida-Driven EPS Amplification of Streptococcus mutans'') omits metabolites
     exopolysaccharide (CHEBI:72813, which is already curated in related_ingredients[0]
-    backed by the same PMID:24566629 snippet), and environmental_factors is absent
+    backed by the identical PMID:24566629 snippet), and environmental_factors is absent
     despite growth_media[0].evidence[0] (PMID:24566629) establishing 1% (30 mM) sucrose
-    availability in the cariogenic biofilm.'
+    availability in UFYTE broth at 37 °C under 5% CO2.'
   target_ids:
   - CommunityMech:000083
   field_paths:
@@ -1868,18 +1870,19 @@ findings:
   certainty: confirmed
   title: E. coli GL10-XL12 D-Lactate Mixed-Sugar SynCom (CommunityMech:000357) omits
     PRIMARY_DEGRADER functional_role and DOMINANT abundance_level on both engineered
-    specialist strains and environmental_factors for mixed-sugar carbon source and
-    incubation temperature
+    specialist strains
   description: 'CommunityMech:000357 (kb/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml,
     proportional Completeness Score 90/100; scripts/audit_completeness.py score 35/100)
-    models the two-strain division-of-labor consortium of glucose-preferring Escherichia
-    coli GL10 and xylose-preferring Escherichia coli XL12 (NCBITaxon:562) for simultaneous
-    mixed-sugar fermentation to D-lactate (PMID:42038008, doi:10.1016/j.biortech.2026.134294).
+    models the two-strain division-of-labor consortium of glucose-specialized Escherichia
+    coli GL10 and xylose-utilizing Escherichia coli XL12 (NCBITaxon:562) for mixed
+    glucose/xylose co-fermentation to optically pure D-lactate in M9 medium containing
+    5 g/L glucose and 5 g/L xylose (PMID:42038008, doi:10.1016/j.bidere.2026.100072).
     Both taxonomy entries omit functional_role: [PRIMARY_DEGRADER] and abundance_level:
-    DOMINANT despite verbatim support in PMID:42038008 (''glucose-utilizing E. coli
-    GL10 and xylose-utilizing E. coli XL12 at an inoculation ratio of 2:1''), and
-    environmental_factors is absent despite growth_media[0].evidence[1] (PMID:42038008)
-    establishing 100 g/L total mixed sugars (glucose:xylose 2:1) and 37 °C batch fermentation.'
+    DOMINANT despite verbatim support in the already-curated PMID:42038008 snippets
+    (''Two division-of-labor engineered E. coli strains, XL12 and GL10, were constructed
+    and characterized in terms of sugar utilization and D-lactate synthesis capabilities.''
+    and ''The initial OD600 was adjust to 0.2, with the inoculation ratio of GL10
+    and XL12 was 1:1.'').'
   target_ids:
   - CommunityMech:000357
   field_paths:
@@ -1887,14 +1890,13 @@ findings:
   - taxonomy[0].abundance_level
   - taxonomy[1].functional_role
   - taxonomy[1].abundance_level
-  - environmental_factors
   evidence_ids:
   - ev-completeness-audit
   - ev-ecoli-gl10-xl12-pmid42038008
   rule_id: review-communities:completeness-functional-roles-and-abundance
   native_severity: P2
-  normalization_reason: CommunityMech P2 (missing PRIMARY_DEGRADER functional_role,
-    DOMINANT abundance_level, and environmental_factors on a two-strain engineered
+  normalization_reason: CommunityMech P2 (missing PRIMARY_DEGRADER functional_role
+    and DOMINANT abundance_level on both engineered specialist strains in a two-member
     fermentation consortium) maps to major.
   owner_paths:
   - repository: CultureBotAI/CommunityMech
@@ -1912,38 +1914,38 @@ findings:
   certainty: confirmed
   title: Defined Three-Strain Organic-Nitrogen Nitrifying Community (CommunityMech:000397)
     omits functional_role and ABUNDANT abundance_level across all three synthetic
-    consortium members and environmental_factors for organic nitrogen condition
+    consortium members
   description: 'CommunityMech:000397 (kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml,
     proportional Completeness Score 85/100; scripts/audit_completeness.py score 15/100)
     models the defined three-species nitrifying consortium of Bacillus badius NBRC
-    15713 (NCBITaxon:1394), Nitrosomonas europaea NBRC 14298 (NCBITaxon:915), and
-    Nitrobacter winogradskyi NBRC 14297 (NCBITaxon:913) under organic nitrogen conditions
-    (PMID:42668143, doi:10.1016/j.jbiosc.2026.06.004). In taxonomy, ammonifying heterotroph
-    Bacillus badius omits functional_role: [PRIMARY_DEGRADER] and abundance_level:
-    ABUNDANT, chemolithoautotrophic ammonia oxidizer Nitrosomonas europaea omits functional_role:
-    [PRIMARY_PRODUCER, CROSS_FEEDER] and abundance_level: ABUNDANT, and chemolithoautotrophic
-    nitrite oxidizer Nitrobacter winogradskyi omits functional_role: [PRIMARY_PRODUCER,
-    CROSS_FEEDER] and abundance_level: ABUNDANT despite verbatim support in PMID:42668143
-    (''ammonification by B. badius followed by sequential oxidation of ammonium to
-    nitrite by N. europaea and nitrite to nitrate by N. winogradskyi.''). In addition,
-    environmental_factors is absent despite taxonomy[0].evidence[0] (PMID:42668143)
-    establishing organic nitrogen substrate conditions.'
+    15713 (NCBITaxon:1455, Pseudobacillus badius), Nitrosomonas europaea NBRC 14298
+    (NCBITaxon:915), and Nitrobacter winogradskyi NBRC 14297 (NCBITaxon:913) under
+    selected organic nitrogen conditions (PMID:42668143, doi:10.1093/bbb/zbag131).
+    In taxonomy, ammonifying heterotroph Bacillus badius NBRC 15713 omits functional_role:
+    [PRIMARY_DEGRADER] and abundance_level: ABUNDANT, chemolithoautotrophic ammonia
+    oxidizer Nitrosomonas europaea NBRC 14298 omits functional_role: [PRIMARY_PRODUCER,
+    CROSS_FEEDER] and abundance_level: ABUNDANT, and chemolithoautotrophic nitrite
+    oxidizer Nitrobacter winogradskyi NBRC 14297 omits functional_role: [PRIMARY_PRODUCER,
+    CROSS_FEEDER] and abundance_level: ABUNDANT despite verbatim support in the already-curated
+    PMID:42668143 snippets for sequential ammonification and nitrification by the
+    three defined strains.'
   target_ids:
   - CommunityMech:000397
   field_paths:
   - taxonomy[0].functional_role
+  - taxonomy[0].abundance_level
   - taxonomy[1].functional_role
+  - taxonomy[1].abundance_level
   - taxonomy[2].functional_role
-  - taxonomy[].abundance_level
-  - environmental_factors
+  - taxonomy[2].abundance_level
   evidence_ids:
   - ev-completeness-audit
   - ev-nitrifying-syncom-pmid42668143
   rule_id: review-communities:completeness-functional-roles-and-abundance
   native_severity: P2
-  normalization_reason: CommunityMech P2 (missing source-backed functional_role, abundance_level,
-    and environmental_factors across all three defined nitrifying consortium strains)
-    maps to major.
+  normalization_reason: CommunityMech P2 (missing source-backed functional_role and
+    abundance_level across all three defined nitrifying consortium strains) maps to
+    major.
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
@@ -2351,7 +2353,7 @@ actions:
 - action_id: act-populate-smutans-calbicans-roles-metabolites-and-sucrose
   description: 'Add functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level:
     DOMINANT to Streptococcus mutans, add functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]
-    and abundance_level: DOMINANT to Candida albicans, add metabolites exopolysaccharide
+    and abundance_level: ABUNDANT to Candida albicans, add metabolites exopolysaccharide
     (CHEBI:72813) to ecological_interactions[1] (''Candida-Driven EPS Amplification
     of Streptococcus mutans''), add environmental_factors for 1% (30 mM) sucrose availability
     backed by PMID:24566629 on CommunityMech:000083, and append curation_history.'
@@ -2369,10 +2371,8 @@ actions:
   - uv run python scripts/verify_history_Changed_records.py
 - action_id: act-populate-ecoli-gl10-xl12-roles-and-abundance
   description: 'Add functional_role: [PRIMARY_DEGRADER] and abundance_level: DOMINANT
-    to Escherichia coli GL10 and Escherichia coli XL12, add environmental_factors
-    for mixed-sugar carbon source (100 g/L total sugars, glucose:xylose 2:1) and incubation
-    temperature (37 °C) backed by PMID:42038008 on CommunityMech:000357, and append
-    curation_history.'
+    to Escherichia coli GL10 and Escherichia coli XL12 backed by PMID:42038008 (doi:10.1016/j.bidere.2026.100072)
+    on CommunityMech:000357, and append curation_history.'
   finding_ids:
   - c4s4-000357-ecoli-gl10-xl12-roles-and-abundance
   target_ids:
@@ -2387,10 +2387,10 @@ actions:
   - uv run python scripts/verify_history_Changed_records.py
 - action_id: act-populate-nitrifying-syncom-roles-and-abundance
   description: 'Add functional_role: [PRIMARY_DEGRADER] and abundance_level: ABUNDANT
-    to Bacillus badius NBRC 15713, add functional_role: [PRIMARY_PRODUCER, CROSS_FEEDER]
-    and abundance_level: ABUNDANT to Nitrosomonas europaea NBRC 14298 and Nitrobacter
-    winogradskyi NBRC 14297, add environmental_factors for organic nitrogen condition
-    backed by PMID:42668143 on CommunityMech:000397, and append curation_history.'
+    to Bacillus badius NBRC 15713 (NCBITaxon:1455, Pseudobacillus badius), add functional_role:
+    [PRIMARY_PRODUCER, CROSS_FEEDER] and abundance_level: ABUNDANT to Nitrosomonas
+    europaea NBRC 14298 and Nitrobacter winogradskyi NBRC 14297 backed by PMID:42668143
+    (doi:10.1093/bbb/zbag131) on CommunityMech:000397, and append curation_history.'
   finding_ids:
   - c4s4-000397-nitrifying-syncom-roles-and-abundance
   target_ids:
