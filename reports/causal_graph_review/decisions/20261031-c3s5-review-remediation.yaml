@@ -1,0 +1,145 @@
+reviewer: antigravity
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+recorded_at: '2026-10-31T08:00:00Z'
+scope: 'Cycle 3 Stage 5 remediation of Cycle 3 Stage 4 record review findings (#2084);
+  ecological_interactions causal graph nodes and directed downstream edges unchanged.'
+records:
+- path: kb/communities/Pinus_armandii_Endophytic_Biocontrol_SynCom.yaml
+  id: CommunityMech:000280
+  original_sha256: 609a40bb20f1ec5b5bb35f3a8805707bd7478c87b345d517c3c32b3d8af41625
+  record_sha256: b2a5b083856cdb822daec58cd6da7b794f8e03bb575f20fcfbdc9d9c81769202
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261031-c3s5-review-remediation.yaml
+  scope: Whole record, all existing nodes/arrows and empty/missing structures; not whole-record certification.
+  summary: Preserve measured pairwise compatibility without stability or niche claims.; Preserve selected-isolate
+    inhibition with correct assay targets and participants.; Preserve positive pot-growth endpoint without untested
+    trait mediation.; Preserve positive host enzyme induction without asserting disease control.
+  renamed_nodes:
+    Functionally complementary biocontrol SynCom assembly: Compatibility of Selected Endophytic Isolates
+    Community antagonism of the blister rust pathogen: Antagonistic Activity of Selected Endophytic Isolates
+  node_decisions:
+  - node: Compatibility of Selected Endophytic Isolates
+    original_node: Functionally complementary biocontrol SynCom assembly
+    rationale: Preserve measured pairwise compatibility without stability or niche claims.
+  - node: Antagonistic Activity of Selected Endophytic Isolates
+    original_node: Community antagonism of the blister rust pathogen
+    rationale: Preserve selected-isolate inhibition with correct assay targets and participants.
+  - node: Pinus Seedling Growth Promotion
+    original_node: Pinus Seedling Growth Promotion
+    rationale: Preserve positive pot-growth endpoint without untested trait mediation.
+  - node: Blister Rust-Associated Defense Enzyme Induction
+    original_node: Blister Rust-Associated Defense Enzyme Induction
+    rationale: Preserve positive host enzyme induction without asserting disease control.
+  removed_node_decisions: []
+  edges_before:
+  - source: Functionally complementary biocontrol SynCom assembly
+    target: Pinus Seedling Growth Promotion
+    description: Pairwise-compatible strains with complementary plant growth-promoting traits form the optimized
+      SynCom that increases Pinus armandii seedling height and biomass.
+  - source: Community antagonism of the blister rust pathogen
+    target: Blister Rust-Associated Defense Enzyme Induction
+    description: Antagonistic endophytic strains assembled into the optimized SynCom enhance polyphenol oxidase
+      and peroxidase defense responses associated with Pinus armandii blister rust resistance.
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions:
+  - source: Functionally complementary biocontrol SynCom assembly
+    target: Pinus Seedling Growth Promotion
+    description: Pairwise-compatible strains with complementary plant growth-promoting traits form the optimized
+      SynCom that increases Pinus armandii seedling height and biomass.
+    rationale: Isolate selection/antagonism does not establish mediation of host growth or enzyme induction.
+  - source: Community antagonism of the blister rust pathogen
+    target: Blister Rust-Associated Defense Enzyme Induction
+    description: Antagonistic endophytic strains assembled into the optimized SynCom enhance polyphenol oxidase
+      and peroxidase defense responses associated with Pinus armandii blister rust resistance.
+    rationale: Isolate selection/antagonism does not establish mediation of host growth or enzyme induction.
+  references:
+  - PMID:42322490
+  issues:
+  - 2084
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Pinus_armandii_Endophytic_Biocontrol_SynCom/2026-10-31T080000Z-antigravity-2084.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch85.yaml
+    record_sha256: 609a40bb20f1ec5b5bb35f3a8805707bd7478c87b345d517c3c32b3d8af41625
+- path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  id: CommunityMech:000434
+  original_sha256: 2e8a13c708e55df5858a0d32bb9b943677bdd82fb835982694fb645a5c23fc78
+  record_sha256: 13b8ee224941b8e8a9767f0543b9eea1768c6499e311d0cde2cca07ade2e708d
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261031-c3s5-review-remediation.yaml
+  scope: Whole record read; every existing causal node and edge checked against cited
+    primary-source passages. Other metadata is not certified by this graph review.
+  summary: Retain the existing source-bounded causal graph after review
+  node_decisions:
+  - node: Putative acidic carbon and nitrogen cycling linkage
+    rationale: The sole node explicitly describes potential meta-omic carbon/nitrogen
+      linkages between the dominant pH 2 partners. It avoids identifying an exchanged
+      metabolite, transfer direction, reciprocal benefit, or isolated perturbation
+      not established by the abstract. The current abstract-scope qualification and
+      open methods/evidence gap are appropriate.
+  edges_before: []
+  edges_after: []
+  references:
+  - PMID:42762737
+  review_notes:
+  - Concurrent stress-response expression does not establish directed interspecies
+    detoxification or a rescue loop. New causal structure would require separate research
+    rather than arrows between co-responses.
+  issues:
+  - 2084
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Acidic_Nitrification_Minimal_Consortium/2026-10-31T080000Z-antigravity-2084.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+    record_sha256: 2e8a13c708e55df5858a0d32bb9b943677bdd82fb835982694fb645a5c23fc78
+- path: kb/communities/Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml
+  id: CommunityMech:000448
+  original_sha256: 92ca77225b4f1d02d0a82fa19a4dfea8a509fce5e8e9ce669adc3608450debf4
+  record_sha256: f8b17ce636bfb8c48470f7664fc1497566777d760886bb9c557c7e5c16fa8cf3
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261031-c3s5-review-remediation.yaml
+  scope: Whole record and every existing node/direction reviewed; no new-mechanism discovery or non-graph certification.
+  summary: Retain the two-taxon succession observation with canonical participant scope and qualified facilitation.;
+    Preserve the dropout transcriptional response as indirect support for hypothesized nutrient exchange, with abstract-bounded
+    provenance, canonical three-member participating_taxa, and GO:0006113 fermentation process.
+  node_decisions:
+  - node: Observed Soymilk Starter Succession
+    rationale: Retain the two-taxon succession observation with canonical participant scope and qualified facilitation.
+  - node: Inferred Soymilk Nutrient Cross-Feeding
+    rationale: Preserve the dropout transcriptional response as indirect support for hypothesized nutrient exchange,
+      with abstract-bounded provenance, canonical three-member participating_taxa, and GO:0006113 fermentation process.
+  removed_node_decisions: []
+  renamed_nodes:
+    Cooperative soymilk starter succession: Observed Soymilk Starter Succession
+    Lactobacillus bulgaricus auxotroph support: Inferred Soymilk Nutrient Cross-Feeding
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42637460
+  issues:
+  - 2084
+  allowed_changed_fields:
+  - curation_history
+  - ecological_interactions
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Soymilk_Mixed_Starter_Metabolic_Division_SynCom/2026-10-31T080000Z-antigravity-2084.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-four-records-batch104.yaml
+    record_sha256: 92ca77225b4f1d02d0a82fa19a4dfea8a509fce5e8e9ce669adc3608450debf4
