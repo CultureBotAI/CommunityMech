@@ -73,6 +73,12 @@ def test_nitrifier_retains_bounded_aggregate_conversion_without_new_arrows():
     assert "selected organic" in node["description"]
     assert "no residual nitrite" in node["description"]
     assert len(node["participating_taxa"]) == 3 and not node.get("downstream")
+    assert [t["functional_role"] for t in doc["taxonomy"]] == [
+        ["PRIMARY_DEGRADER"],
+        ["PRIMARY_PRODUCER", "CROSS_FEEDER"],
+        ["PRIMARY_PRODUCER", "CROSS_FEEDER"],
+    ]
+    assert all(t["abundance_level"] == "ABUNDANT" for t in doc["taxonomy"])
     assert doc["discussions"][0]["status"] == "OPEN"
     assert row["history_files"] == [] and row["curation_events_added"] == 0
 
@@ -102,8 +108,22 @@ def test_batch27_accounts_for_every_node_arrow_history_and_source_limit():
     assert sum(len(r["renamed_nodes"]) for r in rows) == 3
     assert not any(r["removed_edge_decisions"] for r in rows)
     assert sum(len(r["history_files"]) for r in rows) == 1
+    successor_file = (
+        ROOT / "reports/causal_graph_review/decisions/20261031-c4s5-review-remediation.yaml"
+    )
+    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        latest = row
+        if row["id"] == "CommunityMech:000397":
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )
         names = {n["name"] for n in doc["ecological_interactions"]}
         assert Counter(d["node"] for d in row["node_decisions"]) == Counter(names)
         arrows = [
