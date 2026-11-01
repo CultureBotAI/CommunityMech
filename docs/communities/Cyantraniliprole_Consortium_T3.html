@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyantraniliprole Bioremediation Consortium T3 - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #3D7DD6;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FBD3E3, #CBDDF6);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .table-scroll {
+            max-width: 100%;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: var(--background);
+            color: var(--text);
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .interaction-description, .causal-description {
+            overflow-wrap: anywhere;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: var(--background);
+            color: var(--text);
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .empty-state {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .empty-state p {
+            margin: 0.5rem 0;
+        }
+
+        .empty-state-note {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .dataset-description {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Network diagram */
+        .network-container {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0 2rem;
+            position: relative;
+        }
+
+        .network-container svg {
+            width: 100%;
+            display: block;
+        }
+
+        .network-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.75rem 0 0;
+            border-top: 1px solid var(--border);
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .legend-item {
+            white-space: nowrap;
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .legend-swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .network-legend .legend-symbol, .network-legend .legend-swatch { width: 14px; height: 14px; flex: 0 0 14px; }
+
+        .legend-circle {
+            border-radius: 50%;
+        }
+
+        .network-tooltip {
+            position: absolute;
+            background: rgba(30, 41, 59, 0.95);
+            color: #f8fafc;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            max-width: 280px;
+            z-index: 10;
+        }
+
+        .network-tooltip strong {
+            color: #93c5fd;
+        }
+    /* ---- Dark theme (OS default; superseded by the toggle) ---- */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --net-label:#cbd5e1;}
+  :root:not([data-theme="light"]) header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+  :root:not([data-theme="light"]) th{background:#232a3d}
+  :root:not([data-theme="light"]) .interaction-type{background:rgba(52,211,153,.14);color:#34d399}
+  :root:not([data-theme="light"]) .interaction-flow{background:rgba(255,255,255,.04)}
+  :root:not([data-theme="light"]) .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
+  :root:not([data-theme="light"]) .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
+  :root:not([data-theme="light"]) .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+}
+:root[data-theme="dark"]{--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --net-label:#cbd5e1;}
+:root[data-theme="dark"] header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+:root[data-theme="dark"] th{background:#232a3d}
+:root[data-theme="dark"] .interaction-type{background:rgba(52,211,153,.14);color:#34d399}
+:root[data-theme="dark"] .interaction-flow{background:rgba(255,255,255,.04)}
+:root[data-theme="dark"] .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
+:root[data-theme="dark"] .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
+:root[data-theme="dark"] .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+.header-top-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.75rem}
+.header-nav-links{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap}
+.header-search-form{display:flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.75);border:1px solid var(--border);border-radius:999px;padding:.2rem .3rem .2rem .75rem}
+.header-search-form input{border:0;background:transparent;font-size:.85rem;color:var(--text);outline:none;min-width:190px}
+.header-search-form button{background:var(--primary);color:#fff;border:0;border-radius:999px;padding:.3rem .75rem;font-size:.8rem;font-weight:600;cursor:pointer}
+:root[data-theme="dark"] .header-search-form{background:rgba(26,31,46,.85)}
+:root[data-theme="dark"] .header-search-form button{color:#101420}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top-row">
+                <div class="header-nav-links">
+                    <a href="../index.html" class="back-link">Home</a>
+                    <a href="../browser.html" class="back-link">← Back to Communities</a>
+                    <a href="../text_map.html" class="back-link">Text Map</a>
+                    <a href="../community_umap.html" class="back-link">Taxonomic UMAP</a>
+                    <a href="../sequence_map.html" class="back-link">Sequence Map</a>
+                    <a href="../community_graph.html" class="back-link">Network</a>
+                    <a href="../schema.html" class="back-link">Schema</a>
+                    <a href="https://culturebotai.github.io/mechs/" class="back-link">All Mech projects</a>
+                </div>
+                <form class="header-search-form" action="../browser.html" method="get" role="search">
+                    <input type="search" name="q" placeholder="Search communities..." aria-label="Search communities" autocomplete="off">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <h1>Cyantraniliprole Bioremediation Consortium T3</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Community ID</span>
+                    <span class="metadata-value">
+                        <code style="background: var(--border); color: var(--text); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000500</code>
+                    </span>
+                </div>
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        cyantraniliprole-contaminated laboratory water microcosm<span class="ontology-label"> — ontology label: laboratory environment</span>
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
+                           class="term-link" target="_blank" rel="noopener noreferrer">
+                            ENVO:01001405
+                        </a>
+                        · <a href="https://culturebotai.github.io/HabitatMech/browse.html?q=cyantraniliprole-contaminated%20laboratory%20water%20microcosm"
+                             class="term-link" target="_blank" rel="noopener noreferrer">HabitatMech ↗</a>
+                    </span>
+                </div>
+
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Modeled Environment</span>
+                    <span class="metadata-value">
+
+                        cyantraniliprole-contaminated freshwater<span class="ontology-label"> — ontology label: freshwater environment</span>
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01000306"
+                           class="term-link" target="_blank" rel="noopener noreferrer">
+                            ENVO:01000306
+                        </a>
+                        · <a href="https://culturebotai.github.io/HabitatMech/browse.html?q=cyantraniliprole-contaminated%20freshwater"
+                             class="term-link" target="_blank" rel="noopener noreferrer">HabitatMech ↗</a>
+
+
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Description -->
+
+        <section class="description">
+            <p>A defined six-member bacterial consortium, designated T3 or Consortium No. 3, constructed from non-antagonistic pesticide-degrading freshwater isolates enriched near the Kafr El-Zayat Pesticides and Chemicals Factory (Egypt) and evaluated for cyantraniliprole and diamide-insecticide biodegradation. The consortium comprises Bacillus subtilis Ht1, Bacillus subtilis Ht2, Bacillus mojavensis Ht3, Pseudomonas aeruginosa Ht4, Pseudomonas aeruginosa Ht5, and Pseudomonas aeruginosa Ht6. In 20-day, 30 °C NPK-supplemented simulated contaminated-water microcosms (500 mL, nominal 60 mg/L cyantraniliprole, 57.89 mg/L zero-day residue at 96.48% recovery), T3 achieved 96.72% cyantraniliprole removal, reducing residual cyantraniliprole to 1.90 mg/L while reaching 6.11 x 10^6 CFU/mL on day 11 and decolorizing DCPIP in 20 h.</p>
+        </section>
+
+
+        <!-- Taxonomy -->
+
+        <section>
+            <h2>Taxonomy</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Taxonomy">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <strong>Bacillus subtilis Ht1<span class="ontology-label"> — ontology label: Bacillus subtilis</span></strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1423"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1423
+                            </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1423.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Bacillus%20subtilis%20Ht1" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
+                        </td>
+                        <td>
+
+                            <div class="roles-list">
+
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+
+                            </div>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Ht1 (+++) (A) Bacillus subtilis MTCC 441 2.325"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Bacillus subtilis Ht2<span class="ontology-label"> — ontology label: Bacillus subtilis</span></strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1423"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1423
+                            </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1423.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Bacillus%20subtilis%20Ht2" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
+                        </td>
+                        <td>
+
+                            <div class="roles-list">
+
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+
+                            </div>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Ht2 (+++) (A) Bacillus subtilis IH-1 2.329"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Bacillus mojavensis Ht3<span class="ontology-label"> — ontology label: Bacillus mojavensis</span></strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=72360"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:72360
+                            </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_72360.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Bacillus%20mojavensis%20Ht3" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
+                        </td>
+                        <td>
+
+                            <div class="roles-list">
+
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+
+                            </div>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Ht3 (+++) (A) Bacillus mojavensis B1811 2.330"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Pseudomonas aeruginosa Ht4<span class="ontology-label"> — ontology label: Pseudomonas aeruginosa</span></strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=287"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:287
+                            </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_287.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Pseudomonas%20aeruginosa%20Ht4" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
+                        </td>
+                        <td>
+
+                            <div class="roles-list">
+
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+
+                            </div>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Ht4 (+++) (A) pseudomonas aeruginosa cctcc ab93066 2.341"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Pseudomonas aeruginosa Ht5<span class="ontology-label"> — ontology label: Pseudomonas aeruginosa</span></strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=287"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:287
+                            </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_287.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Pseudomonas%20aeruginosa%20Ht5" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
+                        </td>
+                        <td>
+
+                            <div class="roles-list">
+
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+
+                            </div>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Ht5 (+++) (A) Pseudomonas aeruginosa PA1 2.363"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>Pseudomonas aeruginosa Ht6<span class="ontology-label"> — ontology label: Pseudomonas aeruginosa</span></strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=287"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:287
+                            </a>
+                            <span style="font-size: 0.82rem; margin-left: 0.35rem;">
+                                · <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_287.html" class="term-link" target="_blank" rel="noopener noreferrer">TaxonMech</a>
+                                · <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Pseudomonas%20aeruginosa%20Ht6" class="term-link" target="_blank" rel="noopener noreferrer">TraitMech</a>
+                            </span>
+                        </td>
+                        <td>
+
+                            <div class="roles-list">
+
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+
+                            </div>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Ht6 (+++) (A) Pseudomonas aeruginosa NCIM 5514 2.349"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+            </div>
+        </section>
+        <!-- Ecological Interactions -->
+        <section>
+            <h2>Ecological Interactions</h2>
+
+
+            <p id="network-status" role="status">The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction.</p>
+            <!-- Network Diagram -->
+            <div class="network-container" id="network-container">
+                <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
+                <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
+                    <title id="network-svg-title">Ecological interaction network for Cyantraniliprole Bioremediation Consortium T3</title>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions. Rare or untyped interactions share the Other symbol; exact curated types remain in the interaction details.</desc>
+                </svg>
+                <div class="network-legend">
+                    <div class="legend-item">
+                        <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle2"
+                             data-color="#929caa"></svg> Other
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>T3 distributed cyantraniliprole enzyme potential</h3>
+                </div>
+                <p class="prewrap interaction-description">Post-assay bioinformatic analysis (Table 8 / Figure 5) assigns the six T3 strains a combined repertoire of 24 predicted enzyme hits (covering all five proposed enzyme classes: triosephosphate isomerase, aminopeptidase, and catechol 1,2-dioxygenase in Ht1-Ht6; catechol O-methyltransferase [COMT] in Bacillus strains Ht1-Ht3; and 2-oxopent-4-enoate hydratase [OEX] in Pseudomonas strains Ht4-Ht6). These represent predicted pathway and enzyme-class coverage rather than measured enzyme expression, catalytic activity, or member-resolved metabolic flux, and do not establish reciprocal fitness benefits.</p>
+
+
+
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus subtilis Ht1,
+
+                    Bacillus subtilis Ht2,
+
+                    Bacillus mojavensis Ht3,
+
+                    Pseudomonas aeruginosa Ht4,
+
+                    Pseudomonas aeruginosa Ht5,
+
+                    Pseudomonas aeruginosa Ht6
+
+                </p>
+
+
+
+                <p><strong>Metabolites:</strong>
+
+                    cyantraniliprole
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=132300"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:132300</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=cyantraniliprole"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=cyantraniliprole"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>)
+
+                </p>
+
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        xenobiotic metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006805"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006805</a>
+                        · <a href="https://culturebotai.github.io/PathwayMech/browse.html?q=xenobiotic%20metabolic%20process"
+                             class="term-link" target="_blank" rel="noopener noreferrer">PathwayMech</a>)
+                    </li>
+
+                </ul>
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"While T3 had 24 enzymes and T4 had 22, the critical factor was that both contained all five key enzymes necessary for the complete degradation pathway, most notably including the enzyme catechol O-methyltransferase (COMT)."</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>HPLC-confirmed cyantraniliprole removal</h3>
+                </div>
+                <p class="prewrap interaction-description">In NPK-amended 500 mL freshwater microcosms incubated at 30 °C for 20 days, T3 bioaugmentation was associated with HPLC-measured cyantraniliprole decline from a 57.89 mg/L zero-day residue (96.48% recovery of the nominal 60 mg/L spike) to 1.90 mg/L after 20 days, corresponding to 96.72% removal and outperforming uninoculated controls C1 and C2. Treatment-level parent-compound loss in non-sterile freshwater microcosms does not establish complete mineralization, detoxification, member-specific flux, or enzyme mediation.</p>
+
+
+
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus subtilis Ht1,
+
+                    Bacillus subtilis Ht2,
+
+                    Bacillus mojavensis Ht3,
+
+                    Pseudomonas aeruginosa Ht4,
+
+                    Pseudomonas aeruginosa Ht5,
+
+                    Pseudomonas aeruginosa Ht6
+
+                </p>
+
+
+
+                <p><strong>Metabolites:</strong>
+
+                    cyantraniliprole
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=132300"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:132300</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=cyantraniliprole"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=cyantraniliprole"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>)
+
+                </p>
+
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        xenobiotic metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006805"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006805</a>
+                        · <a href="https://culturebotai.github.io/PathwayMech/browse.html?q=xenobiotic%20metabolic%20process"
+                             class="term-link" target="_blank" rel="noopener noreferrer">PathwayMech</a>)
+                    </li>
+
+                </ul>
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"followed by consortium T3 (96.72%), which consisted of Bacillus subtilis Ht1, Bacillus subtilis Ht2, Bacillus mojavensis Ht3, Pseudomonas aeruginosa Ht4, Pseudomonas aeruginosa Ht5, and Pseudomonas aeruginosa Ht6."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"T3 96.48 57.89 43.13 e 31.14 e 19.52 e 1.90 e"</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </section>
+
+        <!-- Associated Datasets -->
+
+        <section id="discussions">
+            <h2>Knowledge gaps &amp; discussions <span class="muted">(1)</span></h2>
+
+            <div class="discussion">
+                <h3>
+                    <span class="role-badge">KNOWLEDGE_GAP</span>
+                    <span class="role-badge">OPEN</span>
+                    Which T3 enzymes and member strains causally mediate cyantraniliprole transformation in the water microcosms, and what measured intermediate fluxes and fitness interactions occur among the six isolates?
+                </h3>
+                <p class="prewrap">The primary article supports HPLC-measured parent-compound removal (96.72% over 20 days), growth and DCPIP redox activity, and post-assay EAWAG-BBD pathway/enzyme coverage predictions (24 enzyme hits), but does not experimentally measure strain-specific enzyme expression, intermediate metabolite flux, or pairwise cross-feeding among the six T3 isolates.</p>
+
+                <p class="muted small">Attaches to: <code>ecological_interactions#T3 distributed cyantraniliprole enzyme potential</code>, <code>ecological_interactions#HPLC-confirmed cyantraniliprole removal</code></p>
+
+
+
+                <details class="evidence-list">
+                    <summary class="muted small">1 evidence item(s)</summary>
+
+                    <div class="evidence">
+                        <div class="evidence-head">
+                            <span class="badge small">IN_VITRO</span>
+                            <span class="badge small">SUPPORT</span>
+
+
+
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/" rel="nofollow noreferrer">PMID:42354927</a>
+
+
+                        </div>
+                        <p class="snippet small prewrap">To facilitate practical bioremediation, subsequent studies should prioritize the characterization of bacterial enzymes that degrade cyantraniliprole.</p>
+                        <p class="muted small prewrap">Supports leaving strain-specific cyantraniliprole enzyme characterization and causal mediation as an open gap.</p>
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
+
+        <!-- Environmental Factors -->
+
+        <section>
+            <h2>External Resources</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="External Resources">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Repository</th>
+                        <th>Resource ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <strong>Primary publication - T3 cyantraniliprole bioremediation consortium</strong>
+
+                            <br><span class="dataset-description">Primary Microorganisms article constructing and evaluating Consortium No. 3 (T3) for cyantraniliprole and diamide-insecticide biodegradation.</span>
+
+                        </td>
+                        <td>OTHER</td>
+                        <td>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/" class="term-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                        </td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Enhanced Biodegradation of Cyantraniliprole in Aqueous Systems by Novel Bacterial Consortia: Optimization, Degradation Efficiency, and Bioremediation Potential"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+            </div>
+        </section>
+
+
+
+        <section>
+            <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>Simulated-water cyantraniliprole removal</strong></td>
+                        <td>96.72</td>
+                        <td>percent</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"followed by consortium T3 (96.72%), which consisted of Bacillus subtilis Ht1, Bacillus subtilis Ht2, Bacillus mojavensis Ht3, Pseudomonas aeruginosa Ht4, Pseudomonas aeruginosa Ht5, and Pseudomonas aeruginosa Ht6."</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><strong>Residual cyantraniliprole after 20 days</strong></td>
+                        <td>1.90</td>
+                        <td>mg/L</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"T3 96.48 57.89 43.13 e 31.14 e 19.52 e 1.90 e"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><strong>DCPIP decolorization time</strong></td>
+                        <td>20</td>
+                        <td>h</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Table 5 Decolorization time (hours) of 0.1% DCPIP indicator in Bushnell-Haas broth by bacterial consortia over a 72 h experiment Bacterial Strain Time for Decolorization of DCPIP During the Experiment (72 h). Relative Biodegradation Activity * Cyantraniliprole Control No Decolorization No Activity Consortia (No. 1) 27 a Moderate Consortia (No. 2) 23 b High Consortia (No. 3) 20 c Very high Fahmy-Consortia 17 d Highest"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><strong>Broad diamide-insecticide growth OD600</strong></td>
+                        <td>2.145-2.262</td>
+                        <td>OD600</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Consortia (No. 3) 3 2.188 b 2.217 b 2.262 b 2.252 b 2.145 b"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><strong>Optimized cyantraniliprole growth conditions</strong></td>
+                        <td>30-35 °C, pH 7.0-8.0, 0.0-0.5% NaCl (tested across 0-5.0% NaCl), 11 days, 150 rpm</td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"optimal degradation observed at 30–35 °C, pH 7.0–8.0, 0.5–5.0% NaCl, and 11 days of incubation at 150 rpm using an initial cyantraniliprole concentration of 50 mg/L"</div>
+
+                                </li>
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/42354927/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42354927</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Optimal growth, corresponding to the highest biomass yield for all consortia, was observed at NaCl concentrations between 0.0% and 0.5%."</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+            </div>
+        </section>
+
+
+        <!-- Growth Media -->
+
+        <section>
+            <h2>Growth Media</h2>
+
+            <div class="metadata">
+                <h3>
+                    Mineral Salt Medium cyantraniliprole optimization assay
+
+                </h3>
+
+
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+
+
+
+
+
+                </div>
+
+
+                <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <div class="table-scroll" role="region" tabindex="0" aria-label="Mineral Salt Medium cyantraniliprole optimization assay composition">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Concentration</th>
+                            <th>Unit</th>
+                            <th>CHEBI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <strong>Mineral Salt Medium</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Mineral%20Salt%20Medium"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>
+
+                                N/A
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>cyantraniliprole</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=cyantraniliprole"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
+                            <td>50</td>
+                            <td>mg/L</td>
+                            <td>
+
+                                <a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=132300"
+                                   class="term-link" target="_blank" rel="noopener">
+                                    CHEBI:132300
+                                </a>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                </div>
+
+
+
+                <p style="margin-top: 1rem; padding: 0.75rem; background: var(--background); color: var(--text); border: 1px solid var(--border); border-radius: 4px;">
+                    <strong>Preparation notes:</strong> Consortia were evaluated by one-variable-at-a-time optimization in 250 mL MS broth with 50 mg/L cyantraniliprole across 25-40 °C, pH 6.0-9.0, 0-5.0% NaCl (optimum 0.0-0.5% NaCl in Section 3.2.3; summarized as 0.5-5.0% NaCl in the abstract), and 3-16 days.
+                </p>
+
+
+
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+
+                    <div class="evidence-item">
+
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/42354927"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:42354927
+                        </a>
+
+
+
+                        <p class="snippet">"Bacterial growth of the tested 4 bacterial consortia on MS broth with cyantraniliprole at 50 mg/L"</p>
+
+                    </div>
+
+                    <div class="evidence-item">
+
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/42354927"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:42354927
+                        </a>
+
+
+
+                        <p class="snippet">"optimal degradation observed at 30–35 °C, pH 7.0–8.0, 0.5–5.0% NaCl, and 11 days of incubation at 150 rpm using an initial cyantraniliprole concentration of 50 mg/L"</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="metadata">
+                <h3>
+                    Mineral Salt Medium diamide-insecticide assay
+
+                </h3>
+
+
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+
+
+
+                    <div class="metadata-item">
+                        <span class="metadata-label">Temperature</span>
+                        <span class="metadata-value">35 degrees Celsius</span>
+                    </div>
+
+
+
+                </div>
+
+
+                <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <div class="table-scroll" role="region" tabindex="0" aria-label="Mineral Salt Medium diamide-insecticide assay composition">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Concentration</th>
+                            <th>Unit</th>
+                            <th>CHEBI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <strong>Mineral Salt Medium</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Mineral%20Salt%20Medium"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>
+
+                                N/A
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>one of cyantraniliprole, flubendiamide, chlorantraniliprole, cyclaniliprole, or fluchlordiniliprole</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=one%20of%20cyantraniliprole%2C%20flubendiamide%2C%20chlorantraniliprole%2C%20cyclaniliprole%2C%20or%20fluchlordiniliprole"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
+                            <td>100</td>
+                            <td>mg/L</td>
+                            <td>
+
+                                N/A
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                </div>
+
+
+
+                <p style="margin-top: 1rem; padding: 0.75rem; background: var(--background); color: var(--text); border: 1px solid var(--border); border-radius: 4px;">
+                    <strong>Preparation notes:</strong> T3 was assayed in separate Mineral Salt Medium treatments supplemented with 100 mg/L of five diamide insecticides (Table 6 caption specifies 35 °C; Section 2.7 describes incubation at pH 7.0, 30 °C, 0.5 g/L NaCl, 150 rpm for 11 days) and produced OD600 values of 2.145-2.262.
+                </p>
+
+
+
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+
+                    <div class="evidence-item">
+
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/42354927"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:42354927
+                        </a>
+
+
+
+                        <p class="snippet">"Table 6 Growth and metabolic activity of four selected bacterial consortia (Nos. 1, 2, and 3) in Mineral Salt Medium supplemented with different diamide insecticides (100 mg/L) at 35 °C."</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="metadata">
+                <h3>
+                    Cyantraniliprole-polluted water plus NPK microcosm
+
+                </h3>
+
+
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+
+
+
+                    <div class="metadata-item">
+                        <span class="metadata-label">Temperature</span>
+                        <span class="metadata-value">30 degrees Celsius</span>
+                    </div>
+
+
+
+                </div>
+
+
+                <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <div class="table-scroll" role="region" tabindex="0" aria-label="Cyantraniliprole-polluted water plus NPK microcosm composition">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Concentration</th>
+                            <th>Unit</th>
+                            <th>CHEBI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <strong>freshwater</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=freshwater"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>
+
+                                N/A
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>NPK fertilizer</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=NPK%20fertilizer"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>
+
+                                N/A
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>cyantraniliprole</strong>
+                                · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=cyantraniliprole"
+                                     class="term-link" style="font-size: 0.82rem;" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                            </td>
+                            <td>60</td>
+                            <td>mg/L</td>
+                            <td>
+
+                                <a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=132300"
+                                   class="term-link" target="_blank" rel="noopener">
+                                    CHEBI:132300
+                                </a>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                </div>
+
+
+
+                <p style="margin-top: 1rem; padding: 0.75rem; background: var(--background); color: var(--text); border: 1px solid var(--border); border-radius: 4px;">
+                    <strong>Preparation notes:</strong> Treatment T3 contained 500 mL cyantraniliprole-polluted freshwater supplemented with NPK (adjusted to C:N:P = 100:15:1 using ammonium sulfate and potassium dihydrogen phosphate) and inoculated with 20 mL of 10^7 CFU/mL T3 suspension before serial HPLC residue analysis.
+                </p>
+
+
+
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+
+                    <div class="evidence-item">
+
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/42354927"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:42354927
+                        </a>
+
+
+
+                        <p class="snippet">"Treatments T1–T4 exposed cyantraniliprole-polluted water to NPK and distinct bacterial consortia: T1 (Consortium No. 1), T2 (Consortium No. 2), T3 (Consortium No. 3), and T4 (Consortium No. 4, Fahmy consortium)."</p>
+
+                    </div>
+
+                    <div class="evidence-item">
+
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/42354927"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:42354927
+                        </a>
+
+
+
+                        <p class="snippet">"Biodegradation of Cyantraniliprole added at 60 mg/L in water and recovery (zero-day) tests with bacterial consortia during the incubation periods at 30 °C for 20 days, as determined by HPLC in water."</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Cross-Mech Knowledge Graph Links (no <table> to preserve test_detail_table_accessibility) -->
+        <section class="cross-mech-section">
+            <h2>Cross-Mech Suite Links</h2>
+            <p class="muted" style="margin-bottom: 0.75rem;">Explore related entities across the CultureBotAI X-Mech knowledge bases:</p>
+            <div class="roles-list">
+
+                <a href="https://culturebotai.github.io/HabitatMech/browse.html?q=cyantraniliprole-contaminated%20laboratory%20water%20microcosm"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    HabitatMech: cyantraniliprole-contaminated laboratory water microcosm ↗
+                </a>
+
+
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1423.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Bacillus subtilis Ht1 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Bacillus%20subtilis%20Ht1"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Bacillus subtilis Ht1 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1423.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Bacillus subtilis Ht2 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Bacillus%20subtilis%20Ht2"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Bacillus subtilis Ht2 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_72360.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Bacillus mojavensis Ht3 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Bacillus%20mojavensis%20Ht3"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Bacillus mojavensis Ht3 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_287.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Pseudomonas aeruginosa Ht4 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Pseudomonas%20aeruginosa%20Ht4"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Pseudomonas aeruginosa Ht4 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_287.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Pseudomonas aeruginosa Ht5 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Pseudomonas%20aeruginosa%20Ht5"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Pseudomonas aeruginosa Ht5 ↗
+                </a>
+
+                <a href="https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_287.html"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TaxonMech: Pseudomonas aeruginosa Ht6 ↗
+                </a>
+                <a href="https://culturebotai.github.io/TraitMech/browse.html?q=Pseudomonas%20aeruginosa%20Ht6"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    TraitMech: Pseudomonas aeruginosa Ht6 ↗
+                </a>
+
+
+
+                <a href="https://culturebotai.github.io/CultureMech/"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    CultureMech Growth Media ↗
+                </a>
+                <a href="https://culturebotai.github.io/PathwayMech/"
+                   class="role-badge term-link" target="_blank" rel="noopener noreferrer">
+                    PathwayMech Pathways ↗
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | Source YAML: <a href="https://github.com/CultureBotAI/CommunityMech/blob/main/kb/communities/Cyantraniliprole_Consortium_T3.yaml"><code>kb/communities/Cyantraniliprole_Consortium_T3.yaml</code></a> | <a href="../schema.html">LinkML Schema</a> (<code>https://w3id.org/communitymech</code>) | License: BSD-3-Clause | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+
+
+    <script src="../d3.v7.min.js"></script>
+    <script>
+    (function() {
+        if (typeof d3 === 'undefined') {
+            var statusEl = document.getElementById('network-status');
+            statusEl.setAttribute('role', 'alert');
+            statusEl.textContent = 'The network could not be loaded. The taxonomy and interaction details below remain available. Reload this page to retry. ';
+            var retryBtn = document.createElement('button');
+            retryBtn.type = 'button';
+            retryBtn.textContent = 'Retry';
+            retryBtn.onclick = function() { window.location.reload(); };
+            statusEl.appendChild(retryBtn);
+            return;
+        }
+        var interactionColors = {
+            "CROSS_FEEDING": "#57c7ab",
+            "MUTUALISM": "#9f2ebb",
+            "SYNTROPHY": "#7f30cf",
+            "COMPETITION": "#a91919",
+            "NICHE_PARTITIONING": "#1212ed",
+            "COLONIZATION_FACILITATION": "#edab12"
+        };
+        var unmappedColor = "#929caa";
+
+        // The redundant channel for interaction type (#270). Names are resolved
+        // against d3 at use, so an unknown name falls back rather than throwing.
+        var interactionSymbols = {
+            "CROSS_FEEDING": "symbolDiamond",
+            "MUTUALISM": "symbolSquare",
+            "SYNTROPHY": "symbolTriangle",
+            "COMPETITION": "symbolTimes",
+            "NICHE_PARTITIONING": "symbolSquare2",
+            "COLONIZATION_FACILITATION": "symbolPlus"
+        };
+        var unmappedSymbol = "symbolTriangle2";
+
+        function symbolPathFor(type, size) {
+            var name = interactionSymbols[type] || unmappedSymbol;
+            var shape = d3[name] || d3[unmappedSymbol] || d3.symbolSquare;
+            return d3.symbol().type(shape).size(size)();
+        }
+
+        // Build taxon lookup keyed by preferred_term
+        var taxonData = {};
+
+        taxonData["Bacillus subtilis Ht1"] = {
+            id: "NCBITaxon:1423",
+            label: "Bacillus subtilis Ht1",
+            abundance: "UNKNOWN",
+            roles: ["PRIMARY_DEGRADER"]
+        };
+
+        taxonData["Bacillus subtilis Ht2"] = {
+            id: "NCBITaxon:1423",
+            label: "Bacillus subtilis Ht2",
+            abundance: "UNKNOWN",
+            roles: ["PRIMARY_DEGRADER"]
+        };
+
+        taxonData["Bacillus mojavensis Ht3"] = {
+            id: "NCBITaxon:72360",
+            label: "Bacillus mojavensis Ht3",
+            abundance: "UNKNOWN",
+            roles: ["PRIMARY_DEGRADER"]
+        };
+
+        taxonData["Pseudomonas aeruginosa Ht4"] = {
+            id: "NCBITaxon:287",
+            label: "Pseudomonas aeruginosa Ht4",
+            abundance: "UNKNOWN",
+            roles: ["PRIMARY_DEGRADER"]
+        };
+
+        taxonData["Pseudomonas aeruginosa Ht5"] = {
+            id: "NCBITaxon:287",
+            label: "Pseudomonas aeruginosa Ht5",
+            abundance: "UNKNOWN",
+            roles: ["PRIMARY_DEGRADER"]
+        };
+
+        taxonData["Pseudomonas aeruginosa Ht6"] = {
+            id: "NCBITaxon:287",
+            label: "Pseudomonas aeruginosa Ht6",
+            abundance: "UNKNOWN",
+            roles: ["PRIMARY_DEGRADER"]
+        };
+
+
+        // Build nodes and links
+        var nodes = [];
+        var links = [];
+        var taxonNodeIds = {};
+
+        // Add taxon nodes
+        Object.keys(taxonData).forEach(function(key) {
+            var t = taxonData[key];
+            var nodeId = "taxon:" + key;
+            taxonNodeIds[key] = nodeId;
+            nodes.push({
+                id: nodeId,
+                label: t.label,
+                type: "taxon",
+                abundance: t.abundance,
+                roles: t.roles,
+                ontologyId: t.id
+            });
+        });
+
+        // Add interaction nodes and edges
+
+        (function() {
+            var intId = "interaction:0";
+            var intType = "UNKNOWN";
+            var metabolites = [];
+
+
+            metabolites.push("cyantraniliprole");
+
+
+            var processes = [];
+
+
+            processes.push("xenobiotic metabolic process");
+
+
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "T3 distributed cyantraniliprole enzyme potential",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+
+
+            var participantKeys = [
+
+                "Bacillus subtilis Ht1",
+
+                "Bacillus subtilis Ht2",
+
+                "Bacillus mojavensis Ht3",
+
+                "Pseudomonas aeruginosa Ht4",
+
+                "Pseudomonas aeruginosa Ht5",
+
+                "Pseudomonas aeruginosa Ht6"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
+        })();
+
+        (function() {
+            var intId = "interaction:1";
+            var intType = "UNKNOWN";
+            var metabolites = [];
+
+
+            metabolites.push("cyantraniliprole");
+
+
+            var processes = [];
+
+
+            processes.push("xenobiotic metabolic process");
+
+
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "HPLC-confirmed cyantraniliprole removal",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+
+
+            var participantKeys = [
+
+                "Bacillus subtilis Ht1",
+
+                "Bacillus subtilis Ht2",
+
+                "Bacillus mojavensis Ht3",
+
+                "Pseudomonas aeruginosa Ht4",
+
+                "Pseudomonas aeruginosa Ht5",
+
+                "Pseudomonas aeruginosa Ht6"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
+        })();
+
+
+        // Remove taxon nodes with no connections
+        var connectedIds = new Set();
+        links.forEach(function(l) {
+            connectedIds.add(typeof l.source === "object" ? l.source.id : l.source);
+            connectedIds.add(typeof l.target === "object" ? l.target.id : l.target);
+        });
+        nodes = nodes.filter(function(n) {
+            return n.type === "interaction" || connectedIds.has(n.id);
+        });
+
+        if (links.length === 0) {
+            document.getElementById('network-status').textContent = 'No participant links are asserted for this interaction view. The graph therefore shows interaction symbols only; the taxonomy table lists community members separately.';
+        }
+        // D3 setup
+        var container = document.getElementById("network-container");
+        var svg = d3.select("#network-svg");
+        var width = container.clientWidth - 32;
+        // Dynamic height based on node count: minimum 500px, add 40px per node
+        var nodeCount = 8;
+        var height = Math.max(500, 400 + nodeCount * 20);
+        svg.attr("width", width).attr("height", height);
+
+        // Arrow marker
+        svg.append("defs").append("marker")
+            .attr("id", "arrowhead")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 20)
+            .attr("refY", 0)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("fill", "#94a3b8");
+
+        var simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(function(d) { return d.id; }).distance(100))
+            .force("charge", d3.forceManyBody().strength(-400))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collision", d3.forceCollide().radius(40))
+            .force("x", d3.forceX(width / 2).strength(0.05))
+            .force("y", d3.forceY(height / 2).strength(0.05));
+
+        var link = svg.append("g")
+            .selectAll("line")
+            .data(links)
+            .join("line")
+            .attr("stroke", "#94a3b8")
+            .attr("stroke-width", 1.5)
+            .attr("marker-end", "url(#arrowhead)");
+
+        var node = svg.append("g")
+            .selectAll("g")
+            .data(nodes)
+            .join("g")
+            .style("cursor", "pointer");
+
+        // Taxon nodes: circles
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("circle")
+            .attr("r", function(d) { return d.abundance === "DOMINANT" ? 18 : 12; })
+            .attr("fill", "#7a7a7a")
+            .attr("stroke", "#4a4a4a")
+            .attr("stroke-width", 1.5);
+
+        // Paint the legend swatches with the same paths the nodes use, so the
+        // legend cannot drift from the graph (#270).
+        d3.selectAll("svg.legend-symbol").each(function() {
+            var el = d3.select(this);
+            var name = el.attr("data-symbol");
+            var colour = el.attr("data-color");
+            var shape = d3[name] || d3.symbolSquare;
+            var c = d3.color(colour);
+            el.append("path")
+                .attr("d", d3.symbol().type(shape).size(90)())
+                .attr("fill", colour)
+                .attr("stroke", c ? c.darker(0.5) : "#4b5563")
+                .attr("stroke-width", 1.2);
+        });
+
+        // Interaction nodes: rounded rects
+        // One shape per interaction type, not one rect in nine colours (#270).
+        // Sized to roughly the 28x18 rect it replaces so the layout is unchanged.
+        node.filter(function(d) { return d.type === "interaction"; })
+            .append("path")
+            .attr("d", function(d) { return symbolPathFor(d.interactionType, 320); })
+            .attr("fill", function(d) { return interactionColors[d.interactionType] || unmappedColor; })
+            .attr("stroke", function(d) {
+                var c = d3.color(interactionColors[d.interactionType] || unmappedColor);
+                return c ? c.darker(0.5) : "#4b5563";
+            })
+            .attr("stroke-width", 1.5);
+
+        // Labels for taxa (positioned below circle)
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("text")
+            .text(function(d) {
+                var parts = d.label.split(" ");
+                return parts.length >= 2 ? parts[0][0] + ". " + parts.slice(1).join(" ") : d.label;
+            })
+            .attr("text-anchor", "middle")
+            .attr("dy", function(d) { return d.abundance === "DOMINANT" ? 30 : 24; })
+            .attr("font-size", "10px")
+            .style("fill", "var(--net-label, #475569)");
+
+        // Labels for interactions (multi-line, centered in rectangle)
+        node.filter(function(d) { return d.type === "interaction"; })
+            .each(function(d) {
+                var textElem = d3.select(this).append("text")
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "9px")
+                    .style("fill", "var(--net-label, #475569)")
+                    .style("pointer-events", "none");
+
+                // Word-wrap text to fit in rectangle (max ~24 chars per line)
+                var words = d.label.split(/\s+/);
+                var line = "";
+                var lines = [];
+                var maxWidth = 24;
+
+                for (var i = 0; i < words.length; i++) {
+                    var testLine = line + (line ? " " : "") + words[i];
+                    if (testLine.length > maxWidth && line.length > 0) {
+                        lines.push(line);
+                        line = words[i];
+                    } else {
+                        line = testLine;
+                    }
+                }
+                if (line) lines.push(line);
+
+                // Limit to 3 lines maximum
+                if (lines.length > 3) {
+                    lines = lines.slice(0, 3);
+                    lines[2] = lines[2].substring(0, 21) + "...";
+                }
+
+                // Add tspan for each line
+                var lineHeight = 11;
+                var startY = -(lines.length - 1) * lineHeight / 2;
+                lines.forEach(function(lineText, i) {
+                    textElem.append("tspan")
+                        .attr("x", 0)
+                        .attr("dy", i === 0 ? startY : lineHeight)
+                        .text(lineText);
+                });
+            });
+
+        // Tooltip
+        var tooltip = d3.select("#network-tooltip");
+
+        node.on("mouseenter", function(event, d) {
+            tooltip.selectAll("*").remove();
+            if (d.type === "taxon") {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.ontologyId);
+                tooltip.append("br");
+                tooltip.append("span").text("Abundance: " + d.abundance);
+                if (d.roles.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Roles: " + d.roles.join(", "));
+                }
+            } else {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.interactionType);
+                if (d.metabolites.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Metabolites: " + d.metabolites.join(", "));
+                }
+                if (d.processes.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Processes: " + d.processes.join(", "));
+                }
+                tooltip.append("br");
+                tooltip.append("span").text("Evidence items: " + d.evidenceCount);
+            }
+            tooltip.style("opacity", 1)
+                .style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mousemove", function(event) {
+            tooltip.style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mouseleave", function() {
+            tooltip.style("opacity", 0);
+        });
+
+        // Tick
+        simulation.on("tick", function() {
+            link.attr("x1", function(d) { return d.source.x; })
+                .attr("y1", function(d) { return d.source.y; })
+                .attr("x2", function(d) { return d.target.x; })
+                .attr("y2", function(d) { return d.target.y; });
+
+            node.attr("transform", function(d) {
+                // Constrain nodes within safe boundaries
+                // Account for: node size, label text, and extra padding
+                var nodeRadius = (d.type === "taxon" && d.abundance === "DOMINANT") ? 18 :
+                                (d.type === "taxon") ? 12 : 14; // interaction nodes
+                var labelOffset = d.type === "taxon" ? 35 : 0; // taxon labels below node
+
+                var marginTop = 40;
+                var marginBottom = 60; // extra space for labels
+                var marginSide = 80; // space for long names
+
+                d.x = Math.max(marginSide, Math.min(width - marginSide, d.x));
+                d.y = Math.max(marginTop, Math.min(height - marginBottom, d.y));
+                return "translate(" + d.x + "," + d.y + ")";
+            });
+        });
+
+        // Stabilize after 300 ticks then stop
+        simulation.alpha(1).alphaDecay(0.02);
+        for (var i = 0; i < 300; i++) simulation.tick();
+        simulation.stop();
+
+        // Apply final positions
+        link.attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    })();
+    </script>
+
+    <script src="../theme-toggle.js"></script>
+</body>
+</html>
