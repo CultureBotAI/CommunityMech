@@ -1,0 +1,448 @@
+id: CommunityMech:000497
+name: Synechocystis Escherichia coli Acetate-Butanol Coculture
+description: A two-member photosynthetic synthetic consortium pairing acetate-secreting Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs
+  with an Escherichia coli BL21(DE3) derivative (E. coli_Pem7_ButOH) engineered with the oxygen-tolerant TPC4 1-butanol pathway
+  on the pPMQAK1 self-replicating vector under the Pem7 promoter. The coculture was grown for 42 days in closed, illuminated
+  plug-sealed tissue culture flasks containing CoBG11 medium with repeated 10% medium replacement, added bicarbonate (50 mM
+  final concentration), and HCl pH 7 adjustment without exogenous organic carbon. Compared with axenic Synechocystis controls,
+  the E. coli coculture exhibited lower extracellular acetate levels with a sharper decrease after day 22 and produced measurable
+  1-butanol with prominent peaks on days 10 and 14.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Couple photosynthetic CO2 fixation and acetate secretion by engineered Synechocystis sp. PCC 6803 to 1-butanol
+    formation by an acetate-adapted engineered Escherichia coli BL21(DE3) heterotroph without adding exogenous organic carbon.
+  assembly_strategy: Pair the acetate-producing WT_PKPa_RBS_BsPta_Δacs Synechocystis farmer (starting OD750 = 2.5 at coculture
+    day 0) with E. coli_Pem7_ButOH (starting OD600 = 0.5, a 5:1 OD ratio), an Escherichia coli BL21(DE3) derivative carrying
+    the oxygen-tolerant TPC4 1-butanol pathway on vector pPMQAK1 under the Pem7 promoter.
+  perturbation_design: Compare the E. coli_Pem7_ButOH and P. taiwanensis_Pem7_ButOH acetate-to-butanol cocultures against
+    an axenic Synechocystis culture while periodically replacing 10% of the medium (every 2nd day through day 30 and every
+    4th day through day 42) during a 42-day illuminated closed-flask experiment.
+  measurement_endpoints:
+  - Escherichia coli CFU per mL
+  - Synechocystis chlorophyll a concentration
+  - acetate titer
+  - 1-butanol titer
+  notes: E. coli_Pem7_ButOH was adapted for growth on acetate in CoBG11 prior to cocultivation. Closed plug-sealed tissue
+    culture flasks were applied because 1-butanol is volatile.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this study, Escherichia coli and Pseudomonas taiwanensis were engineered to produce 1-butanol, an industrially
+      relevant bulk chemical, and cultivated using acetate as the sole carbon source. These strains were then individually
+      co-cultivated with the previously engineered Synechocystis strain, WT_PKPa_RBS_BsPta_Δacs, forming two distinct consortia
+      that were maintained for 42 days.
+    explanation: Defines the engineered Synechocystis-Escherichia coli acetate-to-1-butanol synthetic consortium alongside
+      the parallel P. taiwanensis consortium.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In one triplicate, E. coli_Pem7_ButOH with OD600 = 0.5 was added and in second P. taiwanensis_Pem7_ButOH with
+      the same starting OD600, and the last third triplicate was a monoculture of the cyanobacterium to monitor the acetate
+      production in the same growth conditions. The OD750 of the cyanobacterium was 2.5, so the ratios of ODs between the
+      organisms were 5 to 1.
+    explanation: Documents the coculture day-0 starting ODs (Synechocystis OD750 = 2.5, E. coli_Pem7_ButOH OD600 = 0.5; 5:1
+      ratio) and axenic control design.
+environment_term:
+  preferred_term: illuminated cyanobacterium-heterotroph coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled Biolite 25 cm2 plug-sealed tissue-culture flask experiment using 25 mL optimized BG11 medium (CoBG11),
+    bicarbonate feeding, and continuous illumination at 30 °C.
+taxonomy:
+- taxon_term:
+    preferred_term: Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs
+    term:
+      id: NCBITaxon:1148
+      label: Synechocystis sp. PCC 6803
+    gtdb_grounding_status: UNRESOLVED
+    notes: Engineered Synechocystis sp. PCC 6803 derivative carrying the acetate-production genotype named WT_PKPa_RBS_BsPta_Δacs
+      in the publication.
+  strain_designation:
+    strain_name: WT_PKPa_RBS_BsPta_Δacs
+    genetic_modification: Engineered for high acetate secretion by expressing phosphoketolase (PKPa) and phosphotransacetylase
+      (BsPta) in a Δacs background.
+  abundance_level: DOMINANT
+  abundance_value: Starting OD750 = 2.5 at coculture day 0 (5:1 OD ratio with E. coli OD600 = 0.5)
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: An engineered strain of the unicellular cyanobacterium Synechocystis PCC 6803 (Synechocystis, strain WT_PKPa_RBS_BsPta_Δacs),
+      able to achieve high yield of acetate, was used as farmer in this study
+    explanation: Identifies the engineered Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs acetate-producing farmer strain.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: capable of secreting significant levels of acetate into the medium
+    explanation: Supports the acetate-secreting primary producer role.
+- taxon_term:
+    preferred_term: Escherichia coli BL21(DE3) Pem7_ButOH
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      total_genomes: 166397
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Escherichia coli BL21(DE3) derivative adapted for growth on acetate in CoBG11 and engineered to carry the Pem7-driven
+      TPC4 1-butanol pathway on vector pPMQAK1.
+  strain_designation:
+    strain_name: BL21(DE3) Pem7_ButOH
+    genetic_modification: The BL21(DE3) background was transformed with the pPMQAK1 self-replicating vector expressing the
+      synthetic O2-tolerant TPC4 1-butanol pathway under the constitutive Pem7 promoter.
+  abundance_level: COMMON
+  abundance_value: Starting OD600 = 0.5 at coculture day 0; CFU counts increased after day 10 and slowly decreased after day
+    30
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The heterotrophic strains used in this study were Escherichia coli BL21 DE3 (E. coli BL21) and Pseudomonas taiwanensis
+      VLB120 (P. taiwanensis VLB120)
+    explanation: Identifies the Escherichia coli BL21(DE3) host strain used in the study.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a synthetic O2-tolerant butanol pathway was used, TPC4
+    explanation: Supports the engineered O2-tolerant TPC4 1-butanol pathway.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When E. coli_Pem7_ButOH was cultivated with WT_PKPa_RBS_BsPta_Δacs, very few cells were observed on days 2 and
+      4. On days 6 and 8, the system still showed instability. However, after day 10, the cell numbers started to increase
+      (with a drop on day 24) and slowly decreased after day 30.
+    explanation: Documents E. coli_Pem7_ButOH growth dynamics across the 42-day coculture with Synechocystis WT_PKPa_RBS_BsPta_Δacs.
+ecological_interactions:
+- name: Photosynthetic Acetate Supply To Escherichia coli
+  description: 'The engineered Synechocystis partner supplies photosynthetic organic carbon to E. coli_Pem7_ButOH in the acetate-designed
+    coculture cultivated without exogenous organic carbon. The heterotroph grows on acetate in separate monoculture assays,
+    and extracellular acetate concentrations in the E. coli coculture were lower than in the axenic Synechocystis control
+    with a sharp decrease after day 22. PARTIAL: these observations support heterotrophic acetate consumption in coculture
+    but do not isotope-resolve carbon flux or exclude secreted cyanobacterial carbohydrates and extracellular polysaccharides
+    as additional carbon sources. CO2/bicarbonate is the photosynthetic substrate, not the exchanged organic molecule.'
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs
+    term:
+      id: NCBITaxon:1148
+      label: Synechocystis sp. PCC 6803
+  target_taxon:
+    preferred_term: Escherichia coli BL21(DE3) Pem7_ButOH
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+    notes: Photosynthetic substrate, not the exchanged organic carbon.
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: acetate metabolic process
+    term:
+      id: GO:0006083
+      label: acetate metabolic process
+  downstream:
+  - target: Acetate-Coupled 1-Butanol Production
+    description: 'HYPOTHESIZED/PARTIAL: photosynthetically supplied acetate is a supported candidate carbon route to the observed
+      E. coli 1-butanol output (with peaks on days 10 and 14). The experiment does not resolve the fraction of product carbon
+      derived from acetate rather than secreted cyanobacterial carbohydrates or extracellular polysaccharides; production
+      detection is not a quantified acetate-to-product flux.'
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: where no additional carbon source was used
+    explanation: Supports Synechocystis-derived carbon as the designed organic carbon input during cocultivation.
+  - reference: PMID:42726284
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Compared to the production of acetate in the axenic culture, less amount of acetate was measured in the co-culture
+      with E. coli indicating acetate consumption.
+    explanation: Lower extracellular acetate in the E. coli coculture relative to axenic Synechocystis supports heterotrophic
+      acetate consumption but does not resolve transfer flux or carbon exclusivity.
+  - reference: PMID:42726284
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: When it comes to the synthetic consortia, the consortium based on E. coli_Pem7_ButOH and WT_PKPa_RBS_BsPta_Δacs
+      showed higher acetate than the one based on P. taiwanensis_Pem7_ButOH until day 14, and then the values are similar
+      and eventually, after day 22 has a lower acetate concentration. The decrease in acetate is in general sharper in the
+      case of E. coli_Pem7_ButOH compared to when P. taiwanensis_Pem7_ButOH was the bacterium in the consortium.
+    explanation: Details the temporal profile of extracellular acetate depletion specifically in the E. coli_Pem7_ButOH consortium.
+  - reference: PMID:42726284
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: we cannot conclude that the heterotrophic bacteria used acetate as the only source of carbon
+    explanation: The authors explicitly retain secreted cyanobacterial carbohydrates and extracellular polysaccharides as
+      possible additional carbon contributors.
+- name: Acetate-Coupled 1-Butanol Production
+  description: The engineered E. coli_Pem7_ButOH partner produced measurable 1-butanol during the 42-day, periodically replenished
+    coculture with Synechocystis WT_PKPa_RBS_BsPta_Δacs, showing relatively high production peaks on days 10 and 14. Titers
+    were not stable across the time course and reached a plateau; earlier acetate-adaptation assays improved heterotroph growth
+    on low acetate without increasing 1-butanol production above pre-adaptation levels. This is a community production endpoint,
+    not a second pairwise exchange, and product-carbon attribution to acetate remains unresolved.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: butan-1-ol
+    term:
+      id: CHEBI:28885
+      label: butan-1-ol
+  biological_processes:
+  - preferred_term: acetate metabolic process
+    term:
+      id: GO:0006083
+      label: acetate metabolic process
+  - preferred_term: 1-butanol biosynthetic process
+    term:
+      id: GO:0071271
+      label: 1-butanol biosynthetic process
+  participating_taxa:
+  - preferred_term: Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs
+    term:
+      id: NCBITaxon:1148
+      label: Synechocystis sp. PCC 6803
+  - preferred_term: Escherichia coli BL21(DE3) Pem7_ButOH
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Additionally, on specific days, for example on days 10 and 14, a relatively high production was noted in the
+      consortium containing the E. coli_Pem7_ButOH while on days 20 and 26, P. taiwanensis_Pem7_ButOH showed high production.
+    explanation: Supports measurable 1-butanol production in the E. coli_Pem7_ButOH consortium with high production peaks
+      on days 10 and 14.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the production was not stable in the systems but it clearly reached a plateau
+    explanation: Bounds the coculture 1-butanol time course rather than claiming constant high output.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 1-butanol production did not exceed the levels prior to adaptation
+    explanation: Separates the earlier growth-adaptation finding from increased product formation.
+environmental_factors:
+- name: Illumination
+  value: 65 umol photons m^-2 s^-1
+  description: The coculture was illuminated to drive photosynthetic carbon fixation by Synechocystis.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: light intensity was set at 65
+    explanation: Supports the illumination setpoint.
+- name: Temperature
+  value: '30'
+  unit: C
+  description: The synthetic consortium was cultivated at 30 °C.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The temperature was 30
+    explanation: Supports the coculture temperature.
+- name: Periodic pH adjustment
+  value: pH 7 at 10% medium replacement
+  description: During the long-running coculture, 10% of the culture volume was removed and replaced with fresh bicarbonate-containing
+    CoBG11, and pH was adjusted to 7.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the pH adjusted to 7 with the addition of 37% HCl
+    explanation: Supports pH adjustment during medium replacement.
+growth_media:
+- name: CoBG11 bicarbonate-fed Synechocystis-Escherichia coli coculture
+  composition:
+  - name: hydrogencarbonate
+    concentration: '50'
+    unit: mM
+    chebi_term:
+      preferred_term: hydrogencarbonate
+      term:
+        id: CHEBI:17544
+        label: hydrogencarbonate
+  - name: ammonium chloride
+    concentration: '4'
+    unit: mM
+    chebi_term:
+      preferred_term: ammonium chloride
+      term:
+        id: CHEBI:31206
+        label: ammonium chloride
+  - name: sodium chloride
+    concentration: '150'
+    unit: mM
+    chebi_term:
+      preferred_term: sodium chloride
+      term:
+        id: CHEBI:26710
+        label: sodium chloride
+  - name: TES
+    concentration: '13.1'
+    unit: mM
+  - name: kanamycin
+    concentration: '50'
+    unit: ug/mL
+  ph: '8.0'
+  temperature: '30'
+  temperature_unit: C
+  light_regime: illuminated
+  light_intensity: '65'
+  light_intensity_unit: umol photons m^-2 s^-1
+  inoculum_source: BG11/CoBG11 precultures of Synechocystis WT_PKPa_RBS_BsPta_Δacs and acetate-adapted E. coli_Pem7_ButOH.
+  inoculum_size: Synechocystis OD750 2.5 and Escherichia coli OD600 0.5 at coculture day 0
+  incubation_time: '42'
+  incubation_time_unit: d
+  vessel_type: Biolite 25 cm2 plug-sealed tissue culture flasks
+  preparation_notes: CoBG11 was prepared as BG11 supplemented with TES adjusted to pH 8.0, ammonium chloride, sodium chloride,
+    kanamycin, and 50 mM bicarbonate. The synthetic consortium used 25 mL of CoBG11 in a closed flask because 1-butanol is
+    volatile. From day 0 to day 30, 2.5 mL of culture was removed every second day and replaced with fresh CoBG11 containing
+    kanamycin and bicarbonate; after day 30, the refresh interval was every 4 days.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 500 mM NaHCO3 (final concentration 50 mM) and kanamycin
+    explanation: Supports repeated CoBG11 refreshes with kanamycin and bicarbonate.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: BG11 supplied with 4 mM NH4Cl, 13.1 mM
+    explanation: Supports the CoBG11 base medium and ammonium chloride/TES supplementation.
+cultivation_setup:
+- cultivation_mode: SEMI_CONTINUOUS
+  system_type: FLASK
+  instrument_detail: Plug-sealed 25 cm2 tissue-culture flask under illumination
+  working_volume: 25.0
+  working_volume_unit: mL
+  operating_temperature: 30.0
+  operating_temperature_unit: °C
+  ph_controlled: true
+  controls_notes: Illumination, partial medium replacement, bicarbonate addition, and pH adjustment were controlled by the
+    protocol. Cultures were sampled every 2 days through day 30 and every 4 days through day 42 alongside axenic Synechocystis
+    controls.
+  notes: The experiment sampled and replenished 2.5 mL of a 25 mL culture each cycle, with bicarbonate supplementation and
+    HCl pH adjustment at each refresh.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 25 mL and closed system was applied
+    explanation: Supports the closed-flask system and working volume.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After day 30, the sampling and replacement took place every 4th day
+    explanation: Supports the semi-continuous long-culture refresh schedule.
+external_resources:
+- name: Primary publication DOI
+  repository: OTHER
+  resource_id: doi:10.1007/s00253-026-14029-z
+  url: https://doi.org/10.1007/s00253-026-14029-z
+  description: Version-of-record publication describing two acetate-based Synechocystis synthetic consortia, including the
+    Escherichia coli BL21(DE3) acetate-to-1-butanol coculture curated here.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Synthetic consortia towards photosynthetically derived acetate
+    explanation: Supports the primary paper DOI as the source for this engineered coculture.
+related_ingredients:
+- preferred_term: carbon dioxide
+  chebi_term:
+    id: CHEBI:16526
+    label: carbon dioxide
+  relevance: CO2 is the inorganic carbon substrate fixed by Synechocystis and routed toward extracellular acetate in the designed
+    farmer/producer consortium.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acetate generated from CO2 by photosynthetic Synechocystis cells
+    explanation: Links CO2 fixation by Synechocystis to the acetate-feeding design.
+- preferred_term: acetate
+  chebi_term:
+    id: CHEBI:30089
+    label: acetate
+  relevance: Acetate was the intended extracellular organic-carbon carrier from Synechocystis to the engineered E. coli 1-butanol
+    producer.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acetate-producing Synechocystis strain was used as the provider
+    explanation: Names acetate as the intended provided carbon source.
+- preferred_term: butan-1-ol
+  chebi_term:
+    id: CHEBI:28885
+    label: butan-1-ol
+  relevance: 1-butanol is the value-added chemical produced by the engineered heterotrophic partner from the Synechocystis
+    coculture.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: generate an industrially valuable chemical such as 1-butanol
+    explanation: Supports 1-butanol as the target bioproduct.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this acetate-to-1-butanol synthetic coculture.
+discussions:
+- discussion_id: ecoli_butanol_coculture_carbon_specificity
+  prompt: What fraction of Escherichia coli carbon in the coculture came from Synechocystis-derived acetate rather than secreted
+    carbohydrates or extracellular polysaccharides?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Photosynthetic Acetate Supply To Escherichia coli
+  rationale: The paper reports lower acetate levels in the E. coli_Pem7_ButOH coculture than in axenic Synechocystis and uses
+    acetate as the designed exchange metabolite, but it did not isotope-resolve Escherichia coli carbon uptake.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we cannot conclude that the heterotrophic bacteria used acetate as the only source of carbon
+    explanation: Records the authors' caveat that other cyanobacterial carbon pools may have contributed to heterotroph growth.
+  posed_by: agent
+  posed_date: '2026-11-01'
+curation_history:
+- timestamp: '2026-11-01T04:15:00Z'
+  curator: agent
+  action: CREATE_COMMUNITY
+  changes: Created CommunityMech:000497 for the engineered Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs and Escherichia
+    coli BL21(DE3) Pem7_ButOH acetate-to-1-butanol coculture from PMID:42726284, capturing strain composition, CoBG11 closed-flask
+    cultivation setup, acetate cross-feeding and 1-butanol production interactions, and the open carbon-source specificity
+    gap.
+  llm_assisted: true
