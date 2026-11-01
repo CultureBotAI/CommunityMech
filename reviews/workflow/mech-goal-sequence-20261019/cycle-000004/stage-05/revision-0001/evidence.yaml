@@ -1,0 +1,211 @@
+schema_version: 1.0.0
+repository_key: communitymech
+github_repository: CultureBotAI/CommunityMech
+run_id: mech-goal-sequence-20261019
+cycle: 4
+stage: 5
+revision: 1
+outcome: completed
+summary: 'Grouped all 10 Cycle 4 Stage 4 carried-forward review findings into 8 root-cause issue groups
+  deduplicated against GitHub issues (1 new issue #2095 for the 3 actionable open findings across 3 community
+  records, plus 7 reused open issues #765, #1467, #1657, #1681, #1699, #1841, and #1847 for the 7 source-limited
+  deferred findings). Resolved all 3 actionable findings across all 3 target community records (CommunityMech:000083,
+  CommunityMech:000357, and CommunityMech:000397 in #2095), recorded append-only curation history sidecars,
+  re-attested all 3 modified records in reports/causal_graph_review/decisions/20261031-c4s5-review-remediation.yaml,
+  updated rendered HTML community pages and browser data, and saved fresh post-remediation structured
+  review verification (20261031T235500Z-c4s5-remediation-verification).'
+source_revision: 29f893fecb52447a9b724adc09091424a899a05f
+scope_frozen_at: '2026-10-31T23:40:00Z'
+previous_evidence:
+  path: reviews/workflow/mech-goal-sequence-20261019/cycle-000004/stage-04/revision-0001/evidence.yaml
+  sha256: 62316a2e86663d727f2306a526be8c466d146cd498571442f655c31161e013fe
+artifacts:
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000004/stage-05/revision-0001/issue_map.md
+  sha256: f82d5857f1234a26d9abf22b0539c133a1b84b4d012ef0eb43dd398bfe8988ea
+  kind: issue_map
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000004/stage-05/revision-0001/validation.md
+  sha256: 0dee5b13a46e5ab946e84da483705aa52ff9ea89477dea1295f931069faf03ec
+  kind: validation
+findings:
+- finding_id: c4s4-000083-smutans-calbicans-roles-metabolites-and-sucrose
+  status: resolved
+  summary: 'CommunityMech:000083 (kb/communities/SMutans_CAlbicans_ECC_Biofilm.yaml) omits functional_role:
+    [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT on Streptococcus mutans, omits functional_role:
+    [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level: ABUNDANT on Candida albicans, omits metabolites
+    exopolysaccharide (CHEBI:72813) on ecological_interactions[1], and omits environmental_factors for
+    1% (30 mM) sucrose availability despite verbatim support in PMID:24566629.'
+  group_id: cm-c04-s05-g001
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2095
+  disposition: 'Resolved in #2095: populated functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level:
+    DOMINANT on Streptococcus mutans, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level:
+    ABUNDANT on Candida albicans, metabolites exopolysaccharide (CHEBI:72813) on ecological_interactions[1],
+    and environmental_factors for 1% (30 mM) sucrose availability on CommunityMech:000083 (PMID:24566629).'
+  carried_from: c4s4-000083-smutans-calbicans-roles-metabolites-and-sucrose
+- finding_id: c4s4-000357-ecoli-gl10-xl12-roles-and-abundance
+  status: resolved
+  summary: 'CommunityMech:000357 (kb/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml) omits
+    functional_role: [PRIMARY_DEGRADER] and abundance_level: DOMINANT on both engineered specialist strains
+    (Escherichia coli GL10 and Escherichia coli XL12) despite verbatim support in PMID:42038008 (doi:10.1016/j.bidere.2026.100072).'
+  group_id: cm-c04-s05-g001
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2095
+  disposition: 'Resolved in #2095: populated functional_role: [PRIMARY_DEGRADER] and abundance_level:
+    DOMINANT on both Escherichia coli GL10 and Escherichia coli XL12 on CommunityMech:000357 (PMID:42038008,
+    doi:10.1016/j.bidere.2026.100072).'
+  carried_from: c4s4-000357-ecoli-gl10-xl12-roles-and-abundance
+- finding_id: c4s4-000397-nitrifying-syncom-roles-and-abundance
+  status: resolved
+  summary: 'CommunityMech:000397 (kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml)
+    omits functional_role: [PRIMARY_DEGRADER] and abundance_level: ABUNDANT on Bacillus badius NBRC 15713
+    (NCBITaxon:1455, Pseudobacillus badius) and omits functional_role: [PRIMARY_PRODUCER, CROSS_FEEDER]
+    and abundance_level: ABUNDANT on Nitrosomonas europaea NBRC 14298 and Nitrobacter winogradskyi NBRC
+    14297 despite verbatim support in PMID:42668143 (doi:10.1093/bbb/zbag131).'
+  group_id: cm-c04-s05-g001
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2095
+  disposition: 'Resolved in #2095: populated functional_role: [PRIMARY_DEGRADER] and abundance_level:
+    ABUNDANT on Bacillus badius NBRC 15713 (NCBITaxon:1455, Pseudobacillus badius) and functional_role:
+    [PRIMARY_PRODUCER, CROSS_FEEDER] and abundance_level: ABUNDANT on Nitrosomonas europaea NBRC 14298
+    and Nitrobacter winogradskyi NBRC 14297 on CommunityMech:000397 (PMID:42668143, doi:10.1093/bbb/zbag131).'
+  carried_from: c4s4-000397-nitrifying-syncom-roles-and-abundance
+- finding_id: cheese-assay-evidence-gap
+  status: deferred
+  summary: CommunityMech:000153 (kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml) pairwise
+    assay specifics in PMID:25043025 require full-text tables beyond the cached abstract (#765).
+  group_id: cm-c04-s05-g002
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/765
+  disposition: 'Deferred in #765: source-limited until full-text assay tables for PMID:25043025 are ingested.'
+  carried_from: cheese-assay-evidence-gap
+- finding_id: communitymech-1467-source-discrepancy-and-extension
+  status: deferred
+  summary: CommunityMech:000091 (kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml) broader 18-species
+    Transwell campaign and strain table reconciliation require full-text tables (#1467).
+  group_id: cm-c04-s05-g003
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1467
+  disposition: 'Deferred in #1467: tracked in GitHub issue #1467 pending full-text table reconciliation.'
+  carried_from: communitymech-1467-source-discrepancy-and-extension
+- finding_id: okeke-fulltext-assay-gap
+  status: deferred
+  summary: CommunityMech:000048 (kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml) kinetic and co-culture
+    assay parameters require paywalled full text (#1657).
+  group_id: cm-c04-s05-g004
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1657
+  disposition: 'Deferred in #1657: source-limited because primary full text (PMID:21319991) is paywalled.'
+  carried_from: okeke-fulltext-assay-gap
+- finding_id: parachlorella-remaining-research
+  status: deferred
+  summary: CommunityMech:000295 (kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml)
+    secondary bacterial satellite interactions require full-text data (#1681).
+  group_id: cm-c04-s05-g005
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1681
+  disposition: 'Deferred in #1681: source-limited pending full-text interaction data (PMID:35101850).'
+  carried_from: parachlorella-remaining-research
+- finding_id: communitymech-1699-coverage
+  status: deferred
+  summary: CommunityMech:000054 (kb/communities/Phormidium_Alkaline_Consortium.yaml) additional heterotrophic
+    co-isolates require full-text table verification (#1699).
+  group_id: cm-c04-s05-g006
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1699
+  disposition: 'Deferred in #1699: tracked in GitHub issue #1699 pending full-text isolate table verification.'
+  carried_from: communitymech-1699-coverage
+- finding_id: communitymech-1841
+  status: deferred
+  summary: CommunityMech:000222 (kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml) lower-rank
+    isolate resolution requires full-text supplementary strain tables (#1841).
+  group_id: cm-c04-s05-g007
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1841
+  disposition: 'Deferred in #1841: tracked in GitHub issue #1841 pending full-text supplementary strain
+    table inspection.'
+  carried_from: communitymech-1841
+- finding_id: communitymech-1847-metg2-membership
+  status: deferred
+  summary: CommunityMech:000302 (kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml)
+    full 18-isolate membership and media composition require full-text tables (#1847).
+  group_id: cm-c04-s05-g008
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1847
+  disposition: 'Deferred in #1847: tracked in GitHub issue #1847 pending full-text membership and media
+    table inspection.'
+  carried_from: communitymech-1847-metg2-membership
+groups:
+- group_id: cm-c04-s05-g001
+  finding_ids:
+  - c4s4-000083-smutans-calbicans-roles-metabolites-and-sucrose
+  - c4s4-000357-ecoli-gl10-xl12-roles-and-abundance
+  - c4s4-000397-nitrifying-syncom-roles-and-abundance
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/2095
+  status: resolved
+  summary: 'Omitted source-backed taxonomic functional_role / abundance_level enums, interaction metabolites
+    (CHEBI:72813), and environmental_factors (1% sucrose) on 3 community records (CommunityMech:000083,
+    CommunityMech:000357, CommunityMech:000397); repair owner: kb/communities/ + history/records/ + reports/causal_graph_review/
+    + tests/ + docs/.'
+  resolution_evidence:
+  - reviews/workflow/mech-goal-sequence-20261019/cycle-000004/stage-05/revision-0001/issue_map.md
+  - reviews/workflow/mech-goal-sequence-20261019/cycle-000004/stage-05/revision-0001/validation.md
+  disposition: 'Resolved in #2095: populated source-backed taxonomic functional_role and abundance_level
+    enums on CommunityMech:000083, CommunityMech:000357, and CommunityMech:000397, plus exopolysaccharide
+    (CHEBI:72813) on ecological_interactions[1] and 1% (30 mM) sucrose environmental_factors on CommunityMech:000083.'
+- group_id: cm-c04-s05-g002
+  finding_ids:
+  - cheese-assay-evidence-gap
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/765
+  status: deferred
+  summary: 'Source-limited full-text pairwise assay tables for CommunityMech:000153 (PMID:25043025); repair
+    owner: Literature ingestion + kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml.'
+  disposition: 'Deferred in #765: source-limited until full-text assay tables for PMID:25043025 are ingested.'
+- group_id: cm-c04-s05-g003
+  finding_ids:
+  - communitymech-1467-source-discrepancy-and-extension
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1467
+  status: deferred
+  summary: 'Source-limited full-text Transwell strain tables for CommunityMech:000091 (PMID:38329909);
+    repair owner: Literature ingestion + kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml.'
+  disposition: 'Deferred in #1467: tracked in GitHub issue #1467 pending full-text table reconciliation.'
+- group_id: cm-c04-s05-g004
+  finding_ids:
+  - okeke-fulltext-assay-gap
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1657
+  status: deferred
+  summary: 'Source-limited paywalled full-text assay parameters for CommunityMech:000048 (PMID:21319991);
+    repair owner: Literature ingestion + kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml.'
+  disposition: 'Deferred in #1657: source-limited because primary full text (PMID:21319991) is paywalled.'
+- group_id: cm-c04-s05-g005
+  finding_ids:
+  - parachlorella-remaining-research
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1681
+  status: deferred
+  summary: 'Source-limited full-text secondary satellite interaction data for CommunityMech:000295 (PMID:35101850);
+    repair owner: Literature ingestion + kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml.'
+  disposition: 'Deferred in #1681: source-limited pending full-text interaction data (PMID:35101850).'
+- group_id: cm-c04-s05-g006
+  finding_ids:
+  - communitymech-1699-coverage
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1699
+  status: deferred
+  summary: 'Source-limited full-text heterotrophic co-isolate tables for CommunityMech:000054 (PMID:29138632);
+    repair owner: Literature ingestion + kb/communities/Phormidium_Alkaline_Consortium.yaml.'
+  disposition: 'Deferred in #1699: tracked in GitHub issue #1699 pending full-text isolate table verification.'
+- group_id: cm-c04-s05-g007
+  finding_ids:
+  - communitymech-1841
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1841
+  status: deferred
+  summary: 'Source-limited full-text supplementary strain tables for CommunityMech:000222 (PMID:41606024);
+    repair owner: Literature ingestion + kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml.'
+  disposition: 'Deferred in #1841: tracked in GitHub issue #1841 pending full-text supplementary strain
+    table inspection.'
+- group_id: cm-c04-s05-g008
+  finding_ids:
+  - communitymech-1847-metg2-membership
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1847
+  status: deferred
+  summary: 'Source-limited full-text 18-isolate membership and media tables for CommunityMech:000302 (PMID:41908926);
+    repair owner: Literature ingestion + kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml.'
+  disposition: 'Deferred in #1847: tracked in GitHub issue #1847 pending full-text membership and media
+    table inspection.'
+carry_forward_ids:
+- cheese-assay-evidence-gap
+- communitymech-1467-source-discrepancy-and-extension
+- communitymech-1699-coverage
+- communitymech-1841
+- communitymech-1847-metg2-membership
+- okeke-fulltext-assay-gap
+- parachlorella-remaining-research
+infra_tasks: []

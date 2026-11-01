@@ -1,25 +1,18 @@
 id: CommunityMech:000083
 name: Streptococcus mutans - Candida albicans ECC Biofilm Model
-description: >-
-  A defined cross-kingdom dual-species plaque biofilm model capturing the
-  synergistic virulence of Streptococcus mutans and Candida albicans in early
-  childhood caries. Coinfection produces an EPS-rich biofilm with higher
-  biomass, larger microcolonies, and more severe carious lesions than either
-  species alone.
+description: A defined cross-kingdom dual-species plaque biofilm model capturing the synergistic virulence of Streptococcus
+  mutans and Candida albicans in early childhood caries. Coinfection produces an EPS-rich biofilm with higher biomass, larger
+  microcolonies, and more severe carious lesions than either species alone.
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: ORAL
 engineering_design:
-  objective: >-
-    Test whether a dual-species bacterium-fungus consortium amplifies plaque
-    biofilm virulence and caries severity beyond single-species infections.
-  assembly_strategy: >-
-    Bottom-up assembly of Streptococcus mutans and Candida albicans in
-    cospecies plaque biofilms, followed by validation in a rodent caries model.
-  perturbation_design: >-
-    Cospecies biofilms were compared with single-species controls in vitro and
-    in vivo to measure EPS production, biofilm architecture, virulence gene
-    expression, and caries severity.
+  objective: Test whether a dual-species bacterium-fungus consortium amplifies plaque biofilm virulence and caries severity
+    beyond single-species infections.
+  assembly_strategy: Bottom-up assembly of Streptococcus mutans and Candida albicans in cospecies plaque biofilms, followed
+    by validation in a rodent caries model.
+  perturbation_design: Cospecies biofilms were compared with single-species controls in vitro and in vivo to measure EPS production,
+    biofilm architecture, virulence gene expression, and caries severity.
   measurement_endpoints:
   - Biofilm biomass
   - EPS accumulation
@@ -30,18 +23,14 @@ engineering_design:
   - reference: PMID:24566629
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      We showed that the ability of these organisms together to form biofilms
-      is enhanced in vitro and in vivo.
+    snippet: We showed that the ability of these organisms together to form biofilms is enhanced in vitro and in vivo.
     explanation: Supports the defined dual-species design and its enhanced biofilm phenotype.
 environment_term:
   preferred_term: cariogenic plaque biofilm on tooth surface
   term:
     id: ENVO:01001034
     label: environment determined by a biofilm on an animal surface
-  notes: >-
-    Cross-kingdom plaque biofilm model relevant to early childhood caries and
-    validated on rodent tooth surfaces in vivo.
+  notes: Cross-kingdom plaque biofilm model relevant to early childhood caries and validated on rodent tooth surfaces in vivo.
 taxonomy:
 - taxon_term:
     preferred_term: Streptococcus mutans
@@ -52,7 +41,8 @@ taxonomy:
     gtdb_classification:
       gtdb_id: GTDB:s__Streptococcus_mutans
       gtdb_taxon: Streptococcus mutans
-      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__Streptococcus mutans
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus;s__Streptococcus
+        mutans
       ncbi_source_id: NCBITaxon:1309
       majority_fraction: 1.0
       total_genomes: 512
@@ -62,10 +52,13 @@ taxonomy:
   - reference: PMID:24566629
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      Streptococcus mutans is often cited as the main bacterial pathogen in
-      dental caries, particularly in early-childhood caries (ECC).
+    snippet: Streptococcus mutans is often cited as the main bacterial pathogen in dental caries, particularly in early-childhood
+      caries (ECC).
     explanation: Establishes Streptococcus mutans as the bacterial member of the model.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  abundance_level: DOMINANT
 - taxon_term:
     preferred_term: Candida albicans
     term:
@@ -76,14 +69,17 @@ taxonomy:
   - reference: PMID:24566629
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: >-
-      Candida albicans cells are frequently detected along with heavy
-      infection by S. mutans in plaque biofilms from ECC-affected children.
+    snippet: Candida albicans cells are frequently detected along with heavy infection by S. mutans in plaque biofilms from
+      ECC-affected children.
     explanation: Establishes Candida albicans as the fungal member of the model.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  abundance_level: ABUNDANT
 ecological_interactions:
 - name: Cross-Kingdom Biofilm Enhancement
-  description: Coinoculation of Streptococcus mutans and Candida albicans enhances biofilm formation relative to
-    either species alone in both in vitro and in vivo settings.
+  description: Coinoculation of Streptococcus mutans and Candida albicans enhances biofilm formation relative to either species
+    alone in both in vitro and in vivo settings.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -103,20 +99,19 @@ ecological_interactions:
       label: biofilm formation
   downstream:
   - target: Rodent Coinfection Carriage and Caries Outcome
-    description: 'PARTIAL: the mixed biofilm provides the proposed context for the greater disease severity in the
-      rodent model. Coinfection establishes an effect on carriage and lesions, but does not isolate biofilm quantity
-      as the necessary mediator of the lesion outcome or establish human disease causation.'
+    description: 'PARTIAL: the mixed biofilm provides the proposed context for the greater disease severity in the rodent
+      model. Coinfection establishes an effect on carriage and lesions, but does not isolate biofilm quantity as the necessary
+      mediator of the lesion outcome or establish human disease causation.'
   evidence:
   - reference: PMID:24566629
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: We showed that the ability of these organisms together to form biofilms is enhanced in vitro and in
-      vivo.
+    snippet: We showed that the ability of these organisms together to form biofilms is enhanced in vitro and in vivo.
     explanation: Supports a mutually reinforcing cross-kingdom biofilm interaction.
 - name: Candida-Driven EPS Amplification of Streptococcus mutans
-  description: Candida albicans promotes an EPS-rich matrix and higher viable Streptococcus mutans abundance within
-    cospecies plaque biofilms. This observation is from the in-vitro biofilm comparison, not a direct measurement
-    of EPS mediation in animals.
+  description: Candida albicans promotes an EPS-rich matrix and higher viable Streptococcus mutans abundance within cospecies
+    plaque biofilms. This observation is from the in-vitro biofilm comparison, not a direct measurement of EPS mediation in
+    animals.
   interaction_type: COLONIZATION_FACILITATION
   scope: PAIRWISE
   source_taxon:
@@ -136,19 +131,24 @@ ecological_interactions:
       label: biofilm formation
   downstream:
   - target: Cross-Kingdom Biofilm Enhancement
-    description: Candida-driven exopolysaccharide accumulation increases the biomass and viable S. mutans burden
-      of the cross-kingdom plaque biofilm.
+    description: Candida-driven exopolysaccharide accumulation increases the biomass and viable S. mutans burden of the cross-kingdom
+      plaque biofilm.
   evidence:
   - reference: PMID:24566629
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The presence of C. albicans augments the production of exopolysaccharides (EPS), such that cospecies
-      biofilms accrue more biomass and harbor more viable S. mutans cells than single-species biofilms.
+    snippet: The presence of C. albicans augments the production of exopolysaccharides (EPS), such that cospecies biofilms
+      accrue more biomass and harbor more viable S. mutans cells than single-species biofilms.
     explanation: Supports Candida-mediated enhancement of S. mutans colonization and matrix formation.
+  metabolites:
+  - preferred_term: exopolysaccharide
+    term:
+      id: CHEBI:72813
+      label: exopolysaccharide
 - name: Rodent Coinfection Carriage and Caries Outcome
-  description: The dual-species rodent infection model showed increased plaque microbial carriage and more severe
-    carious lesions relative to the single-species groups. This is a community-associated host outcome, not itself
-    a directed colonization benefit to S. mutans or proof of the same causal effect in children.
+  description: The dual-species rodent infection model showed increased plaque microbial carriage and more severe carious
+    lesions relative to the single-species groups. This is a community-associated host outcome, not itself a directed colonization
+    benefit to S. mutans or proof of the same causal effect in children.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: biofilm formation
@@ -159,14 +159,14 @@ ecological_interactions:
   - reference: PMID:24566629
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Coinfected animals displayed higher levels of infection and microbial carriage within plaque biofilms
-      than animals infected with either species alone.
+    snippet: Coinfected animals displayed higher levels of infection and microbial carriage within plaque biofilms than animals
+      infected with either species alone.
     explanation: Documents increased pathogenic load during dual-species coinfection.
   - reference: PMID:24566629
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Furthermore, coinfection synergistically enhanced biofilm virulence, leading to aggressive onset of
-      the disease with rampant carious lesions.
+    snippet: Furthermore, coinfection synergistically enhanced biofilm virulence, leading to aggressive onset of the disease
+      with rampant carious lesions.
     explanation: Documents amplified caries severity caused by the dual-species consortium.
   participating_taxa:
   - preferred_term: Streptococcus mutans
@@ -177,57 +177,62 @@ ecological_interactions:
     term:
       id: NCBITaxon:5476
       label: Candida albicans
+environmental_factors:
+- name: Sucrose availability
+  value: 1% (30 mM) sucrose
+  description: Cospecies biofilms of S. mutans and C. albicans were cultivated in UFYTE broth supplemented with 1% (30 mM)
+    sucrose, providing the substrate for glucosyltransferase-derived EPS synthesis.
+  evidence:
+  - reference: PMID:24566629
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: tryptone-yeast extract (UFYTE) broth containing 1% (30 mM) sucrose
+    explanation: Specifies the 1% (30 mM) sucrose concentration supplied for cospecies plaque biofilm growth and EPS synthesis.
 related_ingredients:
 - preferred_term: exopolysaccharide
   chebi_term:
     id: CHEBI:72813
     label: exopolysaccharide
-  relevance: >
-    Candida albicans augments production of exopolysaccharides (EPS), the
-    matrix polymer that lets cospecies biofilms accrue more biomass and harbor
-    more viable S. mutans cells than single-species biofilms.
+  relevance: 'Candida albicans augments production of exopolysaccharides (EPS), the matrix polymer that lets cospecies biofilms
+    accrue more biomass and harbor more viable S. mutans cells than single-species biofilms.
+
+    '
   evidence:
   - reference: PMID:24566629
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      The presence of C. albicans augments the production of
-      exopolysaccharides (EPS), such that cospecies biofilms accrue more
-      biomass and harbor more viable S. mutans cells than single-species
-      biofilms.
+    snippet: The presence of C. albicans augments the production of exopolysaccharides (EPS), such that cospecies biofilms
+      accrue more biomass and harbor more viable S. mutans cells than single-species biofilms.
     explanation: Names EPS as the matrix polymer enhanced in cospecies biofilms.
 - preferred_term: (1->3)-beta-D-glucan
   chebi_term:
     id: CHEBI:37671
     label: (1->3)-beta-D-glucan
-  relevance: >
-    Candida-derived beta-1,3-glucans contribute to the structure of the
-    EPS-rich biofilm matrix in the cross-kingdom plaque biofilm.
+  relevance: 'Candida-derived beta-1,3-glucans contribute to the structure of the EPS-rich biofilm matrix in the cross-kingdom
+    plaque biofilm.
+
+    '
   evidence:
   - reference: PMID:24566629
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      We also found that Candida-derived β1,3-glucans contribute to the EPS
-      matrix structure, while fungal mannan and β-glucan provide sites for GtfB
-      binding and activity.
+    snippet: We also found that Candida-derived β1,3-glucans contribute to the EPS matrix structure, while fungal mannan and
+      β-glucan provide sites for GtfB binding and activity.
     explanation: Names Candida-derived beta-1,3-glucan as a contributor to matrix structure.
 - preferred_term: mannan
   chebi_term:
     id: CHEBI:28808
     label: mannan
-  relevance: >
-    Fungal mannan, together with beta-glucan, provides binding sites for the
-    S. mutans GtfB enzyme, supporting glucosyltransferase activity in the
-    cospecies biofilm matrix.
+  relevance: 'Fungal mannan, together with beta-glucan, provides binding sites for the S. mutans GtfB enzyme, supporting glucosyltransferase
+    activity in the cospecies biofilm matrix.
+
+    '
   evidence:
   - reference: PMID:24566629
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: >-
-      We also found that Candida-derived β1,3-glucans contribute to the EPS
-      matrix structure, while fungal mannan and β-glucan provide sites for GtfB
-      binding and activity.
+    snippet: We also found that Candida-derived β1,3-glucans contribute to the EPS matrix structure, while fungal mannan and
+      β-glucan provide sites for GtfB binding and activity.
     explanation: Names fungal mannan as a GtfB binding site in the biofilm matrix.
 growth_media:
 - name: UFYTE (ultrafiltered tryptone-yeast extract) broth with 1% sucrose
@@ -238,9 +243,9 @@ growth_media:
   incubation_time: '42'
   incubation_time_unit: h
   vessel_type: biofilm (saliva-coated hydroxyapatite surface)
-  preparation_notes: Cospecies biofilms of S. mutans UA159 (~2 x 10^6 CFU/mL) and C. albicans SC5314
-    (~2 x 10^4 CFU/mL) grown in UFYTE broth containing 1% (30 mM) sucrose; grown undisturbed for the first
-    18 h, then medium changed twice daily until 42 h.
+  preparation_notes: Cospecies biofilms of S. mutans UA159 (~2 x 10^6 CFU/mL) and C. albicans SC5314 (~2 x 10^4 CFU/mL) grown
+    in UFYTE broth containing 1% (30 mM) sucrose; grown undisturbed for the first 18 h, then medium changed twice daily until
+    42 h.
   evidence:
   - reference: PMID:24566629
     supports: SUPPORT
@@ -257,19 +262,17 @@ discussions:
   prompt: How much of the rodent lesion effect is mediated by the measured biofilm changes?
   kind: KNOWLEDGE_GAP
   status: OPEN
-  rationale: The fresh primary abstract and PubMed figure captions support reciprocal biofilm benefit, EPS-associated
-    accumulation and the rodent coinfection outcome. Those positive observations remain. The EPS assay is in vitro;
-    the rodent disease endpoint is distinct from recipient colonization. The existing disease arrow is retained
-    as PARTIAL mediation. EuropePMC full-text retrieval returned HTTP500, so complete main-text, supplement and
-    figure-pixel review is not claimed. Non-graph evidence labels remain separate follow-up work.
+  rationale: The fresh primary abstract and PubMed figure captions support reciprocal biofilm benefit, EPS-associated accumulation
+    and the rodent coinfection outcome. Those positive observations remain. The EPS assay is in vitro; the rodent disease
+    endpoint is distinct from recipient colonization. The existing disease arrow is retained as PARTIAL mediation. EuropePMC
+    full-text retrieval returned HTTP500, so complete main-text, supplement and figure-pixel review is not claimed. Non-graph
+    evidence labels remain separate follow-up work.
   evidence:
   - reference: PMID:24566629
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Our in vitro data also revealed that glucosyltransferase-derived EPS is a key mediator of cospecies
-      biofilm development
-    explanation: Supports in-vitro mediation of biofilm development, not isolated mediation of the rodent lesion
-      outcome.
+    snippet: Our in vitro data also revealed that glucosyltransferase-derived EPS is a key mediator of cospecies biofilm development
+    explanation: Supports in-vitro mediation of biofilm development, not isolated mediation of the rodent lesion outcome.
   attaches_to:
   - ecological_interactions#Cross-Kingdom Biofilm Enhancement
   - ecological_interactions#Candida-Driven EPS Amplification of Streptococcus mutans
@@ -278,7 +281,14 @@ curation_history:
 - timestamp: '2026-10-07T18:45:52Z'
   curator: codex
   action: REVIEW_CAUSAL_GRAPH
-  changes: Retain supported mutualism and a PARTIAL rodent-outcome direction.; Retain positive Candida-to-S. mutans
-    biofilm facilitation with the correct in-vitro source.; Retain the positive rodent carriage/lesion outcome at
-    community scope, not pairwise colonization. Issue#1772; reports/causal_graph_review/decisions/20261007-four-records-batch97.yaml
+  changes: Retain supported mutualism and a PARTIAL rodent-outcome direction.; Retain positive Candida-to-S. mutans biofilm
+    facilitation with the correct in-vitro source.; Retain the positive rodent carriage/lesion outcome at community scope,
+    not pairwise colonization. Issue#1772; reports/causal_graph_review/decisions/20261007-four-records-batch97.yaml
+  llm_assisted: true
+- timestamp: '2026-10-31T23:45:00Z'
+  curator: antigravity
+  action: RESOLVE_REVIEW_FINDINGS
+  changes: 'Added functional_role and abundance_level on S. mutans (PRIMARY_DEGRADER, CROSS_FEEDER; DOMINANT) and C. albicans
+    (SYNTROPHIC_PARTNER, CROSS_FEEDER; ABUNDANT), grounded exopolysaccharide (CHEBI:72813) on ecological_interactions[1],
+    and added environmental_factors for 1% (30 mM) sucrose availability per PMID:24566629. Issue #2095; reports/causal_graph_review/decisions/20261031-c4s5-review-remediation.yaml'
   llm_assisted: true

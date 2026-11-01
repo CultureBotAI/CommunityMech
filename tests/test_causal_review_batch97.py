@@ -20,6 +20,13 @@ def test_candida_positive_interactions_and_modality_survive():
     biofilm, eps, outcome = docs[0]["ecological_interactions"]
     assert biofilm["interaction_type"] == "MUTUALISM"
     assert eps["interaction_type"] == "COLONIZATION_FACILITATION"
+    assert [m["term"]["id"] for m in eps["metabolites"]] == ["CHEBI:72813"]
+    assert [t["functional_role"] for t in docs[0]["taxonomy"]] == [
+        ["PRIMARY_DEGRADER", "CROSS_FEEDER"],
+        ["SYNTROPHIC_PARTNER", "CROSS_FEEDER"],
+    ]
+    assert [t["abundance_level"] for t in docs[0]["taxonomy"]] == ["DOMINANT", "ABUNDANT"]
+    assert docs[0]["environmental_factors"][0]["name"] == "Sucrose availability"
     assert eps["evidence"][0]["evidence_source"] == "IN_VITRO"
     assert eps["downstream"][0]["target"] == biofilm["name"]
     assert biofilm["downstream"][0]["target"] == outcome["name"]
@@ -88,9 +95,23 @@ def test_all_nodes_and_directions_have_dispositions():
     assert sum(len(r["renamed_nodes"]) for r in rows) == 5
     assert sum(len(r["edges_before"]) for r in rows) == 7
     assert sum(len(r["retained_edge_decisions"]) for r in rows) == 7
+    successor_file = (
+        ROOT / "reports/causal_graph_review/decisions/20261031-c4s5-review-remediation.yaml"
+    )
+    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
     for row, doc in zip(rows, docs, strict=True):
+        latest = row
+        if row["id"] == "CommunityMech:000083":
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
         assert row["removed_node_decisions"] == row["removed_edge_decisions"] == []
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )
         assert {r["node"] for r in row["node_decisions"]} == {
             n["name"] for n in doc["ecological_interactions"]
         }
