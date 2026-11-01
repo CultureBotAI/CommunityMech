@@ -1,0 +1,1181 @@
+# Baijiu G4 hexanoic acid SynCom: record review
+
+- Review: 20261021T101106Z-baijiu-g4-hexanoic-acid-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T10:07:23.745165Z
+- Finished UTC: 2026-10-21T10:11:06.491694Z
+- Reviewer: codex (unknown)
+- Completion: partial
+- Verdict: needs_curation
+- Scientific review: false
+
+## Summary
+
+Abstract-bounded whole-record review finds two minor issues in abundance wording and outcome placement. The qualified community-level pathway association and zero arrows remain supported. Full Methods, Results, supplements and figures were unavailable, leaving exact lineage/strain identity, the 86% denominator and cultivation details unresolved.
+
+## Scope And Provenance
+
+Every record field and its single graph node assessed against fresh abstract/metadata, local schema, ontology and current provenance; full scientific source assessment unavailable.
+
+Selection: First assigned maintained path in fresh batch 06 after batch05 publication; only CommunityMech:000365 reviewed.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000365 | kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml | maintained | Baijiu Pit Mud Hexanoic Acid SynCom G4 |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000365 | Target schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000365 | Target strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000365 | Target term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000365 | Target GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000365 | Target GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000365 | Target history validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000365 | Read-only corpus cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000365 | Target reference validation passed against the pinned abstract cache. |
+| audit-network | failed | True | CommunityMech:000365 | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; the target-native graph has no issue. |
+| check-network-quality | failed | True | CommunityMech:000365 | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; the target-native graph has no issue. |
+| Publication identity and abstract support | passed | True | CommunityMech:000365 | Fresh metadata and abstract verify the source and bounded current claims. |
+| Full main Methods, Results and supplements | unavailable | True | CommunityMech:000365 | No usable full main or supplemental content was retrieved; the scientific review remains partial. |
+| Concrete sequence or omics archive identifiers | not_applicable | False | CommunityMech:000365 | No concrete archive identifier is encoded or established by the inspected abstract; absence from the full study is not inferred. |
+| Encoded medium/ingredient-Mech links | not_applicable | False | CommunityMech:000365 | No CultureMech or MediaIngredientMech identifier is encoded. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000365 | Fresh owned-runtime discovery found no runnable adapter; no external checkout query was executed. |
+
+## Scientific And Domain Assessments
+
+### G4 ethanol-based pit-mud SynCom
+
+identity: supported. Targets: CommunityMech:000365.
+
+The named G4 target is resolved at abstract scope; its complete membership and detailed construction remain uncertain.
+
+### Two grounded taxa and the unresolved third lineage
+
+grounding: concern. Targets: CommunityMech:000365.
+
+Identity scopes are appropriately qualified, but Pseudoclavibacter abundance wording needs internal consistency.
+
+The source and description group Pseudoclavibacter among dominant lineages, while its enum is ABUNDANT. Align or source-justify that ordinal distinction without inventing a quantitative rank or assigning the unresolved 86% value to a denominator. Keep C. kluyveri correlation distinct from isolate catalysis, and retain sensu stricto 18 as an explicit gap pending sequence-level evidence. Missing optional roles are not a defect.
+
+### ecological_interactions[0]: G4 SynCom Reverse Beta-Oxidation Association
+
+graph: supported. Targets: CommunityMech:000365.
+
+Retain the community-level association with its abstract limitation and no downstream arrows.
+
+The node covers ethanol-fed G4 hexanoic acid production and a predicted reverse beta-oxidation association. No pairwise source/target taxa, interaction type, partner transfer or causal edge is asserted. Ethanol, hexanoic acid and broad fermentation grounding fit the reported context; prediction does not establish complete pathway wiring, flux or necessity in a particular member.
+
+### Optimized conditions and unresolved protocol
+
+completeness: unknown. Targets: CommunityMech:000365.
+
+The abstract supports the four operating values and production result; full cultivation cannot be certified.
+
+Preserve the open medium/vessel/enrichment discussion and avoid reconstructing a recipe from generic ethanol fermentation knowledge. No current main-source observation establishes missing conditions as absent from the publication. Top-down construction alone does not require changing SYNTHETIC to ENGINEERED without resolving the source assembly history.
+
+### Hexanoic acid production field placement
+
+schema: concern. Targets: CommunityMech:000365.
+
+4.69 g/L is a production result rather than an environmental condition.
+
+Keep the optimized pH, temperature, inoculum and loading values as context, but move the product measurement into a clearly scoped outcome statement. Do not reinterpret its mass-per-volume unit as substrate loading, rate or molar yield.
+
+### Ingredients, publication resource and unverified archives
+
+evidence: supported. Targets: CommunityMech:000365.
+
+The two CHEBI identities and DOI match the abstract; no sequence accession or genome link is invented.
+
+Ethanol is the feedstock context and hexanoic acid the target product. No metal/rare-earth processing phenotype is demonstrated by the accessible source; this does not claim the culture contains no mineral nutrients. No concrete CultureMech or MediaIngredientMech identifier is encoded.
+
+### Prior graph-only review and current access boundary
+
+evidence: supported. Targets: CommunityMech:000365.
+
+Current evidence supports retaining earlier qualifications, while full scientific verification remains incomplete.
+
+Do not restore removed functional roles or a typed 86% abundance merely to improve completeness. A redirect response is not full-text access, subscription metadata does not prove no alternate copy, and the rate-limited API was not retried.
+
+### Native checks versus scientific completion
+
+schema: supported. Targets: CommunityMech:000365.
+
+All eight native gates pass, but required full-source assessment remains unavailable.
+
+### Native completeness and quality
+
+completeness: supported. Targets: CommunityMech:000365.
+
+Native scores are diagnostics and do not certify unavailable Methods or a resolved membership denominator.
+
+## Findings
+
+### abundance-wording: Source-justify or align Pseudoclavibacter abundance wording
+
+minor / open / confirmed; issue key: cm-000365-abundance-wording.
+
+The abstract and description call Pseudoclavibacter one of the dominant lineages, whereas taxonomy uses ABUNDANT without explaining that different ordinal interpretation.
+
+### outcome-placement: Place hexanoic acid production under outcomes
+
+minor / open / confirmed; issue key: cm-000365-outcome-placement.
+
+environmental_factors[2] stores the measured 4.69 g/L product result as an environmental condition.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-abundance-wording
+
+Source-justify or align Pseudoclavibacter abundance wording.
+
+- Align the ordinal wording with the cited source or provide claim-level evidence explaining why ABUNDANT is the intended narrower interpretation.
+- Do not impose a percentage cutoff on DOMINANT or assign the 86% value to Pseudoclavibacter or an unresolved denominator.
+- Preserve genus-level identity and the explicit sensu stricto 18 gap; do not invent a missing member, functional role or strain from the abstract.
+
+### repair-outcome-placement
+
+Place hexanoic acid production under outcomes.
+
+- Move the 4.69 g/L result to an appropriate outcome statement, retaining exact source evidence and its optimized-process context.
+- Keep pH 7.9, 37.6°C, 8.2% inoculum and 77% loading volume distinguished from the production measurement.
+- Do not infer an initial hexanoic acid concentration, productivity rate or substrate-to-product yield from the reported g/L result.
+
+### verify-source-before-expansion
+
+Resolve remaining source-dependent details before expanding the record.
+
+- Inspect full Methods and relevant supplements before adding strain identity, the 86% denominator, enrichment transfers, medium, vessel or dataset links.
+- Preserve the qualified community-level association, zero arrows and explicit discussion gaps; no role or mechanism is inferred to improve a native score.
+- After separately authorized curation, preserve history and rerun schema, strict, term, history, reference and target/corpus network checks.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml; Whole record: two grounded taxa, one community node and zero arrows | supports | The record preserves abstract-level uncertainty about lineage identity, cultivation and pathway wiring; two bounded metadata corrections remain. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=42442429&amp;retmode=xml; https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=42442429&amp;retmode=xml | supports | PubMed verifies PMID:42442429, DOI:10.1016/j.biortech.2026.135395, title and abstract. |
+| crossref | https://api.crossref.org/works/10.1016/j.biortech.2026.135395; https://api.crossref.org/works/10.1016/j.biortech.2026.135395 | supports | Crossref verifies DOI/title metadata and ordinary publisher and text-mining routes. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42442429&amp;format=json&amp;resultType=core; https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42442429&amp;format=json&amp;resultType=core | supports | Europe PMC supplies the matching abstract and subscription access metadata, without a PMCID. |
+| construction | PMID:42442429; Fresh PubMed Article/Abstract: third sentence, construction and dominant taxa | supports | The abstract identifies an ethanol-based G4 SynCom constructed from pit mud; it does not resolve the full enrichment protocol or all strain identities. |
+| abundance | PMID:42442429; Fresh PubMed Article/Abstract: third sentence, dominant-lineage list | supports | C. kluyveri is the primary assignment within the sensu stricto 12 signal; Pseudoclavibacter and sensu stricto 18 are grouped among dominant lineages. The 86% denominator remains unresolved. |
+| pathway | PMID:42442429; Fresh PubMed Article/Abstract: sentence beginning Functional predictions | supports | Functional prediction and fermentation profiling support a potential community-level association, not resolved organism-level wiring or causal transfer. |
+| conditions | PMID:42442429; Fresh PubMed Article/Abstract: sentence beginning Under optimized conditions | supports | The abstract reports pH 7.9, 37.6°C, 8.2% inoculum and 77% loading volume with the product concentration; it does not identify the full medium or vessel. |
+| source-access | PMID:42442429; source-audit.json: actual response receipts and assessed-content boundaries | context_only | DOI HTTP200 is a redirect shell; ScienceDirect returned a 403 error page and the public API a 429 response. No full main or supplement content was inspected. |
+| ontology | Local OAK NCBITaxon, ENVO, CHEBI and GO snapshots; ontology-authority.json: seven pairs across nine occurrences | supports | All ID/label pairs match; C. kluyveri is species-ranked and Pseudoclavibacter genus-ranked, with the SILVA-style lineage gap retained. |
+| schema | src/communitymech/schema/communitymech.yaml; AbundanceEnum.DOMINANT/ABUNDANT; MicrobialCommunity.environmental_factors; CommunityOriginEnum | supports | DOMINANT denotes greatest or co-equal prominence; ABUNDANT denotes a major member not presented as most prominent. Neither imposes a percentage threshold; production outcomes are not environmental conditions. |
+| snippets | kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml; snippet-audit.json: cache and fresh primary abstract comparisons | supports | All 14 occurrences match the cache; 13 match fresh abstracts and one DOI header matches article-level metadata. The source itself contains the associationbetween typo. |
+| resources | Primary DOI and bounded archive discovery; dataset-verification.json: inspected abstract and public-access scope | supports | The DOI resolves to the target publication; inaccessible main/supplements do not justify an accession-absence or missing-dataset finding. |
+| history | Creation sidecar and batch6 graph-review decision; provenance-audit.json; target decision lines 56–91 | supports | Issues 855 and 856 are closed and their repairs remain intact; open issue 1256 does not name this target. Prior graph-only scope did not certify unavailable Methods. |
+| search | Owned maintained community, isolate and reusable-taxon roots; local-search.json: ignored-inclusive bounded discovery | supports | The local lookup is bounded by its exact source/name/taxon queries and does not establish global absence of strains or data. |
+| adapter | Optional kg-microbe-sources runner; adapter-check.json: fresh batch 06 runtime discovery | supports | No runner was available in the owned task runtime; no external checkout runner or pathway/module query was executed. |
+| native-target | NetworkIntegrityAuditor().audit_community(target); support-audit.json: target network and native metric components | supports | The one-node graph is COMPLETE without establishing pathway causality; optional absent roles remain distinct from schema errors. |
+| independent-source | PMID:42442429; root-independent-source-audit.json: fresh abstract/access review and bounded searches | context_only | Independent assessment agrees with two minor findings and a partial scientific review; no main, supplement or figure inspection is claimed. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml; Actual execution 2026-10-21T10:07:43.870025+00:00 to 2026-10-21T10:07:45.381134+00:00 | supports | Target schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-strict kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml --out /private/tmp/cm-review-session/batch-06/000365/strict-report.tsv; Actual execution 2026-10-21T10:07:43.870307+00:00 to 2026-10-21T10:07:48.085529+00:00 | supports | Target strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-terms kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml; Actual execution 2026-10-21T10:07:43.876811+00:00 to 2026-10-21T10:07:46.973698+00:00 | supports | Target term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-gtdb kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml; Actual execution 2026-10-21T10:07:45.381604+00:00 to 2026-10-21T10:07:45.461804+00:00 | supports | Target GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-gtdb-domain kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml; Actual execution 2026-10-21T10:07:45.462114+00:00 to 2026-10-21T10:07:48.197048+00:00 | supports | Target GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-history history/records/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4; Actual execution 2026-10-21T10:07:46.974142+00:00 to 2026-10-21T10:07:49.671375+00:00 | supports | Target history validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T10:07:49.674375+00:00 to 2026-10-21T10:07:49.848060+00:00 | supports | Read-only corpus cache-filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-references-explained kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml; Actual execution 2026-10-21T10:07:49.848975+00:00 to 2026-10-21T10:07:51.262534+00:00 | supports | Target reference validation passed against the pinned abstract cache. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T10:06:35.990708+00:00 to 2026-10-21T10:06:41.713287+00:00 | supports | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; the target-native graph has no issue. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T10:06:35.990845+00:00 to 2026-10-21T10:06:41.708376+00:00 | supports | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; the target-native graph has no issue. |
+
+## Limits And Additional Notes
+
+- No full main Methods/Results, supplementary content or figure pixels were inspected. Fresh abstract support is not complete source certification.
+- DOI HTTP200 supplied a LinkingHub redirect shell; ScienceDirect returned 403 and the ordinary public API returned 429. The rate-limited request was not retried or bypassed; subscription/no-PMC metadata is not global absence evidence.
+- Exact sensu stricto 18 identity, the 86% denominator, strain-level membership, full enrichment transfers, medium recipe, atmosphere, duration and vessel/loading-volume definition remain unresolved.
+- Functional predictions and correlation support a pathway association, not organism-specific causality, metabolite transfer, flux or necessity. No raw microbiome or fermentation data were reanalyzed.
+- Historical GTDB mapping statistics were not recomputed. Fresh batch 06 adapter discovery and corpus receipts are scoped separately from target-specific checks.
+- Missing optional roles and inaccessible archive details are not fabricated as schema defects or dataset-omission findings; prior qualified curation and discussion gaps remain intact.
+- No canonical, cache, history or generated file was changed.
+- All 23 repository inputs were pinned before assessment and rechecked.
+- Direct source quotations total 10 words from the primary publication.
+- Native quality 100 is capped from 121; completion remains partial and scientific_review false.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T101106Z-baijiu-g4-hexanoic-acid-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Baijiu G4 hexanoic acid SynCom: record review'
+started_at: '2026-10-21T10:07:23.745165Z'
+finished_at: '2026-10-21T10:11:06.491694Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents reviewed source access/science, ontology/native
+    gates and supporting provenance; canonical inputs are unchanged. No person-level
+    independence is asserted.
+skill: review-yaml-record
+completion: partial
+verdict: needs_curation
+scientific_review: false
+summary: Abstract-bounded whole-record review finds two minor issues in abundance
+  wording and outcome placement. The qualified community-level pathway association
+  and zero arrows remain supported. Full Methods, Results, supplements and figures
+  were unavailable, leaving exact lineage/strain identity, the 86% denominator and
+  cultivation details unresolved.
+source:
+  git_revision: 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4/2026-09-13T183217Z-codex-f1f60a.yaml
+    sha256: d50cbdf11c3f18f6a72034368e2b567f3941ca4a3e764bf831c918184b32a22a
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+    sha256: a284ede66ef1dee551a8ba37b94d2a0dd0e63578f7b4bb6899792dd08d53a74a
+    role: target
+  - path: references_cache/PMID_42442429.txt
+    sha256: c40ed908a704f8e694953bd4147a9d5987ebdbfbea1f8d35eb0157880f0bd973
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml
+    sha256: 23f5fa6fc197e020f7cb3469749ebe4aa78886f8973cb6ed63fde321470a7f96
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000365
+  path: kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+  label: Baijiu Pit Mud Hexanoic Acid SynCom G4
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+    role: canonical_record
+scope:
+  description: Every record field and its single graph node assessed against fresh
+    abstract/metadata, local schema, ontology and current provenance; full scientific
+    source assessment unavailable.
+  selection: First assigned maintained path in fresh batch 06 after batch05 publication;
+    only CommunityMech:000365 reviewed.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000365
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000365
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    these do not certify full scientific source coverage.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000365
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-strict kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+    --out /private/tmp/cm-review-session/batch-06/000365/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    these do not certify full scientific source coverage.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000365
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-terms kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    these do not certify full scientific source coverage.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000365
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    these do not certify full scientific source coverage.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000365
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    these do not certify full scientific source coverage.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000365
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-history history/records/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    these do not certify full scientific source coverage.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000365
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    these do not certify full scientific source coverage.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target reference validation passed against the pinned abstract cache.
+  target_ids:
+  - CommunityMech:000365
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-references-explained kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    these do not certify full scientific source coverage.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; the target-native graph has no issue.
+  target_ids:
+  - CommunityMech:000365
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Reused fresh full-corpus batch 06 execution, not a target-specific pass
+    or complete-source certificate.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; the target-native graph has no issue.
+  target_ids:
+  - CommunityMech:000365
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Reused fresh full-corpus batch 06 execution, not a target-specific pass
+    or complete-source certificate.
+- check_id: publication-and-abstract
+  name: Publication identity and abstract support
+  status: passed
+  required: true
+  summary: Fresh metadata and abstract verify the source and bounded current claims.
+  target_ids:
+  - CommunityMech:000365
+  evidence_ids:
+  - pubmed
+  - crossref
+  - epmc
+  - construction
+  - pathway
+  - conditions
+- check_id: full-scientific-source
+  name: Full main Methods, Results and supplements
+  status: unavailable
+  required: true
+  summary: No usable full main or supplemental content was retrieved; the scientific
+    review remains partial.
+  target_ids:
+  - CommunityMech:000365
+  evidence_ids:
+  - source-access
+  - independent-source
+- check_id: dataset-identifiers
+  name: Concrete sequence or omics archive identifiers
+  status: not_applicable
+  required: false
+  summary: No concrete archive identifier is encoded or established by the inspected
+    abstract; absence from the full study is not inferred.
+  target_ids:
+  - CommunityMech:000365
+  evidence_ids:
+  - resources
+- check_id: cross-mech
+  name: Encoded medium/ingredient-Mech links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech identifier is encoded.
+  target_ids:
+  - CommunityMech:000365
+  evidence_ids:
+  - record
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Fresh owned-runtime discovery found no runnable adapter; no external checkout
+    query was executed.
+  target_ids:
+  - CommunityMech:000365
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+  locator: 'Whole record: two grounded taxa, one community node and zero arrows'
+  summary: The record preserves abstract-level uncertainty about lineage identity,
+    cultivation and pathway wiring; two bounded metadata corrections remain.
+  support: supports
+  accessed_at: '2026-10-21T10:11:06.490451Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42442429&retmode=xml
+  locator: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42442429&retmode=xml
+  summary: PubMed verifies PMID:42442429, DOI:10.1016/j.biortech.2026.135395, title
+    and abstract.
+  support: supports
+  accessed_at: '2026-10-21T10:07:42.378795Z'
+  snapshot_sha256: 802a0970e51b9286182c75802085af108f2b1cf054690fd1e0ba8871f47ede28
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1016/j.biortech.2026.135395
+  locator: https://api.crossref.org/works/10.1016/j.biortech.2026.135395
+  summary: Crossref verifies DOI/title metadata and ordinary publisher and text-mining
+    routes.
+  support: supports
+  accessed_at: '2026-10-21T10:07:42.438388Z'
+  snapshot_sha256: b2a095ecc6eaa3eb1bea7d68b4bb36d270db2af3de93c1ea5fc4c85820041f39
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42442429&format=json&resultType=core
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42442429&format=json&resultType=core
+  summary: Europe PMC supplies the matching abstract and subscription access metadata,
+    without a PMCID.
+  support: supports
+  accessed_at: '2026-10-21T10:07:42.806952Z'
+  snapshot_sha256: c555974383090e8c72220dffd339055ba5e654d195c83fbc11655f62538f181e
+- evidence_id: construction
+  kind: primary_source
+  reference: PMID:42442429
+  locator: 'Fresh PubMed Article/Abstract: third sentence, construction and dominant
+    taxa'
+  summary: The abstract identifies an ethanol-based G4 SynCom constructed from pit
+    mud; it does not resolve the full enrichment protocol or all strain identities.
+  support: supports
+  accessed_at: '2026-10-21T10:11:06.490672Z'
+  quote: top-down strategy
+  snapshot_sha256: 802a0970e51b9286182c75802085af108f2b1cf054690fd1e0ba8871f47ede28
+- evidence_id: abundance
+  kind: primary_source
+  reference: PMID:42442429
+  locator: 'Fresh PubMed Article/Abstract: third sentence, dominant-lineage list'
+  summary: C. kluyveri is the primary assignment within the sensu stricto 12 signal;
+    Pseudoclavibacter and sensu stricto 18 are grouped among dominant lineages. The
+    86% denominator remains unresolved.
+  support: supports
+  accessed_at: '2026-10-21T10:11:06.490674Z'
+  quote: and dominated by
+  snapshot_sha256: 802a0970e51b9286182c75802085af108f2b1cf054690fd1e0ba8871f47ede28
+- evidence_id: pathway
+  kind: primary_source
+  reference: PMID:42442429
+  locator: 'Fresh PubMed Article/Abstract: sentence beginning Functional predictions'
+  summary: Functional prediction and fermentation profiling support a potential community-level
+    association, not resolved organism-level wiring or causal transfer.
+  support: supports
+  accessed_at: '2026-10-21T10:11:06.490675Z'
+  quote: reverse β-oxidation pathway
+  snapshot_sha256: 802a0970e51b9286182c75802085af108f2b1cf054690fd1e0ba8871f47ede28
+- evidence_id: conditions
+  kind: primary_source
+  reference: PMID:42442429
+  locator: 'Fresh PubMed Article/Abstract: sentence beginning Under optimized conditions'
+  summary: The abstract reports pH 7.9, 37.6°C, 8.2% inoculum and 77% loading volume
+    with the product concentration; it does not identify the full medium or vessel.
+  support: supports
+  accessed_at: '2026-10-21T10:11:06.490676Z'
+  quote: 4.69 g/L
+  snapshot_sha256: 802a0970e51b9286182c75802085af108f2b1cf054690fd1e0ba8871f47ede28
+- evidence_id: source-access
+  kind: validation
+  reference: PMID:42442429
+  locator: 'source-audit.json: actual response receipts and assessed-content boundaries'
+  summary: DOI HTTP200 is a redirect shell; ScienceDirect returned a 403 error page
+    and the public API a 429 response. No full main or supplement content was inspected.
+  support: context_only
+  accessed_at: '2026-10-21T10:11:06.490721Z'
+  snapshot_sha256: bc7cace9e4d6b27aea71cfba6d7ee24efcbc2bc2f1a534b9326ca5e481e281c0
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO, CHEBI and GO snapshots
+  locator: 'ontology-authority.json: seven pairs across nine occurrences'
+  summary: All ID/label pairs match; C. kluyveri is species-ranked and Pseudoclavibacter
+    genus-ranked, with the SILVA-style lineage gap retained.
+  support: supports
+  accessed_at: '2026-10-21T10:11:06.490763Z'
+  snapshot_sha256: f8e47cb21a7c0ce11766e65a5b5d5e361c6ad95e1b5efa1f3344be3b10a8b223
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: AbundanceEnum.DOMINANT/ABUNDANT; MicrobialCommunity.environmental_factors;
+    CommunityOriginEnum
+  summary: DOMINANT denotes greatest or co-equal prominence; ABUNDANT denotes a major
+    member not presented as most prominent. Neither imposes a percentage threshold;
+    production outcomes are not environmental conditions.
+  support: supports
+  accessed_at: '2026-10-21T10:11:06.490764Z'
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+  locator: 'snippet-audit.json: cache and fresh primary abstract comparisons'
+  summary: All 14 occurrences match the cache; 13 match fresh abstracts and one DOI
+    header matches article-level metadata. The source itself contains the associationbetween
+    typo.
+  support: supports
+  accessed_at: '2026-10-21T10:11:06.490796Z'
+  snapshot_sha256: 6791fe373381c6f2d3bc1e083535b0a3d2530af7293abd9def1c9ed0811777bf
+- evidence_id: resources
+  kind: database
+  reference: Primary DOI and bounded archive discovery
+  locator: 'dataset-verification.json: inspected abstract and public-access scope'
+  summary: The DOI resolves to the target publication; inaccessible main/supplements
+    do not justify an accession-absence or missing-dataset finding.
+  support: supports
+  accessed_at: '2026-10-21T10:11:06.490839Z'
+  snapshot_sha256: 027e3c4304b497fce8121d27b17bc4fc90629d8e6546039d7d8bdc230f29380d
+- evidence_id: history
+  kind: record_content
+  reference: Creation sidecar and batch6 graph-review decision
+  locator: provenance-audit.json; target decision lines 56–91
+  summary: Issues 855 and 856 are closed and their repairs remain intact; open issue
+    1256 does not name this target. Prior graph-only scope did not certify unavailable
+    Methods.
+  support: supports
+  accessed_at: '2026-10-21T10:11:06.490872Z'
+  snapshot_sha256: 16364e97c85e514810993a3d4ef0cd324fb02c2606789ca4a83012e9e170f6ed
+- evidence_id: search
+  kind: search
+  reference: Owned maintained community, isolate and reusable-taxon roots
+  locator: 'local-search.json: ignored-inclusive bounded discovery'
+  summary: The local lookup is bounded by its exact source/name/taxon queries and
+    does not establish global absence of strains or data.
+  support: supports
+  accessed_at: '2026-10-21T10:11:06.490901Z'
+  snapshot_sha256: 476fdfb347cc5c3b7be8f81dec89980d1349b36af35a01c9c81e82b678018379
+  search_scope: Recorded rg --no-ignore --hidden searches in the named owned roots.
+- evidence_id: adapter
+  kind: search
+  reference: Optional kg-microbe-sources runner
+  locator: 'adapter-check.json: fresh batch 06 runtime discovery'
+  summary: No runner was available in the owned task runtime; no external checkout
+    runner or pathway/module query was executed.
+  support: supports
+  accessed_at: '2026-10-21T10:11:06.490929Z'
+  snapshot_sha256: ae744d622e7457ec8010160d291f4f52cc2045b3ba6f16e89c7d4e487b428f8b
+  search_scope: Fresh batch 06 PATH, venv/module and ignored-inclusive owned-worktree
+    discovery; external candidate not executed.
+- evidence_id: native-target
+  kind: validation
+  reference: NetworkIntegrityAuditor().audit_community(target)
+  locator: 'support-audit.json: target network and native metric components'
+  summary: The one-node graph is COMPLETE without establishing pathway causality;
+    optional absent roles remain distinct from schema errors.
+  support: supports
+  accessed_at: '2026-10-21T10:11:06.490961Z'
+  snapshot_sha256: fe64396e2e86f8a89e6db79826ae7d1bd49cbac3a228eebe7c5fa8c9ee9b0dd6
+- evidence_id: independent-source
+  kind: validation
+  reference: PMID:42442429
+  locator: 'root-independent-source-audit.json: fresh abstract/access review and bounded
+    searches'
+  summary: Independent assessment agrees with two minor findings and a partial scientific
+    review; no main, supplement or figure inspection is claimed.
+  support: context_only
+  accessed_at: '2026-10-21T10:11:06.490989Z'
+  snapshot_sha256: a738ae75b8f103b3302fc8a0278c86a0870489050e11a968bbdd2fd26188c2ae
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+  locator: Actual execution 2026-10-21T10:07:43.870025+00:00 to 2026-10-21T10:07:45.381134+00:00
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:07:45.381134Z'
+  snapshot_sha256: 7c7b06970e49360ad84add4a2b71b84c3e07bc6603a3ad28b664838cf5e650f2
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-strict kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+    --out /private/tmp/cm-review-session/batch-06/000365/strict-report.tsv
+  locator: Actual execution 2026-10-21T10:07:43.870307+00:00 to 2026-10-21T10:07:48.085529+00:00
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:07:48.085529Z'
+  snapshot_sha256: 09fb97fcea6efec499751db7993725d25fb22cf115957d2f24f467e018f8f7b9
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-terms kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+  locator: Actual execution 2026-10-21T10:07:43.876811+00:00 to 2026-10-21T10:07:46.973698+00:00
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:07:46.973698Z'
+  snapshot_sha256: 08e1f72451a87e43c4f5f84eed799e0b8b3081ba4f505a5713f7ea0692d6e957
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+  locator: Actual execution 2026-10-21T10:07:45.381604+00:00 to 2026-10-21T10:07:45.461804+00:00
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:07:45.461804Z'
+  snapshot_sha256: b77d39b3780151efddb4db4c908c2f90654b6d6575e4a69d3bb7fc415b4f4046
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+  locator: Actual execution 2026-10-21T10:07:45.462114+00:00 to 2026-10-21T10:07:48.197048+00:00
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:07:48.197048Z'
+  snapshot_sha256: 1f8e4805ee1b4d11afa2f6b03dad2160588d8c115560a64b381228cfc479dd84
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-history history/records/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4
+  locator: Actual execution 2026-10-21T10:07:46.974142+00:00 to 2026-10-21T10:07:49.671375+00:00
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:07:49.671375Z'
+  snapshot_sha256: 2434e59dae679e44a00b482a30a0d1c19a17a3187b612d916ffd2cf18c30fe6d
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T10:07:49.674375+00:00 to 2026-10-21T10:07:49.848060+00:00
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T10:07:49.848060Z'
+  snapshot_sha256: 7db2c98ffbb061472118b38593467437be2d882112749749d374aeede62e92d8
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-references-explained kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+  locator: Actual execution 2026-10-21T10:07:49.848975+00:00 to 2026-10-21T10:07:51.262534+00:00
+  summary: Target reference validation passed against the pinned abstract cache.
+  support: supports
+  accessed_at: '2026-10-21T10:07:51.262534Z'
+  snapshot_sha256: 5f34e8a9aa16c97627615a6d3567ee2b066d8ad800677e896b03fbde865f6b74
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T10:06:35.990708+00:00 to 2026-10-21T10:06:41.713287+00:00
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; the target-native graph has no issue.
+  support: supports
+  accessed_at: '2026-10-21T10:06:41.713287Z'
+  snapshot_sha256: 330e4d9c9367a126afe7da9d93d310348e0ba6cc1289d806f4ff8df350be9620
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T10:06:35.990845+00:00 to 2026-10-21T10:06:41.708376+00:00
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; the target-native graph has no issue.
+  support: supports
+  accessed_at: '2026-10-21T10:06:41.708376Z'
+  snapshot_sha256: 0420f90879ef008b71c8bfcfe444d05d2c030519aca57834b4e2587766c5b854
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: G4 ethanol-based pit-mud SynCom
+  outcome: supported
+  summary: The named G4 target is resolved at abstract scope; its complete membership
+    and detailed construction remain uncertain.
+  target_ids:
+  - CommunityMech:000365
+  evidence_ids:
+  - record
+  - construction
+  - abundance
+  dimensions:
+  - name: community_scope
+    value: Top-down G4 SynCom derived from Chinese baijiu pit mud
+    definition: Two grounded taxa are a partial representation of named dominant lineages,
+      not a fully resolved two-member strain pair.
+    evidence_ids:
+    - construction
+    - abundance
+  - name: source_strain
+    value: C. kluyveri species signal and Pseudoclavibacter genus
+    definition: No experimental strain accession or exact sensu stricto 18 sequence
+      identity is established by the accessible abstract.
+    evidence_ids:
+    - abundance
+    - ontology
+    - source-access
+  - name: environment
+    value: Laboratory production model with pit mud as source material
+    definition: The actual laboratory ENVO term and modeled mud term are valid; do
+      not equate the enriched model with the entire natural pit community.
+    evidence_ids:
+    - construction
+    - ontology
+  - name: medium
+    value: Ethanol-based feed; complete formulation unverified
+    definition: Optimized operating values are supported, but recipe, transfer schedule,
+      atmosphere, duration and vessel/loading denominator need Methods.
+    evidence_ids:
+    - conditions
+    - source-access
+  - name: experimental_setting
+    value: Enrichment, ecological analysis and fermentation optimization
+    definition: The abstract supports these contexts without resolving their exact
+      sampling and treatment relationships.
+    evidence_ids:
+    - construction
+    - pathway
+    - conditions
+  - name: evidence_tier
+    value: Abstract-reported profiling and computational prediction
+    definition: Correlation and functional predictions motivate an association; direct
+      organism-resolved catalytic or exchange mechanisms are unestablished.
+    evidence_ids:
+    - pathway
+    - abundance
+  - name: grounding_status
+    value: Seven valid current ontology pairs
+    definition: Historical GTDB mapping statistics were not recomputed; no broad Clostridium
+      mapping or species/strain invention fills the unresolved lineage gap.
+    evidence_ids:
+    - ontology
+    - adapter
+- assessment_id: taxonomy
+  area: grounding
+  topic: Two grounded taxa and the unresolved third lineage
+  outcome: concern
+  summary: Identity scopes are appropriately qualified, but Pseudoclavibacter abundance
+    wording needs internal consistency.
+  target_ids:
+  - CommunityMech:000365
+  evidence_ids:
+  - abundance
+  - record
+  - schema
+  - ontology
+  details: The source and description group Pseudoclavibacter among dominant lineages,
+    while its enum is ABUNDANT. Align or source-justify that ordinal distinction without
+    inventing a quantitative rank or assigning the unresolved 86% value to a denominator.
+    Keep C. kluyveri correlation distinct from isolate catalysis, and retain sensu
+    stricto 18 as an explicit gap pending sequence-level evidence. Missing optional
+    roles are not a defect.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: G4 SynCom Reverse Beta-Oxidation Association'
+  outcome: supported
+  summary: Retain the community-level association with its abstract limitation and
+    no downstream arrows.
+  target_ids:
+  - CommunityMech:000365
+  evidence_ids:
+  - pathway
+  - ontology
+  - record
+  details: The node covers ethanol-fed G4 hexanoic acid production and a predicted
+    reverse beta-oxidation association. No pairwise source/target taxa, interaction
+    type, partner transfer or causal edge is asserted. Ethanol, hexanoic acid and
+    broad fermentation grounding fit the reported context; prediction does not establish
+    complete pathway wiring, flux or necessity in a particular member.
+- assessment_id: cultivation
+  area: completeness
+  topic: Optimized conditions and unresolved protocol
+  outcome: unknown
+  summary: The abstract supports the four operating values and production result;
+    full cultivation cannot be certified.
+  target_ids:
+  - CommunityMech:000365
+  evidence_ids:
+  - conditions
+  - source-access
+  details: Preserve the open medium/vessel/enrichment discussion and avoid reconstructing
+    a recipe from generic ethanol fermentation knowledge. No current main-source observation
+    establishes missing conditions as absent from the publication. Top-down construction
+    alone does not require changing SYNTHETIC to ENGINEERED without resolving the
+    source assembly history.
+- assessment_id: outcomes
+  area: schema
+  topic: Hexanoic acid production field placement
+  outcome: concern
+  summary: 4.69 g/L is a production result rather than an environmental condition.
+  target_ids:
+  - CommunityMech:000365
+  evidence_ids:
+  - conditions
+  - schema
+  - record
+  details: Keep the optimized pH, temperature, inoculum and loading values as context,
+    but move the product measurement into a clearly scoped outcome statement. Do not
+    reinterpret its mass-per-volume unit as substrate loading, rate or molar yield.
+- assessment_id: metabolites-resources
+  area: evidence
+  topic: Ingredients, publication resource and unverified archives
+  outcome: supported
+  summary: The two CHEBI identities and DOI match the abstract; no sequence accession
+    or genome link is invented.
+  target_ids:
+  - CommunityMech:000365
+  evidence_ids:
+  - conditions
+  - pathway
+  - ontology
+  - resources
+  details: Ethanol is the feedstock context and hexanoic acid the target product.
+    No metal/rare-earth processing phenotype is demonstrated by the accessible source;
+    this does not claim the culture contains no mineral nutrients. No concrete CultureMech
+    or MediaIngredientMech identifier is encoded.
+- assessment_id: provenance
+  area: evidence
+  topic: Prior graph-only review and current access boundary
+  outcome: supported
+  summary: Current evidence supports retaining earlier qualifications, while full
+    scientific verification remains incomplete.
+  target_ids:
+  - CommunityMech:000365
+  evidence_ids:
+  - history
+  - snippets
+  - source-access
+  - independent-source
+  details: Do not restore removed functional roles or a typed 86% abundance merely
+    to improve completeness. A redirect response is not full-text access, subscription
+    metadata does not prove no alternate copy, and the rate-limited API was not retried.
+- assessment_id: validation
+  area: schema
+  topic: Native checks versus scientific completion
+  outcome: supported
+  summary: All eight native gates pass, but required full-source assessment remains
+    unavailable.
+  target_ids:
+  - CommunityMech:000365
+  evidence_ids:
+  - check-validate
+  - check-validate-strict
+  - check-validate-references-explained
+  - ontology
+  - source-access
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and quality
+  outcome: supported
+  summary: Native scores are diagnostics and do not certify unavailable Methods or
+    a resolved membership denominator.
+  target_ids:
+  - CommunityMech:000365
+  evidence_ids:
+  - record
+  - native-target
+  metrics:
+  - name: completeness
+    value: 25
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100,50 required metadata including all roles +5 environment +10
+      at least 3 factors +10 at least 3 nodes +5 resources +10 media +5 datasets +5
+      node metabolites).0+5+10+0+5+0+0+5=25; absent optional roles withhold the native
+      50 component but are not a schema defect.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100-50P1-10P2-2P3+20 min(mean node evidence/2,1)+15 if native
+      COMPLETE,0,100). P1=0, P2=0, P3=2, P4=0; 1 evidence item / 1 node = 1; 100-4+10+15=121
+      before capping.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+  - name: P2
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Observed native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+findings:
+- finding_id: abundance-wording
+  issue_key: cm-000365-abundance-wording
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded metadata consistency or field-placement
+    issue; target identity and the qualified abstract-level graph remain intact.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Source-justify or align Pseudoclavibacter abundance wording
+  description: The abstract and description call Pseudoclavibacter one of the dominant
+    lineages, whereas taxonomy uses ABUNDANT without explaining that different ordinal
+    interpretation.
+  target_ids:
+  - CommunityMech:000365
+  field_paths:
+  - taxonomy[1].abundance_level
+  - description
+  evidence_ids:
+  - abundance
+  - schema
+  - record
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+    role: canonical_record
+- finding_id: outcome-placement
+  issue_key: cm-000365-outcome-placement
+  category: schema
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded metadata consistency or field-placement
+    issue; target identity and the qualified abstract-level graph remain intact.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Place hexanoic acid production under outcomes
+  description: environmental_factors[2] stores the measured 4.69 g/L product result
+    as an environmental condition.
+  target_ids:
+  - CommunityMech:000365
+  field_paths:
+  - environmental_factors[2]
+  evidence_ids:
+  - conditions
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+    role: canonical_record
+actions:
+- action_id: repair-abundance-wording
+  description: Source-justify or align Pseudoclavibacter abundance wording.
+  finding_ids:
+  - abundance-wording
+  target_ids:
+  - CommunityMech:000365
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Align the ordinal wording with the cited source or provide claim-level evidence
+    explaining why ABUNDANT is the intended narrower interpretation.
+  - Do not impose a percentage cutoff on DOMINANT or assign the 86% value to Pseudoclavibacter
+    or an unresolved denominator.
+  - Preserve genus-level identity and the explicit sensu stricto 18 gap; do not invent
+    a missing member, functional role or strain from the abstract.
+- action_id: repair-outcome-placement
+  description: Place hexanoic acid production under outcomes.
+  finding_ids:
+  - outcome-placement
+  target_ids:
+  - CommunityMech:000365
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Move the 4.69 g/L result to an appropriate outcome statement, retaining exact
+    source evidence and its optimized-process context.
+  - Keep pH 7.9, 37.6°C, 8.2% inoculum and 77% loading volume distinguished from the
+    production measurement.
+  - Do not infer an initial hexanoic acid concentration, productivity rate or substrate-to-product
+    yield from the reported g/L result.
+- action_id: verify-source-before-expansion
+  description: Resolve remaining source-dependent details before expanding the record.
+  finding_ids:
+  - abundance-wording
+  - outcome-placement
+  target_ids:
+  - CommunityMech:000365
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Baijiu_Pit_Mud_Hexanoic_Acid_SynCom_G4.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Inspect full Methods and relevant supplements before adding strain identity, the
+    86% denominator, enrichment transfers, medium, vessel or dataset links.
+  - Preserve the qualified community-level association, zero arrows and explicit discussion
+    gaps; no role or mechanism is inferred to improve a native score.
+  - After separately authorized curation, preserve history and rerun schema, strict,
+    term, history, reference and target/corpus network checks.
+limitations:
+- No full main Methods/Results, supplementary content or figure pixels were inspected.
+  Fresh abstract support is not complete source certification.
+- DOI HTTP200 supplied a LinkingHub redirect shell; ScienceDirect returned 403 and
+  the ordinary public API returned 429. The rate-limited request was not retried or
+  bypassed; subscription/no-PMC metadata is not global absence evidence.
+- Exact sensu stricto 18 identity, the 86% denominator, strain-level membership, full
+  enrichment transfers, medium recipe, atmosphere, duration and vessel/loading-volume
+  definition remain unresolved.
+- Functional predictions and correlation support a pathway association, not organism-specific
+  causality, metabolite transfer, flux or necessity. No raw microbiome or fermentation
+  data were reanalyzed.
+- Historical GTDB mapping statistics were not recomputed. Fresh batch 06 adapter discovery
+  and corpus receipts are scoped separately from target-specific checks.
+- Missing optional roles and inaccessible archive details are not fabricated as schema
+  defects or dataset-omission findings; prior qualified curation and discussion gaps
+  remain intact.
+notes:
+- No canonical, cache, history or generated file was changed.
+- All 23 repository inputs were pinned before assessment and rechecked.
+- Direct source quotations total 10 words from the primary publication.
+- Native quality 100 is capped from 121; completion remains partial and scientific_review
+  false.
+tags:
+- record-review
+- abstract-bounded
+- hexanoic-acid
+- batch-06
+```
