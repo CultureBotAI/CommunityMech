@@ -1,0 +1,1354 @@
+# Auxenochlorella-Pseudomonas: whole-record source review
+
+- Review: 20261021T074752Z-auxenochlorella-pseudomonas-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T07:41:15.279684Z
+- Finished UTC: 2026-10-21T07:47:52.119846Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+One major finding concerns the unqualified bacterial consumer role; one minor finding resolves the known pair-cultivation gap with newly inspected supplement details. One optional finding grounds the central pyridoxal mediator. The sole qualified node remains supported and has no downstream arrows. Seven focused gates and cache preflight pass; corpus network gates retain unrelated warning failures.
+
+## Scope And Provenance
+
+Entire record: two taxa, one node, no downstream arrows, two factors, one dataset and thirteen evidence occurrences; fresh full primary main text, selected supplement text/tables, publication and BioProject metadata. No raw genomic, abundance or chemical data reanalysis.
+
+Selection: Next uncovered maintained path after CommunityMech:000004 in batch04; one resolved defined pair.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base c6e5a9b9af2d05e12eaafb2555a53f3a079268f3.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000451 | kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml | maintained | Auxenochlorella-Pseudomonas Florfenicol Phycosphere Coculture |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000451 | Target schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000451 | Target strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000451 | Target term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000451 | Target GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000451 | Target GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000451 | Target history validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000451 | Read-only corpus cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000451 | Target native reference validation passed; meaning and supplement scope were assessed separately. |
+| audit-network | failed | True | CommunityMech:000451 | Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records and exit 1; this target has no native network issue. |
+| check-network-quality | failed | True | CommunityMech:000451 | Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records and exit 1; this target has no native network issue. |
+| Primary publication and selected supplement verification | passed | True | CommunityMech:000451 | Fresh main text, publication metadata and the relevant supplement text/tables establish the assessed scopes. |
+| Cited BioProject metadata | passed | True | CommunityMech:000451 | PRJNA1171391 resolves; its exact isolate linkage comes from the article rather than generic repository metadata. |
+| Encoded medium and ingredient-Mech links | not_applicable | False | CommunityMech:000451 | The target encodes no CultureMech or MediaIngredientMech IDs or URLs to verify. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000451 | Same-runtime discovery was reused; no expression-module coverage was queried. |
+
+## Scientific And Domain Assessments
+
+### Selected pair and experimental boundaries
+
+identity: supported. Targets: CommunityMech:000451.
+
+The record resolves one defined algal-bacterial pair and keeps its precursor mixed community separate.
+
+### Both member identities and roles
+
+grounding: concern. Targets: CommunityMech:000451.
+
+Membership and algal PRIMARY_PRODUCER are supported; Pseudomonas CROSS_FEEDER needs the source's inference limits.
+
+DOMINANT is defensible as ordinal algal prominence; it is not treated as a measured population fraction. NO_GTDB_EQUIVALENT for the eukaryote and UNRESOLVED for the bacterial anchor preserve the known taxonomic limits.
+
+### ecological_interactions[0]: Pseudomonas Pyridoxal Support Under Florfenicol Stress
+
+graph: supported. Targets: CommunityMech:000451.
+
+The PARTIAL pairwise cross-feeding node correctly retains growth and supplementation evidence while qualifying mediation.
+
+The directed participants are Pseudomonas_sp1 (source, NCBITaxon:306 with local strain designation) and A. pyrenoidosa (target, NCBITaxon:3078). The direction is bacterial-associated benefit to algal growth under FF, with pyridoxal as a candidate mediator. The 13-day endpoint and separate supplementation assay do not establish endogenous necessity, traced transfer, reciprocal fitness or antibiotic degradation; linked source evidence supplies exact locators and short excerpts.
+
+### Complete downstream inventory
+
+graph: supported. Targets: CommunityMech:000451.
+
+The sole node has no downstream arrows; no additional causal chain is required.
+
+### Engineering design, medium and both environmental factors
+
+scope: concern. Targets: CommunityMech:000451.
+
+The known medium gap is now resolvable; treatment details should state the actual arms and separate the two validation assays.
+
+SYNTHETIC/ENGINEERED, PHYTOPLANKTON and laboratory setting are appropriate. Named stressors and bacterium-associated pyridoxal accumulation are supported; Table S3 does not supply an axenic FF+PLA comparator. The old discussion records an earlier access gap, not a false historical statement.
+
+### Central mediator and exposure chemistry
+
+completeness: concern. Targets: CommunityMech:000451.
+
+Pyridoxal is source-measured and groundable but absent from structured node metabolites; stressor identities are also available for optional enrichment.
+
+Use pyridoxal rather than an interchangeable vitamin-B6 form. Chemical grounding must retain candidate mediation and should not assert uptake or a polymer stereochemistry absent from the source.
+
+### BioProject, primary article link and genome findings
+
+provenance: supported. Targets: CommunityMech:000451.
+
+The project exists and its exact isolate association is explicit in the article; genome findings remain computational potential.
+
+### Metal and rare-earth relevance
+
+scope: supported. Targets: CommunityMech:000451.
+
+NOT_APPLICABLE is appropriate for the reported ecological function.
+
+The pair concerns pollutant stress and algal support; possible trace nutrients in a medium would not establish a metal-processing role.
+
+### Cache, histories and earlier graph repair
+
+provenance: supported. Targets: CommunityMech:000451.
+
+Fresh evidence confirms the cautious graph and identifies a now-accessible supplement that can resolve the separate cultivation gap.
+
+### Native gates, identifiers, snippets and source checks
+
+schema: supported. Targets: CommunityMech:000451.
+
+Seven focused gates and cache preflight pass; five ontology pairs and thirteen snippets verify, while unrelated corpus network warnings remain explicit.
+
+### Native completeness and quality
+
+completeness: supported. Targets: CommunityMech:000451.
+
+Completeness is 65 and validation quality caps at 100 despite the unresolved findings.
+
+## Findings
+
+### consumer-role: Bacterial CROSS_FEEDER exceeds the demonstrated role
+
+major / open / confirmed; issue key: cm-000451-consumer-role.
+
+The schema defines CROSS_FEEDER by consumption of another taxon's metabolites. Attached membership/genome snippets do not demonstrate that phenotype, and the directed graph concerns bacterial-associated benefit to the alga. Discussion and precursor correlations propose exudate-dependent recruitment, but do not establish a specific consumption phenotype for this isolate in the pair.
+
+### pair-cultivation: Accessible supplement resolves the documented pair-cultivation gap
+
+minor / open / confirmed; issue key: cm-000451-pair-cultivation.
+
+The record leaves growth_media absent and the exact-pair discussion open, although Text S12/S14 now supplies medium, inoculum, volume, incubation and exposure details. The main 13-day endpoint, 14-day protocol and 30-day supplementation assay require distinct labels; generalized comparison wording should not imply an axenic FF+PLA arm missing from Table S3.
+
+### pyridoxal-grounding: Ground the measured candidate mediator as pyridoxal
+
+informational / open / confirmed; issue key: cm-000451-pyridoxal-grounding.
+
+The sole mechanistic node names pyridoxal in prose but has no structured metabolite. The source measurement and exact CHEBI identity permit useful enrichment without changing the node's causal qualifications.
+
+## Recommended Actions And Acceptance Checks
+
+### fix-consumer-role
+
+Qualify the bacterial role as a source hypothesis with appropriate evidence or remove the unestablished role, preserving the supported donor-associated graph and strain identity.
+
+- Do not infer consumer status solely from a vitamin-donor effect.
+- General phycosphere background and precursor correlations remain distinct from the selected-pair assay.
+- No unsupported reciprocal edge or replacement role is added.
+- Rerun strict, reference and network checks.
+
+### fix-pair-cultivation
+
+Add source-backed pair conditions and actual treatment arms, then resolve the recoverable medium discussion through an authorized curation event while retaining the separate mediation gap.
+
+- Use Text S12 for the pair and Text S14 for supplementation, without importing the precursor's volume or inoculum.
+- Retain 14-day protocol versus reported day-13 endpoint and the separate 30-day supplementation duration.
+- Do not invent pH, gas atmosphere, flask capacity, continuous-shaking rpm or exact BG-11 composition.
+- Match any CultureMech link to the actual recipe before asserting equivalence.
+- Strict/reference checks pass and historical discussions are not silently rewritten.
+
+### fix-pyridoxal-grounding
+
+Add pyridoxal CHEBI:17310 as the measured candidate mediator; optionally ground florfenicol and generic PLA exposure separately with their source-specific roles.
+
+- Do not substitute pyridoxine or a broad vitamin-B6 class for the measured analyte.
+- Preserve the unresolved necessity and transfer of endogenous bacterial pyridoxal.
+- Treat FF and PLA as exposure factors, not demonstrated exchanged nutrients; do not infer PLA stereochemistry.
+- Term and reference checks pass.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml; Entire record: two members, one directed pairwise node, no downstream arrows, two factors and one dataset | supports | The target is the selected-isolate validation pair, explicitly distinct from its precursor mixed phycosphere enrichment. |
+| fulltext | PMID:41724996; https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13037320/fullTextXML | supports | Fresh complete main article, including Methods, Results, Discussion, figure captions and data availability, was assessed. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=41724996&amp;retmode=xml; https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=41724996&amp;retmode=xml | supports | PMID, DOI, PMCID, title and authors match the cited study. |
+| crossref | https://api.crossref.org/works/10.1186/s40168-026-02335-7; https://api.crossref.org/works/10.1186/s40168-026-02335-7 | supports | Independent DOI registration identifies the same article. |
+| supplement | PMID:41724996; https://static-content.springer.com/esm/art%3A10.1186%2Fs40168-026-02335-7/MediaObjects/40168_2026_2335_MOESM1_ESM.docx; Text S9-S14 and Tables S3-S10 | supports | The public DOCX was downloaded and the named text/tables inspected; its MD5 matches the article metadata. Embedded figures were not visually reanalyzed. |
+| identity-source | PMID:41724996; Methods Sec3, Sec8-S9; Results Sec17-S18 | supports | The alga comes from the Institute of Hydrobiology, CAS, without a stated strain accession in the inspected strain paragraph. Pseudomonas_sp1 is a local isolate name from the PFH enrichment; the other two screened isolates are not members of this selected pair. |
+| precursor | PMID:41724996; Methods Sec3-S4 | supports | The 60-day precursor uses lake-derived mixed bacteria and an 800-mL BG-11 culture. Those quantities and community observations must not be inherited as the selected-pair protocol. |
+| pair-medium | PMID:41724996; Supplement Text S12, paragraph block 142 | supports | The pair uses 400 mL BG-11 in conical flasks, initially 1e5 algal cells/mL and 1e7 bacterial CFU/mL, 25±1 C, 3000±300 lux, 12/12-hour light/dark, and shaking at least three times daily. The protocol states 14 days; Results/Table S9 report day-13 outcomes. |
+| pair-arms | PMID:41724996; Supplement Table S3, block 221; Text S14 and Table S10, blocks 151 and 241 | supports | Table S3 has axenic/no-stress, pair/no-stress, axenic/FF, pair/FF, and pair/FF+PLA arms, with 10 mg/L of each stressor where present. There is no matched axenic FF+PLA arm. The separate 30-day supplementation experiment tests 5/10 micrograms/L pyridoxal with and without Pseudomonas under FF. |
+| pair-benefit | PMID:41724996; Results Sec18; Fig. 6A-E; Supplement Text S13 and Table S9 | supports | The defined pair improves algal growth under FF and shows bacterium-associated pyridoxal accumulation; FF concentration does not significantly decrease. Mass-spectrometric measurement supports the analyte identity, while endogenous necessity and direct transfer remain untested. |
+| supplementation | PMID:41724996; Results Sec18, Fig. 6F; Discussion Sec19; Supplement Text S14/Table S10 | supports | Pyridoxal supplementation supports sufficiency for algal benefit, including an enhanced response with the bacterium; it does not isolate the mediator of the endogenous pair effect. |
+| consumer-scope | PMID:41724996; Discussion Sec19: stationary-phase exudates and bacterial colonization; precursor correlation Results Sec16 | supports | Algal exudate use is a proposed/background explanation for recruitment. This is weaker than a demonstrated consumption phenotype for Pseudomonas_sp1 in the defined pair; its measured donor-associated benefit does not itself establish the consumer role. |
+| genome-potential | PMID:41724996; Results Sec17; Supplement Text S10 and Table S5 | supports | Genome annotation supports vitamin-B6 pathway and biosynthetic-cluster potential, not chemical production by every predicted cluster; no read, assembly or pathway analysis was repeated. |
+| schema | src/communitymech/schema/communitymech.yaml; src/communitymech/schema/mech_shared.yaml; FunctionalRoleEnum; AbundanceEnum; Dataset.evidence and Discussion.evidence to SupportingReference | supports | CROSS_FEEDER denotes use of another taxon's metabolites. DOMINANT is ordinal prominence, not a measured fraction. Dataset and Discussion evidence uses SupportingReference, whose free-form evidence_source permits full_text; these values are not EvidenceItem enum violations. |
+| ontology | Local OAK NCBITaxon, ENVO and GO snapshots; Five unique ID/label pairs across seven occurrences; definitions and ranks | supports | All labels match. Pseudomonas sp. is a generic taxonomic anchor supplemented by the local strain designation; unresolved GTDB is retained. Laboratory and modeled freshwater environments are distinct, and GO:0044419 is a suitably broad interaction process. |
+| chemicals | Local CHEBI snapshot; chemical-grounding-candidates.json; exact labels, synonyms and definitions | supports | Pyridoxal resolves to CHEBI:17310, distinct from pyridoxine and the vitamin-B6 class; florfenicol resolves to CHEBI:87185. CHEBI:60159 is a generic PLA-polymer candidate, without source-verified stereochemistry or particle morphology. |
+| snippets | kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml; All 13 snippet occurrences, 11 unique, against the pinned cache and fresh primary XML | supports | Every snippet matches both sources after Unicode/whitespace normalization; the committed cache includes appended full text rather than abstract-only content. |
+| history | history/records/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture; reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml; Two sidecars and exact prior-decision row, lines 217-252 | supports | The prior graph decision matches the target hash, preserves the medium/mediation gaps, and explicitly excludes non-graph certification. |
+| issue | https://github.com/CultureBotAI/CommunityMech/issues/1244; Fresh public linked issue body and state; gh issue view 1244 --repo CultureBotAI/CommunityMech --json number,title,url,state,body,comments,closedAt,updatedAt | supports | The graph repair issue is closed; this does not certify the separate medium or role fields. |
+| search | Owned-worktree caches, histories, prior decisions and kb/taxa; Ignored-inclusive exact ID/name/slug lookup | supports | No supported reusable taxon record was found for the two anchors/local strain; one target cache and both history sidecars were located. |
+| bioproject | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=bioproject&amp;id=1171391&amp;retmode=xml; Public BioProject PRJNA1171391 metadata | supports | The public project is genome-sequencing/raw-read metadata for phycospheric bacteria; it does not name the isolate or publication. Methods Sec8 supplies the exact Pseudomonas_sp1 linkage; Data availability also lists the accession. |
+| dataset-audit | Source accession and public metadata cross-check; dataset-verification.json | supports | The accession is valid and article-linked; the generic project metadata does not independently certify the local strain, assembly contents or annotated functions. |
+| medium-linkage | Previously retrieved public CultureMech recipe index; medium-linkage-audit.json; bounded BG-11 name/filename lookup | supports | Twenty-nine name candidates include distinct and modified recipes; no unique recipe equivalence follows from the source medium name. |
+| adapter | Optional kg-microbe-sources adapter; Same-batch04-runtime discovery reuse | supports | No installed runner/module was available; no expression-module coverage was queried and the external-checkout candidate was not executed. |
+| native-target | NetworkIntegrityAuditor().audit_community(target); support-audit.json; fresh targeted network diagnostic and native rubric | supports | One node, no downstream arrows and three evidence items give mean evidence three; both taxa participate and native network status is COMPLETE with no issues. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml; Actual execution 2026-10-21T07:42:04.248690+00:00 to 2026-10-21T07:42:05.348469+00:00 | supports | Target schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-strict kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml --out /private/tmp/cm-review-session/batch-04/000451/strict-report.tsv; Actual execution 2026-10-21T07:42:04.249157+00:00 to 2026-10-21T07:42:07.018297+00:00 | supports | Target strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-terms kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml; Actual execution 2026-10-21T07:42:04.249347+00:00 to 2026-10-21T07:42:06.837748+00:00 | supports | Target term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-gtdb kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml; Actual execution 2026-10-21T07:42:05.348787+00:00 to 2026-10-21T07:42:05.453291+00:00 | supports | Target GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-gtdb-domain kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml; Actual execution 2026-10-21T07:42:05.453614+00:00 to 2026-10-21T07:42:07.151458+00:00 | supports | Target GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-history history/records/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture; Actual execution 2026-10-21T07:42:06.838192+00:00 to 2026-10-21T07:42:07.798026+00:00 | supports | Target history validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T07:42:07.802315+00:00 to 2026-10-21T07:42:07.885944+00:00 | supports | Read-only corpus cache-filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-references-explained kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml; Actual execution 2026-10-21T07:42:07.886226+00:00 to 2026-10-21T07:42:09.049064+00:00 | supports | Target native reference validation passed; meaning and supplement scope were assessed separately. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T07:06:05.543108+00:00 to 2026-10-21T07:06:16.498440+00:00 | supports | Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records and exit 1; this target has no native network issue. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T07:06:16.498920+00:00 to 2026-10-21T07:06:23.361213+00:00 | supports | Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records and exit 1; this target has no native network issue. |
+
+## Limits And Additional Notes
+
+- Full main text and supplement Text S9-S14/Tables S3-S10 were inspected; other supplement text and embedded figure images were not reassessed. No sequence, genome assembly, metabolite chromatogram or abundance reanalysis was performed.
+- Algal strain accession and bacterial species identity remain unresolved beyond the source designations; BioProject metadata is generic and the article supplies the exact isolate association.
+- The pair, precursor mixed enrichment and pyridoxal supplementation have distinct conditions and durations. The available design lacks a matched axenic FF+PLA arm.
+- Pyridoxal detection and supplementation do not establish endogenous necessity, traced transfer, reciprocal feeding or antibiotic degradation.
+- BG-11 is named in the supplement, but its exact formulation and a uniquely equivalent external recipe were not established. Unreported pH, gas atmosphere and flask capacity must remain unknown.
+- The optional structured source adapter was unavailable; discovery was reused within the same batch04 runtime and no external-checkout runner was executed.
+- Canonical records, caches, history and generated products remain unchanged.
+- The single publication and its supplement contribute 15 quoted words in total.
+- Legacy full_text values are valid SupportingReference provenance, not EvidenceItem enum violations.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T074752Z-auxenochlorella-pseudomonas-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Auxenochlorella-Pseudomonas: whole-record source review'
+started_at: '2026-10-21T07:41:15.279684Z'
+finished_at: '2026-10-21T07:47:52.119846Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Canonical target unchanged; prior codex graph curation prevents
+    person-level independence claims. Separate agents checked native gates, ontology,
+    snippets, history, metadata and metrics; root independently read primary claims
+    and supplement details.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: One major finding concerns the unqualified bacterial consumer role; one minor
+  finding resolves the known pair-cultivation gap with newly inspected supplement
+  details. One optional finding grounds the central pyridoxal mediator. The sole qualified
+  node remains supported and has no downstream arrows. Seven focused gates and cache
+  preflight pass; corpus network gates retain unrelated warning failures.
+source:
+  git_revision: c6e5a9b9af2d05e12eaafb2555a53f3a079268f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture/2026-09-27T150158Z-claude-code-3ccabb.yaml
+    sha256: 8141032be949a3de85543aeb53c9f9e6a2188c1efea78a760de6d49f54490675
+    role: context
+  - path: history/records/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture/2026-10-05T084242Z-codex-f95a73.yaml
+    sha256: 1eb81f2df01bbcafa2c6e76f3aaa42a3a4642984c06d463854194c7bcb0a32a8
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+    sha256: eba49bde93c713de3dfa096126b3067db05aedae5399c9003a0b2843c58eaeae
+    role: target
+  - path: references_cache/PMID_41724996.txt
+    sha256: d20c66d1ca3f45750d3518d864a087bde6c8e467fb6fd7e9eec841ea160a83b8
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+    sha256: e21a355f676730e8e7e6de6ea663017c9b09e05a824ff383a272ab9f1399fd70
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000451
+  path: kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  label: Auxenochlorella-Pseudomonas Florfenicol Phycosphere Coculture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+    role: canonical_record
+scope:
+  description: 'Entire record: two taxa, one node, no downstream arrows, two factors,
+    one dataset and thirteen evidence occurrences; fresh full primary main text, selected
+    supplement text/tables, publication and BioProject metadata. No raw genomic, abundance
+    or chemical data reanalysis.'
+  selection: Next uncovered maintained path after CommunityMech:000004 in batch04;
+    one resolved defined pair.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000451
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000451
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    pinned inputs and cache unchanged.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000451
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-strict kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-04/000451/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    pinned inputs and cache unchanged.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000451
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-terms kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    pinned inputs and cache unchanged.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000451
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    pinned inputs and cache unchanged.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000451
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    pinned inputs and cache unchanged.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000451
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-history history/records/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    pinned inputs and cache unchanged.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000451
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    pinned inputs and cache unchanged.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target native reference validation passed; meaning and supplement scope
+    were assessed separately.
+  target_ids:
+  - CommunityMech:000451
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-references-explained kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight;
+    pinned inputs and cache unchanged.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  target_ids:
+  - CommunityMech:000451
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Reused fresh full-corpus batch04 receipt, not a target-specific failure
+    or pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  target_ids:
+  - CommunityMech:000451
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Reused fresh full-corpus batch04 receipt, not a target-specific failure
+    or pass.
+- check_id: primary-source
+  name: Primary publication and selected supplement verification
+  status: passed
+  required: true
+  summary: Fresh main text, publication metadata and the relevant supplement text/tables
+    establish the assessed scopes.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - fulltext
+  - pubmed
+  - crossref
+  - supplement
+- check_id: dataset
+  name: Cited BioProject metadata
+  status: passed
+  required: true
+  summary: PRJNA1171391 resolves; its exact isolate linkage comes from the article
+    rather than generic repository metadata.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - bioproject
+  - dataset-audit
+- check_id: cross-mech
+  name: Encoded medium and ingredient-Mech links
+  status: not_applicable
+  required: false
+  summary: The target encodes no CultureMech or MediaIngredientMech IDs or URLs to
+    verify.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - record
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Same-runtime discovery was reused; no expression-module coverage was queried.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  locator: 'Entire record: two members, one directed pairwise node, no downstream
+    arrows, two factors and one dataset'
+  summary: The target is the selected-isolate validation pair, explicitly distinct
+    from its precursor mixed phycosphere enrichment.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.114822Z'
+- evidence_id: fulltext
+  kind: primary_source
+  reference: PMID:41724996
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13037320/fullTextXML
+  summary: Fresh complete main article, including Methods, Results, Discussion, figure
+    captions and data availability, was assessed.
+  support: supports
+  accessed_at: '2026-10-21T07:41:58.955015Z'
+  snapshot_sha256: 3c6f2b2b957ff8d1f3f2144d808c417d78b1e18a03b4ad5cd6bbccfbba6f6949
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41724996&retmode=xml
+  locator: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41724996&retmode=xml
+  summary: PMID, DOI, PMCID, title and authors match the cited study.
+  support: supports
+  accessed_at: '2026-10-21T07:41:50.195391Z'
+  snapshot_sha256: e10fbebb6138e5952dca317157ba3b6f113ef8926e8402c6c151f0a3c7b3ba58
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1186/s40168-026-02335-7
+  locator: https://api.crossref.org/works/10.1186/s40168-026-02335-7
+  summary: Independent DOI registration identifies the same article.
+  support: supports
+  accessed_at: '2026-10-21T07:41:50.223288Z'
+  snapshot_sha256: 214d8f68b6555d643883b5b7fd68f0b813700f0dbf7412a85c91c3c8517adb90
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:41724996
+  locator: https://static-content.springer.com/esm/art%3A10.1186%2Fs40168-026-02335-7/MediaObjects/40168_2026_2335_MOESM1_ESM.docx;
+    Text S9-S14 and Tables S3-S10
+  summary: The public DOCX was downloaded and the named text/tables inspected; its
+    MD5 matches the article metadata. Embedded figures were not visually reanalyzed.
+  support: supports
+  accessed_at: '2026-10-21T07:42:42.686297Z'
+  snapshot_sha256: c05e1814761a0daf38145da4e787e599ea21e82831daa4f5df13678f117c0db7
+- evidence_id: identity-source
+  kind: primary_source
+  reference: PMID:41724996
+  locator: Methods Sec3, Sec8-S9; Results Sec17-S18
+  summary: The alga comes from the Institute of Hydrobiology, CAS, without a stated
+    strain accession in the inspected strain paragraph. Pseudomonas_sp1 is a local
+    isolate name from the PFH enrichment; the other two screened isolates are not
+    members of this selected pair.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.115549Z'
+- evidence_id: precursor
+  kind: primary_source
+  reference: PMID:41724996
+  locator: Methods Sec3-S4
+  summary: The 60-day precursor uses lake-derived mixed bacteria and an 800-mL BG-11
+    culture. Those quantities and community observations must not be inherited as
+    the selected-pair protocol.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.115550Z'
+- evidence_id: pair-medium
+  kind: primary_source
+  reference: PMID:41724996
+  locator: Supplement Text S12, paragraph block 142
+  summary: The pair uses 400 mL BG-11 in conical flasks, initially 1e5 algal cells/mL
+    and 1e7 bacterial CFU/mL, 25±1 C, 3000±300 lux, 12/12-hour light/dark, and shaking
+    at least three times daily. The protocol states 14 days; Results/Table S9 report
+    day-13 outcomes.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.115552Z'
+  quote: 400 mL BG-11 medium
+- evidence_id: pair-arms
+  kind: primary_source
+  reference: PMID:41724996
+  locator: Supplement Table S3, block 221; Text S14 and Table S10, blocks 151 and
+    241
+  summary: Table S3 has axenic/no-stress, pair/no-stress, axenic/FF, pair/FF, and
+    pair/FF+PLA arms, with 10 mg/L of each stressor where present. There is no matched
+    axenic FF+PLA arm. The separate 30-day supplementation experiment tests 5/10 micrograms/L
+    pyridoxal with and without Pseudomonas under FF.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.115553Z'
+- evidence_id: pair-benefit
+  kind: primary_source
+  reference: PMID:41724996
+  locator: Results Sec18; Fig. 6A-E; Supplement Text S13 and Table S9
+  summary: The defined pair improves algal growth under FF and shows bacterium-associated
+    pyridoxal accumulation; FF concentration does not significantly decrease. Mass-spectrometric
+    measurement supports the analyte identity, while endogenous necessity and direct
+    transfer remain untested.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.115555Z'
+  quote: promoted microalgal growth within 13
+- evidence_id: supplementation
+  kind: primary_source
+  reference: PMID:41724996
+  locator: Results Sec18, Fig. 6F; Discussion Sec19; Supplement Text S14/Table S10
+  summary: Pyridoxal supplementation supports sufficiency for algal benefit, including
+    an enhanced response with the bacterium; it does not isolate the mediator of the
+    endogenous pair effect.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.115556Z'
+  quote: exogenous vitamin B6 alone is sufficient
+- evidence_id: consumer-scope
+  kind: primary_source
+  reference: PMID:41724996
+  locator: 'Discussion Sec19: stationary-phase exudates and bacterial colonization;
+    precursor correlation Results Sec16'
+  summary: Algal exudate use is a proposed/background explanation for recruitment.
+    This is weaker than a demonstrated consumption phenotype for Pseudomonas_sp1 in
+    the defined pair; its measured donor-associated benefit does not itself establish
+    the consumer role.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.115557Z'
+- evidence_id: genome-potential
+  kind: primary_source
+  reference: PMID:41724996
+  locator: Results Sec17; Supplement Text S10 and Table S5
+  summary: Genome annotation supports vitamin-B6 pathway and biosynthetic-cluster
+    potential, not chemical production by every predicted cluster; no read, assembly
+    or pathway analysis was repeated.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.115558Z'
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml; src/communitymech/schema/mech_shared.yaml
+  locator: FunctionalRoleEnum; AbundanceEnum; Dataset.evidence and Discussion.evidence
+    to SupportingReference
+  summary: CROSS_FEEDER denotes use of another taxon's metabolites. DOMINANT is ordinal
+    prominence, not a measured fraction. Dataset and Discussion evidence uses SupportingReference,
+    whose free-form evidence_source permits full_text; these values are not EvidenceItem
+    enum violations.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.115560Z'
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO and GO snapshots
+  locator: Five unique ID/label pairs across seven occurrences; definitions and ranks
+  summary: All labels match. Pseudomonas sp. is a generic taxonomic anchor supplemented
+    by the local strain designation; unresolved GTDB is retained. Laboratory and modeled
+    freshwater environments are distinct, and GO:0044419 is a suitably broad interaction
+    process.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.115725Z'
+  snapshot_sha256: aeceea2a00bcc069f5b3ab344c6b89b157ec5df2fbdc0f7f02d00bfaa054a680
+- evidence_id: chemicals
+  kind: authority
+  reference: Local CHEBI snapshot
+  locator: chemical-grounding-candidates.json; exact labels, synonyms and definitions
+  summary: Pyridoxal resolves to CHEBI:17310, distinct from pyridoxine and the vitamin-B6
+    class; florfenicol resolves to CHEBI:87185. CHEBI:60159 is a generic PLA-polymer
+    candidate, without source-verified stereochemistry or particle morphology.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.115927Z'
+  snapshot_sha256: f30b4962cdbc39bb4570d8153d581539bb2bd396c153f7c01a0095c2ff92de1e
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  locator: All 13 snippet occurrences, 11 unique, against the pinned cache and fresh
+    primary XML
+  summary: Every snippet matches both sources after Unicode/whitespace normalization;
+    the committed cache includes appended full text rather than abstract-only content.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.116105Z'
+  snapshot_sha256: 622567bea83f6173348e914d33b436d54b394ea6b9545146da917cd579d59fcd
+- evidence_id: history
+  kind: record_content
+  reference: history/records/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture;
+    reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  locator: Two sidecars and exact prior-decision row, lines 217-252
+  summary: The prior graph decision matches the target hash, preserves the medium/mediation
+    gaps, and explicitly excludes non-graph certification.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.116244Z'
+  snapshot_sha256: 97cf05f0604ae270a6b2ecf3968663e0e57fd9002e4d30d57cc045b13caace4e
+- evidence_id: issue
+  kind: database
+  reference: https://github.com/CultureBotAI/CommunityMech/issues/1244
+  locator: Fresh public linked issue body and state; gh issue view 1244 --repo CultureBotAI/CommunityMech
+    --json number,title,url,state,body,comments,closedAt,updatedAt
+  summary: The graph repair issue is closed; this does not certify the separate medium
+    or role fields.
+  support: supports
+  accessed_at: '2026-10-21T07:41:28.497999Z'
+  snapshot_sha256: 2d8de8bf9c1f16d798bdb1622962c4732eaae59630325a7e58c30e04163f1c0f
+- evidence_id: search
+  kind: search
+  reference: Owned-worktree caches, histories, prior decisions and kb/taxa
+  locator: Ignored-inclusive exact ID/name/slug lookup
+  summary: No supported reusable taxon record was found for the two anchors/local
+    strain; one target cache and both history sidecars were located.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.116779Z'
+  snapshot_sha256: 2d891b9d6f313d943eabaafaf63474ef999f9d77ba531d279af6a16a876c5314
+  search_scope: rg --no-ignore --hidden over the stated owned-worktree directories;
+    no broader absence assertion.
+- evidence_id: bioproject
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=bioproject&id=1171391&retmode=xml
+  locator: Public BioProject PRJNA1171391 metadata
+  summary: The public project is genome-sequencing/raw-read metadata for phycospheric
+    bacteria; it does not name the isolate or publication. Methods Sec8 supplies the
+    exact Pseudomonas_sp1 linkage; Data availability also lists the accession.
+  support: supports
+  accessed_at: '2026-10-21T07:41:50.255043Z'
+  snapshot_sha256: 467333a2dadcffe991e2ae5d93be504be01a4059168f7c24e67903108cb5aa98
+- evidence_id: dataset-audit
+  kind: validation
+  reference: Source accession and public metadata cross-check
+  locator: dataset-verification.json
+  summary: The accession is valid and article-linked; the generic project metadata
+    does not independently certify the local strain, assembly contents or annotated
+    functions.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.117083Z'
+  snapshot_sha256: beaa7dd9b94eb7fe329fdf9c1af5d5d50a459ed275e83126ae1d2cb1441fd524
+- evidence_id: medium-linkage
+  kind: search
+  reference: Previously retrieved public CultureMech recipe index
+  locator: medium-linkage-audit.json; bounded BG-11 name/filename lookup
+  summary: Twenty-nine name candidates include distinct and modified recipes; no unique
+    recipe equivalence follows from the source medium name.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.117282Z'
+  snapshot_sha256: b29130436735008a1b033e0b182096f044cea72c3681961453813cae9d95c1b2
+  search_scope: Bounded regex lookup in the pinned same-batch public index; no new
+    live query or complete recipe-body inspection.
+- evidence_id: adapter
+  kind: search
+  reference: Optional kg-microbe-sources adapter
+  locator: Same-batch04-runtime discovery reuse
+  summary: No installed runner/module was available; no expression-module coverage
+    was queried and the external-checkout candidate was not executed.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.117434Z'
+  snapshot_sha256: 123096786f7c814e316f9ed27749d0b389a53bdcd7b8b4315f3c06f13b82cfec
+  search_scope: Explicit reuse of fresh batch04 PATH, virtualenv, module and bounded
+    ignored-inclusive discovery.
+- evidence_id: native-target
+  kind: validation
+  reference: NetworkIntegrityAuditor().audit_community(target)
+  locator: support-audit.json; fresh targeted network diagnostic and native rubric
+  summary: One node, no downstream arrows and three evidence items give mean evidence
+    three; both taxa participate and native network status is COMPLETE with no issues.
+  support: supports
+  accessed_at: '2026-10-21T07:47:52.117562Z'
+  snapshot_sha256: fa1bb06e4e6e727103140cbd72e4f630c55de5339bd8954aa2aed80b046058a9
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  locator: Actual execution 2026-10-21T07:42:04.248690+00:00 to 2026-10-21T07:42:05.348469+00:00
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:42:05.348469Z'
+  snapshot_sha256: e1851c43269a6c69c6c4e102225f443838086bf6bbc7c8819dafa70d28c70df3
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-strict kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-04/000451/strict-report.tsv
+  locator: Actual execution 2026-10-21T07:42:04.249157+00:00 to 2026-10-21T07:42:07.018297+00:00
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:42:07.018297Z'
+  snapshot_sha256: 387ef12f5391700040e1f9dd566c7e1cd17ebc61dbf6d0d357df13631987a225
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-terms kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  locator: Actual execution 2026-10-21T07:42:04.249347+00:00 to 2026-10-21T07:42:06.837748+00:00
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:42:06.837748Z'
+  snapshot_sha256: 34bfd4efb5cc92633d6bcdfee603c3d337cd5d1a76746e78395b57fae4c87db2
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  locator: Actual execution 2026-10-21T07:42:05.348787+00:00 to 2026-10-21T07:42:05.453291+00:00
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:42:05.453291Z'
+  snapshot_sha256: 43f93c6124f98f7f0dfcaef99acd6b99cba3e055950fa0e842151681ae23d1fe
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  locator: Actual execution 2026-10-21T07:42:05.453614+00:00 to 2026-10-21T07:42:07.151458+00:00
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:42:07.151458Z'
+  snapshot_sha256: b6c5e1cd787e8753ceece4b2a0ab6722b8b50e1a114fcf5ce26cd4913fa2b046
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-history history/records/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture
+  locator: Actual execution 2026-10-21T07:42:06.838192+00:00 to 2026-10-21T07:42:07.798026+00:00
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:42:07.798026Z'
+  snapshot_sha256: c68503aec62e9e10261b32936d9b9e7af4fbf451301cdf98037ccaccc7538c88
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T07:42:07.802315+00:00 to 2026-10-21T07:42:07.885944+00:00
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T07:42:07.885944Z'
+  snapshot_sha256: 7bbd960bfec7ca4d5accf0d141d4084248946f96e287e9620086987993b75d62
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-references-explained kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  locator: Actual execution 2026-10-21T07:42:07.886226+00:00 to 2026-10-21T07:42:09.049064+00:00
+  summary: Target native reference validation passed; meaning and supplement scope
+    were assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T07:42:09.049064Z'
+  snapshot_sha256: e92e2ee46ed74e5583c96d9d3149269f0894ca886c073d4ece9aea1110fa8f7d
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T07:06:05.543108+00:00 to 2026-10-21T07:06:16.498440+00:00
+  summary: Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  support: supports
+  accessed_at: '2026-10-21T07:06:16.498440Z'
+  snapshot_sha256: 7e9c998a5a9fe2b1a28c809bd5eb651205b3256dd64666ef7a9ca6fbde7504fa
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T07:06:16.498920+00:00 to 2026-10-21T07:06:23.361213+00:00
+  summary: Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  support: supports
+  accessed_at: '2026-10-21T07:06:23.361213Z'
+  snapshot_sha256: 5ba6a0b7c789574c80df1b60d81f0e54454b66e4f919949ad352cff92dd9744e
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Selected pair and experimental boundaries
+  outcome: supported
+  summary: The record resolves one defined algal-bacterial pair and keeps its precursor
+    mixed community separate.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - record
+  - identity-source
+  - precursor
+  - ontology
+  dimensions:
+  - name: community_scope
+    value: Two-member selected-isolate validation pair
+    definition: Allorhizobium/Methylobacterium screening arms and the mixed precursor
+      are outside membership.
+    evidence_ids:
+    - identity-source
+  - name: source_strain
+    value: Axenic A. pyrenoidosa and local isolate Pseudomonas_sp1
+    definition: The alga has no culture-collection code in the inspected strain paragraph;
+      the bacterium has a local designation and article-linked sequencing project,
+      not a verified species assignment.
+    evidence_ids:
+    - identity-source
+    - bioproject
+    - ontology
+  - name: environment
+    value: Laboratory culture modeling a freshwater phycosphere
+    definition: The lab and modeled source habitat are appropriately represented separately.
+    evidence_ids:
+    - record
+    - ontology
+  - name: medium
+    value: Defined-pair BG-11 conditions recovered from Text S12/S14
+    definition: Pair cultures use 400 mL; precursor uses 800 mL. No exact external
+      formulation equivalence is established by the BG-11 name alone.
+    evidence_ids:
+    - pair-medium
+    - pair-arms
+    - precursor
+  - name: experimental_setting
+    value: 14-day pair protocol, day-13 results, separate 30-day supplementation
+    definition: Duration and treatment-arm contexts must retain their exact source
+      rather than merge into one assay.
+    evidence_ids:
+    - pair-medium
+    - pair-arms
+    - pair-benefit
+  - name: evidence_tier
+    value: Culture intervention, chemical measurement, supplementation and genome
+      prediction
+    definition: Measured growth and supplementation support a candidate mediator,
+      not its endogenous necessity or traced transfer.
+    evidence_ids:
+    - pair-benefit
+    - supplementation
+    - genome-potential
+  - name: abundance_interpretation
+    value: DOMINANT as algal prominence, without measured relative composition
+    definition: The alga defines the pair's photosynthetic/response character; no
+      numerical dominance or percentage threshold is inferred.
+    evidence_ids:
+    - record
+    - schema
+    - identity-source
+  - name: grounding_status
+    value: Five existing pairs canonical; local bacterial strain remains unresolved
+      to species
+    definition: Labels and syntax do not substitute for strain authentication or a
+      recomputed GTDB mapping.
+    evidence_ids:
+    - ontology
+- assessment_id: taxonomy
+  area: grounding
+  topic: Both member identities and roles
+  outcome: concern
+  summary: Membership and algal PRIMARY_PRODUCER are supported; Pseudomonas CROSS_FEEDER
+    needs the source's inference limits.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - identity-source
+  - schema
+  - consumer-scope
+  - ontology
+  details: DOMINANT is defensible as ordinal algal prominence; it is not treated as
+    a measured population fraction. NO_GTDB_EQUIVALENT for the eukaryote and UNRESOLVED
+    for the bacterial anchor preserve the known taxonomic limits.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Pseudomonas Pyridoxal Support Under Florfenicol
+    Stress'
+  outcome: supported
+  summary: The PARTIAL pairwise cross-feeding node correctly retains growth and supplementation
+    evidence while qualifying mediation.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - record
+  - pair-benefit
+  - supplementation
+  - consumer-scope
+  details: The directed participants are Pseudomonas_sp1 (source, NCBITaxon:306 with
+    local strain designation) and A. pyrenoidosa (target, NCBITaxon:3078). The direction
+    is bacterial-associated benefit to algal growth under FF, with pyridoxal as a
+    candidate mediator. The 13-day endpoint and separate supplementation assay do
+    not establish endogenous necessity, traced transfer, reciprocal fitness or antibiotic
+    degradation; linked source evidence supplies exact locators and short excerpts.
+- assessment_id: arrows
+  area: graph
+  topic: Complete downstream inventory
+  outcome: supported
+  summary: The sole node has no downstream arrows; no additional causal chain is required.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - record
+  - native-target
+- assessment_id: conditions
+  area: scope
+  topic: Engineering design, medium and both environmental factors
+  outcome: concern
+  summary: The known medium gap is now resolvable; treatment details should state
+    the actual arms and separate the two validation assays.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - record
+  - pair-medium
+  - pair-arms
+  - pair-benefit
+  - medium-linkage
+  details: SYNTHETIC/ENGINEERED, PHYTOPLANKTON and laboratory setting are appropriate.
+    Named stressors and bacterium-associated pyridoxal accumulation are supported;
+    Table S3 does not supply an axenic FF+PLA comparator. The old discussion records
+    an earlier access gap, not a false historical statement.
+- assessment_id: chemical-grounding
+  area: completeness
+  topic: Central mediator and exposure chemistry
+  outcome: concern
+  summary: Pyridoxal is source-measured and groundable but absent from structured
+    node metabolites; stressor identities are also available for optional enrichment.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - pair-benefit
+  - supplementation
+  - chemicals
+  details: Use pyridoxal rather than an interchangeable vitamin-B6 form. Chemical
+    grounding must retain candidate mediation and should not assert uptake or a polymer
+    stereochemistry absent from the source.
+- assessment_id: datasets
+  area: provenance
+  topic: BioProject, primary article link and genome findings
+  outcome: supported
+  summary: The project exists and its exact isolate association is explicit in the
+    article; genome findings remain computational potential.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - bioproject
+  - dataset-audit
+  - genome-potential
+  - fulltext
+- assessment_id: metal-scope
+  area: scope
+  topic: Metal and rare-earth relevance
+  outcome: supported
+  summary: NOT_APPLICABLE is appropriate for the reported ecological function.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - record
+  - pair-benefit
+  details: The pair concerns pollutant stress and algal support; possible trace nutrients
+    in a medium would not establish a metal-processing role.
+- assessment_id: history
+  area: provenance
+  topic: Cache, histories and earlier graph repair
+  outcome: supported
+  summary: Fresh evidence confirms the cautious graph and identifies a now-accessible
+    supplement that can resolve the separate cultivation gap.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - snippets
+  - history
+  - issue
+  - supplement
+  - search
+- assessment_id: validation
+  area: schema
+  topic: Native gates, identifiers, snippets and source checks
+  outcome: supported
+  summary: Seven focused gates and cache preflight pass; five ontology pairs and thirteen
+    snippets verify, while unrelated corpus network warnings remain explicit.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - ontology
+  - snippets
+  - schema
+  - check-validate
+  - check-validate-strict
+  - check-audit-network
+  - native-target
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and quality
+  outcome: supported
+  summary: Completeness is 65 and validation quality caps at 100 despite the unresolved
+    findings.
+  target_ids:
+  - CommunityMech:000451
+  evidence_ids:
+  - record
+  - native-target
+  - schema
+  metrics:
+  - name: completeness
+    value: 65
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100, 50 required metadata including roles + 5 environment + 10
+      at least 3 factors + 10 at least 3 nodes + 5 resources + 10 media + 5 datasets
+      + 5 node metabolites). 50 + 5 + 0 + 0 + 5 + 0 + 5 + 0 = 65; field credit does
+      not certify role support.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 - 50P1 - 10P2 - 2P3 + 20 min(mean node evidence / 2, 1)
+      + 15 if native COMPLETE, 0, 100). P1=0, P2=1, P3=1, P4=1; 3 items / 1 node =
+      3; native COMPLETE. 100 - 10 - 2 + 20 + 15 = 123, capped at 100. The score is
+      not a scientific pass.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P2
+    value: 1
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P3
+    value: 1
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P4
+    value: 1
+    unit: findings
+    definition: Native severity count for this reviewed target.
+findings:
+- finding_id: consumer-role
+  issue_key: cm-000451-consumer-role
+  category: provenance
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: the role asserts source-specific metabolite consumption
+    beyond the evidence for the measured donor benefit.'
+  rule_id: P2.4
+  status: open
+  certainty: confirmed
+  title: Bacterial CROSS_FEEDER exceeds the demonstrated role
+  description: The schema defines CROSS_FEEDER by consumption of another taxon's metabolites.
+    Attached membership/genome snippets do not demonstrate that phenotype, and the
+    directed graph concerns bacterial-associated benefit to the alga. Discussion and
+    precursor correlations propose exudate-dependent recruitment, but do not establish
+    a specific consumption phenotype for this isolate in the pair.
+  target_ids:
+  - CommunityMech:000451
+  field_paths:
+  - taxonomy[1].functional_role
+  - taxonomy[1].evidence
+  evidence_ids:
+  - schema
+  - consumer-scope
+  - pair-benefit
+  - identity-source
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+    role: canonical_record
+- finding_id: pair-cultivation
+  issue_key: cm-000451-pair-cultivation
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: the known cultivation gap can now be filled from
+    the source supplement without changing the resolved community identity.'
+  rule_id: P3.1
+  status: open
+  certainty: confirmed
+  title: Accessible supplement resolves the documented pair-cultivation gap
+  description: The record leaves growth_media absent and the exact-pair discussion
+    open, although Text S12/S14 now supplies medium, inoculum, volume, incubation
+    and exposure details. The main 13-day endpoint, 14-day protocol and 30-day supplementation
+    assay require distinct labels; generalized comparison wording should not imply
+    an axenic FF+PLA arm missing from Table S3.
+  target_ids:
+  - CommunityMech:000451
+  field_paths:
+  - growth_media
+  - cultivation_setup
+  - engineering_design.perturbation_design
+  - environmental_factors[0]
+  - discussions[0]
+  evidence_ids:
+  - pair-medium
+  - pair-arms
+  - supplement
+  - precursor
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+    role: canonical_record
+- finding_id: pyridoxal-grounding
+  issue_key: cm-000451-pyridoxal-grounding
+  category: completeness
+  severity: informational
+  native_severity: P4
+  normalization_reason: 'P4 informational: optional detailed-metabolite enrichment
+    makes an already qualified mechanism queryable without changing its evidence strength.'
+  rule_id: P4.2
+  status: open
+  certainty: confirmed
+  title: Ground the measured candidate mediator as pyridoxal
+  description: The sole mechanistic node names pyridoxal in prose but has no structured
+    metabolite. The source measurement and exact CHEBI identity permit useful enrichment
+    without changing the node's causal qualifications.
+  target_ids:
+  - CommunityMech:000451
+  field_paths:
+  - ecological_interactions[0].metabolites
+  - related_ingredients
+  evidence_ids:
+  - pair-benefit
+  - supplementation
+  - chemicals
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+    role: canonical_record
+actions:
+- action_id: fix-consumer-role
+  description: Qualify the bacterial role as a source hypothesis with appropriate
+    evidence or remove the unestablished role, preserving the supported donor-associated
+    graph and strain identity.
+  finding_ids:
+  - consumer-role
+  target_ids:
+  - CommunityMech:000451
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Do not infer consumer status solely from a vitamin-donor effect.
+  - General phycosphere background and precursor correlations remain distinct from
+    the selected-pair assay.
+  - No unsupported reciprocal edge or replacement role is added.
+  - Rerun strict, reference and network checks.
+- action_id: fix-pair-cultivation
+  description: Add source-backed pair conditions and actual treatment arms, then resolve
+    the recoverable medium discussion through an authorized curation event while retaining
+    the separate mediation gap.
+  finding_ids:
+  - pair-cultivation
+  target_ids:
+  - CommunityMech:000451
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Use Text S12 for the pair and Text S14 for supplementation, without importing
+    the precursor's volume or inoculum.
+  - Retain 14-day protocol versus reported day-13 endpoint and the separate 30-day
+    supplementation duration.
+  - Do not invent pH, gas atmosphere, flask capacity, continuous-shaking rpm or exact
+    BG-11 composition.
+  - Match any CultureMech link to the actual recipe before asserting equivalence.
+  - Strict/reference checks pass and historical discussions are not silently rewritten.
+- action_id: fix-pyridoxal-grounding
+  description: Add pyridoxal CHEBI:17310 as the measured candidate mediator; optionally
+    ground florfenicol and generic PLA exposure separately with their source-specific
+    roles.
+  finding_ids:
+  - pyridoxal-grounding
+  target_ids:
+  - CommunityMech:000451
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Do not substitute pyridoxine or a broad vitamin-B6 class for the measured analyte.
+  - Preserve the unresolved necessity and transfer of endogenous bacterial pyridoxal.
+  - Treat FF and PLA as exposure factors, not demonstrated exchanged nutrients; do
+    not infer PLA stereochemistry.
+  - Term and reference checks pass.
+limitations:
+- Full main text and supplement Text S9-S14/Tables S3-S10 were inspected; other supplement
+  text and embedded figure images were not reassessed. No sequence, genome assembly,
+  metabolite chromatogram or abundance reanalysis was performed.
+- Algal strain accession and bacterial species identity remain unresolved beyond the
+  source designations; BioProject metadata is generic and the article supplies the
+  exact isolate association.
+- The pair, precursor mixed enrichment and pyridoxal supplementation have distinct
+  conditions and durations. The available design lacks a matched axenic FF+PLA arm.
+- Pyridoxal detection and supplementation do not establish endogenous necessity, traced
+  transfer, reciprocal feeding or antibiotic degradation.
+- BG-11 is named in the supplement, but its exact formulation and a uniquely equivalent
+  external recipe were not established. Unreported pH, gas atmosphere and flask capacity
+  must remain unknown.
+- The optional structured source adapter was unavailable; discovery was reused within
+  the same batch04 runtime and no external-checkout runner was executed.
+notes:
+- Canonical records, caches, history and generated products remain unchanged.
+- The single publication and its supplement contribute 15 quoted words in total.
+- Legacy full_text values are valid SupportingReference provenance, not EvidenceItem
+  enum violations.
+tags:
+- record-review
+- phycosphere
+- coculture
+- batch-04
+```
