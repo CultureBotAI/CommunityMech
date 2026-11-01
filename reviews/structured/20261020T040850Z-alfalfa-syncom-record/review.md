@@ -1,0 +1,1266 @@
+# Alfalfa stress-adapted SynCom: whole-record review
+
+- Review: 20261020T040850Z-alfalfa-syncom-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-20T04:05:58.441588Z
+- Finished UTC: 2026-10-20T04:08:50.552642Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+The preprint and dataset identities verify. Both phenotype nodes correctly retain phase-specific results and source conflicts; no downstream causal arrows are warranted. Four minor findings concern absent roles, preparation wording, quote transcription and media linkage. Focused gates pass; corpus warnings remain explicit.
+
+## Scope And Provenance
+
+Whole record: five strain members, two phenotype nodes, no arrows, all source evidence, environment, preparation contexts, preprint/dataset metadata and history.
+
+Selection: Eighth uncovered record of batch 02 in path order, excluding validated baseline and pending batch-01 targets.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base a4611c913c8da9619673df63a0c2cce3aa206a83.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000458 | kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml | maintained | Alfalfa Stress-Adapted Bacterial SynCom |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000458 | No issues found<br>uv run linkml-validate -s src/communitymech/schema/communitymech.yaml kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml |
+| validate-strict | passed | True | CommunityMech:000458 | uv run python scripts/validate_strict.py kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml --out /private/tmp/cm-review-session/batch-02/000458/strict-report.tsv<br>Validating 1 files with 17 workers; schema=/private/tmp/communitymech-record-reviews-batch-02/src/communitymech/schema/communitymech.yaml<br><br>=== validate-strict summary ===<br>  files scanned:      1<br>  files with ERROR:   0<br>  total ERROR rows:   0<br>  TSV:                /private/tmp/cm-review-session/batch-02/000458/strict-report.tsv |
+| validate-terms | passed | True | CommunityMech:000458 | ✅ Validation passed<br>uv run linkml-term-validator validate-data kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml -s src/communitymech/schema/communitymech.yaml --labels |
+| validate-gtdb | passed | True | CommunityMech:000458 | PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml<br><br>files checked: 1<br>incoherent blocks: 0<br>malformed lineages: 0<br>lineage conflicts: 0 |
+| validate-gtdb-domain | passed | True | CommunityMech:000458 | files checked: 1<br>contradictory lineages: 0<br>PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml |
+| validate-history | passed | True | CommunityMech:000458 | No issues found |
+| normalize-cache-names-check | passed | True | CommunityMech:000458 | Command completed without reported issues. |
+| validate-references-explained | passed | True | CommunityMech:000458 | Validating kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml<br>Cache directory: references_cache<br><br>Validation Summary:<br>  Reported validation issues: 0<br>  All validations passed!<br><br>[annotate] This is not a count of checked excerpts (#1469). Native Discussion evidence coverage remains incomplete (#476). |
+| audit-network | failed | True | CommunityMech:000458 | Reused complete corpus result at identical freshly fetched base and unchanged canonical corpus: exit 1; 462 records, 57 warnings in 21 records, zero errors. Target has no finding. No new execution is claimed. |
+| check-network-quality | failed | True | CommunityMech:000458 | Reused complete corpus result at identical freshly fetched base and unchanged canonical corpus: exit 1; 462 records, 57 warnings in 21 records, zero errors. Target has no finding. No new execution is claimed. |
+| Optional structured-source adapter | unavailable | False | CommunityMech:000458 | Runner unavailable in isolated runtime; inspected public catalog fallback has no matching organism. |
+
+## Scientific And Domain Assessments
+
+### Five-strain inoculum versus established rhizosphere community
+
+identity: supported. Targets: CommunityMech:000458.
+
+The source and target identify the same five strain labels. Genus-level Bacillus/Acinetobacter and source-reported Plantibacter species are preserved without unsupported species promotion. The host/background soil community is distinct from the prepared mixture, and no persistent equal-abundance community is inferred.
+
+### taxonomy[0..4] and GTDB status
+
+grounding: supported. Targets: CommunityMech:000458.
+
+All source names and strain labels are represented. Current authority labels agree; native GTDB coherence/domain gates pass with explicitly UNRESOLVED mappings. This is not a completed GTDB grounding exercise, and repeated IDs are not a reason to collapse distinct source strains.
+
+### ecological_interactions[0]: Stress-adapted SynCom promotion of alfalfa root architecture
+
+graph: supported. Targets: CommunityMech:000458.
+
+The node correctly qualifies the overbroad Discussion excerpt using Results. Root-biomass support is phase-specific; volume/surface area are not established significant effects and diameter findings are marginal. Both source statements remain visible. COMMUNITY_LEVEL does not imply reciprocal bacterial benefit or a microbial molecular mechanism.
+
+Participants: five declared bacterial strains as the inoculum; alfalfa is the response host named in prose, not another SynCom isolate. Direction: whole-inoculum treatment associated with host outcome; no intermember transfer asserted. Exact source locator/quote: root-limits; DOI v1, Results below-ground traits.
+
+### ecological_interactions[1]: Stress-adapted SynCom promotion of recovery root nodulation
+
+graph: supported. Targets: CommunityMech:000458.
+
+Recovery-stage nodulation increase is supported. Initial nodules were not quantified; the finding is not proof that nodulation starts only at recovery. It does not establish which inoculated member causes nodulation, increased nitrogen-fixation flux, or recruitment of an identified native rhizobial partner.
+
+Participants: whole five-strain inoculum and response host alfalfa in non-sterile soil. Direction: inoculation treatment to reported recovery phenotype; mechanism unresolved. Exact source quote/locator: nodules; Results and Discussion preprint v1.
+
+### ecological_interactions[*].downstream
+
+graph: not_applicable. Targets: CommunityMech:000458.
+
+The entire target has no downstream edges. There is no demonstrated architecture-to-nodulation mediation to encode, nor a reason to invent one to connect the two phenotype nodes.
+
+### engineering_design, description and experimental factors
+
+scope: concern. Targets: CommunityMech:000458.
+
+The controlled factorial comparison, source environments, treatment phases and outcome categories match the source. Equal volumes of standardized suspensions do not imply equal viable counts or equal later abundance. The description abbreviates the inoculum as mixed LB cultures, while Methods distinguish preculture from washed/resuspended material. This is a wording mismatch, not evidence of a different community identity.
+
+### Environment terms, factors and metal relevance
+
+grounding: supported. Targets: CommunityMech:000458.
+
+Rhizosphere and plant-associated context are appropriate with the untracked-persistence caveat. Source origins are correctly distinguished from experimental drought conditions. Field soil in a growth chamber is not a field trial. Metal NOT_APPLICABLE is reasonable: background soil nutrients do not establish a metal-transforming community role.
+
+### growth_media[0..1]
+
+provenance: concern. Targets: CommunityMech:000458.
+
+The record distinguishes revival and preparation stages; its evidence is source-backed. No verified CultureMech/ingredient IDs are supplied. The revival quotation expands source symbols into words, and the quote should be transcribed literally rather than taken from normalized selected excerpts. No protocol optimization is needed.
+
+### Preprint, dataset and evidence/history
+
+provenance: supported. Targets: CommunityMech:000458.
+
+Version-specific publication and dataset DOI identities verify. Dataset metadata title differs in wording but denotes the same study. Downloadable workbooks were listed, not scientifically reanalyzed. Both open discussions remain justified, especially source Results/Discussion disagreement and untracked persistence.
+
+### taxonomy[*].functional_role
+
+completeness: concern. Targets: CommunityMech:000458.
+
+All five role lists are absent. Plant-beneficial assay traits should not be forced into unsupported intermember cross-feeding or mutualistic categories just to fill them. The absence affects the native completeness rubric.
+
+### Structured expression-source applicability
+
+evidence: not_applicable. Targets: CommunityMech:000458.
+
+No exact source-strain dataset resolves in the inspected catalog. An expression-module association would not substitute for strain persistence or host-outcome evidence.
+
+### Native gates and community-level graph integrity
+
+schema: supported. Targets: CommunityMech:000458.
+
+All focused/preflight gates pass and cache bytes remain unchanged. The two broad community-level nodes implicitly include all five declared members; the host is contextual, not an invented bacterial member. No arrows or broken references occur. Required corpus warnings remain explicit outside this target.
+
+### Native completeness and validation quality
+
+completeness: concern. Targets: CommunityMech:000458.
+
+Completeness 35 reflects absent roles and sparse graph structure, not poor source identification. Quality 100 is capped despite four minor findings; it is not a peer-review or efficacy verdict.
+
+## Findings
+
+### role-metadata: Taxon roles are not represented
+
+minor / open / confirmed; issue key: cm-000458-role-metadata.
+
+All five taxon entries lack functional_role values, so the native required-metadata block is incomplete. The source phenotype evidence does not justify inventing interspecies roles.
+
+### preparation-wording: The description conflates preculture with the applied mixture
+
+minor / open / confirmed; issue key: cm-000458-preparation-wording.
+
+The description says equal volumes of OD-standardized LB cultures were mixed. The detailed record and primary Methods instead distinguish broth cultivation from standardized resuspended inoculum.
+
+### quote-transcription: A normalized cache rendering is presented as a verbatim quotation
+
+minor / open / confirmed; issue key: cm-000458-quote-transcription.
+
+growth_media[0].evidence[0].snippet spells out temperature units where the primary HTML uses symbols. This is a faithful meaning but not literal source text, and the selected-excerpt cache should not define the quotation.
+
+### media-linkage: Media entries lack verified external identifiers
+
+minor / open / confirmed; issue key: cm-000458-media-linkage.
+
+The two preparation-stage media have no CultureMech or ingredient linkage. A named medium does not by itself establish an exact registry formulation match.
+
+## Recommended Actions And Acceptance Checks
+
+### fix-role-metadata
+
+Represent source-supported roles only if the existing vocabulary fits; otherwise retain an explicit vocabulary limitation.
+
+- Do not infer reciprocal benefit or nutrient exchange from plant phenotypes.
+- Roles remain strain/source-specific.
+- Run strict and network checks.
+
+### fix-preparation-wording
+
+Align the short description with the already represented material distinction, without adding operational detail.
+
+- The short and detailed descriptions refer to the same preparation stage.
+- Do not infer equal viable-cell numbers or later abundance from equal volumes.
+- Run strict and evidence checks.
+
+### fix-quote-transcription
+
+Use a short literal primary-source excerpt and keep any unit normalization in explanatory metadata.
+
+- Quote text matches the identified primary version after only documented extraction normalization.
+- No protocol parameters are newly inferred or optimized.
+- Run reference and strict checks.
+
+### fix-media-linkage
+
+Assess exact compatible resource identities during authorized curation; leave unavailable formulation matches unresolved.
+
+- Any link resolves and matches the correct preparation-stage formulation.
+- Do not substitute a different standard formulation merely because its name is similar.
+- Run relevant linkage, strict and evidence checks.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml; Entire target: five strain descriptors, two nodes, no arrows, three factors, two media and one dataset | supports | This is an inoculated five-strain mixture tested in non-sterile soil, not the complete soil/rhizosphere community. Phase-specific plant phenotypes and missing persistence measurements are explicit. |
+| primary | doi:10.21203/rs.3.rs-7812930/v1; https://www.researchsquare.com/article/rs-7812930/v1; version 1 full Introduction, Methods, Statistical Analysis, Results, Discussion, Conclusion and data availability | supports | The Research Square page identifies version 1 as a preprint not peer-reviewed by a journal. It supports the defined mixture and controlled pot comparison. Results distinguish drought and recovery phases and conflict with broader claims in parts of Discussion. |
+| root-limits | doi:10.21203/rs.3.rs-7812930/v1; Results: below-ground traits, recovery root biomass | supports | Recovery root biomass has no significant drought, SynCom or interaction effect; volume/surface-area effects also lack significance, while diameter findings are marginal. |
+| nodules | doi:10.21203/rs.3.rs-7812930/v1; Discussion: root nodulation | supports | Nodule comparisons concern recovery-stage assessment; absence of early measurements is not evidence that nodules could not exist earlier. |
+| persistence | doi:10.21203/rs.3.rs-7812930/v1; Discussion: limitations | supports | The inoculum design does not prove persistence, equal abundance, coexistence or a stable five-member rhizosphere assemblage. |
+| publication | https://api.crossref.org/works/10.21203/rs.3.rs-7812930/v1; Version-specific DOI/title/type metadata | supports | Crossref identifies the matching title and posted-content preprint DOI. This review concerns v1; no peer-reviewed replacement or new version is asserted. |
+| dataset | https://zenodo.org/api/records/17298491; Zenodo public record metadata and file manifest | supports | DOI 10.5281/zenodo.17298491 resolves to the matching alfalfa SynCom study, under a title emphasizing below-ground investment and recovery. Manifest includes the raw alfalfa workbook and three assay workbooks. Raw workbook cells and statistical analyses were not reanalyzed. |
+| methods | doi:10.21203/rs.3.rs-7812930/v1; Methods: source isolates, growth-chamber design and inoculum preparation | supports | The five named strains have the reported source environments. The experiment distinguishes microbial preculture, standardized suspensions and soil application. A factorial pot design uses separate destructive harvests; within-pot leaf measurements are technical replicates, not independent pots. Non-sterile soil contains uncharacterized background microbiota. |
+| results | doi:10.21203/rs.3.rs-7812930/v1; Results: below-ground traits and Discussion comparison | supports | The reported SynCom root-biomass main effect applies during stress and does not establish improvement in every drought subgroup. Recovery nodulation is reported with a SynCom main effect; no mediation from architecture to nodulation, nitrogen-fixation rate, or benefit to the bacteria was measured. |
+| ontology | OAK local NCBITaxon/ENVO/GO snapshots; Six unique curated identifiers | supports | All six labels resolve, including Bacillus &lt;firmicutes&gt;. Repeated genus/species IDs represent distinct strain labels rather than duplicate strains. Rhizosphere and plant-associated environment fit context, and response to water deprivation describes the plant-response context without establishing a microbial mechanism. |
+| schema | src/communitymech/schema/communitymech.yaml; Taxon roles, strain descriptors and evidence representation | supports | All five taxon-role slots are absent. Strain labels distinguish two Bacillus and two Plantibacter entries sharing ontology IDs. Verbatim evidence should retain source wording; unit expansion belongs in explanations rather than an unmarked quote. |
+| snippets | kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml; All 21 EvidenceItem occurrences, compared with current primary HTML | supports | Thirteen match after NFKC, whitespace and dash normalization. Seven further occurrences have only inserted source citation/figure markers before punctuation; their substantive text was inspected. One revival snippet expands the degree symbol into words and is not literally verbatim. Source scientific content is supported, but quotation transcription needs correction. |
+| history | history/records/Alfalfa_Stress_Adapted_Bacterial_SynCom; Both whole history events and target decision row in reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml | supports | Previous graph curation retained phase-specific root/nodule outcomes, removed unestablished mutualism and preserved source discrepancies. The selected-excerpt cache is explicitly not independent full text; this review independently retrieved the primary version page. |
+| local-search | references_cache; history/records; reports/causal_graph_review/decisions; kb/taxa; Ignored-inclusive DOI, dataset-ID and slug search | supports | Located selected excerpts, history and graph decision. Missing roles and medium identifiers refer to the whole target, not an asserted absence from external registries. |
+| adapter | https://imodulondb.org/api/datasets; Same-session complete public catalog, 20 organisms/28 datasets | context_only | No exact G3, G12, G13, M251 or M259 strain dataset appears. Related model-organism expression modules would not verify mixture persistence or host phenotypes. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv validate kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml; Actual execution 2026-10-20T04:05:59.278863+00:00 to 2026-10-20T04:06:00.046144+00:00 | supports | No issues found<br>uv run linkml-validate -s src/communitymech/schema/communitymech.yaml kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv validate-strict kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml --out /private/tmp/cm-review-session/batch-02/000458/strict-report.tsv; Actual execution 2026-10-20T04:05:59.279047+00:00 to 2026-10-20T04:06:09.030612+00:00 | supports | uv run python scripts/validate_strict.py kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml --out /private/tmp/cm-review-session/batch-02/000458/strict-report.tsv<br>Validating 1 files with 17 workers; schema=/private/tmp/communitymech-record-reviews-batch-02/src/communitymech/schema/communitymech.yaml<br><br>=== validate-strict summary ===<br>  files scanned:      1<br>  files with ERROR:   0<br>  total ERROR rows:   0<br>  TSV:                /private/tmp/cm-review-session/batch-02/000458/strict-report.tsv |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv validate-terms kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml; Actual execution 2026-10-20T04:05:59.279155+00:00 to 2026-10-20T04:06:01.291628+00:00 | supports | ✅ Validation passed<br>uv run linkml-term-validator validate-data kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml -s src/communitymech/schema/communitymech.yaml --labels |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv validate-gtdb kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml; Actual execution 2026-10-20T04:06:00.046462+00:00 to 2026-10-20T04:06:00.137227+00:00 | supports | PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml<br><br>files checked: 1<br>incoherent blocks: 0<br>malformed lineages: 0<br>lineage conflicts: 0 |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv validate-gtdb-domain kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml; Actual execution 2026-10-20T04:06:00.137489+00:00 to 2026-10-20T04:06:01.588476+00:00 | supports | files checked: 1<br>contradictory lineages: 0<br>PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv validate-history history/records/Alfalfa_Stress_Adapted_Bacterial_SynCom; Actual execution 2026-10-20T04:06:01.292021+00:00 to 2026-10-20T04:06:02.086447+00:00 | supports | No issues found |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-20T04:06:09.031288+00:00 to 2026-10-20T04:06:09.092587+00:00 | supports | Command completed without reported issues. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv validate-references-explained kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml; Actual execution 2026-10-20T04:06:09.092878+00:00 to 2026-10-20T04:06:10.095836+00:00 | supports | Validating kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml against schema src/communitymech/schema/communitymech.yaml<br>Cache directory: references_cache<br><br>Validation Summary:<br>  Reported validation issues: 0<br>  All validations passed!<br><br>[annotate] This is not a count of checked excerpts (#1469). Native Discussion evidence coverage remains incomplete (#476). |
+| check-audit-network | just --no-dotenv audit-network; Actual run finished 2026-10-19T07:30:27.845593+00:00 | supports | Reused complete corpus result at identical freshly fetched base and unchanged canonical corpus: exit 1; 462 records, 57 warnings in 21 records, zero errors. Target has no finding. No new execution is claimed. |
+| check-check-network-quality | just --no-dotenv check-network-quality; Actual run finished 2026-10-19T07:30:43.193891+00:00 | supports | Reused complete corpus result at identical freshly fetched base and unchanged canonical corpus: exit 1; 462 records, 57 warnings in 21 records, zero errors. Target has no finding. No new execution is claimed. |
+
+## Limits And Additional Notes
+
+- The source is version 1 of a preprint, not journal-peer-reviewed evidence. Primary HTML was read; PDF figure geometry and separate supplementary tables were not independently reanalyzed.
+- Zenodo metadata and workbook manifest were verified; workbook cells, statistical calculations and raw phenotype values were not reanalyzed.
+- The source does not track strain persistence or demonstrate microbial reciprocity, nodulation-mediated nitrogen-fixation flux or architecture-to-nodulation causation.
+- GTDB mappings remain explicitly unresolved; coherence gates passing does not resolve them.
+- Optional structured-source runner unavailable; no exact strain dataset in inspected public catalog. Required corpus network warnings remain outside the selected target.
+- No records, caches, history or generated products changed.
+- All inspected local input hashes remain unchanged; primary page and metadata response hashes are retained.
+- Short verbatim quotations total at most 25 words from the preprint.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261020T040850Z-alfalfa-syncom-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Alfalfa stress-adapted SynCom: whole-record review'
+started_at: '2026-10-20T04:05:58.441588Z'
+finished_at: '2026-10-20T04:08:50.552642Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Target unchanged this session; historical codex curation prevents
+    person-level independence claim.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: The preprint and dataset identities verify. Both phenotype nodes correctly
+  retain phase-specific results and source conflicts; no downstream causal arrows
+  are warranted. Four minor findings concern absent roles, preparation wording, quote
+  transcription and media linkage. Focused gates pass; corpus warnings remain explicit.
+source:
+  git_revision: a4611c913c8da9619673df63a0c2cce3aa206a83
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/records/Alfalfa_Stress_Adapted_Bacterial_SynCom/2026-09-28T030113Z-claude-code-025a65.yaml
+    sha256: 56763c6693374714c9be7b635b3317569654467f6c1d64330e12cf35034ba551
+    role: context
+  - path: history/records/Alfalfa_Stress_Adapted_Bacterial_SynCom/2026-10-05T071441Z-codex-39897d.yaml
+    sha256: 4faed62ab7aa4185f01809e76d9b10bed7c7dd50afc652fe4295bc0c2a60af24
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    sha256: ff5a241eec381f83352135c004e32f39407dc4d82fb4f2bbba2c2bbb299a71d9
+    role: target
+  - path: references_cache/doi_10.21203_rs.3.rs-7812930_v1.md
+    sha256: 2ad3c01c867db352addb589ed069ed6bd76b4e10db5146a0329dea91f59509ae
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+    sha256: 3e0877c63e94f1c87d6c78b6d5480a0be07d80f1cd18f8db5efda4e8e2ea4d26
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: e5a87e5367609334ec0d6361f6ddafbe6bc4a1f7d93e5264c64688c28325910f
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000458
+  path: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+  label: Alfalfa Stress-Adapted Bacterial SynCom
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    role: canonical_record
+scope:
+  description: 'Whole record: five strain members, two phenotype nodes, no arrows,
+    all source evidence, environment, preparation contexts, preprint/dataset metadata
+    and history.'
+  selection: Eighth uncovered record of batch 02 in path order, excluding validated
+    baseline and pending batch-01 targets.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000458
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: 'No issues found
+
+    uv run linkml-validate -s src/communitymech/schema/communitymech.yaml kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml'
+  target_ids:
+  - CommunityMech:000458
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: "uv run python scripts/validate_strict.py kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml\
+    \ --out /private/tmp/cm-review-session/batch-02/000458/strict-report.tsv\nValidating\
+    \ 1 files with 17 workers; schema=/private/tmp/communitymech-record-reviews-batch-02/src/communitymech/schema/communitymech.yaml\n\
+    \n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:\
+    \   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/cm-review-session/batch-02/000458/strict-report.tsv"
+  target_ids:
+  - CommunityMech:000458
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-strict kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    --out /private/tmp/cm-review-session/batch-02/000458/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: '✅ Validation passed
+
+    uv run linkml-term-validator validate-data kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    -s src/communitymech/schema/communitymech.yaml --labels'
+  target_ids:
+  - CommunityMech:000458
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-terms kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: 'PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+
+
+    files checked: 1
+
+    incoherent blocks: 0
+
+    malformed lineages: 0
+
+    lineage conflicts: 0'
+  target_ids:
+  - CommunityMech:000458
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-gtdb kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: 'files checked: 1
+
+    contradictory lineages: 0
+
+    PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml'
+  target_ids:
+  - CommunityMech:000458
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-gtdb-domain kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: No issues found
+  target_ids:
+  - CommunityMech:000458
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-history history/records/Alfalfa_Stress_Adapted_Bacterial_SynCom
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Command completed without reported issues.
+  target_ids:
+  - CommunityMech:000458
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: "Validating kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml\
+    \ against schema src/communitymech/schema/communitymech.yaml\nCache directory:\
+    \ references_cache\n\nValidation Summary:\n  Reported validation issues: 0\n \
+    \ All validations passed!\n\n[annotate] This is not a count of checked excerpts\
+    \ (#1469). Native Discussion evidence coverage remains incomplete (#476)."
+  target_ids:
+  - CommunityMech:000458
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-references-explained kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: 'Reused complete corpus result at identical freshly fetched base and unchanged
+    canonical corpus: exit 1; 462 records, 57 warnings in 21 records, zero errors.
+    Target has no finding. No new execution is claimed.'
+  target_ids:
+  - CommunityMech:000458
+  command: just --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  scope_note: Corpus-wide warnings outside selected target, retained as actual required
+    failures.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: 'Reused complete corpus result at identical freshly fetched base and unchanged
+    canonical corpus: exit 1; 462 records, 57 warnings in 21 records, zero errors.
+    Target has no finding. No new execution is claimed.'
+  target_ids:
+  - CommunityMech:000458
+  command: just --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  scope_note: Corpus-wide warnings outside selected target, retained as actual required
+    failures.
+- check_id: optional-adapter
+  name: Optional structured-source adapter
+  status: unavailable
+  required: false
+  summary: Runner unavailable in isolated runtime; inspected public catalog fallback
+    has no matching organism.
+  target_ids:
+  - CommunityMech:000458
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+  locator: 'Entire target: five strain descriptors, two nodes, no arrows, three factors,
+    two media and one dataset'
+  summary: This is an inoculated five-strain mixture tested in non-sterile soil, not
+    the complete soil/rhizosphere community. Phase-specific plant phenotypes and missing
+    persistence measurements are explicit.
+  support: supports
+  accessed_at: '2026-10-20T04:08:50.547884Z'
+- evidence_id: primary
+  kind: primary_source
+  reference: doi:10.21203/rs.3.rs-7812930/v1
+  locator: https://www.researchsquare.com/article/rs-7812930/v1; version 1 full Introduction,
+    Methods, Statistical Analysis, Results, Discussion, Conclusion and data availability
+  summary: The Research Square page identifies version 1 as a preprint not peer-reviewed
+    by a journal. It supports the defined mixture and controlled pot comparison. Results
+    distinguish drought and recovery phases and conflict with broader claims in parts
+    of Discussion.
+  support: supports
+  accessed_at: '2026-10-20T04:06:04.301807Z'
+  snapshot_sha256: 010efa765daf2408ec245a4db5dee69d2d56d603ee2d9810b89226c7733c46f5
+- evidence_id: root-limits
+  kind: primary_source
+  reference: doi:10.21203/rs.3.rs-7812930/v1
+  locator: 'Results: below-ground traits, recovery root biomass'
+  summary: Recovery root biomass has no significant drought, SynCom or interaction
+    effect; volume/surface-area effects also lack significance, while diameter findings
+    are marginal.
+  support: supports
+  accessed_at: '2026-10-20T04:06:04.301807Z'
+  quote: no significant
+- evidence_id: nodules
+  kind: primary_source
+  reference: doi:10.21203/rs.3.rs-7812930/v1
+  locator: 'Discussion: root nodulation'
+  summary: Nodule comparisons concern recovery-stage assessment; absence of early
+    measurements is not evidence that nodules could not exist earlier.
+  support: supports
+  accessed_at: '2026-10-20T04:06:04.301807Z'
+  quote: they were not quantified during the initial drought phase
+- evidence_id: persistence
+  kind: primary_source
+  reference: doi:10.21203/rs.3.rs-7812930/v1
+  locator: 'Discussion: limitations'
+  summary: The inoculum design does not prove persistence, equal abundance, coexistence
+    or a stable five-member rhizosphere assemblage.
+  support: supports
+  accessed_at: '2026-10-20T04:06:04.301807Z'
+  quote: SynCom strain dynamics in the rhizosphere were not tracked
+- evidence_id: publication
+  kind: database
+  reference: https://api.crossref.org/works/10.21203/rs.3.rs-7812930/v1
+  locator: Version-specific DOI/title/type metadata
+  summary: Crossref identifies the matching title and posted-content preprint DOI.
+    This review concerns v1; no peer-reviewed replacement or new version is asserted.
+  support: supports
+  accessed_at: '2026-10-20T04:06:04.302207Z'
+  snapshot_sha256: 377823d750d8582fa9794ea4b23bfdba3da6c5840aad3869311a475616538a8a
+- evidence_id: dataset
+  kind: database
+  reference: https://zenodo.org/api/records/17298491
+  locator: Zenodo public record metadata and file manifest
+  summary: DOI 10.5281/zenodo.17298491 resolves to the matching alfalfa SynCom study,
+    under a title emphasizing below-ground investment and recovery. Manifest includes
+    the raw alfalfa workbook and three assay workbooks. Raw workbook cells and statistical
+    analyses were not reanalyzed.
+  support: supports
+  accessed_at: '2026-10-20T04:06:04.302327Z'
+  snapshot_sha256: 890cb093c30c656ecf9dd538df8e427f44472fd61027e0ec4e56cf5855159662
+- evidence_id: methods
+  kind: primary_source
+  reference: doi:10.21203/rs.3.rs-7812930/v1
+  locator: 'Methods: source isolates, growth-chamber design and inoculum preparation'
+  summary: The five named strains have the reported source environments. The experiment
+    distinguishes microbial preculture, standardized suspensions and soil application.
+    A factorial pot design uses separate destructive harvests; within-pot leaf measurements
+    are technical replicates, not independent pots. Non-sterile soil contains uncharacterized
+    background microbiota.
+  support: supports
+  accessed_at: '2026-10-20T04:06:04.301807Z'
+- evidence_id: results
+  kind: primary_source
+  reference: doi:10.21203/rs.3.rs-7812930/v1
+  locator: 'Results: below-ground traits and Discussion comparison'
+  summary: The reported SynCom root-biomass main effect applies during stress and
+    does not establish improvement in every drought subgroup. Recovery nodulation
+    is reported with a SynCom main effect; no mediation from architecture to nodulation,
+    nitrogen-fixation rate, or benefit to the bacteria was measured.
+  support: supports
+  accessed_at: '2026-10-20T04:06:04.301807Z'
+- evidence_id: ontology
+  kind: authority
+  reference: OAK local NCBITaxon/ENVO/GO snapshots
+  locator: Six unique curated identifiers
+  summary: All six labels resolve, including Bacillus <firmicutes>. Repeated genus/species
+    IDs represent distinct strain labels rather than duplicate strains. Rhizosphere
+    and plant-associated environment fit context, and response to water deprivation
+    describes the plant-response context without establishing a microbial mechanism.
+  support: supports
+  accessed_at: '2026-10-20T04:06:54.329359Z'
+  snapshot_sha256: b71965900737c11e0d2bc3ce4dbb26fddfa0b5c4f71963cc0ecb47f56fa48ed2
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: Taxon roles, strain descriptors and evidence representation
+  summary: All five taxon-role slots are absent. Strain labels distinguish two Bacillus
+    and two Plantibacter entries sharing ontology IDs. Verbatim evidence should retain
+    source wording; unit expansion belongs in explanations rather than an unmarked
+    quote.
+  support: supports
+  accessed_at: '2026-10-20T04:08:50.548664Z'
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+  locator: All 21 EvidenceItem occurrences, compared with current primary HTML
+  summary: Thirteen match after NFKC, whitespace and dash normalization. Seven further
+    occurrences have only inserted source citation/figure markers before punctuation;
+    their substantive text was inspected. One revival snippet expands the degree symbol
+    into words and is not literally verbatim. Source scientific content is supported,
+    but quotation transcription needs correction.
+  support: supports
+  accessed_at: '2026-10-20T04:08:50.548697Z'
+  snapshot_sha256: 728d0199bcb9f035d3e0ddee6f489dbef1ed0d269fac5b295a03c20dca1690ca
+- evidence_id: history
+  kind: record_content
+  reference: history/records/Alfalfa_Stress_Adapted_Bacterial_SynCom
+  locator: Both whole history events and target decision row in reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+  summary: Previous graph curation retained phase-specific root/nodule outcomes, removed
+    unestablished mutualism and preserved source discrepancies. The selected-excerpt
+    cache is explicitly not independent full text; this review independently retrieved
+    the primary version page.
+  support: supports
+  accessed_at: '2026-10-20T04:08:50.548699Z'
+- evidence_id: local-search
+  kind: search
+  reference: references_cache; history/records; reports/causal_graph_review/decisions;
+    kb/taxa
+  locator: Ignored-inclusive DOI, dataset-ID and slug search
+  summary: Located selected excerpts, history and graph decision. Missing roles and
+    medium identifiers refer to the whole target, not an asserted absence from external
+    registries.
+  support: supports
+  accessed_at: '2026-10-20T04:08:50.548901Z'
+  search_scope: rg --no-ignore --hidden -l '7812930|Alfalfa_Stress_Adapted_Bacterial_SynCom|17298491'
+    references_cache history/records reports/causal_graph_review/decisions kb/taxa
+  snapshot_sha256: d741b4ed9e4377af10702e4b864f41e561d7bd807e4788f44a989b0ddee43afb
+- evidence_id: adapter
+  kind: database
+  reference: https://imodulondb.org/api/datasets
+  locator: Same-session complete public catalog, 20 organisms/28 datasets
+  summary: No exact G3, G12, G13, M251 or M259 strain dataset appears. Related model-organism
+    expression modules would not verify mixture persistence or host phenotypes.
+  support: context_only
+  accessed_at: '2026-10-19T23:31:07.726770Z'
+  snapshot_sha256: 155607e7023efdead5ebab3919279a0776d5665a7de9e28b67f02f8f521b0693
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+  locator: Actual execution 2026-10-20T04:05:59.278863+00:00 to 2026-10-20T04:06:00.046144+00:00
+  summary: 'No issues found
+
+    uv run linkml-validate -s src/communitymech/schema/communitymech.yaml kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml'
+  support: supports
+  accessed_at: '2026-10-20T04:06:00.046144Z'
+  snapshot_sha256: 14a105502995c9129a2bd4567228ddff0849b9aa5623809692299194ab2c66aa
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-strict kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    --out /private/tmp/cm-review-session/batch-02/000458/strict-report.tsv
+  locator: Actual execution 2026-10-20T04:05:59.279047+00:00 to 2026-10-20T04:06:09.030612+00:00
+  summary: "uv run python scripts/validate_strict.py kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml\
+    \ --out /private/tmp/cm-review-session/batch-02/000458/strict-report.tsv\nValidating\
+    \ 1 files with 17 workers; schema=/private/tmp/communitymech-record-reviews-batch-02/src/communitymech/schema/communitymech.yaml\n\
+    \n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:\
+    \   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/cm-review-session/batch-02/000458/strict-report.tsv"
+  support: supports
+  accessed_at: '2026-10-20T04:06:09.030612Z'
+  snapshot_sha256: 35ba2eee3a5987d42528ff744cc45efccb666618d25c8c58ea3d65eb0231d52a
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-terms kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+  locator: Actual execution 2026-10-20T04:05:59.279155+00:00 to 2026-10-20T04:06:01.291628+00:00
+  summary: '✅ Validation passed
+
+    uv run linkml-term-validator validate-data kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    -s src/communitymech/schema/communitymech.yaml --labels'
+  support: supports
+  accessed_at: '2026-10-20T04:06:01.291628Z'
+  snapshot_sha256: 9cdb3bd8e563fe44ec619b5352930f54df9cc1c12aef679eb0f33a38f04a2569
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-gtdb kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+  locator: Actual execution 2026-10-20T04:06:00.046462+00:00 to 2026-10-20T04:06:00.137227+00:00
+  summary: 'PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+
+
+    files checked: 1
+
+    incoherent blocks: 0
+
+    malformed lineages: 0
+
+    lineage conflicts: 0'
+  support: supports
+  accessed_at: '2026-10-20T04:06:00.137227Z'
+  snapshot_sha256: a250cfc5eb1c2248f531abdb4f9b2a046e6a5067d603836e3dcaa74f7b840041
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-gtdb-domain kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+  locator: Actual execution 2026-10-20T04:06:00.137489+00:00 to 2026-10-20T04:06:01.588476+00:00
+  summary: 'files checked: 1
+
+    contradictory lineages: 0
+
+    PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml'
+  support: supports
+  accessed_at: '2026-10-20T04:06:01.588476Z'
+  snapshot_sha256: 1ea093decaa60a36858bd8e3f52dc53a822af0a43af309cad09a13af60deecd9
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-history history/records/Alfalfa_Stress_Adapted_Bacterial_SynCom
+  locator: Actual execution 2026-10-20T04:06:01.292021+00:00 to 2026-10-20T04:06:02.086447+00:00
+  summary: No issues found
+  support: supports
+  accessed_at: '2026-10-20T04:06:02.086447Z'
+  snapshot_sha256: 3d2a63ff47f6235729162021daabe75127055812e5dee76b42bf5caf153bfbfb
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-20T04:06:09.031288+00:00 to 2026-10-20T04:06:09.092587+00:00
+  summary: Command completed without reported issues.
+  support: supports
+  accessed_at: '2026-10-20T04:06:09.092587Z'
+  snapshot_sha256: e353791a66f7c4559bf7231c2a715cc6a1179bdb3b55058b1a9144a02d10d945
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-references-explained kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+  locator: Actual execution 2026-10-20T04:06:09.092878+00:00 to 2026-10-20T04:06:10.095836+00:00
+  summary: "Validating kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml\
+    \ against schema src/communitymech/schema/communitymech.yaml\nCache directory:\
+    \ references_cache\n\nValidation Summary:\n  Reported validation issues: 0\n \
+    \ All validations passed!\n\n[annotate] This is not a count of checked excerpts\
+    \ (#1469). Native Discussion evidence coverage remains incomplete (#476)."
+  support: supports
+  accessed_at: '2026-10-20T04:06:10.095836Z'
+  snapshot_sha256: 4a8a9eb9dd461d902f71cfad8ab4d21d82d303663104ceabc65bb34837c857b3
+- evidence_id: check-audit-network
+  kind: validation
+  reference: just --no-dotenv audit-network
+  locator: Actual run finished 2026-10-19T07:30:27.845593+00:00
+  summary: 'Reused complete corpus result at identical freshly fetched base and unchanged
+    canonical corpus: exit 1; 462 records, 57 warnings in 21 records, zero errors.
+    Target has no finding. No new execution is claimed.'
+  support: supports
+  accessed_at: '2026-10-19T07:30:27.845593Z'
+  snapshot_sha256: bedf3fd18a964bda429f7c6b5feb01b8918e1440b48a4329664501161c80e3f4
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: just --no-dotenv check-network-quality
+  locator: Actual run finished 2026-10-19T07:30:43.193891+00:00
+  summary: 'Reused complete corpus result at identical freshly fetched base and unchanged
+    canonical corpus: exit 1; 462 records, 57 warnings in 21 records, zero errors.
+    Target has no finding. No new execution is claimed.'
+  support: supports
+  accessed_at: '2026-10-19T07:30:43.193891Z'
+  snapshot_sha256: 885e62e84ed8d3e69a6e5ef5be43f941ef64d756107c3b062846831f76e081aa
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Five-strain inoculum versus established rhizosphere community
+  outcome: supported
+  summary: The source and target identify the same five strain labels. Genus-level
+    Bacillus/Acinetobacter and source-reported Plantibacter species are preserved
+    without unsupported species promotion. The host/background soil community is distinct
+    from the prepared mixture, and no persistent equal-abundance community is inferred.
+  target_ids:
+  - CommunityMech:000458
+  evidence_ids:
+  - record
+  - primary
+  - methods
+  - persistence
+  - ontology
+  dimensions:
+  - name: source_strain
+    value: G3, G12, G13, M251 and M259
+    definition: Distinct strain labels remain meaningful even when genus/species CURIEs
+      repeat.
+    evidence_ids:
+    - methods
+    - ontology
+  - name: community_scope
+    value: Defined inoculum delivered into non-sterile alfalfa soil
+    definition: Prepared membership does not establish later persistence or complete
+      rhizosphere membership.
+    evidence_ids:
+    - methods
+    - persistence
+  - name: experimental_setting
+    value: Controlled growth-chamber pots with drought and recovery phases
+    definition: Separate destructive harvests and technical leaf replicates do not
+      constitute longitudinal observations on the same plants.
+    evidence_ids:
+    - methods
+  - name: medium
+    value: Separate microbial preparation and soil-plant contexts
+    definition: Preculture broth and applied standardized suspensions are distinct
+      materials.
+    evidence_ids:
+    - methods
+  - name: source_category
+    value: Version 1 preprint and public phenotype-data metadata
+    definition: The primary page explicitly indicates lack of journal peer review;
+      no raw-data reanalysis is claimed.
+    evidence_ids:
+    - primary
+    - publication
+    - dataset
+- assessment_id: taxonomy
+  area: grounding
+  topic: taxonomy[0..4] and GTDB status
+  outcome: supported
+  summary: All source names and strain labels are represented. Current authority labels
+    agree; native GTDB coherence/domain gates pass with explicitly UNRESOLVED mappings.
+    This is not a completed GTDB grounding exercise, and repeated IDs are not a reason
+    to collapse distinct source strains.
+  target_ids:
+  - CommunityMech:000458
+  evidence_ids:
+  - record
+  - ontology
+  - methods
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Stress-adapted SynCom promotion of alfalfa root
+    architecture'
+  outcome: supported
+  summary: The node correctly qualifies the overbroad Discussion excerpt using Results.
+    Root-biomass support is phase-specific; volume/surface area are not established
+    significant effects and diameter findings are marginal. Both source statements
+    remain visible. COMMUNITY_LEVEL does not imply reciprocal bacterial benefit or
+    a microbial molecular mechanism.
+  target_ids:
+  - CommunityMech:000458
+  evidence_ids:
+  - record
+  - results
+  - root-limits
+  - primary
+  details: 'Participants: five declared bacterial strains as the inoculum; alfalfa
+    is the response host named in prose, not another SynCom isolate. Direction: whole-inoculum
+    treatment associated with host outcome; no intermember transfer asserted. Exact
+    source locator/quote: root-limits; DOI v1, Results below-ground traits.'
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Stress-adapted SynCom promotion of recovery
+    root nodulation'
+  outcome: supported
+  summary: Recovery-stage nodulation increase is supported. Initial nodules were not
+    quantified; the finding is not proof that nodulation starts only at recovery.
+    It does not establish which inoculated member causes nodulation, increased nitrogen-fixation
+    flux, or recruitment of an identified native rhizobial partner.
+  target_ids:
+  - CommunityMech:000458
+  evidence_ids:
+  - record
+  - results
+  - nodules
+  - persistence
+  details: 'Participants: whole five-strain inoculum and response host alfalfa in
+    non-sterile soil. Direction: inoculation treatment to reported recovery phenotype;
+    mechanism unresolved. Exact source quote/locator: nodules; Results and Discussion
+    preprint v1.'
+- assessment_id: edges
+  area: graph
+  topic: ecological_interactions[*].downstream
+  outcome: not_applicable
+  summary: The entire target has no downstream edges. There is no demonstrated architecture-to-nodulation
+    mediation to encode, nor a reason to invent one to connect the two phenotype nodes.
+  target_ids:
+  - CommunityMech:000458
+  evidence_ids:
+  - record
+  - results
+  - history
+- assessment_id: engineering
+  area: scope
+  topic: engineering_design, description and experimental factors
+  outcome: concern
+  summary: The controlled factorial comparison, source environments, treatment phases
+    and outcome categories match the source. Equal volumes of standardized suspensions
+    do not imply equal viable counts or equal later abundance. The description abbreviates
+    the inoculum as mixed LB cultures, while Methods distinguish preculture from washed/resuspended
+    material. This is a wording mismatch, not evidence of a different community identity.
+  target_ids:
+  - CommunityMech:000458
+  evidence_ids:
+  - record
+  - methods
+  - persistence
+- assessment_id: environment
+  area: grounding
+  topic: Environment terms, factors and metal relevance
+  outcome: supported
+  summary: 'Rhizosphere and plant-associated context are appropriate with the untracked-persistence
+    caveat. Source origins are correctly distinguished from experimental drought conditions.
+    Field soil in a growth chamber is not a field trial. Metal NOT_APPLICABLE is reasonable:
+    background soil nutrients do not establish a metal-transforming community role.'
+  target_ids:
+  - CommunityMech:000458
+  evidence_ids:
+  - record
+  - methods
+  - ontology
+- assessment_id: media
+  area: provenance
+  topic: growth_media[0..1]
+  outcome: concern
+  summary: The record distinguishes revival and preparation stages; its evidence is
+    source-backed. No verified CultureMech/ingredient IDs are supplied. The revival
+    quotation expands source symbols into words, and the quote should be transcribed
+    literally rather than taken from normalized selected excerpts. No protocol optimization
+    is needed.
+  target_ids:
+  - CommunityMech:000458
+  evidence_ids:
+  - record
+  - methods
+  - snippets
+- assessment_id: resources
+  area: provenance
+  topic: Preprint, dataset and evidence/history
+  outcome: supported
+  summary: Version-specific publication and dataset DOI identities verify. Dataset
+    metadata title differs in wording but denotes the same study. Downloadable workbooks
+    were listed, not scientifically reanalyzed. Both open discussions remain justified,
+    especially source Results/Discussion disagreement and untracked persistence.
+  target_ids:
+  - CommunityMech:000458
+  evidence_ids:
+  - publication
+  - dataset
+  - snippets
+  - history
+  - persistence
+  - results
+- assessment_id: roles
+  area: completeness
+  topic: taxonomy[*].functional_role
+  outcome: concern
+  summary: All five role lists are absent. Plant-beneficial assay traits should not
+    be forced into unsupported intermember cross-feeding or mutualistic categories
+    just to fill them. The absence affects the native completeness rubric.
+  target_ids:
+  - CommunityMech:000458
+  evidence_ids:
+  - record
+  - schema
+  - primary
+- assessment_id: adapter
+  area: evidence
+  topic: Structured expression-source applicability
+  outcome: not_applicable
+  summary: No exact source-strain dataset resolves in the inspected catalog. An expression-module
+    association would not substitute for strain persistence or host-outcome evidence.
+  target_ids:
+  - CommunityMech:000458
+  evidence_ids:
+  - adapter
+- assessment_id: validation
+  area: schema
+  topic: Native gates and community-level graph integrity
+  outcome: supported
+  summary: All focused/preflight gates pass and cache bytes remain unchanged. The
+    two broad community-level nodes implicitly include all five declared members;
+    the host is contextual, not an invented bacterial member. No arrows or broken
+    references occur. Required corpus warnings remain explicit outside this target.
+  target_ids:
+  - CommunityMech:000458
+  evidence_ids:
+  - record
+  - check-validate
+  - check-validate-strict
+  - check-validate-terms
+  - check-validate-references-explained
+  - check-audit-network
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: concern
+  summary: Completeness 35 reflects absent roles and sparse graph structure, not poor
+    source identification. Quality 100 is capped despite four minor findings; it is
+    not a peer-review or efficacy verdict.
+  target_ids:
+  - CommunityMech:000458
+  evidence_ids:
+  - record
+  - schema
+  metrics:
+  - name: completeness
+    value: 35
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100,50 if all required metadata including roles +5 environment
+      +10 at least 3 factors +10 at least 3 nodes +5 external resources +10 media
+      +5 datasets +5 node metabolites). 0+5+10+0+5+10+5+0=35; presence only.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100-50*P1-10*P2-2*P3+20*min(mean node evidence/2,1)+15 if native
+      COMPLETE,0,100). P1=0,P2=0,P3=4; 3 items/2 nodes; all five members included
+      by broad scope. clamp(100-8+15+15)=100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native target severity count.
+  - name: P2
+    value: 0
+    unit: findings
+    definition: Native target severity count.
+  - name: P3
+    value: 4
+    unit: findings
+    definition: Native target severity count.
+  - name: interaction_evidence
+    value: 1.5
+    unit: evidence items per interaction
+    denominator: 2
+    definition: Three attached snippets across two nodes from one preprint; one snippet
+      explicitly preserves source conflict.
+findings:
+- finding_id: role-metadata
+  issue_key: cm-000458-role-metadata
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: missing structured linkage or metabolite representation;
+    prose retains the supported process.'
+  rule_id: review-checklist.taxonomy
+  status: open
+  certainty: confirmed
+  title: Taxon roles are not represented
+  description: All five taxon entries lack functional_role values, so the native required-metadata
+    block is incomplete. The source phenotype evidence does not justify inventing
+    interspecies roles.
+  target_ids:
+  - CommunityMech:000458
+  field_paths:
+  - taxonomy[*].functional_role
+  evidence_ids:
+  - record
+  - schema
+  - primary
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    role: canonical_record
+- finding_id: preparation-wording
+  issue_key: cm-000458-preparation-wording
+  category: representation
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: missing structured linkage or metabolite representation;
+    prose retains the supported process.'
+  rule_id: CLAUDE.claim-level-evidence
+  status: open
+  certainty: confirmed
+  title: The description conflates preculture with the applied mixture
+  description: The description says equal volumes of OD-standardized LB cultures were
+    mixed. The detailed record and primary Methods instead distinguish broth cultivation
+    from standardized resuspended inoculum.
+  target_ids:
+  - CommunityMech:000458
+  field_paths:
+  - description
+  evidence_ids:
+  - record
+  - methods
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    role: canonical_record
+- finding_id: quote-transcription
+  issue_key: cm-000458-quote-transcription
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: missing structured linkage or metabolite representation;
+    prose retains the supported process.'
+  rule_id: CLAUDE.verbatim-evidence
+  status: open
+  certainty: confirmed
+  title: A normalized cache rendering is presented as a verbatim quotation
+  description: growth_media[0].evidence[0].snippet spells out temperature units where
+    the primary HTML uses symbols. This is a faithful meaning but not literal source
+    text, and the selected-excerpt cache should not define the quotation.
+  target_ids:
+  - CommunityMech:000458
+  field_paths:
+  - growth_media[0].evidence[0].snippet
+  evidence_ids:
+  - snippets
+  - primary
+  - history
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    role: canonical_record
+- finding_id: media-linkage
+  issue_key: cm-000458-media-linkage
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: missing structured linkage or metabolite representation;
+    prose retains the supported process.'
+  rule_id: P3.1
+  status: open
+  certainty: confirmed
+  title: Media entries lack verified external identifiers
+  description: The two preparation-stage media have no CultureMech or ingredient linkage.
+    A named medium does not by itself establish an exact registry formulation match.
+  target_ids:
+  - CommunityMech:000458
+  field_paths:
+  - growth_media[0]
+  - growth_media[1]
+  evidence_ids:
+  - record
+  - methods
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    role: canonical_record
+actions:
+- action_id: fix-role-metadata
+  description: Represent source-supported roles only if the existing vocabulary fits;
+    otherwise retain an explicit vocabulary limitation.
+  finding_ids:
+  - role-metadata
+  target_ids:
+  - CommunityMech:000458
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Do not infer reciprocal benefit or nutrient exchange from plant phenotypes.
+  - Roles remain strain/source-specific.
+  - Run strict and network checks.
+- action_id: fix-preparation-wording
+  description: Align the short description with the already represented material distinction,
+    without adding operational detail.
+  finding_ids:
+  - preparation-wording
+  target_ids:
+  - CommunityMech:000458
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - The short and detailed descriptions refer to the same preparation stage.
+  - Do not infer equal viable-cell numbers or later abundance from equal volumes.
+  - Run strict and evidence checks.
+- action_id: fix-quote-transcription
+  description: Use a short literal primary-source excerpt and keep any unit normalization
+    in explanatory metadata.
+  finding_ids:
+  - quote-transcription
+  target_ids:
+  - CommunityMech:000458
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Quote text matches the identified primary version after only documented extraction
+    normalization.
+  - No protocol parameters are newly inferred or optimized.
+  - Run reference and strict checks.
+- action_id: fix-media-linkage
+  description: Assess exact compatible resource identities during authorized curation;
+    leave unavailable formulation matches unresolved.
+  finding_ids:
+  - media-linkage
+  target_ids:
+  - CommunityMech:000458
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Any link resolves and matches the correct preparation-stage formulation.
+  - Do not substitute a different standard formulation merely because its name is
+    similar.
+  - Run relevant linkage, strict and evidence checks.
+limitations:
+- The source is version 1 of a preprint, not journal-peer-reviewed evidence. Primary
+  HTML was read; PDF figure geometry and separate supplementary tables were not independently
+  reanalyzed.
+- Zenodo metadata and workbook manifest were verified; workbook cells, statistical
+  calculations and raw phenotype values were not reanalyzed.
+- The source does not track strain persistence or demonstrate microbial reciprocity,
+  nodulation-mediated nitrogen-fixation flux or architecture-to-nodulation causation.
+- GTDB mappings remain explicitly unresolved; coherence gates passing does not resolve
+  them.
+- Optional structured-source runner unavailable; no exact strain dataset in inspected
+  public catalog. Required corpus network warnings remain outside the selected target.
+notes:
+- No records, caches, history or generated products changed.
+- All inspected local input hashes remain unchanged; primary page and metadata response
+  hashes are retained.
+- Short verbatim quotations total at most 25 words from the preprint.
+tags:
+- record-review
+- plant-syncom
+- batch-02
+```
