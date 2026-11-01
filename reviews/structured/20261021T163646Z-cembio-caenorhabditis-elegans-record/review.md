@@ -1,0 +1,1660 @@
+# CeMbio Caenorhabditis elegans microbiome record review
+
+- Review: 20261021T163646Z-cembio-caenorhabditis-elegans-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T16:27:50.080460Z
+- Finished UTC: 2026-10-21T16:36:46.714620Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Both full primary papers and critical SI support the twelve-member CeMbio resource and its qualified four-node, one-arrow graph. Two major findings concern microbial membership and unsupported aggregate roles; two minor groups address experimental provenance and resource identity. All eight focused native checks and eighteen fresh excerpt checks pass.
+
+## Scope And Provenance
+
+Whole maintained record, every member/node/arrow, both primary papers and critical source assets assessed; ancillary SI limits remain explicit.
+
+Selection: Only released CommunityMech:000159 in owned batch 09.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base f491097e6f3cd52baf6c2e89b3e614756ebce558.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000159 | kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml | maintained | CeMbio Caenorhabditis elegans Microbiome |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000159 | Schema passed. |
+| validate-strict | passed | True | CommunityMech:000159 | Strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000159 | Term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000159 | GTDB validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000159 | GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000159 | History validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000159 | Read-only cache naming passed. |
+| validate-references-explained | passed | True | CommunityMech:000159 | Reference validation passed; independent fresh matching confirms all eighteen excerpts at their appropriate source scope. |
+| audit-network | failed | True | CommunityMech:000159 | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal graph separately reports COMPLETE. |
+| check-network-quality | failed | True | CommunityMech:000159 | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal graph separately reports COMPLETE. |
+| Whole-record scientific review | passed | True | CommunityMech:000159 | Both whole primary papers, all nine main figures and critical SI assessed with bounded ancillary-file limitations. |
+| Reference-specific direct excerpt verification | passed | True | CommunityMech:000159 | All eighteen occurrences independently matched against appropriate fresh sources; seventeen strict cache matches plus one URL punctuation-rendering difference are retained. |
+| Public resource identity | passed | True | CommunityMech:000159 | Correct CeMbio project identities verified and unrelated encoded experiment-3 accession identified; metadata scope only. |
+| Statistical and model reproduction | skipped | False | CommunityMech:000159 | No raw sequence analysis, model execution, phylogenomic rerun or new significance calculation. |
+| Optional structured adapter | unavailable | False | CommunityMech:000159 | No applicable expression-module support established through bounded discovery. |
+
+## Scientific And Domain Assessments
+
+### Defined microbial resource and host boundary
+
+identity: concern. Targets: CommunityMech:000159.
+
+The intended twelve-member resource is clear, but structured membership retains only Bacteria and incorrectly includes the host.
+
+### Origin, category and ecological state
+
+scope: supported. Targets: CommunityMech:000159.
+
+Retain ENGINEERED, SYNTHETIC and OTHER for the deliberately assembled resource.
+
+Natural isolate provenance does not make the assembled community an unmanipulated natural population. No new ecological state or equilibrium claim is required.
+
+### Current names, strain codes and authority
+
+identity: supported. Targets: CommunityMech:000159.
+
+The twelve names already in the description are recoverable as structured members from current source tables and authority.
+
+Keep the source version, species rank and strain code explicit. Do not treat old provisional names, closest ATCC relatives or species-level GTDB correspondence as authenticated isolate reclassification. Host NO_GTDB_EQUIVALENT is accurate lineage scope but not permission for microbial membership.
+
+### Blanket CROSS_FEEDER and SECONDARY_FERMENTER
+
+evidence: concern. Targets: CommunityMech:000159.
+
+Roster evidence and diverse substrate potential do not support either categorical role for the aggregate or every member.
+
+Omit unsupported optional assignments unless separate claim-specific evidence establishes the relevant substrate/product use. A generic proposed label cannot supply missing nutrient utilization or fermentation. No obligacy requirement, different-species secondary-fermenter requirement or blanket absence of cross-feeding is asserted.
+
+### Identity text versus abundance
+
+scope: concern. Targets: CommunityMech:000159.
+
+Twelve-member and host-organism abundance_value text is identity/context, not quantitative abundance.
+
+Move those statements into the reconstructed membership and host/preparation notes. Equal initial volumes and OD do not establish equal viable-cell proportions or later gut abundance; natural-source OTU percentages remain separately scoped.
+
+### Propagation, host assays and odor preparation
+
+completeness: concern. Targets: CommunityMech:000159.
+
+Recover the available stage-specific medium composition, inoculation, vessel and sampling details.
+
+Supported LB 25–28 °C and host 20 °C remain. Add PFM as the assay-specific peptone-free alternative where represented. Do not import initial isolation antifungals, cryopreservation, washing, GC settings or analytical buffers into a universal medium.
+
+### Living-host versus culture evidence
+
+evidence: concern. Targets: CommunityMech:000159.
+
+Host colonization and developmental conditions require IN_VIVO scope; propagation remains IN_VITRO and models COMPUTATIONAL.
+
+Review each mixed engineering/environment/media evidence statement individually rather than replacing every IN_VITRO label mechanically.
+
+### Multi-Strain C. elegans Gut Colonization
+
+evidence: supported. Targets: CommunityMech:000159.
+
+Retain the untyped host-association node and explicit lack of proven facilitation or developmental mediation.
+
+All members are source-reported as detected under community conditions, with time/media and amplicon-resolution limitations. Counts and relative abundance are not interchangeable.
+
+### Community Effects on Nematode Development
+
+evidence: supported. Targets: CommunityMech:000159.
+
+Retain whole-mixture effects on developmental timing relative to OP50 and heterogeneous individual-member responses.
+
+Adult fraction is not reciprocal fitness, nematode biomass or proof that colonization caused the developmental effect. No colonization-to-development arrow is restored.
+
+### Strain-Resolved Metabolic Diversity
+
+evidence: supported. Targets: CommunityMech:000159.
+
+Retain computational metabolic diversity and its PARTIAL niche-partitioning interpretation.
+
+Preserve the pre-training versus post-training distinction. Attach recoverable structured model provenance without treating the models as direct gut flux evidence.
+
+### Metabolic diversity to colonization hypothesis
+
+evidence: supported. Targets: CommunityMech:000159.
+
+Retain exactly the existing HYPOTHESIZED direction.
+
+The paper proposes niche differentiation as one possible explanation; no metabolic perturbation, transfer assay or mediation experiment establishes that direction causally.
+
+### Individual-member odor preference
+
+evidence: supported. Targets: CommunityMech:000159.
+
+Retain the volatile-only individual-strain behavior with its three preferred strains and proper family boundary.
+
+The source bacteria sit on the lid; paper access is unrelated. Isoamyl association and compound attraction do not establish mixed-community feeding benefit, colonization causation or necessity. No new arrow is warranted.
+
+### Study accessions and publication/data distinction
+
+provenance: concern. Targets: CommunityMech:000159.
+
+Correct experiment 3 to its actual project and separate publications from genuine datasets.
+
+Preserve PRJEB37101 for experiment 2 and PRJEB37895 genome reads. Do not certify an unrelated mouse accession, collapse different cohorts into one field or invent a public odor dataset from the request-only statement.
+
+### Native validation and review scope
+
+schema: supported. Targets: CommunityMech:000159.
+
+All eight focused checks pass; scientific findings remain despite valid syntax and labels.
+
+Review persistence is limited to the new immutable bundle. No canonical record, cache, curation history or generated artifact is changed; corpus warnings remain separately visible.
+
+### Native formulas
+
+completeness: supported. Targets: CommunityMech:000159.
+
+Report scores as mechanical rubric values, not scientific certification.
+
+## Findings
+
+### microbial-membership: Represent twelve microbial members and keep the host outside membership
+
+major / open / confirmed; issue key: cm-000159-microbial-membership.
+
+The structured roster is collapsed to Bacteria and includes C. elegans, despite twelve named and source-resolved bacterial strains.
+
+### functional-role-support: Remove unsupported aggregate metabolic roles
+
+major / open / confirmed; issue key: cm-000159-functional-role-support.
+
+Identity snippets and metabolic potential do not establish blanket CROSS_FEEDER or SECONDARY_FERMENTER assignments.
+
+### experimental-provenance: Recover stage-specific methods and evidence context
+
+minor / open / confirmed; issue key: cm-000159-experimental-provenance.
+
+The source supplies more precise propagation, host-assay and computational details, while several whole-animal statements carry IN_VITRO labels.
+
+### resource-scope: Correct the experiment-3 accession and distinguish publications from data
+
+minor / open / confirmed; issue key: cm-000159-resource-scope.
+
+PRJEB37154 is an unrelated mouse study; the source and archive identify PRJEB37035. Two article landing pages are classified as datasets.
+
+## Recommended Actions And Acceptance Checks
+
+### reconstruct-membership
+
+Reconstruct the source-grounded microbial roster without changing community scope.
+
+- Create twelve microbial entries for the current source species and exact codes: CEent1, JUb66, MYb10, JUb134, JUb19, MYb11, MSPm1, BIGb0172, BIGb0393, MYb71, BIGb0170 and JUb44. Use the pinned species-level NCBI authority candidates, attach narrow roster evidence and preserve source nomenclature/version notes. Do not manufacture strain identifiers.
+- Remove C. elegans from microbial taxonomy while retaining host context, N2/CB4856 assay scope and supported interaction targets. Replace the Bacteria placeholder as membership, but retain a broad community-level Bacteria endpoint where it accurately describes a whole-mixture claim.
+- Move twelve-member/host abundance_value identity text into membership, host or preparation notes. Do not convert natural-source OTU percentages, equal OD or equal starting volume into measured abundance.
+- Re-ground each new species against the actual local crosswalk and record mapping content provenance. Preserve ambiguity, differently named reference correspondences and unsupported study-strain mappings; do not copy the domain mapping or force GTDB species assignments. Keep older File S4 naming conflicts explicit.
+
+### repair-functional-roles
+
+Retain only claim-specific supported metabolic roles.
+
+- Omit blanket CROSS_FEEDER and SECONDARY_FERMENTER assignments unless separately inspected evidence establishes the relevant member, metabolite utilization or fermentation of primary-degradation products. Roster membership, EcoPlate activity and diverse model pathways alone do not establish those relations.
+- Preserve optional-role omissions rather than substitute an equally unsupported role for completeness points. SECONDARY_FERMENTER does not require a different producer species; CROSS_FEEDER does concern other-taxon metabolites. Do not infer that all cross-feeding is biologically absent.
+- Retain four qualified nodes and the one HYPOTHESIZED metabolic-diversity-to-colonization arrow. Keep developmental timing separate from colonization mediation and odor preference separate from mixed-community benefit.
+
+### recover-experimental-context
+
+Add source-scoped cultivation and computational provenance.
+
+- Retain supported LB temperature 25–28 °C and add the actual tryptone/yeast extract/NaCl recipe, optional agar and 24–48-hour propagation range with the slower-colony exception. Do not transfer natural-isolation antifungals or frozen-stock conditions into community cultivation.
+- Represent host protocols separately: experiments 1/2 OD600 1, 60 µL, six-well NGM at 20 °C, with experiment-2 equal-volume mixing and 120-hour sampling; experiment 3 OD600 5 after three PBS washes, 250 µL on 6 cm NGM or PFM at 20 °C, sampled at 48/72/96 hours. Keep developmental timing and its 50 µL inoculation/46–60-hour adult scoring distinct. Do not infer unstated medium volumes or universal shaking/pH.
+- Review each evidence type narrowly: whole-animal colonization/development/odor behavior is IN_VIVO; bacterial propagation and plate chemistry remain IN_VITRO; FBA remains COMPUTATIONAL. Mixed engineering statements may need separate evidence rather than a blanket enum replacement.
+- Add recoverable gapseq 1.0 reconstruction/gap-filling, LB constraints, EcoPlate training and electron-carrier recycling objective under minimal tested-carbon conditions to computational_provenance, linking original/adapted File S3 models. Preserve 66% pre-training versus 99% post-training agreement; no independent validation or measured exchange is implied.
+- Keep individual odor protocols separate: LB 25 °C overnight except JUb134 for 48 hours; OD600 10 PBS suspensions, 25 µL spots, lid-mounted patches and one-hour adult choice. Distinguish GC–MS staging and analytical reagents. Any added VOC annotation must preserve association versus necessity and the unconfirmed standards for cycloundecene/4-undecene.
+
+### repair-resource-scope
+
+Correct and separate resource identities.
+
+- Replace unrelated PRJEB37154 with verified PRJEB37035 for experiment 3 and represent PRJEB37101 experiment 2 separately, with correct URLs and assay scope. Retain PRJEB37895 as bacterial genome reads and distinguish additional isolate genome projects/versions from community amplicons.
+- Move the two bibliographic PMID landing-page entries to publication external_resources and remove their misclassified dataset entries. Add or retain actual experimental tables/model archives only with exact resource identity and scope; do not condition removal on finding a replacement dataset.
+- Preserve the direct Figshare collection and its file-specific scope, source-reported CGC availability and odor request-only data statement. Do not infer that requested data are publicly deposited or contact authors. Keep source-only primer/table naming inconsistencies explicit; do not assign primer identifiers or closest ATCC relatives to strains automatically.
+
+### validate-authorized-curation
+
+Apply any canonical changes only in separately authorized curation.
+
+- Append fresh curation history and run focused schema, strict, term, reference, GTDB/domain and history checks; then run just gen-html and just check-docs-current after separately authorized canonical edits. No such mutation or generator run occurs in this review.
+- Recheck affected claims against the pinned source versions and preserve all prior immutable review/source receipts. Review persistence is limited to a new immutable review bundle; no canonical, cache, history or generated bytes are changed. Retain existing issue ownership without opening or closing issues.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml; Whole maintained record, all four nodes and its one arrow | supports | The record represents the twelve-member CeMbio experimental resource and a separately scoped individual-member odor study. The host is not a microbial member; the current qualified graph is retained. |
+| roster | PMID:32669368; Methods: Characterization and maintenance of CeMbio bacteria; Table 1; Results And Discussion: Overview of the CeMbio resource | supports | Table 1 explicitly identifies twelve cultured bacteria and their strain codes. Selection reflects natural worm-associated diversity, with two representatives of OTU_01 and one Stenotrophomonas representative covering two OTUs. Natural-source OTU percentages are not the prepared mixture composition or gut abundance. |
+| roster-odor | PMID:38228683; Methods: C. elegans and bacterial strains | supports | The later study explicitly lists the same twelve current species and strain codes and identifies the CGC source. Its experiment tests individual strains against OP50, not a mixed-community behavioral assay. |
+| taxonomy-history | PMID:32669368; Results And Discussion: Using whole genome sequences to reconstruct strain phylogenies; Methods: CeMbio phylogenomic reconstructions | supports | Adjacent historical prose describes four isolates as new species and assigns BIGb0172/JUb134 from 16S rather than reliable genome trees. Current Table 1 and later odor Methods provide species labels; preserve source versions and do not claim the historical analysis independently established every later name. |
+| phylogeny-si | DOI:10.25387/g3.12580454; File S4: full scientific narrative, Tables 1–2 and Figures 1–4 | supports | File S4 contains provisional and conflicting nomenclature: CEent1 E. hormaechei placement but advice to retain E. cloacae; JUb44 borderline ANI and new-species wording. These source-only issues must not silently replace current source-supported members. |
+| colonization | PMID:32669368; Methods: CeMbio colonization experiments with C. elegans, Experiments 1–3; Results And Discussion: Individual CeMbio strains effectively colonize the C. elegans intestine; All CeMbio strains colonize the worm gut when they are part of a community; Figures 2–4 | supports | Separate single-strain and community colonization assays support bacterial gut association. Media, time and strain affect CFU and composition. Experiment 2 V4 merges CEent1/JUb66; experiment 3 differs in amplicon region and protocol. Relative sequence proportions, CFU and persistence are not evidence of reciprocal facilitation. |
+| development | PMID:32669368; Methods: Developmental timing; Results And Discussion: CeMbio strains and community vary in impact on host growth rates; Figure 5 | supports | Whole CeMbio accelerates developmental timing relative to OP50 in both host strains; individual responses vary. The measured outcome is adult fraction over time, not biomass growth, reciprocal fitness or proof that colonization mediates development. |
+| phenotype-si | DOI:10.25387/g3.12580454; File S2 Table S4.2 all 65 rows; S4.5 all 61 rows; S4.7 all 23 rows; S4.8 all 7 rows; S4.13 all 18 rows; S4.14 all 22 rows | supports | Developmental fractions, experiment-specific CFU and diversity comparisons retain the main scope. No significance test or quantitative reanalysis was performed. The workbook index and some strain/genus fields differ from sheet contents; these are disclosed source limitations, not reassigned taxa. Closest ATCC relatives in File S2 Table S4.13 are not culture aliases. |
+| metabolism | PMID:32669368; Methods: Physiological profiling using EcoPlates; CeMbio genome sequences and metabolic network reconstructions; Results And Discussion: Whole genome sequences reveal diverse metabolic competences of the CeMbio strains; Figure 6 | supports | gapseq models and EcoPlate activity establish strain-specific metabolic potential, not blanket interspecies metabolite utilization or fermentation of primary-degradation products. The source proposes niche differentiation as one explanation for assembly while explicitly limiting causal interpretation. Model agreement rises from 66% to 99% after training on the same phenotype data. |
+| model-methods | PMID:32669368; Methods: CeMbio genome sequences and metabolic network reconstructions | supports | gapseq 1.0 predicts pathways/transporters and constructs gap-filled networks with LB-supported growth. EcoPlate observations refine models; carbon-source predictions use FBA with electron-carrier recycling as objective under a minimal medium with the tested sole carbon/energy source. These are recoverable computational provenance, not measured gut flux. |
+| models | DOI:10.25387/g3.12580454; File S3: original and adapted model archives; static member inventory | supports | Each archive contains twelve parseable XML models matching the twelve strain codes. Static structural checks do not reproduce simulations, certify parameters, infer nutrient exchange or validate the 99% result independently. |
+| lb | PMID:32669368; Methods: Characterization and maintenance of CeMbio bacteria | supports | All members grow in LB containing tryptone 10 g/L, yeast extract 5 g/L and NaCl 5 g/L, with agar 15 g/L when solid. The supported usual range is 25–28 °C, with 20–30 °C possible. Stationary phase takes 24–48 hours; slower colonies such as JUb134 can take 48–72 hours. Cryopreservation and initial natural-isolation media are distinct. |
+| host-protocols | PMID:32669368; Methods: CeMbio colonization experiments with C. elegans, Experiments 1–3; Developmental timing | supports | Experiments 1/2 use OD600 1 PBS suspensions and 60 µL per six-well NGM well, with living larvae at 20 °C; experiment 2 mixes equal volumes and samples at 120 hours. Experiment 3 uses three PBS washes, OD600 5, equal volumes, 250 µL on 6 cm NGM/PFM plates and 48/72/96-hour sampling. Developmental timing uses a separate 50 µL inoculation and hourly adult scoring from 46–60 hours. Do not merge these stages. |
+| odor | PMID:38228683; Results: Olfactory preference behavior of C. elegans for CeMbio; Identification of volatile chemicals released by CeMbio; Figures 1–3 and Table 1; Discussion | supports | JUb66, CEent1 and BIGb0393 odors are preferred under the tested individual-strain conditions. They share isoamyl alcohol release; pure-compound chemotaxis is measured for additional compounds. Neither association nor pure-compound attraction proves necessity, add-back mediation, mixed-community food preference or colonization causation. The bacteria are physically inaccessible on lids, not inaccessible source papers. |
+| odor-methods | PMID:38228683; Methods: C. elegans and bacterial strains; Bacterial odor choice assay; Gas chromatography–mass spectrometry; Chemotaxis assays | supports | N2 is maintained at 20 °C. Odor cultures use LB at 25 °C overnight, except JUb134 for 48 hours; OD600 10 PBS suspensions are spotted at 25 µL and incubated for 24 hours at room temperature for odor choice. Adult worms choose for one hour beneath lid-mounted patches. GC–MS preparation has separate one-hour plate and 24-hour vial stages at 20 °C. Sodium azide and GC temperature programming are analytical, not cultivation conditions. |
+| availability | PMID:32669368; Methods: Data availability | supports | The primary source explicitly assigns PRJEB37895 to bacterial genome reads, PRJEB37101 to colonization experiment 2 and PRJEB37035 to experiment 3, with additional genome projects and Figshare experimental/model supplements. These are distinct from publication landing pages. |
+| odor-data | PMID:38228683; Data availability | supports | The odor study offers generated/analyzed datasets from the corresponding author on request. This does not turn its PMID landing page into a publicly identified phenotype dataset. No author contact was made. |
+| schema | src/communitymech/schema/communitymech.yaml; MicrobialCommunity.taxonomy; TaxonomicComposition.functional_role and abundance_value; FunctionalRoleEnum; EvidenceSourceEnum; ComputationalProvenance; Dataset | supports | Microbial membership excludes hosts. CROSS_FEEDER concerns utilization of metabolites from other taxa; SECONDARY_FERMENTER concerns fermentation of primary-degradation products and does not require a separate producer species. Optional unsupported roles may be omitted. Living-animal assays are IN_VIVO even on laboratory plates; culture/chemistry and computational evidence have different types. |
+| ontology | ontology-authority.json; Whole frozen receipt and its declared scope | supports | Six encoded pairs match across sixteen occurrences; label validity does not establish membership or ecological roles. |
+| semantics | ontology-semantic-notes.json; Whole frozen receipt and its declared scope | supports | Child semantic review verifies host exclusion, role definitions, conditional graph scope and assay evidence distinctions. |
+| roster-authority | child-roster-authority.json; Whole frozen receipt and its declared scope | supports | All twelve current species names have verified NCBI labels, ranks and lineages. These are species candidates tied to source strain codes, not newly established strain identities. |
+| gtdb | child-gtdb-mapping-check.json; Whole frozen receipt and its declared scope | supports | Bounded exact-ID/name crosswalk candidates preserve different GTDB names, ambiguity and missing rows. Reference-species mappings do not classify inoculated strains; no forced split or nearest-name choice. |
+| resources | dataset-verification.json; Whole frozen receipt and its declared scope | supports | Direct project identities distinguish correct CeMbio experiments from PRJEB37154, an unrelated mouse study. Genome projects/old assembly versions retain their specific scopes; no raw sequencing analysis. |
+| snippets | snippet-audit.json; Whole frozen receipt and its declared scope | supports | All eighteen canonical excerpts match their appropriate freshly inspected reference. Strict cache whitespace matching gives seventeen because one CGC URL has a space before its semicolon; this is a rendering difference, not a scientific defect. The CEent1 identity excerpt uses adjacent Table 1 cells as an explicit table projection; no inline sentence is invented. Source identity and interpretation remain separately assessed. |
+| history | provenance-audit.json; Whole frozen receipt and its declared scope | supports | Both histories and exact prior batch10 decision were read. Preserve the graph repairs and existing issue ownership, without inheriting non-graph certification. |
+| metrics | support-audit.json; Whole frozen receipt and its declared scope | supports | Four nodes, one arrow and five node-evidence entries give mean 1.25; native COMPLETE. Completeness 35; two major/two minor gives raw quality 103.5, capped 100. |
+| lead-read | lead-primary-read-scope.json; Whole frozen receipt and its declared scope | supports | Lead read both whole scientific papers, all nine main images, File S4 narrative/panels and bounded workbook contents as explicitly listed. Ancillary trees and broad raw tables are not all certified. |
+| source-scope | source-audit.json; Whole frozen receipt and its declared scope | supports | Frozen lead assessment groups two major and two minor findings while retaining the qualified graph and source-only contradictions. |
+| root-source | root-independent-source-audit.json; Whole frozen receipt and its declared scope | supports | Root independently assessed both full primary papers, all main figures and critical SI at its declared bounded scope. |
+| auxiliary | auxiliary-frozen-manifest.json; Whole frozen receipt and its declared scope | supports | Child-owned native, ontology and adapter receipts are frozen; all eight focused checks pass. |
+| adapter | adapter-check.json; Whole frozen receipt and its declared scope | supports | Optional structured adapter discovery is bounded and preserves verified runtime provenance. No expression-module evidence is required or inferred from its absence. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml; Actual execution 2026-10-21T16:28:33.139217+00:00 to 2026-10-21T16:28:33.777752+00:00 | supports | Schema passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-strict kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml --out /private/tmp/cm-review-session/batch-09/000159/strict-report.tsv; Actual execution 2026-10-21T16:28:33.139358+00:00 to 2026-10-21T16:28:34.931759+00:00 | supports | Strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-terms kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml; Actual execution 2026-10-21T16:28:33.139462+00:00 to 2026-10-21T16:28:34.862014+00:00 | supports | Term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-gtdb kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml; Actual execution 2026-10-21T16:28:33.778036+00:00 to 2026-10-21T16:28:33.849278+00:00 | supports | GTDB validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-gtdb-domain kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml; Actual execution 2026-10-21T16:28:33.849553+00:00 to 2026-10-21T16:28:34.960430+00:00 | supports | GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-history history/records/CeMbio_Caenorhabditis_Elegans_Microbiome; Actual execution 2026-10-21T16:28:34.862283+00:00 to 2026-10-21T16:28:35.461464+00:00 | supports | History validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T16:28:35.462035+00:00 to 2026-10-21T16:28:35.504068+00:00 | supports | Read-only cache naming passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-references-explained kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml; Actual execution 2026-10-21T16:28:35.504270+00:00 to 2026-10-21T16:28:36.361185+00:00 | supports | Reference validation passed; independent fresh matching confirms all eighteen excerpts at their appropriate source scope. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T14:53:06.814378+00:00 to 2026-10-21T14:53:14.616064+00:00 | supports | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal graph separately reports COMPLETE. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T14:53:06.817734+00:00 to 2026-10-21T14:53:14.704428+00:00 | supports | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal graph separately reports COMPLETE. |
+
+## Limits And Additional Notes
+
+- Completion covers the current encoded claims using both full primary papers, all nine main figures and critical inspected SI. It does not certify every ancillary phylogenetic tree, raw workbook cell, script or unavailable separately named supplemental figure.
+- The 2020 main Table 1 and 2024 odor Methods name all twelve current species; old File S4 retains provisional/new-species wording, CEent1 E. cloacae versus E. hormaechei advice and JUb44 borderline ANI statements. Current local species authority verifies names, not independent strain reclassification. Preserve source versions and exact strain codes.
+- File S2 Table S4.7 has genus/strain-column inconsistencies and Table S3 has primer-name/strain-code discrepancies. Closest ATCC relatives in File S2 Table S4.13 are not culture aliases. No quantitative member reassignment or protocol repair is inferred from these source-only issues.
+- The natural-source OTU percentages are not equal fractions of the prepared inoculum or stable gut abundance. Equal starting volumes and OD normalization do not establish equal viable cells or persistent abundance.
+- Experiment 2 V4 cannot distinguish CEent1 and JUb66; experiment 3 uses a different amplicon region. CFU, relative read composition, developmental fraction and plate physiology are distinct measurements.
+- Metabolic pathway predictions and EcoPlate activity do not prove realized interspecies nutrient transfer or fermentation of primary-degradation products. The 99% agreement follows training on the same phenotype data; it is not independent validation. Models were not executed.
+- Odor assays test individual bacteria physically inaccessible on the lid, not inaccessible papers or a twelve-member community feeding assay. Isoamyl association and pure-compound attraction do not establish necessity or mediation of the mixture phenotype. No new odor-to-colonization edge is inferred.
+- All experimental stages remain separate: isolate LB culture, host NGM/PFM colonization, developmental timing, EcoPlate activity, individual odor choice and GC–MS. Analytical reagents, purification and cryopreservation conditions are not universal culture conditions.
+- Public archive checks concern metadata and versioned identities; raw reads/genomes were not analyzed. Source-reported accessions must preserve cohort and experiment scope. No paid tools, author contact, canonical/cache changes or later-target assessment occurred.
+- All 25 official inputs remain unchanged. No canonical record, source cache, history, generated product or earlier saved review is edited.
+- The root, lead and auxiliary agents retain separate exact read scopes. Downloaded or exported content is not automatically claimed as fully inspected.
+- Native completeness 35 and quality 100/raw 103.5 are rubric metrics, not scientific certification. No biological role is invented to increase a score.
+- No paid provider, contact, raw reanalysis, model execution or later-target assessment.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T163646Z-cembio-caenorhabditis-elegans-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: CeMbio Caenorhabditis elegans microbiome record review
+started_at: '2026-10-21T16:27:50.080460Z'
+finished_at: '2026-10-21T16:36:46.714620Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary science, auxiliary validation
+    and supporting provenance; no person-level independence is asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Both full primary papers and critical SI support the twelve-member CeMbio
+  resource and its qualified four-node, one-arrow graph. Two major findings concern
+  microbial membership and unsupported aggregate roles; two minor groups address experimental
+  provenance and resource identity. All eight focused native checks and eighteen fresh
+  excerpt checks pass.
+source:
+  git_revision: f491097e6f3cd52baf6c2e89b3e614756ebce558
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/CeMbio_Caenorhabditis_Elegans_Microbiome/2026-08-31T075014Z-claude-code-83b7ca.yaml
+    sha256: ae8ab5cacf4313d2fcb853c730da8311f8f8c3d68c61fe0ea9619ae380d55218
+    role: context
+  - path: history/records/CeMbio_Caenorhabditis_Elegans_Microbiome/2026-10-05T173108Z-codex-3845b5.yaml
+    sha256: ee07e8d7bad37425463758cdd3f9249fe006fc5bf90e5f44d48b5a4330949b1f
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+    sha256: e7630a669bdba05d4c780740bd67ddde69d00fd72bfb8598979fb8dc54174792
+    role: target
+  - path: references_cache/PMID_32669368.md
+    sha256: 99084ef11fde4b7e18e0e82ca214f5e11cf3f434cd24b1d6db757edb5c7765b7
+    role: context
+  - path: references_cache/PMID_38228683.txt
+    sha256: 8072144e89e2df4e79f3688096253cc0d49fa68a9ba53baba30e5addc287eff9
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+    sha256: 7149a6a81f091ff27d40deaf5bf99cb0a9b6486344db20009517f48652fe855d
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000159
+  path: kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+  label: CeMbio Caenorhabditis elegans Microbiome
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+    role: canonical_record
+scope:
+  description: Whole maintained record, every member/node/arrow, both primary papers
+    and critical source assets assessed; ancillary SI limits remain explicit.
+  selection: Only released CommunityMech:000159 in owned batch 09.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000159
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema passed.
+  target_ids:
+  - CommunityMech:000159
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Fresh focused execution. Scientific support is assessed independently
+    of deterministic validation.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict validation passed.
+  target_ids:
+  - CommunityMech:000159
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-strict kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+    --out /private/tmp/cm-review-session/batch-09/000159/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Fresh focused execution. Scientific support is assessed independently
+    of deterministic validation.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Term validation passed.
+  target_ids:
+  - CommunityMech:000159
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-terms kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Fresh focused execution. Scientific support is assessed independently
+    of deterministic validation.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB validation passed.
+  target_ids:
+  - CommunityMech:000159
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Fresh focused execution. Scientific support is assessed independently
+    of deterministic validation.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000159
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb-domain kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Fresh focused execution. Scientific support is assessed independently
+    of deterministic validation.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: History validation passed.
+  target_ids:
+  - CommunityMech:000159
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-history history/records/CeMbio_Caenorhabditis_Elegans_Microbiome
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Fresh focused execution. Scientific support is assessed independently
+    of deterministic validation.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only cache naming passed.
+  target_ids:
+  - CommunityMech:000159
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Fresh focused execution. Scientific support is assessed independently
+    of deterministic validation.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Reference validation passed; independent fresh matching confirms all eighteen
+    excerpts at their appropriate source scope.
+  target_ids:
+  - CommunityMech:000159
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-references-explained kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Fresh focused execution. Scientific support is assessed independently
+    of deterministic validation.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000159
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - metrics
+  scope_note: Explicit same-batch corpus reuse with original timestamps; no unrelated
+    warning is assigned to this target.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000159
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - metrics
+  scope_note: Explicit same-batch corpus reuse with original timestamps; no unrelated
+    warning is assigned to this target.
+- check_id: scientific-source
+  name: Whole-record scientific review
+  status: passed
+  required: true
+  summary: Both whole primary papers, all nine main figures and critical SI assessed
+    with bounded ancillary-file limitations.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - source-scope
+  - lead-read
+  - root-source
+- check_id: direct-snippets
+  name: Reference-specific direct excerpt verification
+  status: passed
+  required: true
+  summary: All eighteen occurrences independently matched against appropriate fresh
+    sources; seventeen strict cache matches plus one URL punctuation-rendering difference
+    are retained.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - snippets
+- check_id: resource-identity
+  name: Public resource identity
+  status: passed
+  required: true
+  summary: Correct CeMbio project identities verified and unrelated encoded experiment-3
+    accession identified; metadata scope only.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - resources
+- check_id: reproduction
+  name: Statistical and model reproduction
+  status: skipped
+  required: false
+  summary: No raw sequence analysis, model execution, phylogenomic rerun or new significance
+    calculation.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - models
+  - lead-read
+- check_id: structured-adapter
+  name: Optional structured adapter
+  status: unavailable
+  required: false
+  summary: No applicable expression-module support established through bounded discovery.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+  locator: Whole maintained record, all four nodes and its one arrow
+  summary: The record represents the twelve-member CeMbio experimental resource and
+    a separately scoped individual-member odor study. The host is not a microbial
+    member; the current qualified graph is retained.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.685462Z'
+- evidence_id: roster
+  kind: primary_source
+  reference: PMID:32669368
+  locator: 'Methods: Characterization and maintenance of CeMbio bacteria; Table 1;
+    Results And Discussion: Overview of the CeMbio resource'
+  summary: Table 1 explicitly identifies twelve cultured bacteria and their strain
+    codes. Selection reflects natural worm-associated diversity, with two representatives
+    of OTU_01 and one Stenotrophomonas representative covering two OTUs. Natural-source
+    OTU percentages are not the prepared mixture composition or gut abundance.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.686327Z'
+  snapshot_sha256: c93d96a92476c934215a95eb095026b89b5f0c5f63a49ce420a6579c25b4a108
+- evidence_id: roster-odor
+  kind: primary_source
+  reference: PMID:38228683
+  locator: 'Methods: C. elegans and bacterial strains'
+  summary: The later study explicitly lists the same twelve current species and strain
+    codes and identifies the CGC source. Its experiment tests individual strains against
+    OP50, not a mixed-community behavioral assay.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.687201Z'
+  snapshot_sha256: dc0121801c9f223902e4f06a639f8622c78e239e4f5f1e772b584107ca9992e1
+- evidence_id: taxonomy-history
+  kind: primary_source
+  reference: PMID:32669368
+  locator: 'Results And Discussion: Using whole genome sequences to reconstruct strain
+    phylogenies; Methods: CeMbio phylogenomic reconstructions'
+  summary: Adjacent historical prose describes four isolates as new species and assigns
+    BIGb0172/JUb134 from 16S rather than reliable genome trees. Current Table 1 and
+    later odor Methods provide species labels; preserve source versions and do not
+    claim the historical analysis independently established every later name.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.687653Z'
+  snapshot_sha256: c93d96a92476c934215a95eb095026b89b5f0c5f63a49ce420a6579c25b4a108
+- evidence_id: phylogeny-si
+  kind: primary_source
+  reference: DOI:10.25387/g3.12580454
+  locator: 'File S4: full scientific narrative, Tables 1–2 and Figures 1–4'
+  summary: 'File S4 contains provisional and conflicting nomenclature: CEent1 E. hormaechei
+    placement but advice to retain E. cloacae; JUb44 borderline ANI and new-species
+    wording. These source-only issues must not silently replace current source-supported
+    members.'
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.687788Z'
+  snapshot_sha256: 022fd3f52e1d1e73ed1f6dc711a9068d21ee0f18475b0d56342aa61fbb0f1dc8
+- evidence_id: colonization
+  kind: primary_source
+  reference: PMID:32669368
+  locator: 'Methods: CeMbio colonization experiments with C. elegans, Experiments
+    1–3; Results And Discussion: Individual CeMbio strains effectively colonize the
+    C. elegans intestine; All CeMbio strains colonize the worm gut when they are part
+    of a community; Figures 2–4'
+  summary: Separate single-strain and community colonization assays support bacterial
+    gut association. Media, time and strain affect CFU and composition. Experiment
+    2 V4 merges CEent1/JUb66; experiment 3 differs in amplicon region and protocol.
+    Relative sequence proportions, CFU and persistence are not evidence of reciprocal
+    facilitation.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.690915Z'
+  snapshot_sha256: c93d96a92476c934215a95eb095026b89b5f0c5f63a49ce420a6579c25b4a108
+- evidence_id: development
+  kind: primary_source
+  reference: PMID:32669368
+  locator: 'Methods: Developmental timing; Results And Discussion: CeMbio strains
+    and community vary in impact on host growth rates; Figure 5'
+  summary: Whole CeMbio accelerates developmental timing relative to OP50 in both
+    host strains; individual responses vary. The measured outcome is adult fraction
+    over time, not biomass growth, reciprocal fitness or proof that colonization mediates
+    development.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.691379Z'
+  snapshot_sha256: c93d96a92476c934215a95eb095026b89b5f0c5f63a49ce420a6579c25b4a108
+- evidence_id: phenotype-si
+  kind: primary_source
+  reference: DOI:10.25387/g3.12580454
+  locator: File S2 Table S4.2 all 65 rows; S4.5 all 61 rows; S4.7 all 23 rows; S4.8
+    all 7 rows; S4.13 all 18 rows; S4.14 all 22 rows
+  summary: Developmental fractions, experiment-specific CFU and diversity comparisons
+    retain the main scope. No significance test or quantitative reanalysis was performed.
+    The workbook index and some strain/genus fields differ from sheet contents; these
+    are disclosed source limitations, not reassigned taxa. Closest ATCC relatives
+    in File S2 Table S4.13 are not culture aliases.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.691731Z'
+  snapshot_sha256: 71dd8c715e14312f67f63e4018ddb667064bf05042c7a32bb485555011eecc4e
+- evidence_id: metabolism
+  kind: primary_source
+  reference: PMID:32669368
+  locator: 'Methods: Physiological profiling using EcoPlates; CeMbio genome sequences
+    and metabolic network reconstructions; Results And Discussion: Whole genome sequences
+    reveal diverse metabolic competences of the CeMbio strains; Figure 6'
+  summary: gapseq models and EcoPlate activity establish strain-specific metabolic
+    potential, not blanket interspecies metabolite utilization or fermentation of
+    primary-degradation products. The source proposes niche differentiation as one
+    explanation for assembly while explicitly limiting causal interpretation. Model
+    agreement rises from 66% to 99% after training on the same phenotype data.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.698707Z'
+  snapshot_sha256: c93d96a92476c934215a95eb095026b89b5f0c5f63a49ce420a6579c25b4a108
+  quote: predicted metabolic pathways alone cannot explain
+- evidence_id: model-methods
+  kind: primary_source
+  reference: PMID:32669368
+  locator: 'Methods: CeMbio genome sequences and metabolic network reconstructions'
+  summary: gapseq 1.0 predicts pathways/transporters and constructs gap-filled networks
+    with LB-supported growth. EcoPlate observations refine models; carbon-source predictions
+    use FBA with electron-carrier recycling as objective under a minimal medium with
+    the tested sole carbon/energy source. These are recoverable computational provenance,
+    not measured gut flux.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.698857Z'
+  snapshot_sha256: c93d96a92476c934215a95eb095026b89b5f0c5f63a49ce420a6579c25b4a108
+- evidence_id: models
+  kind: primary_source
+  reference: DOI:10.25387/g3.12580454
+  locator: 'File S3: original and adapted model archives; static member inventory'
+  summary: Each archive contains twelve parseable XML models matching the twelve strain
+    codes. Static structural checks do not reproduce simulations, certify parameters,
+    infer nutrient exchange or validate the 99% result independently.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.698953Z'
+  snapshot_sha256: bbbe398e0aa59a1c472089863f6a9c07eee3b675ae97ef9ddb99b1d7148edffc
+- evidence_id: lb
+  kind: primary_source
+  reference: PMID:32669368
+  locator: 'Methods: Characterization and maintenance of CeMbio bacteria'
+  summary: All members grow in LB containing tryptone 10 g/L, yeast extract 5 g/L
+    and NaCl 5 g/L, with agar 15 g/L when solid. The supported usual range is 25–28
+    °C, with 20–30 °C possible. Stationary phase takes 24–48 hours; slower colonies
+    such as JUb134 can take 48–72 hours. Cryopreservation and initial natural-isolation
+    media are distinct.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.699768Z'
+  snapshot_sha256: c93d96a92476c934215a95eb095026b89b5f0c5f63a49ce420a6579c25b4a108
+- evidence_id: host-protocols
+  kind: primary_source
+  reference: PMID:32669368
+  locator: 'Methods: CeMbio colonization experiments with C. elegans, Experiments
+    1–3; Developmental timing'
+  summary: Experiments 1/2 use OD600 1 PBS suspensions and 60 µL per six-well NGM
+    well, with living larvae at 20 °C; experiment 2 mixes equal volumes and samples
+    at 120 hours. Experiment 3 uses three PBS washes, OD600 5, equal volumes, 250
+    µL on 6 cm NGM/PFM plates and 48/72/96-hour sampling. Developmental timing uses
+    a separate 50 µL inoculation and hourly adult scoring from 46–60 hours. Do not
+    merge these stages.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.700553Z'
+  snapshot_sha256: c93d96a92476c934215a95eb095026b89b5f0c5f63a49ce420a6579c25b4a108
+- evidence_id: odor
+  kind: primary_source
+  reference: PMID:38228683
+  locator: 'Results: Olfactory preference behavior of C. elegans for CeMbio; Identification
+    of volatile chemicals released by CeMbio; Figures 1–3 and Table 1; Discussion'
+  summary: JUb66, CEent1 and BIGb0393 odors are preferred under the tested individual-strain
+    conditions. They share isoamyl alcohol release; pure-compound chemotaxis is measured
+    for additional compounds. Neither association nor pure-compound attraction proves
+    necessity, add-back mediation, mixed-community food preference or colonization
+    causation. The bacteria are physically inaccessible on lids, not inaccessible
+    source papers.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.701039Z'
+  snapshot_sha256: dc0121801c9f223902e4f06a639f8622c78e239e4f5f1e772b584107ca9992e1
+  quote: based only on volatile chemicals
+- evidence_id: odor-methods
+  kind: primary_source
+  reference: PMID:38228683
+  locator: 'Methods: C. elegans and bacterial strains; Bacterial odor choice assay;
+    Gas chromatography–mass spectrometry; Chemotaxis assays'
+  summary: N2 is maintained at 20 °C. Odor cultures use LB at 25 °C overnight, except
+    JUb134 for 48 hours; OD600 10 PBS suspensions are spotted at 25 µL and incubated
+    for 24 hours at room temperature for odor choice. Adult worms choose for one hour
+    beneath lid-mounted patches. GC–MS preparation has separate one-hour plate and
+    24-hour vial stages at 20 °C. Sodium azide and GC temperature programming are
+    analytical, not cultivation conditions.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.701443Z'
+  snapshot_sha256: dc0121801c9f223902e4f06a639f8622c78e239e4f5f1e772b584107ca9992e1
+- evidence_id: availability
+  kind: primary_source
+  reference: PMID:32669368
+  locator: 'Methods: Data availability'
+  summary: The primary source explicitly assigns PRJEB37895 to bacterial genome reads,
+    PRJEB37101 to colonization experiment 2 and PRJEB37035 to experiment 3, with additional
+    genome projects and Figshare experimental/model supplements. These are distinct
+    from publication landing pages.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.701773Z'
+  snapshot_sha256: c93d96a92476c934215a95eb095026b89b5f0c5f63a49ce420a6579c25b4a108
+- evidence_id: odor-data
+  kind: primary_source
+  reference: PMID:38228683
+  locator: Data availability
+  summary: The odor study offers generated/analyzed datasets from the corresponding
+    author on request. This does not turn its PMID landing page into a publicly identified
+    phenotype dataset. No author contact was made.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.702091Z'
+  snapshot_sha256: dc0121801c9f223902e4f06a639f8622c78e239e4f5f1e772b584107ca9992e1
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: MicrobialCommunity.taxonomy; TaxonomicComposition.functional_role and abundance_value;
+    FunctionalRoleEnum; EvidenceSourceEnum; ComputationalProvenance; Dataset
+  summary: Microbial membership excludes hosts. CROSS_FEEDER concerns utilization
+    of metabolites from other taxa; SECONDARY_FERMENTER concerns fermentation of primary-degradation
+    products and does not require a separate producer species. Optional unsupported
+    roles may be omitted. Living-animal assays are IN_VIVO even on laboratory plates;
+    culture/chemistry and computational evidence have different types.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.702376Z'
+  snapshot_sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+- evidence_id: ontology
+  kind: authority
+  reference: ontology-authority.json
+  locator: Whole frozen receipt and its declared scope
+  summary: Six encoded pairs match across sixteen occurrences; label validity does
+    not establish membership or ecological roles.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.702565Z'
+  snapshot_sha256: 6d50350c4770f2165dac23ff0cc97195c6d7ab14d2720977d06749d59231d825
+- evidence_id: semantics
+  kind: authority
+  reference: ontology-semantic-notes.json
+  locator: Whole frozen receipt and its declared scope
+  summary: Child semantic review verifies host exclusion, role definitions, conditional
+    graph scope and assay evidence distinctions.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.703183Z'
+  snapshot_sha256: efb3752919dd8e3db72c4e2bb6d759c18be485f356c8fcaac0e49c00d10badd6
+- evidence_id: roster-authority
+  kind: authority
+  reference: child-roster-authority.json
+  locator: Whole frozen receipt and its declared scope
+  summary: All twelve current species names have verified NCBI labels, ranks and lineages.
+    These are species candidates tied to source strain codes, not newly established
+    strain identities.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.703736Z'
+  snapshot_sha256: abcddab7c7eaf82e0c56f55c489dba3a50c958b465f3145534cddbd6a273de9b
+- evidence_id: gtdb
+  kind: authority
+  reference: child-gtdb-mapping-check.json
+  locator: Whole frozen receipt and its declared scope
+  summary: Bounded exact-ID/name crosswalk candidates preserve different GTDB names,
+    ambiguity and missing rows. Reference-species mappings do not classify inoculated
+    strains; no forced split or nearest-name choice.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.704259Z'
+  snapshot_sha256: 6ef64a970496a4f894e0f28703e087c5b926d21b98b90a4f6e0269292759b0ff
+- evidence_id: resources
+  kind: database
+  reference: dataset-verification.json
+  locator: Whole frozen receipt and its declared scope
+  summary: Direct project identities distinguish correct CeMbio experiments from PRJEB37154,
+    an unrelated mouse study. Genome projects/old assembly versions retain their specific
+    scopes; no raw sequencing analysis.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.704774Z'
+  snapshot_sha256: 43ac20401414f2fb6a965cec5748c737d63a199a05e3b56eb7eceed8ab6f63ab
+- evidence_id: snippets
+  kind: validation
+  reference: snippet-audit.json
+  locator: Whole frozen receipt and its declared scope
+  summary: All eighteen canonical excerpts match their appropriate freshly inspected
+    reference. Strict cache whitespace matching gives seventeen because one CGC URL
+    has a space before its semicolon; this is a rendering difference, not a scientific
+    defect. The CEent1 identity excerpt uses adjacent Table 1 cells as an explicit
+    table projection; no inline sentence is invented. Source identity and interpretation
+    remain separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.705147Z'
+  snapshot_sha256: d6effd5afc7aaf64c5ee91e7b4383104d8160b59243d6247d775d8912f299776
+- evidence_id: history
+  kind: record_content
+  reference: provenance-audit.json
+  locator: Whole frozen receipt and its declared scope
+  summary: Both histories and exact prior batch10 decision were read. Preserve the
+    graph repairs and existing issue ownership, without inheriting non-graph certification.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.705435Z'
+  snapshot_sha256: eecd40626ec9cd7ee59adb7f3c9a3640c021b12fa7f7969b8a4df7ae810e586c
+- evidence_id: metrics
+  kind: validation
+  reference: support-audit.json
+  locator: Whole frozen receipt and its declared scope
+  summary: Four nodes, one arrow and five node-evidence entries give mean 1.25; native
+    COMPLETE. Completeness 35; two major/two minor gives raw quality 103.5, capped
+    100.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.705899Z'
+  snapshot_sha256: da4a536f313ce167ce127c08782cef801998fb00339231b13687b801cfecb52f
+- evidence_id: lead-read
+  kind: validation
+  reference: lead-primary-read-scope.json
+  locator: Whole frozen receipt and its declared scope
+  summary: Lead read both whole scientific papers, all nine main images, File S4 narrative/panels
+    and bounded workbook contents as explicitly listed. Ancillary trees and broad
+    raw tables are not all certified.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.705958Z'
+  snapshot_sha256: 61a65ae438615dae9fa73ecdf64ac9c29582136703a6eb3a72d1966d0161622a
+- evidence_id: source-scope
+  kind: validation
+  reference: source-audit.json
+  locator: Whole frozen receipt and its declared scope
+  summary: Frozen lead assessment groups two major and two minor findings while retaining
+    the qualified graph and source-only contradictions.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.706330Z'
+  snapshot_sha256: bdf3fab1eac27f1303cecd5c305be7945c8804dc04285fb3c99b80d2581a0dee
+- evidence_id: root-source
+  kind: validation
+  reference: root-independent-source-audit.json
+  locator: Whole frozen receipt and its declared scope
+  summary: Root independently assessed both full primary papers, all main figures
+    and critical SI at its declared bounded scope.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.706628Z'
+  snapshot_sha256: 7f3ad8683219fdf1e2d1f7e470cf0bc328a53a670b0b0f79843f90803929f95a
+- evidence_id: auxiliary
+  kind: validation
+  reference: auxiliary-frozen-manifest.json
+  locator: Whole frozen receipt and its declared scope
+  summary: Child-owned native, ontology and adapter receipts are frozen; all eight
+    focused checks pass.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.707345Z'
+  snapshot_sha256: c72f5b8704e677ff48c3d5bcbee024964b28396cf95dc7bcb9488ab5356a07a3
+- evidence_id: adapter
+  kind: validation
+  reference: adapter-check.json
+  locator: Whole frozen receipt and its declared scope
+  summary: Optional structured adapter discovery is bounded and preserves verified
+    runtime provenance. No expression-module evidence is required or inferred from
+    its absence.
+  support: supports
+  accessed_at: '2026-10-21T16:36:46.707860Z'
+  snapshot_sha256: 39221d9bbbf0de4e11330abbeccc45a47b7749765ec4171589b50a415af337cd
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+  locator: Actual execution 2026-10-21T16:28:33.139217+00:00 to 2026-10-21T16:28:33.777752+00:00
+  summary: Schema passed.
+  support: supports
+  accessed_at: '2026-10-21T16:28:33.777752Z'
+  snapshot_sha256: 5e0cc34faaf68fb210a86b0810b2f7b3442729f3d1619c113157f237f60b5c21
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-strict kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+    --out /private/tmp/cm-review-session/batch-09/000159/strict-report.tsv
+  locator: Actual execution 2026-10-21T16:28:33.139358+00:00 to 2026-10-21T16:28:34.931759+00:00
+  summary: Strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T16:28:34.931759Z'
+  snapshot_sha256: 32c8e62470fe24bffa876ac141e4d0622acd5e3b1abb7bb38cef8581c5ad4a11
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-terms kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+  locator: Actual execution 2026-10-21T16:28:33.139462+00:00 to 2026-10-21T16:28:34.862014+00:00
+  summary: Term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T16:28:34.862014Z'
+  snapshot_sha256: db8729018b3df73c89c839249915e4c85f58f3288677ba3a9522a4073076a1a8
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+  locator: Actual execution 2026-10-21T16:28:33.778036+00:00 to 2026-10-21T16:28:33.849278+00:00
+  summary: GTDB validation passed.
+  support: supports
+  accessed_at: '2026-10-21T16:28:33.849278Z'
+  snapshot_sha256: 7514c6a28207d8c4c10e463d27b630c52f8e3b3344b3e4334a5ba67801a24f90
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb-domain kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+  locator: Actual execution 2026-10-21T16:28:33.849553+00:00 to 2026-10-21T16:28:34.960430+00:00
+  summary: GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T16:28:34.960430Z'
+  snapshot_sha256: d28a5c3a24c2acc21ea55af4460247f4fdda82f500a46ca055538c0c61be8af3
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-history history/records/CeMbio_Caenorhabditis_Elegans_Microbiome
+  locator: Actual execution 2026-10-21T16:28:34.862283+00:00 to 2026-10-21T16:28:35.461464+00:00
+  summary: History validation passed.
+  support: supports
+  accessed_at: '2026-10-21T16:28:35.461464Z'
+  snapshot_sha256: f0feab382c0eb02a58eb7b855699a4bfa938e56f67c84b8cfb8777bace9873bf
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T16:28:35.462035+00:00 to 2026-10-21T16:28:35.504068+00:00
+  summary: Read-only cache naming passed.
+  support: supports
+  accessed_at: '2026-10-21T16:28:35.504068Z'
+  snapshot_sha256: 419590689601056f7f410ce6d49c978806e4033914484b0a1a50508b4355bdfa
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-references-explained kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+  locator: Actual execution 2026-10-21T16:28:35.504270+00:00 to 2026-10-21T16:28:36.361185+00:00
+  summary: Reference validation passed; independent fresh matching confirms all eighteen
+    excerpts at their appropriate source scope.
+  support: supports
+  accessed_at: '2026-10-21T16:28:36.361185Z'
+  snapshot_sha256: e76f3adfd2afa7f7821c62c6f852779a9ba81353e831a19b493e8fa18d12c112
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T14:53:06.814378+00:00 to 2026-10-21T14:53:14.616064+00:00
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T14:53:14.616064Z'
+  snapshot_sha256: af46c37677bdc80eb1866f799958882492e9f72ed8eff4c304f69cd667f99156
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T14:53:06.817734+00:00 to 2026-10-21T14:53:14.704428+00:00
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T14:53:14.704428Z'
+  snapshot_sha256: 6bf7d1eaf4ddc02de94aaea33610660d4b12689dc78ff47a6e29148baeffdd4f
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Defined microbial resource and host boundary
+  outcome: concern
+  summary: The intended twelve-member resource is clear, but structured membership
+    retains only Bacteria and incorrectly includes the host.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - roster
+  - roster-odor
+  - schema
+  - roster-authority
+  dimensions:
+  - name: membership
+    value: Twelve cultured bacterial strains
+    definition: Source-resolved community members, distinct from the nematode host.
+    evidence_ids:
+    - roster
+  - name: host
+    value: Caenorhabditis elegans N2 and assay-specific CB4856
+    definition: Experimental host context and interaction endpoint, not microbial
+      membership.
+    evidence_ids:
+    - colonization
+  - name: scope
+    value: Controlled host-associated community plus individual odor assays
+    definition: Separate mixtures, monocultures and volatile-only behavior.
+    evidence_ids:
+    - colonization
+    - odor
+- assessment_id: origin
+  area: scope
+  topic: Origin, category and ecological state
+  outcome: supported
+  summary: Retain ENGINEERED, SYNTHETIC and OTHER for the deliberately assembled resource.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - roster
+  - host-protocols
+  - schema
+  details: Natural isolate provenance does not make the assembled community an unmanipulated
+    natural population. No new ecological state or equilibrium claim is required.
+- assessment_id: taxonomy
+  area: identity
+  topic: Current names, strain codes and authority
+  outcome: supported
+  summary: The twelve names already in the description are recoverable as structured
+    members from current source tables and authority.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - roster
+  - roster-odor
+  - taxonomy-history
+  - phylogeny-si
+  - roster-authority
+  - gtdb
+  details: Keep the source version, species rank and strain code explicit. Do not
+    treat old provisional names, closest ATCC relatives or species-level GTDB correspondence
+    as authenticated isolate reclassification. Host NO_GTDB_EQUIVALENT is accurate
+    lineage scope but not permission for microbial membership.
+- assessment_id: roles
+  area: evidence
+  topic: Blanket CROSS_FEEDER and SECONDARY_FERMENTER
+  outcome: concern
+  summary: Roster evidence and diverse substrate potential do not support either categorical
+    role for the aggregate or every member.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - metabolism
+  - schema
+  - semantics
+  details: Omit unsupported optional assignments unless separate claim-specific evidence
+    establishes the relevant substrate/product use. A generic proposed label cannot
+    supply missing nutrient utilization or fermentation. No obligacy requirement,
+    different-species secondary-fermenter requirement or blanket absence of cross-feeding
+    is asserted.
+- assessment_id: abundance
+  area: scope
+  topic: Identity text versus abundance
+  outcome: concern
+  summary: Twelve-member and host-organism abundance_value text is identity/context,
+    not quantitative abundance.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - roster
+  - host-protocols
+  - schema
+  details: Move those statements into the reconstructed membership and host/preparation
+    notes. Equal initial volumes and OD do not establish equal viable-cell proportions
+    or later gut abundance; natural-source OTU percentages remain separately scoped.
+- assessment_id: cultivation
+  area: completeness
+  topic: Propagation, host assays and odor preparation
+  outcome: concern
+  summary: Recover the available stage-specific medium composition, inoculation, vessel
+    and sampling details.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - lb
+  - host-protocols
+  - odor-methods
+  details: Supported LB 25–28 °C and host 20 °C remain. Add PFM as the assay-specific
+    peptone-free alternative where represented. Do not import initial isolation antifungals,
+    cryopreservation, washing, GC settings or analytical buffers into a universal
+    medium.
+- assessment_id: evidence-context
+  area: evidence
+  topic: Living-host versus culture evidence
+  outcome: concern
+  summary: Host colonization and developmental conditions require IN_VIVO scope; propagation
+    remains IN_VITRO and models COMPUTATIONAL.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - colonization
+  - development
+  - odor-methods
+  - schema
+  details: Review each mixed engineering/environment/media evidence statement individually
+    rather than replacing every IN_VITRO label mechanically.
+- assessment_id: node-0
+  area: evidence
+  topic: Multi-Strain C. elegans Gut Colonization
+  outcome: supported
+  summary: Retain the untyped host-association node and explicit lack of proven facilitation
+    or developmental mediation.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - colonization
+  - phenotype-si
+  details: All members are source-reported as detected under community conditions,
+    with time/media and amplicon-resolution limitations. Counts and relative abundance
+    are not interchangeable.
+- assessment_id: node-1
+  area: evidence
+  topic: Community Effects on Nematode Development
+  outcome: supported
+  summary: Retain whole-mixture effects on developmental timing relative to OP50 and
+    heterogeneous individual-member responses.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - development
+  - phenotype-si
+  details: Adult fraction is not reciprocal fitness, nematode biomass or proof that
+    colonization caused the developmental effect. No colonization-to-development arrow
+    is restored.
+- assessment_id: node-2
+  area: evidence
+  topic: Strain-Resolved Metabolic Diversity
+  outcome: supported
+  summary: Retain computational metabolic diversity and its PARTIAL niche-partitioning
+    interpretation.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - metabolism
+  - model-methods
+  - models
+  details: Preserve the pre-training versus post-training distinction. Attach recoverable
+    structured model provenance without treating the models as direct gut flux evidence.
+- assessment_id: edge-2-0
+  area: evidence
+  topic: Metabolic diversity to colonization hypothesis
+  outcome: supported
+  summary: Retain exactly the existing HYPOTHESIZED direction.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - metabolism
+  - colonization
+  details: The paper proposes niche differentiation as one possible explanation; no
+    metabolic perturbation, transfer assay or mediation experiment establishes that
+    direction causally.
+- assessment_id: node-3
+  area: evidence
+  topic: Individual-member odor preference
+  outcome: supported
+  summary: Retain the volatile-only individual-strain behavior with its three preferred
+    strains and proper family boundary.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - odor
+  - odor-methods
+  details: The source bacteria sit on the lid; paper access is unrelated. Isoamyl
+    association and compound attraction do not establish mixed-community feeding benefit,
+    colonization causation or necessity. No new arrow is warranted.
+- assessment_id: resources
+  area: provenance
+  topic: Study accessions and publication/data distinction
+  outcome: concern
+  summary: Correct experiment 3 to its actual project and separate publications from
+    genuine datasets.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - availability
+  - odor-data
+  - resources
+  details: Preserve PRJEB37101 for experiment 2 and PRJEB37895 genome reads. Do not
+    certify an unrelated mouse accession, collapse different cohorts into one field
+    or invent a public odor dataset from the request-only statement.
+- assessment_id: validation
+  area: schema
+  topic: Native validation and review scope
+  outcome: supported
+  summary: All eight focused checks pass; scientific findings remain despite valid
+    syntax and labels.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - auxiliary
+  - ontology
+  - snippets
+  details: Review persistence is limited to the new immutable bundle. No canonical
+    record, cache, curation history or generated artifact is changed; corpus warnings
+    remain separately visible.
+- assessment_id: metrics
+  area: completeness
+  topic: Native formulas
+  outcome: supported
+  summary: Report scores as mechanical rubric values, not scientific certification.
+  target_ids:
+  - CommunityMech:000159
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 35
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required-field/taxon-role bundle 0, environment 5, at least three
+      nodes 10, external resources 5, growth media 10, datasets 5 = 35. Do not invent
+      host roles or extra facts to gain points.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      P1=0,P2=2,P3=2,P4=0; five entries/four nodes yields 12.5 evidence points, COMPLETE
+      adds 15. Raw 103.5 is capped at 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: microbial-membership
+  issue_key: cm-000159-microbial-membership
+  category: identity
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: material membership or unsupported ecological-function
+    representation.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Represent twelve microbial members and keep the host outside membership
+  description: The structured roster is collapsed to Bacteria and includes C. elegans,
+    despite twelve named and source-resolved bacterial strains.
+  target_ids:
+  - CommunityMech:000159
+  field_paths:
+  - taxonomy
+  - taxonomy[*].abundance_value
+  - description
+  - discussions
+  evidence_ids:
+  - roster
+  - roster-odor
+  - schema
+  - roster-authority
+  - gtdb
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+    role: canonical_record
+- finding_id: functional-role-support
+  issue_key: cm-000159-functional-role-support
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: material membership or unsupported ecological-function
+    representation.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Remove unsupported aggregate metabolic roles
+  description: Identity snippets and metabolic potential do not establish blanket
+    CROSS_FEEDER or SECONDARY_FERMENTER assignments.
+  target_ids:
+  - CommunityMech:000159
+  field_paths:
+  - taxonomy[0].functional_role
+  - taxonomy[0].evidence
+  evidence_ids:
+  - metabolism
+  - model-methods
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+    role: canonical_record
+- finding_id: experimental-provenance
+  issue_key: cm-000159-experimental-provenance
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded provenance/context repair without changing the
+    community or qualified graph.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Recover stage-specific methods and evidence context
+  description: The source supplies more precise propagation, host-assay and computational
+    details, while several whole-animal statements carry IN_VITRO labels.
+  target_ids:
+  - CommunityMech:000159
+  field_paths:
+  - engineering_design.evidence
+  - environmental_factors
+  - growth_media
+  - cultivation_setup
+  - ecological_interactions[2].evidence
+  evidence_ids:
+  - lb
+  - host-protocols
+  - odor-methods
+  - model-methods
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+    role: canonical_record
+- finding_id: resource-scope
+  issue_key: cm-000159-resource-scope
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded provenance/context repair without changing the
+    community or qualified graph.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Correct the experiment-3 accession and distinguish publications from data
+  description: PRJEB37154 is an unrelated mouse study; the source and archive identify
+    PRJEB37035. Two article landing pages are classified as datasets.
+  target_ids:
+  - CommunityMech:000159
+  field_paths:
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - availability
+  - odor-data
+  - resources
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+    role: canonical_record
+actions:
+- action_id: reconstruct-membership
+  description: Reconstruct the source-grounded microbial roster without changing community
+    scope.
+  finding_ids:
+  - microbial-membership
+  target_ids:
+  - CommunityMech:000159
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+    role: canonical_record
+  acceptance_checks:
+  - 'Create twelve microbial entries for the current source species and exact codes:
+    CEent1, JUb66, MYb10, JUb134, JUb19, MYb11, MSPm1, BIGb0172, BIGb0393, MYb71,
+    BIGb0170 and JUb44. Use the pinned species-level NCBI authority candidates, attach
+    narrow roster evidence and preserve source nomenclature/version notes. Do not
+    manufacture strain identifiers.'
+  - Remove C. elegans from microbial taxonomy while retaining host context, N2/CB4856
+    assay scope and supported interaction targets. Replace the Bacteria placeholder
+    as membership, but retain a broad community-level Bacteria endpoint where it accurately
+    describes a whole-mixture claim.
+  - Move twelve-member/host abundance_value identity text into membership, host or
+    preparation notes. Do not convert natural-source OTU percentages, equal OD or
+    equal starting volume into measured abundance.
+  - Re-ground each new species against the actual local crosswalk and record mapping
+    content provenance. Preserve ambiguity, differently named reference correspondences
+    and unsupported study-strain mappings; do not copy the domain mapping or force
+    GTDB species assignments. Keep older File S4 naming conflicts explicit.
+- action_id: repair-functional-roles
+  description: Retain only claim-specific supported metabolic roles.
+  finding_ids:
+  - functional-role-support
+  target_ids:
+  - CommunityMech:000159
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Omit blanket CROSS_FEEDER and SECONDARY_FERMENTER assignments unless separately
+    inspected evidence establishes the relevant member, metabolite utilization or
+    fermentation of primary-degradation products. Roster membership, EcoPlate activity
+    and diverse model pathways alone do not establish those relations.
+  - Preserve optional-role omissions rather than substitute an equally unsupported
+    role for completeness points. SECONDARY_FERMENTER does not require a different
+    producer species; CROSS_FEEDER does concern other-taxon metabolites. Do not infer
+    that all cross-feeding is biologically absent.
+  - Retain four qualified nodes and the one HYPOTHESIZED metabolic-diversity-to-colonization
+    arrow. Keep developmental timing separate from colonization mediation and odor
+    preference separate from mixed-community benefit.
+- action_id: recover-experimental-context
+  description: Add source-scoped cultivation and computational provenance.
+  finding_ids:
+  - experimental-provenance
+  target_ids:
+  - CommunityMech:000159
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain supported LB temperature 25–28 °C and add the actual tryptone/yeast extract/NaCl
+    recipe, optional agar and 24–48-hour propagation range with the slower-colony
+    exception. Do not transfer natural-isolation antifungals or frozen-stock conditions
+    into community cultivation.
+  - 'Represent host protocols separately: experiments 1/2 OD600 1, 60 µL, six-well
+    NGM at 20 °C, with experiment-2 equal-volume mixing and 120-hour sampling; experiment
+    3 OD600 5 after three PBS washes, 250 µL on 6 cm NGM or PFM at 20 °C, sampled
+    at 48/72/96 hours. Keep developmental timing and its 50 µL inoculation/46–60-hour
+    adult scoring distinct. Do not infer unstated medium volumes or universal shaking/pH.'
+  - 'Review each evidence type narrowly: whole-animal colonization/development/odor
+    behavior is IN_VIVO; bacterial propagation and plate chemistry remain IN_VITRO;
+    FBA remains COMPUTATIONAL. Mixed engineering statements may need separate evidence
+    rather than a blanket enum replacement.'
+  - Add recoverable gapseq 1.0 reconstruction/gap-filling, LB constraints, EcoPlate
+    training and electron-carrier recycling objective under minimal tested-carbon
+    conditions to computational_provenance, linking original/adapted File S3 models.
+    Preserve 66% pre-training versus 99% post-training agreement; no independent validation
+    or measured exchange is implied.
+  - 'Keep individual odor protocols separate: LB 25 °C overnight except JUb134 for
+    48 hours; OD600 10 PBS suspensions, 25 µL spots, lid-mounted patches and one-hour
+    adult choice. Distinguish GC–MS staging and analytical reagents. Any added VOC
+    annotation must preserve association versus necessity and the unconfirmed standards
+    for cycloundecene/4-undecene.'
+- action_id: repair-resource-scope
+  description: Correct and separate resource identities.
+  finding_ids:
+  - resource-scope
+  target_ids:
+  - CommunityMech:000159
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Replace unrelated PRJEB37154 with verified PRJEB37035 for experiment 3 and represent
+    PRJEB37101 experiment 2 separately, with correct URLs and assay scope. Retain
+    PRJEB37895 as bacterial genome reads and distinguish additional isolate genome
+    projects/versions from community amplicons.
+  - Move the two bibliographic PMID landing-page entries to publication external_resources
+    and remove their misclassified dataset entries. Add or retain actual experimental
+    tables/model archives only with exact resource identity and scope; do not condition
+    removal on finding a replacement dataset.
+  - Preserve the direct Figshare collection and its file-specific scope, source-reported
+    CGC availability and odor request-only data statement. Do not infer that requested
+    data are publicly deposited or contact authors. Keep source-only primer/table
+    naming inconsistencies explicit; do not assign primer identifiers or closest ATCC
+    relatives to strains automatically.
+- action_id: validate-authorized-curation
+  description: Apply any canonical changes only in separately authorized curation.
+  finding_ids:
+  - microbial-membership
+  - functional-role-support
+  - experimental-provenance
+  - resource-scope
+  target_ids:
+  - CommunityMech:000159
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/CeMbio_Caenorhabditis_Elegans_Microbiome.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Append fresh curation history and run focused schema, strict, term, reference,
+    GTDB/domain and history checks; then run just gen-html and just check-docs-current
+    after separately authorized canonical edits. No such mutation or generator run
+    occurs in this review.
+  - Recheck affected claims against the pinned source versions and preserve all prior
+    immutable review/source receipts. Review persistence is limited to a new immutable
+    review bundle; no canonical, cache, history or generated bytes are changed. Retain
+    existing issue ownership without opening or closing issues.
+limitations:
+- Completion covers the current encoded claims using both full primary papers, all
+  nine main figures and critical inspected SI. It does not certify every ancillary
+  phylogenetic tree, raw workbook cell, script or unavailable separately named supplemental
+  figure.
+- The 2020 main Table 1 and 2024 odor Methods name all twelve current species; old
+  File S4 retains provisional/new-species wording, CEent1 E. cloacae versus E. hormaechei
+  advice and JUb44 borderline ANI statements. Current local species authority verifies
+  names, not independent strain reclassification. Preserve source versions and exact
+  strain codes.
+- File S2 Table S4.7 has genus/strain-column inconsistencies and Table S3 has primer-name/strain-code
+  discrepancies. Closest ATCC relatives in File S2 Table S4.13 are not culture aliases.
+  No quantitative member reassignment or protocol repair is inferred from these source-only
+  issues.
+- The natural-source OTU percentages are not equal fractions of the prepared inoculum
+  or stable gut abundance. Equal starting volumes and OD normalization do not establish
+  equal viable cells or persistent abundance.
+- Experiment 2 V4 cannot distinguish CEent1 and JUb66; experiment 3 uses a different
+  amplicon region. CFU, relative read composition, developmental fraction and plate
+  physiology are distinct measurements.
+- Metabolic pathway predictions and EcoPlate activity do not prove realized interspecies
+  nutrient transfer or fermentation of primary-degradation products. The 99% agreement
+  follows training on the same phenotype data; it is not independent validation. Models
+  were not executed.
+- Odor assays test individual bacteria physically inaccessible on the lid, not inaccessible
+  papers or a twelve-member community feeding assay. Isoamyl association and pure-compound
+  attraction do not establish necessity or mediation of the mixture phenotype. No
+  new odor-to-colonization edge is inferred.
+- 'All experimental stages remain separate: isolate LB culture, host NGM/PFM colonization,
+  developmental timing, EcoPlate activity, individual odor choice and GC–MS. Analytical
+  reagents, purification and cryopreservation conditions are not universal culture
+  conditions.'
+- Public archive checks concern metadata and versioned identities; raw reads/genomes
+  were not analyzed. Source-reported accessions must preserve cohort and experiment
+  scope. No paid tools, author contact, canonical/cache changes or later-target assessment
+  occurred.
+notes:
+- All 25 official inputs remain unchanged. No canonical record, source cache, history,
+  generated product or earlier saved review is edited.
+- The root, lead and auxiliary agents retain separate exact read scopes. Downloaded
+  or exported content is not automatically claimed as fully inspected.
+- Native completeness 35 and quality 100/raw 103.5 are rubric metrics, not scientific
+  certification. No biological role is invented to increase a score.
+- No paid provider, contact, raw reanalysis, model execution or later-target assessment.
+tags:
+- record-review
+- cembio
+- main-and-critical-supplement-assessed
+- batch-09
+```
