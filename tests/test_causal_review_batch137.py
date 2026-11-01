@@ -123,6 +123,10 @@ def _check_batch137_invariants(ledger: dict, rows: list[dict], docs: list[dict])
         assert tt["gtdb_grounding_status"] == "GROUNDED"
         assert tt["gtdb_classification"]["gtdb_id"] == "GTDB:s__Bacillus_subtilis"
 
+    assert "C1,2O in Re1, Re2, Re3, and Re6" in rows[1]["summary"]
+    assert "92.00%, 57.99 -> 4.64 mg/L" in rows[1]["summary"]
+    assert "94.30%, 57.88 -> 3.30 mg/L" in rows[2]["summary"]
+
 
 def test_batch137_covers_c5s1_records_with_verified_hashes_gtdb_and_history():
     ledger, rows, docs = records()
@@ -159,3 +163,11 @@ def test_the_check_can_actually_fail():
     ] = "nonexistent fabricated snippet text that is not in references_cache"
     with pytest.raises(AssertionError, match="Snippet mismatch"):
         _check_batch137_invariants(deepcopy(ledger), deepcopy(rows), bad_docs_snippet)
+
+    # Mutated arm 3: corrupting T1 removal rate in decision ledger summary fails
+    bad_rows = deepcopy(rows)
+    bad_rows[1]["summary"] = bad_rows[1]["summary"].replace(
+        "92.00%, 57.99 -> 4.64 mg/L", "70.11%, 57.58 -> 17.21 mg/L"
+    )
+    with pytest.raises(AssertionError):
+        _check_batch137_invariants(deepcopy(ledger), bad_rows, deepcopy(docs))

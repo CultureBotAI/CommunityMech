@@ -23,7 +23,7 @@ Every record in `kb/communities/*.yaml` and `data/isolates/*.yaml` was audited a
 
 ## 3. Batch 137 Causal-Graph & Taxon-Grounding Curation (`CommunityMech:000497`–`000500`)
 
-All four records added in Cycle 5 Stage 1 (`CommunityMech:000497`–`000500`) were reviewed end-to-end against their cached open-access full text (`references_cache/PMID_42726284.md` and `references_cache/PMID_42354927.md`) and updated via `record_curation_event` + `write_validated_community`:
+All four records added in Cycle 5 Stage 1 (`CommunityMech:000497`–`000500`) were reviewed end-to-end against their cached open-access full text (`references_cache/PMID_42726284.txt` and `references_cache/PMID_42354927.txt`) and updated via `record_curation_event` + `write_validated_community`:
 
 1. **`CommunityMech:000497` — `kb/communities/Synechocystis_Ecoli_Acetate_Butanol_Coculture.yaml`** (`PMID:42726284`, `doi:10.1007/s00253-026-14029-z`)
    - **Graph**: 2 nodes, 1 directed `downstream` causal edge:
@@ -38,8 +38,8 @@ All four records added in Cycle 5 Stage 1 (`CommunityMech:000497`–`000500`) we
    - **Graph**: 2 `COMMUNITY_LEVEL` nodes (`T1 distributed cyantraniliprole enzyme potential` and `HPLC-confirmed cyantraniliprole removal`), `0` directed `downstream` causal edges (matching sister record `CommunityMech:000369` in Batch 28).
    - **Curation Updates**:
      - Expanded YAML anchor/alias reuse (`&id001` / `*id001`) on `participating_taxa` into explicit compact `{preferred_term, term}` lists across both interaction nodes.
-     - Enriched `T1 distributed cyantraniliprole enzyme potential` (`COMPUTATIONAL`) with the strain-by-strain Table 8 EAWAG-BBD enzyme-class distribution (`TPI`, `AP`, and `C1,2O` across `Re1`–`Re6`; `COMT` in `Re1` and `Re3`; `OEX` in `Re2`; 19 total enzyme hits).
-     - Enriched `HPLC-confirmed cyantraniliprole removal` (`IN_VITRO`, 70.11% removal, 57.58 $\to$ 17.21 mg/L) with day-11 microcosm bacterial proliferation evidence (`5.86 x 10^6 CFU/mL`).
+     - Enriched `T1 distributed cyantraniliprole enzyme potential` (`COMPUTATIONAL`) with the strain-by-strain Table 8 EAWAG-BBD enzyme-class distribution (`TPI` and `AP` across `Re1`–`Re6`; `C1,2O` in `Re1`, `Re2`, `Re3`, and `Re6`; `COMT` in `Re1` and `Re3`; `OEX` in `Re2`; 19 total enzyme hits).
+     - Enriched `HPLC-confirmed cyantraniliprole removal` (`IN_VITRO`, 92.00% removal, 57.99 $\to$ 4.64 mg/L) with day-11 microcosm bacterial proliferation evidence (`5.86 x 10^6 CFU/mL`).
      - Preserved `edges_after: []` and the open `KNOWLEDGE_GAP` discussion (`cyantraniliprole_t1_expressed_enzymes`) because Table 8 is post-assay bioinformatic pathway prediction rather than experimentally demonstrated causal enzyme mediation.
 
 3. **`CommunityMech:000499` — `kb/communities/Cyantraniliprole_Consortium_T2.yaml`** (`PMID:42354927`, `doi:10.3390/microorganisms14020438`)
@@ -47,7 +47,7 @@ All four records added in Cycle 5 Stage 1 (`CommunityMech:000497`–`000500`) we
    - **Curation Updates**:
      - Expanded YAML anchor/alias reuse (`&id001` / `*id001`, `&id002` / `*id002`) into explicit lists.
      - Enriched `T2 distributed cyantraniliprole enzyme potential` (`COMPUTATIONAL`) with the strain-by-strain Table 8 EAWAG-BBD enzyme-class distribution (`TPI`, `AP`, and `C1,2O` across `Bo1`–`Bo6`; `OEX` in `Bo3`–`Bo6`; `COMT` absent across all six strains; 22 total enzyme hits).
-     - Enriched `HPLC-confirmed cyantraniliprole removal` (`IN_VITRO`, 75.04% removal, 57.33 $\to$ 14.31 mg/L) with day-11 microcosm bacterial proliferation evidence (`5.92 x 10^6 CFU/mL`).
+     - Enriched `HPLC-confirmed cyantraniliprole removal` (`IN_VITRO`, 94.30% removal, 57.88 $\to$ 3.30 mg/L) with day-11 microcosm bacterial proliferation evidence (`5.92 x 10^6 CFU/mL`).
      - Preserved `edges_after: []` and the open `KNOWLEDGE_GAP` discussion (`cyantraniliprole_t2_expressed_enzymes`).
 
 4. **`CommunityMech:000500` — `kb/communities/Cyantraniliprole_Consortium_T3.yaml`** (`PMID:42354927`, `doi:10.3390/microorganisms14020438`)
