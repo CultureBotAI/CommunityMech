@@ -96,7 +96,7 @@ taxonomy:
       label: Pseudomonas aeruginosa
     gtdb_grounding_status: GROUNDED
     notes: 'MALDI-TOF-MS best match: Pseudomonas aeruginosa MTCC 4996 (Biotyper score 2.375, Table 3).'
-    gtdb_classification: &id001
+    gtdb_classification:
       gtdb_id: GTDB:s__Pseudomonas_aeruginosa
       gtdb_taxon: Pseudomonas aeruginosa
       gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas
@@ -124,7 +124,16 @@ taxonomy:
       label: Pseudomonas aeruginosa
     gtdb_grounding_status: GROUNDED
     notes: 'MALDI-TOF-MS best match: Pseudomonas aeruginosa 47T2 (Biotyper score 2.322, Table 3).'
-    gtdb_classification: *id001
+    gtdb_classification:
+      gtdb_id: GTDB:s__Pseudomonas_aeruginosa
+      gtdb_taxon: Pseudomonas aeruginosa
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas
+        aeruginosa
+      ncbi_source_id: NCBITaxon:287
+      majority_fraction: 0.99
+      total_genomes: 17191
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
   strain_designation:
     strain_name: Bo4
   functional_role:
@@ -143,7 +152,16 @@ taxonomy:
       label: Pseudomonas aeruginosa
     gtdb_grounding_status: GROUNDED
     notes: 'MALDI-TOF-MS best match: Pseudomonas aeruginosa IITG21 (Biotyper score 2.323, Table 3).'
-    gtdb_classification: *id001
+    gtdb_classification:
+      gtdb_id: GTDB:s__Pseudomonas_aeruginosa
+      gtdb_taxon: Pseudomonas aeruginosa
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas
+        aeruginosa
+      ncbi_source_id: NCBITaxon:287
+      majority_fraction: 0.99
+      total_genomes: 17191
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
   strain_designation:
     strain_name: Bo5
   functional_role:
@@ -162,7 +180,16 @@ taxonomy:
       label: Pseudomonas aeruginosa
     gtdb_grounding_status: GROUNDED
     notes: 'MALDI-TOF-MS best match: Pseudomonas aeruginosa dsvp20 (Biotyper score 2.326, Table 3).'
-    gtdb_classification: *id001
+    gtdb_classification:
+      gtdb_id: GTDB:s__Pseudomonas_aeruginosa
+      gtdb_taxon: Pseudomonas aeruginosa
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas
+        aeruginosa
+      ncbi_source_id: NCBITaxon:287
+      majority_fraction: 0.99
+      total_genomes: 17191
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
   strain_designation:
     strain_name: Bo6
   functional_role:
@@ -176,11 +203,12 @@ taxonomy:
       Table 3.
 ecological_interactions:
 - name: T2 distributed cyantraniliprole enzyme potential
-  description: Post-assay bioinformatic analysis (Table 8 / Figure 5) assigns the six T2 strains a combined repertoire of
-    22 predicted enzyme hits (covering four of the five proposed enzyme classes—triosephosphate isomerase, aminopeptidase,
-    and catechol 1,2-dioxygenase in Bo1-Bo6 plus 2-oxopent-4-enoate hydratase in Bo3-Bo6—while lacking catechol O-methyltransferase
-    [COMT]). These represent predicted pathway and enzyme-class coverage rather than measured enzyme expression, catalytic
-    activity, or member-resolved metabolic flux, and do not establish reciprocal fitness benefits.
+  description: 'Post-assay bioinformatic analysis (Table 8 / Figure 5) assigns the six T2 strains a combined repertoire of
+    22 predicted enzyme hits covering four of the five proposed enzyme classes: triosephosphate isomerase (TPI), aminopeptidase
+    (AP), and catechol 1,2-dioxygenase (C1,2O) in Serratia marcescens Bo1-Bo2 and Pseudomonas aeruginosa Bo3-Bo6, plus 2-oxopent-4-enoate
+    hydratase (OEX) in P. aeruginosa Bo3-Bo6, while all six isolates lack catechol O-methyltransferase (COMT). These represent
+    predicted pathway and enzyme-class coverage rather than measured enzyme expression, catalytic activity, or member-resolved
+    metabolic flux, and do not establish reciprocal fitness benefits.'
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cyantraniliprole
@@ -206,7 +234,23 @@ ecological_interactions:
         role: predicted cyantraniliprole transformation pathway and associated enzyme coverage
       parameters: Pathway and enzyme-activity prediction used to compare candidate enzyme coverage across Consortia Nos. 1-4;
         tool version and sequence-search thresholds were not reported in the source paper.
-  participating_taxa: &id002
+  - reference: PMID:42354927
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Serratia marcescens BO1 ✓ ✓ ✓ X X Serratia marcescens BO2 ✓ ✓ ✓ X X Pseudomonas aeruginosa BO3 ✓ ✓ ✓ X ✓ Pseudomonas
+      aeruginosa BO4 ✓ ✓ ✓ X ✓ Pseudomonas aeruginosa BO5 ✓ ✓ ✓ X ✓ pseudomonas aeruginosa BO6 ✓ ✓ ✓ X ✓ Total enzymes of
+      consortia No. 1 ✓ = 22 enzymes
+    explanation: Documents the strain-by-strain Table 8 EAWAG-BBD predicted distribution of the 22 enzyme hits across the
+      six T2 isolates (TPI, AP, and C1,2O in Bo1-Bo6; OEX in Bo3-Bo6; and absence of COMT across all six strains; note Table
+      8's verbatim 'No. 1' typo in the Consortium No. 2 subtotal row).
+    computational_provenance:
+      prediction_type: OTHER
+      tools:
+      - tool_name: EAWAG-BBD pathway prediction system
+        role: predicted cyantraniliprole transformation pathway and associated enzyme coverage
+      parameters: Pathway and enzyme-activity prediction used to compare candidate enzyme coverage across Consortia Nos. 1-4;
+        tool version and sequence-search thresholds were not reported in the source paper.
+  participating_taxa:
   - preferred_term: Serratia marcescens Bo1
     term:
       id: NCBITaxon:615
@@ -234,9 +278,10 @@ ecological_interactions:
 - name: HPLC-confirmed cyantraniliprole removal
   description: In NPK-amended 500 mL freshwater microcosms incubated at 30 °C for 20 days, T2 bioaugmentation was associated
     with HPLC-measured cyantraniliprole decline from a 57.88 mg/L zero-day residue (96.47% recovery of the nominal 60 mg/L
-    spike) to 3.30 mg/L after 20 days, corresponding to 94.30% removal and outperforming uninoculated controls C1 and C2.
-    Treatment-level parent-compound loss in non-sterile freshwater microcosms does not establish complete mineralization,
-    detoxification, member-specific flux, or enzyme mediation.
+    spike) to 3.30 mg/L after 20 days (94.30% removal, outperforming uninoculated controls C1 and C2) alongside total viable
+    bacterial growth reaching 5.92 x 10^6 CFU/mL at day 11 before declining by day 20. Treatment-level parent-compound loss
+    in non-sterile freshwater microcosms does not establish complete mineralization, detoxification, member-specific flux,
+    or enzyme mediation.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cyantraniliprole
@@ -262,7 +307,38 @@ ecological_interactions:
     snippet: T2 96.47 57.88 44.22 d 33.11 d 22.31 d 3.30 d
     explanation: Table 7 reports the T2 recovery (96.47%), zero-day (57.88 mg/L), 3-day, 7-day, 11-day, and 20-day (3.30 mg/L)
       cyantraniliprole residues.
-  participating_taxa: *id002
+  - reference: PMID:42354927
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The bacterial consortia T1, T2, T3, and T4 all showed a consistent increase (p > 0.05) in total bacterial counts
+      from the start of incubation to day 11, reaching 5.86 × 106, 5.92 × 106, 6.11 × 106, and 6.70 × 106 CFU/mL, respectively.
+    explanation: Documents viable bacterial proliferation of consortium T2 (reaching 5.92 x 10^6 CFU/mL at day 11) during
+      active cyantraniliprole biodegradation in the 20-day water microcosms.
+  participating_taxa:
+  - preferred_term: Serratia marcescens Bo1
+    term:
+      id: NCBITaxon:615
+      label: Serratia marcescens
+  - preferred_term: Serratia marcescens Bo2
+    term:
+      id: NCBITaxon:615
+      label: Serratia marcescens
+  - preferred_term: Pseudomonas aeruginosa Bo3
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  - preferred_term: Pseudomonas aeruginosa Bo4
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  - preferred_term: Pseudomonas aeruginosa Bo5
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  - preferred_term: Pseudomonas aeruginosa Bo6
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
 environmental_factors:
 - name: Simulated-water cyantraniliprole removal
   value: '94.30'
@@ -489,4 +565,12 @@ curation_history:
     from PMID:42354927, including MALDI-TOF-MS strain membership, HPLC simulated-water cyantraniliprole removal (94.30%),
     DCPIP (23 h) and diamide growth assays, EAWAG-BBD pathway prediction evidence, microcosm cultivation conditions, and an
     explicit open question for strain-specific expressed enzymes.
+  llm_assisted: true
+- timestamp: '2026-11-01T07:25:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: Reviewed and enriched the 2-node COMMUNITY_LEVEL representation in PMID:42354927 with strain-resolved Table 8 EAWAG-BBD
+    enzyme-class coverage (TPI, AP, C1,2O in Bo1-Bo6; OEX in Bo3-Bo6; COMT absent; 22 total hits) and day-11 microcosm bacterial
+    proliferation evidence (5.92 x 10^6 CFU/mL), keeping downstream edges empty because Table 8 is post-assay bioinformatic
+    prediction rather than demonstrated causal enzyme mediation.
   llm_assisted: true
