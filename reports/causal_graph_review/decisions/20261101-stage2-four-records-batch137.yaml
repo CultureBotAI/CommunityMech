@@ -1,0 +1,564 @@
+reviewer: claude
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 5ee21bb39a6e11f8f7cd9f0361899dce26598c8c
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+reviewed_counts:
+  retained_nodes: 8
+  removed_nodes: 0
+  retained_arrows: 1
+  removed_arrows: 0
+  renamed_nodes: 0
+  graph_quotations: 25
+  discussion_quotations: 4
+limitations:
+- Source-based causal-graph and taxon-grounding curation and review for all 4 newly added Cycle 5 Stage
+  1 records (CommunityMech:000497 through CommunityMech:000500).
+- Other 490 records verified via SHA-256 hash census against reports/causal_graph_review/inventory.tsv
+  (436 reviewed, 54 needs_research preserved unchanged).
+records:
+- path: kb/communities/Synechocystis_Ecoli_Acetate_Butanol_Coculture.yaml
+  id: CommunityMech:000497
+  original_sha256: 50ac8d117e9c7bf0fdc485f02a03fd824d1be8a91a3ac6a0375bea12467cb139
+  record_sha256: 6210d91810b668f546c1e2f17c7f2c01ed37bc250d6314f79696ee7e591b063c
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261101-stage2-four-records-batch137.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached primary source text (PMID:42726284, doi:10.1007/s00253-026-14029-z).
+  summary: 'Reviewed and enriched the 2-node, 1-edge causal graph in PMID:42726284 by adding post-day-10
+    E. coli_Pem7_ButOH population recovery dynamics and sharper post-day-22 acetate depletion to Photosynthetic
+    Acetate Supply To Escherichia coli (PAIRWISE CROSS_FEEDING: Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs
+    -> Escherichia coli BL21(DE3) Pem7_ButOH) and adding the oxygen-tolerant fatty-acid-synthesis-derived
+    TPC4 pathway (Pásztor et al. 2015) plus the ATP/NAD(P)H acetate-assimilation redox constraint to Acetate-Coupled
+    1-Butanol Production (COMMUNITY_LEVEL), while retaining the HYPOTHESIZED/PARTIAL downstream edge and
+    open carbon-source specificity knowledge gap.'
+  node_decisions:
+  - node: Photosynthetic Acetate Supply To Escherichia coli
+    rationale: Supported by primary source (PMID:42726284) with explicit PAIRWISE CROSS_FEEDING scope
+      and taxon grounding (Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs -> Escherichia coli BL21(DE3)
+      Pem7_ButOH); lower extracellular acetate relative to axenic Synechocystis, sharper post-day-22 acetate
+      depletion, and post-day-10 E. coli CFU recovery support acetate supply while PARTIAL bounding preserves
+      the authors' caveat regarding secreted carbohydrates and EPS.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:42726284)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs
+        term:
+          id: NCBITaxon:1148
+          label: Synechocystis sp. PCC 6803
+      target_taxon:
+        preferred_term: Escherichia coli BL21(DE3) Pem7_ButOH
+        term:
+          id: NCBITaxon:562
+          label: Escherichia coli
+    evidence:
+    - reference: PMID:42726284
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: where no additional carbon source was used
+    - reference: PMID:42726284
+      supports: PARTIAL
+      evidence_source: IN_VITRO
+      snippet: Compared to the production of acetate in the axenic culture, less amount of acetate was
+        measured in the co-culture with E. coli indicating acetate consumption.
+    - reference: PMID:42726284
+      supports: PARTIAL
+      evidence_source: IN_VITRO
+      snippet: When it comes to the synthetic consortia, the consortium based on E. coli_Pem7_ButOH and
+        WT_PKPa_RBS_BsPta_Δacs showed higher acetate than the one based on P. taiwanensis_Pem7_ButOH until
+        day 14, and then the values are similar and eventually, after day 22 has a lower acetate concentration.
+        The decrease in acetate is in general sharper in the case of E. coli_Pem7_ButOH compared to when
+        P. taiwanensis_Pem7_ButOH was the bacterium in the consortium.
+    - reference: PMID:42726284
+      supports: PARTIAL
+      evidence_source: IN_VITRO
+      snippet: we cannot conclude that the heterotrophic bacteria used acetate as the only source of carbon
+    - reference: PMID:42726284
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: When E. coli_Pem7_ButOH was cultivated with WT_PKPa_RBS_BsPta_Δacs, very few cells were
+        observed on days 2 and 4. On days 6 and 8, the system still showed instability. However, after
+        day 10, the cell numbers started to increase (with a drop on day 24) and slowly decreased after
+        day 30.
+  - node: Acetate-Coupled 1-Butanol Production
+    rationale: Supported by primary source (PMID:42726284) with explicit COMMUNITY_LEVEL scope and participating_taxa
+      covering both coculture partners; documents measurable 1-butanol production via the oxygen-tolerant
+      TPC4 pathway with peaks on days 10 and 14, plateau behavior, and the ATP/NAD(P)H redox constraint
+      of acetate assimilation.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:42726284)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs
+        term:
+          id: NCBITaxon:1148
+          label: Synechocystis sp. PCC 6803
+      - preferred_term: Escherichia coli BL21(DE3) Pem7_ButOH
+        term:
+          id: NCBITaxon:562
+          label: Escherichia coli
+    evidence:
+    - reference: PMID:42726284
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Additionally, on specific days, for example on days 10 and 14, a relatively high production
+        was noted in the consortium containing the E. coli_Pem7_ButOH while on days 20 and 26, P. taiwanensis_Pem7_ButOH
+        showed high production.
+    - reference: PMID:42726284
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: the production was not stable in the systems but it clearly reached a plateau
+    - reference: PMID:42726284
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: 1-butanol production did not exceed the levels prior to adaptation
+    - reference: PMID:42726284
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: This strain was engineered to produce 1-butanol through diversion of the fatty acid synthesis
+        pathway (Pásztor et al. 2015 ), an oxygen-tolerant pathway.
+    - reference: PMID:42726284
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: One possible explanation for this is that the acetate assimilation for the strain is requiring
+        ATP while not increasing the availability of NAD(P)H, the reducing molecule required for 1-butanol
+        biosynthesis.
+  edges_before:
+  - source: Photosynthetic Acetate Supply To Escherichia coli
+    target: Acetate-Coupled 1-Butanol Production
+    description: 'HYPOTHESIZED/PARTIAL: photosynthetically supplied acetate is a supported candidate carbon
+      route to the observed E. coli 1-butanol output (with peaks on days 10 and 14). The experiment does
+      not resolve the fraction of product carbon derived from acetate rather than secreted cyanobacterial
+      carbohydrates or extracellular polysaccharides; production detection is not a quantified acetate-to-product
+      flux.'
+  edges_after:
+  - source: Photosynthetic Acetate Supply To Escherichia coli
+    target: Acetate-Coupled 1-Butanol Production
+    description: 'HYPOTHESIZED/PARTIAL: photosynthetically supplied acetate is a supported candidate carbon
+      route to the observed E. coli 1-butanol output (with peaks on days 10 and 14). The experiment does
+      not resolve the fraction of product carbon derived from acetate rather than secreted cyanobacterial
+      carbohydrates or extracellular polysaccharides; production detection is not a quantified acetate-to-product
+      flux.'
+  retained_edge_decisions:
+  - edge: Photosynthetic Acetate Supply To Escherichia coli -> Acetate-Coupled 1-Butanol Production
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:42726284 directly pairs acetate-secreting Synechocystis WT_PKPa_RBS_BsPta_Δacs with acetate-adapted
+      E. coli_Pem7_ButOH in CoBG11 without exogenous organic carbon and reports lower extracellular acetate
+      alongside measurable 1-butanol peaks on days 10 and 14; marked HYPOTHESIZED/PARTIAL because carbon
+      flux from acetate vs secreted carbohydrates/EPS was not isotope-resolved.
+    evidence:
+    - reference: PMID:42726284
+      supports: PARTIAL
+      evidence_source: IN_VITRO
+      snippet: Compared to the production of acetate in the axenic culture, less amount of acetate was
+        measured in the co-culture with E. coli indicating acetate consumption.
+    - reference: PMID:42726284
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Additionally, on specific days, for example on days 10 and 14, a relatively high production
+        was noted in the consortium containing the E. coli_Pem7_ButOH while on days 20 and 26, P. taiwanensis_Pem7_ButOH
+        showed high production.
+    - reference: PMID:42726284
+      supports: PARTIAL
+      evidence_source: IN_VITRO
+      snippet: we cannot conclude that the heterotrophic bacteria used acetate as the only source of carbon
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42726284
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Synechocystis_Ecoli_Acetate_Butanol_Coculture/2026-11-01T072500Z-antigravity-c5s201.yaml
+- path: kb/communities/Cyantraniliprole_Consortium_T1.yaml
+  id: CommunityMech:000498
+  original_sha256: 3eca2b5c895d6ba6d42fe0e8ca62f23bb8ca7fdabbdf2ae106a46611fcba8c1c
+  record_sha256: 9ebd2f07ce536e4e92569e93b36f69ac1c3f8efce458c1520a5879000cbb2c90
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261101-stage2-four-records-batch137.yaml
+  scope: Whole record read; every graph node, scope, participant, and zero-edge boundary verified against
+    cached primary source text (PMID:42354927) and sister record CommunityMech:000369 (Batch 28).
+  summary: Reviewed and enriched the 2-node COMMUNITY_LEVEL representation for Consortium No. 1 (T1) in
+    PMID:42354927 with strain-resolved Table 8 EAWAG-BBD enzyme-class coverage (TPI, AP, and C1,2O across
+    Re1-Re6; COMT in Re1 and Re3; OEX in Re2; 19 total hits) and day-11 microcosm bacterial proliferation
+    (5.86 x 10^6 CFU/mL) on HPLC-confirmed cyantraniliprole removal (70.11%, 57.58 -> 17.21 mg/L), expanding
+    YAML anchors into explicit lists and preserving empty downstream edges because Table 8 is post-assay
+    bioinformatic prediction rather than demonstrated causal enzyme mediation.
+  node_decisions:
+  - node: T1 distributed cyantraniliprole enzyme potential
+    rationale: Supported by primary source (PMID:42354927, Table 8 / Section 3.7) with explicit COMMUNITY_LEVEL
+      scope and all six Re1-Re6 isolates in participating_taxa; captures EAWAG-BBD predicted enzyme-class
+      coverage (19 hits across all 5 classes) with COMPUTATIONAL provenance without overclaiming measured
+      enzymatic activity.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and tables (PMID:42354927)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Bacillus subtilis subsp. subtilis Re1
+        term:
+          id: NCBITaxon:135461
+          label: Bacillus subtilis subsp. subtilis
+      - preferred_term: Bacillus cereus Re2
+        term:
+          id: NCBITaxon:1396
+          label: Bacillus cereus
+      - preferred_term: Bacillus pumilus Re3
+        term:
+          id: NCBITaxon:1408
+          label: Bacillus pumilus
+      - preferred_term: Bacillus paramycoides Re4
+        term:
+          id: NCBITaxon:2026194
+          label: Bacillus paramycoides
+      - preferred_term: Bacillus mycoides Re5
+        term:
+          id: NCBITaxon:1405
+          label: Bacillus mycoides
+      - preferred_term: Bacillus amyloliquefaciens Re6
+        term:
+          id: NCBITaxon:1390
+          label: Bacillus amyloliquefaciens
+    evidence:
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: Conversely, T1, despite having the lowest total (19 enzymes), still possessed all five
+        essential enzymes, though its lower overall count may have limited its efficiency.
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: B. subtilis subsp. subtilis Re1 ✓ ✓ ✓ ✓ X B. cereus Re2 ✓ ✓ ✓ X ✓ Bacillus pumilus Re3
+        ✓ ✓ ✓ ✓ X Bacillus paramycoides Re4 ✓ ✓ X X X Bacillus mycoides Re5 ✓ ✓ X X X B. amyloliquefaciens
+        Re6 ✓ ✓ ✓ X X Total enzymes of consortia No. 1 ✓ = 19 enzymes
+  - node: HPLC-confirmed cyantraniliprole removal
+    rationale: Supported by primary source (PMID:42354927, Table 7 / Section 3.5-3.6) with explicit COMMUNITY_LEVEL
+      scope and all six Re1-Re6 isolates in participating_taxa; captures 20-day HPLC cyantraniliprole
+      removal (70.11%, 57.58 -> 17.21 mg/L) and day-11 viable bacterial count increase (5.86 x 10^6 CFU/mL)
+      without inventing unsupported causal edges from post-assay pathway predictions.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and tables (PMID:42354927)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Bacillus subtilis subsp. subtilis Re1
+        term:
+          id: NCBITaxon:135461
+          label: Bacillus subtilis subsp. subtilis
+      - preferred_term: Bacillus cereus Re2
+        term:
+          id: NCBITaxon:1396
+          label: Bacillus cereus
+      - preferred_term: Bacillus pumilus Re3
+        term:
+          id: NCBITaxon:1408
+          label: Bacillus pumilus
+      - preferred_term: Bacillus paramycoides Re4
+        term:
+          id: NCBITaxon:2026194
+          label: Bacillus paramycoides
+      - preferred_term: Bacillus mycoides Re5
+        term:
+          id: NCBITaxon:1405
+          label: Bacillus mycoides
+      - preferred_term: Bacillus amyloliquefaciens Re6
+        term:
+          id: NCBITaxon:1390
+          label: Bacillus amyloliquefaciens
+    evidence:
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: After 20 days, the degradation rates reached 92.00%, 94.30%, 96.72%, and 98.27% for T1,
+        T2, T3, and T4, respectively. These rates correspond to low residual concentrations of 4.64 mg/L,
+        3.30 mg/L, 1.90 mg/L, and 1.00 mg/L.
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: T1 96.65 57.99 45.88 c 34.89 c 25.60 c 4.64 c
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The bacterial consortia T1, T2, T3, and T4 all showed a consistent increase (p > 0.05)
+        in total bacterial counts from the start of incubation to day 11, reaching 5.86 × 106, 5.92 ×
+        106, 6.11 × 106, and 6.70 × 106 CFU/mL, respectively.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42354927
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Cyantraniliprole_Consortium_T1/2026-11-01T072500Z-antigravity-c5s202.yaml
+- path: kb/communities/Cyantraniliprole_Consortium_T2.yaml
+  id: CommunityMech:000499
+  original_sha256: d5f9bf955f938a3eb6579a1b51676c30c1a1e0f8fa7714739cdd0c3972cee79c
+  record_sha256: cd6a38668c90338cf89fe2279e1958fffd8b12da401ea0ad82b4faaa08b526f6
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261101-stage2-four-records-batch137.yaml
+  scope: Whole record read; every graph node, scope, participant, and zero-edge boundary verified against
+    cached primary source text (PMID:42354927) and sister record CommunityMech:000369 (Batch 28).
+  summary: Reviewed and enriched the 2-node COMMUNITY_LEVEL representation for Consortium No. 2 (T2) in
+    PMID:42354927 with strain-resolved Table 8 EAWAG-BBD enzyme-class coverage (TPI, AP, and C1,2O across
+    Bo1-Bo6; OEX in Bo3-Bo6; COMT absent across all six strains; 22 total hits) and day-11 microcosm bacterial
+    proliferation (5.92 x 10^6 CFU/mL) on HPLC-confirmed cyantraniliprole removal (75.04%, 57.33 -> 14.31
+    mg/L), expanding YAML anchors into explicit lists and preserving empty downstream edges because Table
+    8 is post-assay bioinformatic prediction rather than demonstrated causal enzyme mediation.
+  node_decisions:
+  - node: T2 distributed cyantraniliprole enzyme potential
+    rationale: Supported by primary source (PMID:42354927, Table 8 / Section 3.7) with explicit COMMUNITY_LEVEL
+      scope and all six Bo1-Bo6 isolates in participating_taxa; captures EAWAG-BBD predicted enzyme-class
+      coverage (22 hits across 4 classes, lacking COMT) with COMPUTATIONAL provenance without overclaiming
+      measured enzymatic activity.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and tables (PMID:42354927)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Serratia marcescens Bo1
+        term:
+          id: NCBITaxon:615
+          label: Serratia marcescens
+      - preferred_term: Serratia marcescens Bo2
+        term:
+          id: NCBITaxon:615
+          label: Serratia marcescens
+      - preferred_term: Pseudomonas aeruginosa Bo3
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+      - preferred_term: Pseudomonas aeruginosa Bo4
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+      - preferred_term: Pseudomonas aeruginosa Bo5
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+      - preferred_term: Pseudomonas aeruginosa Bo6
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+    evidence:
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: T2, which also had 22 total enzymes, lacked COMT, and this deficiency likely impaired its
+        performance.
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: Serratia marcescens BO1 ✓ ✓ ✓ X X Serratia marcescens BO2 ✓ ✓ ✓ X X Pseudomonas aeruginosa
+        BO3 ✓ ✓ ✓ X ✓ Pseudomonas aeruginosa BO4 ✓ ✓ ✓ X ✓ Pseudomonas aeruginosa BO5 ✓ ✓ ✓ X ✓ pseudomonas
+        aeruginosa BO6 ✓ ✓ ✓ X ✓ Total enzymes of consortia No. 1 ✓ = 22 enzymes
+  - node: HPLC-confirmed cyantraniliprole removal
+    rationale: Supported by primary source (PMID:42354927, Table 7 / Section 3.5-3.6) with explicit COMMUNITY_LEVEL
+      scope and all six Bo1-Bo6 isolates in participating_taxa; captures 20-day HPLC cyantraniliprole
+      removal (75.04%, 57.33 -> 14.31 mg/L) and day-11 viable bacterial count increase (5.92 x 10^6 CFU/mL)
+      without inventing unsupported causal edges from post-assay pathway predictions.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and tables (PMID:42354927)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Serratia marcescens Bo1
+        term:
+          id: NCBITaxon:615
+          label: Serratia marcescens
+      - preferred_term: Serratia marcescens Bo2
+        term:
+          id: NCBITaxon:615
+          label: Serratia marcescens
+      - preferred_term: Pseudomonas aeruginosa Bo3
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+      - preferred_term: Pseudomonas aeruginosa Bo4
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+      - preferred_term: Pseudomonas aeruginosa Bo5
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+      - preferred_term: Pseudomonas aeruginosa Bo6
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+    evidence:
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: After 20 days, the degradation rates reached 92.00%, 94.30%, 96.72%, and 98.27% for T1,
+        T2, T3, and T4, respectively. These rates correspond to low residual concentrations of 4.64 mg/L,
+        3.30 mg/L, 1.90 mg/L, and 1.00 mg/L.
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: T2 96.47 57.88 44.22 d 33.11 d 22.31 d 3.30 d
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The bacterial consortia T1, T2, T3, and T4 all showed a consistent increase (p > 0.05)
+        in total bacterial counts from the start of incubation to day 11, reaching 5.86 × 106, 5.92 ×
+        106, 6.11 × 106, and 6.70 × 106 CFU/mL, respectively.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42354927
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Cyantraniliprole_Consortium_T2/2026-11-01T072500Z-antigravity-c5s203.yaml
+- path: kb/communities/Cyantraniliprole_Consortium_T3.yaml
+  id: CommunityMech:000500
+  original_sha256: d40456801c83717d62283b6e9c7e4107e018e2126df4b0ad58ceec6f64482d81
+  record_sha256: a09fbcc47c0c084facbf9a501bbef519452bc4c70ad31f0071a383d5db144457
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261101-stage2-four-records-batch137.yaml
+  scope: Whole record read; every graph node, scope, participant, taxon grounding block, and zero-edge
+    boundary verified against cached primary source text (PMID:42354927) and sister record CommunityMech:000369
+    (Batch 28).
+  summary: Grounded Bacillus subtilis Ht1 and Ht2 (NCBITaxon:1423) to GTDB:s__Bacillus_subtilis in taxonomy
+    and enriched the 2-node COMMUNITY_LEVEL representation for Consortium No. 3 (T3) in PMID:42354927
+    with strain-resolved Table 8 EAWAG-BBD complementary enzyme-class coverage (TPI, AP, and C1,2O in
+    Ht1-Ht6; COMT in Bacillus Ht1-Ht3; OEX in P. aeruginosa Ht4-Ht6; 24 total hits) and day-11 microcosm
+    bacterial proliferation (6.11 x 10^6 CFU/mL) on HPLC-confirmed cyantraniliprole removal (96.72%, 57.89
+    -> 1.90 mg/L), expanding YAML anchors into explicit lists and preserving empty downstream edges because
+    Table 8 is post-assay bioinformatic prediction rather than demonstrated causal enzyme mediation.
+  node_decisions:
+  - node: T3 distributed cyantraniliprole enzyme potential
+    rationale: 'Supported by primary source (PMID:42354927, Table 8 / Section 3.7) with explicit COMMUNITY_LEVEL
+      scope and all six Ht1-Ht6 isolates in participating_taxa; captures EAWAG-BBD predicted complementary
+      enzyme-class coverage (24 hits across all 5 classes: COMT in Bacillus Ht1-Ht3, OEX in P. aeruginosa
+      Ht4-Ht6) with COMPUTATIONAL provenance without overclaiming measured enzymatic activity.'
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and tables (PMID:42354927)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Bacillus subtilis Ht1
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+      - preferred_term: Bacillus subtilis Ht2
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+      - preferred_term: Bacillus mojavensis Ht3
+        term:
+          id: NCBITaxon:72360
+          label: Bacillus mojavensis
+      - preferred_term: Pseudomonas aeruginosa Ht4
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+      - preferred_term: Pseudomonas aeruginosa Ht5
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+      - preferred_term: Pseudomonas aeruginosa Ht6
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+    evidence:
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: While T3 had 24 enzymes and T4 had 22, the critical factor was that both contained all
+        five key enzymes necessary for the complete degradation pathway, most notably including the enzyme
+        catechol O-methyltransferase (COMT).
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: Bacillus subtilis Ht1 ✓ ✓ ✓ ✓ X Bacillus subtilis Ht2 ✓ ✓ ✓ ✓ X Bacillus mojavensis Ht3
+        ✓ ✓ ✓ ✓ X pseudomonas aeruginosa Ht4 ✓ ✓ ✓ X ✓ Pseudomonas aeruginosa Ht5 ✓ ✓ ✓ X ✓ Pseudomonas
+        aeruginosa Ht6 ✓ ✓ ✓ X ✓ Total enzymes of consortia No. 1 ✓ = 24 enzymes
+  - node: HPLC-confirmed cyantraniliprole removal
+    rationale: Supported by primary source (PMID:42354927, Table 7 / Section 3.5-3.6) with explicit COMMUNITY_LEVEL
+      scope and all six Ht1-Ht6 isolates in participating_taxa; captures 20-day HPLC cyantraniliprole
+      removal (96.72%, 57.89 -> 1.90 mg/L) and day-11 viable bacterial count increase (6.11 x 10^6 CFU/mL)
+      without inventing unsupported causal edges from post-assay pathway predictions.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and tables (PMID:42354927)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Bacillus subtilis Ht1
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+      - preferred_term: Bacillus subtilis Ht2
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+      - preferred_term: Bacillus mojavensis Ht3
+        term:
+          id: NCBITaxon:72360
+          label: Bacillus mojavensis
+      - preferred_term: Pseudomonas aeruginosa Ht4
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+      - preferred_term: Pseudomonas aeruginosa Ht5
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+      - preferred_term: Pseudomonas aeruginosa Ht6
+        term:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+    evidence:
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: followed by consortium T3 (96.72%), which consisted of Bacillus subtilis Ht1, Bacillus
+        subtilis Ht2, Bacillus mojavensis Ht3, Pseudomonas aeruginosa Ht4, Pseudomonas aeruginosa Ht5,
+        and Pseudomonas aeruginosa Ht6.
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: T3 96.48 57.89 43.13 e 31.14 e 19.52 e 1.90 e
+    - reference: PMID:42354927
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The bacterial consortia T1, T2, T3, and T4 all showed a consistent increase (p > 0.05)
+        in total bacterial counts from the start of incubation to day 11, reaching 5.86 × 106, 5.92 ×
+        106, 6.11 × 106, and 6.70 × 106 CFU/mL, respectively.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42354927
+  allowed_changed_fields:
+  - taxonomy
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Cyantraniliprole_Consortium_T3/2026-11-01T072500Z-antigravity-c5s204.yaml
