@@ -57,15 +57,17 @@ findings:
   certainty: confirmed
   title: SMutans_VParvula_ASC_Biofilm (CommunityMech:000085) omits functional_role,
     abundance_level, and 1% sucrose environmental_factors
-  description: In kb/communities/SMutans_VParvula_ASC_Biofilm.yaml (CommunityMech:000085),
+  description: 'In kb/communities/SMutans_VParvula_ASC_Biofilm.yaml (CommunityMech:000085),
     taxonomy[0] (Streptococcus mutans, NCBITaxon:1309) omits functional_role and abundance_level,
-    taxonomy[1] (Veillonella parvula, NCBITaxon:29466) omits functional_role, and
-    environmental_factors is absent. The cited open-access source PMID:39345197 (PMC11526728)
-    establishes S. mutans as the primary sucrose-fermenting lactic-acid- and EPS-producing
-    bacterium (PRIMARY_DEGRADER, CROSS_FEEDER; ABUNDANT in dual-species biofilm with
-    10^8 CFU/mL inoculum), V. parvula as the lactate-consuming metabolic cross-feeder
-    (SYNTROPHIC_PARTNER, CROSS_FEEDER), and 1% (w/v) sucrose supplementation in BHI
-    broth as the defining cariogenic substrate regime.
+    taxonomy[1] (Veillonella parvula, NCBITaxon:29466, which already records abundance_level:
+    DOMINANT) omits functional_role, and environmental_factors is absent. The cited
+    open-access source PMID:39345197 (PMC11537095) establishes S. mutans as the primary
+    sucrose-fermenting lactic-acid- and EPS-producing bacterium (PRIMARY_DEGRADER,
+    CROSS_FEEDER; ABUNDANT in Adult Severe Caries supragingival plaque and dual-species
+    biofilm), V. parvula as the lactate-consuming metabolic cross-feeder (SYNTROPHIC_PARTNER,
+    CROSS_FEEDER) that promotes S. mutans mature biofilm formation with enhanced acid
+    resistance and hydrogen peroxide detoxicity, and 1% (w/v) sucrose supplementation
+    in BHI broth as the defining cariogenic substrate regime.'
   target_ids:
   - CommunityMech:000085
   field_paths:
@@ -98,13 +100,15 @@ findings:
   title: SO3_BS3_Lithium_Battery_Bioleaching_Consortium (CommunityMech:000385) omits
     functional_role on Bacillus subtilis 168 BS3
   description: 'In kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
-    (CommunityMech:000385), taxonomy[0] (Shewanella oneidensis MR-1 SO3) carries functional_role:
-    [PRIMARY_DEGRADER, SYNTROPHIC_PARTNER], but taxonomy[1] (Bacillus subtilis 168
-    BS3, NCBITaxon:224308) omits functional_role despite ecological_interactions and
-    PMID:42733304 (doi:10.1073/pnas.2528527123) explicitly documenting that engineered
-    B. subtilis BS3 synthesizes and secretes riboflavin to drive flavin-mediated extracellular
-    electron transfer in S. oneidensis SO3 while consuming lactate and generating
-    organic acid lixiviants.'
+    (CommunityMech:000385), taxonomy[0] (Shewanella oneidensis MR-1 SO3, NCBITaxon:70863)
+    carries functional_role: [ELECTROGEN, ELECTRON_DONOR], but taxonomy[1] (Bacillus
+    subtilis 168 BS3, term.id: NCBITaxon:1423) omits functional_role despite ecological_interactions
+    and PMID:42733304 (doi:10.1002/advs.77699, PMC13572860) explicitly documenting
+    that engineered B. subtilis BS3 converts inhibitory residual ethanol in Moutai
+    brewing wastewater into acetate via the Adh-AldH dual-enzyme cascade (eliminating
+    ethanol inhibition on S. oneidensis EET) and synthesizes riboflavin as an electron
+    shuttle to promote flavin-mediated extracellular electron transfer in S. oneidensis
+    SO3 during spent ternary lithium-ion battery cathode bioleaching.'
   target_ids:
   - CommunityMech:000385
   field_paths:
@@ -116,7 +120,7 @@ findings:
   native_severity: P2
   normalization_reason: Missing source-backed functional_role on one of two engineered
     syntrophic partners causes scripts/audit_completeness.py required-block failure
-    (45/100) and maps to major (P2).
+    (20/100) and maps to major (P2).
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
@@ -595,8 +599,9 @@ workflow_findings:
 - finding_id: c5s4-000385-so3-bs3-bsubtilis-functional-role
   status: open
   summary: 'CommunityMech:000385 (kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml)
-    omits functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] on engineered riboflavin-overproducing
-    Bacillus subtilis 168 (BS3) despite verbatim support in PMID:42733304 (doi:10.1073/pnas.2528527123).'
+    omits functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] on engineered ethanol-detoxifying
+    and riboflavin-synthesizing Bacillus subtilis 168 (BS3) despite verbatim support
+    in PMID:42733304 (doi:10.1002/advs.77699).'
 - finding_id: cheese-assay-evidence-gap
   status: deferred
   carried_from: cheese-assay-evidence-gap

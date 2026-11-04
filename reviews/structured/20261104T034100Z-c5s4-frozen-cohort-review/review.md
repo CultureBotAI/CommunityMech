@@ -246,13 +246,13 @@ In kb/communities/SMutans_SSputigena_ECC_Pathobiont.yaml (CommunityMech:000084),
 
 major / open / confirmed; issue key: c5s4-000085-smutans-vparvula-roles-abundance-and-sucrose.
 
-In kb/communities/SMutans_VParvula_ASC_Biofilm.yaml (CommunityMech:000085), taxonomy[0] (Streptococcus mutans, NCBITaxon:1309) omits functional_role and abundance_level, taxonomy[1] (Veillonella parvula, NCBITaxon:29466) omits functional_role, and environmental_factors is absent. The cited open-access source PMID:39345197 (PMC11526728) establishes S. mutans as the primary sucrose-fermenting lactic-acid- and EPS-producing bacterium (PRIMARY_DEGRADER, CROSS_FEEDER; ABUNDANT in dual-species biofilm with 10^8 CFU/mL inoculum), V. parvula as the lactate-consuming metabolic cross-feeder (SYNTROPHIC_PARTNER, CROSS_FEEDER), and 1% (w/v) sucrose supplementation in BHI broth as the defining cariogenic substrate regime.
+In kb/communities/SMutans_VParvula_ASC_Biofilm.yaml (CommunityMech:000085), taxonomy[0] (Streptococcus mutans, NCBITaxon:1309) omits functional_role and abundance_level, taxonomy[1] (Veillonella parvula, NCBITaxon:29466, which already records abundance_level: DOMINANT) omits functional_role, and environmental_factors is absent. The cited open-access source PMID:39345197 (PMC11537095) establishes S. mutans as the primary sucrose-fermenting lactic-acid- and EPS-producing bacterium (PRIMARY_DEGRADER, CROSS_FEEDER; ABUNDANT in Adult Severe Caries supragingival plaque and dual-species biofilm), V. parvula as the lactate-consuming metabolic cross-feeder (SYNTROPHIC_PARTNER, CROSS_FEEDER) that promotes S. mutans mature biofilm formation with enhanced acid resistance and hydrogen peroxide detoxicity, and 1% (w/v) sucrose supplementation in BHI broth as the defining cariogenic substrate regime.
 
 ### c5s4-000385-so3-bs3-bsubtilis-functional-role: SO3_BS3_Lithium_Battery_Bioleaching_Consortium (CommunityMech:000385) omits functional_role on Bacillus subtilis 168 BS3
 
 major / open / confirmed; issue key: c5s4-000385-so3-bs3-bsubtilis-functional-role.
 
-In kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml (CommunityMech:000385), taxonomy[0] (Shewanella oneidensis MR-1 SO3) carries functional_role: [PRIMARY_DEGRADER, SYNTROPHIC_PARTNER], but taxonomy[1] (Bacillus subtilis 168 BS3, NCBITaxon:224308) omits functional_role despite ecological_interactions and PMID:42733304 (doi:10.1073/pnas.2528527123) explicitly documenting that engineered B. subtilis BS3 synthesizes and secretes riboflavin to drive flavin-mediated extracellular electron transfer in S. oneidensis SO3 while consuming lactate and generating organic acid lixiviants.
+In kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml (CommunityMech:000385), taxonomy[0] (Shewanella oneidensis MR-1 SO3, NCBITaxon:70863) carries functional_role: [ELECTROGEN, ELECTRON_DONOR], but taxonomy[1] (Bacillus subtilis 168 BS3, term.id: NCBITaxon:1423) omits functional_role despite ecological_interactions and PMID:42733304 (doi:10.1002/advs.77699, PMC13572860) explicitly documenting that engineered B. subtilis BS3 converts inhibitory residual ethanol in Moutai brewing wastewater into acetate via the Adh-AldH dual-enzyme cascade (eliminating ethanol inhibition on S. oneidensis EET) and synthesizes riboflavin as an electron shuttle to promote flavin-mediated extracellular electron transfer in S. oneidensis SO3 during spent ternary lithium-ion battery cathode bioleaching.
 
 ### cheese-assay-evidence-gap: Pairwise in-vitro assay evidence in Cheese Rind Model Community (CommunityMech:000153) remains abstract-limited
 
@@ -317,21 +317,21 @@ Disposition: Deferred: source-limited pending full-text interaction data (#1681)
 Add functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: ABUNDANT to Streptococcus mutans (taxonomy[0]), add functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] to Selenomonas sputigena (taxonomy[1]), add environmental_factors for 1% (w/v) sucrose supplementation in BHIS medium backed by PMID:37217495 on CommunityMech:000084, and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/SMutans_SSputigena_ECC_Pathobiont.yaml
-- uv run python scripts/verify_history_Changed_records.py
+- just validate-history history
 
 ### act-populate-smutans-vparvula-roles-abundance-and-sucrose
 
 Add functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: ABUNDANT to Streptococcus mutans (taxonomy[0]), add functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] to Veillonella parvula (taxonomy[1]), add environmental_factors for 1% (w/v) sucrose supplementation in BHI broth backed by PMID:39345197 on CommunityMech:000085, and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/SMutans_VParvula_ASC_Biofilm.yaml
-- uv run python scripts/verify_history_Changed_records.py
+- just validate-history history
 
 ### act-populate-so3-bs3-bsubtilis-functional-role
 
-Add functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] to Bacillus subtilis 168 (BS3) backed by PMID:42733304 (doi:10.1073/pnas.2528527123) on CommunityMech:000385, and append curation_history.
+Add functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] to Bacillus subtilis 168 (BS3) backed by PMID:42733304 (doi:10.1002/advs.77699) on CommunityMech:000385, and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
-- uv run python scripts/verify_history_Changed_records.py
+- just validate-history history
 
 ### act-defer-source-limited-fulltext-findings-c5s4
 
@@ -353,8 +353,8 @@ Retain source-limited full-text findings until open-access full text or suppleme
 | ev-causal-inventory | reports/causal_graph_review/inventory.tsv; rows 1-495 | supports | Corpus-wide causal graph inventory covers all 494 MicrobialCommunity records with 100% SHA-256 attestation in verify_causal_graph_reviews.py (0 unreviewed records). |
 | ev-common-taxon-linkage-audit | kb/taxa/Geobacter_sulfurreducens.yaml; TaxonomicComposition.common_taxon cross-references across kb/communities/*.yaml | supports | Corpus-wide audit of reusable taxon cross-references confirmed 15 TaxonomicComposition.common_taxon links across kb/communities/*.yaml (6 Geobacter sulfurreducens communities linked to CommunityMech:taxon:000002 [4 reusable UniProt EET genes plus inline macA/Q749P2] and 9 Shewanella oneidensis communities linked to CommunityMech:taxon:000001 [5 reusable UniProt EET genes plus inline fccA/Q8EKT2]) after Cycle 5 Stage 3 inline gene expansion (#2103). |
 | ev-smutans-ssputigena-pmid37217495 | PMID:37217495; kb/communities/SMutans_SSputigena_ECC_Pathobiont.yaml | supports | PMID:37217495 (PMC10247392) establishes that Streptococcus mutans is the primary sucrose-fermenting exopolysaccharide-producing pathobiont (&gt;25% of bacterial reads in caries-associated cluster C4) and Selenomonas sputigena is the flagellated honeycomb-encapsulating cooperative partner in brain heart infusion medium supplemented with 1% (w/v) sucrose at 37 °C under 5% CO2. |
-| ev-smutans-vparvula-pmid39345197 | PMID:39345197; kb/communities/SMutans_VParvula_ASC_Biofilm.yaml | supports | PMID:39345197 (PMC11526728) establishes that Streptococcus mutans is the primary sucrose-fermenting lactic-acid- and EPS-producing bacterium and Veillonella parvula is the lactate-consuming syntrophic cross-feeder in dual-species biofilms cultured in Brain Heart Infusion (BHI) broth supplemented with 1% (w/v) sucrose at 37 °C under anaerobic conditions. |
-| ev-so3-bs3-pmid42733304 | PMID:42733304; kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml | supports | PMID:42733304 (doi:10.1073/pnas.2528527123) establishes that engineered Bacillus subtilis 168 (BS3) acts as a syntrophic cross-feeding partner that synthesizes and secretes riboflavin to enhance flavin-mediated extracellular electron transfer in Shewanella oneidensis MR-1 (SO3) while consuming lactate and generating organic acid lixiviants during spent lithium-ion battery bioleaching. |
+| ev-smutans-vparvula-pmid39345197 | PMID:39345197; kb/communities/SMutans_VParvula_ASC_Biofilm.yaml | supports | PMID:39345197 (PMC11537095) establishes that Streptococcus mutans is the primary sucrose-fermenting lactic-acid- and EPS-producing bacterium and Veillonella parvula is the lactate-consuming syntrophic cross-feeder that promotes mature biofilm formation, acid resistance, and hydrogen peroxide detoxicity in Brain Heart Infusion (BHI) broth supplemented with 1% (w/v) sucrose at 37 °C under anaerobic conditions. |
+| ev-so3-bs3-pmid42733304 | PMID:42733304; kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml | supports | PMID:42733304 (doi:10.1002/advs.77699, PMC13572860) establishes that engineered Bacillus subtilis 168 (BS3) acts as a syntrophic cross-feeding partner that converts inhibitory residual ethanol in Moutai brewing wastewater into acetate via the Adh-AldH dual-enzyme cascade (relieving ethanol inhibition on S. oneidensis EET) and synthesizes riboflavin as an electron shuttle to promote flavin-mediated extracellular electron transfer in Shewanella oneidensis MR-1 (SO3) during spent ternary lithium-ion battery cathode bioleaching. |
 | ev-prior-structured-reviews | reviews/structured; 52 retained structured review bundles through 20261031T235500Z-c4s5-remediation-verification | context_only | Lineage inspection of all 52 prior structured reviews and Cycle 4 Stage 5 evidence.yaml confirmed that all 3 Cycle 4 Stage 4 open findings across CommunityMech:000083, 000357, and 000397 were resolved in Cycle 4 Stage 5 (#2095, PR #2096) and 7 record-scoped source-limited findings remain deferred at commit 898c839a50e08b75609d6ac6fa0659fcdb001f80. |
 
 ## Limits And Additional Notes
@@ -989,36 +989,43 @@ evidence:
     reads in caries-associated cluster C4) and Selenomonas sputigena is the flagellated
     honeycomb-encapsulating cooperative partner in brain heart infusion medium supplemented
     with 1% (w/v) sucrose at 37 °C under 5% CO2.
-  quote: S. sputigena becomes trapped in streptococcal-derived exopolysaccharides,
-    loses motility and builds a densely packed honeycomb-like multicellular superstructure
-    encapsulating S. mutans, resulting in enhanced acidogenesis and aciduricity.
+  quote: We show that S. sputigena, a flagellated anaerobe with previously unknown
+    role in supragingival biofilm, becomes trapped in streptococcal exoglucans, loses
+    motility but actively proliferates to build a honeycomb-like multicellular-superstructure
+    encapsulating S. mutans, enhancing acidogenesis.
 - evidence_id: ev-smutans-vparvula-pmid39345197
   kind: primary_source
   reference: PMID:39345197
   locator: kb/communities/SMutans_VParvula_ASC_Biofilm.yaml
   accessed_at: '2026-11-04T03:39:00Z'
   support: supports
-  summary: PMID:39345197 (PMC11526728) establishes that Streptococcus mutans is the
+  summary: PMID:39345197 (PMC11537095) establishes that Streptococcus mutans is the
     primary sucrose-fermenting lactic-acid- and EPS-producing bacterium and Veillonella
-    parvula is the lactate-consuming syntrophic cross-feeder in dual-species biofilms
-    cultured in Brain Heart Infusion (BHI) broth supplemented with 1% (w/v) sucrose
-    at 37 °C under anaerobic conditions.
-  quote: Conversely, in dual-species biofilms, V. parvula converts the lactic acid
-    produced by S. mutans into weaker acids, thereby raising the biofilm's pH and
-    mitigating the inhibitory effects of ASC on S. mutans.
+    parvula is the lactate-consuming syntrophic cross-feeder that promotes mature
+    biofilm formation, acid resistance, and hydrogen peroxide detoxicity in Brain
+    Heart Infusion (BHI) broth supplemented with 1% (w/v) sucrose at 37 °C under anaerobic
+    conditions.
+  quote: In vitro experiments found that V. parvula can effectively promote S. mutans
+    mature biofilm formation with enhanced acid resistance, hydrogen peroxide detoxicity,
+    and biofilm virulence.
 - evidence_id: ev-so3-bs3-pmid42733304
   kind: primary_source
   reference: PMID:42733304
   locator: kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
   accessed_at: '2026-11-04T03:39:20Z'
   support: supports
-  summary: PMID:42733304 (doi:10.1073/pnas.2528527123) establishes that engineered
-    Bacillus subtilis 168 (BS3) acts as a syntrophic cross-feeding partner that synthesizes
-    and secretes riboflavin to enhance flavin-mediated extracellular electron transfer
-    in Shewanella oneidensis MR-1 (SO3) while consuming lactate and generating organic
-    acid lixiviants during spent lithium-ion battery bioleaching.
-  quote: In parallel, B. subtilis was engineered to overproduce riboflavin, an EET
-    mediator that enhances electron transfer in S. oneidensis.
+  summary: PMID:42733304 (doi:10.1002/advs.77699, PMC13572860) establishes that engineered
+    Bacillus subtilis 168 (BS3) acts as a syntrophic cross-feeding partner that converts
+    inhibitory residual ethanol in Moutai brewing wastewater into acetate via the
+    Adh-AldH dual-enzyme cascade (relieving ethanol inhibition on S. oneidensis EET)
+    and synthesizes riboflavin as an electron shuttle to promote flavin-mediated extracellular
+    electron transfer in Shewanella oneidensis MR-1 (SO3) during spent ternary lithium-ion
+    battery cathode bioleaching.
+  quote: strain BS3 in the SO3‐BS3 consortium eliminated the ethanol inhibition on
+    EET of S. oneidensis by converting residual ethanol in the brewing wastewater
+    into acetate via the Adh‐AldH dual enzyme cascade reaction. Also, strain BS3 synthesized
+    riboflavin, which was employed as an electron shuttle for promoting the EET of
+    S. oneidensis.
 - evidence_id: ev-prior-structured-reviews
   kind: prior_review
   reference: reviews/structured
@@ -1862,15 +1869,17 @@ findings:
   certainty: confirmed
   title: SMutans_VParvula_ASC_Biofilm (CommunityMech:000085) omits functional_role,
     abundance_level, and 1% sucrose environmental_factors
-  description: In kb/communities/SMutans_VParvula_ASC_Biofilm.yaml (CommunityMech:000085),
+  description: 'In kb/communities/SMutans_VParvula_ASC_Biofilm.yaml (CommunityMech:000085),
     taxonomy[0] (Streptococcus mutans, NCBITaxon:1309) omits functional_role and abundance_level,
-    taxonomy[1] (Veillonella parvula, NCBITaxon:29466) omits functional_role, and
-    environmental_factors is absent. The cited open-access source PMID:39345197 (PMC11526728)
-    establishes S. mutans as the primary sucrose-fermenting lactic-acid- and EPS-producing
-    bacterium (PRIMARY_DEGRADER, CROSS_FEEDER; ABUNDANT in dual-species biofilm with
-    10^8 CFU/mL inoculum), V. parvula as the lactate-consuming metabolic cross-feeder
-    (SYNTROPHIC_PARTNER, CROSS_FEEDER), and 1% (w/v) sucrose supplementation in BHI
-    broth as the defining cariogenic substrate regime.
+    taxonomy[1] (Veillonella parvula, NCBITaxon:29466, which already records abundance_level:
+    DOMINANT) omits functional_role, and environmental_factors is absent. The cited
+    open-access source PMID:39345197 (PMC11537095) establishes S. mutans as the primary
+    sucrose-fermenting lactic-acid- and EPS-producing bacterium (PRIMARY_DEGRADER,
+    CROSS_FEEDER; ABUNDANT in Adult Severe Caries supragingival plaque and dual-species
+    biofilm), V. parvula as the lactate-consuming metabolic cross-feeder (SYNTROPHIC_PARTNER,
+    CROSS_FEEDER) that promotes S. mutans mature biofilm formation with enhanced acid
+    resistance and hydrogen peroxide detoxicity, and 1% (w/v) sucrose supplementation
+    in BHI broth as the defining cariogenic substrate regime.'
   target_ids:
   - CommunityMech:000085
   field_paths:
@@ -1903,13 +1912,15 @@ findings:
   title: SO3_BS3_Lithium_Battery_Bioleaching_Consortium (CommunityMech:000385) omits
     functional_role on Bacillus subtilis 168 BS3
   description: 'In kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
-    (CommunityMech:000385), taxonomy[0] (Shewanella oneidensis MR-1 SO3) carries functional_role:
-    [PRIMARY_DEGRADER, SYNTROPHIC_PARTNER], but taxonomy[1] (Bacillus subtilis 168
-    BS3, NCBITaxon:224308) omits functional_role despite ecological_interactions and
-    PMID:42733304 (doi:10.1073/pnas.2528527123) explicitly documenting that engineered
-    B. subtilis BS3 synthesizes and secretes riboflavin to drive flavin-mediated extracellular
-    electron transfer in S. oneidensis SO3 while consuming lactate and generating
-    organic acid lixiviants.'
+    (CommunityMech:000385), taxonomy[0] (Shewanella oneidensis MR-1 SO3, NCBITaxon:70863)
+    carries functional_role: [ELECTROGEN, ELECTRON_DONOR], but taxonomy[1] (Bacillus
+    subtilis 168 BS3, term.id: NCBITaxon:1423) omits functional_role despite ecological_interactions
+    and PMID:42733304 (doi:10.1002/advs.77699, PMC13572860) explicitly documenting
+    that engineered B. subtilis BS3 converts inhibitory residual ethanol in Moutai
+    brewing wastewater into acetate via the Adh-AldH dual-enzyme cascade (eliminating
+    ethanol inhibition on S. oneidensis EET) and synthesizes riboflavin as an electron
+    shuttle to promote flavin-mediated extracellular electron transfer in S. oneidensis
+    SO3 during spent ternary lithium-ion battery cathode bioleaching.'
   target_ids:
   - CommunityMech:000385
   field_paths:
@@ -1921,7 +1932,7 @@ findings:
   native_severity: P2
   normalization_reason: Missing source-backed functional_role on one of two engineered
     syntrophic partners causes scripts/audit_completeness.py required-block failure
-    (45/100) and maps to major (P2).
+    (20/100) and maps to major (P2).
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
@@ -2400,7 +2411,7 @@ actions:
   acceptance_checks:
   - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class
     MicrobialCommunity kb/communities/SMutans_SSputigena_ECC_Pathobiont.yaml
-  - uv run python scripts/verify_history_Changed_records.py
+  - just validate-history history
 - action_id: act-populate-smutans-vparvula-roles-abundance-and-sucrose
   description: 'Add functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level:
     ABUNDANT to Streptococcus mutans (taxonomy[0]), add functional_role: [SYNTROPHIC_PARTNER,
@@ -2418,10 +2429,10 @@ actions:
   acceptance_checks:
   - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class
     MicrobialCommunity kb/communities/SMutans_VParvula_ASC_Biofilm.yaml
-  - uv run python scripts/verify_history_Changed_records.py
+  - just validate-history history
 - action_id: act-populate-so3-bs3-bsubtilis-functional-role
   description: 'Add functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] to Bacillus
-    subtilis 168 (BS3) backed by PMID:42733304 (doi:10.1073/pnas.2528527123) on CommunityMech:000385,
+    subtilis 168 (BS3) backed by PMID:42733304 (doi:10.1002/advs.77699) on CommunityMech:000385,
     and append curation_history.'
   finding_ids:
   - c5s4-000385-so3-bs3-bsubtilis-functional-role
@@ -2434,7 +2445,7 @@ actions:
   acceptance_checks:
   - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class
     MicrobialCommunity kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
-  - uv run python scripts/verify_history_Changed_records.py
+  - just validate-history history
 - action_id: act-defer-source-limited-fulltext-findings-c5s4
   description: Retain source-limited full-text findings until open-access full text
     or supplementary strain/assay tables become available for CommunityMech:000048,
