@@ -61,7 +61,9 @@ def test_taxa_record_structure():
     for sym in ("mtrB", "mtrA"):
         refs = {ev["reference"] for ev in genes[sym]["evidence"]}
         assert "PMID:32849356" in refs
-    assert "PMID:39504696" in {ev["reference"] for ev in genes["cymA"]["evidence"]}
+    assert {"PMID:39504696", "PMID:34986141"} <= {
+        ev["reference"] for ev in genes["cymA"]["evidence"]
+    }
 
     geo = yaml.safe_load((TAXA_DIR / "Geobacter_sulfurreducens.yaml").read_text())
     geo_genes = {g["gene_symbol"]: g for g in geo["genes"]}
@@ -81,6 +83,12 @@ def test_taxa_record_structure():
         "PMID:31537786",
         "PMID:32849356",
     } <= {ev["reference"] for ev in geo_genes["omcS"]["evidence"]}
+    assert {"PMID:41210787", "PMID:28992596", "PMID:34986141"} <= {
+        ev["reference"] for ev in geo_genes["omcZ"]["evidence"]
+    }
+    assert {"PMID:41876513", "PMID:37650614", "PMID:37747940"} <= {
+        ev["reference"] for ev in geo_genes["omcB"]["evidence"]
+    }
 
 
 def test_taxa_genes_have_verified_uniprot_and_cached_evidence():
