@@ -189,7 +189,8 @@ ecological_interactions:
   description: The five-member C2 SynCom (Burkholderia cepacia RW1, Bacillus siamensis RW5, Bacillus amyloliquefaciens RW6,
     Bacillus velezensis RW7, and Bacillus vallismortis RW8) was among four mixtures inhibiting Fusarium oxysporum more strongly
     than individual isolates in vitro (single-strain inhibition ranged from 33.81% to 59.52%). C2 is distinct from the reduced
-    two-member HT mixture (RW5, RW8).
+    two-member HT mixture (RW5, RW8). In vitro plate inhibition, pot-assay damping-off control, and host defense-gene activation
+    are reported as parallel experimental endpoints without intermediate pathway ablation.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Burkholderia cepacia RW1
@@ -220,6 +221,13 @@ ecological_interactions:
       effects against F. oxysporum compared to individual strains.
     explanation: Supports C2 as one of four constructed SynComs that inhibited Fusarium oxysporum more strongly than individual
       isolates.
+  - reference: PMID:42144568
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Of these, eight strains demonstrated significant inhibitory effects against F. oxysporum, ranging from 33.81%
+      to 59.52%.
+    explanation: Dual-culture confrontation assays quantified individual antagonistic inhibition rates of 33.81% to 59.52%
+      against Fusarium oxysporum among the eight pine-rhizosphere candidate strains from which C2 was assembled.
 - name: C2 SynCom Masson Pine Damping-Off Protection and Seedling Growth Promotion
   description: C2 inoculation increased Fusarium-challenged Masson pine (Pinus massoniana) seedling height by 10.18% and reduced
     damping-off disease incidence by 50% relative to the control (exceeding the two-strain HT reductions of 36.67% disease
@@ -259,6 +267,13 @@ ecological_interactions:
       incidence by 50% and 36.67%, respectively.
     explanation: 'Supports the C2 in vivo outcome: 10.18% higher seedling height and 50% lower disease incidence in Masson
       pine seedlings.'
+  - reference: PMID:42144568
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The synthetic PGPR community assembled under the influence of T. koningiopsis effectively enhances damping-off
+      resistance and promotes the growth of Masson pine seedlings.
+    explanation: Supports the combined in vivo damping-off resistance and seedling growth-promotion outcome of the T. koningiopsis-assembled
+      C2 synthetic PGPR community on Pinus massoniana.
 - name: C2 Protective Enzyme Enhancement and Resistance-Gene Activation
   description: C2 treatment in Pinus massoniana seedlings enhanced protective enzyme activity, alleviated membrane damage,
     and activated expression of resistance genes PR1, FLS2, and CAT1. PARTIAL - plant-hormone and MAPK signaling mediation
@@ -340,4 +355,12 @@ curation_history:
   action: CURATE_NEW_COMMUNITY
   changes: Curated CommunityMech:000501 for the five-strain Burkholderia-Bacillus C2 Masson pine biocontrol SynCom (RW5, RW1,
     RW6, RW7, RW8) from PMID:42144568 / doi:10.1002/ps.70924, sibling consortium to HT (CommunityMech:000347).
+  llm_assisted: true
+- timestamp: '2026-11-04T13:35:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: 'Cycle 6 Stage 2 causal-graph review (Batch 138): enriched claim-level evidence across the 3 COMMUNITY_LEVEL interaction
+    nodes with verbatim dual-culture inhibition (33.81-59.52%) and seedling damping-off resistance/growth-promotion snippets
+    from PMID:42144568, and bounded plate antagonism vs pot-assay seedling protection and defense-gene activation as parallel
+    endpoints without unsupported downstream edges.'
   llm_assisted: true
