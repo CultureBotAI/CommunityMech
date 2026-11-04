@@ -11,13 +11,13 @@
 
 ## Summary
 
-Deep per-record scientific and structural audit of 21 records (all 9 data/isolates/*.yaml records, both kb/taxa/*.yaml reusable taxon records, all 4 newly curated Cycle 6 community records [000501, 000502, 000503, 000504], all 3 community records remediated in Cycle 5 Stage 5 [000084, 000085, 000385], and 3 kb/communities/*.yaml records with newly identified actionable completeness gaps [000374, 000402, 000404]) at frozen Git revision 634cae02f33fd755d0c2dd38a6c03fd7d10041c1.
+Deep per-record scientific and structural audit of 21 records (all 9 data/isolates/*.yaml records, both kb/taxa/*.yaml reusable taxon records, all 4 newly curated Cycle 6 community records [000501, 000502, 000503, 000504], all 3 community records remediated in Cycle 5 Stage 5 [000084, 000085, 000385], and 3 kb/communities/*.yaml records with newly identified actionable completeness gaps [000401, 000402, 000404]) at frozen Git revision 634cae02f33fd755d0c2dd38a6c03fd7d10041c1.
 
 ## Scope And Provenance
 
 Focused per-record deep audit of all isolate baselines (9), all reusable taxon records (2), all newly curated Cycle 6 community records (4), all Cycle 5 Stage 5 remediated community records (3), and all community records with new actionable Stage 5 remediation findings (3).
 
-Selection: All 9 data/isolates/*.yaml, all 2 kb/taxa/*.yaml, 4 new Cycle 6 kb/communities/*.yaml records (000501-000504), 3 Cycle 5 Stage 5 remediated records (000084, 000085, 000385), and 3 kb/communities/*.yaml records (000374, 000402, 000404) surfaced by completeness audits.
+Selection: All 9 data/isolates/*.yaml, all 2 kb/taxa/*.yaml, 4 new Cycle 6 kb/communities/*.yaml records (000501-000504), 3 Cycle 5 Stage 5 remediated records (000084, 000085, 000385), and 3 kb/communities/*.yaml records (000401, 000402, 000404) surfaced by completeness audits.
 Coverage: full; 21 reviewed / 21 in the declared population.
 Source: git_commit at Git base 634cae02f33fd755d0c2dd38a6c03fd7d10041c1.
 Working-tree hashes do not imply those bytes were committed.
@@ -30,8 +30,8 @@ Working-tree hashes do not imply those bytes were committed.
 | CommunityMech:000320 | data/isolates/Aspergillus_Indium_LED_Recovery.yaml | maintained | CommunityMech:000320 (Aspergillus Indium LCD Recovery Platform) |
 | CommunityMech:000321 | data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml | maintained | CommunityMech:000321 (BioModels MODEL2204300002 Kefir Rothia Model) |
 | CommunityMech:000322 | data/isolates/Methylobacterium_REE_Ewaste_Platform.yaml | maintained | CommunityMech:000322 (Methylobacterium REE E-waste Platform) |
-| CommunityMech:000374 | kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml | maintained | CommunityMech:000374 (Achromobacter-Enterobacter SL8-SL12 Cadmium Immobilization Coculture) |
 | CommunityMech:000385 | kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml | maintained | CommunityMech:000385 (SO3-BS3 Lithium-ion Battery Bioleaching Consortium) |
+| CommunityMech:000401 | kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml | maintained | CommunityMech:000401 (Bifidobacterium-Faecalibacterium 2′-FL/FOS Butyrate Coculture) |
 | CommunityMech:000402 | kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml | maintained | CommunityMech:000402 (Delta nrfA Shewanella-Anammox Nitrite Coupled Consortium) |
 | CommunityMech:000404 | kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml | maintained | CommunityMech:000404 (Wollastonite Ramichloridium-Talaromyces Fungal Consortium) |
 | CommunityMech:000488 | data/isolates/Bacillus_licheniformis_Chromate_Biosorption.yaml | maintained | CommunityMech:000488 (Bacillus licheniformis Tannery Effluent Chromate Biosorption Isolate) |
@@ -43,15 +43,15 @@ Working-tree hashes do not imply those bytes were committed.
 | CommunityMech:000502 | kb/communities/Bacillus_B81_A1_PAH_Biofilm_Consortium_1.yaml | maintained | CommunityMech:000502 (Bacillus B8-1 and A1 PAH Biofilm Consortium 1) |
 | CommunityMech:000503 | kb/communities/Bacillus_B81_A3_Naphthalene_Biofilm_Consortium_2.yaml | maintained | CommunityMech:000503 (Bacillus B8-1 and A3 Naphthalene Biofilm Consortium 2) |
 | CommunityMech:000504 | kb/communities/Bacillus_B81_A1_A3_PAH_Biofilm_Consortium_4.yaml | maintained | CommunityMech:000504 (Bacillus B8-1, A1, and A3 Three-Strain PAH Biofilm Consortium 4) |
-| CommunityMech:taxon:000001 | kb/taxa/Shewanella_oneidensis_MR1.yaml | maintained | CommunityMech:taxon:000001 (Shewanella_oneidensis_MR1) |
-| CommunityMech:taxon:000002 | kb/taxa/Geobacter_sulfurreducens.yaml | maintained | CommunityMech:taxon:000002 (Geobacter_sulfurreducens) |
+| CommunityMech:taxon:000001 | kb/taxa/Shewanella_oneidensis_MR1.yaml | maintained | CommunityMech:taxon:000001 (Shewanella oneidensis MR-1) |
+| CommunityMech:taxon:000002 | kb/taxa/Geobacter_sulfurreducens.yaml | maintained | CommunityMech:taxon:000002 (Geobacter sulfurreducens) |
 
 ## Validation
 
 | Check | Status | Required | Targets | Result |
 | --- | --- | --- | --- | --- |
-| LinkML schema validation on 21 deep-audit records | passed | True | CommunityMech:000084, CommunityMech:000085, CommunityMech:000273, CommunityMech:000320, CommunityMech:000321, CommunityMech:000322, CommunityMech:000374, CommunityMech:000385, CommunityMech:000402, CommunityMech:000404, CommunityMech:000488, CommunityMech:000489, CommunityMech:000490, CommunityMech:000492, CommunityMech:000495, CommunityMech:000501, CommunityMech:000502, CommunityMech:000503, CommunityMech:000504, CommunityMech:taxon:000001, CommunityMech:taxon:000002 | All 19 MicrobialCommunity records and 2 TaxonRecord files validate against src/communitymech/schema/communitymech.yaml with 0 errors. |
-| NetworkIntegrityAuditor check on 21 deep-audit records | passed | True | CommunityMech:000084, CommunityMech:000085, CommunityMech:000273, CommunityMech:000320, CommunityMech:000321, CommunityMech:000322, CommunityMech:000374, CommunityMech:000385, CommunityMech:000402, CommunityMech:000404, CommunityMech:000488, CommunityMech:000489, CommunityMech:000490, CommunityMech:000492, CommunityMech:000495, CommunityMech:000501, CommunityMech:000502, CommunityMech:000503, CommunityMech:000504, CommunityMech:taxon:000001, CommunityMech:taxon:000002 | All 19/19 MicrobialCommunity deep-audit records pass NetworkIntegrityAuditor with 0 warnings. |
+| LinkML schema validation on 21 deep-audit records | passed | True | CommunityMech:000084, CommunityMech:000085, CommunityMech:000273, CommunityMech:000320, CommunityMech:000321, CommunityMech:000322, CommunityMech:000385, CommunityMech:000401, CommunityMech:000402, CommunityMech:000404, CommunityMech:000488, CommunityMech:000489, CommunityMech:000490, CommunityMech:000492, CommunityMech:000495, CommunityMech:000501, CommunityMech:000502, CommunityMech:000503, CommunityMech:000504, CommunityMech:taxon:000001, CommunityMech:taxon:000002 | All 19 MicrobialCommunity records and 2 CommonTaxon files validate against src/communitymech/schema/communitymech.yaml with 0 errors. |
+| NetworkIntegrityAuditor check on 21 deep-audit records | passed | True | CommunityMech:000084, CommunityMech:000085, CommunityMech:000273, CommunityMech:000320, CommunityMech:000321, CommunityMech:000322, CommunityMech:000385, CommunityMech:000401, CommunityMech:000402, CommunityMech:000404, CommunityMech:000488, CommunityMech:000489, CommunityMech:000490, CommunityMech:000492, CommunityMech:000495, CommunityMech:000501, CommunityMech:000502, CommunityMech:000503, CommunityMech:000504, CommunityMech:taxon:000001, CommunityMech:taxon:000002 | All 19/19 MicrobialCommunity deep-audit records pass NetworkIntegrityAuditor with 0 warnings. |
 
 ## Scientific And Domain Assessments
 
@@ -91,17 +91,17 @@ completeness: supported. Targets: CommunityMech:000322.
 
 Record CommunityMech:000322 (data/isolates/Methylobacterium_REE_Ewaste_Platform.yaml) in cohort ISOLATES:BIOMINING has Completeness Score 94/100, 1 taxa, 4 interactions, 2 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
 
-### Deep per-record audit of CommunityMech:000374 (Achromobacter-Enterobacter SL8-SL12 Cadmium Immobilization Coculture)
-
-completeness: concern. Targets: CommunityMech:000374.
-
-Record CommunityMech:000374 (kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml) in cohort BIOREMEDIATION has Completeness Score 90/100, 2 taxa, 1 interactions, 0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
-
 ### Deep per-record audit of CommunityMech:000385 (SO3-BS3 Lithium-ion Battery Bioleaching Consortium)
 
 completeness: supported. Targets: CommunityMech:000385.
 
 Record CommunityMech:000385 (kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml) in cohort BIOMINING has Completeness Score 95/100, 2 taxa, 2 interactions, 1 causal edges, 0 inline gene annotations, 1 reusable CommonTaxon links, and 0 network warnings.
+
+### Deep per-record audit of CommunityMech:000401 (Bifidobacterium-Faecalibacterium 2′-FL/FOS Butyrate Coculture)
+
+completeness: concern. Targets: CommunityMech:000401.
+
+Record CommunityMech:000401 (kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml) in cohort DIET has Completeness Score 100/100, 2 taxa, 2 interactions, 0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
 
 ### Deep per-record audit of CommunityMech:000402 (Delta nrfA Shewanella-Anammox Nitrite Coupled Consortium)
 
@@ -169,13 +169,13 @@ completeness: supported. Targets: CommunityMech:000504.
 
 Record CommunityMech:000504 (kb/communities/Bacillus_B81_A1_A3_PAH_Biofilm_Consortium_4.yaml) in cohort BIOREMEDIATION has Completeness Score 95/100, 3 taxa, 2 interactions, 0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
 
-### Deep per-record audit of CommunityMech:taxon:000001 (Shewanella_oneidensis_MR1)
+### Deep per-record audit of CommunityMech:taxon:000001 (Shewanella oneidensis MR-1)
 
 completeness: supported. Targets: CommunityMech:taxon:000001.
 
 Record CommunityMech:taxon:000001 (kb/taxa/Shewanella_oneidensis_MR1.yaml) in cohort TAXA has Completeness Score 100/100, 1 taxa, 0 interactions, 0 causal edges, 5 inline gene annotations, 0 reusable CommonTaxon links, and 0 network warnings.
 
-### Deep per-record audit of CommunityMech:taxon:000002 (Geobacter_sulfurreducens)
+### Deep per-record audit of CommunityMech:taxon:000002 (Geobacter sulfurreducens)
 
 completeness: supported. Targets: CommunityMech:taxon:000002.
 
@@ -183,43 +183,43 @@ Record CommunityMech:taxon:000002 (kb/taxa/Geobacter_sulfurreducens.yaml) in coh
 
 ## Findings
 
-### c6s4-000374-sl8-sl12-functional-roles: Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture (CommunityMech:000374) omits functional_role on both Achromobacter sp. SL8 and Enterobacter sp. SL12
+### c6s4-000401-bifido-faecali-abundance-levels: Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture (CommunityMech:000401) omits abundance_level on both co-equal OD600-standardized coculture members
 
-major / open / confirmed; issue key: c6s4-000374-sl8-sl12-functional-roles.
+major / open / confirmed; issue key: c6s4-000401-bifido-faecali-abundance-levels.
 
-In kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml (CommunityMech:000374), both taxonomy[0] (Achromobacter sp. SL8, NCBITaxon:222) and taxonomy[1] (Enterobacter sp. SL12, NCBITaxon:547) record abundance_level: ABUNDANT at a 1:1 (v/v) co-inoculation ratio, but both omit functional_role. The cited open-access source PMID:42307251 (PMC13340288, doi:10.3390/microorganisms14061493) explicitly establishes that Achromobacter sp. SL8 and Enterobacter sp. SL12 act as synergistic extracellular-polymeric-substance (EPS)-producing and CdS-precipitating partners (functional_role: [SYNTROPHIC_PARTNER, BIOFILM_FORMER]) whose co-culture stimulates polysaccharide and protein secretion, cell aggregation, and up-regulation of cysteine biosynthesis (cysK) and sulfate transport to immobilize Cd2+.
+In kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml (CommunityMech:000401), both taxonomy[0] (Bifidobacterium bifidum JCM1254, NCBITaxon:1681, label: Bifidobacterium bifidum) and taxonomy[1] (Faecalibacterium prausnitzii A2-165, NCBITaxon:853, label: Faecalibacterium prausnitzii) record abundance_value: 'One of two OD600-standardized co-culture members' and functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER], but both omit abundance_level. The cited open-access source PMID:42655156 (PMC13515949, doi:10.3390/microorganisms14081812) establishes that both strains were co-inoculated as equal 8 uL aliquots of OD600 = 1.0 suspensions into 800 uL YCFA- medium and alternated in dominance across the 2'-FL/FOS substrate ratio series (with F. prausnitzii accounting for ~60% under FOS-only conditions and B. bifidum reaching up to 95% under 2'-FL-rich conditions), supporting abundance_level: DOMINANT on both co-equal coculture members while preserving discussions[0] (bifido_faecali_2fl_fos_flux_unresolved) regarding unmeasured pH, residual substrate, and metabolic flux.
 
-### c6s4-000402-shewanella-anammox-roles-and-abundance: Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium (CommunityMech:000402) omits functional_role and abundance_level across all three taxonomy entries
+### c6s4-000402-shewanella-anammox-roles-and-abundance: Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium (CommunityMech:000402) omits functional_role and abundance_level on Delta nrfA Shewanella oneidensis MR-1 and Candidatus Brocadia anammox bacteria
 
 major / open / confirmed; issue key: c6s4-000402-shewanella-anammox-roles-and-abundance.
 
-In kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml (CommunityMech:000402), taxonomy[0] (Delta nrfA Shewanella oneidensis MR-1, NCBITaxon:211586), taxonomy[1] (Candidatus Brocadia anammox bacteria, NCBITaxon:380240), and taxonomy[2] (endogenous activated-sludge heterotrophic bacteria, NCBITaxon:2) all omit functional_role and abundance_level. The cited open-access source PMID:42655905 (PMC13519132, doi:10.1002/advs.77600) establishes Delta nrfA S. oneidensis MR-1 as the engineered partial-denitrifying nitrite-supplying cross-feeder and syntrophic partner (functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER]; abundance_level: ABUNDANT), Candidatus Brocadia as the dominant anammox syntrophic partner (functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]; abundance_level: DOMINANT, enriched to 7%~10% of community abundance), and endogenous activated-sludge heterotrophic bacteria as the organic-matter-fermenting syntrophic guild providing volatile fatty acids and amino acids to Delta nrfA S. oneidensis (functional_role: [SYNTROPHIC_PARTNER, SECONDARY_FERMENTER]; abundance_level: ABUNDANT).
+In kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml (CommunityMech:000402), taxonomy[0] (Delta nrfA Shewanella oneidensis MR-1, NCBITaxon:211586, label: Shewanella oneidensis MR-1) and taxonomy[1] (Candidatus Brocadia anammox bacteria, NCBITaxon:203682, label: Planctomycetota) omit both functional_role and abundance_level. The cited open-access source PMID:42655905 (PMC13519132, doi:10.1002/wer.70526) establishes that Delta nrfA S. oneidensis MR-1 accumulates nitrite (NO2--N) by blocking the nrfA DNRA pathway and supplies nitrite to anammox bacteria in a stable synergistic interaction (functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER]; abundance_level: ABUNDANT, co-inoculated as 5 mL bacterial suspension with 25 mL anammox sludge in 500 mL DeltaB1 reactors), while Candidatus Brocadia (7%~10% relative abundance within Planctomycetota at 15%~21%) emerged as the dominant genus and only detected anammox bacterium (functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]; abundance_level: DOMINANT). In accordance with discussions[0] (shewanella_anammox_sludge_membership_and_flux_unresolved), taxonomy[2] (endogenous activated-sludge heterotrophic bacteria, NCBITaxon:2) remains scoped as an unresolved broad background sludge grouping whose pathway flux partitioning between anammox, denitrification, and DNRA was not quantified by isotope labeling.
 
 ### c6s4-000404-wollastonite-cms1-role-and-abundance: Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium (CommunityMech:000404) omits functional_role on Ramichloridium apiculatum CMS-1 and abundance_level on both fungal members
 
 major / open / confirmed; issue key: c6s4-000404-wollastonite-cms1-role-and-abundance.
 
-In kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml (CommunityMech:000404), taxonomy[0] (Ramichloridium apiculatum CMS-1, NCBITaxon:222813) omits both functional_role and abundance_level, while taxonomy[1] (Talaromyces pseudofuniculosus hzt-3', NCBITaxon:28568) records functional_role: [CROSS_FEEDER] but omits abundance_level. The cited open-access source PMID:42478817 (PMC13488302, doi:10.3390/jof12070581) establishes that at the optimal CMS-1 : hzt-3' = 1:4 inoculum ratio (20% CMS-1, 80% hzt-3'), R. apiculatum CMS-1 acts as the carbonic-anhydrase- and cellulase-producing syntrophic cross-feeder (functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER]; abundance_level: ABUNDANT) and T. pseudofuniculosus hzt-3' is the dominant organic-acid-secreting wollastonite-dissolving partner (functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER]; abundance_level: DOMINANT).
+In kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml (CommunityMech:000404), taxonomy[0] (Ramichloridium apiculatum CMS-1, NCBITaxon:470080, label: Ramichloridium apiculatum) omits both functional_role and abundance_level, while taxonomy[1] (Talaromyces pseudofuniculosus hzt-3', NCBITaxon:2015341, label: Talaromyces pseudofuniculosus) records functional_role: [CROSS_FEEDER] but omits abundance_level. The cited open-access source PMID:42478817 (PMC13488302, doi:10.1128/aem.02519-25) establishes that in the optimal 20% CMS-1 + 80% hzt-3' mixed fungal consortium, R. apiculatum CMS-1 produces oxalic acid (0.66 +- 0.033 mg/mL in monoculture), L-glutamic acid, and extracellular polysaccharides and proteins utilized in the mixed culture (functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER]; abundance_level: ABUNDANT at 20% initial spore-suspension inoculum share), while T. pseudofuniculosus hzt-3' is inoculated at 80% initial spore-suspension share and explicitly identified as playing the dominant role in the mixed culture (functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER]; abundance_level: DOMINANT), preserving discussions[0] (woll_causal_scope_batch123) that cross-feeding directionality from CMS-1 to hzt-3' is proposed from bulk monoculture vs mixed-culture metabolomics.
 
 ## Recommended Actions And Acceptance Checks
 
-### act-populate-sl8-sl12-functional-roles
+### act-populate-bifido-faecali-abundance-levels
 
-Add functional_role: [SYNTROPHIC_PARTNER, BIOFILM_FORMER] to both Achromobacter sp. SL8 (taxonomy[0]) and Enterobacter sp. SL12 (taxonomy[1]) backed by PMID:42307251 (PMC13340288) on CommunityMech:000374, and append curation_history.
+Add abundance_level: DOMINANT to both Bifidobacterium bifidum JCM1254 (taxonomy[0], NCBITaxon:1681) and Faecalibacterium prausnitzii A2-165 (taxonomy[1], NCBITaxon:853) backed by PMID:42655156 (PMC13515949, doi:10.3390/microorganisms14081812) on CommunityMech:000401 while preserving discussions[0] (bifido_faecali_2fl_fos_flux_unresolved), and append curation_history.
 
-- uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
+- uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
 - just validate-history history
 
 ### act-populate-shewanella-anammox-roles-and-abundance
 
-Add functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER] and abundance_level: ABUNDANT to Delta nrfA Shewanella oneidensis MR-1 (taxonomy[0]), add functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level: DOMINANT to Candidatus Brocadia anammox bacteria (taxonomy[1]), add functional_role: [SYNTROPHIC_PARTNER, SECONDARY_FERMENTER] and abundance_level: ABUNDANT to endogenous activated-sludge heterotrophic bacteria (taxonomy[2]) backed by PMID:42655905 (PMC13519132) on CommunityMech:000402, and append curation_history.
+Add functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER] and abundance_level: ABUNDANT to Delta nrfA Shewanella oneidensis MR-1 (taxonomy[0], NCBITaxon:211586), and add functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level: DOMINANT to Candidatus Brocadia anammox bacteria (taxonomy[1], NCBITaxon:203682) backed by PMID:42655905 (PMC13519132, doi:10.1002/wer.70526) on CommunityMech:000402 while preserving taxonomy[2] (endogenous activated-sludge heterotrophic bacteria, NCBITaxon:2) under discussions[0] (shewanella_anammox_sludge_membership_and_flux_unresolved), and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml
 - just validate-history history
 
 ### act-populate-wollastonite-cms1-role-and-abundance
 
-Add functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER] and abundance_level: ABUNDANT to Ramichloridium apiculatum CMS-1 (taxonomy[0]), and add abundance_level: DOMINANT and SYNTROPHIC_PARTNER to Talaromyces pseudofuniculosus hzt-3' (taxonomy[1]) backed by PMID:42478817 (PMC13488302) on CommunityMech:000404, and append curation_history.
+Add functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER] and abundance_level: ABUNDANT to Ramichloridium apiculatum CMS-1 (taxonomy[0], NCBITaxon:470080), and add abundance_level: DOMINANT and SYNTROPHIC_PARTNER to Talaromyces pseudofuniculosus hzt-3' (taxonomy[1], NCBITaxon:2015341) backed by PMID:42478817 (PMC13488302, doi:10.1128/aem.02519-25) on CommunityMech:000404 while preserving discussions[0] (woll_causal_scope_batch123), and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml
 - just validate-history history
@@ -231,14 +231,14 @@ Add functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER] and abundance_level: ABU
 
 | Evidence | Reference / locator | Support | Observation |
 | --- | --- | --- | --- |
-| ev-schema-validation-gate | src/communitymech/schema/communitymech.yaml; MicrobialCommunity and TaxonRecord classes | supports | All 489 kb/communities/*.yaml, 9 data/isolates/*.yaml, and 2 kb/taxa/*.yaml records (500 total) pass LinkML schema validation with 0 errors and 100% EvidenceSourceEnum compliance. |
-| ev-completeness-audit | scripts/audit_completeness.py; 100-point proportional review-communities rubric and scripts/audit_completeness.py:calculate_completeness() across all 500 records | supports | Proportional 100-point review-communities Completeness Score audit across all 498 MicrobialCommunity records (min 40, median 90, mean 91.19, max 100; CommunityMech:000374 = 90/100, CommunityMech:000402 = 90/100, CommunityMech:000404 = 90/100) and 2 TaxonRecord files (100/100) confirmed 100% core metadata presence and 100% top-level environment_term coverage (498/498), while scripts/audit_completeness.py:calculate_completeness() (which requires every taxon to have functional_role for its 50-point required block) scores 000374 at 40/100, 000402 at 25/100, and 000404 at 40/100. |
+| ev-schema-validation-gate | src/communitymech/schema/communitymech.yaml; MicrobialCommunity and CommonTaxon classes | supports | All 489 kb/communities/*.yaml, 9 data/isolates/*.yaml, and 2 kb/taxa/*.yaml records (500 total) pass LinkML schema validation with 0 errors and 100% EvidenceSourceEnum compliance. |
+| ev-completeness-audit | scripts/audit_completeness.py; 100-point proportional review-communities rubric and scripts/audit_completeness.py:calculate_completeness() across all 500 records | supports | Proportional 100-point review-communities Completeness Score audit across all 498 MicrobialCommunity records (min 40, median 90, mean 91.19, max 100; CommunityMech:000401 = 100/100, CommunityMech:000402 = 90/100, CommunityMech:000404 = 90/100) and 2 CommonTaxon files (100/100) confirmed 100% core metadata presence and 100% top-level environment_term coverage (498/498), while scripts/audit_completeness.py:calculate_completeness() (which requires every taxon to have functional_role for its 50-point required block) scores 000401 at 75/100, 000402 at 25/100, and 000404 at 40/100. |
 | ev-network-integrity-audit | src/communitymech/network/auditor.py; NetworkIntegrityAuditor.audit_all() | supports | NetworkIntegrityAuditor across 489 kb/communities and 9 data/isolates records found 473/489 communities and 9/9 isolates with 0 warnings (including all 19/19 MicrobialCommunity records in the 21-record deep audit) and 16 community records with 44 non-fatal warnings (42 DISCONNECTED across 15 records and 2 COMMUNITY_LEVEL UNKNOWN_TARGET warnings on Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom; 0 error-severity issues, 0 broken downstream references). |
 | ev-causal-inventory | reports/causal_graph_review/inventory.tsv; rows 1-499 | supports | Corpus-wide causal graph inventory covers all 498 MicrobialCommunity records with 100% SHA-256 attestation in verify_causal_graph_reviews.py (0 unreviewed records). |
 | ev-common-taxon-linkage-audit | kb/taxa/Geobacter_sulfurreducens.yaml; TaxonomicComposition.common_taxon cross-references and inline UniProtKB genes across kb/communities/*.yaml | supports | Corpus-wide audit of reusable taxon cross-references confirmed 15 TaxonomicComposition.common_taxon links across kb/communities/*.yaml (6 Geobacter sulfurreducens communities linked to CommunityMech:taxon:000002 [4 reusable UniProt EET genes plus inline macA/Q749P2] and 9 Shewanella oneidensis communities linked to CommunityMech:taxon:000001 [5 reusable UniProt EET genes plus inline fccA/Q8EKT2]) and 25 new verified inline UniProtKB gene annotations across CommunityMech:000501-000504 after Cycle 6 Stage 3 (#2111). |
-| ev-sl8-sl12-pmid42307251 | PMID:42307251; kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml | supports | PMID:42307251 (PMC13340288, doi:10.3390/microorganisms14061493) establishes that Achromobacter sp. SL8 and Enterobacter sp. SL12 act as synergistic extracellular-polymeric-substance (EPS)-producing and CdS-bioprecipitating partners at a 1:1 co-inoculation ratio. |
-| ev-shewanella-anammox-pmid42655905 | PMID:42655905; kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml | supports | PMID:42655905 (PMC13519132, doi:10.1002/advs.77600) establishes Delta nrfA Shewanella oneidensis MR-1 as the engineered nitrite-supplying cross-feeder, Candidatus Brocadia as the dominant anammox partner (enriched to 7%~10% relative abundance), and endogenous activated-sludge heterotrophic bacteria as the organic-matter-fermenting syntrophic guild supplying volatile fatty acids and amino acids. |
-| ev-wollastonite-pmid42478817 | PMID:42478817; kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml | supports | PMID:42478817 (PMC13488302, doi:10.3390/jof12070581) establishes that at the optimal CMS-1 : hzt-3' = 1:4 inoculum ratio (20% CMS-1, 80% hzt-3'), Ramichloridium apiculatum CMS-1 acts as the carbonic-anhydrase- and cellulase-producing syntrophic cross-feeder and Talaromyces pseudofuniculosus hzt-3' is the dominant organic-acid-producing mineral-weathering partner. |
+| ev-bifido-faecali-pmid42655156 | PMID:42655156; kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml | supports | PMID:42655156 (PMC13515949, doi:10.3390/microorganisms14081812) establishes that Bifidobacterium bifidum JCM1254 (NCBITaxon:1681) and Faecalibacterium prausnitzii A2-165 (NCBITaxon:853) were co-inoculated as equal 8 uL aliquots of OD600 = 1.0 suspensions and alternated in dominance across the 2'-FL/FOS substrate ratio series. |
+| ev-shewanella-anammox-pmid42655905 | PMID:42655905; kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml | supports | PMID:42655905 (PMC13519132, doi:10.1002/wer.70526) establishes Delta nrfA Shewanella oneidensis MR-1 (NCBITaxon:211586) as the engineered nitrite-accumulating supplier and Candidatus Brocadia (7%~10% relative abundance within Planctomycetota at 15%~21%, NCBITaxon:203682) as the dominant anammox genus and only detected anammox bacterium. |
+| ev-wollastonite-pmid42478817 | PMID:42478817; kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml | supports | PMID:42478817 (PMC13488302, doi:10.1128/aem.02519-25) establishes that in the 20% CMS-1 + 80% hzt-3' mixed fungal consortium, Ramichloridium apiculatum CMS-1 (NCBITaxon:470080) synthesizes oxalic acid, L-glutamic acid, and extracellular polysaccharides and proteins utilized in the mixed culture while Talaromyces pseudofuniculosus hzt-3' (NCBITaxon:2015341) plays the dominant role in the mixed culture. |
 | ev-prior-structured-reviews | reviews/structured; 55 retained structured review bundles through 20261104T060000Z-c5s5-remediation-verification | context_only | Lineage inspection of all 55 prior structured reviews and Cycle 5 Stage 5 evidence.yaml confirmed that all 3 Cycle 5 Stage 4 open findings across CommunityMech:000084, 000085, and 000385 were resolved in Cycle 5 Stage 5 (#2105, PR #2106) and 7 record-scoped source-limited findings remain deferred at commit 634cae02f33fd755d0c2dd38a6c03fd7d10041c1. |
 
 ## Limits And Additional Notes
@@ -269,22 +269,19 @@ reviewer:
 skill: review-yaml-record
 completion: completed
 verdict: needs_curation
-native_verdict: NEEDS_CURATION (3 P2 major findings across CommunityMech:000374, 000402,
+native_verdict: NEEDS_CURATION (3 P2 major findings across CommunityMech:000401, 000402,
   and 000404; 18 isolate/taxon/new-community/C5S5-remediated records pass with 0 defects)
 scientific_review: true
 summary: Deep per-record scientific and structural audit of 21 records (all 9 data/isolates/*.yaml
   records, both kb/taxa/*.yaml reusable taxon records, all 4 newly curated Cycle 6
   community records [000501, 000502, 000503, 000504], all 3 community records remediated
   in Cycle 5 Stage 5 [000084, 000085, 000385], and 3 kb/communities/*.yaml records
-  with newly identified actionable completeness gaps [000374, 000402, 000404]) at
+  with newly identified actionable completeness gaps [000401, 000402, 000404]) at
   frozen Git revision 634cae02f33fd755d0c2dd38a6c03fd7d10041c1.
 source:
   git_revision: 634cae02f33fd755d0c2dd38a6c03fd7d10041c1
   state: git_commit
   inputs:
-  - path: kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
-    sha256: eeef4a3c72f6660c2263fe91ec7858610797c19fa513bf641e2a6234ff4414d4
-    role: target
   - path: kb/communities/Bacillus_B81_A1_A3_PAH_Biofilm_Consortium_4.yaml
     sha256: 49c084f295ba077f383e193820af2dd4a1620e0af6310110f2da9eb71a4d77a8
     role: target
@@ -293,6 +290,9 @@ source:
     role: target
   - path: kb/communities/Bacillus_B81_A3_Naphthalene_Biofilm_Consortium_2.yaml
     sha256: de9b2f80f9c505f9404ccc9f107d1bdfdf5849291e944cb5be6ce8063c8507f5
+    role: target
+  - path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    sha256: fb0edcb5af076a247ed278b42027f036f101484395333493653d4e6f75f8b319
     role: target
   - path: kb/communities/Burkholderia_Bacillus_C2_Masson_Pine_SynCom.yaml
     sha256: 4c540d55438895202d84cb0b25957c0637780be4e031b5029211b747ad07a18d
@@ -370,7 +370,7 @@ scope:
     actionable Stage 5 remediation findings (3).
   selection: All 9 data/isolates/*.yaml, all 2 kb/taxa/*.yaml, 4 new Cycle 6 kb/communities/*.yaml
     records (000501-000504), 3 Cycle 5 Stage 5 remediated records (000084, 000085,
-    000385), and 3 kb/communities/*.yaml records (000374, 000402, 000404) surfaced
+    000385), and 3 kb/communities/*.yaml records (000401, 000402, 000404) surfaced
     by completeness audits.
   coverage: full
   population_size: 21
@@ -381,8 +381,8 @@ scope:
   - CommunityMech:000320
   - CommunityMech:000321
   - CommunityMech:000322
-  - CommunityMech:000374
   - CommunityMech:000385
+  - CommunityMech:000401
   - CommunityMech:000402
   - CommunityMech:000404
   - CommunityMech:000488
@@ -435,16 +435,16 @@ targets:
   record_class: MicrobialCommunity
   kind: maintained
   ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
-- target_id: CommunityMech:000374
-  path: kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
-  label: CommunityMech:000374 (Achromobacter-Enterobacter SL8-SL12 Cadmium Immobilization
-    Coculture)
-  record_class: MicrobialCommunity
-  kind: maintained
-  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
 - target_id: CommunityMech:000385
   path: kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
   label: CommunityMech:000385 (SO3-BS3 Lithium-ion Battery Bioleaching Consortium)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000401
+  path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  label: CommunityMech:000401 (Bifidobacterium-Faecalibacterium 2′-FL/FOS Butyrate
+    Coculture)
   record_class: MicrobialCommunity
   kind: maintained
   ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
@@ -522,14 +522,14 @@ targets:
   ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
 - target_id: CommunityMech:taxon:000001
   path: kb/taxa/Shewanella_oneidensis_MR1.yaml
-  label: CommunityMech:taxon:000001 (Shewanella_oneidensis_MR1)
-  record_class: TaxonRecord
+  label: CommunityMech:taxon:000001 (Shewanella oneidensis MR-1)
+  record_class: CommonTaxon
   kind: maintained
   ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
 - target_id: CommunityMech:taxon:000002
   path: kb/taxa/Geobacter_sulfurreducens.yaml
-  label: CommunityMech:taxon:000002 (Geobacter_sulfurreducens)
-  record_class: TaxonRecord
+  label: CommunityMech:taxon:000002 (Geobacter sulfurreducens)
+  record_class: CommonTaxon
   kind: maintained
   ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
 checks:
@@ -537,7 +537,7 @@ checks:
   name: LinkML schema validation on 21 deep-audit records
   status: passed
   required: true
-  summary: All 19 MicrobialCommunity records and 2 TaxonRecord files validate against
+  summary: All 19 MicrobialCommunity records and 2 CommonTaxon files validate against
     src/communitymech/schema/communitymech.yaml with 0 errors.
   target_ids:
   - CommunityMech:000084
@@ -546,8 +546,8 @@ checks:
   - CommunityMech:000320
   - CommunityMech:000321
   - CommunityMech:000322
-  - CommunityMech:000374
   - CommunityMech:000385
+  - CommunityMech:000401
   - CommunityMech:000402
   - CommunityMech:000404
   - CommunityMech:000488
@@ -579,8 +579,8 @@ checks:
   - CommunityMech:000320
   - CommunityMech:000321
   - CommunityMech:000322
-  - CommunityMech:000374
   - CommunityMech:000385
+  - CommunityMech:000401
   - CommunityMech:000402
   - CommunityMech:000404
   - CommunityMech:000488
@@ -603,7 +603,7 @@ evidence:
 - evidence_id: ev-schema-validation-gate
   kind: validation
   reference: src/communitymech/schema/communitymech.yaml
-  locator: MicrobialCommunity and TaxonRecord classes
+  locator: MicrobialCommunity and CommonTaxon classes
   accessed_at: '2026-11-04T17:55:00Z'
   support: supports
   summary: All 489 kb/communities/*.yaml, 9 data/isolates/*.yaml, and 2 kb/taxa/*.yaml
@@ -617,12 +617,12 @@ evidence:
   accessed_at: '2026-11-04T17:56:00Z'
   support: supports
   summary: Proportional 100-point review-communities Completeness Score audit across
-    all 498 MicrobialCommunity records (min 40, median 90, mean 91.19, max 100; CommunityMech:000374
-    = 90/100, CommunityMech:000402 = 90/100, CommunityMech:000404 = 90/100) and 2
-    TaxonRecord files (100/100) confirmed 100% core metadata presence and 100% top-level
+    all 498 MicrobialCommunity records (min 40, median 90, mean 91.19, max 100; CommunityMech:000401
+    = 100/100, CommunityMech:000402 = 90/100, CommunityMech:000404 = 90/100) and 2
+    CommonTaxon files (100/100) confirmed 100% core metadata presence and 100% top-level
     environment_term coverage (498/498), while scripts/audit_completeness.py:calculate_completeness()
     (which requires every taxon to have functional_role for its 50-point required
-    block) scores 000374 at 40/100, 000402 at 25/100, and 000404 at 40/100.
+    block) scores 000401 at 75/100, 000402 at 25/100, and 000404 at 40/100.
 - evidence_id: ev-network-integrity-audit
   kind: validation
   reference: src/communitymech/network/auditor.py
@@ -658,47 +658,51 @@ evidence:
     reusable UniProt EET genes plus inline fccA/Q8EKT2]) and 25 new verified inline
     UniProtKB gene annotations across CommunityMech:000501-000504 after Cycle 6 Stage
     3 (#2111).
-- evidence_id: ev-sl8-sl12-pmid42307251
+- evidence_id: ev-bifido-faecali-pmid42655156
   kind: primary_source
-  reference: PMID:42307251
-  locator: kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
+  reference: PMID:42655156
+  locator: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
   accessed_at: '2026-11-04T17:58:30Z'
   support: supports
-  summary: PMID:42307251 (PMC13340288, doi:10.3390/microorganisms14061493) establishes
-    that Achromobacter sp. SL8 and Enterobacter sp. SL12 act as synergistic extracellular-polymeric-substance
-    (EPS)-producing and CdS-bioprecipitating partners at a 1:1 co-inoculation ratio.
-  quote: The bacterial consortium SL8+SL12 promoted EPS secretion (specifically polysaccharides
-    and proteins), increased the variety of functional groups, and stimulated cell
-    aggregation, leading to enhanced extracellular immobilization of Cd2+.
+  summary: PMID:42655156 (PMC13515949, doi:10.3390/microorganisms14081812) establishes
+    that Bifidobacterium bifidum JCM1254 (NCBITaxon:1681) and Faecalibacterium prausnitzii
+    A2-165 (NCBITaxon:853) were co-inoculated as equal 8 uL aliquots of OD600 = 1.0
+    suspensions and alternated in dominance across the 2'-FL/FOS substrate ratio series.
+  quote: The relative abundances of F. prausnitzii and B. bifidum in the co-culture
+    varied depending on the ratio of 2′-FL to FOS (Figure 4). Under the FOS-only conditions,
+    F. prausnitzii accounted for approximately 60% of the total population. As the
+    proportion of 2′-FL increased, B. bifidum became increasingly dominant, reaching
+    a maximum relative abundance of 95%.
 - evidence_id: ev-shewanella-anammox-pmid42655905
   kind: primary_source
   reference: PMID:42655905
   locator: kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml
   accessed_at: '2026-11-04T17:59:00Z'
   support: supports
-  summary: PMID:42655905 (PMC13519132, doi:10.1002/advs.77600) establishes Delta nrfA
-    Shewanella oneidensis MR-1 as the engineered nitrite-supplying cross-feeder, Candidatus
-    Brocadia as the dominant anammox partner (enriched to 7%~10% relative abundance),
-    and endogenous activated-sludge heterotrophic bacteria as the organic-matter-fermenting
-    syntrophic guild supplying volatile fatty acids and amino acids.
-  quote: Metagenomic sequencing and isotope tracing analyses revealed that the deletion
-    of the nrfA gene eliminated the ability of S. oneidensis to reduce NO2−‐N to NH4+‐N,
-    resulting in a redirect of nitrite flux toward AnAOB and a significant increase
-    in the relative abundance of Candidatus Brocadia (7%~10%).
+  summary: PMID:42655905 (PMC13519132, doi:10.1002/wer.70526) establishes Delta nrfA
+    Shewanella oneidensis MR-1 (NCBITaxon:211586) as the engineered nitrite-accumulating
+    supplier and Candidatus Brocadia (7%~10% relative abundance within Planctomycetota
+    at 15%~21%, NCBITaxon:203682) as the dominant anammox genus and only detected
+    anammox bacterium.
+  quote: In both ΔCK2 and ΔB groups, Candidatus Brocadia (7%~10%) emerged as the dominant
+    genus and was identified as the only detected anammox bacterium, indicating its
+    role as the primary anammox microorganism in the inoculated sludge.
 - evidence_id: ev-wollastonite-pmid42478817
   kind: primary_source
   reference: PMID:42478817
   locator: kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml
   accessed_at: '2026-11-04T17:59:20Z'
   support: supports
-  summary: 'PMID:42478817 (PMC13488302, doi:10.3390/jof12070581) establishes that
-    at the optimal CMS-1 : hzt-3'' = 1:4 inoculum ratio (20% CMS-1, 80% hzt-3''),
-    Ramichloridium apiculatum CMS-1 acts as the carbonic-anhydrase- and cellulase-producing
-    syntrophic cross-feeder and Talaromyces pseudofuniculosus hzt-3'' is the dominant
-    organic-acid-producing mineral-weathering partner.'
-  quote: Among the tested fungal consortia, the composite with an inoculation ratio
-    of CMS-1 to hzt-3′ at 1:4 demonstrated the most pronounced weathered effect on
-    wollastonite, significantly outperforming monocultures.
+  summary: PMID:42478817 (PMC13488302, doi:10.1128/aem.02519-25) establishes that
+    in the 20% CMS-1 + 80% hzt-3' mixed fungal consortium, Ramichloridium apiculatum
+    CMS-1 (NCBITaxon:470080) synthesizes oxalic acid, L-glutamic acid, and extracellular
+    polysaccharides and proteins utilized in the mixed culture while Talaromyces pseudofuniculosus
+    hzt-3' (NCBITaxon:2015341) plays the dominant role in the mixed culture.
+  quote: The strain CMS-1 primarily produced oxalic acid (0.66 ± 0.033 mg/mL), while
+    strain hzt-3′ mainly generated gluconic acid (1.60 ± 0.0798 mg/mL). In mixed culture,
+    CMS-1 synthesized extracellular polysaccharides and proteins that were utilized
+    by hzt-3′, which upregulated the production of gluconic acid, isocitric acid,
+    L-glutamine, and L-tyrosine, collectively enhancing acidity and chemical dissolution.
 - evidence_id: ev-prior-structured-reviews
   kind: prior_review
   reference: reviews/structured
@@ -848,29 +852,6 @@ assessments:
     definition: Proportional review-communities Completeness Score (0-100).
     minimum: 0.0
     maximum: 100.0
-- assessment_id: assess-communitymech-000374
-  area: completeness
-  topic: Deep per-record audit of CommunityMech:000374 (Achromobacter-Enterobacter
-    SL8-SL12 Cadmium Immobilization Coculture)
-  outcome: concern
-  summary: Record CommunityMech:000374 (kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml)
-    in cohort BIOREMEDIATION has Completeness Score 90/100, 2 taxa, 1 interactions,
-    0 causal edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0
-    network warnings.
-  target_ids:
-  - CommunityMech:000374
-  evidence_ids:
-  - ev-schema-validation-gate
-  - ev-completeness-audit
-  - ev-network-integrity-audit
-  - ev-common-taxon-linkage-audit
-  metrics:
-  - name: completeness_score
-    value: 90.0
-    unit: points
-    definition: Proportional review-communities Completeness Score (0-100).
-    minimum: 0.0
-    maximum: 100.0
 - assessment_id: assess-communitymech-000385
   area: completeness
   topic: Deep per-record audit of CommunityMech:000385 (SO3-BS3 Lithium-ion Battery
@@ -890,6 +871,29 @@ assessments:
   metrics:
   - name: completeness_score
     value: 95.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100).
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-communitymech-000401
+  area: completeness
+  topic: Deep per-record audit of CommunityMech:000401 (Bifidobacterium-Faecalibacterium
+    2′-FL/FOS Butyrate Coculture)
+  outcome: concern
+  summary: Record CommunityMech:000401 (kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml)
+    in cohort DIET has Completeness Score 100/100, 2 taxa, 2 interactions, 0 causal
+    edges, 0 inline gene annotations, 0 reusable CommonTaxon links, and 0 network
+    warnings.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - ev-schema-validation-gate
+  - ev-completeness-audit
+  - ev-network-integrity-audit
+  - ev-common-taxon-linkage-audit
+  metrics:
+  - name: completeness_score
+    value: 100.0
     unit: points
     definition: Proportional review-communities Completeness Score (0-100).
     minimum: 0.0
@@ -1149,7 +1153,8 @@ assessments:
     maximum: 100.0
 - assessment_id: assess-communitymech-taxon-000001
   area: completeness
-  topic: Deep per-record audit of CommunityMech:taxon:000001 (Shewanella_oneidensis_MR1)
+  topic: Deep per-record audit of CommunityMech:taxon:000001 (Shewanella oneidensis
+    MR-1)
   outcome: supported
   summary: Record CommunityMech:taxon:000001 (kb/taxa/Shewanella_oneidensis_MR1.yaml)
     in cohort TAXA has Completeness Score 100/100, 1 taxa, 0 interactions, 0 causal
@@ -1171,7 +1176,7 @@ assessments:
     maximum: 100.0
 - assessment_id: assess-communitymech-taxon-000002
   area: completeness
-  topic: Deep per-record audit of CommunityMech:taxon:000002 (Geobacter_sulfurreducens)
+  topic: Deep per-record audit of CommunityMech:taxon:000002 (Geobacter sulfurreducens)
   outcome: supported
   summary: Record CommunityMech:taxon:000002 (kb/taxa/Geobacter_sulfurreducens.yaml)
     in cohort TAXA has Completeness Score 100/100, 1 taxa, 0 interactions, 0 causal
@@ -1192,44 +1197,48 @@ assessments:
     minimum: 0.0
     maximum: 100.0
 findings:
-- finding_id: c6s4-000374-sl8-sl12-functional-roles
-  issue_key: c6s4-000374-sl8-sl12-functional-roles
+- finding_id: c6s4-000401-bifido-faecali-abundance-levels
+  issue_key: c6s4-000401-bifido-faecali-abundance-levels
   category: completeness
   severity: major
   status: open
   certainty: confirmed
-  title: Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture (CommunityMech:000374)
-    omits functional_role on both Achromobacter sp. SL8 and Enterobacter sp. SL12
-  description: 'In kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
-    (CommunityMech:000374), both taxonomy[0] (Achromobacter sp. SL8, NCBITaxon:222)
-    and taxonomy[1] (Enterobacter sp. SL12, NCBITaxon:547) record abundance_level:
-    ABUNDANT at a 1:1 (v/v) co-inoculation ratio, but both omit functional_role. The
-    cited open-access source PMID:42307251 (PMC13340288, doi:10.3390/microorganisms14061493)
-    explicitly establishes that Achromobacter sp. SL8 and Enterobacter sp. SL12 act
-    as synergistic extracellular-polymeric-substance (EPS)-producing and CdS-precipitating
-    partners (functional_role: [SYNTROPHIC_PARTNER, BIOFILM_FORMER]) whose co-culture
-    stimulates polysaccharide and protein secretion, cell aggregation, and up-regulation
-    of cysteine biosynthesis (cysK) and sulfate transport to immobilize Cd2+.'
+  title: Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture (CommunityMech:000401)
+    omits abundance_level on both co-equal OD600-standardized coculture members
+  description: 'In kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    (CommunityMech:000401), both taxonomy[0] (Bifidobacterium bifidum JCM1254, NCBITaxon:1681,
+    label: Bifidobacterium bifidum) and taxonomy[1] (Faecalibacterium prausnitzii
+    A2-165, NCBITaxon:853, label: Faecalibacterium prausnitzii) record abundance_value:
+    ''One of two OD600-standardized co-culture members'' and functional_role: [PRIMARY_DEGRADER,
+    CROSS_FEEDER], but both omit abundance_level. The cited open-access source PMID:42655156
+    (PMC13515949, doi:10.3390/microorganisms14081812) establishes that both strains
+    were co-inoculated as equal 8 uL aliquots of OD600 = 1.0 suspensions into 800
+    uL YCFA- medium and alternated in dominance across the 2''-FL/FOS substrate ratio
+    series (with F. prausnitzii accounting for ~60% under FOS-only conditions and
+    B. bifidum reaching up to 95% under 2''-FL-rich conditions), supporting abundance_level:
+    DOMINANT on both co-equal coculture members while preserving discussions[0] (bifido_faecali_2fl_fos_flux_unresolved)
+    regarding unmeasured pH, residual substrate, and metabolic flux.'
   target_ids:
-  - CommunityMech:000374
+  - CommunityMech:000401
   field_paths:
-  - taxonomy[0].functional_role
-  - taxonomy[1].functional_role
+  - taxonomy[0].abundance_level
+  - taxonomy[1].abundance_level
   evidence_ids:
   - ev-completeness-audit
-  - ev-sl8-sl12-pmid42307251
-  rule_id: review-yaml-record:taxonomy-functional-role-completeness
+  - ev-bifido-faecali-pmid42655156
+  rule_id: review-yaml-record:taxonomy-abundance-level-completeness
   native_severity: P2
-  normalization_reason: Missing source-backed functional_role on both members of a
-    two-strain cadmium-immobilizing co-culture causes scripts/audit_completeness.py
-    required-block failure (25/100) and maps to major (P2).
+  normalization_reason: Missing source-backed abundance_level on both co-equal members
+    of a two-strain gut coculture leaves the review-communities s_ab rubric component
+    at 0/5 (Completeness Score 100/100; scripts/audit_completeness.py score 75/100)
+    and maps to major (P2).
   owner_paths:
   - repository: CultureBotAI/CommunityMech
-    path: kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
+    path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
     role: canonical_record
   tags:
   - actionable-stage5
-  - bioremediation-cohort
+  - diet-cohort
   - completeness
 - finding_id: c6s4-000402-shewanella-anammox-roles-and-abundance
   issue_key: c6s4-000402-shewanella-anammox-roles-and-abundance
@@ -1238,21 +1247,25 @@ findings:
   status: open
   certainty: confirmed
   title: Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium (CommunityMech:000402)
-    omits functional_role and abundance_level across all three taxonomy entries
+    omits functional_role and abundance_level on Delta nrfA Shewanella oneidensis
+    MR-1 and Candidatus Brocadia anammox bacteria
   description: 'In kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml
-    (CommunityMech:000402), taxonomy[0] (Delta nrfA Shewanella oneidensis MR-1, NCBITaxon:211586),
-    taxonomy[1] (Candidatus Brocadia anammox bacteria, NCBITaxon:380240), and taxonomy[2]
-    (endogenous activated-sludge heterotrophic bacteria, NCBITaxon:2) all omit functional_role
+    (CommunityMech:000402), taxonomy[0] (Delta nrfA Shewanella oneidensis MR-1, NCBITaxon:211586,
+    label: Shewanella oneidensis MR-1) and taxonomy[1] (Candidatus Brocadia anammox
+    bacteria, NCBITaxon:203682, label: Planctomycetota) omit both functional_role
     and abundance_level. The cited open-access source PMID:42655905 (PMC13519132,
-    doi:10.1002/advs.77600) establishes Delta nrfA S. oneidensis MR-1 as the engineered
-    partial-denitrifying nitrite-supplying cross-feeder and syntrophic partner (functional_role:
-    [CROSS_FEEDER, SYNTROPHIC_PARTNER]; abundance_level: ABUNDANT), Candidatus Brocadia
-    as the dominant anammox syntrophic partner (functional_role: [SYNTROPHIC_PARTNER,
-    CROSS_FEEDER]; abundance_level: DOMINANT, enriched to 7%~10% of community abundance),
-    and endogenous activated-sludge heterotrophic bacteria as the organic-matter-fermenting
-    syntrophic guild providing volatile fatty acids and amino acids to Delta nrfA
-    S. oneidensis (functional_role: [SYNTROPHIC_PARTNER, SECONDARY_FERMENTER]; abundance_level:
-    ABUNDANT).'
+    doi:10.1002/wer.70526) establishes that Delta nrfA S. oneidensis MR-1 accumulates
+    nitrite (NO2--N) by blocking the nrfA DNRA pathway and supplies nitrite to anammox
+    bacteria in a stable synergistic interaction (functional_role: [CROSS_FEEDER,
+    SYNTROPHIC_PARTNER]; abundance_level: ABUNDANT, co-inoculated as 5 mL bacterial
+    suspension with 25 mL anammox sludge in 500 mL DeltaB1 reactors), while Candidatus
+    Brocadia (7%~10% relative abundance within Planctomycetota at 15%~21%) emerged
+    as the dominant genus and only detected anammox bacterium (functional_role: [SYNTROPHIC_PARTNER,
+    CROSS_FEEDER]; abundance_level: DOMINANT). In accordance with discussions[0] (shewanella_anammox_sludge_membership_and_flux_unresolved),
+    taxonomy[2] (endogenous activated-sludge heterotrophic bacteria, NCBITaxon:2)
+    remains scoped as an unresolved broad background sludge grouping whose pathway
+    flux partitioning between anammox, denitrification, and DNRA was not quantified
+    by isotope labeling.'
   target_ids:
   - CommunityMech:000402
   field_paths:
@@ -1260,17 +1273,16 @@ findings:
   - taxonomy[0].abundance_level
   - taxonomy[1].functional_role
   - taxonomy[1].abundance_level
-  - taxonomy[2].functional_role
-  - taxonomy[2].abundance_level
   evidence_ids:
   - ev-completeness-audit
   - ev-shewanella-anammox-pmid42655905
   rule_id: review-yaml-record:taxonomy-functional-role-completeness
   native_severity: P2
   normalization_reason: Missing source-backed functional_role and abundance_level
-    across all three guilds of an engineered partial-denitrification-anammox consortium
-    causes scripts/audit_completeness.py required-block failure (25/100) and maps
-    to major (P2).
+    on the two focal guilds (Delta nrfA S. oneidensis MR-1 and Candidatus Brocadia)
+    of an engineered nitrite-coupled anammox consortium reduces the review-communities
+    Completeness Score to 90/100 (scripts/audit_completeness.py score 25/100) and
+    maps to major (P2).
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml
@@ -1289,16 +1301,21 @@ findings:
     omits functional_role on Ramichloridium apiculatum CMS-1 and abundance_level on
     both fungal members
   description: 'In kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml
-    (CommunityMech:000404), taxonomy[0] (Ramichloridium apiculatum CMS-1, NCBITaxon:222813)
-    omits both functional_role and abundance_level, while taxonomy[1] (Talaromyces
-    pseudofuniculosus hzt-3'', NCBITaxon:28568) records functional_role: [CROSS_FEEDER]
-    but omits abundance_level. The cited open-access source PMID:42478817 (PMC13488302,
-    doi:10.3390/jof12070581) establishes that at the optimal CMS-1 : hzt-3'' = 1:4
-    inoculum ratio (20% CMS-1, 80% hzt-3''), R. apiculatum CMS-1 acts as the carbonic-anhydrase-
-    and cellulase-producing syntrophic cross-feeder (functional_role: [CROSS_FEEDER,
-    SYNTROPHIC_PARTNER]; abundance_level: ABUNDANT) and T. pseudofuniculosus hzt-3''
-    is the dominant organic-acid-secreting wollastonite-dissolving partner (functional_role:
-    [CROSS_FEEDER, SYNTROPHIC_PARTNER]; abundance_level: DOMINANT).'
+    (CommunityMech:000404), taxonomy[0] (Ramichloridium apiculatum CMS-1, NCBITaxon:470080,
+    label: Ramichloridium apiculatum) omits both functional_role and abundance_level,
+    while taxonomy[1] (Talaromyces pseudofuniculosus hzt-3'', NCBITaxon:2015341, label:
+    Talaromyces pseudofuniculosus) records functional_role: [CROSS_FEEDER] but omits
+    abundance_level. The cited open-access source PMID:42478817 (PMC13488302, doi:10.1128/aem.02519-25)
+    establishes that in the optimal 20% CMS-1 + 80% hzt-3'' mixed fungal consortium,
+    R. apiculatum CMS-1 produces oxalic acid (0.66 +- 0.033 mg/mL in monoculture),
+    L-glutamic acid, and extracellular polysaccharides and proteins utilized in the
+    mixed culture (functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER]; abundance_level:
+    ABUNDANT at 20% initial spore-suspension inoculum share), while T. pseudofuniculosus
+    hzt-3'' is inoculated at 80% initial spore-suspension share and explicitly identified
+    as playing the dominant role in the mixed culture (functional_role: [CROSS_FEEDER,
+    SYNTROPHIC_PARTNER]; abundance_level: DOMINANT), preserving discussions[0] (woll_causal_scope_batch123)
+    that cross-feeding directionality from CMS-1 to hzt-3'' is proposed from bulk
+    monoculture vs mixed-culture metabolomics.'
   target_ids:
   - CommunityMech:000404
   field_paths:
@@ -1312,8 +1329,9 @@ findings:
   rule_id: review-yaml-record:taxonomy-functional-role-completeness
   native_severity: P2
   normalization_reason: Missing source-backed functional_role on Ramichloridium apiculatum
-    CMS-1 and abundance_level on both 1:4 fungal consortium members causes scripts/audit_completeness.py
-    required-block failure (25/100) and maps to major (P2).
+    CMS-1 and abundance_level on both 20%:80% fungal consortium members reduces the
+    review-communities Completeness Score to 90/100 and causes scripts/audit_completeness.py
+    required-block failure (40/100), mapping to major (P2).
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml
@@ -1323,30 +1341,33 @@ findings:
   - biomining-cohort
   - completeness
 actions:
-- action_id: act-populate-sl8-sl12-functional-roles
-  description: 'Add functional_role: [SYNTROPHIC_PARTNER, BIOFILM_FORMER] to both
-    Achromobacter sp. SL8 (taxonomy[0]) and Enterobacter sp. SL12 (taxonomy[1]) backed
-    by PMID:42307251 (PMC13340288) on CommunityMech:000374, and append curation_history.'
+- action_id: act-populate-bifido-faecali-abundance-levels
+  description: 'Add abundance_level: DOMINANT to both Bifidobacterium bifidum JCM1254
+    (taxonomy[0], NCBITaxon:1681) and Faecalibacterium prausnitzii A2-165 (taxonomy[1],
+    NCBITaxon:853) backed by PMID:42655156 (PMC13515949, doi:10.3390/microorganisms14081812)
+    on CommunityMech:000401 while preserving discussions[0] (bifido_faecali_2fl_fos_flux_unresolved),
+    and append curation_history.'
   finding_ids:
-  - c6s4-000374-sl8-sl12-functional-roles
+  - c6s4-000401-bifido-faecali-abundance-levels
   target_ids:
-  - CommunityMech:000374
+  - CommunityMech:000401
   owner_paths:
   - repository: CultureBotAI/CommunityMech
-    path: kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
+    path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
     role: canonical_record
   acceptance_checks:
   - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class
-    MicrobialCommunity kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
+    MicrobialCommunity kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
   - just validate-history history
 - action_id: act-populate-shewanella-anammox-roles-and-abundance
   description: 'Add functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER] and abundance_level:
-    ABUNDANT to Delta nrfA Shewanella oneidensis MR-1 (taxonomy[0]), add functional_role:
-    [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level: DOMINANT to Candidatus
-    Brocadia anammox bacteria (taxonomy[1]), add functional_role: [SYNTROPHIC_PARTNER,
-    SECONDARY_FERMENTER] and abundance_level: ABUNDANT to endogenous activated-sludge
-    heterotrophic bacteria (taxonomy[2]) backed by PMID:42655905 (PMC13519132) on
-    CommunityMech:000402, and append curation_history.'
+    ABUNDANT to Delta nrfA Shewanella oneidensis MR-1 (taxonomy[0], NCBITaxon:211586),
+    and add functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level:
+    DOMINANT to Candidatus Brocadia anammox bacteria (taxonomy[1], NCBITaxon:203682)
+    backed by PMID:42655905 (PMC13519132, doi:10.1002/wer.70526) on CommunityMech:000402
+    while preserving taxonomy[2] (endogenous activated-sludge heterotrophic bacteria,
+    NCBITaxon:2) under discussions[0] (shewanella_anammox_sludge_membership_and_flux_unresolved),
+    and append curation_history.'
   finding_ids:
   - c6s4-000402-shewanella-anammox-roles-and-abundance
   target_ids:
@@ -1361,9 +1382,11 @@ actions:
   - just validate-history history
 - action_id: act-populate-wollastonite-cms1-role-and-abundance
   description: 'Add functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER] and abundance_level:
-    ABUNDANT to Ramichloridium apiculatum CMS-1 (taxonomy[0]), and add abundance_level:
-    DOMINANT and SYNTROPHIC_PARTNER to Talaromyces pseudofuniculosus hzt-3'' (taxonomy[1])
-    backed by PMID:42478817 (PMC13488302) on CommunityMech:000404, and append curation_history.'
+    ABUNDANT to Ramichloridium apiculatum CMS-1 (taxonomy[0], NCBITaxon:470080), and
+    add abundance_level: DOMINANT and SYNTROPHIC_PARTNER to Talaromyces pseudofuniculosus
+    hzt-3'' (taxonomy[1], NCBITaxon:2015341) backed by PMID:42478817 (PMC13488302,
+    doi:10.1128/aem.02519-25) on CommunityMech:000404 while preserving discussions[0]
+    (woll_causal_scope_batch123), and append curation_history.'
   finding_ids:
   - c6s4-000404-wollastonite-cms1-role-and-abundance
   target_ids:
