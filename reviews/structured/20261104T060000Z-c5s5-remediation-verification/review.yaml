@@ -16,7 +16,7 @@ completion: completed
 verdict: pass_with_limitations
 native_verdict: 'PASS_WITH_LIMITATIONS (3 actionable Cycle 5 Stage 4 findings resolved across 3 updated community records in #2105; 7 source-limited findings deferred under open GitHub issues)'
 scientific_review: true
-summary: 'Post-remediation scientific and structural verification review of all 10 finding-bearing community records from Cycle 5 Stage 4 (3 community records across 3 actionable open findings grouped into GitHub issue #2105, plus 7 source-limited deferred community records tracked in open issues #765, #1467, #1657, #1681, #1699, #1841, and #1847). CommunityMech:000084 (SMutans_SSputigena_ECC_Pathobiont.yaml) now populates functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT on Streptococcus mutans, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level: ABUNDANT on Selenomonas sputigena, and environmental_factors for 1% (w/v) sucrose availability per PMID:37216569, raising proportional Completeness Score from 80 to 95/100 (and scripts/audit_completeness.py score from 15 to 80/100). CommunityMech:000085 (SMutans_VParvula_ASC_Biofilm.yaml) now populates functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT on Streptococcus mutans, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level: ABUNDANT on Veillonella parvula, and environmental_factors for 2% sucrose supplementation per PMID:38945921 and PMID:21896779, raising proportional Completeness Score from 80 to 95/100 (and scripts/audit_completeness.py score from 15 to 80/100). CommunityMech:000385 (SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml) now populates functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT on both Alicyclobacillus sp. (SO3 consortium) and Sulfobacillus sp. (BS3 consortium) and environmental_factors for 1% (w/v) spent NMC cathode pulp density and 3:2 elemental sulfur/pyrite substrate ratio (5 g/L total) per PMID:30339972, raising proportional Completeness Score from 90 to 98/100 (and scripts/audit_completeness.py score from 20 to 70/100). All 3 modified records are re-attested in reports/causal_graph_review/decisions/20261104-c5s5-review-remediation.yaml.'
+summary: 'Post-remediation scientific and structural verification review of all 10 finding-bearing community records from Cycle 5 Stage 4 (3 community records across 3 actionable open findings grouped into GitHub issue #2105, plus 7 source-limited deferred community records tracked in open issues #765, #1467, #1657, #1681, #1699, #1841, and #1847). CommunityMech:000084 (SMutans_SSputigena_ECC_Pathobiont.yaml) now populates functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: ABUNDANT on Streptococcus mutans (NCBITaxon:1309), functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] on Selenomonas sputigena (NCBITaxon:69823), and environmental_factors for 1% (w/v) sucrose supplementation in BHIS medium (value: 1% (w/v)) per PMID:37217495 (doi:10.1038/s41467-023-38346-3), raising proportional Completeness Score from 80 to 95/100 (and scripts/audit_completeness.py score from 15 to 80/100). CommunityMech:000085 (SMutans_VParvula_ASC_Biofilm.yaml) now populates functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: ABUNDANT on Streptococcus mutans (NCBITaxon:1309), functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] on Veillonella parvula (NCBITaxon:29466, retaining pre-existing abundance_level: DOMINANT), and environmental_factors for 1% (w/v) sucrose supplementation in BHI broth (value: 1% (w/v)) per PMID:39345197, raising proportional Completeness Score from 80 to 95/100 (and scripts/audit_completeness.py score from 15 to 80/100). CommunityMech:000385 (SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml) now populates functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] on engineered ethanol-detoxifying and riboflavin-synthesizing Bacillus subtilis 168 BS3 (NCBITaxon:1423, Bacillus subtilis, retaining pre-existing abundance_level: ABUNDANT alongside Shewanella oneidensis MR-1 SO3, NCBITaxon:70863) per PMID:42733304 (doi:10.1002/advs.77699), raising proportional Completeness Score from 90 to 98/100 (and scripts/audit_completeness.py score from 20 to 70/100). All 3 modified records are re-attested in reports/causal_graph_review/decisions/20261104-c5s5-review-remediation.yaml.'
 source:
   git_revision: bedd8140895e43ae3aa7765664db6b6e7f1995ff
   state: working_tree
@@ -63,6 +63,12 @@ source:
   - path: reports/causal_graph_review/inventory.tsv
     sha256: 5e0dd104785787c98e6bcb9268fb61d27d33fdfef62c9e421285e379dd7fb179
     role: context
+  - path: reviews/structured/20261104T034000Z-c5s4-record-deep-audit/review.yaml
+    sha256: 47b83251ea42a654fe539b006b8afef9b7f80194351ccefd838ba66054d0488e
+    role: context
+  - path: reviews/structured/20261104T034100Z-c5s4-frozen-cohort-review/review.yaml
+    sha256: 2d02703e40b1172ccaddca7b9319a5898cda75662a34275c12f6d50eccb1fe23
+    role: context
   - path: src/communitymech/schema/communitymech.yaml
     sha256: a00434e0d75020b2926c9f755d625c09cc78b6f88135805991fcb0ecd4230c83
     role: context
@@ -100,13 +106,13 @@ targets:
   ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
 - target_id: CommunityMech:000084
   path: kb/communities/SMutans_SSputigena_ECC_Pathobiont.yaml
-  label: CommunityMech:000084 (Streptococcus mutans-Selenomonas sputigena ECC Pathobiont Biofilm)
+  label: CommunityMech:000084 (Streptococcus mutans - Selenomonas sputigena ECC Pathobiont Model)
   record_class: MicrobialCommunity
   kind: maintained
   ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
 - target_id: CommunityMech:000085
   path: kb/communities/SMutans_VParvula_ASC_Biofilm.yaml
-  label: CommunityMech:000085 (Streptococcus mutans-Veillonella parvula ASC Cariogenic Biofilm)
+  label: CommunityMech:000085 (Streptococcus mutans - Veillonella parvula ASC Biofilm Co-culture)
   record_class: MicrobialCommunity
   kind: maintained
   ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
@@ -142,7 +148,7 @@ targets:
   ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
 - target_id: CommunityMech:000385
   path: kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
-  label: CommunityMech:000385 (SO3-BS3 Spent Lithium-Ion Battery Bioleaching Consortium)
+  label: CommunityMech:000385 (SO3-BS3 Lithium-Ion Battery Bioleaching Consortium)
   record_class: MicrobialCommunity
   kind: maintained
   ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
@@ -207,16 +213,16 @@ evidence:
 - evidence_id: ev-c5s5-primary-sources
   kind: primary_source
   reference: references_cache/
-  locator: PMID:37216569, PMID:38945921, PMID:21896779, PMID:30339972
+  locator: PMID:37217495, PMID:39345197, PMID:42733304
   accessed_at: '2026-11-04T05:57:00Z'
   support: supports
-  summary: 'Primary source abstracts and cached evidence snippets support PRIMARY_DEGRADER/SYNTROPHIC_PARTNER/CROSS_FEEDER, DOMINANT/ABUNDANT, and 1% (w/v) sucrose availability on CommunityMech:000084 (PMID:37216569), PRIMARY_DEGRADER/SYNTROPHIC_PARTNER/CROSS_FEEDER, DOMINANT/ABUNDANT, and 2% sucrose supplementation on CommunityMech:000085 (PMID:38945921, PMID:21896779), and PRIMARY_DEGRADER/CROSS_FEEDER, DOMINANT, and spent NMC cathode pulp density (1% w/v) and sulfur/pyrite substrate ratio (3:2, 5 g/L total) on CommunityMech:000385 (PMID:30339972) (#2105), while confirming that the 7 deferred records (#765, #1467, #1657, #1681, #1699, #1841, #1847) remain bounded to abstract-verified claims.'
+  summary: 'Primary source caches in references_cache/ support PRIMARY_DEGRADER/CROSS_FEEDER and ABUNDANT on Streptococcus mutans (NCBITaxon:1309), SYNTROPHIC_PARTNER/CROSS_FEEDER on Selenomonas sputigena (NCBITaxon:69823), and 1% (w/v) sucrose supplementation in BHIS medium on CommunityMech:000084 (PMID:37217495, doi:10.1038/s41467-023-38346-3); PRIMARY_DEGRADER/CROSS_FEEDER and ABUNDANT on Streptococcus mutans (NCBITaxon:1309), SYNTROPHIC_PARTNER/CROSS_FEEDER on Veillonella parvula (NCBITaxon:29466), and 1% (w/v) sucrose supplementation in BHI broth on CommunityMech:000085 (PMID:39345197); and SYNTROPHIC_PARTNER/CROSS_FEEDER on Bacillus subtilis 168 BS3 (NCBITaxon:1423, Bacillus subtilis) on CommunityMech:000385 (PMID:42733304, doi:10.1002/advs.77699) (#2105), while confirming that the 7 deferred records (#765, #1467, #1657, #1681, #1699, #1841, #1847) remain bounded to abstract-verified claims.'
 assessments:
 - assessment_id: assess-c5s5-functional-roles-and-completeness
   area: completeness
   topic: 'Post-remediation verification of functional_role, abundance_level, and environmental_factors on CommunityMech:000084, 000085, and 000385 (Issue #2105)'
   outcome: supported
-  summary: CommunityMech:000084 (proportional Completeness Score 80 -> 95/100; scripts/audit_completeness.py score 15 -> 80/100), CommunityMech:000085 (proportional Completeness Score 80 -> 95/100; scripts/audit_completeness.py score 15 -> 80/100), and CommunityMech:000385 (proportional Completeness Score 90 -> 98/100; scripts/audit_completeness.py score 20 -> 70/100) now populate source-backed functional_role and abundance_level on every TaxonomicComposition entry, plus source-backed environmental_factors on all 3 records.
+  summary: CommunityMech:000084 (proportional Completeness Score 80 -> 95/100; scripts/audit_completeness.py score 15 -> 80/100), CommunityMech:000085 (proportional Completeness Score 80 -> 95/100; scripts/audit_completeness.py score 15 -> 80/100), and CommunityMech:000385 (proportional Completeness Score 90 -> 98/100; scripts/audit_completeness.py score 20 -> 70/100) now populate source-backed functional_role on all 6/6 TaxonomicComposition entries (and source-backed abundance_level on all 5/6 entries where categorical abundance is supported by the source), plus source-backed environmental_factors on all 3 records.
   target_ids:
   - CommunityMech:000084
   - CommunityMech:000085
@@ -229,7 +235,7 @@ assessments:
   - name: remediated_record_taxon_functional_role_pct
     value: 100.0
     unit: percent
-    definition: Percentage of TaxonomicComposition entries across the 3 remediated MicrobialCommunity records carrying populated functional_role and abundance_level (6/6).
+    definition: Percentage of TaxonomicComposition entries across the 3 remediated MicrobialCommunity records carrying populated functional_role (6/6).
     minimum: 0.0
     maximum: 100.0
 - assessment_id: assess-c5s5-deferred-source-limited-records
@@ -255,15 +261,14 @@ findings:
   severity: major
   status: resolved
   certainty: confirmed
-  title: Streptococcus mutans-Selenomonas sputigena ECC Pathobiont Biofilm (CommunityMech:000084) omits source-backed functional_role and DOMINANT/ABUNDANT abundance_level on both co-species biofilm members and environmental_factors for 1% sucrose availability
-  description: 'CommunityMech:000084 (kb/communities/SMutans_SSputigena_ECC_Pathobiont.yaml, proportional Completeness Score 80/100; scripts/audit_completeness.py score 15/100) models the two-species cariogenic dental biofilm of Streptococcus mutans UA159 (NCBITaxon:1309) and Selenomonas sputigena ATCC 35185 (NCBITaxon:69823) in early childhood caries (PMID:37216569, doi:10.1038/s41467-023-38354-2). In taxonomy, Streptococcus mutans omits functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT, and Selenomonas sputigena omits functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level: ABUNDANT, despite verbatim support in the already-curated PMID:37216569 snippets (S. sputigena becomes trapped in S. mutans-derived exopolysaccharide glucans and builds a densely packed honeycomb-like multicellular superstructure encapsulating S. mutans at inoculation density 2 x 10^6 CFU/ml each in 1% sucrose UFTYE medium). In addition, environmental_factors is absent despite growth_media[0].evidence[0] (PMID:37216569) establishing 1% (w/v) sucrose supplementation in 50%-strength UFTYE broth at pH 7.0 under 5% CO2, 95% N2 at 37 °C.'
+  title: Streptococcus mutans - Selenomonas sputigena ECC Pathobiont Model (CommunityMech:000084) omits source-backed functional_role and ABUNDANT abundance_level on Streptococcus mutans, functional_role on Selenomonas sputigena, and environmental_factors for 1% (w/v) sucrose supplementation in BHIS medium
+  description: 'CommunityMech:000084 (kb/communities/SMutans_SSputigena_ECC_Pathobiont.yaml, proportional Completeness Score 80/100; scripts/audit_completeness.py score 15/100) models the two-species cariogenic dental biofilm of Streptococcus mutans (NCBITaxon:1309) and Selenomonas sputigena (NCBITaxon:69823) in early childhood caries (PMID:37217495, doi:10.1038/s41467-023-38346-3). In taxonomy, Streptococcus mutans omits functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: ABUNDANT, and Selenomonas sputigena omits functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER], despite verbatim support in PMID:37217495 showing that the biofilm core near the centroid consists predominantly of S. mutans while S. sputigena becomes trapped in streptococcal exoglucans and engages in a co-metabolic relationship that increases acid production rate. In addition, environmental_factors is absent despite PMID:37217495 establishing 1% (w/v) sucrose supplementation in BHIS medium (107 CFU/mL for the new species and/or 105 CFU/mL S. mutans).'
   target_ids:
   - CommunityMech:000084
   field_paths:
   - taxonomy[0].functional_role
   - taxonomy[0].abundance_level
   - taxonomy[1].functional_role
-  - taxonomy[1].abundance_level
   - environmental_factors
   evidence_ids:
   - ev-c5s5-schema-validation
@@ -280,13 +285,13 @@ findings:
   - completeness
   - grounding
   - stage5-remediation
-  disposition_reason: 'Resolved in Issue #2105: populated functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT on Streptococcus mutans, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level: ABUNDANT on Selenomonas sputigena, and environmental_factors for 1% (w/v) sucrose availability per PMID:37216569 (doi:10.1038/s41467-023-38354-2).'
+  disposition_reason: 'Resolved in Issue #2105: populated functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: ABUNDANT on Streptococcus mutans (NCBITaxon:1309), functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] on Selenomonas sputigena (NCBITaxon:69823), and environmental_factors for 1% (w/v) sucrose supplementation in BHIS medium (value: 1% (w/v)) per PMID:37217495 (doi:10.1038/s41467-023-38346-3).'
   previous_occurrences:
   - repository: CultureBotAI/CommunityMech
-    review_id: 20261104T033000Z-c5s4-record-deep-audit
+    review_id: 20261104T034000Z-c5s4-record-deep-audit
     finding_id: c5s4-000084-smutans-ssputigena-roles-abundance-and-sucrose
   - repository: CultureBotAI/CommunityMech
-    review_id: 20261104T033100Z-c5s4-frozen-cohort-review
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
     finding_id: c5s4-000084-smutans-ssputigena-roles-abundance-and-sucrose
   external_issues:
   - https://github.com/CultureBotAI/CommunityMech/issues/2105
@@ -296,15 +301,14 @@ findings:
   severity: major
   status: resolved
   certainty: confirmed
-  title: Streptococcus mutans-Veillonella parvula ASC Cariogenic Biofilm (CommunityMech:000085) omits source-backed functional_role and DOMINANT/ABUNDANT abundance_level on both dual-species biofilm members and environmental_factors for 2% sucrose supplementation
-  description: 'CommunityMech:000085 (kb/communities/SMutans_VParvula_ASC_Biofilm.yaml, proportional Completeness Score 80/100; scripts/audit_completeness.py score 15/100) models the dual-species cariogenic biofilm of Streptococcus mutans UA159 (NCBITaxon:1309) and Veillonella parvula (NCBITaxon:29466) mediated by lactic acid cross-feeding and autoinducer-2 quorum sensing (PMID:38945921, PMID:21896779). In taxonomy, Streptococcus mutans omits functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT, and Veillonella parvula omits functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level: ABUNDANT, despite verbatim support in the already-curated PMID:38945921 and PMID:21896779 snippets (S. mutans ferments sucrose to lactic acid and EPS while V. parvula catabolizes S. mutans-derived lactic acid as its preferred carbon source and promotes dual-species biofilm formation in 1:1 co-inoculation at 10^5 CFU/mL). In addition, environmental_factors is absent despite growth_media[0].evidence[0] (PMID:38945921) establishing 2% sucrose supplementation in BHI medium under anaerobic incubation (80% N2, 10% H2, 10% CO2) at 37 °C.'
+  title: Streptococcus mutans - Veillonella parvula ASC Biofilm Co-culture (CommunityMech:000085) omits source-backed functional_role and ABUNDANT abundance_level on Streptococcus mutans, functional_role on Veillonella parvula, and environmental_factors for 1% (w/v) sucrose supplementation in BHI broth
+  description: 'CommunityMech:000085 (kb/communities/SMutans_VParvula_ASC_Biofilm.yaml, proportional Completeness Score 80/100; scripts/audit_completeness.py score 15/100) models the dual-species cariogenic biofilm of Streptococcus mutans (NCBITaxon:1309) and Veillonella parvula (NCBITaxon:29466) associated with active secondary caries (PMID:39345197). In taxonomy, Streptococcus mutans omits functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: ABUNDANT, and Veillonella parvula omits functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] (while carrying abundance_level: DOMINANT), despite verbatim support in PMID:39345197 showing S. mutans GTF-mediated sucrose metabolism into water-insoluble glucan EPS, significantly increased relative abundance among the 30 most predominant species in the HC group, and V. parvula promotion of S. mutans mature biofilm formation with enhanced acid resistance and hydrogen peroxide detoxicity. In addition, environmental_factors is absent despite PMID:39345197 establishing 1% (w/v) sucrose supplementation in BHI broth for mono- and dual-species biofilms grown on saliva-coated hydroxyapatite slides at 37 °C for 24 h.'
   target_ids:
   - CommunityMech:000085
   field_paths:
   - taxonomy[0].functional_role
   - taxonomy[0].abundance_level
   - taxonomy[1].functional_role
-  - taxonomy[1].abundance_level
   - environmental_factors
   evidence_ids:
   - ev-c5s5-schema-validation
@@ -321,39 +325,35 @@ findings:
   - completeness
   - grounding
   - stage5-remediation
-  disposition_reason: 'Resolved in Issue #2105: populated functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT on Streptococcus mutans, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] and abundance_level: ABUNDANT on Veillonella parvula, and environmental_factors for 2% sucrose supplementation per PMID:38945921 and PMID:21896779.'
+  disposition_reason: 'Resolved in Issue #2105: populated functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: ABUNDANT on Streptococcus mutans (NCBITaxon:1309), functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] on Veillonella parvula (NCBITaxon:29466), and environmental_factors for 1% (w/v) sucrose supplementation in BHI broth (value: 1% (w/v)) per PMID:39345197.'
   previous_occurrences:
   - repository: CultureBotAI/CommunityMech
-    review_id: 20261104T033000Z-c5s4-record-deep-audit
+    review_id: 20261104T034000Z-c5s4-record-deep-audit
     finding_id: c5s4-000085-smutans-vparvula-roles-abundance-and-sucrose
   - repository: CultureBotAI/CommunityMech
-    review_id: 20261104T033100Z-c5s4-frozen-cohort-review
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
     finding_id: c5s4-000085-smutans-vparvula-roles-abundance-and-sucrose
   external_issues:
   - https://github.com/CultureBotAI/CommunityMech/issues/2105
-- finding_id: c5s4-000385-so3-bs3-roles-abundance-and-pulp-density
-  issue_key: communitymech-c5s4-000385-so3-bs3-roles-abundance-and-pulp-density
+- finding_id: c5s4-000385-so3-bs3-bsubtilis-functional-role
+  issue_key: communitymech-c5s4-000385-so3-bs3-bsubtilis-functional-role
   category: completeness
   severity: major
   status: resolved
   certainty: confirmed
-  title: SO3-BS3 Lithium-Ion Battery Bioleaching Consortium (CommunityMech:000385) omits source-backed functional_role and DOMINANT abundance_level on both acidophilic bioleaching consortia and environmental_factors for spent NMC cathode pulp density and sulfur/pyrite substrate ratio
-  description: 'CommunityMech:000385 (kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml, proportional Completeness Score 90/100; scripts/audit_completeness.py score 20/100) models the mixed acidophilic bioleaching consortium of sulfur-oxidizing Alicyclobacillus spp. SO3 (NCBITaxon:29308) and iron-oxidizing Sulfobacillus spp. BS3 (NCBITaxon:28033) for metal recovery from spent LiNi1/3Co1/3Mn1/3O2 (NMC) lithium-ion battery cathodes (PMID:30339972, doi:10.1016/j.wasman.2018.10.013). In taxonomy, both Alicyclobacillus sp. (SO3 consortium) and Sulfobacillus sp. (BS3 consortium) omit functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT despite verbatim support in the already-curated PMID:30339972 snippets showing biogenic H2SO4 production by SO3 and Fe3+ regeneration by BS3 in a 1:2 co-inoculation at 10% (v/v) total inoculum (~1 x 10^8 cells/mL). In addition, environmental_factors is absent despite growth_media[0].evidence[0] (PMID:30339972) establishing 1% (w/v) spent Li-ion battery cathode pulp density and a 3:2 elemental sulfur to pyrite mixed energy substrate ratio (5 g/L total).'
+  title: SO3-BS3 Lithium-Ion Battery Bioleaching Consortium (CommunityMech:000385) omits source-backed functional_role on engineered ethanol-detoxifying and riboflavin-synthesizing Bacillus subtilis 168 BS3
+  description: 'CommunityMech:000385 (kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml, proportional Completeness Score 90/100; scripts/audit_completeness.py score 20/100) models the engineered two-species consortium of Shewanella oneidensis MR-1 SO3 (NCBITaxon:70863, Shewanella oneidensis) and Bacillus subtilis 168 BS3 (NCBITaxon:1423, Bacillus subtilis) in Moutai brewing wastewater for reductive bioleaching of spent LiNi1/3Co1/3Mn1/3O2 (NCM) lithium-ion battery cathodes (PMID:42733304, doi:10.1002/advs.77699). While Shewanella oneidensis MR-1 SO3 (taxonomy[0]) carries functional_role: [ELECTROGEN, ELECTRON_DONOR] and abundance_level: ABUNDANT, Bacillus subtilis 168 BS3 (taxonomy[1], carrying abundance_level: ABUNDANT) omits functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] despite verbatim support in PMID:42733304 showing that strain BS3 eliminates ethanol inhibition on S. oneidensis EET by converting residual ethanol into acetate via the Adh-AldH dual enzyme cascade and synthesizes riboflavin as an electron shuttle promoting S. oneidensis EET.'
   target_ids:
   - CommunityMech:000385
   field_paths:
-  - taxonomy[0].functional_role
-  - taxonomy[0].abundance_level
   - taxonomy[1].functional_role
-  - taxonomy[1].abundance_level
-  - environmental_factors
   evidence_ids:
   - ev-c5s5-schema-validation
   - ev-c5s5-causal-inventory
   - ev-c5s5-primary-sources
   rule_id: review-communities:completeness-functional-roles-and-environment
   native_severity: P2
-  normalization_reason: CommunityMech P2 (missing source-backed functional_role, abundance_level, and environmental_factors on a two-consortium acidophilic bioleaching system) maps to major.
+  normalization_reason: CommunityMech P2 (missing source-backed functional_role on the engineered syntrophic/cross-feeding partner taxon in a two-member bioleaching consortium) maps to major.
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
@@ -362,14 +362,14 @@ findings:
   - completeness
   - grounding
   - stage5-remediation
-  disposition_reason: 'Resolved in Issue #2105: populated functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER] and abundance_level: DOMINANT on both Alicyclobacillus sp. (SO3) and Sulfobacillus sp. (BS3) and added environmental_factors for 1% (w/v) spent NMC cathode pulp density and 3:2 elemental sulfur/pyrite substrate ratio (5 g/L total) per PMID:30339972 (doi:10.1016/j.wasman.2018.10.013).'
+  disposition_reason: 'Resolved in Issue #2105: populated functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER] on Bacillus subtilis 168 BS3 (NCBITaxon:1423, Bacillus subtilis, taxonomy[1]) with verbatim IN_VITRO evidence from PMID:42733304 (doi:10.1002/advs.77699).'
   previous_occurrences:
   - repository: CultureBotAI/CommunityMech
-    review_id: 20261104T033000Z-c5s4-record-deep-audit
-    finding_id: c5s4-000385-so3-bs3-roles-abundance-and-pulp-density
+    review_id: 20261104T034000Z-c5s4-record-deep-audit
+    finding_id: c5s4-000385-so3-bs3-bsubtilis-functional-role
   - repository: CultureBotAI/CommunityMech
-    review_id: 20261104T033100Z-c5s4-frozen-cohort-review
-    finding_id: c5s4-000385-so3-bs3-roles-abundance-and-pulp-density
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
+    finding_id: c5s4-000385-so3-bs3-bsubtilis-functional-role
   external_issues:
   - https://github.com/CultureBotAI/CommunityMech/issues/2105
 - finding_id: cheese-assay-evidence-gap
@@ -427,7 +427,7 @@ findings:
     review_id: 20261031T235500Z-c4s5-remediation-verification
     finding_id: cheese-assay-evidence-gap
   - repository: CultureBotAI/CommunityMech
-    review_id: 20261104T033100Z-c5s4-frozen-cohort-review
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
     finding_id: cheese-assay-evidence-gap
   external_issues:
   - https://github.com/CultureBotAI/CommunityMech/issues/765
@@ -490,7 +490,7 @@ findings:
     review_id: 20261031T235500Z-c4s5-remediation-verification
     finding_id: communitymech-1467-source-discrepancy-and-extension
   - repository: CultureBotAI/CommunityMech
-    review_id: 20261104T033100Z-c5s4-frozen-cohort-review
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
     finding_id: communitymech-1467-source-discrepancy-and-extension
   external_issues:
   - https://github.com/CultureBotAI/CommunityMech/issues/1467
@@ -552,7 +552,7 @@ findings:
     review_id: 20261031T235500Z-c4s5-remediation-verification
     finding_id: communitymech-1699-coverage
   - repository: CultureBotAI/CommunityMech
-    review_id: 20261104T033100Z-c5s4-frozen-cohort-review
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
     finding_id: communitymech-1699-coverage
   external_issues:
   - https://github.com/CultureBotAI/CommunityMech/issues/1699
@@ -611,7 +611,7 @@ findings:
     review_id: 20261031T235500Z-c4s5-remediation-verification
     finding_id: communitymech-1841
   - repository: CultureBotAI/CommunityMech
-    review_id: 20261104T033100Z-c5s4-frozen-cohort-review
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
     finding_id: communitymech-1841
   external_issues:
   - https://github.com/CultureBotAI/CommunityMech/issues/1841
@@ -674,7 +674,7 @@ findings:
     review_id: 20261031T235500Z-c4s5-remediation-verification
     finding_id: communitymech-1847-metg2-membership
   - repository: CultureBotAI/CommunityMech
-    review_id: 20261104T033100Z-c5s4-frozen-cohort-review
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
     finding_id: communitymech-1847-metg2-membership
   external_issues:
   - https://github.com/CultureBotAI/CommunityMech/issues/1847
@@ -737,7 +737,7 @@ findings:
     review_id: 20261031T235500Z-c4s5-remediation-verification
     finding_id: okeke-fulltext-assay-gap
   - repository: CultureBotAI/CommunityMech
-    review_id: 20261104T033100Z-c5s4-frozen-cohort-review
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
     finding_id: okeke-fulltext-assay-gap
   external_issues:
   - https://github.com/CultureBotAI/CommunityMech/issues/1657
@@ -799,7 +799,7 @@ findings:
     review_id: 20261031T235500Z-c4s5-remediation-verification
     finding_id: parachlorella-remaining-research
   - repository: CultureBotAI/CommunityMech
-    review_id: 20261104T033100Z-c5s4-frozen-cohort-review
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
     finding_id: parachlorella-remaining-research
   external_issues:
   - https://github.com/CultureBotAI/CommunityMech/issues/1681
@@ -853,10 +853,10 @@ limitations:
 - 'Seven source-limited community records (CommunityMech:000048 #1657, 000054 #1699, 000091 #1467, 000153 #765, 000222 #1841, 000295 #1681, 000302 #1847) remain deferred because primary full text or supplementary tables are paywalled or unavailable in references_cache/.'
 related_reviews:
 - repository: CultureBotAI/CommunityMech
-  review_id: 20261104T033000Z-c5s4-record-deep-audit
+  review_id: 20261104T034000Z-c5s4-record-deep-audit
   relationship: supersedes_stage4_deep_audit
 - repository: CultureBotAI/CommunityMech
-  review_id: 20261104T033100Z-c5s4-frozen-cohort-review
+  review_id: 20261104T034100Z-c5s4-frozen-cohort-review
   relationship: supersedes_stage4_cohort_review
 tags:
 - cycle5

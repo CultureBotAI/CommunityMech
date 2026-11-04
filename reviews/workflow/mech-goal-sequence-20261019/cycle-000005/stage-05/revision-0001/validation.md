@@ -19,11 +19,11 @@
 ## 2. Remediated Record Metrics
 
 - **`CommunityMech:000084` (`kb/communities/SMutans_SSputigena_ECC_Pathobiont.yaml`, `#2105`)**:
-  - Added `functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER]` and `abundance_level: ABUNDANT` on `Streptococcus mutans`, `functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]` on `Selenomonas sputigena`, and `environmental_factors` for `Sucrose availability` (`1% (w/v) sucrose in brain heart infusion (BHIS) medium`) (`PMID:37217495`).
+  - Added `functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER]` and `abundance_level: ABUNDANT` on `Streptococcus mutans` (`NCBITaxon:1309`), `functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]` on `Selenomonas sputigena` (`NCBITaxon:69823`), and `environmental_factors` for `1% (w/v) sucrose supplementation in BHIS medium` (`value: 1% (w/v)`) (`PMID:37217495`, `doi:10.1038/s41467-023-38346-3`).
   - Proportional `review-communities` Completeness Score: `80/100` -> `95/100`; `scripts/audit_completeness.py` score: `15/100` -> `80/100`.
 - **`CommunityMech:000085` (`kb/communities/SMutans_VParvula_ASC_Biofilm.yaml`, `#2105`)**:
-  - Added `functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER]` and `abundance_level: ABUNDANT` on `Streptococcus mutans`, `functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]` on `Veillonella parvula`, and `environmental_factors` for `Sucrose availability` (`1% (w/v) sucrose in BHI broth`) (`PMID:39345197`).
+  - Added `functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER]` and `abundance_level: ABUNDANT` on `Streptococcus mutans` (`NCBITaxon:1309`), `functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]` on `Veillonella parvula` (`NCBITaxon:29466`), and `environmental_factors` for `1% (w/v) sucrose supplementation in BHI broth` (`value: 1% (w/v)`) (`PMID:39345197`).
   - Proportional `review-communities` Completeness Score: `80/100` -> `95/100`; `scripts/audit_completeness.py` score: `15/100` -> `80/100`.
 - **`CommunityMech:000385` (`kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml`, `#2105`)**:
-  - Added `functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]` on `Bacillus subtilis 168 (BS3)` (`NCBITaxon:224308`) (`PMID:42733304`, `doi:10.1002/advs.77699`).
+  - Added `functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]` on `Bacillus subtilis 168 BS3` (`NCBITaxon:1423`, `Bacillus subtilis`) (`PMID:42733304`, `doi:10.1002/advs.77699`).
   - Proportional `review-communities` Completeness Score: `90/100` -> `98/100`; `scripts/audit_completeness.py` score: `20/100` -> `70/100`.
