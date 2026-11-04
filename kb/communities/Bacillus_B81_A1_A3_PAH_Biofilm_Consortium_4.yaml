@@ -134,7 +134,10 @@ ecological_interactions:
 - name: Consortium 4 Three-Strain Planktonic and Biofilm Naphthalene Biodegradation
   description: The three-strain Consortium 4 (B8-1, A1, and A3) degraded 64.47% of naphthalene in planktonic culture and 79.74%
     as a glass-attached biofilm in the 7-day HPLC assay (200 mg/L initial concentration), exceeding the planktonic monoculture
-    naphthalene degradation of A1 (41.01%) and A3 (38.92%) as well as the A3 biofilm monoculture (64.57%).
+    naphthalene degradation of A1 (41.01%) and A3 (38.92%) as well as the A3 biofilm monoculture (64.57%), while remaining
+    below two-strain A1+A3 Consortium 3 (92.43% planktonic / 94.69% biofilm). The authors propose biotransformation-product
+    cross-feeding across consortium members, though only HPLC parent-substrate removal is measured without intermediate metabolite
+    identification or strain-resolved cell counts.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacillus paramycoides B8-1
@@ -171,6 +174,14 @@ ecological_interactions:
       members
     explanation: Records the authors' synergy interpretation from planktonic consortium naphthalene removal relative to A1
       and A3.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: One possible reason that makes the bacterial consortia have a superior naphthalene biodegradation efficiency
+      is that, during the process of biotransformation, the product of one bacterium can be employed as the foundation for
+      the catabolism and growth of another.
+    explanation: Notes the authors' proposed biotransformation-product cross-feeding mechanism for consortium naphthalene
+      degradation while specific secreted intermediates remain unmeasured.
 - name: Consortium 4 Three-Strain Phenanthrene Antagonism
   description: In 7-day phenanthrene degradation assays (200 mg/L), three-strain Consortium 4 degraded 16.47% of phenanthrene
     in planktonic culture and 20.79% in glass-attached biofilm culture—the lowest biofilm phenanthrene degradation among the
@@ -212,6 +223,13 @@ ecological_interactions:
       is better described as an antagonistic effect
     explanation: Records the authors' nutrient-competition and antagonism interpretation for lower consortium phenanthrene
       removal.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: On the contrary, the isolate B8-1 exhibited a biodegradation rate, in the planktonic mode, of 77.94% that relatively
+      higher than that obtained in its biofilm mode, 60.72% (see Fig. 8 a).
+    explanation: Provides the single-strain Bacillus paramycoides B8-1 planktonic (77.94%) and biofilm (60.72%) phenanthrene
+      biodegradation baselines that anchor the 60.72-77.94% single-strain range.
 environmental_factors:
 - name: Neutral MSM enrichment pH
   value: 7.0 +/- 0.2
@@ -337,4 +355,11 @@ curation_history:
   action: CURATE_NEW_COMMUNITY
   changes: Curated CommunityMech:000504 for the three-strain Bacillus B8-1, A1, and A3 PAH Biofilm Consortium 4 from PMID:42587276
     / doi:10.1186/s12866-026-05144-y, sibling consortium to Consortium 3 (CommunityMech:000358).
+  llm_assisted: true
+- timestamp: '2026-11-04T13:35:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: 'Cycle 6 Stage 2 causal-graph review (Batch 138): added verbatim biotransformation cross-feeding hypothesis and
+    B8-1 phenanthrene baseline (77.94% planktonic / 60.72% biofilm) snippets from PMID:42587276 across Consortium 4''s 2 COMMUNITY_LEVEL
+    interaction nodes and bounded HPLC parent-substrate removal.'
   llm_assisted: true

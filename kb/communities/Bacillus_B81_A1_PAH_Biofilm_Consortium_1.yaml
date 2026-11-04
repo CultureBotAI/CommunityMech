@@ -106,7 +106,9 @@ ecological_interactions:
 - name: Consortium 1 Planktonic and Biofilm Naphthalene Biodegradation
   description: The B8-1/A1 Consortium 1 degraded 75.54% of naphthalene in planktonic culture and 77.45% as a glass-attached
     biofilm in the 7-day HPLC assay (200 mg/L initial concentration), exceeding the planktonic monoculture naphthalene degradation
-    of isolate A1 (41.01%).
+    of isolate A1 (41.01%) while remaining below planktonic B8-1 monoculture removal (98.43%). The authors propose biotransformation-product
+    cross-feeding across consortium members, though only HPLC parent-substrate disappearance is quantified without intermediate
+    metabolite identification or strain-resolved cell counts.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacillus paramycoides B8-1
@@ -138,6 +140,21 @@ ecological_interactions:
       members
     explanation: Records the authors' synergy interpretation from planktonic consortium naphthalene removal relative to A1
       and A3.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Among them, isolate B8-1 showed the highest degradation efficiency, with 77.94% phenanthrene degradation and
+      98.43% naphthalene degradation.
+    explanation: Provides the single-strain planktonic naphthalene biodegradation baseline (98.43%) for Bacillus paramycoides
+      B8-1, contextualizing Consortium 1 removal relative to both constituent isolates.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: One possible reason that makes the bacterial consortia have a superior naphthalene biodegradation efficiency
+      is that, during the process of biotransformation, the product of one bacterium can be employed as the foundation for
+      the catabolism and growth of another.
+    explanation: The authors propose biotransformation-product cross-feeding as a candidate mechanism for consortium naphthalene
+      removal, while specific intermediate metabolites remain uncharacterized.
 - name: Consortium 1 Biofilm-Mitigated Phenanthrene Antagonism
   description: 'In 7-day phenanthrene degradation assays (200 mg/L), Consortium 1 degraded 4.26% of phenanthrene in planktonic
     culture and 53.51% in glass-attached biofilm culture—making Consortium 1 biofilm the only consortium biofilm exceeding
@@ -175,6 +192,13 @@ ecological_interactions:
       observation may relate to an antagonistic effect of the consortium isolates
     explanation: Supports lower consortium phenanthrene removal relative to single isolates and records the authors' antagonism
       interpretation.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: On the contrary, the isolate B8-1 exhibited a biodegradation rate, in the planktonic mode, of 77.94% that relatively
+      higher than that obtained in its biofilm mode, 60.72% (see Fig. 8 a).
+    explanation: Establishes the single-strain Bacillus paramycoides B8-1 phenanthrene removal baselines in planktonic (77.94%)
+      and biofilm (60.72%) culture against which Consortium 1 antagonism is evaluated.
 environmental_factors:
 - name: Neutral MSM enrichment pH
   value: 7.0 +/- 0.2
@@ -299,4 +323,11 @@ curation_history:
   action: CURATE_NEW_COMMUNITY
   changes: Curated CommunityMech:000502 for the two-strain Bacillus B8-1 and A1 PAH Biofilm Consortium 1 from PMID:42587276
     / doi:10.1186/s12866-026-05144-y, sibling consortium to Consortium 3 (CommunityMech:000358).
+  llm_assisted: true
+- timestamp: '2026-11-04T13:35:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: 'Cycle 6 Stage 2 causal-graph review (Batch 138): added verbatim B8-1 single-strain naphthalene (98.43%) and phenanthrene
+    (77.94% planktonic / 60.72% biofilm) baseline snippets and the proposed biotransformation cross-feeding hypothesis snippet
+    from PMID:42587276, and bounded HPLC parent-substrate removal without unsupported metabolite or downstream edges.'
   llm_assisted: true

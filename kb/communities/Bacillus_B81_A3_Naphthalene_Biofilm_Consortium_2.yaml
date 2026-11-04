@@ -108,8 +108,11 @@ taxonomy:
 ecological_interactions:
 - name: Consortium 2 Biofilm-Accelerated and Mixture Naphthalene Synergy
   description: In Consortium 2 (B8-1 and A3), biofilm growth nearly doubled the 7-day naphthalene biodegradation rate from
-    44.71% (planktonic) to 86.88% (biofilm), outperforming the biofilm cultures of all individual isolates and exhibiting
-    a synergistic effect during naphthalene biodegradation in phenanthrene-naphthalene mixtures (Fig. 9b).
+    44.71% (planktonic, the lowest planktonic synergy among the tested pairs relative to 38.92% for planktonic A3 and 98.43%
+    for planktonic B8-1) to 86.88% (glass-attached biofilm, exceeding A3 biofilm removal of 64.57%), outperforming the biofilm
+    cultures of all individual isolates and exhibiting a synergistic effect during naphthalene biodegradation in phenanthrene-naphthalene
+    mixtures (Fig. 9b). Only HPLC parent-substrate removal is measured without intermediate metabolite identification or strain-resolved
+    cell counts.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Bacillus paramycoides B8-1
@@ -147,6 +150,22 @@ ecological_interactions:
       effect in the case of naphthalene (Fig. 9 b).
     explanation: Records the authors' synergy interpretation for B8-1 and A3 in Consortium 2 on naphthalene in the PAH mixture
       assay.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The result demonstrated that the naphthalene biodegradation rates of 41.01, 38.92, 75.54, 44.71, 92.43, and 64.47%
+      for the planktonic cultures, whereas were 87.72, 64.57, 77.45, 86.88, 94.69, and 79.74% for the biofilm cultures of
+      isolates A1, A3, consortium 1, consortium 2, consortium 3, and consortium 4, respectively.
+    explanation: Quantifies Consortium 2 naphthalene biodegradation in planktonic (44.71%) and biofilm (86.88%) modes alongside
+      constituent isolate A3 (38.92% planktonic, 64.57% biofilm).
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This finding demonstrated the synergistic interaction between the consortia`s members, with the highest synergistic
+      interaction between the planktonic isolates (A1 and A3) in the consortium 3 and the least synergistic interaction between
+      the planktonic isolates (B8-1 and A3) in the consortium 2.
+    explanation: Contrasts the weak planktonic interaction between B8-1 and A3 in Consortium 2 (44.71%) with its strong biofilm-mode
+      naphthalene removal (86.88%).
 - name: Consortium 2 Lower Phenanthrene Removal
   description: 'In 7-day phenanthrene degradation assays (200 mg/L), Consortium 2 degraded 21.25% of phenanthrene in planktonic
     culture and 48.66% in glass-attached biofilm culture—more than doubling planktonic co-culture removal in the biofilm state,
@@ -180,6 +199,13 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: However, in the case of phenanthrene, there is an antagonistic effect between biofilm consortia members.
     explanation: Records the authors' substrate-dependent antagonism explanation for lower consortium phenanthrene removal.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: On the contrary, the isolate B8-1 exhibited a biodegradation rate, in the planktonic mode, of 77.94% that relatively
+      higher than that obtained in its biofilm mode, 60.72% (see Fig. 8 a).
+    explanation: Establishes the single-strain Bacillus paramycoides B8-1 phenanthrene removal baselines in planktonic (77.94%)
+      and biofilm (60.72%) culture against which Consortium 2 antagonism is evaluated.
 environmental_factors:
 - name: Neutral MSM enrichment pH
   value: 7.0 +/- 0.2
@@ -304,4 +330,11 @@ curation_history:
   action: CURATE_NEW_COMMUNITY
   changes: Curated CommunityMech:000503 for the two-strain Bacillus B8-1 and A3 Naphthalene Biofilm Consortium 2 from PMID:42587276
     / doi:10.1186/s12866-026-05144-y, sibling consortium to Consortium 3 (CommunityMech:000358).
+  llm_assisted: true
+- timestamp: '2026-11-04T13:35:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: 'Cycle 6 Stage 2 causal-graph review (Batch 138): added verbatim planktonic vs biofilm naphthalene rate comparison,
+    B8-1+A3 planktonic synergy contrast, and B8-1 phenanthrene baseline (77.94% planktonic / 60.72% biofilm) snippets from
+    PMID:42587276 across Consortium 2''s 2 COMMUNITY_LEVEL interaction nodes.'
   llm_assisted: true
