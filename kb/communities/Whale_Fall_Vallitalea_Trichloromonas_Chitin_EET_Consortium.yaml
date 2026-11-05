@@ -68,11 +68,11 @@ environmental_factors:
       community from an anoxic deep-sea whale-fall sediment.
     explanation: Documents the poised bioelectrochemical reactor regime mimicking Fe(III)-reducing deep-sea sediment conditions.
 ecological_interactions:
-- name: Anaerobic Chitin Hydrolysis and Acetate Cross-Feeding to Electrogenic Respiration
-  description: Vallitalea sp. hydrolyzes insoluble chitin via extracellular chitinases and ferments monomers into acetate,
-    which is cross-fed to electrode- and iron-respiring Trichloromonas sp. to drive anodic current generation and Fe(III)
-    reduction.
+- name: Anaerobic Exoenzyme Chitin Depolymerization and Fermentation by Vallitalea
+  description: Chitin-degrading Vallitalea sp. hydrolyzes insoluble crystalline chitin via extracellular chitinases and ferments
+    chitin-derived sugars (N-acetylglucosamine and glucose) into acetate for the electrogenic partner.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Vallitalea
     term:
@@ -96,15 +96,91 @@ ecological_interactions:
     term:
       id: CHEBI:30089
       label: acetate
-  - preferred_term: iron(3+)
-    term:
-      id: CHEBI:29034
-      label: iron(3+)
   biological_processes:
   - preferred_term: chitin catabolic process
     term:
       id: GO:0006032
       label: chitin catabolic process
+  downstream:
+  - target: Acetate Cross-Feeding Within the Anodic Electrode Biofilm
+    description: 'DIRECTLY IMPLIED: Extracellular chitin depolymerization and fermentation by Vallitalea supply soluble chitin-derived
+      metabolites and acetate to co-localized Trichloromonas cells.'
+  evidence:
+  - reference: PMID:42297039
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Exoenzyme assays, metabolite profiling, and current measurements confirmed that active chitin degradation provided
+      substrate(s) for extracellular electron transfer (EET).
+  - reference: PMID:42297039
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Amendment with crystalline chitin generated stable anodic currents, which increased upon addition of chitin-associated
+      metabolites (N-acetylglucosamine, glucose, acetate).
+- name: Acetate Cross-Feeding Within the Anodic Electrode Biofilm
+  description: Within 10 micrometers of the poised electrode surface, primary degrader Vallitalea sp. cross-feeds acetate
+    generated from anaerobic chitin breakdown to co-localized Desulfobacterota (Trichloromonas sp.).
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Vallitalea
+    term:
+      id: NCBITaxon:1348611
+      label: Vallitalea
+  target_taxon:
+    preferred_term: Trichloromonas
+    term:
+      id: NCBITaxon:3031666
+      label: Trichloromonas
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: acetate metabolic process
+    term:
+      id: GO:0006083
+      label: acetate metabolic process
+  downstream:
+  - target: Electrogenic Acetate Oxidation Coupled to Extracellular Electron Transfer and Iron Reduction
+    description: 'DIRECTLY IMPLIED: Cross-fed acetate is oxidized by electrogenic Trichloromonas sp. to drive extracellular
+      electron transfer to poised electrodes and Fe(III) oxides.'
+  evidence:
+  - reference: PMID:42297039
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Single-cell analyses using FISH-BONCAT and nanoSIMS showed that Vallitalea (primary degrader) and electrode-respiring
+      Desulfobacterota exhibited highest activity within the electrode biofilm, particularly within ca.10 μm of the surface.
+  - reference: PMID:42297039
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We isolated a chitin-degrading Vallitalea sp. and an iron-reducing, electrogenic Trichloromonas sp., and demonstrated
+      that, when reconstituted in co-culture, they cooperatively degrade chitin via acetate cross-feeding coupled to EET.
+- name: Electrogenic Acetate Oxidation Coupled to Extracellular Electron Transfer and Iron Reduction
+  description: Iron-reducing, electrogenic Trichloromonas sp. oxidizes Vallitalea-derived acetate and transfers electrons
+    to solid-phase Fe(III) oxides or anodes poised at +0.22 V vs. SHE, sustaining syntrophic anaerobic chitin degradation.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Trichloromonas
+    term:
+      id: NCBITaxon:3031666
+      label: Trichloromonas
+  target_taxon:
+    preferred_term: Vallitalea
+    term:
+      id: NCBITaxon:1348611
+      label: Vallitalea
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: iron(3+)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+  biological_processes:
   - preferred_term: acetate metabolic process
     term:
       id: GO:0006083
@@ -119,7 +195,6 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: We isolated a chitin-degrading Vallitalea sp. and an iron-reducing, electrogenic Trichloromonas sp., and demonstrated
       that, when reconstituted in co-culture, they cooperatively degrade chitin via acetate cross-feeding coupled to EET.
-    explanation: Directly demonstrates cooperative chitin degradation coupled to EET via acetate cross-feeding.
 metals_present:
 - IRON
 rare_earth_elements_present: []
@@ -133,4 +208,10 @@ curation_history:
   changes: Initial curation of CommunityMech:000474 (Whale_Fall_Vallitalea_Trichloromonas_Chitin_EET_Consortium) from PMID:42297039
     using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
     groundings.
+  llm_assisted: true
+- timestamp: '2026-10-20T04:18:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Curate 3-node pairwise cross-feeding/syntrophic causal chain linking Vallitalea chitin depolymerization to anodic
+    biofilm acetate cross-feeding and Trichloromonas EET respiration.
   llm_assisted: true

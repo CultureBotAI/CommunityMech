@@ -606,11 +606,16 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Clostridium acetobutylicum and Clostridium ljungdahlii Carbon-Negative Isopropanol Syntrophic Coculture</title>
-                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for syntrophy.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circles represent taxa and non-circular symbols represent interactions, with distinct shapes and colours for cross-feeding, syntrophy.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolDiamond"
+                             data-color="#57c7ab"></svg> Cross-feeding
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
@@ -623,17 +628,17 @@
 
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>Syntrophic Hydrogen Scavenging and Acetone-to-Isopropanol Cross-Feeding</h3>
+                    <h3>Syntrophic Hydrogen Scavenging Relieving NADH-Driven Thermodynamic Limitation</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Clostridium acetobutylicum CACas9 delta-hbd-p95ace02_atoB ferments glucose to acetone and H2; Clostridium ljungdahlii scavenges H2 to relieve NADH thermodynamic inhibition of acetone formation and reduces acetone to isopropanol.</p>
+                <p class="prewrap interaction-description">Clostridium ljungdahlii scavenges H2 evolved during glucose fermentation by engineered Clostridium acetobutylicum CACas9 Δhbd-p95ace02_atoB, eliminating detectable H2 accumulation and relieving the thermodynamic bottleneck on NADH-driven H2 evolution and acetone production.</p>
 
 
-                <p><strong>Source Taxon:</strong> Clostridium acetobutylicum</p>
+                <p><strong>Source Taxon:</strong> Clostridium ljungdahlii</p>
 
 
 
-                <p><strong>Target Taxon:</strong> Clostridium ljungdahlii</p>
+                <p><strong>Target Taxon:</strong> Clostridium acetobutylicum</p>
 
 
 
@@ -645,14 +650,6 @@
                     · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=glucose"
                          class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
                     · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=glucose"
-                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>),
-
-                    acetone
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15347"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:15347</a>
-                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=acetone"
-                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
-                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=acetone"
                          class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>),
 
                     dihydrogen
@@ -690,6 +687,114 @@
 
 
 
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Acetone Cross-Feeding and Reduction to Isopropanol
+                        <p class="prewrap causal-description">DIRECTLY IMPLIED: Relief of NADH-driven H2 thermodynamic inhibition enables high-yield acetone synthesis by C. acetobutylicum and subsequent cross-feeding of acetone to C. ljungdahlii for reduction to isopropanol.</p>
+                    </div>
+
+                </div>
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41831593/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41831593</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"To explore the potential of this coculture system to achieve supratheoretical isopropanol yields, we identify NADH-driven hydrogen conversion in CACas9 Δhbd-p95ace02_atoB as the thermodynamically limiting step for acetone production in monocultures and thus isopropanol production in cocultures. We then demonstrate the ability of C. ljungdahlii to mitigate this issue by eliminating detectable hydrogen accumulation in the coculture."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41831593/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41831593</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"CACas9 Δhbd-p95ace02_atoB produces acetone without 4-C metabolites and C. ljungdahlii converts the acetone to isopropanol."</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Acetone Cross-Feeding and Reduction to Isopropanol</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+                <p class="prewrap interaction-description">Engineered Clostridium acetobutylicum CACas9 Δhbd-p95ace02_atoB ferments glucose to acetone without 4-carbon byproducts, and Clostridium ljungdahlii reduces the cross-fed acetone to isopropanol.</p>
+
+
+                <p><strong>Source Taxon:</strong> Clostridium acetobutylicum</p>
+
+
+
+                <p><strong>Target Taxon:</strong> Clostridium ljungdahlii</p>
+
+
+
+                <p><strong>Metabolites:</strong>
+
+                    glucose
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17234"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17234</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=glucose"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=glucose"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>),
+
+                    acetone
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15347"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:15347</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=acetone"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=acetone"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>)
+
+                </p>
+
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        glucose metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006006"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006006</a>
+                        · <a href="https://culturebotai.github.io/PathwayMech/browse.html?q=glucose%20metabolic%20process"
+                             class="term-link" target="_blank" rel="noopener noreferrer">PathwayMech</a>)
+                    </li>
+
+                </ul>
+
+
+
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> High-Cell-Density Continuous Carbon-Negative Isopropanol Fermentation
+                        <p class="prewrap causal-description">DIRECTLY IMPLIED: Coupled H2 scavenging and acetone-to-isopropanol cross-feeding at high C. ljungdahlii cell density achieve supratheoretical, carbon-negative isopropanol production in perfusion bioreactors.</p>
+                    </div>
+
+                </div>
+
 
 
                 <h4>Evidence</h4>
@@ -717,7 +822,82 @@
                             - SUPPORT (IN_VITRO)
                         </div>
 
-                        <div class="snippet">"We then demonstrate the ability of C. ljungdahlii to mitigate this issue by eliminating detectable hydrogen accumulation in the coculture."</div>
+                        <div class="snippet">"Pseudo-perfusion cocultures showed that high cell densities combined with a high population fraction of C. ljungdahlii enable dramatic increases in isopropanol yields beyond the thermodynamic limitation imposed in CACas9 Δhbd-p95ace02_atoB monocultures."</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>High-Cell-Density Continuous Carbon-Negative Isopropanol Fermentation</h3>
+                    <span class="interaction-type">SYNTROPHY</span>
+                </div>
+                <p class="prewrap interaction-description">In pseudo-perfusion and 3.6-L perfusion bioreactors with high cell density and high Clostridium ljungdahlii population fraction, the syntrophic coculture achieves supratheoretical, carbon-negative conversion of glucose to isopropanol as the sole alcohol product.</p>
+
+
+                <p><strong>Source Taxon:</strong> Clostridium acetobutylicum</p>
+
+
+
+                <p><strong>Target Taxon:</strong> Clostridium ljungdahlii</p>
+
+
+
+                <p><strong>Metabolites:</strong>
+
+                    glucose
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17234"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17234</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=glucose"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=glucose"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>),
+
+                    acetone
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15347"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:15347</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=acetone"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=acetone"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>)
+
+                </p>
+
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        glucose metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006006"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006006</a>
+                        · <a href="https://culturebotai.github.io/PathwayMech/browse.html?q=glucose%20metabolic%20process"
+                             class="term-link" target="_blank" rel="noopener noreferrer">PathwayMech</a>)
+                    </li>
+
+                </ul>
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41831593/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41831593</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Finally, we demonstrate a continuous carbon-negative fermentation of glucose to isopropanol as the sole alcohol produced from glucose in a 3.6-L scale perfusion bioreactor."</div>
 
                     </li>
 
@@ -925,8 +1105,6 @@
 
             metabolites.push("glucose");
 
-            metabolites.push("acetone");
-
             metabolites.push("dihydrogen");
 
 
@@ -942,7 +1120,95 @@
 
             nodes.push({
                 id: intId,
-                label: "Syntrophic Hydrogen Scavenging and Acetone-to-Isopropanol Cross-Feeding",
+                label: "Syntrophic Hydrogen Scavenging Relieving NADH-Driven Thermodynamic Limitation",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+            var srcKey = "Clostridium ljungdahlii";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+
+
+
+            var tgtKey = "Clostridium acetobutylicum";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+
+        })();
+
+        (function() {
+            var intId = "interaction:1";
+            var intType = "CROSS_FEEDING";
+            var metabolites = [];
+
+
+            metabolites.push("glucose");
+
+            metabolites.push("acetone");
+
+
+            var processes = [];
+
+
+            processes.push("glucose metabolic process");
+
+
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Acetone Cross-Feeding and Reduction to Isopropanol",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+            var srcKey = "Clostridium acetobutylicum";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+
+
+
+            var tgtKey = "Clostridium ljungdahlii";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+
+        })();
+
+        (function() {
+            var intId = "interaction:2";
+            var intType = "SYNTROPHY";
+            var metabolites = [];
+
+
+            metabolites.push("glucose");
+
+            metabolites.push("acetone");
+
+
+            var processes = [];
+
+
+            processes.push("glucose metabolic process");
+
+
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "High-Cell-Density Continuous Carbon-Negative Isopropanol Fermentation",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -984,7 +1250,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 3;
+        var nodeCount = 5;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

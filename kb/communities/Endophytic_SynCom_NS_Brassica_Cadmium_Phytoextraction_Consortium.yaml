@@ -139,11 +139,29 @@ environmental_factors:
       total fresh weight by 82% and chlorophyll content by 33%.
     explanation: Establishes soil cadmium stress as the primary environmental challenge.
 ecological_interactions:
-- name: Microbiome-Driven Cadmium Mobilization, HMA4 Translocation, and Glutathione Detoxification
-  description: Root-zone application of the four-strain SynCom-NS consortium (Pseudomonas izuensis SaPI1, Leifsonia shinshuensis
-    SaLS1, Brucella anthropi SaOA1, and Novosphingobium lindaniclasticum SaNL1) induces a >3-fold surge in host glutathione
-    (GSH) and phenylpropanoid defense pathways to scavenge hydrogen peroxide and alleviate cadmium toxicity in Brassica juncea.
+- name: Microbiome-Driven Glutathione Surge and Phenylpropanoid Cell Wall Reinforcement
+  description: Root-zone inoculation of Brassica juncea with the four-strain endophytic SynCom-NS induces systemic host defense
+    reprogramming, marked by a >3-fold increase in glutathione levels and activation of phenylpropanoid biosynthesis for cell
+    wall reinforcement.
   interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas izuensis
+    term:
+      id: NCBITaxon:2684212
+      label: Pseudomonas izuensis
+  - preferred_term: Leifsonia shinshuensis
+    term:
+      id: NCBITaxon:150026
+      label: Leifsonia shinshuensis
+  - preferred_term: Brucella anthropi
+    term:
+      id: NCBITaxon:529
+      label: Brucella anthropi
+  - preferred_term: Novosphingobium lindaniclasticum
+    term:
+      id: NCBITaxon:1329895
+      label: Novosphingobium lindaniclasticum
   metabolites:
   - preferred_term: cadmium(2+)
     term:
@@ -166,32 +184,108 @@ ecological_interactions:
     term:
       id: GO:0006952
       label: defense response
+  downstream:
+  - target: Synergistic Endophytic HMA4 Regulation and Root-to-Shoot Cadmium Translocation
+    description: 'DIRECTLY IMPLIED: Systemic antioxidant protection and cell wall reinforcement enable tissue-specific HMA4
+      transporter regulation that accelerates root-to-shoot Cd translocation without phytotoxic collapse.'
   evidence:
   - reference: PMID:42043130
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: Multi-omics analysis demonstrated a systemic modulation of the host's defense machinery, marked by a >3-fold
       surge in glutathione (GSH) levels and the induction of phenylpropanoid biosynthesis for cell wall reinforcement.
-    explanation: Demonstrates glutathione surge and systemic host defense activation by SynCom-NS.
-  scope: COMMUNITY_LEVEL
-- name: Synergistic Endophytic HMA4 Regulation and Cadmium Translocation
-  description: The four-strain SynCom-NS consortium mediates tissue-specific regulation of the heavy metal transporter HMA4—upregulating
-    expression in roots and downregulating in shoots—to accelerate root-to-shoot cadmium(2+) translocation and achieve a 4.07-fold
-    increase in shoot Cd phytoextraction.
+  - reference: PMID:42043130
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom-NS application also mediated tissue-specific regulation of the key metal transporter HMA4, upregulating
+      its expression in roots to accelerate long-distance translocation while downregulating it in shoots.
+- name: Synergistic Endophytic HMA4 Regulation and Root-to-Shoot Cadmium Translocation
+  description: The four-strain endophytic consortium (Pseudomonas izuensis, Leifsonia shinshuensis, Brucella anthropi, and
+    Novosphingobium lindaniclasticum) coordinates tissue-specific expression of the heavy metal ATPase HMA4, upregulating
+    root HMA4 to accelerate long-distance Cd translocation while downregulating shoot HMA4.
   interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas izuensis
+    term:
+      id: NCBITaxon:2684212
+      label: Pseudomonas izuensis
+  - preferred_term: Leifsonia shinshuensis
+    term:
+      id: NCBITaxon:150026
+      label: Leifsonia shinshuensis
+  - preferred_term: Brucella anthropi
+    term:
+      id: NCBITaxon:529
+      label: Brucella anthropi
+  - preferred_term: Novosphingobium lindaniclasticum
+    term:
+      id: NCBITaxon:1329895
+      label: Novosphingobium lindaniclasticum
   metabolites:
   - preferred_term: cadmium(2+)
     term:
       id: CHEBI:48775
       label: cadmium(2+)
+  biological_processes:
+  - preferred_term: defense response
+    term:
+      id: GO:0006952
+      label: defense response
+  downstream:
+  - target: High-Biomass Cadmium Phytoextraction Bypassing the Growth-Dilution Trade-Off
+    description: 'DIRECTLY IMPLIED: Coordinated GSH detoxification and root HMA4 upregulation increase Brassica juncea fresh
+      weight by 82% and shoot Cd accumulation by 4.07-fold, bypassing the growth-dilution trade-off.'
   evidence:
   - reference: PMID:42043130
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: SynCom-NS application also mediated tissue-specific regulation of the key metal transporter HMA4, upregulating
       its expression in roots to accelerate long-distance translocation while downregulating it in shoots.
-    explanation: Confirms tissue-specific HMA4 regulation driving 4.07-fold shoot Cd phytoextraction.
+  - reference: PMID:42043130
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Crucially, the consortium bypassed the "growth-dilution" trade-off, facilitating a 4.07-fold increase in shoot
+      Cd accumulation.
+- name: High-Biomass Cadmium Phytoextraction Bypassing the Growth-Dilution Trade-Off
+  description: SynCom-NS inoculation alleviates cadmium toxicity in Brassica juncea, increasing plant fresh weight by 82%,
+    chlorophyll content by 33%, and shoot Cd accumulation by 4.07-fold.
+  interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas izuensis
+    term:
+      id: NCBITaxon:2684212
+      label: Pseudomonas izuensis
+  - preferred_term: Leifsonia shinshuensis
+    term:
+      id: NCBITaxon:150026
+      label: Leifsonia shinshuensis
+  - preferred_term: Brucella anthropi
+    term:
+      id: NCBITaxon:529
+      label: Brucella anthropi
+  - preferred_term: Novosphingobium lindaniclasticum
+    term:
+      id: NCBITaxon:1329895
+      label: Novosphingobium lindaniclasticum
+  metabolites:
+  - preferred_term: cadmium(2+)
+    term:
+      id: CHEBI:48775
+      label: cadmium(2+)
+  biological_processes:
+  - preferred_term: response to oxidative stress
+    term:
+      id: GO:0006979
+      label: response to oxidative stress
+  evidence:
+  - reference: PMID:42043130
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Pot experiments revealed that SynCom-NS root-zone application significantly alleviated Cd toxicity, increasing
+      total fresh weight by 82% and chlorophyll content by 33%. Crucially, the consortium bypassed the "growth-dilution" trade-off,
+      facilitating a 4.07-fold increase in shoot Cd accumulation.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: PRIMARY
@@ -204,4 +298,10 @@ curation_history:
   changes: Initial curation of CommunityMech:000476 (Endophytic_SynCom_NS_Brassica_Cadmium_Phytoextraction_Consortium) from
     PMID:42043130 using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI,
     GO, and ENVO groundings.
+  llm_assisted: true
+- timestamp: '2026-10-20T04:18:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Curate 3-node community-level causal chain with explicit participating_taxa linking glutathione/phenylpropanoid
+    defense reprogramming to HMA4 regulation and shoot Cd phytoextraction.
   llm_assisted: true

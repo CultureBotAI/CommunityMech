@@ -1,0 +1,29 @@
+# Cycle 6 Stage 5 Grouped Issue Map and Finding Dispositions
+
+- **Run ID**: `mech-goal-sequence-20261019`
+- **Cycle**: `6` (`cycle-000006`)
+- **Stage**: `5` (`resolve_review_findings`, `revision-0001`)
+- **Repository**: `CultureBotAI/CommunityMech`
+- **Consumed Stage 4 Evidence**: `reviews/workflow/mech-goal-sequence-20261019/cycle-000006/stage-04/revision-0001/evidence.yaml` (`8c2d4fe5e26da373bd5b8181f659c0a1a283536681300458f61e5089ca1156e5`)
+- **Successor Structured Review**: `reviews/structured/20261104T203000Z-c6s5-remediation-verification/review.yaml` (`cd6fd6cd070920315b7ee4c96ef9e22dd482b1192b9fcc1f6ba386cd371422af`)
+
+## 1. Issue Grouping and Deduplication Summary
+
+All 10 carried-forward finding IDs from Cycle 6 Stage 4 (`carry_forward_ids`: 3 actionable `open` findings across 3 community records, plus 7 source-limited `deferred` findings across 7 community records) were grouped by shared root cause and repair ownership and deduplicated against real GitHub issues in `CultureBotAI/CommunityMech`:
+
+| Group ID | Shared Root Cause & Repair Ownership | GitHub Issue | Action | Finding IDs | Target Records | Disposition |
+|---|---|---|---|---|---|---|
+| `cm-c06-s05-g001` | Omitted source-backed taxonomic `functional_role` / `abundance_level` enums across focal taxa on `CommunityMech:000401`, `CommunityMech:000402`, and `CommunityMech:000404`. Repair owner: `kb/communities/` + `history/records/` + `reports/causal_graph_review/` + `tests/test_causal_review_batch100.py` + `tests/test_causal_review_batch123.py` + `docs/`. | [#2113](https://github.com/CultureBotAI/CommunityMech/issues/2113) | `created` | `c6s4-000401-bifido-faecali-abundance-levels`, `c6s4-000402-shewanella-anammox-roles-and-abundance`, `c6s4-000404-wollastonite-cms1-role-and-abundance` | `CommunityMech:000401`, `CommunityMech:000402`, `CommunityMech:000404` | `resolved` |
+| `cm-c06-s05-g002` | Source-limited full-text co-culture assay tables for cheese rind model community (`PMID:25043025`). | [#765](https://github.com/CultureBotAI/CommunityMech/issues/765) | `reused` | `cheese-assay-evidence-gap` | `CommunityMech:000153` | `deferred` |
+| `cm-c06-s05-g003` | Source-limited full-text strain-pair exometabolite tables for GLBRC transwell SynCom (`PMID:38329909`). | [#1467](https://github.com/CultureBotAI/CommunityMech/issues/1467) | `reused` | `communitymech-1467-source-discrepancy-and-extension` | `CommunityMech:000091` | `deferred` |
+| `cm-c06-s05-g004` | Source-limited paywalled full-text enzyme assay parameters for Okeke-Lu cellulolytic consortium (`PMID:21319991`). | [#1657](https://github.com/CultureBotAI/CommunityMech/issues/1657) | `reused` | `okeke-fulltext-assay-gap` | `CommunityMech:000048` | `deferred` |
+| `cm-c06-s05-g005` | Source-limited full-text secondary bacterial satellite interaction data for *Parachlorella*–*Saccharomyces* co-culture (`PMID:35101850`). | [#1681](https://github.com/CultureBotAI/CommunityMech/issues/1681) | `reused` | `parachlorella-remaining-research` | `CommunityMech:000295` | `deferred` |
+| `cm-c06-s05-g006` | Source-limited full-text heterotrophic co-isolate tables for *Phormidium* alkaline consortium (`PMID:29138632`). | [#1699](https://github.com/CultureBotAI/CommunityMech/issues/1699) | `reused` | `communitymech-1699-coverage` | `CommunityMech:000054` | `deferred` |
+| `cm-c06-s05-g007` | Source-limited full-text supplementary strain tables for sulfide spring CPR biofilm (`PMID:41606024`). | [#1841](https://github.com/CultureBotAI/CommunityMech/issues/1841) | `reused` | `communitymech-1841` | `CommunityMech:000222` | `deferred` |
+| `cm-c06-s05-g008` | Source-limited full-text 18-isolate membership and media tables for sugarcane stress-resilience SynCom MetG2 (`PMID:41908926`). | [#1847](https://github.com/CultureBotAI/CommunityMech/issues/1847) | `reused` | `communitymech-1847-metg2-membership` | `CommunityMech:000302` | `deferred` |
+
+## 2. Remediated Records and Provenance Sidecars
+
+1. `kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml` (`CommunityMech:000401`) — Added `abundance_level: DOMINANT` and verbatim evidence snippets from `PMID:42655156` (`PMC13515949`, `doi:10.3390/microorganisms14081812`) on `Bifidobacterium bifidum JCM1254` (`NCBITaxon:1681`, `taxonomy[0]`) and `Faecalibacterium prausnitzii A2-165` (`NCBITaxon:853`, `taxonomy[1]`); provenance sidecar `history/records/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture/2026-11-04T202200Z-antigravity-2113a1.yaml`.
+2. `kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml` (`CommunityMech:000402`) — Added `functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER]` and `abundance_level: ABUNDANT` on `Delta nrfA Shewanella oneidensis MR-1` (`NCBITaxon:211586`, `taxonomy[0]`), and `functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]` and `abundance_level: DOMINANT` on `Candidatus Brocadia anammox bacteria` (`NCBITaxon:203682`, `taxonomy[1]`) backed by verbatim snippets from `PMID:42655905` (`PMC13519132`, `doi:10.1002/wer.70526`); provenance sidecar `history/records/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium/2026-11-04T202200Z-antigravity-2113a2.yaml`.
+3. `kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml` (`CommunityMech:000404`) — Added `functional_role: [CROSS_FEEDER, SYNTROPHIC_PARTNER]` and `abundance_level: ABUNDANT` on `Ramichloridium apiculatum CMS-1` (`NCBITaxon:470080`, `taxonomy[0]`), and `functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER, SYNTROPHIC_PARTNER]` and `abundance_level: DOMINANT` on `Talaromyces pseudofuniculosus hzt-3'` (`NCBITaxon:2015341`, `taxonomy[1]`) backed by verbatim snippets from `PMID:42478817` (`PMC13488302`, `doi:10.1128/aem.02519-25`); provenance sidecar `history/records/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium/2026-11-04T202200Z-antigravity-2113a4.yaml`.

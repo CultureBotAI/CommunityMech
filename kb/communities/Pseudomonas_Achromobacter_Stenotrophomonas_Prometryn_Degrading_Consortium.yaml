@@ -106,9 +106,11 @@ taxonomy:
     explanation: Supports isolation and membership of Stenotrophomonas sp. ZM-3.
 ecological_interactions:
 - name: Cooperative Tri-Strain Degradation of Prometryn Herbicide
-  description: Pseudomonas sp. ZM-1, Achromobacter sp. ZM-2, and Stenotrophomonas sp. ZM-3 cooperatively degrade prometryn
-    in a 1:1:1 synthetic consortium, achieving 96.8% removal within 15 h in liquid medium and 96.3% removal in soil microcosms.
+  description: When combined at a 1:1:1 inoculum ratio, Pseudomonas sp. ZM-1, Achromobacter sp. ZM-2, and Stenotrophomonas
+    sp. ZM-3 cooperatively degrade 96.8% of 100 mg/L prometryn within 15 h (and 96.87% within 12 h with a 2.2 h half-life
+    after optimization), outperforming single-strain monocultures.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Pseudomonas sp. ZM-1
     term:
@@ -125,9 +127,9 @@ ecological_interactions:
       id: GO:0042178
       label: xenobiotic catabolic process
   downstream:
-  - target: Alleviation of Prometryn Phytotoxicity and Restoration of Maize Growth
-    description: 'DIRECTLY IMPLIED: Rapid consortium-mediated prometryn removal in soil reduces herbicide exposure and restores
-      maize growth.'
+  - target: Accelerated Soil Microcosm Prometryn Removal and Soil Enzyme Stimulation
+    description: 'DIRECTLY IMPLIED: Rapid cooperative prometryn catabolism by the 1:1:1 synthetic consortium drives accelerated
+      pollutant removal and soil enzyme activation in contaminated soil microcosms.'
   evidence:
   - reference: PMID:42795638
     supports: SUPPORT
@@ -135,16 +137,59 @@ ecological_interactions:
     snippet: The 1:1:1 synthetic consortium removed 96.8% of prometryn in 15 h, showing markedly superior degradation efficiency
       compared with single strains, and its 12-h degradation rate reached 96.87% with a half-life of 2.2 h following response
       surface optimization.
-    explanation: Demonstrates synergistic prometryn degradation by the 1:1:1 three-strain consortium.
-- name: Alleviation of Prometryn Phytotoxicity and Restoration of Maize Growth
-  description: Cooperative prometryn degradation by Achromobacter sp. ZM-2 and Stenotrophomonas sp. ZM-3 in contaminated soil
-    alleviates herbicide phytotoxicity in maize (Zea mays), restoring plant growth to 95-97% of uncontaminated control levels.
-  interaction_type: MUTUALISM
+  - reference: PMID:42795638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In soil microcosms spiked with 20 mg·kg-1 prometryn, the consortium reduced the pollutant half-life from 58.2
+      days to 7.8 days and achieved 96.3% removal after 30 days, alongside enhanced soil dehydrogenase, catalase and urease
+      activities.
+- name: Accelerated Soil Microcosm Prometryn Removal and Soil Enzyme Stimulation
+  description: In prometryn-spiked soil microcosms, the synthetic consortium accelerates herbicide removal, reduces pollutant
+    half-life from 58.2 to 7.8 days, enhances soil dehydrogenase, catalase, and urease activities, and enriches xenobiotic
+    biodegradation pathways.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Achromobacter sp. ZM-2
     term:
       id: NCBITaxon:222
       label: Achromobacter
+  target_taxon:
+    preferred_term: Stenotrophomonas sp. ZM-3
+    term:
+      id: NCBITaxon:40323
+      label: Stenotrophomonas
+  biological_processes:
+  - preferred_term: xenobiotic catabolic process
+    term:
+      id: GO:0042178
+      label: xenobiotic catabolic process
+  downstream:
+  - target: Alleviation of Prometryn Phytotoxicity and Restoration of Maize Growth
+    description: 'DIRECTLY IMPLIED: Accelerated soil prometryn removal and restoration of soil enzymatic activity alleviate
+      herbicide phytotoxicity and restore maize growth.'
+  evidence:
+  - reference: PMID:42795638
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: High-throughput 16S rRNA gene sequencing revealed directional succession of the soil bacterial community, enrichment
+      of core degrading taxa, and predicted enrichment of xenobiotic biodegradation pathways during remediation.
+  - reference: PMID:42795638
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Maize pot experiments confirmed that the consortium significantly alleviated prometryn phytotoxicity at the tested
+      concentration, restoring plant growth parameters to 95-97% of the uncontaminated control.
+- name: Alleviation of Prometryn Phytotoxicity and Restoration of Maize Growth
+  description: Bioaugmentation of prometryn-contaminated agricultural soil with the ZM-1/ZM-2/ZM-3 consortium reduces the
+    herbicide half-life from 58.2 days to 7.8 days, stimulates soil dehydrogenase, catalase, and urease activities, and restores
+    maize growth to 95-97% of uncontaminated controls.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Pseudomonas sp. ZM-1
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
   target_taxon:
     preferred_term: Stenotrophomonas sp. ZM-3
     term:
@@ -165,7 +210,6 @@ ecological_interactions:
     evidence_source: IN_VIVO
     snippet: Maize pot experiments confirmed that the consortium significantly alleviated prometryn phytotoxicity at the tested
       concentration, restoring plant growth parameters to 95-97% of the uncontaminated control.
-    explanation: Demonstrates alleviation of prometryn phytotoxicity in maize pot experiments.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -177,4 +221,10 @@ curation_history:
   changes: Initial curation of CommunityMech:000470 (Pseudomonas_Achromobacter_Stenotrophomonas_Prometryn_Degrading_Consortium)
     from PMID:42795638 using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI,
     GO, and ENVO groundings.
+  llm_assisted: true
+- timestamp: '2026-10-20T04:18:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Curate 3-node pairwise syntrophic/mutualistic causal chain linking tri-strain prometryn catabolism to soil microcosm
+    remediation and maize growth restoration.
   llm_assisted: true

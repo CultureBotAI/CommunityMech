@@ -78,11 +78,58 @@ environmental_factors:
       electron donor due to its low reduction potential.
     explanation: Documents CO as the alternative electron donor for seep ANME-SRB consortia.
 ecological_interactions:
-- name: Syntrophic Carbon Monoxide Oxidation Coupled to Sulfate and Bicarbonate Reduction
-  description: ANME-2b archaea and Seep-SRB1g sulfate-reducing bacteria oxidize CO to dissolved inorganic carbon (bicarbonate/CO2)
-    coupled to dissimilatory sulfate reduction to hydrogen sulfide via interspecies electron transfer, while ANME-2b also
-    reduces bicarbonate to methane.
+- name: Anaerobic Carbon Monoxide Oxidation by ANME-2 in Methane-Depleted Microcosms
+  description: In the absence of methane, ANME-2 archaea (Candidatus Methanocomedenaceae) utilize carbon monoxide as a low-potential
+    alternative electron donor, oxidizing CO to bicarbonate/CO2.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Candidatus Methanocomedenaceae
+    term:
+      id: NCBITaxon:3386223
+      label: Candidatus Methanocomedenaceae
+  target_taxon:
+    preferred_term: Thermodesulfobacteriota
+    term:
+      id: NCBITaxon:200940
+      label: Thermodesulfobacteriota
+  metabolites:
+  - preferred_term: carbon monoxide
+    term:
+      id: CHEBI:17245
+      label: carbon monoxide
+  - preferred_term: hydrogencarbonate
+    term:
+      id: CHEBI:17544
+      label: hydrogencarbonate
+  biological_processes:
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: Syntrophic Carbon Monoxide Oxidation Coupled to Sulfate and Bicarbonate Reduction
+    description: 'DIRECTLY IMPLIED: Electrons derived from anaerobic CO oxidation by ANME-2 are transferred to syntrophic
+      sulfate-reducing bacterial partners to reduce sulfate, or used by ANME-2 to reduce CO2 to methane when sulfate is absent.'
+  evidence:
+  - reference: PMID:41980960
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we show that environmental ANME-SRB consortia can oxidize CO in the absence of methane, in anoxic microcosm
+      experiments using a combination of stable isotope geochemical tracers, metatranscriptomics, and single cell activity
+      measurements (FISH-nanoSIMS).
+  - reference: PMID:41980960
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The oxidation of CO was coupled with sulphate-reduction by syntrophic consortia, and, in the absence of sulphate,
+      through CO2 reduction to methane by ANME-2.
+- name: Syntrophic Carbon Monoxide Oxidation Coupled to Sulfate and Bicarbonate Reduction
+  description: In methane-depleted anoxic cold-seep microcosms, ANME-2 archaea (Candidatus Methanocomedenaceae) oxidize carbon
+    monoxide (CO) to bicarbonate/CO2 and transfer reducing equivalents to syntrophic sulfate-reducing bacteria (Thermodesulfobacteriota)
+    to drive dissimilatory sulfate reduction to sulfide; when sulfate is absent, ANME-2 couples CO oxidation to CO2 reduction
+    to methane.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Candidatus Methanocomedenaceae
     term:
@@ -127,13 +174,60 @@ ecological_interactions:
     term:
       id: GO:0022900
       label: electron transport chain
+  downstream:
+  - target: Carbon Monoxide-Driven Cellular Maintenance Under Energy-Generating Complex Downregulation
+    description: 'DIRECTLY IMPLIED: Syntrophic CO respiration coupled to sulfate reduction provides low-flux metabolic energy
+      that sustains ANME-SRB cellular maintenance while canonical methanotrophic energy-generating complexes (mtr, rnf) are
+      downregulated.'
   evidence:
   - reference: PMID:41980960
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: The oxidation of CO was coupled with sulphate-reduction by syntrophic consortia, and, in the absence of sulphate,
       through CO2 reduction to methane by ANME-2.
-    explanation: Confirms syntrophic coupling of CO oxidation to sulfate reduction and CO2 methanogenesis.
+  - reference: PMID:41980960
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Paired single cell FISH-nanoSIMS analysis of anabolic activity indicates that CO respiration appears to support
+      cell maintenance rather than active growth, consistent with the observed down-regulation of energy generating complexes
+      in ANME (e.g., mtr, rnf, etc.).
+- name: Carbon Monoxide-Driven Cellular Maintenance Under Energy-Generating Complex Downregulation
+  description: Single-cell FISH-nanoSIMS and metatranscriptomics show that syntrophic CO respiration supports cellular maintenance
+    of ANME-2 and sulfate-reducing bacteria during methane limitation while canonical energy-generating complexes (mtr, rnf)
+    are downregulated.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Thermodesulfobacteriota
+    term:
+      id: NCBITaxon:200940
+      label: Thermodesulfobacteriota
+  target_taxon:
+    preferred_term: Candidatus Methanocomedenaceae
+    term:
+      id: NCBITaxon:3386223
+      label: Candidatus Methanocomedenaceae
+  metabolites:
+  - preferred_term: carbon monoxide
+    term:
+      id: CHEBI:17245
+      label: carbon monoxide
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  biological_processes:
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  evidence:
+  - reference: PMID:41980960
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Paired single cell FISH-nanoSIMS analysis of anabolic activity indicates that CO respiration appears to support
+      cell maintenance rather than active growth, consistent with the observed down-regulation of energy generating complexes
+      in ANME (e.g., mtr, rnf, etc.).
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
@@ -145,4 +239,10 @@ curation_history:
   changes: Initial curation of CommunityMech:000475 (Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium) from PMID:41980960
     using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI, GO, and ENVO
     groundings.
+  llm_assisted: true
+- timestamp: '2026-10-20T04:18:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Curate 3-node pairwise syntrophic causal chain linking ANME-2 CO oxidation to sulfate/bicarbonate reduction and
+    cellular maintenance under methane limitation.
   llm_assisted: true
