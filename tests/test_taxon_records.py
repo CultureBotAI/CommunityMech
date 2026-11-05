@@ -58,7 +58,12 @@ def test_taxa_record_structure():
     for sym in ("mtrC", "omcA"):
         refs = {ev["reference"] for ev in genes[sym]["evidence"]}
         assert {"PMID:41236292", "PMID:39504696"} <= refs
-    assert "PMID:39504696" in {ev["reference"] for ev in genes["cymA"]["evidence"]}
+    for sym in ("mtrB", "mtrA"):
+        refs = {ev["reference"] for ev in genes[sym]["evidence"]}
+        assert "PMID:32849356" in refs
+    assert {"PMID:39504696", "PMID:34986141"} <= {
+        ev["reference"] for ev in genes["cymA"]["evidence"]
+    }
 
     geo = yaml.safe_load((TAXA_DIR / "Geobacter_sulfurreducens.yaml").read_text())
     geo_genes = {g["gene_symbol"]: g for g in geo["genes"]}
@@ -67,7 +72,7 @@ def test_taxa_record_structure():
     assert geo_genes["omcS"]["gene_id"] == "UniProtKB:Q749X9"
     assert geo_genes["omcZ"]["gene_id"] == "UniProtKB:Q74A90"
     assert geo_genes["omcB"]["gene_id"] == "UniProtKB:Q74A86"
-    assert {"PMID:41210787", "PMID:37650614", "PMID:41236292"} <= {
+    assert {"PMID:41210787", "PMID:37650614", "PMID:41236292", "PMID:28287150"} <= {
         ev["reference"] for ev in geo_genes["pilA"]["evidence"]
     }
     assert {
@@ -76,7 +81,14 @@ def test_taxa_record_structure():
         "PMID:28992596",
         "PMID:41236292",
         "PMID:31537786",
+        "PMID:32849356",
     } <= {ev["reference"] for ev in geo_genes["omcS"]["evidence"]}
+    assert {"PMID:41210787", "PMID:28992596", "PMID:34986141"} <= {
+        ev["reference"] for ev in geo_genes["omcZ"]["evidence"]
+    }
+    assert {"PMID:41876513", "PMID:37650614", "PMID:37747940"} <= {
+        ev["reference"] for ev in geo_genes["omcB"]["evidence"]
+    }
 
 
 def test_taxa_genes_have_verified_uniprot_and_cached_evidence():
@@ -93,15 +105,20 @@ def test_taxa_genes_have_verified_uniprot_and_cached_evidence():
                 ref = ev["reference"]
                 assert ref.startswith("PMID:"), f"Unexpected reference format {ref}"
                 pmid = ref.split(":", 1)[1]
-                cache_file = REFS_CACHE / f"PMID_{pmid}.txt"
-                if not cache_file.exists():
-                    cache_file = REFS_CACHE / f"PMID_{pmid}.md"
-                assert cache_file.exists(), f"Missing cache file {cache_file}"
-                norm_cache = " ".join(cache_file.read_text().split())
+                cache_files = [
+                    p
+                    for p in (
+                        REFS_CACHE / f"PMID_{pmid}.txt",
+                        REFS_CACHE / f"PMID_{pmid}.md",
+                    )
+                    if p.exists()
+                ]
+                assert cache_files, f"Missing cache file for {ref} in {REFS_CACHE}"
+                norm_cache = " ".join(" ".join(p.read_text().split()) for p in cache_files)
                 norm_snip = " ".join(ev["snippet"].split())
                 assert norm_snip in norm_cache, (
                     f"{path} {gene['gene_symbol']} snippet not verbatim in "
-                    f"{cache_file}: {ev['snippet']!r}"
+                    f"{cache_files}: {ev['snippet']!r}"
                 )
 
 

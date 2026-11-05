@@ -125,7 +125,7 @@ def test_causal_graph_review_summary_covers_all_490_records():
     assert summary["nodes"] >= 1463
     assert summary["edges"] >= 585
     assert summary["records_without_nodes"] <= 10
-    assert summary["records_without_edges"] <= 190
+    assert summary["records"] - summary["records_without_edges"] >= 300
     assert summary["review_status_counts"].get("needs_research") == 54
     assert summary["review_status_counts"].get("reviewed", 0) >= 436
     assert summary["structural_defects"] == []
