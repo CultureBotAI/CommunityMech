@@ -12,7 +12,10 @@ G = "LBNL_Human_Gut_Interaction_SynCom"
 S = "LBNL_Switchgrass_Soil_SynCom16"
 
 
-SUCCESSOR = ROOT / "reports/causal_graph_review/decisions/20261029-host-soil-related-communities-paper-test.yaml"
+SUCCESSOR = (
+    ROOT
+    / "reports/causal_graph_review/decisions/20261029-host-soil-related-communities-paper-test.yaml"
+)
 
 
 def latest_record_sha256(row):
@@ -145,7 +148,9 @@ def test_batch61_all_nodes_arrows_anchors_and_history_are_accounted_for():
     assert sum(len(r["edges_after"]) for r in rows.values()) == 1
     for name, row in rows.items():
         doc = docs[name]
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest_record_sha256(row)
+        assert hashlib.sha256(
+            (ROOT / row["path"]).read_bytes()
+        ).hexdigest() == latest_record_sha256(row)
         assert doc["curation_history"][-1]["llm_assisted"] is True
         assert len(row["history_files"]) == 1 and row["status"] == "reviewed"
         assert row["source_review"]["all_retained_graph_snippets_primary_matched"] is True

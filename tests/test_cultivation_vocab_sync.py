@@ -66,7 +66,7 @@ _NOT_STAGED_FOR_METPO = {
     "CommunityRelationBasisEnum": "how a record link was established; curation bookkeeping",
     "HostParticipationEnum": "host role in an interaction edge; a graph-modelling distinction",
     "EffectDirectionEnum": "sign of an interaction edge; a graph-modelling distinction",
-    "HostMicrobialStatusEnum": "candidate, not yet staged; axenic/gnotobiotic status is plausibly OBI",
+    "HostMicrobialStatusEnum": "candidate, not yet staged; axenic status is plausibly OBI",
     "SoilSterilizationEnum": "candidate, not yet staged; sterilization processes are plausibly OBI",
 }
 
