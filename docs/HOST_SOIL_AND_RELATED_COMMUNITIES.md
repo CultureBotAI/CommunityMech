@@ -13,8 +13,8 @@ EcoFAB 2.0 ring trial) and PMID:36472419 (Coker et al. 2022):
 
 | Record | Shows |
 |---|---|
-| `Brachypodium_Natural_Variation_Dopamine_SynCom16` (000506) | `host` with ten genotypes, a computed `MEMBER_SUBSET_OF`, a quoted `OVERLAPPING_MEMBERSHIP`, `host_participation`, `effect_direction`, `HYDROPONIC_VESSEL` |
-| `Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm` (000505) | `soils` with texture, location, sieve size and water content; no host; `SAME_STUDY_AS`; `SOIL_MICROCOSM` |
+| `Brachypodium_Natural_Variation_Dopamine_SynCom16` (000511) | `host` with ten genotypes, a computed `MEMBER_SUBSET_OF`, a quoted `OVERLAPPING_MEMBERSHIP`, `host_participation`, `effect_direction`, `HYDROPONIC_VESSEL` |
+| `Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm` (000510) | `soils` with texture, location, sieve size and water content; no host; `SAME_STUDY_AS`; `SOIL_MICROCOSM` |
 | `EcoFAB_Ring_Trial_SynCom17` (000025) | `host` with one line; computed `MEMBER_SUPERSET_OF` |
 | `LBNL_Switchgrass_Soil_SynCom16` (000087) | links from a record with no strain roster, so `SOURCE_STATEMENT` |
 
@@ -48,10 +48,10 @@ Checked by `communitymech.validators.related_communities` in
 membership relations between two complete rosters, and a membership relation
 never contradicts the rosters, whatever its basis.
 
-Example (000506): its 16 strains are the ring trial's 17 minus
+Example (000511): its 16 strains are the ring trial's 17 minus
 Bradyrhizobium OAE829, so `MEMBER_SUBSET_OF CommunityMech:000025` is computed.
 It shares 15 strains with Coker et al.'s final 16, which has Bradyrhizobium
-OAE829 where 000506 has OAE603. 000087 does not list strains, so that link is
+OAE829 where 000511 has OAE603. 000087 does not list strains, so that link is
 `OVERLAPPING_MEMBERSHIP` with `SOURCE_STATEMENT` and quotes both rosters.
 
 ## `host`
@@ -92,7 +92,7 @@ Not for liquid or agar media, which stay in `growth_media`.
 `EffectDirectionEnum` (`INCREASES`, `DECREASES`, `NO_DETECTED_CHANGE`,
 `MIXED`) gives the sign of the effect on the target's measured response.
 Set it only when the source reports a direction. Prefer two interactions to
-one `MIXED`: 000506 splits its exudate-dopamine correlation into a positive
+one `MIXED`: 000511 splits its exudate-dopamine correlation into a positive
 edge (five members) and a negative edge (OAS925).
 
 ## `CultivationSystemEnum` additions
@@ -114,8 +114,8 @@ must admit:
 | SoilTerm | ENVO:00001998 soil | ENVO:00002259 agricultural soil; ENVO:06105275 silty loam |
 | UnitTerm | UO:0000000 unit | UO:0000187 percent; UO:0000016 millimeter; UO:0000196 pH |
 
-`just validate-terms` enforces them. With mutated copies of 000506 and
-000505, it rejected a bacterial phylum as host, a GO process as host anatomy,
+`just validate-terms` enforces them. With mutated copies of 000511 and
+000510, it rejected a bacterial phylum as host, a GO process as host anatomy,
 a bioreactor as soil and a soil as a unit, while the unmutated copies passed.
 
 ## Deferred
