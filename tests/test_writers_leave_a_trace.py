@@ -70,6 +70,10 @@ _EXEMPT = {
         "emits YAML inspection views to stdout and optionally writes a JSON "
         "audit report; never writes a canonical record or curation history"
     ),
+    "scripts/adhoc/pr2035_434_review.py": (
+        "writes a scratch structured-review candidate under .temp/pr2035/434; "
+        "the candidate is an immutable review observation, not a curated record"
+    ),
     "scripts/record_review.py": (
         "writes immutable YAML/Markdown review bundles under reviews/structured, "
         "not kb/communities records; review observations are not curation events"
