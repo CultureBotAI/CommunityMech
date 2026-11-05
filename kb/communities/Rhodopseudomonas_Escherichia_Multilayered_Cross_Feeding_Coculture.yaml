@@ -1,0 +1,227 @@
+id: CommunityMech:000469
+name: Rhodopseudomonas palustris and Escherichia coli Multilayered Cross-Feeding Coculture
+description: Defined synthetic bacterial coculture pairing phototrophic nitrogen-fixing Rhodopseudomonas palustris CGA676
+  with fermentative Escherichia coli PFM2 in an obligate bidirectional carbon-and-nitrogen cross-feeding relationship evolved
+  for 650-800 generations alongside matched monocultures. Beyond engineered carbon (organic acids from glucose fermentation)
+  and nitrogen (ammonium from N2 fixation) exchange, the coculture engages in additional cross-feeding of adenine and iron
+  that represses biosynthesis and scavenging gene expression in the recipient and limits rather than promotes emergent metabolic
+  dependencies.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: laboratory environment
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Defined anoxic minimal medium (MDC) coculture under incandescent illumination at 30 degrees C.
+taxonomy:
+- taxon_term:
+    preferred_term: Rhodopseudomonas palustris CGA676
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+    notes: Phototrophic purple non-sulfur bacterium engineered to excrete NH4+ from N2 fixation and purines (adenine).
+    gtdb_candidates:
+    - GTDB:s__Rhodopseudomonas_palustris_C
+    - GTDB:s__Rhodopseudomonas_palustris_F
+    - GTDB:s__Rhodopseudomonas_palustris_G
+    - GTDB:s__Rhodopseudomonas_palustris_J
+    - GTDB:s__Rhodopseudomonas_pseudopalustris
+    gtdb_grounding_status: AMBIGUOUS
+  abundance_level: DOMINANT
+  functional_role:
+  - CROSS_FEEDER
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we compared mutations that were differentially enriched in bacterial monocultures versus cocultures pairing
+      phototrophic Rhodopseudomonas palustris with fermentative Escherichia coli in an obligate cross-feeding relationship
+      based on the exchange of nitrogen and carbon for 650-800 generations.
+    explanation: Supports membership of Rhodopseudomonas palustris in the obligate cross-feeding coculture.
+- taxon_term:
+    preferred_term: Escherichia coli PFM2
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    notes: Fermentative bacterium that catabolizes glucose to organic acids consumed by R. palustris and receives excreted
+      ammonium, iron, and adenine.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      total_genomes: 166397
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    gtdb_grounding_status: GROUNDED
+  abundance_level: DOMINANT
+  functional_role:
+  - CROSS_FEEDER
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we compared mutations that were differentially enriched in bacterial monocultures versus cocultures pairing
+      phototrophic Rhodopseudomonas palustris with fermentative Escherichia coli in an obligate cross-feeding relationship
+      based on the exchange of nitrogen and carbon for 650-800 generations.
+    explanation: Supports membership of fermentative Escherichia coli in the obligate cross-feeding coculture.
+ecological_interactions:
+- name: Obligate Carbon and Nitrogen Cross-Feeding Between Escherichia coli and Rhodopseudomonas palustris
+  description: In anaerobic minimal medium containing glucose as the sole carbon source and N2 as the sole nitrogen source,
+    fermentative Escherichia coli PFM2 supplies excreted organic acids to phototrophic Rhodopseudomonas palustris CGA676,
+    while nitrogen-fixing R. palustris CGA676 excretes ammonium to support E. coli growth across 650-800 generations.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Rhodopseudomonas palustris CGA676
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+  target_taxon:
+    preferred_term: Escherichia coli PFM2
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  - preferred_term: organic acid
+    term:
+      id: CHEBI:64709
+      label: organic acid
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  downstream:
+  - target: Multilayered Iron and Adenine Cross-Feeding Repressing Recipient Gene Cost
+    description: 'DIRECTLY IMPLIED: Obligate carbon and nitrogen cross-feeding maintains stable coculture coexistence across
+      650-800 generations, enabling concurrent iron and adenine cross-feeding.'
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we compared mutations that were differentially enriched in bacterial monocultures versus cocultures pairing
+      phototrophic Rhodopseudomonas palustris with fermentative Escherichia coli in an obligate cross-feeding relationship
+      based on the exchange of nitrogen and carbon for 650-800 generations.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: While coculture conditions required obligate exchange of nitrogen and carbon, additional cross-feeding of adenine
+      and iron likely occurred.
+- name: Multilayered Iron and Adenine Cross-Feeding Repressing Recipient Gene Cost
+  description: Alongside obligate carbon and nitrogen exchange, secondary cross-feeding of iron and purines (adenine) occurs
+    in coculture across 650-800 generations.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Rhodopseudomonas palustris CGA676
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+  target_taxon:
+    preferred_term: Escherichia coli PFM2
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: iron cation
+    term:
+      id: CHEBI:24875
+      label: iron cation
+  - preferred_term: purines
+    term:
+      id: CHEBI:26401
+      label: purines
+  biological_processes:
+  - preferred_term: iron ion transport
+    term:
+      id: GO:0006826
+      label: iron ion transport
+  - preferred_term: regulation of gene expression
+    term:
+      id: GO:0010468
+      label: regulation of gene expression
+  downstream:
+  - target: Repression of Iron Scavenging and Adenine Synthesis Gene Cost Promoting Gene Retention
+    description: 'DIRECTLY IMPLIED: Iron and adenine cross-feeding represses expression of iron scavenging and adenine synthesis
+      genes in the recipient, lowering gene cost and promoting gene retention.'
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Contrary to expectations, the emergence of additional dependencies was observed in monoculture, but not in coculture,
+      even though additional layers of cross-feeding involving iron and adenine were present in coculture.
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We reasoned that iron and adenine cross-feeding occurred at levels sufficient to repress gene expression in the
+      recipient, thereby promoting gene retention by lowering gene cost.
+- name: Repression of Iron Scavenging and Adenine Synthesis Gene Cost Promoting Gene Retention
+  description: Cross-feeding of iron and adenine represses expression of iron scavenging and adenine synthesis genes in cocultures
+    while Escherichia coli acquires mutations suggestive of enhanced adenine uptake, lowering gene cost and limiting emergent
+    metabolic dependencies.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Escherichia coli PFM2
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  target_taxon:
+    preferred_term: Rhodopseudomonas palustris CGA676
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+  metabolites:
+  - preferred_term: iron cation
+    term:
+      id: CHEBI:24875
+      label: iron cation
+  - preferred_term: purines
+    term:
+      id: CHEBI:26401
+      label: purines
+  biological_processes:
+  - preferred_term: regulation of gene expression
+    term:
+      id: GO:0010468
+      label: regulation of gene expression
+  evidence:
+  - reference: PMID:42117636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Low expression of iron scavenging and adenine synthesis genes in cocultures suggested that cross-feeding repressed
+      expression, thereby lowering gene cost.
+metals_present:
+- IRON
+rare_earth_elements_present: []
+metal_relevance: INCIDENTAL
+metal_notes: Iron cross-feeding between R. palustris and E. coli lowers iron-scavenging gene expression in coculture.
+curation_history:
+- timestamp: '2026-10-19T05:30:00Z'
+  curator: claude
+  action: INITIAL_CREATION
+  changes: Initial curation of CommunityMech:000469 (Rhodopseudomonas_Escherichia_Multilayered_Cross_Feeding_Coculture) from
+    PMID:42117636 using the add-community-record and ground-causal-graph-taxa skills with verified NCBITaxon, GTDB, CHEBI,
+    GO, and ENVO groundings.
+  llm_assisted: true
+- timestamp: '2026-10-20T04:18:00Z'
+  curator: claude
+  action: CURATE_CAUSAL_GRAPH
+  changes: Curate 3-node pairwise cross-feeding causal chain linking obligate C/N exchange to iron/adenine cross-feeding and
+    repression of recipient gene cost.
+  llm_assisted: true

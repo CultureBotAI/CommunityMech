@@ -1,0 +1,147 @@
+reviewer: antigravity
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+recorded_at: '2026-10-31T23:45:00Z'
+scope: 'Cycle 4 Stage 5 remediation of Cycle 4 Stage 4 record review findings (#2095);
+  ecological_interactions causal graph nodes and directed downstream edges unchanged.'
+records:
+- path: kb/communities/SMutans_CAlbicans_ECC_Biofilm.yaml
+  id: CommunityMech:000083
+  original_sha256: fb7d747151fb52f52127e035683a77dcb1596d6f1fc97ac1e8635298ce24fd34
+  record_sha256: 03b81604911a0ff08ab1a0d9ad8db5fbfb6174f41388c9af31bd91759a1f87f3
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261031-c4s5-review-remediation.yaml
+  scope: Whole record and every existing node/direction reviewed, with source-access limits; not new-mechanism discovery
+    or non-graph certification.
+  summary: Retain supported mutualism and a PARTIAL rodent-outcome direction.; Retain positive Candida-to-S. mutans
+    biofilm facilitation with the correct in-vitro source and CHEBI:72813 exopolysaccharide grounding.; Retain the
+    positive rodent carriage/lesion outcome at community scope, not pairwise colonization.
+  node_decisions:
+  - node: Cross-Kingdom Biofilm Enhancement
+    rationale: Retain supported mutualism and a PARTIAL rodent-outcome direction.
+  - node: Candida-Driven EPS Amplification of Streptococcus mutans
+    rationale: Retain positive Candida-to-S. mutans biofilm facilitation with the correct in-vitro source and CHEBI:72813
+      exopolysaccharide metabolite grounding.
+  - node: Rodent Coinfection Carriage and Caries Outcome
+    rationale: Retain the positive rodent carriage/lesion outcome at community scope, not pairwise colonization.
+  removed_node_decisions: []
+  renamed_nodes:
+    Synergistic Caries Virulence: Rodent Coinfection Carriage and Caries Outcome
+  edges_before:
+  - &id001
+    source: Cross-Kingdom Biofilm Enhancement
+    target: Synergistic Caries Virulence
+    description: The enhanced dual-species plaque biofilm is the infection state that drives higher microbial carriage
+      and more aggressive carious lesions in vivo.
+  - &id003
+    source: Candida-Driven EPS Amplification of Streptococcus mutans
+    target: Cross-Kingdom Biofilm Enhancement
+    description: Candida-driven exopolysaccharide accumulation increases the biomass and viable S. mutans burden
+      of the cross-kingdom plaque biofilm.
+  edges_after:
+  - &id002
+    source: Cross-Kingdom Biofilm Enhancement
+    target: Rodent Coinfection Carriage and Caries Outcome
+    description: 'PARTIAL: the mixed biofilm provides the proposed context for the greater disease severity in the
+      rodent model. Coinfection establishes an effect on carriage and lesions, but does not isolate biofilm quantity
+      as the necessary mediator of the lesion outcome or establish human disease causation.'
+  - &id004
+    source: Candida-Driven EPS Amplification of Streptococcus mutans
+    target: Cross-Kingdom Biofilm Enhancement
+    description: Candida-driven exopolysaccharide accumulation increases the biomass and viable S. mutans burden
+      of the cross-kingdom plaque biofilm.
+  retained_edge_decisions:
+  - before: *id001
+    after: *id002
+    rationale: Existing direction retained with source-specific community or PARTIAL mediation limits.
+  - before: *id003
+    after: *id004
+    rationale: Existing direction retained with source-specific community or PARTIAL mediation limits.
+  removed_edge_decisions: []
+  references:
+  - PMID:24566629
+  issues:
+  - 2095
+  allowed_changed_fields:
+  - curation_history
+  - ecological_interactions
+  - environmental_factors
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/SMutans_CAlbicans_ECC_Biofilm/2026-10-31T234500Z-antigravity-2095.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch97.yaml
+    record_sha256: fb7d747151fb52f52127e035683a77dcb1596d6f1fc97ac1e8635298ce24fd34
+- path: kb/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml
+  id: CommunityMech:000357
+  original_sha256: 5d5c7c4e2d853489be775ef1cc44ec611af78b2dff902287c1bf2f18bfa9ad4d
+  record_sha256: a26aa5c32aa6f451822223c283ef769d31d13d82037e2caeb271008a76a5fe49
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261031-c4s5-review-remediation.yaml
+  scope: Whole record and every existing node/arrow assessed against primary text at recorded access scope; non-graph
+    fields preserved, not certified.
+  summary: Retain the single division-of-labor node with overlapping substrate capacities, zero unsupported arrows
+    and an explicit quantitative evidence limitation.
+  renamed_nodes: {}
+  node_decisions:
+  - node: GL10-XL12 glucose-xylose niche partitioning
+    rationale: Retain the single division-of-labor node with overlapping substrate capacities, zero unsupported
+      arrows and an explicit quantitative evidence limitation.
+  removed_node_decisions: []
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42038008
+  issues:
+  - 2095
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom/2026-10-31T234500Z-antigravity-2095.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261006-three-records-batch36.yaml
+    record_sha256: 5d5c7c4e2d853489be775ef1cc44ec611af78b2dff902287c1bf2f18bfa9ad4d
+- path: kb/communities/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml
+  id: CommunityMech:000397
+  original_sha256: b3843b5e2f64d179b4bc11a1558b7f977c025252fa6fe16d8ab82e0dfb292ec1
+  record_sha256: c70bbd5b522140d6b6cf6a2c4ea9ae97cdf10dda7d45534071997a5b1786dbcd
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261031-c4s5-review-remediation.yaml
+  scope: Whole record and every original node/arrow inspected; source access and completion limitations below. Non-graph
+    metadata is not certified.
+  summary: Retain the directly abstract-supported aggregate sequential ammonification/nitrification outcome for
+    the three named NBRC strains. Selected organic-nitrogen conditions, approximately 56 mg-N/L nitrate and no endpoint
+    nitrite do not assign donor-resolved flux, necessity or universal substrate coverage. Relative-abundance associations
+    are not causal arrows. A single bounded community node needs no artificial downstream target.
+  renamed_nodes: {}
+  node_decisions:
+  - node: Sequential organic-nitrogen conversion
+    rationale: Retain the directly abstract-supported aggregate sequential ammonification/nitrification outcome
+      for the three named NBRC strains. Selected organic-nitrogen conditions, approximately 56 mg-N/L nitrate and
+      no endpoint nitrite do not assign donor-resolved flux, necessity or universal substrate coverage. Relative-abundance
+      associations are not causal arrows. A single bounded community node needs no artificial downstream target.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42668143
+  issues:
+  - 2095
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community/2026-10-31T234500Z-antigravity-2095.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261006-three-records-batch27.yaml
+    record_sha256: b3843b5e2f64d179b4bc11a1558b7f977c025252fa6fe16d8ab82e0dfb292ec1

@@ -122,6 +122,21 @@ def test_hashes_history_and_identity_only_participants_are_explicit():
                 "record_sha256": row["record_sha256"],
             }
             assert latest["original_sha256"] == row["record_sha256"]
+        elif row["id"] == "CommunityMech:000211":
+            successor = (
+                ROOT
+                / "reports/causal_graph_review/decisions/20261021-stage3-common-taxon-links.yaml"
+            )
+            latest = next(
+                r
+                for r in yaml.safe_load(successor.read_text())["records"]
+                if r["id"] == "CommunityMech:000211"
+            )
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
         assert (
             hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
         )

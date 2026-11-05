@@ -1,0 +1,1377 @@
+# Stage 5 Post-Remediation Verification Review of Actionable and Carried-Forward Findings
+
+- Review: 20261021T193000Z-stage5-remediation-verification
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T19:00:00Z
+- Finished UTC: 2026-10-21T19:30:00Z
+- Reviewer: antigravity-stage5-remediation-reviewer (independent)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: true
+
+## Summary
+
+Post-remediation scientific and structural verification review of all 19 finding-bearing records from Stage 4 (12 records across 6 actionable open findings grouped into GitHub issues #2047, #2048, #2049, and #2050, plus 7 source-limited deferred records tracked in open issues #765, #1467, #1657, #1681, #1699, #1841, and #1847). Nine records (CommunityMech:000273, 000321, 000339, 000347, 000360, 000373, 000415, 000434, 000447) were updated with primary-source-verified metadata, participant lists, or host/pathogen scope boundaries and re-attested in reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml; three records (000399 #1729, 000433 #1648, 000364 #1787) preserve their causal-batch-locked scope.
+
+## Scope And Provenance
+
+Full post-remediation verification of all 19 records carrying Stage 4 findings (12 actionable finding targets + 7 carried-forward source-limited targets).
+
+Selection: All 19 records referenced by carry_forward_ids in Stage 4 evidence.yaml.
+Coverage: full; 19 reviewed / 19 in the declared population.
+Source: working_tree at Git base 6a71479f5e489f528b8aba108ebc58be201b01b3.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000048 | kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml | maintained | CommunityMech:000048 (Okeke-Lu Cellulolytic-Xylanolytic Consortium) |
+| CommunityMech:000054 | kb/communities/Phormidium_Alkaline_Consortium.yaml | maintained | CommunityMech:000054 (Phormidium Alkaline Consortium) |
+| CommunityMech:000091 | kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml | maintained | CommunityMech:000091 (GLBRC Exometabolite Transwell SynCom System) |
+| CommunityMech:000153 | kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml | maintained | CommunityMech:000153 (Cheese Rind In Situ-In Vitro Model Community) |
+| CommunityMech:000222 | kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml | maintained | CommunityMech:000222 (Sulfide Spring Autotrophic CPR-Hosting Biofilm) |
+| CommunityMech:000273 | data/isolates/Chromobacterium_Gold_Biocyanidation.yaml | maintained | CommunityMech:000273 (Chromobacterium Gold Biocyanidation Platform) |
+| CommunityMech:000295 | kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml | maintained | CommunityMech:000295 (Parachlorella kessleri + Saccharomyces cerevisiae Mutualistic Co-culture) |
+| CommunityMech:000302 | kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml | maintained | CommunityMech:000302 (SynCom MetG2 Rhizobacteria Sugarcane Stress Resilience) |
+| CommunityMech:000321 | data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml | maintained | CommunityMech:000321 (BioModels MODEL2204300002 Kefir Rothia Model) |
+| CommunityMech:000339 | kb/communities/Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml | maintained | CommunityMech:000339 (Space Habitat Seven-Member Stress-Tolerance SynCom) |
+| CommunityMech:000347 | kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml | maintained | CommunityMech:000347 (Bacillus siamensis-vallismortis HT Masson Pine SynCom) |
+| CommunityMech:000360 | kb/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml | maintained | CommunityMech:000360 (Wolffia Mankai Endosphere Cobamide Guild) |
+| CommunityMech:000364 | kb/communities/Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml | maintained | CommunityMech:000364 (Sclerotinia Sclerotia 12-Strain Biocontrol SynCom) |
+| CommunityMech:000373 | kb/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml | maintained | CommunityMech:000373 (Bacillus G12-Y4-X25 Tobacco Biocontrol SynCom) |
+| CommunityMech:000399 | kb/communities/Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom.yaml | maintained | CommunityMech:000399 (Pseudomonas aeruginosa Eight-Strain Full-Factorial SynCom) |
+| CommunityMech:000415 | kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml | maintained | CommunityMech:000415 (Algal-Methanotroph Biogas Valorization Coculture) |
+| CommunityMech:000433 | kb/communities/Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml | maintained | CommunityMech:000433 (Nitrifying Wastewater Ammonia-Oxidizing Consortium) |
+| CommunityMech:000434 | kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml | maintained | CommunityMech:000434 (Acidic Nitrification Minimal Consortium) |
+| CommunityMech:000447 | kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml | maintained | CommunityMech:000447 (Brocadia Low-Nitrogen Anammox Consortium) |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| LinkML schema validation on all 19 Stage 5 target records | passed | True | CommunityMech:000048, CommunityMech:000054, CommunityMech:000091, CommunityMech:000153, CommunityMech:000222, CommunityMech:000273, CommunityMech:000295, CommunityMech:000302, CommunityMech:000321, CommunityMech:000339, CommunityMech:000347, CommunityMech:000360, CommunityMech:000364, CommunityMech:000373, CommunityMech:000399, CommunityMech:000415, CommunityMech:000433, CommunityMech:000434, CommunityMech:000447 | All 19 MicrobialCommunity target records validate against src/communitymech/schema/communitymech.yaml with 0 errors. |
+| Causal review inventory, participating_taxa, and batch regression tests | passed | True | CommunityMech:000048, CommunityMech:000054, CommunityMech:000091, CommunityMech:000153, CommunityMech:000222, CommunityMech:000273, CommunityMech:000295, CommunityMech:000302, CommunityMech:000321, CommunityMech:000339, CommunityMech:000347, CommunityMech:000360, CommunityMech:000364, CommunityMech:000373, CommunityMech:000399, CommunityMech:000415, CommunityMech:000433, CommunityMech:000434, CommunityMech:000447 | All 96 pytest checks across test_causal_review_batch{78,88,99,105,123}.py, test_causal_review_inventory.py, test_participating_taxa.py, and test_community_level_connectivity_credit.py pass with 0 failures. |
+
+## Scientific And Domain Assessments
+
+### Post-remediation verification of core metadata on CommunityMech:000434 and CommunityMech:000360 (Issue #2047)
+
+completeness: supported. Targets: CommunityMech:000360, CommunityMech:000434.
+
+CommunityMech:000434 (Acidic_Nitrification_Minimal_Consortium.yaml) now sets community_origin: ENGINEERED (PMID:42762737) and CommunityMech:000360 (Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml) now sets ecological_state: STABLE (PMID:42304541); both records achieve 100/100 Completeness Scores.
+
+### Post-remediation verification of COMMUNITY_LEVEL participating_taxa on SynCom/consortium records (Issue #2048)
+
+graph: supported. Targets: CommunityMech:000339, CommunityMech:000399, CommunityMech:000415, CommunityMech:000433, CommunityMech:000447.
+
+CommunityMech:000339 (Space_Habitat_SevenMember_Stress_Tolerance_SynCom), CommunityMech:000415 (Algal_Methanotroph_Biogas_Valorization_Coculture), and CommunityMech:000447 (Brocadia_Low_Nitrogen_Anammox_Consortium) now include all abstract-supported co-inoculated/co-enriched member taxa in COMMUNITY_LEVEL participating_taxa with 0 disconnected taxa; CommunityMech:000399 (#1729, batch88) and CommunityMech:000433 (#1648, batch78) preserve their causal-batch-locked scope.
+
+### Post-remediation verification of external host/pathogen target_taxon removal on biocontrol/rhizosphere SynComs (Issue #2049)
+
+scope: supported. Targets: CommunityMech:000347, CommunityMech:000364, CommunityMech:000373.
+
+CommunityMech:000347 (Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom) and CommunityMech:000373 (Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom) no longer place non-member host/pathogen taxa in target_taxon on COMMUNITY_LEVEL interactions and pass NetworkIntegrityAuditor with 0 UNKNOWN_TARGET warnings; CommunityMech:000364 (#1787, batch99) preserves its causal-batch-locked sclerotia challenge scope.
+
+### Post-remediation verification of isolate prose alignment and taxon metadata completeness (Issue #2050)
+
+evidence: supported. Targets: CommunityMech:000273, CommunityMech:000321.
+
+CommunityMech:000273 (Chromobacterium_Gold_Biocyanidation.yaml) is now strictly aligned with its cited waste-PCB bioleaching source (doi:10.1007/s10163-014-0276-4) with all unverified refractory ore claims removed, and CommunityMech:000321 (BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml) now populates functional_role: [CROSS_FEEDER] and abundance_level: RARE with verbatim primary-source evidence (PMID:33398099, PMID:28963201); both achieve 100/100 Completeness Scores.
+
+### Verification of abstract-grounded integrity on 7 source-limited deferred community records (#765, #1467, #1657, #1681, #1699, #1841, #1847)
+
+evidence: supported. Targets: CommunityMech:000048, CommunityMech:000054, CommunityMech:000091, CommunityMech:000153, CommunityMech:000222, CommunityMech:000295, CommunityMech:000302.
+
+All 7 source-limited records (CommunityMech:000048, 000054, 000091, 000153, 000222, 000295, 000302) remain valid against LinkML and grounded strictly to verbatim abstract claims without fabrication while their full-text/supplementary data gaps remain tracked in open GitHub issues.
+
+## Findings
+
+### stage4-missing-community-origin-000434: CommunityMech:000434 omits community_origin despite acidic nitrification bioreactor operation in PMID:42762737
+
+major / resolved / confirmed; issue key: communitymech-stage4-000434-missing-origin.
+
+Acidic_Nitrification_Minimal_Consortium.yaml (CommunityMech:000434) is the only MicrobialCommunity record in the 477-community corpus missing community_origin. The cited abstract (PMID:42762737) describes a defined two-member acidic nitrification co-culture of Candidatus Nitrosotalea devaniterrae ND1 and Nitrobacter sp. Nb311A performing complete nitrification at pH 4.5, supporting community_origin: ENGINEERED.
+
+Disposition: Resolved in Issue #2047: set community_origin: ENGINEERED on CommunityMech:000434 (Acidic_Nitrification_Minimal_Consortium.yaml) backed by PMID:42762737 and recorded append-only curation history.
+
+### stage4-missing-ecological-state-000360: CommunityMech:000360 omits ecological_state despite persistent host-filtered endosphere guild maintenance in PMID:42304541
+
+major / resolved / confirmed; issue key: communitymech-stage4-000360-missing-state.
+
+Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml (CommunityMech:000360) is the only MicrobialCommunity record in the 477-community corpus missing ecological_state. The cited source (PMID:42304541) describes a persistent host-filtered endosphere cobamide-producing guild assembled and maintained in a stable host-mediated niche, supporting ecological_state: STABLE.
+
+Disposition: Resolved in Issue #2047: set ecological_state: STABLE on CommunityMech:000360 (Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml) backed by PMID:42304541 and recorded append-only curation history.
+
+### stage4-disconnected-syncom-participants: Five SynCom/consortium records omit co-tested member taxa from COMMUNITY_LEVEL participating_taxa
+
+minor / resolved / confirmed; issue key: communitymech-stage4-disconnected-syncom-participants.
+
+NetworkIntegrityAuditor flags 14 DISCONNECTED_TAXON warnings across five records (CommunityMech:000339 Space_Habitat_SevenMember_Stress_Tolerance_SynCom [6 disconnected taxa: Staphylococcus capitis K1-2-2-23, Pseudomonas antarctica CMS 35T, Streptococcus halotolerans HTS9T, Propionibacterium cyclohexanicum TA-12T, Micrococcus luteus W4-Al-K1, Acinetobacter radioresistens 50V1], CommunityMech:000399 Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom [5 disconnected strains: H27, F2, F3, W6, M15], CommunityMech:000415 Algal_Methanotroph_Biogas_Valorization_Coculture [1 disconnected green-algal primary producer: Parachlorella kessleri NIES-2152, NCBITaxon:3074], CommunityMech:000433 Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium [1 disconnected taxon: Legionella MAGs, NCBITaxon:445], and CommunityMech:000447 Brocadia_Low_Nitrogen_Anammox_Consortium [1 disconnected taxon: Ca. Kuenenia early-acclimation lineage, NCBITaxon:380738]) where COMMUNITY_LEVEL ecological_interactions list only a subset of participating_taxa.
+
+Disposition: Resolved in Issue #2048: populated full co-inoculated/co-enriched participating_taxa on COMMUNITY_LEVEL interactions in CommunityMech:000339 (PMID:42577390), CommunityMech:000415 (PMID:41745484), and CommunityMech:000447 (PMID:42323145); CommunityMech:000399 (#1729) and CommunityMech:000433 (#1648) retain their causal-batch-locked participant scope.
+
+### stage4-external-host-pathogen-targets: Three biocontrol/rhizosphere SynCom records place external non-member hosts or pathogens in target_taxon
+
+minor / resolved / confirmed; issue key: communitymech-stage4-external-host-pathogen-targets.
+
+NetworkIntegrityAuditor flags all 7 UNKNOWN_TARGET warnings in the corpus across three records (CommunityMech:000347 Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom [3 warnings: Fusarium oxysporum on 1 interaction and Pinus massoniana on 2 interactions], CommunityMech:000364 Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom [2 warnings: Sclerotinia sclerotiorum on 2 interactions], and CommunityMech:000373 Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom [2 warnings: Nicotiana tabacum (tobacco, NCBITaxon:4097) on 2 interactions]) because external host plants and target phytopathogens outside taxonomy[] are modeled in target_taxon on COMMUNITY_LEVEL interactions.
+
+Disposition: Resolved in Issue #2049: removed external non-member host/pathogen target_taxon entries from COMMUNITY_LEVEL interactions in CommunityMech:000347 (PMID:42144568) and CommunityMech:000373 (PMID:42388034) while preserving host/pathogen context in interaction descriptions; CommunityMech:000364 (#1787) retains its causal-batch-locked sclerotia challenge scope.
+
+### stage4-isolate-000273-unverified-ore-prose: CommunityMech:000273 retains unverified arsenopyrite ore recovery claims and un-evidenced environmental_factors
+
+major / resolved / confirmed; issue key: communitymech-stage4-000273-unverified-ore-prose.
+
+Although Stage 2 repaired ecological_interactions on data/isolates/Chromobacterium_Gold_Biocyanidation.yaml (CommunityMech:000273), its top-level description, environment_term.notes, taxonomy[0].taxon_term.notes, and 8 un-evidenced environmental_factors entries (7 ore/cyanide/pulp-density parameters and 1 temperature entry) still assert refractory gold-bearing sulfide ore (arsenopyrite/pyrite) bioleaching, 70-85% gold recovery, 50-200 ppm CN-, and 7-14 day leaching time that do not come from the cited waste-PCB bioleaching source (doi:10.1007/s10163-014-0276-4: Acidithiobacillus ferrooxidans pretreatment removing &gt;80% Cu followed by Chromobacterium violaceum bioleaching reaching 70.6% Au bioleaching efficiency vs 45.5% in direct bioleaching).
+
+Disposition: Resolved in Issue #2050: replaced unverified refractory arsenopyrite ore recovery claims and un-evidenced environmental_factors in data/isolates/Chromobacterium_Gold_Biocyanidation.yaml (CommunityMech:000273) with claims strictly supported by doi:10.1007/s10163-014-0276-4.
+
+### stage4-isolate-000321-missing-functional-role: CommunityMech:000321 omits functional_role and abundance_level on its sole taxon entry
+
+minor / resolved / confirmed; issue key: communitymech-stage4-000321-missing-role.
+
+data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml (CommunityMech:000321) is the only record in data/isolates/ missing functional_role and abundance_level on taxonomy[0] (Rothia, NCBITaxon:32207, supported by PMID:33398099 and PMID:28963201), reducing its proportional Completeness Score to 80/100.
+
+Disposition: Resolved in Issue #2050: populated functional_role: [CROSS_FEEDER] and abundance_level: RARE with verbatim primary-source evidence on taxonomy[0] (Rothia kefirresidentii KRP, NCBITaxon:32207) in data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml (CommunityMech:000321) backed by PMID:33398099 and PMID:28963201.
+
+### cheese-assay-evidence-gap: Full-text-dependent cheese rind assay specifics remain deferred in CommunityMech:000153
+
+minor / deferred / confirmed; issue key: cheese-assay-evidence-gap.
+
+Cheese_Rind_InSitu_InVitro_Model_Community.yaml (CommunityMech:000153) remains capped at abstract-verified taxa and interactions because strain-specific pairwise assay details in PMID:25043025 require full-text table inspection.
+
+Disposition: Deferred: source-limited until full-text assay tables for PMID:25043025 are ingested.
+
+### communitymech-1467-source-discrepancy-and-extension: Broader 18-species Transwell campaign and strain/table discrepancies in CommunityMech:000091 require full-text audit
+
+minor / deferred / confirmed; issue key: communitymech-1467-source-discrepancy-and-extension.
+
+GLBRC_Exometabolite_Transwell_SynCom.yaml (CommunityMech:000091) captures the abstract-supported exometabolite Transwell SynCom, while full-text table reconciliation for the broader 18-species campaign remains open under issue #1467.
+
+Disposition: Deferred: tracked in GitHub issue #1467 pending full-text table reconciliation.
+
+### communitymech-1699-coverage: Additional Phormidium alkaline-lake co-isolates in CommunityMech:000054 require full-text table verification
+
+minor / deferred / confirmed; issue key: communitymech-1699-coverage.
+
+Phormidium_Alkaline_Consortium.yaml (CommunityMech:000054) models the primary cyanobacterial host and abstract-backed heterotrophic guild; additional heterotrophic co-isolates require full-text table verification (#1699).
+
+Disposition: Deferred: tracked in GitHub issue #1699 pending full-text isolate table verification.
+
+### communitymech-1841: Lower-rank taxon resolution for Sulfide Spring Autotrophic CPR Biofilm (CommunityMech:000222) requires full-text MAG table
+
+minor / deferred / confirmed; issue key: communitymech-1841.
+
+Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml (CommunityMech:000222) retains parent-rank taxa from the abstract; resolving lower-rank MAG/isolate assignments requires full-text supplementary tables (#1841).
+
+Disposition: Deferred: tracked in GitHub issue #1841 pending full-text supplementary strain table inspection.
+
+### communitymech-1847-metg2-membership: Complete MetG2 rhizobacteria membership and host-assay specifics in CommunityMech:000302 require full-text tables
+
+minor / deferred / confirmed; issue key: communitymech-1847-metg2-membership.
+
+SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml (CommunityMech:000302) models the abstract-enumerated rhizobacterial taxa; full isolate membership and assay specifics require full-text tables (#1847).
+
+Disposition: Deferred: tracked in GitHub issue #1847 pending full-text membership and media table inspection.
+
+### okeke-fulltext-assay-gap: Paywalled full-text assay parameters for Okeke-Lu cellulolytic consortium (CommunityMech:000048) remain deferred
+
+minor / deferred / confirmed; issue key: okeke-fulltext-assay-gap.
+
+Okeke_Lu_Cellulolytic_Consortium.yaml (CommunityMech:000048) is grounded to abstract-verified cellulolytic-xylanolytic claims; full-text monoculture vs co-culture enzyme assay parameters remain paywalled.
+
+Disposition: Deferred: source-limited because primary full text is paywalled.
+
+### parachlorella-remaining-research: Secondary metabolite exchange specifics in Parachlorella-Saccharomyces co-culture (CommunityMech:000295) require full-text data
+
+minor / deferred / confirmed; issue key: parachlorella-remaining-research.
+
+Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml (CommunityMech:000295) captures the primary abstract-supported algal-yeast mutualism; secondary metabolite exchange kinetics require full-text tables.
+
+Disposition: Deferred: source-limited pending full-text interaction data.
+
+## Recommended Actions And Acceptance Checks
+
+### act-defer-source-limited-fulltext-findings
+
+Retain source-limited full-text findings under open GitHub issues (#765, #1467, #1657, #1681, #1699, #1841, #1847) until open-access full text or supplementary strain/assay tables become available for CommunityMech:000048, 000054, 000091, 000153, 000222, 000295, and 000302.
+
+- Verify full-text or supplementary table availability before expanding abstract-grounded claims on source-limited records.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| ev-stage5-schema-validation | src/communitymech/schema/communitymech.yaml; MicrobialCommunity | supports | All 19 Stage 5 target YAML records validate cleanly against src/communitymech/schema/communitymech.yaml with 0 LinkML errors. |
+| ev-stage5-network-integrity | src/communitymech/network/auditor.py; NetworkIntegrityAuditor | supports | NetworkIntegrityAuditor confirms 0 DISCONNECTED_TAXON and 0 UNKNOWN_TARGET warnings on remediated records CommunityMech:000339, 000415, 000447, 000347, and 000373; causal-batch-bounded records 000399 (#1729), 000433 (#1648), and 000364 (#1787) pass their dedicated batch regression suites. |
+| ev-stage5-causal-inventory | reports/causal_graph_review/summary.json; review_status_counts | supports | Successor causal review ledger 20261021-stage5-review-remediation.yaml re-attests all 9 modified records; reports/causal_graph_review/summary.json reports 477 records, 423 reviewed, 54 needs_research, 0 stale, and 0 structural_defects. |
+| ev-stage5-primary-sources | references_cache/; PMID:42762737, PMID:42304541, PMID:42577390, PMID:41745484, PMID:42323145, PMID:42144568, PMID:42388034, doi:10.1007/s10163-014-0276-4, PMID:33398099, PMID:28963201 | supports | Primary source abstracts and metadata in references_cache/ support all 9 record remediations (Issues #2047, #2048, #2049, #2050) and confirm that the 7 deferred records (#765, #1467, #1657, #1681, #1699, #1841, #1847) remain bounded to abstract-verified claims pending paywalled/supplementary full text. |
+
+## Limits And Additional Notes
+
+- Seven source-limited community records (CommunityMech:000048 #1657, 000054 #1699, 000091 #1467, 000153 #765, 000222 #1841, 000295 #1681, 000302 #1847) remain deferred because primary full text or supplementary tables are paywalled or unavailable in references_cache/.
+- Three SynCom/consortium records (CommunityMech:000399 #1729, 000433 #1648, 000364 #1787) preserve their prior causal-review-batch-locked interaction scope enforced by tests/test_causal_review_batch{88,78,99}.py.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T193000Z-stage5-remediation-verification
+kind: batch
+repository: CultureBotAI/CommunityMech
+title: Stage 5 Post-Remediation Verification Review of Actionable and Carried-Forward
+  Findings
+started_at: '2026-10-21T19:00:00Z'
+finished_at: '2026-10-21T19:30:00Z'
+reviewer:
+  identity: antigravity-stage5-remediation-reviewer
+  kind: agent
+  model: claude-opus-4-6
+  independence: independent
+  independence_basis: Dedicated post-remediation verification review pass over the
+    19 Stage 4 finding-bearing records in the working tree.
+skill: review-yaml-record
+completion: completed
+verdict: pass_with_limitations
+native_verdict: PASS_WITH_LIMITATIONS (6 actionable Stage 4 findings resolved across
+  9 updated records and 3 causal-batch-bounded records; 7 source-limited findings
+  deferred under open GitHub issues)
+scientific_review: true
+summary: 'Post-remediation scientific and structural verification review of all 19
+  finding-bearing records from Stage 4 (12 records across 6 actionable open findings
+  grouped into GitHub issues #2047, #2048, #2049, and #2050, plus 7 source-limited
+  deferred records tracked in open issues #765, #1467, #1657, #1681, #1699, #1841,
+  and #1847). Nine records (CommunityMech:000273, 000321, 000339, 000347, 000360,
+  000373, 000415, 000434, 000447) were updated with primary-source-verified metadata,
+  participant lists, or host/pathogen scope boundaries and re-attested in reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml;
+  three records (000399 #1729, 000433 #1648, 000364 #1787) preserve their causal-batch-locked
+  scope.'
+source:
+  git_revision: 6a71479f5e489f528b8aba108ebc58be201b01b3
+  state: working_tree
+  inputs:
+  - path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    sha256: 3f3fe69bc250a439ff851305a95d485ad1deee50602335de11b36601542e04d4
+    role: target
+  - path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    sha256: 4eb42a867f2b2b1489c4ef4fa95e408d241a54d0e2bfb1cf9474dd407d036b86
+    role: target
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+    sha256: 2e8a13c708e55df5858a0d32bb9b943677bdd82fb835982694fb645a5c23fc78
+    role: target
+  - path: kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml
+    sha256: d317416542deab471a12785f688c23d08ed5a7eea2894dbde489f40c0df80806
+    role: target
+  - path: kb/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml
+    sha256: c9f62a78e6ca7a6c6fc3f3886a77fb9d7e0583f3ce931dd474aeefa2217a1e9d
+    role: target
+  - path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    sha256: 27ce7cf055aef35383089e1adeac31ea1cbab0c5c3b9765537b188da34a48cff
+    role: target
+  - path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    sha256: 0ea86ed4c4587ff6d6fcc424c9bf2a27163154962b8430576b2a6fd4bfb1b36c
+    role: target
+  - path: kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml
+    sha256: e4ccd373cf107383615b6f207ceb0521c83b4c97daf57c6700a441b2392ddda3
+    role: target
+  - path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    sha256: 51bf55d56342aa28864c0dd458a172209f9ef1e14e51a0cd210bb46521a17f47
+    role: target
+  - path: kb/communities/Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml
+    sha256: 61a0b16fc00db138fa35884e8f9f170bda3b2cc9092008a9d5098b3600ad920a
+    role: target
+  - path: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+    sha256: 49138a663308a7331c64b2be0a72a6127ad800063b78a7648c27712fc9dd87ef
+    role: target
+  - path: kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml
+    sha256: 1e5ee2a939774f3954bdb42b6c4124c1de1f0b36a3dc7b3e93e74ad52baa199b
+    role: target
+  - path: kb/communities/Phormidium_Alkaline_Consortium.yaml
+    sha256: 0f03389e79ddcf2e97ebb0f32bd51a776b6bcbaea3ddad52c21ada8feca2939b
+    role: target
+  - path: kb/communities/Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom.yaml
+    sha256: 5771a8a97beb8ccb19b6cccad32062d896b09747ce0670788686060481cf68b9
+    role: target
+  - path: kb/communities/Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml
+    sha256: b76f915e08d08faf1516698a67c53bb6e25f912bd8d4803dfe55412f1a100a3e
+    role: target
+  - path: kb/communities/Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml
+    sha256: 31961a821395f2b2f8731998529c4035f2dac3477154c8258239bc0f6cdfab48
+    role: target
+  - path: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+    sha256: 904cc9646ae53fe0c021c1461a09f3f8d15b763edad42b6c9a43ada91c87597d
+    role: target
+  - path: kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml
+    sha256: 75f43d8ae7e953f895bf8b2e13cd26de63c288cf9200c2476fd60750ba87afcd
+    role: target
+  - path: kb/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml
+    sha256: 833bd34da10c0431673e87588bf31419546fc0e1574409dc9526ecc944dce742
+    role: target
+  - path: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+    sha256: efe4b6b56ae2ad5cb78452493088e5c046f10602461d581920791b19f9178119
+    role: context
+  - path: reports/causal_graph_review/inventory.tsv
+    sha256: 91848b4420ee28a321218c972a28bc9b785704572ae60875b6698a0a449277ad
+    role: context
+  - path: reports/causal_graph_review/summary.json
+    sha256: d3a88f303113dd160a4ec62d64fbe0cef1c888b8875cad21cf5219255650bc5a
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+scope:
+  description: Full post-remediation verification of all 19 records carrying Stage
+    4 findings (12 actionable finding targets + 7 carried-forward source-limited targets).
+  selection: All 19 records referenced by carry_forward_ids in Stage 4 evidence.yaml.
+  coverage: full
+  population_size: 19
+  reviewed_target_ids:
+  - CommunityMech:000048
+  - CommunityMech:000054
+  - CommunityMech:000091
+  - CommunityMech:000153
+  - CommunityMech:000222
+  - CommunityMech:000273
+  - CommunityMech:000295
+  - CommunityMech:000302
+  - CommunityMech:000321
+  - CommunityMech:000339
+  - CommunityMech:000347
+  - CommunityMech:000360
+  - CommunityMech:000364
+  - CommunityMech:000373
+  - CommunityMech:000399
+  - CommunityMech:000415
+  - CommunityMech:000433
+  - CommunityMech:000434
+  - CommunityMech:000447
+targets:
+- target_id: CommunityMech:000048
+  path: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+  label: CommunityMech:000048 (Okeke-Lu Cellulolytic-Xylanolytic Consortium)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000054
+  path: kb/communities/Phormidium_Alkaline_Consortium.yaml
+  label: CommunityMech:000054 (Phormidium Alkaline Consortium)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000091
+  path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+  label: CommunityMech:000091 (GLBRC Exometabolite Transwell SynCom System)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000153
+  path: kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml
+  label: CommunityMech:000153 (Cheese Rind In Situ-In Vitro Model Community)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000222
+  path: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+  label: CommunityMech:000222 (Sulfide Spring Autotrophic CPR-Hosting Biofilm)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000273
+  path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  label: CommunityMech:000273 (Chromobacterium Gold Biocyanidation Platform)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000295
+  path: kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml
+  label: CommunityMech:000295 (Parachlorella kessleri + Saccharomyces cerevisiae Mutualistic
+    Co-culture)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000302
+  path: kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml
+  label: CommunityMech:000302 (SynCom MetG2 Rhizobacteria Sugarcane Stress Resilience)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000321
+  path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  label: CommunityMech:000321 (BioModels MODEL2204300002 Kefir Rothia Model)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000339
+  path: kb/communities/Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml
+  label: CommunityMech:000339 (Space Habitat Seven-Member Stress-Tolerance SynCom)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000347
+  path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  label: CommunityMech:000347 (Bacillus siamensis-vallismortis HT Masson Pine SynCom)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000360
+  path: kb/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml
+  label: CommunityMech:000360 (Wolffia Mankai Endosphere Cobamide Guild)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000364
+  path: kb/communities/Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml
+  label: CommunityMech:000364 (Sclerotinia Sclerotia 12-Strain Biocontrol SynCom)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000373
+  path: kb/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml
+  label: CommunityMech:000373 (Bacillus G12-Y4-X25 Tobacco Biocontrol SynCom)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000399
+  path: kb/communities/Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom.yaml
+  label: CommunityMech:000399 (Pseudomonas aeruginosa Eight-Strain Full-Factorial
+    SynCom)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000415
+  path: kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml
+  label: CommunityMech:000415 (Algal-Methanotroph Biogas Valorization Coculture)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000433
+  path: kb/communities/Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml
+  label: CommunityMech:000433 (Nitrifying Wastewater Ammonia-Oxidizing Consortium)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000434
+  path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  label: CommunityMech:000434 (Acidic Nitrification Minimal Consortium)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+- target_id: CommunityMech:000447
+  path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  label: CommunityMech:000447 (Brocadia Low-Nitrogen Anammox Consortium)
+  record_class: MicrobialCommunity
+  kind: maintained
+  ownership_note: Canonical record and history/records/ sidecar maintained in CultureBotAI/CommunityMech.
+checks:
+- check_id: chk-linkml-schema-stage5
+  name: LinkML schema validation on all 19 Stage 5 target records
+  status: passed
+  required: true
+  summary: All 19 MicrobialCommunity target records validate against src/communitymech/schema/communitymech.yaml
+    with 0 errors.
+  target_ids:
+  - CommunityMech:000048
+  - CommunityMech:000054
+  - CommunityMech:000091
+  - CommunityMech:000153
+  - CommunityMech:000222
+  - CommunityMech:000273
+  - CommunityMech:000295
+  - CommunityMech:000302
+  - CommunityMech:000321
+  - CommunityMech:000339
+  - CommunityMech:000347
+  - CommunityMech:000360
+  - CommunityMech:000364
+  - CommunityMech:000373
+  - CommunityMech:000399
+  - CommunityMech:000415
+  - CommunityMech:000433
+  - CommunityMech:000434
+  - CommunityMech:000447
+  command: .venv/bin/pytest -o cache_dir=/tmp/pytest_cache tests/test_causal_review_inventory.py
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - ev-stage5-schema-validation
+- check_id: chk-network-and-causal-stage5
+  name: Causal review inventory, participating_taxa, and batch regression tests
+  status: passed
+  required: true
+  summary: All 96 pytest checks across test_causal_review_batch{78,88,99,105,123}.py,
+    test_causal_review_inventory.py, test_participating_taxa.py, and test_community_level_connectivity_credit.py
+    pass with 0 failures.
+  target_ids:
+  - CommunityMech:000048
+  - CommunityMech:000054
+  - CommunityMech:000091
+  - CommunityMech:000153
+  - CommunityMech:000222
+  - CommunityMech:000273
+  - CommunityMech:000295
+  - CommunityMech:000302
+  - CommunityMech:000321
+  - CommunityMech:000339
+  - CommunityMech:000347
+  - CommunityMech:000360
+  - CommunityMech:000364
+  - CommunityMech:000373
+  - CommunityMech:000399
+  - CommunityMech:000415
+  - CommunityMech:000433
+  - CommunityMech:000434
+  - CommunityMech:000447
+  command: .venv/bin/pytest -o cache_dir=/tmp/pytest_cache tests/test_causal_review_batch78.py
+    tests/test_causal_review_batch88.py tests/test_causal_review_batch99.py tests/test_causal_review_batch105.py
+    tests/test_causal_review_batch123.py tests/test_causal_review_inventory.py tests/test_participating_taxa.py
+    tests/test_community_level_connectivity_credit.py
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - ev-stage5-network-integrity
+  - ev-stage5-causal-inventory
+evidence:
+- evidence_id: ev-stage5-schema-validation
+  kind: validation
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: MicrobialCommunity
+  accessed_at: '2026-10-21T19:20:00Z'
+  support: supports
+  summary: All 19 Stage 5 target YAML records validate cleanly against src/communitymech/schema/communitymech.yaml
+    with 0 LinkML errors.
+- evidence_id: ev-stage5-network-integrity
+  kind: validation
+  reference: src/communitymech/network/auditor.py
+  locator: NetworkIntegrityAuditor
+  accessed_at: '2026-10-21T19:21:00Z'
+  support: supports
+  summary: NetworkIntegrityAuditor confirms 0 DISCONNECTED_TAXON and 0 UNKNOWN_TARGET
+    warnings on remediated records CommunityMech:000339, 000415, 000447, 000347, and
+    000373; causal-batch-bounded records 000399 (#1729), 000433 (#1648), and 000364
+    (#1787) pass their dedicated batch regression suites.
+- evidence_id: ev-stage5-causal-inventory
+  kind: validation
+  reference: reports/causal_graph_review/summary.json
+  locator: review_status_counts
+  accessed_at: '2026-10-21T19:22:00Z'
+  support: supports
+  summary: Successor causal review ledger 20261021-stage5-review-remediation.yaml
+    re-attests all 9 modified records; reports/causal_graph_review/summary.json reports
+    477 records, 423 reviewed, 54 needs_research, 0 stale, and 0 structural_defects.
+- evidence_id: ev-stage5-primary-sources
+  kind: primary_source
+  reference: references_cache/
+  locator: PMID:42762737, PMID:42304541, PMID:42577390, PMID:41745484, PMID:42323145,
+    PMID:42144568, PMID:42388034, doi:10.1007/s10163-014-0276-4, PMID:33398099, PMID:28963201
+  accessed_at: '2026-10-21T19:23:00Z'
+  support: supports
+  summary: 'Primary source abstracts and metadata in references_cache/ support all
+    9 record remediations (Issues #2047, #2048, #2049, #2050) and confirm that the
+    7 deferred records (#765, #1467, #1657, #1681, #1699, #1841, #1847) remain bounded
+    to abstract-verified claims pending paywalled/supplementary full text.'
+assessments:
+- assessment_id: assess-stage5-core-metadata-remediation
+  area: completeness
+  topic: 'Post-remediation verification of core metadata on CommunityMech:000434 and
+    CommunityMech:000360 (Issue #2047)'
+  outcome: supported
+  summary: 'CommunityMech:000434 (Acidic_Nitrification_Minimal_Consortium.yaml) now
+    sets community_origin: ENGINEERED (PMID:42762737) and CommunityMech:000360 (Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml)
+    now sets ecological_state: STABLE (PMID:42304541); both records achieve 100/100
+    Completeness Scores.'
+  target_ids:
+  - CommunityMech:000360
+  - CommunityMech:000434
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-primary-sources
+  metrics:
+  - name: completeness_score
+    value: 100.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100) after Stage
+      5 remediation.
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-stage5-syncom-participant-remediation
+  area: graph
+  topic: 'Post-remediation verification of COMMUNITY_LEVEL participating_taxa on SynCom/consortium
+    records (Issue #2048)'
+  outcome: supported
+  summary: CommunityMech:000339 (Space_Habitat_SevenMember_Stress_Tolerance_SynCom),
+    CommunityMech:000415 (Algal_Methanotroph_Biogas_Valorization_Coculture), and CommunityMech:000447
+    (Brocadia_Low_Nitrogen_Anammox_Consortium) now include all abstract-supported
+    co-inoculated/co-enriched member taxa in COMMUNITY_LEVEL participating_taxa with
+    0 disconnected taxa; CommunityMech:000399 (#1729, batch88) and CommunityMech:000433
+    (#1648, batch78) preserve their causal-batch-locked scope.
+  target_ids:
+  - CommunityMech:000339
+  - CommunityMech:000399
+  - CommunityMech:000415
+  - CommunityMech:000433
+  - CommunityMech:000447
+  evidence_ids:
+  - ev-stage5-network-integrity
+  - ev-stage5-causal-inventory
+  - ev-stage5-primary-sources
+- assessment_id: assess-stage5-external-target-remediation
+  area: scope
+  topic: 'Post-remediation verification of external host/pathogen target_taxon removal
+    on biocontrol/rhizosphere SynComs (Issue #2049)'
+  outcome: supported
+  summary: CommunityMech:000347 (Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom)
+    and CommunityMech:000373 (Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom) no longer
+    place non-member host/pathogen taxa in target_taxon on COMMUNITY_LEVEL interactions
+    and pass NetworkIntegrityAuditor with 0 UNKNOWN_TARGET warnings; CommunityMech:000364
+    (#1787, batch99) preserves its causal-batch-locked sclerotia challenge scope.
+  target_ids:
+  - CommunityMech:000347
+  - CommunityMech:000364
+  - CommunityMech:000373
+  evidence_ids:
+  - ev-stage5-network-integrity
+  - ev-stage5-causal-inventory
+  - ev-stage5-primary-sources
+- assessment_id: assess-stage5-isolate-remediation
+  area: evidence
+  topic: 'Post-remediation verification of isolate prose alignment and taxon metadata
+    completeness (Issue #2050)'
+  outcome: supported
+  summary: 'CommunityMech:000273 (Chromobacterium_Gold_Biocyanidation.yaml) is now
+    strictly aligned with its cited waste-PCB bioleaching source (doi:10.1007/s10163-014-0276-4)
+    with all unverified refractory ore claims removed, and CommunityMech:000321 (BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml)
+    now populates functional_role: [CROSS_FEEDER] and abundance_level: RARE with verbatim
+    primary-source evidence (PMID:33398099, PMID:28963201); both achieve 100/100 Completeness
+    Scores.'
+  target_ids:
+  - CommunityMech:000273
+  - CommunityMech:000321
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-primary-sources
+  metrics:
+  - name: completeness_score
+    value: 100.0
+    unit: points
+    definition: Proportional review-communities Completeness Score (0-100) after Stage
+      5 remediation.
+    minimum: 0.0
+    maximum: 100.0
+- assessment_id: assess-stage5-deferred-source-limited-records
+  area: evidence
+  topic: 'Verification of abstract-grounded integrity on 7 source-limited deferred
+    community records (#765, #1467, #1657, #1681, #1699, #1841, #1847)'
+  outcome: supported
+  summary: All 7 source-limited records (CommunityMech:000048, 000054, 000091, 000153,
+    000222, 000295, 000302) remain valid against LinkML and grounded strictly to verbatim
+    abstract claims without fabrication while their full-text/supplementary data gaps
+    remain tracked in open GitHub issues.
+  target_ids:
+  - CommunityMech:000048
+  - CommunityMech:000054
+  - CommunityMech:000091
+  - CommunityMech:000153
+  - CommunityMech:000222
+  - CommunityMech:000295
+  - CommunityMech:000302
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-primary-sources
+findings:
+- finding_id: stage4-missing-community-origin-000434
+  issue_key: communitymech-stage4-000434-missing-origin
+  category: completeness
+  severity: major
+  status: resolved
+  certainty: confirmed
+  title: CommunityMech:000434 omits community_origin despite acidic nitrification
+    bioreactor operation in PMID:42762737
+  description: 'Acidic_Nitrification_Minimal_Consortium.yaml (CommunityMech:000434)
+    is the only MicrobialCommunity record in the 477-community corpus missing community_origin.
+    The cited abstract (PMID:42762737) describes a defined two-member acidic nitrification
+    co-culture of Candidatus Nitrosotalea devaniterrae ND1 and Nitrobacter sp. Nb311A
+    performing complete nitrification at pH 4.5, supporting community_origin: ENGINEERED.'
+  target_ids:
+  - CommunityMech:000434
+  field_paths:
+  - community_origin
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-network-integrity
+  - ev-stage5-primary-sources
+  rule_id: review-communities:completeness-core-metadata
+  native_severity: P2
+  normalization_reason: CommunityMech P2 (record-completeness metadata omission with
+    direct primary-source resolution) maps to major.
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+    role: canonical_record
+  tags:
+  - completeness
+  - metadata
+  - stage5-remediation
+  disposition_reason: 'Resolved in Issue #2047: set community_origin: ENGINEERED on
+    CommunityMech:000434 (Acidic_Nitrification_Minimal_Consortium.yaml) backed by
+    PMID:42762737 and recorded append-only curation history.'
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101000Z-stage4-record-deep-audit
+    finding_id: stage4-missing-community-origin-000434
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: stage4-missing-community-origin-000434
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2047
+- finding_id: stage4-missing-ecological-state-000360
+  issue_key: communitymech-stage4-000360-missing-state
+  category: completeness
+  severity: major
+  status: resolved
+  certainty: confirmed
+  title: CommunityMech:000360 omits ecological_state despite persistent host-filtered
+    endosphere guild maintenance in PMID:42304541
+  description: 'Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml (CommunityMech:000360)
+    is the only MicrobialCommunity record in the 477-community corpus missing ecological_state.
+    The cited source (PMID:42304541) describes a persistent host-filtered endosphere
+    cobamide-producing guild assembled and maintained in a stable host-mediated niche,
+    supporting ecological_state: STABLE.'
+  target_ids:
+  - CommunityMech:000360
+  field_paths:
+  - ecological_state
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-network-integrity
+  - ev-stage5-primary-sources
+  rule_id: review-communities:completeness-core-metadata
+  native_severity: P2
+  normalization_reason: CommunityMech P2 (record-completeness metadata omission with
+    direct primary-source resolution) maps to major.
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml
+    role: canonical_record
+  tags:
+  - completeness
+  - metadata
+  - stage5-remediation
+  disposition_reason: 'Resolved in Issue #2047: set ecological_state: STABLE on CommunityMech:000360
+    (Wolffia_Mankai_Endosphere_Cobamide_Guild.yaml) backed by PMID:42304541 and recorded
+    append-only curation history.'
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101000Z-stage4-record-deep-audit
+    finding_id: stage4-missing-ecological-state-000360
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: stage4-missing-ecological-state-000360
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2047
+- finding_id: stage4-disconnected-syncom-participants
+  issue_key: communitymech-stage4-disconnected-syncom-participants
+  category: graph
+  severity: minor
+  status: resolved
+  certainty: confirmed
+  title: Five SynCom/consortium records omit co-tested member taxa from COMMUNITY_LEVEL
+    participating_taxa
+  description: 'NetworkIntegrityAuditor flags 14 DISCONNECTED_TAXON warnings across
+    five records (CommunityMech:000339 Space_Habitat_SevenMember_Stress_Tolerance_SynCom
+    [6 disconnected taxa: Staphylococcus capitis K1-2-2-23, Pseudomonas antarctica
+    CMS 35T, Streptococcus halotolerans HTS9T, Propionibacterium cyclohexanicum TA-12T,
+    Micrococcus luteus W4-Al-K1, Acinetobacter radioresistens 50V1], CommunityMech:000399
+    Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom [5 disconnected strains:
+    H27, F2, F3, W6, M15], CommunityMech:000415 Algal_Methanotroph_Biogas_Valorization_Coculture
+    [1 disconnected green-algal primary producer: Parachlorella kessleri NIES-2152,
+    NCBITaxon:3074], CommunityMech:000433 Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium
+    [1 disconnected taxon: Legionella MAGs, NCBITaxon:445], and CommunityMech:000447
+    Brocadia_Low_Nitrogen_Anammox_Consortium [1 disconnected taxon: Ca. Kuenenia early-acclimation
+    lineage, NCBITaxon:380738]) where COMMUNITY_LEVEL ecological_interactions list
+    only a subset of participating_taxa.'
+  target_ids:
+  - CommunityMech:000339
+  - CommunityMech:000399
+  - CommunityMech:000415
+  - CommunityMech:000433
+  - CommunityMech:000447
+  field_paths:
+  - ecological_interactions[].participating_taxa
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-network-integrity
+  - ev-stage5-primary-sources
+  rule_id: review-communities:network-integrity-disconnected-taxon
+  native_severity: P3
+  normalization_reason: CommunityMech P3 (network-integrity participant list completeness
+    on COMMUNITY_LEVEL nodes) maps to minor.
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Nitrifying_Wastewater_Ammonia_Oxidizing_Consortium.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    role: canonical_record
+  tags:
+  - graph
+  - participating_taxa
+  - stage5-remediation
+  disposition_reason: 'Resolved in Issue #2048: populated full co-inoculated/co-enriched
+    participating_taxa on COMMUNITY_LEVEL interactions in CommunityMech:000339 (PMID:42577390),
+    CommunityMech:000415 (PMID:41745484), and CommunityMech:000447 (PMID:42323145);
+    CommunityMech:000399 (#1729) and CommunityMech:000433 (#1648) retain their causal-batch-locked
+    participant scope.'
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101000Z-stage4-record-deep-audit
+    finding_id: stage4-disconnected-syncom-participants
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: stage4-disconnected-syncom-participants
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2048
+  - https://github.com/CultureBotAI/CommunityMech/issues/1729
+  - https://github.com/CultureBotAI/CommunityMech/issues/1648
+- finding_id: stage4-external-host-pathogen-targets
+  issue_key: communitymech-stage4-external-host-pathogen-targets
+  category: scope
+  severity: minor
+  status: resolved
+  certainty: confirmed
+  title: Three biocontrol/rhizosphere SynCom records place external non-member hosts
+    or pathogens in target_taxon
+  description: 'NetworkIntegrityAuditor flags all 7 UNKNOWN_TARGET warnings in the
+    corpus across three records (CommunityMech:000347 Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom
+    [3 warnings: Fusarium oxysporum on 1 interaction and Pinus massoniana on 2 interactions],
+    CommunityMech:000364 Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom [2 warnings:
+    Sclerotinia sclerotiorum on 2 interactions], and CommunityMech:000373 Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom
+    [2 warnings: Nicotiana tabacum (tobacco, NCBITaxon:4097) on 2 interactions]) because
+    external host plants and target phytopathogens outside taxonomy[] are modeled
+    in target_taxon on COMMUNITY_LEVEL interactions.'
+  target_ids:
+  - CommunityMech:000347
+  - CommunityMech:000364
+  - CommunityMech:000373
+  field_paths:
+  - ecological_interactions[].target_taxon
+  - ecological_interactions[].participating_taxa
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-network-integrity
+  - ev-stage5-primary-sources
+  rule_id: review-communities:network-integrity-unknown-target
+  native_severity: P3
+  normalization_reason: CommunityMech P3 (host/pathogen boundary modeling in COMMUNITY_LEVEL
+    interactions) maps to minor.
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_G12_Y4_X25_Tobacco_Biocontrol_SynCom.yaml
+    role: canonical_record
+  tags:
+  - scope
+  - boundary
+  - network-integrity
+  - stage5-remediation
+  disposition_reason: 'Resolved in Issue #2049: removed external non-member host/pathogen
+    target_taxon entries from COMMUNITY_LEVEL interactions in CommunityMech:000347
+    (PMID:42144568) and CommunityMech:000373 (PMID:42388034) while preserving host/pathogen
+    context in interaction descriptions; CommunityMech:000364 (#1787) retains its
+    causal-batch-locked sclerotia challenge scope.'
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101000Z-stage4-record-deep-audit
+    finding_id: stage4-external-host-pathogen-targets
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: stage4-external-host-pathogen-targets
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2049
+  - https://github.com/CultureBotAI/CommunityMech/issues/1787
+- finding_id: stage4-isolate-000273-unverified-ore-prose
+  issue_key: communitymech-stage4-000273-unverified-ore-prose
+  category: evidence
+  severity: major
+  status: resolved
+  certainty: confirmed
+  title: CommunityMech:000273 retains unverified arsenopyrite ore recovery claims
+    and un-evidenced environmental_factors
+  description: 'Although Stage 2 repaired ecological_interactions on data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    (CommunityMech:000273), its top-level description, environment_term.notes, taxonomy[0].taxon_term.notes,
+    and 8 un-evidenced environmental_factors entries (7 ore/cyanide/pulp-density parameters
+    and 1 temperature entry) still assert refractory gold-bearing sulfide ore (arsenopyrite/pyrite)
+    bioleaching, 70-85% gold recovery, 50-200 ppm CN-, and 7-14 day leaching time
+    that do not come from the cited waste-PCB bioleaching source (doi:10.1007/s10163-014-0276-4:
+    Acidithiobacillus ferrooxidans pretreatment removing >80% Cu followed by Chromobacterium
+    violaceum bioleaching reaching 70.6% Au bioleaching efficiency vs 45.5% in direct
+    bioleaching).'
+  target_ids:
+  - CommunityMech:000273
+  field_paths:
+  - description
+  - environment_term.notes
+  - taxonomy[0].taxon_term.notes
+  - environmental_factors
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-network-integrity
+  - ev-stage5-primary-sources
+  rule_id: review-yaml-record:evidence-claim-alignment
+  native_severity: P2
+  normalization_reason: CommunityMech P2 (unverified numeric/substrate prose not supported
+    by cited primary source) maps to major.
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    role: canonical_record
+  tags:
+  - evidence
+  - isolates
+  - stage5-remediation
+  disposition_reason: 'Resolved in Issue #2050: replaced unverified refractory arsenopyrite
+    ore recovery claims and un-evidenced environmental_factors in data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    (CommunityMech:000273) with claims strictly supported by doi:10.1007/s10163-014-0276-4.'
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101000Z-stage4-record-deep-audit
+    finding_id: stage4-isolate-000273-unverified-ore-prose
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: stage4-isolate-000273-unverified-ore-prose
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2050
+- finding_id: stage4-isolate-000321-missing-functional-role
+  issue_key: communitymech-stage4-000321-missing-role
+  category: completeness
+  severity: minor
+  status: resolved
+  certainty: confirmed
+  title: CommunityMech:000321 omits functional_role and abundance_level on its sole
+    taxon entry
+  description: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml (CommunityMech:000321)
+    is the only record in data/isolates/ missing functional_role and abundance_level
+    on taxonomy[0] (Rothia, NCBITaxon:32207, supported by PMID:33398099 and PMID:28963201),
+    reducing its proportional Completeness Score to 80/100.
+  target_ids:
+  - CommunityMech:000321
+  field_paths:
+  - taxonomy[0].functional_role
+  - taxonomy[0].abundance_level
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-network-integrity
+  - ev-stage5-primary-sources
+  rule_id: review-communities:completeness-functional-roles
+  native_severity: P3
+  normalization_reason: CommunityMech P3 (missing optional functional_role annotation
+    on isolate taxon) maps to minor.
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    role: canonical_record
+  tags:
+  - completeness
+  - isolates
+  - stage5-remediation
+  disposition_reason: 'Resolved in Issue #2050: populated functional_role: [CROSS_FEEDER]
+    and abundance_level: RARE with verbatim primary-source evidence on taxonomy[0]
+    (Rothia kefirresidentii KRP, NCBITaxon:32207) in data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    (CommunityMech:000321) backed by PMID:33398099 and PMID:28963201.'
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101000Z-stage4-record-deep-audit
+    finding_id: stage4-isolate-000321-missing-functional-role
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: stage4-isolate-000321-missing-functional-role
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/2050
+- finding_id: cheese-assay-evidence-gap
+  issue_key: cheese-assay-evidence-gap
+  category: evidence
+  severity: minor
+  status: deferred
+  certainty: confirmed
+  title: Full-text-dependent cheese rind assay specifics remain deferred in CommunityMech:000153
+  description: Cheese_Rind_InSitu_InVitro_Model_Community.yaml (CommunityMech:000153)
+    remains capped at abstract-verified taxa and interactions because strain-specific
+    pairwise assay details in PMID:25043025 require full-text table inspection.
+  target_ids:
+  - CommunityMech:000153
+  field_paths:
+  - ecological_interactions
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-primary-sources
+  rule_id: review-yaml-record:source-limited-gap
+  native_severity: P3
+  normalization_reason: Source-limited full-text assay detail gap preserved as minor.
+  disposition_reason: 'Deferred: source-limited until full-text assay tables for PMID:25043025
+    are ingested.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T091351Z-cheese-before
+    finding_id: evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T092604Z-cheese-after
+    finding_id: evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: cheese-assay-evidence-gap
+  tags:
+  - carried-forward
+  - source-limited
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/765
+- finding_id: communitymech-1467-source-discrepancy-and-extension
+  issue_key: communitymech-1467-source-discrepancy-and-extension
+  category: evidence
+  severity: minor
+  status: deferred
+  certainty: confirmed
+  title: Broader 18-species Transwell campaign and strain/table discrepancies in CommunityMech:000091
+    require full-text audit
+  description: 'GLBRC_Exometabolite_Transwell_SynCom.yaml (CommunityMech:000091) captures
+    the abstract-supported exometabolite Transwell SynCom, while full-text table reconciliation
+    for the broader 18-species campaign remains open under issue #1467.'
+  target_ids:
+  - CommunityMech:000091
+  field_paths:
+  - taxonomy
+  - ecological_interactions
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-primary-sources
+  rule_id: review-yaml-record:source-limited-gap
+  native_severity: P3
+  normalization_reason: Source-limited full-text extension preserved as minor.
+  disposition_reason: 'Deferred: tracked in GitHub issue #1467 pending full-text table
+    reconciliation.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T062338Z-transwell-before
+    finding_id: remaining
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T063739Z-transwell-after
+    finding_id: remaining
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1467
+  tags:
+  - carried-forward
+  - source-limited
+- finding_id: communitymech-1699-coverage
+  issue_key: communitymech-1699-coverage
+  category: completeness
+  severity: minor
+  status: deferred
+  certainty: confirmed
+  title: Additional Phormidium alkaline-lake co-isolates in CommunityMech:000054 require
+    full-text table verification
+  description: Phormidium_Alkaline_Consortium.yaml (CommunityMech:000054) models the
+    primary cyanobacterial host and abstract-backed heterotrophic guild; additional
+    heterotrophic co-isolates require full-text table verification (#1699).
+  target_ids:
+  - CommunityMech:000054
+  field_paths:
+  - taxonomy
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-primary-sources
+  rule_id: review-yaml-record:source-limited-gap
+  native_severity: P3
+  normalization_reason: Source-limited full-text membership extension preserved as
+    minor.
+  disposition_reason: 'Deferred: tracked in GitHub issue #1699 pending full-text isolate
+    table verification.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Phormidium_Alkaline_Consortium.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261014T235318Z-causal-prompt-phormidium-after
+    finding_id: phormidium-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T014050Z-phormidium-identity-after
+    finding_id: phormidium-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: communitymech-1699-coverage
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1699
+  tags:
+  - carried-forward
+  - source-limited
+- finding_id: communitymech-1841
+  issue_key: communitymech-1841
+  category: grounding
+  severity: minor
+  status: deferred
+  certainty: confirmed
+  title: Lower-rank taxon resolution for Sulfide Spring Autotrophic CPR Biofilm (CommunityMech:000222)
+    requires full-text MAG table
+  description: Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml (CommunityMech:000222)
+    retains parent-rank taxa from the abstract; resolving lower-rank MAG/isolate assignments
+    requires full-text supplementary tables (#1841).
+  target_ids:
+  - CommunityMech:000222
+  field_paths:
+  - taxonomy
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-primary-sources
+  rule_id: review-yaml-record:source-limited-gap
+  native_severity: P3
+  normalization_reason: Source-limited lower-rank taxonomic grounding gap preserved
+    as minor.
+  disposition_reason: 'Deferred: tracked in GitHub issue #1841 pending full-text supplementary
+    strain table inspection.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261014T200439Z-spring-parent-rank
+    finding_id: lower-rank
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: communitymech-1841
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1841
+  tags:
+  - carried-forward
+  - source-limited
+- finding_id: communitymech-1847-metg2-membership
+  issue_key: communitymech-1847-metg2-membership
+  category: completeness
+  severity: minor
+  status: deferred
+  certainty: confirmed
+  title: Complete MetG2 rhizobacteria membership and host-assay specifics in CommunityMech:000302
+    require full-text tables
+  description: SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml (CommunityMech:000302)
+    models the abstract-enumerated rhizobacterial taxa; full isolate membership and
+    assay specifics require full-text tables (#1847).
+  target_ids:
+  - CommunityMech:000302
+  field_paths:
+  - taxonomy
+  - growth_media
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-primary-sources
+  rule_id: review-yaml-record:source-limited-gap
+  native_severity: P3
+  normalization_reason: Source-limited full-text membership/cultivation gap preserved
+    as minor.
+  disposition_reason: 'Deferred: tracked in GitHub issue #1847 pending full-text membership
+    and media table inspection.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T043154Z-metg2-host-before
+    finding_id: membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T044333Z-metg2-host-after
+    finding_id: membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: communitymech-1847-metg2-membership
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1847
+  tags:
+  - carried-forward
+  - source-limited
+- finding_id: okeke-fulltext-assay-gap
+  issue_key: okeke-fulltext-assay-gap
+  category: evidence
+  severity: minor
+  status: deferred
+  certainty: confirmed
+  title: Paywalled full-text assay parameters for Okeke-Lu cellulolytic consortium
+    (CommunityMech:000048) remain deferred
+  description: Okeke_Lu_Cellulolytic_Consortium.yaml (CommunityMech:000048) is grounded
+    to abstract-verified cellulolytic-xylanolytic claims; full-text monoculture vs
+    co-culture enzyme assay parameters remain paywalled.
+  target_ids:
+  - CommunityMech:000048
+  field_paths:
+  - ecological_interactions
+  - growth_media
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-primary-sources
+  rule_id: review-yaml-record:source-limited-gap
+  native_severity: P3
+  normalization_reason: Paywalled full-text assay detail gap preserved as minor.
+  disposition_reason: 'Deferred: source-limited because primary full text is paywalled.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T105803Z-okeke-before
+    finding_id: source-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T110432Z-okeke-after
+    finding_id: source-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: okeke-fulltext-assay-gap
+  tags:
+  - carried-forward
+  - source-limited
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1657
+- finding_id: parachlorella-remaining-research
+  issue_key: parachlorella-remaining-research
+  category: evidence
+  severity: minor
+  status: deferred
+  certainty: confirmed
+  title: Secondary metabolite exchange specifics in Parachlorella-Saccharomyces co-culture
+    (CommunityMech:000295) require full-text data
+  description: Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml (CommunityMech:000295)
+    captures the primary abstract-supported algal-yeast mutualism; secondary metabolite
+    exchange kinetics require full-text tables.
+  target_ids:
+  - CommunityMech:000295
+  field_paths:
+  - ecological_interactions
+  evidence_ids:
+  - ev-stage5-schema-validation
+  - ev-stage5-primary-sources
+  rule_id: review-yaml-record:source-limited-gap
+  native_severity: P3
+  normalization_reason: Source-limited full-text interaction detail gap preserved
+    as minor.
+  disposition_reason: 'Deferred: source-limited pending full-text interaction data.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T133733Z-parachlorella-before
+    finding_id: remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T134821Z-parachlorella-after
+    finding_id: remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: parachlorella-remaining-research
+  tags:
+  - carried-forward
+  - source-limited
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1681
+actions:
+- action_id: act-defer-source-limited-fulltext-findings
+  description: 'Retain source-limited full-text findings under open GitHub issues
+    (#765, #1467, #1657, #1681, #1699, #1841, #1847) until open-access full text or
+    supplementary strain/assay tables become available for CommunityMech:000048, 000054,
+    000091, 000153, 000222, 000295, and 000302.'
+  finding_ids:
+  - cheese-assay-evidence-gap
+  - communitymech-1467-source-discrepancy-and-extension
+  - communitymech-1699-coverage
+  - communitymech-1841
+  - communitymech-1847-metg2-membership
+  - okeke-fulltext-assay-gap
+  - parachlorella-remaining-research
+  target_ids:
+  - CommunityMech:000048
+  - CommunityMech:000054
+  - CommunityMech:000091
+  - CommunityMech:000153
+  - CommunityMech:000222
+  - CommunityMech:000295
+  - CommunityMech:000302
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Phormidium_Alkaline_Consortium.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Verify full-text or supplementary table availability before expanding abstract-grounded
+    claims on source-limited records.
+limitations:
+- 'Seven source-limited community records (CommunityMech:000048 #1657, 000054 #1699,
+  000091 #1467, 000153 #765, 000222 #1841, 000295 #1681, 000302 #1847) remain deferred
+  because primary full text or supplementary tables are paywalled or unavailable in
+  references_cache/.'
+- 'Three SynCom/consortium records (CommunityMech:000399 #1729, 000433 #1648, 000364
+  #1787) preserve their prior causal-review-batch-locked interaction scope enforced
+  by tests/test_causal_review_batch{88,78,99}.py.'
+related_reviews:
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T101000Z-stage4-record-deep-audit
+  relationship: supersedes_stage4_deep_audit
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T101100Z-stage4-frozen-cohort-review
+  relationship: supersedes_stage4_cohort_review
+tags:
+- stage5
+- remediation-verification
+- record-review
+```

@@ -103,8 +103,22 @@ def test_batch40_complete_dispositions_canonical_participants_and_history():
     assert sum(len(r["node_decisions"]) for r in ledger["records"]) == 9
     assert sum(len(r["retained_edge_decisions"]) for r in ledger["records"]) == 5
     assert sum(len(r["removed_edge_decisions"]) for r in ledger["records"]) == 1
+    successor_file = (
+        ROOT / "reports/causal_graph_review/decisions/20261021-stage3-common-taxon-links.yaml"
+    )
+    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
     for row, doc in zip(ledger["records"], docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        latest = row
+        if row["id"] == "CommunityMech:000298":
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )
         assert row["status"] == "reviewed"
         assert len(row["history_files"]) == 1
         assert (ROOT / row["history_files"][0]).is_file()

@@ -498,8 +498,16 @@
                         </td>
                         <td>
 
+                            <div class="roles-list">
+
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+
+                                <span class="role-badge">CROSS_FEEDER</span>
+
+                            </div>
+
                         </td>
-                        <td>N/A</td>
+                        <td>DOMINANT</td>
                     </tr>
 
                     <tr class="evidence-row-container">
@@ -538,8 +546,16 @@
                         </td>
                         <td>
 
+                            <div class="roles-list">
+
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+
+                                <span class="role-badge">CROSS_FEEDER</span>
+
+                            </div>
+
                         </td>
-                        <td>N/A</td>
+                        <td>ABUNDANT</td>
                     </tr>
 
                     <tr class="evidence-row-container">
@@ -682,6 +698,18 @@
                 <p><strong>Target Taxon:</strong> Streptococcus mutans</p>
 
 
+
+                <p><strong>Metabolites:</strong>
+
+                    exopolysaccharide
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=72813"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:72813</a>
+                    · <a href="https://culturebotai.github.io/MediaIngredientMech/browse.html?q=exopolysaccharide"
+                         class="term-link" target="_blank" rel="noopener noreferrer">MediaIngredientMech</a>
+                    · <a href="https://culturebotai.github.io/CMMMech/browse.html?q=exopolysaccharide"
+                         class="term-link" target="_blank" rel="noopener noreferrer">CMMMech</a>)
+
+                </p>
 
 
 
@@ -851,6 +879,50 @@
         <!-- Environmental Factors -->
 
 
+
+        <section>
+            <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>Sucrose availability</strong></td>
+                        <td>1% (30 mM) sucrose</td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/24566629/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24566629</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"tryptone-yeast extract (UFYTE) broth containing 1% (30 mM) sucrose"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+            </div>
+        </section>
 
 
         <!-- Growth Media -->
@@ -1029,15 +1101,15 @@
         taxonData["Streptococcus mutans"] = {
             id: "NCBITaxon:1309",
             label: "Streptococcus mutans",
-            abundance: "UNKNOWN",
-            roles: []
+            abundance: "DOMINANT",
+            roles: ["PRIMARY_DEGRADER", "CROSS_FEEDER"]
         };
 
         taxonData["Candida albicans"] = {
             id: "NCBITaxon:5476",
             label: "Candida albicans",
-            abundance: "UNKNOWN",
-            roles: []
+            abundance: "ABUNDANT",
+            roles: ["SYNTROPHIC_PARTNER", "CROSS_FEEDER"]
         };
 
 
@@ -1105,6 +1177,10 @@
             var intId = "interaction:1";
             var intType = "COLONIZATION_FACILITATION";
             var metabolites = [];
+
+
+            metabolites.push("exopolysaccharide");
+
 
             var processes = [];
 

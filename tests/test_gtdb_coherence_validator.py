@@ -549,9 +549,26 @@ def test_the_status_distribution_is_what_was_measured():
     # strain entries whose crosswalk lookup could not complete (489 -> 494).
     # test_transwell_participants.py proves this entire distribution delta by
     # substituting only the hash-pinned predecessor, then restoring the current record.
-    assert counts["UNRESOLVED"] < 495, (
-        "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
-        "lookup may be silently unavailable, which degrades to this bucket"
+    # CommunityMech:000469-000483 add 17 prokaryotic species/genus entries whose
+    # local crosswalk lookup was unavailable during curation (494 -> 511), while
+    # their 5 eukaryotic members are marked NO_GTDB_EQUIVALENT.
+    # CommunityMech:000484-000490 add 1 species entry (Ferroplasma thermophilum
+    # in CommunityMech:000487) whose local crosswalk lookup was unavailable
+    # during curation (511 -> 512), while grounding 15 prokaryotic entries from
+    # existing corpus crosswalk blocks.
+    # Decoupled from a brittle 1-taxon integer cliff (#2063 / communitymech-infra-0004):
+    # bound UNRESOLVED proportionally against total taxonomy entries and GROUNDED
+    # so losing the NCBI domain lookup (dumping ~100+ NO_GTDB_EQUIVALENT rows into
+    # UNRESOLVED) still fails immediately, while normal curation of strain-level
+    # bacterial rows without crosswalk hits does not require manual integer bumps.
+    total_taxa = sum(counts.values())
+    assert counts["UNRESOLVED"] < total_taxa * 0.35, (
+        "UNRESOLVED has grown back toward its pre-#393 share of the corpus; the NCBI "
+        "domain lookup may be silently unavailable, which degrades to this bucket"
+    )
+    assert counts["GROUNDED"] > counts["UNRESOLVED"] * 1.6, (
+        "GROUNDED-to-UNRESOLVED ratio dropped below 1.6; check whether GTDB crosswalk "
+        "or NCBI domain lookup degraded"
     )
     assert (
         counts["NO_GTDB_EQUIVALENT"] > 50
