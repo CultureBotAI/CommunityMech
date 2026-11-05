@@ -194,19 +194,19 @@ Record CommunityMech:taxon:000002 (kb/taxa/Geobacter_sulfurreducens.yaml) in coh
 
 major / open / confirmed; issue key: c7s4-000146-anammox-granule-abundance-levels.
 
-In kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml (CommunityMech:000146), Brocadia-affiliated anammox bacterium AMX1 (taxonomy[0], NCBITaxon:795830, functional_role: [PRIMARY_PRODUCER, CROSS_FEEDER], abundance_value: 'About 62 percent relative abundance and 54 percent gene expression in the granules'), Chlorobi-affiliated heterotrophic bacteria (taxonomy[1], NCBITaxon:1090, functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER], abundance_value: 'CHB1 about 21 percent relative abundance and 26 percent gene expression'), and anammox-granule heterotrophic flanking bacteria (taxonomy[2], NCBITaxon:2, functional_role: [SECONDARY_FERMENTER, CROSS_FEEDER], aggregated Bacteroidetes, Chloroflexi, and Proteobacteria MAGs) omit abundance_level. The cited open-access study (doi:10.1038/ncomms15416, PMID:28561030 / PMC5460018) explicitly reports that 'AMX1 had a relative abundance and gene expression of ∼62 and 54%, respectively, whereas CHB1 had a relative abundance and gene expression of ∼21 and 26%, respectively. Other organisms that displayed moderate abundance and gene expression in the anammox ecosystem were affiliated with the phyla Chlorobi, Bacteroidetes, Chloroflexi and Proteobacteria ( Fig. 2 ).' Setting abundance_level: DOMINANT on taxonomy[0], abundance_level: ABUNDANT on taxonomy[1], and abundance_level: COMMON on taxonomy[2] while preserving discussions[0] (anammox_granule_resolved_exchange) raises scripts/audit_completeness.py score from 95/100 to 100/100.
+In kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml (CommunityMech:000146), Brocadia-affiliated anammox bacterium AMX1 (taxonomy[0], NCBITaxon:795830, functional_role: [PRIMARY_PRODUCER, CROSS_FEEDER], abundance_value: 'About 62 percent relative abundance and 54 percent gene expression in the granules'), Chlorobi-affiliated heterotrophic bacteria (taxonomy[1], NCBITaxon:1090, functional_role: [PRIMARY_DEGRADER, CROSS_FEEDER], abundance_value: 'CHB1 about 21 percent relative abundance and 26 percent gene expression'), and anammox-granule heterotrophic flanking bacteria (taxonomy[2], NCBITaxon:2, functional_role: [SECONDARY_FERMENTER, CROSS_FEEDER], aggregated Bacteroidetes, Chloroflexi, and Proteobacteria MAGs) omit abundance_level. The cited open-access study (doi:10.1038/ncomms15416, PMID:28561030 / PMC5460018) explicitly reports that 'AMX1 had a relative abundance and gene expression of ∼62 and 54%, respectively, whereas CHB1 had a relative abundance and gene expression of ∼21 and 26%, respectively. Other organisms that displayed moderate abundance and gene expression in the anammox ecosystem were affiliated with the phyla Chlorobi, Bacteroidetes, Chloroflexi and Proteobacteria ( Fig. 2 ).' Setting abundance_level: DOMINANT on taxonomy[0], abundance_level: ABUNDANT on taxonomy[1], and abundance_level: COMMON on taxonomy[2] while preserving discussions[0] (anammox_granule_resolved_exchange) raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/3 -&gt; 3/3 taxa with abundance_level).
 
 ### c7s4-000190-pelotomaculum-methanocella-abundance-levels: Both co-equal syntrophic partners in Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture (CommunityMech:000190) omit abundance_level despite explicit defined-coculture support in PMID:30038609
 
 major / open / confirmed; issue key: c7s4-000190-pelotomaculum-methanocella-abundance-levels.
 
-In kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml (CommunityMech:000190), both Pelotomaculum thermopropionicum (taxonomy[0], NCBITaxon:110500, functional_role: [PRIMARY_DEGRADER, SYNTROPHIC_PARTNER]) and Methanocella conradii (taxonomy[1], NCBITaxon:1175444, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]) omit abundance_level. The cited open-access primary study (PMID:30038609, PMC6046458, doi:10.3389/fmicb.2018.01551) explicitly establishes that 'we constructed cocultures of propionate-oxidizing Pelotomaculum thermopropionicum and hydrogenotrophic Methanocella conradii and compared them to monocultures. Transcriptome analysis was performed on these cultures using strand-specific mRNA sequencing (RNA-Seq).' Setting abundance_level: DOMINANT on both co-equal syntrophic coculture partners while preserving discussions[0] (pelotomaculum_methanocella_dihe_flux_unresolved) raises scripts/audit_completeness.py score from 100/100 to 95/100.
+In kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml (CommunityMech:000190), both Pelotomaculum thermopropionicum (taxonomy[0], NCBITaxon:110500, functional_role: [PRIMARY_DEGRADER, SYNTROPHIC_PARTNER]) and Methanocella conradii (taxonomy[1], NCBITaxon:1175444, functional_role: [SYNTROPHIC_PARTNER, CROSS_FEEDER]) omit abundance_level. The cited open-access primary study (PMID:30038609, PMC6046458, doi:10.3389/fmicb.2018.01551) explicitly establishes that 'we constructed cocultures of propionate-oxidizing Pelotomaculum thermopropionicum and hydrogenotrophic Methanocella conradii and compared them to monocultures. Transcriptome analysis was performed on these cultures using strand-specific mRNA sequencing (RNA-Seq).' Setting abundance_level: DOMINANT on both co-equal syntrophic coculture partners while preserving discussions[0] (peloto_expression_and_transfer_causality) raises the review-communities s_ab abundance_level rubric component from 0/5 to 5/5 (0/2 -&gt; 2/2 taxa with abundance_level).
 
 ### c7s4-000451-auxenochlorella-pseudomonas-sp1-abundance-level: Pseudomonas sp. Pseudomonas_sp1 (taxonomy[1]) in Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture (CommunityMech:000451) omits abundance_level despite defined two-member co-culture support in PMID:41724996
 
 major / open / confirmed; issue key: c7s4-000451-auxenochlorella-pseudomonas-sp1-abundance-level.
 
-In kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml (CommunityMech:000451), Auxenochlorella pyrenoidosa (taxonomy[0], NCBITaxon:3078, functional_role: [PRIMARY_PRODUCER]) carries abundance_level: DOMINANT, whereas its paired bacterial partner Pseudomonas sp. Pseudomonas_sp1 (taxonomy[1], NCBITaxon:306, functional_role: [CROSS_FEEDER]) omits abundance_level. The cited open-access study (PMID:41724996, PMC13037320, doi:10.1186/s40168-026-02335-7) establishes that Pseudomonas_sp1 was the dominant florfenicol-selected phycosphere isolate and the sole bacterial partner in the defined 13-day co-culture with axenic A. pyrenoidosa ('Therefore, Pseudomonas_sp1 was selected for co-cultivation with axenic A. pyrenoidosa to explore how stress-selected bacteria cooperate with microalgae in the phycosphere.'). Setting abundance_level: DOMINANT on taxonomy[1] while preserving discussions[0] (auxenochlorella_pseudomonas_ff_transport_and_flux_unresolved) raises scripts/audit_completeness.py score from 65/100 to 75/100.
+In kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml (CommunityMech:000451), Auxenochlorella pyrenoidosa (taxonomy[0], NCBITaxon:3078, functional_role: [PRIMARY_PRODUCER]) carries abundance_level: DOMINANT, whereas its paired bacterial partner Pseudomonas sp. Pseudomonas_sp1 (taxonomy[1], NCBITaxon:306, functional_role: [CROSS_FEEDER]) omits abundance_level. The cited open-access study (PMID:41724996, PMC13037320, doi:10.1186/s40168-026-02335-7) establishes that Pseudomonas_sp1 was the dominant florfenicol-selected phycosphere isolate and the sole bacterial partner in the defined 13-day co-culture with axenic A. pyrenoidosa ('Therefore, Pseudomonas_sp1 was selected for co-cultivation with axenic A. pyrenoidosa to explore how stress-selected bacteria cooperate with microalgae in the phycosphere.'). Setting abundance_level: DOMINANT on taxonomy[1] while preserving discussions[0] (exact-pair-growth-medium) and discussions[1] (auxeno_pyridoxal_mediation) raises the review-communities s_ab abundance_level rubric component from 2.5/5 to 5/5 (1/2 -&gt; 2/2 taxa with abundance_level).
 
 ## Recommended Actions And Acceptance Checks
 
@@ -219,14 +219,14 @@ Add abundance_level: DOMINANT to Brocadia-affiliated anammox bacterium AMX1 (tax
 
 ### act-populate-pelotomaculum-methanocella-abundance-levels
 
-Add abundance_level: DOMINANT to both Pelotomaculum thermopropionicum (taxonomy[0], NCBITaxon:110500) and Methanocella conradii (taxonomy[1], NCBITaxon:1175444) backed by PMID:30038609 (PMC6046458, doi:10.3389/fmicb.2018.01551) on CommunityMech:000190 while preserving discussions[0] (pelotomaculum_methanocella_dihe_flux_unresolved), and append curation_history.
+Add abundance_level: DOMINANT to both Pelotomaculum thermopropionicum (taxonomy[0], NCBITaxon:110500) and Methanocella conradii (taxonomy[1], NCBITaxon:1175444) backed by PMID:30038609 (PMC6046458, doi:10.3389/fmicb.2018.01551) on CommunityMech:000190 while preserving discussions[0] (peloto_expression_and_transfer_causality), and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml
 - just validate-history history
 
 ### act-populate-auxenochlorella-pseudomonas-sp1-abundance-level
 
-Add abundance_level: DOMINANT to Pseudomonas sp. Pseudomonas_sp1 (taxonomy[1], NCBITaxon:306) backed by PMID:41724996 (PMC13037320, doi:10.1186/s40168-026-02335-7) on CommunityMech:000451 while preserving discussions[0] (auxenochlorella_pseudomonas_ff_transport_and_flux_unresolved), and append curation_history.
+Add abundance_level: DOMINANT to Pseudomonas sp. Pseudomonas_sp1 (taxonomy[1], NCBITaxon:306) backed by PMID:41724996 (PMC13037320, doi:10.1186/s40168-026-02335-7) on CommunityMech:000451 while preserving discussions[0] (exact-pair-growth-medium) and discussions[1] (auxeno_pyridoxal_mediation), and append curation_history.
 
 - uv run linkml-validate --schema src/communitymech/schema/communitymech.yaml --target-class MicrobialCommunity kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
 - just validate-history history
@@ -1258,8 +1258,8 @@ findings:
     with the phyla Chlorobi, Bacteroidetes, Chloroflexi and Proteobacteria ( Fig.
     2 ).'' Setting abundance_level: DOMINANT on taxonomy[0], abundance_level: ABUNDANT
     on taxonomy[1], and abundance_level: COMMON on taxonomy[2] while preserving discussions[0]
-    (anammox_granule_resolved_exchange) raises scripts/audit_completeness.py score
-    from 95/100 to 100/100.'
+    (anammox_granule_resolved_exchange) raises the review-communities s_ab abundance_level
+    rubric component from 0/5 to 5/5 (0/3 -> 3/3 taxa with abundance_level).'
   target_ids:
   - CommunityMech:000146
   field_paths:
@@ -1272,8 +1272,8 @@ findings:
   rule_id: review-yaml-record:taxonomy-abundance-level-completeness
   native_severity: P2
   normalization_reason: Missing source-backed abundance_level on all three granule
-    community members (Completeness Score 95/100; scripts/audit_completeness.py score
-    95/100) maps to major (P2).
+    community members leaves the review-communities s_ab rubric component at 0/5 (Completeness
+    Score 95/100; scripts/audit_completeness.py score 95/100) and maps to major (P2).
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
@@ -1302,8 +1302,8 @@ findings:
     conradii and compared them to monocultures. Transcriptome analysis was performed
     on these cultures using strand-specific mRNA sequencing (RNA-Seq).'' Setting abundance_level:
     DOMINANT on both co-equal syntrophic coculture partners while preserving discussions[0]
-    (pelotomaculum_methanocella_dihe_flux_unresolved) raises scripts/audit_completeness.py
-    score from 100/100 to 95/100.'
+    (peloto_expression_and_transfer_causality) raises the review-communities s_ab
+    abundance_level rubric component from 0/5 to 5/5 (0/2 -> 2/2 taxa with abundance_level).'
   target_ids:
   - CommunityMech:000190
   field_paths:
@@ -1315,8 +1315,9 @@ findings:
   rule_id: review-yaml-record:taxonomy-abundance-level-completeness
   native_severity: P2
   normalization_reason: Missing source-backed abundance_level on both defined syntrophic
-    coculture partners (Completeness Score 97/100; scripts/audit_completeness.py score
-    100/100) maps to major (P2).
+    coculture partners leaves the review-communities s_ab rubric component at 0/5
+    (Completeness Score 97/100; scripts/audit_completeness.py score 100/100) and maps
+    to major (P2).
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml
@@ -1346,8 +1347,9 @@ findings:
     pyrenoidosa (''Therefore, Pseudomonas_sp1 was selected for co-cultivation with
     axenic A. pyrenoidosa to explore how stress-selected bacteria cooperate with microalgae
     in the phycosphere.''). Setting abundance_level: DOMINANT on taxonomy[1] while
-    preserving discussions[0] (auxenochlorella_pseudomonas_ff_transport_and_flux_unresolved)
-    raises scripts/audit_completeness.py score from 65/100 to 75/100.'
+    preserving discussions[0] (exact-pair-growth-medium) and discussions[1] (auxeno_pyridoxal_mediation)
+    raises the review-communities s_ab abundance_level rubric component from 2.5/5
+    to 5/5 (1/2 -> 2/2 taxa with abundance_level).'
   target_ids:
   - CommunityMech:000451
   field_paths:
@@ -1358,8 +1360,9 @@ findings:
   rule_id: review-yaml-record:taxonomy-abundance-level-completeness
   native_severity: P2
   normalization_reason: Missing source-backed abundance_level on the sole bacterial
-    co-culture partner (Completeness Score 90/100; scripts/audit_completeness.py score
-    65/100) maps to major (P2).
+    co-culture partner leaves the review-communities s_ab rubric component at 2.5/5
+    (Completeness Score 90/100; scripts/audit_completeness.py score 65/100) and maps
+    to major (P2).
   owner_paths:
   - repository: CultureBotAI/CommunityMech
     path: kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
@@ -1393,8 +1396,8 @@ actions:
   description: 'Add abundance_level: DOMINANT to both Pelotomaculum thermopropionicum
     (taxonomy[0], NCBITaxon:110500) and Methanocella conradii (taxonomy[1], NCBITaxon:1175444)
     backed by PMID:30038609 (PMC6046458, doi:10.3389/fmicb.2018.01551) on CommunityMech:000190
-    while preserving discussions[0] (pelotomaculum_methanocella_dihe_flux_unresolved),
-    and append curation_history.'
+    while preserving discussions[0] (peloto_expression_and_transfer_causality), and
+    append curation_history.'
   finding_ids:
   - c7s4-000190-pelotomaculum-methanocella-abundance-levels
   target_ids:
@@ -1410,8 +1413,8 @@ actions:
 - action_id: act-populate-auxenochlorella-pseudomonas-sp1-abundance-level
   description: 'Add abundance_level: DOMINANT to Pseudomonas sp. Pseudomonas_sp1 (taxonomy[1],
     NCBITaxon:306) backed by PMID:41724996 (PMC13037320, doi:10.1186/s40168-026-02335-7)
-    on CommunityMech:000451 while preserving discussions[0] (auxenochlorella_pseudomonas_ff_transport_and_flux_unresolved),
-    and append curation_history.'
+    on CommunityMech:000451 while preserving discussions[0] (exact-pair-growth-medium)
+    and discussions[1] (auxeno_pyridoxal_mediation), and append curation_history.'
   finding_ids:
   - c7s4-000451-auxenochlorella-pseudomonas-sp1-abundance-level
   target_ids:
