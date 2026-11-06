@@ -1,0 +1,955 @@
+schema_version: 1.0.0
+review_id: 20261020T035434Z-acidic-nitrification-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Acidic nitrification consortium: abstract-bounded record review'
+started_at: '2026-10-20T03:52:15.785811Z'
+finished_at: '2026-10-20T03:54:34.622013Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Record untouched this session; historical codex curation prevents
+    a person-level independence claim.
+skill: review-yaml-record
+completion: partial
+verdict: needs_curation
+scientific_review: true
+summary: The abstract supports the bounded community identity and putative linkage
+  without exact metabolites or directed arrows. Two minor findings concern absent
+  taxon-role metadata and application-motivation evidence type. Full-text access failed;
+  exact methods, genome identities and data resources remain unresolved.
+source:
+  git_revision: a4611c913c8da9619673df63a0c2cce3aa206a83
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/records/Acidic_Nitrification_Minimal_Consortium/2026-09-26T091009Z-codex-434.yaml
+    sha256: 55c443328db309e7ee13aa48767292c0e5c121f80c3e79486b343afb10a6903b
+    role: context
+  - path: history/records/Acidic_Nitrification_Minimal_Consortium/2026-09-26T091545Z-codex-1086-1088.yaml
+    sha256: 592b1db3623e60e48ac6cf6182d32217d202f19d1ff82c57cc46831cdde2126f
+    role: context
+  - path: history/records/Acidic_Nitrification_Minimal_Consortium/2026-09-26T094815Z-codex-ci.yaml
+    sha256: 52712bf1c21b27680d84ce1cf9b3cf709a71ddaea5f3791ecc6765ba764f1109
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+    sha256: 376423d5910b761cc88aa6d9afe44204a7c275ed3e8873fef1a56c4def1e19c9
+    role: target
+  - path: references_cache/PMID_42762737.txt
+    sha256: fde9a687c5f7536e81271d437193302dd0d5430a6d9dd7d1026cc053deb47877
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-seven-records.yaml
+    sha256: 064f7395bbb54d42023f3a0bceeb31a3dd990221e62094f6a51507fee81eea69
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: e5a87e5367609334ec0d6361f6ddafbe6bc4a1f7d93e5264c64688c28325910f
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000434
+  path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  label: Acidic Nitrification Minimal Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+    role: canonical_record
+scope:
+  description: Entire target read and all present claims checked against available
+    complete abstract, identifier metadata and local authorities; full-text-dependent
+    details remain unresolved.
+  selection: Fourth uncovered record in batch 02 path order; validated baseline and
+    pending batch-01 targets excluded.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000434
+  exclusions:
+  - target: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml#discussions[0]
+    reason: Full Methods, genome accessions and reactor-specific abundance matrix
+      could not be verified because publisher retrieval failed. The existing source-details
+      gap remains open.
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: 'No issues found
+
+    uv run linkml-validate -s src/communitymech/schema/communitymech.yaml kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml'
+  target_ids:
+  - CommunityMech:000434
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: "uv run python scripts/validate_strict.py kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml\
+    \ --out /private/tmp/cm-review-session/batch-02/000434/strict-report.tsv\nValidating\
+    \ 1 files with 17 workers; schema=/private/tmp/communitymech-record-reviews-batch-02/src/communitymech/schema/communitymech.yaml\n\
+    \n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:\
+    \   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/cm-review-session/batch-02/000434/strict-report.tsv"
+  target_ids:
+  - CommunityMech:000434
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-strict kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+    --out /private/tmp/cm-review-session/batch-02/000434/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: '✅ Validation passed
+
+    uv run linkml-term-validator validate-data kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+    -s src/communitymech/schema/communitymech.yaml --labels'
+  target_ids:
+  - CommunityMech:000434
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-terms kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: 'PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+
+
+    files checked: 1
+
+    incoherent blocks: 0
+
+    malformed lineages: 0
+
+    lineage conflicts: 0'
+  target_ids:
+  - CommunityMech:000434
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-gtdb kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: 'files checked: 1
+
+    contradictory lineages: 0
+
+    PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml'
+  target_ids:
+  - CommunityMech:000434
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-gtdb-domain kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: No issues found
+  target_ids:
+  - CommunityMech:000434
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-history history/records/Acidic_Nitrification_Minimal_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Command completed without reported issues.
+  target_ids:
+  - CommunityMech:000434
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: "Validating kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml\
+    \ against schema src/communitymech/schema/communitymech.yaml\nCache directory:\
+    \ references_cache\n\nValidation Summary:\n  Reported validation issues: 0\n \
+    \ All validations passed!\n\n[annotate] This is not a count of checked excerpts\
+    \ (#1469). Native Discussion evidence coverage remains incomplete (#476)."
+  target_ids:
+  - CommunityMech:000434
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-references-explained kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target/history; cache-name check is read-only corpus preflight.
+    No ontology skips; all inspected cache bytes unchanged.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: 'Reused complete corpus result at identical freshly fetched base and unchanged
+    canonical corpus: exit 1; 462 records, 57 warnings in 21 records, zero errors.
+    Target has no finding. No new execution is claimed.'
+  target_ids:
+  - CommunityMech:000434
+  command: just --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  scope_note: Corpus-wide warnings outside selected target, retained as actual required
+    failures.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: 'Reused complete corpus result at identical freshly fetched base and unchanged
+    canonical corpus: exit 1; 462 records, 57 warnings in 21 records, zero errors.
+    Target has no finding. No new execution is claimed.'
+  target_ids:
+  - CommunityMech:000434
+  command: just --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  scope_note: Corpus-wide warnings outside selected target, retained as actual required
+    failures.
+- check_id: optional-adapter
+  name: Optional structured-source adapter
+  status: unavailable
+  required: false
+  summary: Runner unavailable in isolated runtime; inspected public catalog fallback
+    has no matching organism.
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - adapter
+- check_id: fulltext-source
+  name: Full-text source review
+  status: unavailable
+  required: true
+  summary: PubMed abstract and metadata verified. Publisher HTML returned 403 and
+    XML 429; access registries disagree. Full Methods, supplements and genome/dataset
+    identity remain unverified.
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - publisher
+  - publisher-xml
+  - epmc
+  - crossref
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  locator: 'Entire record: two taxon descriptors, one putative node, no downstream
+    arrows, two environmental factors, three chemicals and two publication resources'
+  summary: The record summarizes three acidic nitrification reactors and distinguishes
+    the dominant pH-specific populations. It deliberately leaves reactor methods and
+    genome identifiers unresolved.
+  support: supports
+  accessed_at: '2026-10-20T03:54:34.618016Z'
+- evidence_id: abstract
+  kind: primary_source
+  reference: PMID:42762737
+  locator: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42762737&retmode=xml;
+    complete PubMed abstract
+  summary: The source combines genome-resolved meta-omics and chemical observations.
+    The most acidic community is simplified and dominated by the two named populations;
+    the abstract does not establish an isolated two-strain minimal consortium or identify
+    an exact transferred compound.
+  support: supports
+  accessed_at: '2026-10-20T03:52:31.386984Z'
+  snapshot_sha256: 648889ecb932e1455e4318d23224cc1bab4acb4a38332da48e2886e873b3c9ca
+- evidence_id: linkage
+  kind: primary_source
+  reference: PMID:42762737
+  locator: PubMed abstract, pH-specific community paragraph
+  summary: Supports only putative community metabolic linkage, not transfer direction,
+    exact compound, reciprocal benefit or partner-resolved causal rescue.
+  support: supports
+  accessed_at: '2026-10-20T03:52:31.386984Z'
+  quote: suggested potential metabolic linkages related to carbon and nitrogen compound
+    cycling
+- evidence_id: dominance
+  kind: primary_source
+  reference: PMID:42762737
+  locator: PubMed abstract, pH-specific community paragraph
+  summary: Dominance of two named populations is not an assertion that all other members
+    are absent.
+  support: supports
+  accessed_at: '2026-10-20T03:52:31.386984Z'
+  quote: dominated by
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42762737&format=json&resultType=core
+  locator: Actual public response status 200
+  summary: Europe PMC agrees on article identity, reports no PMCID and labels its
+    DOI full-text link subscription-required.
+  support: supports
+  accessed_at: '2026-10-20T03:52:31.387358Z'
+  snapshot_sha256: 37ac2c1fffded3eafef89f1dd25d53cf2b2e2bd95cd18a0173f904aa0f22ffe1
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1016/j.watres.2026.126966
+  locator: Actual public response status 200
+  summary: Crossref agrees on title/DOI and advertises a Creative Commons version-of-record
+    license. This conflicts with the Europe PMC access label and does not itself prove
+    retrievable full text.
+  support: supports
+  accessed_at: '2026-10-20T03:52:31.387467Z'
+  snapshot_sha256: 423c8a2757f985b2748736a1ec9d14068dcc7f4833b124772d4a08c9838e757f
+- evidence_id: doi
+  kind: database
+  reference: https://doi.org/10.1016/j.watres.2026.126966
+  locator: Actual public response status 200
+  summary: DOI resolves to the correct Elsevier article identifier and redirect page,
+    not inspected full Methods.
+  support: supports
+  accessed_at: '2026-10-20T03:52:31.387623Z'
+  snapshot_sha256: 9299380595efcfe43357f565898253d1838b1337e6facb83337b296a540814f2
+- evidence_id: publisher
+  kind: database
+  reference: https://www.sciencedirect.com/science/article/pii/S0043135426016374
+  locator: Actual public response status 403
+  summary: Publisher HTML request returned HTTP 403; full text was not established.
+  support: context_only
+  accessed_at: '2026-10-20T03:52:45.801546Z'
+  snapshot_sha256: 4a9c838743c6753f657bce73e2c1230b5f65e867cf7b116973f4ace063df5bb1
+- evidence_id: publisher-xml
+  kind: database
+  reference: https://api.elsevier.com/content/article/PII:S0043135426016374?httpAccept=text/xml
+  locator: Actual public response status 429
+  summary: Publisher XML endpoint returned HTTP 429; no full text was obtained.
+  support: context_only
+  accessed_at: '2026-10-20T03:52:45.801966Z'
+  snapshot_sha256: 02f6d1d49ded4e0b0898231f5939ef4ad814352d39372ed5e91b8f5b69bf0d8c
+- evidence_id: taxonomy-search
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Nitrosoglobus%20kelleri&retmode=json
+  locator: Actual public response status 200
+  summary: Current NCBI taxonomy query for Nitrosoglobus kelleri returned zero matches.
+    This supports retaining cautious broad grounding, not asserting permanent absence
+    from all taxonomic authorities.
+  support: supports
+  accessed_at: '2026-10-20T03:52:31.387543Z'
+  snapshot_sha256: 4dff4f32766d2d9429c5fcf020a69b3909f42acd0d9d642518e8d1108f8118a7
+- evidence_id: ontology
+  kind: authority
+  reference: OAK local ENVO, CHEBI and NCBITaxon snapshots
+  locator: Six curated unique identifiers
+  summary: All canonical labels match. Family-level Nitrosococcaceae is an explicit
+    fallback for the novel species, not a species identifier. The three chemical descriptors
+    refer to ammonia, nitrite and nitric oxide; they are not curated as proven exchanged
+    metabolites.
+  support: supports
+  accessed_at: '2026-10-20T03:53:07.366918Z'
+  snapshot_sha256: a8f9d3e25a0f34b554b2c4cc4c36ba7aa3ba1333a8330f197f5f72d9466a6c64
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: TaxonDescriptor.functional_role; evidence-source and community-origin metadata
+  summary: Taxon roles are absent; the native completeness rubric requires roles for
+    its all-or-nothing required metadata block. Environmental state does not by itself
+    establish natural versus synthetic origin. Source motivation is not itself an
+    in-vitro experiment.
+  support: supports
+  accessed_at: '2026-10-20T03:54:34.618924Z'
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  locator: All 16 EvidenceItem occurrences including YAML aliases
+  summary: Fourteen science snippets match the current complete PubMed abstract after
+    NFKC/whitespace normalization. The remaining two are PMID/DOI metadata identifiers
+    that match current PubMed and Crossref. No full-text support is implied.
+  support: supports
+  accessed_at: '2026-10-20T03:54:34.619044Z'
+  snapshot_sha256: 63a5849200e9a58d546d4ab1c5555239afe741e3a1eb34a15b99d860384e8c7d
+- evidence_id: history
+  kind: record_content
+  reference: history/records/Acidic_Nitrification_Minimal_Consortium
+  locator: Three complete history entries; target row of reports/causal_graph_review/decisions/20261005-seven-records.yaml
+  summary: Prior curation removed unsupported control/setup details, exact interaction
+    compounds and a process annotation from the putative linkage. Later graph review
+    retained one explicitly uncertain node and no arrows. These limits remain relevant.
+  support: supports
+  accessed_at: '2026-10-20T03:54:34.619046Z'
+- evidence_id: local-search
+  kind: search
+  reference: references_cache; history/records; reports/causal_graph_review/decisions;
+    kb/taxa
+  locator: Ignored-inclusive identifier, slug and citation search
+  summary: Located the abstract cache and history/decision entries. No full-text cache
+    was returned in the bounded citation search, including ignored files. The entire
+    target has no growth-media, dataset or origin block.
+  support: supports
+  accessed_at: '2026-10-20T03:54:34.619196Z'
+  search_scope: rg --no-ignore --hidden -l '42762737|Acidic_Nitrification_Minimal_Consortium|watres.2026.126966'
+    references_cache history/records reports/causal_graph_review/decisions kb/taxa
+  snapshot_sha256: c45a1bfe2e1b18b8c74fe2b083c7bca8a533ae9436db9f19dac3fe20b2b368ba
+- evidence_id: adapter
+  kind: database
+  reference: https://imodulondb.org/api/datasets
+  locator: 'Same-session full public catalog: 20 organisms, 28 datasets'
+  summary: No exact Nitrosoglobus kelleri or identified partner-species dataset exists
+    in the inspected catalog. A broad genus label cannot identify a strain-specific
+    expression dataset. Unrelated mycobacterial models are not evidence for this environmental
+    consortium.
+  support: context_only
+  accessed_at: '2026-10-19T23:31:07.726770Z'
+  snapshot_sha256: 155607e7023efdead5ebab3919279a0776d5665a7de9e28b67f02f8f521b0693
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  locator: Actual execution 2026-10-20T03:52:16.506994+00:00 to 2026-10-20T03:52:17.202065+00:00
+  summary: 'No issues found
+
+    uv run linkml-validate -s src/communitymech/schema/communitymech.yaml kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml'
+  support: supports
+  accessed_at: '2026-10-20T03:52:17.202065Z'
+  snapshot_sha256: bd1ed330a0fbc1660c1168a8f51bf551ee6f66f50dfccae29acb746321116864
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-strict kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+    --out /private/tmp/cm-review-session/batch-02/000434/strict-report.tsv
+  locator: Actual execution 2026-10-20T03:52:16.507148+00:00 to 2026-10-20T03:52:18.886874+00:00
+  summary: "uv run python scripts/validate_strict.py kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml\
+    \ --out /private/tmp/cm-review-session/batch-02/000434/strict-report.tsv\nValidating\
+    \ 1 files with 17 workers; schema=/private/tmp/communitymech-record-reviews-batch-02/src/communitymech/schema/communitymech.yaml\n\
+    \n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:\
+    \   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/cm-review-session/batch-02/000434/strict-report.tsv"
+  support: supports
+  accessed_at: '2026-10-20T03:52:18.886874Z'
+  snapshot_sha256: 71a64ae203e4dde505d88b1c0a6f65ea7c3aa0855948dea993ff6202ef9b8af4
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-terms kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  locator: Actual execution 2026-10-20T03:52:16.507315+00:00 to 2026-10-20T03:52:18.443338+00:00
+  summary: '✅ Validation passed
+
+    uv run linkml-term-validator validate-data kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+    -s src/communitymech/schema/communitymech.yaml --labels'
+  support: supports
+  accessed_at: '2026-10-20T03:52:18.443338Z'
+  snapshot_sha256: a928aee2ca243107265299f78d271c0f16d6616885cd271c81d2d30b795b21a7
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-gtdb kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  locator: Actual execution 2026-10-20T03:52:17.202323+00:00 to 2026-10-20T03:52:17.276404+00:00
+  summary: 'PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+
+
+    files checked: 1
+
+    incoherent blocks: 0
+
+    malformed lineages: 0
+
+    lineage conflicts: 0'
+  support: supports
+  accessed_at: '2026-10-20T03:52:17.276404Z'
+  snapshot_sha256: 3c4782d208fe4a93feceef6db920016ed7af19fe7129854730ef40c9d51c1d77
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-gtdb-domain kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  locator: Actual execution 2026-10-20T03:52:17.276768+00:00 to 2026-10-20T03:52:18.848475+00:00
+  summary: 'files checked: 1
+
+    contradictory lineages: 0
+
+    PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml'
+  support: supports
+  accessed_at: '2026-10-20T03:52:18.848475Z'
+  snapshot_sha256: f2f9740c96c667c45b25a7cbf98705eacb22d250b18220e8856045f3ebd05156
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-history history/records/Acidic_Nitrification_Minimal_Consortium
+  locator: Actual execution 2026-10-20T03:52:18.443679+00:00 to 2026-10-20T03:52:19.171490+00:00
+  summary: No issues found
+  support: supports
+  accessed_at: '2026-10-20T03:52:19.171490Z'
+  snapshot_sha256: 76c0251fc5dc3918991b05b1ebe349b3b82e3430395ac15b89cf3d4a5ba89e10
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-20T03:52:19.172095+00:00 to 2026-10-20T03:52:19.225762+00:00
+  summary: Command completed without reported issues.
+  support: supports
+  accessed_at: '2026-10-20T03:52:19.225762Z'
+  snapshot_sha256: fc5412f3812c6a5ec16e7bbb1f40817f26c2197542b1a5c8a8a3f53773219973
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true just --no-dotenv validate-references-explained kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+  locator: Actual execution 2026-10-20T03:52:19.226081+00:00 to 2026-10-20T03:52:20.107273+00:00
+  summary: "Validating kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml\
+    \ against schema src/communitymech/schema/communitymech.yaml\nCache directory:\
+    \ references_cache\n\nValidation Summary:\n  Reported validation issues: 0\n \
+    \ All validations passed!\n\n[annotate] This is not a count of checked excerpts\
+    \ (#1469). Native Discussion evidence coverage remains incomplete (#476)."
+  support: supports
+  accessed_at: '2026-10-20T03:52:20.107273Z'
+  snapshot_sha256: 0e33a3698b44d258d0509df0308d5b28c0d601ac61f3329ce8bdb2df97bd19ad
+- evidence_id: check-audit-network
+  kind: validation
+  reference: just --no-dotenv audit-network
+  locator: Actual run finished 2026-10-19T07:30:27.845593+00:00
+  summary: 'Reused complete corpus result at identical freshly fetched base and unchanged
+    canonical corpus: exit 1; 462 records, 57 warnings in 21 records, zero errors.
+    Target has no finding. No new execution is claimed.'
+  support: supports
+  accessed_at: '2026-10-19T07:30:27.845593Z'
+  snapshot_sha256: bedf3fd18a964bda429f7c6b5feb01b8918e1440b48a4329664501161c80e3f4
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: just --no-dotenv check-network-quality
+  locator: Actual run finished 2026-10-19T07:30:43.193891+00:00
+  summary: 'Reused complete corpus result at identical freshly fetched base and unchanged
+    canonical corpus: exit 1; 462 records, 57 warnings in 21 records, zero errors.
+    Target has no finding. No new execution is claimed.'
+  support: supports
+  accessed_at: '2026-10-19T07:30:43.193891Z'
+  snapshot_sha256: 885e62e84ed8d3e69a6e5ef5be43f941ef64d756107c3b062846831f76e081aa
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Three-reactor study and simplified community boundary
+  outcome: supported
+  summary: The record keeps the pH-specific source boundaries and does not describe
+    a deliberately assembled two-isolate culture. Minimal is the source label for
+    a simplified community, not proof that only two organisms exist. Up to 56% is
+    a pH-specific maximum, not the fraction of the entire consortium or a constant
+    abundance.
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - record
+  - abstract
+  - dominance
+  dimensions:
+  - name: community_scope
+    value: Three acidic nitrification reactors with pH-specific communities
+    definition: The simplified community is dominated by two described populations;
+      not a verified two-isolate minimal synthetic consortium.
+    evidence_ids:
+    - abstract
+    - dominance
+  - name: source_strain
+    value: Novel candidatus species plus genus-only environmental partner
+    definition: No exact strain or MAG accession is supplied by the inspected abstract.
+    evidence_ids:
+    - abstract
+  - name: experimental_setting
+    value: Aerobic acidic bioreactors
+    definition: Setting and conditions are source-reported; physical reactor and feed
+      details remain unresolved.
+    evidence_ids:
+    - abstract
+  - name: medium
+    value: Unresolved from inspected abstract
+    definition: No medium identity is inferred from process name or pH.
+    evidence_ids:
+    - abstract
+  - name: source_category
+    value: 'Primary abstract: genome-resolved meta-omics plus chemical measurements'
+    definition: The whole article was not retrievable in this review.
+    evidence_ids:
+    - abstract
+    - publisher
+    - publisher-xml
+- assessment_id: taxonomy
+  area: grounding
+  topic: taxonomy[0..1] and participant descriptors
+  outcome: supported
+  summary: NCBITaxon:3120726 and NCBITaxon:1763 resolve to the declared family and
+    genus. Broad grounding is explicit, not silent species substitution. Current taxonomy
+    search does not resolve the candidatus name. GTDB UNRESOLVED is honest; coherence
+    gates do not constitute a new mapping. Species-specific partner identity and genome-level
+    evidence remain unknown.
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - record
+  - abstract
+  - ontology
+  - taxonomy-search
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Putative acidic carbon and nitrogen cycling
+    linkage'
+  outcome: supported
+  summary: Both declared participants are represented, with community scope and explicitly
+    putative linkage. The attached computational evidence supports potential carbon/nitrogen
+    cycling, not an identified donor, recipient or transferred metabolite. Concurrent
+    stress-response expression does not establish interspecies detoxification, rescue
+    or reciprocal benefit.
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - record
+  - abstract
+  - linkage
+  details: 'Participants: family-grounded candidatus ammonia oxidizer NCBITaxon:3120726
+    and genus-grounded Mycobacterium NCBITaxon:1763. Direction: unresolved and unasserted.
+    Mechanism: potential carbon/nitrogen cycling from genome/transcript evidence.
+    Context: simplified most-acidic reactor community. Exact quote/locator: linkage;
+    PMID:42762737 abstract.'
+- assessment_id: edges
+  area: graph
+  topic: ecological_interactions[0].downstream
+  outcome: not_applicable
+  summary: No directed causal arrows occur in the whole target. Their absence is appropriate
+    because the inspected source does not resolve transfer direction or causal partner
+    dependence.
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - record
+  - linkage
+  - history
+- assessment_id: environment
+  area: evidence
+  topic: environment_term and environmental_factors[0..1]
+  outcome: supported
+  summary: Bioreactor grounding matches the experimental setting. Reactive-nitrogen
+    descriptions preserve the abstract qualifier likely and treat gene expression
+    as an inferred response. They do not prove complete denitrification flux or obligate
+    anaerobic growth in aerobic reactors. No unsupported active-pH-control assertion
+    remains.
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - record
+  - abstract
+  - ontology
+  - history
+- assessment_id: chemicals
+  area: grounding
+  topic: related_ingredients[0..2]
+  outcome: supported
+  summary: The chemical names and IDs match the substrate and reactive-nitrogen species
+    named in the abstract. These entries are not evidence of interspecies transfer.
+    Bulk acidity alone does not justify replacing a source-named enzymatic substrate
+    by a different protonation-state annotation. Exact flux and partner-specific fate
+    remain unverified.
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - record
+  - abstract
+  - ontology
+- assessment_id: engineering
+  area: scope
+  topic: engineering_design, community_origin and absent methods
+  outcome: concern
+  summary: Wastewater-treatment relevance is a proposed implication, not a tested
+    treatment-performance endpoint. The objective retains that distinction, but its
+    supporting implication snippet is classified IN_VITRO despite describing motivation.
+    ENGINEERED state does not resolve inoculum origin; missing origin/method details
+    are openly acknowledged and should remain unknown pending source access.
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - record
+  - abstract
+  - schema
+- assessment_id: completeness
+  area: completeness
+  topic: Taxon roles and unresolved source fields
+  outcome: concern
+  summary: Both taxon-role slots are absent. Missing medium, reactor dimensions, datasets
+    and genome identifiers are appropriately recorded as open questions rather than
+    filled from an abstract. Missing exact compounds or extra graph nodes are not
+    defects when the source does not support them.
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - record
+  - schema
+  - abstract
+  - history
+- assessment_id: provenance
+  area: provenance
+  topic: Publication identifiers, snippets, history and access state
+  outcome: supported
+  summary: Publication metadata agree. All snippets match abstract or identifier metadata,
+    and history explains the current cautious representation. Access metadata conflict;
+    HTTP failures establish only this retrieval limitation, not that the article does
+    not exist or is definitively paywalled.
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - abstract
+  - epmc
+  - crossref
+  - doi
+  - snippets
+  - history
+- assessment_id: adapter
+  area: evidence
+  topic: Structured expression-source cross-check
+  outcome: not_applicable
+  summary: No exact species/strain dataset can be resolved in the inspected catalog;
+    absence does not weigh against the source observations.
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - adapter
+- assessment_id: validation
+  area: schema
+  topic: Native focused gates and structural graph integrity
+  outcome: supported
+  summary: All focused gates pass, inspected cache bytes remain unchanged and both
+    declared participants resolve within the record. Native COMPLETE is structural
+    integrity, not molecular causal certainty. Required corpus network warnings remain
+    explicitly failed outside the target.
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - record
+  - check-validate
+  - check-validate-strict
+  - check-validate-terms
+  - check-validate-references-explained
+  - check-audit-network
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and observed-finding quality
+  outcome: concern
+  summary: Completeness 10 reflects the missing roles/other fields; quality 100 is
+    capped despite two minor findings. The high quality score does not remove incomplete
+    source verification.
+  target_ids:
+  - CommunityMech:000434
+  evidence_ids:
+  - record
+  - schema
+  metrics:
+  - name: completeness
+    value: 10
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100,50 if all required metadata including taxon roles +5 environment
+      +10 at least 3 factors +10 at least 3 nodes +5 external resources +10 media
+      +5 datasets +5 node metabolites). 0+5+0+0+5+0+0+0=10; related ingredients do
+      not count as node metabolites.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100-50*P1-10*P2-2*P3+20*min(mean node evidence/2,1)+15 if native
+      COMPLETE,0,100). Observed P1=0,P2=0,P3=2; one evidence item/one node; both participants
+      resolve. clamp(100-4+10+15)=100. Partial source review is not scientific approval.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Observed native findings under stated source-access limits.
+  - name: P2
+    value: 0
+    unit: findings
+    definition: Observed native findings under stated source-access limits.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Observed native findings under stated source-access limits.
+  - name: interaction_evidence
+    value: 1
+    unit: evidence items per interaction
+    denominator: 1
+    definition: One directly attached evidence occurrence from one primary abstract;
+      repeated aliases elsewhere do not increase node-level count.
+findings:
+- finding_id: role-metadata
+  issue_key: cm-000434-role-metadata
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: missing structured linkage or metabolite representation;
+    prose retains the supported process.'
+  rule_id: review-checklist.taxonomy
+  status: open
+  certainty: confirmed
+  title: Taxon roles remain unrepresented
+  description: Both taxonomy descriptors lack functional_role metadata. The source
+    supports a bounded ammonia-oxidizing/carbon-fixing role for the novel population,
+    while the partner role is more uncertain. The native completeness rubric cannot
+    award its required metadata block.
+  target_ids:
+  - CommunityMech:000434
+  field_paths:
+  - taxonomy[0].functional_role
+  - taxonomy[1].functional_role
+  evidence_ids:
+  - record
+  - schema
+  - abstract
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+    role: canonical_record
+- finding_id: motivation-evidence
+  issue_key: cm-000434-motivation-evidence
+  category: representation
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: missing structured linkage or metabolite representation;
+    prose retains the supported process.'
+  rule_id: CLAUDE.claim-level-evidence
+  status: open
+  certainty: confirmed
+  title: A proposed application is labeled as experimental evidence
+  description: engineering_design.evidence[1] cites potential wastewater-treatment
+    implications. Its IN_VITRO tag can be mistaken for direct performance validation
+    even though the objective is appropriately prospective.
+  target_ids:
+  - CommunityMech:000434
+  field_paths:
+  - engineering_design.evidence[1].evidence_source
+  evidence_ids:
+  - record
+  - abstract
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+    role: canonical_record
+actions:
+- action_id: fix-role-metadata
+  description: Represent only already supported roles if the vocabulary fits; explicitly
+    retain uncertainty where the source does not support a role.
+  finding_ids:
+  - role-metadata
+  target_ids:
+  - CommunityMech:000434
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Do not infer exact exchanged compounds or reciprocal dependence from co-expression.
+  - A role matches its enum definition and the source evidence level.
+  - Run strict and network checks after authorized metadata curation.
+- action_id: fix-motivation-evidence
+  description: Classify the source statement as context or inference rather than measured
+    application performance.
+  finding_ids:
+  - motivation-evidence
+  target_ids:
+  - CommunityMech:000434
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Acidic_Nitrification_Minimal_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Keep potential application separate from demonstrated treatment efficacy.
+  - Preserve the exact source qualification.
+  - Run strict and reference checks.
+limitations:
+- Full article, supplements and raw data were not available through the inspected
+  routes; abstract conclusions cannot supply missing Methods or exact exchange mechanisms.
+- Europe PMC marks subscription access while Crossref advertises a Creative Commons
+  license. Actual requests returned 403/429; no definitive paywall or permanent absence
+  claim is made.
+- NCBI name search returned zero exact-name results at access time. Broad fallback
+  IDs resolve; unresolved GTDB mappings were not silently replaced.
+- Optional expression-source runner unavailable; public catalog does not resolve exact
+  source populations.
+- Both required corpus network checks retain unrelated warning failures.
+notes:
+- Only a new immutable review bundle is written; no records, caches, histories or
+  generated products changed.
+- All original local input hashes remain unchanged.
+- Short source quotes total fewer than 25 words and are shared across assessments.
+tags:
+- record-review
+- abstract-bounded
+- batch-02

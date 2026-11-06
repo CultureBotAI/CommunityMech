@@ -16,11 +16,16 @@ from pathlib import Path
 
 import yaml
 
+try:
+    from scripts.audit_completeness import calculate_completeness
+except ImportError:
+    from audit_completeness import calculate_completeness
+
 
 def count_community_stats(yaml_path: Path) -> dict:
     """Count basic stats from community YAML."""
     with open(yaml_path) as f:
-        data = yaml.safe_load(f)
+        data = yaml.safe_load(f) or {}
 
     stats = {
         "num_taxa": len(data.get("taxonomy", [])),
@@ -31,6 +36,7 @@ def count_community_stats(yaml_path: Path) -> dict:
         "has_external_resources": bool(data.get("external_resources")),
         "ecological_state": data.get("ecological_state", ""),
         "community_category": data.get("community_category", ""),
+        "completeness_score": calculate_completeness(data),
     }
 
     return stats
@@ -323,7 +329,10 @@ def main():
     # committed files instead. That is the intended behaviour for a report
     # generator whose output is committed — but it is a trade, not a fix, and an
     # earlier version of this comment had it backwards (#409 review).
-    repo_root = Path(__file__).resolve().parent.parent
+    try:
+        repo_root = Path(__file__).resolve().parent.parent
+    except PermissionError:
+        repo_root = Path(__file__).absolute().parent.parent
     communities_dir = repo_root / "kb" / "communities"
     output_dir = repo_root / "reports"
     output_dir.mkdir(exist_ok=True)
