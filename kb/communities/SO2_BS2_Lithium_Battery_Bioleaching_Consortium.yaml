@@ -1,0 +1,381 @@
+id: CommunityMech:000520
+name: SO2-BS2 Lithium-ion Battery Bioleaching Consortium
+description: A riboflavin-enhanced two-member engineered Shewanella oneidensis MR-1 SO2 and Bacillus subtilis 168 BS2 synthetic
+  consortium for metal oxide leaching from spent LiNixCoyMn1-x-yO2 (NCM) lithium-ion battery cathode black mass in Moutai
+  brewing wastewater. By pairing S. oneidensis SO2 (carrying Ptac::ribADEHC on pHG13) with B. subtilis BS2 (mutation-bred
+  high-riboflavin strain BSG3 carrying P43::adh-aldH on pCE2), the SO2-BS2 consortium synthesized 46.00 uM riboflavin (166.67-fold
+  higher than SO1-BS1), achieved a maximum microbial fuel cell power density of 347.29 mW m^-2, increased S. oneidensis NCM
+  surface colonization to 63.28%, and leached 69.6 mg L^-1 total dissolved Li, Ni, Co, and Mn (55.3, 6.3, 2.8, and 5.1 mg
+  L^-1; maximal leaching rate 16.2 mg L^-1 day^-1) before late-stage Ni2+ and Co2+ cytotoxicity slowed leaching during days
+  7-14 (PMID:42733304).
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOMINING
+engineering_design:
+  objective: Boost riboflavin electron-shuttle biosynthesis in both partners of the Shewanella/Bacillus division-of-labor
+    consortium (SO2-BS2) to accelerate extracellular electron transfer and NCM cathode metal oxide leaching in Moutai brewing
+    wastewater.
+  assembly_strategy: Combine S. oneidensis MR-1 SO2 (overexpressing the B. subtilis 168 Ptac::ribADEHC operon on pHG13) with
+    B. subtilis BS2 (constructed by introducing pCE2-P43::adh-aldH into mutation-bred high-riboflavin strain BSG3).
+  inoculation_strategy: Grow SO2 and BS2 separately overnight in LB medium with 0.2 g L^-1 chloramphenicol, inoculate each
+    at 1% (v/v) into Moutai brewing wastewater with 0.5 mM IPTG, transfer to anaerobic bottles with 0.2 g L^-1 spent NCM black
+    mass, and ferment anaerobically at 30 degrees C for 14 days.
+  perturbation_design: Compare SO1-BS1 (0.276 uM riboflavin, 116.15 mW m^-2, 50.7 mg L^-1 metals), SO2-BS1 (3.65 uM riboflavin,
+    243.71 mW m^-2, 64.1 mg L^-1 metals), and SO2-BS2 (46.00 uM riboflavin, 347.29 mW m^-2, 69.6 mg L^-1 metals), and evaluate
+    early (days 1-6) versus late (days 7-14) leaching rates and Ni2+/Co2+ cytotoxicity.
+  measurement_endpoints:
+  - riboflavin concentration in brewing wastewater (46.00 uM)
+  - microbial fuel cell maximum power density (347.29 mW m^-2)
+  - total and element-resolved dissolved Li, Ni, Co, and Mn concentrations (69.6 mg L^-1 total)
+  - maximal and stage-specific metal oxide leaching rates (days 1-6 vs days 7-14)
+  - proportion of S. oneidensis attached to the NCM surface (63.28%)
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Following the transfer of the plasmid pCE2‐P43‐adh‐aldH into BSG3, the recombinant strain BS2 (harboring genomic
+      mutations for riboflavin synthesis and P43‐adh‐aldH in the pCE2 plasmid, Figure 3a and Table 1 ) was constructed, which
+      was subsequently assembled with strain SO2 to form the SO2‐BS2 consortium. When fed with the brewing wastewater, the
+      synthesized riboflavin by the SO2‐BS2 consortium reached 46.00 µM, which was 166.67‐ and 12.60‐fold higher than that
+      of the SO1‐BS1 (0.276 µM) and SO2‐BS1 consortia (3.65 µM), respectively
+    explanation: Defines the construction of SO2-BS2 and quantifies its 46.00 uM riboflavin synthesis in brewing wastewater.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In comparison, the concentration of leached metal ions achieved by the SO2‐BS2 consortium, which reached 69.6
+      mg L−1 (comprising 55.3 mg L−1 Li, 6.3 mg L−1 Ni, 2.8 mg L−1 Co, and 5.1 mg L−1 Mn), along with the maximal leaching
+      rate of 16.2 mg L−1·day−1, was also significantly higher than those observed for the SO1‐BS1 consortium (50.7 mg L−1,
+      12.3 mg L−1·day−1)
+    explanation: Quantifies total and element-resolved metal leaching and maximal leaching rate for the SO2-BS2 consortium.
+environment_term:
+  preferred_term: anaerobic brewing-wastewater NCM bioleaching culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled anaerobic bottle cultures fed with Moutai brewing wastewater and 0.2 g L^-1 spent NCM lithium-ion battery
+    cathode black mass at 30 degrees C.
+related_communities:
+- identifier: CommunityMech:000519
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: SO2-BS2 is the second-generation riboflavin-overproducing consortium in PMID:42733304, directly benchmarked
+    against the first-generation SO1-BS1 consortium in the same brewing-wastewater NCM bioleaching workflow.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When fed with the brewing wastewater, the synthesized riboflavin by the SO2‐BS2 consortium reached 46.00 µM,
+      which was 166.67‐ and 12.60‐fold higher than that of the SO1‐BS1 (0.276 µM) and SO2‐BS1 consortia (3.65 µM), respectively
+    explanation: Establishes that SO2-BS2 and SO1-BS1 were constructed and benchmarked side-by-side in PMID:42733304.
+taxonomy:
+- taxon_term:
+    preferred_term: Shewanella oneidensis MR-1 SO2
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Shewanella_oneidensis
+      gtdb_taxon: Shewanella oneidensis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Shewanellaceae;g__Shewanella;s__Shewanella
+        oneidensis
+      ncbi_source_id: NCBITaxon:70863
+      majority_fraction: 1.0
+      total_genomes: 3
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name —
+        no species-level NCBI id in table]
+    notes: Riboflavin-engineered S. oneidensis MR-1 derivative carrying Ptac::ribADEHC on pHG13; accounts for 63.28% of NCM-attached
+      cells in the SO2-BS2 consortium.
+  strain_designation:
+    strain_name: SO2
+    genetic_modification: SO1 with the Ptac::ribADEHC operon from Bacillus subtilis 168 integrated at pHG13, Cmr.
+  abundance_level: DOMINANT
+  abundance_value: 63.28% of cells attached to NCM surface
+  common_taxon: CommunityMech:taxon:000001
+  functional_role:
+  - ELECTROGEN
+  - ELECTRON_DONOR
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'SO2 SO1 with the Ptac:: ribADEHC operon from Bacillus subtilis 168 integrated at pHG13, Cmr. This study'
+    explanation: Defines the genotype of engineered S. oneidensis MR-1 strain SO2 in Table 1.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study showed that the relative abundance of S. oneidensis on the NCM surface was 51.14% for the SO1‐BS1
+      consortium, 63.28% for the SO2‐BS2 consortium, and 69.38% for the SO3‐BS3 consortium
+    explanation: Quantifies the 63.28% relative abundance of S. oneidensis SO2 on the NCM surface in the SO2-BS2 consortium.
+- taxon_term:
+    preferred_term: Bacillus subtilis 168 BS2
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_subtilis
+      gtdb_taxon: Bacillus subtilis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis
+      ncbi_source_id: NCBITaxon:1423
+      majority_fraction: 0.91
+      total_genomes: 1256
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: High-riboflavin B. subtilis 168 derivative (BSG3 background) carrying P43::adh-aldH on pCE2 for simultaneous ethanol
+      removal and riboflavin shuttle overproduction.
+  strain_designation:
+    strain_name: BS2
+    genetic_modification: Mutation-bred high-riboflavin strain BSG3 with P43::adh from Saccharomyces cerevisiae BY4341 and
+      aldH from Issatchenkia terricola XJ-2 integrated at pCE2, Cmr.
+  abundance_level: ABUNDANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'BS2 BSG3 with the P43:: adh gene from Saccharomyces cerevisiae BY4341 and aldH gene from Issatchenkia terricola
+      XJ‐2 integrated at pCE2, Cmr. This study'
+    explanation: Defines the genotype of engineered B. subtilis 168 strain BS2 in Table 1.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When fed with the brewing wastewater, the synthesized riboflavin by the SO2‐BS2 consortium reached 46.00 µM,
+      which was 166.67‐ and 12.60‐fold higher than that of the SO1‐BS1 (0.276 µM) and SO2‐BS1 consortia (3.65 µM), respectively
+    explanation: Demonstrates the 12.60-fold jump in riboflavin concentration (from 3.65 uM in SO2-BS1 to 46.00 uM in SO2-BS2)
+      contributed by BS2.
+ecological_interactions:
+- name: Dual-Partner Riboflavin Overproduction and Ethanol Detoxification
+  description: Co-cultivating Ptac::ribADEHC-expressing S. oneidensis SO2 with mutation-bred high-riboflavin P43::adh-aldH
+    B. subtilis BS2 in Moutai brewing wastewater increased secreted riboflavin to 46.00 uM (166.67-fold higher than SO1-BS1
+    and 12.60-fold higher than SO2-BS1) and elevated microbial fuel cell maximum power density to 347.29 mW m^-2 (2.99-fold
+    higher than SO1-BS1 and 1.42-fold higher than SO2-BS1) while increasing S. oneidensis attachment on the NCM surface from
+    51.14% to 63.28%.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Shewanella oneidensis MR-1 SO2
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  - preferred_term: Bacillus subtilis 168 BS2
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  metabolites:
+  - preferred_term: riboflavin
+    term:
+      id: CHEBI:17015
+      label: riboflavin
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  downstream:
+  - target: Riboflavin-Accelerated NCM Leaching and Late-Stage Ni/Co Cytotoxicity Bottleneck
+    description: Elevated riboflavin (46.00 uM) and extracellular electron transfer (347.29 mW m^-2) increased total NCM metal
+      leaching to 69.6 mg L^-1 (16.2 mg L^-1 day^-1 maximal rate) relative to SO1-BS1 (50.7 mg L^-1), while the resulting
+      accumulation of dissolved Ni2+ (6.3 mg L^-1) and Co2+ (2.8 mg L^-1) inhibited SO2 and BS2 viability and depressed the
+      day 7-14 average leaching rate from 10.033 to 1.171 mg L^-1 day^-1.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When fed with the brewing wastewater, the synthesized riboflavin by the SO2‐BS2 consortium reached 46.00 µM,
+      which was 166.67‐ and 12.60‐fold higher than that of the SO1‐BS1 (0.276 µM) and SO2‐BS1 consortia (3.65 µM), respectively
+      (Figure 3b ). The maximal power density of the SO2‐BS2 consortium reached 347.29 mW m−2, 2.99‐ and 1.42‐fold higher
+      than that of the SO1‐BS1 (116.15 mW m−2) and SO2‐BS1 consortia (243.71 mW m−2), respectively
+    explanation: Quantifies the 46.00 uM riboflavin production and 347.29 mW m^-2 EET power density in SO2-BS2.
+- name: Riboflavin-Accelerated NCM Leaching and Late-Stage Ni/Co Cytotoxicity Bottleneck
+  description: The SO2-BS2 consortium leached 69.6 mg L^-1 total dissolved metal ions (55.3 mg L^-1 Li, 6.3 mg L^-1 Ni, 2.8
+    mg L^-1 Co, and 5.1 mg L^-1 Mn) at a maximal rate of 16.2 mg L^-1 day^-1. However, despite a 43% higher EET power density
+    than SO2-BS1 (347.29 vs 243.71 mW m^-2), total leaching rose only modestly (69.6 vs 64.1 mg L^-1) and the average leaching
+    rate dropped from 10.033 mg L^-1 day^-1 (days 1-6) to 1.171 mg L^-1 day^-1 (days 7-14) because accumulated Ni2+ (6 mg
+    L^-1) and Co2+ (3 mg L^-1) caused ROS accumulation, DNA strand breaks, and cell death in SO2 and BS2.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Shewanella oneidensis MR-1 SO2
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  - preferred_term: Bacillus subtilis 168 BS2
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  metabolites:
+  - preferred_term: lithium(1+)
+    term:
+      id: CHEBI:49713
+      label: lithium(1+)
+  - preferred_term: nickel(2+)
+    term:
+      id: CHEBI:49786
+      label: nickel(2+)
+  - preferred_term: cobalt(2+)
+    term:
+      id: CHEBI:48828
+      label: cobalt(2+)
+  - preferred_term: manganese(2+)
+    term:
+      id: CHEBI:29035
+      label: manganese(2+)
+  biological_processes:
+  - preferred_term: response to metal ion
+    term:
+      id: GO:0010038
+      label: response to metal ion
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: However, although the EET rate of the SO2‐BS2 consortium (347.29 mW m−2) was 43% higher than that of the SO2‐BS1
+      consortium (243.71 mW m−2) (Figure 3c ), its metal oxide leaching performance (69.6 mg L−1, 16.2 mg L−1·day−1) did not
+      exhibit a corresponding enhancement compared to the SO2‐BS1 consortium (64.1 mg L−1, 16.4 mg L−1·day−1)
+    explanation: Demonstrates that EET rate was no longer the sole rate-limiting step in SO2-BS2 metal leaching.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Specifically, the average leaching rates decreased from 7.222 mg L−1·day−1 to 0.921 mg L−1·day−1 for the SO1‐BS1
+      consortium, from 9.867 to 0.617 mg L−1·day−1 for the SO2‐BS1 biocatalyst, and from 10.033 to 1.171 mg L−1·day−1 for
+      the SO2‐BS2 consortium
+    explanation: Quantifies the drop in SO2-BS2 average leaching rate between days 1-6 (10.033 mg L^-1 day^-1) and days 7-14
+      (1.171 mg L^-1 day^-1).
+environmental_factors:
+- name: SO2-BS2 total leached Li, Ni, Co, and Mn
+  value: 69.6 mg L^-1 total dissolved metal ions (16.2 mg L^-1 day^-1 maximal rate)
+  description: Over 14 days with 0.2 g L^-1 NCM black mass in Moutai brewing wastewater, SO2-BS2 leached 55.3 mg L^-1 Li,
+    6.3 mg L^-1 Ni, 2.8 mg L^-1 Co, and 5.1 mg L^-1 Mn.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In comparison, the concentration of leached metal ions achieved by the SO2‐BS2 consortium, which reached 69.6
+      mg L−1 (comprising 55.3 mg L−1 Li, 6.3 mg L−1 Ni, 2.8 mg L−1 Co, and 5.1 mg L−1 Mn), along with the maximal leaching
+      rate of 16.2 mg L−1·day−1, was also significantly higher than those observed for the SO1‐BS1 consortium (50.7 mg L−1,
+      12.3 mg L−1·day−1)
+    explanation: Quantifies the final leachate composition and maximal leaching rate of the SO2-BS2 consortium.
+- name: Ni2+ and Co2+ cytotoxicity toward SO2 and BS2
+  value: 6 mg L^-1 Ni2+ and 3 mg L^-1 Co2+ stress
+  description: Exposure to 6 mg L^-1 Ni2+ and 3 mg L^-1 Co2+ reduced SO2 maximum OD600 from 1.941 to 1.367 and inhibited BS2
+    to OD600 0.830 while increasing dead-cell red fluorescence prior to IrrE introduction.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When exposed to 6 mg L−1 Ni2+ and 3 mg L−1 Co2+, the growth of strain SO2 was notably inhibited, with its maximum
+      cell density decreasing from 1.941 (in the absence of Ni2+ and Co2+) to 1.367
+    explanation: Quantifies growth inhibition of strain SO2 under 6 mg L^-1 Ni2+ and 3 mg L^-1 Co2+.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Live‐dead staining also revealed that strains SO2 and BS2 exhibited more pronounced red fluorescence in the presence
+      of Ni2+ and Co2+ (Figure 4g ), indicating a higher prevalence of dead cells due to Ni2+ and Co2+ exposure.
+    explanation: Confirms elevated cell death of both SO2 and BS2 under Ni2+ and Co2+ exposure.
+growth_media:
+- name: Chloramphenicol-supplemented Luria-Bertani pre-culture
+  composition:
+  - name: sodium chloride
+    concentration: '10'
+    unit: g/L
+  - name: yeast extract
+    concentration: '5'
+    unit: g/L
+  - name: peptone
+    concentration: '10'
+    unit: g/L
+  - name: chloramphenicol
+    concentration: '0.2'
+    unit: g/L
+  inoculum_source: SO2 and BS2 single-strain colonies
+  preparation_notes: Each member was cultured separately overnight in LB medium supplemented with 0.2 g L^-1 chloramphenicol
+    for plasmid maintenance prior to inoculation into brewing wastewater.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To establish a consortium of B. subtilis and S. oneidensis, both microorganisms were initially cultured in Luria‐Bertani
+      (LB) medium containing 10 g L−1 NaCl, 5 g L−1 yeast extract, and 10 g L−1 peptone
+    explanation: Specifies the LB pre-culture medium composition.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: supplemented with 0.2 g L−1 chloramphenicol for plasmid
+    explanation: Specifies chloramphenicol supplementation for plasmid maintenance.
+- name: Moutai brewing wastewater with spent NCM black mass
+  composition:
+  - name: brewing wastewater
+  - name: LiNixCoyMn1-x-yO2 black mass
+    concentration: '0.2'
+    unit: g/L
+  - name: isopropyl beta-D-thiogalactopyranoside
+    concentration: '0.5'
+    unit: mM
+  temperature: '30'
+  temperature_unit: degrees Celsius
+  atmosphere: ANAEROBIC
+  inoculum_size: '1'
+  inoculum_unit: '% v/v overnight culture for each member'
+  incubation_time: '14'
+  incubation_time_unit: d
+  vessel_type: anaerobic bottle
+  preparation_notes: Overnight cultures of SO2 and BS2 were inoculated at 1% (v/v) into Moutai brewing wastewater with 0.5
+    mM IPTG, transferred to anaerobic bottles containing 0.2 g L^-1 NCM black mass, and incubated anaerobically at 30 degrees
+    C for 14 days.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Overnight cultures of each strain were subsequently inoculated into a medium formulated with brewing water collected
+      from a brewing factory in Moutai Town (Guizhou) at a 1% (v/v) ratio, induced by the isopropyl‐β‐d‐thiogalactoside (IPTG,
+      0.5 mm, Heowns, Tianjin) for gene expression. Following a brief period of subculturing, the culture was transferred
+      into anaerobic bottles, supplemented with 0.2 g L−1 of black mass
+    explanation: Supports the 1% v/v inoculation into Moutai brewing wastewater, 0.5 mM IPTG addition, and 0.2 g L^-1 NCM
+      black-mass loading.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Anaerobic fermentation was then conducted at 30°C for a period of 14 days to facilitate the dissolution of LIBs.
+    explanation: Supports the anaerobic 30 degrees C, 14-day bioleaching incubation.
+metals_present:
+- LITHIUM
+- NICKEL
+- COBALT
+metal_relevance: PRIMARY
+metal_notes: The SO2-BS2 consortium leached 55.3 mg L^-1 Li, 6.3 mg L^-1 Ni, 2.8 mg L^-1 Co, and 5.1 mg L^-1 Mn (69.6 mg L^-1
+  total) from 0.2 g L^-1 spent NCM cathode black mass over 14 days (PMID:42733304).
+discussions:
+- discussion_id: so2_bs2_bsg3_genotype_and_shuttle_saturation
+  prompt: Which background mutations in mutation-bred B. subtilis BSG3 drive the jump to 46.00 uM riboflavin in SO2-BS2, and
+    above what riboflavin concentration does EET saturate relative to metal-ion cytotoxicity?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Dual-Partner Riboflavin Overproduction and Ethanol Detoxification
+  - ecological_interactions#Riboflavin-Accelerated NCM Leaching and Late-Stage Ni/Co Cytotoxicity Bottleneck
+  rationale: Table 1 of PMID:42733304 explicitly notes that the exact genotype of the mutation-bred BSG3 parent of BS2 is
+    unknown, and comparing SO2-BS1 (3.65 uM riboflavin, 64.1 mg L^-1 leached metals) with SO2-BS2 (46.00 uM riboflavin, 69.6
+    mg L^-1 leached metals) showed diminishing leaching returns prior to IrrE expression.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: through microbial mutation breeding and subsequent high‐yield screening aimed at further enhancing riboflavin
+      production, the genotype of which is still unknown.
+    explanation: Documents that the exact genomic mutations underlying riboflavin overproduction in the BSG3 parent of BS2
+      remain unresolved.
+  posed_by: antigravity
+  posed_date: '2026-11-06'
+curation_history:
+- timestamp: '2026-11-06T18:05:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000520 (SO2-BS2 Lithium-ion Battery Bioleaching Consortium) from PMID:42733304 / doi:10.1002/advs.77699
+    for the second-generation riboflavin-enhanced S. oneidensis MR-1 SO2 and B. subtilis 168 BS2 consortium synthesizing 46.00
+    uM riboflavin, reaching 347.29 mW m^-2 EET power density, and leaching 69.6 mg L^-1 NCM cathode metals.
+  llm_assisted: true

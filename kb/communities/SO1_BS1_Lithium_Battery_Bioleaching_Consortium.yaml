@@ -1,0 +1,375 @@
+id: CommunityMech:000519
+name: SO1-BS1 Lithium-ion Battery Bioleaching Consortium
+description: A two-member engineered Shewanella oneidensis MR-1 SO1 and Bacillus subtilis 168 BS1 synthetic division-of-labor
+  consortium for metal oxide leaching from spent LiNixCoyMn1-x-yO2 (NCM) lithium-ion battery cathode black mass using Moutai
+  brewing wastewater as the organic leaching medium. In the baseline SO1-BS1 consortium, B. subtilis BS1 (carrying P43::adh
+  from Saccharomyces cerevisiae BY4341 and aldH from Issatchenkia terricola XJ-2 on pCE2) removes 97.6% of residual ethanol
+  in brewing wastewater within 48 h via an Adh-AldH dual-enzyme cascade, relieving ethanol inhibition of S. oneidensis SO1
+  extracellular electron transfer (increasing microbial fuel cell maximum power density to 116.15 mW m^-2) and leaching 50.7
+  mg L^-1 total dissolved Li, Ni, Co, and Mn (45.6, 2.4, 1.0, and 1.7 mg L^-1) over 14 days with XPS-verified reduction of
+  Mn4+/Mn3+, Co3+, and Ni3+ to Mn2+, Co2+, and Ni2+ (PMID:42733304).
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOMINING
+engineering_design:
+  objective: Establish a first-generation division-of-labor S. oneidensis SO1 / B. subtilis BS1 synthetic consortium that
+    detoxifies inhibitory residual ethanol (1.8% v/v) in Moutai brewing wastewater and couples wastewater lactate oxidation
+    to extracellular electron transfer for spent NCM cathode metal oxide leaching.
+  assembly_strategy: Combine S. oneidensis MR-1 SO1 (carrying empty vector pHG13, Cmr) with engineered B. subtilis 168 BS1
+    (carrying P43::adh-aldH on pCE2, Cmr), where BS1 oxidizes ethanol via acetaldehyde to acetate and SO1 reduces NCM metal
+    oxides anaerobically.
+  inoculation_strategy: Grow SO1 and BS1 separately overnight in LB medium with 0.2 g L^-1 chloramphenicol, inoculate each
+    at 1% (v/v) into Moutai brewing wastewater with 0.5 mM IPTG, transfer to anaerobic bottles with 0.2 g L^-1 spent NCM black
+    mass, and ferment anaerobically at 30 degrees C for 14 days.
+  perturbation_design: Compare brewing wastewater alone (3.4 mg L^-1 leached metals), SO1 monoculture (15.4 mg L^-1, 3.10
+    mW m^-2), BS1 monoculture (3.8 mg L^-1, 1.25 mW m^-2), and the SO1-BS1 coculture (50.7 mg L^-1, 116.15 mW m^-2), alongside
+    XPS valence speciation of Mn 3p, Co 3p, and Ni 3p.
+  measurement_endpoints:
+  - ethanol removal efficiency over 48 h in brewing wastewater
+  - microbial fuel cell maximum power density (mW m^-2)
+  - total and element-resolved dissolved Li, Ni, Co, and Mn concentrations over 14 days
+  - X-ray photoelectron spectroscopy (XPS) Mn 3p, Co 3p, and Ni 3p oxidation-state fractions
+  - NCM surface attachment proportion of S. oneidensis MR-1 (51.14%)
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The microbial consortium SO1‐BS1, comprising the strains S. oneidensis (SO1, Table 1 ) and B. subtilis (P43‐adh‐aldH,
+      BS1), was subsequently constructed. It was found that 97.6% of ethanol in the brewing wastewater could be removed by
+      the SO1‐BS1 microbial consortium within 48 h
+    explanation: Defines the SO1-BS1 consortium membership and its 97.6% ethanol removal within 48 h.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When applying the SO1‐BS1 consortium to catalyze the brewing wastewater‐mediated reduction of NCM, 50.7 mg L−1
+      of the total leached metal ions (including Li, Ni, Co, and Mn) was leached over 2 week period (Figure 2d ), in which
+      the ionic concentrations of Li, Ni, Co, and Mn were 45.6, 2.4, 1.0, and 1.7 mg L−1, respectively
+    explanation: Quantifies total and element-resolved Li, Ni, Co, and Mn leaching by the SO1-BS1 consortium.
+environment_term:
+  preferred_term: anaerobic brewing-wastewater NCM bioleaching culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled anaerobic bottle cultures fed with Moutai brewing wastewater and 0.2 g L^-1 spent NCM lithium-ion battery
+    cathode black mass at 30 degrees C.
+related_communities:
+- identifier: CommunityMech:000520
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: SO1-BS1 is the first-generation ethanol-detoxifying consortium in PMID:42733304, directly compared against
+    the riboflavin-enhanced second-generation SO2-BS2 consortium in the same brewing-wastewater NCM bioleaching workflow.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When fed with the brewing wastewater, the synthesized riboflavin by the SO2‐BS2 consortium reached 46.00 µM,
+      which was 166.67‐ and 12.60‐fold higher than that of the SO1‐BS1 (0.276 µM) and SO2‐BS1 consortia (3.65 µM), respectively
+    explanation: Establishes that SO1-BS1 and SO2-BS2 were constructed and benchmarked side-by-side in PMID:42733304.
+taxonomy:
+- taxon_term:
+    preferred_term: Shewanella oneidensis MR-1 SO1
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Shewanella_oneidensis
+      gtdb_taxon: Shewanella oneidensis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Shewanellaceae;g__Shewanella;s__Shewanella
+        oneidensis
+      ncbi_source_id: NCBITaxon:70863
+      majority_fraction: 1.0
+      total_genomes: 3
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name —
+        no species-level NCBI id in table]
+    notes: Baseline S. oneidensis MR-1 strain carrying plasmid pHG13 (Cmr); accounts for 51.14% of NCM-attached cells in the
+      SO1-BS1 consortium.
+  strain_designation:
+    strain_name: SO1
+    genetic_modification: Wild-type Shewanella oneidensis MR-1 containing plasmid pHG13, Cmr.
+  abundance_level: DOMINANT
+  abundance_value: 51.14% of cells attached to NCM surface
+  common_taxon: CommunityMech:taxon:000001
+  functional_role:
+  - ELECTROGEN
+  - ELECTRON_DONOR
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SO1 The wild‐type Shewanella oneidensis MR‐1 containing the plasmid pHG13, Cmr. Our lab
+    explanation: Defines the genotype of S. oneidensis MR-1 strain SO1 in Table 1.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study showed that the relative abundance of S. oneidensis on the NCM surface was 51.14% for the SO1‐BS1
+      consortium, 63.28% for the SO2‐BS2 consortium, and 69.38% for the SO3‐BS3 consortium
+    explanation: Quantifies the 51.14% relative abundance of S. oneidensis SO1 on the NCM surface in the SO1-BS1 consortium.
+- taxon_term:
+    preferred_term: Bacillus subtilis 168 BS1
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_subtilis
+      gtdb_taxon: Bacillus subtilis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis
+      ncbi_source_id: NCBITaxon:1423
+      majority_fraction: 0.91
+      total_genomes: 1256
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Engineered B. subtilis 168 strain BS1 expressing P43::adh-aldH on pCE2 to oxidize residual ethanol to acetate in
+      brewing wastewater.
+  strain_designation:
+    strain_name: BS1
+    genetic_modification: BS0 (wild-type Bacillus subtilis 168 containing pCE2) with P43::adh from Saccharomyces cerevisiae
+      BY4341 and aldH from Issatchenkia terricola XJ-2 integrated at pCE2, Cmr.
+  abundance_level: ABUNDANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'BS1 BS0 with the P43:: adh gene from Saccharomyces cerevisiae BY4341 and aldH gene from Issatchenkia terricola
+      XJ‐2 integrated at pCE2, Cmr. This study'
+    explanation: Defines the genotype of engineered B. subtilis 168 strain BS1 in Table 1.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Using this engineered B. subtilis strain BS1, the residual ethanol in the brewing wastewater was oxidized to
+      acetaldehyde by alcohol dehydrogenase (Adh), which was subsequently converted into acetate catalyzed by aldehyde dehydrogenase
+      (AldH), constituting a dual‐enzyme cascade reaction that efficiently removed ethanol, thus eliminating ethanol inhibition
+      on the EET efficiency of S. oneidensis.
+    explanation: Establishes the ethanol-detoxifying partner role of B. subtilis BS1 in the SO1-BS1 consortium.
+ecological_interactions:
+- name: BS1 Adh-AldH ethanol detoxification relieving SO1 EET inhibition
+  description: In the SO1-BS1 consortium, Bacillus subtilis 168 BS1 oxidizes residual ethanol (1.8% v/v) in Moutai brewing
+    wastewater via acetaldehyde to acetate through heterologous P43::adh-aldH, removing 97.6% of ethanol within 48 h and increasing
+    microbial fuel cell maximum power density to 116.15 mW m^-2 (34.47-fold higher than SO1 alone at 3.10 mW m^-2 and 92.92-fold
+    higher than BS1 alone at 1.25 mW m^-2).
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bacillus subtilis 168 BS1
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  target_taxon:
+    preferred_term: Shewanella oneidensis MR-1 SO1
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  metabolites:
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  downstream:
+  - target: SO1-BS1 extracellular electron transfer reduction of NCM metal oxides
+    description: Removal of 97.6% of inhibitory ethanol by BS1 restores SO1 extracellular electron transfer (116.15 mW m^-2
+      vs 3.10 mW m^-2 in SO1 alone), enabling 3.29-fold higher total NCM metal ion leaching by SO1-BS1 (50.7 mg L^-1) compared
+      with SO1 alone (15.4 mg L^-1).
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: It was found that 97.6% of ethanol in the brewing wastewater could be removed by the SO1‐BS1 microbial consortium
+      within 48 h (Figure 2b ). Moreover, the maximum power density of the SO1‐BS1 consortium reached 116.15 mW m−2, representing
+      34.47‐ and 92.92‐fold increases compared to that observed in strain SO1 (3.10 mW m−2) and BS1 (1.25 mW m−2), respectively
+      (Figure 2c ), confirming that the ethanol inhibition of the EET of the SO1‐BS1 consortium was significantly alleviated.
+    explanation: Demonstrates 97.6% ethanol removal and 34.47-fold EET power-density restoration in the SO1-BS1 consortium.
+- name: SO1-BS1 extracellular electron transfer reduction of NCM metal oxides
+  description: With ethanol inhibition alleviated by BS1, the SO1-BS1 consortium catalyzes anaerobic brewing-wastewater reduction
+    of high-valence NCM cathode metal oxides (reducing Mn4+/Mn3+ from 68.69%/23.64% to 45.40%/6.80% with Mn2+ rising from
+    7.67% to 47.80%, reducing Co3+ from 98.06% to almost exclusively Co2+, and reducing Ni3+ from 96.93% to 12.96% with Ni2+
+    rising to 87.04%), leaching 50.7 mg L^-1 total dissolved metal ions (45.6 mg L^-1 Li, 2.4 mg L^-1 Ni, 1.0 mg L^-1 Co,
+    and 1.7 mg L^-1 Mn) over 14 days.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Shewanella oneidensis MR-1 SO1
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  - preferred_term: Bacillus subtilis 168 BS1
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  metabolites:
+  - preferred_term: riboflavin
+    term:
+      id: CHEBI:17015
+      label: riboflavin
+    notes: Synthesized at 0.276 uM by the baseline SO1-BS1 consortium in brewing wastewater.
+  - preferred_term: lithium(1+)
+    term:
+      id: CHEBI:49713
+      label: lithium(1+)
+  - preferred_term: nickel(2+)
+    term:
+      id: CHEBI:49786
+      label: nickel(2+)
+  - preferred_term: cobalt(2+)
+    term:
+      id: CHEBI:48828
+      label: cobalt(2+)
+  - preferred_term: manganese(2+)
+    term:
+      id: CHEBI:29035
+      label: manganese(2+)
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When applying the SO1‐BS1 consortium to catalyze the brewing wastewater‐mediated reduction of NCM, 50.7 mg L−1
+      of the total leached metal ions (including Li, Ni, Co, and Mn) was leached over 2 week period (Figure 2d ), in which
+      the ionic concentrations of Li, Ni, Co, and Mn were 45.6, 2.4, 1.0, and 1.7 mg L−1, respectively (Figure S1 ), and the
+      leaching efficiencies of Li, Ni, Co, and Mn were 57.7%, 9.5%, 11.1%, and 13.1%, respectively.
+    explanation: Quantifies total and element-specific metal leaching by the SO1-BS1 consortium over 14 days.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Following treatment using brewing wastewater catalyzed by the SO1‐BS1 consortium, the levels of Mn4+ and Mn3+
+      decreased to 45.40% and 6.80%, whereas the level of Mn2+ increased to 47.80%, respectively, indicating that a substantial
+      fraction of Mn4+ and Mn3+ in NCM was reduced.
+    explanation: Provides XPS confirmation of solid-phase NCM metal-oxide reduction by the SO1-BS1 consortium.
+environmental_factors:
+- name: SO1-BS1 total leached Li, Ni, Co, and Mn
+  value: 50.7 mg L^-1 total dissolved metal ions (12.3 mg L^-1 day^-1 maximal rate)
+  description: Over 14 days with 0.2 g L^-1 NCM black mass in Moutai brewing wastewater, SO1-BS1 leached 45.6 mg L^-1 Li (57.7%),
+    2.4 mg L^-1 Ni (9.5%), 1.0 mg L^-1 Co (11.1%), and 1.7 mg L^-1 Mn (13.1%), with average leaching rate declining from 7.222
+    mg L^-1 day^-1 (days 1-6) to 0.921 mg L^-1 day^-1 (days 7-14).
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When applying the SO1‐BS1 consortium to catalyze the brewing wastewater‐mediated reduction of NCM, 50.7 mg L−1
+      of the total leached metal ions (including Li, Ni, Co, and Mn) was leached over 2 week period (Figure 2d ), in which
+      the ionic concentrations of Li, Ni, Co, and Mn were 45.6, 2.4, 1.0, and 1.7 mg L−1, respectively (Figure S1 ), and the
+      leaching efficiencies of Li, Ni, Co, and Mn were 57.7%, 9.5%, 11.1%, and 13.1%, respectively.
+    explanation: Quantifies total (50.7 mg L^-1) and element-resolved Li, Ni, Co, and Mn leaching and efficiencies by the
+      SO1-BS1 consortium.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In comparison, the concentration of leached metal ions achieved by the SO2‐BS2 consortium, which reached 69.6
+      mg L−1 (comprising 55.3 mg L−1 Li, 6.3 mg L−1 Ni, 2.8 mg L−1 Co, and 5.1 mg L−1 Mn), along with the maximal leaching
+      rate of 16.2 mg L−1·day−1, was also significantly higher than those observed for the SO1‐BS1 consortium (50.7 mg L−1,
+      12.3 mg L−1·day−1)
+    explanation: Supports the 50.7 mg L^-1 total leached metal concentration and 12.3 mg L^-1 day^-1 maximal leaching rate
+      of the SO1-BS1 consortium.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Specifically, the average leaching rates decreased from 7.222 mg L−1·day−1 to 0.921 mg L−1·day−1 for the SO1‐BS1
+      consortium, from 9.867 to 0.617 mg L−1·day−1 for the SO2‐BS1 biocatalyst, and from 10.033 to 1.171 mg L−1·day−1 for
+      the SO2‐BS2 consortium
+    explanation: Documents the early- versus late-stage NCM metal leaching rates of the SO1-BS1 consortium.
+growth_media:
+- name: Chloramphenicol-supplemented Luria-Bertani pre-culture
+  composition:
+  - name: sodium chloride
+    concentration: '10'
+    unit: g/L
+  - name: yeast extract
+    concentration: '5'
+    unit: g/L
+  - name: peptone
+    concentration: '10'
+    unit: g/L
+  - name: chloramphenicol
+    concentration: '0.2'
+    unit: g/L
+  inoculum_source: SO1 and BS1 single-strain colonies
+  preparation_notes: Each member was cultured separately overnight in LB medium supplemented with 0.2 g L^-1 chloramphenicol
+    for plasmid maintenance prior to inoculation into brewing wastewater.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To establish a consortium of B. subtilis and S. oneidensis, both microorganisms were initially cultured in Luria‐Bertani
+      (LB) medium containing 10 g L−1 NaCl, 5 g L−1 yeast extract, and 10 g L−1 peptone
+    explanation: Specifies the LB pre-culture medium composition.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: supplemented with 0.2 g L−1 chloramphenicol for plasmid
+    explanation: Specifies chloramphenicol supplementation for plasmid maintenance.
+- name: Moutai brewing wastewater with spent NCM black mass
+  composition:
+  - name: brewing wastewater
+  - name: LiNixCoyMn1-x-yO2 black mass
+    concentration: '0.2'
+    unit: g/L
+  - name: isopropyl beta-D-thiogalactopyranoside
+    concentration: '0.5'
+    unit: mM
+  temperature: '30'
+  temperature_unit: degrees Celsius
+  atmosphere: ANAEROBIC
+  inoculum_size: '1'
+  inoculum_unit: '% v/v overnight culture for each member'
+  incubation_time: '14'
+  incubation_time_unit: d
+  vessel_type: anaerobic bottle
+  preparation_notes: Overnight cultures of SO1 and BS1 were inoculated at 1% (v/v) into Moutai brewing wastewater with 0.5
+    mM IPTG, transferred to anaerobic bottles containing 0.2 g L^-1 NCM black mass, and incubated anaerobically at 30 degrees
+    C for 14 days.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Overnight cultures of each strain were subsequently inoculated into a medium formulated with brewing water collected
+      from a brewing factory in Moutai Town (Guizhou) at a 1% (v/v) ratio, induced by the isopropyl‐β‐d‐thiogalactoside (IPTG,
+      0.5 mm, Heowns, Tianjin) for gene expression. Following a brief period of subculturing, the culture was transferred
+      into anaerobic bottles, supplemented with 0.2 g L−1 of black mass
+    explanation: Supports the 1% v/v inoculation into Moutai brewing wastewater, 0.5 mM IPTG addition, and 0.2 g L^-1 NCM
+      black-mass loading.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Anaerobic fermentation was then conducted at 30°C for a period of 14 days to facilitate the dissolution of LIBs.
+    explanation: Supports the anaerobic 30 degrees C, 14-day bioleaching incubation.
+metals_present:
+- LITHIUM
+- NICKEL
+- COBALT
+metal_relevance: PRIMARY
+metal_notes: The SO1-BS1 consortium leached 45.6 mg L^-1 Li, 2.4 mg L^-1 Ni, 1.0 mg L^-1 Co, and 1.7 mg L^-1 Mn (50.7 mg L^-1
+  total) from 0.2 g L^-1 spent NCM cathode black mass over 14 days (PMID:42733304).
+discussions:
+- discussion_id: so1_bs1_riboflavin_and_cytotoxicity_limits
+  prompt: What are the relative rate-limiting contributions of low baseline riboflavin (0.276 uM) versus late-stage Ni2+/Co2+
+    cytotoxicity to the day 7-14 leaching slowdown in SO1-BS1?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#BS1 Adh-AldH ethanol detoxification relieving SO1 EET inhibition
+  - ecological_interactions#SO1-BS1 extracellular electron transfer reduction of NCM metal oxides
+  rationale: In PMID:42733304, SO1-BS1 synthesized 0.276 uM riboflavin and showed an average leaching rate drop from 7.222
+    mg L^-1 day^-1 (days 1-6) to 0.921 mg L^-1 day^-1 (days 7-14), which was subsequently addressed by riboflavin engineering
+    in SO2-BS2 and IrrE expression in SO3-BS3.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Specifically, the average leaching rates decreased from 7.222 mg L−1·day−1 to 0.921 mg L−1·day−1 for the SO1‐BS1
+      consortium
+    explanation: Documents the late-stage leaching rate decline in SO1-BS1.
+  posed_by: antigravity
+  posed_date: '2026-11-06'
+curation_history:
+- timestamp: '2026-11-06T18:05:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000519 (SO1-BS1 Lithium-ion Battery Bioleaching Consortium) from PMID:42733304 / doi:10.1002/advs.77699
+    for the first-generation engineered S. oneidensis MR-1 SO1 and B. subtilis 168 BS1 consortium catalyzing 97.6% brewing-wastewater
+    ethanol removal, 116.15 mW m^-2 EET power density, and 50.7 mg L^-1 NCM cathode metal leaching.
+  llm_assisted: true
