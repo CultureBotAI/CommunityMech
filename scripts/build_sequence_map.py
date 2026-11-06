@@ -26,7 +26,10 @@ from typing import Any
 import numpy as np
 import yaml
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+try:
+    REPO_ROOT = Path(__file__).resolve().parent.parent
+except PermissionError:
+    REPO_ROOT = Path(__file__).absolute().parent.parent
 TAXA_DIR = REPO_ROOT / "kb" / "taxa"
 COMMUNITIES_DIR = REPO_ROOT / "kb" / "communities"
 DEFAULT_NPZ = REPO_ROOT / "data" / "embeddings" / "protein_esm2_t33_650M.npz"
@@ -105,7 +108,7 @@ REFERENCE_PROTEINS: list[dict[str, Any]] = [
         "localization": "Extracellular pilus filament",
         "cofactor": "None (aromatic amino acid conductivity)",
         "taxon_keywords": ["Geobacter"],
-        "sequence": ("MLQKLRNRKGFTLIELLIVVAIIGILAAIAIPQFSAYRVKAYNSAASSDLRNLKTALES" "AFADDQTYPPES"),
+        "sequence": ("MLQKLRNRKGFTLIELLIVVAIIGILAAIAIPQFSAYRVKAYNSAASSDLRNLKTALESAFADDQTYPPES"),
     },
     {
         "accession": "UniProtKB:Q74E61",
@@ -616,29 +619,74 @@ def _load_communities() -> list[dict[str, Any]]:
     return communities
 
 
-def _enrich_from_taxa_yaml(proteins: list[dict[str, Any]]) -> None:
-    """Enrich protein metadata from kb/taxa/*.yaml functional_genes entries."""
-    by_acc = {p["accession"]: p for p in proteins}
-    for p in sorted(TAXA_DIR.glob("*.yaml")):
+def load_curated_genes(taxa_dir: Path = TAXA_DIR) -> list[dict[str, Any]]:
+    """Load curated gene annotations from kb/taxa/*.yaml (both `genes` and legacy `functional_genes`)."""
+    curated: list[dict[str, Any]] = []
+    if not taxa_dir.exists():
+        return curated
+    for p in sorted(taxa_dir.glob("*.yaml")):
         doc = yaml.safe_load(p.read_text(encoding="utf-8"))
         if not isinstance(doc, dict):
             continue
-        for fg in doc.get("functional_genes") or []:
+        raw_genes = list(doc.get("genes") or []) + list(doc.get("functional_genes") or [])
+        for fg in raw_genes:
             if not isinstance(fg, dict):
                 continue
-            acc = str(fg.get("gene_id") or "")
-            if acc in by_acc:
-                entry = by_acc[acc]
-                entry["function"] = str(fg.get("function") or entry.get("pathway") or "")
-                entry["phenotype"] = str(fg.get("phenotype") or "")
-                ev_list = fg.get("evidence") or []
-                refs = [
-                    str(ev.get("reference"))
-                    for ev in ev_list
-                    if isinstance(ev, dict) and ev.get("reference")
-                ]
-                entry["references"] = refs
-                entry["source_taxon_yaml"] = f"kb/taxa/{p.name}"
+            acc = str(fg.get("gene_id") or fg.get("uniprot_id") or "").strip()
+            if not acc:
+                continue
+            if not acc.startswith("UniProtKB:"):
+                acc = f"UniProtKB:{acc}"
+            raw_function = fg.get("product") or fg.get("function") or ""
+            raw_phenotype = fg.get("supports_interaction") or fg.get("phenotype") or ""
+            if isinstance(raw_phenotype, list):
+                phenotype_str = "; ".join(str(x).strip() for x in raw_phenotype if x)
+            else:
+                phenotype_str = str(raw_phenotype).strip()
+            refs: list[str] = []
+            for r in fg.get("references") or []:
+                r_str = str(r).strip()
+                if r_str and r_str not in refs:
+                    refs.append(r_str)
+            for ev in fg.get("evidence") or []:
+                if isinstance(ev, dict) and ev.get("reference"):
+                    r_str = str(ev["reference"]).strip()
+                    if r_str and r_str not in refs:
+                        refs.append(r_str)
+            curated.append(
+                {
+                    "accession": acc,
+                    "uniprot": acc.removeprefix("UniProtKB:"),
+                    "gene_symbol": str(fg.get("gene_symbol") or "").strip(),
+                    "locus_tag": str(fg.get("locus_tag") or "").strip(),
+                    "function": str(raw_function).strip(),
+                    "phenotype": phenotype_str,
+                    "supports_roles": list(fg.get("supports_roles") or []),
+                    "go_terms": list(fg.get("go_terms") or []),
+                    "references": refs,
+                    "source_taxon_yaml": f"kb/taxa/{p.name}",
+                }
+            )
+    return curated
+
+
+def _enrich_from_taxa_yaml(proteins: list[dict[str, Any]], taxa_dir: Path = TAXA_DIR) -> None:
+    """Enrich protein metadata from kb/taxa/*.yaml (`genes` and legacy `functional_genes`)."""
+    by_acc = {p["accession"]: p for p in proteins}
+    for cg in load_curated_genes(taxa_dir=taxa_dir):
+        acc = cg["accession"]
+        if acc in by_acc:
+            entry = by_acc[acc]
+            entry["function"] = cg["function"] or str(entry.get("pathway") or "")
+            entry["phenotype"] = cg["phenotype"]
+            if cg["gene_symbol"]:
+                entry["gene_symbol"] = cg["gene_symbol"]
+            if cg["locus_tag"]:
+                entry["locus_tag"] = cg["locus_tag"]
+            if cg["supports_roles"]:
+                entry["supports_roles"] = cg["supports_roles"]
+            entry["references"] = cg["references"]
+            entry["source_taxon_yaml"] = cg["source_taxon_yaml"]
 
 
 def _match_communities(

@@ -1,0 +1,1632 @@
+# Brocadia low-nitrogen consortium: current-input and participant-scope refresh
+
+- Review: 20261106T080640Z-pr2044-brocadia-current-input-refresh
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-06T07:57:57.019549Z
+- Finished UTC: 2026-11-06T08:06:40.367004Z
+- Reviewer: codex (self_review)
+- Completion: partial
+- Verdict: needs_curation
+- Scientific review: false
+
+## Summary
+
+The current record retains supported temporal biofilter identity and abstract-level quantities. The original P3 outcome-placement finding remains open. A new P2 finding distinguishes Kuenenia succession membership from participation in the model-inferred Brocadia cross-feeding node. Full Methods/Results, figures and SI remain unavailable; the review is partial.
+
+## Scope And Provenance
+
+Entire current record and its sole interaction/no downstream arrows reassessed at direct abstract scope, with explicit analysis of the changed participant list, description, evidence and history. Unread full-source material is excluded from certification.
+
+Selection: The sole stale record CommunityMech:000447 identified for PR 2044 after merging main.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base b8be36d24c53cc7532e9a07e5889d72976be53d1.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000447 | kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml | maintained | Brocadia Low-Nitrogen Anammox Consortium |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000447 | Focused native check passed; mechanical validity does not certify scientific support. |
+| validate-strict | passed | True | CommunityMech:000447 | Focused native check passed; mechanical validity does not certify scientific support. |
+| validate-terms | passed | True | CommunityMech:000447 | Focused native check passed; mechanical validity does not certify scientific support. |
+| validate-gtdb | passed | True | CommunityMech:000447 | Focused native check passed; mechanical validity does not certify scientific support. |
+| validate-gtdb-domain | passed | True | CommunityMech:000447 | Focused native check passed; mechanical validity does not certify scientific support. |
+| validate-history | passed | True | CommunityMech:000447 | Focused native check passed; mechanical validity does not certify scientific support. |
+| normalize-cache-names-check | passed | True | CommunityMech:000447 | Focused native check passed; mechanical validity does not certify scientific support. |
+| validate-references-explained | passed | True | CommunityMech:000447 | Focused native check passed; mechanical validity does not certify scientific support. |
+| audit-network | failed | True | CommunityMech:000447 | Current corpus diagnostics report 44 warnings, zero errors, across 16 of 508 records; exit 1 is retained. The focal network separately returns zero issues, which does not establish participant evidence. |
+| check-network-quality | failed | True | CommunityMech:000447 | Current corpus diagnostics report 44 warnings, zero errors, across 16 of 508 records; exit 1 is retained. The focal network separately returns zero issues, which does not establish participant evidence. |
+| Primary bibliographic identity | passed | True | CommunityMech:000447 | Fresh PMID, DOI, title and complete abstract agree. |
+| Full primary source and critical supplements | unavailable | True | CommunityMech:000447 | Critical full Methods/Results, figures, SI and model inputs remain inaccessible through inspected routes; only direct abstract support is certified. |
+| Medium and archive correspondence | not_applicable | False | CommunityMech:000447 | No exact recipe or accession can be established from inspected source scope; no guessed cross-repository link. |
+| Structured expression dataset coverage | not_applicable | False | CommunityMech:000447 | Public iModulonDB catalogue has no exact Brocadia or Kuenenia dataset; no component lookup or inference is warranted. |
+
+## Scientific And Domain Assessments
+
+### Operated biofilter and temporal community
+
+identity: supported. Targets: CommunityMech:000447.
+
+The record correctly represents early Kuenenia and a later multispecies Brocadia assemblage, not a defined two-isolate coculture. ENGINEERED state/origin and biotechnology application are appropriate.
+
+### Genus names, roles and ordinal dominance
+
+grounding: supported. Targets: CommunityMech:000447.
+
+Canonical genus labels and explicit dominant Brocadia status are supported; role meanings must remain scoped to biological context and model inference.
+
+PRIMARY_PRODUCER denotes autotrophy, not merely nitrogen-removal prominence. The role is biologically plausible in the anammox context, but the attached abstract snippets are not direct carbon-fixation measurements. CROSS_FEEDER is supported at the predicted-recipient/complementarity level; the nearest abundance snippets alone do not establish observed uptake. No automatic role removal or invented species is warranted. DOMINANT requires no numerical-majority threshold.
+
+### Abundance, transcription and modeled overlap
+
+evidence: supported. Targets: CommunityMech:000447.
+
+Retain all reported abstract values with their existing measurement distinctions.
+
+The 44.7% relative organism abundance and 71.5% transcriptional contribution have separate denominators. Approximately 18-fold expression is a response, and resource overlap is a model output rather than a reactor setting. The exact high-nitrogen comparison design remains unavailable.
+
+### ecological_interactions[0]
+
+graph: concern. Targets: CommunityMech:000447.
+
+The Brocadia model-complementarity claim remains appropriately qualified, but the new Kuenenia participant is supported only for temporal succession.
+
+The COMMUNITY_LEVEL CROSS_FEEDING participant list now credits both genera. The exact new quotation establishes replacement, while the model sentence explicitly identifies a multispecies Brocadia assemblage. Retain the supported model node but narrow its participant scope or obtain direct primary/model evidence for Kuenenia. This is an evidence-scope gap, not a claim that the inaccessible full article disproves Kuenenia exchange. No downstream arrows are encoded or requested.
+
+### environmental_factors[1] and [2]
+
+representation: concern. Targets: CommunityMech:000447.
+
+Transcriptional activation and lower modeled resource overlap are outcomes, not environmental conditions.
+
+environmental_factors[0] correctly represents sustained low-nitrogen stress. Preserve the other two observations and their computational evidence in the appropriate taxon, interaction or design/result context; do not create new mechanisms simply to relocate supported results.
+
+### Reactor, feed and modeled conditions
+
+scope: unknown. Targets: CommunityMech:000447.
+
+Direct abstract evidence supports an operated low-nitrogen biofilter but not a reproducible recipe or exact operating regime.
+
+The indexed preview is a useful lead for future direct-source verification, not authority for importing reactor volume, scale, bed geometry or influent concentrations. The current abstract-limited discussion remains honest. Retain the broad physical bioreactor and modeled application distinction until Methods is directly inspected.
+
+### Publication links and unresolved model/archive identities
+
+provenance: supported. Targets: CommunityMech:000447.
+
+PMID and DOI resources identify the focal article; source-specific datasets, MAGs, model sources and versions remain unresolved rather than presumed absent.
+
+Retain existing SMETANA prediction type/tool entries. Bibliographic snippets corroborate identifiers, not experimental methods. No medium, strain catalogue or archive search is invented from generic anammox context.
+
+### Prior repairs and exact snippet categories
+
+provenance: supported. Targets: CommunityMech:000447.
+
+The original outcome-placement finding persists; the new participant history is descriptive provenance and does not independently prove exchange.
+
+Three append-only sidecars and the changed inline history were read. The Stage 5 structural network resolution remains context, not source evidence. Snippet replay finds 10 exact-normalized abstract occurrences, one co-occurrence hyphen variant and two metadata identifiers. The hyphen variant is typographical and no full-text verification is claimed.
+
+### Native validators and semantic scope
+
+schema: supported. Targets: CommunityMech:000447.
+
+Eight focused native checks and all four unique ontology pairs pass. Current corpus diagnostics retain 44 warnings across 16 of 508 records; target structural completeness cannot validate the new cross-feeding participant.
+
+### Native mechanical scores
+
+completeness: supported. Targets: CommunityMech:000447.
+
+Completeness and quality measure encoded structure and checks, not whole-source scientific certification.
+
+### Frozen-input refresh
+
+provenance: concern. Targets: CommunityMech:000447.
+
+Changed participant scope is reassessed against current record bytes and freshly retrieved primary abstract; unchanged original findings retain exact lineage.
+
+The prior target hash 227362963f3008129281c29d08829d1bf49aa57230b126cc7986e592c6cd9a96 differs from current 0ea86ed4c4587ff6d6fcc424c9bf2a27163154962b8430576b2a6fd4bfb1b36c. The early 25.6%–38.8% expression response and succession quotation are supported; using that temporal evidence to credit Kuenenia as a cross-feeding participant is not established at accessible source scope.
+
+### Bounded 447-only correction of grouped review identifier/context
+
+provenance: supported. Targets: CommunityMech:000447.
+
+The Stage 4 grouped descriptions name 447's Kuenenia as NCBITaxon:174636; the original and current target actually encode genus NCBITaxon:380738, confirmed by fresh NCBI authority.
+
+Exact locators: reviews/structured/20261021T101000Z-stage4-record-deep-audit/review.yaml and reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml, finding_id stage4-disconnected-syncom-participants, issue_key communitymech-stage4-disconnected-syncom-participants, description's 447 clause. This corrects only that identifier/context. The corresponding 20261021T193000Z-stage5-remediation-verification resolved disposition is retained for structural connectivity. The other four targets (000339, 000399, 000415, 000433) and their dispositions are NOT reassessed. No grouped issue key or previous_occurrences is reused to retire the five-target finding; the new participant-evidence finding is distinct.
+
+## Findings
+
+### outcome-placement: Separate response and modeling outcomes from environmental conditions
+
+minor / open / confirmed; issue key: cm-000447-outcome-placement.
+
+environmental_factors[1] encodes transcriptional activation and environmental_factors[2] encodes predicted resource overlap. These are study outcomes rather than imposed or measured environmental conditions; sustained low-nitrogen stress is already correctly represented in environmental_factors[0].
+
+### kuenenia-cross-feeding-scope: Keep Kuenenia succession distinct from Brocadia model-inferred cross-feeding
+
+major / open / confirmed; issue key: cm-000447-kuenenia-cross-feeding-scope.
+
+ecological_interactions[0].participating_taxa[1] newly credits early-acclimation Kuenenia as part of a CROSS_FEEDING interaction. The new evidence[0] quotation supports temporal replacement by Brocadia, while evidence[1] and the freshly inspected abstract place model-inferred complementary auxotrophies within a multispecies Brocadia assemblage. Succession and downregulated biosynthesis do not establish Kuenenia metabolite exchange. This is a confirmed support/scope gap in the encoded assertion at inspected abstract scope, not a demonstration that unread full-source evidence excludes Kuenenia exchange.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-outcome-placement
+
+Relocate the two outcome-valued environmental factors while retaining their source scope, numerical values and computational provenance.
+
+- Keep sustained low-nitrogen stress as a condition. Place transcriptional activation and modeled resource overlap with the relevant taxon, process or design/result summary; avoid redundant environmental-factor entries.
+- Preserve approximately 18-fold expression and the resource-overlap comparison as distinct response/model measurements. Keep 44.7% abundance separate from 71.5% transcriptional activity.
+- Retain the sole explicitly model-inferred interaction, genus-level temporal membership, unresolved GTDB and model-source limits. Do not add an exchange edge merely to connect the early Kuenenia lineage.
+- Any reactor details, species/MAG identities or model inputs recovered from indexed leads require direct Methods/SI verification before curation. Preserve conditional role interpretation and do not substitute literature examples or typical influent concentrations.
+- After separately authorized curation, run focused schema, strict, term, reference and history checks and inspect the network warning at its temporal scope.
+
+### repair-participant-scope
+
+Separate the temporal succession claim from participation in Brocadia model-inferred complementarity.
+
+- Retain Kuenenia in the temporal community taxonomy and preserve the supported early-acclimation and succession narrative.
+- Restrict CROSS_FEEDING participants to the directly supported multispecies Brocadia assemblage unless directly inspected primary/model evidence explicitly establishes Kuenenia participation; attach that evidence to the precise assertion if recovered.
+- Place temporal replacement context separately from the exchange claim, retaining source qualifiers and the distinct 25.6%–38.8% early response. Do not fabricate an interaction or leave participating_taxa empty merely to make network connectivity pass (empty means all members).
+- Preserve COMPUTATIONAL evidence and SMETANA provenance. Do not assert measured transfer, obligatory dependence, species/MAG identity or a model source not verified from the primary material.
+- After separately authorized curation, add append-only history, run focused schema/strict/term/reference/history checks, and explain any remaining temporal-membership network warning without weakening the gate.
+
+### follow-up-primary-methods-and-model-identities
+
+Track the existing brocadia_low_nitrogen_species_resolution discussion as an access-limited curation follow-up, distinct from the two graded record findings.
+
+- When accessible, directly inspect the focal Methods, figures, supplements and model/data availability for exact Brocadia species/MAG identifiers, reactor geometry, feed nitrogen/loading and SMETANA genome/model sources; retain precise source locators and versions.
+- Curate only verified focal-system values and identities with claim-local evidence. Do not promote indexed publisher snippets, generic influent ranges or other-study species examples into this record.
+- If critical sources remain inaccessible, keep the discussion open with a bounded access-status update; do not invent values or require new experiments.
+- Do not change partial scientific status until the actual critical source material has been inspected and any newly supported corrections pass native checks.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml; Entire current record; especially ecological_interactions[0] and curation_history[2] | supports | The temporal low-nitrogen biofilter contains two genus descriptors. The current node newly lists Kuenenia alongside Brocadia, adds a succession quote and expands its description; all other scientific fields remain unchanged. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=42323145&amp;retmode=xml; Inspected source body and retrieval receipt | supports | Fresh exact PMID, DOI, title and complete primary abstract identify the focal study. No full article is supplied by this response. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42323145%20AND%20SRC:MED&amp;format=json&amp;resultType=core; Inspected source body and retrieval receipt | supports | Fresh complete abstract agrees. No PMCID is supplied and the full-text URL requires subscription. |
+| crossref | https://api.crossref.org/works/10.1016/j.biortech.2026.135206; Inspected source body and retrieval receipt | supports | Fresh DOI and title agree with PubMed. Bibliographic metadata is not independent mechanistic evidence. |
+| ncbi | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&amp;id=380240,380738&amp;retmode=xml; Inspected source body and retrieval receipt | supports | Fresh NCBI records identify Candidatus Brocadia 380240 and Candidatus Kuenenia 380738 at genus rank. |
+| succession | PMID:42323145; Abstract: early-acclimation and final succession sentences | supports | Kuenenia reduces costly biosynthesis during early acclimation, including aromatic amino-acid synthesis by 25.6%–38.8%; Brocadia later replaces it as dominant functional lineage. This establishes temporal presence and replacement, not metabolite exchange between the genera. |
+| model | PMID:42323145; Abstract: long-term operation sentence | supports | The long-term community shifts to a multispecies Brocadia assemblage with complementary model-inferred auxotrophies. Associations and SMETANA predictions do not demonstrate direct exchange, flux or obligatory dependence; the inspected sentence does not assign Kuenenia to that complementary assemblage. |
+| quantities | PMID:42323145; Abstract: transcription, overlap and abundance sentences | supports | Approximately 18-fold gene upregulation, overlap 0.66 ± 0.12 versus 0.77 ± 0.10, abundance rising from 1.0% to 44.7%, 71.5% transcriptional contribution and 68.0% positive associations have distinct measurement denominators. |
+| operation | PMID:42323145; Abstract: operated biofilter and analysis design sentences | supports | An operated anammox biofilter under sustained low-nitrogen stress was examined using metagenomics, metatranscriptomics, co-occurrence networks and SMETANA. Exact reactor configuration and nutrient loading remain unverified at this source scope. |
+| schema | src/communitymech/schema/communitymech.yaml; EnvironmentalFactor; EcologicalInteraction.participating_taxa; InteractionTypeEnum.CROSS_FEEDING; MicrobialCommunity.ecological_state; abundance and functional-role enums | supports | Environmental factors are conditions or parameters; CROSS_FEEDING denotes metabolite exchange and participating_taxa identifies actual members of that interaction. Ecological state is optional (no required:true), and ENGINEERED is valid here. DOMINANT is ordinal; autotrophic and predicted-recipient roles must not be presented as directly measured carbon fixation or exchange. |
+| ontology | .temp/pr2044/447/support-final.json; Whole bounded receipt | supports | Four unique ontology pairs across six occurrences match local OAK labels. Fresh NCBI taxonomy confirms both taxa are genera; no species or genome mapping is inferred. |
+| semantics | .temp/pr2044/447/support-final.json; Whole bounded receipt | supports | Temporal taxonomic membership and distinct measurement denominators are retained. Kuenenia's presence does not establish participation in the explicitly Brocadia-specific model complementarity. |
+| snippets | .temp/pr2044/447/support-final.json; Whole bounded receipt | supports | All 13 snippet occurrences were replayed: 10 strict NFKC/whitespace abstract matches, one hyphen-glyph-only equivalent and two directly corroborated bibliographic identifiers. No full-text match is claimed. |
+| native-target | .temp/pr2044/447/support-final.json; Whole bounded receipt | supports | The native target network returns zero issues (COMPLETE), one node and two node-evidence items. This structural pass does not establish scientific participant scope. |
+| resources | .temp/pr2044/447/source-qualification-final.json; Whole bounded receipt | supports | PMID and DOI identify the focal publication. No exact MAG/species identity, SMETANA model source or reproducible medium/feed is established by the inspected abstract; they are unresolved rather than proven absent. |
+| source-scope | .temp/pr2044/447/source-qualification-final.json; Whole bounded receipt | supports | Inspected public routes provide the complete abstract and metadata but not full main Methods/Results, figures or supplements; completion remains partial. |
+| search-leads | .temp/pr2044/447/source-qualification-final.json; Whole bounded receipt | context_only | A fresh exact DOI/title web search exposes indexed publisher Methods fragments. The direct publisher web open returns 403; fragments remain leads and no reactor quantities are curated or certified from them. |
+| adapter | .temp/pr2044/447/source-qualification-final.json; Whole bounded receipt | supports | The public iModulonDB organism catalogue has no Brocadia or Kuenenia dataset. No module lookup is applicable to these unresolved genera; this is not negative biological evidence. |
+| local-search | .temp/pr2044/447/local-search.stdout.txt; Whole bounded receipt | supports | Ignored-inclusive bounded searches covered reference cache, record histories, causal-review decisions and reusable taxa; no machine-wide absence claim is made. |
+| history | .temp/pr2044/447/lineage.json; Whole bounded receipt | supports | The original single-target outcome-placement finding remains open. Three current sidecars and both relevant graph decisions were read. Stage 4/5 grouped findings are context only, not superseded by this one-target review. |
+| delta | .temp/pr2044/447/target-diff.stdout.txt; Whole bounded receipt | supports | Frozen-to-current content adds Kuenenia participation, the succession quotation, quantified early-acclimation wording and one curation-history entry. The original outcome placement is unchanged. |
+| access-doi | https://doi.org/10.1016/j.biortech.2026.135206; Inspected source body and retrieval receipt | context_only | HTTP 200 redirect shell only; no full article. |
+| access-publisher | https://www.sciencedirect.com/science/article/pii/S0960852426012885; Inspected source body and retrieval receipt | context_only | HTTP 403 access-error page; no full article. |
+| access-article-api | https://api.elsevier.com/content/article/pii/S0960852426012885?httpAccept=text/xml; Inspected source body and retrieval receipt | context_only | HTTP 200 bibliographic coredata only; no article body. |
+| access-openalex | https://api.openalex.org/works/https://doi.org/10.1016/j.biortech.2026.135206; Inspected source body and retrieval receipt | context_only | Closed-access metadata supplies no open PDF in its listed locations; not proof of global absence. |
+| check-validate | .temp/pr2044/447/validate.json; Command, environment and stdout/stderr hashes; 2026-11-06T07:58:06.121248Z through 2026-11-06T07:58:06.585032Z | supports | Focused native check passed; mechanical validity does not certify scientific support. |
+| check-validate-strict | .temp/pr2044/447/validate-strict.json; Command, environment and stdout/stderr hashes; 2026-11-06T07:58:06.585244Z through 2026-11-06T07:58:07.860980Z | supports | Focused native check passed; mechanical validity does not certify scientific support. |
+| check-validate-terms | .temp/pr2044/447/validate-terms.json; Command, environment and stdout/stderr hashes; 2026-11-06T07:58:07.861176Z through 2026-11-06T07:58:08.804358Z | supports | Focused native check passed; mechanical validity does not certify scientific support. |
+| check-validate-gtdb | .temp/pr2044/447/validate-gtdb.json; Command, environment and stdout/stderr hashes; 2026-11-06T07:58:08.804550Z through 2026-11-06T07:58:08.855729Z | supports | Focused native check passed; mechanical validity does not certify scientific support. |
+| check-validate-gtdb-domain | .temp/pr2044/447/validate-gtdb-domain.json; Command, environment and stdout/stderr hashes; 2026-11-06T07:58:08.855898Z through 2026-11-06T07:58:09.668804Z | supports | Focused native check passed; mechanical validity does not certify scientific support. |
+| check-validate-history | .temp/pr2044/447/validate-history.json; Command, environment and stdout/stderr hashes; 2026-11-06T07:58:09.669005Z through 2026-11-06T07:58:10.225794Z | supports | Focused native check passed; mechanical validity does not certify scientific support. |
+| check-normalize-cache-names-check | .temp/pr2044/447/normalize-cache-names-check.json; Command, environment and stdout/stderr hashes; 2026-11-06T07:58:10.225986Z through 2026-11-06T07:58:10.262786Z | supports | Focused native check passed; mechanical validity does not certify scientific support. |
+| check-validate-references-explained | .temp/pr2044/447/validate-references-explained.json; Command, environment and stdout/stderr hashes; 2026-11-06T07:58:10.263000Z through 2026-11-06T07:58:10.973575Z | supports | Focused native check passed; mechanical validity does not certify scientific support. |
+| check-audit-network | .temp/pr2044/447/audit-network.json; Command, environment and stdout/stderr hashes; 2026-11-06T07:58:10.973767Z through 2026-11-06T07:58:15.026110Z | supports | Current corpus diagnostics report 44 warnings, zero errors, across 16 of 508 records; exit 1 is retained. The focal network separately returns zero issues, which does not establish participant evidence. |
+| check-check-network-quality | .temp/pr2044/447/check-network-quality.json; Command, environment and stdout/stderr hashes; 2026-11-06T07:58:15.026312Z through 2026-11-06T07:58:19.077523Z | supports | Current corpus diagnostics report 44 warnings, zero errors, across 16 of 508 records; exit 1 is retained. The focal network separately returns zero issues, which does not establish participant evidence. |
+
+## Limits And Additional Notes
+
+- Critical full main Methods/Results, figures, SI, species/MAG identities, model construction and exact reactor settings remain unavailable through the inspected public routes. This is an abstract-scope partial review, not whole-source scientific certification.
+- The abstract supports temporal succession, distinct transcriptional/abundance outcomes and SMETANA-predicted Brocadia complementarity. It does not directly measure inter-genus metabolite exchange, donor-recipient flux, obligate dependence or carbon fixation. The new participant finding is bounded to support currently inspected, not a claim about unread source content.
+- Indexed publisher Methods fragments are access leads only. Direct page requests returned 403; no reactor scale, volume, configuration, feed concentration or species identity is accepted from those snippets.
+- No figure inspection, raw omics inspection, simulation or isotope/flux reanalysis was performed. No guessed genome accession, model source, strain or medium link is supplied.
+- Both documented corpus network diagnostics exit 1 with 44 warnings and zero errors across 16 of 508 records. The focal target is structurally COMPLETE; that mechanical result does not validate scientific participation.
+- The grouped Stage 4/5 lineage is context only. Only the 447 identifier and current scientific scope are assessed; the other four targets and grouped resolved dispositions are not reassessed or superseded.
+- Bounded unsuccessful access or catalogue discovery does not establish global absence. No paid provider, contact, authentication bypass or GitHub mutation was used. The author pass does not claim independent approval.
+- Canonical, cache, history, schema, generated products and existing review bundles remain unchanged. The final native inspection verifies all earlier pinned inputs before adding fresh source, receipt and frozen helper pins.
+- 13 snippet occurrences: 10 strict NFKC/whitespace abstract matches, one hyphen-only equivalent and two metadata identifiers. Four unique ontology pairs occur six times; both taxa are genera.
+- Completeness 70 and quality 100 (raw 123) are mechanical metrics, not scientific certification. One P2 and one P3 remain open; completion is partial and scientific_review is false.
+- The original single-target outcome-placement finding has exact previous_occurrences. The five-target group key is not superseded by this narrower record observation.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261106T080640Z-pr2044-brocadia-current-input-refresh
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Brocadia low-nitrogen consortium: current-input and participant-scope refresh'
+started_at: '2026-11-06T07:57:57.019549Z'
+finished_at: '2026-11-06T08:06:40.367004Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Author refresh of the stale PR 2044 review. This saved observation
+    makes no independent approval claim; the separate adversarial pass is outside
+    this bundle.
+skill: review-yaml-record
+completion: partial
+verdict: needs_curation
+scientific_review: false
+summary: The current record retains supported temporal biofilter identity and abstract-level
+  quantities. The original P3 outcome-placement finding remains open. A new P2 finding
+  distinguishes Kuenenia succession membership from participation in the model-inferred
+  Brocadia cross-feeding node. Full Methods/Results, figures and SI remain unavailable;
+  the review is partial.
+source:
+  git_revision: b8be36d24c53cc7532e9a07e5889d72976be53d1
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: .temp/pr2044/447/adapter-discovery.json
+    sha256: 7fa2b359933fd735c834bebfb413b5b1bdd93329c2c26d5fbb8155fac70c3802
+    role: context
+  - path: .temp/pr2044/447/article-api.xml
+    sha256: 69cae6708948b9bd6392a842bd606cfdce2507723635481cb3305d473c81eec2
+    role: context
+  - path: .temp/pr2044/447/article-api.xml.receipt.json
+    sha256: ff18da4e4b0d9ff49389aa35bfa1e3ea357216f09a9a2b4646c62105b2b80ab3
+    role: context
+  - path: .temp/pr2044/447/audit-network.json
+    sha256: 98a5e7e37db15307e916e247707457aa18a6ad9ecb26d8be9616bd18a8448020
+    role: context
+  - path: .temp/pr2044/447/audit-network.stderr.txt
+    sha256: a71fb29e950f3eaf0eb2b834a43c59d4a1b6aa85a2a89473ae99b0e408a27a36
+    role: context
+  - path: .temp/pr2044/447/audit-network.stdout.txt
+    sha256: e8ebf9ba0a67e945a00eb7ee67c5cc886a3fa5165ceeea6dad115d754cbb144a
+    role: context
+  - path: .temp/pr2044/447/check-network-quality.json
+    sha256: 5d4ed43df46899fa90f04576147c1bce683f364273420d4e258b7f8665aa14de
+    role: context
+  - path: .temp/pr2044/447/check-network-quality.stderr.txt
+    sha256: f9a8e9fb5a4e4ea545236a809393dbc1ce4325b14579c65a3130bcfe713e798a
+    role: context
+  - path: .temp/pr2044/447/check-network-quality.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2044/447/crossref.json
+    sha256: 675952c2193323b6720145c6255ad0feef65b526b5c26d04bb144f310bc4add3
+    role: context
+  - path: .temp/pr2044/447/crossref.json.receipt.json
+    sha256: 00cd1f03898c912ea686596ef65c6331e75d1f6173b34edf3923f9a885ebfb3b
+    role: context
+  - path: .temp/pr2044/447/doi.html
+    sha256: 8637b05c4035a7d3dd584d2264f46f73aa0f29d9d8722a8986a830f1e0490144
+    role: context
+  - path: .temp/pr2044/447/doi.html.receipt.json
+    sha256: aa632e5bdd5a4de892e467cea52700bc48804b2b0c11231e0438b54476673911
+    role: context
+  - path: .temp/pr2044/447/epmc.json
+    sha256: c41528cd83e1de3d272fdd6599f1ac3d3f2cf3bd4fa1fa090f2484cb0282f9aa
+    role: context
+  - path: .temp/pr2044/447/epmc.json.receipt.json
+    sha256: 45dabf4d2f9b4bd118dbea7dd377c20862abac1ce62287d82a3582b6a8d660e1
+    role: context
+  - path: .temp/pr2044/447/frozen-target.stdout.txt
+    sha256: 227362963f3008129281c29d08829d1bf49aa57230b126cc7986e592c6cd9a96
+    role: context
+  - path: .temp/pr2044/447/imodulon-catalog.json
+    sha256: 155607e7023efdead5ebab3919279a0776d5665a7de9e28b67f02f8f521b0693
+    role: context
+  - path: .temp/pr2044/447/imodulon-catalog.json.receipt.json
+    sha256: 17011348004f2d0cf8b95ed18388cbbd5774a86198000c9f132034d91f764c32
+    role: context
+  - path: .temp/pr2044/447/inspect.json
+    sha256: 9d85ffdf69bc14fbaec1469ace3892f40fb00060fe166347ecc3ed289ef6e0a7
+    role: context
+  - path: .temp/pr2044/447/inspection.json
+    sha256: 23d0668657e39ae15349a42e0d166118a493023dc2ce81f1de076bcf3a1df9ae
+    role: context
+  - path: .temp/pr2044/447/legacy-finding-search-final.json
+    sha256: c3cd3f8ef86bc221f4a3974633b190d23deed822aefeb98c96b9927862714368
+    role: context
+  - path: .temp/pr2044/447/legacy-finding-search-final.stdout.txt
+    sha256: 087abddd9dc704fd35b44ca4173d1e7ab170444cefb59991bf47cb9624f044c2
+    role: context
+  - path: .temp/pr2044/447/lineage.json
+    sha256: 2fe5a9421cb8b678df9d953cac16ba9371d52b935101c3f0796f904cf7d67521
+    role: context
+  - path: .temp/pr2044/447/local-search.json
+    sha256: dd8e5a248a6d479a7b70e0a7583ad8846b6b3ebafca46d806f8b46871476d2ca
+    role: context
+  - path: .temp/pr2044/447/local-search.stdout.txt
+    sha256: b75562cbd3656d127f40be4f0ae423cc063ba61383aba49ef4d892d971df8c10
+    role: context
+  - path: .temp/pr2044/447/ncbi-taxonomy.xml
+    sha256: 26e730776fabb5f848656a35e382dbf6172267875d2ca4ceb0c50f848160e5e8
+    role: context
+  - path: .temp/pr2044/447/ncbi-taxonomy.xml.receipt.json
+    sha256: e7d7e9c9ed62c2ddbf44e1888e8230a77174d9897a101f8d9ae1a19d4873bf23
+    role: context
+  - path: .temp/pr2044/447/normalize-cache-names-check.json
+    sha256: 39e6bbbe8217be75106d57468236e1f88aa26188f7bcb4dc59bc015fbe7e63b3
+    role: context
+  - path: .temp/pr2044/447/normalize-cache-names-check.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2044/447/normalize-cache-names-check.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2044/447/openalex.json
+    sha256: 29caef13b673f3904f97aeec4cd222395425d510d50c3277084d417f57418b54
+    role: context
+  - path: .temp/pr2044/447/openalex.json.receipt.json
+    sha256: a86b38bc35ae7ff2d516217ee7b4ebe7f5417d77e1b69626b58c132aab22b118
+    role: context
+  - path: .temp/pr2044/447/publisher.html
+    sha256: 11fb367d3d75d0ded422743e90a85c2c7baeb57ad465f6ad810b6f3aca3894bb
+    role: context
+  - path: .temp/pr2044/447/publisher.html.receipt.json
+    sha256: a6aa75790dbac36d41ef8fda0a0816cd70d2ff38d812a0ded622007036fe6ecd
+    role: context
+  - path: .temp/pr2044/447/pubmed.xml
+    sha256: 5442ac3ade38171fbb4daaa653e4da99e08e3ecebdd3c0dbc5ce7e45f5c45b48
+    role: context
+  - path: .temp/pr2044/447/pubmed.xml.receipt.json
+    sha256: bce7f79bf22790514253a0b8943088d7c2427828af4cf39406e8fa4abf83a17c
+    role: context
+  - path: .temp/pr2044/447/source-qualification-final.json
+    sha256: 94320705c0efc32aec0e647adff3883dc73bc22eed2bcd9d8a33e9e61ec5fe9f
+    role: context
+  - path: .temp/pr2044/447/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/pr2044/447/support-final.json
+    sha256: bf93b0a60ec7d72e20cd249651d142599e578660522c4627d8d25d4477853223
+    role: context
+  - path: .temp/pr2044/447/target-diff.stdout.txt
+    sha256: 589a392b30c93da972bdd376c2dab4f06ce8b23f1d5e6baa6140ef0f85170d8e
+    role: context
+  - path: .temp/pr2044/447/targets.json
+    sha256: 9eda48ffab05ce755b085f1b3e080cc376378f1711047784e3556670b98e20b0
+    role: context
+  - path: .temp/pr2044/447/validate-gtdb-domain.json
+    sha256: 6be33b9cbfe5add392eb5d3f6019f41356ee2785ebb1c7b09858a715bd93b8bc
+    role: context
+  - path: .temp/pr2044/447/validate-gtdb-domain.stderr.txt
+    sha256: 1892d852a0ce57429220ec8a2a5f3339b1f725d8c2037d04eac9e74a9914df1f
+    role: context
+  - path: .temp/pr2044/447/validate-gtdb-domain.stdout.txt
+    sha256: ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae
+    role: context
+  - path: .temp/pr2044/447/validate-gtdb.json
+    sha256: 1f604ab6b874c22cb0abf5591078f4bd07b66f07cf2693bda4f353358866d07f
+    role: context
+  - path: .temp/pr2044/447/validate-gtdb.stderr.txt
+    sha256: 27e2388248f309f2a97518138fe3da85bea437ddd5f7d30df95c4ffe50ff7ac7
+    role: context
+  - path: .temp/pr2044/447/validate-gtdb.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2044/447/validate-history.json
+    sha256: 9d2d11501c193abc5c6521b463610482253331127e2cf2641c21da84ea3bca27
+    role: context
+  - path: .temp/pr2044/447/validate-history.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2044/447/validate-history.stdout.txt
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2044/447/validate-references-explained.json
+    sha256: 1f980f8db1296c813f9f682fc6d3671f193fed9c2651f8f06eca37299c33dd44
+    role: context
+  - path: .temp/pr2044/447/validate-references-explained.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2044/447/validate-references-explained.stdout.txt
+    sha256: aaa699cfb87be48a805d91357e8f6b585c221c394945c5fc2339d6802b0a47a8
+    role: context
+  - path: .temp/pr2044/447/validate-strict.json
+    sha256: 59eea8147bed6a23515f457400733ca5bad64c62738d4f7a5f8a19f1f16cf91b
+    role: context
+  - path: .temp/pr2044/447/validate-strict.stderr.txt
+    sha256: a2bab5b0f8e1657f51942df4b812c6b4be6646b327f4fb459f7493cbadbe78a2
+    role: context
+  - path: .temp/pr2044/447/validate-strict.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2044/447/validate-terms.json
+    sha256: eb679bdc96811fc27471310861ee7ff9e394033e06c4de8f0155da519e8723e3
+    role: context
+  - path: .temp/pr2044/447/validate-terms.stderr.txt
+    sha256: 4417682adcbc3fa00eb7ce1a09dbb2476243dded6dca5a406a367d67f8d3406f
+    role: context
+  - path: .temp/pr2044/447/validate-terms.stdout.txt
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/pr2044/447/validate.json
+    sha256: 8c35b843c43afcd8bc8885bc3260101ade990a7aa32db29049e3590c71080567
+    role: context
+  - path: .temp/pr2044/447/validate.stderr.txt
+    sha256: 8c0ee6f600598ab52cf7c7ada805c46bf655390f545a40ee1c0b068fe99fbe97
+    role: context
+  - path: .temp/pr2044/447/validate.stdout.txt
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2044/staleness.json
+    sha256: 67423d6d662f2389bce3ce0962376480700497c433616e764832f9c81fbd428a
+    role: context
+  - path: AGENTS.md
+    sha256: 8f23dcad7ed9c9873f00058995d1219cca8810c27ed5d787cb9b66a8abf96728
+    role: context
+  - path: conf/record_review.yaml
+    sha256: c4ad25505a87a040c57eb93f1ee9673a09389a474c6d4e1136781456ff190fc8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Brocadia_Low_Nitrogen_Anammox_Consortium/2026-09-27T071843Z-claude-code-a3a0aa.yaml
+    sha256: fc186aa974700cfdfa206c64bc62ff9c6261c3e05626bbd929561ba22c261806
+    role: context
+  - path: history/records/Brocadia_Low_Nitrogen_Anammox_Consortium/2026-09-27T072435Z-claude-code-2c4140.yaml
+    sha256: e2a99f489164c6a4a059b72ba7a13b99ca01e4a44c648bd6d5f4aeb813b0cb15
+    role: context
+  - path: history/records/Brocadia_Low_Nitrogen_Anammox_Consortium/2026-10-21T190000Z-claude-2048.yaml
+    sha256: 435184b82102b203b723627e232772ed8475744fd7b04437a5a1b75c5516a700
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    sha256: 0ea86ed4c4587ff6d6fcc424c9bf2a27163154962b8430576b2a6fd4bfb1b36c
+    role: target
+  - path: references_cache/PMID_42323145.txt
+    sha256: dae56a2cb0f7223e87c5c6069c6437f02cfb7a7dc09c09135c30273626dfb018
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+    sha256: a03eceb4ca205fdd9092a4f18c0fa4c068e8ec91ee5a62d09da97b87a4f50a25
+    role: context
+  - path: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+    sha256: efe4b6b56ae2ad5cb78452493088e5c046f10602461d581920791b19f9178119
+    role: context
+  - path: reviews/structured/20261021T101000Z-stage4-record-deep-audit/review.yaml
+    sha256: f32db16fda535e46adee4bd7d8d2de5c3f206dc7fdb892d137e1fe00e3346b59
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/structured/20261021T133803Z-brocadia-low-nitrogen-anammox-record/review.yaml
+    sha256: 9a211e73dcaa1555d4db10bba37815f4e1ab39f806e2a60188d7b246807cbc69
+    role: context
+  - path: reviews/structured/20261021T193000Z-stage5-remediation-verification/review.yaml
+    sha256: 8f8f980813203a0336e27f0bc0a3c3b6e68bb68c2f2a7d71460183f4fe3bbc09
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/pr2044_447_audit.py
+    sha256: a0efaf7547a1dfd36ffec847a87f9a99e1840e1977852f63b33b84bd9b23cfef
+    role: context
+  - path: scripts/adhoc/pr2044_447_review.py
+    sha256: 6d51b6c8f1dbf2d9977764f207cf2b682b99ba87dc1e36aa5afed5d4c3928ef4
+    role: context
+  - path: scripts/adhoc/pr2044_447_support.py
+    sha256: 4871c34bc98c5c35cb348c5bfca7e8717b2320354104809501e157ecc933c4bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: bb3803581ac2946b2ca8e14278e36cd660faf12db9237f9688a6cef577fa9016
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: a00434e0d75020b2926c9f755d625c09cc78b6f88135805991fcb0ecd4230c83
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000447
+  path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  label: Brocadia Low-Nitrogen Anammox Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    role: canonical_record
+scope:
+  description: Entire current record and its sole interaction/no downstream arrows
+    reassessed at direct abstract scope, with explicit analysis of the changed participant
+    list, description, evidence and history. Unread full-source material is excluded
+    from certification.
+  selection: The sole stale record CommunityMech:000447 identified for PR 2044 after
+    merging main.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000447
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  target_ids:
+  - CommunityMech:000447
+  command: UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.venv
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_OFFLINE=1 PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2044-batch08/src
+    JUST_NO_DOTENV=true just --no-dotenv validate kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Exact focused target, except the documented corpus cache-filename preflight.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  target_ids:
+  - CommunityMech:000447
+  command: UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.venv
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_OFFLINE=1 PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2044-batch08/src
+    JUST_NO_DOTENV=true just --no-dotenv validate-strict kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    --out /Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2044-batch08/.temp/pr2044/447/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Exact focused target, except the documented corpus cache-filename preflight.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  target_ids:
+  - CommunityMech:000447
+  command: UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.venv
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_OFFLINE=1 PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2044-batch08/src
+    JUST_NO_DOTENV=true just --no-dotenv validate-terms kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Exact focused target, except the documented corpus cache-filename preflight.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  target_ids:
+  - CommunityMech:000447
+  command: UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.venv
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_OFFLINE=1 PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2044-batch08/src
+    JUST_NO_DOTENV=true just --no-dotenv validate-gtdb kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Exact focused target, except the documented corpus cache-filename preflight.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  target_ids:
+  - CommunityMech:000447
+  command: UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.venv
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_OFFLINE=1 PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2044-batch08/src
+    JUST_NO_DOTENV=true just --no-dotenv validate-gtdb-domain kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Exact focused target, except the documented corpus cache-filename preflight.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  target_ids:
+  - CommunityMech:000447
+  command: UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.venv
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_OFFLINE=1 PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2044-batch08/src
+    JUST_NO_DOTENV=true just --no-dotenv validate-history history/records/Brocadia_Low_Nitrogen_Anammox_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Exact focused target, except the documented corpus cache-filename preflight.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  target_ids:
+  - CommunityMech:000447
+  command: UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.venv
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_OFFLINE=1 PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2044-batch08/src
+    JUST_NO_DOTENV=true uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Exact focused target, except the documented corpus cache-filename preflight.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  target_ids:
+  - CommunityMech:000447
+  command: UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.venv
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_OFFLINE=1 PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2044-batch08/src
+    JUST_NO_DOTENV=true just --no-dotenv validate-references-explained kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Exact focused target, except the documented corpus cache-filename preflight.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Current corpus diagnostics report 44 warnings, zero errors, across 16 of
+    508 records; exit 1 is retained. The focal network separately returns zero issues,
+    which does not establish participant evidence.
+  target_ids:
+  - CommunityMech:000447
+  command: UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.venv
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_OFFLINE=1 PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2044-batch08/src
+    JUST_NO_DOTENV=true just --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Full-corpus diagnostic, not a focused pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Current corpus diagnostics report 44 warnings, zero errors, across 16 of
+    508 records; exit 1 is retained. The focal network separately returns zero issues,
+    which does not establish participant evidence.
+  target_ids:
+  - CommunityMech:000447
+  command: UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.venv
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_OFFLINE=1 PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2044-batch08/src
+    JUST_NO_DOTENV=true just --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Full-corpus diagnostic, not a focused pass.
+- check_id: source-identity
+  name: Primary bibliographic identity
+  status: passed
+  required: true
+  summary: Fresh PMID, DOI, title and complete abstract agree.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - pubmed
+  - epmc
+  - crossref
+- check_id: scientific-source
+  name: Full primary source and critical supplements
+  status: unavailable
+  required: true
+  summary: Critical full Methods/Results, figures, SI and model inputs remain inaccessible
+    through inspected routes; only direct abstract support is certified.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - source-scope
+  - access-publisher
+  - access-article-api
+  - access-openalex
+- check_id: cross-mech
+  name: Medium and archive correspondence
+  status: not_applicable
+  required: false
+  summary: No exact recipe or accession can be established from inspected source scope;
+    no guessed cross-repository link.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - resources
+- check_id: structured-adapter
+  name: Structured expression dataset coverage
+  status: not_applicable
+  required: false
+  summary: Public iModulonDB catalogue has no exact Brocadia or Kuenenia dataset;
+    no component lookup or inference is warranted.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  locator: Entire current record; especially ecological_interactions[0] and curation_history[2]
+  summary: The temporal low-nitrogen biofilter contains two genus descriptors. The
+    current node newly lists Kuenenia alongside Brocadia, adds a succession quote
+    and expands its description; all other scientific fields remain unchanged.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.365892Z'
+  snapshot_sha256: 0ea86ed4c4587ff6d6fcc424c9bf2a27163154962b8430576b2a6fd4bfb1b36c
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42323145&retmode=xml
+  locator: Inspected source body and retrieval receipt
+  summary: Fresh exact PMID, DOI, title and complete primary abstract identify the
+    focal study. No full article is supplied by this response.
+  support: supports
+  accessed_at: '2026-11-06T07:58:10.149903Z'
+  snapshot_sha256: 5442ac3ade38171fbb4daaa653e4da99e08e3ecebdd3c0dbc5ce7e45f5c45b48
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42323145%20AND%20SRC:MED&format=json&resultType=core
+  locator: Inspected source body and retrieval receipt
+  summary: Fresh complete abstract agrees. No PMCID is supplied and the full-text
+    URL requires subscription.
+  support: supports
+  accessed_at: '2026-11-06T07:58:10.789053Z'
+  snapshot_sha256: c41528cd83e1de3d272fdd6599f1ac3d3f2cf3bd4fa1fa090f2484cb0282f9aa
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1016/j.biortech.2026.135206
+  locator: Inspected source body and retrieval receipt
+  summary: Fresh DOI and title agree with PubMed. Bibliographic metadata is not independent
+    mechanistic evidence.
+  support: supports
+  accessed_at: '2026-11-06T07:58:11.158505Z'
+  snapshot_sha256: 675952c2193323b6720145c6255ad0feef65b526b5c26d04bb144f310bc4add3
+- evidence_id: ncbi
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&id=380240,380738&retmode=xml
+  locator: Inspected source body and retrieval receipt
+  summary: Fresh NCBI records identify Candidatus Brocadia 380240 and Candidatus Kuenenia
+    380738 at genus rank.
+  support: supports
+  accessed_at: '2026-11-06T07:58:13.195103Z'
+  snapshot_sha256: 26e730776fabb5f848656a35e382dbf6172267875d2ca4ceb0c50f848160e5e8
+- evidence_id: succession
+  kind: primary_source
+  reference: PMID:42323145
+  locator: 'Abstract: early-acclimation and final succession sentences'
+  summary: Kuenenia reduces costly biosynthesis during early acclimation, including
+    aromatic amino-acid synthesis by 25.6%–38.8%; Brocadia later replaces it as dominant
+    functional lineage. This establishes temporal presence and replacement, not metabolite
+    exchange between the genera.
+  support: supports
+  accessed_at: '2026-11-06T07:58:10.149903Z'
+  snapshot_sha256: 5442ac3ade38171fbb4daaa653e4da99e08e3ecebdd3c0dbc5ce7e45f5c45b48
+  quote: dominant functional lineage
+- evidence_id: model
+  kind: primary_source
+  reference: PMID:42323145
+  locator: 'Abstract: long-term operation sentence'
+  summary: The long-term community shifts to a multispecies Brocadia assemblage with
+    complementary model-inferred auxotrophies. Associations and SMETANA predictions
+    do not demonstrate direct exchange, flux or obligatory dependence; the inspected
+    sentence does not assign Kuenenia to that complementary assemblage.
+  support: supports
+  accessed_at: '2026-11-06T07:58:10.149903Z'
+  snapshot_sha256: 5442ac3ade38171fbb4daaa653e4da99e08e3ecebdd3c0dbc5ce7e45f5c45b48
+  quote: complementary model-inferred auxotrophies
+- evidence_id: quantities
+  kind: primary_source
+  reference: PMID:42323145
+  locator: 'Abstract: transcription, overlap and abundance sentences'
+  summary: Approximately 18-fold gene upregulation, overlap 0.66 ± 0.12 versus 0.77
+    ± 0.10, abundance rising from 1.0% to 44.7%, 71.5% transcriptional contribution
+    and 68.0% positive associations have distinct measurement denominators.
+  support: supports
+  accessed_at: '2026-11-06T07:58:10.149903Z'
+  snapshot_sha256: 5442ac3ade38171fbb4daaa653e4da99e08e3ecebdd3c0dbc5ce7e45f5c45b48
+- evidence_id: operation
+  kind: primary_source
+  reference: PMID:42323145
+  locator: 'Abstract: operated biofilter and analysis design sentences'
+  summary: An operated anammox biofilter under sustained low-nitrogen stress was examined
+    using metagenomics, metatranscriptomics, co-occurrence networks and SMETANA. Exact
+    reactor configuration and nutrient loading remain unverified at this source scope.
+  support: supports
+  accessed_at: '2026-11-06T07:58:10.149903Z'
+  snapshot_sha256: 5442ac3ade38171fbb4daaa653e4da99e08e3ecebdd3c0dbc5ce7e45f5c45b48
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: EnvironmentalFactor; EcologicalInteraction.participating_taxa; InteractionTypeEnum.CROSS_FEEDING;
+    MicrobialCommunity.ecological_state; abundance and functional-role enums
+  summary: Environmental factors are conditions or parameters; CROSS_FEEDING denotes
+    metabolite exchange and participating_taxa identifies actual members of that interaction.
+    Ecological state is optional (no required:true), and ENGINEERED is valid here.
+    DOMINANT is ordinal; autotrophic and predicted-recipient roles must not be presented
+    as directly measured carbon fixation or exchange.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366077Z'
+  snapshot_sha256: a00434e0d75020b2926c9f755d625c09cc78b6f88135805991fcb0ecd4230c83
+- evidence_id: ontology
+  kind: authority
+  reference: .temp/pr2044/447/support-final.json
+  locator: Whole bounded receipt
+  summary: Four unique ontology pairs across six occurrences match local OAK labels.
+    Fresh NCBI taxonomy confirms both taxa are genera; no species or genome mapping
+    is inferred.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366157Z'
+  snapshot_sha256: bf93b0a60ec7d72e20cd249651d142599e578660522c4627d8d25d4477853223
+- evidence_id: semantics
+  kind: validation
+  reference: .temp/pr2044/447/support-final.json
+  locator: Whole bounded receipt
+  summary: Temporal taxonomic membership and distinct measurement denominators are
+    retained. Kuenenia's presence does not establish participation in the explicitly
+    Brocadia-specific model complementarity.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366190Z'
+  snapshot_sha256: bf93b0a60ec7d72e20cd249651d142599e578660522c4627d8d25d4477853223
+- evidence_id: snippets
+  kind: validation
+  reference: .temp/pr2044/447/support-final.json
+  locator: Whole bounded receipt
+  summary: 'All 13 snippet occurrences were replayed: 10 strict NFKC/whitespace abstract
+    matches, one hyphen-glyph-only equivalent and two directly corroborated bibliographic
+    identifiers. No full-text match is claimed.'
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366215Z'
+  snapshot_sha256: bf93b0a60ec7d72e20cd249651d142599e578660522c4627d8d25d4477853223
+- evidence_id: native-target
+  kind: validation
+  reference: .temp/pr2044/447/support-final.json
+  locator: Whole bounded receipt
+  summary: The native target network returns zero issues (COMPLETE), one node and
+    two node-evidence items. This structural pass does not establish scientific participant
+    scope.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366239Z'
+  snapshot_sha256: bf93b0a60ec7d72e20cd249651d142599e578660522c4627d8d25d4477853223
+- evidence_id: resources
+  kind: database
+  reference: .temp/pr2044/447/source-qualification-final.json
+  locator: Whole bounded receipt
+  summary: PMID and DOI identify the focal publication. No exact MAG/species identity,
+    SMETANA model source or reproducible medium/feed is established by the inspected
+    abstract; they are unresolved rather than proven absent.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366263Z'
+  snapshot_sha256: 94320705c0efc32aec0e647adff3883dc73bc22eed2bcd9d8a33e9e61ec5fe9f
+- evidence_id: source-scope
+  kind: validation
+  reference: .temp/pr2044/447/source-qualification-final.json
+  locator: Whole bounded receipt
+  summary: Inspected public routes provide the complete abstract and metadata but
+    not full main Methods/Results, figures or supplements; completion remains partial.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366288Z'
+  snapshot_sha256: 94320705c0efc32aec0e647adff3883dc73bc22eed2bcd9d8a33e9e61ec5fe9f
+- evidence_id: search-leads
+  kind: search
+  reference: .temp/pr2044/447/source-qualification-final.json
+  locator: Whole bounded receipt
+  summary: A fresh exact DOI/title web search exposes indexed publisher Methods fragments.
+    The direct publisher web open returns 403; fragments remain leads and no reactor
+    quantities are curated or certified from them.
+  support: context_only
+  accessed_at: '2026-11-06T08:06:40.366312Z'
+  snapshot_sha256: 94320705c0efc32aec0e647adff3883dc73bc22eed2bcd9d8a33e9e61ec5fe9f
+  search_scope: A fresh exact DOI/title web search exposes indexed publisher Methods
+    fragments. The direct publisher web open returns 403; fragments remain leads and
+    no reactor quantities are curated or certified from them.
+- evidence_id: adapter
+  kind: search
+  reference: .temp/pr2044/447/source-qualification-final.json
+  locator: Whole bounded receipt
+  summary: The public iModulonDB organism catalogue has no Brocadia or Kuenenia dataset.
+    No module lookup is applicable to these unresolved genera; this is not negative
+    biological evidence.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366336Z'
+  snapshot_sha256: 94320705c0efc32aec0e647adff3883dc73bc22eed2bcd9d8a33e9e61ec5fe9f
+  search_scope: The public iModulonDB organism catalogue has no Brocadia or Kuenenia
+    dataset. No module lookup is applicable to these unresolved genera; this is not
+    negative biological evidence.
+- evidence_id: local-search
+  kind: search
+  reference: .temp/pr2044/447/local-search.stdout.txt
+  locator: Whole bounded receipt
+  summary: Ignored-inclusive bounded searches covered reference cache, record histories,
+    causal-review decisions and reusable taxa; no machine-wide absence claim is made.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366359Z'
+  snapshot_sha256: b75562cbd3656d127f40be4f0ae423cc063ba61383aba49ef4d892d971df8c10
+  search_scope: Ignored-inclusive bounded searches covered reference cache, record
+    histories, causal-review decisions and reusable taxa; no machine-wide absence
+    claim is made.
+- evidence_id: history
+  kind: record_content
+  reference: .temp/pr2044/447/lineage.json
+  locator: Whole bounded receipt
+  summary: The original single-target outcome-placement finding remains open. Three
+    current sidecars and both relevant graph decisions were read. Stage 4/5 grouped
+    findings are context only, not superseded by this one-target review.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366384Z'
+  snapshot_sha256: 2fe5a9421cb8b678df9d953cac16ba9371d52b935101c3f0796f904cf7d67521
+- evidence_id: delta
+  kind: record_content
+  reference: .temp/pr2044/447/target-diff.stdout.txt
+  locator: Whole bounded receipt
+  summary: Frozen-to-current content adds Kuenenia participation, the succession quotation,
+    quantified early-acclimation wording and one curation-history entry. The original
+    outcome placement is unchanged.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366413Z'
+  snapshot_sha256: 589a392b30c93da972bdd376c2dab4f06ce8b23f1d5e6baa6140ef0f85170d8e
+- evidence_id: access-doi
+  kind: database
+  reference: https://doi.org/10.1016/j.biortech.2026.135206
+  locator: Inspected source body and retrieval receipt
+  summary: HTTP 200 redirect shell only; no full article.
+  support: context_only
+  accessed_at: '2026-11-06T07:58:11.649103Z'
+  snapshot_sha256: 8637b05c4035a7d3dd584d2264f46f73aa0f29d9d8722a8986a830f1e0490144
+- evidence_id: access-publisher
+  kind: database
+  reference: https://www.sciencedirect.com/science/article/pii/S0960852426012885
+  locator: Inspected source body and retrieval receipt
+  summary: HTTP 403 access-error page; no full article.
+  support: context_only
+  accessed_at: '2026-11-06T07:58:11.734766Z'
+  snapshot_sha256: 11fb367d3d75d0ded422743e90a85c2c7baeb57ad465f6ad810b6f3aca3894bb
+- evidence_id: access-article-api
+  kind: database
+  reference: https://api.elsevier.com/content/article/pii/S0960852426012885?httpAccept=text/xml
+  locator: Inspected source body and retrieval receipt
+  summary: HTTP 200 bibliographic coredata only; no article body.
+  support: context_only
+  accessed_at: '2026-11-06T07:58:12.330076Z'
+  snapshot_sha256: 69cae6708948b9bd6392a842bd606cfdce2507723635481cb3305d473c81eec2
+- evidence_id: access-openalex
+  kind: database
+  reference: https://api.openalex.org/works/https://doi.org/10.1016/j.biortech.2026.135206
+  locator: Inspected source body and retrieval receipt
+  summary: Closed-access metadata supplies no open PDF in its listed locations; not
+    proof of global absence.
+  support: context_only
+  accessed_at: '2026-11-06T07:58:12.866820Z'
+  snapshot_sha256: 29caef13b673f3904f97aeec4cd222395425d510d50c3277084d417f57418b54
+- evidence_id: check-validate
+  kind: validation
+  reference: .temp/pr2044/447/validate.json
+  locator: Command, environment and stdout/stderr hashes; 2026-11-06T07:58:06.121248Z
+    through 2026-11-06T07:58:06.585032Z
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366540Z'
+  snapshot_sha256: 8c35b843c43afcd8bc8885bc3260101ade990a7aa32db29049e3590c71080567
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: .temp/pr2044/447/validate-strict.json
+  locator: Command, environment and stdout/stderr hashes; 2026-11-06T07:58:06.585244Z
+    through 2026-11-06T07:58:07.860980Z
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366585Z'
+  snapshot_sha256: 59eea8147bed6a23515f457400733ca5bad64c62738d4f7a5f8a19f1f16cf91b
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: .temp/pr2044/447/validate-terms.json
+  locator: Command, environment and stdout/stderr hashes; 2026-11-06T07:58:07.861176Z
+    through 2026-11-06T07:58:08.804358Z
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366628Z'
+  snapshot_sha256: eb679bdc96811fc27471310861ee7ff9e394033e06c4de8f0155da519e8723e3
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: .temp/pr2044/447/validate-gtdb.json
+  locator: Command, environment and stdout/stderr hashes; 2026-11-06T07:58:08.804550Z
+    through 2026-11-06T07:58:08.855729Z
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366672Z'
+  snapshot_sha256: 1f604ab6b874c22cb0abf5591078f4bd07b66f07cf2693bda4f353358866d07f
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: .temp/pr2044/447/validate-gtdb-domain.json
+  locator: Command, environment and stdout/stderr hashes; 2026-11-06T07:58:08.855898Z
+    through 2026-11-06T07:58:09.668804Z
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366715Z'
+  snapshot_sha256: 6be33b9cbfe5add392eb5d3f6019f41356ee2785ebb1c7b09858a715bd93b8bc
+- evidence_id: check-validate-history
+  kind: validation
+  reference: .temp/pr2044/447/validate-history.json
+  locator: Command, environment and stdout/stderr hashes; 2026-11-06T07:58:09.669005Z
+    through 2026-11-06T07:58:10.225794Z
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366758Z'
+  snapshot_sha256: 9d2d11501c193abc5c6521b463610482253331127e2cf2641c21da84ea3bca27
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: .temp/pr2044/447/normalize-cache-names-check.json
+  locator: Command, environment and stdout/stderr hashes; 2026-11-06T07:58:10.225986Z
+    through 2026-11-06T07:58:10.262786Z
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366803Z'
+  snapshot_sha256: 39e6bbbe8217be75106d57468236e1f88aa26188f7bcb4dc59bc015fbe7e63b3
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: .temp/pr2044/447/validate-references-explained.json
+  locator: Command, environment and stdout/stderr hashes; 2026-11-06T07:58:10.263000Z
+    through 2026-11-06T07:58:10.973575Z
+  summary: Focused native check passed; mechanical validity does not certify scientific
+    support.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366845Z'
+  snapshot_sha256: 1f980f8db1296c813f9f682fc6d3671f193fed9c2651f8f06eca37299c33dd44
+- evidence_id: check-audit-network
+  kind: validation
+  reference: .temp/pr2044/447/audit-network.json
+  locator: Command, environment and stdout/stderr hashes; 2026-11-06T07:58:10.973767Z
+    through 2026-11-06T07:58:15.026110Z
+  summary: Current corpus diagnostics report 44 warnings, zero errors, across 16 of
+    508 records; exit 1 is retained. The focal network separately returns zero issues,
+    which does not establish participant evidence.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366890Z'
+  snapshot_sha256: 98a5e7e37db15307e916e247707457aa18a6ad9ecb26d8be9616bd18a8448020
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: .temp/pr2044/447/check-network-quality.json
+  locator: Command, environment and stdout/stderr hashes; 2026-11-06T07:58:15.026312Z
+    through 2026-11-06T07:58:19.077523Z
+  summary: Current corpus diagnostics report 44 warnings, zero errors, across 16 of
+    508 records; exit 1 is retained. The focal network separately returns zero issues,
+    which does not establish participant evidence.
+  support: supports
+  accessed_at: '2026-11-06T08:06:40.366933Z'
+  snapshot_sha256: 5d4ed43df46899fa90f04576147c1bce683f364273420d4e258b7f8665aa14de
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Operated biofilter and temporal community
+  outcome: supported
+  summary: The record correctly represents early Kuenenia and a later multispecies
+    Brocadia assemblage, not a defined two-isolate coculture. ENGINEERED state/origin
+    and biotechnology application are appropriate.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - operation
+  - succession
+  - schema
+  - record
+  dimensions:
+  - name: community_scope
+    value: Temporal low-nitrogen biofilter assemblage
+    definition: Membership spans source-described phases.
+    evidence_ids:
+    - succession
+  - name: taxon_rank
+    value: Two genus descriptors
+    definition: Exact species, MAGs and strain identities remain unresolved.
+    evidence_ids:
+    - ontology
+    - source-scope
+  - name: grounding_status
+    value: UNRESOLVED GTDB for both genera
+    definition: No unsupported genome-specific mapping is added.
+    evidence_ids:
+    - ontology
+  - name: environment
+    value: Physical bioreactor; represented wastewater-treatment application
+    definition: The modeled facility context does not prove full-scale operation.
+    evidence_ids:
+    - operation
+    - semantics
+  - name: medium
+    value: Unresolved exact feed and cultivation conditions
+    definition: Only sustained low-nitrogen stress is directly verified.
+    evidence_ids:
+    - operation
+    - source-scope
+  - name: evidence_tier
+    value: Direct abstract with computational interpretation
+    definition: Main methods, figures and SI remain unavailable.
+    evidence_ids:
+    - source-scope
+- assessment_id: taxonomy
+  area: grounding
+  topic: Genus names, roles and ordinal dominance
+  outcome: supported
+  summary: Canonical genus labels and explicit dominant Brocadia status are supported;
+    role meanings must remain scoped to biological context and model inference.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - ontology
+  - semantics
+  - succession
+  - model
+  details: PRIMARY_PRODUCER denotes autotrophy, not merely nitrogen-removal prominence.
+    The role is biologically plausible in the anammox context, but the attached abstract
+    snippets are not direct carbon-fixation measurements. CROSS_FEEDER is supported
+    at the predicted-recipient/complementarity level; the nearest abundance snippets
+    alone do not establish observed uptake. No automatic role removal or invented
+    species is warranted. DOMINANT requires no numerical-majority threshold.
+- assessment_id: quantities
+  area: evidence
+  topic: Abundance, transcription and modeled overlap
+  outcome: supported
+  summary: Retain all reported abstract values with their existing measurement distinctions.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - quantities
+  - schema
+  details: The 44.7% relative organism abundance and 71.5% transcriptional contribution
+    have separate denominators. Approximately 18-fold expression is a response, and
+    resource overlap is a model output rather than a reactor setting. The exact high-nitrogen
+    comparison design remains unavailable.
+- assessment_id: node-0
+  area: graph
+  topic: ecological_interactions[0]
+  outcome: concern
+  summary: The Brocadia model-complementarity claim remains appropriately qualified,
+    but the new Kuenenia participant is supported only for temporal succession.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - model
+  - succession
+  - record
+  - schema
+  - delta
+  details: The COMMUNITY_LEVEL CROSS_FEEDING participant list now credits both genera.
+    The exact new quotation establishes replacement, while the model sentence explicitly
+    identifies a multispecies Brocadia assemblage. Retain the supported model node
+    but narrow its participant scope or obtain direct primary/model evidence for Kuenenia.
+    This is an evidence-scope gap, not a claim that the inaccessible full article
+    disproves Kuenenia exchange. No downstream arrows are encoded or requested.
+- assessment_id: context
+  area: representation
+  topic: environmental_factors[1] and [2]
+  outcome: concern
+  summary: Transcriptional activation and lower modeled resource overlap are outcomes,
+    not environmental conditions.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - record
+  - quantities
+  - schema
+  details: environmental_factors[0] correctly represents sustained low-nitrogen stress.
+    Preserve the other two observations and their computational evidence in the appropriate
+    taxon, interaction or design/result context; do not create new mechanisms simply
+    to relocate supported results.
+- assessment_id: cultivation
+  area: scope
+  topic: Reactor, feed and modeled conditions
+  outcome: unknown
+  summary: Direct abstract evidence supports an operated low-nitrogen biofilter but
+    not a reproducible recipe or exact operating regime.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - operation
+  - source-scope
+  - search-leads
+  details: The indexed preview is a useful lead for future direct-source verification,
+    not authority for importing reactor volume, scale, bed geometry or influent concentrations.
+    The current abstract-limited discussion remains honest. Retain the broad physical
+    bioreactor and modeled application distinction until Methods is directly inspected.
+- assessment_id: resources
+  area: provenance
+  topic: Publication links and unresolved model/archive identities
+  outcome: supported
+  summary: PMID and DOI resources identify the focal article; source-specific datasets,
+    MAGs, model sources and versions remain unresolved rather than presumed absent.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - pubmed
+  - crossref
+  - resources
+  - source-scope
+  details: Retain existing SMETANA prediction type/tool entries. Bibliographic snippets
+    corroborate identifiers, not experimental methods. No medium, strain catalogue
+    or archive search is invented from generic anammox context.
+- assessment_id: history
+  area: provenance
+  topic: Prior repairs and exact snippet categories
+  outcome: supported
+  summary: The original outcome-placement finding persists; the new participant history
+    is descriptive provenance and does not independently prove exchange.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - history
+  - delta
+  - snippets
+  details: Three append-only sidecars and the changed inline history were read. The
+    Stage 5 structural network resolution remains context, not source evidence. Snippet
+    replay finds 10 exact-normalized abstract occurrences, one co-occurrence hyphen
+    variant and two metadata identifiers. The hyphen variant is typographical and
+    no full-text verification is claimed.
+- assessment_id: validation
+  area: schema
+  topic: Native validators and semantic scope
+  outcome: supported
+  summary: Eight focused native checks and all four unique ontology pairs pass. Current
+    corpus diagnostics retain 44 warnings across 16 of 508 records; target structural
+    completeness cannot validate the new cross-feeding participant.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - check-validate
+  - check-validate-references-explained
+  - ontology
+  - native-target
+- assessment_id: metrics
+  area: completeness
+  topic: Native mechanical scores
+  outcome: supported
+  summary: Completeness and quality measure encoded structure and checks, not whole-source
+    scientific certification.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - native-target
+  metrics:
+  - name: completeness
+    value: 70
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 50 required-field/taxon-role component +5 environment +10 for at least
+      three environmental factors +5 external resources; no interaction-count, medium,
+      dataset or metabolite bonus.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 − 50P1 − 10P2 − 2P3 + 20 min(mean node evidence/2, 1) +
+      15 if COMPLETE, 0, 100). P1=0, P2=1, P3=1, P4=0; two evidence items / one node
+      gives 20, native COMPLETE gives 15; raw 123, capped 100. This does not certify
+      scientific scope.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+- assessment_id: current-delta
+  area: provenance
+  topic: Frozen-input refresh
+  outcome: concern
+  summary: Changed participant scope is reassessed against current record bytes and
+    freshly retrieved primary abstract; unchanged original findings retain exact lineage.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - delta
+  - record
+  - succession
+  - model
+  details: The prior target hash 227362963f3008129281c29d08829d1bf49aa57230b126cc7986e592c6cd9a96
+    differs from current 0ea86ed4c4587ff6d6fcc424c9bf2a27163154962b8430576b2a6fd4bfb1b36c.
+    The early 25.6%–38.8% expression response and succession quotation are supported;
+    using that temporal evidence to credit Kuenenia as a cross-feeding participant
+    is not established at accessible source scope.
+- assessment_id: grouped-context-correction
+  area: provenance
+  topic: Bounded 447-only correction of grouped review identifier/context
+  outcome: supported
+  summary: The Stage 4 grouped descriptions name 447's Kuenenia as NCBITaxon:174636;
+    the original and current target actually encode genus NCBITaxon:380738, confirmed
+    by fresh NCBI authority.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - history
+  - ncbi
+  - record
+  - delta
+  - native-target
+  details: 'Exact locators: reviews/structured/20261021T101000Z-stage4-record-deep-audit/review.yaml
+    and reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml,
+    finding_id stage4-disconnected-syncom-participants, issue_key communitymech-stage4-disconnected-syncom-participants,
+    description''s 447 clause. This corrects only that identifier/context. The corresponding
+    20261021T193000Z-stage5-remediation-verification resolved disposition is retained
+    for structural connectivity. The other four targets (000339, 000399, 000415, 000433)
+    and their dispositions are NOT reassessed. No grouped issue key or previous_occurrences
+    is reused to retire the five-target finding; the new participant-evidence finding
+    is distinct.'
+findings:
+- finding_id: outcome-placement
+  issue_key: cm-000447-outcome-placement
+  category: representation
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: unchanged bounded field placement; numerical outcomes
+    remain supported at abstract scope. The new participant-scope issue is tracked
+    separately.'
+  rule_id: review-checklist.environment-and-claim-evidence
+  status: open
+  certainty: confirmed
+  title: Separate response and modeling outcomes from environmental conditions
+  description: environmental_factors[1] encodes transcriptional activation and environmental_factors[2]
+    encodes predicted resource overlap. These are study outcomes rather than imposed
+    or measured environmental conditions; sustained low-nitrogen stress is already
+    correctly represented in environmental_factors[0].
+  target_ids:
+  - CommunityMech:000447
+  field_paths:
+  - environmental_factors[1]
+  - environmental_factors[2]
+  evidence_ids:
+  - record
+  - quantities
+  - schema
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T133803Z-brocadia-low-nitrogen-anammox-record
+    finding_id: outcome-placement
+- finding_id: kuenenia-cross-feeding-scope
+  issue_key: cm-000447-kuenenia-cross-feeding-scope
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: adding a taxon to CROSS_FEEDING participants materially
+    broadens the mechanistic claim beyond the attached temporal-succession evidence.'
+  rule_id: review-checklist.interaction-participants-and-evidence
+  status: open
+  certainty: confirmed
+  title: Keep Kuenenia succession distinct from Brocadia model-inferred cross-feeding
+  description: ecological_interactions[0].participating_taxa[1] newly credits early-acclimation
+    Kuenenia as part of a CROSS_FEEDING interaction. The new evidence[0] quotation
+    supports temporal replacement by Brocadia, while evidence[1] and the freshly inspected
+    abstract place model-inferred complementary auxotrophies within a multispecies
+    Brocadia assemblage. Succession and downregulated biosynthesis do not establish
+    Kuenenia metabolite exchange. This is a confirmed support/scope gap in the encoded
+    assertion at inspected abstract scope, not a demonstration that unread full-source
+    evidence excludes Kuenenia exchange.
+  target_ids:
+  - CommunityMech:000447
+  field_paths:
+  - ecological_interactions[0].participating_taxa[1]
+  - ecological_interactions[0].description
+  - ecological_interactions[0].evidence[0]
+  evidence_ids:
+  - record
+  - schema
+  - succession
+  - model
+  - delta
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    role: canonical_record
+actions:
+- action_id: repair-outcome-placement
+  description: Relocate the two outcome-valued environmental factors while retaining
+    their source scope, numerical values and computational provenance.
+  finding_ids:
+  - outcome-placement
+  target_ids:
+  - CommunityMech:000447
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Keep sustained low-nitrogen stress as a condition. Place transcriptional activation
+    and modeled resource overlap with the relevant taxon, process or design/result
+    summary; avoid redundant environmental-factor entries.
+  - Preserve approximately 18-fold expression and the resource-overlap comparison
+    as distinct response/model measurements. Keep 44.7% abundance separate from 71.5%
+    transcriptional activity.
+  - Retain the sole explicitly model-inferred interaction, genus-level temporal membership,
+    unresolved GTDB and model-source limits. Do not add an exchange edge merely to
+    connect the early Kuenenia lineage.
+  - Any reactor details, species/MAG identities or model inputs recovered from indexed
+    leads require direct Methods/SI verification before curation. Preserve conditional
+    role interpretation and do not substitute literature examples or typical influent
+    concentrations.
+  - After separately authorized curation, run focused schema, strict, term, reference
+    and history checks and inspect the network warning at its temporal scope.
+- action_id: repair-participant-scope
+  description: Separate the temporal succession claim from participation in Brocadia
+    model-inferred complementarity.
+  finding_ids:
+  - kuenenia-cross-feeding-scope
+  target_ids:
+  - CommunityMech:000447
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain Kuenenia in the temporal community taxonomy and preserve the supported
+    early-acclimation and succession narrative.
+  - Restrict CROSS_FEEDING participants to the directly supported multispecies Brocadia
+    assemblage unless directly inspected primary/model evidence explicitly establishes
+    Kuenenia participation; attach that evidence to the precise assertion if recovered.
+  - Place temporal replacement context separately from the exchange claim, retaining
+    source qualifiers and the distinct 25.6%–38.8% early response. Do not fabricate
+    an interaction or leave participating_taxa empty merely to make network connectivity
+    pass (empty means all members).
+  - Preserve COMPUTATIONAL evidence and SMETANA provenance. Do not assert measured
+    transfer, obligatory dependence, species/MAG identity or a model source not verified
+    from the primary material.
+  - After separately authorized curation, add append-only history, run focused schema/strict/term/reference/history
+    checks, and explain any remaining temporal-membership network warning without
+    weakening the gate.
+- action_id: follow-up-primary-methods-and-model-identities
+  description: Track the existing brocadia_low_nitrogen_species_resolution discussion
+    as an access-limited curation follow-up, distinct from the two graded record findings.
+  finding_ids: []
+  target_ids:
+  - CommunityMech:000447
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - When accessible, directly inspect the focal Methods, figures, supplements and
+    model/data availability for exact Brocadia species/MAG identifiers, reactor geometry,
+    feed nitrogen/loading and SMETANA genome/model sources; retain precise source
+    locators and versions.
+  - Curate only verified focal-system values and identities with claim-local evidence.
+    Do not promote indexed publisher snippets, generic influent ranges or other-study
+    species examples into this record.
+  - If critical sources remain inaccessible, keep the discussion open with a bounded
+    access-status update; do not invent values or require new experiments.
+  - Do not change partial scientific status until the actual critical source material
+    has been inspected and any newly supported corrections pass native checks.
+limitations:
+- Critical full main Methods/Results, figures, SI, species/MAG identities, model construction
+  and exact reactor settings remain unavailable through the inspected public routes.
+  This is an abstract-scope partial review, not whole-source scientific certification.
+- The abstract supports temporal succession, distinct transcriptional/abundance outcomes
+  and SMETANA-predicted Brocadia complementarity. It does not directly measure inter-genus
+  metabolite exchange, donor-recipient flux, obligate dependence or carbon fixation.
+  The new participant finding is bounded to support currently inspected, not a claim
+  about unread source content.
+- Indexed publisher Methods fragments are access leads only. Direct page requests
+  returned 403; no reactor scale, volume, configuration, feed concentration or species
+  identity is accepted from those snippets.
+- No figure inspection, raw omics inspection, simulation or isotope/flux reanalysis
+  was performed. No guessed genome accession, model source, strain or medium link
+  is supplied.
+- Both documented corpus network diagnostics exit 1 with 44 warnings and zero errors
+  across 16 of 508 records. The focal target is structurally COMPLETE; that mechanical
+  result does not validate scientific participation.
+- The grouped Stage 4/5 lineage is context only. Only the 447 identifier and current
+  scientific scope are assessed; the other four targets and grouped resolved dispositions
+  are not reassessed or superseded.
+- Bounded unsuccessful access or catalogue discovery does not establish global absence.
+  No paid provider, contact, authentication bypass or GitHub mutation was used. The
+  author pass does not claim independent approval.
+notes:
+- Canonical, cache, history, schema, generated products and existing review bundles
+  remain unchanged. The final native inspection verifies all earlier pinned inputs
+  before adding fresh source, receipt and frozen helper pins.
+- '13 snippet occurrences: 10 strict NFKC/whitespace abstract matches, one hyphen-only
+  equivalent and two metadata identifiers. Four unique ontology pairs occur six times;
+  both taxa are genera.'
+- Completeness 70 and quality 100 (raw 123) are mechanical metrics, not scientific
+  certification. One P2 and one P3 remain open; completion is partial and scientific_review
+  is false.
+- The original single-target outcome-placement finding has exact previous_occurrences.
+  The five-target group key is not superseded by this narrower record observation.
+tags:
+- record-review
+- anammox
+- computational-cross-feeding
+- partial-source
+- batch-08
+related_reviews:
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T101000Z-stage4-record-deep-audit
+  relationship: 447-only grouped context and identifier clarification; no multi-target
+    disposition supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T101100Z-stage4-frozen-cohort-review
+  relationship: 447-only grouped context and identifier clarification; no multi-target
+    disposition supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T133803Z-brocadia-low-nitrogen-anammox-record
+  relationship: Immutable current-input successor retaining the original open outcome-placement
+    finding.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T193000Z-stage5-remediation-verification
+  relationship: 447-only grouped context and identifier clarification; no multi-target
+    disposition supersession.
+```
