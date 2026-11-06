@@ -160,13 +160,16 @@ def test_ledger_binds_topology_history_and_narrow_cache_append():
     assert hashlib.sha256((ROOT / cache["path"]).read_bytes()).hexdigest() == cache["after_sha256"]
     assert ledger["edison"]["provider_submissions"] == 0
     assert ledger["unresolved_non_graph_issues"] == [1958, 1959, 1960, 1961]
-    successor_file = (
-        ROOT / "reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml"
-    )
-    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
+    successor_files = [
+        ROOT / "reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml",
+        ROOT / "reports/causal_graph_review/decisions/20261104-c6s5-review-remediation.yaml",
+    ]
+    successor_by_id = {
+        r["id"]: r for sf in successor_files for r in yaml.safe_load(sf.read_text())["records"]
+    }
     for row, doc in zip(rows, docs, strict=True):
         latest = row
-        if row["id"] == "CommunityMech:000360":
+        if row["id"] in {"CommunityMech:000360", "CommunityMech:000404"}:
             latest = successor_by_id[row["id"]]
             assert latest["supersedes_review"] == {
                 "review_file": str(LEDGER.relative_to(ROOT)),

@@ -153,6 +153,10 @@ def test_history_source_scope_and_research_remain_explicit():
     assert ledger["cache_changes"] == []
     assert ledger["edison"]["provider_submissions"] == ledger["edison"]["credits_spent"] == 0
     assert ledger["edison"]["dry_runs"][0]["query_chars"] == 15422
+    successor_file = (
+        ROOT / "reports/causal_graph_review/decisions/20261106-c8s5-review-remediation.yaml"
+    )
+    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
     for row, doc in zip(rows, docs, strict=True):
         assert set(row["allowed_changed_fields"]) == {
             "ecological_interactions",
@@ -162,4 +166,14 @@ def test_history_source_scope_and_research_remain_explicit():
         assert row["curation_events_added"] == len(row["history_files"]) == 1
         assert all((ROOT / p).exists() for p in row["history_files"])
         assert doc["curation_history"][-1]["llm_assisted"] is True
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        latest = row
+        if row["id"] == "CommunityMech:000359":
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )

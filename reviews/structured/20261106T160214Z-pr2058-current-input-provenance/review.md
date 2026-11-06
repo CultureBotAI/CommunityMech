@@ -1,0 +1,3815 @@
+# PR2058 bounded current-input provenance and historical scratch limitation
+
+- Review: 20261106T160214Z-pr2058-current-input-provenance
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-06T16:01:49Z
+- Finished UTC: 2026-11-06T16:02:14Z
+- Reviewer: Codex /root/batch2035_434_refresh (self_review)
+- Completion: completed
+- Verdict: not_assessed
+- Scientific review: false
+
+## Summary
+
+Completed only the bounded 10-record provenance accounting. 38 original finding keys and 48 original actions / 151 acceptance checks are retained in historical accounting. Separate current observations maintain 39 open finding keys, 49 actions and 156 acceptance checks. Current source/check artifacts are frozen individually; omitted historical scratch remains unavailable and explicitly incomplete. No literature support, scientific status or prior action is newly certified here.
+
+## Scope And Provenance
+
+Exact PR2058 provenance cohort; current bytes, historical local-input omissions and preservation of existing work only.
+
+Selection: Every original target in the frozen inventory, with explicitly configured current successor/supplemental observations; no sampling.
+Coverage: full; 10 reviewed / 10 in the declared population.
+Source: working_tree at Git base 7e7aef785aa18a64ed640c6bad7715ac6d565e68.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000475 | kb/communities/Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium.yaml | maintained | Cold-Seep ANME-2b and Seep-SRB1g Carbon Monoxide-Oxidizing Syntrophic Consortium |
+| CommunityMech:000387 | kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml | maintained | Community G GenX Biodegradation Consortium |
+| CommunityMech:000277 | kb/communities/Composting_SynCom_Lignocellulose_Degradation_Humus.yaml | maintained | Five-member bacterial-fungal composting SynCom for lignocellulose degradation |
+| CommunityMech:000195 | kb/communities/Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium.yaml | maintained | Coniochaeta-Sphingobacterium-Citrobacter Wheat Straw Consortium |
+| CommunityMech:000019 | kb/communities/Copper_Biomining_Heap_Leach.yaml | maintained | Copper Biomining Heap Leach Consortium |
+| CommunityMech:000453 | kb/communities/Cordyceps_Malbranchea_Antimicrobial_Coculture.yaml | maintained | Cordyceps-Malbranchea Antimicrobial Coculture |
+| CommunityMech:000294 | kb/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml | maintained | Corynebacterium glutamicum + Shewanella oneidensis Succinic-acid Co-culture |
+| CommunityMech:000020 | kb/communities/Coscinodiscus_Synthetic_Community.yaml | maintained | Coscinodiscus Synthetic Community |
+| CommunityMech:000293 | kb/communities/Crucian_Carp_Gut_Disease_Resistance_SynCom.yaml | maintained | Crucian Carp Gut Disease-resistance SynCom |
+| CommunityMech:000252 | kb/communities/Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml | maintained | Crystal Geyser CO2-Rich Aquifer Autotrophic CPR Lysolipid Community |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| Current artifact identities and retained scientific-work accounting | passed | True | CommunityMech:000475, CommunityMech:000387, CommunityMech:000277, CommunityMech:000195, CommunityMech:000019, CommunityMech:000453, CommunityMech:000294, CommunityMech:000020, CommunityMech:000293, CommunityMech:000252 | 38 original finding keys and 48 original actions / 151 acceptance checks are retained in historical accounting. Separate current observations maintain 39 open finding keys, 49 actions and 156 acceptance checks. |
+
+## Scientific And Domain Assessments
+
+### Historical input-set limitation and present byte accounting
+
+provenance: supported. Targets: CommunityMech:000475.
+
+Original completed/needs_curation review 20261021T235431Z-cold-seep-co-consortium-record-review declared 30 inputs, including 0 scratch paths. Its target is now unchanged; current digest aa71bf0755e21633808d22d5e88a4da0fcb79f3a2c4f84b8037a2065155e1518. Current observations: 20261021T235431Z-cold-seep-co-consortium-record-review (completed/needs_curation, scientific_review=True).
+
+The historical input set omits local source/check bytes and remains incomplete; evidence-level historical hashes do not replace omitted source.inputs. Current manifest members are individually frozen here, not reconstructed historical files. This audits byte provenance rather than literature support. Archive pins identify containers, not manual inspection of every asset. Current scientific/authority observations retain their separate scopes, limits, findings and actions; none is superseded by this process-only batch.
+
+### Historical input-set limitation and present byte accounting
+
+provenance: supported. Targets: CommunityMech:000387.
+
+Original completed/needs_curation review 20261022T000649Z-community-g-genx-record-review declared 34 inputs, including 0 scratch paths. Its target is now unchanged; current digest 4aefdcd766a663a1d8fd547207b3f754cfcf6bc938f2212ea4389ca221aacb8d. Current observations: 20261022T000649Z-community-g-genx-record-review (completed/needs_curation, scientific_review=True).
+
+The historical input set omits local source/check bytes and remains incomplete; evidence-level historical hashes do not replace omitted source.inputs. Current manifest members are individually frozen here, not reconstructed historical files. This audits byte provenance rather than literature support. Archive pins identify containers, not manual inspection of every asset. Current scientific/authority observations retain their separate scopes, limits, findings and actions; none is superseded by this process-only batch.
+
+### Historical input-set limitation and present byte accounting
+
+provenance: supported. Targets: CommunityMech:000277.
+
+Original partial/needs_curation review 20261022T001801Z-composting-syncom-humus-record-review declared 30 inputs, including 0 scratch paths. Its target is now unchanged; current digest 16e496ddf18a513d3b3ca26c61999146cdf18b0675044ad7ae0d1425482ed270. Current observations: 20261022T001801Z-composting-syncom-humus-record-review (partial/needs_curation, scientific_review=False).
+
+The historical input set omits local source/check bytes and remains incomplete; evidence-level historical hashes do not replace omitted source.inputs. Current manifest members are individually frozen here, not reconstructed historical files. This audits byte provenance rather than literature support. Archive pins identify containers, not manual inspection of every asset. Current scientific/authority observations retain their separate scopes, limits, findings and actions; none is superseded by this process-only batch.
+
+### Historical input-set limitation and present byte accounting
+
+provenance: supported. Targets: CommunityMech:000195.
+
+Original completed/needs_curation review 20261022T003155Z-coniochaeta-wheat-straw-record-review declared 32 inputs, including 0 scratch paths. Its target is now unchanged; current digest eb6927ba0ac59c0884bc3f479f20606ca4ae1f80b0855c415759db879a03fd2f. Current observations: 20261022T003155Z-coniochaeta-wheat-straw-record-review (completed/needs_curation, scientific_review=True).
+
+The historical input set omits local source/check bytes and remains incomplete; evidence-level historical hashes do not replace omitted source.inputs. Current manifest members are individually frozen here, not reconstructed historical files. This audits byte provenance rather than literature support. Archive pins identify containers, not manual inspection of every asset. Current scientific/authority observations retain their separate scopes, limits, findings and actions; none is superseded by this process-only batch.
+
+### Historical input-set limitation and present byte accounting
+
+provenance: supported. Targets: CommunityMech:000019.
+
+Original completed/needs_curation review 20261022T004910Z-copper-biomining-heap-record-review declared 36 inputs, including 0 scratch paths. Its target is now unchanged; current digest 5c620e46ecbe040463098d40373531e88b5b2bc12f08bb57b4d926b3537a0c4e. Current observations: 20261022T004910Z-copper-biomining-heap-record-review (completed/needs_curation, scientific_review=True).
+
+The historical input set omits local source/check bytes and remains incomplete; evidence-level historical hashes do not replace omitted source.inputs. Current manifest members are individually frozen here, not reconstructed historical files. This audits byte provenance rather than literature support. Archive pins identify containers, not manual inspection of every asset. Current scientific/authority observations retain their separate scopes, limits, findings and actions; none is superseded by this process-only batch.
+
+### Historical input-set limitation and present byte accounting
+
+provenance: supported. Targets: CommunityMech:000453.
+
+Original partial/pass_with_limitations review 20261022T010218Z-cordyceps-malbranchea-record-review declared 30 inputs, including 0 scratch paths. Its target is now unchanged; current digest 2b61b970b93b4db345670df9f86f00ba299b29ba76cb56b99333fd8bf68e7c6d. Current observations: 20261022T010218Z-cordyceps-malbranchea-record-review (partial/pass_with_limitations, scientific_review=False).
+
+The historical input set omits local source/check bytes and remains incomplete; evidence-level historical hashes do not replace omitted source.inputs. Current manifest members are individually frozen here, not reconstructed historical files. This audits byte provenance rather than literature support. Archive pins identify containers, not manual inspection of every asset. Current scientific/authority observations retain their separate scopes, limits, findings and actions; none is superseded by this process-only batch.
+
+### Historical input-set limitation and present byte accounting
+
+provenance: supported. Targets: CommunityMech:000294.
+
+Original partial/needs_curation review 20261022T011317Z-corynebacterium-shewanella-record-review declared 31 inputs, including 0 scratch paths. Its target is now changed; the separate successor is retained; current digest 12ec7d94161d772e79598564ae50e6f322c9cfd82e889a2fd5e0fbcde687f8f6. Current observations: 20261106T154646Z-corynebacterium-shewanella-current-main (partial/needs_curation, scientific_review=False).
+
+The historical input set omits local source/check bytes and remains incomplete; evidence-level historical hashes do not replace omitted source.inputs. Current manifest members are individually frozen here, not reconstructed historical files. This audits byte provenance rather than literature support. Archive pins identify containers, not manual inspection of every asset. Current scientific/authority observations retain their separate scopes, limits, findings and actions; none is superseded by this process-only batch.
+
+### Historical input-set limitation and present byte accounting
+
+provenance: supported. Targets: CommunityMech:000020.
+
+Original completed/needs_curation review 20261022T012643Z-coscinodiscus-record-review declared 32 inputs, including 0 scratch paths. Its target is now unchanged; current digest 96bf155c9e47de5f8934bbf367f392bfcee5073098125c841db171fd0b9dda1a. Current observations: 20261022T012643Z-coscinodiscus-record-review (completed/needs_curation, scientific_review=True); 20261106T155915Z-coscinodiscus-current-genus-authority (partial/needs_curation, scientific_review=False).
+
+The historical input set omits local source/check bytes and remains incomplete; evidence-level historical hashes do not replace omitted source.inputs. Current manifest members are individually frozen here, not reconstructed historical files. This audits byte provenance rather than literature support. Archive pins identify containers, not manual inspection of every asset. Current scientific/authority observations retain their separate scopes, limits, findings and actions; none is superseded by this process-only batch.
+
+### Historical input-set limitation and present byte accounting
+
+provenance: supported. Targets: CommunityMech:000293.
+
+Original completed/needs_curation review 20261022T013937Z-crucian-carp-syncom-record-review declared 31 inputs, including 0 scratch paths. Its target is now unchanged; current digest 5dc07af806fbaa10b2eb522c2e5221c404aabc6ff58ea1f9cec7062ba079f09e. Current observations: 20261022T013937Z-crucian-carp-syncom-record-review (completed/needs_curation, scientific_review=True).
+
+The historical input set omits local source/check bytes and remains incomplete; evidence-level historical hashes do not replace omitted source.inputs. Current manifest members are individually frozen here, not reconstructed historical files. This audits byte provenance rather than literature support. Archive pins identify containers, not manual inspection of every asset. Current scientific/authority observations retain their separate scopes, limits, findings and actions; none is superseded by this process-only batch.
+
+### Historical input-set limitation and present byte accounting
+
+provenance: supported. Targets: CommunityMech:000252.
+
+Original completed/needs_curation review 20261022T015146Z-crystal-geyser-cpr-record-review declared 33 inputs, including 0 scratch paths. Its target is now unchanged; current digest b219156340ab8170a318ed82b9bf47e7a5a5b67e490870d42fabb2c9a8e25051. Current observations: 20261022T015146Z-crystal-geyser-cpr-record-review (completed/needs_curation, scientific_review=True).
+
+The historical input set omits local source/check bytes and remains incomplete; evidence-level historical hashes do not replace omitted source.inputs. Current manifest members are individually frozen here, not reconstructed historical files. This audits byte provenance rather than literature support. Archive pins identify containers, not manual inspection of every asset. Current scientific/authority observations retain their separate scopes, limits, findings and actions; none is superseded by this process-only batch.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| provenance-000475 | .temp/pr2058/batch-provenance/records/000475.json; Entire per-record manifest: exact old/current target digests, original/current review statuses, open issue keys/actions, concrete current input manifests. | supports | The target is unchanged. 5 current open finding keys remain. This observation makes no scientific disposition. |
+| provenance-000387 | .temp/pr2058/batch-provenance/records/000387.json; Entire per-record manifest: exact old/current target digests, original/current review statuses, open issue keys/actions, concrete current input manifests. | supports | The target is unchanged. 3 current open finding keys remain. This observation makes no scientific disposition. |
+| provenance-000277 | .temp/pr2058/batch-provenance/records/000277.json; Entire per-record manifest: exact old/current target digests, original/current review statuses, open issue keys/actions, concrete current input manifests. | supports | The target is unchanged. 4 current open finding keys remain. This observation makes no scientific disposition. |
+| provenance-000195 | .temp/pr2058/batch-provenance/records/000195.json; Entire per-record manifest: exact old/current target digests, original/current review statuses, open issue keys/actions, concrete current input manifests. | supports | The target is unchanged. 4 current open finding keys remain. This observation makes no scientific disposition. |
+| provenance-000019 | .temp/pr2058/batch-provenance/records/000019.json; Entire per-record manifest: exact old/current target digests, original/current review statuses, open issue keys/actions, concrete current input manifests. | supports | The target is unchanged. 5 current open finding keys remain. This observation makes no scientific disposition. |
+| provenance-000453 | .temp/pr2058/batch-provenance/records/000453.json; Entire per-record manifest: exact old/current target digests, original/current review statuses, open issue keys/actions, concrete current input manifests. | supports | The target is unchanged. 1 current open finding keys remain. This observation makes no scientific disposition. |
+| provenance-000294 | .temp/pr2058/batch-provenance/records/000294.json; Entire per-record manifest: exact old/current target digests, original/current review statuses, open issue keys/actions, concrete current input manifests. | supports | The target is changed; the separate successor is retained. 3 current open finding keys remain. This observation makes no scientific disposition. |
+| provenance-000020 | .temp/pr2058/batch-provenance/records/000020.json; Entire per-record manifest: exact old/current target digests, original/current review statuses, open issue keys/actions, concrete current input manifests. | supports | The target is unchanged. 5 current open finding keys remain. This observation makes no scientific disposition. |
+| provenance-000293 | .temp/pr2058/batch-provenance/records/000293.json; Entire per-record manifest: exact old/current target digests, original/current review statuses, open issue keys/actions, concrete current input manifests. | supports | The target is unchanged. 6 current open finding keys remain. This observation makes no scientific disposition. |
+| provenance-000252 | .temp/pr2058/batch-provenance/records/000252.json; Entire per-record manifest: exact old/current target digests, original/current review statuses, open issue keys/actions, concrete current input manifests. | supports | The target is unchanged. 3 current open finding keys remain. This observation makes no scientific disposition. |
+
+## Limits And Additional Notes
+
+- The historical maintained/context pins do not establish complete local input coverage. Omitted historical scratch is unavailable; evidence hashes remain historical attestations, not fresh reconstruction.
+- Current source/check bytes are distinct from old scratch. Archive and raw-data pins do not imply every member was manually inspected or any analysis rerun. Actual access, partial-review and metadata-only limits remain in the frozen originating receipts.
+- No new scientific review is performed here. Completed applies only to this bounded process audit; not_assessed is not a scientific passing verdict. Separate source/authority corrections retain their own restricted scope.
+- No original review, canonical record, cache, history, schema, product or scientific status is rewritten. There are no findings, terminal dispositions, previous_occurrences or actions in this provenance observation, so it cannot retire or replace scientific work.
+- The final native inspection output, candidate, and subsequent validation/save/CI receipts are generated metadata rather than recursively hashed inputs. Fresh inspection cannot recover omitted historical bytes.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261106T160214Z-pr2058-current-input-provenance
+kind: batch
+repository: CultureBotAI/CommunityMech
+title: PR2058 bounded current-input provenance and historical scratch limitation
+started_at: '2026-11-06T16:01:49Z'
+finished_at: '2026-11-06T16:02:14Z'
+reviewer:
+  identity: Codex /root/batch2035_434_refresh
+  kind: agent
+  independence: self_review
+  independence_basis: Author of this process-only observation. Earlier scientific
+    reviewers retain their declared independent or author roles; this candidate requires
+    a separate read-only review.
+skill: review-communities
+completion: completed
+verdict: not_assessed
+scientific_review: false
+summary: Completed only the bounded 10-record provenance accounting. 38 original finding
+  keys and 48 original actions / 151 acceptance checks are retained in historical
+  accounting. Separate current observations maintain 39 open finding keys, 49 actions
+  and 156 acceptance checks. Current source/check artifacts are frozen individually;
+  omitted historical scratch remains unavailable and explicitly incomplete. No literature
+  support, scientific status or prior action is newly certified here.
+source:
+  git_revision: 7e7aef785aa18a64ed640c6bad7715ac6d565e68
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 0f7f4423eca28dd0605784d0a01b0886618d0d0f8f1739acb1aae7702e4560a1
+    role: context
+  - path: .claude/skills/review-communities/SKILL.md
+    sha256: 1ee2fef6703ad31bbc82d64dd445f1a3f5929eec88783be2637e23bb649e6917
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: .temp/pr2058/020-author/descriptor-locations.json
+    sha256: 74cfb288a6dc59f23ab7a69648f1a8e8a2210b20489904e05af61abacae5e911
+    role: context
+  - path: .temp/pr2058/020-author/focused-checks.json
+    sha256: c2e00e1ee7dc000fa8482b832039e296b6ddfa6adf34ae48244d9713aea3e876
+    role: context
+  - path: .temp/pr2058/020-author/format-final.json
+    sha256: 20e153c63ebdc35c9fc796861d6d7b7e17de0201eba015e0217d0cde553008bb
+    role: context
+  - path: .temp/pr2058/020-author/format-final.stderr
+    sha256: c78d4bc341e5cfb6cba20095bbb680bc8471adaac200271c9ee2cc1424564efe
+    role: context
+  - path: .temp/pr2058/020-author/format-final.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/020-author/format.json
+    sha256: 52205d58f21e35c2f6e2a3d15c9246c4a0364063ff304a771d5a092c8a6db442
+    role: context
+  - path: .temp/pr2058/020-author/format.stderr
+    sha256: 9762b61aab9fc22f79e44f92d6920a7a9babe3cc4f6b62c4cc6dd26797108e4e
+    role: context
+  - path: .temp/pr2058/020-author/format.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/020-author/full-lint.json
+    sha256: d17eed87fb6dadb1ceebadd5edde5542df789a0171344fe85a49db7a69cb2ea6
+    role: context
+  - path: .temp/pr2058/020-author/full-lint.stderr
+    sha256: 36ae6af3a1862febabe13f175ae987b587bc6551764556ee28a28594693b61b9
+    role: context
+  - path: .temp/pr2058/020-author/full-lint.stdout
+    sha256: 1cffccf768da50ca84db43e973c69c47f795b57101ebfc1825d52472c790ab4d
+    role: context
+  - path: .temp/pr2058/020-author/gtdb-domain.stderr
+    sha256: f9936702df665382a776479a8d7611ea0d0d0fc3125f533a1621b893f0bf23e1
+    role: context
+  - path: .temp/pr2058/020-author/gtdb-domain.stdout
+    sha256: ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae
+    role: context
+  - path: .temp/pr2058/020-author/gtdb.stderr
+    sha256: bbb5af9b0304164c6eb29550d4a0184c749111cd144e4c595cea21e056a2c456
+    role: context
+  - path: .temp/pr2058/020-author/gtdb.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/020-author/history.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/020-author/history.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/020-author/initial-inspect-receipt.json
+    sha256: 323f15107623ee2dd587e1393f79ef3fe24f9bf7d1241ec2594c52406bce6267
+    role: context
+  - path: .temp/pr2058/020-author/initial-inspect.json
+    sha256: ec493912bfe9acfc077653ccbf620e8acef623ee2ce88b60927e635653a725ea
+    role: context
+  - path: .temp/pr2058/020-author/input-paths.json
+    sha256: beb15bfdd7a1c78522b5877ab5edf810876848b957d0fde4725da357edfcde52
+    role: context
+  - path: .temp/pr2058/020-author/issue2572-current.json
+    sha256: b6dc7c3540361bd05035ff2d358d21f058fd62e08b23183571b79b34d91fc5d8
+    role: context
+  - path: .temp/pr2058/020-author/original-review-validate.stderr
+    sha256: e2cf5a8ee56373cb7afeb23be8ac2a30d67f13afa55bb51424877fc908e2a25f
+    role: context
+  - path: .temp/pr2058/020-author/original-review-validate.stdout
+    sha256: b42ee0197bdb886694684431f9da0d2fba4020263ed572ff756b9eaf0b042ba6
+    role: context
+  - path: .temp/pr2058/020-author/original-review.json
+    sha256: c9e9366f18b66db6f34e899c182fab241e8d0af324858a9b0d6c62a4237ad3b7
+    role: context
+  - path: .temp/pr2058/020-author/references.stderr
+    sha256: fdf7bcaf480dc41d6ddb001291d2e1479abcd14818c3683d046c1d14f980b1fc
+    role: context
+  - path: .temp/pr2058/020-author/references.stdout
+    sha256: 04d194d37b80c5a7dbf15bddb09821a2f34511439e8dc731dd5c20d6a46f4e96
+    role: context
+  - path: .temp/pr2058/020-author/ruff-final.json
+    sha256: 57926aa5e42306231eb2f2368c55447591816ed8f37b87071a238eee1e2ad3d5
+    role: context
+  - path: .temp/pr2058/020-author/ruff-final.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/020-author/ruff-final.stdout
+    sha256: 82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18
+    role: context
+  - path: .temp/pr2058/020-author/ruff-fix.json
+    sha256: d0060f2b3c92b37fc3859520ea6e940df85afc4e23032878e9a525e990dc8225
+    role: context
+  - path: .temp/pr2058/020-author/ruff-fix.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/020-author/ruff-fix.stdout
+    sha256: a13139480d1098b0e0425180b05c717b5f9742ebbc220c27144deb5eec66d774
+    role: context
+  - path: .temp/pr2058/020-author/ruff.json
+    sha256: 1022412f4f0a5231573a29bc2b28389f1b0ce2066bf6aa3d9a0137219cc4acb5
+    role: context
+  - path: .temp/pr2058/020-author/ruff.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/020-author/ruff.stdout
+    sha256: 62d971d7e0ae9beda5be02fc5dfd7a5ef293517007aacc6069fe9943076fef6c
+    role: context
+  - path: .temp/pr2058/020-author/strict.stderr
+    sha256: ae70288de4761301d30eefb0693f4407944a33d01b2f3db575ecaae0b3e9505a
+    role: context
+  - path: .temp/pr2058/020-author/strict.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/020-author/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/pr2058/020-author/targets.json
+    sha256: b98ea45ea1753b2fed84ab29e79bce2afb01eaea0c63cab275b2da2ae68b8c59
+    role: context
+  - path: .temp/pr2058/020-author/terms.stderr
+    sha256: 7a11ed344ed0236edc7d04fe14d4fdcb8a98347ab5c13563af8acf59eb05ae74
+    role: context
+  - path: .temp/pr2058/020-author/terms.stdout
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/pr2058/020-author/validate.stderr
+    sha256: c8cbc4a6ac8b774174bd574a25b58ad2d324f79c56df4d674ca4206f1e8bb9a9
+    role: context
+  - path: .temp/pr2058/020-author/validate.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/294-author/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/pr2058/294-author/elsevier.xml
+    sha256: 476b8cf3bf5ee82911add480709a3e140e1e0439a1173593fe3b559457f8a245
+    role: context
+  - path: .temp/pr2058/294-author/elsevier.xml-receipt.json
+    sha256: 9f77d4ed8cfea686bc57b41d2f6be3f8dbce0dc05cc6f8676a63892df069f037
+    role: context
+  - path: .temp/pr2058/294-author/focused-checks.json
+    sha256: ebd167d9a7a13c948783c0243061be28aa465150dc4251584b51d2005f5e4509
+    role: context
+  - path: .temp/pr2058/294-author/full-lint.json
+    sha256: a9a96aa779e3ca6a05fa896d1f822e72ab45e5c9ec1735a76aacef50782543c3
+    role: context
+  - path: .temp/pr2058/294-author/full-lint.stderr
+    sha256: 8c8cb4b9789347a1b513903bfe64c3a3b8b2caeeb43926885749f6443d26c6f5
+    role: context
+  - path: .temp/pr2058/294-author/full-lint.stdout
+    sha256: 1cffccf768da50ca84db43e973c69c47f795b57101ebfc1825d52472c790ab4d
+    role: context
+  - path: .temp/pr2058/294-author/gtdb-copy.json
+    sha256: 722c81cf703f701a387db12fd1d73fb06a261c7e1d3419a170ec58a423399c21
+    role: context
+  - path: .temp/pr2058/294-author/gtdb-domain.stderr
+    sha256: e3d1bbe61469528284f875601424676618228bda958fb0ce8360e0f4d161ab89
+    role: context
+  - path: .temp/pr2058/294-author/gtdb-domain.stdout
+    sha256: ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae
+    role: context
+  - path: .temp/pr2058/294-author/gtdb-exact-rows.json
+    sha256: 28616cf564356ebd8c4f17548098f41afd5e9fdbe5c7cddbc159fc37fb316879
+    role: context
+  - path: .temp/pr2058/294-author/gtdb-replay-explicit.json
+    sha256: 5505a8a4e0cb7ffbdd9a14180c0a1699af930c6891f29053c278cdb6b4ad28b5
+    role: context
+  - path: .temp/pr2058/294-author/gtdb-replay-explicit.stderr
+    sha256: 76dca8b7edb2ec8256ef6ef5d0999a6e136718130a4f3258f75161c051b9c92b
+    role: context
+  - path: .temp/pr2058/294-author/gtdb-replay-explicit.stdout
+    sha256: f1f33e657f7d61a169f9aba4dd0f0ba604a26186660bd8b278f207ba380c2c20
+    role: context
+  - path: .temp/pr2058/294-author/gtdb-replay.json
+    sha256: 660189dca8571f1499d9b5c5a1d4dce1ddf1e26ad0634d421aecbc85f95dd4e6
+    role: context
+  - path: .temp/pr2058/294-author/gtdb-replay.stderr
+    sha256: 822372df365288a707c73bb07d612219bf9ac0fd32f0591434a494fa50f788aa
+    role: context
+  - path: .temp/pr2058/294-author/gtdb-replay.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/294-author/gtdb.stderr
+    sha256: 17de24e3af9806a6345aec3cb6e4cf810a3c9f33387e2d37784f28faf42cf0a4
+    role: context
+  - path: .temp/pr2058/294-author/gtdb.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/294-author/history.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/294-author/history.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/294-author/initial-inspect-receipt.json
+    sha256: 59ae68017a87469675bbbfb7ae9c3983e5da2f6264bef662cad342a4d32de6ec
+    role: context
+  - path: .temp/pr2058/294-author/initial-inspect.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/294-author/initial-inspect.stdout
+    sha256: a293b9edd4cd60f7fa98369aac5f00d0c9389ca8c73790edc1e8a39df40f4551
+    role: context
+  - path: .temp/pr2058/294-author/input-manifest.json
+    sha256: a156234409325ff02757958126f8142f1d7c20d661ddf962b3e3c6cbf87374dc
+    role: context
+  - path: .temp/pr2058/294-author/input-paths.json
+    sha256: 5dedcd5bdaee4426b608e9993ea43f1ea880bc148b2b5d5bbffa7c74ad626c19
+    role: context
+  - path: .temp/pr2058/294-author/main-record-diff.txt
+    sha256: 812302bbd7ca74fafe13c692c41bb93faf1798741423ec8a9b15bc4c074f9b6f
+    role: context
+  - path: .temp/pr2058/294-author/ncbi-taxonomy.parsed.json
+    sha256: e27bfaa9203e520d98d113d45577240143ff160e7faef330c982d0218dba4498
+    role: context
+  - path: .temp/pr2058/294-author/ncbi-taxonomy.receipt.json
+    sha256: f4ca246f6e19a68f764f8714c03e3dbb4a7551ac9300170d89a45875886bc947
+    role: context
+  - path: .temp/pr2058/294-author/ncbi-taxonomy.xml
+    sha256: bc34a480d5c125ee49dd6d2636372846a7944df08e8bdec7753ed8dfa780f912
+    role: context
+  - path: .temp/pr2058/294-author/network-inputs.json
+    sha256: 9eb11ce4cd9c79670eeb6fb666b1c3371ea37bdec124a5134368eac2ce25fed1
+    role: context
+  - path: .temp/pr2058/294-author/original-review-validate.stderr
+    sha256: e2cf5a8ee56373cb7afeb23be8ac2a30d67f13afa55bb51424877fc908e2a25f
+    role: context
+  - path: .temp/pr2058/294-author/original-review-validate.stdout
+    sha256: b42ee0197bdb886694684431f9da0d2fba4020263ed572ff756b9eaf0b042ba6
+    role: context
+  - path: .temp/pr2058/294-author/original-review.json
+    sha256: 449a95cd6e0339377e05c7a4148f22d5a9201e4a4cda17429b943f280e4bd334
+    role: context
+  - path: .temp/pr2058/294-author/pmid42203120-receipt.json
+    sha256: faf01649d8798661796b33eaeefd8d135bf4c664491af22506d17716b8a5df10
+    role: context
+  - path: .temp/pr2058/294-author/pmid42203120.json
+    sha256: 80e2ca76db66f32c633993a93f3c6c87392ea82281f16a5df5aa0f1a5543a68b
+    role: context
+  - path: .temp/pr2058/294-author/publisher-visible.txt
+    sha256: 49bb4944ff84d7bdb59cd07c790e780b0f36a9da4448bb6c5fc3296dcca720e1
+    role: context
+  - path: .temp/pr2058/294-author/publisher.html
+    sha256: c4f8ade66833834b34bf71925f881eccef38533abaa0e15b8861be5dd0ffd913
+    role: context
+  - path: .temp/pr2058/294-author/publisher.html-receipt.json
+    sha256: 6e4ee6a92fa63e0d198355e099f7af15cbf4280bcc035167b69fe11a939e7207
+    role: context
+  - path: .temp/pr2058/294-author/references.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/294-author/references.stdout
+    sha256: 5eb4c68204cfa51aa5392a3bfe478d1085dbbb4942681e1681d9e83cffaabcc3
+    role: context
+  - path: .temp/pr2058/294-author/snippet-audit.json
+    sha256: 808ce8a14c99c220b57d132f61e43d9234362e77e100b69c1f3d0da8d23800cb
+    role: context
+  - path: .temp/pr2058/294-author/strict.stderr
+    sha256: d9d593341380f2f6910904a2b38c4073b4302aa412d65cbdd80d0fec7bc10c5a
+    role: context
+  - path: .temp/pr2058/294-author/strict.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/294-author/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/pr2058/294-author/targets.json
+    sha256: 7521db5fcb0aefa8c43136e47194a577297307923d6d9800e70ab445e94a8a41
+    role: context
+  - path: .temp/pr2058/294-author/terms.stderr
+    sha256: 2801ae4e95e6f943320b8772ea10c224846570764ae0fd900a8ebe28ae696a45
+    role: context
+  - path: .temp/pr2058/294-author/terms.stdout
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/pr2058/294-author/validate.stderr
+    sha256: 2e63180b346a04796c72ad437f5f6366619d6bb3bc6d69b846c39763e6ac2142
+    role: context
+  - path: .temp/pr2058/294-author/validate.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/294-author/web-indexed-primary-sections.json
+    sha256: 833ae81ce052f11881ea0c0be634f03a2956808a87e36996a3a68a92d9e827b3
+    role: context
+  - path: .temp/pr2058/294-author/web-primary-search.json
+    sha256: aeed787309af1f6df8615042e2e8cd9a0a7328b44bcce8dd9614c475c5659934
+    role: context
+  - path: .temp/pr2058/294-author/web-source-search-empty.json
+    sha256: 1048ddaf93c0dfa7b1304db3ffef722f4a37db0018ad2c63d0062118c5d92b42
+    role: context
+  - path: .temp/pr2058/adversarial/000252-gtdb-community.stderr
+    sha256: 58ddaa6a016aa2675a10c43f8fb012aaf9aa257bbf0954f97266b17ff6e79eb7
+    role: context
+  - path: .temp/pr2058/adversarial/000252-gtdb-community.stdout
+    sha256: 0394ff285912bf3c858a5a55b5e06ac5bfc2d678ce71174580d53b2563755dc8
+    role: context
+  - path: .temp/pr2058/adversarial/000252-inspect.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000252-inspect.stdout
+    sha256: 509ae616060dc9dbb04376be76def85a1191d7603fbc8b09e3254ed78e645e90
+    role: context
+  - path: .temp/pr2058/adversarial/000252-review-sections.json
+    sha256: 7034d8c6504624f60cce7b719a86dcbafe805939bd6966e5190597270990901f
+    role: context
+  - path: .temp/pr2058/adversarial/000252-targets.json
+    sha256: 991fdc2ac9e4c843c69df850458da161fea2048614db2ef3d6f8e37bde4bd085
+    role: context
+  - path: .temp/pr2058/adversarial/000252-validate-gtdb-domain.stderr
+    sha256: d38956efc7a4997955d1bc8111abc0994d4cf982f6309807af483c395821e35f
+    role: context
+  - path: .temp/pr2058/adversarial/000252-validate-gtdb-domain.stdout
+    sha256: ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae
+    role: context
+  - path: .temp/pr2058/adversarial/000252-validate-gtdb.stderr
+    sha256: 8ed6bee2c754f24750d6b31f0475122f8ff2168fa79647ef9564efde97a052c4
+    role: context
+  - path: .temp/pr2058/adversarial/000252-validate-gtdb.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000252-validate-history.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000252-validate-history.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/adversarial/000252-validate-references-explained.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000252-validate-references-explained.stdout
+    sha256: 94b27d024125d0e58a3311dd6da155f737909ced6c18b0c9cdd9de3671672bf7
+    role: context
+  - path: .temp/pr2058/adversarial/000252-validate-strict.stderr
+    sha256: eeedd5ebcae54052af1b1ed84c84b5b7e30c76a4b57eb8c55c19ad0fd1c57ac2
+    role: context
+  - path: .temp/pr2058/adversarial/000252-validate-strict.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000252-validate-terms.stderr
+    sha256: c7d5e81eef1f6829abebabaf249e3ddb2bcb242d6072761e39465267c0cdbb93
+    role: context
+  - path: .temp/pr2058/adversarial/000252-validate-terms.stdout
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/pr2058/adversarial/000252-validate.stderr
+    sha256: 6317602e57c9f79126f7b403f5697b22bdd807035ae8042bfaec6c6540df6f3a
+    role: context
+  - path: .temp/pr2058/adversarial/000252-validate.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/adversarial/000277-gtdb-community.stderr
+    sha256: 7f1af84e7f5ccbfd7350ba939c3f95491fc346a960545005ec1ab71c3eabe7dd
+    role: context
+  - path: .temp/pr2058/adversarial/000277-gtdb-community.stdout
+    sha256: 67702a2066bb8fe6a5eb4b5e7e56eee0ebf67ac11047f015e380d53992400e09
+    role: context
+  - path: .temp/pr2058/adversarial/000277-inspect.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000277-inspect.stdout
+    sha256: d4119281bae024a4ee5b287ef5d9135f9a903e1c2950a09f28564e220258506a
+    role: context
+  - path: .temp/pr2058/adversarial/000277-review-sections.json
+    sha256: cb7f2ad62213c6ee315818eda902c6298bed4411821363a8317f824085d2b95a
+    role: context
+  - path: .temp/pr2058/adversarial/000277-targets.json
+    sha256: 5eed2fde78123e2f4ab37ca9af5d7123fbbdb92585cb4688a0135eeeab56bb7f
+    role: context
+  - path: .temp/pr2058/adversarial/000277-validate-gtdb-domain.stderr
+    sha256: 38766e4f3d80c0a035b81a961eb289c89ba5355b7cb7ab80b44d527b4960fcd2
+    role: context
+  - path: .temp/pr2058/adversarial/000277-validate-gtdb-domain.stdout
+    sha256: ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae
+    role: context
+  - path: .temp/pr2058/adversarial/000277-validate-gtdb.stderr
+    sha256: 47a3c4a42070ab513b51187013bfa850a7c2926e39985f7ca77961c9c35e5ecd
+    role: context
+  - path: .temp/pr2058/adversarial/000277-validate-gtdb.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000277-validate-history.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000277-validate-history.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/adversarial/000277-validate-references-explained.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000277-validate-references-explained.stdout
+    sha256: e68f8c16693c9f7d13f23b660a46f57ffc52086d285918637265c6240c2ccc8c
+    role: context
+  - path: .temp/pr2058/adversarial/000277-validate-strict.stderr
+    sha256: 624b3921240eff145646709f361508907ea183415acc11a018b7e3256288b6f1
+    role: context
+  - path: .temp/pr2058/adversarial/000277-validate-strict.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000277-validate-terms.stderr
+    sha256: 24cfc58579a2fb469eb637ef05c46702eff6367a72c8114a7a93d91a21c7aa38
+    role: context
+  - path: .temp/pr2058/adversarial/000277-validate-terms.stdout
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/pr2058/adversarial/000277-validate.stderr
+    sha256: 0d4a18da2a5123ed8b7f66e12afc7f27731ae26bebdc85e5451f70d934c8ea14
+    role: context
+  - path: .temp/pr2058/adversarial/000277-validate.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/adversarial/000475-gtdb-community.stderr
+    sha256: 1ffadd46abc7eef558acbd91f82f1001fbc93f270c0000dc47b5e36dc4424d30
+    role: context
+  - path: .temp/pr2058/adversarial/000475-gtdb-community.stdout
+    sha256: 9188a3d13545dc8472afc4077320b42c32478b6700584d9c5e23f36d685c0fc0
+    role: context
+  - path: .temp/pr2058/adversarial/000475-inspect.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000475-inspect.stdout
+    sha256: 8e36712d9de0c8d63bff73fa477bd911b1877e38287afbcd87605dc184acac9d
+    role: context
+  - path: .temp/pr2058/adversarial/000475-review-sections.json
+    sha256: a4b8eb07c372317749f64d8fcb5f5cfd0ba5276f00fdd5bc1c722a89787bd1d7
+    role: context
+  - path: .temp/pr2058/adversarial/000475-targets.json
+    sha256: a824a622c86057666c45ac821b7aa72960eecab5f72255bea57175dff59995fa
+    role: context
+  - path: .temp/pr2058/adversarial/000475-validate-gtdb-domain.stderr
+    sha256: 6b06705e83784bb0ac7a8b284429b560d9f53861c9b81dc6f38c79b28f0227f7
+    role: context
+  - path: .temp/pr2058/adversarial/000475-validate-gtdb-domain.stdout
+    sha256: ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae
+    role: context
+  - path: .temp/pr2058/adversarial/000475-validate-gtdb.stderr
+    sha256: 36aa718fd9ecd4b11a24eb38a96ecd57422ebbf378a11ff41cc05cfb7d7d9e7a
+    role: context
+  - path: .temp/pr2058/adversarial/000475-validate-gtdb.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000475-validate-history.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000475-validate-history.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/adversarial/000475-validate-references-explained.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000475-validate-references-explained.stdout
+    sha256: 69acf0c02ab1d97303e48f8574f90da00ce8f0c78f13216177e2da7f9d24190b
+    role: context
+  - path: .temp/pr2058/adversarial/000475-validate-strict.stderr
+    sha256: 66239a36213637d04372c7b4132640576a5af48292c4052b7210952bc86af813
+    role: context
+  - path: .temp/pr2058/adversarial/000475-validate-strict.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/adversarial/000475-validate-terms.stderr
+    sha256: f16424aeda2baf58decf7ca743d0f6bc8750e9053e0250d98560af64bde654c4
+    role: context
+  - path: .temp/pr2058/adversarial/000475-validate-terms.stdout
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/pr2058/adversarial/000475-validate.stderr
+    sha256: 44d0b8406d3b35623bf849efee3835b3e47dfd871fd2cb9444b361e1c0dcf67c
+    role: context
+  - path: .temp/pr2058/adversarial/000475-validate.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/adversarial/294-review/independent-successor-review.json
+    sha256: aaef23e251b7fa5b408cf24b6cf15595b28bf3bd3c47d88c560cf56e71155df7
+    role: context
+  - path: .temp/pr2058/adversarial/focused-checks.json
+    sha256: 626c060874dfb9b0e6db8d58125581e94126186c6ca46f7850008f0dbbe9d117
+    role: context
+  - path: .temp/pr2058/adversarial/global-native.stderr
+    sha256: e2cf5a8ee56373cb7afeb23be8ac2a30d67f13afa55bb51424877fc908e2a25f
+    role: context
+  - path: .temp/pr2058/adversarial/global-native.stdout
+    sha256: 3b726b894d3b912041762f17265ea75706098f997af09c832e7ff00059146ca1
+    role: context
+  - path: .temp/pr2058/adversarial/gtdb-community-checks.json
+    sha256: 5d28cc6c8bddf508cb2e70b2abad908d19062a559a4b12f97d117529c0de6f4d
+    role: context
+  - path: .temp/pr2058/adversarial/historical-input-audit.json
+    sha256: 28bd0ca4afb52f828382962e5cd17da11e5247e026f62bbb6cf55a2003850ac6
+    role: context
+  - path: .temp/pr2058/adversarial/independent-science-three-records.json
+    sha256: e160584e685608c3e81f87ea9e51e7c5f6f78e500542700d06e5621395ea6533
+    role: context
+  - path: .temp/pr2058/adversarial/original-metrics-actions-audit.json
+    sha256: 083815e97d93e505d8fb972ceeb56fcbded694130bd1941a03b28fa3420ac5f8
+    role: context
+  - path: .temp/pr2058/adversarial/science-input-manifest.json
+    sha256: 18d45b893ddc85a4bb6e099084ce4ab46aed4ac16bd27bdaf292b7ca8dc216c9
+    role: context
+  - path: .temp/pr2058/adversarial/snippet-replay-v2.json
+    sha256: 565bef8042fbf9d6c8ae2005dd655e5cd981691b0d0855e9dcffe1babb2be142
+    role: context
+  - path: .temp/pr2058/adversarial/snippet-replay.json
+    sha256: 64270fba7410e071756707975cf77a56b06b7dcb2dd49c76aa961e60b9a0e9df
+    role: context
+  - path: .temp/pr2058/adversarial/sources/020-redirect-independent.json
+    sha256: c749a74ade28b87e3e19c3be0449728517388fd4db8a555e56a7d4bb2b415734
+    role: context
+  - path: .temp/pr2058/adversarial/sources/020-redirect-independent.xml
+    sha256: c0a69a574cb9224446d6996d7a5e39ef1598f297528087c71bb661b821e6f5d3
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/41396_2020_624_Fig1_HTML.jpg
+    sha256: 32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/41396_2020_624_Fig2_HTML.jpg
+    sha256: 32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/41396_2020_624_Fig3_HTML.jpg
+    sha256: 32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/41396_2020_624_Fig4_HTML.jpg
+    sha256: 32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/41396_2020_624_Fig5_HTML.jpg
+    sha256: 32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/assets.json
+    sha256: b2c860b725d473d424ea6b485ad6ef435d31d1e97a5aed3c6b0207b96e052602
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/body.txt
+    sha256: c214566cf4772fd63965c7a2f5ec69a1d6bb7de336ff1261b61c51966f87c03c
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_Fig1_HTML.gif
+    sha256: e66c2d556b2611367615759485fdbf4dd93e75e3123c3228eb436e1b7f6a6c39
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_Fig1_HTML.jpg
+    sha256: daf70a79af7b0a75bc346047a31610419c50f3608dd5fe3cf6ac6252e0d882a2
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_Fig2_HTML.gif
+    sha256: 1efe13ed0031e8c2a97c68e36dd7a979bc4c22ecf3df6607fc4988932835b646
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_Fig2_HTML.jpg
+    sha256: e93d7860662e4e5631dc0dc745dda74fd0fee65b349e83875b98f4f1d8744c62
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_Fig3_HTML.gif
+    sha256: b54ee6ffc7ab8c9782df06511c695bc82e986a8d5e46a4a3cdeb7a88883f0d65
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_Fig3_HTML.jpg
+    sha256: 4bca7a182a968a6560a5c3bdb36b2699eb8c45436f59fc72a5813db97629605f
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_Fig4_HTML.gif
+    sha256: 9026c629d496586f96bc1b9b5ab223af782da8a0f8aa2c9844a9a4e2970b39a8
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_Fig4_HTML.jpg
+    sha256: 9b65048cf7530e9fdea4e735befce1898d648038d11f3034c7f44f53e71bf562
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_Fig5_HTML.gif
+    sha256: 925e460c1c3d75970444fdee0b59ff869a15664c567b6f90fc13262bc5ce074c
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_Fig5_HTML.jpg
+    sha256: d32e63845465f490e73ea4e9605fbbafb321a4c545cbe6b6e96bb3f2fe6cd044
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-01.png
+    sha256: 01e90728c9be292efbd4de6fc20a99840cfa3bcd4bc38494d5f0321f492dbf6b
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-02.png
+    sha256: c7b1f686f5041a512ec71b3a9a3ec118dd1984e26dec14ab7d721a5cb97aaa50
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-03.png
+    sha256: 18486246184b50b25ef36adae801a9a5d8b25728a94c9023ae04d2d770ed3f3b
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-04.png
+    sha256: 09c5e1932aed94b6287a36633d22d4ac25c840c10fbda606a4db826561f50425
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-05.png
+    sha256: 80011f2e925474fe938715256f2c7ca234b36e81a4b3ea9c3be17ed2c9345354
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-06.png
+    sha256: e068cb1c655da7adbe6ac9374e9f3a1da3793da2ebde27c54a2fd04dce9581d6
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-07.png
+    sha256: 1a369bc04ba7f0bab60d4f0a6a840e268d99c563f457f828544f1f057abb6a38
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-08.png
+    sha256: 13e8076fc035145dad742abf2018a778003d56dc166f7a69485fb9af713b21e0
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-09.png
+    sha256: cd4778a58bd39bf9e7dcdffcdb2dad887af357f8a5c9d3d78b8db37064fba4af
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-10.png
+    sha256: b207d195acb3316181f7ffa746e83abbd19aa2427994e41ab0ca8a29167fd3cc
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-11.png
+    sha256: 0524d768f84ed4250f314c1da538aaa34589ab422ba7dbe50c2526a6d37b76d4
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-12.png
+    sha256: 7242d7900947e712f648a8e6dd3c36258f1814e12e692c770027f3378f460b66
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-13.png
+    sha256: adf5fc04819e6a7d9c934571378bbf591fac41504061f8e1e9dff59e8f1f4dc4
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-14.png
+    sha256: b4016c297e716b87af149cb19caae9dc9a9b5c21478d548b0bd0f67b8f4fb469
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-15.png
+    sha256: 81cb59704b5c049258447e4bbf6d340901ebb16a8d454b82d91f6dde28018dbf
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-16.png
+    sha256: 5ffaaf161ab98762f9483353ef1a4e2daed50061b86befe04f107510eb7db114
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-17.png
+    sha256: fc60548b3d835760acffe85ace1b02305fe1189dd54687f8c4b919edd1e2f084
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-18.png
+    sha256: 0631831c6fca28d13295726d96b1499a66a679f6de46fdd6913b261409069e27
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-19.png
+    sha256: dd34291c128ba1416f2242aa1441cb49a89d4589341e64ff99f4bc0a4ff5b401
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-20.png
+    sha256: 70caaa3fd4f9d2986eaa60eef626b92ab74c67b928149c7478ccd4905571b493
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-21.png
+    sha256: c298ae079d29126483894632759700b0bcd8de6209e18d52aa6c2a3478522a14
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-22.png
+    sha256: 68238fdb84290c1349c7b74d3784d79a3407ade793136bf2317100246697f1a6
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-23.png
+    sha256: eb31f82564b0a3f880da3635c9eaa57735e157165fe76ddf03aeb62605435a1a
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM-24.png
+    sha256: 44511453d25a33d790bc4b4e740a850f838a7ae9eb1521927c20f43c43b2f3c4
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM.pdf
+    sha256: cfc6539a5b0dbdb809c550477a4034a2ab3e3f13cf881a36d02c9b5eb1e28b5e
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM1_ESM.txt
+    sha256: 970b4c13e2ceb1be5b00a280e8754f4832b4b7c711ed2ddfe72ec85db5ddb4b5
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM2_ESM.json
+    sha256: e76339d27f9b7d22c25735b92001d7655aa499f560918a191c46cde0d7337501
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM2_ESM.xlsx
+    sha256: c4da1b38b67aa2085f07a070db44e7ced68e888edcb2756876facf8068f87839
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM3_ESM.json
+    sha256: 0be50ae3693893cf6528be134d66472158f0cf8e1c176bf4658a6df1f8149a5e
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-assets/41396_2020_624_MOESM3_ESM.xlsx
+    sha256: 81c804a074185a43cb9ed535774097b48aba1e3fb3725260a3accea684579c88
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/epmc-supplements.zip
+    sha256: f46ac490e3e7e2fbb96703d4da35c6c11e7e41d9a0a90a54d34a89d05abd7737
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/metadata.json
+    sha256: ddc00439b15e08e2b1f32437f01e48f0b3918c5b116a27da31227e3a1aa129da
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/package-receipt.json
+    sha256: 9ecf9152e23a4711b377b49207d812e73695c989562f8c816fa6c365c88d9a42
+    role: context
+  - path: .temp/pr2058/adversarial/sources/252/primary.xml
+    sha256: 1a1adc25720a700480fd7ed2db7998e557e3f6e098915fe38b15eb2eaff05eaa
+    role: context
+  - path: .temp/pr2058/adversarial/sources/277/fresh-publisher-fragments.json
+    sha256: 4930b198f59f1d55d1e6c6d24e29d664b9cf3647468aa3f6a8d02a6447dfd168
+    role: context
+  - path: .temp/pr2058/adversarial/sources/277/metadata.json
+    sha256: 3c859d8dde04aa3fe4a50dd57fa35847c6985186a269556edd49346b5b6dff19
+    role: context
+  - path: .temp/pr2058/adversarial/sources/277/primary-publisher-preview.json
+    sha256: 3c2ee216988483c33cb2964de2bf76edb5b5a168afeb93e4a9e39fb763d184b1
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/41467_2026_71433_Fig1_HTML.jpg
+    sha256: 32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/41467_2026_71433_Fig2_HTML.jpg
+    sha256: 32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/41467_2026_71433_Fig3_HTML.jpg
+    sha256: 32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/41467_2026_71433_Fig4_HTML.jpg
+    sha256: 32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/41467_2026_71433_Fig5_HTML.jpg
+    sha256: 32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/41467_2026_71433_Fig6_HTML.jpg
+    sha256: 32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/41467_2026_71433_Fig7_HTML.jpg
+    sha256: 32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/41467_2026_71433_Fig8_HTML.jpg
+    sha256: 32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/assets.json
+    sha256: 7a1df58a5efbf347ba95d1351b6f24e87c7041c5c9959f463ff0e6808b3f25ee
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/body.txt
+    sha256: f8428b69b29d5afccf482dfe820a4177d577d017f8f12cf81c46c3bc42f502ab
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig1_HTML.gif
+    sha256: 20433e189ad9d77e4fc35d13ed753f2a88c5816879f86e0bf598eaf1857f1997
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig1_HTML.jpg
+    sha256: bf820596f1ff70bcb3683911d2716706097ee4d5360aaf84e232c63af6cf69c5
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig2_HTML.gif
+    sha256: dd52ab37ea4651a02f4c337474ba157f3365eb82c804caf44fe5c8e689bff4d8
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig2_HTML.jpg
+    sha256: 07dafd61128c6dcbef4a03108b1b2d8a4eec1bf51c449b691fb30223cde7c74e
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig3_HTML.gif
+    sha256: 09c508380b27da9e68fd91f8b8a0944c67fd1d8499ccdc2c3501775b694b5363
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig3_HTML.jpg
+    sha256: 18a743858cb848abbce4eb28bbe5d590df3f16cb7f67ff9c13a16a0358a648f4
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig4_HTML.gif
+    sha256: 9d0bfb66f7a30a1ad2dc9c014d8a7291a56931e50ecae20570673f9186ba2784
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig4_HTML.jpg
+    sha256: 0cc746e3043ef400075d45bb24dfb5e0a0f071ab54cc85522ebe610eb880415d
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig5_HTML.gif
+    sha256: 4d70f6abaa40e029b43bc734311586e514f4b4f8f21da9614d437e196af64856
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig5_HTML.jpg
+    sha256: f4ef258c40fea71215c135062788d5f6ffc4ef6c8b1468eb80053773935ad024
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig6_HTML.gif
+    sha256: d0abc9eab278bd154f356f8d89a17a797d5ce1fe02d1fc0d688d55b00dbeef3f
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig6_HTML.jpg
+    sha256: 3fe1446cc7ac2c36faabe703e9ecf86be757253ddb723e4a3212f6f415707279
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig7_HTML.gif
+    sha256: 2fcb15a1c4a0e6609c67ab8f0abe93f6383ad73b91b1c5f8b822a1511620731c
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig7_HTML.jpg
+    sha256: 22f82f307165743ce1044c57e04bb94ce058cd70483bbd8daed6a0a405a0ab62
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig8_HTML.gif
+    sha256: 2f083e8e6a18c11b9dbcc76c52ce6c2b510c568d92a78b13131f5f65ac268203
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_Fig8_HTML.jpg
+    sha256: 25bed75515427d1b8094b4e963098810889f4a0e1205fff28e3fb37a8fce940b
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-01.png
+    sha256: 0efa4573fbda7531ae10ed6f22c235d511cad53c6f2707a69e32e00ddf5a496d
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-02.png
+    sha256: 87a8aaef22571d8165d3c793e7ef233fa80ad3ac8a33f60b75e413cf8b31bd72
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-03.png
+    sha256: 078be6b3f26dd542b0246a5224bc28e8b52db9c5cfc58837b03f0f5af9d306f8
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-04.png
+    sha256: 1e7f5813ff3a903c3d780ceb6907f9de3d80dc4100f3a7d6c9ef0c4ffe680966
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-05.png
+    sha256: 8d8b8e23eb36032b391051443387934fc5b8c0844b9fae61384afa7065416ef1
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-06.png
+    sha256: 7df8c1777ad665cd6c6ce72c2c15aaada892430071c97767a349fbcf11714d79
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-07.png
+    sha256: b1002420275ce9c13878c23456bcad25c75b4cd28dd254e84ffe2320c11c526b
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-08.png
+    sha256: 255f5382f4ef364b7512c75d2cbd0ffcbcc293b3b8bdae899053e28177ba04c7
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-09.png
+    sha256: aca9819d8e9d0240d21f08a040f9f43f01279897d9a1b15c2610ab300772beeb
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-10.png
+    sha256: bf8a49abfd8e5de8f5167f5a6a85d43138b4f2fa36ba0a57485773e42d943743
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-11.png
+    sha256: f84e4ac640de5a7270e421757dc8b959a84379963604ab00cd6690e3c781b41a
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-12.png
+    sha256: 8ce5ec2158851c45e90d88cd65b825c9c86ef31fa17ab290b95a1d20f77c4201
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-13.png
+    sha256: f9c12b6f2767cf3cf5d8df52ac78e1733c00cb2b7c8344e06dc3069c82bfb19a
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-14.png
+    sha256: 0c0eabded1d86150ae516554f4595f8367a2661c94dc5ca97ccf79e391d5956b
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-15.png
+    sha256: fb9be0e918453552748b5d21de83f9fea5cdce67b7c4659446ccf5a6b33de2ff
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM-16.png
+    sha256: 27b771d317d0cf08336158fd78523edbf411b6389b556b346684b82deca80cfb
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM.pdf
+    sha256: 6c31940e3b47521f05d6649f0256861fc65a11b5997e496bbddee45d3d780cf0
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM1_ESM.txt
+    sha256: 7ea3c353a147033400770a0073efe58ee7de9ce4ceecabaccc88e6f751425364
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM2_ESM.pdf
+    sha256: 8f66880294558786c5ae0c214445167f577210a192c6f169a3d4c396259f2a05
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM2_ESM.txt
+    sha256: 95adbcf6cbe25b3ada83c04773bfd2441a8390d89d3025accf6bc2d648dc596a
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM3_ESM.json
+    sha256: a7bf03b7231e168a22eff6f1bbee497258f762289af5cceb678baea555db2e9c
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM3_ESM.xlsx
+    sha256: 8a710566be77faa181bb56b6f5f145b085299d370ead6a101b0b8adbf63f4b62
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM4_ESM.json
+    sha256: 8922bf7d81aa2ce9d2537d56325b49a05c20231f6440f0751f4476196b9a1ae4
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM4_ESM.xlsx
+    sha256: 62c25b7a4f8046edb0514be15ea81eb0a7dd46521bf762face83d09229ed758f
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM5_ESM.json
+    sha256: 209dff259e8f8daaa1490b3ac3794cd47405f77a1679e0bd4283268780430138
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM5_ESM.xlsx
+    sha256: cd97a7885d0bcf45dc7b1d4b43f67003d902ad08ae28bc0cd7dc2296d6e82123
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM6_ESM.json
+    sha256: 99c87cda17b5301c63d9444a6a9813f471848cc84467b8f09332d7ca86ec9422
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM6_ESM.xlsx
+    sha256: e402ee290f3bc018b78267fbc61ebb5ddcc6d630c17f9a017c04997c2b070935
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM7_ESM.pdf
+    sha256: 1b94f27a2d461f5b32e6669c22affd9b529ea6b9e95140ba1e729ed1e77b83ff
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM7_ESM.txt
+    sha256: 1bae7d5908704f2cd31fe82fafce4cd69b3cc3e98632a9f74fd06c0cbf953a0b
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM8_ESM.pdf
+    sha256: 220ba5b5c7b36b7145d93e6712b1716b28e11510b74f26387c6bd78e98e7a62f
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-assets/41467_2026_71433_MOESM8_ESM.txt
+    sha256: 6bfd22e11de69e3cf42b847e9ae4eb121c5c9921231092a0698fb4889b57fee3
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/epmc-supplements.zip
+    sha256: d7645313fef92533d68eeab671d491fda0080b7169643ff090d8617c3a7ca432
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/metadata.json
+    sha256: 2e37dc429e74021949bba1c427476f00184ade5f58c2b46a13cd690ed7f033b2
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/package-receipt.json
+    sha256: 30eb6660cc76480e35da9d6b5fa232aee9c969a81ae10217ff56487801d17259
+    role: context
+  - path: .temp/pr2058/adversarial/sources/475/primary.xml
+    sha256: 99d5f26e0d265f1ca99c59d48557b69c4b1ad209a5e0defa5709e5200dce48cf
+    role: context
+  - path: .temp/pr2058/adversarial/sources/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/pr2058/adversarial/sources/asset-retrievals.json
+    sha256: bebacf6d04d0c9b25d1119cc2b33e58122f3a4a99ea35cf25585263936cb4166
+    role: context
+  - path: .temp/pr2058/adversarial/sources/primary-retrievals.json
+    sha256: bc297b46d26470f600ecffcbfce397314e4e4e33653bfba6b7eaa1ea3680dcff
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-copy-receipt.json
+    sha256: 434e0e0c1e9bd8cd9432f9dd28ab220a4ab99cc0925ac4578eb422864f1a4b7c
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-snapshots/475-data3-crosscheck.json
+    sha256: ed6a51ca11875acac2f91d7a25a45e72f6f50a5e2f002a404cca19ad474c3a89
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-snapshots/602879-assembly-links.xml
+    sha256: 3b1bc0ebf4dbc9e32c9f352a055865e20f9165ddf34d5755cb47856a6e38bb81
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-snapshots/PRJNA1227537-bioproject.xml
+    sha256: 68ed0b2c15d38dca877a3a16e0e92bf1133d62c79362daec1adc57172100beca
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-snapshots/PRJNA1227537-ena.tsv
+    sha256: 29bb1a766b659b9f468b8466e6f432ddb9cd5f0e94fcd0a1c533b7b748ddfa27
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-snapshots/PRJNA602879-bioproject.xml
+    sha256: 30dc90cfc57c4cd5e4cd699eb9984cfb28ee27d6071873be2197f0758f96b454
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-snapshots/PRJNA602879-ena.tsv
+    sha256: d37265665752b44d5f5a439150e5971586b9921aa6e97d1666a11d8e72c3c7a2
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-snapshots/SAMN13287258-ena.xml
+    sha256: 52b3d8771c105ac0d3de93f41d3aaa927c61f311b5d582a0a14230eca2786125
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-snapshots/SAMN13287462-ena.xml
+    sha256: fe0a5138e65dac165913be33fe900e8218ca7defe57000b6bc1814a25b6965b1
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-snapshots/ggkbase1491-http1-receipt.txt
+    sha256: f12085bd8217eb03fa49e15ddc3c4451b5a8e54c615e98c188e81e25ca565d0d
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-snapshots/initial-retrievals.json
+    sha256: 907801b8ac5a68b82fed47779fbcfd2d40cfa3553b75d6aee8bd32ac68b5a512
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-snapshots/lip_metgen-README.md
+    sha256: 85f67d6373e035e564b3d30830c0084b418022e0d1da4203bdcf28a59b504bee
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-snapshots/lip_metgen-repo.json
+    sha256: 21970053b10e6f5004bcdeb0a7b335a6e39fed9822e0934e2e6bd63260da0e18
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-snapshots/rpS3_trckr-README.md
+    sha256: cc30867e5d63f13c0597f9d63f48390e52f6a4f226d6a7cd272931b715c1acc8
+    role: context
+  - path: .temp/pr2058/adversarial/sources/root-resource-snapshots/rpS3_trckr-repo.json
+    sha256: 1c1a421d8307223ac2a4b84ad30cb188c5485a0a3e8ed7bda77667e331d547f8
+    role: context
+  - path: .temp/pr2058/adversarial/sources/source-accession-crosswalks.json
+    sha256: 1f94277de8529aff18c8c1bc1a03e1b6fdf340ea82d052b20d4c485bbb35bd9b
+    role: context
+  - path: .temp/pr2058/adversarial/sources/taxonomy.json
+    sha256: d49f7232f5bb722d1fe99ad65e655d61f809523cb5dd9e43d21996b6aaf43a2b
+    role: context
+  - path: .temp/pr2058/adversarial/sources/taxonomy.xml
+    sha256: f6b39e7110917a29f17daff9d5f4c05b498a89f577cb11b2974c18ea194d74c3
+    role: context
+  - path: .temp/pr2058/adversarial/sources/workbook-bounded-projection.json
+    sha256: ef5c700d616b8ceef4c497abde30e003f6dc2f75d181d45295799a78cf40653b
+    role: context
+  - path: .temp/pr2058/batch-provenance-config.json
+    sha256: 921137d044f35b9fff0eec22d2791ca363e3c39b8c5322e623f4921841f8ce34
+    role: context
+  - path: .temp/pr2058/batch-provenance-full-lint.json
+    sha256: b55e20dd4134149224539b6757a838c195270b39844142c22b731bd141bbafd2
+    role: context
+  - path: .temp/pr2058/batch-provenance-full-lint.stderr
+    sha256: 36ae6af3a1862febabe13f175ae987b587bc6551764556ee28a28594693b61b9
+    role: context
+  - path: .temp/pr2058/batch-provenance-full-lint.stdout
+    sha256: 1cffccf768da50ca84db43e973c69c47f795b57101ebfc1825d52472c790ab4d
+    role: context
+  - path: .temp/pr2058/batch-provenance/audit.json
+    sha256: 26a43d0996a1b1219e4d9caac001248b8fc6e2ec5302fb9a28d2d4f9a643259f
+    role: context
+  - path: .temp/pr2058/batch-provenance/inputs.json
+    sha256: 0978a896ccf364bb271a8507bd84035a9d838cd2f83d81bef3c3dad6c49a1906
+    role: context
+  - path: .temp/pr2058/batch-provenance/records/000019.json
+    sha256: 97db8fc4ae8ed4f031406a2d008e61bb1ee258bbd902e466a6c9a08c62988358
+    role: context
+  - path: .temp/pr2058/batch-provenance/records/000020.json
+    sha256: 52308189c64e3fbd256dad0139418a231404ced4256a65bb0ecf02d17bcb4c86
+    role: context
+  - path: .temp/pr2058/batch-provenance/records/000195.json
+    sha256: 39ae27fabede314a2a15dd1ee079126f0d5cb79c120ce9b1a52931926c582e10
+    role: context
+  - path: .temp/pr2058/batch-provenance/records/000252.json
+    sha256: 753502ef153020e77029d3e043a3d97de737b1d485368d4cbbf81b7c63715f5e
+    role: context
+  - path: .temp/pr2058/batch-provenance/records/000277.json
+    sha256: 67494eb22e235f9bf32e61ae43f259dc3ae22b8c758699c8e8ad27fb40d363c1
+    role: context
+  - path: .temp/pr2058/batch-provenance/records/000293.json
+    sha256: 20d91562dfa7f7c835e4ed5b701f02d20f19882e84c1f3631811a808970699d8
+    role: context
+  - path: .temp/pr2058/batch-provenance/records/000294.json
+    sha256: 38ecd6ac003f82b2e0089228b9baa45dfc6137ff70429d269783863b539204fd
+    role: context
+  - path: .temp/pr2058/batch-provenance/records/000387.json
+    sha256: e0cfe34be08f42e3023989c9c681e0861d2ddae2c97c3e3fa73e4426b9ab7111
+    role: context
+  - path: .temp/pr2058/batch-provenance/records/000453.json
+    sha256: 4e07632f348ffcc69ffe6b544aea98395eac5c7664f2906bd647591ddc275006
+    role: context
+  - path: .temp/pr2058/batch-provenance/records/000475.json
+    sha256: 09801d24a48c38a561d33d15633b225e5e9af16b7db00ad27fd6cd08a35b878c
+    role: context
+  - path: .temp/pr2058/batch-provenance/targets.json
+    sha256: 55bdf3d6183fec39da4882f80933c110b5729f8da0cc939f726015cdb4ccd317
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-focused-checks.json
+    sha256: 8886c54dbc23129ce34aa77fc83cd5b094b63d6702fcdac83f2ef3c41b427c15
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-gtdb-community.stderr
+    sha256: 8ddd09965ec72fbb4dfa61c5525c83a549d1d304666da52a2377b89db0559a66
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-gtdb-community.stdout
+    sha256: 973b6761aa7626d394b5e3e7c46bc462400b814a0092be1ca123c24be83c5d97
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-inspect.json
+    sha256: 08c08e60b4ec538c38d6b83c4cb50edf8eb62ee911e22fb61c3febcde6b107fb
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-inspect.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-review-sections.json
+    sha256: 34e3ddf2a67529283e46527eb6b7b223ae1ada0f4035fab05e42b29310010a60
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-targets.json
+    sha256: 30f6b2f3d19c70a283b5adbaad5d80ecc1f608eb3f80e0041a793be8165127ba
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-validate-gtdb-domain.stderr
+    sha256: 0ab41b07347df6b9590152042951e62d1c760329852995e2c28a98210045a2c7
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-validate-gtdb-domain.stdout
+    sha256: ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-validate-gtdb.stderr
+    sha256: 91e0d78fd0787d967956b66fe2c500be7e80cd12227b22043cac6614a726a5f0
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-validate-gtdb.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-validate-history.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-validate-history.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-validate-references-explained.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-validate-references-explained.stdout
+    sha256: 58d07e6564782441e05c5c52da11b0e556ed96ecde892cfe580b96c669bf5b30
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-validate-strict.stderr
+    sha256: 5b2776df0c04648ea7f8a7dfccb7e6611611796863f0899136a2e98054f461d4
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-validate-strict.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-validate-terms.stderr
+    sha256: fa61e01f70bb95fd407276c4544a82ebbe3c93f4b87c913fa9dffc21caf5ecca
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-validate-terms.stdout
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-validate.stderr
+    sha256: 9f6680e90bf04545c77cb6877901657d664a9427ff2d65dede1cd1ef4affc150
+    role: context
+  - path: .temp/pr2058/independent-secondary/000019-validate.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-focused-checks.json
+    sha256: 22a69adc7131aee7bef71aece9e6053a01eb6ea9a6c1327a1677ba913435f6ae
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-gtdb-community.stderr
+    sha256: 90df498a61464490023762e793b0006762bc38e46cec623e3728de4ecb47bbb3
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-gtdb-community.stdout
+    sha256: dbee9904aa0a097c2b5a74677f6216785469f8ef9e1c6374c01cb9b9a825ae9a
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-inspect.json
+    sha256: 768b985d2e7a28aff29f004c9afa0ac8e0078e5d66c78c53294d1a04b49a3b88
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-inspect.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-review-sections.json
+    sha256: 6d179214947209debf34d25f77925c4bf7fbe8911d0c261cfb1412f5193fc13b
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-targets.json
+    sha256: b98ea45ea1753b2fed84ab29e79bce2afb01eaea0c63cab275b2da2ae68b8c59
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-validate-gtdb-domain.stderr
+    sha256: f9936702df665382a776479a8d7611ea0d0d0fc3125f533a1621b893f0bf23e1
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-validate-gtdb-domain.stdout
+    sha256: ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-validate-gtdb.stderr
+    sha256: bbb5af9b0304164c6eb29550d4a0184c749111cd144e4c595cea21e056a2c456
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-validate-gtdb.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-validate-history.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-validate-history.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-validate-references-explained.stderr
+    sha256: fdf7bcaf480dc41d6ddb001291d2e1479abcd14818c3683d046c1d14f980b1fc
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-validate-references-explained.stdout
+    sha256: 04d194d37b80c5a7dbf15bddb09821a2f34511439e8dc731dd5c20d6a46f4e96
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-validate-strict.stderr
+    sha256: 0f09f9992389a7b2feac8d187cfdec59f7d37b32fdf3bd902e0da941d3e0e4ef
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-validate-strict.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-validate-terms.stderr
+    sha256: 7a11ed344ed0236edc7d04fe14d4fdcb8a98347ab5c13563af8acf59eb05ae74
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-validate-terms.stdout
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-validate.stderr
+    sha256: c8cbc4a6ac8b774174bd574a25b58ad2d324f79c56df4d674ca4206f1e8bb9a9
+    role: context
+  - path: .temp/pr2058/independent-secondary/000020-validate.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-focused-checks.json
+    sha256: 3754d2c8fc8191764c8418d6560f9a8d60e4b6d03c9338438bf4a4b4e58ffce0
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-gtdb-community.stderr
+    sha256: 8356a3db94c82fa16040e3a4aec4f9a15d7c3d6f22d139a7c1572aa873a11a88
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-gtdb-community.stdout
+    sha256: 013d16cb6fe2f1ba2d0225ccae6b80e1dd285936250090a478b2178912f67eee
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-inspect.json
+    sha256: 87f4f6ea12f575e15528b9e415752b50161ff59e9bef31b7fd6a4cd3bbfbb5d2
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-inspect.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-review-sections.json
+    sha256: 45707fb0e0c23a9d61d4eef25b88f324c497b992ee1c5c243ff61bd620d61dc5
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-targets.json
+    sha256: 6f6794bdff70e033c467f1b68a5c5966c4de876c4641229e2cedd90a35cfa3f3
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-validate-gtdb-domain.stderr
+    sha256: 9077de164e1e5508a2f4755d8f33dd359683acdd8781b30f1abe70758e3d65e6
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-validate-gtdb-domain.stdout
+    sha256: ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-validate-gtdb.stderr
+    sha256: c92a7789ded7438393e662a33f26414c066aa38b940ecb167a15c5287f32ccd4
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-validate-gtdb.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-validate-history.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-validate-history.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-validate-references-explained.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-validate-references-explained.stdout
+    sha256: a9e90cd00b8cc411837ecb3e6e4dcb9f28095fffabd043322a654d08e921059c
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-validate-strict.stderr
+    sha256: 340934c8d43aadf2c77cdc8874346b028cd2bc96754d2b5fdc13653e86f851a3
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-validate-strict.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-validate-terms.stderr
+    sha256: 1c9dec7b1bf9f176d9e3d0b053ee54b3a059d698b48bcccabe968bdf4adac9b6
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-validate-terms.stdout
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-validate.stderr
+    sha256: 7eb454efed1f2320dd9fb7a22ebd8f95cb02922da080753db6c018821a958063
+    role: context
+  - path: .temp/pr2058/independent-secondary/000195-validate.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/independent-secondary/020-authority-re-review.json
+    sha256: 2a74e799abafc2b213fac1f317e7fe47270a685c7769e611817850a5429b5e63
+    role: context
+  - path: .temp/pr2058/independent-secondary/current-science-input-manifest.json
+    sha256: e1f56bfb6a485938875c45a4ee5a60d53053c966f1b1851ea5e22137240c2485
+    role: context
+  - path: .temp/pr2058/independent-secondary/focused-checks.json
+    sha256: f3c03c6dc36c68e80e691ff9e7035d97c79129b30555265b05e5d0f05bfaca15
+    role: context
+  - path: .temp/pr2058/independent-secondary/fresh-snippet-audit.json
+    sha256: 9cc4826b1601b596419e404239d2f8db2510b6f3af359171e254ade58f8bc0ec
+    role: context
+  - path: .temp/pr2058/independent-secondary/gtdb-community-receipt.json
+    sha256: ff515267236879dbc259b296ac35bb5c39adc0aee48c013b95424846e962632a
+    role: context
+  - path: .temp/pr2058/independent-secondary/independent-science-three-records.json
+    sha256: b7cd8e4c121e52818e848dd2706d67cb0bb007db0f2e9eda2ac1c009c1f92f15
+    role: context
+  - path: .temp/pr2058/independent-secondary/initial-inspect-receipt.json
+    sha256: da731812b82d286e62d2eb14b60588c2fe55b692e66ab00898660e1a53cd1433
+    role: context
+  - path: .temp/pr2058/independent-secondary/local-authority-receipt.json
+    sha256: 398645b46d836635222c9aef09330cebf1136ca73869b37f038c5de368caac39
+    role: context
+  - path: .temp/pr2058/independent-secondary/mim-id-search.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/mim-id-search.stdout
+    sha256: dddd1ce0811e6ed6da96db5aad756ea56d68ae439a7cfeb8cd2f94b22a4609f6
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/13068_2023_2289_MOESM1_ESM-selected-rows.json
+    sha256: 782580d3d2d384f168cb6b2c9c7a0031672575cf9703b5d6aca349a8f6416ad9
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/13068_2023_2289_MOESM3_ESM-selected-rows.json
+    sha256: 3722f62dcdecb683465be4650604fd1e60a7d2547354c2964f7d83c929ee77c6
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/19104861-metadata.json
+    sha256: 3bcd3b5e0c65416a5353eee99986c6890dfbc61a5ef06c7e6eb126a3e3667e4c
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-main-readable.txt
+    sha256: 748af3ca3661a65b33977ab29bf06ab07fe13c40d939d4a0c2c890bab6b248a0
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-main.html
+    sha256: 792422c1003a89b617724f8884a792a927459ce977cffe92a4b051401318871b
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-main.txt
+    sha256: 8d7e4aa3207ffb626ed7cdbcb86346c9f615c8d23c252e9b2b7bbbccade77254
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-main.xml
+    sha256: 98fa9e2416d7d3e7a8505121448bd4aadd44eac77603d59fb3d3fecc1fa6fdc6
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-metadata.json
+    sha256: df33793c2f7c2d449bd4bee38840e7aa9d0ec54256a088c2a4286d44d9dd6201
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement.zip
+    sha256: af69ddbc4c972b1bd7b7664bfa24b3870b64507fbbd12a7e855e2a7810ab3508
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement.zip.stderr
+    sha256: effa0c3867fb99fb8adf2fc0bc2ee5d7619ae11e9898447f3275eb38e941d2e9
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-SD1.pdf
+    sha256: 923c26e790d860f58095542f419c5496a7d8088be5dac2e1646d9baba73f66f2
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-SD1.txt
+    sha256: 2a4f7890067a98d6fa81ba8ef0c51158170a2413cc77d66420b0dc9dbbbbc75c
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-f1.gif
+    sha256: 36137ece0bb053bb6bd59c6770f6c966b423a95a5c2808a3d2c8aa9e1396b4eb
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-f1.jpg
+    sha256: 63fd43ed363eda17c8a9ce6bf904afad6ed515e8d06a5f8a39373fe2145bd99b
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-f2.gif
+    sha256: 66bb4aa7f3df93ef9cf7845029acbabf71e20e28f3a9faa987fb4bdfdcf24f3e
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-f2.jpg
+    sha256: 9868befd776fa8c19b0975593c97da26c49a6a4185be4fe57bfbd24096d849b4
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-f3.gif
+    sha256: 502437d217b716b22606bb422d7f31defa5863efd88353ddb28a790c8165b28a
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-f3.jpg
+    sha256: 2aabbdd0869772e515cad24de08feaa2b857feb9a48f2161666f5d75f0474a64
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-f4.gif
+    sha256: 77464368dfe00b3ba35839760edfe012f8e2cd2d3c8aac76ee515ffd67cfa279
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-f4.jpg
+    sha256: 7a41b29329a858a6f4db71f4668fc4bbfcf1243af32f5285ea9ebb274d009159
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-fu1.jpg
+    sha256: 7edea859890b2946a23a7eecb6d3e28ce9e90c9048386017bea70ba4d044fd9f
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-fu2.jpg
+    sha256: eeafad7cb7ab88c27c5e8058187b71266c8fb239a9b4ba18d82629838fc3e3cf
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-fu3.jpg
+    sha256: 8223a3fd5ac1aab2e87f994cf7d3daf453c14d1e84a5c276aa8cc40829dac330
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-fu4.jpg
+    sha256: 44cd33d2708414807c5f341e9fc9e21361fc0ce9b2dfb0bb35ea68b3b2485f45
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/21255296-supplement/mbt0002-0613-fu5.jpg
+    sha256: fb06a79d43702ff86b20853114dff0b7a97c73fa042709bdb2b5d1dc9603a396
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/22123759-main-readable.txt
+    sha256: ba220591986ebb188f2fe8c8ca007a0836c538bbf33e5f4dd8cd1bb0eb971855
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/22123759-main.html
+    sha256: 49864ae104f52be1034cea023bcb0575b3eee664dae2ae266d217c338eb906e7
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/22123759-metadata.json
+    sha256: 3c9795cd63321d70047c4bea4ef2dbc6fc57146c62ec59418aae87e0ddcb0efc
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-main-readable.txt
+    sha256: 178bec9316fbfb82903bbda111e658b068a38f4dc3e9b96683765f089efbcaee
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-main.html
+    sha256: 2d295503a61b51a6c8c77f6b3bb81bd8ef3cd0f1416a1921e27cfda6f1f99058
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-main.txt
+    sha256: 2230320ab56a6fe1f1d52ce7562d23556d79d2cc98fa32bdfb5636c4ee71a011
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-main.xml
+    sha256: 78bc2cc1d5990d5f151e3bb67114f5a850473a1f10eb92f7eca824c503a1039b
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-metadata.json
+    sha256: 029edb0cb61d50144b1503abefee11277fa747343a0bf397c1de7d9ddb24ba0a
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-supplement.zip
+    sha256: 2b7755204709d8d7e9faed85d9d2e6a76ea96da42b75aa1e5fc2e21e11f914a9
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-supplement.zip.stderr
+    sha256: 861bc660c465c80a3ed79215ed07335d99d40ea370bd157b3a2e218ec618cb2f
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-supplement/Data_Sheet_1.PDF
+    sha256: 3a4e36ea025ce2ac00e476cb4d0fb294174e3566d3253f31777b56ecab54c376
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-supplement/Data_Sheet_1.txt
+    sha256: 9b87831b6c92c15dced1fd722e391554432292a42d17d7ccd7084aa1ce9a8660
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-supplement/Data_Sheet_2.xls
+    sha256: 07cb5647d20143e5b7c3a92c5990e4b5cc6b07cf0a186d6c4e0f43558fcfe7d1
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-supplement/fmicb-09-03059-g001.gif
+    sha256: a3dbc7e541e3d56075fd851eddfa087a80885bf3d752b17eef5426f3f029df0b
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-supplement/fmicb-09-03059-g001.jpg
+    sha256: 44b1f573e97446cc3d50a00d494c15b4fa4148a60f5f4b1d2320e8465688492b
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-supplement/fmicb-09-03059-g002.gif
+    sha256: 303876f703bf0b54bfa93e5c546b9c7965a749230912a9dc985674263502ad98
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-supplement/fmicb-09-03059-g002.jpg
+    sha256: 4ce649abc1e4b0796d3613f130fdc909cd247d9648bf5f09c4fd3cbfdb3dfdcf
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-supplement/fmicb-09-03059-g003.gif
+    sha256: e756b83fe1631bb4df45a27c3318dbed317b0b27074e334a27d69e5a531bb1bb
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/30631311-supplement/fmicb-09-03059-g003.jpg
+    sha256: d48ab28c0102e4b19091a8021378f15fec9d5707fd5e3b53961e3c1ac3248b05
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/31769802-figure4page-09.png
+    sha256: 1aefad5bd84617c9f6716347b000ff0b671c8f002b0f40c6c537af64400061c7
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/31769802-main.pdf
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/31769802-main.pdf.stderr
+    sha256: 737b39f8e895baa1948385074da7bbc6d4c14342f1b1459b54711f758e83f80d
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/31769802-metadata.json
+    sha256: ac536f4cb7565e7ccb943c9af3ab2089400cc4f90481ce69dcdb3b0d008a7a0c
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/31769802-oup.pdf
+    sha256: 39f9c4ab695faee3f2ccac963ce6a1554008ed1d58499f9354e65c4f84550c0e
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/31769802-oup.pdf.stderr
+    sha256: 34c79877ddf65496478e04b89888fc88b02e13d4470f829490b2d4c1dce77a08
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/31769802-publisher.html
+    sha256: 1e043f844ad8ee1dc95106ddafa4286b8f82111e27f13c439d87fa8ddc11b77c
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/31769802-publisher.html.stderr
+    sha256: 3fd4e0bed71f8d188a886ea423eb7311a435d4d368dd24d45f543be081af03f9
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/31769802-pure.pdf
+    sha256: 743c70160a7a69e7313d34db439694fea3cb83a1ef586ec407ad39f1857e22d6
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/31769802-pure.pdf.stderr
+    sha256: 6615ed305a000606628207a2a0a94eb0317d85986cceb7df76177ee4b69f1000
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/31769802-pure.txt
+    sha256: 98b814f3d98b7253470d173de8aebba6eb3ae7a0b0b00e49a39b6a8f0381c911
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/31769802-rug.pdf
+    sha256: ad7b4f23b90ba45bf49dcb856e3d0ea02029e1e9c223986bb8046ab856e76ddc
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/31769802-rug.pdf.stderr
+    sha256: 545e332d13742aa0291e50c2b31ed9b1d4da1280777610571b8898ae3d1b5301
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-main-readable.txt
+    sha256: 9d86a1491b1a89007400c7fa221ae8611c431787747c3156bd8840a8971c07ef
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-main.html
+    sha256: b6fd20865d42aaa1e1b779d7ae37fb5e6be4c504b5a42dac66f4bab9dc425a6c
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-main.txt
+    sha256: fc4eac3fb3e3e3e2cf0463df72b9a13e4bf9c00cb405bbff0c83f5d11060d275
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-main.xml
+    sha256: 270ecd71152b8a853059699fa5ce84ad1f9c4c8482b8c54133c547bc68dc2ab4
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-metadata.json
+    sha256: 6f60f5efcbcc59b85d4e33ac3862bbd43c4ba2a14f1a60af7d4595c968f2aebd
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement.zip
+    sha256: 124ea0e9829525e1118f468bc66080dd5d704c774f58868d082fef5c5e3b293c
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement.zip.stderr
+    sha256: df789396ce0a9e039d49d7b70ead6549fe7d2cec3ee8009d51db544096e71422
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig1_HTML.gif
+    sha256: cbe116bc757991b80b065db02828f8c9458a5c67605a2600b721cd95551c20c5
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig1_HTML.jpg
+    sha256: 513cec432cd6cc576baef77efd7e736bd686e03b6e1586d3152afb0f131e43be
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig2_HTML.gif
+    sha256: 41bc16e2c6f52f27184d742f753e146cdb0e4c6e79213ede45d809781344bf4b
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig2_HTML.jpg
+    sha256: c3e00aa260753705f29ef81b3e725c0341d05c177256b3686e214aab23dd4a7c
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig3a_HTML.gif
+    sha256: 5b250bc94796a44eab8aace73ba3adbf4fea91710b2e9dc5c080976e982f7c0e
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig3a_HTML.jpg
+    sha256: ffe0ca9cde899ad96c45228c56f3cc319dd6b33812ca5f5f73d7fb2581a03969
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig3b_HTML.gif
+    sha256: 037610a7fb2b1181f324b94055f0882b9b7baedfe5a69bec8028aa6063bb87a3
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig3b_HTML.jpg
+    sha256: ddc2de3343b8303e116627508c35dfd35dc41f68d1ad9afc0989a2686ecbf001
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig4_HTML.gif
+    sha256: 3ebd76bf68639c0b0b2d9451cb01e4c041976596b649288cb93bd6110d9b5743
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig4_HTML.jpg
+    sha256: fcfd378f40f366f978c25080a568b97e2bb2adbe5077cc54fc3367d71f96a76f
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig5_HTML.gif
+    sha256: 970edaf9795dddbc46cc843f172f38e98491993df01554ba2ceefb4c118c43f8
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig5_HTML.jpg
+    sha256: 18e81dbc43b3ca226089698605fa82d34edc8107df7ecab5f27e817e5212867f
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig6_HTML.gif
+    sha256: acef553053e166bdb33a229eba10989b2fadd0d5d179dec9f6fbaaf36586c6b6
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig6_HTML.jpg
+    sha256: bdd24eac938858f07b0c41c78440d28c6120a6d6e04953568d8ff7d3ab36b3d7
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig7_HTML.gif
+    sha256: 038de377af595de4bf4d7dfb345af21bced3fb0ee8de4e4d4a96c4e092bc93ac
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig7_HTML.jpg
+    sha256: c3f2f19874f7d35e9263dad1733be43966d6e8253b0a427cb8acfeee0a608448
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig8_HTML.gif
+    sha256: 30926c2a6d4f0e79c92aeece25b71ff7284c7145d9ac9daedbdd1f931fb62bff
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig8_HTML.jpg
+    sha256: bc0aa56ed812a6b1cdd1ca013681afa7be7981eb02bc919bd645f64bc52be796
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig9_HTML.gif
+    sha256: f967ec9429f334fd79bd8bb0d55481b35b5f6406a373553a09535221bb375d8c
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_Fig9_HTML.jpg
+    sha256: e26c91682a1b7055f8e662783ccf123c760ce64f16623da85a964ecdc0d3b647
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_MOESM1_ESM.docx
+    sha256: 549fb109ffb67634213821b0c66c4fe695b392314beedf8f355d6b3883cfeb47
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34381075-supplement/41598_2021_95324_MOESM1_ESM.txt
+    sha256: 9ed2749b1b6ad88dde83829f8731c1954413e01a36df79080e337c1bd99848ae
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-main-readable.txt
+    sha256: e36c95a0b9952cfe54bfe738a5f726fe34e278a0899a2b0b0a7d8a07a27e1045
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-main.html
+    sha256: a10de02b61a948747a4e67576a964437c0ff43fb5244f50061943f601bca0c99
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-main.txt
+    sha256: e7768b0f31e02348fa5c4b31b8d6596083411d0dc77a06a6585e4a025d93dc4f
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-main.xml
+    sha256: e9c83c289ea6727f9c1b2e831f2f16b6c6399162dfea1349b96aa0f3c4f5a662
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-metadata.json
+    sha256: ed5ab665e03ae332f37b56bb815d0b32650dc2ea503b5ed8f653398e6da384c0
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement.zip
+    sha256: 550a23137325f91dd8752701b10e4c71b57fe8297186b90a169d066436369640
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement.zip.stderr
+    sha256: 3f87d4fd139aa79f2787f1fc383cd14131868e7dc3f271f2dc6fc6f6ffe1ee03
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement/microorganisms-09-02057-g001.gif
+    sha256: 9d9fd974f6e6fda865173e6643f3b498d52ab08dd2d8270ce65a6fca1f079f13
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement/microorganisms-09-02057-g001.jpg
+    sha256: 73a2f40e052cb8a1e3fd1269f6d613180a77f7d8f893571db9bf3f3e40609740
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement/microorganisms-09-02057-g002.gif
+    sha256: 25f0bb6041f31f95b758d66314aee7e21fdba4fe2bca26e71f93870a4c5f0e92
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement/microorganisms-09-02057-g002.jpg
+    sha256: 9fc5a5e99598307e8a77045da69d4239af06571c7c5800354ad884e532d27f9b
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement/microorganisms-09-02057-g003.gif
+    sha256: 91662a17c565c8526e7e3accc76792dd6be4f675aa6f24c5900b8545ab895716
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement/microorganisms-09-02057-g003.jpg
+    sha256: a36a6f6deaec0a86f47392c2b1f3fd48fcd407a9b3d18220c4f44c17ef0a4694
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement/microorganisms-09-02057-g004.gif
+    sha256: 610d86a6841c2603359cbd24adefb53d6f9ce22338624c17d0ee99c99ec1bee7
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement/microorganisms-09-02057-g004.jpg
+    sha256: 230473d2b4dbe3230621a4ad8f1a3a6fea67297d9a30a7b42dfe3a79fd0f2fd9
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement/microorganisms-09-02057-g005.gif
+    sha256: 61a30efdeb9ba4b13e2133c436da79ad92c05554ea44c80d521d367feffba561
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement/microorganisms-09-02057-g005.jpg
+    sha256: 9c623390189fa2a480fa5bb3b6b21c8bf5a7f12965d6654e669ddec6942493c3
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement/microorganisms-09-02057-s001.zip
+    sha256: 8816073cf6c3e96ce4a0299511d063a6cf9f7ee3a46fd4e0c6099df33fc386f7
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement/microorganisms-09-02057-s001/microorganisms-1373676-supplementary.pdf
+    sha256: 5486c0ca6dab48ea26f1ba282cc22c86844312e2d1b9f867ba6e236a9211991d
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/34683378-supplement/microorganisms-09-02057-s001/microorganisms-1373676-supplementary.txt
+    sha256: c31fc1a9b12cb5c37c8b2a9046ab922ff4e1eb6b0212c4524f63e59d3f000b21
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure1.jpg
+    sha256: ffde35e0ef952d01b44186815542bae03dd069599f650f0c5f38721dfb57809e
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure1.jpg.stderr
+    sha256: 3abfbe03b61b67c250318d18ac4a66f93662987ef7841a0ee9f668668353781c
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure10.jpg
+    sha256: e9a34bdd5d9405d6c826a9155c9e51102bb9540b57ba35deee7ac2ecbdde38ff
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure10.jpg.stderr
+    sha256: 2f232b9b2899d15379721f68a6106178588e176c1a940474a916707ed635d485
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure11.jpg
+    sha256: 2d6306240afc6c00eb64f9a646935bdc4459750ed9866451942c90f3d7ba1473
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure11.jpg.stderr
+    sha256: a1cf29864c8ff786d563e98b62b2320648d69b6949436038e5e8368b9fba21a4
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure2.jpg
+    sha256: e844f5030c2280cedf746e67d07621cb5032a4bb620923584656b4c0b185f68f
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure2.jpg.stderr
+    sha256: 1d330c495923a0d2472d25a15a6cac39db40f3bdb3f35a88a9e8728237209a7e
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure3.jpg
+    sha256: 88c5eda15c738c16590a560a86535f0cbbecc8a8b5be3e51e51b5c49f67bc9ca
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure3.jpg.stderr
+    sha256: 0f197b36ac148a71478ea8dafc7e9514b28691ba28724ee0e641ba2871c0c8a4
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure4.jpg
+    sha256: 49ae4ef53e09902d1f5ab08e57c95249228df1a2f8a323346d8d94d6141ba7c2
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure4.jpg.stderr
+    sha256: 677dc157b709c31eac4b2cc8f589b9ead1aa753eea06ff48bfed63012a482c16
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure5.jpg
+    sha256: e32ff79993826f1269895110f82ec0abd4b1dface5615bdb1b90694c8d35c924
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure5.jpg.stderr
+    sha256: 20e4924b2274df32734b83aee56583efb878f45c83a6936db4624782757d46c0
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure6.jpg
+    sha256: 385533d101dc0e00a34c4dc7ff36bef92c4f1582e59d9e805b8203dcdb95c813
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure6.jpg.stderr
+    sha256: 90d01c9585091cd5e364a499fc669fb1a5b53fca08e0b29e8b4b95570354cfd7
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure7.jpg
+    sha256: 23a254a6e52ad718d69e58748f97e38ea1ff058ec6c8ee5778507a336520bc34
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure7.jpg.stderr
+    sha256: dd5d2e3b5b1795c8564b459d0d70d760a54a20d95c70bd4efa602df367bacb65
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure8.jpg
+    sha256: 6eeb0aee648177aac2f04c25463981155f807eedab79dea476c7d359f4a7ec4f
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure8.jpg.stderr
+    sha256: 1c1fba09d6906544b41e5810ab93d10e977454212a66866e2758f84053843fc2
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure9.jpg
+    sha256: f753349a1131bca7836f646d31fbbff1af1e2e2faf5a4c4a4e3667830048c54c
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-figure9.jpg.stderr
+    sha256: b547f670faac76efefdca62737183de786e27a15530148d5084d4670e71c296e
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-main-readable.txt
+    sha256: b684e79d51c74805ae5854bb3ab900ad597c5ef7c85a1c2f1cc914e9a17d8a36
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-main.html
+    sha256: 17506d5ff43b72e7e7c3ced0de55358097562647dffce40c973fa66221bc2310
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-main.txt
+    sha256: 79d8943421ce2ced56f7203a31ddfc10a3d81954991b093148f01cbe0b5f8566
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-main.xml
+    sha256: 0aa10fd1dcac06b5e769dd0042ad638227aa38e54ccaa06d3607ab4bb108018a
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/35369491-metadata.json
+    sha256: 6daafef375ffe2eb8e3030164c3ce25569cafc7b3685bdb181937b5f938befcc
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-figure1.jpg
+    sha256: a225a56241ccf7f14250c78f11be5495b83cd251b2434e4827ce144790a8eef0
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-figure1.jpg.stderr
+    sha256: c10faa4ae5d31aeda439d259d722b2e9736333c3ed93a9687a94cc2bce040f28
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-figure2.jpg
+    sha256: f1672ef5d364735bfa2f228123fac71866b25ccde5bc406cde4510dd621cb346
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-figure2.jpg.stderr
+    sha256: dabbd6fb762338563bbb36276eeefaa169e78b11da7daffe02d2b72a62bf2f43
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-figure3.jpg
+    sha256: 3074254d254c1e850396b17516cb149fc62e8291183294538212be5901b6f9e0
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-figure3.jpg.stderr
+    sha256: 81ec69799dcfb6e305c95d98e5eef723af8ebd96ea974dca5dbd97242bf12d76
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-figure4.jpg
+    sha256: a84fe9026c33d515688945ef4fe603e8a896ef31dc1fa774bd5912f64ec6b517
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-figure4.jpg.stderr
+    sha256: df00ff7ecd8903fe7e70dcd4a10173626e1c92719e2e012fac0bf64a89ead898
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-figure5.jpg
+    sha256: 5546289d4feab6008026e4cfbbac6314411d024af1174a65bdacbccebfb863b7
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-figure5.jpg.stderr
+    sha256: 9ee001e17c325475dfb50542e1dd3952699c1cbf141ff1c6b0fda261528c769d
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-main-readable.txt
+    sha256: efab6f8645f6288ed21998baab6f4223988412dfd87be7624591ad98ecd21532
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-main.html
+    sha256: e17422dc8789cc503eeacf5bec6acd372715e1aec960f7e2147f81369d333428
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-metadata.json
+    sha256: 1bcf07c9489372943ba91637284f3792bb5a24ece9e736b7bd7f3f4c3eba51c6
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-supplement.pdf
+    sha256: 77618159e158f59321aa8e9d7a8af0755fbc27663ba3bde277afafaac80e1d7b
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-supplement.pdf.stderr
+    sha256: 45b407816432bb9c513d4d4b0f28c35335c8035f9e110ba0ea58e2a94064528b
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-supplement.zip
+    sha256: 27316949d03d561d4a5e4a462584ca25008f738f5f20340b6c032c42ce74a01a
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36300970-supplement.zip.stderr
+    sha256: 016be11e3cd42862acd3f01ab2db88734241123eeac66817ba2ddfdfa58a2831
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-main-readable.txt
+    sha256: 4087a381485e721a2f8c185075862384cf7a81bb7b42b1d09dfb45ec64ee2a77
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-main.html
+    sha256: afec22b4a82b982708a2b22852c8d6f3a6fb8506968c6439e114b3afd4ea9a4f
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-main.txt
+    sha256: 54abc2bbb1a842cfdc528d954b35d2c055dad31f4705ed71aee4eb2a82fe9288
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-main.xml
+    sha256: 79be59439865226a3812ac3545432d2e8a568e43ed82f1424af41ae38ecee50b
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-metadata.json
+    sha256: 2f37232f725bcf139c3e898c4eab6c16cc1b5f3f7c1e39d6acff5ee829f74bda
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement.zip
+    sha256: 214ae39eacd7702551aefd0848e679a0dabf2c86d9e144a3fffd60255d57bede
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement.zip.stderr
+    sha256: a88fdc362a2d8dee23853ef612aa786d2aaba315f62f1700a15302185e3c01cd
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement/13068_2023_2289_Fig1_HTML.gif
+    sha256: 60e81ccbb621b6038a78cd91d375740013fbd203345cb5612fa63be858a0f849
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement/13068_2023_2289_Fig1_HTML.jpg
+    sha256: 752076ab50ee90b54061560803b762d947479e392d5e51924a3730a456b88cc4
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement/13068_2023_2289_Fig2_HTML.gif
+    sha256: 88ed6dab3761fa9e535cc025b3f3cb395f7c68ad00e11a2487edcf9c3ece50e0
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement/13068_2023_2289_Fig2_HTML.jpg
+    sha256: a47dc14475cf4e07802970b826c188e117c8c2d452eac8436ab3fc43391c57e3
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement/13068_2023_2289_Fig3_HTML.gif
+    sha256: 09aa7c616fbb9639a9beb4be850caf67c3b51dd679a85ad2b1a93eaa0c079151
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement/13068_2023_2289_Fig3_HTML.jpg
+    sha256: e155aea1af26e838d5516780c4dfeab7a0bfb3f30fe4e76501fa6279fea61f25
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement/13068_2023_2289_Fig4_HTML.gif
+    sha256: 0e7a36d73d0d68bc5ea1a6caa3a23474cbbd6e1263e348fd37e9e9ec9849286f
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement/13068_2023_2289_Fig4_HTML.jpg
+    sha256: 6a91af4cc6243255f3acad953d57f9cc404009c8747cad0422055e577551ae98
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement/13068_2023_2289_Fig5_HTML.gif
+    sha256: 2611b65a98a0fa373328e34fc13f693cca2e010b9023728eb45e4bd14fd94bad
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement/13068_2023_2289_Fig5_HTML.jpg
+    sha256: 1b5332f9c132469b60d87a7f974878bc7f42c07aa8386cdaefbfff6549b5a618
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement/13068_2023_2289_MOESM1_ESM.xlsx
+    sha256: dfa53d184532cf6f7a113980aacec6220340a81fbe2f1775b5fd4f722995d81e
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement/13068_2023_2289_MOESM2_ESM.docx
+    sha256: f69f8b550c7de8bcd7ff8632f7b5c2e1cf550bf476b7ba92280bfa79dc930fbe
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement/13068_2023_2289_MOESM2_ESM.txt
+    sha256: 342482eb1bd02dfc9623b5b2bda96a5ff8e4f867b0791a0d2dbce74cf0c384bd
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/36991472-supplement/13068_2023_2289_MOESM3_ESM.xlsx
+    sha256: a2bcdb958020d7509d7c7cfd158a1318edaca0f763b183a7070df0b6eb874106
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/ERP125500-runs.tsv
+    sha256: 8b6b2b14215312a84156837f090d20ed8bc1c043de49bcebb15590ce6100ec13
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/ERP125500-runs.tsv.stderr
+    sha256: 308bd730ed9c4a2d96c911e3ff96109b755acce414c6ae853d4772e320018d7b
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/ERP125500.xml
+    sha256: d90fa6acb654236fb8c6ba01ca6c7f75c50e2e32370f9433a8b101be51422958
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/ERP125500.xml.stderr
+    sha256: 54da567aa49c82518508ef7450888eb3f526b6df62d1a560beb0ed2c5d48af3d
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/NCBI2GTDB.tsv.gz
+    sha256: 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/PHGU00000000.txt
+    sha256: fd7cc3408e6c66becd4f284fcb6ea55eaff3f6862b0656610d46acfe57b79d50
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/PHGU00000000.txt.stderr
+    sha256: f94b2dd33c43c25b37783dfe1ce01a6ffa34c124a0b2d690d61dc52bf5fcbbe9
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/PHGV00000000.txt
+    sha256: 0ec2e09d1e0e78690ebabf0e23d3bb27233ad51d3b16e7829433e47b0f39e460
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/PHGV00000000.txt.stderr
+    sha256: 0030e87cd88dc48bbe9351464ac8ef6cdf1c653f6e7b5412f254c2fca9d6e311
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/PRJEB27534-runs.tsv
+    sha256: c1f45f8214f0abde81e9b467bb07f0bdd2ce120647c8fc4401de47803b024e48
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/PRJEB27534-runs.tsv.stderr
+    sha256: a1891298924a6d740438f16e8e40f305e5f1ce514306f68997698a6d7a98112c
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/PRJEB27534.xml
+    sha256: 3da8a017d464bb9f4b8f9e4b43c705f02a314afe5f3aeaaa0a345386a4ee6f99
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/PRJEB27534.xml.stderr
+    sha256: 4afb7ce34e5279b1f617e2fabd1d28d789906e3a8aecd03d7fb2dcc9d494ddb2
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/PRJNA748384.xml
+    sha256: e9fca354a88c47f9389db7bd07e447e71ed4ed79ff7b5eba745a07984ee11de0
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/PRJNA748384.xml.stderr
+    sha256: 3a9457e853f461450862219689bcd29f6858cdf55791a51d7095adbcca163b7c
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/PRJNA870051-runs.tsv
+    sha256: cbf0bb9c2bb30f0ddbbb4bb20a5ac9070a639bdd55fdaf82217bdbc56a6a910b
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/PRJNA870051-runs.tsv.stderr
+    sha256: 0cb6b671bd5e6cee4363232c25ffc4fc9d602cd54612885a9c7ab9fa32d4cd0d
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/PRJNA870051.xml
+    sha256: 55ddab4e660a5993595e0647503c9338bb40965d4884c28410450af3d1bf9d33
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/PRJNA870051.xml.stderr
+    sha256: 6b6a69ddeb7367ef9357bfff79b6229035cbb2750ec23589f59c4afc41943c85
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/culturemech-9k_medium.yaml
+    sha256: 7c3855da19dcca522cb62809ce5c4f18c5cda3ea2de39b65e082aa38f13a867c
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/culturemech-f_2.yaml
+    sha256: ba3cda6e26c8dfcd9e8e5557d3cf9c60f8f6b053567ae57a3bb825809df61017
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/fresh-authority-receipt.json
+    sha256: 5eca5ba7939fb205fc313af2aeda2d15ecf596f0d82f9c2a4a2dde55616246d5
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/fresh-figure-receipt.json
+    sha256: 8fa63288e0810efac116ae1c9fee117c9f5e628c94c8cdf24caaa292a77c5594
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/fresh-fulltext-receipt.json
+    sha256: 2f70368b17181a123a63e882c71445bbbe775add02f682fa7def0ca26297ac42
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/fresh-metadata-receipt.json
+    sha256: 6cb99d85c89557459872939b0d7e6752a4b85db5181adc40038c7dc216788ed4
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/fresh-resource-details-receipt.json
+    sha256: 126819924c0cf872ef25d3820b681aa104a1837fed6f11fc69e8dccbe7d2dab6
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/fresh-resource-receipt.json
+    sha256: 0fd1978bf7d120bef8ed1bc939ca07bbc17503c2ec93ca22a188161a59cd4aa5
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/fresh-supplement-receipt.json
+    sha256: d8cac042847ec341dbc76a0a651ebb185eeddf04249e9ea7a362df53c30e531d
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/jgi1019910.html
+    sha256: a067d776c334c0c4bd0e33a2303604356ffbd0db96230a42a253b542d78c1d3b
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/jgi1019910.html.stderr
+    sha256: fe3d33a2cb11a09bf6cacca132ca5c016b2c795b699ffd37df405381a15400b6
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/ncbi-taxonomy.xml
+    sha256: f84b4bbfefbd5ad827adc412e9cb6ff24da5480ba951f70960dff3fd66edf931
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/ncbi-taxonomy.xml.stderr
+    sha256: 4814765288ee933568ca29b078805a9a738f9e109217d96eb874fd03d08a96ab
+    role: context
+  - path: .temp/pr2058/independent-secondary/sources/supplement-discovery.json
+    sha256: 9941989bea07e1d7703e73b89fca3734180b14e63098a878a15ade219eb3768e
+    role: context
+  - path: .temp/pr2058/independent-third/000293/PMC12637255.xml
+    sha256: daa2f38568db1c917f630d0abf5326625779758259a612d2c9a5e3a80a368fda
+    role: context
+  - path: .temp/pr2058/independent-third/000293/PMC12637255.xml-receipt.json
+    sha256: abe9e148cbeae2e663ce279890086797fb644021d5703fcd8c0d1d03f4e7d7ff
+    role: context
+  - path: .temp/pr2058/independent-third/000293/current-input-comparison.json
+    sha256: 8a1254c803e9625c5471e7d13da6012f41c744a4d76516dfcf102a72380b058f
+    role: context
+  - path: .temp/pr2058/independent-third/000293/declared-assets.json
+    sha256: 4465471b816e6ff261c02d3929d8dfddd22712dd7543bd5a451785edfe350cb7
+    role: context
+  - path: .temp/pr2058/independent-third/000293/ena-PRJNA1284047.tsv
+    sha256: adbf103b8607d837dfcdb38b49ac21592496fd5d9e258cb9c8993429f1d929d8
+    role: context
+  - path: .temp/pr2058/independent-third/000293/ena-PRJNA1284047.tsv-receipt.json
+    sha256: 5b1f1e89e09d60127dca2dc0ada3ed23666ae3d527a8cf0d19d5ed5f0c07ef78
+    role: context
+  - path: .temp/pr2058/independent-third/000293/ena-run-aliases.tsv
+    sha256: df76008cf52e42dd7800eb53cb1a070500c561182760ef4859c80f52a5170cb1
+    role: context
+  - path: .temp/pr2058/independent-third/000293/ena-run-aliases.tsv-receipt.json
+    sha256: 4837bb2919c666aa710f1d0006223016d4015e5a9933940afe217d3713f6f126
+    role: context
+  - path: .temp/pr2058/independent-third/000293/focused-checks.json
+    sha256: 2f9491665809837914dda350809b08a7cc50fc9010cbeedf88500cd174f0baef
+    role: context
+  - path: .temp/pr2058/independent-third/000293/fresh-snippet-audit-final-precise.json
+    sha256: 6ee26cc8b04fdd95ad06a2a66f6e35588dda2730360fcb2517e6257b8bd49186
+    role: context
+  - path: .temp/pr2058/independent-third/000293/fresh-snippet-audit-final.json
+    sha256: 5ad65b7b0873edbfc0e63752f1eaf2b05b24ff3686bf1b6edd0a5ec6eff3bfbb
+    role: context
+  - path: .temp/pr2058/independent-third/000293/fresh-snippet-audit.json
+    sha256: 55ecba312fb6eca84ba5d8b127d785e7d13a0aad1d86737f5906d7b1b3a6409e
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gr1.jpg
+    sha256: c72eb4873582f9bb2e10e34bc339ceedbf870b6febaaa323726ef46e22c2e219
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gr1.jpg-receipt.json
+    sha256: d484c26584b8b6858e394810923ff6e4212c4ec7f8132a0c2d45b5eb1467d239
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gr2.jpg
+    sha256: d1f6c746c345b1f52c3f7ddf2147fb7a71e8af60f42edba94091e05cba6ef9d7
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gr2.jpg-receipt.json
+    sha256: 5dbcfc62f7408251249579abf4c530d3f6cce93a056ca5a9cdb77dbf2e922963
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gr3.jpg
+    sha256: 89f0a4cfa3344c68362b978d5efe3fb0b54abe2eae070ddb5190f3eeaa6c2aa6
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gr3.jpg-receipt.json
+    sha256: 1d48412c757641dbcc507641ebc164085e375a5e700bfec35b6047a2c881219d
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gr4.jpg
+    sha256: 9f233495c35149d981dd6eaa4cb66a50a4e773e19c5eeb4de85a3282aafcd028
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gr4.jpg-receipt.json
+    sha256: e2e9ccd8c202628cbe9116508a1a0e00f66d89399b048f111c4dbd801aed420b
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gr5.jpg
+    sha256: f3a25a394e4f269bd4a7d84a1e451a65d20a9866524e1d33383290cfa28e63e7
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gr5.jpg-receipt.json
+    sha256: c7e4f6833556f6ddbfd65af26408b5b4bafacd1f274911f61b784695ea0ef3af
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gr6.jpg
+    sha256: 1af117f5816b904c2a46ea9851d55bf460c94ea2e40ef6fc3380536aec4c4021
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gr6.jpg-receipt.json
+    sha256: c1f29cd11dc338a12e03ec3009398766c6c6840701445a9a34cfcc76fb7b3000
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gtdb-domain.stderr
+    sha256: 9712b62cc553251d8714fffc153ef31b190f05c1c43d77e8cf1ac02409bdc005
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gtdb-domain.stdout
+    sha256: ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gtdb-replay-explicit.json
+    sha256: bf8b11fe8855e10a89b6512fbfd5bc4da41f15d5457f8c0bdca8cea0e04f96aa
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gtdb-replay-explicit.stderr
+    sha256: 4cb3dd73e5db580144d4e4126cd5e669b584158232a815391eb825b2ceb1c53f
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gtdb-replay-explicit.stdout
+    sha256: 5708a674cfcd928fb572f2e3d2b970cf1c7766e3a8014052bf1c0749f4ef65ce
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gtdb-replay.json
+    sha256: c8d908e7c82954a1c82523f9ea5ae1aefe680181e2238a7478f2d7032a6311b0
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gtdb-replay.stderr
+    sha256: 822372df365288a707c73bb07d612219bf9ac0fd32f0591434a494fa50f788aa
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gtdb-replay.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gtdb.stderr
+    sha256: 87eaf49577c215f381e3592305a00864af71fdc8aab737c4794e7ef16f2f49f7
+    role: context
+  - path: .temp/pr2058/independent-third/000293/gtdb.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000293/history.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000293/history.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/independent-third/000293/initial-inspect-receipt.json
+    sha256: cadf96df77da7c72422ac6796d8df2babc6d361c869df4995f3691586ea285dc
+    role: context
+  - path: .temp/pr2058/independent-third/000293/initial-inspect.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000293/initial-inspect.stdout
+    sha256: af1f7848b78e180ebd6bb86049660a3f5f629bc962410b235c30b71997c1f165
+    role: context
+  - path: .temp/pr2058/independent-third/000293/main-readable.txt
+    sha256: bdabcc7dd4378f5821fbce37e04473125054f3484729fe9b15b61046ab8847d0
+    role: context
+  - path: .temp/pr2058/independent-third/000293/mmc1-pmc.docx
+    sha256: f36a5a3ae259fa561b6e4ee378e8079543634324b0f7f94d75f8109ed91eb214
+    role: context
+  - path: .temp/pr2058/independent-third/000293/mmc1-pmc.docx-receipt.json
+    sha256: 4065c792033711a7ee04431c20ac75719e01413d5631efbb28006e1f6c480c99
+    role: context
+  - path: .temp/pr2058/independent-third/000293/mmc1.docx
+    sha256: 33398bba9e2200f508e0b1b1166ef6c24e3981638e73154e969f1173d05b612b
+    role: context
+  - path: .temp/pr2058/independent-third/000293/mmc1.docx-receipt.json
+    sha256: 790b67751790d4df4283941f808229684822fad0505e9d5550c2673b7155c082
+    role: context
+  - path: .temp/pr2058/independent-third/000293/ncbi-taxonomy-retry.xml
+    sha256: 2a378c82f38fed120c348014cabdc79e8d8dd33a3d8531220baa1407fe9e8b87
+    role: context
+  - path: .temp/pr2058/independent-third/000293/ncbi-taxonomy-retry.xml-receipt.json
+    sha256: 647e25c70dc3a0ac2a16988a195664c5bfafe26880ec3519607f1817d620a5f2
+    role: context
+  - path: .temp/pr2058/independent-third/000293/ncbi-taxonomy.receipt.json
+    sha256: e3dbb82febef52db56faa02972f394be637883b97982cb52e1f1f492efab515c
+    role: context
+  - path: .temp/pr2058/independent-third/000293/ncbi-taxonomy.xml
+    sha256: 01ec4cdfa0073304c3db8986e458b8be2ba034ee6b4bdb07218fd6f2e2a7fa8c
+    role: context
+  - path: .temp/pr2058/independent-third/000293/original-review-validate.stderr
+    sha256: e2cf5a8ee56373cb7afeb23be8ac2a30d67f13afa55bb51424877fc908e2a25f
+    role: context
+  - path: .temp/pr2058/independent-third/000293/original-review-validate.stdout
+    sha256: b42ee0197bdb886694684431f9da0d2fba4020263ed572ff756b9eaf0b042ba6
+    role: context
+  - path: .temp/pr2058/independent-third/000293/original-review.json
+    sha256: a83c162502f89ec1f4b2a60287bd2e936bf99a730539bf55b1df72e48facff3a
+    role: context
+  - path: .temp/pr2058/independent-third/000293/pmc-curl.html
+    sha256: afc86655cf227fdd7d984d89a2c4eedac605278fc628e99ebc3c00639f5b7fa3
+    role: context
+  - path: .temp/pr2058/independent-third/000293/pmc-curl.html-receipt.json
+    sha256: 4687e4f36b27675e225c1adec5b812bafd21da80a74b753eb7059d6df7fa4f70
+    role: context
+  - path: .temp/pr2058/independent-third/000293/pmc.html
+    sha256: 4f34365b812a8eabbddb833aa04df03b4b9af665d5ad4ba4c52a1452dcf2539c
+    role: context
+  - path: .temp/pr2058/independent-third/000293/pmc.html-receipt.json
+    sha256: 360f7f9c7a36fb6c57c6277c89e02b5faf31ef7a271836201eca74f3817c1294
+    role: context
+  - path: .temp/pr2058/independent-third/000293/pmid41280275-receipt.json
+    sha256: 531f653dc3ae2a4a4e89d5aab191b75fc466b581a6035d81a9ed517d60e4f702
+    role: context
+  - path: .temp/pr2058/independent-third/000293/pmid41280275.json
+    sha256: 55235a89860e822c424aad0092f111f8e74072a5590f5e728b5c58b968e04e5c
+    role: context
+  - path: .temp/pr2058/independent-third/000293/references.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000293/references.stdout
+    sha256: d8268b2b1c6e37d1c0834406ba49de5d8f6c61bdfbab9540543cd445d15f0438
+    role: context
+  - path: .temp/pr2058/independent-third/000293/section-0.txt
+    sha256: 464b79fb59732df2dbd54cb355cf7036d32b2b4157348ba7a07d77d1785d88a0
+    role: context
+  - path: .temp/pr2058/independent-third/000293/section-1.txt
+    sha256: f950a8ce89efa365bbf2e79b986180d0c3d17f3c0eaa5c70df110e0806e1fcc4
+    role: context
+  - path: .temp/pr2058/independent-third/000293/section-10.txt
+    sha256: 466b925f8f479c570d082dd586c66b91869cb63990e11224f0a428e6fee80643
+    role: context
+  - path: .temp/pr2058/independent-third/000293/section-11.txt
+    sha256: e56261e0bd30965b8e68ed2abb15b14182fe929d9a21d7ed7c2b6509a6583fda
+    role: context
+  - path: .temp/pr2058/independent-third/000293/section-12.txt
+    sha256: 1e33a6da3a79417617f3ec457eb9aa9325627de9867d3e8ef2bbce76905f59d1
+    role: context
+  - path: .temp/pr2058/independent-third/000293/section-2.txt
+    sha256: 06882b2723cbff0a98014ad62171998387ed0b869b2da854de39f8155ee7519d
+    role: context
+  - path: .temp/pr2058/independent-third/000293/section-3.txt
+    sha256: 78170ef30c1e4f20c2b4096cab38fd705f26bb4149ca0f76fb131dc8aa2f8945
+    role: context
+  - path: .temp/pr2058/independent-third/000293/section-4.txt
+    sha256: 2b69319e407b8cc9a3399d3ae372978277332aab5bd4e890300c588b7d12cbc2
+    role: context
+  - path: .temp/pr2058/independent-third/000293/section-5.txt
+    sha256: f30dd4bfe5481a6279e7da7ec6f7307c055742fcb573761c32804e011ffb0541
+    role: context
+  - path: .temp/pr2058/independent-third/000293/section-6.txt
+    sha256: e9a4ccdcf05e68bae4aa43c01b92c510729a2ff519fbbb98e7e594e4939db7ea
+    role: context
+  - path: .temp/pr2058/independent-third/000293/section-7.txt
+    sha256: 33ebcce228457e7c760ad525d2c9cd6befb517bd90dfd365e498098d87691a75
+    role: context
+  - path: .temp/pr2058/independent-third/000293/section-8.txt
+    sha256: aec72facdf2dc0cf5ed1dbcdd6aa60dd067d1fa499d2d8a4b529aa0983efbc6e
+    role: context
+  - path: .temp/pr2058/independent-third/000293/section-9.txt
+    sha256: 076c816600a3767efc7ea47217b931d340da6f4466f9c033b2fdc3299d590227
+    role: context
+  - path: .temp/pr2058/independent-third/000293/strict.stderr
+    sha256: 4ddf37f5616fe1df0c16586ac1894610c797c8d957bb28eebc59e5a013ed43fe
+    role: context
+  - path: .temp/pr2058/independent-third/000293/strict.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000293/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplement-readable.txt
+    sha256: f61e15cdc0b8b1910a9884a3a7a69eb887835ce5996c6e65593bfcbb8dd3a78c
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary.zip
+    sha256: d08e7f95b803f5d8ae77ead978e20bd193099d9db9461eebd55abc76c6fd85ae
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary.zip-receipt.json
+    sha256: 29307d48b0c3bc1658062e9e3a84f8889063e347565ea264892bb069fae79bed
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/gr1.gif
+    sha256: aeac5e4dd0339d07c740f9bee30a406a726c8a181fed6b34c4bebaadf871733f
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/gr1.jpg
+    sha256: c72eb4873582f9bb2e10e34bc339ceedbf870b6febaaa323726ef46e22c2e219
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/gr2.gif
+    sha256: 81b98e71af7cc4d57e0941a88bcafc7707189b71b6ccbda1be9fb93466904c77
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/gr2.jpg
+    sha256: d1f6c746c345b1f52c3f7ddf2147fb7a71e8af60f42edba94091e05cba6ef9d7
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/gr3.gif
+    sha256: 8a109bda4b610849104f1f88c6c140a7f7745b7ce85208e29ae570c7835acdc3
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/gr3.jpg
+    sha256: 89f0a4cfa3344c68362b978d5efe3fb0b54abe2eae070ddb5190f3eeaa6c2aa6
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/gr4.gif
+    sha256: 22590d7a779e603be341d7980e466f5fade117dc2ab35591f6d9e4c98b94b591
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/gr4.jpg
+    sha256: 9f233495c35149d981dd6eaa4cb66a50a4e773e19c5eeb4de85a3282aafcd028
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/gr5.gif
+    sha256: 2f2f41564494f21fed9335ff179616bbecefbf4164af5130f35f34165fa27a8b
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/gr5.jpg
+    sha256: f3a25a394e4f269bd4a7d84a1e451a65d20a9866524e1d33383290cfa28e63e7
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/gr6.gif
+    sha256: 6354df5816e16fafd0ff45337947e122040580ecc82ab2dcabdce5f25de6d917
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/gr6.jpg
+    sha256: 1af117f5816b904c2a46ea9851d55bf460c94ea2e40ef6fc3380536aec4c4021
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image1.tiff
+    sha256: 034579e246b4f1bd1589c6e9541c0e8b40d7e4469c5e9f510e0cb0f99cc32c62
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image1.view.png
+    sha256: 76159cc2f5e16420be6e261593eb38330ccb4689e75def8c69765b972e6b3a80
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image10.png
+    sha256: 52c24fedd182375604db0ab529843e0f0d90ca9a98f896f29e9fdbe29707b4b2
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image10.view.png
+    sha256: a8a61cab9371d34bc35e6461f4f668def6b956070f7089033b1ef1fcd6ef14dc
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image11.tiff
+    sha256: 46b1972659d9445d35beeefa23e93694cf36e8913bf7379df7c0d5ff2a3d7c7b
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image11.view.png
+    sha256: 85d4fac4996c5da0cc424c75147f717cf29ea5a70d1acb5fb908947d471fd399
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image2.tiff
+    sha256: 18e4e96f91f66744fc46792b481b7cf3cc13a0f1db769a4232d9884039802921
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image2.view.png
+    sha256: 0b1e7addd88b33c7a717301c4ff299b99859b49d80334a6a1296c9917f811252
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image3.png
+    sha256: 494eae3f4146053e876f611667d2e406dee09da698fa00ec90c7cb04bfbfb0ae
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image3.view.png
+    sha256: b580070ce702063485c94f67b7e3159e3a089e521db9267f85e5eb790d4f9469
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image4.tiff
+    sha256: 873002aa1b6ce9303a14695684e3bfae59e015acb911646ef08847bd2bff8f02
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image4.view.png
+    sha256: f2e7cefcf8b9ae0c58e96844713828a257f148d7e9adcef49648d5448d30eea1
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image5.tiff
+    sha256: f27813e7e9da7d8f30e86f2806b5ed6502a1602b55de6be0a6bae41c3a2648e4
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image5.view.png
+    sha256: f2bdbeaeb8e958688792e65d06db6fe5625c36d638d96cdb8c95b35a0add036a
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image6.tiff
+    sha256: db59e4357aa289af3a23c3c13f225690ab19eb3c03c40ed7dd20a6c37cc993fe
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image6.view.png
+    sha256: c0d25cf39037aa9f3667cd8c7923908cc7bd744bcd6db2dbaea98d939e3b9a07
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image7.tiff
+    sha256: 4ff9d26d9051519a6879cff81a2e10e604f4ee731146206c58b55ddc44f4b711
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image7.view.png
+    sha256: 7e3bbe5ba96005e3c66562a5c1a429f0862c04cffb31093a95fc97019d9249d4
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image8.png
+    sha256: 431c1e7caf3a79a9c766ba6066182f731fe4df4cb3ec7f5e537eceab0d317bce
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image8.view.png
+    sha256: 6553551dbc1a597e355287633f759f0f7adc60db998358f535289e6a670b0b7f
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image9.tiff
+    sha256: 96cc8c14e92b0a766d1a7248fd52a3402d9bb15bd68ed38837b971bf23ae82ee
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/image9.view.png
+    sha256: 6ac2da7601d1c0d55cee852cdbe7bbf978ab301d86f9384a22bcae8c588951e3
+    role: context
+  - path: .temp/pr2058/independent-third/000293/supplementary/mmc1.docx
+    sha256: 7d02521c3034b5bd1948439c3520618b6bbe0ade9747c0d304d1b750bae41751
+    role: context
+  - path: .temp/pr2058/independent-third/000293/targets.json
+    sha256: 7ddeb297b0e4e1a8bc78e8e89be9c5c8b5180731799b0ebe839b4c71ea53a891
+    role: context
+  - path: .temp/pr2058/independent-third/000293/terms.stderr
+    sha256: 25444be53dfdc1ef200b63f37dc66d92d6b1981a8a49acc82878bc0466b09578
+    role: context
+  - path: .temp/pr2058/independent-third/000293/terms.stdout
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/pr2058/independent-third/000293/validate.stderr
+    sha256: f3e37906a63ad56c64abba39f84905d75dbbba666935e7db56643a325f839217
+    role: context
+  - path: .temp/pr2058/independent-third/000293/validate.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/independent-third/000387/PMC13344493.xml
+    sha256: 7dbcf60b99cdc2249ee1d0f15d15844e7c507858853d7b577bfd6c2e855b7459
+    role: context
+  - path: .temp/pr2058/independent-third/000387/PMC13344493.xml-receipt.json
+    sha256: ec45c877c217f8e9f42f98597c2336fbbeecf8327f6bc595e9de66815b48bcbb
+    role: context
+  - path: .temp/pr2058/independent-third/000387/PRJNA1370521.xml
+    sha256: 380687148dea771d75a177e1966d15d5a991ebb2aa066ef8fd3c210f4f904ea3
+    role: context
+  - path: .temp/pr2058/independent-third/000387/PRJNA1370521.xml-receipt.json
+    sha256: e645218d2e1c63c73b1174373fa585d4352e5b05f217049ae021494adb0872f9
+    role: context
+  - path: .temp/pr2058/independent-third/000387/current-input-comparison.json
+    sha256: 1d500a76e4766b44ccd9626f47ca99ef999aea8647bc7c529785c3932fabd8ad
+    role: context
+  - path: .temp/pr2058/independent-third/000387/dataset-file-list.json
+    sha256: 5c0205956499f006c9c9a7bdd8389df42e10ccba0d2f3771536d2edf114d6150
+    role: context
+  - path: .temp/pr2058/independent-third/000387/dataset-selected/PXQ2LX_15_GS2_stats.tsv
+    sha256: 35c0cd4e3a7032b03525c7f3417271aa9541cdf019b6efc114288d8d5b805a3f
+    role: context
+  - path: .temp/pr2058/independent-third/000387/dataset-selected/PXQ2LX_15_GS2_taxonomy-table.csv
+    sha256: 346adda644bbc579d9a44a896b0c819122b1190823b27d73c2af289ac4f7e506
+    role: context
+  - path: .temp/pr2058/independent-third/000387/dataset-selected/PXQ2LX_23_GA1_stats.tsv
+    sha256: 954a6b3088b556cd61b1d2799a7fa2cb982531878c1b19373ea096caf6e44b18
+    role: context
+  - path: .temp/pr2058/independent-third/000387/dataset-selected/PXQ2LX_23_GA1_taxonomy-table.csv
+    sha256: 12cbd33625d1e78593aba5e54bcdda170f1f1344261610a22f8bba3c97a3327e
+    role: context
+  - path: .temp/pr2058/independent-third/000387/dataset-selected/PXQ2LX_31_GA2_stats.tsv
+    sha256: 5f1bc65f373c53c59369dbc5507200889d1b1964579154ab8de1ebf81c82f276
+    role: context
+  - path: .temp/pr2058/independent-third/000387/dataset-selected/PXQ2LX_31_GA2_taxonomy-table.csv
+    sha256: 87c7a2a7a6fb38ccaf1cc19bc8a36cad253958822f571fb22e47cf75d96553a7
+    role: context
+  - path: .temp/pr2058/independent-third/000387/dataset-selected/PXQ2LX_7_GS1_stats.tsv
+    sha256: 6a11bb11ad33c7389ec64cce87906e2ef9eb5afe46eb10425b7c269a2dea6c10
+    role: context
+  - path: .temp/pr2058/independent-third/000387/dataset-selected/PXQ2LX_7_GS1_taxonomy-table.csv
+    sha256: 3a8ec0a27495ac53a8e6266097698707c4f6e5d62d2da53196cc0d29d5916277
+    role: context
+  - path: .temp/pr2058/independent-third/000387/dataset.zip
+    sha256: 470c863bbe5c894571cda59f316cf937d7d26b965372c3e645797ca82259b298
+    role: context
+  - path: .temp/pr2058/independent-third/000387/dataset.zip-receipt.json
+    sha256: 56d3a6a44de9b080df69aac63a5a321a37568770aacdd7d7ca84c89cc3c2f3e1
+    role: context
+  - path: .temp/pr2058/independent-third/000387/declared-assets.json
+    sha256: b0031f6a4352938f78a09f3cff7e320f68a8d60e11c302239bd3bbfd57cc4e8b
+    role: context
+  - path: .temp/pr2058/independent-third/000387/figshare.json
+    sha256: 963411dcd81ab044ef6bc2a8b06f05c78445011cb982c38c3b6bc83b08a6c3d7
+    role: context
+  - path: .temp/pr2058/independent-third/000387/figshare.json-receipt.json
+    sha256: d478d29b99bb965f69ea64e4cef4b1bafdc1ba6a10847a1aa58b9d5e6871ac9d
+    role: context
+  - path: .temp/pr2058/independent-third/000387/figure2.webp
+    sha256: 8c30f60f392f8bd5ace3710eb2030d0e76fd8091dc73a6f27092daae34398697
+    role: context
+  - path: .temp/pr2058/independent-third/000387/figure2.webp-receipt.json
+    sha256: 4858d1dc5ce77f83eef5fc8e880c1aef39e3b437a5fbaca54313fe7182350d7d
+    role: context
+  - path: .temp/pr2058/independent-third/000387/figure3.webp
+    sha256: f68fec9a8138a7e487c5f4cb53f471be382e188aa7b9b29cb4b86e1aac75bf26
+    role: context
+  - path: .temp/pr2058/independent-third/000387/figure3.webp-receipt.json
+    sha256: 528c26afc5d2f57aa9aed52760d59ae2d59611ee460f85235521ece5d182bc63
+    role: context
+  - path: .temp/pr2058/independent-third/000387/figure4.webp
+    sha256: b4fc2f7bae3992f396adf3daab09428973fe95762a8b2b1cd22c596eac6d7644
+    role: context
+  - path: .temp/pr2058/independent-third/000387/figure4.webp-receipt.json
+    sha256: cef98296bc2720af7b84bda9c61bf49c9722ae8244a882a0712c058ba3d20099
+    role: context
+  - path: .temp/pr2058/independent-third/000387/figure5.webp
+    sha256: 1aa8c5792176679103a635a3808e381ad312bab282dc9f4ed7a6a92996176381
+    role: context
+  - path: .temp/pr2058/independent-third/000387/figure5.webp-receipt.json
+    sha256: 44939cf6adee077fa7c756cd66ee0610d6b6f2b2eacb87eb8d907749e14fd5bf
+    role: context
+  - path: .temp/pr2058/independent-third/000387/figure6.webp
+    sha256: f4351f72c78e67bde231468d0f75e1f98b43233e57d52560c6f6ca81a20c7cd5
+    role: context
+  - path: .temp/pr2058/independent-third/000387/figure6.webp-receipt.json
+    sha256: 27704e1543e2bf552286671666ca20d184ba2b8358f0c4f5866460934e912268
+    role: context
+  - path: .temp/pr2058/independent-third/000387/figure7.webp
+    sha256: a7ed3e141b2955843f6f34ff9b68928ad19e7e20ce0819c28f49c6a4ca86b60c
+    role: context
+  - path: .temp/pr2058/independent-third/000387/figure7.webp-receipt.json
+    sha256: 391d183ba2ce92e785a969eafc3444fa98f1e527617753020d51a68a5d399f41
+    role: context
+  - path: .temp/pr2058/independent-third/000387/focused-checks.json
+    sha256: 0f86b5a5ce2850a1cb7b814a19a80ee21d538b21a4d94cc07906777e6cf174c1
+    role: context
+  - path: .temp/pr2058/independent-third/000387/fresh-snippet-audit-final.json
+    sha256: 45448574f74ad4bf573ea5ae4736ff49351b36c147b973006306d2c0f0af4ba8
+    role: context
+  - path: .temp/pr2058/independent-third/000387/fresh-snippet-audit.json
+    sha256: 6c3cfd22cff3c61bcba3fed5347586da9816db64e496f6131a90238070a887c0
+    role: context
+  - path: .temp/pr2058/independent-third/000387/gtdb-domain.stderr
+    sha256: 2b417fa0533a2adb42ec1ac0efec246bb3ef2b5745b14bdda19c2cb18de47925
+    role: context
+  - path: .temp/pr2058/independent-third/000387/gtdb-domain.stdout
+    sha256: ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae
+    role: context
+  - path: .temp/pr2058/independent-third/000387/gtdb-replay-explicit.json
+    sha256: c576025f0ac64d86b03cb2f9e5ba070d3297cf591c2398ca745bfa9026041a94
+    role: context
+  - path: .temp/pr2058/independent-third/000387/gtdb-replay-explicit.stderr
+    sha256: 3d6e56d6922d7aac82296326872c613dff0ca4b421f92b239d1eb661b3d60147
+    role: context
+  - path: .temp/pr2058/independent-third/000387/gtdb-replay-explicit.stdout
+    sha256: 1a8f22e3ebfe4899c2465e5b736f0abeff4efb75d532b701963a0cbda7de4d31
+    role: context
+  - path: .temp/pr2058/independent-third/000387/gtdb-replay.json
+    sha256: b66657b3721565fc7686876e7d240664799734d2db8f6473531e785503034b7b
+    role: context
+  - path: .temp/pr2058/independent-third/000387/gtdb-replay.stderr
+    sha256: 822372df365288a707c73bb07d612219bf9ac0fd32f0591434a494fa50f788aa
+    role: context
+  - path: .temp/pr2058/independent-third/000387/gtdb-replay.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000387/gtdb.stderr
+    sha256: bc5512e33bc9eeebc4ddc8bf3f7fef0a2dc8df69fffcf5a3c2e98fdb38099575
+    role: context
+  - path: .temp/pr2058/independent-third/000387/gtdb.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000387/history.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000387/history.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/independent-third/000387/initial-inspect-receipt.json
+    sha256: c2cad17349847fcbfd32b18c03ee7dbdd2316ab7062e757506fc247ccdf5a3eb
+    role: context
+  - path: .temp/pr2058/independent-third/000387/initial-inspect.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000387/initial-inspect.stdout
+    sha256: 5b89b5b558e958cc7b32bec1bb9a3079246ab34281f94ee316055a267703370c
+    role: context
+  - path: .temp/pr2058/independent-third/000387/main-readable.txt
+    sha256: e1a25f15437a089856ce04fa0b586413e1bd3329642d64046b04e34098212bf0
+    role: context
+  - path: .temp/pr2058/independent-third/000387/ncbi-taxonomy.parsed.json
+    sha256: f3003a9aa1426c27d8f2766c96ee9c62b3ad8a0582535fcd86e7a2723a85dbd2
+    role: context
+  - path: .temp/pr2058/independent-third/000387/ncbi-taxonomy.receipt.json
+    sha256: 8c0ade865ca8b6146261cd99c0711620e1a44447cda2a4fb1c921e06a3b320c6
+    role: context
+  - path: .temp/pr2058/independent-third/000387/ncbi-taxonomy.xml
+    sha256: 2290628c562cbff0ad2c6567707e3c594fdec4694d6b35ed8ffaaf95c73cab51
+    role: context
+  - path: .temp/pr2058/independent-third/000387/original-review-validate.stderr
+    sha256: e2cf5a8ee56373cb7afeb23be8ac2a30d67f13afa55bb51424877fc908e2a25f
+    role: context
+  - path: .temp/pr2058/independent-third/000387/original-review-validate.stdout
+    sha256: b42ee0197bdb886694684431f9da0d2fba4020263ed572ff756b9eaf0b042ba6
+    role: context
+  - path: .temp/pr2058/independent-third/000387/original-review.json
+    sha256: 895cea338ee11ab5cb824dea3630532436a462e497618dafa71067236b3bd560
+    role: context
+  - path: .temp/pr2058/independent-third/000387/pmc-curl.html
+    sha256: c7689ca83d90f83ebfa7b51e47d6613f0b3dd42c80137c68e31ecbec2f43330c
+    role: context
+  - path: .temp/pr2058/independent-third/000387/pmc-curl.html-receipt.json
+    sha256: 6c188530c455ace39e6336cd68c198ac625527fa69706c8bcb02104a2cd0021e
+    role: context
+  - path: .temp/pr2058/independent-third/000387/pmc.html
+    sha256: bbbdee0e647daf95b6451972b3f8bdaea89e1eb75a0fdc14f0fd1ad8bd7bbeb4
+    role: context
+  - path: .temp/pr2058/independent-third/000387/pmc.html-receipt.json
+    sha256: f1f3a00f8d9cd5845cecddbac61bcfe0e09e661122cad0b8b281665d6cf44fc6
+    role: context
+  - path: .temp/pr2058/independent-third/000387/pmid42173377-receipt.json
+    sha256: fceef746b493dc2bb0a85d83f1df8618932e7260dc8580e47d50d919418f4398
+    role: context
+  - path: .temp/pr2058/independent-third/000387/pmid42173377.json
+    sha256: cc77fd3bd32e52f32fc73edb06b9e39606e786d0b0e222f9f4f65cad4b9a74ef
+    role: context
+  - path: .temp/pr2058/independent-third/000387/pmid42422733-receipt.json
+    sha256: ad2544640d2db697ec6b482836d11bd294021b1ea8c5b710207dbd41ca1e49fa
+    role: context
+  - path: .temp/pr2058/independent-third/000387/pmid42422733.json
+    sha256: 1abb88fe1effd1c063252021bdf9663e1f3f7395c1eb1ed782730c292a75b6d9
+    role: context
+  - path: .temp/pr2058/independent-third/000387/publisher-full.html
+    sha256: b43ba81d4d7c4c05723d1efa884a59cc5b7c2b32387fbde914b56eaf39efb450
+    role: context
+  - path: .temp/pr2058/independent-third/000387/publisher-full.html-receipt.json
+    sha256: 7c028f6597e76e1906e502bf324af4d7653f65c291a077a8a88ff66dd41a3e47
+    role: context
+  - path: .temp/pr2058/independent-third/000387/references.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000387/references.stdout
+    sha256: 7d1a7735f4b55b7e6951e4068b0056aab69258de9888f757e2b450fdbcf39d24
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-0.txt
+    sha256: 77fb929f1b05d499f550540464d6ddbc4a59b6001f97284498532b376ccc0d4f
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-1.txt
+    sha256: 1c2b826d21f4f9c7373ed7979f248a24f8ebcc1c5d015050004734ac015a6cb8
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-10.txt
+    sha256: bce0291f2d2ef0d43d195926660b7f41adad3ac0546ff3dfec777dcc84412552
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-11.txt
+    sha256: 18e62e1b2355e48011b05b4bc6cd5e2e63feceee077135851849eb49d5841445
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-12.txt
+    sha256: 71e1e673e4167c7d0fc82021df183293688f736fad3b8fcba81f553a935b61e8
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-13.txt
+    sha256: 1a574c1ceecb4ac0cccfbe0424a262f87d48374f7153dbbb6be76796631aec9d
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-14.txt
+    sha256: e56261e0bd30965b8e68ed2abb15b14182fe929d9a21d7ed7c2b6509a6583fda
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-15.txt
+    sha256: c6ee48abda6225d1757e29a7b488d680dc829ddb1afc04a084c8275dfd32ef4b
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-2.txt
+    sha256: e2f403cdd7f719158c1e9aacc4a275cc834f8e4444d98f836e189066212d0501
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-3.txt
+    sha256: 0474476b6ca5122f2903ba1df995b852c2bef609395d7396da8b50b644b03745
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-4.txt
+    sha256: 6e696ad55e1a8a08e572cef9a3f4ccf06dbc092dc20368572671adc0cb31fd7b
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-5.txt
+    sha256: c7930fdb5d8d5e6af25da39f17b96a34274590a2b9ba7eed15f15a71b080576e
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-6.txt
+    sha256: c5af5a0c486972b5b3a6856f160f7fff2c8750fd90afb87289647234b0cecd6f
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-7.txt
+    sha256: 302edc68cbcdec7f3fd49fe0556acb0e9114f8a77ec704041fca42442504e53f
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-8.txt
+    sha256: ca02715959f8389f2a8be7d2267e36ae0d34d6cbd1e63374213adceb071feee5
+    role: context
+  - path: .temp/pr2058/independent-third/000387/section-9.txt
+    sha256: d2991eed2280ed7c9dbcd46bf94427fd6ec7473ba0bfc42a20d4c8c773387726
+    role: context
+  - path: .temp/pr2058/independent-third/000387/strict.stderr
+    sha256: 63b5b9c88352d840dbc7d71a35092b5677b5ac0db50d756eba53099f08e5e470
+    role: context
+  - path: .temp/pr2058/independent-third/000387/strict.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000387/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary-retry.zip
+    sha256: 44fe7909c115cb92f92479b14c9350ed768168554d56d4555588f9333e36c38f
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary-retry.zip-receipt.json
+    sha256: 30d938107cee2f6ed3f3b63b50533bf93700bc1c2326a4d539458f65ef47119b
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary.zip
+    sha256: 39f24edbbef524d40333619ceb1e99e14f32ff83a014ae1789bef5e737e3fd5f
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary.zip-receipt.json
+    sha256: 959679e64df07f1e5bc854d45cd21685d78a9d4f117764f3d0df497e511cd838
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/Image_1.png
+    sha256: 1fc52131c1d29a60ec1e35123db61612a181caa421a28312a110d1f405b0b5ba
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/Image_2.png
+    sha256: 46a78dd9882e7c5e5e46503f8c7fa90c80567df3025b4cefeb16a9e7ba434a62
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0001.gif
+    sha256: a39db870f6c9c67bfa83a1d00f308eb1cd93d7ca8295eae878562dbc90820333
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0001.jpg
+    sha256: 448ee9d922247c63dd550f6350a73c5312e68f5ba433be8a496bd0b57cbff4fd
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0002.gif
+    sha256: 9a66d30a401c0e9763621c80167eb3c2b0844755436e92d2bbe09b16c070c43d
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0002.jpg
+    sha256: ea8290dee9ec82028f6ee5c1eed2e8c8289d2fe05199b5ec3c7461ca3b994ce3
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0003.gif
+    sha256: 92a7b66c274555608d75c0769ec39b17ef8e0c75c2abca6a2054b8428a327001
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0003.jpg
+    sha256: 720cf1e6f101cc335b0e2b39ac30b4b8fb2d53d89c29b6f50b09aa3bb69308f0
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0004.gif
+    sha256: 766984368100ba98617bfe3d2fe1d4ca8f5662b984cda63062a85ef887b38add
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0004.jpg
+    sha256: c0e7921e49b85dc684d169579d55956d24fdb0ba7f9985713506e56f4d3d29b0
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0005.gif
+    sha256: 84961bb17a1a9bd92b251d35aa4dd3c5e4be3f8c9a61ea802900d69ce63a7ddb
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0005.jpg
+    sha256: cb2b19e175d8a188e2235253a622485ea94640bd3ab9848c0aa2574fd3522932
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0006.gif
+    sha256: 1986d9f16568f2be1d4196045c1bf1cc76d6cd6069a8b476d2255cf673183f45
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0006.jpg
+    sha256: eab27a664a26cafc9b7574bbaa21614df6992c9673de78958ed8690ceee05d3a
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0007.gif
+    sha256: 2baebce1f7c8e2024a5de363917e39de56d4a2472b67187813b01f6e291120ba
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0007.jpg
+    sha256: 39538ad8976da7b4bfe093c3d77dfa1e73bd655ba5cbe5619b6ff739416ef0de
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0008.gif
+    sha256: c8512b3378cb3dbe99bed1f08fa1d13c0b216fcb486fc8f1424d2f4589b2d46e
+    role: context
+  - path: .temp/pr2058/independent-third/000387/supplementary/fmicb-17-1848796-g0008.jpg
+    sha256: cbc85946e7c845eafe6f877b4d959cae6f2656ed9795a1ad42c50caf98af03a1
+    role: context
+  - path: .temp/pr2058/independent-third/000387/targets.json
+    sha256: 8cc462561cf8135fee495a6ccb99a96407bf1882f38dbcb7bc96129d49f04ee7
+    role: context
+  - path: .temp/pr2058/independent-third/000387/terms.stderr
+    sha256: 56e6979c434c75d4374797edc9639c11a3c7b39b8b6cf82803ba49391f14e233
+    role: context
+  - path: .temp/pr2058/independent-third/000387/terms.stdout
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/pr2058/independent-third/000387/upstream-elsevier.xml
+    sha256: b3e071f68e6e13abe5f4e7ac942d1bb26b663782b15265a3d33722fb34f41f55
+    role: context
+  - path: .temp/pr2058/independent-third/000387/upstream-elsevier.xml-receipt.json
+    sha256: 9f4b823038ee00d109e33832108b62435a12609d194c709aa5d88923fd76b351
+    role: context
+  - path: .temp/pr2058/independent-third/000387/validate.stderr
+    sha256: 03d5623ba39381281590126776225a2bca2dbd69b407d0aeaa3feb856fbe6f49
+    role: context
+  - path: .temp/pr2058/independent-third/000387/validate.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/independent-third/000453/PV739499.1.embl
+    sha256: 508d2a8c959771239ed0add2aa17342b1a7fdd37c20bc779b455b810b022181e
+    role: context
+  - path: .temp/pr2058/independent-third/000453/PV739499.1.embl-receipt.json
+    sha256: 3c337b6ec029198861754f99efbc163f4c0fd50566bbf37c0a19ccf780afb8b4
+    role: context
+  - path: .temp/pr2058/independent-third/000453/PV745687.1.embl
+    sha256: ce7e094f36aec7c6335ed551ef5ba4308a1c78ab9e26603fddb7452ed07fe160
+    role: context
+  - path: .temp/pr2058/independent-third/000453/PV745687.1.embl-receipt.json
+    sha256: 9f1c2d0b24797d8b7f42b3a200e847fbcff638f99c69ac991dce0cdb64af5709
+    role: context
+  - path: .temp/pr2058/independent-third/000453/current-input-comparison.json
+    sha256: 559eba1d74ede2b5a3303b8fde67426b99f92abeb7129aa72edf3f7a1ef5806a
+    role: context
+  - path: .temp/pr2058/independent-third/000453/elsevier.xml
+    sha256: 3b1f47f3a778a96acb86fd3c624b25f85bfd7b968e2784b415b9c373ee13ad20
+    role: context
+  - path: .temp/pr2058/independent-third/000453/elsevier.xml-receipt.json
+    sha256: 7b52f922843c4c9b61384650bda8552bb614050321ebeeccf3461ae9a64f775d
+    role: context
+  - path: .temp/pr2058/independent-third/000453/focused-checks.json
+    sha256: 3e084b12cf49f3439c701cb99d86426a4f196c6601556acacd6c60278bbcb0f0
+    role: context
+  - path: .temp/pr2058/independent-third/000453/fresh-snippet-audit-final.json
+    sha256: 399405d1520218c49849a62a7e4f49644217ae36d4212a1b61c82d1ed06e675f
+    role: context
+  - path: .temp/pr2058/independent-third/000453/fresh-snippet-audit.json
+    sha256: 58e593bfe149c165dc4ea28692fed023ab272bf5df16dc12bc1e153fdd904f08
+    role: context
+  - path: .temp/pr2058/independent-third/000453/gtdb-domain.stderr
+    sha256: d26ac3f88b971f61bff4bc0555c932065f2dd7d6c11edbdc9d973716cc618e5b
+    role: context
+  - path: .temp/pr2058/independent-third/000453/gtdb-domain.stdout
+    sha256: ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae
+    role: context
+  - path: .temp/pr2058/independent-third/000453/gtdb.stderr
+    sha256: 95b0faa2aac34d14b15cb7b0b9b6047291bdbeec926b3660041f17e1a0bd2ae1
+    role: context
+  - path: .temp/pr2058/independent-third/000453/gtdb.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000453/history.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000453/history.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/independent-third/000453/initial-inspect-receipt.json
+    sha256: 5ae4384fc2c1b26544f6a5eebf7a22561af18a675d98aecc2eccbcd4c850fb42
+    role: context
+  - path: .temp/pr2058/independent-third/000453/initial-inspect.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000453/initial-inspect.stdout
+    sha256: 4d60344ab079bf117fec28dcbfdf28c9d16a0b638c1280f3a0ceab833522904e
+    role: context
+  - path: .temp/pr2058/independent-third/000453/ncbi-taxonomy.parsed.json
+    sha256: 1b7fb209d07381be7f0e07841b01b76ae69a87cc0e0b49d51f7e234a21c711db
+    role: context
+  - path: .temp/pr2058/independent-third/000453/ncbi-taxonomy.receipt.json
+    sha256: a471d98b0703c0bb61c0ee01ccab15adfa92a6f3b4520a074f3a4e5f695cce78
+    role: context
+  - path: .temp/pr2058/independent-third/000453/ncbi-taxonomy.xml
+    sha256: cf0338ae406685e45318304553eec377b75b22f532c7eabfbcc5b1a13cfa531e
+    role: context
+  - path: .temp/pr2058/independent-third/000453/original-review-validate.stderr
+    sha256: e2cf5a8ee56373cb7afeb23be8ac2a30d67f13afa55bb51424877fc908e2a25f
+    role: context
+  - path: .temp/pr2058/independent-third/000453/original-review-validate.stdout
+    sha256: b42ee0197bdb886694684431f9da0d2fba4020263ed572ff756b9eaf0b042ba6
+    role: context
+  - path: .temp/pr2058/independent-third/000453/original-review.json
+    sha256: 10c258b2129c867d6601b273e3932704b8a5f03b803e9aee5ede9de2c9d7d76b
+    role: context
+  - path: .temp/pr2058/independent-third/000453/pmid42543088-receipt.json
+    sha256: b1e111735a656cd9d909598e8c64bedfd359e47df98e51da9b57885fb93e0b61
+    role: context
+  - path: .temp/pr2058/independent-third/000453/pmid42543088.json
+    sha256: c648b0242f44e15527e8e986327680b43e1f2d24eed38ce66372fb476c11e31b
+    role: context
+  - path: .temp/pr2058/independent-third/000453/publisher.html
+    sha256: dd74fabdfd3fb9026c9693e3723fe5f6a5efcba0e3fe729cbd3dd7c92ef3da33
+    role: context
+  - path: .temp/pr2058/independent-third/000453/publisher.html-receipt.json
+    sha256: 4b1063421a3885ba7896765c5d75b73fce923157f5003f52066d54136a266e01
+    role: context
+  - path: .temp/pr2058/independent-third/000453/references.stderr
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000453/references.stdout
+    sha256: 75cab5fba8f13beb2659759e9f1a93a6c25a97f8a0bee4fa5581dd45798677d2
+    role: context
+  - path: .temp/pr2058/independent-third/000453/strict.stderr
+    sha256: afa2cefaff6d7d43c2fff082a8ba8d73577c99911d68eee1da95bb1ea84a5c64
+    role: context
+  - path: .temp/pr2058/independent-third/000453/strict.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/independent-third/000453/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/pr2058/independent-third/000453/targets.json
+    sha256: 8dab99d0d1945b899523855feae58999e85aa32b986297b7d8db747a4bba7193
+    role: context
+  - path: .temp/pr2058/independent-third/000453/terms.stderr
+    sha256: a9149e81f7e9ffc25306f55c4d29b0e86a8dd42238aa3a95a1e9237732403865
+    role: context
+  - path: .temp/pr2058/independent-third/000453/terms.stdout
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/pr2058/independent-third/000453/validate.stderr
+    sha256: 71a235364fc55b2edb2a2200ca31466580b13e6232577fdef7ac4bbe9dc9aa73
+    role: context
+  - path: .temp/pr2058/independent-third/000453/validate.stdout
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2058/independent-third/000453/web-indexed-material.json
+    sha256: fc84ecd5d2b4d84b4340e91bf56913992db71d155dea0b9f6199e2258664ec70
+    role: context
+  - path: .temp/pr2058/independent-third/all-four-focused-checks.json
+    sha256: 296b22f811cdca378de5cb6cfffa99c2a6034a983171876a4ef5049dd7d83dbc
+    role: context
+  - path: .temp/pr2058/independent-third/current-science-input-manifest.json
+    sha256: b3e64de692c565507c76f879c3ffebee8acd68151f48d127a6ac7f27ae22d3a7
+    role: context
+  - path: .temp/pr2058/independent-third/independent-science-three-records.json
+    sha256: e4d1d7b31507dd50a073a6efa9617db2bfd311100c737ab02af0279ea98f0a29
+    role: context
+  - path: .temp/pr2058/independent-third/issue2572.json
+    sha256: 6ad86a3b5370ccfa30b4f093d528ed2bd36cb2f5aad4dc6cdcf89d8f12e1adf3
+    role: context
+  - path: .temp/pr2058/issues/local-input-provenance.md
+    sha256: f9ff1a7448c047a1952b19397918503fed0b6ef8e5dd83fd924e112ee8f5fa71
+    role: context
+  - path: .temp/pr2058/review-inventory.json
+    sha256: 70a178e9ab47f56b2cf9ccabab07d326eb37e4f2baa8ea89d79d11830be04a63
+    role: context
+  - path: .temp/pr2058/root-checks/audit-network.stderr
+    sha256: a71fb29e950f3eaf0eb2b834a43c59d4a1b6aa85a2a89473ae99b0e408a27a36
+    role: context
+  - path: .temp/pr2058/root-checks/audit-network.stdout
+    sha256: 1f337893714a80173f5b305ba0c11da1d8a3caf53f1060bd5acf2aa42b40aece
+    role: context
+  - path: .temp/pr2058/root-checks/check-network-quality.stderr
+    sha256: e060873ec46d56a6fddbc2fe78b0d2f1438639923dd9f410686090ae4efa3aa3
+    role: context
+  - path: .temp/pr2058/root-checks/check-network-quality.stdout
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2058/root-checks/network-checks.json
+    sha256: c3a7f4637e3e4c4c6de73d08239c22a5ae5095444ee077b8173449d02eb32df8
+    role: context
+  - path: .temp/pr2058/root-resource-input-manifest.json
+    sha256: 9501f42de6b2f37398b592b000768980162b3cdc846c40f725b3a874befb1c9d
+    role: context
+  - path: .temp/pr2058/root-resources/252-sample-crosscheck.json
+    sha256: 837021ca8d3a35f02280b59dcf1eec61e27c444044eca34227cde56598ed1c71
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs-retrievals.json
+    sha256: ac6281cc24bb4ab99a5a889d9e3b401a5b2117b8fcc57c95728efeb60e00226d
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2524913.xml
+    sha256: 0bb90b57f6f65053ce8f977fc04191177f37aa76e659988c397165663cee53f3
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2524942.xml
+    sha256: 5def2c43f1191b793ae183ee9f078c259cc1f767676a482edc6bd45537617eee
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2524943.xml
+    sha256: 03c7446bafdd93939abea1ac47796e6830c6bbca57baf0218f900c066ccb3f7a
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2524958.xml
+    sha256: 26129ce2a55e4dd784cd0d7b5eb0c35434699bac248a545a0899e1bef2332b30
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2524959.xml
+    sha256: fe378b00a715443d86d1feac0ac14df45c95425ab2c4c090d87ef0bb13415bd5
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2524996.xml
+    sha256: a6bf6baf80b9017c4b21c8ba66303c584a0eb48282b59e408b1080c1929cd3ba
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2524997.xml
+    sha256: 60decc55035eb8413bfcee810d44a0aef31e91eb4a83ce8c95f9da562fb38fec
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2524998.xml
+    sha256: 6b56cce4ebe7b7a53ce39b97ac75627bfda339cab6a0ab95bd80bd8e1c8198bf
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525178.xml
+    sha256: 5902ef5339184643ca572ec11dcf8fa4c5699822cd23bdd557788d8f1c8fea42
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525213.xml
+    sha256: 68e89cd6b42badc4a2f1217056eb02b8509f035ace9c3c370e414b21a74fdb32
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525260.xml
+    sha256: 1395511421460110ca38720d269ba744173f3e997d4eb028c5f1e7f0c503f571
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525262.xml
+    sha256: 5fe826ddb1c684a86ac9c9efb07309789923f385b695f4a5a25a6105b1297430
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525263.xml
+    sha256: 01e85cdecf738e6d47a5c6efe6531d40475218e3d60a7b09e6855dc76d364647
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525370.xml
+    sha256: d2869be76044ff1c4ca1bcbc0a06825e3e183ab28840d09c29a3f10d9145f716
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525432.xml
+    sha256: 247da4b9a0502f6417c496e57370bb17fdf530410ee5a3982749c3b784cd91e5
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525532.xml
+    sha256: eed3aa029a630a19c62473ca40c1b776941560aae57c344b7d9555012be81f4d
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525582.xml
+    sha256: 67a28be179989795b42a8d94f49e816a5f830abfe98431c1497f0dedc00ea4c0
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525587.xml
+    sha256: 5f52831862c92ee3f21f1a02602faae2f227e1d0e809cfbee7db1b09cdd8bb5f
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525664.xml
+    sha256: a75de00b2c94f97419291bc9b5e56308ff129b06247534f9525155a5b4787df0
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525665.xml
+    sha256: c64ad69cd4b7684fe3a29d694656d1a78e5ebdbae2a258112a7b928bb873a8fc
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525666.xml
+    sha256: f93a5c7b78d0d96a2a58e9c10fb842d025ff68820a71f7f063f3603631b37ecd
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525667.xml
+    sha256: 9914186f2b27ae0f0c2332a3b81048287a99eadce160540577f867ee65634e53
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525668.xml
+    sha256: 699234ef8216ce7cb5c55d57968732a4e9c2b49cfa9443db6acf94bc01046427
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525669.xml
+    sha256: 7b31861c0c35dee57815dcee6041df07ebd39937e506b9da02c64d2b3592be58
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525670.xml
+    sha256: f26f8ce1a414870a97a2e6cd79ee6c170c55684286954aaf5dca21e313f87b97
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2525671.xml
+    sha256: 33d415307665dda2de144011da0032a96bbe4213817bdca6865d5289936a9ef0
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2527020.xml
+    sha256: e6a15a812d3621417daf1bc8f0c54e870add7b57c5484887bd1bd670f75fb904
+    role: context
+  - path: .temp/pr2058/root-resources/252-srs/SRS2647932.xml
+    sha256: 1139e8a4508c07513de84584363803b8960d5ac9425ef3147c6a30d2df77ff18
+    role: context
+  - path: .temp/pr2058/root-resources/475-data3-crosscheck.json
+    sha256: ed6a51ca11875acac2f91d7a25a45e72f6f50a5e2f002a404cca19ad474c3a89
+    role: context
+  - path: .temp/pr2058/root-resources/602879-assembly-links.xml
+    sha256: 3b1bc0ebf4dbc9e32c9f352a055865e20f9165ddf34d5755cb47856a6e38bb81
+    role: context
+  - path: .temp/pr2058/root-resources/PRJNA1227537-bioproject.xml
+    sha256: 68ed0b2c15d38dca877a3a16e0e92bf1133d62c79362daec1adc57172100beca
+    role: context
+  - path: .temp/pr2058/root-resources/PRJNA1227537-ena.tsv
+    sha256: 29bb1a766b659b9f468b8466e6f432ddb9cd5f0e94fcd0a1c533b7b748ddfa27
+    role: context
+  - path: .temp/pr2058/root-resources/PRJNA602879-bioproject.xml
+    sha256: 30dc90cfc57c4cd5e4cd699eb9984cfb28ee27d6071873be2197f0758f96b454
+    role: context
+  - path: .temp/pr2058/root-resources/PRJNA602879-ena.tsv
+    sha256: d37265665752b44d5f5a439150e5971586b9921aa6e97d1666a11d8e72c3c7a2
+    role: context
+  - path: .temp/pr2058/root-resources/SAMN13287258-ena.xml
+    sha256: 52b3d8771c105ac0d3de93f41d3aaa927c61f311b5d582a0a14230eca2786125
+    role: context
+  - path: .temp/pr2058/root-resources/SAMN13287462-ena.xml
+    sha256: fe0a5138e65dac165913be33fe900e8218ca7defe57000b6bc1814a25b6965b1
+    role: context
+  - path: .temp/pr2058/root-resources/ggkbase1491-http1-receipt.txt
+    sha256: f12085bd8217eb03fa49e15ddc3c4451b5a8e54c615e98c188e81e25ca565d0d
+    role: context
+  - path: .temp/pr2058/root-resources/initial-retrievals.json
+    sha256: 907801b8ac5a68b82fed47779fbcfd2d40cfa3553b75d6aee8bd32ac68b5a512
+    role: context
+  - path: .temp/pr2058/root-resources/lip_metgen-README.md
+    sha256: 85f67d6373e035e564b3d30830c0084b418022e0d1da4203bdcf28a59b504bee
+    role: context
+  - path: .temp/pr2058/root-resources/lip_metgen-readme.json
+    sha256: 82a79b15031ca3890c7005eed8438688d31d2a37136fdce8af1c0e898ce44585
+    role: context
+  - path: .temp/pr2058/root-resources/lip_metgen-repo.json
+    sha256: 21970053b10e6f5004bcdeb0a7b335a6e39fed9822e0934e2e6bd63260da0e18
+    role: context
+  - path: .temp/pr2058/root-resources/resource-verification.json
+    sha256: 1839e4635c573156bb01697cfd75862c8107d150bdde2772c3dd1da5d83f5515
+    role: context
+  - path: .temp/pr2058/root-resources/rpS3_trckr-README.md
+    sha256: cc30867e5d63f13c0597f9d63f48390e52f6a4f226d6a7cd272931b715c1acc8
+    role: context
+  - path: .temp/pr2058/root-resources/rpS3_trckr-readme.json
+    sha256: f2649671420340bb5057732111fe7be28e51ae6d4bca1836968c4a897cc91c02
+    role: context
+  - path: .temp/pr2058/root-resources/rpS3_trckr-repo.json
+    sha256: 1c1a421d8307223ac2a4b84ad30cb188c5485a0a3e8ed7bda77667e331d547f8
+    role: context
+  - path: .temp/pr2058/staleness.json
+    sha256: 6022366d4a7d842168c10d2f0ba8f8601411ae9f989abea20a28e54ebd28e580
+    role: context
+  - path: AGENTS.md
+    sha256: 7c35deb79ce874239f1080c2f575756ff47d1985483030878eaeb07df02d7529
+    role: context
+  - path: conf/record_review.yaml
+    sha256: c4ad25505a87a040c57eb93f1ee9673a09389a474c6d4e1136781456ff190fc8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium/2026-10-19T053000Z-antigravity-61e7.yaml
+    sha256: 5f75965f850e329e99ac7433cbbb33988450515379d69aae49f3eb34357605ab
+    role: context
+  - path: history/records/Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium/2026-10-20T041800Z-antigravity-aa71bf.yaml
+    sha256: 0669ca9cb06f8d96a6f590b5321a17394b75c0b530a89462de6af03087278dc6
+    role: context
+  - path: history/records/Composting_SynCom_Lignocellulose_Degradation_Humus/2026-10-06T015743Z-codex-ed6a9c.yaml
+    sha256: 4b3d28d17a10e5adb2de37a5948dc71741ed797eff5cb5d82f73bb0dc38822e6
+    role: context
+  - path: history/records/Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium/2026-10-06T015744Z-codex-58759d.yaml
+    sha256: a130789ebdda8a022d78d63d2d4f5f78c7ba565037e18e27bbb912344068623c
+    role: context
+  - path: history/records/Copper_Biomining_Heap_Leach/2026-10-06T025228Z-codex-9c8b7f.yaml
+    sha256: c91461f49aec444b96693be781bdb5b86396710039e139980f9d7f70002d9f92
+    role: context
+  - path: history/records/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture/2026-10-06T022828Z-codex-9a496b.yaml
+    sha256: 86d4eea2bfbd21496db515aa5aaf3f82441dddf68bfcff4a18fa945f2f2376a2
+    role: context
+  - path: history/records/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture/2026-10-25T151200Z-antigravity-2073.yaml
+    sha256: c5c9accc0eff57c6cfcc2540daf0b6c08784f54932eb8d7500847b379317ca0e
+    role: context
+  - path: history/records/Coscinodiscus_Synthetic_Community/2026-10-06T025228Z-codex-c5e0cf.yaml
+    sha256: 7ba654d2e2a36240fc53caaf313e26a5c1ac928171dfbfb29fb9a94bee64a625
+    role: context
+  - path: history/records/Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community/2026-10-06T041950Z-codex-5086e8.yaml
+    sha256: aac2a1a4a2859cc228b0b270468f3c387efd22aed03e34f334d7091d1a03ff3a
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium.yaml
+    sha256: aa71bf0755e21633808d22d5e88a4da0fcb79f3a2c4f84b8037a2065155e1518
+    role: target
+  - path: kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml
+    sha256: 4aefdcd766a663a1d8fd547207b3f754cfcf6bc938f2212ea4389ca221aacb8d
+    role: target
+  - path: kb/communities/Composting_SynCom_Lignocellulose_Degradation_Humus.yaml
+    sha256: 16e496ddf18a513d3b3ca26c61999146cdf18b0675044ad7ae0d1425482ed270
+    role: target
+  - path: kb/communities/Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium.yaml
+    sha256: eb6927ba0ac59c0884bc3f479f20606ca4ae1f80b0855c415759db879a03fd2f
+    role: target
+  - path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    sha256: 5c620e46ecbe040463098d40373531e88b5b2bc12f08bb57b4d926b3537a0c4e
+    role: target
+  - path: kb/communities/Cordyceps_Malbranchea_Antimicrobial_Coculture.yaml
+    sha256: 2b61b970b93b4db345670df9f86f00ba299b29ba76cb56b99333fd8bf68e7c6d
+    role: target
+  - path: kb/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml
+    sha256: 12ec7d94161d772e79598564ae50e6f322c9cfd82e889a2fd5e0fbcde687f8f6
+    role: target
+  - path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+    sha256: 96bf155c9e47de5f8934bbf367f392bfcee5073098125c841db171fd0b9dda1a
+    role: target
+  - path: kb/communities/Crucian_Carp_Gut_Disease_Resistance_SynCom.yaml
+    sha256: 5dc07af806fbaa10b2eb522c2e5221c404aabc6ff58ea1f9cec7062ba079f09e
+    role: target
+  - path: kb/communities/Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml
+    sha256: b219156340ab8170a318ed82b9bf47e7a5a5b67e490870d42fabb2c9a8e25051
+    role: target
+  - path: kb/taxa/Shewanella_oneidensis_MR1.yaml
+    sha256: 372e95f725bca699a349a6aaccf39a0bb781e1c19f4aa491d72f18a704037b69
+    role: context
+  - path: references_cache/PMID_32203118.md
+    sha256: ed47b1021b5307304a7ac65b99353942f4db7873cf2bf8cec3ccd52e573872b6
+    role: context
+  - path: references_cache/PMID_32203118.txt
+    sha256: 5d873129a219c729435a36dfe6c9c59a29be4befe7dde10294a8db6025d452f3
+    role: context
+  - path: references_cache/PMID_34683378.md
+    sha256: fd76b8f6f4e148878c46b432193fe2308c6718f2af53e163f568bf5b43a72d7b
+    role: context
+  - path: references_cache/PMID_36300970.md
+    sha256: 27c42cb32ffce7ca994a115959fbb6aa13ef7d2d64fc9c6179ab588a0007daad
+    role: context
+  - path: references_cache/PMID_36991472.md
+    sha256: 715fd0be091b2e2c4aae7c60ba24a6fe789c08f802964a1a425acf3ccdab3ebd
+    role: context
+  - path: references_cache/PMID_41297400.md
+    sha256: 0e32038dfe1637c473b0f3348015dd8c05ae976f122b6587fb0a1976967393f2
+    role: context
+  - path: references_cache/PMID_41980960.txt
+    sha256: d14f05c6e4269f5bc044cda18faf1f7d05e5392af4473e0df08a45269ed5ed6b
+    role: context
+  - path: references_cache/PMID_42203120.md
+    sha256: 7b567b431f735bc1384c900944b5828baf891f73e51c02e45443529afd4da156
+    role: context
+  - path: references_cache/doi_10.1111_j.1751-7915.2009.00112.x.md
+    sha256: 9e3ea21b12625ecc4e829d5677761bd3dbf5aadb29b1970e0956cac93ace72e9
+    role: context
+  - path: references_cache/doi_10.3389_fmicb.2018.03059.md
+    sha256: a20b7009f3ea56dcba891cac42b9b8cae962b80ccb470e37ee8945f76122fffd
+    role: context
+  - path: references_cache/doi_10.3389_fmicb.2022.820052.md
+    sha256: 17d049e355cb0e99c41ab947a8336594a3bf6313204209ca59a1f8538d0cb2cd
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261005-batch23.yaml
+    sha256: 84713527e3badfb90a47b89467a7a04351750dbbb1b4b7d961cc5c9e05f6e825
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261005-batch24.yaml
+    sha256: e85c631d1b0762a661c513d1c1ca07407d0c97351ae631a7b8207c87d8eaeb8c
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261006-batch27.yaml
+    sha256: e643b8f12adfc71acdd4f9bca108689885b70c32ea93b44b1055d73f3022cad0
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261007-batch91.yaml
+    sha256: 973b2a59f1e53a1bb9405f813af5a20a8593a8f4efb1837e4fa847772636105e
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-three-records-batch23.yaml
+    sha256: a2bd023f110da25d4c33ca7f4ad53f16f12b0531816a249dffe98c74649f1c7d
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-three-records-batch24.yaml
+    sha256: c643f50b402cf23b8e756e43adfdfca7d6a93e64033a5d0accf0169f7ca97a63
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-three-records-batch27.yaml
+    sha256: 90e6a0ad3e095a1301744958f706782510d03bdf40852999837d12401019ded0
+    role: context
+  - path: reports/causal_graph_review/decisions/20261007-five-records-batch91.yaml
+    sha256: 55c2dafc3c10346c37f864ef5acc1fdadefd37967c51f21696eef562a0296bbe
+    role: context
+  - path: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+    sha256: e9ded35a2333f9994869573f9f952b3af3191ab55528813a7f2c03639a362d3f
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.md
+    sha256: e432615b147787c8d009d96d2f11e5b78a45927bf9c69e45ec0d31123d1fc2e9
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/structured/20261021T235431Z-cold-seep-co-consortium-record-review/review.md
+    sha256: 9a8ada287622f0b773245477a5c9364bb6515d12ca09532c0bb60d93d52d96b0
+    role: context
+  - path: reviews/structured/20261021T235431Z-cold-seep-co-consortium-record-review/review.yaml
+    sha256: c57635b2700c772e118e54cd05e0ee2862c5b6b907c84e4f511f493b94611207
+    role: context
+  - path: reviews/structured/20261022T000649Z-community-g-genx-record-review/review.md
+    sha256: fd563712f8cb7d6637d706da166b98c9ce4090a2c11e58346361c1403cd40147
+    role: context
+  - path: reviews/structured/20261022T000649Z-community-g-genx-record-review/review.yaml
+    sha256: c15af28825780b0a917df7b1ea16d86d62f854ce416bfcb600214e5e2958767f
+    role: context
+  - path: reviews/structured/20261022T001801Z-composting-syncom-humus-record-review/review.md
+    sha256: c990d1ed8ecdd36ca91d0d35ae36c6e808e39229abd45ebb8b217aadabbfebe2
+    role: context
+  - path: reviews/structured/20261022T001801Z-composting-syncom-humus-record-review/review.yaml
+    sha256: 24ee3d2aa65561adc5796b0a0b5255649875f32906efdec57e09e5921f019638
+    role: context
+  - path: reviews/structured/20261022T003155Z-coniochaeta-wheat-straw-record-review/review.md
+    sha256: bd55a19ec60cc363c5f756c7fc9fa6a61b4c486a6f4da92bd1b5f7c92ce1cd44
+    role: context
+  - path: reviews/structured/20261022T003155Z-coniochaeta-wheat-straw-record-review/review.yaml
+    sha256: 372a46db143bdeb23acc446c108fcff11bc0b0b53be2cbeaa44539087bfac5d3
+    role: context
+  - path: reviews/structured/20261022T004910Z-copper-biomining-heap-record-review/review.md
+    sha256: 29325fc56ba81abf641a3348cfb844384a688aa378ce2de557c0d56434839821
+    role: context
+  - path: reviews/structured/20261022T004910Z-copper-biomining-heap-record-review/review.yaml
+    sha256: c541dad6eb67bbf2ac12244260740a5b811fa1e3a5bc47e2e25b1df62096f426
+    role: context
+  - path: reviews/structured/20261022T010218Z-cordyceps-malbranchea-record-review/review.md
+    sha256: b22036d58e596033cbdad1ea0b24ef84c6be0e081a138074547e2cacc9ba6221
+    role: context
+  - path: reviews/structured/20261022T010218Z-cordyceps-malbranchea-record-review/review.yaml
+    sha256: efa54c9d68889e8096b6d407b5ef45fd0b228ecf53420a45c984d6934c5e9dad
+    role: context
+  - path: reviews/structured/20261022T011317Z-corynebacterium-shewanella-record-review/review.md
+    sha256: d27902ea6b1f406c7a0db4ed900322d3708bf65216717929e6e5902d87b13c5b
+    role: context
+  - path: reviews/structured/20261022T011317Z-corynebacterium-shewanella-record-review/review.yaml
+    sha256: cf3bac3bd4b4bad051151a7ca936e45af1d85d7b2ad5d46e8d79567be1e01e51
+    role: context
+  - path: reviews/structured/20261022T012643Z-coscinodiscus-record-review/review.md
+    sha256: afe5b8720b54aa7389f50627c017e870c6ac9c2daf24eac31aebc2c5894bc2c7
+    role: context
+  - path: reviews/structured/20261022T012643Z-coscinodiscus-record-review/review.yaml
+    sha256: 7f8832f3229680d086377984e7d72a0d8db22eb803f6ee7f9c260a1538d7f32c
+    role: context
+  - path: reviews/structured/20261022T013937Z-crucian-carp-syncom-record-review/review.md
+    sha256: 0497fe603b139e15a4fe9de14855fec46420012334eb3a310d17de428f6c7516
+    role: context
+  - path: reviews/structured/20261022T013937Z-crucian-carp-syncom-record-review/review.yaml
+    sha256: eec4205d29e69f96a8632a7a706c6795a5cfb3735ea97784577349b28a2ff36a
+    role: context
+  - path: reviews/structured/20261022T015146Z-crystal-geyser-cpr-record-review/review.md
+    sha256: 604a08069448018e9aaba3ee663203771ee7adef2b451cbda5ef844bd9ad907e
+    role: context
+  - path: reviews/structured/20261022T015146Z-crystal-geyser-cpr-record-review/review.yaml
+    sha256: 122afe9999249bdd40427a8388217410da15b92cbb88f64df6c6d665e0d68a03
+    role: context
+  - path: reviews/structured/20261025T113600Z-c2s4-frozen-cohort-review/review.yaml
+    sha256: 702d202105025d44fc469e588a43967388443aad84a355bc80ea45ebab36338a
+    role: context
+  - path: reviews/structured/20261025T161500Z-c2s5-remediation-verification/review.yaml
+    sha256: c8b7bd9b8e462081a734db496e8314848c4474a56deadbec891cf4af6f9ea644
+    role: context
+  - path: reviews/structured/20261106T062035Z-pr2043-kefir-state-action-correction/review.yaml
+    sha256: bcdfa90b626b1230789a09c10c69746faf922cc64e7f82b1eee0a16517e404bb
+    role: context
+  - path: reviews/structured/20261106T154646Z-corynebacterium-shewanella-current-main/review.md
+    sha256: b06ab7e56451898f90cb067e59f2e593b1dcdf372cbd6681f8906630ac3e3f66
+    role: context
+  - path: reviews/structured/20261106T154646Z-corynebacterium-shewanella-current-main/review.yaml
+    sha256: d5e7bde90d611a885de16627ea55ad889b859b7e7a0d8afd59a8ebb8274c3088
+    role: context
+  - path: reviews/structured/20261106T155915Z-coscinodiscus-current-genus-authority/review.md
+    sha256: 67ab82daf78996ba2920b2ba81b7eba63cb439da267141439fb26cb3b46cedae
+    role: context
+  - path: reviews/structured/20261106T155915Z-coscinodiscus-current-genus-authority/review.yaml
+    sha256: 65c14b2bb87679387898962d94c748df5a961a3e5b80619407960a369fe32617
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/frozen_inventory_metrics.tsv
+    sha256: d5a47bbcc3745a489ff507680aa7360a6a65ce070ce4ec88f886b70128791313
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md
+    sha256: 4e7781aa8cdfc4bb42d896ebe75920719d9dcade92ffc4a0ae07af7481cb37b3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/batch_review_input_provenance.py
+    sha256: 5c8e6ae0e8912c57d2cbeaf61ed532ca077271366966f0a03533049a38d4f934
+    role: context
+  - path: scripts/adhoc/pr2054_180_input_provenance.py
+    sha256: 47f586e75deb2103f7f0787376c17eb0b5c98663b22dac8862f393f9c8f14a2a
+    role: context
+  - path: scripts/adhoc/pr2058_020_authority_observation.py
+    sha256: d662a31de67991a503f019f97c8e17f365dd1a7df11866e894d0e3059938777c
+    role: context
+  - path: scripts/adhoc/pr2058_294_refresh.py
+    sha256: 9736f264aaf98ad1b14310160e25f293a3ba5e838a3b889338a295db7e92523b
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: 24fc4f6d5b786a15f38194ed902e9b7941e30c17f001532598e20e2898f595a0
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: 7355e14f0f17c5d3b875abd33af6474ddc1aad08cc3305313686fede337e259a
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000475
+  path: kb/communities/Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium.yaml
+  label: Cold-Seep ANME-2b and Seep-SRB1g Carbon Monoxide-Oxidizing Syntrophic Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Cold_Seep_ANME_SRB_Carbon_Monoxide_Syntrophic_Consortium.yaml
+    role: canonical_record
+- target_id: CommunityMech:000387
+  path: kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml
+  label: Community G GenX Biodegradation Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml
+    role: canonical_record
+- target_id: CommunityMech:000277
+  path: kb/communities/Composting_SynCom_Lignocellulose_Degradation_Humus.yaml
+  label: Five-member bacterial-fungal composting SynCom for lignocellulose degradation
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Composting_SynCom_Lignocellulose_Degradation_Humus.yaml
+    role: canonical_record
+- target_id: CommunityMech:000195
+  path: kb/communities/Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium.yaml
+  label: Coniochaeta-Sphingobacterium-Citrobacter Wheat Straw Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium.yaml
+    role: canonical_record
+- target_id: CommunityMech:000019
+  path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+  label: Copper Biomining Heap Leach Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Copper_Biomining_Heap_Leach.yaml
+    role: canonical_record
+- target_id: CommunityMech:000453
+  path: kb/communities/Cordyceps_Malbranchea_Antimicrobial_Coculture.yaml
+  label: Cordyceps-Malbranchea Antimicrobial Coculture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Cordyceps_Malbranchea_Antimicrobial_Coculture.yaml
+    role: canonical_record
+- target_id: CommunityMech:000294
+  path: kb/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml
+  label: Corynebacterium glutamicum + Shewanella oneidensis Succinic-acid Co-culture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml
+    role: canonical_record
+- target_id: CommunityMech:000020
+  path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+  label: Coscinodiscus Synthetic Community
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+    role: canonical_record
+- target_id: CommunityMech:000293
+  path: kb/communities/Crucian_Carp_Gut_Disease_Resistance_SynCom.yaml
+  label: Crucian Carp Gut Disease-resistance SynCom
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Crucian_Carp_Gut_Disease_Resistance_SynCom.yaml
+    role: canonical_record
+- target_id: CommunityMech:000252
+  path: kb/communities/Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml
+  label: Crystal Geyser CO2-Rich Aquifer Autotrophic CPR Lysolipid Community
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.yaml
+    role: canonical_record
+scope:
+  description: Exact PR2058 provenance cohort; current bytes, historical local-input
+    omissions and preservation of existing work only.
+  selection: Every original target in the frozen inventory, with explicitly configured
+    current successor/supplemental observations; no sampling.
+  coverage: full
+  population_size: 10
+  reviewed_target_ids:
+  - CommunityMech:000475
+  - CommunityMech:000387
+  - CommunityMech:000277
+  - CommunityMech:000195
+  - CommunityMech:000019
+  - CommunityMech:000453
+  - CommunityMech:000294
+  - CommunityMech:000020
+  - CommunityMech:000293
+  - CommunityMech:000252
+  exclusions:
+  - target: Scientific literature support and record curation
+    reason: Not reassessed here; originating review scopes remain distinct and unchanged.
+  - target: Lost historical scratch
+    reason: Not read, recovered, reconstructed or newly certified.
+checks:
+- check_id: provenance-accounting
+  name: Current artifact identities and retained scientific-work accounting
+  status: passed
+  required: true
+  command: python scripts/adhoc/batch_review_input_provenance.py --config .temp/pr2058/batch-provenance-config.json
+    capture
+  exit_code: 0
+  summary: 38 original finding keys and 48 original actions / 151 acceptance checks
+    are retained in historical accounting. Separate current observations maintain
+    39 open finding keys, 49 actions and 156 acceptance checks.
+  target_ids:
+  - CommunityMech:000475
+  - CommunityMech:000387
+  - CommunityMech:000277
+  - CommunityMech:000195
+  - CommunityMech:000019
+  - CommunityMech:000453
+  - CommunityMech:000294
+  - CommunityMech:000020
+  - CommunityMech:000293
+  - CommunityMech:000252
+  evidence_ids:
+  - provenance-000475
+  - provenance-000387
+  - provenance-000277
+  - provenance-000195
+  - provenance-000019
+  - provenance-000453
+  - provenance-000294
+  - provenance-000020
+  - provenance-000293
+  - provenance-000252
+  scope_note: Provenance only, not a rerun or scientific certification of originating
+    validators. Later native inspection/candidate/save/CI outputs are generated metadata,
+    not recursive inputs.
+evidence:
+- evidence_id: provenance-000475
+  kind: validation
+  reference: .temp/pr2058/batch-provenance/records/000475.json
+  locator: 'Entire per-record manifest: exact old/current target digests, original/current
+    review statuses, open issue keys/actions, concrete current input manifests.'
+  accessed_at: '2026-11-06T16:02:14Z'
+  support: supports
+  snapshot_sha256: 09801d24a48c38a561d33d15633b225e5e9af16b7db00ad27fd6cd08a35b878c
+  summary: The target is unchanged. 5 current open finding keys remain. This observation
+    makes no scientific disposition.
+- evidence_id: provenance-000387
+  kind: validation
+  reference: .temp/pr2058/batch-provenance/records/000387.json
+  locator: 'Entire per-record manifest: exact old/current target digests, original/current
+    review statuses, open issue keys/actions, concrete current input manifests.'
+  accessed_at: '2026-11-06T16:02:14Z'
+  support: supports
+  snapshot_sha256: e0cfe34be08f42e3023989c9c681e0861d2ddae2c97c3e3fa73e4426b9ab7111
+  summary: The target is unchanged. 3 current open finding keys remain. This observation
+    makes no scientific disposition.
+- evidence_id: provenance-000277
+  kind: validation
+  reference: .temp/pr2058/batch-provenance/records/000277.json
+  locator: 'Entire per-record manifest: exact old/current target digests, original/current
+    review statuses, open issue keys/actions, concrete current input manifests.'
+  accessed_at: '2026-11-06T16:02:14Z'
+  support: supports
+  snapshot_sha256: 67494eb22e235f9bf32e61ae43f259dc3ae22b8c758699c8e8ad27fb40d363c1
+  summary: The target is unchanged. 4 current open finding keys remain. This observation
+    makes no scientific disposition.
+- evidence_id: provenance-000195
+  kind: validation
+  reference: .temp/pr2058/batch-provenance/records/000195.json
+  locator: 'Entire per-record manifest: exact old/current target digests, original/current
+    review statuses, open issue keys/actions, concrete current input manifests.'
+  accessed_at: '2026-11-06T16:02:14Z'
+  support: supports
+  snapshot_sha256: 39ae27fabede314a2a15dd1ee079126f0d5cb79c120ce9b1a52931926c582e10
+  summary: The target is unchanged. 4 current open finding keys remain. This observation
+    makes no scientific disposition.
+- evidence_id: provenance-000019
+  kind: validation
+  reference: .temp/pr2058/batch-provenance/records/000019.json
+  locator: 'Entire per-record manifest: exact old/current target digests, original/current
+    review statuses, open issue keys/actions, concrete current input manifests.'
+  accessed_at: '2026-11-06T16:02:14Z'
+  support: supports
+  snapshot_sha256: 97db8fc4ae8ed4f031406a2d008e61bb1ee258bbd902e466a6c9a08c62988358
+  summary: The target is unchanged. 5 current open finding keys remain. This observation
+    makes no scientific disposition.
+- evidence_id: provenance-000453
+  kind: validation
+  reference: .temp/pr2058/batch-provenance/records/000453.json
+  locator: 'Entire per-record manifest: exact old/current target digests, original/current
+    review statuses, open issue keys/actions, concrete current input manifests.'
+  accessed_at: '2026-11-06T16:02:14Z'
+  support: supports
+  snapshot_sha256: 4e07632f348ffcc69ffe6b544aea98395eac5c7664f2906bd647591ddc275006
+  summary: The target is unchanged. 1 current open finding keys remain. This observation
+    makes no scientific disposition.
+- evidence_id: provenance-000294
+  kind: validation
+  reference: .temp/pr2058/batch-provenance/records/000294.json
+  locator: 'Entire per-record manifest: exact old/current target digests, original/current
+    review statuses, open issue keys/actions, concrete current input manifests.'
+  accessed_at: '2026-11-06T16:02:14Z'
+  support: supports
+  snapshot_sha256: 38ecd6ac003f82b2e0089228b9baa45dfc6137ff70429d269783863b539204fd
+  summary: The target is changed; the separate successor is retained. 3 current open
+    finding keys remain. This observation makes no scientific disposition.
+- evidence_id: provenance-000020
+  kind: validation
+  reference: .temp/pr2058/batch-provenance/records/000020.json
+  locator: 'Entire per-record manifest: exact old/current target digests, original/current
+    review statuses, open issue keys/actions, concrete current input manifests.'
+  accessed_at: '2026-11-06T16:02:14Z'
+  support: supports
+  snapshot_sha256: 52308189c64e3fbd256dad0139418a231404ced4256a65bb0ecf02d17bcb4c86
+  summary: The target is unchanged. 5 current open finding keys remain. This observation
+    makes no scientific disposition.
+- evidence_id: provenance-000293
+  kind: validation
+  reference: .temp/pr2058/batch-provenance/records/000293.json
+  locator: 'Entire per-record manifest: exact old/current target digests, original/current
+    review statuses, open issue keys/actions, concrete current input manifests.'
+  accessed_at: '2026-11-06T16:02:14Z'
+  support: supports
+  snapshot_sha256: 20d91562dfa7f7c835e4ed5b701f02d20f19882e84c1f3631811a808970699d8
+  summary: The target is unchanged. 6 current open finding keys remain. This observation
+    makes no scientific disposition.
+- evidence_id: provenance-000252
+  kind: validation
+  reference: .temp/pr2058/batch-provenance/records/000252.json
+  locator: 'Entire per-record manifest: exact old/current target digests, original/current
+    review statuses, open issue keys/actions, concrete current input manifests.'
+  accessed_at: '2026-11-06T16:02:14Z'
+  support: supports
+  snapshot_sha256: 753502ef153020e77029d3e043a3d97de737b1d485368d4cbbf81b7c63715f5e
+  summary: The target is unchanged. 3 current open finding keys remain. This observation
+    makes no scientific disposition.
+assessments:
+- assessment_id: provenance-000475
+  area: provenance
+  topic: Historical input-set limitation and present byte accounting
+  outcome: supported
+  target_ids:
+  - CommunityMech:000475
+  evidence_ids:
+  - provenance-000475
+  summary: 'Original completed/needs_curation review 20261021T235431Z-cold-seep-co-consortium-record-review
+    declared 30 inputs, including 0 scratch paths. Its target is now unchanged; current
+    digest aa71bf0755e21633808d22d5e88a4da0fcb79f3a2c4f84b8037a2065155e1518. Current
+    observations: 20261021T235431Z-cold-seep-co-consortium-record-review (completed/needs_curation,
+    scientific_review=True).'
+  details: The historical input set omits local source/check bytes and remains incomplete;
+    evidence-level historical hashes do not replace omitted source.inputs. Current
+    manifest members are individually frozen here, not reconstructed historical files.
+    This audits byte provenance rather than literature support. Archive pins identify
+    containers, not manual inspection of every asset. Current scientific/authority
+    observations retain their separate scopes, limits, findings and actions; none
+    is superseded by this process-only batch.
+- assessment_id: provenance-000387
+  area: provenance
+  topic: Historical input-set limitation and present byte accounting
+  outcome: supported
+  target_ids:
+  - CommunityMech:000387
+  evidence_ids:
+  - provenance-000387
+  summary: 'Original completed/needs_curation review 20261022T000649Z-community-g-genx-record-review
+    declared 34 inputs, including 0 scratch paths. Its target is now unchanged; current
+    digest 4aefdcd766a663a1d8fd547207b3f754cfcf6bc938f2212ea4389ca221aacb8d. Current
+    observations: 20261022T000649Z-community-g-genx-record-review (completed/needs_curation,
+    scientific_review=True).'
+  details: The historical input set omits local source/check bytes and remains incomplete;
+    evidence-level historical hashes do not replace omitted source.inputs. Current
+    manifest members are individually frozen here, not reconstructed historical files.
+    This audits byte provenance rather than literature support. Archive pins identify
+    containers, not manual inspection of every asset. Current scientific/authority
+    observations retain their separate scopes, limits, findings and actions; none
+    is superseded by this process-only batch.
+- assessment_id: provenance-000277
+  area: provenance
+  topic: Historical input-set limitation and present byte accounting
+  outcome: supported
+  target_ids:
+  - CommunityMech:000277
+  evidence_ids:
+  - provenance-000277
+  summary: 'Original partial/needs_curation review 20261022T001801Z-composting-syncom-humus-record-review
+    declared 30 inputs, including 0 scratch paths. Its target is now unchanged; current
+    digest 16e496ddf18a513d3b3ca26c61999146cdf18b0675044ad7ae0d1425482ed270. Current
+    observations: 20261022T001801Z-composting-syncom-humus-record-review (partial/needs_curation,
+    scientific_review=False).'
+  details: The historical input set omits local source/check bytes and remains incomplete;
+    evidence-level historical hashes do not replace omitted source.inputs. Current
+    manifest members are individually frozen here, not reconstructed historical files.
+    This audits byte provenance rather than literature support. Archive pins identify
+    containers, not manual inspection of every asset. Current scientific/authority
+    observations retain their separate scopes, limits, findings and actions; none
+    is superseded by this process-only batch.
+- assessment_id: provenance-000195
+  area: provenance
+  topic: Historical input-set limitation and present byte accounting
+  outcome: supported
+  target_ids:
+  - CommunityMech:000195
+  evidence_ids:
+  - provenance-000195
+  summary: 'Original completed/needs_curation review 20261022T003155Z-coniochaeta-wheat-straw-record-review
+    declared 32 inputs, including 0 scratch paths. Its target is now unchanged; current
+    digest eb6927ba0ac59c0884bc3f479f20606ca4ae1f80b0855c415759db879a03fd2f. Current
+    observations: 20261022T003155Z-coniochaeta-wheat-straw-record-review (completed/needs_curation,
+    scientific_review=True).'
+  details: The historical input set omits local source/check bytes and remains incomplete;
+    evidence-level historical hashes do not replace omitted source.inputs. Current
+    manifest members are individually frozen here, not reconstructed historical files.
+    This audits byte provenance rather than literature support. Archive pins identify
+    containers, not manual inspection of every asset. Current scientific/authority
+    observations retain their separate scopes, limits, findings and actions; none
+    is superseded by this process-only batch.
+- assessment_id: provenance-000019
+  area: provenance
+  topic: Historical input-set limitation and present byte accounting
+  outcome: supported
+  target_ids:
+  - CommunityMech:000019
+  evidence_ids:
+  - provenance-000019
+  summary: 'Original completed/needs_curation review 20261022T004910Z-copper-biomining-heap-record-review
+    declared 36 inputs, including 0 scratch paths. Its target is now unchanged; current
+    digest 5c620e46ecbe040463098d40373531e88b5b2bc12f08bb57b4d926b3537a0c4e. Current
+    observations: 20261022T004910Z-copper-biomining-heap-record-review (completed/needs_curation,
+    scientific_review=True).'
+  details: The historical input set omits local source/check bytes and remains incomplete;
+    evidence-level historical hashes do not replace omitted source.inputs. Current
+    manifest members are individually frozen here, not reconstructed historical files.
+    This audits byte provenance rather than literature support. Archive pins identify
+    containers, not manual inspection of every asset. Current scientific/authority
+    observations retain their separate scopes, limits, findings and actions; none
+    is superseded by this process-only batch.
+- assessment_id: provenance-000453
+  area: provenance
+  topic: Historical input-set limitation and present byte accounting
+  outcome: supported
+  target_ids:
+  - CommunityMech:000453
+  evidence_ids:
+  - provenance-000453
+  summary: 'Original partial/pass_with_limitations review 20261022T010218Z-cordyceps-malbranchea-record-review
+    declared 30 inputs, including 0 scratch paths. Its target is now unchanged; current
+    digest 2b61b970b93b4db345670df9f86f00ba299b29ba76cb56b99333fd8bf68e7c6d. Current
+    observations: 20261022T010218Z-cordyceps-malbranchea-record-review (partial/pass_with_limitations,
+    scientific_review=False).'
+  details: The historical input set omits local source/check bytes and remains incomplete;
+    evidence-level historical hashes do not replace omitted source.inputs. Current
+    manifest members are individually frozen here, not reconstructed historical files.
+    This audits byte provenance rather than literature support. Archive pins identify
+    containers, not manual inspection of every asset. Current scientific/authority
+    observations retain their separate scopes, limits, findings and actions; none
+    is superseded by this process-only batch.
+- assessment_id: provenance-000294
+  area: provenance
+  topic: Historical input-set limitation and present byte accounting
+  outcome: supported
+  target_ids:
+  - CommunityMech:000294
+  evidence_ids:
+  - provenance-000294
+  summary: 'Original partial/needs_curation review 20261022T011317Z-corynebacterium-shewanella-record-review
+    declared 31 inputs, including 0 scratch paths. Its target is now changed; the
+    separate successor is retained; current digest 12ec7d94161d772e79598564ae50e6f322c9cfd82e889a2fd5e0fbcde687f8f6.
+    Current observations: 20261106T154646Z-corynebacterium-shewanella-current-main
+    (partial/needs_curation, scientific_review=False).'
+  details: The historical input set omits local source/check bytes and remains incomplete;
+    evidence-level historical hashes do not replace omitted source.inputs. Current
+    manifest members are individually frozen here, not reconstructed historical files.
+    This audits byte provenance rather than literature support. Archive pins identify
+    containers, not manual inspection of every asset. Current scientific/authority
+    observations retain their separate scopes, limits, findings and actions; none
+    is superseded by this process-only batch.
+- assessment_id: provenance-000020
+  area: provenance
+  topic: Historical input-set limitation and present byte accounting
+  outcome: supported
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - provenance-000020
+  summary: 'Original completed/needs_curation review 20261022T012643Z-coscinodiscus-record-review
+    declared 32 inputs, including 0 scratch paths. Its target is now unchanged; current
+    digest 96bf155c9e47de5f8934bbf367f392bfcee5073098125c841db171fd0b9dda1a. Current
+    observations: 20261022T012643Z-coscinodiscus-record-review (completed/needs_curation,
+    scientific_review=True); 20261106T155915Z-coscinodiscus-current-genus-authority
+    (partial/needs_curation, scientific_review=False).'
+  details: The historical input set omits local source/check bytes and remains incomplete;
+    evidence-level historical hashes do not replace omitted source.inputs. Current
+    manifest members are individually frozen here, not reconstructed historical files.
+    This audits byte provenance rather than literature support. Archive pins identify
+    containers, not manual inspection of every asset. Current scientific/authority
+    observations retain their separate scopes, limits, findings and actions; none
+    is superseded by this process-only batch.
+- assessment_id: provenance-000293
+  area: provenance
+  topic: Historical input-set limitation and present byte accounting
+  outcome: supported
+  target_ids:
+  - CommunityMech:000293
+  evidence_ids:
+  - provenance-000293
+  summary: 'Original completed/needs_curation review 20261022T013937Z-crucian-carp-syncom-record-review
+    declared 31 inputs, including 0 scratch paths. Its target is now unchanged; current
+    digest 5dc07af806fbaa10b2eb522c2e5221c404aabc6ff58ea1f9cec7062ba079f09e. Current
+    observations: 20261022T013937Z-crucian-carp-syncom-record-review (completed/needs_curation,
+    scientific_review=True).'
+  details: The historical input set omits local source/check bytes and remains incomplete;
+    evidence-level historical hashes do not replace omitted source.inputs. Current
+    manifest members are individually frozen here, not reconstructed historical files.
+    This audits byte provenance rather than literature support. Archive pins identify
+    containers, not manual inspection of every asset. Current scientific/authority
+    observations retain their separate scopes, limits, findings and actions; none
+    is superseded by this process-only batch.
+- assessment_id: provenance-000252
+  area: provenance
+  topic: Historical input-set limitation and present byte accounting
+  outcome: supported
+  target_ids:
+  - CommunityMech:000252
+  evidence_ids:
+  - provenance-000252
+  summary: 'Original completed/needs_curation review 20261022T015146Z-crystal-geyser-cpr-record-review
+    declared 33 inputs, including 0 scratch paths. Its target is now unchanged; current
+    digest b219156340ab8170a318ed82b9bf47e7a5a5b67e490870d42fabb2c9a8e25051. Current
+    observations: 20261022T015146Z-crystal-geyser-cpr-record-review (completed/needs_curation,
+    scientific_review=True).'
+  details: The historical input set omits local source/check bytes and remains incomplete;
+    evidence-level historical hashes do not replace omitted source.inputs. Current
+    manifest members are individually frozen here, not reconstructed historical files.
+    This audits byte provenance rather than literature support. Archive pins identify
+    containers, not manual inspection of every asset. Current scientific/authority
+    observations retain their separate scopes, limits, findings and actions; none
+    is superseded by this process-only batch.
+findings: []
+actions: []
+related_reviews:
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T235431Z-cold-seep-co-consortium-record-review
+  relationship: Bounded append-only input provenance accounting; retain all findings/actions
+    and original or separate corrective scope. No scientific occurrence supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261022T000649Z-community-g-genx-record-review
+  relationship: Bounded append-only input provenance accounting; retain all findings/actions
+    and original or separate corrective scope. No scientific occurrence supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261022T001801Z-composting-syncom-humus-record-review
+  relationship: Bounded append-only input provenance accounting; retain all findings/actions
+    and original or separate corrective scope. No scientific occurrence supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261022T003155Z-coniochaeta-wheat-straw-record-review
+  relationship: Bounded append-only input provenance accounting; retain all findings/actions
+    and original or separate corrective scope. No scientific occurrence supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261022T004910Z-copper-biomining-heap-record-review
+  relationship: Bounded append-only input provenance accounting; retain all findings/actions
+    and original or separate corrective scope. No scientific occurrence supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261022T010218Z-cordyceps-malbranchea-record-review
+  relationship: Bounded append-only input provenance accounting; retain all findings/actions
+    and original or separate corrective scope. No scientific occurrence supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261022T011317Z-corynebacterium-shewanella-record-review
+  relationship: Bounded append-only input provenance accounting; retain all findings/actions
+    and original or separate corrective scope. No scientific occurrence supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261106T154646Z-corynebacterium-shewanella-current-main
+  relationship: Bounded append-only input provenance accounting; retain all findings/actions
+    and original or separate corrective scope. No scientific occurrence supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261022T012643Z-coscinodiscus-record-review
+  relationship: Bounded append-only input provenance accounting; retain all findings/actions
+    and original or separate corrective scope. No scientific occurrence supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261106T155915Z-coscinodiscus-current-genus-authority
+  relationship: Bounded append-only input provenance accounting; retain all findings/actions
+    and original or separate corrective scope. No scientific occurrence supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261022T013937Z-crucian-carp-syncom-record-review
+  relationship: Bounded append-only input provenance accounting; retain all findings/actions
+    and original or separate corrective scope. No scientific occurrence supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261022T015146Z-crystal-geyser-cpr-record-review
+  relationship: Bounded append-only input provenance accounting; retain all findings/actions
+    and original or separate corrective scope. No scientific occurrence supersession.
+limitations:
+- The historical maintained/context pins do not establish complete local input coverage.
+  Omitted historical scratch is unavailable; evidence hashes remain historical attestations,
+  not fresh reconstruction.
+- Current source/check bytes are distinct from old scratch. Archive and raw-data pins
+  do not imply every member was manually inspected or any analysis rerun. Actual access,
+  partial-review and metadata-only limits remain in the frozen originating receipts.
+- No new scientific review is performed here. Completed applies only to this bounded
+  process audit; not_assessed is not a scientific passing verdict. Separate source/authority
+  corrections retain their own restricted scope.
+- No original review, canonical record, cache, history, schema, product or scientific
+  status is rewritten. There are no findings, terminal dispositions, previous_occurrences
+  or actions in this provenance observation, so it cannot retire or replace scientific
+  work.
+- The final native inspection output, candidate, and subsequent validation/save/CI
+  receipts are generated metadata rather than recursively hashed inputs. Fresh inspection
+  cannot recover omitted historical bytes.
+links:
+- https://github.com/CultureBotAI/CommunityMech/pull/2058
+- https://github.com/CultureBotAI/CommunityMech/issues/2570
+tags:
+- pr2058
+- provenance-only
+- historical-input-limit
+```

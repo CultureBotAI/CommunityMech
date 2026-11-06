@@ -81,7 +81,26 @@ def test_batch19_hashes_scope_and_complete_graph_accounting():
     totals = Counter()
     for row in ledger["records"]:
         raw = (ROOT / row["path"]).read_bytes()
-        assert hashlib.sha256(raw).hexdigest() == row["record_sha256"]
+        expected = row["record_sha256"]
+        if row["id"] == "CommunityMech:000175":
+            batch91 = yaml.safe_load(
+                (
+                    ROOT
+                    / "reports/causal_graph_review/decisions/20261007-five-records-batch91.yaml"
+                ).read_text()
+            )
+            b91_row = next(r for r in batch91["records"] if r["id"] == row["id"])
+            assert b91_row["record_sha256"] == expected
+            followup = yaml.safe_load(
+                (
+                    ROOT
+                    / "reports/causal_graph_review/decisions/20261025-c2s5-review-remediation.yaml"
+                ).read_text()
+            )
+            current = next(r for r in followup["records"] if r["id"] == row["id"])
+            assert current["original_sha256"] == expected
+            expected = current["record_sha256"]
+        assert hashlib.sha256(raw).hexdigest() == expected
         doc = yaml.safe_load(raw)
         names = {n["name"] for n in doc["ecological_interactions"]}
         assert len(names) == 3

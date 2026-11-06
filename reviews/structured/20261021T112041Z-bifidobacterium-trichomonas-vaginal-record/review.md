@@ -1,0 +1,1645 @@
+# Bifidobacterium–Trichomonas vaginal coculture: record review
+
+- Review: 20261021T112041Z-bifidobacterium-trichomonas-vaginal-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T11:13:28.782251Z
+- Finished UTC: 2026-10-21T11:20:41.663574Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Complete source review supports the qualified six-node graph and three PARTIAL arrows, with two major corrections: exclude HeLa from microbial membership and remove the inapplicable proliferation GO grounding. Three minor findings address exact strain/host-assay context, persistence and numerical qualifications, and the omitted RNA-seq resource.
+
+## Scope And Provenance
+
+Whole record, six nodes and three arrows assessed against complete scientific main, all ten main figure images, four supplementary figure pages, bounded RNA-table annotations and public archive/catalogue metadata.
+
+Selection: Next assigned maintained path after 000220 was saved and both mandatory post-save checks passed; only CommunityMech:000318 reviewed.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000318 | kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml | maintained | Bifidobacterium breve-Trichomonas vaginalis Vaginal Co-culture |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000318 | Target schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000318 | Target strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000318 | Target term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000318 | Target GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000318 | Target GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000318 | Target history validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000318 | Read-only corpus cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000318 | Target reference validation passed against the pinned cache. |
+| audit-network | failed | True | CommunityMech:000318 | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; target-native structure has no issue. |
+| check-network-quality | failed | True | CommunityMech:000318 | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; target-native structure has no issue. |
+| Primary publication and archive identity | passed | True | CommunityMech:000318 | Direct metadata, complete primary text and the reported RNA-seq archive identities were verified. |
+| Full primary scientific assessment | passed | True | CommunityMech:000318 | Whole main, all ten main figures, four supplementary figure pages and bounded RNA-table annotations were inspected. |
+| Encoded medium/ingredient-Mech links | not_applicable | False | CommunityMech:000318 | No CultureMech or MediaIngredientMech identifier is encoded; no exact recipe equivalence was inferred. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000318 | No runnable adapter was available in the owned runtime. |
+
+## Scientific And Domain Assessments
+
+### Microbial pair, host context and source strains
+
+identity: concern. Targets: CommunityMech:000318.
+
+The two microbial partners are resolved, but HeLa host cells are incorrectly included in the membership list.
+
+### Microbial member identities and HeLa placement
+
+grounding: concern. Targets: CommunityMech:000318.
+
+Retain the two microbial species and move HeLa to host/interaction context.
+
+The record states a two-member microbial coculture yet lists Homo sapiens as a third member. Keep HeLa in the host-assay node and design. Missing optional functional roles are not a schema error and should not be invented to improve completeness. Protozoan and human NO_GTDB_EQUIVALENT status is appropriate; the parasite is not excluded merely because it is pathogenic or eukaryotic.
+
+### ecological_interactions[0]: Direct Surface Association
+
+graph: supported. Targets: CommunityMech:000318.
+
+Retain physical association without a trophic or contact-mediation inference.
+
+Participants are B. breve and T. vaginalis after four-hour anaerobic coculture. Confocal surface association does not establish internalization, phagocytosis, or contact-dependent causation of the other endpoints. The current node correctly has no downstream arrows; the unviewed movie does not negate the inspected image/text support.
+
+### ecological_interactions[1]: Growth with B. breve Attrition
+
+graph: concern. Targets: CommunityMech:000318.
+
+The paired count/CFU outcome and sign-defined PREDATION are supported, but its proliferation GO term is semantically inappropriate.
+
+The community-level participants are parasite and bacterium; the measured signs are parasite benefit and bacterial harm. The schema does not require ingestion, and the node explicitly withholds it. Preserve the abstract-reported numeric attribution and figure discrepancy. Remove or replace GO:0008283 only with a verified process supported by the assay; population counts alone do not resolve a particular division mechanism.
+
+### ecological_interactions[2]: DNA-Replication and Energy Response
+
+graph: supported. Targets: CommunityMech:000318.
+
+Retain expression enrichment with its measurement limits.
+
+B. breve exposure is the condition and parasite transcription is the measured response. Replication/chromatin and electron-transport annotations accompany increased counts; they are not measurements of DNA replication rate, ATP flux or causal necessity.
+
+### ecological_interactions[3]: Fatty-Acid Pathway Response
+
+graph: supported. Targets: CommunityMech:000318.
+
+Retain GSVA/pathway annotations without claiming de-novo synthesis or SCFA flux.
+
+The same microbial pair is the context, with parasite expression analyzed against the G3 reference. The source’s lack-of-de-novo-synthesis qualification and absence of direct SCFA measurements are correctly preserved in the node.
+
+### ecological_interactions[4]: Fatty-Acid Pool Decrease
+
+graph: supported. Targets: CommunityMech:000318.
+
+Retain the protein-normalized pool observation and PARTIAL utilization interpretation.
+
+Low-speed parasite-enriched pellets from the pair assay do not establish pure parasite lipid origin. Fifteen lower pools among the broad measured fatty-acid panel do not measure uptake, oxidation, turnover or bacterial transfer. CHEBI:35366 accommodates the heterogeneous panel without forcing every constituent into a narrower chain-length class.
+
+### ecological_interactions[5]: Adhesin Transcripts and HeLa Nonprotection
+
+graph: supported. Targets: CommunityMech:000318.
+
+Retain parallel transcript/host outcomes with distinct assay contexts.
+
+B. breve and T. vaginalis are microbial participants; HeLa is the outside-community host participant. Selected adhesin-associated transcripts increase, while host-cell assays do not show cytoprotection against infected controls. Cytokine responses vary by time and live/heat-killed design. Neither complete inflammatory physiology nor adhesin-mediated virulence is established by these cell-assay and transcript endpoints.
+
+### ecological_interactions[2].downstream[0]: replication response → growth/attrition
+
+graph: supported. Targets: CommunityMech:000318.
+
+Retain PARTIAL as the authors’ proposed growth explanation.
+
+Parasite replication-associated expression after B. breve exposure is consistent with increased viable counts. No selective intervention establishes that pathway mediation causes either parasite growth or bacterial CFU loss; the arrow states this limitation.
+
+### ecological_interactions[3].downstream[0]: fatty-acid response → growth/attrition
+
+graph: supported. Targets: CommunityMech:000318.
+
+Retain PARTIAL without converting pathway scores to metabolic necessity.
+
+The proposed direction is parasite fatty-acid handling toward parasite growth in the exposed pair. Transcript scores do not quantify metabolic flux or selectively explain the separate bacterial-harm endpoint.
+
+### ecological_interactions[4].downstream[0]: lipid-pool decrease → growth/attrition
+
+graph: supported. Targets: CommunityMech:000318.
+
+Retain PARTIAL as a utilization model, not a pool-to-flux equivalence.
+
+Lower standing pools in parasite-enriched preparations could accompany utilization for growth, but turnover and energetic contribution were not measured. The link does not itself explain bacterial CFU loss or establish donor-to-parasite lipid transfer.
+
+### Strain and host-assay cultivation context
+
+completeness: concern. Targets: CommunityMech:000318.
+
+Two microbial media are correctly named; exact strain fields and distinct host-assay contexts are recoverable.
+
+Source ATCC identifiers should be structured for the two partners. Preserve serum-free YI-S and bacterial maintenance separately; add the DMEM host designs with their own timings, doses, live/heat-killed controls and vessel/volume where explicit. No exact temperature, gas blend, YI-S formula or CultureMech equivalence is inferred from a catalogue or analytical settings. General vaginal-species motivation does not make ATCC15700 a vaginal clinical isolate.
+
+### Duration and numerical scope
+
+evidence: concern. Targets: CommunityMech:000318.
+
+The record should distinguish short observation windows from demonstrated disappearance of molecular effects.
+
+Transient is the source’s interpretation, but the four-hour RNA/lipid endpoints are not a time series proving reversal. The 24-hour overgrowth observation is data not shown, while cytokine persistence varies by arm. Preserve the abstract’s 27% as a reported value and disclose the Figure 1B discrepancy rather than silently replacing it with a pixel-derived estimate.
+
+### Data availability and identifier equivalence
+
+completeness: concern. Targets: CommunityMech:000318.
+
+The source supplies a public RNA-seq archive absent from the record’s resource fields.
+
+E-MTAB-16002, ERP183806 and PRJEB102408 describe linked study data; NCBI numeric UID 1365532 must not be converted into PRJNA1365532. Three controls and three cocultures support the transcriptome context. Raw/processed sequence files and catalogue genomes were not analyzed or treated as focal lipid data.
+
+### Snippets, source limits and earlier graph repair
+
+provenance: supported. Targets: CommunityMech:000318.
+
+Direct-source snippets and histories preserve the existing qualified graph.
+
+Earlier workflow/contact edges were removed and remain absent. The old discussion’s unread-figure/SI statement describes historical review scope; this review inspected the images and bounded supplement data. Current issue status does not expand that historical certificate or authorize curation.
+
+### Native checks and scientific assessment
+
+schema: supported. Targets: CommunityMech:000318.
+
+All eight native checks pass; membership and GO semantic findings require assessment beyond those gates.
+
+### Native completeness and quality
+
+completeness: supported. Targets: CommunityMech:000318.
+
+Mechanical scores do not certify biological scope or term semantics.
+
+## Findings
+
+### host-membership: Separate HeLa host context from microbial membership
+
+major / open / confirmed; issue key: cm-000318-host-membership.
+
+The stated two-member microbial coculture lists Homo sapiens as a third taxonomic member, contrary to the membership slot’s explicit host boundary.
+
+### proliferation-go: Remove the unsupported multicellular proliferation grounding
+
+major / open / confirmed; issue key: cm-000318-proliferation-go.
+
+GO:0008283 explicitly excludes expansion of single-celled organisms, but is assigned to increased T. vaginalis counts.
+
+### strain-assay-context: Add exact strain and distinct host-assay context
+
+minor / open / confirmed; issue key: cm-000318-strain-assay-context.
+
+ATCC identities and host-cell cultivation designs are recoverable but not structured alongside the existing microbial media.
+
+### duration-number-qualification: Qualify persistence and source-reported numerical claims
+
+minor / open / confirmed; issue key: cm-000318-duration-number-qualification.
+
+The statement that modulation does not persist exceeds the measured molecular time course, and the abstract’s bacterial percentage should be distinguished from its apparent figure discrepancy.
+
+### rna-resource: Link the public study RNA-seq archive
+
+minor / open / confirmed; issue key: cm-000318-rna-resource.
+
+The publication names a resolvable study archive, but no corresponding dataset/resource is structured in the record.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-host-membership
+
+Separate HeLa host context from microbial membership.
+
+- Remove HeLa from microbial taxonomy membership while preserving it in the host-assay design and ecological_interactions[5] as an outside-community participant.
+- Retain B. breve and T. vaginalis as the deliberately studied microbial pair; do not exclude the parasite merely for being pathogenic or eukaryotic.
+- Recheck network behavior after correction without restoring host membership merely to silence an external-participant warning.
+
+### repair-proliferation-go
+
+Remove the unsupported multicellular proliferation grounding.
+
+- Remove GO:0008283 from the parasite-count node, or replace it only with a verified term directly supported by the assay.
+- Do not substitute cell cycle, cytokinesis or a specific reproductive mechanism solely from higher counts.
+- Keep the measured paired outcome and qualified sign-defined PREDATION; the term correction does not imply ingestion or invalidate the count data.
+
+### repair-strain-assay-context
+
+Add exact strain and distinct host-assay context.
+
+- Add source strain designations B. breve ATCC15700 and T. vaginalis ATCC30236; preserve G3 as an RNA reference rather than assigning it as the cultured strain.
+- Distinguish catalogue intestinal origin of ATCC15700 from the paper’s vaginal-species motivation; do not generalize to a vaginal clinical isolate.
+- Represent host pretreatment, simultaneous exposure and pretreated-parasite arms separately, attaching serum-free DMEM, 24-well/1 mL settings and 6/12/24-hour endpoints only where the source specifies them.
+- Retain bacterial maintenance and four-hour serum-free YI-S conditions; do not import catalogue temperatures, exact medium recipes or a CultureMech ID without independent formulation support.
+
+### repair-duration-number-qualification
+
+Qualify persistence and source-reported numerical claims.
+
+- State that molecular changes were measured at four hours and described by the authors as transient; do not assert their disappearance without a direct time course.
+- Attribute the 24-hour bacterial-overgrowth statement to Discussion data not shown, distinct from demonstrated molecular reversal and host-cytokine timing.
+- Retain 1.2-fold/27% as abstract-reported values and explicitly note the Figure 1B bacterial-ratio discrepancy; do not calculate or substitute a new reduction from pixels.
+
+### repair-rna-resource
+
+Link the public study RNA-seq archive.
+
+- Add E-MTAB-16002 with verified ERP183806 and PRJEB102408 cross-links and the three-control/three-coculture parasite RNA-seq scope.
+- Do not confuse NCBI numeric UID 1365532 with an accession named PRJNA1365532.
+- Keep reference genomes, catalogue strain resources and lipid-assay data distinct; metadata verification does not certify raw or processed payload contents.
+
+### preserve-qualified-graph
+
+Preserve the qualified observations and three PARTIAL arrows while correcting membership and the unsupported process term.
+
+- Keep surface association, count/CFU outcomes, transcript annotations, standing lipid pools and separate host-cell assays distinct.
+- Do not infer ingestion, contact dependence, molecular flux or pathway/adhesin necessity from the existing observations.
+- Preserve append-only history and rerun schema, strict, term, reference, history and target/corpus network checks after separately authorized curation.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml; Whole record: defined microbial pair, HeLa assay context, six nodes and three arrows | supports | The experiment is identifiable and its graph is carefully qualified; member placement, one GO term and bounded metadata/evidence details need correction. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=41688526&amp;retmode=xml; Article-level metadata | supports | PubMed verifies PMID, DOI, title and abstract. |
+| crossref | https://api.crossref.org/works/10.1038/s41598-026-38866-0; Article-level metadata | supports | Crossref verifies DOI/title and publication metadata. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:41688526&amp;format=json&amp;resultType=core; Article-level metadata | supports | Europe PMC verifies article-level identifiers and the open full-text route. |
+| contact | PMID:41688526; Fresh XML Sec15 and Discussion Sec20; Figure 2 | supports | Imaging supports bacterial association with the parasite surface; the Discussion explicitly withholds evidence of bacterial internalization. |
+| counts | PMID:41688526; Fresh XML Sec14; abstract; Figure 1 | supports | Matched control comparisons support increased parasite counts and reduced bacterial CFU at four hours; the abstract-reported percentage needs attribution because Figure 1B appears different. |
+| replication | PMID:41688526; Fresh XML Sec18; Methods Sec8; Figures 7–8 | supports | RNA enrichment supports replication/chromatin-associated expression, not direct replication rate, ATP production or selective growth mediation. |
+| fatty-pathway | PMID:41688526; Fresh XML Sec18 and Sec20; Figure 8 | supports | Expression-based pathway analyses support a fatty-acid response; the paper notes absent de-novo synthesis and does not measure SCFA production or metabolic rates. |
+| lipid-pools | PMID:41688526; Fresh XML Sec19; Methods Sec9; Figure 9 | supports | Protein-normalized LC-MS reports fifteen decreased fatty-acid pools among 38 species of at least twelve carbons; utilization is an interpretation, not a flux measurement. |
+| host | PMID:41688526; Fresh XML Sec16–Sec17 and Discussion Sec20; Figures 3–6 | supports | Distinct host pretreatment, simultaneous exposure and pretreated-parasite assays support nonprotection with assay/time-dependent cytokine effects. |
+| methods | PMID:41688526; Fresh XML Methods Sec3–Sec11 | supports | Methods identify ATCC 15700 and ATCC 30236, bacterial/parasite maintenance, the anaerobic four-hour pair assay and distinct serum-free DMEM host-cell designs. |
+| duration | PMID:41688526; Fresh XML Discussion Sec20: prolonged coculture paragraph; Figures 1 and 4–6 | supports | The 24-hour bacterial-overgrowth statement is explicitly data not shown; no longitudinal molecular experiment establishes disappearance of all expression or lipid effects. |
+| figure-1 | PMID:41688526; Figure 1A–B pixels and caption | supports | The directions are clear, but the four-hour bacterial ratio visually approaches 0.5 rather than the abstract’s 27% reduction; no exact replacement is derived. |
+| figures | PMID:41688526; All ten main figure images/captions; individual hashes in source-audit.json | supports | Host-cell area panels support no significant rescue against infected controls; RNA and lipid panels remain associations, and Figure 10 is a proposed model. |
+| supplement | PMID:41688526; Supplementary Figures S1–S4: all pages, panels and captions | supports | Heat-killed-bacterium cytokine responses depend on time/design; pathway diagrams and expression bars do not establish phagocytosis or metabolic necessity. |
+| adhesin-rows | PMID:41688526; Supplementary Table 1, Sheet1 rows 10382 and 21326; header and bounded workbook inspection | supports | Two inspected adhesin-annotated rows have positive fold changes and adjusted p below 0.05; this supports a bounded transcript response, not all isoforms or functional virulence. |
+| catalogue | https://www.jcm.riken.jp/cgi-bin/jcm/jcm_number?JCM=1192; Direct JCM1192 page lines 11–20 and 33, preserved in root-catalogue-web.json | supports | JCM identifies ATCC15700 as B. breve JCM1192/S1 variant a/DSM20213 with infant-intestinal origin; this is distinct from the species’ vaginal ecological motivation. |
+| ontology | Local OAK NCBITaxon, ENVO, CHEBI and GO; ontology-authority.json: ten pairs across 25 occurrences, metadata and semantic notes | supports | All label strings match; GO:0008283’s scope comment excludes population expansion of single-celled organisms, revealing a semantic grounding mismatch. |
+| schema | src/communitymech/schema/communitymech.yaml; MicrobialCommunity.taxonomy; InteractionTypeEnum.PREDATION | supports | Membership excludes host context and permits outside-community interaction participants; PREDATION uses paired benefit/harm and does not itself require demonstrated ingestion. |
+| snippets | kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml; snippet-audit.json | supports | All fifteen snippets match the fresh full XML and the pinned cache; source-text scope is distinguished from abstract-only comparison. |
+| history | kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml; provenance-audit.json | supports | Both histories and the exact graph-only row preserve earlier edge repairs; current issue status is reported without treating shared backlog text as target certification. |
+| resources | kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml; dataset-verification.json | supports | E-MTAB-16002 links to ERP183806 and PRJEB102408 with three control and three coculture RNA-seq samples; numeric NCBI UID 1365532 is not a PRJNA accession. |
+| native-target | kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml; support-audit.json | supports | Native network and completeness metrics are mechanical checks, distinct from host membership and GO semantic validity. |
+| source-scope | PMID:41688526; source-audit.json | supports | Whole main and all main/SI figure pages were inspected; workbook sampling and the unavailable movie are explicitly bounded. |
+| independent-source | PMID:41688526; root-independent-source-audit.json | context_only | Independent primary, figure, ontology and metadata review agrees with the five bounded findings. |
+| search | Owned maintained roots; local-search.json: ignored-inclusive bounded searches | supports | Reusable identity and resource discovery was limited to recorded roots; no global absence is asserted. |
+| adapter | Optional structured source adapter; adapter-check.json: same-runtime batch 06 discovery reuse | supports | No runnable adapter was available in the owned runtime; no external runner or paid provider was used. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml; Actual execution 2026-10-21T11:14:06.260954+00:00 to 2026-10-21T11:14:07.014812+00:00 | supports | Target schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-strict kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml --out /private/tmp/cm-review-session/batch-06/000318/strict-report.tsv; Actual execution 2026-10-21T11:14:06.261164+00:00 to 2026-10-21T11:14:08.477402+00:00 | supports | Target strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-terms kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml; Actual execution 2026-10-21T11:14:06.261249+00:00 to 2026-10-21T11:14:08.121784+00:00 | supports | Target term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-gtdb kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml; Actual execution 2026-10-21T11:14:07.015318+00:00 to 2026-10-21T11:14:07.107053+00:00 | supports | Target GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-gtdb-domain kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml; Actual execution 2026-10-21T11:14:07.112333+00:00 to 2026-10-21T11:14:08.515922+00:00 | supports | Target GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-history history/records/Bifidobacterium_Trichomonas_Vaginal_Coculture; Actual execution 2026-10-21T11:14:08.122052+00:00 to 2026-10-21T11:14:08.830318+00:00 | supports | Target history validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T11:14:08.831098+00:00 to 2026-10-21T11:14:08.878163+00:00 | supports | Read-only corpus cache-filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-references-explained kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml; Actual execution 2026-10-21T11:14:08.878477+00:00 to 2026-10-21T11:14:09.832720+00:00 | supports | Target reference validation passed against the pinned cache. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T10:06:35.990708+00:00 to 2026-10-21T10:06:41.713287+00:00 | supports | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; target-native structure has no issue. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T10:06:35.990845+00:00 to 2026-10-21T10:06:41.708376+00:00 | supports | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; target-native structure has no issue. |
+
+## Limits And Additional Notes
+
+- No raw RNA-seq, lipid, statistical or imaging analysis was rerun; archive metadata do not certify payload contents.
+- The RNA workbook was inspected for dimensions/header and declared selected rows; the independent review examined selected columns for 95 adhesin-related annotation hits, not every gene or a new differential-expression analysis.
+- Movie S1 retrieval returned an HTML shell and the movie itself was not viewed. Main images and explicit source text support surface association while withholding internalization.
+- The abstract-reported 27% bacterial reduction differs from the apparent Figure 1B four-hour ratio; no replacement percentage was calculated from pixels. The 24-hour overgrowth statement is data not shown, not a molecular reversal experiment.
+- Catalogue identities and the G3 RNA reference were not transferred into unreported focal culture conditions or cultured-strain assignments. No exact CultureMech recipe equivalent was verified.
+- Native GTDB checks passed; historical release-specific mapping statistics were not re-certified.
+- No canonical, cache, history or generated file changed.
+- All 24 repository inputs were pinned before assessment and rechecked.
+- Twenty-five quoted words from the focal publication, including the total budget for its supplements.
+- Native quality 100 is capped from 100.6666667; source findings remain actionable.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T112041Z-bifidobacterium-trichomonas-vaginal-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Bifidobacterium–Trichomonas vaginal coculture: record review'
+started_at: '2026-10-21T11:13:28.782251Z'
+finished_at: '2026-10-21T11:20:41.663574Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary science, native/ontology checks
+    and supporting snippets/provenance; no person-level independence is asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: 'Complete source review supports the qualified six-node graph and three PARTIAL
+  arrows, with two major corrections: exclude HeLa from microbial membership and remove
+  the inapplicable proliferation GO grounding. Three minor findings address exact
+  strain/host-assay context, persistence and numerical qualifications, and the omitted
+  RNA-seq resource.'
+source:
+  git_revision: 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Bifidobacterium_Trichomonas_Vaginal_Coculture/2026-10-02T051954Z-codex-f9e012.yaml
+    sha256: 986e1ed6aa1b7b99b0a378b3648483f168d0ef59f5e1042d9e9d8d44ecb92036
+    role: context
+  - path: history/records/Bifidobacterium_Trichomonas_Vaginal_Coculture/2026-10-05T112950Z-codex-c19a11.yaml
+    sha256: 373c7325f3167791b79424d8ddcc93696fa0b1d330190439be4e4e86cc6d16c3
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    sha256: 2fecaae029c25ec0d12eaf9eccf2a4c4a35dfb1e4b9b79b6f05dc9e40e2dc1de
+    role: target
+  - path: references_cache/PMID_41688526.txt
+    sha256: 7db9424c526e1ac69100241afba386ad887a75e23b0b779606fcf79f2b85e09c
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml
+    sha256: 23f5fa6fc197e020f7cb3469749ebe4aa78886f8973cb6ed63fde321470a7f96
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000318
+  path: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  label: Bifidobacterium breve-Trichomonas vaginalis Vaginal Co-culture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    role: canonical_record
+scope:
+  description: Whole record, six nodes and three arrows assessed against complete
+    scientific main, all ten main figure images, four supplementary figure pages,
+    bounded RNA-table annotations and public archive/catalogue metadata.
+  selection: Next assigned maintained path after 000220 was saved and both mandatory
+    post-save checks passed; only CommunityMech:000318 reviewed.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000318
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000318
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000318
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-strict kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-06/000318/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000318
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-terms kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000318
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000318
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000318
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-history history/records/Bifidobacterium_Trichomonas_Vaginal_Coculture
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000318
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target reference validation passed against the pinned cache.
+  target_ids:
+  - CommunityMech:000318
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-references-explained kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    structural success does not certify membership or ontology semantics.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native structure has no issue.
+  target_ids:
+  - CommunityMech:000318
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Reused fresh full-corpus batch 06 execution, not a target-specific pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native structure has no issue.
+  target_ids:
+  - CommunityMech:000318
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Reused fresh full-corpus batch 06 execution, not a target-specific pass.
+- check_id: source-identity
+  name: Primary publication and archive identity
+  status: passed
+  required: true
+  summary: Direct metadata, complete primary text and the reported RNA-seq archive
+    identities were verified.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - pubmed
+  - crossref
+  - epmc
+  - resources
+- check_id: scientific-source
+  name: Full primary scientific assessment
+  status: passed
+  required: true
+  summary: Whole main, all ten main figures, four supplementary figure pages and bounded
+    RNA-table annotations were inspected.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - source-scope
+  - independent-source
+  - supplement
+  - adhesin-rows
+- check_id: cross-mech
+  name: Encoded medium/ingredient-Mech links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech identifier is encoded; no exact recipe
+    equivalence was inferred.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - record
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: No runnable adapter was available in the owned runtime.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  locator: 'Whole record: defined microbial pair, HeLa assay context, six nodes and
+    three arrows'
+  summary: The experiment is identifiable and its graph is carefully qualified; member
+    placement, one GO term and bounded metadata/evidence details need correction.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.657824Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41688526&retmode=xml
+  locator: Article-level metadata
+  summary: PubMed verifies PMID, DOI, title and abstract.
+  support: supports
+  accessed_at: '2026-10-21T11:13:49.730478Z'
+  snapshot_sha256: 7c4a3a5fe497e9912a1d4e2cdc9ca2cf50c81c40efb06f32351667524298ad99
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1038/s41598-026-38866-0
+  locator: Article-level metadata
+  summary: Crossref verifies DOI/title and publication metadata.
+  support: supports
+  accessed_at: '2026-10-21T11:13:49.721374Z'
+  snapshot_sha256: 785b6938d1e744ca0673d7390f1afc21f282171c34751f0cc3e8a93355366033
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:41688526&format=json&resultType=core
+  locator: Article-level metadata
+  summary: Europe PMC verifies article-level identifiers and the open full-text route.
+  support: supports
+  accessed_at: '2026-10-21T11:13:50.466717Z'
+  snapshot_sha256: d83f89b34729c273e96621fecb38bdf4728c0e0092f809533b41f3440e12c357
+- evidence_id: contact
+  kind: primary_source
+  reference: PMID:41688526
+  locator: Fresh XML Sec15 and Discussion Sec20; Figure 2
+  summary: Imaging supports bacterial association with the parasite surface; the Discussion
+    explicitly withholds evidence of bacterial internalization.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.658365Z'
+  quote: direct physical association
+  snapshot_sha256: bb411d44baa4b2d43d9458632e4ada6ab2594334027cd6ae6b5006bb9c026779
+- evidence_id: counts
+  kind: primary_source
+  reference: PMID:41688526
+  locator: Fresh XML Sec14; abstract; Figure 1
+  summary: Matched control comparisons support increased parasite counts and reduced
+    bacterial CFU at four hours; the abstract-reported percentage needs attribution
+    because Figure 1B appears different.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.658442Z'
+  quote: viable counts
+  snapshot_sha256: bb411d44baa4b2d43d9458632e4ada6ab2594334027cd6ae6b5006bb9c026779
+- evidence_id: replication
+  kind: primary_source
+  reference: PMID:41688526
+  locator: Fresh XML Sec18; Methods Sec8; Figures 7–8
+  summary: RNA enrichment supports replication/chromatin-associated expression, not
+    direct replication rate, ATP production or selective growth mediation.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.658637Z'
+  quote: DNA replication and chromatin organization
+  snapshot_sha256: bb411d44baa4b2d43d9458632e4ada6ab2594334027cd6ae6b5006bb9c026779
+- evidence_id: fatty-pathway
+  kind: primary_source
+  reference: PMID:41688526
+  locator: Fresh XML Sec18 and Sec20; Figure 8
+  summary: Expression-based pathway analyses support a fatty-acid response; the paper
+    notes absent de-novo synthesis and does not measure SCFA production or metabolic
+    rates.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.658745Z'
+  quote: putative fatty acid metabolic pathways
+  snapshot_sha256: bb411d44baa4b2d43d9458632e4ada6ab2594334027cd6ae6b5006bb9c026779
+- evidence_id: lipid-pools
+  kind: primary_source
+  reference: PMID:41688526
+  locator: Fresh XML Sec19; Methods Sec9; Figure 9
+  summary: Protein-normalized LC-MS reports fifteen decreased fatty-acid pools among
+    38 species of at least twelve carbons; utilization is an interpretation, not a
+    flux measurement.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.658884Z'
+  quote: 8 UFAs and 7 SFAs
+  snapshot_sha256: bb411d44baa4b2d43d9458632e4ada6ab2594334027cd6ae6b5006bb9c026779
+- evidence_id: host
+  kind: primary_source
+  reference: PMID:41688526
+  locator: Fresh XML Sec16–Sec17 and Discussion Sec20; Figures 3–6
+  summary: Distinct host pretreatment, simultaneous exposure and pretreated-parasite
+    assays support nonprotection with assay/time-dependent cytokine effects.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.659011Z'
+  quote: did not prevent epithelial damage
+  snapshot_sha256: bb411d44baa4b2d43d9458632e4ada6ab2594334027cd6ae6b5006bb9c026779
+- evidence_id: methods
+  kind: primary_source
+  reference: PMID:41688526
+  locator: Fresh XML Methods Sec3–Sec11
+  summary: Methods identify ATCC 15700 and ATCC 30236, bacterial/parasite maintenance,
+    the anaerobic four-hour pair assay and distinct serum-free DMEM host-cell designs.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.659128Z'
+  snapshot_sha256: bb411d44baa4b2d43d9458632e4ada6ab2594334027cd6ae6b5006bb9c026779
+- evidence_id: duration
+  kind: primary_source
+  reference: PMID:41688526
+  locator: 'Fresh XML Discussion Sec20: prolonged coculture paragraph; Figures 1 and
+    4–6'
+  summary: The 24-hour bacterial-overgrowth statement is explicitly data not shown;
+    no longitudinal molecular experiment establishes disappearance of all expression
+    or lipid effects.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.659278Z'
+  snapshot_sha256: bb411d44baa4b2d43d9458632e4ada6ab2594334027cd6ae6b5006bb9c026779
+- evidence_id: figure-1
+  kind: primary_source
+  reference: PMID:41688526
+  locator: Figure 1A–B pixels and caption
+  summary: The directions are clear, but the four-hour bacterial ratio visually approaches
+    0.5 rather than the abstract’s 27% reduction; no exact replacement is derived.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.659370Z'
+  snapshot_sha256: d808e0725c5bc257a7fb4c0b5a4c1086a8f933b1b1cbbd0a22e67a5e877b8590
+- evidence_id: figures
+  kind: primary_source
+  reference: PMID:41688526
+  locator: All ten main figure images/captions; individual hashes in source-audit.json
+  summary: Host-cell area panels support no significant rescue against infected controls;
+    RNA and lipid panels remain associations, and Figure 10 is a proposed model.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.659437Z'
+  snapshot_sha256: bd6723cfe9c2478c8075244027b34e303dc3d2c5c63164a29c846e4d8eb52292
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:41688526
+  locator: 'Supplementary Figures S1–S4: all pages, panels and captions'
+  summary: Heat-killed-bacterium cytokine responses depend on time/design; pathway
+    diagrams and expression bars do not establish phagocytosis or metabolic necessity.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.659756Z'
+  snapshot_sha256: f82662d28635ae29d02adcb1a201403bcc8813722ab74785030c6a196398e320
+- evidence_id: adhesin-rows
+  kind: primary_source
+  reference: PMID:41688526
+  locator: Supplementary Table 1, Sheet1 rows 10382 and 21326; header and bounded
+    workbook inspection
+  summary: Two inspected adhesin-annotated rows have positive fold changes and adjusted
+    p below 0.05; this supports a bounded transcript response, not all isoforms or
+    functional virulence.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.659798Z'
+  snapshot_sha256: 192b05c8d34c8bddca2d7d9734931887d71df693a9a678e86059119bc333e9b3
+- evidence_id: catalogue
+  kind: authority
+  reference: https://www.jcm.riken.jp/cgi-bin/jcm/jcm_number?JCM=1192
+  locator: Direct JCM1192 page lines 11–20 and 33, preserved in root-catalogue-web.json
+  summary: JCM identifies ATCC15700 as B. breve JCM1192/S1 variant a/DSM20213 with
+    infant-intestinal origin; this is distinct from the species’ vaginal ecological
+    motivation.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.659832Z'
+  snapshot_sha256: b1a177e245086e0c6568b6f9bb76b081f3fec08ad1415001a6c4674be06e7d65
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO, CHEBI and GO
+  locator: 'ontology-authority.json: ten pairs across 25 occurrences, metadata and
+    semantic notes'
+  summary: All label strings match; GO:0008283’s scope comment excludes population
+    expansion of single-celled organisms, revealing a semantic grounding mismatch.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.659980Z'
+  snapshot_sha256: 83794f70554b27dd50f125f70a1d9da0a964bf2163c17869180367d27d02c999
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: MicrobialCommunity.taxonomy; InteractionTypeEnum.PREDATION
+  summary: Membership excludes host context and permits outside-community interaction
+    participants; PREDATION uses paired benefit/harm and does not itself require demonstrated
+    ingestion.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.659985Z'
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  locator: snippet-audit.json
+  summary: All fifteen snippets match the fresh full XML and the pinned cache; source-text
+    scope is distinguished from abstract-only comparison.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.660353Z'
+  snapshot_sha256: 86b73de50a2b2cc73ff3fd68d917a54dd911d910d5a8770518b76db70a98e689
+- evidence_id: history
+  kind: record_content
+  reference: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  locator: provenance-audit.json
+  summary: Both histories and the exact graph-only row preserve earlier edge repairs;
+    current issue status is reported without treating shared backlog text as target
+    certification.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.660604Z'
+  snapshot_sha256: 47a618ce25c406d7991f9e6e547e7099df2778952a314ccc15c6daa6e761e896
+- evidence_id: resources
+  kind: validation
+  reference: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  locator: dataset-verification.json
+  summary: E-MTAB-16002 links to ERP183806 and PRJEB102408 with three control and
+    three coculture RNA-seq samples; numeric NCBI UID 1365532 is not a PRJNA accession.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.660829Z'
+  snapshot_sha256: aa1c879af22464d14861855a12e741618d02b34c2a9541815d1d3d3182a60a9f
+- evidence_id: native-target
+  kind: validation
+  reference: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  locator: support-audit.json
+  summary: Native network and completeness metrics are mechanical checks, distinct
+    from host membership and GO semantic validity.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.661047Z'
+  snapshot_sha256: f69ee39bf96938aa43c232be266ac913f1728a1a192d75e6bbd742994c0c3817
+- evidence_id: source-scope
+  kind: validation
+  reference: PMID:41688526
+  locator: source-audit.json
+  summary: Whole main and all main/SI figure pages were inspected; workbook sampling
+    and the unavailable movie are explicitly bounded.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.661091Z'
+  snapshot_sha256: bd6723cfe9c2478c8075244027b34e303dc3d2c5c63164a29c846e4d8eb52292
+- evidence_id: independent-source
+  kind: validation
+  reference: PMID:41688526
+  locator: root-independent-source-audit.json
+  summary: Independent primary, figure, ontology and metadata review agrees with the
+    five bounded findings.
+  support: context_only
+  accessed_at: '2026-10-21T11:20:41.661227Z'
+  snapshot_sha256: 35cd906d75f6b8e1aab825d02ad5a7327f4883d7dfd03d7403e969b6aa1c81e8
+- evidence_id: search
+  kind: search
+  reference: Owned maintained roots
+  locator: 'local-search.json: ignored-inclusive bounded searches'
+  summary: Reusable identity and resource discovery was limited to recorded roots;
+    no global absence is asserted.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.661430Z'
+  snapshot_sha256: 16a80f822c33ffd0772ecd6f456af691e6ce626c4296fe51febe59d507e32359
+  search_scope: Ignored-inclusive maintained community, isolate and reusable-taxon
+    roots; bounded mapping-file discovery.
+- evidence_id: adapter
+  kind: search
+  reference: Optional structured source adapter
+  locator: 'adapter-check.json: same-runtime batch 06 discovery reuse'
+  summary: No runnable adapter was available in the owned runtime; no external runner
+    or paid provider was used.
+  support: supports
+  accessed_at: '2026-10-21T11:20:41.661569Z'
+  snapshot_sha256: 191901edfc51909f50c222f0b5205157939eef3ff672633807bc7a745b3d3bd1
+  search_scope: Recorded batch 06 PATH/venv/module and ignored-inclusive discovery
+    reused in the same runtime.
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  locator: Actual execution 2026-10-21T11:14:06.260954+00:00 to 2026-10-21T11:14:07.014812+00:00
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:14:07.014812Z'
+  snapshot_sha256: cb4ef0b627bf33f096eca446f1657f6295ad9f6fa875cb0ecddf6d007a233aed
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-strict kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-06/000318/strict-report.tsv
+  locator: Actual execution 2026-10-21T11:14:06.261164+00:00 to 2026-10-21T11:14:08.477402+00:00
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:14:08.477402Z'
+  snapshot_sha256: cdd22c71a62e74957f704c9ca1c35b59c1992263b11c5b4768f4476220ec9749
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-terms kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  locator: Actual execution 2026-10-21T11:14:06.261249+00:00 to 2026-10-21T11:14:08.121784+00:00
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:14:08.121784Z'
+  snapshot_sha256: 990c6466a6c47e95f096a18ed8eaf3edbf072f8af0f1065d0b125d35b07d2581
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  locator: Actual execution 2026-10-21T11:14:07.015318+00:00 to 2026-10-21T11:14:07.107053+00:00
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:14:07.107053Z'
+  snapshot_sha256: ace9463903a55ed786bf28f1fe2940e842d1f6b9f818071dfede0fe7f3a74c32
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  locator: Actual execution 2026-10-21T11:14:07.112333+00:00 to 2026-10-21T11:14:08.515922+00:00
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:14:08.515922Z'
+  snapshot_sha256: 06262626fc822b4effa65c2c34f41ecdfdef494f8a311dc4570ab287d051f072
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-history history/records/Bifidobacterium_Trichomonas_Vaginal_Coculture
+  locator: Actual execution 2026-10-21T11:14:08.122052+00:00 to 2026-10-21T11:14:08.830318+00:00
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:14:08.830318Z'
+  snapshot_sha256: ab810cbb5d2f59d29accf5d2ee185b01eb73748384824c9ef883f44c9d01a6f6
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T11:14:08.831098+00:00 to 2026-10-21T11:14:08.878163+00:00
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T11:14:08.878163Z'
+  snapshot_sha256: 7e9e094b5afb07dd4b32f18b35e32c8f5c34a655ed392c0bbb4da780e6c8726b
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-references-explained kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+  locator: Actual execution 2026-10-21T11:14:08.878477+00:00 to 2026-10-21T11:14:09.832720+00:00
+  summary: Target reference validation passed against the pinned cache.
+  support: supports
+  accessed_at: '2026-10-21T11:14:09.832720Z'
+  snapshot_sha256: bc78f81d1a5f1a2807400910602c2820d861588fdbc6df88dbf22385b132dba1
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T10:06:35.990708+00:00 to 2026-10-21T10:06:41.713287+00:00
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native structure has no issue.
+  support: supports
+  accessed_at: '2026-10-21T10:06:41.713287Z'
+  snapshot_sha256: 330e4d9c9367a126afe7da9d93d310348e0ba6cc1289d806f4ff8df350be9620
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T10:06:35.990845+00:00 to 2026-10-21T10:06:41.708376+00:00
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; target-native structure has no issue.
+  support: supports
+  accessed_at: '2026-10-21T10:06:41.708376Z'
+  snapshot_sha256: 0420f90879ef008b71c8bfcfe444d05d2c030519aca57834b4e2587766c5b854
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Microbial pair, host context and source strains
+  outcome: concern
+  summary: The two microbial partners are resolved, but HeLa host cells are incorrectly
+    included in the membership list.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - record
+  - methods
+  - schema
+  - catalogue
+  dimensions:
+  - name: community_scope
+    value: Defined B. breve–T. vaginalis pair with separate HeLa assay arms
+    definition: The parasite is deliberately part of the microbial pair; HeLa is the
+      host-cell context, not a third microbial member.
+    evidence_ids:
+    - record
+    - methods
+    - schema
+  - name: source_strain
+    value: B. breve ATCC15700 and T. vaginalis ATCC30236
+    definition: Retain the source culture identities; G3 is the RNA reference genome,
+      not automatically the cultured parasite isolate. The B. breve catalogue origin
+      is intestinal.
+    evidence_ids:
+    - methods
+    - catalogue
+    - resources
+  - name: environment
+    value: Laboratory model motivated by vaginal microbial ecology
+    definition: The ENVO laboratory term fits; the experiment does not demonstrate
+      the mechanism in an intact vaginal community or patient population.
+    evidence_ids:
+    - methods
+    - ontology
+  - name: medium
+    value: Bacterial maintenance broth, serum-free YI-S pair assay and distinct DMEM
+      host assays
+    definition: These named media and stages are not interchangeable; catalogue maintenance
+      conditions are not focal assay conditions.
+    evidence_ids:
+    - methods
+  - name: experimental_setting
+    value: Four-hour microbial exposure and separate 6/12/24-hour host readouts
+    definition: Host pretreatment, simultaneous exposure and exposure to pretreated
+      parasites have different schedules and controls.
+    evidence_ids:
+    - methods
+    - host
+    - duration
+  - name: evidence_tier
+    value: Counts/CFU, surface imaging, RNA annotations and standing lipid pools
+    definition: The study does not establish ingestion, contact dependence, direct
+      transfer, lipid flux or selective pathway/adhesin mediation.
+    evidence_ids:
+    - contact
+    - counts
+    - replication
+    - fatty-pathway
+    - lipid-pools
+    - host
+  - name: grounding_status
+    value: Ten exact label matches with a GO scope mismatch
+    definition: Species labels remain valid; GO:0008283 cannot annotate expansion
+      of this unicellular parasite population.
+    evidence_ids:
+    - ontology
+- assessment_id: taxonomy
+  area: grounding
+  topic: Microbial member identities and HeLa placement
+  outcome: concern
+  summary: Retain the two microbial species and move HeLa to host/interaction context.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - methods
+  - catalogue
+  - schema
+  - ontology
+  details: The record states a two-member microbial coculture yet lists Homo sapiens
+    as a third member. Keep HeLa in the host-assay node and design. Missing optional
+    functional roles are not a schema error and should not be invented to improve
+    completeness. Protozoan and human NO_GTDB_EQUIVALENT status is appropriate; the
+    parasite is not excluded merely because it is pathogenic or eukaryotic.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Direct Surface Association'
+  outcome: supported
+  summary: Retain physical association without a trophic or contact-mediation inference.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - contact
+  - figures
+  - supplement
+  details: Participants are B. breve and T. vaginalis after four-hour anaerobic coculture.
+    Confocal surface association does not establish internalization, phagocytosis,
+    or contact-dependent causation of the other endpoints. The current node correctly
+    has no downstream arrows; the unviewed movie does not negate the inspected image/text
+    support.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Growth with B. breve Attrition'
+  outcome: concern
+  summary: The paired count/CFU outcome and sign-defined PREDATION are supported,
+    but its proliferation GO term is semantically inappropriate.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - counts
+  - figure-1
+  - schema
+  - ontology
+  details: The community-level participants are parasite and bacterium; the measured
+    signs are parasite benefit and bacterial harm. The schema does not require ingestion,
+    and the node explicitly withholds it. Preserve the abstract-reported numeric attribution
+    and figure discrepancy. Remove or replace GO:0008283 only with a verified process
+    supported by the assay; population counts alone do not resolve a particular division
+    mechanism.
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: DNA-Replication and Energy Response'
+  outcome: supported
+  summary: Retain expression enrichment with its measurement limits.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - replication
+  - figures
+  - methods
+  details: B. breve exposure is the condition and parasite transcription is the measured
+    response. Replication/chromatin and electron-transport annotations accompany increased
+    counts; they are not measurements of DNA replication rate, ATP flux or causal
+    necessity.
+- assessment_id: node-3
+  area: graph
+  topic: 'ecological_interactions[3]: Fatty-Acid Pathway Response'
+  outcome: supported
+  summary: Retain GSVA/pathway annotations without claiming de-novo synthesis or SCFA
+    flux.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - fatty-pathway
+  - figures
+  - supplement
+  details: The same microbial pair is the context, with parasite expression analyzed
+    against the G3 reference. The source’s lack-of-de-novo-synthesis qualification
+    and absence of direct SCFA measurements are correctly preserved in the node.
+- assessment_id: node-4
+  area: graph
+  topic: 'ecological_interactions[4]: Fatty-Acid Pool Decrease'
+  outcome: supported
+  summary: Retain the protein-normalized pool observation and PARTIAL utilization
+    interpretation.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - lipid-pools
+  - methods
+  - figures
+  - ontology
+  details: Low-speed parasite-enriched pellets from the pair assay do not establish
+    pure parasite lipid origin. Fifteen lower pools among the broad measured fatty-acid
+    panel do not measure uptake, oxidation, turnover or bacterial transfer. CHEBI:35366
+    accommodates the heterogeneous panel without forcing every constituent into a
+    narrower chain-length class.
+- assessment_id: node-5
+  area: graph
+  topic: 'ecological_interactions[5]: Adhesin Transcripts and HeLa Nonprotection'
+  outcome: supported
+  summary: Retain parallel transcript/host outcomes with distinct assay contexts.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - host
+  - adhesin-rows
+  - figures
+  - supplement
+  - methods
+  details: B. breve and T. vaginalis are microbial participants; HeLa is the outside-community
+    host participant. Selected adhesin-associated transcripts increase, while host-cell
+    assays do not show cytoprotection against infected controls. Cytokine responses
+    vary by time and live/heat-killed design. Neither complete inflammatory physiology
+    nor adhesin-mediated virulence is established by these cell-assay and transcript
+    endpoints.
+- assessment_id: edge-2-1
+  area: graph
+  topic: 'ecological_interactions[2].downstream[0]: replication response → growth/attrition'
+  outcome: supported
+  summary: Retain PARTIAL as the authors’ proposed growth explanation.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - replication
+  - counts
+  details: Parasite replication-associated expression after B. breve exposure is consistent
+    with increased viable counts. No selective intervention establishes that pathway
+    mediation causes either parasite growth or bacterial CFU loss; the arrow states
+    this limitation.
+- assessment_id: edge-3-1
+  area: graph
+  topic: 'ecological_interactions[3].downstream[0]: fatty-acid response → growth/attrition'
+  outcome: supported
+  summary: Retain PARTIAL without converting pathway scores to metabolic necessity.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - fatty-pathway
+  - counts
+  details: The proposed direction is parasite fatty-acid handling toward parasite
+    growth in the exposed pair. Transcript scores do not quantify metabolic flux or
+    selectively explain the separate bacterial-harm endpoint.
+- assessment_id: edge-4-1
+  area: graph
+  topic: 'ecological_interactions[4].downstream[0]: lipid-pool decrease → growth/attrition'
+  outcome: supported
+  summary: Retain PARTIAL as a utilization model, not a pool-to-flux equivalence.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - lipid-pools
+  - counts
+  - methods
+  details: Lower standing pools in parasite-enriched preparations could accompany
+    utilization for growth, but turnover and energetic contribution were not measured.
+    The link does not itself explain bacterial CFU loss or establish donor-to-parasite
+    lipid transfer.
+- assessment_id: culture
+  area: completeness
+  topic: Strain and host-assay cultivation context
+  outcome: concern
+  summary: Two microbial media are correctly named; exact strain fields and distinct
+    host-assay contexts are recoverable.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - methods
+  - catalogue
+  - host
+  details: Source ATCC identifiers should be structured for the two partners. Preserve
+    serum-free YI-S and bacterial maintenance separately; add the DMEM host designs
+    with their own timings, doses, live/heat-killed controls and vessel/volume where
+    explicit. No exact temperature, gas blend, YI-S formula or CultureMech equivalence
+    is inferred from a catalogue or analytical settings. General vaginal-species motivation
+    does not make ATCC15700 a vaginal clinical isolate.
+- assessment_id: duration
+  area: evidence
+  topic: Duration and numerical scope
+  outcome: concern
+  summary: The record should distinguish short observation windows from demonstrated
+    disappearance of molecular effects.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - duration
+  - counts
+  - figure-1
+  - host
+  details: Transient is the source’s interpretation, but the four-hour RNA/lipid endpoints
+    are not a time series proving reversal. The 24-hour overgrowth observation is
+    data not shown, while cytokine persistence varies by arm. Preserve the abstract’s
+    27% as a reported value and disclose the Figure 1B discrepancy rather than silently
+    replacing it with a pixel-derived estimate.
+- assessment_id: resources
+  area: completeness
+  topic: Data availability and identifier equivalence
+  outcome: concern
+  summary: The source supplies a public RNA-seq archive absent from the record’s resource
+    fields.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - resources
+  - methods
+  details: E-MTAB-16002, ERP183806 and PRJEB102408 describe linked study data; NCBI
+    numeric UID 1365532 must not be converted into PRJNA1365532. Three controls and
+    three cocultures support the transcriptome context. Raw/processed sequence files
+    and catalogue genomes were not analyzed or treated as focal lipid data.
+- assessment_id: provenance
+  area: provenance
+  topic: Snippets, source limits and earlier graph repair
+  outcome: supported
+  summary: Direct-source snippets and histories preserve the existing qualified graph.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - snippets
+  - history
+  - source-scope
+  details: Earlier workflow/contact edges were removed and remain absent. The old
+    discussion’s unread-figure/SI statement describes historical review scope; this
+    review inspected the images and bounded supplement data. Current issue status
+    does not expand that historical certificate or authorize curation.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and scientific assessment
+  outcome: supported
+  summary: All eight native checks pass; membership and GO semantic findings require
+    assessment beyond those gates.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - check-validate
+  - check-validate-references-explained
+  - ontology
+  - source-scope
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and quality
+  outcome: supported
+  summary: Mechanical scores do not certify biological scope or term semantics.
+  target_ids:
+  - CommunityMech:000318
+  evidence_ids:
+  - native-target
+  - record
+  metrics:
+  - name: completeness
+    value: 30
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100,50 required metadata including all roles +5 environment +10
+      at least 3 factors +10 at least 3 nodes +5 resources +10 media +5 datasets +5
+      node metabolites). 0+5+0+10+0+10+0+5=30; absent optional roles are not a schema
+      defect.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100-50P1-10P2-2P3+20 min(mean node evidence/2,1)+15 if native
+      COMPLETE,0,100). P1=0, P2=2, P3=3, P4=0; 7 evidence items/6 nodes gives an 11.6666667
+      evidence bonus; 100-20-6+11.6666667+15=100.6666667 before capping.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Observed native severity count.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Observed native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+findings:
+- finding_id: host-membership
+  issue_key: cm-000318-host-membership
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: the membership list misrepresents what the microbial
+    community is made of even though its host-assay context is otherwise explicit.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Separate HeLa host context from microbial membership
+  description: The stated two-member microbial coculture lists Homo sapiens as a third
+    taxonomic member, contrary to the membership slot’s explicit host boundary.
+  target_ids:
+  - CommunityMech:000318
+  field_paths:
+  - taxonomy[2]
+  evidence_ids:
+  - record
+  - methods
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    role: canonical_record
+- finding_id: proliferation-go
+  issue_key: cm-000318-proliferation-go
+  category: grounding
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: a matching ID/label encodes a biological-process
+    scope that the authority expressly excludes for this measured population.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Remove the unsupported multicellular proliferation grounding
+  description: GO:0008283 explicitly excludes expansion of single-celled organisms,
+    but is assigned to increased T. vaginalis counts.
+  target_ids:
+  - CommunityMech:000318
+  field_paths:
+  - ecological_interactions[1].biological_processes[0]
+  evidence_ids:
+  - ontology
+  - counts
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    role: canonical_record
+- finding_id: strain-assay-context
+  issue_key: cm-000318-strain-assay-context
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: specific culture and assay provenance can be enriched
+    without changing the resolved two-member model or existing valid media.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Add exact strain and distinct host-assay context
+  description: ATCC identities and host-cell cultivation designs are recoverable but
+    not structured alongside the existing microbial media.
+  target_ids:
+  - CommunityMech:000318
+  field_paths:
+  - taxonomy[0]
+  - taxonomy[1]
+  - growth_media
+  - engineering_design
+  evidence_ids:
+  - methods
+  - catalogue
+  - host
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    role: canonical_record
+- finding_id: duration-number-qualification
+  issue_key: cm-000318-duration-number-qualification
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: the direction and short assay scope are supported;
+    wording should preserve measurement and source-conflict boundaries rather than
+    assert a different mechanism.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Qualify persistence and source-reported numerical claims
+  description: The statement that modulation does not persist exceeds the measured
+    molecular time course, and the abstract’s bacterial percentage should be distinguished
+    from its apparent figure discrepancy.
+  target_ids:
+  - CommunityMech:000318
+  field_paths:
+  - environmental_factors[0].description
+  - environmental_factors[0].evidence[0].explanation
+  - description
+  - ecological_interactions[1].description
+  evidence_ids:
+  - duration
+  - counts
+  - figure-1
+  - host
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    role: canonical_record
+- finding_id: rna-resource
+  issue_key: cm-000318-rna-resource
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: source-linked public data improve reproducibility
+    without requiring sequence reanalysis or additional experimental claims.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Link the public study RNA-seq archive
+  description: The publication names a resolvable study archive, but no corresponding
+    dataset/resource is structured in the record.
+  target_ids:
+  - CommunityMech:000318
+  field_paths:
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - resources
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    role: canonical_record
+actions:
+- action_id: repair-host-membership
+  description: Separate HeLa host context from microbial membership.
+  finding_ids:
+  - host-membership
+  target_ids:
+  - CommunityMech:000318
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove HeLa from microbial taxonomy membership while preserving it in the host-assay
+    design and ecological_interactions[5] as an outside-community participant.
+  - Retain B. breve and T. vaginalis as the deliberately studied microbial pair; do
+    not exclude the parasite merely for being pathogenic or eukaryotic.
+  - Recheck network behavior after correction without restoring host membership merely
+    to silence an external-participant warning.
+- action_id: repair-proliferation-go
+  description: Remove the unsupported multicellular proliferation grounding.
+  finding_ids:
+  - proliferation-go
+  target_ids:
+  - CommunityMech:000318
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove GO:0008283 from the parasite-count node, or replace it only with a verified
+    term directly supported by the assay.
+  - Do not substitute cell cycle, cytokinesis or a specific reproductive mechanism
+    solely from higher counts.
+  - Keep the measured paired outcome and qualified sign-defined PREDATION; the term
+    correction does not imply ingestion or invalidate the count data.
+- action_id: repair-strain-assay-context
+  description: Add exact strain and distinct host-assay context.
+  finding_ids:
+  - strain-assay-context
+  target_ids:
+  - CommunityMech:000318
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Add source strain designations B. breve ATCC15700 and T. vaginalis ATCC30236;
+    preserve G3 as an RNA reference rather than assigning it as the cultured strain.
+  - Distinguish catalogue intestinal origin of ATCC15700 from the paper’s vaginal-species
+    motivation; do not generalize to a vaginal clinical isolate.
+  - Represent host pretreatment, simultaneous exposure and pretreated-parasite arms
+    separately, attaching serum-free DMEM, 24-well/1 mL settings and 6/12/24-hour
+    endpoints only where the source specifies them.
+  - Retain bacterial maintenance and four-hour serum-free YI-S conditions; do not
+    import catalogue temperatures, exact medium recipes or a CultureMech ID without
+    independent formulation support.
+- action_id: repair-duration-number-qualification
+  description: Qualify persistence and source-reported numerical claims.
+  finding_ids:
+  - duration-number-qualification
+  target_ids:
+  - CommunityMech:000318
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - State that molecular changes were measured at four hours and described by the
+    authors as transient; do not assert their disappearance without a direct time
+    course.
+  - Attribute the 24-hour bacterial-overgrowth statement to Discussion data not shown,
+    distinct from demonstrated molecular reversal and host-cytokine timing.
+  - Retain 1.2-fold/27% as abstract-reported values and explicitly note the Figure
+    1B bacterial-ratio discrepancy; do not calculate or substitute a new reduction
+    from pixels.
+- action_id: repair-rna-resource
+  description: Link the public study RNA-seq archive.
+  finding_ids:
+  - rna-resource
+  target_ids:
+  - CommunityMech:000318
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Add E-MTAB-16002 with verified ERP183806 and PRJEB102408 cross-links and the three-control/three-coculture
+    parasite RNA-seq scope.
+  - Do not confuse NCBI numeric UID 1365532 with an accession named PRJNA1365532.
+  - Keep reference genomes, catalogue strain resources and lipid-assay data distinct;
+    metadata verification does not certify raw or processed payload contents.
+- action_id: preserve-qualified-graph
+  description: Preserve the qualified observations and three PARTIAL arrows while
+    correcting membership and the unsupported process term.
+  finding_ids:
+  - host-membership
+  - proliferation-go
+  - strain-assay-context
+  - duration-number-qualification
+  - rna-resource
+  target_ids:
+  - CommunityMech:000318
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Trichomonas_Vaginal_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Keep surface association, count/CFU outcomes, transcript annotations, standing
+    lipid pools and separate host-cell assays distinct.
+  - Do not infer ingestion, contact dependence, molecular flux or pathway/adhesin
+    necessity from the existing observations.
+  - Preserve append-only history and rerun schema, strict, term, reference, history
+    and target/corpus network checks after separately authorized curation.
+limitations:
+- No raw RNA-seq, lipid, statistical or imaging analysis was rerun; archive metadata
+  do not certify payload contents.
+- The RNA workbook was inspected for dimensions/header and declared selected rows;
+  the independent review examined selected columns for 95 adhesin-related annotation
+  hits, not every gene or a new differential-expression analysis.
+- Movie S1 retrieval returned an HTML shell and the movie itself was not viewed. Main
+  images and explicit source text support surface association while withholding internalization.
+- The abstract-reported 27% bacterial reduction differs from the apparent Figure 1B
+  four-hour ratio; no replacement percentage was calculated from pixels. The 24-hour
+  overgrowth statement is data not shown, not a molecular reversal experiment.
+- Catalogue identities and the G3 RNA reference were not transferred into unreported
+  focal culture conditions or cultured-strain assignments. No exact CultureMech recipe
+  equivalent was verified.
+- Native GTDB checks passed; historical release-specific mapping statistics were not
+  re-certified.
+notes:
+- No canonical, cache, history or generated file changed.
+- All 24 repository inputs were pinned before assessment and rechecked.
+- Twenty-five quoted words from the focal publication, including the total budget
+  for its supplements.
+- Native quality 100 is capped from 100.6666667; source findings remain actionable.
+tags:
+- record-review
+- vaginal-coculture
+- host-context
+- batch-06
+```

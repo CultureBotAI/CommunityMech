@@ -1,0 +1,1444 @@
+# Chlorella whey coculture source and evidence review
+
+- Review: 20261021T185922Z-chlorella-whey-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T18:50:05.472601Z
+- Finished UTC: 2026-10-21T18:59:22.990594Z
+- Reviewer: codex (unknown)
+- Completion: partial
+- Verdict: needs_curation
+- Scientific review: false
+
+## Summary
+
+The named pair, broad roles and one untyped growth node are retained. Five public figures support one minor follow-up for cultivation context, medium-dependent growth comparisons and precise endpoint evidence. Full Methods and statistics remain inaccessible, so scientific verification is partial despite eight passing focused checks.
+
+## Scope And Provenance
+
+Whole canonical record assessed against accessible primary text, all five main figures, current authorities and exact local provenance; full scientific source coverage remains partial.
+
+Selection: Only released CommunityMech:000422 in the owned batch 10 checkout.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 95812d3412d5aab41fd03422340cf736ac7b56f3.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000422 | kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml | maintained | Chlorella vulgaris Whey Co-culture |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000422 | Schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000422 | Strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000422 | Encoded ID-label validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000422 | GTDB status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000422 | Eukaryotic domain applicability passed. |
+| validate-history | passed | True | CommunityMech:000422 | Both append-only history sidecars passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000422 | Read-only cache filename check passed. |
+| validate-references-explained | passed | True | CommunityMech:000422 | Native references passed against the unchanged abstract cache; direct-source and biological support remain separate checks. |
+| audit-network | failed | True | CommunityMech:000422 | Batch 10 corpus diagnostic preserves its actual broader nonzero result; this focal one-node/zero-arrow graph separately reports COMPLETE. |
+| check-network-quality | failed | True | CommunityMech:000422 | Batch 10 corpus diagnostic preserves its actual broader nonzero result; this focal one-node/zero-arrow graph separately reports COMPLETE. |
+| Full scientific source verification | unavailable | True | CommunityMech:000422 | Full Methods, complete Results/statistics and any claim-critical supplementary contents are unread. Abstract, captions and five figures support the bounded finding, but scientific review remains partial. |
+| Five public main figure images | passed | True | CommunityMech:000422 | Lead and root independently viewed all five actual PNGs; Figure 1 includes the pair in all three media. Statistical significance was not recomputed. |
+| Fresh reference-specific excerpt verification | passed | True | CommunityMech:000422 | Eight occurrences supported: six strict abstract matches, one strict title match and one DOI metadata-display projection. All eight match the cache. |
+| Bounded supplementary asset discovery | unavailable | False | CommunityMech:000422 | No named asset was recovered within the inspected preview and bounded searches. No supplementary content or global absence is certified. |
+| Publication, collection and resource verification | passed | True | CommunityMech:000422 | Exact publication and CCAP identity verified at their stated scopes; no catalogue recipe or purity transfer. |
+| Raw data or experimental reproduction | skipped | False | CommunityMech:000422 | No flow-cytometry reanalysis, line-plot digitization, statistical refitting or culture experiment performed. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000422 | Verified same-runtime discovery reuse preserves unavailable status; expression-module analysis is not applicable to the encoded claims. |
+
+## Scientific And Domain Assessments
+
+### Record identity and culture membership
+
+identity: supported. Targets: CommunityMech:000422.
+
+Retain the two C. vulgaris culture descriptors and their source-grounded species identity.
+
+CVB is paper-local shorthand and CCAP 211/19 has direct collection support. Their shared species CURIE does not make them duplicate culture entries or establish stock equivalence. Do not promote Beijerinck into a formal CVB accession.
+
+### Origin, state, category and environment
+
+identity: supported. Targets: CommunityMech:000422.
+
+ENGINEERED, SYNTHETIC, BIOTECHNOLOGY and laboratory environment fit the experimental assembly.
+
+Whey valorization is an application, not evidence of a naturally occurring dairy community, field deployment, genetic modification or ecological equilibrium.
+
+### taxonomy[0:2].functional_role and evidence
+
+evidence: supported. Targets: CommunityMech:000422.
+
+Retain broad PRIMARY_PRODUCER capability with source-qualified interpretation.
+
+Membership excerpts establish the tested cultures. They do not measure carbon fixation, exclusive autotrophy, whey-carbon assimilation or reciprocal metabolites in this assay. No extra role or mechanism is needed to maintain the current bounded record.
+
+### description and engineering_design
+
+evidence: concern. Targets: CommunityMech:000422.
+
+Keep author-attributed growth synergy and actual endpoints; add medium-specific evidence.
+
+WP and BBM pair values exceed their corresponding single cultures and MIX numerically, whereas the hybrid pair is lower. The broad overview should not imply superiority under every condition. Figures 4 and 5 support pair endpoint measurements, so their scope is not rejected merely because the abstract is general. Distinguish observed concentration change from demonstrated assimilation flux; do not assign the abstract 99%/90% maxima to this pair.
+
+### ecological_interactions[0], participants and absence of downstream edges
+
+evidence: supported. Targets: CommunityMech:000422.
+
+Retain one untyped community-level growth observation and zero arrows, with condition-specific wording.
+
+Both source-named cultures participate in the aggregate outcome. Preserve authors’ synergy as attributed terminology, without adding MUTUALISM, reciprocal strain fitness, formal nonadditivity, directional exchange or a causal mechanism. The Figure 1 comparison supports a refinement of the existing node description/evidence, not a new graph topology.
+
+### growth_media[0] and cultivation setup
+
+completeness: concern. Targets: CommunityMech:000422.
+
+Recover three source-stated assay media and the 21-day observation without guessing the missing protocol.
+
+Represent standard 3N-BBM, 1% casein whey powder solution and their 1:1 hybrid as distinct conditions. Percentage basis and hybrid ratio basis are unverified, so do not label them w/v or v/v. Complete recipes, nutrient supplements, inoculation ratios/densities, light, temperature, pH, vessel, mixing and aeration remain unresolved. Catalogue maintenance medium is not study protocol.
+
+### Measurement endpoints and cellular readout scope
+
+evidence: supported. Targets: CommunityMech:000422.
+
+Pair protein, nitrate and ammonia trajectories are directly visible; cellular and mechanistic interpretations remain bounded.
+
+Figure 2 includes the pair but does not supply new strain-specific counts from visual inspection. Figure 3 excludes it. Retain measured concentration endpoint scope and qualify any assimilation terminology. The Figure 5 kit-label discrepancy is a source-method uncertainty, not a reason to invent an assay or remove a directly plotted endpoint.
+
+### external_resources, dataset and medium-link scope
+
+provenance: supported. Targets: CommunityMech:000422.
+
+The two publication resources are correctly typed and identified; no resource defect is established.
+
+Reasonable-request availability does not prove an omitted archive. No exact cross-Mech medium identifier follows from BBM or whey naming. No author contact, external deposit or raw data request is part of this review.
+
+### metal_relevance and metal_notes
+
+evidence: supported. Targets: CommunityMech:000422.
+
+Retain NOT_APPLICABLE for the described community function.
+
+No biological metal-processing role is claimed in the reviewed material. This does not assert that trace metals are absent from unavailable formulations.
+
+### discussions, curation history, caches and prior issues
+
+provenance: concern. Targets: CommunityMech:000422.
+
+Preserve prior repairs and narrow the unresolved conditions discussion using newly inspected figures.
+
+The discussion correctly leaves exact CVB identity and several protocol details open. Its duration/media and pair-value questions now have bounded figure answers. Historical abstract-only review is retained as provenance; it does not prevent source-specific updates or establish that no full-source detail exists. Current issues 1055–1057 are closed, and no new issue was created.
+
+### Native validation and immutable workflow
+
+schema: supported. Targets: CommunityMech:000422.
+
+All eight focused native checks pass; partial scientific status remains controlling.
+
+No canonical, source cache, history, generated product or earlier review was changed. Initial and final native summaries remain separate; final support also uses a distinct path to preserve an earlier root pin. Only a new immutable review bundle may subsequently be persisted.
+
+### Native completeness and validation quality
+
+completeness: supported. Targets: CommunityMech:000422.
+
+Completeness is 70; raw quality 123 caps at 100 despite partial scientific coverage.
+
+## Findings
+
+### culture-context-and-condition-scope: Recover figure-specific conditions and qualify growth comparisons
+
+minor / open / confirmed; issue key: cm-000422-culture-context-and-condition-scope.
+
+The generic medium and open discussion omit accessible 3N-BBM, 1% whey, 1:1 hybrid and 21-day context. The abstract-based growth wording should distinguish the higher pair values in WP/BBM from lower values in the hybrid. Attach direct pair-specific Figure 4/5 evidence for the measured endpoints, while retaining unresolved Methods, statistics and CVB identity. Do not transfer panel maxima or infer formal synergy, reciprocal fitness or assimilation mechanisms.
+
+## Recommended Actions And Acceptance Checks
+
+### recover-culture-context
+
+Update the existing record with accessible, condition-specific source evidence.
+
+- Represent standard 3N-BBM, 1% casein whey powder solution and the 1:1 hybrid as distinct assay conditions over 21 days. Preserve source wording without inventing percentage or ratio bases, complete recipes, CultureMech equivalents, temperature, light, inoculum or vessel details.
+- Qualify description, node description and evidence interpretation by medium. Figure 1 shows week-3 pair biomass of 1.1 g/L in WP, 0.23 in BBM and 0.46 in the hybrid; comparisons are respectively higher, higher and lower than the corresponding CV/CVB/MIX values. Keep these as displayed measurements without inventing significance or a formal additive expectation.
+- Attach precise Figure 4 and 5 evidence to the pair protein/nitrate/ammonia endpoint scope. Distinguish concentration changes from traced assimilation or transfer. Do not assign abstract 99%/90% maxima or Figure 3 non-pair cellular changes to the pair; preserve the unresolved Figure 5 kit wording.
+- Retain one untyped aggregate growth node, zero arrows and source-attributed synergy. Do not add MUTUALISM, culture-resolved benefits, crossfeeding or a causal mediator. Narrow the discussion to remaining full-recipe, inoculum, environmental, statistical and CVB identity questions; historical closed issues 1055–1057 stay historical.
+
+### complete-source-followup
+
+Complete scientific verification when a lawfully accessible full source is available.
+
+- Read exact full Methods, Results/statistical comparisons and any claim-critical supplementary content from an authorized accessible or supplied copy. Record actual section/figure/table locators and version; public figures and an HTML response to a PDF request do not certify the full paper.
+- Resolve medium bases/formulations, inoculum, environmental conditions, controls, replication, endpoint assays and the Figure 5 kit discrepancy before promoting scientific status. Verify CVB identity without treating a nomenclatural author or collection maintenance record as the study accession.
+- If later authorized curation adds caption or full-main excerpts, preserve exact source-specific cache provenance. Keep the current abstract cache accurately labeled and do not manufacture literal matches by combining unrelated sources. No author contact, paid access or raw-data reanalysis is authorized here.
+
+### validate-authorized-curation
+
+Validate separately authorized changes and retain immutable review history.
+
+- After authorized canonical changes, append a new history entry and run focused schema, strict, term, reference, GTDB/domain and history checks, followed by just gen-html and just check-docs-current. No such canonical or generator mutation occurs during this review.
+- Verify every new evidence locator and excerpt against its precise source. Preserve original reviews, access failures and source receipts. Any persistence here is limited to a new immutable review bundle and does not change partial scientific status.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml; Entire maintained YAML | supports | The record is the CVB and CCAP 211/19 Chlorella vulgaris pair, not the four-member panel or the Tetradesmus/Scenedesmus pair. It has two culture descriptors, one untyped aggregate interaction, no downstream arrows, a generic whey medium and an open conditions discussion. |
+| identity | doi:10.1007/s00284-026-05004-y; PMID:42249951; Abstract: named cultures and reported Chlorella combination | supports | The source names CVB and CCAP 211/19, abbreviated CV, and attributes synergistic growth to their coculture. The abstract compares combinations within a broader four-microalga panel. It does not establish a formal additivity model, culture-resolved reciprocal fitness or a transfer mechanism. |
+| media-caption | doi:10.1007/s00284-026-05004-y; PMID:42249951; Figure 1 caption; Figures 4 and 5 captions | supports | The Figure 1 caption identifies standard 3N-BBM (BBM), 1% casein whey powder solution (WP) and a 1:1 hybrid over 21 days. Figures 4 and 5 include CV+CVB concentration measurements over three weeks in BBM and WP. Percent and ratio bases, full recipes and experimental temperature, illumination, inoculum and vessel are not verified in the accessible captions. |
+| growth-figure | doi:10.1007/s00284-026-05004-y; PMID:42249951; Figure 1: CV, CVB, CV+CVB and MIX columns, week 3, each medium | supports | The image explicitly includes CV+CVB in all three media despite abbreviated caption coverage. Displayed biomass is 1.1 g/L in WP versus CV 0.83, CVB 0.75 and MIX 0.68; TO, a different culture, is 1.3. In BBM the pair is 0.23 versus 0.20, 0.19 and 0.19. In the hybrid the pair is 0.46, below 0.64, 0.56 and 0.54. These are read labels, not newly calculated statistical significance or formal nonadditivity. |
+| cytometry | doi:10.1007/s00284-026-05004-y; PMID:42249951; Figure 2: upper row including CV+CVB in BBM, hybrid and WP | supports | The pair appears in the flow-cytometry panels. Axis and distribution inspection does not provide strain-resolved counts or justify a fresh cell-number or flux estimate. |
+| size-scope | doi:10.1007/s00284-026-05004-y; PMID:42249951; Figure 3: culture legend and size-distribution panels | supports | Figure 3 shows CV, CVB, TO, SC and MIX but no CV+CVB series. Its size histograms must not be assigned to the pair as a directly measured pair result. |
+| protein-nitrate | doi:10.1007/s00284-026-05004-y; PMID:42249951; Figure 4: left panels for CV, CVB and CV+CVB, BBM and WP | supports | The pair is explicitly measured for protein and nitrate concentration over weeks 0–3. This supports the endpoint scope and condition-specific source attachment, without assigning abstract panel maxima or tracing assimilation. No line-plot digitization, new error-bar test or pair-specific numerical removal percentage was performed. |
+| ammonia | doi:10.1007/s00284-026-05004-y; PMID:42249951; Figure 5: left panel for CV, CVB and CV+CVB, BBM and WP; Figure 5 caption | supports | The pair has an ammonia concentration time course, including a downward WP trajectory. This is a measured concentration endpoint, not a demonstrated transport or exchange mechanism. The caption refers to a nitrate kit in this ammonia figure; that source wording remains unresolved pending full Methods. |
+| availability | doi:10.1007/s00284-026-05004-y; PMID:42249951; Data Availability | supports | The publisher states that study data can be obtained on reasonable request. No request was made. The inspected declaration does not establish a missing archive or justify substituting a bibliographic link for an experimental dataset. |
+| access | Direct Springer article/PDF routes, public preview and bounded open-copy discovery; lead-primary-read-scope.json: access scope; direct PDF response signature; OpenAlex location projection | supports | The full scientific main was not recovered. A nominally successful PDF route returned subscription HTML, and OpenAlex lists no open copy in its inspected locations. A publisher-attributed first-page preview and five public images are accessible. No actual supplementary contents were read; bounded discovery found no named asset, which is not proof that supplements do not exist. |
+| ontology | ontology-authority.json; Two distinct ID-label pairs across five occurrences | supports | NCBITaxon:3077 Chlorella vulgaris and ENVO:01001405 laboratory environment match authority labels. The taxon appears twice in membership and twice in the node. No GO or CHEBI identifier is encoded. |
+| schema | child-schema-authority.json; FunctionalRoleEnum.PRIMARY_PRODUCER; culture, community-state and interaction slots | supports | PRIMARY_PRODUCER denotes carbon fixation/autotrophic capability. Broad algal capability can be retained without claiming measured fixation in whey. ENGINEERED and SYNTHETIC describe the assembled laboratory pair, not genetic modification or stable equilibrium. |
+| strain | child-ccap211-19-authority.json; CCAP catalogue strain 211/19: identity and declared equivalent accession | supports | Direct CCAP identifies strain 211/19 as C. vulgaris and lists SAG 211-19 as an equivalent. Beijerinck is nomenclatural authority, not a unique CVB accession. Current collection bacteria-present status, maintenance medium and isolation history are not imported as focal experimental conditions or extra community members. |
+| domain | child-gtdb-domain-authority.json; NCBITaxon:3077 lineage and GTDB domain applicability | supports | The alga is eukaryotic, supporting both NO_GTDB_EQUIVALENT entries. No prokaryotic crosswalk, guessed alternative species or strain-specific classification is required. |
+| semantics | ontology-semantic-notes.json; Whole frozen auxiliary interpretation | supports | Two culture descriptors may share the species CURIE. CVB stays a qualified paper-local label, and aggregate growth does not establish typed mutualism, exchange or an additional causal edge. |
+| resources | dataset-verification.json; Publication identity, Data Availability, figure-caption scope and access limits | supports | Both encoded links correctly identify the publication. The resource audit reads captions and metadata, not figure pixels or full Methods. No archive-absence, missing-dataset or exact CultureMech equivalence finding is made. |
+| source-metadata | source-metadata-audit.json; Exact PMID, DOI and title verification | supports | Fresh metadata resolves the same 2026 Current Microbiology publication. Source identity is distinct from availability of its full scientific content. |
+| snippets | snippet-audit.json; All eight encoded excerpt occurrences | supports | Six excerpts strictly match fresh abstract text, one strictly matches the title and one is an explicitly documented DOI metadata-display projection. All eight match the unchanged cache. None is claimed to be a newly verified full-body or supplement excerpt. |
+| history | provenance-audit.json; Both sidecars, complete September report, exact October row and current issues 1055–1057 | supports | All three issues are closed/completed with no comments. Their graph, interaction-type and culture-label repairs remain intact. The prior target/cache hashes match. Newly accessible figures refine the existing conditions discussion; closed issues are not described as current open owners. |
+| inspect | inspect.json; Fresh official inspection before assessment | supports | The exact maintained target/class and 27 local inputs are pinned in the owned batch 10 checkout. Inputs were freshly inspected rather than inherited from another record. |
+| metrics | support-final-audit.json; Final score arithmetic and scoped supporting assessment | supports | One interaction node, zero arrows and one node-evidence occurrence give mean evidence 1.0 and native COMPLETE. Completeness is 70; one minor finding gives raw quality 123, capped at 100. These mechanical values do not change partial scientific status. |
+| support-manifest | supporting-artifact-manifest.json; Frozen supporting artifacts | supports | The final support receipt has a distinct filename; the preliminary support-audit.json remains unchanged because an earlier root receipt pins it. The manifest preserves the final support, provenance, lexical and resource checks. |
+| lead-read | lead-primary-read-scope.json; Exact lead scientific read and visual scope | supports | Lead read the whole target, focal local provenance and accessible primary text, and viewed all five images. Full Methods and statistical analysis remain inaccessible. The initial caption-only impression about Figure 1 coverage was corrected by viewing the actual pair columns before findings were frozen. |
+| source-scope | source-audit.json; Final lead findings and boundaries | supports | The lead assessment is partial, scientific_review false, with zero major and one minor finding. The finding recovers available cultivation/evidence details while preserving unknown full-source methods and statistics. |
+| root-source | root-independent-source-audit.json; Independent scientific acceptance | supports | Root independently read the accessible source text and viewed all five figures, agreeing on the condition-specific interpretation, retained graph and partial status. |
+| root-read | root-primary-read.json; Exact independent root read scope and immutable source pins | supports | Root read the target, abstract cache, provenance, available preview and authorities, and visually inspected all five figures. Its historical preliminary support pin is preserved unchanged; later finalized support is separately cited. |
+| auxiliary | auxiliary-frozen-manifest.json; Frozen child authority and native artifacts | supports | All eight focused native checks passed. The two ontology pairs match across five occurrences, and direct CCAP identity and eukaryotic GTDB applicability are bounded to their actual authority scopes. |
+| final-native | final-validator-summary.json; Separate final native metadata | supports | The initial validator summary remains immutable. This separate final summary records unchanged inspected inputs and the same eight passing executions. |
+| adapter | adapter-check.json; Explicit same-runtime discovery reuse and applicability | supports | The optional adapter is unavailable in the verified batch 10 runtime, with its original discovery time and ignored-inclusive search boundary preserved. No expression-module analysis is applicable to this culture/endpoint record and no other-checkout executable was invoked. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml; Actual execution 2026-10-21T18:51:53.311825+00:00 to 2026-10-21T18:51:54.718139+00:00 | supports | Schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-strict kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml --out /private/tmp/cm-review-session/batch-10/000422/strict-report.tsv; Actual execution 2026-10-21T18:51:53.317298+00:00 to 2026-10-21T18:52:02.887723+00:00 | supports | Strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-terms kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml; Actual execution 2026-10-21T18:51:53.321563+00:00 to 2026-10-21T18:51:56.013793+00:00 | supports | Encoded ID-label validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-gtdb kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml; Actual execution 2026-10-21T18:51:54.718599+00:00 to 2026-10-21T18:51:54.821136+00:00 | supports | GTDB status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-gtdb-domain kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml; Actual execution 2026-10-21T18:51:54.821592+00:00 to 2026-10-21T18:51:56.605355+00:00 | supports | Eukaryotic domain applicability passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-history history/records/Chlorella_Vulgaris_Whey_Coculture; Actual execution 2026-10-21T18:51:56.014233+00:00 to 2026-10-21T18:51:57.288117+00:00 | supports | Both append-only history sidecars passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T18:52:02.889235+00:00 to 2026-10-21T18:52:02.945027+00:00 | supports | Read-only cache filename check passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-references-explained kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml; Actual execution 2026-10-21T18:52:02.945377+00:00 to 2026-10-21T18:52:04.066675+00:00 | supports | Native references passed against the unchanged abstract cache; direct-source and biological support remain separate checks. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T17:04:17.819938+00:00 to 2026-10-21T17:04:25.370848+00:00 | supports | Batch 10 corpus diagnostic preserves its actual broader nonzero result; this focal one-node/zero-arrow graph separately reports COMPLETE. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T17:04:17.819995+00:00 to 2026-10-21T17:04:26.163649+00:00 | supports | Batch 10 corpus diagnostic preserves its actual broader nonzero result; this focal one-node/zero-arrow graph separately reports COMPLETE. |
+
+## Limits And Additional Notes
+
+- Partial scientific review: full Methods, complete Results/statistical analysis and actual supplementary contents were not recovered. Direct Abstract/Data Availability, captions, a first-page preview and all five main images were inspected; these permit a bounded correction, not source-wide certification.
+- The direct PDF route returned subscription HTML despite HTTP 200. OpenAlex access/location fields and bounded exact-source searches found no usable full copy; this is not a global absence claim. No access control was bypassed and no author was contacted.
+- Displayed Figure 1 values establish condition dependence, not formal additivity, reciprocal culture benefits or newly tested statistical significance. The pair appears in Figures 1, 2, 4 and 5; Figure 3 excludes it. No abstract panel maxima or raw cytometry counts were assigned to the pair.
+- Figure 4/5 concentration trajectories support measured endpoints but do not trace assimilation, transport or exchange. The ammonia caption’s nitrate-kit wording remains unresolved. Full assay and replicate definitions are unread.
+- The 1% whey and 1:1 hybrid labels have unverified bases; 21 days is an observation interval. Complete recipes, light, temperature, pH, inoculum, mixing, aeration and vessel remain unresolved. CCAP maintenance conditions and bacteria-present status are not focal protocol or community composition.
+- CVB remains paper-local shorthand without a verified formal accession. CCAP 211/19 identity and collection-declared SAG equivalence do not establish identical stocks or purity. Broad PRIMARY_PRODUCER capability does not certify measured carbon fixation in whey.
+- The eight excerpt occurrences comprise six strict abstract matches, one strict title match and one explicit DOI metadata projection; all eight match the cache. Excerpt matching and ontology consistency are distinct from scientific claim support. Closed issues retain historical scope, and no new issue or terminal disposition was made.
+- Completeness 70, quality 100/raw 123 and native COMPLETE are mechanical measures. Eight focused passes do not resolve missing scientific access. No raw-data/statistical analysis, paid service, canonical/cache/history/generated edit or later-record assessment occurred.
+- All 27 inspected inputs remain unchanged. No canonical, source-cache, history, generated or prior saved artifact was edited.
+- Lead and root independently viewed all five figures; sibling resource scope is metadata/captions and child scope is native/authority. Final support is a distinct file preserving the root-pinned preliminary receipt.
+- Zero major and one minor finding; completeness 70 and quality 100/raw 123. Partial completion and scientific_review false remain controlling.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T185922Z-chlorella-whey-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Chlorella whey coculture source and evidence review
+started_at: '2026-10-21T18:50:05.472601Z'
+finished_at: '2026-10-21T18:59:22.990594Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary evidence, auxiliary authorities
+    and provenance; no person-level independence is asserted.
+skill: review-yaml-record
+completion: partial
+verdict: needs_curation
+scientific_review: false
+summary: The named pair, broad roles and one untyped growth node are retained. Five
+  public figures support one minor follow-up for cultivation context, medium-dependent
+  growth comparisons and precise endpoint evidence. Full Methods and statistics remain
+  inaccessible, so scientific verification is partial despite eight passing focused
+  checks.
+source:
+  git_revision: 95812d3412d5aab41fd03422340cf736ac7b56f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Chlorella_Vulgaris_Whey_Coculture/2026-09-22T150933Z-codex-422.yaml
+    sha256: 0ab18d08addd3f44447d75832ae36b77cec8f3959a6fe0519573aaa9ef2b658f
+    role: context
+  - path: history/records/Chlorella_Vulgaris_Whey_Coculture/2026-09-22T151732Z-codex-399f98.yaml
+    sha256: bd539fd31d657162832d14caf9c049ef68600f1dfad83d9e526c59f342f12eab
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+    sha256: a73b9abd45c5b23d856add09519dcc812b72c3297307872b76e5e7b75c6e8f35
+    role: target
+  - path: references_cache/PMID_42249951.txt
+    sha256: ea121b0be41e8fb8849e76ab3d59ba820b5b8558567a96850ef7d777c59dd5e2
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-two-records-batch14.yaml
+    sha256: 8f8080ded57f038a83c00273330655f591560d3206ab0a42b265a7e8c30d5721
+    role: context
+  - path: reports/yaml_record_review/20260922T151544Z-Chlorella_Vulgaris_Whey_Coculture.md
+    sha256: d762570e321617b27a385a719401bfd7671842101a6db8cef9c78187ee3313fe
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000422
+  path: kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+  label: Chlorella vulgaris Whey Co-culture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+    role: canonical_record
+scope:
+  description: Whole canonical record assessed against accessible primary text, all
+    five main figures, current authorities and exact local provenance; full scientific
+    source coverage remains partial.
+  selection: Only released CommunityMech:000422 in the owned batch 10 checkout.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000422
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema validation passed.
+  target_ids:
+  - CommunityMech:000422
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused native execution in the owned batch 10 checkout; not certification
+    of inaccessible scientific methods.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict validation passed.
+  target_ids:
+  - CommunityMech:000422
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-strict kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-10/000422/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused native execution in the owned batch 10 checkout; not certification
+    of inaccessible scientific methods.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Encoded ID-label validation passed.
+  target_ids:
+  - CommunityMech:000422
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-terms kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused native execution in the owned batch 10 checkout; not certification
+    of inaccessible scientific methods.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB status validation passed.
+  target_ids:
+  - CommunityMech:000422
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused native execution in the owned batch 10 checkout; not certification
+    of inaccessible scientific methods.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Eukaryotic domain applicability passed.
+  target_ids:
+  - CommunityMech:000422
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused native execution in the owned batch 10 checkout; not certification
+    of inaccessible scientific methods.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Both append-only history sidecars passed.
+  target_ids:
+  - CommunityMech:000422
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-history history/records/Chlorella_Vulgaris_Whey_Coculture
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused native execution in the owned batch 10 checkout; not certification
+    of inaccessible scientific methods.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only cache filename check passed.
+  target_ids:
+  - CommunityMech:000422
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused native execution in the owned batch 10 checkout; not certification
+    of inaccessible scientific methods.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Native references passed against the unchanged abstract cache; direct-source
+    and biological support remain separate checks.
+  target_ids:
+  - CommunityMech:000422
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-references-explained kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused native execution in the owned batch 10 checkout; not certification
+    of inaccessible scientific methods.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Batch 10 corpus diagnostic preserves its actual broader nonzero result;
+    this focal one-node/zero-arrow graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000422
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - metrics
+  scope_note: Explicit same-batch corpus reuse. Nonzero corpus status is not assigned
+    as a new focal defect.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Batch 10 corpus diagnostic preserves its actual broader nonzero result;
+    this focal one-node/zero-arrow graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000422
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - metrics
+  scope_note: Explicit same-batch corpus reuse. Nonzero corpus status is not assigned
+    as a new focal defect.
+- check_id: scientific-source
+  name: Full scientific source verification
+  status: unavailable
+  required: true
+  summary: Full Methods, complete Results/statistics and any claim-critical supplementary
+    contents are unread. Abstract, captions and five figures support the bounded finding,
+    but scientific review remains partial.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - access
+  - lead-read
+  - root-source
+- check_id: figures
+  name: Five public main figure images
+  status: passed
+  required: true
+  summary: Lead and root independently viewed all five actual PNGs; Figure 1 includes
+    the pair in all three media. Statistical significance was not recomputed.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - growth-figure
+  - cytometry
+  - size-scope
+  - protein-nitrate
+  - ammonia
+- check_id: direct-snippets
+  name: Fresh reference-specific excerpt verification
+  status: passed
+  required: true
+  summary: 'Eight occurrences supported: six strict abstract matches, one strict title
+    match and one DOI metadata-display projection. All eight match the cache.'
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - snippets
+- check_id: supplement-discovery
+  name: Bounded supplementary asset discovery
+  status: unavailable
+  required: false
+  summary: No named asset was recovered within the inspected preview and bounded searches.
+    No supplementary content or global absence is certified.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - access
+  - resources
+- check_id: resources
+  name: Publication, collection and resource verification
+  status: passed
+  required: true
+  summary: Exact publication and CCAP identity verified at their stated scopes; no
+    catalogue recipe or purity transfer.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - resources
+  - strain
+  - source-metadata
+- check_id: reanalysis
+  name: Raw data or experimental reproduction
+  status: skipped
+  required: false
+  summary: No flow-cytometry reanalysis, line-plot digitization, statistical refitting
+    or culture experiment performed.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - lead-read
+  - root-read
+- check_id: adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Verified same-runtime discovery reuse preserves unavailable status; expression-module
+    analysis is not applicable to the encoded claims.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+  locator: Entire maintained YAML
+  summary: The record is the CVB and CCAP 211/19 Chlorella vulgaris pair, not the
+    four-member panel or the Tetradesmus/Scenedesmus pair. It has two culture descriptors,
+    one untyped aggregate interaction, no downstream arrows, a generic whey medium
+    and an open conditions discussion.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.983613Z'
+- evidence_id: identity
+  kind: primary_source
+  reference: doi:10.1007/s00284-026-05004-y; PMID:42249951
+  locator: 'Abstract: named cultures and reported Chlorella combination'
+  summary: The source names CVB and CCAP 211/19, abbreviated CV, and attributes synergistic
+    growth to their coculture. The abstract compares combinations within a broader
+    four-microalga panel. It does not establish a formal additivity model, culture-resolved
+    reciprocal fitness or a transfer mechanism.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.983695Z'
+  snapshot_sha256: 2abdc7be04b796489eb25a095660f614fced7c6b9d891564a46b6699f5f3195f
+  quote: synergistic growth
+- evidence_id: media-caption
+  kind: primary_source
+  reference: doi:10.1007/s00284-026-05004-y; PMID:42249951
+  locator: Figure 1 caption; Figures 4 and 5 captions
+  summary: The Figure 1 caption identifies standard 3N-BBM (BBM), 1% casein whey powder
+    solution (WP) and a 1:1 hybrid over 21 days. Figures 4 and 5 include CV+CVB concentration
+    measurements over three weeks in BBM and WP. Percent and ratio bases, full recipes
+    and experimental temperature, illumination, inoculum and vessel are not verified
+    in the accessible captions.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.983889Z'
+  snapshot_sha256: 2abdc7be04b796489eb25a095660f614fced7c6b9d891564a46b6699f5f3195f
+- evidence_id: growth-figure
+  kind: primary_source
+  reference: doi:10.1007/s00284-026-05004-y; PMID:42249951
+  locator: 'Figure 1: CV, CVB, CV+CVB and MIX columns, week 3, each medium'
+  summary: The image explicitly includes CV+CVB in all three media despite abbreviated
+    caption coverage. Displayed biomass is 1.1 g/L in WP versus CV 0.83, CVB 0.75
+    and MIX 0.68; TO, a different culture, is 1.3. In BBM the pair is 0.23 versus
+    0.20, 0.19 and 0.19. In the hybrid the pair is 0.46, below 0.64, 0.56 and 0.54.
+    These are read labels, not newly calculated statistical significance or formal
+    nonadditivity.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.983930Z'
+  snapshot_sha256: 9eef40e7cde58ab84e61d2d804d98c987cc284071dcd483246e59339a87760e7
+- evidence_id: cytometry
+  kind: primary_source
+  reference: doi:10.1007/s00284-026-05004-y; PMID:42249951
+  locator: 'Figure 2: upper row including CV+CVB in BBM, hybrid and WP'
+  summary: The pair appears in the flow-cytometry panels. Axis and distribution inspection
+    does not provide strain-resolved counts or justify a fresh cell-number or flux
+    estimate.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.984381Z'
+  snapshot_sha256: 5aac0273a7dd643e32ead65c9eee2baf5d1c49a431feab2ad0ca65b8321f7291
+- evidence_id: size-scope
+  kind: primary_source
+  reference: doi:10.1007/s00284-026-05004-y; PMID:42249951
+  locator: 'Figure 3: culture legend and size-distribution panels'
+  summary: Figure 3 shows CV, CVB, TO, SC and MIX but no CV+CVB series. Its size histograms
+    must not be assigned to the pair as a directly measured pair result.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.985120Z'
+  snapshot_sha256: 06d95d51ee0bf78cb07d80c2dc46d45f7612c78647b66d9d9f427a08456fc6e1
+- evidence_id: protein-nitrate
+  kind: primary_source
+  reference: doi:10.1007/s00284-026-05004-y; PMID:42249951
+  locator: 'Figure 4: left panels for CV, CVB and CV+CVB, BBM and WP'
+  summary: The pair is explicitly measured for protein and nitrate concentration over
+    weeks 0–3. This supports the endpoint scope and condition-specific source attachment,
+    without assigning abstract panel maxima or tracing assimilation. No line-plot
+    digitization, new error-bar test or pair-specific numerical removal percentage
+    was performed.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.985457Z'
+  snapshot_sha256: 00dfd338cc5622e6b4a099a33d4a347d9b72c1ef5751baeb7885ade9a2475474
+- evidence_id: ammonia
+  kind: primary_source
+  reference: doi:10.1007/s00284-026-05004-y; PMID:42249951
+  locator: 'Figure 5: left panel for CV, CVB and CV+CVB, BBM and WP; Figure 5 caption'
+  summary: The pair has an ammonia concentration time course, including a downward
+    WP trajectory. This is a measured concentration endpoint, not a demonstrated transport
+    or exchange mechanism. The caption refers to a nitrate kit in this ammonia figure;
+    that source wording remains unresolved pending full Methods.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.985895Z'
+  snapshot_sha256: e5eecf2012527c5ed8cf60b0f10015032cc2d6f6dc09f8520747a4e3f5569ac0
+- evidence_id: availability
+  kind: primary_source
+  reference: doi:10.1007/s00284-026-05004-y; PMID:42249951
+  locator: Data Availability
+  summary: The publisher states that study data can be obtained on reasonable request.
+    No request was made. The inspected declaration does not establish a missing archive
+    or justify substituting a bibliographic link for an experimental dataset.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.986209Z'
+  snapshot_sha256: 2abdc7be04b796489eb25a095660f614fced7c6b9d891564a46b6699f5f3195f
+- evidence_id: access
+  kind: validation
+  reference: Direct Springer article/PDF routes, public preview and bounded open-copy
+    discovery
+  locator: 'lead-primary-read-scope.json: access scope; direct PDF response signature;
+    OpenAlex location projection'
+  summary: The full scientific main was not recovered. A nominally successful PDF
+    route returned subscription HTML, and OpenAlex lists no open copy in its inspected
+    locations. A publisher-attributed first-page preview and five public images are
+    accessible. No actual supplementary contents were read; bounded discovery found
+    no named asset, which is not proof that supplements do not exist.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.986261Z'
+  snapshot_sha256: 747d466e441b5870b944bf61bac563132469f3922c7298976710e78a3033afd7
+- evidence_id: ontology
+  kind: authority
+  reference: ontology-authority.json
+  locator: Two distinct ID-label pairs across five occurrences
+  summary: NCBITaxon:3077 Chlorella vulgaris and ENVO:01001405 laboratory environment
+    match authority labels. The taxon appears twice in membership and twice in the
+    node. No GO or CHEBI identifier is encoded.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.986491Z'
+  snapshot_sha256: e5ebe22b75efb3382d69a07381193d202c424868eb8060fc65a9459732c4f0cf
+- evidence_id: schema
+  kind: authority
+  reference: child-schema-authority.json
+  locator: FunctionalRoleEnum.PRIMARY_PRODUCER; culture, community-state and interaction
+    slots
+  summary: PRIMARY_PRODUCER denotes carbon fixation/autotrophic capability. Broad
+    algal capability can be retained without claiming measured fixation in whey. ENGINEERED
+    and SYNTHETIC describe the assembled laboratory pair, not genetic modification
+    or stable equilibrium.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.986682Z'
+  snapshot_sha256: baa63174d50a6e8b697d7e86cffb1be5839c4a8afa43846feaab9b7a64e54486
+- evidence_id: strain
+  kind: authority
+  reference: child-ccap211-19-authority.json
+  locator: 'CCAP catalogue strain 211/19: identity and declared equivalent accession'
+  summary: Direct CCAP identifies strain 211/19 as C. vulgaris and lists SAG 211-19
+    as an equivalent. Beijerinck is nomenclatural authority, not a unique CVB accession.
+    Current collection bacteria-present status, maintenance medium and isolation history
+    are not imported as focal experimental conditions or extra community members.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.986829Z'
+  snapshot_sha256: 9049ca0cacfe682a69c3092093b4e8d897465466edcefff136f20aee3ddabe56
+- evidence_id: domain
+  kind: authority
+  reference: child-gtdb-domain-authority.json
+  locator: NCBITaxon:3077 lineage and GTDB domain applicability
+  summary: The alga is eukaryotic, supporting both NO_GTDB_EQUIVALENT entries. No
+    prokaryotic crosswalk, guessed alternative species or strain-specific classification
+    is required.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.986957Z'
+  snapshot_sha256: 699a2d078446f4340a88cba9044f14081bab575fc9a56222380cbc60a7146fdb
+- evidence_id: semantics
+  kind: authority
+  reference: ontology-semantic-notes.json
+  locator: Whole frozen auxiliary interpretation
+  summary: Two culture descriptors may share the species CURIE. CVB stays a qualified
+    paper-local label, and aggregate growth does not establish typed mutualism, exchange
+    or an additional causal edge.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.987041Z'
+  snapshot_sha256: 4380ae4763d574db9e4ce0a3f859c20405a34ee9ecb5d4e8bfb7e88959ebccd6
+- evidence_id: resources
+  kind: database
+  reference: dataset-verification.json
+  locator: Publication identity, Data Availability, figure-caption scope and access
+    limits
+  summary: Both encoded links correctly identify the publication. The resource audit
+    reads captions and metadata, not figure pixels or full Methods. No archive-absence,
+    missing-dataset or exact CultureMech equivalence finding is made.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.987167Z'
+  snapshot_sha256: 8a921c219ff3170bc82d803476972667ba2fbcbc83e005853e4cdc9c37aaf25b
+- evidence_id: source-metadata
+  kind: database
+  reference: source-metadata-audit.json
+  locator: Exact PMID, DOI and title verification
+  summary: Fresh metadata resolves the same 2026 Current Microbiology publication.
+    Source identity is distinct from availability of its full scientific content.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.987312Z'
+  snapshot_sha256: 22c101dc673f57a56e0836bc5ec9b925a3804a77332ff088b48b4bb19e5693e3
+- evidence_id: snippets
+  kind: validation
+  reference: snippet-audit.json
+  locator: All eight encoded excerpt occurrences
+  summary: Six excerpts strictly match fresh abstract text, one strictly matches the
+    title and one is an explicitly documented DOI metadata-display projection. All
+    eight match the unchanged cache. None is claimed to be a newly verified full-body
+    or supplement excerpt.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.987439Z'
+  snapshot_sha256: e17f40b34520a6b7a9b37928a0f6f251dfd8d63e0ad1e339fba161d725581249
+- evidence_id: history
+  kind: record_content
+  reference: provenance-audit.json
+  locator: Both sidecars, complete September report, exact October row and current
+    issues 1055–1057
+  summary: All three issues are closed/completed with no comments. Their graph, interaction-type
+    and culture-label repairs remain intact. The prior target/cache hashes match.
+    Newly accessible figures refine the existing conditions discussion; closed issues
+    are not described as current open owners.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.987526Z'
+  snapshot_sha256: 64ad6325f624a4a696359e0867d8164683688bbc5623400fdb165a6ef02317e0
+- evidence_id: inspect
+  kind: validation
+  reference: inspect.json
+  locator: Fresh official inspection before assessment
+  summary: The exact maintained target/class and 27 local inputs are pinned in the
+    owned batch 10 checkout. Inputs were freshly inspected rather than inherited from
+    another record.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.987642Z'
+  snapshot_sha256: cd78e682be5aeeb043c1fffcce1e0bc08efca860ed6c8a15188891388f84dd05
+- evidence_id: metrics
+  kind: validation
+  reference: support-final-audit.json
+  locator: Final score arithmetic and scoped supporting assessment
+  summary: One interaction node, zero arrows and one node-evidence occurrence give
+    mean evidence 1.0 and native COMPLETE. Completeness is 70; one minor finding gives
+    raw quality 123, capped at 100. These mechanical values do not change partial
+    scientific status.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.987671Z'
+  snapshot_sha256: 324bb738b2f944f3ec7a304bc53a343cf8c2d3f6d44e92059f821c2bd524fda0
+- evidence_id: support-manifest
+  kind: validation
+  reference: supporting-artifact-manifest.json
+  locator: Frozen supporting artifacts
+  summary: The final support receipt has a distinct filename; the preliminary support-audit.json
+    remains unchanged because an earlier root receipt pins it. The manifest preserves
+    the final support, provenance, lexical and resource checks.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.987695Z'
+  snapshot_sha256: ffb4bac99d61dfe425167d4c1b2f6bb5c1ab96de381f5749b70504659a62eb0b
+- evidence_id: lead-read
+  kind: validation
+  reference: lead-primary-read-scope.json
+  locator: Exact lead scientific read and visual scope
+  summary: Lead read the whole target, focal local provenance and accessible primary
+    text, and viewed all five images. Full Methods and statistical analysis remain
+    inaccessible. The initial caption-only impression about Figure 1 coverage was
+    corrected by viewing the actual pair columns before findings were frozen.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.987811Z'
+  snapshot_sha256: 747d466e441b5870b944bf61bac563132469f3922c7298976710e78a3033afd7
+- evidence_id: source-scope
+  kind: validation
+  reference: source-audit.json
+  locator: Final lead findings and boundaries
+  summary: The lead assessment is partial, scientific_review false, with zero major
+    and one minor finding. The finding recovers available cultivation/evidence details
+    while preserving unknown full-source methods and statistics.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.987851Z'
+  snapshot_sha256: 6882a26c1112a8b912fe74d23ba5e6240c4ca008b84f4d452b3cba22ad3bbd1f
+- evidence_id: root-source
+  kind: validation
+  reference: root-independent-source-audit.json
+  locator: Independent scientific acceptance
+  summary: Root independently read the accessible source text and viewed all five
+    figures, agreeing on the condition-specific interpretation, retained graph and
+    partial status.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.988018Z'
+  snapshot_sha256: eac1f30a6054e40fcc4707a1ecaff987c7aa2b02d0dd4d50be74f77be14e79ac
+- evidence_id: root-read
+  kind: validation
+  reference: root-primary-read.json
+  locator: Exact independent root read scope and immutable source pins
+  summary: Root read the target, abstract cache, provenance, available preview and
+    authorities, and visually inspected all five figures. Its historical preliminary
+    support pin is preserved unchanged; later finalized support is separately cited.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.988154Z'
+  snapshot_sha256: 5fc1df804bf6e7be03c194f8368bcf39eea186123b371ddd62b376820c215beb
+- evidence_id: auxiliary
+  kind: validation
+  reference: auxiliary-frozen-manifest.json
+  locator: Frozen child authority and native artifacts
+  summary: All eight focused native checks passed. The two ontology pairs match across
+    five occurrences, and direct CCAP identity and eukaryotic GTDB applicability are
+    bounded to their actual authority scopes.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.988318Z'
+  snapshot_sha256: b8def04baefba79b48dfc220a464e4b3deb3432a152f74e936e06ca7b314c7b8
+- evidence_id: final-native
+  kind: validation
+  reference: final-validator-summary.json
+  locator: Separate final native metadata
+  summary: The initial validator summary remains immutable. This separate final summary
+    records unchanged inspected inputs and the same eight passing executions.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.988446Z'
+  snapshot_sha256: 1d62fc254ad396b97f496de6f22d81e05cc2f8aab42ab89196ba937200b15531
+- evidence_id: adapter
+  kind: validation
+  reference: adapter-check.json
+  locator: Explicit same-runtime discovery reuse and applicability
+  summary: The optional adapter is unavailable in the verified batch 10 runtime, with
+    its original discovery time and ignored-inclusive search boundary preserved. No
+    expression-module analysis is applicable to this culture/endpoint record and no
+    other-checkout executable was invoked.
+  support: supports
+  accessed_at: '2026-10-21T18:59:22.988655Z'
+  snapshot_sha256: e68a62e9f5e0c1ca2628cdfa23acc4c707b47a9de266e6dc6c0392c70d9c4471
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+  locator: Actual execution 2026-10-21T18:51:53.311825+00:00 to 2026-10-21T18:51:54.718139+00:00
+  summary: Schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T18:51:54.718139Z'
+  snapshot_sha256: 080d9b8e90565f7b575a9890e472176b41fac54e4713de6628e5fff83f20ee28
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-strict kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-10/000422/strict-report.tsv
+  locator: Actual execution 2026-10-21T18:51:53.317298+00:00 to 2026-10-21T18:52:02.887723+00:00
+  summary: Strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T18:52:02.887723Z'
+  snapshot_sha256: da44c940a2cd218e68ce727cab0d4805a59022200d82fa3a03519613a6adbb21
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-terms kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+  locator: Actual execution 2026-10-21T18:51:53.321563+00:00 to 2026-10-21T18:51:56.013793+00:00
+  summary: Encoded ID-label validation passed.
+  support: supports
+  accessed_at: '2026-10-21T18:51:56.013793Z'
+  snapshot_sha256: 0e37c9bae1dae9247c1b42cd425d60818e22acd2d67dd080710812177cbf2c5b
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+  locator: Actual execution 2026-10-21T18:51:54.718599+00:00 to 2026-10-21T18:51:54.821136+00:00
+  summary: GTDB status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T18:51:54.821136Z'
+  snapshot_sha256: 75d46d608b7f61687daf27211d73d6c274e5b10a216fa2c4d361cff092c3bdeb
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+  locator: Actual execution 2026-10-21T18:51:54.821592+00:00 to 2026-10-21T18:51:56.605355+00:00
+  summary: Eukaryotic domain applicability passed.
+  support: supports
+  accessed_at: '2026-10-21T18:51:56.605355Z'
+  snapshot_sha256: 7b424f44494d9f179a112b3c6a47fbeb1835cb07c35b16e93dd1f2a1e44efdac
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-history history/records/Chlorella_Vulgaris_Whey_Coculture
+  locator: Actual execution 2026-10-21T18:51:56.014233+00:00 to 2026-10-21T18:51:57.288117+00:00
+  summary: Both append-only history sidecars passed.
+  support: supports
+  accessed_at: '2026-10-21T18:51:57.288117Z'
+  snapshot_sha256: 5767108c00ed6af558fd3b11d0cd54bae1ccf3ef1254677746866213dcfff8db
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T18:52:02.889235+00:00 to 2026-10-21T18:52:02.945027+00:00
+  summary: Read-only cache filename check passed.
+  support: supports
+  accessed_at: '2026-10-21T18:52:02.945027Z'
+  snapshot_sha256: 92b7faaab3b779c3741cd4e56fc489e7604821f2335ea70b02beb19fde5dd714
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-references-explained kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+  locator: Actual execution 2026-10-21T18:52:02.945377+00:00 to 2026-10-21T18:52:04.066675+00:00
+  summary: Native references passed against the unchanged abstract cache; direct-source
+    and biological support remain separate checks.
+  support: supports
+  accessed_at: '2026-10-21T18:52:04.066675Z'
+  snapshot_sha256: 74388a0e9b991f252d1edaf1f7ee70893d0193d15cfd0d4afcda3f774372c4b9
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T17:04:17.819938+00:00 to 2026-10-21T17:04:25.370848+00:00
+  summary: Batch 10 corpus diagnostic preserves its actual broader nonzero result;
+    this focal one-node/zero-arrow graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T17:04:25.370848Z'
+  snapshot_sha256: 301cbda477198c0cff0f38601fdb49af8d805cafa7da106733150d64786d987d
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T17:04:17.819995+00:00 to 2026-10-21T17:04:26.163649+00:00
+  summary: Batch 10 corpus diagnostic preserves its actual broader nonzero result;
+    this focal one-node/zero-arrow graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T17:04:26.163649Z'
+  snapshot_sha256: f8dae0e292e8e2f8c221450aacc2bb120abe0e3f32c16ed59f8406e8b859a895
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Record identity and culture membership
+  outcome: supported
+  summary: Retain the two C. vulgaris culture descriptors and their source-grounded
+    species identity.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - identity
+  - strain
+  - ontology
+  - domain
+  details: CVB is paper-local shorthand and CCAP 211/19 has direct collection support.
+    Their shared species CURIE does not make them duplicate culture entries or establish
+    stock equivalence. Do not promote Beijerinck into a formal CVB accession.
+  dimensions:
+  - name: community_scope
+    value: Defined two-culture microalgal laboratory coculture
+    definition: The focal pair is distinct from the four-species panel and other combinations.
+    evidence_ids:
+    - identity
+  - name: taxonomy_and_gtdb
+    value: NCBITaxon:3077; NO_GTDB_EQUIVALENT
+    definition: Species grounding with eukaryotic domain applicability; culture labels
+      remain separately represented.
+    evidence_ids:
+    - ontology
+    - domain
+    - strain
+- assessment_id: context
+  area: identity
+  topic: Origin, state, category and environment
+  outcome: supported
+  summary: ENGINEERED, SYNTHETIC, BIOTECHNOLOGY and laboratory environment fit the
+    experimental assembly.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - identity
+  - schema
+  - ontology
+  details: Whey valorization is an application, not evidence of a naturally occurring
+    dairy community, field deployment, genetic modification or ecological equilibrium.
+- assessment_id: roles
+  area: evidence
+  topic: taxonomy[0:2].functional_role and evidence
+  outcome: supported
+  summary: Retain broad PRIMARY_PRODUCER capability with source-qualified interpretation.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - identity
+  - schema
+  - semantics
+  details: Membership excerpts establish the tested cultures. They do not measure
+    carbon fixation, exclusive autotrophy, whey-carbon assimilation or reciprocal
+    metabolites in this assay. No extra role or mechanism is needed to maintain the
+    current bounded record.
+- assessment_id: overview
+  area: evidence
+  topic: description and engineering_design
+  outcome: concern
+  summary: Keep author-attributed growth synergy and actual endpoints; add medium-specific
+    evidence.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - identity
+  - growth-figure
+  - protein-nitrate
+  - ammonia
+  details: WP and BBM pair values exceed their corresponding single cultures and MIX
+    numerically, whereas the hybrid pair is lower. The broad overview should not imply
+    superiority under every condition. Figures 4 and 5 support pair endpoint measurements,
+    so their scope is not rejected merely because the abstract is general. Distinguish
+    observed concentration change from demonstrated assimilation flux; do not assign
+    the abstract 99%/90% maxima to this pair.
+- assessment_id: graph
+  area: evidence
+  topic: ecological_interactions[0], participants and absence of downstream edges
+  outcome: supported
+  summary: Retain one untyped community-level growth observation and zero arrows,
+    with condition-specific wording.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - identity
+  - growth-figure
+  - semantics
+  details: Both source-named cultures participate in the aggregate outcome. Preserve
+    authors’ synergy as attributed terminology, without adding MUTUALISM, reciprocal
+    strain fitness, formal nonadditivity, directional exchange or a causal mechanism.
+    The Figure 1 comparison supports a refinement of the existing node description/evidence,
+    not a new graph topology.
+- assessment_id: cultivation
+  area: completeness
+  topic: growth_media[0] and cultivation setup
+  outcome: concern
+  summary: Recover three source-stated assay media and the 21-day observation without
+    guessing the missing protocol.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - media-caption
+  - growth-figure
+  - access
+  details: Represent standard 3N-BBM, 1% casein whey powder solution and their 1:1
+    hybrid as distinct conditions. Percentage basis and hybrid ratio basis are unverified,
+    so do not label them w/v or v/v. Complete recipes, nutrient supplements, inoculation
+    ratios/densities, light, temperature, pH, vessel, mixing and aeration remain unresolved.
+    Catalogue maintenance medium is not study protocol.
+  dimensions:
+  - name: verified_culture_conditions
+    value: 3N-BBM; 1% casein whey powder solution; 1:1 hybrid; 21 days
+    definition: Figure-caption condition labels, not a complete formulation or verified
+      ratio basis.
+    evidence_ids:
+    - media-caption
+    - growth-figure
+- assessment_id: phenotypes
+  area: evidence
+  topic: Measurement endpoints and cellular readout scope
+  outcome: supported
+  summary: Pair protein, nitrate and ammonia trajectories are directly visible; cellular
+    and mechanistic interpretations remain bounded.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - cytometry
+  - size-scope
+  - protein-nitrate
+  - ammonia
+  details: Figure 2 includes the pair but does not supply new strain-specific counts
+    from visual inspection. Figure 3 excludes it. Retain measured concentration endpoint
+    scope and qualify any assimilation terminology. The Figure 5 kit-label discrepancy
+    is a source-method uncertainty, not a reason to invent an assay or remove a directly
+    plotted endpoint.
+- assessment_id: resources
+  area: provenance
+  topic: external_resources, dataset and medium-link scope
+  outcome: supported
+  summary: The two publication resources are correctly typed and identified; no resource
+    defect is established.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - resources
+  - source-metadata
+  - availability
+  details: Reasonable-request availability does not prove an omitted archive. No exact
+    cross-Mech medium identifier follows from BBM or whey naming. No author contact,
+    external deposit or raw data request is part of this review.
+- assessment_id: metal
+  area: evidence
+  topic: metal_relevance and metal_notes
+  outcome: supported
+  summary: Retain NOT_APPLICABLE for the described community function.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - record
+  - identity
+  details: No biological metal-processing role is claimed in the reviewed material.
+    This does not assert that trace metals are absent from unavailable formulations.
+- assessment_id: history
+  area: provenance
+  topic: discussions, curation history, caches and prior issues
+  outcome: concern
+  summary: Preserve prior repairs and narrow the unresolved conditions discussion
+    using newly inspected figures.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - history
+  - snippets
+  - media-caption
+  - growth-figure
+  details: The discussion correctly leaves exact CVB identity and several protocol
+    details open. Its duration/media and pair-value questions now have bounded figure
+    answers. Historical abstract-only review is retained as provenance; it does not
+    prevent source-specific updates or establish that no full-source detail exists.
+    Current issues 1055–1057 are closed, and no new issue was created.
+- assessment_id: validation
+  area: schema
+  topic: Native validation and immutable workflow
+  outcome: supported
+  summary: All eight focused native checks pass; partial scientific status remains
+    controlling.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - auxiliary
+  - final-native
+  - inspect
+  - snippets
+  details: No canonical, source cache, history, generated product or earlier review
+    was changed. Initial and final native summaries remain separate; final support
+    also uses a distinct path to preserve an earlier root pin. Only a new immutable
+    review bundle may subsequently be persisted.
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: supported
+  summary: Completeness is 70; raw quality 123 caps at 100 despite partial scientific
+    coverage.
+  target_ids:
+  - CommunityMech:000422
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 70
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required fields with taxon roles 50 + environment term 5 + external
+      resources 5 + growth media 10. One interaction node earns no at-least-three-node
+      bonus. No environmental-factor, dataset or node-metabolite bonus applies. Field
+      presence is not scientific support.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 − 50P1 − 10P2 − 2P3 + 20min(mean node evidence/2,1) + 15
+      if COMPLETE,0,100). P1=0, P2=0, P3=1, P4=0. One evidence entry/one node gives
+      mean 1 and bonus 10; COMPLETE adds 15. Raw 123 is capped at 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: culture-context-and-condition-scope
+  issue_key: cm-000422-culture-context-and-condition-scope
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: A bounded cultivation/evidence completeness follow-up preserves
+    the correct pair and qualified graph. Accessible figures resolve some context
+    questions and show medium dependence; no new mechanism or full-source certification
+    is needed for this limited correction.
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Recover figure-specific conditions and qualify growth comparisons
+  description: The generic medium and open discussion omit accessible 3N-BBM, 1% whey,
+    1:1 hybrid and 21-day context. The abstract-based growth wording should distinguish
+    the higher pair values in WP/BBM from lower values in the hybrid. Attach direct
+    pair-specific Figure 4/5 evidence for the measured endpoints, while retaining
+    unresolved Methods, statistics and CVB identity. Do not transfer panel maxima
+    or infer formal synergy, reciprocal fitness or assimilation mechanisms.
+  target_ids:
+  - CommunityMech:000422
+  field_paths:
+  - growth_media[0]
+  - description
+  - engineering_design.evidence
+  - ecological_interactions[0].description
+  - ecological_interactions[0].evidence
+  - discussions[0].prompt
+  - discussions[0].rationale
+  evidence_ids:
+  - media-caption
+  - growth-figure
+  - protein-nitrate
+  - ammonia
+  - history
+  - access
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+    role: canonical_record
+actions:
+- action_id: recover-culture-context
+  description: Update the existing record with accessible, condition-specific source
+    evidence.
+  finding_ids:
+  - culture-context-and-condition-scope
+  target_ids:
+  - CommunityMech:000422
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Represent standard 3N-BBM, 1% casein whey powder solution and the 1:1 hybrid as
+    distinct assay conditions over 21 days. Preserve source wording without inventing
+    percentage or ratio bases, complete recipes, CultureMech equivalents, temperature,
+    light, inoculum or vessel details.
+  - Qualify description, node description and evidence interpretation by medium. Figure
+    1 shows week-3 pair biomass of 1.1 g/L in WP, 0.23 in BBM and 0.46 in the hybrid;
+    comparisons are respectively higher, higher and lower than the corresponding CV/CVB/MIX
+    values. Keep these as displayed measurements without inventing significance or
+    a formal additive expectation.
+  - Attach precise Figure 4 and 5 evidence to the pair protein/nitrate/ammonia endpoint
+    scope. Distinguish concentration changes from traced assimilation or transfer.
+    Do not assign abstract 99%/90% maxima or Figure 3 non-pair cellular changes to
+    the pair; preserve the unresolved Figure 5 kit wording.
+  - Retain one untyped aggregate growth node, zero arrows and source-attributed synergy.
+    Do not add MUTUALISM, culture-resolved benefits, crossfeeding or a causal mediator.
+    Narrow the discussion to remaining full-recipe, inoculum, environmental, statistical
+    and CVB identity questions; historical closed issues 1055–1057 stay historical.
+- action_id: complete-source-followup
+  description: Complete scientific verification when a lawfully accessible full source
+    is available.
+  finding_ids: []
+  target_ids:
+  - CommunityMech:000422
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_42249951.txt
+    role: source_cache
+  acceptance_checks:
+  - Read exact full Methods, Results/statistical comparisons and any claim-critical
+    supplementary content from an authorized accessible or supplied copy. Record actual
+    section/figure/table locators and version; public figures and an HTML response
+    to a PDF request do not certify the full paper.
+  - Resolve medium bases/formulations, inoculum, environmental conditions, controls,
+    replication, endpoint assays and the Figure 5 kit discrepancy before promoting
+    scientific status. Verify CVB identity without treating a nomenclatural author
+    or collection maintenance record as the study accession.
+  - If later authorized curation adds caption or full-main excerpts, preserve exact
+    source-specific cache provenance. Keep the current abstract cache accurately labeled
+    and do not manufacture literal matches by combining unrelated sources. No author
+    contact, paid access or raw-data reanalysis is authorized here.
+- action_id: validate-authorized-curation
+  description: Validate separately authorized changes and retain immutable review
+    history.
+  finding_ids:
+  - culture-context-and-condition-scope
+  target_ids:
+  - CommunityMech:000422
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Vulgaris_Whey_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - After authorized canonical changes, append a new history entry and run focused
+    schema, strict, term, reference, GTDB/domain and history checks, followed by just
+    gen-html and just check-docs-current. No such canonical or generator mutation
+    occurs during this review.
+  - Verify every new evidence locator and excerpt against its precise source. Preserve
+    original reviews, access failures and source receipts. Any persistence here is
+    limited to a new immutable review bundle and does not change partial scientific
+    status.
+limitations:
+- 'Partial scientific review: full Methods, complete Results/statistical analysis
+  and actual supplementary contents were not recovered. Direct Abstract/Data Availability,
+  captions, a first-page preview and all five main images were inspected; these permit
+  a bounded correction, not source-wide certification.'
+- The direct PDF route returned subscription HTML despite HTTP 200. OpenAlex access/location
+  fields and bounded exact-source searches found no usable full copy; this is not
+  a global absence claim. No access control was bypassed and no author was contacted.
+- Displayed Figure 1 values establish condition dependence, not formal additivity,
+  reciprocal culture benefits or newly tested statistical significance. The pair appears
+  in Figures 1, 2, 4 and 5; Figure 3 excludes it. No abstract panel maxima or raw
+  cytometry counts were assigned to the pair.
+- Figure 4/5 concentration trajectories support measured endpoints but do not trace
+  assimilation, transport or exchange. The ammonia caption’s nitrate-kit wording remains
+  unresolved. Full assay and replicate definitions are unread.
+- The 1% whey and 1:1 hybrid labels have unverified bases; 21 days is an observation
+  interval. Complete recipes, light, temperature, pH, inoculum, mixing, aeration and
+  vessel remain unresolved. CCAP maintenance conditions and bacteria-present status
+  are not focal protocol or community composition.
+- CVB remains paper-local shorthand without a verified formal accession. CCAP 211/19
+  identity and collection-declared SAG equivalence do not establish identical stocks
+  or purity. Broad PRIMARY_PRODUCER capability does not certify measured carbon fixation
+  in whey.
+- The eight excerpt occurrences comprise six strict abstract matches, one strict title
+  match and one explicit DOI metadata projection; all eight match the cache. Excerpt
+  matching and ontology consistency are distinct from scientific claim support. Closed
+  issues retain historical scope, and no new issue or terminal disposition was made.
+- Completeness 70, quality 100/raw 123 and native COMPLETE are mechanical measures.
+  Eight focused passes do not resolve missing scientific access. No raw-data/statistical
+  analysis, paid service, canonical/cache/history/generated edit or later-record assessment
+  occurred.
+notes:
+- All 27 inspected inputs remain unchanged. No canonical, source-cache, history, generated
+  or prior saved artifact was edited.
+- Lead and root independently viewed all five figures; sibling resource scope is metadata/captions
+  and child scope is native/authority. Final support is a distinct file preserving
+  the root-pinned preliminary receipt.
+- Zero major and one minor finding; completeness 70 and quality 100/raw 123. Partial
+  completion and scientific_review false remain controlling.
+tags:
+- record-review
+- microalgal-coculture
+- figures-assessed
+- partial-source-access
+- batch-10
+```

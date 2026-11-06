@@ -1,0 +1,1807 @@
+# Coscinodiscus synthetic community record review
+
+- Review: 20261022T012643Z-coscinodiscus-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-22T01:18:26.865480Z
+- Finished UTC: 2026-10-22T01:26:43.221521Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+The complete main article and all five main figures support retaining five qualified nodes and two arrows. Two major findings concern cultivation/chemical identity and stronger non-graph roles/provision claims; two minor findings concern GTDB provenance and source/resource links. Seven focused checks pass; explained references fails on three genuine body excerpts absent the selected abstract cache. The declared supplement remains unavailable. Literal completeness 90 and raw quality 101/cap 100 do not certify a clean record.
+
+## Scope And Provenance
+
+Whole maintained record and complete main article including both tables,equations,59references and five main figures; local authority/native checks and scoped provenance/resources. Supplementary PDF not acquired.
+
+Selection: Only released CommunityMech:000020 in owned batch13.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base e117e3d37c65bfad2e04af53ab34e1325d8d7f98.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000020 | kb/communities/Coscinodiscus_Synthetic_Community.yaml | maintained | Coscinodiscus Synthetic Community |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000020 | Actual native exit 0. |
+| validate-strict | passed | True | CommunityMech:000020 | Actual native exit 0. |
+| validate-terms | passed | True | CommunityMech:000020 | Actual native exit 0. |
+| validate-references-explained | failed | True | CommunityMech:000020 | Actual native exit 1; three cache misses, not unsupported fresh-source claims. |
+| validate-gtdb | passed | True | CommunityMech:000020 | Actual native exit 0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000020 | Actual native exit 0. |
+| validate-history | passed | True | CommunityMech:000020 | Actual native exit 0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000020 | Actual native exit 0. |
+| audit-network corpus context | failed | False | CommunityMech:000020 | Actual corpus exit 1;44 warnings,zero errors. |
+| check-network-quality corpus context | failed | False | CommunityMech:000020 | Actual corpus exit 1;44 warnings,zero errors. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000020 | Unavailable in the owned runtime. |
+
+## Scientific And Domain Assessments
+
+### Defined diatom and four bacterial isolates
+
+identity: supported. Targets: CommunityMech:000020.
+
+The five-member identity and experimental scope are supported.
+
+Retain C. radiatus and source isolate labels CS4, Rose1, Crocei1 and CS1 with their existing species/genus grounding. ENGINEERED state/origin and PHYTOPLANKTON category fit the designed model. A genus-level authority mapping is not a claim that every strain in that genus shares the focal phenotype.
+
+### Hard roles, member notes and evidence explanations
+
+evidence: concern. Targets: CommunityMech:000020.
+
+Several non-graph statements are stronger than the experiments or cited snippets.
+
+Four SYNTROPHIC_PARTNER tags lack specific metabolic support; generic membership is insufficient. HEPES use is possible, DMSP consumption is predicted and weak Crocei1 homologs are not total absence. Distinguish diatom effects on bacterial growth from bacterial effects on the alga, and control-like recovery from demonstrated above-control stimulation. The no-synergy excerpt does not demonstrate diatom nutrient provision. Repair these statements without deleting genuine measured partner-specific effects or demanding obligacy.
+
+### Candidate Diatom Resource Provision
+
+graph: supported. Targets: CommunityMech:000020.
+
+Candidate diatom resource provision remains qualified; the strongest observed recipient response is Crocei1, not universal bacterial dependence.
+
+Exact selector ecological_interactions[0]; name Candidate Diatom Resource Provision; scope PAIRWISE; no interaction_type asserted. Actual taxa: {"source": {"id": "NCBITaxon:33642", "label": "Coscinodiscus radiatus"}, "target": null, "participants": []}. Canonical evidence bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet", "sha256": "2fccccf86f287273cea92572718769795dbdf6992f174708232a0e09b1dba1a2", "reference": "PMID:36300970", "supports": "PARTIAL", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 babcb5ca93f7ffee56157f3d0675d81e2dc5b8f99100d5ebecd5c572c539984a. PMID36300970 source locator: Results → Building a synthetic community, paragraph4/Figure3; Discussion paragraphs5–8. Retain the existing evidence tier and qualification. Candidate diatom resource provision remains qualified; the strongest observed recipient response is Crocei1, not universal bacterial dependence. Source-only PAIRWISE is valid; do not invent an exchange target or measured molecular flux.
+
+### Candidate Diatom Resource Provision → Bacterial DMSP Catabolic Potential
+
+graph: supported. Targets: CommunityMech:000020.
+
+Retain the existing HYPOTHESIZED relation.
+
+Exact selector ecological_interactions[0].downstream[0]; actual direction/participants: {"source_node": "Candidate Diatom Resource Provision", "target_node": "Bacterial DMSP Catabolic Potential", "source_scope": "PAIRWISE", "target_scope": "COMMUNITY_LEVEL", "source_taxa": {"source": {"id": "NCBITaxon:33642", "label": "Coscinodiscus radiatus"}, "target": null, "participants": []}, "target_taxa": {"source": null, "target": null, "participants": [{"id": "NCBITaxon:1434019", "label": "Mameliella"}, {"id": "NCBITaxon:74030", "label": "Roseovarius"}]}}. Current arrow description: HYPOTHESIZED - diatom-derived DMSP could provide substrate for the genomic catabolic potential of CS4 and Rose1. No partner-resolved release, consumption or flux was measured, and added DMSP as the carbon-only supplement did not promote growth under the tested minimal-medium conditions.. Retain HYPOTHESIZED. PMID36300970 Results auxotrophy/Table2 and Discussion paragraphs5–8 support a candidate resource-to-potential relation; no molecular exchange is measured. There is no separate edge-local excerpt; source-node bindings and linked source paragraphs establish the assessment boundary.
+
+### Bacterial DMSP Catabolic Potential
+
+graph: supported. Targets: CommunityMech:000020.
+
+DMSP catabolism remains sequence-based potential, not measured exchange or metabolite flux.
+
+Exact selector ecological_interactions[1]; name Bacterial DMSP Catabolic Potential; scope COMMUNITY_LEVEL; no interaction_type asserted. Actual taxa: {"source": null, "target": null, "participants": [{"id": "NCBITaxon:1434019", "label": "Mameliella"}, {"id": "NCBITaxon:74030", "label": "Roseovarius"}]}. Canonical evidence bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet", "sha256": "52c4e045297492e6b95470c4fbc73bb9b4f771c54fc9e81510f918aeb52ee9fb", "reference": "PMID:36300970", "supports": "PARTIAL", "evidence_source": "COMPUTATIONAL"}]. Snippet audit SHA256 babcb5ca93f7ffee56157f3d0675d81e2dc5b8f99100d5ebecd5c572c539984a. PMID36300970 source locator: Results → Auxotrophy and nutrient requirements, paragraph2/Table2; Methods genome sequencing. Retain the existing evidence tier and qualification. DMSP catabolism remains sequence-based potential, not measured exchange or metabolite flux.
+
+### Growth Phase-Dependent Bacterial Effects
+
+graph: supported. Targets: CommunityMech:000020.
+
+Partner- and growth-phase-dependent effects remain measured outcomes with the current control comparisons.
+
+Exact selector ecological_interactions[2]; name Growth Phase-Dependent Bacterial Effects; scope COMMUNITY_LEVEL; no interaction_type asserted. Actual taxa: {"source": null, "target": null, "participants": [{"id": "NCBITaxon:33642", "label": "Coscinodiscus radiatus"}, {"id": "NCBITaxon:1434019", "label": "Mameliella"}, {"id": "NCBITaxon:74030", "label": "Roseovarius"}, {"id": "NCBITaxon:216431", "label": "Croceibacter"}, {"id": "NCBITaxon:2742", "label": "Marinobacter"}]}. Canonical evidence bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet", "sha256": "9b9605d01f31a406ae3cef8d17fe686510a0660ebfebbc2bed3b25a80b0b58a0", "reference": "PMID:36300970", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 babcb5ca93f7ffee56157f3d0675d81e2dc5b8f99100d5ebecd5c572c539984a. PMID36300970 source locator: Results → Building a synthetic community, paragraphs3–5/Figures2–3. Retain the existing evidence tier and qualification. Partner- and growth-phase-dependent effects remain measured outcomes with the current control comparisons.
+
+### Growth Phase-Dependent Bacterial Effects → Community Growth and Pairwise Model
+
+graph: supported. Targets: CommunityMech:000020.
+
+Retain the existing PARTIAL relation.
+
+Exact selector ecological_interactions[2].downstream[0]; actual direction/participants: {"source_node": "Growth Phase-Dependent Bacterial Effects", "target_node": "Community Growth and Pairwise Model", "source_scope": "COMMUNITY_LEVEL", "target_scope": "COMMUNITY_LEVEL", "source_taxa": {"source": null, "target": null, "participants": [{"id": "NCBITaxon:33642", "label": "Coscinodiscus radiatus"}, {"id": "NCBITaxon:1434019", "label": "Mameliella"}, {"id": "NCBITaxon:74030", "label": "Roseovarius"}, {"id": "NCBITaxon:216431", "label": "Croceibacter"}, {"id": "NCBITaxon:2742", "label": "Marinobacter"}]}, "target_taxa": {"source": null, "target": null, "participants": [{"id": "NCBITaxon:33642", "label": "Coscinodiscus radiatus"}, {"id": "NCBITaxon:1434019", "label": "Mameliella"}, {"id": "NCBITaxon:74030", "label": "Roseovarius"}, {"id": "NCBITaxon:216431", "label": "Croceibacter"}, {"id": "NCBITaxon:2742", "label": "Marinobacter"}]}}. Current arrow description: PARTIAL - the measured partner- and phase-specific effects combine into the observed predominantly inhibitory all-member algal trajectory. A generalized Lotka-Volterra model fitted to monocultures and pairwise cultures reproduces that trajectory with separate early/late parameter sets; this supports the proposed contribution without isolating chemical mediators or proving higher-order interactions universally absent.. Retain PARTIAL. PMID36300970 Results Figures2–4 and Methods model section support measured pairwise outcomes contributing to the modeled community trajectory; no universal absence of higher-order processes follows. There is no separate edge-local excerpt; source-node bindings and linked source paragraphs establish the assessment boundary.
+
+### Bacterial Nutrient Supplement Responses
+
+graph: supported. Targets: CommunityMech:000020.
+
+Pooled amino-acid/vitamin rescue remains an intervention result, without identifying individual nutrients or a donor.
+
+Exact selector ecological_interactions[3]; name Bacterial Nutrient Supplement Responses; scope COMMUNITY_LEVEL; no interaction_type asserted. Actual taxa: {"source": null, "target": null, "participants": [{"id": "NCBITaxon:74030", "label": "Roseovarius"}, {"id": "NCBITaxon:216431", "label": "Croceibacter"}, {"id": "NCBITaxon:2742", "label": "Marinobacter"}]}. Canonical evidence bindings: [{"selector": "ecological_interactions[3].evidence[0].snippet", "sha256": "288728fc7a2784ce975f620157579b226cab2dcc71aa2af30c335f56dca96e96", "reference": "PMID:36300970", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 babcb5ca93f7ffee56157f3d0675d81e2dc5b8f99100d5ebecd5c572c539984a. PMID36300970 source locator: Results → Auxotrophy and nutrient requirements, paragraph 3/Figure5; Methods nutrient requirement analysis. Retain the existing evidence tier and qualification. Pooled amino-acid/vitamin rescue remains an intervention result, without identifying individual nutrients or a donor.
+
+### Community Growth and Pairwise Model
+
+graph: supported. Targets: CommunityMech:000020.
+
+Community growth and the pairwise model remain distinct empirical and computational claims, with bounded temporal scope.
+
+Exact selector ecological_interactions[4]; name Community Growth and Pairwise Model; scope COMMUNITY_LEVEL; no interaction_type asserted. Actual taxa: {"source": null, "target": null, "participants": [{"id": "NCBITaxon:33642", "label": "Coscinodiscus radiatus"}, {"id": "NCBITaxon:1434019", "label": "Mameliella"}, {"id": "NCBITaxon:74030", "label": "Roseovarius"}, {"id": "NCBITaxon:216431", "label": "Croceibacter"}, {"id": "NCBITaxon:2742", "label": "Marinobacter"}]}. Canonical evidence bindings: [{"selector": "ecological_interactions[4].evidence[0].snippet", "sha256": "de617d9406cae9f8f2210cd079b0d788511f66ae1c5d39cb34fe30d79d7b3d32", "reference": "PMID:36300970", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 babcb5ca93f7ffee56157f3d0675d81e2dc5b8f99100d5ebecd5c572c539984a. PMID36300970 source locator: Results → Building a synthetic community, paragraph5/Figures2–3; generalized Lotka-Volterra model paragraphs1–3/Figure4; Methods model paragraphs1–3. Retain the existing evidence tier and qualification. Community growth and the pairwise model remain distinct empirical and computational claims, with bounded temporal scope. Keep observed growth IN_VITRO and model interpretation explicitly computational; no extra arrow or universal no-synergy inference is required.
+
+### Focal ASW2 culture versus other protocols
+
+completeness: concern. Targets: CommunityMech:000020.
+
+Current numeric conditions and precise generic f/2 composition do not match the focal protocol.
+
+Replace the unsupported 18°C/ranges,12:12 cycle,100-light intensity and unverified pH/salinity/ingredient precision with source-backed focal conditions. Keep 150 mL T75 nonshaken culture separate from 48-well screening, bacterial MB preculture and MBM supplement assays. Correct the named cyanocobalamin versus cob(I)alamin mismatch; choose other salt/hydrate/counterion forms only when the actual focal formulation establishes them. Sampling or plate-reader shaking is not incubation agitation.
+
+### Identity versus chemical and process meaning
+
+grounding: concern. Targets: CommunityMech:000020.
+
+All labels match, but correct labels alone do not make ingredient identities correct.
+
+CHEBI:15982 is Co(I)alamin, not cyanocobalamin. EDTA, biotin/biotinate, thiamine salt/cation and salt hydration need source-formulation context rather than a generic recipe assumption. DMSP/GO catabolism remains potential in node1; broad GO0043903 is compatible with symbiotic regulation and is not an independent forced term defect.
+
+### Genus aggregation and ordinal abundance
+
+grounding: supported. Targets: CommunityMech:000020.
+
+Current taxonomic cores and ordinal abundance are retained.
+
+Mameliella3/3, Roseovarius117/117, Croceibacter38/38 and Marinobacter518/532 are rank aggregates, not isolate classifications or study abundance fractions. Marinobacter n_alt2 means two GTDB taxa total. DOMINANT describes the diatom’s role in the record; no cell-count percentage is required. The eukaryotic diatom correctly has no GTDB equivalent.
+
+### GTDB release/build provenance
+
+provenance: concern. Targets: CommunityMech:000020.
+
+Latest-release and build-date statements exceed what the snapshot metadata establishes.
+
+Preserve valid classifications and lookup routes; record actual snapshot hash and label filesystem mtime accurately. Do not infer release/build or species reclassification from that timestamp.
+
+### Project and crossMech links
+
+completeness: concern. Targets: CommunityMech:000020.
+
+The declared genome project and current linked-resource identities need bounded reconciliation.
+
+Add only verified project/sequence metadata, with genome and strain scope explicit. Do not interpret an empty ENA run-list response as missing genomes or invent the unread S2/S5 accessions. Current crossMech identifiers and URLs must be checked together, including hydration; imported reference formulation is not focal ASW2 evidence.
+
+### Fresh entailment versus cache coverage
+
+evidence: concern. Targets: CommunityMech:000020.
+
+Seventeen fresh-source matches coexist with three genuine native cache misses.
+
+The density, DMSP-potential and supplementation snippets occur in Results but not the selected abstract cache. Keep the failed required explained-reference check and issue596 boundary. Separately correct unrelated Abstract excerpts used to support named roles, formulation or provision. Do not rewrite the cache in this review or erase valid body-derived evidence.
+
+### Prior graph repair and current follow-up
+
+ownership: supported. Targets: CommunityMech:000020.
+
+Prior graph scope and dated source preparation remain distinct.
+
+Batch25 contains the actual prior focal review; batch24 preparation-only context is not another scientific verdict. Current graph qualifiers remain. Open non-graph/source issues and aggregate cohort contexts are not automatically closed or expanded by this review.
+
+### Whole main with unavailable supplement
+
+scope: supported. Targets: CommunityMech:000020.
+
+Current encoded claims can be adjudicated from the complete main and figures.
+
+Scientific review is complete for the current record, not a claim that every supplemental asset was read. No SI PDF was acquired after five ordinary public routes. Detailed SI fits/strain accession tables remain unavailable; preserve natural-versus-artificial seawater, initial-density aim versus actual inoculation and stock-dilution ambiguities. No raw-data reanalysis or challenge bypass was performed.
+
+### Actual focused and contextual checks
+
+schema: concern. Targets: CommunityMech:000020.
+
+Seven focused checks pass; explained references fails on three cache misses.
+
+The reference failure is explicitly required and remains unresolved in canonical/cache bytes. Native candidate-contract validation is separate. Both corpus contextual failures and optional unavailable adapter are also explicit. Structural network completeness does not certify metabolic mechanism.
+
+### Literal metrics
+
+completeness: supported. Targets: CommunityMech:000020.
+
+Completeness90; raw quality101, capped100.
+
+## Findings
+
+### cultivation: Replace generic conditions with the focal ASW2 protocol
+
+major / open / confirmed; issue key: cm-000020-cultivation.
+
+The current temperature/light settings and precise generic f/2 recipe are not the focal experiment reported in Methods. The named cyanocobalamin ingredient is also mapped to Co(I)alamin. These materially misdescribe cultivation and chemical identity.
+
+### non-graph-scope: Qualify member functions and non-graph resource claims
+
+major / open / confirmed; issue key: cm-000020-non-graph-scope.
+
+Four hard SYNTROPHIC_PARTNER roles and stronger HEPES/DMSP/resource-provision notes exceed their specific evidence. Generic membership/no-synergy snippets do not establish named metabolic functions, chemical transfer or condition-specific claims. The qualified graph already preserves these distinctions.
+
+### gtdb-provenance: Correct mapping release and build provenance
+
+minor / open / confirmed; issue key: cm-000020-gtdb-provenance.
+
+All four valid genus mappings claim latest release/build provenance that filesystemmtime does not establish.
+
+### resources: Reconcile source-declared data and linked media resources
+
+minor / open / confirmed; issue key: cm-000020-resources.
+
+The genome project explicitly declared by the paper is missing, and existing medium/ingredient URLs require current identity-aware reconciliation. Reference recipe linkage cannot substitute for the focal ASW2 protocol.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-culture
+
+Represent the focal protocol and chemical identities at their supported precision.
+
+- Use ASW2 and the exact Methods source: artificial seawater with 5 mM HEPES, stated commercial G9903 f/2 stock and 400 µM silicate; 13°C, 15:9light/dark, 25 µmol photons m−2 s−1, 150 mL in T75, no shaking, 3 diatom cells/mL and 10^3–10^4 bacteria/mL. Add normal spacing and units in curated fields.
+- Keep MB preculture 28°C/150 rpm, 48-well screening at 300 µL/40 rpm and MBM supplementation at 3 mL/28°C/150 rpm separate. Do not transfer reader agitation, DNA-extraction pH 8 buffer, ASW1 trace additives or ASW3 stock recipe to the focal culture.
+- Remove or explicitly qualify unsupported generic pH 8/range, salinity 30, temperature 18/ranges and precise ingredient amounts. Preserve source natural/artificial seawater and intended-versus-actual initial-density differences; do not silently resolve 50-times stock wording or invent a complete commercial-stock formulation.
+- If cyanocobalamin is retained with verified recipe evidence, ground the actual cyano-Co(III) form rather than CHEBI:15982 cob(I)alamin. Review EDTA, biotin/thiamine forms and salt hydrates against that actual formulation; do not infer them from a generic f/2 recipe.
+
+### qualify-nongraph
+
+Align member roles and non-graph prose with measured and inferred evidence.
+
+- Retain the diatom PRIMARY_PRODUCER and source isolate identities. Omit or specifically substantiate each optional SYNTROPHIC_PARTNER role without inventing obligacy, mandatory reciprocal fitness or a replacement role. Qualified Crocei1 resource dependence can remain without identifying a transferred molecule.
+- Describe HEPES use as possible; DMSP consumption as genome-based potential; Crocei1 homologs as weak rather than universally absent; CS1 downstream MMPA capacity as possible. Preserve pooled amino-acid/vitamin rescue and negative carbon-only growth controls without claiming an individual required nutrient or exact B12 form.
+- Distinguish bacterial effects on algal survival from algal effects on bacterial growth. Preserve initialCS1 inhibition and subsequent control-like recovery, CS4/Rose1 late algal benefit, Crocei1 algal inhibition and recipient benefit. Do not turn general phase-dependent stimulation into a universal above-control effect.
+- Replace unrelated membership/no-synergy evidence explanations with exact claim-local Results/Methods/Discussion support. Qualify diatom-to-bacteria resource/provision statements to the source inference. Keep all five nodes and both HYPOTHESIZED/PARTIAL arrows with their current taxon directions and tiers.
+- Preserve the actual native reference failure for three fresh-body snippets absent the abstract cache. Any later cache/source representation repair requires authorized distinct provenance and rerunning explained references; do not relabel valid Results snippets as fabricated.
+
+### repair-gtdb
+
+Make mapping provenance reproducible.
+
+- Retain rank-route cores 3/3, 117/117, 38/38 and518/532(.974), with Marinobacter two GTDB taxa total and diatom NO_GTDB_EQUIVALENT. Do not promote genus aggregates to exact source-strain genomes or abundance.
+- Record snapshot SHA 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd and rank lookup route. Label mtime as mtime; leave release/build unknown unless independently verified.
+
+### repair-resources
+
+Add verified project context and repair exact linked identities.
+
+- Represent PRJNA748384 as the source-declared bacterial genome project using the verified registry scope and exact isolate associations. An empty run-list response is not data absence; do not invent sequencing runs, marker IDs or individual genome accessions from unread S2/S5.
+- Resolve CultureMech and MediaIngredientMech identifiers against current authoritative records before changing URLs or IDs; retain hydrate/counterion specificity and identifier history. Do not blindly migrate old numeric IDs or copy the reference recipe as if it were measured study ASW2.
+- Keep source-declared but unavailable supplementary tables separate from directly verified registry metadata. Preserve publication identity and actual retrieval dates; no new deposit is inferred from background protein references.
+
+### validate-future-curation
+
+Validate separately authorized repairs without altering this review evidence.
+
+- After authorized changes, attach exact evidence, update history and run schema, strict, terms, explained references, GTDB, domain and history gates, then just gen-html and just check-docs-current. This review itself does not edit canonical, cache, history or generated files.
+- Preserve original inspect/source audit and its exact precision correction, all failed routes and native 7-pass/1-fail receipts. Additional SI recovery should receive a distinct read-scope audit before adding detailed fits or accession tables. No paid retrieval, author contact, crossMech mutation or automatic issue closure is authorized.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Coscinodiscus_Synthetic_Community.yaml; Whole maintained YAML | supports | Five-member Coscinodiscus synthetic community, five untyped nodes and two qualified arrows. The current graph is assessed separately from stronger member notes, hard roles and cultivation claims. |
+| identity | PMID:36300970; DOI:10.1128/aem.01619-22; Abstract; Results → Building a synthetic community of C. radiatus and four bacteria, paragraphs 1–2 | supports | The source names the diatom and four isolates CS4, Rose1, Crocei1 and CS1, then compares monocultures, individual diatom-bacterium pairs and the five-member community. General membership does not establish a universal metabolic partnership. |
+| pairwise | PMID:36300970; DOI:10.1128/aem.01619-22; Results → Building a synthetic community of C. radiatus and four bacteria, paragraphs 3–5; Figures 2–3 | supports | CS4 and Rose1 prolong algal stationary-phase survival; Crocei1 inhibits the diatom while benefiting from its presence; CS1 initially inhibits the alga, followed by recovery toward the control. The diatom inhibits CS1 on days 11–21 and does not significantly alter CS4/Rose1 bacterial growth. HEPES utilization is expressly possible, not a measured carbon-use result. |
+| genomic | PMID:36300970; DOI:10.1128/aem.01619-22; Results → Auxotrophy and nutrient requirements of the tested bacteria, paragraphs 1–2; Tables 1–2; Methods → Bacterial genome sequencing and mining | supports | Genome analysis predicts auxotrophies and DMSP-pathway homologs. CS4/Rose1 have predicted potential; Crocei1 has weak homologs, not an absolute absence of every pathway-related gene; CS1 lacks DmdA while downstream MMPA metabolism remains possible. Protein homology is not measured exchange or flux. |
+| supplementation | PMID:36300970; DOI:10.1128/aem.01619-22; Results → Auxotrophy and nutrient requirements of the tested bacteria, paragraph 3; Figure 5; Methods → Bacterial nutrient requirement analysis, sole paragraph | supports | A pooled 13-amino-acid plus vitamin treatment improves Rose1, Crocei1 and CS1; CS4 does not respond. DMSP or glucose alone does not promote growth. The assay uses 3 mL MBM, 30 µL inoculum from OD600 0.2 suspension, 28°C and 150 rpm, distinct from the diatom community. Pooled rescue does not identify an individual required compound or prove diatom donation. |
+| model | PMID:36300970; DOI:10.1128/aem.01619-22; Results → A generalized Lotka-Volterra model can predict the composition of the synthetic community, paragraphs 1–3; Figure 4; Methods → Interpretation of bacteria-diatom pairwise interactions with a generalized Lotka-Volterra model, paragraphs 1–3 | supports | Mono- and pairwise data parameterize a model fitted separately over days 1–17 and 17–41. It predicts the community trajectory better than the neutral comparison. This supports a bounded model interpretation without proving that bacterial-bacterial interactions or higher-order mechanisms never occur. Figure 4 panel b explicitly depicts days 1–17. |
+| interpretation | PMID:36300970; DOI:10.1128/aem.01619-22; Discussion, paragraphs 5–9 | supports | The authors discuss resource-mediated assembly and interpret Crocei1 support from diatom-associated resources, but report that the envisaged DMSP product-exchange mechanism was not obvious. Nutrient storage and other supplied carbon sources can buffer responses. Retain these source-supported interpretations with their experimental and mechanistic limits. |
+| culture | PMID:36300970; DOI:10.1128/aem.01619-22; Materials and Methods → Bacteria isolation, identification, and media, paragraph 2; Bacteria-diatom co-cultivation, paragraph 3 | supports | The focal culture uses ASW2, 5 mM HEPES, commercial f/2 stock G9903 and added silicate to 400 µM; 150 mL in T75 tissue-culture flasks at 13°C, 15 h light/9 h dark and 25 µmol photons m−2 s−1. Initial C. radiatus density is 3 cells/mL and bacteria 10^3–10^4 cells/mL; three biological replicates. No shaking is applied. The quoted words occur in the latter paragraph. |
+| stage-boundaries | PMID:36300970; DOI:10.1128/aem.01619-22; Materials and Methods → Bacteria isolation, identification, and media, paragraphs 1–2; Bacteria-diatom co-cultivation, paragraphs 1–3; Bacterial nutrient requirement analysis | supports | MB bacterial preculture at 28°C/150 rpm, 300 µL screening cultures in 48-well plates with 40 rpm, and 150 mL nonshaken focal cultures are distinct. ASW1 trace additions and ASW3 detailed stock recipe are not ASW2. The source wording about 50-times f/2 stock does not establish every final salt concentration, pH or salinity. |
+| measurement | PMID:36300970; DOI:10.1128/aem.01619-22; Materials and Methods → C. radiatus cell counting; Bacterial quantification by qPCR, paragraphs 1–3; Chl, a measurement and calculation of interactive effects, paragraphs 1–2 | supports | The focal diatom endpoint is microscopy-based live/dead cell counting; bacterial densities use genomic-DNA qPCR calibrated against plated bacterial dilution series. This does not convert each coculture qPCR reading into a direct viable-cell assay. Chlorophyll screening and reader shaking are separate from focal incubation conditions. |
+| deposition | PMID:36300970; DOI:10.1128/aem.01619-22; Materials and Methods → Bacterial genome sequencing and mining; Data availability | supports | The paper explicitly deposits four bacterial genomes under PRJNA748384 and refers to individual genome accessions in Table S5 and partial 16S marker accessions in Table S2. Those supplemental tables were not recovered; independently verified registry records must determine any accession additions. |
+| ontology | /private/tmp/cm-review-session/batch-13/000020/ontology-authority.json; All 33 exact ID/label pairs, definitions and 53 placements | supports | All canonical labels match; identity checking does not establish that a named cyanocobalamin ingredient is the encoded Co(I) species. Broad GO and marine-environment terms remain contextual. |
+| chemistry | /private/tmp/cm-review-session/batch-13/000020/child-chemical-scope.json; All fourteen recipe rows and exact vitamin/salt candidate definitions | supports | The current sodium-silicate term includes sodium metasilicate as a synonym; no label-driven defect is imposed. Cyanocob(III)alamin CHEBI:17439 is the verified structural cyanocobalamin candidate. Biotin15956 and thiamine hydrochloride49105 remain conditional recipe-form candidates, not proof of focal stock composition. |
+| schema | /private/tmp/cm-review-session/batch-13/000020/child-schema-semantics.json; Literal roles, abundance, evidence, community and cultivation enums | supports | SYNTROPHIC_PARTNER means engages in syntrophic metabolism; general association alone does not establish that function. No obligacy or fixed abundance percentage is imposed. PRIMARY_PRODUCER is supported for the phototrophic diatom. |
+| gtdb | /private/tmp/cm-review-session/batch-13/000020/child-gtdb-crosswalk.json; Four rank-aware genus resolutions, mapping bytes and provenance limits | supports | Valid genus cores reproduce Mameliella 3/3, Roseovarius 117/117, Croceibacter 38/38 and Marinobacter 518/532 with fraction 0.974 and two GTDB taxa total. These are authority aggregates, not isolate-specific genomes or experimental abundance. The diatom is outside GTDB scope. |
+| semantics | /private/tmp/cm-review-session/batch-13/000020/ontology-semantic-notes.json; Final source-aware chemical, functional-role and graph assessment | supports | Retain the qualified graph, broad process context and ordinal abundance. Repair source-inaccurate cultivation and chemical meaning together, and separately qualify unsupported non-graph metabolic assertions. No automatic species replacement or GO0043903 deletion. |
+| snippets | /private/tmp/cm-review-session/batch-13/000020/snippet-audit.json; Seventeen canonical excerpt occurrences against fresh source and selected cache | supports | All seventeen are supported by fresh reference-specific text. Fourteen match the abstract cache; three Results excerpts are absent from that cache and cause an actual native reference failure. Lexical match is distinct from claim entailment. |
+| contexts | /private/tmp/cm-review-session/batch-13/000020/snippet-source-contexts.json; Five complete source paragraphs containing the canonical excerpts | supports | The complete paragraph contexts distinguish general membership/Importance from measured density, genomic potential and pooled supplementation. Five node snippet hashes are individually bound below without reproducing long quotations. |
+| resources | /private/tmp/cm-review-session/batch-13/000020/dataset-verification.json; Source-declared project and exact resource identity scope | supports | PRJNA748384 is the verified synthetic phytoplankton genome project. Six assembly pairs include four focal isolates and two other isolates. Exact focal GenBank assemblies are CS4 GCA_019392335.1, Rose1 GCA_019392295.1, Crocei1 GCA_019392315.1 and CS1 GCA_019392275.1. Empty read-run output does not negate these genomes. These identities were verified independently of unread Table S5. |
+| external | /private/tmp/cm-review-session/batch-13/000020/external-resource-verification.json; Exact CultureMech and three MediaIngredientMech identities and current URLs | supports | CultureMech:000149 genuinely identifies f/2; its obsolete URL returns 404. All three numeric MIM legacy identifiers are absent from the complete current 2953-row index; current zinc-sulfate CHEBI:35176 and copper-sulfate CHEBI:23414 records establish chemical identity only, not a legacy-ID crosswalk. The placeholder has no supported replacement. CultureMech backfilled source_environment text is circular and does not independently corroborate ASW2. |
+| provenance | /private/tmp/cm-review-session/batch-13/000020/provenance-audit.json; Exact batch25 review, sole history/cache, batch24 preparation-only chronology, cohort and current issue contexts | supports | Prior graph curation is not a certification of non-graph roles or generic medium. Earlier preparation notes are chronology, not another completed focal review; corpus cohort findings remain scoped aggregate context. |
+| inspection | /private/tmp/cm-review-session/batch-13/000020/inspect.json; All thirty-two immutable official inputs | supports | The target, twenty-one authorities and ten focal/context files are bound. Discovery included ignored files; incidental cross-citations and repeated aggregate warnings were not promoted to extra focal scientific reviews. |
+| assets | /private/tmp/cm-review-session/batch-13/000020/lead-source-assets.json; Complete main and five main JPEGs; five failed declared-SI routes | supports | Whole article text, two tables, model equations, all five captions and 59 references were read. All five main figures were viewed. The declared supplemental PDF remained inaccessible; challenge/error bodies are explicitly not PDFs. |
+| lead-read | /private/tmp/cm-review-session/batch-13/000020/lead-primary-read-scope.json; Actual whole main/figure and authority reading | supports | Lead read the complete main text in four contiguous slices and all main figures, plus authority definition/location projections and schema/crosswalk receipts. Sibling and root own their stated cache/provenance reads; no lead SI reading is claimed. |
+| source-scope | /private/tmp/cm-review-session/batch-13/000020/source-audit-final.json; Final two major/two minor groups and scientific scope | supports | Whole main evidence supports adjudication of current claims despite unread supplementary details. The source audit preserves measured results and graph qualifiers while correcting cultivation, non-graph scope, mapping provenance and resources. |
+| source-correction | /private/tmp/cm-review-session/batch-13/000020/source-audit-precision-correction.json; Exhaustive source-receipt precision correction | supports | The immutable initial source receipt counted a nonexistent top-level external-resource block and named an incorrect field. The final receipt corrects completeness to 90 and uses actual culturemech_id/culturemech_url selectors; findings and raw quality 101 are unchanged. |
+| root-source | /private/tmp/cm-review-session/batch-13/000020/root-independent-source-audit.json; Independent root science and declared read boundaries | supports | Root independently reviewed the maintained record, whole main and main figures plus authority/resource context. Its actual read scope and final grouped findings are preserved. |
+| metrics | /private/tmp/cm-review-session/batch-13/000020/support-final-audit.json; Distinct frozen final support and literal arithmetic | supports | Completeness 90; base quality 125 minus two major and two minor findings gives raw 101, capped at 100. Required reference-check failure is not erased by a high metric or lexical fresh-source matching. |
+| support-manifest | /private/tmp/cm-review-session/batch-13/000020/supporting-artifact-manifest.json; Immutable supporting artifact manifest | supports | Final support follows scientific and authority freeze; initial support and all failed routes remain unchanged. |
+| auxiliary | /private/tmp/cm-review-session/batch-13/000020/auxiliary-frozen-manifest.json; Final native and local authority receipts | supports | Thirty-three labels match. Seven focused native checks pass and the explained-reference check fails on three body excerpts absent from the selected abstract cache. All thirty-two maintained inputs remain unchanged. |
+| final-native | /private/tmp/cm-review-session/batch-13/000020/final-validator-summary.json; Eight actual focused command outcomes | supports | Seven passes and one reference-check failure are reported as executed; no cache was rewritten to hide the failure and no fresh-source-supported excerpt is called scientifically false merely because the cache is partial. |
+| corpus-context | /private/tmp/cm-review-session/batch-13/000020/child-current-corpus-context.json; Fresh batch13 corpus diagnostics and focal warning scope | supports | Actual corpus audit-network and check-network-quality exit 1 with 44 warnings across 16 of 477 records and zero errors. Their contextual scope is separate from focused record checks. |
+| adapter | /private/tmp/cm-review-session/batch-13/000020/adapter-check.json; Owned-runtime optional adapter availability | supports | Optional adapter availability is reported from the owned runtime. No external-checkout adapter or paid provider is invoked. |
+| check-validate | /private/tmp/cm-review-session/batch-13/000020/validate.json; Actual immutable command/stdout/stderr | supports | The focused native command passed; scientific entailment remains separately assessed. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-13/000020/validate-strict.json; Actual immutable command/stdout/stderr | supports | The focused native command passed; scientific entailment remains separately assessed. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-13/000020/validate-terms.json; Actual immutable command/stdout/stderr | supports | The focused native command passed; scientific entailment remains separately assessed. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-13/000020/validate-references-explained.json; Actual immutable command/stdout/stderr | supports | Three body excerpts absent from the selected abstract cache cause exit 1; fresh main supports all three. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-13/000020/validate-gtdb.json; Actual immutable command/stdout/stderr | supports | The focused native command passed; scientific entailment remains separately assessed. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-13/000020/validate-gtdb-domain.json; Actual immutable command/stdout/stderr | supports | The focused native command passed; scientific entailment remains separately assessed. |
+| check-validate-history | /private/tmp/cm-review-session/batch-13/000020/validate-history.json; Actual immutable command/stdout/stderr | supports | The focused native command passed; scientific entailment remains separately assessed. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-13/000020/normalize-cache-names-check.json; Actual immutable command/stdout/stderr | supports | The focused native command passed; scientific entailment remains separately assessed. |
+| context-audit-network | /private/tmp/cm-review-session/batch-13/audit-network.json; Actual fresh batch13 corpus baseline | supports | Exit 1 with44 warnings across16 of 477 records and zero errors; contextual scope preserved. |
+| context-check-network-quality | /private/tmp/cm-review-session/batch-13/check-network-quality.json; Actual fresh batch13 corpus baseline | supports | Exit 1 with44 warnings across16 of 477 records and zero errors; contextual scope preserved. |
+
+## Limits And Additional Notes
+
+- The source-linked 3.2 MB supplement was not recovered through five ordinary public routes. Challenge HTML and XML/HTML errors are not PDF data. No SI figures, modeldetails or S2/S5 marker/genome tables were read. Current encoded claims are adjudicable from whole main; this does not assert complete access to every asset.
+- Results describes natural-seawater-derived medium, whereas Methods specifies artificial seawater. The ecological aim of 5×10^5 bacterial cells/mL differs from focal 10^3–10^4 inoculation. Keep these source contexts distinct. Commercial stock 50-times wording does not independently establish a complete final formulation, pH or salinity.
+- Figure 4 text/caption has panel/color-description inconsistencies; actual panel b covers days1–17 and visually distinguishes pointed promotion from flat inhibition. The model uses separate 1–17/17–41 periods; its fit does not prove universal absence of bacterial-bacterial or higher-order processes.
+- Genomic potential, pooled rescue and qPCR-calibrated bacterial density do not directly establish individual molecular exchange, viable counts at every time point or exact vitamin form. General photosynthesis/provision context does not prove uniform benefit to every bacterium.
+- Seven native focused checks pass; required explained references actually fails on three Results excerpts absent the selected abstract cache. Fresh main supports those excerpts. Capped quality and structural network completeness do not override this failure or the scientific findings.
+- Ordinal abundance and genus mapping genome counts are different quantities. No fixed abundance percentage, automatic species-levelpromotion or mandatory new interaction type is imposed.
+- Seventeen fresh-source excerpt occurrences and fourteen cache matches are distinguished; five node snippets have exact selector/SHA bindings, and both downstream arrows have explicit source/target/participant and evidence-tier assessments.
+- The sole two-word quote No shaking is from Methods Bacteria-diatom co-cultivation paragraph 3. No long canonical source snippets are copied.
+- Original source audit is preserved with distinct final audit and precisioncorrection: completeness 90 and actual culturemech_id/url selectors. All 32 official inputs remain unchanged.
+- Actual nonrequired corpus audit-network/check-network-quality failures and optional unavailable adapter are explicitly represented. Root alone saves after independent whole-candidate acceptance.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261022T012643Z-coscinodiscus-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Coscinodiscus synthetic community record review
+started_at: '2026-10-22T01:18:26.865480Z'
+finished_at: '2026-10-22T01:26:43.221521Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate lead,root,authority and supporting reviewers; no person-level
+    independence claim.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: The complete main article and all five main figures support retaining five
+  qualified nodes and two arrows. Two major findings concern cultivation/chemical
+  identity and stronger non-graph roles/provision claims; two minor findings concern
+  GTDB provenance and source/resource links. Seven focused checks pass; explained
+  references fails on three genuine body excerpts absent the selected abstract cache.
+  The declared supplement remains unavailable. Literal completeness 90 and raw quality
+  101/cap 100 do not certify a clean record.
+source:
+  git_revision: e117e3d37c65bfad2e04af53ab34e1325d8d7f98
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Coscinodiscus_Synthetic_Community/2026-10-06T025228Z-codex-c5e0cf.yaml
+    sha256: 7ba654d2e2a36240fc53caaf313e26a5c1ac928171dfbfb29fb9a94bee64a625
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+    sha256: 96bf155c9e47de5f8934bbf367f392bfcee5073098125c841db171fd0b9dda1a
+    role: target
+  - path: references_cache/PMID_36300970.md
+    sha256: 27c42cb32ffce7ca994a115959fbb6aa13ef7d2d64fc9c6179ab588a0007daad
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261005-batch24.yaml
+    sha256: e85c631d1b0762a661c513d1c1ca07407d0c97351ae631a7b8207c87d8eaeb8c
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261005-batch25.yaml
+    sha256: 4edc573fc23b35ff987ade1a4266973a9e1ef1e1162ea63b621fc3f9af098278
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-three-records-batch24.yaml
+    sha256: c643f50b402cf23b8e756e43adfdfca7d6a93e64033a5d0accf0169f7ca97a63
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-two-records-batch25.yaml
+    sha256: d68fe65a9567b6df683fe31c876cae278348b4eca31590d64ba494dcc96cb053
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.md
+    sha256: e432615b147787c8d009d96d2f11e5b78a45927bf9c69e45ec0d31123d1fc2e9
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/frozen_inventory_metrics.tsv
+    sha256: d5a47bbcc3745a489ff507680aa7360a6a65ce070ce4ec88f886b70128791313
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md
+    sha256: 4e7781aa8cdfc4bb42d896ebe75920719d9dcade92ffc4a0ae07af7481cb37b3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000020
+  path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+  label: Coscinodiscus Synthetic Community
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+    role: canonical_record
+scope:
+  description: Whole maintained record and complete main article including both tables,equations,59references
+    and five main figures; local authority/native checks and scoped provenance/resources.
+    Supplementary PDF not acquired.
+  selection: Only released CommunityMech:000020 in owned batch13.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000020
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000020
+  command: just --no-dotenv validate kb/communities/Coscinodiscus_Synthetic_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused current record/history check; cache-name normalization preflight
+    is corpus-wide. All32 inspected inputs remain unchanged.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000020
+  command: just --no-dotenv validate-strict kb/communities/Coscinodiscus_Synthetic_Community.yaml
+    --out /private/tmp/cm-review-session/batch-13/000020/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused current record/history check; cache-name normalization preflight
+    is corpus-wide. All32 inspected inputs remain unchanged.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000020
+  command: just --no-dotenv validate-terms kb/communities/Coscinodiscus_Synthetic_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused current record/history check; cache-name normalization preflight
+    is corpus-wide. All32 inspected inputs remain unchanged.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: failed
+  required: true
+  summary: Actual native exit 1; three cache misses, not unsupported fresh-source
+    claims.
+  target_ids:
+  - CommunityMech:000020
+  command: just --no-dotenv validate-references-explained kb/communities/Coscinodiscus_Synthetic_Community.yaml
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused current record/history check; cache-name normalization preflight
+    is corpus-wide. All32 inspected inputs remain unchanged.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000020
+  command: just --no-dotenv validate-gtdb kb/communities/Coscinodiscus_Synthetic_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused current record/history check; cache-name normalization preflight
+    is corpus-wide. All32 inspected inputs remain unchanged.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000020
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Coscinodiscus_Synthetic_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused current record/history check; cache-name normalization preflight
+    is corpus-wide. All32 inspected inputs remain unchanged.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000020
+  command: just --no-dotenv validate-history history/records/Coscinodiscus_Synthetic_Community
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused current record/history check; cache-name normalization preflight
+    is corpus-wide. All32 inspected inputs remain unchanged.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000020
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused current record/history check; cache-name normalization preflight
+    is corpus-wide. All32 inspected inputs remain unchanged.
+- check_id: context-audit-network
+  name: audit-network corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit 1;44 warnings,zero errors.
+  target_ids:
+  - CommunityMech:000020
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-13/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-audit-network
+  - corpus-context
+  scope_note: Nonrequired corpus baseline, separate from focused checks.
+- check_id: context-check-network-quality
+  name: check-network-quality corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit 1;44 warnings,zero errors.
+  target_ids:
+  - CommunityMech:000020
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-13/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-check-network-quality
+  - corpus-context
+  scope_note: Nonrequired corpus baseline, separate from focused checks.
+- check_id: optional-structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Unavailable in the owned runtime.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - adapter
+  scope_note: No external-checkout provider executed.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+  locator: Whole maintained YAML
+  summary: Five-member Coscinodiscus synthetic community, five untyped nodes and two
+    qualified arrows. The current graph is assessed separately from stronger member
+    notes, hard roles and cultivation claims.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.217909Z'
+- evidence_id: identity
+  kind: primary_source
+  reference: PMID:36300970; DOI:10.1128/aem.01619-22
+  locator: Abstract; Results → Building a synthetic community of C. radiatus and four
+    bacteria, paragraphs 1–2
+  summary: The source names the diatom and four isolates CS4, Rose1, Crocei1 and CS1,
+    then compares monocultures, individual diatom-bacterium pairs and the five-member
+    community. General membership does not establish a universal metabolic partnership.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.217968Z'
+  snapshot_sha256: 4b83e43e2dae085f243a30ffe07801f6311912e7d692d9b19fb8d5ecaec33d28
+- evidence_id: pairwise
+  kind: primary_source
+  reference: PMID:36300970; DOI:10.1128/aem.01619-22
+  locator: Results → Building a synthetic community of C. radiatus and four bacteria,
+    paragraphs 3–5; Figures 2–3
+  summary: CS4 and Rose1 prolong algal stationary-phase survival; Crocei1 inhibits
+    the diatom while benefiting from its presence; CS1 initially inhibits the alga,
+    followed by recovery toward the control. The diatom inhibits CS1 on days 11–21
+    and does not significantly alter CS4/Rose1 bacterial growth. HEPES utilization
+    is expressly possible, not a measured carbon-use result.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.218095Z'
+  snapshot_sha256: 4b83e43e2dae085f243a30ffe07801f6311912e7d692d9b19fb8d5ecaec33d28
+- evidence_id: genomic
+  kind: primary_source
+  reference: PMID:36300970; DOI:10.1128/aem.01619-22
+  locator: Results → Auxotrophy and nutrient requirements of the tested bacteria,
+    paragraphs 1–2; Tables 1–2; Methods → Bacterial genome sequencing and mining
+  summary: Genome analysis predicts auxotrophies and DMSP-pathway homologs. CS4/Rose1
+    have predicted potential; Crocei1 has weak homologs, not an absolute absence of
+    every pathway-related gene; CS1 lacks DmdA while downstream MMPA metabolism remains
+    possible. Protein homology is not measured exchange or flux.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.218199Z'
+  snapshot_sha256: 4b83e43e2dae085f243a30ffe07801f6311912e7d692d9b19fb8d5ecaec33d28
+- evidence_id: supplementation
+  kind: primary_source
+  reference: PMID:36300970; DOI:10.1128/aem.01619-22
+  locator: Results → Auxotrophy and nutrient requirements of the tested bacteria,
+    paragraph 3; Figure 5; Methods → Bacterial nutrient requirement analysis, sole
+    paragraph
+  summary: A pooled 13-amino-acid plus vitamin treatment improves Rose1, Crocei1 and
+    CS1; CS4 does not respond. DMSP or glucose alone does not promote growth. The
+    assay uses 3 mL MBM, 30 µL inoculum from OD600 0.2 suspension, 28°C and 150 rpm,
+    distinct from the diatom community. Pooled rescue does not identify an individual
+    required compound or prove diatom donation.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.218303Z'
+  snapshot_sha256: 4b83e43e2dae085f243a30ffe07801f6311912e7d692d9b19fb8d5ecaec33d28
+- evidence_id: model
+  kind: primary_source
+  reference: PMID:36300970; DOI:10.1128/aem.01619-22
+  locator: Results → A generalized Lotka-Volterra model can predict the composition
+    of the synthetic community, paragraphs 1–3; Figure 4; Methods → Interpretation
+    of bacteria-diatom pairwise interactions with a generalized Lotka-Volterra model,
+    paragraphs 1–3
+  summary: Mono- and pairwise data parameterize a model fitted separately over days
+    1–17 and 17–41. It predicts the community trajectory better than the neutral comparison.
+    This supports a bounded model interpretation without proving that bacterial-bacterial
+    interactions or higher-order mechanisms never occur. Figure 4 panel b explicitly
+    depicts days 1–17.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.218406Z'
+  snapshot_sha256: 4b83e43e2dae085f243a30ffe07801f6311912e7d692d9b19fb8d5ecaec33d28
+- evidence_id: interpretation
+  kind: primary_source
+  reference: PMID:36300970; DOI:10.1128/aem.01619-22
+  locator: Discussion, paragraphs 5–9
+  summary: The authors discuss resource-mediated assembly and interpret Crocei1 support
+    from diatom-associated resources, but report that the envisaged DMSP product-exchange
+    mechanism was not obvious. Nutrient storage and other supplied carbon sources
+    can buffer responses. Retain these source-supported interpretations with their
+    experimental and mechanistic limits.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.218512Z'
+  snapshot_sha256: 4b83e43e2dae085f243a30ffe07801f6311912e7d692d9b19fb8d5ecaec33d28
+- evidence_id: culture
+  kind: primary_source
+  reference: PMID:36300970; DOI:10.1128/aem.01619-22
+  locator: Materials and Methods → Bacteria isolation, identification, and media,
+    paragraph 2; Bacteria-diatom co-cultivation, paragraph 3
+  summary: The focal culture uses ASW2, 5 mM HEPES, commercial f/2 stock G9903 and
+    added silicate to 400 µM; 150 mL in T75 tissue-culture flasks at 13°C, 15 h light/9
+    h dark and 25 µmol photons m−2 s−1. Initial C. radiatus density is 3 cells/mL
+    and bacteria 10^3–10^4 cells/mL; three biological replicates. No shaking is applied.
+    The quoted words occur in the latter paragraph.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.218613Z'
+  snapshot_sha256: 4b83e43e2dae085f243a30ffe07801f6311912e7d692d9b19fb8d5ecaec33d28
+  quote: No shaking
+- evidence_id: stage-boundaries
+  kind: primary_source
+  reference: PMID:36300970; DOI:10.1128/aem.01619-22
+  locator: Materials and Methods → Bacteria isolation, identification, and media,
+    paragraphs 1–2; Bacteria-diatom co-cultivation, paragraphs 1–3; Bacterial nutrient
+    requirement analysis
+  summary: MB bacterial preculture at 28°C/150 rpm, 300 µL screening cultures in 48-well
+    plates with 40 rpm, and 150 mL nonshaken focal cultures are distinct. ASW1 trace
+    additions and ASW3 detailed stock recipe are not ASW2. The source wording about
+    50-times f/2 stock does not establish every final salt concentration, pH or salinity.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.218719Z'
+  snapshot_sha256: 4b83e43e2dae085f243a30ffe07801f6311912e7d692d9b19fb8d5ecaec33d28
+- evidence_id: measurement
+  kind: primary_source
+  reference: PMID:36300970; DOI:10.1128/aem.01619-22
+  locator: Materials and Methods → C. radiatus cell counting; Bacterial quantification
+    by qPCR, paragraphs 1–3; Chl, a measurement and calculation of interactive effects,
+    paragraphs 1–2
+  summary: The focal diatom endpoint is microscopy-based live/dead cell counting;
+    bacterial densities use genomic-DNA qPCR calibrated against plated bacterial dilution
+    series. This does not convert each coculture qPCR reading into a direct viable-cell
+    assay. Chlorophyll screening and reader shaking are separate from focal incubation
+    conditions.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.218824Z'
+  snapshot_sha256: 4b83e43e2dae085f243a30ffe07801f6311912e7d692d9b19fb8d5ecaec33d28
+- evidence_id: deposition
+  kind: primary_source
+  reference: PMID:36300970; DOI:10.1128/aem.01619-22
+  locator: Materials and Methods → Bacterial genome sequencing and mining; Data availability
+  summary: The paper explicitly deposits four bacterial genomes under PRJNA748384
+    and refers to individual genome accessions in Table S5 and partial 16S marker
+    accessions in Table S2. Those supplemental tables were not recovered; independently
+    verified registry records must determine any accession additions.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.218931Z'
+  snapshot_sha256: 4b83e43e2dae085f243a30ffe07801f6311912e7d692d9b19fb8d5ecaec33d28
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-13/000020/ontology-authority.json
+  locator: All 33 exact ID/label pairs, definitions and 53 placements
+  summary: All canonical labels match; identity checking does not establish that a
+    named cyanocobalamin ingredient is the encoded Co(I) species. Broad GO and marine-environment
+    terms remain contextual.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219041Z'
+  snapshot_sha256: ea9027fe824290e5ba4af847d0bdb41bfabc6f9f5ef2cbd223290c8647a18448
+- evidence_id: chemistry
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-13/000020/child-chemical-scope.json
+  locator: All fourteen recipe rows and exact vitamin/salt candidate definitions
+  summary: The current sodium-silicate term includes sodium metasilicate as a synonym;
+    no label-driven defect is imposed. Cyanocob(III)alamin CHEBI:17439 is the verified
+    structural cyanocobalamin candidate. Biotin15956 and thiamine hydrochloride49105
+    remain conditional recipe-form candidates, not proof of focal stock composition.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219098Z'
+  snapshot_sha256: 6be59251a2990384393481e37f218626c73012e8d243695c05b50b328ad8231f
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-13/000020/child-schema-semantics.json
+  locator: Literal roles, abundance, evidence, community and cultivation enums
+  summary: SYNTROPHIC_PARTNER means engages in syntrophic metabolism; general association
+    alone does not establish that function. No obligacy or fixed abundance percentage
+    is imposed. PRIMARY_PRODUCER is supported for the phototrophic diatom.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219142Z'
+  snapshot_sha256: 98f66b9e14574b66c456d459e7dd4c308bbf8ad0ec9c1be5864fcd7765428fd5
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-13/000020/child-gtdb-crosswalk.json
+  locator: Four rank-aware genus resolutions, mapping bytes and provenance limits
+  summary: Valid genus cores reproduce Mameliella 3/3, Roseovarius 117/117, Croceibacter
+    38/38 and Marinobacter 518/532 with fraction 0.974 and two GTDB taxa total. These
+    are authority aggregates, not isolate-specific genomes or experimental abundance.
+    The diatom is outside GTDB scope.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219179Z'
+  snapshot_sha256: 16f81ca4623e65a43ea236b7e9c67ce383cf9701e6b2eaba980b01a0e3df2039
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-13/000020/ontology-semantic-notes.json
+  locator: Final source-aware chemical, functional-role and graph assessment
+  summary: Retain the qualified graph, broad process context and ordinal abundance.
+    Repair source-inaccurate cultivation and chemical meaning together, and separately
+    qualify unsupported non-graph metabolic assertions. No automatic species replacement
+    or GO0043903 deletion.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219435Z'
+  snapshot_sha256: 0149fb104f2e20c8991ca675a28c8f20184fc412c28f8f484561388ef41b4e35
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/snippet-audit.json
+  locator: Seventeen canonical excerpt occurrences against fresh source and selected
+    cache
+  summary: All seventeen are supported by fresh reference-specific text. Fourteen
+    match the abstract cache; three Results excerpts are absent from that cache and
+    cause an actual native reference failure. Lexical match is distinct from claim
+    entailment.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219518Z'
+  snapshot_sha256: babcb5ca93f7ffee56157f3d0675d81e2dc5b8f99100d5ebecd5c572c539984a
+- evidence_id: contexts
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/snippet-source-contexts.json
+  locator: Five complete source paragraphs containing the canonical excerpts
+  summary: The complete paragraph contexts distinguish general membership/Importance
+    from measured density, genomic potential and pooled supplementation. Five node
+    snippet hashes are individually bound below without reproducing long quotations.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219565Z'
+  snapshot_sha256: 8f049c38f619a4045be2846715d2743d17630bed877a85858b685793dea6fcff
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/dataset-verification.json
+  locator: Source-declared project and exact resource identity scope
+  summary: PRJNA748384 is the verified synthetic phytoplankton genome project. Six
+    assembly pairs include four focal isolates and two other isolates. Exact focal
+    GenBank assemblies are CS4 GCA_019392335.1, Rose1 GCA_019392295.1, Crocei1 GCA_019392315.1
+    and CS1 GCA_019392275.1. Empty read-run output does not negate these genomes.
+    These identities were verified independently of unread Table S5.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219638Z'
+  snapshot_sha256: 176aa0e9ca6561608439ccb84adc7521c33312d6bbfa2115c1824108ef53fd58
+- evidence_id: external
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/external-resource-verification.json
+  locator: Exact CultureMech and three MediaIngredientMech identities and current
+    URLs
+  summary: CultureMech:000149 genuinely identifies f/2; its obsolete URL returns 404.
+    All three numeric MIM legacy identifiers are absent from the complete current
+    2953-row index; current zinc-sulfate CHEBI:35176 and copper-sulfate CHEBI:23414
+    records establish chemical identity only, not a legacy-ID crosswalk. The placeholder
+    has no supported replacement. CultureMech backfilled source_environment text is
+    circular and does not independently corroborate ASW2.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219708Z'
+  snapshot_sha256: e5cc0ba2b11f1211b5a0720c1be67fc101b4c64356d7fb9aa3cae7b9375e3e64
+- evidence_id: provenance
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-13/000020/provenance-audit.json
+  locator: Exact batch25 review, sole history/cache, batch24 preparation-only chronology,
+    cohort and current issue contexts
+  summary: Prior graph curation is not a certification of non-graph roles or generic
+    medium. Earlier preparation notes are chronology, not another completed focal
+    review; corpus cohort findings remain scoped aggregate context.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219770Z'
+  snapshot_sha256: 46435944f52cfada92c8f0797cf14aa28e1af92c4cb96de768ffa9982dca992e
+- evidence_id: inspection
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/inspect.json
+  locator: All thirty-two immutable official inputs
+  summary: The target, twenty-one authorities and ten focal/context files are bound.
+    Discovery included ignored files; incidental cross-citations and repeated aggregate
+    warnings were not promoted to extra focal scientific reviews.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219819Z'
+  snapshot_sha256: 8a9ceeda083bb4b49e9e4b2a022acdc196ef3bd5fe8298d278c0a3d9dfb598d1
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/lead-source-assets.json
+  locator: Complete main and five main JPEGs; five failed declared-SI routes
+  summary: Whole article text, two tables, model equations, all five captions and
+    59 references were read. All five main figures were viewed. The declared supplemental
+    PDF remained inaccessible; challenge/error bodies are explicitly not PDFs.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219853Z'
+  snapshot_sha256: 2c52afe3037cce0177858855e1d215d9ae77569362b84f3eac820a31f0f2028a
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/lead-primary-read-scope.json
+  locator: Actual whole main/figure and authority reading
+  summary: Lead read the complete main text in four contiguous slices and all main
+    figures, plus authority definition/location projections and schema/crosswalk receipts.
+    Sibling and root own their stated cache/provenance reads; no lead SI reading is
+    claimed.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219897Z'
+  snapshot_sha256: aa4d488fcd7fc8e555fa5a36629cf34f6c29dd28aa869c4a6acc606062a8e548
+- evidence_id: source-scope
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/source-audit-final.json
+  locator: Final two major/two minor groups and scientific scope
+  summary: Whole main evidence supports adjudication of current claims despite unread
+    supplementary details. The source audit preserves measured results and graph qualifiers
+    while correcting cultivation, non-graph scope, mapping provenance and resources.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219933Z'
+  snapshot_sha256: 5025960acab60af103ff667e4a506159da66440e101fe41512584bbfaa30b67e
+- evidence_id: source-correction
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/source-audit-precision-correction.json
+  locator: Exhaustive source-receipt precision correction
+  summary: The immutable initial source receipt counted a nonexistent top-level external-resource
+    block and named an incorrect field. The final receipt corrects completeness to
+    90 and uses actual culturemech_id/culturemech_url selectors; findings and raw
+    quality 101 are unchanged.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.219977Z'
+  snapshot_sha256: 3919d0cfd667a5d45f3f8a330c02b236040ed096f725499d1e3a23c850e55d45
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/root-independent-source-audit.json
+  locator: Independent root science and declared read boundaries
+  summary: Root independently reviewed the maintained record, whole main and main
+    figures plus authority/resource context. Its actual read scope and final grouped
+    findings are preserved.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.220018Z'
+  snapshot_sha256: 5de9687060f2b81d4af1a1064d101e3cf0c7da60daeb8640d4ea091ccf56d10f
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/support-final-audit.json
+  locator: Distinct frozen final support and literal arithmetic
+  summary: Completeness 90; base quality 125 minus two major and two minor findings
+    gives raw 101, capped at 100. Required reference-check failure is not erased by
+    a high metric or lexical fresh-source matching.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.220063Z'
+  snapshot_sha256: eadbfd61b0af2ffc8c3c15bc1831ac412aec78a7362832c3f8f4ab882f689056
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/supporting-artifact-manifest.json
+  locator: Immutable supporting artifact manifest
+  summary: Final support follows scientific and authority freeze; initial support
+    and all failed routes remain unchanged.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.220095Z'
+  snapshot_sha256: c88c174e30123e2046f3d471b2f62d1ed1aa0950ab2a01d1ad62a40703cec27f
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/auxiliary-frozen-manifest.json
+  locator: Final native and local authority receipts
+  summary: Thirty-three labels match. Seven focused native checks pass and the explained-reference
+    check fails on three body excerpts absent from the selected abstract cache. All
+    thirty-two maintained inputs remain unchanged.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.220132Z'
+  snapshot_sha256: d013e925a8d16726926e8ea5ba10b6a668bded8e0d64ea79188384bf782389d9
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/final-validator-summary.json
+  locator: Eight actual focused command outcomes
+  summary: Seven passes and one reference-check failure are reported as executed;
+    no cache was rewritten to hide the failure and no fresh-source-supported excerpt
+    is called scientifically false merely because the cache is partial.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.220246Z'
+  snapshot_sha256: 0da24d0b8555863ecc4b0118b5d01e8e0ce5161975b043e284147e671031c0a2
+- evidence_id: corpus-context
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/child-current-corpus-context.json
+  locator: Fresh batch13 corpus diagnostics and focal warning scope
+  summary: Actual corpus audit-network and check-network-quality exit 1 with 44 warnings
+    across 16 of 477 records and zero errors. Their contextual scope is separate from
+    focused record checks.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.220291Z'
+  snapshot_sha256: c69d751e076a510be46c59e3512387578c375d7db000b2b405a1a8b0454ccdd1
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/adapter-check.json
+  locator: Owned-runtime optional adapter availability
+  summary: Optional adapter availability is reported from the owned runtime. No external-checkout
+    adapter or paid provider is invoked.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.220328Z'
+  snapshot_sha256: 844bd8626c6bde6d75e5cf0c4fc20036f7140848c654141feb605c6eb1b30542
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/validate.json
+  locator: Actual immutable command/stdout/stderr
+  summary: The focused native command passed; scientific entailment remains separately
+    assessed.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.220716Z'
+  snapshot_sha256: d4c42533c6ec117222038c17417c6a270c9138e28dab4b6460bbeb1b4362587f
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/validate-strict.json
+  locator: Actual immutable command/stdout/stderr
+  summary: The focused native command passed; scientific entailment remains separately
+    assessed.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.220807Z'
+  snapshot_sha256: b581ba3f491f013cf43d9ca9bb303885800f00ba71e2b9101335bdcdf268951f
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/validate-terms.json
+  locator: Actual immutable command/stdout/stderr
+  summary: The focused native command passed; scientific entailment remains separately
+    assessed.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.220875Z'
+  snapshot_sha256: d5e46a53865f4e57c495d1a81f485e6e11804867dd2402d56c8779be8b78eaa5
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/validate-references-explained.json
+  locator: Actual immutable command/stdout/stderr
+  summary: Three body excerpts absent from the selected abstract cache cause exit
+    1; fresh main supports all three.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.220953Z'
+  snapshot_sha256: 9c7f1e9da33a99bcff309282e87e440c9f0cc2beba627f2d38aa18daf429d9af
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/validate-gtdb.json
+  locator: Actual immutable command/stdout/stderr
+  summary: The focused native command passed; scientific entailment remains separately
+    assessed.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.221029Z'
+  snapshot_sha256: 2eadacbad5a4563c7fa8515aac0f8071dc4a1d4da27ca1e69d4f4f6cd8a55dfd
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/validate-gtdb-domain.json
+  locator: Actual immutable command/stdout/stderr
+  summary: The focused native command passed; scientific entailment remains separately
+    assessed.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.221099Z'
+  snapshot_sha256: af605119f7fa036374e0d1ad8b664b408433fdfb6fff3b8e04c40a59d84e835f
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/validate-history.json
+  locator: Actual immutable command/stdout/stderr
+  summary: The focused native command passed; scientific entailment remains separately
+    assessed.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.221171Z'
+  snapshot_sha256: 64e80e69d8937a82098aa5de0c77d4ff77ceeec9f74fbfb6b7882b7102c038d0
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/000020/normalize-cache-names-check.json
+  locator: Actual immutable command/stdout/stderr
+  summary: The focused native command passed; scientific entailment remains separately
+    assessed.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.221247Z'
+  snapshot_sha256: 475e8f22f3040927bb547c105497239a1536b80cf591e3b7f167074fcebb13b1
+- evidence_id: context-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/audit-network.json
+  locator: Actual fresh batch13 corpus baseline
+  summary: Exit 1 with44 warnings across16 of 477 records and zero errors; contextual
+    scope preserved.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.221370Z'
+  snapshot_sha256: 6760159390e2e4f424c5084dcfa9e720ec717b7a055f7e6a7561dc71eae0a088
+- evidence_id: context-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-13/check-network-quality.json
+  locator: Actual fresh batch13 corpus baseline
+  summary: Exit 1 with44 warnings across16 of 477 records and zero errors; contextual
+    scope preserved.
+  support: supports
+  accessed_at: '2026-10-22T01:26:43.221468Z'
+  snapshot_sha256: 21ceb139810361c7edb174cfa3d407ef5f8f691278da89c382f6148b904c7e69
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Defined diatom and four bacterial isolates
+  outcome: supported
+  summary: The five-member identity and experimental scope are supported.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - identity
+  - ontology
+  - schema
+  details: Retain C. radiatus and source isolate labels CS4, Rose1, Crocei1 and CS1
+    with their existing species/genus grounding. ENGINEERED state/origin and PHYTOPLANKTON
+    category fit the designed model. A genus-level authority mapping is not a claim
+    that every strain in that genus shares the focal phenotype.
+- assessment_id: nongraph
+  area: evidence
+  topic: Hard roles, member notes and evidence explanations
+  outcome: concern
+  summary: Several non-graph statements are stronger than the experiments or cited
+    snippets.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - pairwise
+  - genomic
+  - interpretation
+  - schema
+  - snippets
+  details: Four SYNTROPHIC_PARTNER tags lack specific metabolic support; generic membership
+    is insufficient. HEPES use is possible, DMSP consumption is predicted and weak
+    Crocei1 homologs are not total absence. Distinguish diatom effects on bacterial
+    growth from bacterial effects on the alga, and control-like recovery from demonstrated
+    above-control stimulation. The no-synergy excerpt does not demonstrate diatom
+    nutrient provision. Repair these statements without deleting genuine measured
+    partner-specific effects or demanding obligacy.
+- assessment_id: node-0
+  area: graph
+  topic: Candidate Diatom Resource Provision
+  outcome: supported
+  summary: Candidate diatom resource provision remains qualified; the strongest observed
+    recipient response is Crocei1, not universal bacterial dependence.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - pairwise
+  - interpretation
+  - snippets
+  - contexts
+  details: 'Exact selector ecological_interactions[0]; name Candidate Diatom Resource
+    Provision; scope PAIRWISE; no interaction_type asserted. Actual taxa: {"source":
+    {"id": "NCBITaxon:33642", "label": "Coscinodiscus radiatus"}, "target": null,
+    "participants": []}. Canonical evidence bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet",
+    "sha256": "2fccccf86f287273cea92572718769795dbdf6992f174708232a0e09b1dba1a2",
+    "reference": "PMID:36300970", "supports": "PARTIAL", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 babcb5ca93f7ffee56157f3d0675d81e2dc5b8f99100d5ebecd5c572c539984a.
+    PMID36300970 source locator: Results → Building a synthetic community, paragraph4/Figure3;
+    Discussion paragraphs5–8. Retain the existing evidence tier and qualification.
+    Candidate diatom resource provision remains qualified; the strongest observed
+    recipient response is Crocei1, not universal bacterial dependence. Source-only
+    PAIRWISE is valid; do not invent an exchange target or measured molecular flux.'
+- assessment_id: edge-0-0
+  area: graph
+  topic: Candidate Diatom Resource Provision → Bacterial DMSP Catabolic Potential
+  outcome: supported
+  summary: Retain the existing HYPOTHESIZED relation.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - pairwise
+  - genomic
+  - interpretation
+  - snippets
+  details: 'Exact selector ecological_interactions[0].downstream[0]; actual direction/participants:
+    {"source_node": "Candidate Diatom Resource Provision", "target_node": "Bacterial
+    DMSP Catabolic Potential", "source_scope": "PAIRWISE", "target_scope": "COMMUNITY_LEVEL",
+    "source_taxa": {"source": {"id": "NCBITaxon:33642", "label": "Coscinodiscus radiatus"},
+    "target": null, "participants": []}, "target_taxa": {"source": null, "target":
+    null, "participants": [{"id": "NCBITaxon:1434019", "label": "Mameliella"}, {"id":
+    "NCBITaxon:74030", "label": "Roseovarius"}]}}. Current arrow description: HYPOTHESIZED
+    - diatom-derived DMSP could provide substrate for the genomic catabolic potential
+    of CS4 and Rose1. No partner-resolved release, consumption or flux was measured,
+    and added DMSP as the carbon-only supplement did not promote growth under the
+    tested minimal-medium conditions.. Retain HYPOTHESIZED. PMID36300970 Results auxotrophy/Table2
+    and Discussion paragraphs5–8 support a candidate resource-to-potential relation;
+    no molecular exchange is measured. There is no separate edge-local excerpt; source-node
+    bindings and linked source paragraphs establish the assessment boundary.'
+- assessment_id: node-1
+  area: graph
+  topic: Bacterial DMSP Catabolic Potential
+  outcome: supported
+  summary: DMSP catabolism remains sequence-based potential, not measured exchange
+    or metabolite flux.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - genomic
+  - supplementation
+  - snippets
+  - contexts
+  details: 'Exact selector ecological_interactions[1]; name Bacterial DMSP Catabolic
+    Potential; scope COMMUNITY_LEVEL; no interaction_type asserted. Actual taxa: {"source":
+    null, "target": null, "participants": [{"id": "NCBITaxon:1434019", "label": "Mameliella"},
+    {"id": "NCBITaxon:74030", "label": "Roseovarius"}]}. Canonical evidence bindings:
+    [{"selector": "ecological_interactions[1].evidence[0].snippet", "sha256": "52c4e045297492e6b95470c4fbc73bb9b4f771c54fc9e81510f918aeb52ee9fb",
+    "reference": "PMID:36300970", "supports": "PARTIAL", "evidence_source": "COMPUTATIONAL"}].
+    Snippet audit SHA256 babcb5ca93f7ffee56157f3d0675d81e2dc5b8f99100d5ebecd5c572c539984a.
+    PMID36300970 source locator: Results → Auxotrophy and nutrient requirements, paragraph2/Table2;
+    Methods genome sequencing. Retain the existing evidence tier and qualification.
+    DMSP catabolism remains sequence-based potential, not measured exchange or metabolite
+    flux.'
+- assessment_id: node-2
+  area: graph
+  topic: Growth Phase-Dependent Bacterial Effects
+  outcome: supported
+  summary: Partner- and growth-phase-dependent effects remain measured outcomes with
+    the current control comparisons.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - pairwise
+  - snippets
+  - contexts
+  details: 'Exact selector ecological_interactions[2]; name Growth Phase-Dependent
+    Bacterial Effects; scope COMMUNITY_LEVEL; no interaction_type asserted. Actual
+    taxa: {"source": null, "target": null, "participants": [{"id": "NCBITaxon:33642",
+    "label": "Coscinodiscus radiatus"}, {"id": "NCBITaxon:1434019", "label": "Mameliella"},
+    {"id": "NCBITaxon:74030", "label": "Roseovarius"}, {"id": "NCBITaxon:216431",
+    "label": "Croceibacter"}, {"id": "NCBITaxon:2742", "label": "Marinobacter"}]}.
+    Canonical evidence bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet",
+    "sha256": "9b9605d01f31a406ae3cef8d17fe686510a0660ebfebbc2bed3b25a80b0b58a0",
+    "reference": "PMID:36300970", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 babcb5ca93f7ffee56157f3d0675d81e2dc5b8f99100d5ebecd5c572c539984a.
+    PMID36300970 source locator: Results → Building a synthetic community, paragraphs3–5/Figures2–3.
+    Retain the existing evidence tier and qualification. Partner- and growth-phase-dependent
+    effects remain measured outcomes with the current control comparisons.'
+- assessment_id: edge-2-0
+  area: graph
+  topic: Growth Phase-Dependent Bacterial Effects → Community Growth and Pairwise
+    Model
+  outcome: supported
+  summary: Retain the existing PARTIAL relation.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - pairwise
+  - model
+  - snippets
+  details: 'Exact selector ecological_interactions[2].downstream[0]; actual direction/participants:
+    {"source_node": "Growth Phase-Dependent Bacterial Effects", "target_node": "Community
+    Growth and Pairwise Model", "source_scope": "COMMUNITY_LEVEL", "target_scope":
+    "COMMUNITY_LEVEL", "source_taxa": {"source": null, "target": null, "participants":
+    [{"id": "NCBITaxon:33642", "label": "Coscinodiscus radiatus"}, {"id": "NCBITaxon:1434019",
+    "label": "Mameliella"}, {"id": "NCBITaxon:74030", "label": "Roseovarius"}, {"id":
+    "NCBITaxon:216431", "label": "Croceibacter"}, {"id": "NCBITaxon:2742", "label":
+    "Marinobacter"}]}, "target_taxa": {"source": null, "target": null, "participants":
+    [{"id": "NCBITaxon:33642", "label": "Coscinodiscus radiatus"}, {"id": "NCBITaxon:1434019",
+    "label": "Mameliella"}, {"id": "NCBITaxon:74030", "label": "Roseovarius"}, {"id":
+    "NCBITaxon:216431", "label": "Croceibacter"}, {"id": "NCBITaxon:2742", "label":
+    "Marinobacter"}]}}. Current arrow description: PARTIAL - the measured partner-
+    and phase-specific effects combine into the observed predominantly inhibitory
+    all-member algal trajectory. A generalized Lotka-Volterra model fitted to monocultures
+    and pairwise cultures reproduces that trajectory with separate early/late parameter
+    sets; this supports the proposed contribution without isolating chemical mediators
+    or proving higher-order interactions universally absent.. Retain PARTIAL. PMID36300970
+    Results Figures2–4 and Methods model section support measured pairwise outcomes
+    contributing to the modeled community trajectory; no universal absence of higher-order
+    processes follows. There is no separate edge-local excerpt; source-node bindings
+    and linked source paragraphs establish the assessment boundary.'
+- assessment_id: node-3
+  area: graph
+  topic: Bacterial Nutrient Supplement Responses
+  outcome: supported
+  summary: Pooled amino-acid/vitamin rescue remains an intervention result, without
+    identifying individual nutrients or a donor.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - supplementation
+  - snippets
+  - contexts
+  details: 'Exact selector ecological_interactions[3]; name Bacterial Nutrient Supplement
+    Responses; scope COMMUNITY_LEVEL; no interaction_type asserted. Actual taxa: {"source":
+    null, "target": null, "participants": [{"id": "NCBITaxon:74030", "label": "Roseovarius"},
+    {"id": "NCBITaxon:216431", "label": "Croceibacter"}, {"id": "NCBITaxon:2742",
+    "label": "Marinobacter"}]}. Canonical evidence bindings: [{"selector": "ecological_interactions[3].evidence[0].snippet",
+    "sha256": "288728fc7a2784ce975f620157579b226cab2dcc71aa2af30c335f56dca96e96",
+    "reference": "PMID:36300970", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 babcb5ca93f7ffee56157f3d0675d81e2dc5b8f99100d5ebecd5c572c539984a.
+    PMID36300970 source locator: Results → Auxotrophy and nutrient requirements, paragraph
+    3/Figure5; Methods nutrient requirement analysis. Retain the existing evidence
+    tier and qualification. Pooled amino-acid/vitamin rescue remains an intervention
+    result, without identifying individual nutrients or a donor.'
+- assessment_id: node-4
+  area: graph
+  topic: Community Growth and Pairwise Model
+  outcome: supported
+  summary: Community growth and the pairwise model remain distinct empirical and computational
+    claims, with bounded temporal scope.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - pairwise
+  - model
+  - snippets
+  - contexts
+  details: 'Exact selector ecological_interactions[4]; name Community Growth and Pairwise
+    Model; scope COMMUNITY_LEVEL; no interaction_type asserted. Actual taxa: {"source":
+    null, "target": null, "participants": [{"id": "NCBITaxon:33642", "label": "Coscinodiscus
+    radiatus"}, {"id": "NCBITaxon:1434019", "label": "Mameliella"}, {"id": "NCBITaxon:74030",
+    "label": "Roseovarius"}, {"id": "NCBITaxon:216431", "label": "Croceibacter"},
+    {"id": "NCBITaxon:2742", "label": "Marinobacter"}]}. Canonical evidence bindings:
+    [{"selector": "ecological_interactions[4].evidence[0].snippet", "sha256": "de617d9406cae9f8f2210cd079b0d788511f66ae1c5d39cb34fe30d79d7b3d32",
+    "reference": "PMID:36300970", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 babcb5ca93f7ffee56157f3d0675d81e2dc5b8f99100d5ebecd5c572c539984a.
+    PMID36300970 source locator: Results → Building a synthetic community, paragraph5/Figures2–3;
+    generalized Lotka-Volterra model paragraphs1–3/Figure4; Methods model paragraphs1–3.
+    Retain the existing evidence tier and qualification. Community growth and the
+    pairwise model remain distinct empirical and computational claims, with bounded
+    temporal scope. Keep observed growth IN_VITRO and model interpretation explicitly
+    computational; no extra arrow or universal no-synergy inference is required.'
+- assessment_id: culture
+  area: completeness
+  topic: Focal ASW2 culture versus other protocols
+  outcome: concern
+  summary: Current numeric conditions and precise generic f/2 composition do not match
+    the focal protocol.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - culture
+  - stage-boundaries
+  - measurement
+  - ontology
+  - semantics
+  details: Replace the unsupported 18°C/ranges,12:12 cycle,100-light intensity and
+    unverified pH/salinity/ingredient precision with source-backed focal conditions.
+    Keep 150 mL T75 nonshaken culture separate from 48-well screening, bacterial MB
+    preculture and MBM supplement assays. Correct the named cyanocobalamin versus
+    cob(I)alamin mismatch; choose other salt/hydrate/counterion forms only when the
+    actual focal formulation establishes them. Sampling or plate-reader shaking is
+    not incubation agitation.
+- assessment_id: grounding
+  area: grounding
+  topic: Identity versus chemical and process meaning
+  outcome: concern
+  summary: All labels match, but correct labels alone do not make ingredient identities
+    correct.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - ontology
+  - chemistry
+  - semantics
+  - culture
+  details: CHEBI:15982 is Co(I)alamin, not cyanocobalamin. EDTA, biotin/biotinate,
+    thiamine salt/cation and salt hydration need source-formulation context rather
+    than a generic recipe assumption. DMSP/GO catabolism remains potential in node1;
+    broad GO0043903 is compatible with symbiotic regulation and is not an independent
+    forced term defect.
+- assessment_id: taxonomy
+  area: grounding
+  topic: Genus aggregation and ordinal abundance
+  outcome: supported
+  summary: Current taxonomic cores and ordinal abundance are retained.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - gtdb
+  - schema
+  - identity
+  details: Mameliella3/3, Roseovarius117/117, Croceibacter38/38 and Marinobacter518/532
+    are rank aggregates, not isolate classifications or study abundance fractions.
+    Marinobacter n_alt2 means two GTDB taxa total. DOMINANT describes the diatom’s
+    role in the record; no cell-count percentage is required. The eukaryotic diatom
+    correctly has no GTDB equivalent.
+- assessment_id: mapping-provenance
+  area: provenance
+  topic: GTDB release/build provenance
+  outcome: concern
+  summary: Latest-release and build-date statements exceed what the snapshot metadata
+    establishes.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - gtdb
+  details: Preserve valid classifications and lookup routes; record actual snapshot
+    hash and label filesystem mtime accurately. Do not infer release/build or species
+    reclassification from that timestamp.
+- assessment_id: resource-scope
+  area: completeness
+  topic: Project and crossMech links
+  outcome: concern
+  summary: The declared genome project and current linked-resource identities need
+    bounded reconciliation.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - deposition
+  - resources
+  - external
+  details: Add only verified project/sequence metadata, with genome and strain scope
+    explicit. Do not interpret an empty ENA run-list response as missing genomes or
+    invent the unread S2/S5 accessions. Current crossMech identifiers and URLs must
+    be checked together, including hydration; imported reference formulation is not
+    focal ASW2 evidence.
+- assessment_id: snippets
+  area: evidence
+  topic: Fresh entailment versus cache coverage
+  outcome: concern
+  summary: Seventeen fresh-source matches coexist with three genuine native cache
+    misses.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - snippets
+  - contexts
+  - final-native
+  details: The density, DMSP-potential and supplementation snippets occur in Results
+    but not the selected abstract cache. Keep the failed required explained-reference
+    check and issue596 boundary. Separately correct unrelated Abstract excerpts used
+    to support named roles, formulation or provision. Do not rewrite the cache in
+    this review or erase valid body-derived evidence.
+- assessment_id: provenance
+  area: ownership
+  topic: Prior graph repair and current follow-up
+  outcome: supported
+  summary: Prior graph scope and dated source preparation remain distinct.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - provenance
+  - inspection
+  details: Batch25 contains the actual prior focal review; batch24 preparation-only
+    context is not another scientific verdict. Current graph qualifiers remain. Open
+    non-graph/source issues and aggregate cohort contexts are not automatically closed
+    or expanded by this review.
+- assessment_id: access
+  area: scope
+  topic: Whole main with unavailable supplement
+  outcome: supported
+  summary: Current encoded claims can be adjudicated from the complete main and figures.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - assets
+  - lead-read
+  - source-scope
+  - root-source
+  details: Scientific review is complete for the current record, not a claim that
+    every supplemental asset was read. No SI PDF was acquired after five ordinary
+    public routes. Detailed SI fits/strain accession tables remain unavailable; preserve
+    natural-versus-artificial seawater, initial-density aim versus actual inoculation
+    and stock-dilution ambiguities. No raw-data reanalysis or challenge bypass was
+    performed.
+- assessment_id: native
+  area: schema
+  topic: Actual focused and contextual checks
+  outcome: concern
+  summary: Seven focused checks pass; explained references fails on three cache misses.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - snippets
+  - corpus-context
+  - adapter
+  details: The reference failure is explicitly required and remains unresolved in
+    canonical/cache bytes. Native candidate-contract validation is separate. Both
+    corpus contextual failures and optional unavailable adapter are also explicit.
+    Structural network completeness does not certify metabolic mechanism.
+- assessment_id: metrics
+  area: completeness
+  topic: Literal metrics
+  outcome: supported
+  summary: Completeness90; raw quality101, capped100.
+  target_ids:
+  - CommunityMech:000020
+  evidence_ids:
+  - metrics
+  - source-correction
+  metrics:
+  - name: completeness
+    value: 90
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required/roles50+environment5+fourfactors10+five nodes10+medium10+metabolites5=90;
+      no top-level external_resources or associated_datasets.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 100−2×10major−2×2minor+20×min((5/5)/2,1)+15COMPLETE=101raw,cap 100.
+      Required check failure and scientific findings remain.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: cultivation
+  issue_key: cm-000020-cultivation
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Experimental conditions and ingredient identity change the
+    represented biological system.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Replace generic conditions with the focal ASW2 protocol
+  description: The current temperature/light settings and precise generic f/2 recipe
+    are not the focal experiment reported in Methods. The named cyanocobalamin ingredient
+    is also mapped to Co(I)alamin. These materially misdescribe cultivation and chemical
+    identity.
+  target_ids:
+  - CommunityMech:000020
+  field_paths:
+  - growth_media[0]
+  evidence_ids:
+  - culture
+  - stage-boundaries
+  - ontology
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+    role: canonical_record
+  ownership_note: The focal community owns these repairs; preserve existing1359/596
+    and shared provenance context without automatic issue closure or crossMech mutation.
+- finding_id: non-graph-scope
+  issue_key: cm-000020-non-graph-scope
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Categorical role/prose and misplaced evidence alter biological
+    meaning, not merely presentation.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Qualify member functions and non-graph resource claims
+  description: Four hard SYNTROPHIC_PARTNER roles and stronger HEPES/DMSP/resource-provision
+    notes exceed their specific evidence. Generic membership/no-synergy snippets do
+    not establish named metabolic functions, chemical transfer or condition-specific
+    claims. The qualified graph already preserves these distinctions.
+  target_ids:
+  - CommunityMech:000020
+  field_paths:
+  - taxonomy[1].functional_role
+  - taxonomy[2].functional_role
+  - taxonomy[3].functional_role
+  - taxonomy[4].functional_role
+  - taxonomy[1].taxon_term.notes
+  - taxonomy[2].taxon_term.notes
+  - taxonomy[3].taxon_term.notes
+  - taxonomy[4].taxon_term.notes
+  - related_ingredients[0]
+  - environmental_factors
+  - engineering_design.evidence
+  evidence_ids:
+  - pairwise
+  - genomic
+  - interpretation
+  - schema
+  - snippets
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+    role: canonical_record
+  ownership_note: The focal community owns these repairs; preserve existing1359/596
+    and shared provenance context without automatic issue closure or crossMech mutation.
+- finding_id: gtdb-provenance
+  issue_key: cm-000020-gtdb-provenance
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded provenance correction preserves current taxonomic
+    cores.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Correct mapping release and build provenance
+  description: All four valid genus mappings claim latest release/build provenance
+    that filesystemmtime does not establish.
+  target_ids:
+  - CommunityMech:000020
+  field_paths:
+  - taxonomy[1].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[2].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[3].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[4].taxon_term.gtdb_classification.mapping_source
+  evidence_ids:
+  - gtdb
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+    role: canonical_record
+  ownership_note: The focal community owns these repairs; preserve existing1359/596
+    and shared provenance context without automatic issue closure or crossMech mutation.
+- finding_id: resources
+  issue_key: cm-000020-resources
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: Traceable project and link repair is bounded and does not
+    infer unseen supplemental accessions.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Reconcile source-declared data and linked media resources
+  description: The genome project explicitly declared by the paper is missing, and
+    existing medium/ingredient URLs require current identity-aware reconciliation.
+    Reference recipe linkage cannot substitute for the focal ASW2 protocol.
+  target_ids:
+  - CommunityMech:000020
+  field_paths:
+  - growth_media[0].culturemech_id
+  - growth_media[0].culturemech_url
+  - growth_media[0].composition
+  - associated_datasets
+  evidence_ids:
+  - deposition
+  - resources
+  - external
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+    role: canonical_record
+  ownership_note: The focal community owns these repairs; preserve existing1359/596
+    and shared provenance context without automatic issue closure or crossMech mutation.
+actions:
+- action_id: repair-culture
+  description: Represent the focal protocol and chemical identities at their supported
+    precision.
+  finding_ids:
+  - cultivation
+  target_ids:
+  - CommunityMech:000020
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - 'Use ASW2 and the exact Methods source: artificial seawater with 5 mM HEPES, stated
+    commercial G9903 f/2 stock and 400 µM silicate; 13°C, 15:9light/dark, 25 µmol
+    photons m−2 s−1, 150 mL in T75, no shaking, 3 diatom cells/mL and 10^3–10^4 bacteria/mL.
+    Add normal spacing and units in curated fields.'
+  - Keep MB preculture 28°C/150 rpm, 48-well screening at 300 µL/40 rpm and MBM supplementation
+    at 3 mL/28°C/150 rpm separate. Do not transfer reader agitation, DNA-extraction
+    pH 8 buffer, ASW1 trace additives or ASW3 stock recipe to the focal culture.
+  - Remove or explicitly qualify unsupported generic pH 8/range, salinity 30, temperature
+    18/ranges and precise ingredient amounts. Preserve source natural/artificial seawater
+    and intended-versus-actual initial-density differences; do not silently resolve
+    50-times stock wording or invent a complete commercial-stock formulation.
+  - If cyanocobalamin is retained with verified recipe evidence, ground the actual
+    cyano-Co(III) form rather than CHEBI:15982 cob(I)alamin. Review EDTA, biotin/thiamine
+    forms and salt hydrates against that actual formulation; do not infer them from
+    a generic f/2 recipe.
+- action_id: qualify-nongraph
+  description: Align member roles and non-graph prose with measured and inferred evidence.
+  finding_ids:
+  - non-graph-scope
+  target_ids:
+  - CommunityMech:000020
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain the diatom PRIMARY_PRODUCER and source isolate identities. Omit or specifically
+    substantiate each optional SYNTROPHIC_PARTNER role without inventing obligacy,
+    mandatory reciprocal fitness or a replacement role. Qualified Crocei1 resource
+    dependence can remain without identifying a transferred molecule.
+  - Describe HEPES use as possible; DMSP consumption as genome-based potential; Crocei1
+    homologs as weak rather than universally absent; CS1 downstream MMPA capacity
+    as possible. Preserve pooled amino-acid/vitamin rescue and negative carbon-only
+    growth controls without claiming an individual required nutrient or exact B12
+    form.
+  - Distinguish bacterial effects on algal survival from algal effects on bacterial
+    growth. Preserve initialCS1 inhibition and subsequent control-like recovery, CS4/Rose1
+    late algal benefit, Crocei1 algal inhibition and recipient benefit. Do not turn
+    general phase-dependent stimulation into a universal above-control effect.
+  - Replace unrelated membership/no-synergy evidence explanations with exact claim-local
+    Results/Methods/Discussion support. Qualify diatom-to-bacteria resource/provision
+    statements to the source inference. Keep all five nodes and both HYPOTHESIZED/PARTIAL
+    arrows with their current taxon directions and tiers.
+  - Preserve the actual native reference failure for three fresh-body snippets absent
+    the abstract cache. Any later cache/source representation repair requires authorized
+    distinct provenance and rerunning explained references; do not relabel valid Results
+    snippets as fabricated.
+- action_id: repair-gtdb
+  description: Make mapping provenance reproducible.
+  finding_ids:
+  - gtdb-provenance
+  target_ids:
+  - CommunityMech:000020
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain rank-route cores 3/3, 117/117, 38/38 and518/532(.974), with Marinobacter
+    two GTDB taxa total and diatom NO_GTDB_EQUIVALENT. Do not promote genus aggregates
+    to exact source-strain genomes or abundance.
+  - Record snapshot SHA 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    and rank lookup route. Label mtime as mtime; leave release/build unknown unless
+    independently verified.
+- action_id: repair-resources
+  description: Add verified project context and repair exact linked identities.
+  finding_ids:
+  - resources
+  target_ids:
+  - CommunityMech:000020
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Represent PRJNA748384 as the source-declared bacterial genome project using the
+    verified registry scope and exact isolate associations. An empty run-list response
+    is not data absence; do not invent sequencing runs, marker IDs or individual genome
+    accessions from unread S2/S5.
+  - Resolve CultureMech and MediaIngredientMech identifiers against current authoritative
+    records before changing URLs or IDs; retain hydrate/counterion specificity and
+    identifier history. Do not blindly migrate old numeric IDs or copy the reference
+    recipe as if it were measured study ASW2.
+  - Keep source-declared but unavailable supplementary tables separate from directly
+    verified registry metadata. Preserve publication identity and actual retrieval
+    dates; no new deposit is inferred from background protein references.
+- action_id: validate-future-curation
+  description: Validate separately authorized repairs without altering this review
+    evidence.
+  finding_ids:
+  - cultivation
+  - non-graph-scope
+  - gtdb-provenance
+  - resources
+  target_ids:
+  - CommunityMech:000020
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Coscinodiscus_Synthetic_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - After authorized changes, attach exact evidence, update history and run schema,
+    strict, terms, explained references, GTDB, domain and history gates, then just
+    gen-html and just check-docs-current. This review itself does not edit canonical,
+    cache, history or generated files.
+  - Preserve original inspect/source audit and its exact precision correction, all
+    failed routes and native 7-pass/1-fail receipts. Additional SI recovery should
+    receive a distinct read-scope audit before adding detailed fits or accession tables.
+    No paid retrieval, author contact, crossMech mutation or automatic issue closure
+    is authorized.
+limitations:
+- The source-linked 3.2 MB supplement was not recovered through five ordinary public
+  routes. Challenge HTML and XML/HTML errors are not PDF data. No SI figures, modeldetails
+  or S2/S5 marker/genome tables were read. Current encoded claims are adjudicable
+  from whole main; this does not assert complete access to every asset.
+- Results describes natural-seawater-derived medium, whereas Methods specifies artificial
+  seawater. The ecological aim of 5×10^5 bacterial cells/mL differs from focal 10^3–10^4
+  inoculation. Keep these source contexts distinct. Commercial stock 50-times wording
+  does not independently establish a complete final formulation, pH or salinity.
+- Figure 4 text/caption has panel/color-description inconsistencies; actual panel
+  b covers days1–17 and visually distinguishes pointed promotion from flat inhibition.
+  The model uses separate 1–17/17–41 periods; its fit does not prove universal absence
+  of bacterial-bacterial or higher-order processes.
+- Genomic potential, pooled rescue and qPCR-calibrated bacterial density do not directly
+  establish individual molecular exchange, viable counts at every time point or exact
+  vitamin form. General photosynthesis/provision context does not prove uniform benefit
+  to every bacterium.
+- Seven native focused checks pass; required explained references actually fails on
+  three Results excerpts absent the selected abstract cache. Fresh main supports those
+  excerpts. Capped quality and structural network completeness do not override this
+  failure or the scientific findings.
+- Ordinal abundance and genus mapping genome counts are different quantities. No fixed
+  abundance percentage, automatic species-levelpromotion or mandatory new interaction
+  type is imposed.
+notes:
+- Seventeen fresh-source excerpt occurrences and fourteen cache matches are distinguished;
+  five node snippets have exact selector/SHA bindings, and both downstream arrows
+  have explicit source/target/participant and evidence-tier assessments.
+- The sole two-word quote No shaking is from Methods Bacteria-diatom co-cultivation
+  paragraph 3. No long canonical source snippets are copied.
+- 'Original source audit is preserved with distinct final audit and precisioncorrection:
+  completeness 90 and actual culturemech_id/url selectors. All 32 official inputs
+  remain unchanged.'
+- Actual nonrequired corpus audit-network/check-network-quality failures and optional
+  unavailable adapter are explicitly represented. Root alone saves after independent
+  whole-candidate acceptance.
+tags:
+- record-review
+- phytoplankton
+- diatom-bacteria
+- culture-scope
+- batch-13
+```

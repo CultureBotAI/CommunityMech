@@ -1,0 +1,1429 @@
+schema_version: 1.0.0
+review_id: 20261021T202328Z-isopropanol-coculture-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Isopropanol coculture mechanism and process-scope review
+started_at: '2026-10-21T20:13:34.704343Z'
+finished_at: '2026-10-21T20:23:28.952398Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed source science, authority/native checks
+    and supporting provenance; no person-level independence asserted.
+skill: review-yaml-record
+completion: partial
+verdict: needs_curation
+scientific_review: false
+summary: Final abstract and supplement plus the complete earlier preprint support
+  two major mechanism/outcome scope corrections and three minor cultivation, role-evidence
+  and GTDB-provenance repairs. The final main remains critical unavailable. Keep the
+  defined two-member system and qualify its three-node/two-arrow graph. All eight
+  focused native checks pass.
+source:
+  git_revision: 95812d3412d5aab41fd03422340cf736ac7b56f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture/2026-10-19T053000Z-antigravity-7577.yaml
+    sha256: 95e74138cdd1c7385656fa481cd552233fc89d9f1b3bcdd60f29c2944f8ac666
+    role: context
+  - path: history/records/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture/2026-10-20T041800Z-antigravity-1f5ed8.yaml
+    sha256: 71b56b880b04b38593a144e05dd69e4aaa5ea4e0b7024fedae841367cc38f9ee
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    sha256: 1f5ed8f26d6713fb0a7012fbd71a5c231ec4839548f19afcfcbd988c5cecc93f
+    role: target
+  - path: references_cache/PMID_41831593.txt
+    sha256: 090efb1271b3067b1718411094c0471cdfa8af9f71946ac0be3e684365acc8db
+    role: context
+  - path: reports/causal_graph_review/decisions/20261020-stage2-fifteen-records-batch133.yaml
+    sha256: e9ded35a2333f9994869573f9f952b3af3191ab55528813a7f2c03639a362d3f
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000480
+  path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+  label: Clostridium acetobutylicum and Clostridium ljungdahlii Carbon-Negative Isopropanol
+    Syntrophic Coculture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    role: canonical_record
+scope:
+  description: Whole maintained record assessed against accessible source versions,
+    declared visual coverage, literal authority and bounded public provenance; final-main
+    claim verification remains incomplete.
+  selection: Only released CommunityMech:000480 in owned batch 11.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000480
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000480
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Owned batch 11 runtime; no canonical mutation.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000480
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-strict kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-11/000480/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Owned batch 11 runtime; no canonical mutation.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000480
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-terms kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Owned batch 11 runtime; no canonical mutation.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000480
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-references-explained kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Owned batch 11 runtime; no canonical mutation.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000480
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-gtdb kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Owned batch 11 runtime; no canonical mutation.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000480
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Owned batch 11 runtime; no canonical mutation.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000480
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-history history/records/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Owned batch 11 runtime; no canonical mutation.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Focused native command exit 0.
+  target_ids:
+  - CommunityMech:000480
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Owned batch 11 runtime; no canonical mutation.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Same-batch corpus diagnostic retains actual nonzero outcome.
+  target_ids:
+  - CommunityMech:000480
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - metrics
+  scope_note: Explicit same-batch corpus reuse; unrelated targets not newly assessed.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Same-batch corpus diagnostic retains actual nonzero outcome.
+  target_ids:
+  - CommunityMech:000480
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - metrics
+  scope_note: Explicit same-batch corpus reuse; unrelated targets not newly assessed.
+- check_id: scientific-source
+  name: Current-claim source review
+  status: unavailable
+  required: true
+  summary: Final main remains critical unavailable; full precursor and final SI do
+    not resolve all final-version mechanism/construct scope.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - lead-read
+  - root-source
+  - final-access
+- check_id: direct-excerpts
+  name: Reference-specific excerpt verification
+  status: passed
+  required: true
+  summary: All nine excerpt occurrences strictly match the fresh final abstract and
+    cache.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - snippets
+- check_id: authority-review
+  name: Ontology, schema, GTDB and background identity
+  status: passed
+  required: true
+  summary: All eight ID-label pairs/19 occurrences match; semantic and exact-route
+    issues separately assessed.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - ontology
+  - schema
+  - gtdb
+  - strain
+- check_id: adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Same-batch discovery reused with fresh compatibility; other-checkout executable
+    not run.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - adapter
+- check_id: raw-reproduction
+  name: Raw experimental reproduction
+  status: skipped
+  required: false
+  summary: No culture, raw-data analysis, code execution or statistical recalculation.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - lead-read
+  - resources
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+  locator: Whole maintained YAML
+  summary: Engineered acetobutylicum/ljungdahlii pair with three nodes and two downstream
+    arrows. No structured medium, cultivation setup or dataset is encoded. Measurement,
+    mechanism and outcome scope need qualification.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.941284Z'
+- evidence_id: final-abstract
+  kind: primary_source
+  reference: PMID:41831593
+  locator: Final published abstract, complete
+  summary: The final abstract supports the engineered CACas9 Δhbd-p95ace02_atoB acetone
+    producer, acetogen conversion to isopropanol, hydrogen nondetection, density-associated
+    yields and a perfusion outcome. Its sole-alcohol statement is explicitly glucose-derived
+    and assigned to perfusion. It does not identify a dissolved-hydrogen assay or
+    establish every causal step.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.941345Z'
+  snapshot_sha256: 8cdf73b84016797537c439e3396d4f4f8955c8fcbcbb67966c43dd673c4928da
+  quote: sole alcohol produced from glucose
+- evidence_id: final-preview
+  kind: primary_source
+  reference: https://www.sciencedirect.com/science/article/abs/pii/S109671762600042X
+  locator: 'Focal first result only: Highlights; Introduction; Section snippets: C.
+    acetobutylicum cultivation'
+  summary: The final publisher preview expressly includes external CO2 and H2 assimilation.
+    It identifies the knockout/acetone construct and source-named Turbo CGMB with
+    butyrate and clarithromycin. Only the available Introduction and section beginnings
+    were read; following unrelated search results are excluded.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.941566Z'
+  snapshot_sha256: 13217398443526bdc3aaf6b7b5e96ebeaae37c93dac24526857afa77bc3f41f3
+- evidence_id: version
+  kind: primary_source
+  reference: https://api.biorxiv.org/details/biorxiv/10.1101/2025.07.14.664808
+  locator: 'Version 1 metadata: date and published DOI'
+  summary: The 2025-07-18 preprint links to the final 2026 article. Reciprocal identity
+    establishes related versions, not identical Methods/results. Final SI has seven
+    figures and three tables, unlike the preprint embedded supplementary material.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.941704Z'
+  snapshot_sha256: ca6be39445b612e2a28876adeabb1199b463f2598b81dc2985b13d9dce7e0829
+- evidence_id: mechanism
+  kind: primary_source
+  reference: DOI:10.1101/2025.07.14.664808 version 1, posted 2025-07-18
+  locator: MATERIALS AND METHODS, lines 147–153; RESULTS & DISCUSSION, sections 3.2–3.3;
+    Figure 2
+  summary: The preprint measures headspace H2/CO2 by gas chromatography. Figure 2D
+    reports no detected headspace H2 under the N2-start coculture condition. Stoichiometric/thermodynamic
+    reasoning allows direct carrier exchange, low local H2 enabling conversion, or
+    both. These measurements do not establish zero dissolved H2 or a uniquely demonstrated
+    route. Alternatives and their final-version resolution must remain explicit.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.941821Z'
+  snapshot_sha256: befdf3f295388fc4511776c90d7b39bc359e4a919547f9a2dc878cae17b860ba
+- evidence_id: alternative-routes
+  kind: primary_source
+  reference: DOI:10.1016/j.ymben.2026.03.008 final publisher supplement
+  locator: Figure S3; Table S2
+  summary: Final S3 contrasts modeled electron donation using H2 versus ethanol; Table
+    S2 lists carbon/electron reaction accounting. A schematic and balance do not selectively
+    establish actual donor-resolved flux. This changed final-source context makes
+    the unavailable final main critical to mechanism review.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.942848Z'
+  snapshot_sha256: cabd51cecea20ab9f685a59d293c81b5f2ee4198802df1a99d014a3758e08b08
+- evidence_id: products
+  kind: primary_source
+  reference: DOI:10.1101/2025.07.14.664808 version 1, posted 2025-07-18
+  locator: RESULTS & DISCUSSION, sections 3.1 and 3.5–3.6; Figures 1, 4 and 5
+  summary: The hbd-deleted producer still receives 30 mM butyrate and can make butanol
+    from that supplement. Earlier ethanol remains. The first perfusion experiment
+    reports sole glucose-derived alcohol at two consecutive points spanning 23 h,
+    rather than throughout every run. Its 3C yield combines acetone and isopropanol;
+    carbon recovery and external H2 incorporation are balance-based interpretations.
+    These earlier-version details are not silently certified as final-paper results.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.943569Z'
+  snapshot_sha256: befdf3f295388fc4511776c90d7b39bc359e4a919547f9a2dc878cae17b860ba
+- evidence_id: final-process
+  kind: primary_source
+  reference: DOI:10.1016/j.ymben.2026.03.008 final publisher supplement
+  locator: 'Figure S7; Supplementary Text Document: Estimating Acetate Accumulation
+    for Experimental Design of Coculture Perfusion Experiment'
+  summary: Final S7 is a second perfusion experiment with distinct glucose and H2/CO2
+    feed periods; carbon recovery remains below 100% and ethanol/butanol are plotted.
+    The text calls its acetate calculation an approximate design estimate, includes
+    external CO2, and describes 20 g/L glucose, pH setpoint 5.1 and dilution 0.083
+    h−1. No lifecycle emissions conclusion follows.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.944229Z'
+  snapshot_sha256: cabd51cecea20ab9f685a59d293c81b5f2ee4198802df1a99d014a3758e08b08
+- evidence_id: acetate-return
+  kind: primary_source
+  reference: DOI:10.1101/2025.07.14.664808 version 1, posted 2025-07-18
+  locator: RESULTS & DISCUSSION, section 3.6; Table 2; Figure 5
+  summary: The preprint infers that high acetone/isopropanol yields require assimilation
+    of acetogen-produced acetate by C. acetobutylicum. This is source-local recipient
+    support, with carbon-balance uncertainty; it is not isotope-resolved transfer.
+    Donation of gases alone would not establish a recipient role.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.944515Z'
+  snapshot_sha256: befdf3f295388fc4511776c90d7b39bc359e4a919547f9a2dc878cae17b860ba
+- evidence_id: acetate-support
+  kind: primary_source
+  reference: DOI:10.1016/j.ymben.2026.03.008 final publisher supplement
+  locator: Supplementary Text Document; Figures S3 and S6; Table S2, Eq. T9
+  summary: The final supplement describes C. ljungdahlii acetate production and C.
+    acetobutylicum capacity to assimilate acetate into acetone. S6 tests exogenous
+    acetate feeding to the producer monoculture, supporting capacity and inhibition
+    context rather than proving donor flux. Keep CROSS_FEEDER with inferred partner-acetate
+    evidence; do not import a different record’s donor-only conclusion.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.945166Z'
+  snapshot_sha256: cabd51cecea20ab9f685a59d293c81b5f2ee4198802df1a99d014a3758e08b08
+- evidence_id: construct
+  kind: primary_source
+  reference: DOI:10.1101/2025.07.14.664808 version 1, posted 2025-07-18
+  locator: MATERIALS AND METHODS, lines 132–146; RESULTS & DISCUSSION, section 3.1
+    lines 195–199 and section 3.6; Table 1
+  summary: The preprint abstract says WT acetogen, but Methods and Results specify
+    p100ptaHALO with clarithromycin, including subsequent coculture experiments. Table
+    1 lists the WT parent separately from the reporter plasmid. The source discrepancy
+    must be attributed; neither universal WT nor universal reporter status in the
+    unavailable final main is established.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.945445Z'
+  snapshot_sha256: befdf3f295388fc4511776c90d7b39bc359e4a919547f9a2dc878cae17b860ba
+- evidence_id: final-construct
+  kind: primary_source
+  reference: DOI:10.1016/j.ymben.2026.03.008 final publisher supplement
+  locator: Table S1; Figure S4; Table S3
+  summary: Final S4 explicitly uses C. ljungdahlii p100ptaHALO in a comparison arm;
+    Table S1 lists DSM13528 WT background and reporter plasmid separately. The focal
+    producer carries CACas9 Δhbd plus p95ace02_atoB; p95ipa01_atoB is a separate comparison
+    construct. E. coli donor-gene and cloning-host rows do not add community members.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.946085Z'
+  snapshot_sha256: cabd51cecea20ab9f685a59d293c81b5f2ee4198802df1a99d014a3758e08b08
+- evidence_id: preparation
+  kind: primary_source
+  reference: DOI:10.1101/2025.07.14.664808 version 1, posted 2025-07-18
+  locator: 'MATERIALS AND METHODS: Coculture preparation for batch and resuspension
+    fermentations, lines 121–146'
+  summary: The earlier protocol separates producer spore/seed preparation from acetogen
+    gas-fed preculture. Only producer spores receive 80°C heat shock. Source-named
+    Turbo CGMB includes 30 mM butyrate and 100 μg/mL clarithromycin; acetogen preculture
+    uses YTF with arginine/MES before transfer. The R=5 inoculum is OD-based, not
+    a direct five-to-one viable-cell count. These are preprint conditions, not a complete
+    verified final recipe.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.946374Z'
+  snapshot_sha256: befdf3f295388fc4511776c90d7b39bc359e4a919547f9a2dc878cae17b860ba
+- evidence_id: operation
+  kind: primary_source
+  reference: DOI:10.1101/2025.07.14.664808 version 1, posted 2025-07-18
+  locator: MATERIALS AND METHODS, lines 140–169; RESULTS & DISCUSSION, sections 3.4–3.6;
+    Figure 5A
+  summary: Batch and repeated resuspension use 20 mL in 160 mL serum bottles, with
+    different initial OD and gas pressure. Pseudo-perfusion replaces medium and adds
+    acetogen at 8–12 h intervals. Continuous perfusion combines 1.2 L working volume
+    in a 3 L vessel with a 2.4 L packed column, external gas delivery and a 0.1 μm
+    hollow-fiber retention unit. Methods and Results differ on acetogen addition at
+    70 versus approximately 63 h; do not silently resolve that timing.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.947034Z'
+  snapshot_sha256: befdf3f295388fc4511776c90d7b39bc359e4a919547f9a2dc878cae17b860ba
+- evidence_id: supplement-culture
+  kind: primary_source
+  reference: DOI:10.1016/j.ymben.2026.03.008 final publisher supplement
+  locator: Figure S5; Figure S7E; Supplementary Text Document
+  summary: Final SI directly supports repeated-resuspension workflow and a distinct
+    continuous-perfusion feed schedule. S7 periods use 20/25/30 g/L glucose and H2/CO2
+    ratios 90/10, 92/8 and 93/7. These cannot be substituted for the preprint first-run
+    80/20 gas supply. Culture controls, background medium and atmospheric phases must
+    remain stage-specific.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.947693Z'
+  snapshot_sha256: cabd51cecea20ab9f685a59d293c81b5f2ee4198802df1a99d014a3758e08b08
+- evidence_id: ontology
+  kind: authority
+  reference: ontology-authority.json
+  locator: Eight distinct ID-label pairs, 19 occurrences; definitions and encoded
+    locations
+  summary: All encoded labels match local OAK. Glucose, acetone and H2 are correctly
+    identified. GO:1902422 denotes H2 formation by the producer, not consumer uptake;
+    GO:0006006 does not assign glucose use to both partners.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.947986Z'
+  snapshot_sha256: b82c9020ac0c9ead27f4c77fa981ca65de19f92dffd9ba3cffab416ab198ca24
+- evidence_id: schema
+  kind: authority
+  reference: child-schema-semantics.json
+  locator: Literal role, interaction, abundance and cultivation definitions
+  summary: PRIMARY_DEGRADER requires complex-substrate degradation. SECONDARY_FERMENTER
+    requires fermentation of primary-degradation products; no separate-species requirement
+    is added. CROSS_FEEDER requires utilization of another taxon’s metabolite. Broad
+    SYNTROPHIC_PARTNER and product-removal-based SYNTROPHY do not require obligacy.
+    PERFUSION means continuous medium exchange with biomass retention.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.948211Z'
+  snapshot_sha256: 2daae9fdf14fb22e2b6fc6ebe4f1fc80ee50529eb8d996d8e0b7b266dbbcd46e
+- evidence_id: semantics
+  kind: authority
+  reference: ontology-semantic-notes.json
+  locator: Focal source/role/construct and chemical interpretation
+  summary: Retain source-qualified acetate recipient evidence, broad cooperation and
+    contextual ordinals. Partner-product conversion alone does not automatically establish
+    SECONDARY_FERMENTER; require the literal fermentation/degradation-product context.
+    Keep final/preprint differences unresolved where the final main is needed.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.948485Z'
+  snapshot_sha256: 232a0e6e8e733dcb24ce535645447b92b40f398d0861b30c8a92b6de69d634fa
+- evidence_id: gtdb
+  kind: authority
+  reference: child-gtdb-crosswalk.json
+  locator: Fresh exact current ID/name rows
+  summary: 1488 resolves by exact NCBI ID to Clostridium_S acetobutylicum, fraction
+    1.0, 44 genomes. Species 1538 has no exact row and uses the valid name fallback
+    to Clostridium_B ljungdahlii, 1.0/4. Only the first mapping-route prose is wrong;
+    species identities/counts remain valid.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.948733Z'
+  snapshot_sha256: 1262a89b02a6d92e0d332a86f4b9eed85c46629ff7f01ef7a2246b79367270db
+- evidence_id: strain
+  kind: authority
+  reference: child-strain-background-authority.json
+  locator: Final SI Table S1 and Figure S4 context and explicitly reused catalogue
+    retrieval
+  summary: Same-batch DSM13528 background authority supports PETC/ATCC55383/NBRC117003
+    and optional strain 748727. It does not classify the experimental reporter derivative
+    or assign an engineered CACas9 strain taxon. The earlier 336 catalogue retrieval
+    time is retained; no experiment conclusion or maintenance medium is transferred.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.948848Z'
+  snapshot_sha256: e834ca70bfc2250ae12def9d9809cc658e0d2d6dcf2c8ba6c973a42dc63f591e
+- evidence_id: resources
+  kind: validation
+  reference: dataset-verification.json
+  locator: Exact final PII DOCX; reciprocal publication identities; bounded archive-identifier
+    scan
+  summary: The final publisher DOCX is a valid, source-specific supplement. No concrete
+    archive/code identifier was found in the bounded acquired text; unavailable final
+    main prevents a global absence claim. Empty optional resource fields do not warrant
+    a dataset finding. No unverified cross-Mech medium equivalence is added.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.949068Z'
+  snapshot_sha256: 90924beb91b84364538ce2cf8439ed5a843be96a0bee1a3088dd26a1704357f4
+- evidence_id: snippets
+  kind: validation
+  reference: snippet-source-audit.json
+  locator: Nine reference-specific excerpt occurrences
+  summary: All nine occurrences strictly match the fresh final abstract and current
+    abstract-only cache. None is represented as direct final-main Methods support.
+    Exact words do not validate expanded causal or process interpretations.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.949213Z'
+  snapshot_sha256: 5a72a3adb3944ef8816e573683f174e168c1e10118f28ab5396acd2366473115
+- evidence_id: history
+  kind: prior_review
+  reference: provenance-audit.json
+  locator: Two sidecars; exact focal batch 133 decision; five bounded public issue
+    queries
+  summary: The current record matches the prior final hash. The earlier graph review
+    relied on abstract/cache evidence; it does not certify newly assessed mechanisms.
+    Five all-state public queries returned no focal issue match, not a global absence
+    guarantee. No issue ownership from 336 is imported.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.949420Z'
+  snapshot_sha256: b0ae0e15a5703220b1c2322ebf2b53740d9a40bbd9eb485e4e82a03f406ce19d
+- evidence_id: inspect
+  kind: validation
+  reference: inspect.json
+  locator: Fresh official inspect, 26 pinned inputs in owned batch 11
+  summary: The maintained MicrobialCommunity class and exact source/base/owner fields
+    were inspected before assessment. All current inputs remain unchanged; local discovery
+    included ignored files within its declared scope.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.949607Z'
+  snapshot_sha256: 3088731916184e687abb365b6c850dbc605f30b34c46b7b38ec964e1132be4d2
+- evidence_id: lead-read
+  kind: validation
+  reference: lead-primary-read-scope.json
+  locator: Lead main, final supplement, visual and authority scope
+  summary: Lead read the complete 37-page preprint text including references and embedded
+    supplementary captions/table, all five main figures, final SI text/all three tables/all
+    seven figures, final abstract and focal preview. Final main remains unavailable
+    and critical. No raw-data/statistical reproduction was performed.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.949638Z'
+  snapshot_sha256: 468ba730fef7c856906b3f752a611faa9068bff511bc98921a8889763dfb9254
+- evidence_id: source-scope
+  kind: validation
+  reference: source-audit.json
+  locator: Frozen five-group assessment
+  summary: Partial/scientific false with two major and three minor findings. Keep
+    the two members and three-node/two-arrow structure while qualifying measured compartment,
+    causal certainty and process conditions. The final body must resolve remaining
+    version-specific claims.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.949764Z'
+  snapshot_sha256: 18a270aaa5878d851a07a099c1cf233d2c98a7d6461c506e85f1f60470a219fe
+- evidence_id: root-source
+  kind: validation
+  reference: root-independent-source-audit.json
+  locator: Independent main/source review and exact visual subset
+  summary: Root independently read the whole preprint and final SI text, final abstract/preview,
+    preprint Figures 2/4/5 and final S3/S4/S7. Its narrower visual scope is not expanded
+    to all lead images. It agrees partial/scientific false and the five finding groups.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.949886Z'
+  snapshot_sha256: 2a9cd48edc4ccc9ccd57711272f7e44b14c744721c3c98ed3461ed34bb6495ee
+- evidence_id: metrics
+  kind: validation
+  reference: support-final-audit.json
+  locator: Final native arithmetic and supporting scope
+  summary: Completeness 70; three nodes, two arrows and five node-evidence occurrences
+    yield mean 5/3 and network COMPLETE. Two major/three minor findings give raw 105.66666666666667,
+    capped 100. Presence and lexical scores are not scientific certification.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.950024Z'
+  snapshot_sha256: 9845a12d701605a37b6dbb505915cb7b4a80a8b2c24dc1a346df8c3d5ae87241
+- evidence_id: support-manifest
+  kind: validation
+  reference: supporting-artifact-manifest.json
+  locator: Distinct finalized support and supporting receipt pins
+  summary: Final support is distinct from the unchanged preliminary receipt. All source,
+    history, public issue search, resource, excerpt and native arithmetic boundaries
+    remain traceable.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.950046Z'
+  snapshot_sha256: f2cf69e9017e634b57dea5c5078094f7b47b9baa10032ab74e481199bcb28741
+- evidence_id: auxiliary
+  kind: validation
+  reference: auxiliary-frozen-manifest.json
+  locator: Frozen child authority/native/semantic artifacts
+  summary: Eight focused native checks pass, eight OAK pairs/19 occurrences match,
+    exact GTDB routes and schema semantics were assessed. All 26 inspected inputs
+    remain unchanged; initial native summary is immutable.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.950165Z'
+  snapshot_sha256: ad75a7c89d8ea68923489d2fb6739a121f4407ef932480add63e03fed800b40b
+- evidence_id: final-native
+  kind: validation
+  reference: final-validator-summary.json
+  locator: Separate final native summary
+  summary: The native checks and source-cache integrity pass. The reference gate’s
+    zero issues is not a count of fully scientifically verified claims. Final metadata
+    is separate from the initial frozen summary.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.950275Z'
+  snapshot_sha256: 27b4a6168e71829503bd74acb1be0412e674a244163999a0ad4aef62a43651d3
+- evidence_id: adapter
+  kind: validation
+  reference: adapter-check.json
+  locator: Same-batch 403 discovery at 2026-10-21T19:20:45.556660+00:00 plus fresh
+    compatibility
+  summary: Optional adapter discovery is explicitly reused with fresh runtime checks;
+    no installed executable/module was found in the task runtime. The other-checkout
+    candidate was not executed. No negative scientific inference follows.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.950386Z'
+  snapshot_sha256: f140ebaada109ffc6c4cd05a324fa594617dc69ddad849ee102b397485b1b42c
+- evidence_id: final-access
+  kind: validation
+  reference: root-primary/final-public-api-cooled.retrieval.json
+  locator: Cooled ordinary public API retry and metadata-only response
+  summary: The later HTTP200 response contains only 1,900-byte bibliographic coredata
+    with openaccess0. It is not a recovered final body. Earlier publisher403/API429
+    and preprint failures remain preserved.
+  support: supports
+  accessed_at: '2026-10-21T20:23:28.950500Z'
+  snapshot_sha256: a613e2de68b51783a13bd40d6232b0260651302fac8723ff0d4478dde16597b8
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+  locator: Execution 2026-10-21T20:14:00.714567+00:00 to 2026-10-21T20:14:01.944949+00:00
+  summary: Focused native command passed; source-science limits are assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T20:14:01.944949Z'
+  snapshot_sha256: e60592d4716c1ba6de8885397b285223b9df5b4cd4d203d1e81c157d96c32ec1
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-strict kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-11/000480/strict-report.tsv
+  locator: Execution 2026-10-21T20:14:00.715306+00:00 to 2026-10-21T20:14:03.084899+00:00
+  summary: Focused native command passed; source-science limits are assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T20:14:03.084899Z'
+  snapshot_sha256: 3a95ba6d42e34be558e3632959585bc720cb676c77307257ac278e1a2704bb79
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-terms kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+  locator: Execution 2026-10-21T20:14:00.715999+00:00 to 2026-10-21T20:14:02.787250+00:00
+  summary: Focused native command passed; source-science limits are assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T20:14:02.787250Z'
+  snapshot_sha256: 39f48fa9da8ba696c10849307256f2342f20aef399e45ed5f04280b4a4851c09
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-references-explained kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+  locator: Execution 2026-10-21T20:14:03.478010+00:00 to 2026-10-21T20:14:04.283852+00:00
+  summary: Focused native command passed; source-science limits are assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T20:14:04.283852Z'
+  snapshot_sha256: 10da44569d63f5888d847c1ca6062fd07b938ae99455ae2926b611942822db7d
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-gtdb kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+  locator: Execution 2026-10-21T20:14:01.945290+00:00 to 2026-10-21T20:14:02.015009+00:00
+  summary: Focused native command passed; source-science limits are assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T20:14:02.015009Z'
+  snapshot_sha256: 459c833f798e917e454e959f9c3bdf67f1a51783f71c777abffdf95c6875dd73
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+  locator: Execution 2026-10-21T20:14:02.015256+00:00 to 2026-10-21T20:14:03.131432+00:00
+  summary: Focused native command passed; source-science limits are assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T20:14:03.131432Z'
+  snapshot_sha256: 3bdaf650fc8e39116e943f19e5e44de6fd392f3c050d9312cd240f03021a60cd
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-history history/records/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture
+  locator: Execution 2026-10-21T20:14:02.787514+00:00 to 2026-10-21T20:14:03.429659+00:00
+  summary: Focused native command passed; source-science limits are assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T20:14:03.429659Z'
+  snapshot_sha256: bd4b10b4ded1a6beb1210b450f8b467fa9ac3b873110fc9bdb7a39aa92efe27d
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Execution 2026-10-21T20:14:03.430255+00:00 to 2026-10-21T20:14:03.477779+00:00
+  summary: Focused native command passed; source-science limits are assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T20:14:03.477779Z'
+  snapshot_sha256: 81ef24108bf3ff263596ff7f89b115a1b3f662714f1e6901e399bc64d4d9ce1d
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T19:18:40.531566+00:00 to 2026-10-21T19:18:48.865608+00:00
+  summary: Existing batch 11 corpus diagnostic retains its actual nonzero result;
+    focal network separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T19:18:48.865608Z'
+  snapshot_sha256: 5c91360a50ff296c596ef7b3fa3ca70cfa3f0423923df3104fa1aafcfcd96b61
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T19:18:40.534157+00:00 to 2026-10-21T19:18:48.224265+00:00
+  summary: Existing batch 11 corpus diagnostic retains its actual nonzero result;
+    focal network separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T19:18:48.224265Z'
+  snapshot_sha256: 5052a95a78eea50710110e7c8d5488631b3eb5df1705369d5ba42b9c3c0ee9f7
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Engineered pair, source versions and experimental constructs
+  outcome: concern
+  summary: Keep two members and engineered synthetic identity; distinguish construct-specific
+    source evidence.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - final-abstract
+  - construct
+  - final-construct
+  - strain
+  details: The final abstract supports the producer construct. Parent stock identity
+    is distinct from reporter-bearing experiments. Do not add E. coli or transform
+    the record into the earlier WT fusion system. The unavailable final main prevents
+    certification of exact construct coverage across all final arms.
+- assessment_id: grounding
+  area: grounding
+  topic: Ontology correspondence and GTDB route
+  outcome: concern
+  summary: Eight labels match; repair the first mapping-route note only.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - ontology
+  - gtdb
+  - strain
+  details: Preserve 1488 exact-ID 1.0/44 and 1538 name-fallback 1.0/4. Species counts
+    are mapping support, not experimental population counts. GO formation and glucose
+    processes require explicit participant scope; correct labels do not prove a transfer
+    mechanism.
+- assessment_id: roles
+  area: evidence
+  topic: Functional roles and ordinal abundance
+  outcome: concern
+  summary: Attach local role evidence and preserve supported acetate-recipient inference.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - schema
+  - semantics
+  - acetate-return
+  - acetate-support
+  details: Glucose fermentation does not alone demonstrate complex-substrate degradation.
+    SECONDARY_FERMENTER needs fermentation of primary-degradation products, not merely
+    any recipient reaction. Retain Cac CROSS_FEEDER with inferred Clj acetate use,
+    and broad syntrophic cooperation. Keep DOMINANT if its contextual prominence is
+    explained; no percentage threshold or fixed cell fraction is imposed.
+- assessment_id: hydrogen-node
+  area: graph
+  topic: ecological_interactions[0] and downstream[0]
+  outcome: concern
+  summary: Qualify measured compartment and proposed mechanism.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - mechanism
+  - alternative-routes
+  - final-abstract
+  - ontology
+  details: Headspace nondetection is observed in the preprint N2-start condition;
+    dissolved H2 and direct NADH/Fd transfer were not measured there. Final S3 models
+    alternatives. Preserve proposed thermodynamic relief with source-specific uncertainty;
+    replace unconditional DIRECTLY IMPLIED prose where the final body has not established
+    that exact causal step. H2 biosynthesis belongs to the producer side.
+- assessment_id: acetone-node
+  area: graph
+  topic: ecological_interactions[1] and downstream[0]
+  outcome: concern
+  summary: Preserve acetone exchange, qualify the carbon-negative downstream outcome.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - final-abstract
+  - products
+  - acetate-support
+  details: Cac produces acetone and Clj converts it to isopropanol. Blocked endogenous
+    four-carbon synthesis does not mean no butanol from supplied butyrate. The edge
+    to process performance also depends on external gas inputs, retention, density
+    and time; exchange alone does not demonstrate a universal carbon-negative outcome.
+- assessment_id: process-node
+  area: graph
+  topic: ecological_interactions[2]
+  outcome: concern
+  summary: Scope product outcome to the reported process, substrate and period.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - final-abstract
+  - final-preview
+  - products
+  - final-process
+  details: The final abstract restricts sole alcohol to glucose-derived product in
+    perfusion. Current prose generalizes to pseudo-perfusion and all alcohol products.
+    Retain the reported result with run-specific carbon accounting and evidence; final
+    body is needed for exact final interval and revised mechanistic interpretation.
+    No compulsory topology expansion is required.
+- assessment_id: cultivation
+  area: completeness
+  topic: Missing structured medium and cultivation context
+  outcome: concern
+  summary: Recover accessible stage-specific conditions without claiming a complete
+    final protocol.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - preparation
+  - operation
+  - supplement-culture
+  - final-construct
+  - schema
+  details: Separate preculture, batch, repeated resuspension and continuous retention.
+    Preserve external gas feeds, butyrate/antibiotic supplementation, pH/feed controls
+    and OD-based inoculum scope. The preprint 3.6 L combines vessel and column working
+    volumes. Do not resolve its 63/70 h discrepancy or transplant another record’s
+    medium.
+- assessment_id: environment-metals
+  area: evidence
+  topic: Engineered setting and nonmetal scope
+  outcome: concern
+  summary: Bioreactor and engineered origin fit; environmental mechanism wording overreaches.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - final-preview
+  - mechanism
+  - operation
+  - ontology
+  details: 'The environment factor repeats unmeasured dissolved-H2 elimination and
+    should share the mechanism repair. NOT_APPLICABLE metal relevance with empty lists
+    is appropriate: no metal-processing mechanism is reported. Medium/analytical salts
+    do not require metal relevance.'
+- assessment_id: resources
+  area: provenance
+  topic: Publication, supplement and optional datasets
+  outcome: supported
+  summary: Keep final and precursor versions distinct; no dataset omission finding.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - version
+  - resources
+  - final-access
+  details: Source-named constructs and cloning sequences are not automatically public
+    sequence deposits. The final supplement is accessible; the final main is not.
+    No archive identifier was found within the bounded acquired text, and no arbitrary
+    archive search or cross-Mech mapping was made.
+- assessment_id: evidence-scope
+  area: evidence
+  topic: Reference-specific snippets and completeness of source review
+  outcome: concern
+  summary: Nine exact final-abstract matches coexist with critical final-main access
+    gaps.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - snippets
+  - lead-read
+  - root-source
+  - final-access
+  details: Retain verbatim excerpts and attribute precursor-only details to its DOI/version.
+    Final SI differs from precursor SI, especially alternative-transfer and comparison
+    content. Do not certify unchanged final mechanisms from the earlier body or silently
+    use precursor Methods as PMID full-text support.
+- assessment_id: provenance
+  area: provenance
+  topic: History, prior decisions and issue ownership
+  outcome: supported
+  summary: Preserve prior graph history while recording fresh source-specific findings.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - history
+  - inspect
+  details: Both sidecars and exact focal prior row are preserved. No bounded issue
+    match was identified; no global issue-absence claim or duplicate issue action
+    is made. Canonical/history/cache bytes remain unchanged.
+- assessment_id: validation
+  area: schema
+  topic: Native gates and source-access limits
+  outcome: supported
+  summary: Eight focused native checks pass; scientific completion remains partial.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - inspect
+  - source-scope
+  details: Passing schema/reference checks does not certify expanded mechanism or
+    outcome claims. Corpus diagnostics retain actual nonzero results. Only review
+    artifacts are written; parent may save the new immutable review bundle after independent
+    audits.
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: supported
+  summary: Completeness 70; quality raw 105.66666666666667 caps at 100.
+  target_ids:
+  - CommunityMech:000480
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 70
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required fields with taxon roles 50 + environment term 5 + at least
+      three interaction nodes 10 + node metabolites 5. Other optional presence bonuses
+      are zero. These are presence scores, not support certification.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 − 50P1 − 10P2 − 2P3 + 20min(mean node evidence/2,1) +15
+      if COMPLETE,0,100). P1=0, P2=2, P3=3, P4=0. Five node-evidence occurrences/three
+      nodes give mean 5/3 and bonus 16.666666666666668; COMPLETE adds 15. Raw 105.66666666666667
+      caps 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: qualify-hydrogen-mechanism
+  issue_key: cm-000480-qualify-hydrogen-mechanism
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: The record promotes an assay compartment and exclusive mechanism
+    beyond the accessible final evidence, affecting the central causal claim.
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Qualify hydrogen measurements and causal mechanism
+  description: Separate measured hydrogen accumulation from proposed electron-transfer
+    mechanism. The final abstract does not specify dissolved H2. Preprint Methods/Figure
+    2 measure headspace gas and retain low local H2 versus direct carrier transfer
+    alternatives. Final Figure S3 models H2 versus ethanol donation. Qualify mechanism
+    and downstream certainty pending the unavailable final body; do not equate nondetection
+    with zero local flux.
+  target_ids:
+  - CommunityMech:000480
+  field_paths:
+  - description
+  - taxonomy[1].evidence[0].explanation
+  - taxonomy[1].evidence[1].explanation
+  - environmental_factors[0].description
+  - ecological_interactions[0].name
+  - ecological_interactions[0].description
+  - ecological_interactions[0].downstream[0].description
+  evidence_ids:
+  - mechanism
+  - alternative-routes
+  - final-abstract
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained record owns this repair. No exact issue was found in
+    the bounded public search; no issue/comment was created and no ownership was inherited
+    from another record.
+- finding_id: scope-process-outcome
+  issue_key: cm-000480-scope-process-outcome
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: The outcome node broadens substrate-, run- and period-specific
+    performance into a general process property.
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Bound carbon-negative and sole-alcohol process claims
+  description: Limit carbon-negative and sole-alcohol statements to source-defined
+    operating intervals, inputs and product accounting. Final abstract says sole alcohol
+    produced from glucose in perfusion, not all alcohols in every pseudo-perfusion
+    run. External H2/CO2 support carbon recovery; preprint 23-hour sole-glucose-alcohol
+    interval is not the full run. Final S7 is a distinct feed/gas experiment below
+    100% carbon recovery. Preserve butyrate-derived butanol and acetone-plus-isopropanol
+    versus isopropanol distinction.
+  target_ids:
+  - CommunityMech:000480
+  field_paths:
+  - name
+  - description
+  - ecological_interactions[1].description
+  - ecological_interactions[1].downstream[0].description
+  - ecological_interactions[2].name
+  - ecological_interactions[2].description
+  evidence_ids:
+  - final-abstract
+  - final-preview
+  - products
+  - final-process
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained record owns this repair. No exact issue was found in
+    the bounded public search; no issue/comment was created and no ownership was inherited
+    from another record.
+- finding_id: recover-cultivation-context
+  issue_key: cm-000480-recover-cultivation-context
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: Recoverable operational and construct details are missing;
+    this is bounded completeness/context repair, not a declared complete final recipe.
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Recover version-specific cultivation and construct context
+  description: Recover accessible source-specific strain and protocol detail. Distinguish
+    preprint p100ptaHALO throughout Methods/Results from WT parent stock in Table
+    1/S1 and final reporter S4 arm; final-main arm coverage remains unresolved. Separate
+    precultures, batch, repeated resuspension and continuous retention, external gases,
+    butyrate/antibiotic supplementation, and combined 3.6 L working volume. Do not
+    promote a complete final protocol or import336.
+  target_ids:
+  - CommunityMech:000480
+  field_paths:
+  - taxonomy[0].taxon_term.notes
+  - taxonomy[1].taxon_term.notes
+  - environment_term.notes
+  - growth_media
+  - cultivation_setup
+  evidence_ids:
+  - construct
+  - final-construct
+  - preparation
+  - operation
+  - supplement-culture
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained record owns this repair. No exact issue was found in
+    the bounded public search; no issue/comment was created and no ownership was inherited
+    from another record.
+- finding_id: attach-role-evidence
+  issue_key: cm-000480-attach-role-evidence
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: The broad cooperation is supported; optional role attachment
+    requires local evidence and literal semantics.
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Attach source-local functional-role evidence
+  description: Attach role-local evidence under literal definitions. Glucose use alone
+    does not demonstrate complex-substrate degradation. Secondary fermentation requires
+    a source-supported degradation-product route, without a separate-species requirement.
+    Retain Cac CROSS_FEEDER with explicit inferred Clj acetate return, supported by
+    final Supplementary Text/S3/S6 and preprint balance reasoning. No automatic ordinal
+    replacement or nutrient-only test.
+  target_ids:
+  - CommunityMech:000480
+  field_paths:
+  - taxonomy[0].functional_role
+  - taxonomy[0].evidence
+  - taxonomy[1].functional_role
+  - taxonomy[1].evidence
+  evidence_ids:
+  - schema
+  - semantics
+  - acetate-return
+  - acetate-support
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained record owns this repair. No exact issue was found in
+    the bounded public search; no issue/comment was created and no ownership was inherited
+    from another record.
+- finding_id: repair-gtdb-provenance
+  issue_key: cm-000480-repair-gtdb-provenance
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: The species identity/counts are correct; only mapping-method
+    provenance needs correction.
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Correct the acetobutylicum GTDB mapping route
+  description: Correct 1488 mapping to exact-ID route, preserving valid species 1.0/44.
+    Retain 1538 name fallback 1.0/4. No strain-absence finding or forced strain-rank
+    mapping imported.
+  target_ids:
+  - CommunityMech:000480
+  field_paths:
+  - taxonomy[0].taxon_term.gtdb_classification.mapping_source
+  evidence_ids:
+  - gtdb
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained record owns this repair. No exact issue was found in
+    the bounded public search; no issue/comment was created and no ownership was inherited
+    from another record.
+actions:
+- action_id: qualify-hydrogen
+  description: Separate measured gas changes from the proposed transfer route.
+  finding_ids:
+  - qualify-hydrogen-mechanism
+  target_ids:
+  - CommunityMech:000480
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Replace unqualified dissolved-H2 wording in description and environmental_factors[0].description
+    with the actual source/compartment. Final abstract supports hydrogen nondetection
+    without phase; preprint Methods/Figure 2 measure headspace. Do not infer zero
+    dissolved/local H2 or measure gross turnover from net headspace concentrations.
+  - Qualify ecological_interactions[0], taxonomy[1] explanations and downstream[0]
+    with source-proposed thermodynamic relief, explicit alternatives and final-body
+    access limits. Use the supported claim classification/evidence when available;
+    remove categorical DIRECTLY IMPLIED language if the specific step remains hypothetical.
+    Do not assert that every precursor alternative is unchanged in the final article.
+  - Keep the producer’s H2 formation distinct from acetogen consumption when explaining
+    GO:1902422. Retain broad source-described syntrophy and acetone conversion; neither
+    obligacy nor added contact/fusion/DNA mechanism is required. Preserve the three-node/two-arrow
+    structure where qualifiers suffice.
+- action_id: bound-outcomes
+  description: Constrain process claims to their source-defined inputs and operating
+    scope.
+  finding_ids:
+  - scope-process-outcome
+  target_ids:
+  - CommunityMech:000480
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Revise the outcome node and edge1→2 to retain the final abstract’s glucose-derived,
+    perfusion-specific sole-alcohol claim. Do not extend it to every pseudo-perfusion
+    or perfusion condition, all alcohol carbon sources, or all observation times.
+  - Explain carbon-negative as source-defined fermentation carbon accounting with
+    external CO2/H2 inputs. Avoid implying whole-lifecycle emissions benefit. Distinguish
+    3C yield (acetone plus isopropanol) from isopropanol alone; distinguish supplied-butyrate-derived
+    butanol from endogenous four-carbon metabolism.
+  - Attribute the preprint’s 23-hour interval, first-run carbon balance and modeled
+    external-H2 estimates to that version. Final S7 is a separate run below 100% carbon
+    recovery. Obtain and assess final Methods/results before certifying exact final
+    intervals or exclusive transfer routes; preserve the partial review boundary until
+    then.
+- action_id: recover-protocol
+  description: Add stage-specific source information while retaining version uncertainty.
+  finding_ids:
+  - recover-cultivation-context
+  target_ids:
+  - CommunityMech:000480
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Document CACas9 Δhbd-p95ace02_atoB and distinguish the DSM13528 parent from p100ptaHALO
+    experiments. Preprint Methods/Results use the reporter; final S4 confirms one
+    reporter arm. Resolve other final arms from the final main rather than silently
+    calling all cultures WT or reporter-bearing. Cloning E. coli strains and donor
+    genes are not community members.
+  - Separate producer heat shock/seed culture, gas-fed acetogen preculture, batch,
+    repeated-resuspension pseudo-perfusion and continuous-retention perfusion. Add
+    only version-labeled source facts to growth_media/cultivation_setup, including
+    butyrate/antibiotic supplementation, working volume, external gas, feed and pH
+    control. No full Turbo CGM recipe or catalogue equivalence is invented.
+  - Preserve preprint 20 mL/160 mL bottle stage and OD-based R=5 without converting
+    it into viable-cell fractions. Distinguish a 3 L vessel at 1.2 L working volume
+    plus 2.4 L packed column from 3.6 L vessel capacity. Keep the source 63 h versus
+    70 h inoculation discrepancy attributed.
+  - Use final SI pH 5.1,20 g/L glucose and 0.083 h−1 dilution with their stated experiment.
+    Keep S7 feed/gas periods separate from the first-run/preprint 80:20 supply. PERFUSION
+    can represent continuous exchange with biomass retention; episodic resuspension
+    requires its own protocol description.
+- action_id: support-roles
+  description: Ground optional roles in the actual recipient and fermentation evidence.
+  finding_ids:
+  - attach-role-evidence
+  target_ids:
+  - CommunityMech:000480
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - For PRIMARY_DEGRADER, attach source-specific complex-substrate evidence or qualified
+    potential, or omit the optional role. Glucose metabolism alone does not establish
+    complex-substrate degradation; do not import founding WT substrate claims from
+    another record.
+  - For each SECONDARY_FERMENTER assignment, identify fermentation and primary-degradation-product
+    context under the literal schema. Partner-derived acetate uptake or acetone reduction
+    alone establishes recipient conversion, not automatically that role. No requirement
+    for a separate primary-degrader species is added.
+  - Retain Cac CROSS_FEEDER with explicitly inferred utilization of Clj-derived acetate
+    into acetone; cite final Supplementary Text/S3/S6 and precursor balance reasoning.
+    Keep exogenous-feed capacity separate from traced coculture flux. Retain broad
+    SYNTROPHIC_PARTNER and contextual DOMINANT; do not invent ordinal thresholds or
+    stable population fractions.
+- action_id: fix-gtdb-route
+  description: Correct the exact-ID provenance while preserving valid species mappings.
+  finding_ids:
+  - repair-gtdb-provenance
+  target_ids:
+  - CommunityMech:000480
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Change taxonomy[0].taxon_term.gtdb_classification.mapping_source from species-name/no-ID
+    fallback to verified NCBITaxon:1488 exact-ID matching. Preserve GTDB target/lineage,
+    fraction 1.0 and 44-genome support.
+  - Retain 1538 species-name fallback 1.0/4 and its current identity. Record the verified
+    crosswalk hash and method, labeling mtime as mtime rather than an invented release.
+    Do not silently substitute optional strain mappings or invent absent-strain errors.
+- action_id: validate-authorized-curation
+  description: Validate separately authorized curation with immutable source provenance.
+  finding_ids:
+  - qualify-hydrogen-mechanism
+  - scope-process-outcome
+  - recover-cultivation-context
+  - attach-role-evidence
+  - repair-gtdb-provenance
+  target_ids:
+  - CommunityMech:000480
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Isopropanol_Syntrophic_Coculture.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/PMID_41831593.txt
+    role: source_cache
+  acceptance_checks:
+  - Keep all original final-abstract quotations verbatim. New precursor and SI snippets
+    require exact separate references/locators and version-appropriate cache routing;
+    never place precursor Methods under a final-PMID full-text claim. Preserve the
+    abstract-only cache boundary unless separately and accurately extended.
+  - After separately authorized canonical changes, append fresh history and run focused
+    schema, strict, term, reference, GTDB, domain and history checks, then just gen-html
+    and just check-docs-current. Retain actual unavailable/failed outcomes rather
+    than interpreting high scores as source completion.
+  - This review changes no canonical record, cache, history or generated product.
+    Parent persistence may save only the new immutable review bundle after independent
+    audits. Preserve initial/final native summaries, preliminary/final support and
+    all source-access failures.
+limitations:
+- 'Partial scientific review: the final article main remains unavailable. Full preprint
+  access and final SI do not resolve final-version electron-transfer alternatives,
+  experimental construct coverage or exact outcome intervals. Final abstract and final
+  SI are independently assessed, not treated as the missing body.'
+- Lead read the whole 37-page preprint text including references/embedded supplementary
+  captions and primer table, all five main figures, and all final SI text/three tables/seven
+  figures. Root independently read all source text but only the specified preprint
+  2/4/5 and final S3/S4/S7 visuals. Transparent figures were shown on white backgrounds
+  without altering data.
+- The final indexed preview contributes only its focal first result, including highlights,
+  Introduction and bounded section starts. Other search hits are unrelated and unused.
+  Final public API200 is bibliographic coredata, not full text. The DOI-linked preprint
+  and final PII supplement are distinct versions.
+- All nine excerpt occurrences strictly match the fresh final abstract and current
+  abstract-only cache. Lexical success is not causal support. Draft preprint editorial
+  comments are not scientific evidence.
+- Headspace nondetection does not measure dissolved/local H2 or gross interspecies
+  turnover. Preprint carrier-transfer alternatives and final S3 H2/ethanol models
+  require final-body interpretation; no selective mechanistic proof is inferred from
+  schematics or balances.
+- External gas carbon/electrons, acetone-plus-isopropanol yield, supplied-butyrate-derived
+  butanol and selected intervals matter. Preprint first-run performance cannot be
+  generalized to final S7 or certified as final revised results; no lifecycle carbon
+  benefit is asserted.
+- Stock identity differs from reporter constructs. Preprint abstract/Methods conflict
+  and 63/70 h inoculation discrepancy remain attributed. OD ratios, RNA-FISH fractions
+  and GTDB support counts have distinct meanings. Broad ordinal abundance and syntrophic
+  roles are not subjected to invented thresholds.
+- No concrete archive identifier was found in bounded acquired text, not a claim of
+  global data absence. No raw processing, external code execution, paid access, contact,
+  issue mutation or later-record assessment occurred. Optional adapter discovery is
+  explicitly reused from 403 with fresh compatibility.
+- All26 inspected inputs remain unchanged; initial native and preliminary support
+  receipts are immutable. Eight focused checks pass, corpus diagnostics retain nonzero
+  outcomes, and high presence/quality scores do not remove the partial source-review
+  status.
+notes:
+- Two major and three minor findings; completeness 70, raw quality 105.66666666666667/cap
+  100.
+- The final abstract is directly verified. Precursor-only protocol/result details
+  retain their version; completion remains partial until critical final-main claims
+  can be assessed.
+- No canonical mutation or issue posting. Independent whole-candidate audits precede
+  any parent save.
+tags:
+- record-review
+- clostridial-coculture
+- isopropanol
+- source-scope
+- batch-11

@@ -1,0 +1,1793 @@
+# Caragana korshinskii forage SynCom record review
+
+- Review: 20261021T155638Z-caragana-korshinskii-forage-syncom-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T15:46:55.561513Z
+- Finished UTC: 2026-10-21T15:56:38.158044Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+The current full paper supports the designed cross-kingdom inoculum and three qualified nodes with two hypothetical arrows. Two major findings concern member provenance conflicts and overstated treatment/mechanistic claims. Three minor findings concern GTDB explanation, recoverable cultivation/access context and data-resource provenance. Source identity and numerical inconsistencies remain explicit.
+
+## Scope And Provenance
+
+Whole canonical record and every node/arrow assessed using current primary main, figures, tables, bounded SI, ontology and public-resource evidence.
+
+Selection: Only released CommunityMech:000338 in the owned batch 09 checkout.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base f491097e6f3cd52baf6c2e89b3e614756ebce558.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000338 | kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml | maintained | Caragana korshinskii Cross-Kingdom Forage Bio-Valorization SynCom |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000338 | Schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000338 | Strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000338 | Term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000338 | GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000338 | GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000338 | History validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000338 | Read-only cache-name preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000338 | Reference validation passed; all 13 excerpts independently match the direct abstract and cache. |
+| audit-network | failed | True | CommunityMech:000338 | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal graph separately reports COMPLETE. |
+| check-network-quality | failed | True | CommunityMech:000338 | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal graph separately reports COMPLETE. |
+| Primary scientific review | passed | True | CommunityMech:000338 | Whole current scientific main, Tables 1–2, all seven main figures and bounded SI workbook assessed against the entire record. |
+| Public identity and resource checks | passed | True | CommunityMech:000338 | Exact source marker/culture/project identifiers checked; conflicts are findings and limitations, not unexamined access gaps. |
+| Critical supplementary data | passed | True | CommunityMech:000338 | Both complete digestion sheets and bounded instrument rows inspected. No full raw-stream or statistical reproduction claimed. |
+| Sequence and raw-data reproduction | skipped | False | CommunityMech:000338 | No sequence alignment, culture authentication, raw read analysis, curve reproduction or new statistical test. |
+| Optional structured expression adapter | unavailable | False | CommunityMech:000338 | No applicable expression-module evidence established through bounded discovery. |
+
+## Scientific And Domain Assessments
+
+### Source-declared inoculum and exact identity conflicts
+
+identity: concern. Targets: CommunityMech:000338.
+
+The three-member design is supported, but exact marker and culture identifiers materially qualify its species grounding.
+
+### Origin, state, category and environment
+
+scope: supported. Targets: CommunityMech:000338.
+
+Retain ENGINEERED, SYNTHETIC, LIGNOCELLULOSE and silage as descriptions of the deliberately assembled treatment.
+
+The designed inoculum does not replace the naturally present forage community. ENGINEERED does not certify stability, mutually beneficial growth or a completed mechanistic chain.
+
+### Current labels and source-strain grounding
+
+identity: concern. Targets: CommunityMech:000338.
+
+Correct labels for currently encoded IDs do not resolve OR591302 or ATCC 16404 provenance.
+
+The B. subtilis marker is compatible with the broad source species. The L. plantarum marker conflict is unresolved; do not silently substitute L. buchneri or equate a relative amplicon species bin with the inoculated strain. Reconcile the fungal collection identity with A. brasiliensis while preserving the paper’s A. niger name as source attribution.
+
+### Exact-ID mapping versus name fallback
+
+identity: concern. Targets: CommunityMech:000338.
+
+The two no-majority explanations are contradicted by the pinned exact-ID crosswalk rows.
+
+Correct the species-level mapping explanation/status independently of unresolved strain identity. Crosswalk genome counts and fractions are neither experimental abundance nor isolate classification. Retain fungal exclusion from bacterial/archaeal GTDB scope.
+
+### Overview and engineering outcome explanations
+
+evidence: concern. Targets: CommunityMech:000338.
+
+The overview preserves a wrong treatment attribution and stronger mechanistic language than the graph.
+
+Correct the 25.65% CK attribution; distinguish table-reported LBA values and shared significance groups. All groups exceed 95% relative Lactobacillus. Replace competitive-exclusion and upregulation claims with relative composition and Tax4Fun prediction scope; preserve exact source quotations with corrective explanations.
+
+### All three functional-role assignments
+
+evidence: concern. Targets: CommunityMech:000338.
+
+Keep biological design rationale explicitly inferential; acidification alone does not support SECONDARY_FERMENTER.
+
+PRIMARY_DEGRADER is not restricted to organic polymers from another organism, and SECONDARY_FERMENTER does not require a different donor species. Nonetheless, fermentation of upstream degradation products must be supported rather than inferred solely from acid production. Omit optional unsupported enums if their uncertainty cannot be represented clearly; do not invent replacement roles.
+
+### Complementary lignocellulose attack by the two degraders
+
+evidence: supported. Targets: CommunityMech:000338.
+
+Retain PARTIAL functional complementarity. No enzyme-resolved division of labor or fungal delignification is established; reconcile participant identities without strengthening the mechanism.
+
+### Silage Community Shift and Spoilage-Genus Suppression
+
+evidence: supported. Targets: CommunityMech:000338.
+
+Retain relative outcome and all-treatment dominance qualification. No reciprocal-negative fitness effect, eradication or inoculated-strain abundance follows.
+
+### Acidification-driven preservation
+
+evidence: supported. Targets: CommunityMech:000338.
+
+Retain preservation outcome and partial functional interpretation. Pyruvate/GO annotations remain prediction context rather than measured metabolite flux or mutualism.
+
+### Complementary attack → Acidification-driven preservation
+
+evidence: supported. Targets: CommunityMech:000338.
+
+Retain HYPOTHESIZED substrate-release link; no organism-resolved transfer or necessary enzyme pathway is demonstrated.
+
+### Acidification-driven preservation → Community shift
+
+evidence: supported. Targets: CommunityMech:000338.
+
+Retain HYPOTHESIZED acidity-mediated shift; acidity is not isolated as the necessary mediator and eradication is not shown.
+
+### Ensiling, inoculum and assay context
+
+completeness: concern. Targets: CommunityMech:000338.
+
+Recover accessible conditions and replace stale blanket access notes.
+
+Keep 30-day vacuum-bag ensiling separate from 24/48-hour digestibility and gas assays. Preserve OD600-estimated CFU uncertainty, absent bag loading/propagation recipe and missing assay temperature. Table 2 includes multiple sampling days despite Methods emphasizing 30 days; do not silently harmonize that source reporting.
+
+### Public supplement and disputed sequence project
+
+provenance: concern. Targets: CommunityMech:000338.
+
+Link the genuine supplementary workbook and preserve the named project mismatch without certifying focal deposition.
+
+No replacement project, data-absence claim, raw sequence re-identification or exact CultureMech recipe is inferred. Marker and catalogue identities do not prove experimental functional traits.
+
+### Earlier graph repairs and current source access
+
+provenance: supported. Targets: CommunityMech:000338.
+
+Preserve the earlier graph repair and distinguish historical access limitations from current public evidence.
+
+All existing snippets are abstract matches. The accepted-manuscript review already noted numerical and method conflicts; no snippet fabrication is alleged. Current full main and SI allow broader non-graph assessment.
+
+### Native and ontology checks
+
+schema: supported. Targets: CommunityMech:000338.
+
+All eight focused native checks pass; semantic identity, outcome and provenance findings remain.
+
+### Native completeness and validation quality
+
+completeness: supported. Targets: CommunityMech:000338.
+
+Mechanical scores do not certify scientific correctness or encourage invented conditions.
+
+## Findings
+
+### member-provenance: Reconcile exact inoculant identities with source and catalogue conflicts
+
+major / open / confirmed; issue key: cm-000338-member-provenance.
+
+The source identifies L. plantarum by an accession that instead names L. buchneri TH83, while its A. niger ATCC 16404 is currently A. brasiliensis. Preserve source attribution and distinguish unresolved bacterial identity from the directly verified fungal collection reclassification.
+
+### outcome-mechanism-scope: Align overview, design explanations and roles with the qualified evidence
+
+major / open / confirmed; issue key: cm-000338-outcome-mechanism-scope.
+
+The overview assigns CK IVNDFD 25.65% to LBA, frames all-treatment dominance as a unique SynCom shift and asserts competitive exclusion/functional upregulation. Role evidence likewise needs explicit design-potential scope rather than an unqualified mechanistic attribution.
+
+### gtdb-exact-id: Separate exact-ID GTDB mappings from broader name candidates
+
+minor / open / confirmed; issue key: cm-000338-gtdb-exact-id.
+
+The two taxon notes assert no majority mapping, but the exact-ID rows have clear majority mappings. Broader same-name records across different IDs do not establish equal ambiguity for the encoded species or classify the actual inoculum.
+
+### cultivation-access: Recover current ensiling conditions and correct stale access claims
+
+minor / open / confirmed; issue key: cm-000338-cultivation-access.
+
+Current full text supplies inoculum, moisture, vessel, temperature, duration and assay context that the record calls inaccessible. Distinguish silage production from rumen-fluid digestibility/gas assays.
+
+### resource-provenance: Link genuine supplementary data and qualify the disputed project
+
+minor / open / confirmed; issue key: cm-000338-resource-provenance.
+
+The article-linked workbook is a verified data asset. PRJNA1015568 is source-reported but its metadata does not verify focal silage sequencing; do not import it as an unqualified study dataset.
+
+## Recommended Actions And Acceptance Checks
+
+### reconcile-member-identities
+
+Resolve member provenance across taxonomy and graph while preserving the paper’s own names.
+
+- Record OR591286.1 as the paper-linked partial 16S marker for B. subtilis subsp. subtilis TH71, compatible with the broad B. subtilis membership. Do not call it a complete genome or a functional assay.
+- Record the unresolved OR591302.1 conflict: the paper calls its inoculant L. plantarum, while the marker identifies L. buchneri TH83. Do not silently replace the experimental organism or treat endpoint species bins as proof of the inoculated strain. Keep source-declared membership explicitly provisional until an exact reconciliation is available.
+- For the named fungal culture ATCC 16404, use the independently verified current A. brasiliensis NCBITaxon:319629 identity, preserving A. niger as the paper/deposition name. Update every affected participant and membership reference consistently, with exact strain provenance. This does not authenticate the authors’ physical culture or establish delignification.
+- Keep the three-member designed assembly distinct from the wider endpoint forage microbiome. Preserve three qualified nodes and two HYPOTHESIZED edges; identity correction does not justify new members or mechanisms.
+
+### bound-outcomes-and-roles
+
+Repair treatment attribution and non-graph mechanistic overstatement without rewriting exact source quotations.
+
+- Correct the overview and engineering evidence explanation using explicitly attributed main Table 2: 30-day ensiling/48-hour assay gives LBA IVDMD 49.68% and IVNDFD 29.40%, versus CK 44.83% and 25.65%. Keep the abstract quote exact and state its disagreement; do not certify workbook reproduction.
+- Respect treatment/time-specific significance letters, including shared LBA/LB groups. Do not claim LBA significantly exceeds all inoculants at every endpoint or stage.
+- State that all groups, including CK, exceed 95% relative Lactobacillus. Describe spoilage-associated relative suppression without claiming competitive exclusion, absolute eradication or inoculated-strain persistence.
+- Replace functional upregulation wording with bacterial Tax4Fun predicted pathway differences. Preserve computational evidence labels, treatment-specific enrichments and the source’s shotgun/bacteria-only conflict; do not infer fungal expression, flux or delignification.
+- Scope all three functional-role explanations as source-selected design potential or inference. Acidification alone does not establish SECONDARY_FERMENTER use of primary-degrader products; no different-species donor is required by the definition. If the uncertainty cannot be represented adequately, omit unsupported optional role enums without inventing a replacement. Retain broader proposed biology in qualified prose.
+- Preserve the existing PARTIAL nodes and HYPOTHESIZED handoff/acidity arrows. Do not restore mutualism, reciprocal competition, measured pyruvate flux or unqualified enzyme-mediated causality.
+
+### correct-gtdb-scope
+
+Use exact-ID crosswalk evidence before broader name fallback.
+
+- Correct the no-majority explanation for NCBITaxon:1590 and NCBITaxon:1423. The pinned exact rows are GTDB:s__Lactiplantibacillus_plantarum, 2,061 genomes/fraction 1.0, and GTDB:s__Bacillus_subtilis, 1,256/fraction 0.91; broader name matches span other IDs.
+- Reassess gtdb_grounding_status, candidates and any classification at the accepted species scope. Where experimental identity remains unresolved, state that reason separately rather than retaining a false crosswalk ambiguity. Do not force a strain-specific GTDB split from a species name or marker conflict.
+- Use mapping fractions only as database provenance. Keep fungal NO_GTDB_EQUIVALENT based on bacterial/archaeal scope, not absence of a lookup result.
+
+### recover-cultivation
+
+Add source-reported ensiling and assay context and replace obsolete availability prose.
+
+- Represent Caragana forage ground to 1–2 mm, approximately 50–55% moisture, vacuum polyethylene bags, 23–28 °C and 30-day ensiling. Preserve three biological replicates and sterile-water control where useful; do not invent bag loading, pH setpoint or propagation medium.
+- Describe the equal 1:1:1 mixture and reported 1e8 CFU/g fresh weight with the source OD600-estimation caveat. Do not allocate this dose per member or infer a fungal viable-count calibration.
+- Keep the separate rumen-fluid assays scoped: buffer:fluid 2:1, reported two-stage 48-hour plus 48-hour acid-pepsin method, and gas assay 1 g sample/110 mL fluid/250 mL module for 48 hours. Preserve Table 2’s 24/48-hour reporting rather than silently harmonizing it. Do not supply an unstated assay temperature from convention or instrument channels.
+- Replace blanket no-PMC/full-text-unavailable notes with current PMC13637219/public article availability and precise remaining gaps. The local MD cache is still abstract-only; do not edit it during this review or claim that all source limitations disappeared.
+
+### qualify-source-resources
+
+Expose verified data assets and unresolved source links accurately.
+
+- Add the exact publisher-linked Supplementary Material 1 workbook as a source-data resource with its six-sheet scope. It is one unique file linked twice, not two independent datasets. Its digestibility sheets and instrument channels are not a validated reproduction of Table 2 or Figure 1.
+- If representing PRJNA1015568, identify it explicitly as the paper-reported unresolved link: direct metadata describes L. plantarum YQM48 sodium-enhanced cellulose/beta-glucosidase work. Do not label it verified focal Caragana SynCom amplicon/shotgun data, infer a replacement project or assert that study data are absent.
+- Keep OR591286/OR591302 partial marker accessions and ATCC collection provenance distinct from community sequencing datasets. Preserve publication links and source/archive discrepancies rather than borrowing catalogue media or biological claims.
+
+### validate-authorized-curation
+
+Apply any future canonical correction only through a separately authorized curation pass.
+
+- After separately authorized curation, append fresh history and run focused schema, strict, term, reference, GTDB/domain and history checks, followed by just gen-html and just check-docs-current. No canonical change or generator is run in this review.
+- Preserve exact quotations, old history, source and saved review bytes. Revalidate every changed taxon occurrence and the retained graph without inventing experimental resolution of the source’s internal conflicts.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml; Entire canonical record, three nodes and two downstream arrows | supports | The source-designed three-member forage inoculum is represented with a previously qualified causal graph, but non-graph identity, outcome, grounding and access statements require reconciliation. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=42432469&amp;retmode=xml; Direct bibliographic metadata | supports | Direct title, abstract and identifiers establish the focal publication; all 13 current snippets match its abstract. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42432469%20AND%20SRC:MED&amp;format=json&amp;resultType=core; Direct bibliographic metadata | supports | PMID 42432469, PMC13637219 and DOI 10.1186/s12866-026-05353-5 identify the current open paper. |
+| crossref | https://api.crossref.org/works/10.1186/s12866-026-05353-5; Direct bibliographic metadata | supports | DOI bibliographic identity agrees with the publication. |
+| members | PMID:42432469; Materials and methods: Substrates and microbial additives | supports | The paper names B. subtilis OR591286, L. plantarum OR591302 and A. niger ATCC 16404. These identifiers are recoverable from current full text. Direct public identity checks reveal one bacterial accession conflict and a current fungal reclassification, without independently authenticating the cultures used by the authors. |
+| digestibility | PMID:42432469; Abstract: Results; Results: Effects of compound fermentation bacteria on in vitro rumen fermentation characteristics of Caragana korshinskii silage; Table 2 and footnote | supports | The abstract assigns 25.65% IVNDFD to the consortium; Table 2 instead assigns it to CK. For 30-day silage in the 48-hour assay, Table 2 reports LBA IVDMD 49.68% and IVNDFD 29.40%, versus CK 44.83% and 25.65%. LBA and LB share letters for both endpoints, so universal superiority over every inoculant is not supported. Preserve the exact abstract excerpt while correcting its explanation and overview attribution. |
+| composition | PMID:42432469; Results: Effect of compound fermentation flora on microorganism of Caragana korshinskii silage; Discussion: Effects of complex fermentation flora on the microbial community and metabolic functions of Caragana korshinskii silage; Figure 3 | supports | Every treatment, including CK, has more than 95% relative Lactobacillus at 30 days. Relative differences and undetected spoilage-associated genera do not establish absolute eradication, reciprocal competition or strain-specific persistence. Species-level 16S assignments are explicitly putative. |
+| functions | PMID:42432469; Materials and methods: Microbial DNA extraction and sequencing; Results: Effects of compound fermentation flora on microbial metabolic function of Caragana korshinskii silage; Discussion; Figures 6–7 | supports | The analyzed functional profiles are Tax4Fun predictions from bacterial 16S data. They do not demonstrate transcriptional upregulation, flux, fungal delignification or causal metabolite transfer. The Methods shotgun paragraph conflicts with later bacteria-only/future-shotgun statements; retain that source limitation. BS, LB and LBA have different predicted enrichments, not a universal LBA-specific pathway increase. |
+| roles | PMID:42432469; Background; Materials and methods: Substrates and microbial additives; Discussion | supports | The members were selected for acidifying and fibrolytic/degradation potential. Their specific cooperative functions are inferred design rationales, not isolated mechanistic effects. Acidification alone does not establish SECONDARY_FERMENTER consumption of primary-degrader products. No direct fungal metagenomic evidence or organism-resolved handoff is reported. |
+| cultivation | PMID:42432469; Materials and methods: Substrates and microbial additives; Experimental design and silage processing | supports | Caragana forage was ground to 1–2 mm particles, adjusted to approximately 50–55% moisture and inoculated with an equal 1:1:1 mixture. The reported final dose is 1e8 CFU/g fresh weight, estimated from exponential-phase OD600; total versus per-member allocation and fungal calibration are unresolved. Vacuum polyethylene bags were held for 30 days at 23–28 °C, with three biological replicates per treatment and a sterile-water control. Bag loading and propagation media are not specified. |
+| assays | PMID:42432469; Materials and methods: In vitro digestibility and gas production; Table 2; Figure 1 | supports | The subsequent rumen-fluid assay is separate from silage production. Buffered rumen fluid uses a 2:1 buffer:fluid ratio; the stated two-stage method has 48 hours followed by 48 hours of acid-pepsin treatment, while Table 2 separately reports 24/48-hour incubation outcomes. The gas assay uses 1 g sample and 110 mL buffered rumen fluid in 250 mL modules for 48 hours with blanks. No assay temperature is supplied in the inspected sentence; do not borrow a typical rumen setpoint or use instrument channels as culture conditions. |
+| availability | PMID:42432469; Data availability; Supplementary Information | supports | The source names PRJNA1015568 and links a single XLS supplement twice. The direct project description concerns L. plantarum YQM48 sodium/cellulose work, so focal silage linkage remains unresolved. The public supplement itself is a verified article-linked data asset. |
+| figures | PMID:42432469; All seven main figures and captions; publisher PDF page 4, Tables 1–2 | supports | All images were inspected. Figure 3 supports relative composition; Figures 5–7 provide exploratory correlations and functional predictions, not interventions. Table 2 treatment/assay/time labels and significance letters were visually read. |
+| supplement | PMID:42432469; Supplementary Material 1: Sheet1 and Sheet2, all cells; four instrument sheets, bounded rows | supports | The six-sheet workbook includes two digestion sheets and four instrument streams. All cells of Sheet1 (62 by 8) and Sheet2 (62 by 12) were read. Instrument headers and first eight/final three rows were inspected; no treatment-channel mapping, statistical reproduction or complete time-series reanalysis was performed. Stored workbook calculations are not certified to reproduce Table 2. |
+| schema | src/communitymech/schema/communitymech.yaml; TaxonomicComposition; TaxonDescriptor GTDB fields; FunctionalRoleEnum; EvidenceSourceEnum; GrowthMedia; CultivationSetup | supports | Taxon membership and claim-specific roles must be grounded separately. PRIMARY_DEGRADER covers complex substrates; SECONDARY_FERMENTER concerns products from primary degraders without requiring a different donor species. Functional roles are optional. Computational predictions and experimental outcomes require distinct evidence scope. |
+| ontology | ontology-authority.json; Whole bounded frozen receipt | supports | All nine encoded ID-label pairs match across 17 occurrences; label agreement alone does not resolve source-strain identity. |
+| semantics | ontology-semantic-notes.json; Whole bounded frozen receipt | supports | Source-specific semantic review preserves proposed graph functions and distinguishes role inference, current taxon labels and exact-ID GTDB scope. |
+| gtdb | child-gtdb-mapping-check.json; Whole bounded frozen receipt | supports | Exact NCBI:1590 maps to GTDB L. plantarum with 2,061 genomes and majority 1.0; NCBI:1423 maps to B. subtilis with 1,256 and 0.91. Alternatives come from broader name-matched rows across other IDs. These are global species mapping statistics, not experimental strain classifications. |
+| identity-candidates | child-source-identity-candidates.json; Whole bounded frozen receipt | supports | Current ontology candidates and parent relationships are checked separately from the conflicting source marker. The fungal collection identity can be reconciled while the actual bacterial inoculum remains unresolved. |
+| strain | strain-authority.json; Whole bounded frozen receipt | supports | Direct ATCC 16404 identifies A. brasiliensis, deposited as A. niger, with WLRI 034(120) and listed collection aliases. Catalogue identity does not establish the authors’ physical culture or its experimental phenotype; catalogue conditions are not silage conditions. |
+| resources | dataset-verification.json; Whole bounded frozen receipt | supports | OR591286.1 is B. subtilis subsp. subtilis TH71; OR591302.1 is L. buchneri TH83, conflicting with paper L. plantarum. Both are partial 878 bp 16S markers. PRJNA1015568 describes a distinct YQM48 sodium/cellulose study, so it is a paper-reported unresolved link, not verified focal silage sequencing. |
+| snippets | snippet-audit.json; Whole bounded frozen receipt | supports | All 13 snippets match fresh PubMed/XML abstracts and the sole abstract-only MD cache. Zero exact body-only matches; whole-article matches include its abstract. Matching does not resolve the abstract’s numerical attribution conflict. |
+| history | provenance-audit.json; Whole bounded frozen receipt | supports | All four histories and exact prior batch10 row were read. The earlier graph review had already read the accepted main and Table 2 while leaving non-graph fields uncertified. Preserve repaired three-node/two-arrow scope; historical access failure is not current evidence of unavailability. |
+| native-target | support-audit.json; Whole bounded frozen receipt | supports | Native COMPLETE: three nodes, two arrows and six node-evidence entries. Completeness 75 and capped quality 100 are mechanical scores; raw quality is 109 at two major and three minor findings. |
+| locator-clarification | lead-source-locator-clarification.json; Whole bounded frozen receipt | supports | The source receipt’s coarse resource-notes locator is explicitly clarified as the actual external_resources[0].description field; science and frozen source bytes are unchanged. |
+| source-scope | source-audit.json; Whole bounded frozen receipt | supports | Whole-record assessment finds two major and three minor groups while retaining the qualified graph. Main, figure, table, SI and source/archive conflict boundaries are explicit. |
+| lead-read | lead-primary-read-scope.json; Whole bounded frozen receipt | supports | Whole scientific main, both tables, seven main images, entire small digestion sheets and bounded instrument-sheet rows were inspected. |
+| independent-source | root-independent-source-audit.json; Whole bounded frozen receipt | supports | Root independently assessed primary science, figures, tables, bounded SI, authority and resource conflicts and accepted the final grouping. |
+| auxiliary | auxiliary-frozen-manifest.json; Whole bounded frozen receipt | supports | Child-owned native, ontology and adapter receipts are frozen; no shared frozen receipt was overwritten. |
+| access-main | lead-primary-reuse.json; Explicit reuse of root-retrieved XML/PDF/figures and independent publisher HTML | supports | Fresh direct full article and figure assets are available. The current cache remains abstract-only, but its limitation must not be generalized to all current public sources. |
+| access-si | supplement-1-fetch.json; Exact publisher-linked supplementary workbook | supports | The HTTP 200 body is a valid legacy XLS, 636,416 bytes, parsed with a scratch-only reader. One unique workbook is linked twice. |
+| adapter | adapter-check.json; Bounded structured-adapter discovery | supports | No applicable expression-module evidence was established; optional adapter limits are not negative biological evidence. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml; Actual execution 2026-10-21T15:47:29.557709+00:00 to 2026-10-21T15:47:30.657382+00:00 | supports | Schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-strict kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml --out /private/tmp/cm-review-session/batch-09/000338/strict-report.tsv; Actual execution 2026-10-21T15:47:29.557943+00:00 to 2026-10-21T15:47:33.074762+00:00 | supports | Strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-terms kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml; Actual execution 2026-10-21T15:47:29.558025+00:00 to 2026-10-21T15:47:32.482658+00:00 | supports | Term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-gtdb kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml; Actual execution 2026-10-21T15:47:30.660289+00:00 to 2026-10-21T15:47:30.912194+00:00 | supports | GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-gtdb-domain kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml; Actual execution 2026-10-21T15:47:30.912703+00:00 to 2026-10-21T15:47:33.093352+00:00 | supports | GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-history history/records/Caragana_Korshinskii_CrossKingdom_Forage_SynCom; Actual execution 2026-10-21T15:47:32.483066+00:00 to 2026-10-21T15:47:33.411250+00:00 | supports | History validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T15:47:33.411844+00:00 to 2026-10-21T15:47:33.472943+00:00 | supports | Read-only cache-name preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-references-explained kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml; Actual execution 2026-10-21T15:47:33.473261+00:00 to 2026-10-21T15:47:34.643142+00:00 | supports | Reference validation passed; all 13 excerpts independently match the direct abstract and cache. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T14:53:06.814378+00:00 to 2026-10-21T14:53:14.616064+00:00 | supports | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal graph separately reports COMPLETE. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T14:53:06.817734+00:00 to 2026-10-21T14:53:14.704428+00:00 | supports | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal graph separately reports COMPLETE. |
+
+## Limits And Additional Notes
+
+- Current-claim review is completed using full current scientific main, both tables, all seven main figures and bounded SI workbook inspection; this is not independent reproduction of the paper.
+- One XLS workbook is linked twice. All cells of Sheet1 and Sheet2 were read; four 290-row instrument sheets were inspected at headers and first eight/final three rows. Channel-to-treatment mapping and complete raw time-series interpretation were not established.
+- No raw sequencing, marker alignment, genome classification of the actual inoculum, new statistical testing, gas-curve reconstruction, enzyme perturbation or metabolite tracing was performed.
+- The abstract assigns IVNDFD 25.65% to the consortium, whereas Table 2 assigns it to CK and gives LBA 29.40%. Preserve the quote as source text and distinguish reported table values; SI stored calculations are not certified to reproduce them.
+- Table 2 shared letters constrain pairwise significance. No uniform consortium superiority across all timepoints or endpoints is inferred. Source Table 1 ADL prose and table values also disagree; this is not an additional encoded defect.
+- The paper reports selected shotgun sequencing but elsewhere describes bacterial 16S/Tax4Fun and no direct fungal metagenomic evidence. Predictions, correlations and relative abundance are not expression, flux, fungal activity, causal competition or eradication.
+- OR591302.1 is L. buchneri TH83, conflicting with the paper's L. plantarum. The evidence does not decide whether the accession or biological attribution is wrong; do not silently replace the experimental bacterium. ATCC 16404 is independently catalogued as A. brasiliensis, deposited as A. niger.
+- The source-reported PRJNA1015568 project concerns L. plantarum YQM48 sodium/cellulose work in direct metadata. It is an unresolved publication link, not a verified focal silage deposit, and no alternative accession or data absence is inferred.
+- Exact-ID GTDB species mapping rows differ from broader name-fallback candidates. Species mapping fractions are database statistics, not experimental abundance or classification of an unresolved inoculated strain.
+- Source CFU estimated from OD600, mixture-dose allocation, inoculum propagation media, bag loading and assay temperature remain unresolved. Instrument temperature channels and catalogue culture conditions must not fill these gaps.
+- Functional roles can be retained only at explicit design-potential/inferred scope. Acidification alone does not establish fermentation of primary-degrader products; optional unsupported role enums may be omitted without an invented replacement.
+- No canonical, cache, history, generated or saved-review files changed; all 26 inspected inputs remain pinned.
+- All 13 existing snippets match direct abstracts and the abstract-only MD cache. Zero body-only exact matches; whole-article matching includes the abstract and does not resolve its numerical conflict.
+- Completeness 75 and quality 100 (raw 109) are mechanical scores, not scientific certification.
+- Scientific current-claim review is complete to the declared SI and archive boundaries; no sequence re-identification, instrument-series reconstruction or fresh statistical test was performed.
+- No paid provider, author contact, canonical mutation or later-target assessment.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T155638Z-caragana-korshinskii-forage-syncom-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Caragana korshinskii forage SynCom record review
+started_at: '2026-10-21T15:46:55.561513Z'
+finished_at: '2026-10-21T15:56:38.158044Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary science, native/ontology checks
+    and supporting provenance; no person-level independence is asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: The current full paper supports the designed cross-kingdom inoculum and three
+  qualified nodes with two hypothetical arrows. Two major findings concern member
+  provenance conflicts and overstated treatment/mechanistic claims. Three minor findings
+  concern GTDB explanation, recoverable cultivation/access context and data-resource
+  provenance. Source identity and numerical inconsistencies remain explicit.
+source:
+  git_revision: f491097e6f3cd52baf6c2e89b3e614756ebce558
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Caragana_Korshinskii_CrossKingdom_Forage_SynCom/2026-09-08T041249Z-claude-code-6a27b5.yaml
+    sha256: 042c22c4c767764095f178a22cf22a6c5bcf33d9236e469154c7a3535332c8ed
+    role: context
+  - path: history/records/Caragana_Korshinskii_CrossKingdom_Forage_SynCom/2026-09-08T041720Z-claude-code-b37238.yaml
+    sha256: 6f321c90e9d0c2134fa68ab4c42a0f97fe7f2fb2910e009d23601323f4ede601
+    role: context
+  - path: history/records/Caragana_Korshinskii_CrossKingdom_Forage_SynCom/2026-09-08T070007Z-claude-code-7ab47f.yaml
+    sha256: 2fa8a811a8263543abfd314a3f1be0cc9beb2e42bb3a82d55fd6349dcffc8e7c
+    role: context
+  - path: history/records/Caragana_Korshinskii_CrossKingdom_Forage_SynCom/2026-10-05T173107Z-codex-e5832c.yaml
+    sha256: c81a983911af436f303a1c10c66fc8a629cb713a30f005d411a2ae67417718a8
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    sha256: c25facb4d904532aae4c45fe2b63c08a48983c4ce86cb46b4298a30e4847ab06
+    role: target
+  - path: references_cache/PMID_42432469.md
+    sha256: 855812c270361aa0f5416bcd417a99be37e2c1a0dc7955aed9c7d26f06bda1b6
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+    sha256: 7149a6a81f091ff27d40deaf5bf99cb0a9b6486344db20009517f48652fe855d
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000338
+  path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  label: Caragana korshinskii Cross-Kingdom Forage Bio-Valorization SynCom
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    role: canonical_record
+scope:
+  description: Whole canonical record and every node/arrow assessed using current
+    primary main, figures, tables, bounded SI, ontology and public-resource evidence.
+  selection: Only released CommunityMech:000338 in the owned batch 09 checkout.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000338
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema validation passed.
+  target_ids:
+  - CommunityMech:000338
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    exact culture identity, mechanism or treatment attribution.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict validation passed.
+  target_ids:
+  - CommunityMech:000338
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-strict kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    --out /private/tmp/cm-review-session/batch-09/000338/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    exact culture identity, mechanism or treatment attribution.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Term validation passed.
+  target_ids:
+  - CommunityMech:000338
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-terms kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    exact culture identity, mechanism or treatment attribution.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000338
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    exact culture identity, mechanism or treatment attribution.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000338
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    exact culture identity, mechanism or treatment attribution.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: History validation passed.
+  target_ids:
+  - CommunityMech:000338
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-history history/records/Caragana_Korshinskii_CrossKingdom_Forage_SynCom
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    exact culture identity, mechanism or treatment attribution.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only cache-name preflight passed.
+  target_ids:
+  - CommunityMech:000338
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    exact culture identity, mechanism or treatment attribution.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Reference validation passed; all 13 excerpts independently match the direct
+    abstract and cache.
+  target_ids:
+  - CommunityMech:000338
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-references-explained kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    exact culture identity, mechanism or treatment attribution.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000338
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Explicit same-batch corpus reuse with original execution timestamps;
+    existing warnings are not attributed to this record.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000338
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Explicit same-batch corpus reuse with original execution timestamps;
+    existing warnings are not attributed to this record.
+- check_id: scientific-source
+  name: Primary scientific review
+  status: passed
+  required: true
+  summary: Whole current scientific main, Tables 1–2, all seven main figures and bounded
+    SI workbook assessed against the entire record.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - source-scope
+  - independent-source
+  - lead-read
+  - supplement
+- check_id: source-resources
+  name: Public identity and resource checks
+  status: passed
+  required: true
+  summary: Exact source marker/culture/project identifiers checked; conflicts are
+    findings and limitations, not unexamined access gaps.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - resources
+  - strain
+  - identity-candidates
+- check_id: supplement
+  name: Critical supplementary data
+  status: passed
+  required: true
+  summary: Both complete digestion sheets and bounded instrument rows inspected. No
+    full raw-stream or statistical reproduction claimed.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - supplement
+  - access-si
+- check_id: raw-reanalysis
+  name: Sequence and raw-data reproduction
+  status: skipped
+  required: false
+  summary: No sequence alignment, culture authentication, raw read analysis, curve
+    reproduction or new statistical test.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - source-scope
+  - resources
+- check_id: structured-adapter
+  name: Optional structured expression adapter
+  status: unavailable
+  required: false
+  summary: No applicable expression-module evidence established through bounded discovery.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  locator: Entire canonical record, three nodes and two downstream arrows
+  summary: The source-designed three-member forage inoculum is represented with a
+    previously qualified causal graph, but non-graph identity, outcome, grounding
+    and access statements require reconciliation.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.151291Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42432469&retmode=xml
+  locator: Direct bibliographic metadata
+  summary: Direct title, abstract and identifiers establish the focal publication;
+    all 13 current snippets match its abstract.
+  support: supports
+  accessed_at: '2026-10-21T15:47:22.099266Z'
+  snapshot_sha256: c7e850b599353a793d49e9359be0da80aa55a27a2e86bca234c26a57196cd837
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42432469%20AND%20SRC:MED&format=json&resultType=core
+  locator: Direct bibliographic metadata
+  summary: PMID 42432469, PMC13637219 and DOI 10.1186/s12866-026-05353-5 identify
+    the current open paper.
+  support: supports
+  accessed_at: '2026-10-21T15:47:22.427311Z'
+  snapshot_sha256: 3124a9ca80199a0ba1d84926fe66d078563fe0166795724dab0dd6b1fe54d692
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1186/s12866-026-05353-5
+  locator: Direct bibliographic metadata
+  summary: DOI bibliographic identity agrees with the publication.
+  support: supports
+  accessed_at: '2026-10-21T15:47:22.104217Z'
+  snapshot_sha256: e5f0a72c8cc219ebe5e2c9b8c771a7e79ea00c15223d95e5dc725fa9a61b3546
+- evidence_id: members
+  kind: primary_source
+  reference: PMID:42432469
+  locator: 'Materials and methods: Substrates and microbial additives'
+  summary: The paper names B. subtilis OR591286, L. plantarum OR591302 and A. niger
+    ATCC 16404. These identifiers are recoverable from current full text. Direct public
+    identity checks reveal one bacterial accession conflict and a current fungal reclassification,
+    without independently authenticating the cultures used by the authors.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.152111Z'
+  snapshot_sha256: 3fb379b0fd312d367e50762a7b3c9f0c86db408a1626ed9616c32dc83441e638
+- evidence_id: digestibility
+  kind: primary_source
+  reference: PMID:42432469
+  locator: 'Abstract: Results; Results: Effects of compound fermentation bacteria
+    on in vitro rumen fermentation characteristics of Caragana korshinskii silage;
+    Table 2 and footnote'
+  summary: The abstract assigns 25.65% IVNDFD to the consortium; Table 2 instead assigns
+    it to CK. For 30-day silage in the 48-hour assay, Table 2 reports LBA IVDMD 49.68%
+    and IVNDFD 29.40%, versus CK 44.83% and 25.65%. LBA and LB share letters for both
+    endpoints, so universal superiority over every inoculant is not supported. Preserve
+    the exact abstract excerpt while correcting its explanation and overview attribution.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.152191Z'
+  snapshot_sha256: 3fb379b0fd312d367e50762a7b3c9f0c86db408a1626ed9616c32dc83441e638
+- evidence_id: composition
+  kind: primary_source
+  reference: PMID:42432469
+  locator: 'Results: Effect of compound fermentation flora on microorganism of Caragana
+    korshinskii silage; Discussion: Effects of complex fermentation flora on the microbial
+    community and metabolic functions of Caragana korshinskii silage; Figure 3'
+  summary: Every treatment, including CK, has more than 95% relative Lactobacillus
+    at 30 days. Relative differences and undetected spoilage-associated genera do
+    not establish absolute eradication, reciprocal competition or strain-specific
+    persistence. Species-level 16S assignments are explicitly putative.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.152257Z'
+  snapshot_sha256: 3fb379b0fd312d367e50762a7b3c9f0c86db408a1626ed9616c32dc83441e638
+  quote: all treatment groups mainly contained Lactobacillus
+- evidence_id: functions
+  kind: primary_source
+  reference: PMID:42432469
+  locator: 'Materials and methods: Microbial DNA extraction and sequencing; Results:
+    Effects of compound fermentation flora on microbial metabolic function of Caragana
+    korshinskii silage; Discussion; Figures 6–7'
+  summary: The analyzed functional profiles are Tax4Fun predictions from bacterial
+    16S data. They do not demonstrate transcriptional upregulation, flux, fungal delignification
+    or causal metabolite transfer. The Methods shotgun paragraph conflicts with later
+    bacteria-only/future-shotgun statements; retain that source limitation. BS, LB
+    and LBA have different predicted enrichments, not a universal LBA-specific pathway
+    increase.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.152319Z'
+  snapshot_sha256: 3fb379b0fd312d367e50762a7b3c9f0c86db408a1626ed9616c32dc83441e638
+- evidence_id: roles
+  kind: primary_source
+  reference: PMID:42432469
+  locator: 'Background; Materials and methods: Substrates and microbial additives;
+    Discussion'
+  summary: The members were selected for acidifying and fibrolytic/degradation potential.
+    Their specific cooperative functions are inferred design rationales, not isolated
+    mechanistic effects. Acidification alone does not establish SECONDARY_FERMENTER
+    consumption of primary-degrader products. No direct fungal metagenomic evidence
+    or organism-resolved handoff is reported.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.152381Z'
+  snapshot_sha256: 3fb379b0fd312d367e50762a7b3c9f0c86db408a1626ed9616c32dc83441e638
+- evidence_id: cultivation
+  kind: primary_source
+  reference: PMID:42432469
+  locator: 'Materials and methods: Substrates and microbial additives; Experimental
+    design and silage processing'
+  summary: Caragana forage was ground to 1–2 mm particles, adjusted to approximately
+    50–55% moisture and inoculated with an equal 1:1:1 mixture. The reported final
+    dose is 1e8 CFU/g fresh weight, estimated from exponential-phase OD600; total
+    versus per-member allocation and fungal calibration are unresolved. Vacuum polyethylene
+    bags were held for 30 days at 23–28 °C, with three biological replicates per treatment
+    and a sterile-water control. Bag loading and propagation media are not specified.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.152486Z'
+  snapshot_sha256: 3fb379b0fd312d367e50762a7b3c9f0c86db408a1626ed9616c32dc83441e638
+  quote: bags were then fermented for 30 days
+- evidence_id: assays
+  kind: primary_source
+  reference: PMID:42432469
+  locator: 'Materials and methods: In vitro digestibility and gas production; Table
+    2; Figure 1'
+  summary: The subsequent rumen-fluid assay is separate from silage production. Buffered
+    rumen fluid uses a 2:1 buffer:fluid ratio; the stated two-stage method has 48
+    hours followed by 48 hours of acid-pepsin treatment, while Table 2 separately
+    reports 24/48-hour incubation outcomes. The gas assay uses 1 g sample and 110
+    mL buffered rumen fluid in 250 mL modules for 48 hours with blanks. No assay temperature
+    is supplied in the inspected sentence; do not borrow a typical rumen setpoint
+    or use instrument channels as culture conditions.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.152564Z'
+  snapshot_sha256: 3fb379b0fd312d367e50762a7b3c9f0c86db408a1626ed9616c32dc83441e638
+- evidence_id: availability
+  kind: primary_source
+  reference: PMID:42432469
+  locator: Data availability; Supplementary Information
+  summary: The source names PRJNA1015568 and links a single XLS supplement twice.
+    The direct project description concerns L. plantarum YQM48 sodium/cellulose work,
+    so focal silage linkage remains unresolved. The public supplement itself is a
+    verified article-linked data asset.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.152633Z'
+  snapshot_sha256: 3fb379b0fd312d367e50762a7b3c9f0c86db408a1626ed9616c32dc83441e638
+- evidence_id: figures
+  kind: primary_source
+  reference: PMID:42432469
+  locator: All seven main figures and captions; publisher PDF page 4, Tables 1–2
+  summary: All images were inspected. Figure 3 supports relative composition; Figures
+    5–7 provide exploratory correlations and functional predictions, not interventions.
+    Table 2 treatment/assay/time labels and significance letters were visually read.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.152776Z'
+  snapshot_sha256: b19d7445290d72cae8d3869fbf5778897f2b593b2e246eeaa14d758cc1672797
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:42432469
+  locator: 'Supplementary Material 1: Sheet1 and Sheet2, all cells; four instrument
+    sheets, bounded rows'
+  summary: The six-sheet workbook includes two digestion sheets and four instrument
+    streams. All cells of Sheet1 (62 by 8) and Sheet2 (62 by 12) were read. Instrument
+    headers and first eight/final three rows were inspected; no treatment-channel
+    mapping, statistical reproduction or complete time-series reanalysis was performed.
+    Stored workbook calculations are not certified to reproduce Table 2.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.152953Z'
+  snapshot_sha256: 43b0071e8ab815b5d69fb2660e520b20141fbf16e600f4945436ac933bf6c01c
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: TaxonomicComposition; TaxonDescriptor GTDB fields; FunctionalRoleEnum;
+    EvidenceSourceEnum; GrowthMedia; CultivationSetup
+  summary: Taxon membership and claim-specific roles must be grounded separately.
+    PRIMARY_DEGRADER covers complex substrates; SECONDARY_FERMENTER concerns products
+    from primary degraders without requiring a different donor species. Functional
+    roles are optional. Computational predictions and experimental outcomes require
+    distinct evidence scope.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.153032Z'
+  snapshot_sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+- evidence_id: ontology
+  kind: authority
+  reference: ontology-authority.json
+  locator: Whole bounded frozen receipt
+  summary: All nine encoded ID-label pairs match across 17 occurrences; label agreement
+    alone does not resolve source-strain identity.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.153184Z'
+  snapshot_sha256: ae3afb06594dbac93f8f7d07be0562a043c2083008fedc688a78f1fb547605ef
+- evidence_id: semantics
+  kind: authority
+  reference: ontology-semantic-notes.json
+  locator: Whole bounded frozen receipt
+  summary: Source-specific semantic review preserves proposed graph functions and
+    distinguishes role inference, current taxon labels and exact-ID GTDB scope.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.153350Z'
+  snapshot_sha256: 9b3f26ed643d43f9e2fafc9e08ab05d5d27b12c8328e551296d8a62375ed246c
+- evidence_id: gtdb
+  kind: authority
+  reference: child-gtdb-mapping-check.json
+  locator: Whole bounded frozen receipt
+  summary: Exact NCBI:1590 maps to GTDB L. plantarum with 2,061 genomes and majority
+    1.0; NCBI:1423 maps to B. subtilis with 1,256 and 0.91. Alternatives come from
+    broader name-matched rows across other IDs. These are global species mapping statistics,
+    not experimental strain classifications.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.153528Z'
+  snapshot_sha256: 285f3bf5112ee17219b5f09b026fdb6e2d900af03849ce6b095d2785ff40ef83
+- evidence_id: identity-candidates
+  kind: authority
+  reference: child-source-identity-candidates.json
+  locator: Whole bounded frozen receipt
+  summary: Current ontology candidates and parent relationships are checked separately
+    from the conflicting source marker. The fungal collection identity can be reconciled
+    while the actual bacterial inoculum remains unresolved.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.153683Z'
+  snapshot_sha256: eb6acfb647dd46fa2cfd60e0d7c089def7bbeebdd358496583acb6eb2af449aa
+- evidence_id: strain
+  kind: authority
+  reference: strain-authority.json
+  locator: Whole bounded frozen receipt
+  summary: Direct ATCC 16404 identifies A. brasiliensis, deposited as A. niger, with
+    WLRI 034(120) and listed collection aliases. Catalogue identity does not establish
+    the authors’ physical culture or its experimental phenotype; catalogue conditions
+    are not silage conditions.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.153844Z'
+  snapshot_sha256: 28f23d7257f716eb7acfaa0ce53202348a4454555d5018acc577e6b4889e7916
+- evidence_id: resources
+  kind: database
+  reference: dataset-verification.json
+  locator: Whole bounded frozen receipt
+  summary: OR591286.1 is B. subtilis subsp. subtilis TH71; OR591302.1 is L. buchneri
+    TH83, conflicting with paper L. plantarum. Both are partial 878 bp 16S markers.
+    PRJNA1015568 describes a distinct YQM48 sodium/cellulose study, so it is a paper-reported
+    unresolved link, not verified focal silage sequencing.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.154036Z'
+  snapshot_sha256: 9e36f7e748df7dddb37c395345d565518f82c0f043eccdf6bf32192564f90e28
+- evidence_id: snippets
+  kind: validation
+  reference: snippet-audit.json
+  locator: Whole bounded frozen receipt
+  summary: All 13 snippets match fresh PubMed/XML abstracts and the sole abstract-only
+    MD cache. Zero exact body-only matches; whole-article matches include its abstract.
+    Matching does not resolve the abstract’s numerical attribution conflict.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.154170Z'
+  snapshot_sha256: 6a1fc1a4ba908c90c71307a98fee9396ceb30f104b5e537b521c4bbebb49c47e
+- evidence_id: history
+  kind: record_content
+  reference: provenance-audit.json
+  locator: Whole bounded frozen receipt
+  summary: All four histories and exact prior batch10 row were read. The earlier graph
+    review had already read the accepted main and Table 2 while leaving non-graph
+    fields uncertified. Preserve repaired three-node/two-arrow scope; historical access
+    failure is not current evidence of unavailability.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.154344Z'
+  snapshot_sha256: 428c182280d5957548ff1183dc4d2bfca02d3f1ee9d7b2593a526bfb462ff4aa
+- evidence_id: native-target
+  kind: validation
+  reference: support-audit.json
+  locator: Whole bounded frozen receipt
+  summary: 'Native COMPLETE: three nodes, two arrows and six node-evidence entries.
+    Completeness 75 and capped quality 100 are mechanical scores; raw quality is 109
+    at two major and three minor findings.'
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.154385Z'
+  snapshot_sha256: 17b19669a37603cf90b5633d007ba76588decc404cd63f91b73bcd484046ff22
+- evidence_id: locator-clarification
+  kind: validation
+  reference: lead-source-locator-clarification.json
+  locator: Whole bounded frozen receipt
+  summary: The source receipt’s coarse resource-notes locator is explicitly clarified
+    as the actual external_resources[0].description field; science and frozen source
+    bytes are unchanged.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.154610Z'
+  snapshot_sha256: 0b29f47a8980ed7dedd6b16862dd6f664e1be7bc30b5c340b4884a19ef89c4cc
+- evidence_id: source-scope
+  kind: validation
+  reference: source-audit.json
+  locator: Whole bounded frozen receipt
+  summary: Whole-record assessment finds two major and three minor groups while retaining
+    the qualified graph. Main, figure, table, SI and source/archive conflict boundaries
+    are explicit.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.154647Z'
+  snapshot_sha256: e7e494d00cae60ab62d8d328ce6d7e33b21176b7dd638a7eb183647446a76eaa
+- evidence_id: lead-read
+  kind: validation
+  reference: lead-primary-read-scope.json
+  locator: Whole bounded frozen receipt
+  summary: Whole scientific main, both tables, seven main images, entire small digestion
+    sheets and bounded instrument-sheet rows were inspected.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.154675Z'
+  snapshot_sha256: b19d7445290d72cae8d3869fbf5778897f2b593b2e246eeaa14d758cc1672797
+- evidence_id: independent-source
+  kind: validation
+  reference: root-independent-source-audit.json
+  locator: Whole bounded frozen receipt
+  summary: Root independently assessed primary science, figures, tables, bounded SI,
+    authority and resource conflicts and accepted the final grouping.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.154818Z'
+  snapshot_sha256: d8805fb07cd4c577cbf65e24f575b36f56d542f6cad5042da900beaf36cef99b
+- evidence_id: auxiliary
+  kind: validation
+  reference: auxiliary-frozen-manifest.json
+  locator: Whole bounded frozen receipt
+  summary: Child-owned native, ontology and adapter receipts are frozen; no shared
+    frozen receipt was overwritten.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.154944Z'
+  snapshot_sha256: 073aecc42d5cf743d853fd3b1d9f21723eee53ebfb38daba1ddad45c87969dae
+- evidence_id: access-main
+  kind: validation
+  reference: lead-primary-reuse.json
+  locator: Explicit reuse of root-retrieved XML/PDF/figures and independent publisher
+    HTML
+  summary: Fresh direct full article and figure assets are available. The current
+    cache remains abstract-only, but its limitation must not be generalized to all
+    current public sources.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.155050Z'
+  snapshot_sha256: f4c7911a58879df4bb7957478480d0605d9a142e65836cac65ddbc3fcc06708f
+- evidence_id: access-si
+  kind: validation
+  reference: supplement-1-fetch.json
+  locator: Exact publisher-linked supplementary workbook
+  summary: The HTTP 200 body is a valid legacy XLS, 636,416 bytes, parsed with a scratch-only
+    reader. One unique workbook is linked twice.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.155517Z'
+  snapshot_sha256: 559d2903f6315f96c130775794c5ca1bb05bf2c608643f8a1273382e3bc64e6a
+- evidence_id: adapter
+  kind: validation
+  reference: adapter-check.json
+  locator: Bounded structured-adapter discovery
+  summary: No applicable expression-module evidence was established; optional adapter
+    limits are not negative biological evidence.
+  support: supports
+  accessed_at: '2026-10-21T15:56:38.155689Z'
+  snapshot_sha256: 739ccbe9f9bcb7de1ed02283097f63ee11adfe69693356274b038611d7c4c3ee
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  locator: Actual execution 2026-10-21T15:47:29.557709+00:00 to 2026-10-21T15:47:30.657382+00:00
+  summary: Schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T15:47:30.657382Z'
+  snapshot_sha256: 191ee10a4e60f201e37187b1ad54e432deb09f6317b1d837d8aafd882b76209d
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-strict kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    --out /private/tmp/cm-review-session/batch-09/000338/strict-report.tsv
+  locator: Actual execution 2026-10-21T15:47:29.557943+00:00 to 2026-10-21T15:47:33.074762+00:00
+  summary: Strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T15:47:33.074762Z'
+  snapshot_sha256: 5d6200595f8f7fba75c37612342cd8b2ca5aad87d4876c201eabeff544ce80dd
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-terms kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  locator: Actual execution 2026-10-21T15:47:29.558025+00:00 to 2026-10-21T15:47:32.482658+00:00
+  summary: Term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T15:47:32.482658Z'
+  snapshot_sha256: 595c36b2e92a603f6e4a4b230b4ec7dc1c9ed6b65c2cac781e70e00aeb214d4f
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  locator: Actual execution 2026-10-21T15:47:30.660289+00:00 to 2026-10-21T15:47:30.912194+00:00
+  summary: GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T15:47:30.912194Z'
+  snapshot_sha256: 69a06951a6721343fc75d4805e2382de96ea0ad6e63e140719c9dce992f1b820
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  locator: Actual execution 2026-10-21T15:47:30.912703+00:00 to 2026-10-21T15:47:33.093352+00:00
+  summary: GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T15:47:33.093352Z'
+  snapshot_sha256: b84d18e8c3404baedd0dcb818672938bfdb10840241b96a2837ca208052d5857
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-history history/records/Caragana_Korshinskii_CrossKingdom_Forage_SynCom
+  locator: Actual execution 2026-10-21T15:47:32.483066+00:00 to 2026-10-21T15:47:33.411250+00:00
+  summary: History validation passed.
+  support: supports
+  accessed_at: '2026-10-21T15:47:33.411250Z'
+  snapshot_sha256: de64ea8a9b60ac6271e89e59ef03af0bc798559b224743d7c537fc1adbe0fe83
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T15:47:33.411844+00:00 to 2026-10-21T15:47:33.472943+00:00
+  summary: Read-only cache-name preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T15:47:33.472943Z'
+  snapshot_sha256: 4a03a1ba04646f66bdab5a81e7bd3f9eb9247cd67f2ef502dbcbe59c0b94fd76
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-references-explained kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  locator: Actual execution 2026-10-21T15:47:33.473261+00:00 to 2026-10-21T15:47:34.643142+00:00
+  summary: Reference validation passed; all 13 excerpts independently match the direct
+    abstract and cache.
+  support: supports
+  accessed_at: '2026-10-21T15:47:34.643142Z'
+  snapshot_sha256: 3315de3d6d6a9dfb2fb55771971d2eec32237e182c72e9e170df48454417c480
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T14:53:06.814378+00:00 to 2026-10-21T14:53:14.616064+00:00
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T14:53:14.616064Z'
+  snapshot_sha256: af46c37677bdc80eb1866f799958882492e9f72ed8eff4c304f69cd667f99156
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T14:53:06.817734+00:00 to 2026-10-21T14:53:14.704428+00:00
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T14:53:14.704428Z'
+  snapshot_sha256: 6bf7d1eaf4ddc02de94aaea33610660d4b12689dc78ff47a6e29148baeffdd4f
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Source-declared inoculum and exact identity conflicts
+  outcome: concern
+  summary: The three-member design is supported, but exact marker and culture identifiers
+    materially qualify its species grounding.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - members
+  - resources
+  - strain
+  - identity-candidates
+  dimensions:
+  - name: community_scope
+    value: Three-member inoculum applied to forage carrying its own microbiota
+    definition: Do not treat endpoint profiles as a pure three-member culture or add
+      all detected genera to the designed inoculum.
+    evidence_ids:
+    - members
+    - composition
+  - name: taxon_rank
+    value: Source species plus recoverable marker/culture identities
+    definition: Current species grounding and unresolved experimental bacterial identity
+      must remain distinct.
+    evidence_ids:
+    - members
+    - resources
+    - strain
+  - name: roles
+    value: Acidification and fibrolytic/degradation design potential
+    definition: Mechanistic contribution and use of primary-degrader products are
+      not directly isolated.
+    evidence_ids:
+    - roles
+    - schema
+  - name: environment
+    value: Caragana forage silage
+    definition: ENVO silage matches the study; exact vessel/moisture/time details
+      are recoverable.
+    evidence_ids:
+    - cultivation
+    - ontology
+  - name: medium
+    value: Forage substrate; separate rumen-fluid assay
+    definition: Do not transfer assay fluids or catalogue media into inoculant propagation
+      conditions.
+    evidence_ids:
+    - cultivation
+    - assays
+  - name: evidence_tier
+    value: Experimental outcomes plus bacterial functional predictions
+    definition: Relative profiles, inference and hypothetical causal links remain
+      distinct.
+    evidence_ids:
+    - digestibility
+    - functions
+    - composition
+- assessment_id: state
+  area: scope
+  topic: Origin, state, category and environment
+  outcome: supported
+  summary: Retain ENGINEERED, SYNTHETIC, LIGNOCELLULOSE and silage as descriptions
+    of the deliberately assembled treatment.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - members
+  - cultivation
+  - schema
+  details: The designed inoculum does not replace the naturally present forage community.
+    ENGINEERED does not certify stability, mutually beneficial growth or a completed
+    mechanistic chain.
+- assessment_id: taxonomy
+  area: identity
+  topic: Current labels and source-strain grounding
+  outcome: concern
+  summary: Correct labels for currently encoded IDs do not resolve OR591302 or ATCC
+    16404 provenance.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - ontology
+  - resources
+  - strain
+  - identity-candidates
+  details: The B. subtilis marker is compatible with the broad source species. The
+    L. plantarum marker conflict is unresolved; do not silently substitute L. buchneri
+    or equate a relative amplicon species bin with the inoculated strain. Reconcile
+    the fungal collection identity with A. brasiliensis while preserving the paper’s
+    A. niger name as source attribution.
+- assessment_id: gtdb
+  area: identity
+  topic: Exact-ID mapping versus name fallback
+  outcome: concern
+  summary: The two no-majority explanations are contradicted by the pinned exact-ID
+    crosswalk rows.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - gtdb
+  - schema
+  details: Correct the species-level mapping explanation/status independently of unresolved
+    strain identity. Crosswalk genome counts and fractions are neither experimental
+    abundance nor isolate classification. Retain fungal exclusion from bacterial/archaeal
+    GTDB scope.
+- assessment_id: outcomes
+  area: evidence
+  topic: Overview and engineering outcome explanations
+  outcome: concern
+  summary: The overview preserves a wrong treatment attribution and stronger mechanistic
+    language than the graph.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - digestibility
+  - composition
+  - functions
+  details: Correct the 25.65% CK attribution; distinguish table-reported LBA values
+    and shared significance groups. All groups exceed 95% relative Lactobacillus.
+    Replace competitive-exclusion and upregulation claims with relative composition
+    and Tax4Fun prediction scope; preserve exact source quotations with corrective
+    explanations.
+- assessment_id: roles
+  area: evidence
+  topic: All three functional-role assignments
+  outcome: concern
+  summary: Keep biological design rationale explicitly inferential; acidification
+    alone does not support SECONDARY_FERMENTER.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - roles
+  - schema
+  - functions
+  details: PRIMARY_DEGRADER is not restricted to organic polymers from another organism,
+    and SECONDARY_FERMENTER does not require a different donor species. Nonetheless,
+    fermentation of upstream degradation products must be supported rather than inferred
+    solely from acid production. Omit optional unsupported enums if their uncertainty
+    cannot be represented clearly; do not invent replacement roles.
+- assessment_id: node-0
+  area: evidence
+  topic: Complementary lignocellulose attack by the two degraders
+  outcome: supported
+  summary: Retain PARTIAL functional complementarity. No enzyme-resolved division
+    of labor or fungal delignification is established; reconcile participant identities
+    without strengthening the mechanism.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - roles
+  - functions
+  - members
+- assessment_id: node-1
+  area: evidence
+  topic: Silage Community Shift and Spoilage-Genus Suppression
+  outcome: supported
+  summary: Retain relative outcome and all-treatment dominance qualification. No reciprocal-negative
+    fitness effect, eradication or inoculated-strain abundance follows.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - composition
+  - figures
+- assessment_id: node-2
+  area: evidence
+  topic: Acidification-driven preservation
+  outcome: supported
+  summary: Retain preservation outcome and partial functional interpretation. Pyruvate/GO
+    annotations remain prediction context rather than measured metabolite flux or
+    mutualism.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - functions
+  - roles
+  - schema
+- assessment_id: edge-0
+  area: evidence
+  topic: Complementary attack → Acidification-driven preservation
+  outcome: supported
+  summary: Retain HYPOTHESIZED substrate-release link; no organism-resolved transfer
+    or necessary enzyme pathway is demonstrated.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - roles
+  - functions
+  - history
+- assessment_id: edge-1
+  area: evidence
+  topic: Acidification-driven preservation → Community shift
+  outcome: supported
+  summary: Retain HYPOTHESIZED acidity-mediated shift; acidity is not isolated as
+    the necessary mediator and eradication is not shown.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - composition
+  - functions
+  - history
+- assessment_id: conditions
+  area: completeness
+  topic: Ensiling, inoculum and assay context
+  outcome: concern
+  summary: Recover accessible conditions and replace stale blanket access notes.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - cultivation
+  - assays
+  - access-main
+  details: Keep 30-day vacuum-bag ensiling separate from 24/48-hour digestibility
+    and gas assays. Preserve OD600-estimated CFU uncertainty, absent bag loading/propagation
+    recipe and missing assay temperature. Table 2 includes multiple sampling days
+    despite Methods emphasizing 30 days; do not silently harmonize that source reporting.
+- assessment_id: resources
+  area: provenance
+  topic: Public supplement and disputed sequence project
+  outcome: concern
+  summary: Link the genuine supplementary workbook and preserve the named project
+    mismatch without certifying focal deposition.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - availability
+  - resources
+  - supplement
+  - access-si
+  details: No replacement project, data-absence claim, raw sequence re-identification
+    or exact CultureMech recipe is inferred. Marker and catalogue identities do not
+    prove experimental functional traits.
+- assessment_id: history
+  area: provenance
+  topic: Earlier graph repairs and current source access
+  outcome: supported
+  summary: Preserve the earlier graph repair and distinguish historical access limitations
+    from current public evidence.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - history
+  - snippets
+  - access-main
+  details: All existing snippets are abstract matches. The accepted-manuscript review
+    already noted numerical and method conflicts; no snippet fabrication is alleged.
+    Current full main and SI allow broader non-graph assessment.
+- assessment_id: validation
+  area: schema
+  topic: Native and ontology checks
+  outcome: supported
+  summary: All eight focused native checks pass; semantic identity, outcome and provenance
+    findings remain.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - ontology
+  - check-validate
+  - check-validate-references-explained
+  - native-target
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: supported
+  summary: Mechanical scores do not certify scientific correctness or encourage invented
+    conditions.
+  target_ids:
+  - CommunityMech:000338
+  evidence_ids:
+  - native-target
+  metrics:
+  - name: completeness
+    value: 75
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 'Native rubric: required-field/taxon-role bundle 50, environment 5,
+      at least three interactions 10, external resources 5 and interaction metabolites
+      5. No medium/dataset/three-environmental-factor bonus. Total 75.'
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      P1=0, P2=2, P3=3, P4=0; six evidence entries / three nodes gives 20 evidence
+      points; COMPLETE adds 15. Raw 109 is capped at 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: member-provenance
+  issue_key: cm-000338-member-provenance
+  category: identity
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: member identity or treatment/mechanistic scope materially
+    changes the biological interpretation despite valid syntax.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Reconcile exact inoculant identities with source and catalogue conflicts
+  description: The source identifies L. plantarum by an accession that instead names
+    L. buchneri TH83, while its A. niger ATCC 16404 is currently A. brasiliensis.
+    Preserve source attribution and distinguish unresolved bacterial identity from
+    the directly verified fungal collection reclassification.
+  target_ids:
+  - CommunityMech:000338
+  field_paths:
+  - taxonomy[0].taxon_term
+  - taxonomy[1].taxon_term
+  - taxonomy[2].taxon_term
+  - ecological_interactions[*].participating_taxa
+  - description
+  - engineering_design
+  evidence_ids:
+  - members
+  - resources
+  - strain
+  - identity-candidates
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    role: canonical_record
+- finding_id: outcome-mechanism-scope
+  issue_key: cm-000338-outcome-mechanism-scope
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: member identity or treatment/mechanistic scope materially
+    changes the biological interpretation despite valid syntax.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Align overview, design explanations and roles with the qualified evidence
+  description: The overview assigns CK IVNDFD 25.65% to LBA, frames all-treatment
+    dominance as a unique SynCom shift and asserts competitive exclusion/functional
+    upregulation. Role evidence likewise needs explicit design-potential scope rather
+    than an unqualified mechanistic attribution.
+  target_ids:
+  - CommunityMech:000338
+  field_paths:
+  - description
+  - engineering_design.objective
+  - engineering_design.evidence[1].explanation
+  - taxonomy[*].functional_role
+  - taxonomy[*].evidence
+  evidence_ids:
+  - digestibility
+  - composition
+  - functions
+  - roles
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    role: canonical_record
+- finding_id: gtdb-exact-id
+  issue_key: cm-000338-gtdb-exact-id
+  category: grounding
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded grounding explanation, condition recovery or
+    resource provenance correction; the designed community and qualified graph remain
+    reviewable.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Separate exact-ID GTDB mappings from broader name candidates
+  description: The two taxon notes assert no majority mapping, but the exact-ID rows
+    have clear majority mappings. Broader same-name records across different IDs do
+    not establish equal ambiguity for the encoded species or classify the actual inoculum.
+  target_ids:
+  - CommunityMech:000338
+  field_paths:
+  - taxonomy[0].taxon_term.gtdb_grounding_status
+  - taxonomy[0].taxon_term.gtdb_candidates
+  - taxonomy[0].taxon_term.notes
+  - taxonomy[1].taxon_term.gtdb_grounding_status
+  - taxonomy[1].taxon_term.gtdb_candidates
+  - taxonomy[1].taxon_term.notes
+  evidence_ids:
+  - gtdb
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    role: canonical_record
+- finding_id: cultivation-access
+  issue_key: cm-000338-cultivation-access
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded grounding explanation, condition recovery or
+    resource provenance correction; the designed community and qualified graph remain
+    reviewable.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Recover current ensiling conditions and correct stale access claims
+  description: Current full text supplies inoculum, moisture, vessel, temperature,
+    duration and assay context that the record calls inaccessible. Distinguish silage
+    production from rumen-fluid digestibility/gas assays.
+  target_ids:
+  - CommunityMech:000338
+  field_paths:
+  - description
+  - environment_term.notes
+  - growth_media
+  - cultivation_setup
+  - external_resources[0].description
+  evidence_ids:
+  - cultivation
+  - assays
+  - access-main
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    role: canonical_record
+- finding_id: resource-provenance
+  issue_key: cm-000338-resource-provenance
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded grounding explanation, condition recovery or
+    resource provenance correction; the designed community and qualified graph remain
+    reviewable.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Link genuine supplementary data and qualify the disputed project
+  description: The article-linked workbook is a verified data asset. PRJNA1015568
+    is source-reported but its metadata does not verify focal silage sequencing; do
+    not import it as an unqualified study dataset.
+  target_ids:
+  - CommunityMech:000338
+  field_paths:
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - availability
+  - resources
+  - supplement
+  - access-si
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    role: canonical_record
+actions:
+- action_id: reconcile-member-identities
+  description: Resolve member provenance across taxonomy and graph while preserving
+    the paper’s own names.
+  finding_ids:
+  - member-provenance
+  target_ids:
+  - CommunityMech:000338
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Record OR591286.1 as the paper-linked partial 16S marker for B. subtilis subsp.
+    subtilis TH71, compatible with the broad B. subtilis membership. Do not call it
+    a complete genome or a functional assay.
+  - 'Record the unresolved OR591302.1 conflict: the paper calls its inoculant L. plantarum,
+    while the marker identifies L. buchneri TH83. Do not silently replace the experimental
+    organism or treat endpoint species bins as proof of the inoculated strain. Keep
+    source-declared membership explicitly provisional until an exact reconciliation
+    is available.'
+  - For the named fungal culture ATCC 16404, use the independently verified current
+    A. brasiliensis NCBITaxon:319629 identity, preserving A. niger as the paper/deposition
+    name. Update every affected participant and membership reference consistently,
+    with exact strain provenance. This does not authenticate the authors’ physical
+    culture or establish delignification.
+  - Keep the three-member designed assembly distinct from the wider endpoint forage
+    microbiome. Preserve three qualified nodes and two HYPOTHESIZED edges; identity
+    correction does not justify new members or mechanisms.
+- action_id: bound-outcomes-and-roles
+  description: Repair treatment attribution and non-graph mechanistic overstatement
+    without rewriting exact source quotations.
+  finding_ids:
+  - outcome-mechanism-scope
+  target_ids:
+  - CommunityMech:000338
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - 'Correct the overview and engineering evidence explanation using explicitly attributed
+    main Table 2: 30-day ensiling/48-hour assay gives LBA IVDMD 49.68% and IVNDFD
+    29.40%, versus CK 44.83% and 25.65%. Keep the abstract quote exact and state its
+    disagreement; do not certify workbook reproduction.'
+  - Respect treatment/time-specific significance letters, including shared LBA/LB
+    groups. Do not claim LBA significantly exceeds all inoculants at every endpoint
+    or stage.
+  - State that all groups, including CK, exceed 95% relative Lactobacillus. Describe
+    spoilage-associated relative suppression without claiming competitive exclusion,
+    absolute eradication or inoculated-strain persistence.
+  - Replace functional upregulation wording with bacterial Tax4Fun predicted pathway
+    differences. Preserve computational evidence labels, treatment-specific enrichments
+    and the source’s shotgun/bacteria-only conflict; do not infer fungal expression,
+    flux or delignification.
+  - Scope all three functional-role explanations as source-selected design potential
+    or inference. Acidification alone does not establish SECONDARY_FERMENTER use of
+    primary-degrader products; no different-species donor is required by the definition.
+    If the uncertainty cannot be represented adequately, omit unsupported optional
+    role enums without inventing a replacement. Retain broader proposed biology in
+    qualified prose.
+  - Preserve the existing PARTIAL nodes and HYPOTHESIZED handoff/acidity arrows. Do
+    not restore mutualism, reciprocal competition, measured pyruvate flux or unqualified
+    enzyme-mediated causality.
+- action_id: correct-gtdb-scope
+  description: Use exact-ID crosswalk evidence before broader name fallback.
+  finding_ids:
+  - gtdb-exact-id
+  target_ids:
+  - CommunityMech:000338
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Correct the no-majority explanation for NCBITaxon:1590 and NCBITaxon:1423. The
+    pinned exact rows are GTDB:s__Lactiplantibacillus_plantarum, 2,061 genomes/fraction
+    1.0, and GTDB:s__Bacillus_subtilis, 1,256/fraction 0.91; broader name matches
+    span other IDs.
+  - Reassess gtdb_grounding_status, candidates and any classification at the accepted
+    species scope. Where experimental identity remains unresolved, state that reason
+    separately rather than retaining a false crosswalk ambiguity. Do not force a strain-specific
+    GTDB split from a species name or marker conflict.
+  - Use mapping fractions only as database provenance. Keep fungal NO_GTDB_EQUIVALENT
+    based on bacterial/archaeal scope, not absence of a lookup result.
+- action_id: recover-cultivation
+  description: Add source-reported ensiling and assay context and replace obsolete
+    availability prose.
+  finding_ids:
+  - cultivation-access
+  target_ids:
+  - CommunityMech:000338
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Represent Caragana forage ground to 1–2 mm, approximately 50–55% moisture, vacuum
+    polyethylene bags, 23–28 °C and 30-day ensiling. Preserve three biological replicates
+    and sterile-water control where useful; do not invent bag loading, pH setpoint
+    or propagation medium.
+  - Describe the equal 1:1:1 mixture and reported 1e8 CFU/g fresh weight with the
+    source OD600-estimation caveat. Do not allocate this dose per member or infer
+    a fungal viable-count calibration.
+  - 'Keep the separate rumen-fluid assays scoped: buffer:fluid 2:1, reported two-stage
+    48-hour plus 48-hour acid-pepsin method, and gas assay 1 g sample/110 mL fluid/250
+    mL module for 48 hours. Preserve Table 2’s 24/48-hour reporting rather than silently
+    harmonizing it. Do not supply an unstated assay temperature from convention or
+    instrument channels.'
+  - Replace blanket no-PMC/full-text-unavailable notes with current PMC13637219/public
+    article availability and precise remaining gaps. The local MD cache is still abstract-only;
+    do not edit it during this review or claim that all source limitations disappeared.
+- action_id: qualify-source-resources
+  description: Expose verified data assets and unresolved source links accurately.
+  finding_ids:
+  - resource-provenance
+  target_ids:
+  - CommunityMech:000338
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Add the exact publisher-linked Supplementary Material 1 workbook as a source-data
+    resource with its six-sheet scope. It is one unique file linked twice, not two
+    independent datasets. Its digestibility sheets and instrument channels are not
+    a validated reproduction of Table 2 or Figure 1.
+  - 'If representing PRJNA1015568, identify it explicitly as the paper-reported unresolved
+    link: direct metadata describes L. plantarum YQM48 sodium-enhanced cellulose/beta-glucosidase
+    work. Do not label it verified focal Caragana SynCom amplicon/shotgun data, infer
+    a replacement project or assert that study data are absent.'
+  - Keep OR591286/OR591302 partial marker accessions and ATCC collection provenance
+    distinct from community sequencing datasets. Preserve publication links and source/archive
+    discrepancies rather than borrowing catalogue media or biological claims.
+- action_id: validate-authorized-curation
+  description: Apply any future canonical correction only through a separately authorized
+    curation pass.
+  finding_ids:
+  - member-provenance
+  - outcome-mechanism-scope
+  - gtdb-exact-id
+  - cultivation-access
+  - resource-provenance
+  target_ids:
+  - CommunityMech:000338
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - After separately authorized curation, append fresh history and run focused schema,
+    strict, term, reference, GTDB/domain and history checks, followed by just gen-html
+    and just check-docs-current. No canonical change or generator is run in this review.
+  - Preserve exact quotations, old history, source and saved review bytes. Revalidate
+    every changed taxon occurrence and the retained graph without inventing experimental
+    resolution of the source’s internal conflicts.
+limitations:
+- Current-claim review is completed using full current scientific main, both tables,
+  all seven main figures and bounded SI workbook inspection; this is not independent
+  reproduction of the paper.
+- One XLS workbook is linked twice. All cells of Sheet1 and Sheet2 were read; four
+  290-row instrument sheets were inspected at headers and first eight/final three
+  rows. Channel-to-treatment mapping and complete raw time-series interpretation were
+  not established.
+- No raw sequencing, marker alignment, genome classification of the actual inoculum,
+  new statistical testing, gas-curve reconstruction, enzyme perturbation or metabolite
+  tracing was performed.
+- The abstract assigns IVNDFD 25.65% to the consortium, whereas Table 2 assigns it
+  to CK and gives LBA 29.40%. Preserve the quote as source text and distinguish reported
+  table values; SI stored calculations are not certified to reproduce them.
+- Table 2 shared letters constrain pairwise significance. No uniform consortium superiority
+  across all timepoints or endpoints is inferred. Source Table 1 ADL prose and table
+  values also disagree; this is not an additional encoded defect.
+- The paper reports selected shotgun sequencing but elsewhere describes bacterial
+  16S/Tax4Fun and no direct fungal metagenomic evidence. Predictions, correlations
+  and relative abundance are not expression, flux, fungal activity, causal competition
+  or eradication.
+- OR591302.1 is L. buchneri TH83, conflicting with the paper's L. plantarum. The evidence
+  does not decide whether the accession or biological attribution is wrong; do not
+  silently replace the experimental bacterium. ATCC 16404 is independently catalogued
+  as A. brasiliensis, deposited as A. niger.
+- The source-reported PRJNA1015568 project concerns L. plantarum YQM48 sodium/cellulose
+  work in direct metadata. It is an unresolved publication link, not a verified focal
+  silage deposit, and no alternative accession or data absence is inferred.
+- Exact-ID GTDB species mapping rows differ from broader name-fallback candidates.
+  Species mapping fractions are database statistics, not experimental abundance or
+  classification of an unresolved inoculated strain.
+- Source CFU estimated from OD600, mixture-dose allocation, inoculum propagation media,
+  bag loading and assay temperature remain unresolved. Instrument temperature channels
+  and catalogue culture conditions must not fill these gaps.
+- Functional roles can be retained only at explicit design-potential/inferred scope.
+  Acidification alone does not establish fermentation of primary-degrader products;
+  optional unsupported role enums may be omitted without an invented replacement.
+notes:
+- No canonical, cache, history, generated or saved-review files changed; all 26 inspected
+  inputs remain pinned.
+- All 13 existing snippets match direct abstracts and the abstract-only MD cache.
+  Zero body-only exact matches; whole-article matching includes the abstract and does
+  not resolve its numerical conflict.
+- Completeness 75 and quality 100 (raw 109) are mechanical scores, not scientific
+  certification.
+- Scientific current-claim review is complete to the declared SI and archive boundaries;
+  no sequence re-identification, instrument-series reconstruction or fresh statistical
+  test was performed.
+- No paid provider, author contact, canonical mutation or later-target assessment.
+tags:
+- record-review
+- forage-syncom
+- source-identity-conflicts
+- main-and-critical-supplement-assessed
+- batch-09
+```
