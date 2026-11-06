@@ -275,6 +275,7 @@ def build(inspection_path: Path) -> None:
                 "exit_code": 1,
                 "expected_exit_code": 0,
                 "evidence_ids": ["corpus"],
+                "target_ids": [TARGET],
                 "scope_note": "Parent-owned full corpus run, not a new author invocation.",
             }
         )
@@ -538,8 +539,16 @@ def build(inspection_path: Path) -> None:
             "The author reused parent-owned current corpus diagnostics with their true exit codes. This refresh is author work and is separately reviewed; no canonical record, cache, history or scientific status was changed.",
         ],
         "related_reviews": [
-            {"repository": REPO, "review_id": old["review_id"]},
-            {"repository": REPO, "review_id": "20261031T235500Z-c4s5-remediation-verification"},
+            {
+                "repository": REPO,
+                "review_id": old["review_id"],
+                "relationship": "Current-input successor retaining both original open findings and all action acceptance.",
+            },
+            {
+                "repository": REPO,
+                "review_id": "20261031T235500Z-c4s5-remediation-verification",
+                "relationship": "Context only: preserve the narrow field-presence resolution; no finding disposition is superseded.",
+            },
         ],
         "notes": [
             "All original two keys, three actions and eight acceptance checks are retained; one additional key/action adds four checks. Original saved bundles remain immutable.",
