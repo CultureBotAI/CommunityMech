@@ -55,7 +55,12 @@ def prepare():
         ]
     )
     paths.add(OUT / "input-paths.json")
-    excluded = {"final-inspection.json", "candidate.json", "input-manifest.json"}
+    excluded = {
+        "final-inspection.json",
+        "final-inspection.stderr",
+        "candidate.json",
+        "input-manifest.json",
+    }
     paths = {
         p
         for p in paths
@@ -132,7 +137,7 @@ def build(inspection_path):
         ),
         (
             "traits",
-            "Results 2.7; Figure 5 and separately inspected S8–S11 figures",
+            "Results 2.7 and separately inspected S8–S11 figures",
             "Genomic modules and isolate assays support candidate traits. Combined acid-related profiles differ from individual genes; neither necessity nor uniquely highest OAS925 biomass is established.",
         ),
         (
