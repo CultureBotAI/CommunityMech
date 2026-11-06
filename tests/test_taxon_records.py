@@ -94,8 +94,7 @@ def test_taxa_record_structure():
         "PMID:28287150",
         "PMID:32265334",
     } == {ev["reference"] for ev in geo_genes["pilA"]["evidence"]}
-    assert len(geo_genes["pilA"]["evidence"]) == 7
-    assert sum(1 for ev in geo_genes["pilA"]["evidence"] if ev["reference"] == "PMID:37650614") == 2
+    assert len(geo_genes["pilA"]["evidence"]) == 6
     assert {
         "PMID:41210787",
         "PMID:37650614",
@@ -105,7 +104,8 @@ def test_taxa_record_structure():
         "PMID:32849356",
         "PMID:34986141",
     } == {ev["reference"] for ev in geo_genes["omcS"]["evidence"]}
-    assert len(geo_genes["omcS"]["evidence"]) == 7
+    assert len(geo_genes["omcS"]["evidence"]) == 8
+    assert sum(1 for ev in geo_genes["omcS"]["evidence"] if ev["reference"] == "PMID:32849356") == 2
     assert {"PMID:41210787", "PMID:28992596", "PMID:34986141"} == {
         ev["reference"] for ev in geo_genes["omcZ"]["evidence"]
     }
