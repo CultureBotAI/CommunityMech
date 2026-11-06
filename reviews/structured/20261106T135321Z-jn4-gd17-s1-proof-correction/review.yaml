@@ -1,0 +1,755 @@
+schema_version: 1.0.0
+review_id: 20261106T135321Z-jn4-gd17-s1-proof-correction
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'JN4/GD17 review successor: qualify ambiguous S1 membership proof'
+started_at: '2026-11-06T13:50:36Z'
+finished_at: '2026-11-06T13:53:21.815488Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Author remediation after a separate read-only pass identified
+    the S1 defect. A different agent will re-review this successor; no independent
+    approval or person-level independence is claimed here.
+skill: review-yaml-record
+completion: partial
+verdict: needs_curation
+scientific_review: false
+summary: 'Append-only qualification for issue #2544: S1 cannot independently certify
+  primer-specific membership because its G/J/C lane-band assignments and caption conflict.
+  Preserve author-reported JN4/GD17 identity, all three open record-curation findings
+  and their full acceptance checks. The 2016 full-source limit remains unresolved;
+  no canonical records or previous reviews are changed.'
+source:
+  git_revision: 6772c01c925b81eb804b082df437341009dff52c
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 7c35deb79ce874239f1080c2f575756ff47d1985483030878eaeb07df02d7529
+    role: context
+  - path: conf/record_review.yaml
+    sha256: c4ad25505a87a040c57eb93f1ee9673a09389a474c6d4e1136781456ff190fc8
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/records/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture/2026-10-06T012901Z-codex-8cf494.yaml
+    sha256: 405f1fa13c36292db7491fb074ded016b5193ff91e93c4060b8804acf52f7c21
+    role: context
+  - path: kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+    sha256: 5dfcac09163ce6ac2930e58230d3d82efda7d5f63cda1afeba33bc16c05d2ecd
+    role: target
+  - path: references_cache/PMID_27538932.md
+    sha256: 4708db048b9db30409e896e5a52dda9fbf35c31a41a6da6b09afcbb0dcc00bef
+    role: context
+  - path: references_cache/PMID_31551972.md
+    sha256: b8dd7f4edd84b1d7b3af2d310bdb5150ad0af8e830a9e08ed526ca2e3101a268
+    role: context
+  - path: references_cache/PMID_31551972.txt
+    sha256: 706c98a05a78a0cba0660a603bdcea89b44248e91f1a94d38464c56d3dea6ec8
+    role: context
+  - path: reviews/structured/20261021T231001Z-jn4-gd17-record-review/review.yaml
+    sha256: 943a1118023956b9049bd90df39a0d699c185953eb84b0ee08eb73d5f1498b3c
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/pr2054_180_s1_review_correction.py
+    sha256: dfc502e78633ab4c8652d7535d74fe99830766983dfe90496d560c090afb2ba8
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: 7355e14f0f17c5d3b875abd33af6474ddc1aad08cc3305313686fede337e259a
+    role: context
+targets:
+- target_id: CommunityMech:000180
+  path: kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+  label: Clostridium-Thermoanaerobacterium JN4-GD17 Cellulosic Biofuel Coculture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+    role: canonical_record
+scope:
+  description: Current unchanged 000180 target and all three predecessor findings/actions;
+    fresh 2019 body/figures/SI and available 2016 abstract; bounded correction of
+    the predecessor's S1 inference.
+  selection: 'Only CommunityMech:000180 in PR #2054.'
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000180
+  exclusions:
+  - target: 'Other PR #2054 records'
+    reason: Outside this author successor.
+checks:
+- check_id: validate
+  name: Focused validate
+  status: passed
+  required: true
+  summary: Exit 0 on the unchanged current target; exact receipt retained.
+  target_ids:
+  - CommunityMech:000180
+  command: just --no-dotenv validate kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - focused-qc
+  scope_note: Run before the author's role switch; no target/validator edit.
+- check_id: strict
+  name: Focused strict
+  status: passed
+  required: true
+  summary: Exit 0 on the unchanged current target; exact receipt retained.
+  target_ids:
+  - CommunityMech:000180
+  command: just --no-dotenv validate-strict kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+    --out .temp/pr2054/independent-third/000180/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - focused-qc
+  scope_note: Run before the author's role switch; no target/validator edit.
+- check_id: terms
+  name: Focused terms
+  status: passed
+  required: true
+  summary: Exit 0 on the unchanged current target; exact receipt retained.
+  target_ids:
+  - CommunityMech:000180
+  command: just --no-dotenv validate-terms kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - focused-qc
+  scope_note: Run before the author's role switch; no target/validator edit.
+- check_id: references
+  name: Focused references
+  status: passed
+  required: true
+  summary: Exit 0 on the unchanged current target; exact receipt retained.
+  target_ids:
+  - CommunityMech:000180
+  command: just --no-dotenv validate-references-explained kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - focused-qc
+  scope_note: Run before the author's role switch; no target/validator edit.
+- check_id: gtdb
+  name: Focused gtdb
+  status: passed
+  required: true
+  summary: Exit 0 on the unchanged current target; exact receipt retained.
+  target_ids:
+  - CommunityMech:000180
+  command: just --no-dotenv validate-gtdb kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - focused-qc
+  scope_note: Run before the author's role switch; no target/validator edit.
+- check_id: gtdb-domain
+  name: Focused gtdb-domain
+  status: passed
+  required: true
+  summary: Exit 0 on the unchanged current target; exact receipt retained.
+  target_ids:
+  - CommunityMech:000180
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - focused-qc
+  scope_note: Run before the author's role switch; no target/validator edit.
+- check_id: history
+  name: Focused history
+  status: passed
+  required: true
+  summary: Exit 0 on the unchanged current target; exact receipt retained.
+  target_ids:
+  - CommunityMech:000180
+  command: just --no-dotenv validate-history history/records/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - focused-qc
+  scope_note: Run before the author's role switch; no target/validator edit.
+- check_id: full-lint
+  name: Full repository lint before helper freeze
+  status: passed
+  required: true
+  summary: Black, Ruff and mypy passed before the helper was committed and pinned.
+  target_ids:
+  - CommunityMech:000180
+  command: just --no-dotenv lint
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids: []
+evidence:
+- evidence_id: identity
+  kind: primary_source
+  reference: PMID:31551972; doi:10.3389/fmicb.2019.02035
+  locator: Strains and Chemicals; Enhanced End-Product Formation
+  summary: Methods identifies JN4 (CGMCC 1.5210) and GD17 (CGMCC 1.5209). The authors
+    report reconstruction with both strains and present PCR as confirmation. This
+    is author-reported identity, not independent certification of the S1 controls.
+  snapshot_sha256: 8c035478025c2fad39825a1f810184b58eb435cf92e628ac1af912ce37404e10
+  accessed_at: '2026-11-06T13:39:26.609555Z'
+  support: supports
+- evidence_id: recipe
+  kind: primary_source
+  reference: PMID:31551972; doi:10.3389/fmicb.2019.02035
+  locator: Bacterial Growth
+  summary: The complete CTFUD formulation and substrate alternatives are available.
+    Keep salt forms, unspecified resazurin stock strength, seed context, and 0.5%
+    substrate arms separate; do not infer missing gas ratios or culture pH.
+  snapshot_sha256: 8c035478025c2fad39825a1f810184b58eb435cf92e628ac1af912ce37404e10
+  accessed_at: '2026-11-06T13:39:26.609555Z'
+  support: supports
+- evidence_id: growth
+  kind: primary_source
+  reference: PMID:31551972; doi:10.3389/fmicb.2019.02035
+  locator: Bacterial Growth; Enhanced End-Product Formation
+  summary: Anaerobic tubes/serum bottles at 60 C without agitation, 10% seed addition,
+    and a separately stated 1:1 reconstruction ratio are reported. At least five passages
+    is a reconstruction statement, not an endpoint abundance.
+  snapshot_sha256: 8c035478025c2fad39825a1f810184b58eb435cf92e628ac1af912ce37404e10
+  accessed_at: '2026-11-06T13:39:26.609555Z'
+  support: supports
+- evidence_id: volumes
+  kind: primary_source
+  reference: PMID:31551972; doi:10.3389/fmicb.2019.02035
+  locator: Analytical Methods
+  summary: Cellulose-grown JN4 monoculture and coculture use 80 mL; independent glucose/cellobiose
+    member-monoculture assays use 50 mL. These are not demonstrated sugar-coculture
+    arms or interchangeable vessel capacities.
+  snapshot_sha256: 8c035478025c2fad39825a1f810184b58eb435cf92e628ac1af912ce37404e10
+  accessed_at: '2026-11-06T13:39:26.609555Z'
+  support: supports
+- evidence_id: analytical
+  kind: primary_source
+  reference: PMID:31551972; doi:10.3389/fmicb.2019.02035
+  locator: Analytical Methods; Biomass and Bacterial Ratio Determination; Real-Time
+    PCR
+  summary: Products, protein-based biomass estimates, 16S DNA proportions and recA-normalized
+    transcription are different measurements. Added-carbon and sampling-time differences
+    prevent selective flux or viable-growth attribution.
+  snapshot_sha256: 8c035478025c2fad39825a1f810184b58eb435cf92e628ac1af912ce37404e10
+  accessed_at: '2026-11-06T13:39:26.609555Z'
+  support: supports
+- evidence_id: xylose
+  kind: primary_source
+  reference: PMID:31551972; doi:10.3389/fmicb.2019.02035
+  locator: GD17 growth/biomass results; Figure 4C; tentative Figure 6B
+  summary: Weak GD17 corncob growth and a proposed hemicellulose-to-xylose benefit
+    do not demonstrate xylose release, transfer or JN4 benefit. The route should remain
+    an authors' hypothesis, not be declared impossible.
+  snapshot_sha256: 8c035478025c2fad39825a1f810184b58eb435cf92e628ac1af912ce37404e10
+  accessed_at: '2026-11-06T13:39:26.609555Z'
+  support: supports
+- evidence_id: contexts
+  kind: primary_source
+  reference: PMID:31551972; doi:10.3389/fmicb.2019.02035
+  locator: Reference Chimtong et al. 2011; Reference Liu et al. 2008; Figures 1-7
+  summary: The cited hemicellulose isolate is NOI-1, not GD17. The 2019 bibliography
+    misattaches PMID 27538932 to the distinct 2008 DOI. Seven fresh main figures were
+    inspected; their outcomes and conceptual model do not override these identity
+    or inferential boundaries.
+  snapshot_sha256: 8c035478025c2fad39825a1f810184b58eb435cf92e628ac1af912ce37404e10
+  accessed_at: '2026-11-06T13:39:26.609555Z'
+  support: supports
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:31551972; doi:10.3389/fmicb.2019.02035
+  locator: Supplementary Figure S1, Image_1.TIF; Table S1; S2-S3
+  summary: Fresh S1 displays G/J/C lanes in every primer group; the JN-1/JN-2 bands
+    appear in G and C while J is blank. The caption additionally names G as T. thermocellum
+    and J as C. thermocellum JN4. The positive C lanes are compatible with the authors'
+    report but cannot independently certify the stated strain specificity while these
+    labels conflict. S2 compares expression and S3 compares stimulant growth. The
+    full primer table retains duplicated licB rows. No sequence reanalysis was done.
+  snapshot_sha256: 04f92aced977f564e03f0637e8935d35ecf1218953aa87e45172d415c73048db
+  accessed_at: '2026-11-06T13:45:54.562891Z'
+  support: context_only
+- evidence_id: strain
+  kind: authority
+  reference: 'NCBI Taxonomy efetch: 1515 and 1517'
+  locator: Species names/ranks; source-local JN4/GD17 designations
+  summary: NCBI confirms species-level Acetivibrio thermocellus and Thermoanaerobacterium
+    thermosaccharolyticum. Source collection accessions remain author-reported; no
+    direct CGMCC catalogue certification or invented strain CURIE is asserted.
+  snapshot_sha256: 407b3178ec84214dfd0b0b0657b7011beb5acfbc51f6215a0255664fee0d3685
+  accessed_at: '2026-11-06T13:41:15.623022Z'
+  support: supports
+- evidence_id: gtdb
+  kind: authority
+  reference: KG-Microbe NCBI2GTDB.tsv.gz; scripts/gtdb_ground.py --community
+  locator: Exact ncbi_id mappings for 1515 and 1517
+  summary: Fresh community-mode replay preserves both 1.0/18 mappings. Crosswalk SHA256
+    is 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd. July 25 is
+    file metadata, not a verified latest release/build. The name-comparison flag does
+    not establish biological reclassification.
+  snapshot_sha256: 6457708b4a1d862b020e022dd503ad7d43062ba8e3a6c4699e867a2cb3e9560b
+  accessed_at: '2026-11-06T13:53:21.815488Z'
+  support: supports
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml; AGENTS.md
+  locator: FunctionalRoleEnum; cultivation and evidence definitions; optional state
+  summary: Current role, evidence and cultivation semantics support the retained actions.
+    Ecological state remains optional. Host, soils and community relations do not
+    create mandatory omissions for this liquid bacterial pair.
+  snapshot_sha256: 7355e14f0f17c5d3b875abd33af6474ddc1aad08cc3305313686fede337e259a
+  accessed_at: '2026-11-06T13:53:21.815488Z'
+  support: supports
+- evidence_id: predecessor
+  kind: prior_review
+  reference: reviews/structured/20261021T231001Z-jn4-gd17-record-review/review.yaml
+  locator: evidence[evidence_id=supplement].summary; findings and all four actions
+  summary: The predecessor positively described S1 as supporting primer-specific membership
+    while mentioning only its caption-name discrepancy. This successor withdraws that
+    independent proof inference, preserves the immutable old bytes, and retains all
+    three open record findings.
+  snapshot_sha256: 943a1118023956b9049bd90df39a0d699c185953eb84b0ee08eb73d5f1498b3c
+  accessed_at: '2026-11-06T13:53:21.815488Z'
+  support: context_only
+- evidence_id: focused-qc
+  kind: validation
+  reference: .temp/pr2054/independent-third/focused-checks.json
+  locator: CommunityMech:000180 entries; current unchanged target
+  summary: Seven focused record gates passed with real exit 0 before this agent switched
+    from independent reader to correction author. The record and relevant validator
+    bytes are unchanged; these receipts are reused explicitly, not claimed as independent
+    approval of this successor.
+  snapshot_sha256: 6499b8cd711b59a9265fa9c06c3aa856ceeb97c5e723aac2de83de19a649a972
+  accessed_at: '2026-11-06T13:53:21.815488Z'
+  support: supports
+- evidence_id: access
+  kind: primary_source
+  reference: PMID:27538932; doi:10.1007/s00253-016-7776-1
+  locator: Fresh Europe PMC abstract and publisher subscription preview
+  summary: The 2016 hydrogen paper remains abstract/preview only. Its reported comparative
+    rate does not certify the full assay. The 2008 API returns bibliographic coredata,
+    not a complete body. Current partial status is preserved despite complete fresh
+    access to the 2019 SI.
+  snapshot_sha256: 61eb0b043dfbdf953ab4b5de1fd304bcce73bd8aac56e7bc4618228c52f66de4
+  accessed_at: '2026-11-06T13:53:21.815488Z'
+  support: context_only
+- evidence_id: metrics
+  kind: validation
+  reference: kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+  locator: Current native rubric presence and evidence counts
+  summary: Unchanged record has three nodes, two qualified arrows and six node evidence
+    occurrences. The three retained findings are one P2 and two P3. Presence completeness
+    is 85; quality raw 121, capped 100. Rubric required-field wording is a scoring
+    rule, not LinkML requiredness.
+  snapshot_sha256: 5dfcac09163ce6ac2930e58230d3d82efda7d5f63cda1afeba33bc16c05d2ecd
+  accessed_at: '2026-11-06T13:53:21.815488Z'
+  support: supports
+assessments:
+- assessment_id: s1-proof-correction
+  area: evidence
+  topic: Bound the predecessor S1 inference
+  outcome: concern
+  summary: Withdraw independent primer-specific membership proof from S1.
+  target_ids:
+  - CommunityMech:000180
+  evidence_ids:
+  - supplement
+  - predecessor
+  - identity
+  details: 'Issue #2544 concerns this review-metadata sentence only. Attribute the
+    pair and the authors'' PCR-confirmation statement to Methods. Explicitly preserve
+    the G/J/C band-label conflict and separate caption typo. Do not relabel lanes,
+    infer another member, assert failed reconstruction or redesign primers. The independent
+    predecessor audit identified this defect; this document is the author remediation
+    and requires a separate read-only re-review.'
+- assessment_id: identity
+  area: identity
+  topic: Exact reconstructed pair
+  outcome: supported
+  summary: The source-reported JN4/GD17 identity remains appropriate.
+  target_ids:
+  - CommunityMech:000180
+  evidence_ids:
+  - identity
+  - strain
+  - supplement
+  details: Historical names, current NCBI species labels and author-reported strain
+    accessions remain distinct. The ambiguous S1 controls do not independently certify
+    specificity or justify changing canonical membership.
+- assessment_id: culture
+  area: scope
+  topic: CTFUD and assay-specific cultivation
+  outcome: concern
+  summary: The original cultivation finding and all its acceptance checks remain open.
+  target_ids:
+  - CommunityMech:000180
+  evidence_ids:
+  - recipe
+  - growth
+  - volumes
+  - analytical
+  - schema
+  details: The full source contradicts the record's no-working-volume/abstract-only
+    limitations. Preserve exact source forms, separate culture arms and omit invented
+    static-operation rationale; no canonical change occurs here.
+- assessment_id: xylose
+  area: evidence
+  topic: Proposed hemicellulose benefit
+  outcome: concern
+  summary: The original xylose hypothesis-qualification finding remains open.
+  target_ids:
+  - CommunityMech:000180
+  evidence_ids:
+  - xylose
+  - contexts
+  details: Weak corncob growth and a tentative model do not establish GD17 xylose
+    release or JN4 uptake. The different NOI-1 background reference stays scoped.
+- assessment_id: taxonomy
+  area: grounding
+  topic: Valid mappings and unsupported provenance shorthand
+  outcome: concern
+  summary: The original GTDB snapshot finding remains open; core mappings reproduce.
+  target_ids:
+  - CommunityMech:000180
+  evidence_ids:
+  - gtdb
+  - strain
+  details: Retain exact IDs, lineages, 1.0 fractions and 18-genome counts for both
+    species. A local file date does not establish a release called latest.
+- assessment_id: graph
+  area: graph
+  topic: Measured outcomes versus inferred mechanisms
+  outcome: supported
+  summary: Three nodes and two qualified arrows remain appropriately bounded.
+  target_ids:
+  - CommunityMech:000180
+  evidence_ids:
+  - analytical
+  - contexts
+  - access
+  details: Community products, independent sugar conversion, estimated JN4 biomass,
+    DNA proportions and transcription are distinct. Preserve confounding from added
+    carbon and different sampling times; no direct flux, viable-cell count, reciprocal
+    harm, obligatory dependence or required abundance is inferred.
+- assessment_id: coverage
+  area: scope
+  topic: Current access and historical limits
+  outcome: unknown
+  summary: Partial scientific scope remains necessary because the 2016 full assay
+    is unavailable.
+  target_ids:
+  - CommunityMech:000180
+  evidence_ids:
+  - access
+  - supplement
+  - predecessor
+  details: Fresh 2019 body, seven main figures, three SI figures and complete primer
+    table were read. The first SI transfer timed out and the second completed. The
+    predecessor's dates and source limits remain historical; no unavailable /private/tmp
+    artifact is an active input or claimed newly read source.
+- assessment_id: validation
+  area: schema
+  topic: Native focused gates and current guidance
+  outcome: supported
+  summary: Current record validators pass independently of the scientific limitations.
+  target_ids:
+  - CommunityMech:000180
+  evidence_ids:
+  - focused-qc
+  - schema
+  details: The existing source caches have accurate content-type headers and remain
+    unchanged. Existing append-only graph history and the open flux/growth knowledge-gap
+    discussion remain bounded. No new cache/history repair or request to perform experiments
+    is introduced.
+- assessment_id: metrics
+  area: completeness
+  topic: Native rubric arithmetic
+  outcome: supported
+  summary: Completeness 85; raw quality 121, capped 100.
+  target_ids:
+  - CommunityMech:000180
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 85
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required fields/roles 50 + environment 5 + three-environmental-factors
+      bonus 0 + at least three interaction nodes 10 + external resources 5 + medium
+      10 + datasets 0 + metabolites 5 = 85. Count nodes, not typed nodes.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean evidence/2,1)+15 if COMPLETE,0,100).
+      Evidence counts [1,2,3] across three nodes give mean 2, bonus 20; COMPLETE adds
+      15; one P2/two P3 gives raw 121/cap 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  details: Rechecked against the unchanged current record and three retained curation
+    findings. Presence scores do not certify scientific completion or make optional
+    state mandatory.
+findings:
+- finding_id: recover-cultivation-scope
+  issue_key: cm-000180-recover-cultivation-scope
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: False volume/recipe limits and conflated assay contexts materially
+    impair reproducibility.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Recover CTFUD and assay-specific cultivation scope
+  description: The record falsely says no working volume is reported, omits available
+    CTFUD formulation, merges substrate assay contexts and adds an unsupported explanation
+    for static operation. The abstract-only preparation note is stale.
+  target_ids:
+  - CommunityMech:000180
+  field_paths:
+  - growth_media[0].name
+  - growth_media[0].composition
+  - growth_media[0].preparation_notes
+  - growth_media[0].evidence[0].explanation
+  - cultivation_setup[0].instrument_detail
+  - cultivation_setup[0].notes
+  evidence_ids:
+  - recipe
+  - growth
+  - volumes
+  - analytical
+  - identity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns future repair. Coordinate current 1343 and
+    scoped 746 without closing unrelated issue content.
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T231001Z-jn4-gd17-record-review
+    finding_id: recover-cultivation-scope
+- finding_id: qualify-xylose-model
+  issue_key: cm-000180-qualify-xylose-model
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded non-graph wording overstates a tentative route; the
+    core graph is already qualified.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Qualify the proposed GD17 xylose benefit
+  description: The xylose entry converts a tentative hemicellulose-to-xylose benefit
+    into categorical GD17 digestion. The paper reports weak corncob growth and a possible
+    reciprocal benefit; its background citation concerns NOI-1 rather than GD17.
+  target_ids:
+  - CommunityMech:000180
+  field_paths:
+  - related_ingredients[3].relevance
+  - related_ingredients[3].evidence[0].explanation
+  evidence_ids:
+  - xylose
+  - contexts
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns future repair. Coordinate current 1343 and
+    scoped 746 without closing unrelated issue content.
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T231001Z-jn4-gd17-record-review
+    finding_id: qualify-xylose-model
+- finding_id: document-gtdb-snapshot
+  issue_key: cm-000180-document-gtdb-snapshot
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Core mappings are valid; the reproducibility statement is
+    unsupported.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Document the verified GTDB snapshot
+  description: Both exact species mappings reproduce, but latest-release/build wording
+    is not established by the snapshot modification time.
+  target_ids:
+  - CommunityMech:000180
+  field_paths:
+  - taxonomy[0].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[1].taxon_term.gtdb_classification.mapping_source
+  evidence_ids:
+  - gtdb
+  - strain
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns future repair. Coordinate current 1343 and
+    scoped 746 without closing unrelated issue content.
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T231001Z-jn4-gd17-record-review
+    finding_id: document-gtdb-snapshot
+actions:
+- action_id: recover-protocols
+  description: Recover available experiment-specific cultivation information.
+  finding_ids:
+  - recover-cultivation-scope
+  target_ids:
+  - CommunityMech:000180
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Replace stale abstract-only and no-working-volume prose with source-local Methods.
+    Enter the CTFUD formulation at the reported amounts, preserving hydrate/salt forms
+    and resazurin 0.5 mL/L with stock strength unspecified. Do not invent culture
+    pH, gas ratio, vessel capacity or missing vitamins.
+  - Represent cellulose/Avicel, cellobiose, glucose and ground-corncob assay arms
+    explicitly. The default listed cellobiose recipe does not mean cellobiose was
+    co-added to every alternative substrate. Carbon source is 0.5%; Avicel plus dextrin/sucrose
+    treatments contain 0.5% of each.
+  - Scope 80 mL to cellulose-grown JN4 monoculture/coculture and 50 mL to glucose/cellobiose
+    member-monoculture conversion tests. Adjust growth_media[0].name and evidence[0].explanation
+    so independent sugar tests are not described as demonstrated sugar coculture arms.
+  - Retain anaerobic tubes/serum bottles, 60 °C, no agitation and BATCH. Remove the
+    invented cellulosome/settled-substrate rationale and unrelated neighboring-record/issue
+    discussion from cultivation notes.
+  - Keep 10% v/v seed separate from the reconstruction 1:1 cell ratio and at least
+    five passages. Match seed substrates to the stated assays; neither value establishes
+    an endpoint species fraction.
+  - Do not import 200 rpm milling, centrifugation, 105 °C drying, citrate pH 4.8,
+    45 °C enzymatic hydrolysis or six-day analytical incubation into culture fields.
+    Preserve the existing biomass, sampling-time and added-carbon interpretation limits.
+- action_id: qualify-xylose
+  description: Restore hypothesis wording to the two xylose prose fields.
+  finding_ids:
+  - qualify-xylose-model
+  target_ids:
+  - CommunityMech:000180
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Change related_ingredients[3].relevance and evidence[0].explanation to state the
+    authors proposed hemicellulose-to-xylose benefit. Preserve the exact may-benefit
+    snippet if retained.
+  - Cite weak GD17 corncob growth and tentative Figure 6B; distinguish the background
+    NOI-1 paper from GD17. No measured xylose release, transfer or JN4 benefit is
+    asserted, and the route is not declared impossible.
+- action_id: document-mapping
+  description: Make both valid species mappings reproducible.
+  finding_ids:
+  - document-gtdb-snapshot
+  target_ids:
+  - CommunityMech:000180
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Use crosswalk SHA 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    and exact ncbi_id lookup route. Describe 2026-07-25 as local mtime, not a verified
+    latest release/build.
+  - Retain NCBITaxon:1515→Hungateiclostridium thermocellum and NCBITaxon:1517→Thermoanaerobacterium
+    thermosaccharolyticum, each 1.0/18 genomes, current lineages and name-comparison
+    flags. Keep JN4/GD17 and source-reported CGMCC accessions separate; no unverified
+    strain CURIE or catalogue equivalence.
+- action_id: validate-future-curation
+  description: Validate bounded repairs and resolve remaining source access separately.
+  finding_ids:
+  - recover-cultivation-scope
+  - qualify-xylose-model
+  - document-gtdb-snapshot
+  target_ids:
+  - CommunityMech:000180
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Preserve both members, all four roles and three untyped nodes/two qualified arrows.
+    No reciprocal-harm, obligatory dependence, direct flux, viable count or mandatory
+    abundance percentage is introduced.
+  - Recover the exact 2016 full paper before certifying complete hydrogen-assay review.
+    Keep its DOI/PMID distinct from the 2008 publication and preserve the 2019 bibliography
+    discrepancy without silently rewriting evidence.
+  - After separately authorized curation, append history and run schema, strict, term,
+    reference, GTDB/domain, history and the actual generated-page recipes just gen-html
+    and just check-docs-current. This review mutates no canonical record, cache, history,
+    generated product or issue.
+limitations:
+- The 2016 hydrogen paper remains abstract/preview only; 2008 body is unavailable.
+  Do not certify complete hydrogen-assay review or import their missing Methods.
+- S1 contains unresolved lane/control-label ambiguity and a caption typo. No lane
+  relabeling, contamination finding, failed reconstruction or new member follows.
+- No raw sequencing, numerical, viable-cell or flux reanalysis was performed. Protein-based
+  biomass and comparative metabolism do not establish selective causality.
+- All prior bundles are immutable. Their old /private/tmp source paths are historical
+  references only, not recoverable current inputs.
+- This is an author remediation, not the independent re-review. Native save, bundle/contract
+  and writer-gate receipts are reported separately after saving.
+notes:
+- The original 000180 evidence summary is explicitly qualified rather than silently
+  rewritten.
+- The open jn4_gd17_flux_and_growth_partition discussion remains an evidence-watch
+  boundary. No action demands experiments.
+- AGENTS.md is pinned directly; the CLAUDE.md symlink is not a current input.
+related_reviews:
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T231001Z-jn4-gd17-record-review
+  relationship: Current-input successor retaining all three open findings; explicitly
+    qualifies the predecessor evidence_id supplement S1 proof statement.
+links:
+- https://github.com/CultureBotAI/CommunityMech/issues/2544
+tags:
+- pr-2054
+- append-only
+- author-remediation
+- s1-proof-boundary
