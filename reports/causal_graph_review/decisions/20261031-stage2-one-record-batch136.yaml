@@ -1,0 +1,269 @@
+reviewer: claude
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 5704621640724d4d051283d3babc12d1c29a2707
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+reviewed_counts:
+  retained_nodes: 4
+  removed_nodes: 0
+  retained_arrows: 3
+  removed_arrows: 0
+  renamed_nodes: 1
+  graph_quotations: 10
+  discussion_quotations: 0
+limitations:
+- Source-based causal-graph curation and review for the newly added Cycle 4 Stage 1 record
+  (CommunityMech:000496).
+- Other 489 records verified via SHA-256 hash census against reports/causal_graph_review/inventory.tsv
+  (435 reviewed, 54 needs_research preserved unchanged).
+records:
+- path: kb/communities/Methylomicrobium_Arthrospira_Biogas_Conversion_Coculture.yaml
+  id: CommunityMech:000496
+  original_sha256: 39d57707750b68661e50be1dcfd8f350561c90de9de7c46c28936e2eee93fb13
+  record_sha256: 3cbfb0fc0d3b7cd9911a140d3380317c3ab0b97817fd9323b93826d5764ba2bf
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261031-stage2-one-record-batch136.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached primary source text (PMID:35295538, doi:10.1016/j.mex.2022.101652,
+    doi:10.20517/mrr.2023.70).
+  summary: Expanded the 3-node biogas conversion coculture causal graph into a directionally resolved
+    4-node, 3-edge chain by splitting the SteadyCom/DynamiCom predicted cross-feeding mechanism
+    (doi:10.20517/mrr.2023.70) into cyanobacterial ammonium/succinate/pyruvate/formate/L-glutamate
+    export (A. platensis -> M. buryatense 5GB1) and reciprocal methanotroph citrate/L-glutamine/lactate/sucrose
+    export (M. buryatense 5GB1 -> A. platensis) after mutualistic establishment (~38-45 h), and updated
+    discussions[0].attaches_to.
+  node_decisions:
+  - node: In Situ Oxygen Provision for Methane Oxidation
+    rationale: Supported by primary sources (doi:10.20517/mrr.2023.70, doi:10.1016/j.mex.2022.101652)
+      with explicit PAIRWISE scope and taxon grounding (Arthrospira platensis -> Methylomicrobium
+      buryatense 5GB1).
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstracts (doi:10.20517/mrr.2023.70; doi:10.1016/j.mex.2022.101652)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Arthrospira platensis
+        term:
+          id: NCBITaxon:118562
+          label: Limnospira platensis
+      target_taxon:
+        preferred_term: Methylomicrobium buryatense 5GB1
+        term:
+          id: NCBITaxon:675511
+          label: Methylotuvimicrobium buryatense 5G
+    evidence:
+    - reference: doi:10.20517/mrr.2023.70
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: the net O2 consumption rate was set to zero, as no O2 was detected throughout the growth
+        experiment. In other words, the O2 produced by A. platensis must be completely consumed by
+        M. buryatense.
+    - reference: doi:10.1016/j.mex.2022.101652
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: Explicitly models the exchange of in situ produced O2 and CO2 within the coculture.
+  - node: Reciprocal Carbon Dioxide Provision and Synergistic Coculture Growth
+    rationale: Supported by primary sources (doi:10.20517/mrr.2023.70, PMID:35295538) with explicit
+      PAIRWISE scope and taxon grounding (Methylomicrobium buryatense 5GB1 -> Arthrospira platensis).
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstracts (doi:10.20517/mrr.2023.70; PMID:35295538)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Methylomicrobium buryatense 5GB1
+        term:
+          id: NCBITaxon:675511
+          label: Methylotuvimicrobium buryatense 5G
+      target_taxon:
+        preferred_term: Arthrospira platensis
+        term:
+          id: NCBITaxon:118562
+          label: Limnospira platensis
+    evidence:
+    - reference: doi:10.20517/mrr.2023.70
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In our previous work, we have demonstrated that for the coculture of Methylomicrobium
+        buryatense (M. buryatense) 5GB1 - Arthrospira platensis (A. platensis), the enhanced growth
+        observed for both species in the coculture cannot be fully explained by the in-situ exchange
+        of O2 and CO2, confirming the existence of other unknown metabolic interactions for the coculture
+    - reference: PMID:35295538
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Through metabolic coupling of methane oxidation and oxygenic photosynthesis,
+        methanotroph-photoautotroph (M-P) cocultures offer a highly promising technology platform for
+        biogas conversion
+  - node: Predicted Emergent Cyanobacterial Ammonium and Organic Acid Cross-Feeding
+    rationale: Supported by computational SteadyCom and DynamiCom predictions in doi:10.20517/mrr.2023.70
+      (marked HYPOTHESIZED) with explicit PAIRWISE directionality (Arthrospira platensis ->
+      Methylomicrobium buryatense 5GB1) for NH4+, succinate, pyruvate, formate, and L-glutamate.
+    field_path: ecological_interactions[2]
+    source_locator: Cached full text (doi:10.20517/mrr.2023.70, lines 65 and 89)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Arthrospira platensis
+        term:
+          id: NCBITaxon:118562
+          label: Limnospira platensis
+      target_taxon:
+        preferred_term: Methylomicrobium buryatense 5GB1
+        term:
+          id: NCBITaxon:675511
+          label: Methylotuvimicrobium buryatense 5G
+    evidence:
+    - reference: doi:10.20517/mrr.2023.70
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: 'The top eight exchanged metabolites predicted by SteadyCom are: succinate, ammonium,
+        pyruvate, formate, citrate, sucrose, glutamine, and glutamate.'
+    - reference: doi:10.20517/mrr.2023.70
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: However, after about 45 h, M. buryatense exclusively consumes ammonium produced by
+        A. platensis, which coincides with the significant increase in glutamate exchange within coculture.
+    - reference: doi:10.20517/mrr.2023.70
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: Figure 5 suggests that approximately after 38 h (establishing the mutualistic relationship),
+        cyanobacteria produced more pyruvate and glutamate and kept providing NH4, succinate, and formate
+        for methanotrophs. On the other hand, methanotrophs produced more citrate and slightly more
+        glutamine and kept providing lactate and sucrose for cyanobacteria.
+  - node: Predicted Reciprocal Methanotroph Carbon and Glutamine Cross-Feeding
+    rationale: Supported by computational SteadyCom and DynamiCom predictions in doi:10.20517/mrr.2023.70
+      (marked HYPOTHESIZED) with explicit PAIRWISE directionality (Methylomicrobium buryatense 5GB1 ->
+      Arthrospira platensis) for citrate, L-glutamine, lactate, and sucrose after ~38 h.
+    field_path: ecological_interactions[3]
+    source_locator: Cached full text (doi:10.20517/mrr.2023.70, lines 65 and 89)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Methylomicrobium buryatense 5GB1
+        term:
+          id: NCBITaxon:675511
+          label: Methylotuvimicrobium buryatense 5G
+      target_taxon:
+        preferred_term: Arthrospira platensis
+        term:
+          id: NCBITaxon:118562
+          label: Limnospira platensis
+    evidence:
+    - reference: doi:10.20517/mrr.2023.70
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: Figure 5 suggests that approximately after 38 h (establishing the mutualistic relationship),
+        cyanobacteria produced more pyruvate and glutamate and kept providing NH4, succinate, and formate
+        for methanotrophs. On the other hand, methanotrophs produced more citrate and slightly more
+        glutamine and kept providing lactate and sucrose for cyanobacteria.
+    - reference: doi:10.20517/mrr.2023.70
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: As shown in Figure 3 , cyanobacteria provide the main favorable carbon source, such as
+        succinate, and nitrogen source, such as ammonium, for methanotrophs. On the other hand,
+        methanotrophs produce more amino acids for both organisms.
+    - reference: doi:10.20517/mrr.2023.70
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: 'The top eight exchanged metabolites predicted by SteadyCom are: succinate, ammonium,
+        pyruvate, formate, citrate, sucrose, glutamine, and glutamate.'
+  edges_before:
+  - source: In Situ Oxygen Provision for Methane Oxidation
+    target: Reciprocal Carbon Dioxide Provision and Synergistic Coculture Growth
+    description: Photosynthetic O2 delivery from A. platensis enables continuous CH4 oxidation by M. buryatense
+      5GB1, generating in situ CO2 and supporting coupled mutualistic biomass accumulation of both partners.
+  - source: Reciprocal Carbon Dioxide Provision and Synergistic Coculture Growth
+    target: Predicted Emergent Nitrogen and Metabolite Cross-Feeding
+    description: HYPOTHESIZED - because enhanced coculture growth of both species cannot be fully explained
+      by in situ O2 and CO2 exchange alone, genome-scale modeling (SteadyCom and DynamiCom) predicts
+      emergent exchange of ammonium, organic acids, and amino acids between A. platensis and M. buryatense 5GB1.
+  edges_after:
+  - source: In Situ Oxygen Provision for Methane Oxidation
+    target: Reciprocal Carbon Dioxide Provision and Synergistic Coculture Growth
+    description: Photosynthetic O2 delivery from A. platensis enables continuous CH4 oxidation by M. buryatense
+      5GB1, generating in situ CO2 and supporting coupled mutualistic biomass accumulation of both partners.
+  - source: Reciprocal Carbon Dioxide Provision and Synergistic Coculture Growth
+    target: Predicted Emergent Cyanobacterial Ammonium and Organic Acid Cross-Feeding
+    description: HYPOTHESIZED - because enhanced coculture growth of both species cannot be fully explained
+      by in situ O2 and CO2 exchange alone, genome-scale modeling (SteadyCom and DynamiCom) predicts
+      emergent cyanobacterial export of ammonium, succinate, pyruvate, formate, and glutamate to
+      M. buryatense 5GB1 after mutualistic establishment (~38-45 h).
+  - source: Predicted Emergent Cyanobacterial Ammonium and Organic Acid Cross-Feeding
+    target: Predicted Reciprocal Methanotroph Carbon and Glutamine Cross-Feeding
+    description: HYPOTHESIZED - concurrent with cyanobacterial provision of ammonium, succinate, pyruvate,
+      formate, and glutamate after mutualism establishment (~38 h), DynamiCom predicts that M. buryatense
+      5GB1 reciprocally increases production of citrate and glutamine while continuing to export lactate
+      and sucrose to A. platensis.
+  retained_edge_decisions:
+  - edge: In Situ Oxygen Provision for Methane Oxidation -> Reciprocal Carbon Dioxide Provision and Synergistic
+      Coculture Growth
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:35295538, doi:10.1016/j.mex.2022.101652, and doi:10.20517/mrr.2023.70 directly state
+      that O2 produced by A. platensis is completely consumed by M. buryatense 5GB1 to oxidize methane
+      and generate CO2 in situ for A. platensis photosynthesis.
+    evidence:
+    - reference: doi:10.20517/mrr.2023.70
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: the net O2 consumption rate was set to zero, as no O2 was detected throughout the growth
+        experiment. In other words, the O2 produced by A. platensis must be completely consumed by
+        M. buryatense.
+    - reference: doi:10.1016/j.mex.2022.101652
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: Explicitly models the exchange of in situ produced O2 and CO2 within the coculture.
+  - edge: Reciprocal Carbon Dioxide Provision and Synergistic Coculture Growth -> Predicted Emergent
+      Cyanobacterial Ammonium and Organic Acid Cross-Feeding
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: doi:10.20517/mrr.2023.70 explicitly states that the enhanced coculture growth of both species
+      cannot be fully explained by in situ O2 and CO2 exchange alone and uses SteadyCom/DynamiCom to
+      predict cyanobacterial provision of ammonium, succinate, pyruvate, formate, and glutamate to
+      M. buryatense 5GB1 (marked HYPOTHESIZED).
+    evidence:
+    - reference: doi:10.20517/mrr.2023.70
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In our previous work, we have demonstrated that for the coculture of Methylomicrobium
+        buryatense (M. buryatense) 5GB1 - Arthrospira platensis (A. platensis), the enhanced growth
+        observed for both species in the coculture cannot be fully explained by the in-situ exchange
+        of O2 and CO2, confirming the existence of other unknown metabolic interactions for the coculture
+    - reference: doi:10.20517/mrr.2023.70
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: However, after about 45 h, M. buryatense exclusively consumes ammonium produced by
+        A. platensis, which coincides with the significant increase in glutamate exchange within coculture.
+  - edge: Predicted Emergent Cyanobacterial Ammonium and Organic Acid Cross-Feeding -> Predicted
+      Reciprocal Methanotroph Carbon and Glutamine Cross-Feeding
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: doi:10.20517/mrr.2023.70 (Figure 5 analysis) explicitly states that after ~38 h (establishing
+      the mutualistic relationship), cyanobacteria produce more pyruvate and glutamate while providing
+      NH4, succinate, and formate for methanotrophs, while methanotrophs reciprocally produce more citrate
+      and glutamine and keep providing lactate and sucrose for cyanobacteria (marked HYPOTHESIZED).
+    evidence:
+    - reference: doi:10.20517/mrr.2023.70
+      supports: SUPPORT
+      evidence_source: COMPUTATIONAL
+      snippet: Figure 5 suggests that approximately after 38 h (establishing the mutualistic relationship),
+        cyanobacteria produced more pyruvate and glutamate and kept providing NH4, succinate, and formate
+        for methanotrophs. On the other hand, methanotrophs produced more citrate and slightly more
+        glutamine and kept providing lactate and sucrose for cyanobacteria.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:35295538
+  - doi:10.1016/j.mex.2022.101652
+  - doi:10.20517/mrr.2023.70
+  allowed_changed_fields:
+  - ecological_interactions
+  - discussions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Methylomicrobium_Arthrospira_Biogas_Conversion_Coculture/2026-10-31T162000Z-antigravity-a3b9ed.yaml
+  - history/records/Methylomicrobium_Arthrospira_Biogas_Conversion_Coculture/2026-10-31T162000Z-antigravity-3cbfb0.yaml

@@ -1,0 +1,305 @@
+# Kefir review action correction: ecological state is optional
+
+- Review: 20261106T062035Z-pr2043-kefir-state-action-correction
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-06T06:20:34.765372Z
+- Finished UTC: 2026-11-06T06:20:35.992558Z
+- Reviewer: codex (self_review)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: false
+
+## Summary
+
+Correct only the original action's required-state premise. The current schema permits omission of unsupported ecological_state. All five original scientific findings remain open, the qualified graph is preserved, and the natural-community follow-up on issue1262 remains unresolved.
+
+## Scope And Provenance
+
+Bounded schema/process correction of original actions[repair-model-community-scope].acceptance_checks[1]; not a whole scientific re-review.
+
+Selection: Exactly CommunityMech:000009; all other targets excluded.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base ac9f7a37a1c97f50a1e7ed98cba9cc288284f067.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000009 | kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml | maintained | BioModels MODEL2204300001 Kefir Community Model |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| Native induced-slot optionality | passed | True | CommunityMech:000009 | SchemaView.induced_slot('ecological_state','MicrobialCommunity').required is false or unset. |
+| Bounded prior finding inventory | passed | True | CommunityMech:000009 | Five original keys remain open; no terminal disposition or full-review supersession is emitted. |
+| Full scientific reassessment | skipped | False | CommunityMech:000009 | Outside this explicitly process-only correction; no literature, model payload or native full-record QC rerun claimed. |
+
+## Scientific And Domain Assessments
+
+### Optional ecological_state in the curation action
+
+schema: supported. Targets: CommunityMech:000009.
+
+The source schema supports omission when ecological state is unsupported.
+
+Replace only the required-state premise in 20261021T120426Z-kefir-community-model-record/actions[repair-model-community-scope].acceptance_checks[1] with: For the natural community, replace unsupported engineered origin/design with source-backed provenance; assess ecological state independently. ecological_state is optional: omit it if no value is supported, rather than inventing a replacement. Do not automatically substitute ENGINEERED, TRANSIENT or STABLE, and do not equate laboratory propagation or model construction with ecological state or engineering.
+
+### Preserved scientific findings and access limits
+
+provenance: unknown. Targets: CommunityMech:000009.
+
+No prior scientific finding is resolved, superseded or reopened by this correction.
+
+The following five original keys remain unresolved: cm-000009-model-community-scope, cm-000009-ode-verification, cm-000009-time-course-volume, cm-000009-modeled-material, cm-000009-resource-provenance. Preserve the qualified graph, original source-access limits, and all other action acceptance checks. Issue1262 continues to track model/community scope; this observation provides no new source certification.
+
+## Findings
+
+No findings recorded within this review's declared scope.
+
+## Recommended Actions And Acceptance Checks
+
+### apply-corrected-state-acceptance
+
+Use the corrected optional-state rule when later curating the still-open model-community-scope finding.
+
+- For the natural community, replace unsupported engineered origin/design with source-backed provenance; assess ecological state independently. ecological_state is optional: omit it if no value is supported, rather than inventing a replacement. Do not automatically substitute ENGINEERED, TRANSIENT or STABLE, and do not equate laboratory propagation or model construction with ecological state or engineering.
+- Retain the other three original repair-model-community-scope acceptance checks and all five unresolved scientific finding lineages; do not treat this process correction as completed record curation.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| schema | src/communitymech/schema/communitymech.yaml; MicrobialCommunity.ecological_state and native SchemaView.induced_slot | supports | The induced slot has no required constraint; ecological_state is optional. |
+| prior-action | reviews/structured/20261021T120426Z-kefir-community-model-record/review.yaml; actions[repair-model-community-scope].acceptance_checks[1]; all five open findings | supports | The original action wrongly calls ecological_state required. This correction changes that premise only; all five scientific findings remain unresolved. |
+| current-record | kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; Entire current record; identity, state and qualified graph read without source reassessment | supports | The target is resolved and unchanged. No record field, graph qualifier or prior scientific finding is altered. |
+
+## Limits And Additional Notes
+
+- Completion refers only to this schema/process correction; scientific_review is false. Full scientific source support and record-level QC were not reassessed.
+- Empty new findings means no new unresolved finding in the narrow corrected-action scope. It does not close or retire any of the five original scientific findings.
+- No kb record, history, cache, original bundle or generated product was edited; the original immutably retains its historical wording.
+- Schema receipt is .temp/pr2043/009-correction/schema-receipt.json; candidate JSON is saved only through the native validator/saver.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261106T062035Z-pr2043-kefir-state-action-correction
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Kefir review action correction: ecological state is optional'
+started_at: '2026-11-06T06:20:34.765372Z'
+finished_at: '2026-11-06T06:20:35.992558Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: self_review
+  independence_basis: Author of this bounded process correction; no independent scientific
+    approval claimed.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: false
+summary: Correct only the original action's required-state premise. The current schema
+  permits omission of unsupported ecological_state. All five original scientific findings
+  remain open, the qualified graph is preserved, and the natural-community follow-up
+  on issue1262 remains unresolved.
+source:
+  git_revision: ac9f7a37a1c97f50a1e7ed98cba9cc288284f067
+  state: working_tree
+  inputs:
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 8f23dcad7ed9c9873f00058995d1219cca8810c27ed5d787cb9b66a8abf96728
+    role: context
+  - path: conf/record_review.yaml
+    sha256: c4ad25505a87a040c57eb93f1ee9673a09389a474c6d4e1136781456ff190fc8
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    sha256: b2e55eea689446b15484d0b01ce6f0da687b66ddd2b5b6507e1677216b2619ea
+    role: target
+  - path: reviews/structured/20261021T120426Z-kefir-community-model-record/review.yaml
+    sha256: 9a6da815134e10a52eba840209dc7971c6c0d6ce2d7ec6179e358d3d305b27e5
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/pr2043_009_correction.py
+    sha256: fde4e6e174c58e3596eff98cf529cb38a8953e871cfa6d323a2110312ccbcd87
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: a00434e0d75020b2926c9f755d625c09cc78b6f88135805991fcb0ecd4230c83
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000009
+  path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  label: BioModels MODEL2204300001 Kefir Community Model
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    role: canonical_record
+scope:
+  description: Bounded schema/process correction of original actions[repair-model-community-scope].acceptance_checks[1];
+    not a whole scientific re-review.
+  selection: Exactly CommunityMech:000009; all other targets excluded.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000009
+checks:
+- check_id: slot-optionality
+  name: Native induced-slot optionality
+  status: passed
+  required: true
+  summary: SchemaView.induced_slot('ecological_state','MicrobialCommunity').required
+    is false or unset.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - schema
+- check_id: lineage-preservation
+  name: Bounded prior finding inventory
+  status: passed
+  required: true
+  summary: Five original keys remain open; no terminal disposition or full-review
+    supersession is emitted.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - prior-action
+- check_id: full-science
+  name: Full scientific reassessment
+  status: skipped
+  required: false
+  summary: Outside this explicitly process-only correction; no literature, model payload
+    or native full-record QC rerun claimed.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - prior-action
+  - current-record
+evidence:
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: MicrobialCommunity.ecological_state and native SchemaView.induced_slot
+  summary: The induced slot has no required constraint; ecological_state is optional.
+  support: supports
+  accessed_at: '2026-11-06T06:20:35.992558Z'
+  snapshot_sha256: a00434e0d75020b2926c9f755d625c09cc78b6f88135805991fcb0ecd4230c83
+- evidence_id: prior-action
+  kind: record_content
+  reference: reviews/structured/20261021T120426Z-kefir-community-model-record/review.yaml
+  locator: actions[repair-model-community-scope].acceptance_checks[1]; all five open
+    findings
+  summary: The original action wrongly calls ecological_state required. This correction
+    changes that premise only; all five scientific findings remain unresolved.
+  support: supports
+  accessed_at: '2026-11-06T06:20:35.992558Z'
+  snapshot_sha256: 9a6da815134e10a52eba840209dc7971c6c0d6ce2d7ec6179e358d3d305b27e5
+- evidence_id: current-record
+  kind: record_content
+  reference: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: Entire current record; identity, state and qualified graph read without
+    source reassessment
+  summary: The target is resolved and unchanged. No record field, graph qualifier
+    or prior scientific finding is altered.
+  support: supports
+  accessed_at: '2026-11-06T06:20:35.992558Z'
+  snapshot_sha256: b2e55eea689446b15484d0b01ce6f0da687b66ddd2b5b6507e1677216b2619ea
+assessments:
+- assessment_id: corrected-action
+  area: schema
+  topic: Optional ecological_state in the curation action
+  outcome: supported
+  summary: The source schema supports omission when ecological state is unsupported.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - schema
+  - prior-action
+  details: 'Replace only the required-state premise in 20261021T120426Z-kefir-community-model-record/actions[repair-model-community-scope].acceptance_checks[1]
+    with: For the natural community, replace unsupported engineered origin/design
+    with source-backed provenance; assess ecological state independently. ecological_state
+    is optional: omit it if no value is supported, rather than inventing a replacement.
+    Do not automatically substitute ENGINEERED, TRANSIENT or STABLE, and do not equate
+    laboratory propagation or model construction with ecological state or engineering.'
+- assessment_id: unresolved-science
+  area: provenance
+  topic: Preserved scientific findings and access limits
+  outcome: unknown
+  summary: No prior scientific finding is resolved, superseded or reopened by this
+    correction.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - prior-action
+  - current-record
+  details: 'The following five original keys remain unresolved: cm-000009-model-community-scope,
+    cm-000009-ode-verification, cm-000009-time-course-volume, cm-000009-modeled-material,
+    cm-000009-resource-provenance. Preserve the qualified graph, original source-access
+    limits, and all other action acceptance checks. Issue1262 continues to track model/community
+    scope; this observation provides no new source certification.'
+findings: []
+actions:
+- action_id: apply-corrected-state-acceptance
+  description: Use the corrected optional-state rule when later curating the still-open
+    model-community-scope finding.
+  finding_ids: []
+  target_ids:
+  - CommunityMech:000009
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - 'For the natural community, replace unsupported engineered origin/design with
+    source-backed provenance; assess ecological state independently. ecological_state
+    is optional: omit it if no value is supported, rather than inventing a replacement.
+    Do not automatically substitute ENGINEERED, TRANSIENT or STABLE, and do not equate
+    laboratory propagation or model construction with ecological state or engineering.'
+  - Retain the other three original repair-model-community-scope acceptance checks
+    and all five unresolved scientific finding lineages; do not treat this process
+    correction as completed record curation.
+limitations:
+- Completion refers only to this schema/process correction; scientific_review is false.
+  Full scientific source support and record-level QC were not reassessed.
+- Empty new findings means no new unresolved finding in the narrow corrected-action
+  scope. It does not close or retire any of the five original scientific findings.
+- No kb record, history, cache, original bundle or generated product was edited; the
+  original immutably retains its historical wording.
+related_reviews:
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T120426Z-kefir-community-model-record
+  relationship: Append-only correction of one acceptance-check premise only; no scientific
+    supersession or terminal finding disposition.
+notes:
+- Schema receipt is .temp/pr2043/009-correction/schema-receipt.json; candidate JSON
+  is saved only through the native validator/saver.
+tags:
+- record-review
+- batch-07
+- process-correction
+- schema-optionality
+```

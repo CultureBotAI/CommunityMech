@@ -47,6 +47,38 @@ def test_taxa_record_structure():
     assert genes["mtrC"]["genome"] == rec["genomes"][0]["id"]
     assert genes["omcA"]["gene_id"] == "UniProtKB:Q8EG32"
     assert genes["omcA"]["locus_tag"] == "SO_1779"
+    for sym in ("mtrC", "mtrB", "mtrA", "omcA", "cymA"):
+        assert set(genes[sym]["supports_roles"]) >= {
+            "ELECTRON_DONOR",
+            "ELECTROGEN",
+            "SYNTROPHIC_PARTNER",
+        }
+        refs = {ev["reference"] for ev in genes[sym]["evidence"]}
+        assert "PMID:31537786" in refs
+    for sym in ("mtrC", "omcA"):
+        refs = {ev["reference"] for ev in genes[sym]["evidence"]}
+        assert {
+            "PMID:42733304",
+            "PMID:41236292",
+            "PMID:39504696",
+            "PMID:31537786",
+        } == refs
+        assert len(genes[sym]["evidence"]) == 6
+        assert sum(1 for ev in genes[sym]["evidence"] if ev["reference"] == "PMID:42733304") == 3
+    for sym in ("mtrB", "mtrA"):
+        refs = {ev["reference"] for ev in genes[sym]["evidence"]}
+        assert {"PMID:42733304", "PMID:41210787", "PMID:31537786", "PMID:32849356"} == refs
+    assert len(genes["mtrB"]["evidence"]) == 4
+    assert len(genes["mtrA"]["evidence"]) == 5
+    assert sum(1 for ev in genes["mtrA"]["evidence"] if ev["reference"] == "PMID:32849356") == 2
+    assert {
+        "PMID:42733304",
+        "PMID:39504696",
+        "PMID:31537786",
+        "PMID:34986141",
+    } == {ev["reference"] for ev in genes["cymA"]["evidence"]}
+    assert len(genes["cymA"]["evidence"]) == 5
+    assert sum(1 for ev in genes["cymA"]["evidence"] if ev["reference"] == "PMID:34986141") == 2
 
     geo = yaml.safe_load((TAXA_DIR / "Geobacter_sulfurreducens.yaml").read_text())
     geo_genes = {g["gene_symbol"]: g for g in geo["genes"]}
@@ -55,6 +87,34 @@ def test_taxa_record_structure():
     assert geo_genes["omcS"]["gene_id"] == "UniProtKB:Q749X9"
     assert geo_genes["omcZ"]["gene_id"] == "UniProtKB:Q74A90"
     assert geo_genes["omcB"]["gene_id"] == "UniProtKB:Q74A86"
+    assert {
+        "PMID:41210787",
+        "PMID:37650614",
+        "PMID:41236292",
+        "PMID:28287150",
+        "PMID:32265334",
+    } == {ev["reference"] for ev in geo_genes["pilA"]["evidence"]}
+    assert len(geo_genes["pilA"]["evidence"]) == 6
+    assert {
+        "PMID:41210787",
+        "PMID:37650614",
+        "PMID:28992596",
+        "PMID:41236292",
+        "PMID:31537786",
+        "PMID:32849356",
+        "PMID:34986141",
+    } == {ev["reference"] for ev in geo_genes["omcS"]["evidence"]}
+    assert len(geo_genes["omcS"]["evidence"]) == 8
+    assert sum(1 for ev in geo_genes["omcS"]["evidence"] if ev["reference"] == "PMID:32849356") == 2
+    assert {"PMID:41210787", "PMID:28992596", "PMID:34986141"} == {
+        ev["reference"] for ev in geo_genes["omcZ"]["evidence"]
+    }
+    assert len(geo_genes["omcZ"]["evidence"]) == 4
+    assert sum(1 for ev in geo_genes["omcZ"]["evidence"] if ev["reference"] == "PMID:34986141") == 2
+    assert {"PMID:41876513", "PMID:37650614", "PMID:37747940"} == {
+        ev["reference"] for ev in geo_genes["omcB"]["evidence"]
+    }
+    assert len(geo_genes["omcB"]["evidence"]) == 3
 
 
 def test_taxa_genes_have_verified_uniprot_and_cached_evidence():
@@ -71,13 +131,20 @@ def test_taxa_genes_have_verified_uniprot_and_cached_evidence():
                 ref = ev["reference"]
                 assert ref.startswith("PMID:"), f"Unexpected reference format {ref}"
                 pmid = ref.split(":", 1)[1]
-                cache_file = REFS_CACHE / f"PMID_{pmid}.txt"
-                assert cache_file.exists(), f"Missing cache file {cache_file}"
-                norm_cache = " ".join(cache_file.read_text().split())
+                cache_files = [
+                    p
+                    for p in (
+                        REFS_CACHE / f"PMID_{pmid}.txt",
+                        REFS_CACHE / f"PMID_{pmid}.md",
+                    )
+                    if p.exists()
+                ]
+                assert cache_files, f"Missing cache file for {ref} in {REFS_CACHE}"
+                norm_cache = " ".join(" ".join(p.read_text().split()) for p in cache_files)
                 norm_snip = " ".join(ev["snippet"].split())
                 assert norm_snip in norm_cache, (
                     f"{path} {gene['gene_symbol']} snippet not verbatim in "
-                    f"{cache_file}: {ev['snippet']!r}"
+                    f"{cache_files}: {ev['snippet']!r}"
                 )
 
 
@@ -114,6 +181,8 @@ def test_community_links_common_taxon():
         "kb/communities/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.yaml",
         "kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
         "kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml",
+        "kb/communities/Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml",
+        "kb/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml",
     ]
     for rel_path in expected_mr1_files:
         doc = yaml.safe_load(Path(rel_path).read_text())
@@ -123,6 +192,23 @@ def test_community_links_common_taxon():
         assert (
             "CommunityMech:taxon:000001" in mr1_refs
         ), f"{rel_path} missing CommunityMech:taxon:000001"
+
+    expected_geobacter_files = [
+        "kb/communities/Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml",
+        "kb/communities/Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.yaml",
+        "kb/communities/Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture.yaml",
+        "kb/communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml",
+        "kb/communities/ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model.yaml",
+        "kb/communities/Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture.yaml",
+    ]
+    for rel_path in expected_geobacter_files:
+        doc = yaml.safe_load(Path(rel_path).read_text())
+        geo_refs = {
+            t.get("common_taxon") for t in doc.get("taxonomy") or [] if t.get("common_taxon")
+        }
+        assert (
+            "CommunityMech:taxon:000002" in geo_refs
+        ), f"{rel_path} missing CommunityMech:taxon:000002"
 
 
 def test_taxoncomposition_accepts_separate_abundances(tmp_path):

@@ -1,0 +1,1473 @@
+# Arabidopsis Phyllosphere SynCom7: whole-record source review
+
+- Review: 20261021T070057Z-arabidopsis-phyllosphere-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T06:57:04.746106Z
+- Finished UTC: 2026-10-21T07:00:57.254230Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+One major finding concerns unsupported cross-feeding attribution. Three minor findings concern source-resolvable members and sequence links, live-host evidence types, and cultivation qualification/linkage. All three nodes retain supported host-genotype outcomes, with no arrows. Eight focused gates pass, four ontology pairs match and eleven snippets verify against fresh primary XML.
+
+## Scope And Provenance
+
+Entire record, aggregate taxonomy, all three nodes and no arrows, eleven evidence occurrences, primary main article and Table 1, all main Methods/Results/Discussion, and three public sequence metadata records. Supplement files, figure geometry and raw quantitative data were not reanalyzed.
+
+Selection: Final path-ordered target of the ten-record batch03, after Arabidopsis Coumarin Root SynCom; one resolved maintained record.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base ade4a9acdc245e1090522bb4f6ec5fe82ee88689.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000093 | kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml | maintained | Arabidopsis Phyllosphere SynCom7 |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000093 | Schema validation passed for the target. |
+| validate-strict | passed | True | CommunityMech:000093 | Strict closed-schema and cross-field validation passed for the target. |
+| validate-terms | passed | True | CommunityMech:000093 | Native ontology-term validation passed for the target. |
+| validate-gtdb | passed | True | CommunityMech:000093 | GTDB structural validation passed without certifying an isolate-level crosswalk. |
+| validate-gtdb-domain | passed | True | CommunityMech:000093 | GTDB domain validation passed for the target. |
+| validate-history | passed | True | CommunityMech:000093 | Both target history sidecars passed native validation. |
+| normalize-cache-names-check | passed | True | CommunityMech:000093 | Read-only reference-cache filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000093 | Native reference validation passed with committed cache hashes unchanged. |
+| audit-network | failed | True | CommunityMech:000093 | Earlier correct-runtime corpus run retained: 477 records, 57 warnings across 21 records, zero errors and exit 1; this target was not listed. |
+| check-network-quality | failed | True | CommunityMech:000093 | Earlier correct-runtime corpus run retained: 477 records, 57 warnings across 21 records, zero errors and exit 1; this target was not listed. |
+| Independent publication identity and full text | passed | True | CommunityMech:000093 | Fresh PubMed, Crossref and full primary XML verify the cited article and support claim-level assessment. |
+| Public source sequence metadata | passed | True | CommunityMech:000093 | All three source ENA accessions resolve as partial 16S sequences for the named isolates. |
+| Optional structured source adapter availability | unavailable | False | CommunityMech:000093 | No runner was available in the owned runtime, and no expression-module catalog coverage was established. |
+
+## Scientific And Domain Assessments
+
+### Defined seven-strain phyllosphere SynCom
+
+identity: supported. Targets: CommunityMech:000093.
+
+The community, paper and source roster are resolved; aggregate taxonomy is explicit, although it omits seven source-resolvable strain descriptors.
+
+### Aggregate taxonomy and functional role
+
+grounding: concern. Targets: CommunityMech:000093.
+
+Bacteria/domain and GTDB domain grounding are appropriate to the aggregate, but its CROSS_FEEDER role is unsupported by attached membership evidence or the reported mechanistic tests.
+
+### ecological_interactions[0]: Cuticle-Mutant Phyllosphere Abundance and Composition Changes
+
+graph: supported. Targets: CommunityMech:000093.
+
+Cuticle-dependent composition and abundance outcomes are supported.
+
+Participants: full SynCom, lacs2/pec1 Arabidopsis and wild-type controls; direction: host genotype toward strain-dependent community changes. Relative ARISA and absolute enumeration remain distinct, with nutrient leakage and cuticle use unresolved. Linked evidence supplies an exact source locator and bounded excerpt.
+
+### ecological_interactions[1]: EIN2 Ethylene-Signaling Composition Shift
+
+graph: supported. Targets: CommunityMech:000093.
+
+EIN2-dependent composition and Variovorax responses are supported.
+
+Participants: full SynCom, ein2 Arabidopsis and wild type; direction: altered host ethylene signaling toward community response. The weak total-abundance effect does not establish uniform biomass gain or a measured hormone level. Linked evidence supplies an exact source locator and bounded excerpt.
+
+### ecological_interactions[2]: Natural-Accession Phyllosphere Community Shift
+
+graph: supported. Targets: CommunityMech:000093.
+
+Controlled natural-accession outcomes are supported.
+
+Participants: seven strains and nine tested Arabidopsis accessions; direction: host genetic background toward four validated composition/abundance responses. Specific causal genes and field generalization remain unresolved. Linked evidence supplies an exact source locator and bounded excerpt.
+
+### ecological_interactions[*].downstream
+
+graph: not_applicable. Targets: CommunityMech:000093.
+
+No arrows remain, appropriately separating parallel host-genotype outcomes from experimental workflow.
+
+### Ethylene, symbiotic process and ingredient relevance
+
+grounding: supported. Targets: CommunityMech:000093.
+
+Ethene/ethylene identity and the broad host association process are appropriate; neither annotation establishes bacterial hormone production, reciprocal benefit or cross-feeding.
+
+### Ecological state, origin, category and environment
+
+scope: supported. Targets: CommunityMech:000093.
+
+ENGINEERED, SYNTHETIC and OTHER fit the available schema; plant-associated environment covers the actual host setting. Assembly design is duplicated as an environmental factor and would be clearer in engineering metadata.
+
+### Engineering design and endpoints
+
+scope: supported. Targets: CommunityMech:000093.
+
+Selection for colonization without disease and the host-genotype perturbation panel fit the source; rejected strains and separate assay organisms are not members of SynCom7.
+
+### Host evidence typed as IN_VITRO
+
+provenance: concern. Targets: CommunityMech:000093.
+
+The shared design evidence explicitly describes living plants, and the photoperiod evidence describes host cultivation; their IN_VITRO typing conflicts with the schema and correctly typed IN_VIVO graph.
+
+### Combined cultivation entry
+
+completeness: concern. Targets: CommunityMech:000093.
+
+Numerical temperature, duration, inoculum and photoperiod values are source-backed in their stated contexts; preparation notes overgeneralize washing to solid-grown cultures, and no external recipe identifiers are provided.
+
+### Member inventory and source sequence links
+
+completeness: concern. Targets: CommunityMech:000093.
+
+The complete source roster and three verified partial 16S records are recoverable but absent from structured membership and external links; this is a bounded enrichment gap, not ambiguous identity.
+
+### Host genes, bacterial mechanisms and expression data
+
+scope: supported. Targets: CommunityMech:000093.
+
+LACS2, PEC1 and EIN2 are host-genotype axes; bacterial functional effectors remain unresolved. Plant-normalized 16S qPCR is an abundance proxy, not host or bacterial RNA-seq.
+
+### History, evidence cache and open discussion
+
+provenance: supported. Targets: CommunityMech:000093.
+
+Both sidecars and the prior decision are consistent, all eleven snippets verify against fresh XML, and open questions preserve nutrient-leakage and natural-accession mechanisms.
+
+### Metal and REE assertions
+
+scope: supported. Targets: CommunityMech:000093.
+
+Medium salts are cultivation context; the record contains no supported metal exchange, mineral recovery or rare-earth mechanism.
+
+### Native gates and independent checks
+
+schema: supported. Targets: CommunityMech:000093.
+
+Eight focused checks passed, four ID-label pairs match and eleven snippets verify against fresh XML; corpus warning failures remain explicit.
+
+### Native completeness and validation quality
+
+completeness: supported. Targets: CommunityMech:000093.
+
+Completeness 80 credits populated fields including the unsupported role; quality 100 does not certify that role or the proposed mechanisms.
+
+## Findings
+
+### cross-feeder: Cross-feeding role is not established
+
+major / open / confirmed; issue key: cm-000093-cross-feeder.
+
+The sole taxon is a whole-community aggregate assigned CROSS_FEEDER, yet its evidence only establishes seven-strain inoculation. The source proposes host nutrient leakage and substrate use without demonstrating the metabolite-utilization relationship required by this role.
+
+### roster-sequence-links: Source-resolvable members and sequence links remain unstructured
+
+minor / open / confirmed; issue key: cm-000093-roster-sequence-links.
+
+Main Table 1 identifies all seven members, while taxonomy retains only Bacteria. Three public ENA records link source isolates to partial 16S sequences, but the record has no sequence resources. Aggregate representation is valid; the missing detail limits strain-level retrieval.
+
+### host-evidence-source: Live-host study evidence is labeled IN_VITRO
+
+minor / open / confirmed; issue key: cm-000093-host-evidence-source.
+
+The shared design snippet describes inoculated living Arabidopsis and the photoperiod snippet describes live-host cultivation, but both are IN_VITRO outside the graph. The schema explicitly includes host-associated experiments under IN_VIVO.
+
+### cultivation-qualification: Cultivation preparation needs qualification and external links
+
+minor / open / confirmed; issue key: cm-000093-cultivation-qualification.
+
+Preparation notes imply washing all seven cultures, while Methods washes liquid Sphingomonas cultures and directly resuspends solid-grown material. The media also lack external identifiers; 28 C itself is correctly documented for bacterial preparation.
+
+## Recommended Actions And Acceptance Checks
+
+### fix-cross-feeder
+
+Remove or explicitly qualify the unsupported role unless a claim-specific source establishes it; retain the supported colonization and host-genotype outcomes.
+
+- Membership evidence is not used as proof of metabolite utilization.
+- No common role is invented for all seven strains.
+- Existing qualified node phenotypes remain intact.
+- Run strict and reference checks.
+
+### fix-roster-sequence-links
+
+Add verified source strain descriptors and appropriately typed sequence links, preserving the aggregate context and the distinction between study names and current taxonomy.
+
+- All seven source members are distinguished without adding rejected strains.
+- HG737356/7/8 link only to isolates 613/968/964.
+- Current ENA partial-sequence status is retained; no genome or whole-community dataset is implied.
+- Verify current taxonomy before adding member identifiers.
+- Run strict, term and reference checks.
+
+### fix-host-evidence-source
+
+Classify the explicit living-host observations as IN_VIVO while preserving IN_VITRO for bacterial culture and inoculum preparation.
+
+- Evidence type follows the actual experiment rather than its laboratory location.
+- Alias-linked evidence occurrences remain consistent.
+- Source text is unchanged.
+- Run strict and reference checks.
+
+### fix-cultivation-qualification
+
+Distinguish liquid-culture washing from direct resuspension and link exact compatible recipes while preserving bacterial and host conditions separately.
+
+- The washing statement applies only to liquid-grown cultures.
+- NB, mineral medium and half-strength host MS retain their distinct uses.
+- No plant growth temperature is inferred from bacterial incubation.
+- Any external recipe matches the source formulation.
+- Run focused medium/linkage and reference checks.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml; Whole record: one aggregate descriptor, three nodes, no arrows and eleven evidence occurrences | supports | The target explicitly represents a seven-strain community through one aggregate bacterial descriptor; it is not a single-strain community. |
+| primary | PMID:24743269; https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3990490/fullTextXML; main article, full Results, Discussion and Methods, Table 1, figure captions and supplement inventory | supports | Fresh complete primary XML was inspected and compared with the committed cache. Host-genotype effects are measured through ARISA profiles, plant-normalized bacterial qPCR and selective enumeration, with different measurement scopes. |
+| identity | PMID:24743269; Results: community establishment and Table 1; Methods: bacterial strains | supports | Seven colonizing, non-disease-inducing isolates were selected from the screened collection. Their source-reported roster is Methylobacterium extorquens PA1, M. radiotolerans 0-1T/DSM 1819, Sphingomonas sp. Fr1, S. phyllosphaerae DSM 17258T, Variovorax sp. 613, Arthrobacter sp. 968 and Rhodococcus sp. 964. Tested host habitat does not imply identical original isolation hosts. |
+| cuticle | PMID:24743269; Results: Cuticle synthesis is an important factor; Figs. 3A and 4; Discussion cuticle paragraphs | supports | Independent lacs2 and pec1 alleles alter composition, with the strongest total-abundance increase for lacs2. Variovorax and Sphingomonas enumeration and ARISA need not agree in direction because relative composition and leaf-wash counts differ in normalization and sampled compartment. |
+| ein2 | PMID:24743269; Results: Ethylene signaling is a factor; Fig. 3B and reported Fig. S10; Discussion ethylene paragraphs | supports | EIN2 mutation reproducibly changes composition and Variovorax counts. Its total-abundance effect is weak; the intervention implicates host ethylene response without quantifying hormone concentration or establishing bacterial ethylene production. |
+| accessions | PMID:24743269; Results: Different Arabidopsis accessions harbor different communities; Fig. 5; Discussion final paragraphs | supports | Mr-0, Ler, Ct-1 and RRS-7 show reproducible compositional and abundance differences in the controlled SynCom experiment. The study does not identify the causal natural-accession genes or establish the same effect in field microbiomes. |
+| role | PMID:24743269; Results: strain selection and host screens; Discussion nutrient availability, cuticle substrate and methanol hypotheses | supports | The study demonstrates colonization and host-dependent community changes. Nutrient leakage and use of cuticle components are proposed explanations; membership evidence does not establish metabolite utilization from another taxon by the aggregate community. |
+| culture | PMID:24743269; Methods: Plant growth conditions and Plant inoculation | supports | The source separates bacterial growth at 28 C for one to three days from the host short-day regimen. Sphingomonas cultures are liquid and washed once; solid-grown members are directly resuspended from a loop. Strain suspensions are equalized to OD600 0.2, mixed equally and diluted to 0.02 for a 200 microliter spray. Half-strength MS, agar, sucrose and stratification concern the host. |
+| assay | PMID:24743269; Methods: ARISA, qPCR, enumeration and statistical analysis; Results discrepancies between relative profiles and counts | supports | ARISA is a copy-number-adjusted, semiquantitative profile; qPCR is normalized to a plant reference gene; selective colony counts have their own sampling and growth biases. None is a transcriptome assay, direct exchanged-metabolite flux or universal bacterial biomass measurement. |
+| sequence-source | PMID:24743269; Methods: Nucleotide sequence accession numbers | supports | The article links HG737356, HG737357 and HG737358 to 16S sequence verification for isolates 613, 968 and 964; current database records qualify the sequences as partial, despite the article calling them full-length. |
+| schema | src/communitymech/schema/communitymech.yaml; FunctionalRoleEnum, EvidenceSourceEnum and metadata fields | supports | CROSS_FEEDER requires utilization of metabolites from other taxa; host-associated experiments are IN_VIVO. Aggregate membership is permitted, while strain records and source links can improve retrieval without inventing unsupported roles. |
+| ontology | Local OAK NCBITaxon, ENVO, GO and CHEBI snapshots; Four distinct ID-label pairs across seven occurrences; semantic definition checks | supports | All labels match. Plant-associated environment covers the physical host habitat; broad symbiotic process does not imply mutual benefit or cross-feeding. Ethylene is an exact synonym of ethene, and its current description preserves host-signaling context. |
+| snippets | kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml; Eleven evidence occurrences against committed cache and fresh primary XML | supports | All eleven snippets match the cache literally and fresh full XML after NFKC/whitespace normalization; this verifies textual provenance, not functional interpretation. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=24743269&amp;retmode=xml; Independent public publication metadata | supports | PMID 24743269 and DOI 10.1371/journal.pgen.1004283 resolve to the Bodenhausen et al. PLOS Genetics article on plant genotypes and phyllosphere microbiota. |
+| crossref | https://api.crossref.org/works/10.1371/journal.pgen.1004283; Independent public publication metadata | supports | PMID 24743269 and DOI 10.1371/journal.pgen.1004283 resolve to the Bodenhausen et al. PLOS Genetics article on plant genotypes and phyllosphere microbiota. |
+| HG737356 | https://www.ebi.ac.uk/ena/browser/api/embl/HG737356; Public ENA EMBL entry: ID, DE, source qualifiers and EuropePMC cross-reference | supports | HG737356.1 is a 1398-base partial 16S rRNA gene record for Variovorax sp. 613, directly linked to PMC3990490 and PMID 24743269; this is neither a genome assembly nor whole-community sequencing. |
+| HG737357 | https://www.ebi.ac.uk/ena/browser/api/embl/HG737357; Public ENA EMBL entry: ID, DE, source qualifiers and EuropePMC cross-reference | supports | HG737357.1 is a 1354-base partial 16S rRNA gene record for Arthrobacter sp. 968, directly linked to PMC3990490 and PMID 24743269; this is neither a genome assembly nor whole-community sequencing. |
+| HG737358 | https://www.ebi.ac.uk/ena/browser/api/embl/HG737358; Public ENA EMBL entry: ID, DE, source qualifiers and EuropePMC cross-reference | supports | HG737358.1 is a 1362-base partial 16S rRNA gene record for Rhodococcus sp. 964, directly linked to PMC3990490 and PMID 24743269; this is neither a genome assembly nor whole-community sequencing. |
+| sequence-access | ENA sequence metadata requests; HG737356/7/8 XML requests followed by supported EMBL format | supports | The XML requests returned HTTP 400 because XML is unsupported for sequence entries; subsequent EMBL requests returned HTTP 200. Both sets of receipts are retained, without implying sequence reanalysis. |
+| history | history/records/Arabidopsis_Phyllosphere_SynCom7; reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml; Two target history sidecars and exact decision at lines 222-263 | supports | Earlier workflow-arrow pruning and later graph curation are consistent with three separate host-genotype outcomes, no arrows and the current mechanistic questions. |
+| local-search | references_cache; history; reports/causal_graph_review/decisions; kb/taxa; Bounded source-PMID, record-slug and record-ID search including ignored and hidden files | supports | The search located the target source cache, two history sidecars and prior graph decision; it does not establish global absence of reusable member records or datasets. |
+| adapter | Optional kg-microbe-sources runner discovery; Same-runtime availability receipt reused with its original timestamp | supports | No runner was available in the owned runtime; an external-checkout candidate was not executed. No expression-module coverage was queried, and host qPCR normalization does not establish microbial transcriptomic evidence. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src just --no-dotenv validate kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml; Actual execution 2026-10-21T06:57:21.752281+00:00 to 2026-10-21T06:57:25.152606+00:00 | supports | Schema validation passed for the target. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src just --no-dotenv validate-strict kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml --out /private/tmp/cm-review-session/batch-03/000093/strict-report.tsv; Actual execution 2026-10-21T06:57:21.755389+00:00 to 2026-10-21T06:57:28.682941+00:00 | supports | Strict closed-schema and cross-field validation passed for the target. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src just --no-dotenv validate-terms kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml; Actual execution 2026-10-21T06:57:21.757618+00:00 to 2026-10-21T06:57:27.410487+00:00 | supports | Native ontology-term validation passed for the target. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src just --no-dotenv validate-gtdb kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml; Actual execution 2026-10-21T06:57:25.153083+00:00 to 2026-10-21T06:57:25.284169+00:00 | supports | GTDB structural validation passed without certifying an isolate-level crosswalk. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src just --no-dotenv validate-gtdb-domain kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml; Actual execution 2026-10-21T06:57:25.284581+00:00 to 2026-10-21T06:57:28.918902+00:00 | supports | GTDB domain validation passed for the target. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src just --no-dotenv validate-history history/records/Arabidopsis_Phyllosphere_SynCom7; Actual execution 2026-10-21T06:57:27.410812+00:00 to 2026-10-21T06:57:29.079948+00:00 | supports | Both target history sidecars passed native validation. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T06:57:29.081733+00:00 to 2026-10-21T06:57:29.161124+00:00 | supports | Read-only reference-cache filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src just --no-dotenv validate-references-explained kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml; Actual execution 2026-10-21T06:57:29.161383+00:00 to 2026-10-21T06:57:31.150531+00:00 | supports | Native reference validation passed with committed cache hashes unchanged. |
+| check-audit-network | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src just --no-dotenv audit-network; Actual finish 2026-10-20T07:08:14.467705+00:00 | supports | Earlier correct-runtime corpus run retained: 477 records, 57 warnings across 21 records, zero errors and exit 1; this target was not listed. |
+| check-check-network-quality | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src just --no-dotenv check-network-quality; Actual finish 2026-10-20T07:08:13.673449+00:00 | supports | Earlier correct-runtime corpus run retained: 477 records, 57 warnings across 21 records, zero errors and exit 1; this target was not listed. |
+| native-target | NetworkIntegrityAuditor().audit_community(target); Independent read-only API diagnostic and native metric components in support-audit.json | supports | No target network issue returned; three interaction evidence items across three nodes give mean 1.0, and the aggregate taxonomy is implicitly covered by community-level nodes. |
+| sequence-verification | Public ENA metadata independently rechecked; dataset-accession-verification.json | supports | The three record headers, lengths, isolate labels and article cross-references were independently checked against the downloaded files; all are partial 16S records. |
+
+## Limits And Additional Notes
+
+- The seven source names are read from main Table 1, but present-day species reclassification, species/strain ontology identifiers and individual genome equivalence were not independently resolved. The current record intentionally uses an aggregate.
+- The ten supplementary figures and five supplementary tables were inventoried from the article, not downloaded; captions and main-text summaries were inspected without reanalysis of figure geometry or raw ARISA, qPCR and enumeration data.
+- Source Methods calls the three 16S sequences full-length; current ENA records describe them as partial. Database metadata is verified, not sequence completeness by alignment or genome assembly.
+- Nutrient leakage, cuticle utilization and natural-accession causal genes remain unresolved; host signaling does not establish microbial ethylene synthesis or cross-feeding.
+- Optional expression-adapter discovery was reused with its original timestamp; an external-checkout candidate was not executed and no module catalog coverage was established.
+- Required corpus gates retain their actual warning failures; numeric completeness and quality do not establish biological correctness.
+- Canonical records, caches, history and generated outputs remain unchanged.
+- Source quotations total 19 words.
+- The compound cultivation entry preserves its bacterial 28 C context; no incorrect plant temperature is inferred.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T070057Z-arabidopsis-phyllosphere-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Arabidopsis Phyllosphere SynCom7: whole-record source review'
+started_at: '2026-10-21T06:57:04.746106Z'
+finished_at: '2026-10-21T07:00:57.254230Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Canonical target unchanged in this session; prior codex curation
+    prevents person-level independence claims. Separate agents checked ontology, snippets,
+    sequence metadata, history and native metrics; root independently read the target.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: One major finding concerns unsupported cross-feeding attribution. Three minor
+  findings concern source-resolvable members and sequence links, live-host evidence
+  types, and cultivation qualification/linkage. All three nodes retain supported host-genotype
+  outcomes, with no arrows. Eight focused gates pass, four ontology pairs match and
+  eleven snippets verify against fresh primary XML.
+source:
+  git_revision: ade4a9acdc245e1090522bb4f6ec5fe82ee88689
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Arabidopsis_Phyllosphere_SynCom7/2026-10-02T055533Z-codex-ara247.yaml
+    sha256: 1e79925b8c8aff72e7b30ea6a303a8a8294f6cfb81042442e0cd59d2dfb4b5ad
+    role: context
+  - path: history/records/Arabidopsis_Phyllosphere_SynCom7/2026-10-05T101149Z-codex-0565e6.yaml
+    sha256: a386dee05b5ae3344224ace1c24cc429e8bc4851a426ddd879a1876c82d34079
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+    sha256: 3b8120c483b0c63da529d158921fc67d788e53b2c1c5a505ab089e6b65d763aa
+    role: target
+  - path: references_cache/PMID_24743269.txt
+    sha256: 9d054cc62a5772bd6a60b9432ae5e014e951904d6c8cb8fb1db555b526b98e06
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+    sha256: 5076ec8295dacfaae0ae1d829836e4380a312a702c4a43df5f604c3b1b1e0ad3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000093
+  path: kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+  label: Arabidopsis Phyllosphere SynCom7
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+    role: canonical_record
+scope:
+  description: Entire record, aggregate taxonomy, all three nodes and no arrows, eleven
+    evidence occurrences, primary main article and Table 1, all main Methods/Results/Discussion,
+    and three public sequence metadata records. Supplement files, figure geometry
+    and raw quantitative data were not reanalyzed.
+  selection: Final path-ordered target of the ten-record batch03, after Arabidopsis
+    Coumarin Root SynCom; one resolved maintained record.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000093
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema validation passed for the target.
+  target_ids:
+  - CommunityMech:000093
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history check or read-only cache preflight; no canonical
+    cache changes.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict closed-schema and cross-field validation passed for the target.
+  target_ids:
+  - CommunityMech:000093
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-strict kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+    --out /private/tmp/cm-review-session/batch-03/000093/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history check or read-only cache preflight; no canonical
+    cache changes.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Native ontology-term validation passed for the target.
+  target_ids:
+  - CommunityMech:000093
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-terms kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history check or read-only cache preflight; no canonical
+    cache changes.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB structural validation passed without certifying an isolate-level crosswalk.
+  target_ids:
+  - CommunityMech:000093
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-gtdb kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history check or read-only cache preflight; no canonical
+    cache changes.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: GTDB domain validation passed for the target.
+  target_ids:
+  - CommunityMech:000093
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history check or read-only cache preflight; no canonical
+    cache changes.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Both target history sidecars passed native validation.
+  target_ids:
+  - CommunityMech:000093
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-history history/records/Arabidopsis_Phyllosphere_SynCom7
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history check or read-only cache preflight; no canonical
+    cache changes.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only reference-cache filename preflight passed.
+  target_ids:
+  - CommunityMech:000093
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history check or read-only cache preflight; no canonical
+    cache changes.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Native reference validation passed with committed cache hashes unchanged.
+  target_ids:
+  - CommunityMech:000093
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-references-explained kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target/history check or read-only cache preflight; no canonical
+    cache changes.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: 'Earlier correct-runtime corpus run retained: 477 records, 57 warnings
+    across 21 records, zero errors and exit 1; this target was not listed.'
+  target_ids:
+  - CommunityMech:000093
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  scope_note: Actual earlier batch03 corpus gate reused with unchanged canonical inputs;
+    a fresh target API diagnostic does not replace it.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: 'Earlier correct-runtime corpus run retained: 477 records, 57 warnings
+    across 21 records, zero errors and exit 1; this target was not listed.'
+  target_ids:
+  - CommunityMech:000093
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  scope_note: Actual earlier batch03 corpus gate reused with unchanged canonical inputs;
+    a fresh target API diagnostic does not replace it.
+- check_id: public-source-identity
+  name: Independent publication identity and full text
+  status: passed
+  required: true
+  summary: Fresh PubMed, Crossref and full primary XML verify the cited article and
+    support claim-level assessment.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - pubmed
+  - crossref
+  - primary
+- check_id: source-sequences
+  name: Public source sequence metadata
+  status: passed
+  required: true
+  summary: All three source ENA accessions resolve as partial 16S sequences for the
+    named isolates.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - HG737356
+  - HG737357
+  - HG737358
+  - sequence-verification
+- check_id: structured-expression-adapter
+  name: Optional structured source adapter availability
+  status: unavailable
+  required: false
+  summary: No runner was available in the owned runtime, and no expression-module
+    catalog coverage was established.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+  locator: 'Whole record: one aggregate descriptor, three nodes, no arrows and eleven
+    evidence occurrences'
+  summary: The target explicitly represents a seven-strain community through one aggregate
+    bacterial descriptor; it is not a single-strain community.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.245621Z'
+- evidence_id: primary
+  kind: primary_source
+  reference: PMID:24743269
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3990490/fullTextXML;
+    main article, full Results, Discussion and Methods, Table 1, figure captions and
+    supplement inventory
+  summary: Fresh complete primary XML was inspected and compared with the committed
+    cache. Host-genotype effects are measured through ARISA profiles, plant-normalized
+    bacterial qPCR and selective enumeration, with different measurement scopes.
+  support: supports
+  accessed_at: '2026-10-21T06:57:29.510958Z'
+  snapshot_sha256: 6ff3ba9f62c379e1ee90e43674eec016ff041d55d188b2db0f251449a0c29215
+- evidence_id: identity
+  kind: primary_source
+  reference: PMID:24743269
+  locator: 'Results: community establishment and Table 1; Methods: bacterial strains'
+  summary: Seven colonizing, non-disease-inducing isolates were selected from the
+    screened collection. Their source-reported roster is Methylobacterium extorquens
+    PA1, M. radiotolerans 0-1T/DSM 1819, Sphingomonas sp. Fr1, S. phyllosphaerae DSM
+    17258T, Variovorax sp. 613, Arthrobacter sp. 968 and Rhodococcus sp. 964. Tested
+    host habitat does not imply identical original isolation hosts.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.245925Z'
+  quote: seven strains
+- evidence_id: cuticle
+  kind: primary_source
+  reference: PMID:24743269
+  locator: 'Results: Cuticle synthesis is an important factor; Figs. 3A and 4; Discussion
+    cuticle paragraphs'
+  summary: Independent lacs2 and pec1 alleles alter composition, with the strongest
+    total-abundance increase for lacs2. Variovorax and Sphingomonas enumeration and
+    ARISA need not agree in direction because relative composition and leaf-wash counts
+    differ in normalization and sampled compartment.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.245928Z'
+  quote: strongest effect
+- evidence_id: ein2
+  kind: primary_source
+  reference: PMID:24743269
+  locator: 'Results: Ethylene signaling is a factor; Fig. 3B and reported Fig. S10;
+    Discussion ethylene paragraphs'
+  summary: EIN2 mutation reproducibly changes composition and Variovorax counts. Its
+    total-abundance effect is weak; the intervention implicates host ethylene response
+    without quantifying hormone concentration or establishing bacterial ethylene production.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.245929Z'
+  quote: this effect was weak
+- evidence_id: accessions
+  kind: primary_source
+  reference: PMID:24743269
+  locator: 'Results: Different Arabidopsis accessions harbor different communities;
+    Fig. 5; Discussion final paragraphs'
+  summary: Mr-0, Ler, Ct-1 and RRS-7 show reproducible compositional and abundance
+    differences in the controlled SynCom experiment. The study does not identify the
+    causal natural-accession genes or establish the same effect in field microbiomes.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.245931Z'
+  quote: 4 out of the 9 accessions
+- evidence_id: role
+  kind: primary_source
+  reference: PMID:24743269
+  locator: 'Results: strain selection and host screens; Discussion nutrient availability,
+    cuticle substrate and methanol hypotheses'
+  summary: The study demonstrates colonization and host-dependent community changes.
+    Nutrient leakage and use of cuticle components are proposed explanations; membership
+    evidence does not establish metabolite utilization from another taxon by the aggregate
+    community.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.245932Z'
+  quote: One possible explanation
+- evidence_id: culture
+  kind: primary_source
+  reference: PMID:24743269
+  locator: 'Methods: Plant growth conditions and Plant inoculation'
+  summary: The source separates bacterial growth at 28 C for one to three days from
+    the host short-day regimen. Sphingomonas cultures are liquid and washed once;
+    solid-grown members are directly resuspended from a loop. Strain suspensions are
+    equalized to OD600 0.2, mixed equally and diluted to 0.02 for a 200 microliter
+    spray. Half-strength MS, agar, sucrose and stratification concern the host.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.245933Z'
+  quote: liquid cultures
+- evidence_id: assay
+  kind: primary_source
+  reference: PMID:24743269
+  locator: 'Methods: ARISA, qPCR, enumeration and statistical analysis; Results discrepancies
+    between relative profiles and counts'
+  summary: ARISA is a copy-number-adjusted, semiquantitative profile; qPCR is normalized
+    to a plant reference gene; selective colony counts have their own sampling and
+    growth biases. None is a transcriptome assay, direct exchanged-metabolite flux
+    or universal bacterial biomass measurement.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.245934Z'
+- evidence_id: sequence-source
+  kind: primary_source
+  reference: PMID:24743269
+  locator: 'Methods: Nucleotide sequence accession numbers'
+  summary: The article links HG737356, HG737357 and HG737358 to 16S sequence verification
+    for isolates 613, 968 and 964; current database records qualify the sequences
+    as partial, despite the article calling them full-length.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.245936Z'
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: FunctionalRoleEnum, EvidenceSourceEnum and metadata fields
+  summary: CROSS_FEEDER requires utilization of metabolites from other taxa; host-associated
+    experiments are IN_VIVO. Aggregate membership is permitted, while strain records
+    and source links can improve retrieval without inventing unsupported roles.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.245937Z'
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO, GO and CHEBI snapshots
+  locator: Four distinct ID-label pairs across seven occurrences; semantic definition
+    checks
+  summary: All labels match. Plant-associated environment covers the physical host
+    habitat; broad symbiotic process does not imply mutual benefit or cross-feeding.
+    Ethylene is an exact synonym of ethene, and its current description preserves
+    host-signaling context.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.246295Z'
+  snapshot_sha256: ecd2adb5d66fc83713ff448f97f653bd36eda6f0987caeb57296fb7719c5c1db
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+  locator: Eleven evidence occurrences against committed cache and fresh primary XML
+  summary: All eleven snippets match the cache literally and fresh full XML after
+    NFKC/whitespace normalization; this verifies textual provenance, not functional
+    interpretation.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.246792Z'
+  snapshot_sha256: 5db9b2ef6d0b2324bc838b00333c8c14b2dd965bb9f12b1404478bc981dd0f84
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=24743269&retmode=xml
+  locator: Independent public publication metadata
+  summary: PMID 24743269 and DOI 10.1371/journal.pgen.1004283 resolve to the Bodenhausen
+    et al. PLOS Genetics article on plant genotypes and phyllosphere microbiota.
+  support: supports
+  accessed_at: '2026-10-21T06:57:29.511411Z'
+  snapshot_sha256: 931da0c236c48e55d27ebc7eeba167285cf8207addd552356e81c071e9e733b4
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1371/journal.pgen.1004283
+  locator: Independent public publication metadata
+  summary: PMID 24743269 and DOI 10.1371/journal.pgen.1004283 resolve to the Bodenhausen
+    et al. PLOS Genetics article on plant genotypes and phyllosphere microbiota.
+  support: supports
+  accessed_at: '2026-10-21T06:57:29.512069Z'
+  snapshot_sha256: c055e8384d3fbb20fcbac8634291cd24e8a65f2dc9f9250856cd57eb339fcbcf
+- evidence_id: HG737356
+  kind: database
+  reference: https://www.ebi.ac.uk/ena/browser/api/embl/HG737356
+  locator: 'Public ENA EMBL entry: ID, DE, source qualifiers and EuropePMC cross-reference'
+  summary: HG737356.1 is a 1398-base partial 16S rRNA gene record for Variovorax sp.
+    613, directly linked to PMC3990490 and PMID 24743269; this is neither a genome
+    assembly nor whole-community sequencing.
+  support: supports
+  accessed_at: '2026-10-21T06:58:36.195504Z'
+  snapshot_sha256: 185a3fc1af9900827acdc8584a7c8018c5cfb0f974e78b41bd461018f6c61ed7
+- evidence_id: HG737357
+  kind: database
+  reference: https://www.ebi.ac.uk/ena/browser/api/embl/HG737357
+  locator: 'Public ENA EMBL entry: ID, DE, source qualifiers and EuropePMC cross-reference'
+  summary: HG737357.1 is a 1354-base partial 16S rRNA gene record for Arthrobacter
+    sp. 968, directly linked to PMC3990490 and PMID 24743269; this is neither a genome
+    assembly nor whole-community sequencing.
+  support: supports
+  accessed_at: '2026-10-21T06:58:36.196155Z'
+  snapshot_sha256: b275b94bb1cf1d8049bf0bdcb114accf80809ed975c901f72cc86d88fd5d1e71
+- evidence_id: HG737358
+  kind: database
+  reference: https://www.ebi.ac.uk/ena/browser/api/embl/HG737358
+  locator: 'Public ENA EMBL entry: ID, DE, source qualifiers and EuropePMC cross-reference'
+  summary: HG737358.1 is a 1362-base partial 16S rRNA gene record for Rhodococcus
+    sp. 964, directly linked to PMC3990490 and PMID 24743269; this is neither a genome
+    assembly nor whole-community sequencing.
+  support: supports
+  accessed_at: '2026-10-21T06:58:36.285551Z'
+  snapshot_sha256: 653e441f93875255810fbc6064ca0fe14c01ec78d99e17519a2bff994c3fd80b
+- evidence_id: sequence-access
+  kind: validation
+  reference: ENA sequence metadata requests
+  locator: HG737356/7/8 XML requests followed by supported EMBL format
+  summary: The XML requests returned HTTP 400 because XML is unsupported for sequence
+    entries; subsequent EMBL requests returned HTTP 200. Both sets of receipts are
+    retained, without implying sequence reanalysis.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.249526Z'
+  snapshot_sha256: b30d54eebc10bd58dc7d736034d4b7313ad1dfbcaa7d1b38ea85898cd47aef8c
+- evidence_id: history
+  kind: record_content
+  reference: history/records/Arabidopsis_Phyllosphere_SynCom7; reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  locator: Two target history sidecars and exact decision at lines 222-263
+  summary: Earlier workflow-arrow pruning and later graph curation are consistent
+    with three separate host-genotype outcomes, no arrows and the current mechanistic
+    questions.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.249531Z'
+- evidence_id: local-search
+  kind: search
+  reference: references_cache; history; reports/causal_graph_review/decisions; kb/taxa
+  locator: Bounded source-PMID, record-slug and record-ID search including ignored
+    and hidden files
+  summary: The search located the target source cache, two history sidecars and prior
+    graph decision; it does not establish global absence of reusable member records
+    or datasets.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.249534Z'
+  search_scope: rg --no-ignore --hidden -l for 24743269, Arabidopsis_Phyllosphere_SynCom7
+    and CommunityMech:000093 in the named trees.
+- evidence_id: adapter
+  kind: search
+  reference: Optional kg-microbe-sources runner discovery
+  locator: Same-runtime availability receipt reused with its original timestamp
+  summary: No runner was available in the owned runtime; an external-checkout candidate
+    was not executed. No expression-module coverage was queried, and host qPCR normalization
+    does not establish microbial transcriptomic evidence.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.249925Z'
+  snapshot_sha256: 5bdbc9523c5210bc7f66d86d2a2b0d18e1670da3df17759a90f382c7f17e2cb9
+  search_scope: Prior PATH/module resolution and bounded ignored-inclusive filename
+    search, reused explicitly rather than rerun.
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+  locator: Actual execution 2026-10-21T06:57:21.752281+00:00 to 2026-10-21T06:57:25.152606+00:00
+  summary: Schema validation passed for the target.
+  support: supports
+  accessed_at: '2026-10-21T06:57:25.152606Z'
+  snapshot_sha256: fd4a1b20fb6a0f2106a99490ee200bd05f79bceef0c14dbe74bb05378e236a3f
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-strict kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+    --out /private/tmp/cm-review-session/batch-03/000093/strict-report.tsv
+  locator: Actual execution 2026-10-21T06:57:21.755389+00:00 to 2026-10-21T06:57:28.682941+00:00
+  summary: Strict closed-schema and cross-field validation passed for the target.
+  support: supports
+  accessed_at: '2026-10-21T06:57:28.682941Z'
+  snapshot_sha256: 47f68a8067bfc44770ecdaf9addda84c6df56b97e8353f7c28cfd51691fdc70c
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-terms kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+  locator: Actual execution 2026-10-21T06:57:21.757618+00:00 to 2026-10-21T06:57:27.410487+00:00
+  summary: Native ontology-term validation passed for the target.
+  support: supports
+  accessed_at: '2026-10-21T06:57:27.410487Z'
+  snapshot_sha256: 265e365ebf2ca248de340880c5736f56f0d8f734cd48b90c0d48ce940e038f96
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-gtdb kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+  locator: Actual execution 2026-10-21T06:57:25.153083+00:00 to 2026-10-21T06:57:25.284169+00:00
+  summary: GTDB structural validation passed without certifying an isolate-level crosswalk.
+  support: supports
+  accessed_at: '2026-10-21T06:57:25.284169Z'
+  snapshot_sha256: e5c30d64f7552404046a2c8e2fc1f051626fdb56c54d74dbaa0ae3d593739297
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+  locator: Actual execution 2026-10-21T06:57:25.284581+00:00 to 2026-10-21T06:57:28.918902+00:00
+  summary: GTDB domain validation passed for the target.
+  support: supports
+  accessed_at: '2026-10-21T06:57:28.918902Z'
+  snapshot_sha256: 7a515169954ffa892463841a1e10aa1f3343c6ba5eae5662beebbde2ab17a4df
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-history history/records/Arabidopsis_Phyllosphere_SynCom7
+  locator: Actual execution 2026-10-21T06:57:27.410812+00:00 to 2026-10-21T06:57:29.079948+00:00
+  summary: Both target history sidecars passed native validation.
+  support: supports
+  accessed_at: '2026-10-21T06:57:29.079948Z'
+  snapshot_sha256: b5e68bc723c24b3009e125ba4cf4084967e68df20eb485b8eac03ffb121c58ee
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T06:57:29.081733+00:00 to 2026-10-21T06:57:29.161124+00:00
+  summary: Read-only reference-cache filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T06:57:29.161124Z'
+  snapshot_sha256: 5c2874c04ed4436d837b26b291334edb0dee39f5f2bc7c8891857fd074f32a87
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-references-explained kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+  locator: Actual execution 2026-10-21T06:57:29.161383+00:00 to 2026-10-21T06:57:31.150531+00:00
+  summary: Native reference validation passed with committed cache hashes unchanged.
+  support: supports
+  accessed_at: '2026-10-21T06:57:31.150531Z'
+  snapshot_sha256: 4ee7974935ca945a4fd873433182e6560c4c383c697fa47bb1266b20aae57eb7
+- evidence_id: check-audit-network
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv audit-network
+  locator: Actual finish 2026-10-20T07:08:14.467705+00:00
+  summary: 'Earlier correct-runtime corpus run retained: 477 records, 57 warnings
+    across 21 records, zero errors and exit 1; this target was not listed.'
+  support: supports
+  accessed_at: '2026-10-20T07:08:14.467705Z'
+  snapshot_sha256: e2122e512641be2226ad12ab146b2c8f7d1e153f1211745e4816457834a42667
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv check-network-quality
+  locator: Actual finish 2026-10-20T07:08:13.673449+00:00
+  summary: 'Earlier correct-runtime corpus run retained: 477 records, 57 warnings
+    across 21 records, zero errors and exit 1; this target was not listed.'
+  support: supports
+  accessed_at: '2026-10-20T07:08:13.673449Z'
+  snapshot_sha256: b0cb58371a5a771dcbd671952ee68dfe5f26169d08240b66162aa83580fb5229
+- evidence_id: native-target
+  kind: validation
+  reference: NetworkIntegrityAuditor().audit_community(target)
+  locator: Independent read-only API diagnostic and native metric components in support-audit.json
+  summary: No target network issue returned; three interaction evidence items across
+    three nodes give mean 1.0, and the aggregate taxonomy is implicitly covered by
+    community-level nodes.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.253682Z'
+  snapshot_sha256: 4d2a06e53de8a245cbae0890b22ca8169242165e4b0ad181b3f07e05d8391ae4
+- evidence_id: sequence-verification
+  kind: validation
+  reference: Public ENA metadata independently rechecked
+  locator: dataset-accession-verification.json
+  summary: The three record headers, lengths, isolate labels and article cross-references
+    were independently checked against the downloaded files; all are partial 16S records.
+  support: supports
+  accessed_at: '2026-10-21T07:00:57.254182Z'
+  snapshot_sha256: 1054723018621ec31fa21761b19a8169d9c80d610693a1b58f01608a38de8251
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Defined seven-strain phyllosphere SynCom
+  outcome: supported
+  summary: The community, paper and source roster are resolved; aggregate taxonomy
+    is explicit, although it omits seven source-resolvable strain descriptors.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - identity
+  - primary
+  - pubmed
+  - crossref
+  dimensions:
+  - name: community_scope
+    value: Seven-strain synthetic community on gnotobiotic Arabidopsis
+    definition: The full mixture, single-isolate screening and rejected disease-causing
+      strains remain distinct.
+    evidence_ids:
+    - identity
+  - name: source_strain
+    value: Seven source-labeled members in main Table 1
+    definition: Bacteria is an aggregate; source member names do not certify current
+      species or genome-taxonomy equivalence.
+    evidence_ids:
+    - identity
+    - ontology
+  - name: experimental_setting
+    value: Controlled leaf colonization in microboxes
+    definition: Host-genotype conclusions are bounded to the tested plant system rather
+      than field communities.
+    evidence_ids:
+    - culture
+    - accessions
+  - name: evidence_tier
+    value: Host-genotype interventions and distinct bacterial abundance/composition
+      assays
+    definition: Measured outcomes do not identify a specific exchanged metabolite
+      or complete host mechanism.
+    evidence_ids:
+    - cuticle
+    - ein2
+    - assay
+  - name: medium
+    value: Bacterial NB or succinate mineral medium, host half-strength MS
+    definition: Temperature and culture ages describe inoculum preparation; photoperiod
+      describes the live host.
+    evidence_ids:
+    - culture
+- assessment_id: taxonomy
+  area: grounding
+  topic: Aggregate taxonomy and functional role
+  outcome: concern
+  summary: Bacteria/domain and GTDB domain grounding are appropriate to the aggregate,
+    but its CROSS_FEEDER role is unsupported by attached membership evidence or the
+    reported mechanistic tests.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - schema
+  - ontology
+  - identity
+  - role
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Cuticle-Mutant Phyllosphere Abundance and Composition
+    Changes'
+  outcome: supported
+  summary: Cuticle-dependent composition and abundance outcomes are supported.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - cuticle
+  - primary
+  details: 'Participants: full SynCom, lacs2/pec1 Arabidopsis and wild-type controls;
+    direction: host genotype toward strain-dependent community changes. Relative ARISA
+    and absolute enumeration remain distinct, with nutrient leakage and cuticle use
+    unresolved. Linked evidence supplies an exact source locator and bounded excerpt.'
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: EIN2 Ethylene-Signaling Composition Shift'
+  outcome: supported
+  summary: EIN2-dependent composition and Variovorax responses are supported.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - ein2
+  - primary
+  details: 'Participants: full SynCom, ein2 Arabidopsis and wild type; direction:
+    altered host ethylene signaling toward community response. The weak total-abundance
+    effect does not establish uniform biomass gain or a measured hormone level. Linked
+    evidence supplies an exact source locator and bounded excerpt.'
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: Natural-Accession Phyllosphere Community Shift'
+  outcome: supported
+  summary: Controlled natural-accession outcomes are supported.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - accessions
+  - primary
+  details: 'Participants: seven strains and nine tested Arabidopsis accessions; direction:
+    host genetic background toward four validated composition/abundance responses.
+    Specific causal genes and field generalization remain unresolved. Linked evidence
+    supplies an exact source locator and bounded excerpt.'
+- assessment_id: arrows
+  area: graph
+  topic: ecological_interactions[*].downstream
+  outcome: not_applicable
+  summary: No arrows remain, appropriately separating parallel host-genotype outcomes
+    from experimental workflow.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - history
+- assessment_id: chemicals-processes
+  area: grounding
+  topic: Ethylene, symbiotic process and ingredient relevance
+  outcome: supported
+  summary: Ethene/ethylene identity and the broad host association process are appropriate;
+    neither annotation establishes bacterial hormone production, reciprocal benefit
+    or cross-feeding.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - ontology
+  - ein2
+  - role
+- assessment_id: environment
+  area: scope
+  topic: Ecological state, origin, category and environment
+  outcome: supported
+  summary: ENGINEERED, SYNTHETIC and OTHER fit the available schema; plant-associated
+    environment covers the actual host setting. Assembly design is duplicated as an
+    environmental factor and would be clearer in engineering metadata.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - schema
+  - ontology
+  - culture
+- assessment_id: engineering
+  area: scope
+  topic: Engineering design and endpoints
+  outcome: supported
+  summary: Selection for colonization without disease and the host-genotype perturbation
+    panel fit the source; rejected strains and separate assay organisms are not members
+    of SynCom7.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - identity
+  - assay
+- assessment_id: evidence-context
+  area: provenance
+  topic: Host evidence typed as IN_VITRO
+  outcome: concern
+  summary: The shared design evidence explicitly describes living plants, and the
+    photoperiod evidence describes host cultivation; their IN_VITRO typing conflicts
+    with the schema and correctly typed IN_VIVO graph.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - schema
+  - culture
+- assessment_id: cultivation
+  area: completeness
+  topic: Combined cultivation entry
+  outcome: concern
+  summary: Numerical temperature, duration, inoculum and photoperiod values are source-backed
+    in their stated contexts; preparation notes overgeneralize washing to solid-grown
+    cultures, and no external recipe identifiers are provided.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - culture
+- assessment_id: roster-resources
+  area: completeness
+  topic: Member inventory and source sequence links
+  outcome: concern
+  summary: The complete source roster and three verified partial 16S records are recoverable
+    but absent from structured membership and external links; this is a bounded enrichment
+    gap, not ambiguous identity.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - identity
+  - sequence-source
+  - HG737356
+  - HG737357
+  - HG737358
+- assessment_id: genes
+  area: scope
+  topic: Host genes, bacterial mechanisms and expression data
+  outcome: supported
+  summary: LACS2, PEC1 and EIN2 are host-genotype axes; bacterial functional effectors
+    remain unresolved. Plant-normalized 16S qPCR is an abundance proxy, not host or
+    bacterial RNA-seq.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - cuticle
+  - ein2
+  - assay
+  - adapter
+- assessment_id: history
+  area: provenance
+  topic: History, evidence cache and open discussion
+  outcome: supported
+  summary: Both sidecars and the prior decision are consistent, all eleven snippets
+    verify against fresh XML, and open questions preserve nutrient-leakage and natural-accession
+    mechanisms.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - history
+  - snippets
+  - role
+- assessment_id: metals
+  area: scope
+  topic: Metal and REE assertions
+  outcome: supported
+  summary: Medium salts are cultivation context; the record contains no supported
+    metal exchange, mineral recovery or rare-earth mechanism.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - culture
+- assessment_id: validation
+  area: schema
+  topic: Native gates and independent checks
+  outcome: supported
+  summary: Eight focused checks passed, four ID-label pairs match and eleven snippets
+    verify against fresh XML; corpus warning failures remain explicit.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - ontology
+  - snippets
+  - check-validate
+  - check-validate-strict
+  - check-validate-history
+  - check-audit-network
+  - native-target
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: supported
+  summary: Completeness 80 credits populated fields including the unsupported role;
+    quality 100 does not certify that role or the proposed mechanisms.
+  target_ids:
+  - CommunityMech:000093
+  evidence_ids:
+  - record
+  - schema
+  - native-target
+  metrics:
+  - name: completeness
+    value: 80
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100, 50 required metadata including all roles + 5 environment
+      + 10 at least 3 factors + 10 at least 3 nodes + 5 resources + 10 media + 5 datasets
+      + 5 node metabolites). 50 + 5 + 0 + 10 + 0 + 10 + 0 + 5 = 80; the calculation
+      credits populated CROSS_FEEDER regardless of scientific support.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 - 50P1 - 10P2 - 2P3 + 20 min(mean node evidence / 2, 1)
+      + 15 if native COMPLETE, 0, 100). P1 = 0, P2 = 1, P3 = 3, P4 = 0; 3 items /
+      3 nodes = 1; native COMPLETE. 100 - 10 - 6 + 10 + 15 = 109, clamped to 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P2
+    value: 1
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count for this reviewed target.
+findings:
+- finding_id: cross-feeder
+  issue_key: cm-000093-cross-feeder
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: unsupported functional-role attribution changes
+    the biological assertion.'
+  rule_id: review-checklist.functional_roles
+  status: open
+  certainty: confirmed
+  title: Cross-feeding role is not established
+  description: The sole taxon is a whole-community aggregate assigned CROSS_FEEDER,
+    yet its evidence only establishes seven-strain inoculation. The source proposes
+    host nutrient leakage and substrate use without demonstrating the metabolite-utilization
+    relationship required by this role.
+  target_ids:
+  - CommunityMech:000093
+  field_paths:
+  - taxonomy[0].functional_role
+  evidence_ids:
+  - record
+  - role
+  - schema
+  - identity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+    role: canonical_record
+- finding_id: roster-sequence-links
+  issue_key: cm-000093-roster-sequence-links
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded evidence-context, environment or cultivation-linkage
+    gap; source-supported endpoints remain recoverable.'
+  rule_id: review-checklist.membership_resources
+  status: open
+  certainty: confirmed
+  title: Source-resolvable members and sequence links remain unstructured
+  description: Main Table 1 identifies all seven members, while taxonomy retains only
+    Bacteria. Three public ENA records link source isolates to partial 16S sequences,
+    but the record has no sequence resources. Aggregate representation is valid; the
+    missing detail limits strain-level retrieval.
+  target_ids:
+  - CommunityMech:000093
+  field_paths:
+  - taxonomy
+  - external_resources
+  - associated_datasets
+  evidence_ids:
+  - record
+  - identity
+  - sequence-source
+  - HG737356
+  - HG737357
+  - HG737358
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+    role: canonical_record
+- finding_id: host-evidence-source
+  issue_key: cm-000093-host-evidence-source
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded evidence-context, environment or cultivation-linkage
+    gap; source-supported endpoints remain recoverable.'
+  rule_id: review-checklist.evidence_type
+  status: open
+  certainty: confirmed
+  title: Live-host study evidence is labeled IN_VITRO
+  description: The shared design snippet describes inoculated living Arabidopsis and
+    the photoperiod snippet describes live-host cultivation, but both are IN_VITRO
+    outside the graph. The schema explicitly includes host-associated experiments
+    under IN_VIVO.
+  target_ids:
+  - CommunityMech:000093
+  field_paths:
+  - engineering_design.evidence[0].evidence_source
+  - taxonomy[0].evidence[0].evidence_source
+  - environmental_factors[0].evidence[0].evidence_source
+  - growth_media[0].evidence[2].evidence_source
+  evidence_ids:
+  - record
+  - schema
+  - culture
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+    role: canonical_record
+- finding_id: cultivation-qualification
+  issue_key: cm-000093-cultivation-qualification
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded evidence-context, environment or cultivation-linkage
+    gap; source-supported endpoints remain recoverable.'
+  rule_id: P3.1
+  status: open
+  certainty: confirmed
+  title: Cultivation preparation needs qualification and external links
+  description: Preparation notes imply washing all seven cultures, while Methods washes
+    liquid Sphingomonas cultures and directly resuspends solid-grown material. The
+    media also lack external identifiers; 28 C itself is correctly documented for
+    bacterial preparation.
+  target_ids:
+  - CommunityMech:000093
+  field_paths:
+  - growth_media[0].preparation_notes
+  - growth_media[0]
+  evidence_ids:
+  - record
+  - culture
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+    role: canonical_record
+actions:
+- action_id: fix-cross-feeder
+  description: Remove or explicitly qualify the unsupported role unless a claim-specific
+    source establishes it; retain the supported colonization and host-genotype outcomes.
+  finding_ids:
+  - cross-feeder
+  target_ids:
+  - CommunityMech:000093
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Membership evidence is not used as proof of metabolite utilization.
+  - No common role is invented for all seven strains.
+  - Existing qualified node phenotypes remain intact.
+  - Run strict and reference checks.
+- action_id: fix-roster-sequence-links
+  description: Add verified source strain descriptors and appropriately typed sequence
+    links, preserving the aggregate context and the distinction between study names
+    and current taxonomy.
+  finding_ids:
+  - roster-sequence-links
+  target_ids:
+  - CommunityMech:000093
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+    role: canonical_record
+  acceptance_checks:
+  - All seven source members are distinguished without adding rejected strains.
+  - HG737356/7/8 link only to isolates 613/968/964.
+  - Current ENA partial-sequence status is retained; no genome or whole-community
+    dataset is implied.
+  - Verify current taxonomy before adding member identifiers.
+  - Run strict, term and reference checks.
+- action_id: fix-host-evidence-source
+  description: Classify the explicit living-host observations as IN_VIVO while preserving
+    IN_VITRO for bacterial culture and inoculum preparation.
+  finding_ids:
+  - host-evidence-source
+  target_ids:
+  - CommunityMech:000093
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Evidence type follows the actual experiment rather than its laboratory location.
+  - Alias-linked evidence occurrences remain consistent.
+  - Source text is unchanged.
+  - Run strict and reference checks.
+- action_id: fix-cultivation-qualification
+  description: Distinguish liquid-culture washing from direct resuspension and link
+    exact compatible recipes while preserving bacterial and host conditions separately.
+  finding_ids:
+  - cultivation-qualification
+  target_ids:
+  - CommunityMech:000093
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Arabidopsis_Phyllosphere_SynCom7.yaml
+    role: canonical_record
+  acceptance_checks:
+  - The washing statement applies only to liquid-grown cultures.
+  - NB, mineral medium and half-strength host MS retain their distinct uses.
+  - No plant growth temperature is inferred from bacterial incubation.
+  - Any external recipe matches the source formulation.
+  - Run focused medium/linkage and reference checks.
+limitations:
+- The seven source names are read from main Table 1, but present-day species reclassification,
+  species/strain ontology identifiers and individual genome equivalence were not independently
+  resolved. The current record intentionally uses an aggregate.
+- The ten supplementary figures and five supplementary tables were inventoried from
+  the article, not downloaded; captions and main-text summaries were inspected without
+  reanalysis of figure geometry or raw ARISA, qPCR and enumeration data.
+- Source Methods calls the three 16S sequences full-length; current ENA records describe
+  them as partial. Database metadata is verified, not sequence completeness by alignment
+  or genome assembly.
+- Nutrient leakage, cuticle utilization and natural-accession causal genes remain
+  unresolved; host signaling does not establish microbial ethylene synthesis or cross-feeding.
+- Optional expression-adapter discovery was reused with its original timestamp; an
+  external-checkout candidate was not executed and no module catalog coverage was
+  established.
+- Required corpus gates retain their actual warning failures; numeric completeness
+  and quality do not establish biological correctness.
+notes:
+- Canonical records, caches, history and generated outputs remain unchanged.
+- Source quotations total 19 words.
+- The compound cultivation entry preserves its bacterial 28 C context; no incorrect
+  plant temperature is inferred.
+tags:
+- record-review
+- syncom
+- phyllosphere
+- batch-03
+```
