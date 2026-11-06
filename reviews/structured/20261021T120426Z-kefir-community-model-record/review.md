@@ -1,0 +1,1661 @@
+# Kefir community and BioModels reconstruction review
+
+- Review: 20261021T120426Z-kefir-community-model-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T11:54:10.247004Z
+- Finished UTC: 2026-10-21T12:04:26.031472Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Five qualified nodes and one PARTIAL arrow remain supported in the experimental kefir context. Two major findings separate the natural community from an individual reconstruction and remove unsupported ODE verification. Three minor findings address volume, environmental material and resource provenance.
+
+## Scope And Provenance
+
+Whole record, fresh primary main and critical declared figures/tables, secondary verification scope and direct model/project/repository authorities.
+
+Selection: Only released CommunityMech:000009 after 000008 save and mandatory checks.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000009 | kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml | maintained | BioModels MODEL2204300001 Kefir Community Model |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000009 | Schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000009 | Strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000009 | Term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000009 | GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000009 | GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000009 | History validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000009 | Read-only cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000009 | Reference validation passed against pinned caches. |
+| audit-network | failed | True | CommunityMech:000009 | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records; target-native structure is COMPLETE. |
+| check-network-quality | failed | True | CommunityMech:000009 | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records; target-native structure is COMPLETE. |
+| Primary source and resource identity | passed | True | CommunityMech:000009 | Both publication identities and directly retrieved archive/author resource contexts were assessed; scope conflicts are findings. |
+| Whole-record scientific assessment | passed | True | CommunityMech:000009 | Complete primary scientific main and critical declared figures/tables plus secondary collection scope were inspected. |
+| Medium and ingredient external links | not_applicable | False | CommunityMech:000009 | No CultureMech or MediaIngredientMech identifier is encoded. A specific recipe identifier was not established for the commercial UHT milk/whey procedures. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000009 | No runnable applicable adapter was established in the recorded discovery. |
+
+## Scientific And Domain Assessments
+
+### Natural community, experimental isolates and model identity
+
+identity: concern. Targets: CommunityMech:000009.
+
+The record combines a one-species reconstruction with selected six-member natural-community evidence.
+
+### Taxa, roles and abundance
+
+grounding: supported. Targets: CommunityMech:000009.
+
+The taxa and broad functional roles have experimental-community context, not proof of representation in this one model.
+
+Membership-only nearest snippets should be supplemented with role-specific passages when scope is repaired. Lactate-related CROSS_FEEDER roles remain source-proposed and assay-qualified. L. kefiranofaciens DOMINANT is an ordinal source statement; no percentage threshold is imposed. No automatic taxon or GTDB replacement is warranted for the six contextual members.
+
+### ecological_interactions[0]: proteolytic support
+
+graph: supported. Targets: CommunityMech:000009.
+
+Retain L. kefiranofaciens → L. mesenteroides, measured reciprocal benefit and PARTIAL transfer interpretation.
+
+Living-pair benefit and peptide/amino-acid rescue support MUTUALISM at the tested liquid-milk assay scope. S8 includes both an independent pair row and a mutualistic row; do not generalize benefit to every context. Proteolysis is inferred as the support mechanism without donor-tracer flux.
+
+### ecological_interactions[1]: suppression
+
+graph: supported. Targets: CommunityMech:000009.
+
+Retain tested L. kefiranofaciens → L. kefiri suppression without reciprocal COMPETITION.
+
+S8 inhibitory rows show an independent reverse response, consistent with the red amensalism edge in Figure 4c. The current untyped directional node is conservative; an optional AMENSALISM label would require preserving strain/assay scope and independent duplicate rows.
+
+### ecological_interactions[2]: return lactate
+
+graph: supported. Targets: CommunityMech:000009.
+
+Retain L. mesenteroides → L. kefiranofaciens as a PARTIAL mechanism within the measured mutualism.
+
+Milk supplementation at 1–3 mg/mL and the pH control support lactate benefit; they do not directly trace partner-derived lactate or establish necessity. The Acetobacter 7–12 mg/mL range must not be imported.
+
+### ecological_interactions[3]: Acetobacter lactate response
+
+graph: supported. Targets: CommunityMech:000009.
+
+Retain the community-level L. lactis/L. mesenteroides/A. fabarum PARTIAL interpretation.
+
+Supplementation and partner associations support the proposed lactate contribution. S21 and Table S13 show no considerable lactate depletion in the tested spent whey. Other amino-acid consumption is directly measured and must not be treated as proof of lactate transfer.
+
+### ecological_interactions[4]: yeast response
+
+graph: supported. Targets: CommunityMech:000009.
+
+Retain K. exigua with the named bacterial lactate producers at PARTIAL community scope.
+
+SB178 grows in plain whey and shows variable enhancement at lower supplemented concentrations. No unique donor, obligatory dependence or reciprocal bacterial benefit is established; the current qualified wording avoids those claims.
+
+### ecological_interactions[0].downstream[0]: proteolysis → return lactate
+
+graph: supported. Targets: CommunityMech:000009.
+
+Retain only the existing PARTIAL enabling interpretation from node 0 to node 2.
+
+The source proposes that proteolytic support permits L. mesenteroides growth and subsequent beneficial lactate production. Rescue and reciprocal-growth evidence support a plausible feedback mechanism, not an intervention-resolved temporal chain or measured donor-to-recipient flux.
+
+### Studied and modeled environment
+
+grounding: concern. Targets: CommunityMech:000009.
+
+ENVO:00003862 dairy denotes a building, not the milk/kefir material.
+
+Keep laboratory environment if useful, and use a verified material/habitat representation consistent with the selected record scope. No replacement CURIE was certified in this review.
+
+### Cultivation and computational provenance
+
+completeness: concern. Targets: CommunityMech:000009.
+
+The assertion that no working volume is reported is contradicted by the specific 650 mL time course.
+
+Retain the valid 48-hour standard propagation conditions and create a separately scoped 90-hour setup. Computational provenance belongs on actual model evidence, not on empirical graph passages. Generic engineered-design and stability-model claims require the identity repair.
+
+### Metabolite identities and relevance
+
+evidence: supported. Targets: CommunityMech:000009.
+
+Ingredient interpretation is broadly supported with the graph’s existing mechanism qualifications.
+
+Table S13 reports derivatized acid-form analytical identities, so no automatic acid-to-anion or stereoisomer substitution is justified. Keep citrate hypotheses and amino-acid substrate responses distinct from lactate donor-flux inference; harmonize non-graph lactate wording with PARTIAL without declaring every exchange unsupported.
+
+### Entry-specific model verification
+
+evidence: concern. Targets: CommunityMech:000009.
+
+The secondary paper does not certify this NON_CURATED constraint-based model.
+
+Five-engine ODE verification applies to a defined curated collection. Local kineticLaw elements encode flux bounds, not ODE identity. The FROG archive is a separate artifact and does not establish the claimed SED-ML/ODE result.
+
+### Publication, current file and public datasets
+
+provenance: concern. Targets: CommunityMech:000009.
+
+The model resource resolves, but its current filename and scientific resource scope need correction.
+
+The author map identifies Moraxella osloensis SB424; structural differences preclude declaring the exports equivalent. PRJNA375758, PRJEB37001 and MTBLS1823/1829/1830 have distinct source-defined datasets. PMID33398099 is a publication rather than a dataset accession.
+
+### Snippets and prior repairs
+
+provenance: supported. Targets: CommunityMech:000009.
+
+All 34 excerpts are source-verifiable, and the five qualified nodes/one arrow preserve the prior graph repair.
+
+Literal matching does not establish that collection-level verification or a publication title supports entry-specific claims. Closed 1259 preserves graph repairs; open 1262 specifically tracks the remaining kefir questions. Closed 543 corrected an in-silico-only assumption. Open 596 is a historical snippet backlog; closed 1240 concerns a related Rothia isolate. Old access limitations do not describe this fresh review.
+
+### Native checks
+
+schema: supported. Targets: CommunityMech:000009.
+
+All eight native checks pass; scope and provenance findings remain.
+
+### Mechanical metrics
+
+completeness: supported. Targets: CommunityMech:000009.
+
+High capped quality does not negate two major and three minor findings.
+
+## Findings
+
+### model-community-scope: Separate the natural community from its individual reconstruction
+
+major / open / confirmed; issue key: cm-000009-model-community-scope.
+
+The title/taxonomy/engineering fields combine six selected natural-community members with a BioModels entry whose author identifier maps to Moraxella osloensis SB424. ENGINEERED origin and generic assembly are not supported by cultivation or model construction.
+
+### ode-verification: Remove unsupported entry-specific ODE verification
+
+major / open / confirmed; issue key: cm-000009-ode-verification.
+
+external_resources[0].evidence[1].explanation says the five-engine curated ODE study includes and verifies this entry, despite its NON_CURATED FBA scope. PARTIAL does not repair that inclusion assertion.
+
+### time-course-volume: Recover the reported time-course working volume
+
+minor / open / confirmed; issue key: cm-000009-time-course-volume.
+
+cultivation_setup[0].notes explicitly denies a working volume, although Methods reports 650 mL per biological replicate for the 90-hour time course.
+
+### modeled-material: Correct the dairy-building environmental scope
+
+minor / open / confirmed; issue key: cm-000009-modeled-material.
+
+modeled_environment[0] uses a building ontology term for the milk/kefir experimental matrix.
+
+### resource-provenance: Update file and dataset provenance
+
+minor / open / confirmed; issue key: cm-000009-resource-provenance.
+
+The encoded SBML filename differs from the current listing, the publication is classified as a dataset, and directly traceable data/code contexts remain unstructured.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-model-community-scope
+
+Separate the natural community from its individual reconstruction.
+
+- Choose and state the maintained community scope: a source-defined natural kefir community with the individual reconstruction linked as a resource, or a clearly separated model-specific representation. Do not claim the six taxa constitute MODEL2204300001.
+- For the natural community, replace unsupported engineered origin/design with source-backed provenance; assess the required ecological state independently rather than equating laboratory propagation or model construction with engineering.
+- Preserve contextual experimental taxa and graph evidence with explicit GER grain/assay and SB strain mappings. Do not automatically substitute the Moraxella species for all contextual members or import the archive family annotation as a species.
+- Keep author identity mapping distinct from structural equivalence: the current archive and author reconstructions differ.
+
+### repair-ode-verification
+
+Remove unsupported entry-specific ODE verification.
+
+- Remove the assertion that PMID41343683 includes or verifies MODEL2204300001; retain it only as explicitly general repository context if useful.
+- Any future entry-specific verification claim must cite a matching model/version, executable protocol and actual result; neither a broad paper nor a FROG filename suffices.
+- Preserve the annotated OMEX parsing/manifest/checksum limits without claiming that these establish failure of the paper experiments.
+
+### repair-time-course-volume
+
+Recover the reported time-course working volume.
+
+- Record 650 mL only for the quadruplicate 90-hour community time course; preserve 60 g grains/L and its sampling scope.
+- Retain standard 48-hour static 25°C propagation separately; do not assign 650 mL to every pair, plate or whey experiment.
+- Replace categorical no-volume/stability-model and argumentative historical prose with concise source-scoped protocol notes. Do not invent a vessel type.
+
+### repair-modeled-material
+
+Correct the dairy-building environmental scope.
+
+- Use a verified ontology representation for the intended material or habitat, or retain an explicitly ungrounded source description while resolving the term.
+- Keep laboratory setting, food matrix and community origin distinct; do not replace with an unverified adjacent CURIE.
+
+### repair-resource-provenance
+
+Update file and dataset provenance.
+
+- Use the current main file keir_bacterium_1.xml with MODEL2204300001 and a version/hash or access date; do not assert that the older spelling never existed.
+- Move PMID33398099 to publication evidence/resources and link verified PRJNA375758, PRJEB37001, MTBLS1823/1829/1830 and the immutable author repository according to their actual data types.
+- Record CarveMe and author model identity/version for computational evidence; keep empirical pair assays separate. Preserve structural differences, NON_CURATED status and FROG packaging limitations.
+- Do not claim raw-omics inspection, model reproduction or all-strain accession verification from metadata-only checks.
+
+### preserve-qualified-graph
+
+Preserve the five nodes and one PARTIAL feedback arrow during separately authorized scope repair.
+
+- Keep reciprocal benefit assay-specific, suppression directional and lactate flux/necessity qualified; harmonize related ingredient wording with those limits.
+- Do not import the Acetobacter dose range into L. kefiranofaciens, or treat amino-acid depletion as direct proof of lactate transfer.
+- Preserve append-only history and rerun schema, strict, terms, references, history and network checks after authorized curation.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; Whole record: six taxa, five interaction nodes and one PARTIAL arrow | supports | The description recognizes a single-species reconstruction, while membership and cultivation describe selected natural-kefir community contexts. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=33398099&amp;retmode=xml; Article-level metadata and abstract where supplied | supports | Direct publication identity and available article-level source scope verified; Crossref is bibliographic metadata. |
+| crossref | https://api.crossref.org/works/10.1038/s41564-020-00816-5; Article-level metadata and abstract where supplied | supports | Direct publication identity and available article-level source scope verified; Crossref is bibliographic metadata. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:33398099&amp;format=json&amp;resultType=core; Article-level metadata and abstract where supplied | supports | Direct publication identity and available article-level source scope verified; Crossref is bibliographic metadata. |
+| verification-pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=41343683&amp;retmode=xml; Article-level metadata and abstract where supplied | supports | Direct publication identity and available article-level source scope verified; Crossref is bibliographic metadata. |
+| verification-epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:41343683&amp;format=json&amp;resultType=core; Article-level metadata and abstract where supplied | supports | Direct publication identity and available article-level source scope verified; Crossref is bibliographic metadata. |
+| natural-community | PMID:33398099; Fresh XML Introduction; Results S2–S3; Methods S14/S22; Tables S2/S5; Figures 1–3 | supports | The study follows natural kefir grains and isolates, including reference grain GER6; six encoded members are a selected community subset, not an experimentally assembled six-member model. |
+| proteolysis | PMID:33398099; Fresh XML Results S9 and Figure 5a–c caption; Table S8 rows 67–68 and Table S21 | partial | Living L. kefiranofaciens and L. mesenteroides show reciprocal growth benefit; peptide/amino-acid rescue supports the proteolysis interpretation, without donor-tracer resolution. |
+| suppression | PMID:33398099; Fresh XML Results S8; Figure 4c; Table S8 rows 49–50/136 | supports | L. kefiranofaciens suppresses tested L. kefiri in liquid milk. Reverse effects are independent in the inhibitory rows; another duplicate pair row is independent both ways. |
+| lactate-return | PMID:33398099; Fresh XML Results S9; Figure 5d; Supplementary Figure 18; Table S22 | partial | Supplemented lactate increases L. kefiranofaciens growth beyond the pH control. This supports a proposed return metabolite, not direct measurement of L. mesenteroides-to-partner flux or necessity. |
+| lactate-window | PMID:33398099; Fresh XML Results S7/S10 and Figure 3d; Supplementary Figures 11/21; Table S20 lactate focal strains and Table S13 row 6 | partial | Acetobacter and yeast growth respond to different lactate ranges. L. lactis-conditioned whey shows no considerable lactate depletion during A. fabarum growth; yeast also grows without supplementation. |
+| amino-acids | PMID:33398099; Fresh XML Results S10 and Figure 5g–h; Supplementary Figures 19–20; Tables S13/S23 | supports | Conditioned-medium measurements support proline, aspartate, glycine and GABA consumption by A. fabarum; supplementation responses depend on the compound combination. These are not all equivalent to the unresolved lactate flux. |
+| cultivation | PMID:33398099; Fresh XML Methods S14; S23–S24 pair assays; Supplementary Figure 22 | supports | The 90-hour quadruplicate community time course uses 650 mL per biological replicate at 60 g grains/L. Standard static grain propagation is 48 hours at 25°C; pairwise milk/whey assays have separate conditions. |
+| computational-methods | PMID:33398099; Fresh XML Results S11; Methods metabolic modeling subsections; Data/Code Availability; Extended Data Figure 9 | supports | CarveMe reconstructions and transcriptome-informed metabolic predictions are separate from empirical pair assays. Author repositories and genome/transcriptome/metabolomics deposits are explicitly named. |
+| verification-scope | PMID:41343683; Fresh XML sec006 curated-branch paragraph; sec007 Methods; sec012 Results | supports | The June 2024 curated branch contains 1,073 entries, including 1,055 ODE models; 932 were verified across at least two engines. This scope does not certify the focal NON_CURATED FBA reconstruction. |
+| supplement | PMID:33398099; focal-supplement-tables.json: declared worksheet/row selections; all 22 captions and selected pixels | supports | S5 identifies experimental isolates; S8 preserves strain/condition-dependent reciprocal effects; S20–23 separate whey supplementation from milk growth. No raw-data or donor-flux reanalysis. |
+| schema | src/communitymech/schema/communitymech.yaml; MicrobialCommunity; CommunityOriginEnum; EcologicalStateEnum; FunctionalRoleEnum; AbundanceEnum; ComputationalProvenance | supports | Biological origin/state, microbial membership, experimental evidence and computational resource provenance are distinct. Culturing a natural community does not itself establish engineered origin. |
+| ontology | kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; ontology-authority.json | supports | All 22 pairs/37 occurrences match; dairy denotes a building, while the experimental material is milk/kefir. |
+| model-taxon | kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; model-taxonomy-annotation.json | supports | NCBITaxon:4893 is Saccharomycetaceae family, not a resolved microbial species or strain. |
+| model | kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; model-audit.json | supports | The current NON_CURATED CarveMe entry is one-species SBML with subcellular compartments. Its main filename is keir_bacterium_1.xml; annotated FROG packaging is not an ODE verification record. |
+| author-model | kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; author-model-comparison.json | supports | Author GenomeID 424_03182016 maps to Moraxella osloensis; both models share m_424_03182016 but differ structurally. |
+| resources | kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; dataset-verification.json | supports | Public genome/transcriptome/metabolomics metadata and immutable author repository links are verified at their stated scope. |
+| snippets | kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; snippet-audit.json | supports | All 34 excerpts match directly retrieved source text or article-level title/abstract, with both cache boundaries preserved. |
+| history | kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; provenance-audit.json | supports | Current linked issue states, prior repairs and exact historical decision scope are preserved; old source-access limitations are not current inspection claims. |
+| native-target | kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; support-audit.json | supports | Native metrics and graph completeness are mechanical measures, separate from the five semantic findings. |
+| source-scope | PMID:33398099; source-audit.json | supports | Complete primary scientific main and declared critical figure/table/model scopes were inspected. |
+| independent-source | PMID:33398099; root-independent-source-audit.json | context_only | Independent whole-record/source assessment corroborates the bounded findings. |
+| independent-snippets | kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; root-snippet-check.json | context_only | Independent direct-source union verifies all 34 excerpts; initial XML-only mismatches were resolved against article-level sources. |
+| search | Owned maintained roots; local-search.json: ignored-inclusive bounded discovery | supports | Local identity/reuse results apply only to the recorded roots. |
+| adapter | Optional structured source adapter; adapter-check.json | supports | No applicable runnable adapter was established in the recorded local discovery; no outside-checkout execution or paid provider. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; Actual execution 2026-10-21T11:54:43.603258+00:00 to 2026-10-21T11:54:45.412793+00:00 | supports | Schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-strict kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml --out /private/tmp/cm-review-session/batch-07/000009/strict-report.tsv; Actual execution 2026-10-21T11:54:43.603584+00:00 to 2026-10-21T11:54:50.167208+00:00 | supports | Strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-terms kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; Actual execution 2026-10-21T11:54:43.616647+00:00 to 2026-10-21T11:54:47.775309+00:00 | supports | Term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-gtdb kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; Actual execution 2026-10-21T11:54:45.413081+00:00 to 2026-10-21T11:54:45.562209+00:00 | supports | GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-gtdb-domain kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; Actual execution 2026-10-21T11:54:45.562450+00:00 to 2026-10-21T11:54:50.666817+00:00 | supports | GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-history history/records/BioModels_MODEL2204300001_Kefir_Community_Model; Actual execution 2026-10-21T11:54:47.775624+00:00 to 2026-10-21T11:54:50.770913+00:00 | supports | History validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T11:54:50.774002+00:00 to 2026-10-21T11:54:50.865767+00:00 | supports | Read-only cache-filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src just --no-dotenv validate-references-explained kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml; Actual execution 2026-10-21T11:54:50.866111+00:00 to 2026-10-21T11:54:52.972627+00:00 | supports | Reference validation passed against pinned caches. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T11:32:06.425768+00:00 to 2026-10-21T11:32:16.427975+00:00 | supports | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records; target-native structure is COMPLETE. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T11:32:06.426382+00:00 to 2026-10-21T11:32:14.966232+00:00 | supports | Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records; target-native structure is COMPLETE. |
+
+## Limits And Additional Notes
+
+- Selected worksheet rows were read, not an exhaustive audit of the 43-sheet workbook or raw omics. No new statistical analysis, flux optimization, sequencing analysis or code execution.
+- Model id mapping is direct in the author species list and consistent with source isolate SB-424; the BioModels and author reconstructions differ structurally. Neither byte identity nor scientific equivalence is claimed.
+- The BioModels family annotation conflicts with the author species mapping; annotated OMEX parsing/manifest/report-checksum inconsistencies are archive limits, not evidence against the paper experiments.
+- Pairwise liquid-milk interactions, solid-plate assays, whey supplementation, natural grain time course and computational predictions remain distinct. Conditioned-medium amino-acid consumption is stronger evidence than the unresolved lactate transfer measurements.
+- No new environmental CURIE, exact six-member community model or automatic ecological-state replacement was verified.
+- Table S8 includes duplicate pair rows with different outcomes; the encoded graph is assessed against explicit assay support, not universal strain behavior.
+- Not every extended-data image, supplementary panel or workbook cell was inspected. Complete main text and declared critical figure/table scopes support the current findings. The second paper was read for collection applicability, not independently reproduced.
+- No canonical, cache, history or generated files changed. All 25 repository inputs remain pinned.
+- Quoted words are counted separately for each publication, including its supplements.
+- Native quality 100 is capped from 107; scientific scope findings remain material.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T120426Z-kefir-community-model-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Kefir community and BioModels reconstruction review
+started_at: '2026-10-21T11:54:10.247004Z'
+finished_at: '2026-10-21T12:04:26.031472Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary science, native/ontology checks
+    and supporting metadata; no person-level independence asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Five qualified nodes and one PARTIAL arrow remain supported in the experimental
+  kefir context. Two major findings separate the natural community from an individual
+  reconstruction and remove unsupported ODE verification. Three minor findings address
+  volume, environmental material and resource provenance.
+source:
+  git_revision: 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/BioModels_MODEL2204300001_Kefir_Community_Model/2026-08-31T233511Z-claude-code-054699.yaml
+    sha256: cc431c94914136500d4adae5f55281559da5bff8d73e584c9ecc93d908a08c10
+    role: context
+  - path: history/records/BioModels_MODEL2204300001_Kefir_Community_Model/2026-10-05T124958Z-codex-e8c379.yaml
+    sha256: 2e247e965f1f9032c4e33d1333afd558d744ba351f014df30a1bcd1cf5e91d6c
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    sha256: b2e55eea689446b15484d0b01ce6f0da687b66ddd2b5b6507e1677216b2619ea
+    role: target
+  - path: references_cache/PMID_33398099.md
+    sha256: 354e026bfc49347f90ada79c14aa18776d7a0b9e2525868f0006ab50d4c8f4d2
+    role: context
+  - path: references_cache/PMID_41343683.md
+    sha256: 7c3a7ba8b70b76367ff655847d5c5ee75965c0c94a0aa4220386ecdb1180d039
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+    sha256: c96f00489d2ad14f63cd035adc778adbf72d7fe6a11c2dffd81cd1a904cc0a75
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000009
+  path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  label: BioModels MODEL2204300001 Kefir Community Model
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    role: canonical_record
+scope:
+  description: Whole record, fresh primary main and critical declared figures/tables,
+    secondary verification scope and direct model/project/repository authorities.
+  selection: Only released CommunityMech:000009 after 000008 save and mandatory checks.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000009
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema validation passed.
+  target_ids:
+  - CommunityMech:000009
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Target/history checks plus corpus cache-filename preflight; structural
+    success does not certify semantic scope.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict validation passed.
+  target_ids:
+  - CommunityMech:000009
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-strict kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    --out /private/tmp/cm-review-session/batch-07/000009/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Target/history checks plus corpus cache-filename preflight; structural
+    success does not certify semantic scope.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Term validation passed.
+  target_ids:
+  - CommunityMech:000009
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-terms kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Target/history checks plus corpus cache-filename preflight; structural
+    success does not certify semantic scope.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000009
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Target/history checks plus corpus cache-filename preflight; structural
+    success does not certify semantic scope.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000009
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb-domain kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Target/history checks plus corpus cache-filename preflight; structural
+    success does not certify semantic scope.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: History validation passed.
+  target_ids:
+  - CommunityMech:000009
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-history history/records/BioModels_MODEL2204300001_Kefir_Community_Model
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Target/history checks plus corpus cache-filename preflight; structural
+    success does not certify semantic scope.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000009
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Target/history checks plus corpus cache-filename preflight; structural
+    success does not certify semantic scope.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Reference validation passed against pinned caches.
+  target_ids:
+  - CommunityMech:000009
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-references-explained kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Target/history checks plus corpus cache-filename preflight; structural
+    success does not certify semantic scope.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records;
+    target-native structure is COMPLETE.
+  target_ids:
+  - CommunityMech:000009
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Explicit reuse of fresh batch 07 corpus receipts, not a target-specific
+    pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records;
+    target-native structure is COMPLETE.
+  target_ids:
+  - CommunityMech:000009
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Explicit reuse of fresh batch 07 corpus receipts, not a target-specific
+    pass.
+- check_id: source-identity
+  name: Primary source and resource identity
+  status: passed
+  required: true
+  summary: Both publication identities and directly retrieved archive/author resource
+    contexts were assessed; scope conflicts are findings.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - pubmed
+  - verification-pubmed
+  - model
+  - author-model
+  - resources
+- check_id: scientific-source
+  name: Whole-record scientific assessment
+  status: passed
+  required: true
+  summary: Complete primary scientific main and critical declared figures/tables plus
+    secondary collection scope were inspected.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - source-scope
+  - independent-source
+  - verification-scope
+- check_id: cross-mech
+  name: Medium and ingredient external links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech identifier is encoded. A specific
+    recipe identifier was not established for the commercial UHT milk/whey procedures.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - record
+  - cultivation
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: No runnable applicable adapter was established in the recorded discovery.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: 'Whole record: six taxa, five interaction nodes and one PARTIAL arrow'
+  summary: The description recognizes a single-species reconstruction, while membership
+    and cultivation describe selected natural-kefir community contexts.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.276951Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=33398099&retmode=xml
+  locator: Article-level metadata and abstract where supplied
+  summary: Direct publication identity and available article-level source scope verified;
+    Crossref is bibliographic metadata.
+  support: supports
+  accessed_at: '2026-10-21T11:54:44.070298Z'
+  snapshot_sha256: d3fc039c58a8321ac1629500bcb571019a2f0d3baa58aa1b415f066b53728346
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1038/s41564-020-00816-5
+  locator: Article-level metadata and abstract where supplied
+  summary: Direct publication identity and available article-level source scope verified;
+    Crossref is bibliographic metadata.
+  support: supports
+  accessed_at: '2026-10-21T11:54:44.063902Z'
+  snapshot_sha256: 90cd0071dc062510e0e6b8ca7a08dd1d46b19b319a879371bd32571a2b58f132
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:33398099&format=json&resultType=core
+  locator: Article-level metadata and abstract where supplied
+  summary: Direct publication identity and available article-level source scope verified;
+    Crossref is bibliographic metadata.
+  support: supports
+  accessed_at: '2026-10-21T11:54:44.636691Z'
+  snapshot_sha256: 66e12c564b0fdd6d47987aebf05405f77347e879cf7121c7e21a7a1106a8cd77
+- evidence_id: verification-pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41343683&retmode=xml
+  locator: Article-level metadata and abstract where supplied
+  summary: Direct publication identity and available article-level source scope verified;
+    Crossref is bibliographic metadata.
+  support: supports
+  accessed_at: '2026-10-21T11:54:44.386291Z'
+  snapshot_sha256: de07805c2ce350b60fe69acf15ac2f4c30a434b893a3f7b6afac34105f2d67d6
+- evidence_id: verification-epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:41343683&format=json&resultType=core
+  locator: Article-level metadata and abstract where supplied
+  summary: Direct publication identity and available article-level source scope verified;
+    Crossref is bibliographic metadata.
+  support: supports
+  accessed_at: '2026-10-21T11:54:44.759318Z'
+  snapshot_sha256: c487b79a88cfa7dc76651e0f207b3118b8ac33fde9cce496683baf0d0c49ad34
+- evidence_id: natural-community
+  kind: primary_source
+  reference: PMID:33398099
+  locator: Fresh XML Introduction; Results S2–S3; Methods S14/S22; Tables S2/S5; Figures
+    1–3
+  summary: The study follows natural kefir grains and isolates, including reference
+    grain GER6; six encoded members are a selected community subset, not an experimentally
+    assembled six-member model.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.278053Z'
+  snapshot_sha256: b4292a647a13d20511a422582eb8892b38bd0c250f9d77a1cbd894cd525d01fc
+- evidence_id: proteolysis
+  kind: primary_source
+  reference: PMID:33398099
+  locator: Fresh XML Results S9 and Figure 5a–c caption; Table S8 rows 67–68 and Table
+    S21
+  summary: Living L. kefiranofaciens and L. mesenteroides show reciprocal growth benefit;
+    peptide/amino-acid rescue supports the proteolysis interpretation, without donor-tracer
+    resolution.
+  support: partial
+  accessed_at: '2026-10-21T12:04:13.278134Z'
+  quote: benefit from each other
+  snapshot_sha256: b4292a647a13d20511a422582eb8892b38bd0c250f9d77a1cbd894cd525d01fc
+- evidence_id: suppression
+  kind: primary_source
+  reference: PMID:33398099
+  locator: Fresh XML Results S8; Figure 4c; Table S8 rows 49–50/136
+  summary: L. kefiranofaciens suppresses tested L. kefiri in liquid milk. Reverse
+    effects are independent in the inhibitory rows; another duplicate pair row is
+    independent both ways.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.278227Z'
+  quote: suppressed
+  snapshot_sha256: b4292a647a13d20511a422582eb8892b38bd0c250f9d77a1cbd894cd525d01fc
+- evidence_id: lactate-return
+  kind: primary_source
+  reference: PMID:33398099
+  locator: Fresh XML Results S9; Figure 5d; Supplementary Figure 18; Table S22
+  summary: Supplemented lactate increases L. kefiranofaciens growth beyond the pH
+    control. This supports a proposed return metabolite, not direct measurement of
+    L. mesenteroides-to-partner flux or necessity.
+  support: partial
+  accessed_at: '2026-10-21T12:04:13.278316Z'
+  quote: circa three-fold
+  snapshot_sha256: b4292a647a13d20511a422582eb8892b38bd0c250f9d77a1cbd894cd525d01fc
+- evidence_id: lactate-window
+  kind: primary_source
+  reference: PMID:33398099
+  locator: Fresh XML Results S7/S10 and Figure 3d; Supplementary Figures 11/21; Table
+    S20 lactate focal strains and Table S13 row 6
+  summary: Acetobacter and yeast growth respond to different lactate ranges. L. lactis-conditioned
+    whey shows no considerable lactate depletion during A. fabarum growth; yeast also
+    grows without supplementation.
+  support: partial
+  accessed_at: '2026-10-21T12:04:13.278468Z'
+  quote: lower concentrations
+  snapshot_sha256: b4292a647a13d20511a422582eb8892b38bd0c250f9d77a1cbd894cd525d01fc
+- evidence_id: amino-acids
+  kind: primary_source
+  reference: PMID:33398099
+  locator: Fresh XML Results S10 and Figure 5g–h; Supplementary Figures 19–20; Tables
+    S13/S23
+  summary: Conditioned-medium measurements support proline, aspartate, glycine and
+    GABA consumption by A. fabarum; supplementation responses depend on the compound
+    combination. These are not all equivalent to the unresolved lactate flux.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.278577Z'
+  snapshot_sha256: b4292a647a13d20511a422582eb8892b38bd0c250f9d77a1cbd894cd525d01fc
+- evidence_id: cultivation
+  kind: primary_source
+  reference: PMID:33398099
+  locator: Fresh XML Methods S14; S23–S24 pair assays; Supplementary Figure 22
+  summary: The 90-hour quadruplicate community time course uses 650 mL per biological
+    replicate at 60 g grains/L. Standard static grain propagation is 48 hours at 25°C;
+    pairwise milk/whey assays have separate conditions.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.278675Z'
+  quote: 650ml total volume
+  snapshot_sha256: b4292a647a13d20511a422582eb8892b38bd0c250f9d77a1cbd894cd525d01fc
+- evidence_id: computational-methods
+  kind: primary_source
+  reference: PMID:33398099
+  locator: Fresh XML Results S11; Methods metabolic modeling subsections; Data/Code
+    Availability; Extended Data Figure 9
+  summary: CarveMe reconstructions and transcriptome-informed metabolic predictions
+    are separate from empirical pair assays. Author repositories and genome/transcriptome/metabolomics
+    deposits are explicitly named.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.278801Z'
+  snapshot_sha256: b4292a647a13d20511a422582eb8892b38bd0c250f9d77a1cbd894cd525d01fc
+- evidence_id: verification-scope
+  kind: primary_source
+  reference: PMID:41343683
+  locator: Fresh XML sec006 curated-branch paragraph; sec007 Methods; sec012 Results
+  summary: The June 2024 curated branch contains 1,073 entries, including 1,055 ODE
+    models; 932 were verified across at least two engines. This scope does not certify
+    the focal NON_CURATED FBA reconstruction.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.278964Z'
+  quote: curated branch
+  snapshot_sha256: e5ce7241e235ccf53db6de176c9f2ec83a8f2b816b043a125d585f8f1bc4a8ce
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:33398099
+  locator: 'focal-supplement-tables.json: declared worksheet/row selections; all 22
+    captions and selected pixels'
+  summary: S5 identifies experimental isolates; S8 preserves strain/condition-dependent
+    reciprocal effects; S20–23 separate whey supplementation from milk growth. No
+    raw-data or donor-flux reanalysis.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.279046Z'
+  snapshot_sha256: 8c5f44207fd58e0ae4c327c4825748e550c6688c49858474418100e50470aacf
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: MicrobialCommunity; CommunityOriginEnum; EcologicalStateEnum; FunctionalRoleEnum;
+    AbundanceEnum; ComputationalProvenance
+  summary: Biological origin/state, microbial membership, experimental evidence and
+    computational resource provenance are distinct. Culturing a natural community
+    does not itself establish engineered origin.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.279131Z'
+  snapshot_sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+- evidence_id: ontology
+  kind: authority
+  reference: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: ontology-authority.json
+  summary: All 22 pairs/37 occurrences match; dairy denotes a building, while the
+    experimental material is milk/kefir.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.279441Z'
+  snapshot_sha256: c68217c19c08130d1dd833a2267dd9d7a58be4a475b6892c2fc53c9bbb4f1add
+- evidence_id: model-taxon
+  kind: authority
+  reference: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: model-taxonomy-annotation.json
+  summary: NCBITaxon:4893 is Saccharomycetaceae family, not a resolved microbial species
+    or strain.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.279707Z'
+  snapshot_sha256: bade864f8e561cae6a261a1d62825c5a33d486df939f1bdc2dbb53ee2a9754a8
+- evidence_id: model
+  kind: database
+  reference: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: model-audit.json
+  summary: The current NON_CURATED CarveMe entry is one-species SBML with subcellular
+    compartments. Its main filename is keir_bacterium_1.xml; annotated FROG packaging
+    is not an ODE verification record.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.279754Z'
+  snapshot_sha256: d3fa0b0b8dce2b27fffd11af56bfb3352e9e04f2d1fb84e202b0fedea0a177d7
+- evidence_id: author-model
+  kind: database
+  reference: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: author-model-comparison.json
+  summary: Author GenomeID 424_03182016 maps to Moraxella osloensis; both models share
+    m_424_03182016 but differ structurally.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.279858Z'
+  snapshot_sha256: 103db64ee2c2ed5cbcd7bd9fae731df498382e199b4b53f8f85eecf77558a5da
+- evidence_id: resources
+  kind: database
+  reference: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: dataset-verification.json
+  summary: Public genome/transcriptome/metabolomics metadata and immutable author
+    repository links are verified at their stated scope.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.279916Z'
+  snapshot_sha256: db924ed2045798d9cc3542278ae6f93693906b7fd44ed516ddb590a22a76e9c6
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: snippet-audit.json
+  summary: All 34 excerpts match directly retrieved source text or article-level title/abstract,
+    with both cache boundaries preserved.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.280055Z'
+  snapshot_sha256: ab6d4628fc468d79d4e50f37af8bfbae89a8011af7e39de94a2488b3f3a32ee2
+- evidence_id: history
+  kind: record_content
+  reference: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: provenance-audit.json
+  summary: Current linked issue states, prior repairs and exact historical decision
+    scope are preserved; old source-access limitations are not current inspection
+    claims.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.280294Z'
+  snapshot_sha256: d5ab0d27726c627d05f9f5ffb51962f67280bdfe16a773395f6f4e0c4b65f4ba
+- evidence_id: native-target
+  kind: validation
+  reference: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: support-audit.json
+  summary: Native metrics and graph completeness are mechanical measures, separate
+    from the five semantic findings.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.280462Z'
+  snapshot_sha256: 2662c17ebcf54286c02ba660609a2e035b9acd3da1a9077bcf2f06869bc508c7
+- evidence_id: source-scope
+  kind: validation
+  reference: PMID:33398099
+  locator: source-audit.json
+  summary: Complete primary scientific main and declared critical figure/table/model
+    scopes were inspected.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.280528Z'
+  snapshot_sha256: 8588aec1cd49f5a28f60763da06b59495957aa70de122052ab8fdd35bde01782
+- evidence_id: independent-source
+  kind: validation
+  reference: PMID:33398099
+  locator: root-independent-source-audit.json
+  summary: Independent whole-record/source assessment corroborates the bounded findings.
+  support: context_only
+  accessed_at: '2026-10-21T12:04:13.280663Z'
+  snapshot_sha256: 04e2ed8b6f053737b555969c602e1490f61d5e3223d53b4a9faefff4f81a5d03
+- evidence_id: independent-snippets
+  kind: validation
+  reference: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: root-snippet-check.json
+  summary: Independent direct-source union verifies all 34 excerpts; initial XML-only
+    mismatches were resolved against article-level sources.
+  support: context_only
+  accessed_at: '2026-10-21T12:04:13.280809Z'
+  snapshot_sha256: 85a7a134ec264ec949d730571cafb05f6124e61ef7b5c88464a595f355c45541
+- evidence_id: search
+  kind: search
+  reference: Owned maintained roots
+  locator: 'local-search.json: ignored-inclusive bounded discovery'
+  summary: Local identity/reuse results apply only to the recorded roots.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.280943Z'
+  snapshot_sha256: 287a504b4f9e9d90b5c75f647f40367bbe33da52581b999215773c9a44be5139
+  search_scope: Ignored-inclusive maintained community, isolate and reusable-taxon
+    roots and recorded mapping-file discovery.
+- evidence_id: adapter
+  kind: search
+  reference: Optional structured source adapter
+  locator: adapter-check.json
+  summary: No applicable runnable adapter was established in the recorded local discovery;
+    no outside-checkout execution or paid provider.
+  support: supports
+  accessed_at: '2026-10-21T12:04:13.281163Z'
+  snapshot_sha256: 653201ed002efaaefe21378b9d8daa2a90692bd94b5bf3b1364e72dab34468c1
+  search_scope: Recorded runtime and ignored-inclusive local discovery.
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: Actual execution 2026-10-21T11:54:43.603258+00:00 to 2026-10-21T11:54:45.412793+00:00
+  summary: Schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:54:45.412793Z'
+  snapshot_sha256: 80fe2b4756e7d825986dcefa3272e5ebe24bb129a94e8f37d97a47c4e5cb3378
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-strict kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    --out /private/tmp/cm-review-session/batch-07/000009/strict-report.tsv
+  locator: Actual execution 2026-10-21T11:54:43.603584+00:00 to 2026-10-21T11:54:50.167208+00:00
+  summary: Strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:54:50.167208Z'
+  snapshot_sha256: 73aee908094f82e5956ea2e5a85a23612147f94973ff65f102cac944993f3566
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-terms kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: Actual execution 2026-10-21T11:54:43.616647+00:00 to 2026-10-21T11:54:47.775309+00:00
+  summary: Term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:54:47.775309Z'
+  snapshot_sha256: 5fd187bd4b2b7e3500901d094dac3d8f4034b9fe4cf67bae0f835e8c02c88f6a
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: Actual execution 2026-10-21T11:54:45.413081+00:00 to 2026-10-21T11:54:45.562209+00:00
+  summary: GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:54:45.562209Z'
+  snapshot_sha256: 326e4926f37101a9f12da918d0e4c060492ca90c17100f5f9a0ec98bbde1e106
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-gtdb-domain kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: Actual execution 2026-10-21T11:54:45.562450+00:00 to 2026-10-21T11:54:50.666817+00:00
+  summary: GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:54:50.666817Z'
+  snapshot_sha256: 393374a7347832f190a228037f4aa3507827af742865072858bfa492bdda67a3
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-history history/records/BioModels_MODEL2204300001_Kefir_Community_Model
+  locator: Actual execution 2026-10-21T11:54:47.775624+00:00 to 2026-10-21T11:54:50.770913+00:00
+  summary: History validation passed.
+  support: supports
+  accessed_at: '2026-10-21T11:54:50.770913Z'
+  snapshot_sha256: 9b2cd4eafbdc3ab1a862554dc0acf7d3e2f90807c0abe5cf5e5030eb4f4c0969
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T11:54:50.774002+00:00 to 2026-10-21T11:54:50.865767+00:00
+  summary: Read-only cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T11:54:50.865767Z'
+  snapshot_sha256: d31a3c7a1193afd96ec3033133c8c2adcbbbc76229721b2dd60ba991bcd75131
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src
+    just --no-dotenv validate-references-explained kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  locator: Actual execution 2026-10-21T11:54:50.866111+00:00 to 2026-10-21T11:54:52.972627+00:00
+  summary: Reference validation passed against pinned caches.
+  support: supports
+  accessed_at: '2026-10-21T11:54:52.972627Z'
+  snapshot_sha256: 3bb8911e044e886bac7641bbc52fea127e227c91b047d816decfa726359da017
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T11:32:06.425768+00:00 to 2026-10-21T11:32:16.427975+00:00
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records;
+    target-native structure is COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T11:32:16.427975Z'
+  snapshot_sha256: c16b3a28b790e90191e9c5fb067c97a8038a813593fbfbe1796bf78d116abafb
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-07/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T11:32:06.426382+00:00 to 2026-10-21T11:32:14.966232+00:00
+  summary: Fresh batch 07 corpus execution returned 57 warnings across 21 of 477 records;
+    target-native structure is COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T11:32:14.966232Z'
+  snapshot_sha256: 6a321df993e978ed76cacc843bf792ecb9969ab237ca14c6e8575723ee3410f3
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Natural community, experimental isolates and model identity
+  outcome: concern
+  summary: The record combines a one-species reconstruction with selected six-member
+    natural-community evidence.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - record
+  - natural-community
+  - model
+  - author-model
+  - schema
+  dimensions:
+  - name: community_scope
+    value: Natural kefir ecosystem, selected isolates and individual model
+    definition: The six encoded taxa are not a complete grain inventory or the constituent
+      organisms of MODEL2204300001.
+    evidence_ids:
+    - natural-community
+    - model
+    - author-model
+  - name: source_strain
+    value: GER6 and source-defined SB isolates
+    definition: S5 names SB322b L. kefiranofaciens, SB230a L. mesenteroides, multiple
+      L. lactis/L. kefiri/A. fabarum isolates, SB178 yeast and SB424 Moraxella; origins
+      include GER4/GER6/KOR1. Assign exact strains by assay, not one strain universally.
+    evidence_ids:
+    - supplement
+  - name: environment
+    value: Laboratory milk, kefir grain and milk whey
+    definition: The broad laboratory term is compatible; modeled dairy-building grounding
+      is not the studied matrix.
+    evidence_ids:
+    - ontology
+    - cultivation
+  - name: medium
+    value: UHT milk and separately prepared/supplemented whey
+    definition: Retain 3.5% milk, 60 g grains/L and static standard propagation; distinguish
+      pair assays and supplements.
+    evidence_ids:
+    - cultivation
+    - supplement
+  - name: experimental_setting
+    value: Natural grain time course, isolate assays and reconstruction
+    definition: The 650 mL/90-hour time course, 48-hour propagation, 72-hour liquid
+      pairs and seven-day whey screen are separate designs.
+    evidence_ids:
+    - cultivation
+    - supplement
+  - name: evidence_tier
+    value: Experimental growth/metabolomics plus qualified modeling
+    definition: Reciprocal growth and supplement effects are measured; donor-specific
+      lactate flux and necessity remain inferred.
+    evidence_ids:
+    - proteolysis
+    - lactate-return
+    - lactate-window
+  - name: grounding_status
+    value: Six valid species terms; archive annotation inconsistent
+    definition: Current Lactobacillus/Lentilactobacillus and yeast synonyms are valid.
+      The archive family annotation does not supersede author mapping or identify
+      its six-member context.
+    evidence_ids:
+    - ontology
+    - model-taxon
+    - author-model
+- assessment_id: roles
+  area: grounding
+  topic: Taxa, roles and abundance
+  outcome: supported
+  summary: The taxa and broad functional roles have experimental-community context,
+    not proof of representation in this one model.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - natural-community
+  - proteolysis
+  - amino-acids
+  - lactate-window
+  - ontology
+  details: Membership-only nearest snippets should be supplemented with role-specific
+    passages when scope is repaired. Lactate-related CROSS_FEEDER roles remain source-proposed
+    and assay-qualified. L. kefiranofaciens DOMINANT is an ordinal source statement;
+    no percentage threshold is imposed. No automatic taxon or GTDB replacement is
+    warranted for the six contextual members.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: proteolytic support'
+  outcome: supported
+  summary: Retain L. kefiranofaciens → L. mesenteroides, measured reciprocal benefit
+    and PARTIAL transfer interpretation.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - proteolysis
+  - supplement
+  details: Living-pair benefit and peptide/amino-acid rescue support MUTUALISM at
+    the tested liquid-milk assay scope. S8 includes both an independent pair row and
+    a mutualistic row; do not generalize benefit to every context. Proteolysis is
+    inferred as the support mechanism without donor-tracer flux.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: suppression'
+  outcome: supported
+  summary: Retain tested L. kefiranofaciens → L. kefiri suppression without reciprocal
+    COMPETITION.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - suppression
+  - supplement
+  details: S8 inhibitory rows show an independent reverse response, consistent with
+    the red amensalism edge in Figure 4c. The current untyped directional node is
+    conservative; an optional AMENSALISM label would require preserving strain/assay
+    scope and independent duplicate rows.
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: return lactate'
+  outcome: supported
+  summary: Retain L. mesenteroides → L. kefiranofaciens as a PARTIAL mechanism within
+    the measured mutualism.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - lactate-return
+  - proteolysis
+  - supplement
+  details: Milk supplementation at 1–3 mg/mL and the pH control support lactate benefit;
+    they do not directly trace partner-derived lactate or establish necessity. The
+    Acetobacter 7–12 mg/mL range must not be imported.
+- assessment_id: node-3
+  area: graph
+  topic: 'ecological_interactions[3]: Acetobacter lactate response'
+  outcome: supported
+  summary: Retain the community-level L. lactis/L. mesenteroides/A. fabarum PARTIAL
+    interpretation.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - lactate-window
+  - amino-acids
+  - supplement
+  details: Supplementation and partner associations support the proposed lactate contribution.
+    S21 and Table S13 show no considerable lactate depletion in the tested spent whey.
+    Other amino-acid consumption is directly measured and must not be treated as proof
+    of lactate transfer.
+- assessment_id: node-4
+  area: graph
+  topic: 'ecological_interactions[4]: yeast response'
+  outcome: supported
+  summary: Retain K. exigua with the named bacterial lactate producers at PARTIAL
+    community scope.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - lactate-window
+  - supplement
+  details: SB178 grows in plain whey and shows variable enhancement at lower supplemented
+    concentrations. No unique donor, obligatory dependence or reciprocal bacterial
+    benefit is established; the current qualified wording avoids those claims.
+- assessment_id: arrow-0-2
+  area: graph
+  topic: 'ecological_interactions[0].downstream[0]: proteolysis → return lactate'
+  outcome: supported
+  summary: Retain only the existing PARTIAL enabling interpretation from node 0 to
+    node 2.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - proteolysis
+  - lactate-return
+  - computational-methods
+  details: The source proposes that proteolytic support permits L. mesenteroides growth
+    and subsequent beneficial lactate production. Rescue and reciprocal-growth evidence
+    support a plausible feedback mechanism, not an intervention-resolved temporal
+    chain or measured donor-to-recipient flux.
+- assessment_id: environment
+  area: grounding
+  topic: Studied and modeled environment
+  outcome: concern
+  summary: ENVO:00003862 dairy denotes a building, not the milk/kefir material.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - ontology
+  - natural-community
+  details: Keep laboratory environment if useful, and use a verified material/habitat
+    representation consistent with the selected record scope. No replacement CURIE
+    was certified in this review.
+- assessment_id: conditions
+  area: completeness
+  topic: Cultivation and computational provenance
+  outcome: concern
+  summary: The assertion that no working volume is reported is contradicted by the
+    specific 650 mL time course.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - cultivation
+  - computational-methods
+  details: Retain the valid 48-hour standard propagation conditions and create a separately
+    scoped 90-hour setup. Computational provenance belongs on actual model evidence,
+    not on empirical graph passages. Generic engineered-design and stability-model
+    claims require the identity repair.
+- assessment_id: ingredients
+  area: evidence
+  topic: Metabolite identities and relevance
+  outcome: supported
+  summary: Ingredient interpretation is broadly supported with the graph’s existing
+    mechanism qualifications.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - amino-acids
+  - lactate-window
+  - ontology
+  - supplement
+  details: Table S13 reports derivatized acid-form analytical identities, so no automatic
+    acid-to-anion or stereoisomer substitution is justified. Keep citrate hypotheses
+    and amino-acid substrate responses distinct from lactate donor-flux inference;
+    harmonize non-graph lactate wording with PARTIAL without declaring every exchange
+    unsupported.
+- assessment_id: verification
+  area: evidence
+  topic: Entry-specific model verification
+  outcome: concern
+  summary: The secondary paper does not certify this NON_CURATED constraint-based
+    model.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - verification-scope
+  - model
+  details: Five-engine ODE verification applies to a defined curated collection. Local
+    kineticLaw elements encode flux bounds, not ODE identity. The FROG archive is
+    a separate artifact and does not establish the claimed SED-ML/ODE result.
+- assessment_id: resources
+  area: provenance
+  topic: Publication, current file and public datasets
+  outcome: concern
+  summary: The model resource resolves, but its current filename and scientific resource
+    scope need correction.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - model
+  - resources
+  - author-model
+  - computational-methods
+  details: The author map identifies Moraxella osloensis SB424; structural differences
+    preclude declaring the exports equivalent. PRJNA375758, PRJEB37001 and MTBLS1823/1829/1830
+    have distinct source-defined datasets. PMID33398099 is a publication rather than
+    a dataset accession.
+- assessment_id: history
+  area: provenance
+  topic: Snippets and prior repairs
+  outcome: supported
+  summary: All 34 excerpts are source-verifiable, and the five qualified nodes/one
+    arrow preserve the prior graph repair.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - snippets
+  - history
+  - independent-snippets
+  details: Literal matching does not establish that collection-level verification
+    or a publication title supports entry-specific claims. Closed 1259 preserves graph
+    repairs; open 1262 specifically tracks the remaining kefir questions. Closed 543
+    corrected an in-silico-only assumption. Open 596 is a historical snippet backlog;
+    closed 1240 concerns a related Rothia isolate. Old access limitations do not describe
+    this fresh review.
+- assessment_id: validation
+  area: schema
+  topic: Native checks
+  outcome: supported
+  summary: All eight native checks pass; scope and provenance findings remain.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - check-validate
+  - check-validate-references-explained
+  - ontology
+- assessment_id: metrics
+  area: completeness
+  topic: Mechanical metrics
+  outcome: supported
+  summary: High capped quality does not negate two major and three minor findings.
+  target_ids:
+  - CommunityMech:000009
+  evidence_ids:
+  - native-target
+  metrics:
+  - name: completeness
+    value: 90
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 50 required metadata/roles +5 environment +10 nodes +5 resources +10
+      media +5 datasets +5 metabolites =90; no environmental-factor bonus.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      P1=0,P2=2,P3=3,P4=0; 9/5 mean evidence gives18 bonus, network15:107 before capping.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: model-community-scope
+  issue_key: cm-000009-model-community-scope
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: material conflation of biological community, isolated
+    strains and modeled organism. Both the intended study and accession remain traceable,
+    so this is repairable scope rather than a wholly unresolvable identity.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Separate the natural community from its individual reconstruction
+  description: The title/taxonomy/engineering fields combine six selected natural-community
+    members with a BioModels entry whose author identifier maps to Moraxella osloensis
+    SB424. ENGINEERED origin and generic assembly are not supported by cultivation
+    or model construction.
+  target_ids:
+  - CommunityMech:000009
+  field_paths:
+  - name
+  - description
+  - ecological_state
+  - community_origin
+  - engineering_design
+  - taxonomy
+  evidence_ids:
+  - natural-community
+  - model
+  - author-model
+  - schema
+  - supplement
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    role: canonical_record
+- finding_id: ode-verification
+  issue_key: cm-000009-ode-verification
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: unsupported source applicability creates a false reproducibility
+    claim for the specific resource.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Remove unsupported entry-specific ODE verification
+  description: external_resources[0].evidence[1].explanation says the five-engine
+    curated ODE study includes and verifies this entry, despite its NON_CURATED FBA
+    scope. PARTIAL does not repair that inclusion assertion.
+  target_ids:
+  - CommunityMech:000009
+  field_paths:
+  - external_resources[0].evidence[1]
+  evidence_ids:
+  - verification-scope
+  - model
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    role: canonical_record
+- finding_id: time-course-volume
+  issue_key: cm-000009-time-course-volume
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: a bounded recoverable assay parameter; the existing standard
+    milk regimen is substantially correct.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Recover the reported time-course working volume
+  description: cultivation_setup[0].notes explicitly denies a working volume, although
+    Methods reports 650 mL per biological replicate for the 90-hour time course.
+  target_ids:
+  - CommunityMech:000009
+  field_paths:
+  - cultivation_setup[0].notes
+  - cultivation_setup
+  evidence_ids:
+  - cultivation
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    role: canonical_record
+- finding_id: modeled-material
+  issue_key: cm-000009-modeled-material
+  category: grounding
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: contextual ontology specificity error; the record already
+    retains correct laboratory and milk cultivation context.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Correct the dairy-building environmental scope
+  description: modeled_environment[0] uses a building ontology term for the milk/kefir
+    experimental matrix.
+  target_ids:
+  - CommunityMech:000009
+  field_paths:
+  - modeled_environment[0]
+  evidence_ids:
+  - ontology
+  - natural-community
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    role: canonical_record
+- finding_id: resource-provenance
+  issue_key: cm-000009-resource-provenance
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: non-blocking resource organization and version provenance,
+    distinct from the major biological/verification scope errors.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Update file and dataset provenance
+  description: The encoded SBML filename differs from the current listing, the publication
+    is classified as a dataset, and directly traceable data/code contexts remain unstructured.
+  target_ids:
+  - CommunityMech:000009
+  field_paths:
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - resources
+  - model
+  - author-model
+  - computational-methods
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    role: canonical_record
+actions:
+- action_id: repair-model-community-scope
+  description: Separate the natural community from its individual reconstruction.
+  finding_ids:
+  - model-community-scope
+  target_ids:
+  - CommunityMech:000009
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - 'Choose and state the maintained community scope: a source-defined natural kefir
+    community with the individual reconstruction linked as a resource, or a clearly
+    separated model-specific representation. Do not claim the six taxa constitute
+    MODEL2204300001.'
+  - For the natural community, replace unsupported engineered origin/design with source-backed
+    provenance; assess the required ecological state independently rather than equating
+    laboratory propagation or model construction with engineering.
+  - Preserve contextual experimental taxa and graph evidence with explicit GER grain/assay
+    and SB strain mappings. Do not automatically substitute the Moraxella species
+    for all contextual members or import the archive family annotation as a species.
+  - 'Keep author identity mapping distinct from structural equivalence: the current
+    archive and author reconstructions differ.'
+- action_id: repair-ode-verification
+  description: Remove unsupported entry-specific ODE verification.
+  finding_ids:
+  - ode-verification
+  target_ids:
+  - CommunityMech:000009
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove the assertion that PMID41343683 includes or verifies MODEL2204300001; retain
+    it only as explicitly general repository context if useful.
+  - Any future entry-specific verification claim must cite a matching model/version,
+    executable protocol and actual result; neither a broad paper nor a FROG filename
+    suffices.
+  - Preserve the annotated OMEX parsing/manifest/checksum limits without claiming
+    that these establish failure of the paper experiments.
+- action_id: repair-time-course-volume
+  description: Recover the reported time-course working volume.
+  finding_ids:
+  - time-course-volume
+  target_ids:
+  - CommunityMech:000009
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Record 650 mL only for the quadruplicate 90-hour community time course; preserve
+    60 g grains/L and its sampling scope.
+  - Retain standard 48-hour static 25°C propagation separately; do not assign 650
+    mL to every pair, plate or whey experiment.
+  - Replace categorical no-volume/stability-model and argumentative historical prose
+    with concise source-scoped protocol notes. Do not invent a vessel type.
+- action_id: repair-modeled-material
+  description: Correct the dairy-building environmental scope.
+  finding_ids:
+  - modeled-material
+  target_ids:
+  - CommunityMech:000009
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Use a verified ontology representation for the intended material or habitat, or
+    retain an explicitly ungrounded source description while resolving the term.
+  - Keep laboratory setting, food matrix and community origin distinct; do not replace
+    with an unverified adjacent CURIE.
+- action_id: repair-resource-provenance
+  description: Update file and dataset provenance.
+  finding_ids:
+  - resource-provenance
+  target_ids:
+  - CommunityMech:000009
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Use the current main file keir_bacterium_1.xml with MODEL2204300001 and a version/hash
+    or access date; do not assert that the older spelling never existed.
+  - Move PMID33398099 to publication evidence/resources and link verified PRJNA375758,
+    PRJEB37001, MTBLS1823/1829/1830 and the immutable author repository according
+    to their actual data types.
+  - Record CarveMe and author model identity/version for computational evidence; keep
+    empirical pair assays separate. Preserve structural differences, NON_CURATED status
+    and FROG packaging limitations.
+  - Do not claim raw-omics inspection, model reproduction or all-strain accession
+    verification from metadata-only checks.
+- action_id: preserve-qualified-graph
+  description: Preserve the five nodes and one PARTIAL feedback arrow during separately
+    authorized scope repair.
+  finding_ids:
+  - model-community-scope
+  - ode-verification
+  - time-course-volume
+  - modeled-material
+  - resource-provenance
+  target_ids:
+  - CommunityMech:000009
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Keep reciprocal benefit assay-specific, suppression directional and lactate flux/necessity
+    qualified; harmonize related ingredient wording with those limits.
+  - Do not import the Acetobacter dose range into L. kefiranofaciens, or treat amino-acid
+    depletion as direct proof of lactate transfer.
+  - Preserve append-only history and rerun schema, strict, terms, references, history
+    and network checks after authorized curation.
+limitations:
+- Selected worksheet rows were read, not an exhaustive audit of the 43-sheet workbook
+  or raw omics. No new statistical analysis, flux optimization, sequencing analysis
+  or code execution.
+- Model id mapping is direct in the author species list and consistent with source
+  isolate SB-424; the BioModels and author reconstructions differ structurally. Neither
+  byte identity nor scientific equivalence is claimed.
+- The BioModels family annotation conflicts with the author species mapping; annotated
+  OMEX parsing/manifest/report-checksum inconsistencies are archive limits, not evidence
+  against the paper experiments.
+- Pairwise liquid-milk interactions, solid-plate assays, whey supplementation, natural
+  grain time course and computational predictions remain distinct. Conditioned-medium
+  amino-acid consumption is stronger evidence than the unresolved lactate transfer
+  measurements.
+- No new environmental CURIE, exact six-member community model or automatic ecological-state
+  replacement was verified.
+- Table S8 includes duplicate pair rows with different outcomes; the encoded graph
+  is assessed against explicit assay support, not universal strain behavior.
+- Not every extended-data image, supplementary panel or workbook cell was inspected.
+  Complete main text and declared critical figure/table scopes support the current
+  findings. The second paper was read for collection applicability, not independently
+  reproduced.
+notes:
+- No canonical, cache, history or generated files changed. All 25 repository inputs
+  remain pinned.
+- Quoted words are counted separately for each publication, including its supplements.
+- Native quality 100 is capped from 107; scientific scope findings remain material.
+tags:
+- record-review
+- kefir
+- metabolic-model
+- batch-07
+```

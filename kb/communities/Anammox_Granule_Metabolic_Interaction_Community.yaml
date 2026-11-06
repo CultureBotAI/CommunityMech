@@ -1,18 +1,18 @@
 id: CommunityMech:000146
 name: Anammox Granule Metabolic Interaction Community
-description: >
-  A laboratory-scale anammox granular-sludge bioreactor community reconstructed with genome-centric
-  metagenomics and metatranscriptomics. Brocadia-affiliated anammox bacteria dominate nitrogen removal,
-  while Chlorobi-affiliated and other heterotrophic bacteria recycle nitrate to nitrite, degrade EPS-derived
-  peptides, and scavenge detrital products from anammox growth.
+description: 'A laboratory-scale anammox granular-sludge bioreactor community reconstructed with genome-centric metagenomics
+  and metatranscriptomics. Brocadia-affiliated anammox bacteria dominate nitrogen removal, while Chlorobi-affiliated and other
+  heterotrophic bacteria recycle nitrate to nitrite, degrade EPS-derived peptides, and scavenge detrital products from anammox
+  growth.
+
+  '
 ecological_state: ENGINEERED
 community_origin: ENGINEERED
 community_category: BIOTECHNOLOGY
 engineering_design:
-  objective: Resolve metabolic interactions in anammox granules used for energy-efficient wastewater nitrogen
-    removal.
-  assembly_strategy: Maintain dense anammox granular sludge in a laboratory-scale bioreactor and reconstruct
-    member genomes and transcript profiles from whole-community sequencing.
+  objective: Resolve metabolic interactions in anammox granules used for energy-efficient wastewater nitrogen removal.
+  assembly_strategy: Maintain dense anammox granular sludge in a laboratory-scale bioreactor and reconstruct member genomes
+    and transcript profiles from whole-community sequencing.
   measurement_endpoints:
   - metagenome-assembled genomes
   - metatranscriptomic gene expression
@@ -20,8 +20,7 @@ engineering_design:
   - heterotrophic nitrate respiration
   - peptide and amino acid catabolism
   evidence:
-  - &anammox_granules
-    reference: doi:10.1038/ncomms15416
+  - reference: doi:10.1038/ncomms15416
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: recover 17 draft genomes
@@ -31,8 +30,8 @@ environment_term:
   term:
     id: ENVO:00002043
     label: wastewater treatment plant
-  notes: Engineered laboratory bioreactor granular sludge used as a wastewater treatment model; ENVO wastewater
-    treatment plant is the closest validated built-environment term used in this schema.
+  notes: Engineered laboratory bioreactor granular sludge used as a wastewater treatment model; ENVO wastewater treatment
+    plant is the closest validated built-environment term used in this schema.
 taxonomy:
 - taxon_term:
     preferred_term: Brocadia-affiliated anammox bacterium AMX1
@@ -49,8 +48,8 @@ taxonomy:
       total_genomes: 10
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
-    notes: AMX1 was reported as a Brocadia-affiliated anammox MAG closely related to named Brocadia species.
-      The NCBI term is used as the closest named representative for the Brocadia-like anammox population.
+    notes: AMX1 was reported as a Brocadia-affiliated anammox MAG closely related to named Brocadia species. The NCBI term
+      is used as the closest named representative for the Brocadia-like anammox population.
   functional_role:
   - PRIMARY_PRODUCER
   - CROSS_FEEDER
@@ -66,6 +65,7 @@ taxonomy:
     evidence_source: COMPUTATIONAL
     snippet: AMX1 had a relative abundance
     explanation: Supports AMX1 dominance in the anammox granule community.
+  abundance_level: DOMINANT
 - taxon_term:
     preferred_term: Chlorobi-affiliated heterotrophic bacteria
     term:
@@ -74,15 +74,13 @@ taxonomy:
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
       curated: true
-      curation_note: 'Sharpened from p__Bacteroidota, which the rank-for-rank vote returns because NCBI
-        calls Chlorobiota a phylum (#451). GTDB demoted it rather than dissolving it - the clade survives
-        as c__Chlorobiia inside Bacteroidota - and all 24 named-species rows behind this grounding are
-        Chlorobiia, so the sharper term carries the same 132/132 confidence. The phylum term was not
-        wrong, only silent: GTDB:p__Bacteroidota carries five other groundings in this KB, so it
-        distinguished this entry from none of them. Class because c__Chlorobiia is the most senior GTDB
-        term that bears the clade name; o__Chlorobiales bears it too and is coextensive with the class
-        here - every row under one is under the other - so the choice between them is about which rank
-        the NCBI phylum corresponds to, not about evidence.'
+      curation_note: 'Sharpened from p__Bacteroidota, which the rank-for-rank vote returns because NCBI calls Chlorobiota
+        a phylum (#451). GTDB demoted it rather than dissolving it - the clade survives as c__Chlorobiia inside Bacteroidota
+        - and all 24 named-species rows behind this grounding are Chlorobiia, so the sharper term carries the same 132/132
+        confidence. The phylum term was not wrong, only silent: GTDB:p__Bacteroidota carries five other groundings in this
+        KB, so it distinguished this entry from none of them. Class because c__Chlorobiia is the most senior GTDB term that
+        bears the clade name; o__Chlorobiales bears it too and is coextensive with the class here - every row under one is
+        under the other - so the choice between them is about which rank the NCBI phylum corresponds to, not about evidence.'
       gtdb_id: GTDB:c__Chlorobiia
       gtdb_taxon: Chlorobiia
       gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Chlorobiia
@@ -91,9 +89,10 @@ taxonomy:
       support_genomes: 132
       total_genomes: 132
       is_reclassified: true
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at c__ rank; 1 GTDB taxa under the NCBI taxon]
-    notes: Chlorobi-affiliated MAGs, especially CHB1 and CHB2, were inferred as active protein and peptide
-      degraders in the EPS matrix.
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at c__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+    notes: Chlorobi-affiliated MAGs, especially CHB1 and CHB2, were inferred as active protein and peptide degraders in the
+      EPS matrix.
   functional_role:
   - PRIMARY_DEGRADER
   - CROSS_FEEDER
@@ -104,6 +103,13 @@ taxonomy:
     evidence_source: COMPUTATIONAL
     snippet: Chlorobi-affiliated bacteria may be highly active protein degraders
     explanation: Supports Chlorobi-affiliated heterotrophs as active protein degraders.
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: CHB1 had a relative abundance and gene expression of ∼21 and 26%, respectively
+    explanation: Reports that Chlorobi-affiliated heterotroph CHB1 accounted for ~21% relative abundance and ~26% gene expression
+      as the most abundant and active heterotroph in the anammox granules.
+  abundance_level: ABUNDANT
 - taxon_term:
     preferred_term: anammox-granule heterotrophic flanking bacteria
     term:
@@ -119,9 +125,10 @@ taxonomy:
       support_genomes: 1603049
       total_genomes: 1603049
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-    notes: Aggregated representation for Bacteroidetes, Chloroflexi, Proteobacteria, and other heterotrophic
-      MAGs recovered from the anammox granules.
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+    notes: Aggregated representation for Bacteroidetes, Chloroflexi, Proteobacteria, and other heterotrophic MAGs recovered
+      from the anammox granules.
   functional_role:
   - SECONDARY_FERMENTER
   - CROSS_FEEDER
@@ -131,11 +138,19 @@ taxonomy:
     evidence_source: COMPUTATIONAL
     snippet: Bacteroidetes, Chloroflexi, Proteobacteria
     explanation: Supports the broader heterotrophic flanking community in the recovered MAG set.
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Other organisms that displayed moderate abundance and gene expression in the anammox ecosystem were affiliated
+      with the phyla Chlorobi, Bacteroidetes, Chloroflexi and Proteobacteria
+    explanation: Reports moderate relative abundance and gene expression for the heterotrophic flanking bacteria affiliated
+      with Chlorobi, Bacteroidetes, Chloroflexi, and Proteobacteria in the anammox granules.
+  abundance_level: COMMON
 ecological_interactions:
 - name: Anammox Ammonium-Nitrite Conversion
-  description: The Brocadia-affiliated AMX1 genome expressed anammox genes in the nitrogen-removing granule reactor.
-    This supports active metabolic potential; the proposed transfers to neighboring heterotrophs were inferred from
-    genomes and transcripts rather than measured as partner-resolved fluxes.
+  description: The Brocadia-affiliated AMX1 genome expressed anammox genes in the nitrogen-removing granule reactor. This
+    supports active metabolic potential; the proposed transfers to neighboring heterotrophs were inferred from genomes and
+    transcripts rather than measured as partner-resolved fluxes.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Brocadia-affiliated anammox bacterium AMX1
@@ -156,8 +171,8 @@ ecological_interactions:
     description: HYPOTHESIZED - anammox-derived nitrate could supply heterotrophic nitrate reduction and a nitrite-return
       loop; expression supports potential but not the exchanged flux.
   - target: EPS Peptide Scavenging by Chlorobi
-    description: HYPOTHESIZED - anammox-associated extracellular material could feed heterotrophic proteolysis;
-      the source of consumed protein and the transfer were not traced in this study.
+    description: HYPOTHESIZED - anammox-associated extracellular material could feed heterotrophic proteolysis; the source
+      of consumed protein and the transfer were not traced in this study.
   - target: Detritus and Small-Donor Scavenging
     description: HYPOTHESIZED - biomass turnover or released small substrates could feed heterotrophs; wastewater-derived
       organic carbon and unresolved pathway directions prevent exclusive attribution to AMX1.
@@ -168,9 +183,9 @@ ecological_interactions:
     snippet: genes involved in anammox metabolism
     explanation: Supports active anammox metabolism in the Brocadia-affiliated AMX1 genome.
 - name: Heterotrophic Nitrite Loop
-  description: HYPOTHESIZED - expressed heterotrophic nitrate-reductase genes could support nitrate-to-nitrite recycling
-    for anammox. The study also identifies other nitrogen-reduction routes; a realized nitrite loop and its contribution
-    were not directly measured.
+  description: HYPOTHESIZED - expressed heterotrophic nitrate-reductase genes could support nitrate-to-nitrite recycling for
+    anammox. The study also identifies other nitrogen-reduction routes; a realized nitrite loop and its contribution were
+    not directly measured.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -194,14 +209,14 @@ ecological_interactions:
   evidence:
   - reference: doi:10.1038/ncomms15416
     snippet: All heterotrophs expressed respiratory nitrate reductase genes
-    explanation: Same-study results support nitrate-reduction potential. They do not prove nitrite return or complete
-      nitrate-to-dinitrogen denitrification by every participant.
+    explanation: Same-study results support nitrate-reduction potential. They do not prove nitrite return or complete nitrate-to-dinitrogen
+      denitrification by every participant.
     evidence_source: COMPUTATIONAL
     supports: PARTIAL
 - name: EPS Peptide Scavenging by Chlorobi
   description: HYPOTHESIZED - highly expressed peptidases and peptide/amino-acid transport genes support Chlorobi-affiliated
-    protein scavenging. Extracellular localization and anammox-derived EPS as the substrate are inferred; transfer
-    to other community members was not directly demonstrated.
+    protein scavenging. Extracellular localization and anammox-derived EPS as the substrate are inferred; transfer to other
+    community members was not directly demonstrated.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -223,18 +238,18 @@ ecological_interactions:
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: catabolizing extracellular peptides
-    explanation: Supports a source-proposed EPS/peptide-scavenging model; same-system substrate origin and inter-member
-      flux were not directly traced.
+    explanation: Supports a source-proposed EPS/peptide-scavenging model; same-system substrate origin and inter-member flux
+      were not directly traced.
   - reference: doi:10.1038/ncomms15416
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: EPS produced by anammox bacteria
-    explanation: Supports a source-proposed EPS/peptide-scavenging model; same-system substrate origin and inter-member
-      flux were not directly traced.
+    explanation: Supports a source-proposed EPS/peptide-scavenging model; same-system substrate origin and inter-member flux
+      were not directly traced.
 - name: Detritus and Small-Donor Scavenging
   description: HYPOTHESIZED - heterotrophic genomes expressed functions compatible with detritus, peptide and small-donor
-    metabolism. The direction of acetate metabolism remains unresolved, and hydrogen/formate use does not establish
-    secretion by AMX1 or exclusive anammox-derived carbon supply.
+    metabolism. The direction of acetate metabolism remains unresolved, and hydrogen/formate use does not establish secretion
+    by AMX1 or exclusive anammox-derived carbon supply.
   scope: COMMUNITY_LEVEL
   interaction_type: CROSS_FEEDING
   participating_taxa:
@@ -264,8 +279,7 @@ ecological_interactions:
 environmental_factors:
 - name: anaerobic granule interior
   value: Oxygen diffusion limited by dense aggregate structure
-  description: High granule density limits oxygen diffusion into the interior, permitting anaerobic bacteria
-    and anammox activity.
+  description: High granule density limits oxygen diffusion into the interior, permitting anaerobic bacteria and anammox activity.
   evidence:
   - reference: doi:10.1038/ncomms15416
     supports: SUPPORT
@@ -274,8 +288,7 @@ environmental_factors:
     explanation: Supports anaerobic granule interiors as a key environmental factor.
 - name: extracellular polymeric substances
   value: Protein- and polysaccharide-rich EPS matrix
-  description: Anammox granules are embedded in EPS, and EPS-derived peptides are inferred substrates for
-    heterotrophic members.
+  description: Anammox granules are embedded in EPS, and EPS-derived peptides are inferred substrates for heterotrophic members.
   evidence:
   - reference: doi:10.1038/ncomms15416
     supports: SUPPORT
@@ -294,19 +307,22 @@ environmental_factors:
 growth_media:
 - name: anammox granular-sludge bioreactor influent
   atmosphere: ANAEROBIC
-  preparation_notes: Laboratory-scale anammox bioreactor biomass maintained as granular sludge; exact influent
-    recipe is not asserted in this record because the curated claims focus on community metagenomics and
-    metatranscriptomics.
+  preparation_notes: Laboratory-scale anammox bioreactor biomass maintained as granular sludge; exact influent recipe is not
+    asserted in this record because the curated claims focus on community metagenomics and metatranscriptomics.
   evidence:
-  - *anammox_granules
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: recover 17 draft genomes
+    explanation: Supports genome-resolved reconstruction of the anammox granule community.
 associated_datasets:
 - title: Anammox granule metagenome and metatranscriptome article
   dataset_type: METATRANSCRIPTOMICS
   repository: OTHER
   accession: Nature-Communications-15416
   url: https://www.nature.com/articles/ncomms15416
-  description: Open-access article reporting genome-centric metagenomics, metatranscriptomics, and metabolic
-    network reconstruction for a laboratory anammox granule community.
+  description: Open-access article reporting genome-centric metagenomics, metatranscriptomics, and metabolic network reconstruction
+    for a laboratory anammox granule community.
   evidence:
   - reference: doi:10.1038/ncomms15416
     supports: SUPPORT
@@ -323,16 +339,24 @@ discussions:
   - ecological_interactions#Heterotrophic Nitrite Loop
   - ecological_interactions#EPS Peptide Scavenging by Chlorobi
   - ecological_interactions#Detritus and Small-Donor Scavenging
-  rationale: doi:10.1038/ncomms15416 reconstructs expressed metabolic potential. Acetate pathway direction is explicitly
-    unresolved; cited tracer support for EPS origin comes from other work. The reactor received wastewater filtrate
-    with residual organic carbon. Same-system flux tracing and partner perturbations are required to identify the
-    exchanged substrates and their contributors.
+  rationale: doi:10.1038/ncomms15416 reconstructs expressed metabolic potential. Acetate pathway direction is explicitly unresolved;
+    cited tracer support for EPS origin comes from other work. The reactor received wastewater filtrate with residual organic
+    carbon. Same-system flux tracing and partner perturbations are required to identify the exchanged substrates and their
+    contributors.
   posed_by: codex
   posed_date: '2026-10-05'
 curation_history:
 - timestamp: '2026-10-05T08:42:44Z'
   curator: codex
   action: REVIEW_CAUSAL_GRAPH
-  changes: 'Separate anammox granule expression evidence from proposed metabolite exchanges; complete decisions:
-    reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml; https://github.com/CultureBotAI/CommunityMech/issues/1245'
+  changes: 'Separate anammox granule expression evidence from proposed metabolite exchanges; complete decisions: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml;
+    https://github.com/CultureBotAI/CommunityMech/issues/1245'
+  llm_assisted: true
+- timestamp: '2026-11-05T16:50:00Z'
+  curator: antigravity
+  action: CURATE_TAXONOMY_ABUNDANCE
+  changes: Added abundance_level annotations and verbatim evidence from doi:10.1038/ncomms15416 to Brocadia-affiliated anammox
+    bacterium AMX1 (DOMINANT, ~62% relative abundance), Chlorobi-affiliated heterotrophic bacteria (ABUNDANT, CHB1 ~21% relative
+    abundance), and anammox-granule heterotrophic flanking bacteria (COMMON, moderate abundance across Chlorobi, Bacteroidetes,
+    Chloroflexi, and Proteobacteria), resolving c7s4-000146-anammox-granule-abundance-levels (#2120).
   llm_assisted: true

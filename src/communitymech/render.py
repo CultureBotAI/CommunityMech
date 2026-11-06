@@ -15,7 +15,7 @@ import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from markupsafe import Markup
 
-from communitymech.paths import DOCS
+from communitymech.paths import DOCS, record_files
 
 
 @lru_cache(maxsize=1)
@@ -57,6 +57,7 @@ class CommunityRenderer:
     """Render community YAML files to HTML pages."""
 
     def __init__(self, template_dir: Path | None = None):
+        self._record_stems: dict[str, str] | None = None
         """
         Initialize renderer with Jinja2 environment.
 
@@ -100,6 +101,7 @@ class CommunityRenderer:
         html = template.render(
             community=community,
             source_file=yaml_path.name,
+            related_pages=self._related_pages(community),
         )
 
         # Write to file if output path provided
@@ -110,6 +112,20 @@ class CommunityRenderer:
             print(f"  ✓ {yaml_path.name} → {output_path}")
 
         return html
+
+    def _related_pages(self, community: dict) -> dict[str, str]:
+        """Page stems for the records `related_communities` names, so links resolve."""
+        wanted = {link.get("identifier") for link in community.get("related_communities") or []}
+        if not wanted:
+            return {}
+        if self._record_stems is None:
+            self._record_stems = {}
+            for path in record_files():
+                with open(path) as f:
+                    doc = yaml.safe_load(f) or {}
+                if doc.get("id"):
+                    self._record_stems[str(doc["id"])] = path.stem
+        return {rid: self._record_stems[rid] for rid in wanted if rid in self._record_stems}
 
     def render_all(
         self,

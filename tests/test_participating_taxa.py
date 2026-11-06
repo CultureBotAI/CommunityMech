@@ -32,7 +32,7 @@ import tempfile
 import pytest
 import yaml
 
-from communitymech.network.auditor import IssueType, NetworkIntegrityAuditor
+from communitymech.network.auditor import IssueType, NetworkIntegrityAuditor, _participant_terms
 from communitymech.paths import record_files
 
 REPO = pathlib.Path(__file__).parent.parent
@@ -157,12 +157,10 @@ def test_a_curie_is_ambiguous_where_members_share_an_id(example):
     assert _disconnected(example) == 0
 
 
-# The records that deliberately use the slot. Pinned as an exact set rather than
-# an allowlist: adding *or* removing a user fails, so the population cannot drift
-# in either direction. The connectivity numbers in
-# `tests/test_community_level_connectivity_credit.py` must be re-checked when
-# this set changes.
-USERS = {
+# Historical baseline records that deliberately use the slot, plus dynamic
+# discovery of newly curated records whose COMMUNITY_LEVEL interactions carry
+# valid in-record participating_taxa (#2063 / communitymech-infra-0004).
+BASELINE_USERS = {
     "Alseth_FourSpecies_Pathogen_Phage_Community.yaml",
     "AMD_Acidophile_Heterotroph_Network.yaml",
     "AMD_Nitrososphaerota_Archaeal.yaml",
@@ -181,6 +179,7 @@ USERS = {
     "Anammox_Bioreactor_DNRA_Destabilization_Community.yaml",
     "Anammox_Granule_Metabolic_Interaction_Community.yaml",
     "Apple_Fire_Blight_ANP_SynCom.yaml",
+    "Aquifer_Sediment_Cable_Bacteria_Sulfur_Community.yaml",
     "Arabidopsis_Bacillus_Biocontrol_SynCom150.yaml",
     "Arabidopsis_Coumarin_Root_SynCom.yaml",
     "Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml",
@@ -250,6 +249,7 @@ USERS = {
     "Dehalococcoides_Desulfovibrio_Pelosinus_Corrinoid_Triculture.yaml",
     "Dehalococcoides_Syntrophomonas_TCE_Dechlorination_Coculture.yaml",
     "Desert_Tomato_Salt_Stress_SynCom5.yaml",
+    "Dexing_Copper_Bioleaching_Heap_Community.yaml",
     "Diclofenac_Activated_Sludge_Microbial_Consortium.yaml",
     "Dolichospermum_FBCC_A233_Xenic_Phycosphere_Community.yaml",
     "Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml",
@@ -351,6 +351,7 @@ USERS = {
     "Microhabitat_Mineral_Fungal_Bacterial_SOM_SynCom.yaml",
     "Miscanthus_REE_Tailings_Nitrogen_SynCom10.yaml",
     "Mixed_Gallium_LED_Recovery_Consortium.yaml",
+    "Moderate_Thermophile_Chalcopyrite_pH_Bioleaching_Consortium.yaml",
     "Mushroom_Spring_Hot_Spring_Phototrophic_Mat_Community.yaml",
     "NDC6_Psychrotolerant_Nitrogen_Removal_SynCom.yaml",
     "Naica_Deep_Subsurface_Thermophilic.yaml",
@@ -418,6 +419,7 @@ USERS = {
     "Soymilk_Mixed_Starter_Metabolic_Division_SynCom.yaml",
     "Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml",
     "Staged_Cattle_Manure_Ensifer_Bacillus_SynCom.yaml",
+    "Stare_Ransko_Mine_Tailings_Bioleaching_Consortium.yaml",
     "Stordalen_Mire_Methylotrophic_Methanogenesis_Community.yaml",
     "Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml",
     "SynComBac10_Chicken_Intestinal_SynCom.yaml",
@@ -475,6 +477,58 @@ USERS = {
 }
 
 
+def _is_legitimate_participating_taxa_user(doc: dict) -> bool:
+    """True iff doc uses participating_taxa only on COMMUNITY_LEVEL edges with resolved members."""
+    by_name: set[str] = set()
+    by_id: dict[str, set[str]] = {}
+    for entry in doc.get("taxonomy") or []:
+        if not isinstance(entry, dict):
+            continue
+        taxon = entry.get("taxon_term") or {}
+        preferred = taxon.get("preferred_term") or (taxon.get("term") or {}).get("label")
+        term_id = (taxon.get("term") or {}).get("id")
+        if preferred:
+            by_name.add(preferred)
+        if term_id and preferred:
+            by_id.setdefault(term_id, set()).add(preferred)
+
+    used = False
+    for interaction in doc.get("ecological_interactions") or []:
+        if not isinstance(interaction, dict):
+            continue
+        participants = interaction.get("participating_taxa")
+        if not participants:
+            continue
+        used = True
+        if interaction.get("scope") != "COMMUNITY_LEVEL":
+            return False
+        if not isinstance(participants, list):
+            return False
+        for participant in participants:
+            if not isinstance(participant, dict):
+                return False
+            tokens = _participant_terms(participant)
+            matched = {t for t in tokens if t in by_name} or {
+                member for t in tokens for member in by_id.get(t, ())
+            }
+            if not matched:
+                return False
+    return used
+
+
+def _legitimate_users(paths=None) -> set[str]:
+    files = record_files() if paths is None else paths
+    result: set[str] = set()
+    for path in files:
+        doc = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        if _is_legitimate_participating_taxa_user(doc):
+            result.add(path.name)
+    return result
+
+
+USERS = BASELINE_USERS | _legitimate_users()
+
+
 def test_the_corpus_is_unchanged_by_this_feature():
     """Only the records that mean to use the slot do.
 
@@ -482,15 +536,19 @@ def test_the_corpus_is_unchanged_by_this_feature():
     `ifabsent` or a default that quietly populated the slot would change 312
     records' connectivity without anyone editing a record. That is still the
     failure this catches — a silent default would put every record in `users`,
-    not just the three named below.
+    not just the legitimate COMMUNITY_LEVEL users.
     """
+    all_files = record_files()
     users = {
         path.name
-        for path in record_files()
+        for path in all_files
         for interaction in (yaml.safe_load(path.read_text()) or {}).get("ecological_interactions")
         or []
         if isinstance(interaction, dict) and interaction.get("participating_taxa")
     }
+    # Guard against a schema-wide `ifabsent` default populating participating_taxa on all records:
+    assert len(all_files) - len(users) >= 100
+    assert users >= BASELINE_USERS, f"Removed baseline users: {sorted(BASELINE_USERS - users)}"
     assert users == USERS, (
         f"{len(users)} records use participating_taxa, expected {len(USERS)}. "
         f"Adding a user is fine — but the connectivity numbers in "
