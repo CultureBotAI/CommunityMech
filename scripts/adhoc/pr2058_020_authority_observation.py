@@ -23,7 +23,7 @@ RECORD = Path("kb/communities/Coscinodiscus_Synthetic_Community.yaml")
 AUTHORITY = Path(".temp/pr2058/independent-secondary/sources/ncbi-taxonomy.xml")
 RETRIEVAL = Path(".temp/pr2058/independent-secondary/sources/fresh-authority-receipt.json")
 SECONDARY = Path(".temp/pr2058/independent-secondary/independent-science-three-records.json")
-ISSUE = Path(".temp/pr2058/independent-third/issue2572.json")
+ISSUE = Path(".temp/pr2058/020-author/issue2572-current.json")
 
 
 def read(path):
@@ -43,6 +43,7 @@ def prepare():
         RETRIEVAL,
         SECONDARY,
         ISSUE,
+        Path(".temp/pr2058/independent-third/issue2572.json"),
         Path("AGENTS.md"),
         Path(".claude/skills/review-yaml-record/SKILL.md"),
         Path(".claude/skills/curate-yaml-record/references/review-checklist.md"),
@@ -172,7 +173,7 @@ def build(inspection_path):
         "record_content",
         ISSUE,
         "Issue #2572 body: stable key and five acceptance checks",
-        "Canonical follow-up acceptance preserves source alias, historical GTDB provenance and all existing scientific scopes.",
+        "Current canonical follow-up acceptance preserves source alias, historical GTDB provenance and all existing scientific scopes. Its corrected single-ID URL/hash pair is separate from the author's independently paired combined-response XML/retrieval input; the earlier issue snapshot is retained only as historical context.",
     )
     checks = []
     for row in read(OUT / "focused-checks.json"):
