@@ -1,0 +1,142 @@
+reviewer: antigravity
+review_mode: stage5_review_remediation
+base_commit: 8abeafc9364252290709f261b3d1f60cad450ea7
+issues:
+- 2113
+records:
+- path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  id: CommunityMech:000401
+  original_sha256: fb0edcb5af076a247ed278b42027f036f101484395333493653d4e6f75f8b319
+  record_sha256: c751d65f77ac054c5c8686bb6fd9d0ecf503fe729c1bb5c1d2409bbfe781169e
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261104-c6s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml
+    record_sha256: fb0edcb5af076a247ed278b42027f036f101484395333493653d4e6f75f8b319
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy abundance_level remediation preserves all batch6 causal graph decisions.
+  summary: Add DOMINANT abundance_level to B. bifidum JCM1254 and F. prausnitzii A2-165 with verbatim PMID:42655156 evidence while preserving batch6 causal graph decisions.
+  node_decisions:
+  - node: 2′-FL/FOS ratio-dependent butyrate peak
+    rationale: Retain exact measured ratio endpoint and interpretation quote; remove endpoint-only cross-feeding type.
+  - node: Putative B. bifidum metabolite support of F. prausnitzii butyrate output
+    rationale: Retain putative acetate cross-feeding with PARTIAL mechanism evidence, measured endpoints SUPPORT and the existing detailed flux gap.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42655156
+  issues:
+  - 2113
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture/2026-11-04T202200Z-antigravity-2113a1.yaml
+- path: kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml
+  id: CommunityMech:000402
+  original_sha256: f300a08a92756ce174019800b7a50cec74b8d9a6be17a56accd8e2daa8aa6cf3
+  record_sha256: 703558d694853b4262cb56256d65bcd314d432ba376fea5639ea4d5b5fd286f2
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261104-c6s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch100.yaml
+    record_sha256: f300a08a92756ce174019800b7a50cec74b8d9a6be17a56accd8e2daa8aa6cf3
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy functional_role and abundance_level remediation preserves all batch100 causal graph decisions.
+  summary: Add functional_role and abundance_level annotations to Delta nrfA Shewanella oneidensis MR-1 and Candidatus Brocadia anammox bacteria with verbatim PMID:42655905 evidence while preserving batch100 causal graph decisions.
+  node_decisions:
+  - node: Delta nrfA nitrate-to-nitrite supply for anammox
+    rationale: Retain inferred nitrite cross-feeding with PARTIAL partner/pathway attribution and metagenomic limits.
+  - node: Mutant dosage window for anammox performance
+    rationale: Retain the measured treatment gradient without categorical competition or a universal dosing optimum.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42655905
+  issues:
+  - 2113
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium/2026-11-04T202200Z-antigravity-2113a2.yaml
+- path: kb/communities/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium.yaml
+  id: CommunityMech:000404
+  original_sha256: 06d15492c6e358b75deffe722b5299d7b5f86bf15090276db87fda690c6e639e
+  record_sha256: cc6165ecc72e89e7945cd433d963ce1105ccc8a08078de656f5485a098ccd49d
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261104-c6s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-four-records-batch123.yaml
+    record_sha256: 06d15492c6e358b75deffe722b5299d7b5f86bf15090276db87fda690c6e639e
+  scope: Whole record and all existing nodes/arrows reviewed; Stage 5 taxonomy functional_role and abundance_level remediation preserves all batch123 causal graph decisions.
+  summary: Add functional_role and abundance_level annotations to Ramichloridium apiculatum CMS-1 and Talaromyces pseudofuniculosus hzt-3′ with verbatim PMID:42478817 evidence while preserving batch123 causal graph decisions.
+  node_decisions:
+  - node: Hypothesized CMS-1 Extracellular Polymer Cross-Feeding
+    rationale: Qualify the proposed polymer handoff; bulk carbohydrate decline also includes medium-sucrose consumption.
+  - node: Mixed-Culture Organic-Acid and Amino-Acid Upregulation
+    rationale: Preserve bulk metabolite changes without niche partitioning, uniform acid increases or recipient-specific synthesis.
+  - node: Optimized Wollastonite Calcium and Silicon Leaching
+    rationale: Keep measured day-12 calcium/silicon leaching and residue changes distinct from isolated physical causality and CO2 sequestration.
+  removed_node_decisions: []
+  renamed_nodes:
+    CMS-1 Extracellular Polymer Cross-Feeding: Hypothesized CMS-1 Extracellular Polymer Cross-Feeding
+  edges_before:
+  - &id001
+    source: CMS-1 Extracellular Polymer Cross-Feeding
+    target: Mixed-Culture Organic-Acid and Amino-Acid Upregulation
+    description: "Cross-feeding of CMS-1 extracellular polymers and protein was linked to increased hzt-3\u2032\
+      \ acid and amino-acid production in the mixed culture."
+  - &id003
+    source: Mixed-Culture Organic-Acid and Amino-Acid Upregulation
+    target: Optimized Wollastonite Calcium and Silicon Leaching
+    description: Increased acids and amino acids lowered pH and intensified the chemical dissolution of wollastonite
+      by the mixed fungal culture.
+  edges_after:
+  - &id002
+    source: Hypothesized CMS-1 Extracellular Polymer Cross-Feeding
+    target: Mixed-Culture Organic-Acid and Amino-Acid Upregulation
+    description: "HYPOTHESIZED: consumption of CMS-1 products could enable greater hzt-3\u2032 acid and amino-acid\
+      \ production. Bulk culture comparisons support metabolic changes but do not isolate this transfer as their\
+      \ necessary cause or distinguish it from consumption of supplied sucrose."
+  - &id004
+    source: Mixed-Culture Organic-Acid and Amino-Acid Upregulation
+    target: Optimized Wollastonite Calcium and Silicon Leaching
+    description: 'PARTIAL: increased acidic metabolites and lower pH are consistent with enhanced acid dissolution
+      and complexation driving wollastonite leaching. The culture-ratio comparison supports this mechanism but does
+      not selectively establish which acid or amino acid is necessary, or partition chemical dissolution from physical
+      disruption.'
+  retained_edge_decisions:
+  - before: *id001
+    after: *id002
+    rationale: "HYPOTHESIZED: consumption of CMS-1 products could enable greater hzt-3\u2032 acid and amino-acid\
+      \ production. Bulk culture comparisons support metabolic changes but do not isolate this transfer as their\
+      \ necessary cause or distinguish it from consumption of supplied sucrose."
+  - before: *id003
+    after: *id004
+    rationale: 'PARTIAL: increased acidic metabolites and lower pH are consistent with enhanced acid dissolution
+      and complexation driving wollastonite leaching. The culture-ratio comparison supports this mechanism but does
+      not selectively establish which acid or amino acid is necessary, or partition chemical dissolution from physical
+      disruption.'
+  removed_edge_decisions: []
+  references:
+  - PMID:42478817
+  issues:
+  - 2113
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Wollastonite_Ramichloridium_Talaromyces_Fungal_Consortium/2026-11-04T202200Z-antigravity-2113a4.yaml

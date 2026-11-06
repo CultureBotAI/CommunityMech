@@ -1,0 +1,1379 @@
+# Kefir Rothia BioModels record: whole-record source and artifact review
+
+- Review: 20261019T074329Z-kefir-rothia-model-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-19T07:34:18Z
+- Finished UTC: 2026-10-19T07:43:29.985516Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Primary BioModels metadata and downloaded SBML confirm the KRP model identity; cultivation and the sole computational node are supported. Two major findings concern a dairy-building ontology mismatch and unreconciled publication/deposit genome provenance; one minor finding concerns title-only claim evidence. All focused gates pass; required corpus network gates retain unrelated warning failures.
+
+## Scope And Provenance
+
+Entire canonical isolate record, one computational interaction and zero downstream edges; primary papers, model artifacts, ontology meaning and current genome provenance assessed.
+
+Selection: Second unreviewed repository-relative path in the declared review-yaml-record corpus after validated existing review inventory; previous path 000320 already saved. One record in this bundle.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base a4611c913c8da9619673df63a0c2cce3aa206a83.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000321 | data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml | maintained | BioModels MODEL2204300002 Kefir Rothia Model |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000321 | No issues found<br>uv run linkml-validate -s src/communitymech/schema/communitymech.yaml data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml |
+| validate-strict | passed | True | CommunityMech:000321 | uv run python scripts/validate_strict.py data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml --out /private/tmp/cm-review-session/000321/strict-report.tsv<br>Validating 1 files with 17 workers; schema=/private/tmp/communitymech-record-reviews-20261019/src/communitymech/schema/communitymech.yaml<br><br>=== validate-strict summary ===<br>  files scanned:      1<br>  files with ERROR:   0<br>  total ERROR rows:   0<br>  TSV:                /private/tmp/cm-review-session/000321/strict-report.tsv |
+| validate-terms | passed | True | CommunityMech:000321 | ✅ Validation passed<br>uv run linkml-term-validator validate-data data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml -s src/communitymech/schema/communitymech.yaml --labels |
+| validate-gtdb | passed | True | CommunityMech:000321 | PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml<br><br>files checked: 1<br>incoherent blocks: 0<br>malformed lineages: 0<br>lineage conflicts: 0 |
+| validate-gtdb-domain | passed | True | CommunityMech:000321 | files checked: 1<br>contradictory lineages: 0<br>PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml |
+| validate-history | passed | True | CommunityMech:000321 | No issues found |
+| normalize-cache-names | passed | False | CommunityMech:000321 | Actual command returned exit 0 with no reported issues or output. |
+| validate-references-initial | failed | False | CommunityMech:000321 | Initial recipe failed before reference validation because nested just rejected JUST_NO_DOTENV=1; the corrected literal true retry passed. Actual exit 2 is retained; no scientific defect inferred. |
+| validate-references-explained | passed | True | CommunityMech:000321 | Validating data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml against schema src/communitymech/schema/communitymech.yaml<br>Cache directory: references_cache<br><br>Validation Summary:<br>  Reported validation issues: 0<br>  All validations passed!<br><br>[annotate] This is not a count of checked excerpts (#1469). Native Discussion evidence coverage remains incomplete (#476). |
+| audit-network | failed | True | CommunityMech:000321 | Actual full-corpus recipe exit 1: 462 records, 57 warnings in 21 records, zero errors. No target-specific network finding. Reused this session result against unchanged record bytes and the same Git base; these corpus warnings are not attributed to KRP. |
+| check-network-quality | failed | True | CommunityMech:000321 | Actual full-corpus recipe exit 1: 462 records, 57 warnings in 21 records, zero errors. No target-specific network finding. Reused this session result against unchanged record bytes and the same Git base; these corpus warnings are not attributed to KRP. |
+
+## Scientific And Domain Assessments
+
+### BioModels record identity and scope
+
+identity: supported. Targets: CommunityMech:000321.
+
+The canonical target denotes the KRP genome-scale model, independently confirmed by BioModels metadata, exact downloaded SBML and authors species mapping. ENGINEERED/BIOTECHNOLOGY is the declared model-platform representation; it must not imply genetic engineering of the natural kefir isolate. It does not represent the entire natural kefir consortium.
+
+### Taxon and genome-source correspondence
+
+grounding: concern. Targets: CommunityMech:000321.
+
+KRP is the publication/model participant. Canonical NCBI and GTDB genus resolution is internally coherent and does not pretend to be strain-level taxonomic grounding. The publication assigns NDFM to KRP, while current deposit metadata uses Olga; stock code 156 partly bridges the naming. Current assembly statistics and QC flags differ from the publication, so exact model-input accession correspondence remains uncertain.
+
+### Design objective and computational endpoints
+
+evidence: supported. Targets: CommunityMech:000321.
+
+The objective is a model reconstruction; declared reconstruction and amino-acid FBA endpoints match the inspected Methods and authors workflow. The primary metadata establishes the exact deposit. No inoculation, passaging or engineered genotype is invented. The design evidence currently cites the publication title, which provides context but should be replaced by assertion-specific provenance.
+
+### ecological_interactions[0]: Rothia KRP Genome-Scale Amino-Acid Flux Model
+
+graph: supported. Targets: CommunityMech:000321.
+
+The sole node correctly declares COMPUTATIONAL POTENTIAL. Participant is KRP with genus grounding; no microbial target, exchange partner or directed transfer is asserted. Source-supported reconstruction and FBA justify the bounded amino-acid process/transport annotations as model scope, without experimentally proving flux or fitness effects.
+
+Exact paths: ecological_interactions[0].participating_taxa[0], metabolites[0], biological_processes[0:2], evidence[0:2]. Both evidence_source values are COMPUTATIONAL. Model ID m_156_03182016 is verified in both artifacts; current BioModels and authors artifacts differ in bytes and reaction/species counts. The two computational_provenance.input_accession fields inherit the genome correspondence concern. simulated_medium is a contextual description, not a reproducible set of exchange bounds.
+
+### Complete downstream inventory and direction/context
+
+graph: supported. Targets: CommunityMech:000321.
+
+The full target has one node and zero downstream edges. No missing biological arrow is inferred. Previous isolation-to-sequencing-to-model workflow arrows were removed; restoring them would confuse data-production provenance with ecological causation. The singleton has explicit KRP participation and no unresolved edge target.
+
+### Physical and modeled environment
+
+grounding: concern. Targets: CommunityMech:000321.
+
+Laboratory environment is appropriate for the isolation/study context. The modeled environment is kefir/milk, but ENVO:00003862 denotes a dairy building. Matching the canonical label dairy does not make that ontology class a suitable material or habitat annotation. No environmental-factor values are invented for the computational platform.
+
+### growth_media[0] isolation conditions
+
+evidence: supported. Targets: CommunityMech:000321.
+
+GAM agar, 30 degrees C, two days, ground kefir-grain inoculum and plate context match the KRP-specific isolation passage. These are isolation conditions, not the simulated FBA medium. The term anaerobic in the medium name does not justify adding an anaerobic atmosphere. No CultureMech linkage is claimed; composition, pH and atmosphere remain unspecified.
+
+### Datasets, external resource and computational versions
+
+provenance: concern. Targets: CommunityMech:000321.
+
+The BioModels accession, file name and publication DOI resolve to the stated model. The WGS accession also resolves, with conflicting current metadata requiring reconciliation. Authors and deposit share a model ID but differ structurally, so neither byte equivalence nor reproduced predictions is established. The older in-record retrieval disclaimer is a historical review boundary; successful retrieval here does not authorize rewriting it or closing the exchange discussion.
+
+### Open question, claim placement and history
+
+provenance: supported. Targets: CommunityMech:000321.
+
+The open discussion correctly distinguishes computational prediction from partner-specific measurement. Its node attachment resolves. Embedded history and the append-only event describe the earlier graph repair consistently and disclose agent assistance; no new record/history/status transition is made. The current review improves external artifact verification while preserving the unresolved biological exchange question.
+
+### Structured expression-module source applicability
+
+evidence: not_applicable. Targets: CommunityMech:000321.
+
+No gene, locus, UniProt accession, regulator or KRP transcriptomics dataset is asserted. The node is genome model and FBA evidence; the paper RNA-seq passages inspected concern other named partner pairs. Broad amino-acid process labels do not identify a KRP expression-module claim. No iModulonDB lookup was used as support or as negative evidence.
+
+### Deterministic gates and ontology correspondence
+
+schema: supported. Targets: CommunityMech:000321.
+
+Focused schema, strict, term, reference, GTDB coherence/domain and history recipes passed on final execution. Reference checks establish snippet correspondence within their documented coverage; they do not adjudicate biological support or the source/deposit discrepancy. NCBITaxon32207, ENVO01001405/00003862, CHEBI33709, GO0006520/0006865 labels pass their authority snapshot. Correct dairy label does not resolve its semantic misuse.
+
+### Native completeness and validation-quality metrics
+
+completeness: concern. Targets: CommunityMech:000321.
+
+Native completeness 30 reflects missing functional_role in the all-or-nothing 50-point metadata block and sparse optional fields. The omission does not require inventing an ecological role for a computational model. Validation quality caps at 100 despite two major and one minor finding; the score is not scientific approval. The declared singleton graph has no target-specific network defect.
+
+## Findings
+
+### environment: Modeled environment is grounded to a dairy building
+
+major / open / confirmed; issue key: cm-000321-dairy-building-grounding.
+
+modeled_environment[0] uses ENVO:00003862 with its correct label dairy. The authoritative definition denotes a building for harvesting/processing milk. The record represents an isolate-derived kefir model and does not establish that built-environment scope. This is semantic misgrounding, not a label spelling failure; the term validator can correctly pass the label while this finding remains.
+
+### genome-provenance: Published genome provenance and current deposited assembly are unreconciled
+
+major / open / confirmed; issue key: cm-000321-genome-input-provenance.
+
+The paper associates KRP with NDFM and reports 2,522,693 bp / 81 contigs. Current NDFM00000000.1 and assembly metadata use Rothia sp. Olga, 2,756,010 bp / 401 contigs; current assembly QC flags include contamination and RefSeq suppression. BioSample name 156 - R.dentocariosa and the publication ISC 156 provide a partial bridge, so these sources do not prove different isolates. The exact assembly/version/preprocessing used for the KRP model is nevertheless not established by the present accession assertion. The target model identity itself is confirmed by primary BioModels metadata.
+
+### citation-placement: Design and resource evidence quote only a publication title
+
+minor / open / confirmed; issue key: cm-000321-title-only-evidence.
+
+engineering_design.evidence[0] and external_resources[0].evidence[0] repeat the publication title. A title supplies study context but does not identify the KRP artifact or substantiate reconstruction/FBA readouts. The underlying claims are now independently supported by inspected Methods, authors mapping and primary BioModels metadata, so this is a bounded assertion-level provenance gap rather than an unsupported model identity.
+
+## Recommended Actions And Acceptance Checks
+
+### fix-environment
+
+Curate modeled_environment to an authoritative term whose definition matches the source-supported kefir/milk setting, or omit the unsupported class until such grounding is established.
+
+- Inspect the proposed ontology definition and source context together; do not select a merely similar label.
+- Preserve the separation between laboratory isolation and the represented natural/applied kefir setting.
+- just validate-strict data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml; just validate-terms data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+- If separately authorized curation changes records, append history and regenerate/check affected documentation.
+
+### fix-genome-provenance
+
+Reconcile publication strain aliases and assembly processing/version against deposited sources; preserve the documented conflict and qualification until the exact model input is established.
+
+- Document evidence for any KRP/ISC 156/Olga alias relationship and distinguish source-paper statistics from current assembly metadata.
+- Identify the model input assembly/protein sequence artifact and explain version/filtering differences before claiming exact correspondence.
+- Retain current deposited QC limitations without inferring that all historical model predictions are invalid or automatically replacing the source taxon.
+- just validate data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml; just validate-strict data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml; just validate-references-explained data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml; just validate-gtdb data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+
+### fix-citation-placement
+
+Replace title-only evidence with concise claim-specific Methods support and exact model/deposit provenance in schema-supported fields.
+
+- Evidence distinguishes the publication modeling method from the particular KRP/BioModels artifact.
+- Any stored quotations are verbatim and have precise source locators; model versions/hashes are identified where equivalence matters.
+- just validate-strict data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml; just validate-references-explained data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml; Entire canonical record: one taxon, one computational interaction, zero downstream edges, three dataset entries, one growth medium, external resource, discussion and embedded history | supports | Read the entire maintained record and resolved its stable ID and exact target. It expressly represents one genome-scale metabolic model, and separates computational potential from observed ecological exchange. |
+| genome-paper | https://pmc.ncbi.nlm.nih.gov/articles/PMC5624747/; PMID:28963201; DOI:10.1128/genomeA.00869-17; complete Genome Announcement, cultivation paragraph, assembly paragraph, and Accession numbers; matching references_cache/PMID_28963201.txt | supports | The primary report identifies the kefir-grain isolate and supplies its cultivation and published genome provenance. This historical report is distinguished from current deposited accession metadata. |
+| cultivation-source | PMID:28963201; Genome Announcement, isolation paragraph; PMC5624747 main text; references_cache/PMID_28963201.txt full-text body | supports | The KRP-specific isolation passage supports ground kefir grains, serial dilution on GAM agar, 30 degrees C and two days. Atmosphere and medium composition are not supplied for this isolate. |
+| published-assembly | PMID:28963201; Genome Announcement assembly paragraph and Accession number(s); references_cache/PMID_28963201.txt | supports | The publication reports KRP as 2,522,693 bp, 58.47% GC and 81 contigs, and assigns NDFM00000000 to it. These figures are publication-specific observations, not remeasured genome properties. |
+| modeling-paper | PMID:33398099; DOI:10.1038/s41564-020-00816-5; references_cache/PMID_33398099.md line 227, modeling Methods; results lines 115,120,153; live author-manuscript metadata https://api.repository.cam.ac.uk/server/api/core/bitstreams/b4fa91ba-bcd9-461f-b5c0-1ae64ebbd862/content | supports | The inspected Methods describe CarveMe reconstruction and FBA amino-acid uptake/secretion estimates. Community-scale predictions combine species rates with measured abundance. This does not establish a measured KRP-to-partner exchange. |
+| authors-species | https://raw.githubusercontent.com/cdanielmachado/kefir_paper/master/species_list.tsv; Header GenomeID/Species; row 156_03182016 (web line 17); comparison rows 245_03182016 and 286a1_03232016 | supports | The authors map 156_03182016 to Rothia kefirresidentii KRP and assign the two R. dentocariosa isolates different model keys. This independently resolves the authors model participant. |
+| authors-readme | https://raw.githubusercontent.com/cdanielmachado/kefir_paper/master/README.md; Technical details: model reconstruction and flux-balance analysis bullets | supports | The authors repository identifies CarveMe for reconstruction and ReFramed for FBA, with SBML and notebooks supplied. No simulation was rerun during this review. |
+| authors-sbml | https://raw.githubusercontent.com/cdanielmachado/kefir_paper/master/models/156_03182016.xml; Parsed SBML model element and reaction/species collections; RDF description at file line 9 | supports | The fetched authors artifact has model ID m_156_03182016, SBML L3V1, 893 species and 1,274 reactions, with a CarveMe 1.6.1 description. Its 4,313,642-byte SHA-256 identifies the inspected version. |
+| biomodels | https://www.biomodels.org/MODEL2204300002?format=json; submissionId, name, description, publication.accession, files.main, history.revisions, curationStatus | supports | Primary BioModels metadata confirms MODEL2204300002 as the KRP model associated with DOI 10.1038/s41564-020-00816-5. It is NON_CURATED; revision history includes a 2024 gene-reaction-association update. This verifies deposit identity, not scientific reproduction. |
+| biomodels-sbml | https://www.biomodels.org/model/download/MODEL2204300002?filename=MODEL2204300002.xml; Parsed SBML model element, species/reaction collections and model annotations; checksum compared with BioModels files.main metadata | supports | The exact MODEL2204300002.xml download has model ID m_156_03182016, 962 species and 1,336 reactions. Its SHA-256 matches the provider checksum. It differs in bytes and structure from the authors artifact; matching ID does not establish equivalent predictions. |
+| nuccore | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&amp;id=NDFM00000000&amp;rettype=gb&amp;retmode=text; NDFM00000000.1 GenBank master: DEFINITION, ACCESSION, VERSION, DBLINK, source qualifiers, WGS range | partial | NDFM00000000 resolves, but current source metadata names Rothia sp. Olga, strain Olga, NCBITaxon:1979525, BioSample SAMN06718477 and 401 component sequences. The publication-to-deposit strain wording is not fully reconciled. |
+| ena | https://www.ebi.ac.uk/ena/browser/api/embl/NDFM00000000.1?download=false; NDFM01000000 master: organism, strain, BioSample cross-reference, component sequence range | partial | ENA independently reports the same Olga designation and 401-sequence WGS project for NDFM00000000.1. This corroborates the database metadata, not a biological distinction between Olga and KRP. |
+| biosample | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=biosample&amp;id=SAMN06718477&amp;retmode=xml; BioSample SAMN06718477: Id with db_label Sample name, Organism, strain and isolation-source attributes | partial | The sample name 156 - R.dentocariosa shares stock number 156 with the publication, providing a plausible bridge. Its organism/strain remain Rothia sp. Olga/Olga, without an explicit KRP synonym in the inspected XML. |
+| assembly | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=assembly&amp;id=1163481&amp;retmode=json; Assembly esummary UID1163481: WGS NDFM01, accession synonyms, meta Stats, anomalouslist, exclfromrefseq and update date | partial | GCA_002238135.1/GCF_002238135.1 ASM223813v1 links to NDFM01 and the same BioSample, but reports 2,756,010 bp/401 contigs. Current metadata marks contamination and RefSeq suppression, updated 2026-09-23. These flags require provenance review; they do not by themselves falsify the historical modeled phenotype. |
+| ncbi-taxa | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&amp;id=1979525,32207&amp;retmode=xml; TaxaSet: Taxon1979525 and Taxon32207 rank, names and LineageEx | supports | NCBITaxon:32207 is genus Rothia and an ancestor of the deposited organism. Genus grounding is broader than the preferred KRP source-strain label; no species-level genome assignment follows from genus ancestry. |
+| envo-definition | https://semanticsql.berkeleybop.io/envo.db.gz; Official local SemanticSQL ENVO snapshot; ontology version 2026-06-26; ENVO:00003862 rdfs:label and IAO:0000115. snapshot_sha256 hashes the exact bytes of the extracted query JSON at /private/tmp/cm-review-session/000321/envo-dairy-authority.json, not the full database or compressed download. | refutes | The canonical term dairy denotes a building used for milk harvesting/processing. It is not the milk or kefir material modeled in this record. This is an ID-selection problem despite a correct label. |
+| schema | src/communitymech/schema/communitymech.yaml; MicrobialCommunity.modeled_environment, TaxonomicComposition, EvidenceItem, InteractionDownstream, CommunityEngineeringDesign, ComputationalProvenance | supports | Maintained schema distinguishes physical setting from represented environment; a taxonomic descriptor retains separate preferred wording and canonical grounding. Computational evidence and source provenance must retain their assay/model scope. |
+| history | history/records/BioModels_MODEL2204300002_Kefir_Rothia_Model/2026-10-05T071439Z-codex-9feb28.yaml; Entire append-only history file; reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml target entry; embedded curation_history[0] | supports | The prior source-based graph audit removed isolation/sequencing workflow arrows and disclosed AI assistance. Its scope explicitly excluded certification of other metadata. It is not a structured predecessor finding to supersede. |
+| access-scope | PMID:28963201; PMID:33398099; BioModels:MODEL2204300002; NDFM00000000; Current session primary metadata, article source text, authors repository and accession inspection | context_only | Initial web-only BioModels/NCBI accesses failed, but later ordinary public API retrieval succeeded. PMC7610452 presented a browser challenge; committed source text and an accessible author manuscript provided article context. No challenge bypass or provider call occurred. |
+| check-validate | UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1 just --no-dotenv validate data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml; Actual recipe output; exit_code=0 | context_only | No issues found<br>uv run linkml-validate -s src/communitymech/schema/communitymech.yaml data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml |
+| check-validate-strict | UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1 just --no-dotenv validate-strict data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml --out /private/tmp/cm-review-session/000321/strict-report.tsv; Actual recipe output; exit_code=0 | context_only | uv run python scripts/validate_strict.py data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml --out /private/tmp/cm-review-session/000321/strict-report.tsv<br>Validating 1 files with 17 workers; schema=/private/tmp/communitymech-record-reviews-20261019/src/communitymech/schema/communitymech.yaml<br><br>=== validate-strict summary ===<br>  files scanned:      1<br>  files with ERROR:   0<br>  total ERROR rows:   0<br>  TSV:                /private/tmp/cm-review-session/000321/strict-report.tsv |
+| check-validate-terms | UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1 just --no-dotenv validate-terms data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml; Actual recipe output; exit_code=0 | context_only | ✅ Validation passed<br>uv run linkml-term-validator validate-data data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml -s src/communitymech/schema/communitymech.yaml --labels |
+| check-validate-gtdb | UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1 just --no-dotenv validate-gtdb data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml; Actual recipe output; exit_code=0 | context_only | PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml<br><br>files checked: 1<br>incoherent blocks: 0<br>malformed lineages: 0<br>lineage conflicts: 0 |
+| check-validate-gtdb-domain | UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1 just --no-dotenv validate-gtdb-domain data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml; Actual recipe output; exit_code=0 | context_only | files checked: 1<br>contradictory lineages: 0<br>PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml |
+| check-validate-history | UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1 just --no-dotenv validate-history history/records/BioModels_MODEL2204300002_Kefir_Rothia_Model; Actual recipe output; exit_code=0 | context_only | No issues found |
+| check-normalize-cache-names | UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1 uv run python scripts/normalize_cache_names.py --check; Actual recipe output; exit_code=0 | context_only | Actual command returned exit 0 with no reported issues or output. |
+| check-validate-references-initial | UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1 just --no-dotenv validate-references-explained data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml; Actual recipe output; exit_code=2 | context_only | Initial recipe failed before reference validation because nested just rejected JUST_NO_DOTENV=1; the corrected literal true retry passed. Actual exit 2 is retained; no scientific defect inferred. |
+| check-validate-references-explained | UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=true just --no-dotenv validate-references-explained data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml; Actual recipe output; exit_code=0 | context_only | Validating data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml against schema src/communitymech/schema/communitymech.yaml<br>Cache directory: references_cache<br><br>Validation Summary:<br>  Reported validation issues: 0<br>  All validations passed!<br><br>[annotate] This is not a count of checked excerpts (#1469). Native Discussion evidence coverage remains incomplete (#476). |
+| check-audit-network | just --no-dotenv audit-network; Full-corpus output from 2026-10-19T07:30:27.845593+00:00 | context_only | Actual full-corpus recipe exit 1: 462 records, 57 warnings in 21 records, zero errors. No target-specific network finding. Reused this session result against unchanged record bytes and the same Git base; these corpus warnings are not attributed to KRP. |
+| check-check-network-quality | just --no-dotenv check-network-quality; Full-corpus output from 2026-10-19T07:30:43.193891+00:00 | context_only | Actual full-corpus recipe exit 1: 462 records, 57 warnings in 21 records, zero errors. No target-specific network finding. Reused this session result against unchanged record bytes and the same Git base; these corpus warnings are not attributed to KRP. |
+
+## Limits And Additional Notes
+
+- Exact model artifact identity and structure were inspected, but neither FBA nor the provider FROG report was rerun; no claim of numerical reproduction or equivalence between versions is made.
+- KRP/ISC 156 and deposited Olga naming share a stock-code bridge but are not explicitly reconciled in the inspected primary records; assembly version/preprocessing and current QC flags remain unresolved.
+- Current ontology and GTDB gates verify labels/coherence/domain, not the original 1075-genome mapping support count calculation, which was not independently regenerated.
+- The full-corpus network recipes returned warnings elsewhere; the target has no network finding. Corpus failures are preserved as required failed checks rather than silently recast as passes.
+- The source paper supports biological cultivation conditions for the isolate; these are not FBA exchange-bound specifications. Source-medium composition and atmosphere were not reconstructed.
+- This review used one agent with delegated read-only validator/source checks. The agents did not author or modify the target this session; historical record curation also used codex identity, so person-level independence is unknown.
+- No record, history, generated product or scientific-status field was edited. All proposed actions require separately authorized curation.
+- Successful current retrieval improves the evidence available to this review without pretending that the older embedded review had retrieved the deposit.
+- Seven record EvidenceItems cite two publications. Graph evidence comprises two excerpts from one modeling article, not independent replication.
+- External evidence snapshots were retained in session scratch and their SHA-256 values are recorded with precise URLs; repository-local inputs are hashed in source.inputs.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261019T074329Z-kefir-rothia-model-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Kefir Rothia BioModels record: whole-record source and artifact review'
+started_at: '2026-10-19T07:34:18Z'
+finished_at: '2026-10-19T07:43:29.985516Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: This review used one agent with delegated read-only validator/source
+    checks. The agents did not author or modify the target this session; historical
+    record curation also used codex identity, so person-level independence is unknown.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Primary BioModels metadata and downloaded SBML confirm the KRP model identity;
+  cultivation and the sole computational node are supported. Two major findings concern
+  a dairy-building ontology mismatch and unreconciled publication/deposit genome provenance;
+  one minor finding concerns title-only claim evidence. All focused gates pass; required
+  corpus network gates retain unrelated warning failures.
+source:
+  git_revision: a4611c913c8da9619673df63a0c2cce3aa206a83
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    sha256: b73ac6cd532c8fb20c7d1fa70979b2a220238069f0ce78c7b6c9d66af2524ab8
+    role: target
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/records/BioModels_MODEL2204300002_Kefir_Rothia_Model/2026-10-05T071439Z-codex-9feb28.yaml
+    sha256: 8a81483f7c5e516d05a4ca41c850c4dc7955bc942202b3113b76c1e8e6335b81
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: references_cache/PMID_28963201.txt
+    sha256: 9c7771620800e1a3a7f4947c4f6b8c17f3914b4fa00a16f2a5977a06a46dd0ad
+    role: context
+  - path: references_cache/PMID_33398099.md
+    sha256: 354e026bfc49347f90ada79c14aa18776d7a0b9e2525868f0006ab50d4c8f4d2
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+    sha256: 3e0877c63e94f1c87d6c78b6d5480a0be07d80f1cd18f8db5efda4e8e2ea4d26
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: e5a87e5367609334ec0d6361f6ddafbe6bc4a1f7d93e5264c64688c28325910f
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000321
+  path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  label: BioModels MODEL2204300002 Kefir Rothia Model
+  record_class: MicrobialCommunity
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    role: canonical_record
+scope:
+  description: Entire canonical isolate record, one computational interaction and
+    zero downstream edges; primary papers, model artifacts, ontology meaning and current
+    genome provenance assessed.
+  selection: Second unreviewed repository-relative path in the declared review-yaml-record
+    corpus after validated existing review inventory; previous path 000320 already
+    saved. One record in this bundle.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000321
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: 'No issues found
+
+    uv run linkml-validate -s src/communitymech/schema/communitymech.yaml data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml'
+  target_ids:
+  - CommunityMech:000321
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    just --no-dotenv validate data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Single target; history recipe uses its exact maintained history directory.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: "uv run python scripts/validate_strict.py data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml\
+    \ --out /private/tmp/cm-review-session/000321/strict-report.tsv\nValidating 1\
+    \ files with 17 workers; schema=/private/tmp/communitymech-record-reviews-20261019/src/communitymech/schema/communitymech.yaml\n\
+    \n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:\
+    \   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/cm-review-session/000321/strict-report.tsv"
+  target_ids:
+  - CommunityMech:000321
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    just --no-dotenv validate-strict data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    --out /private/tmp/cm-review-session/000321/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Single target; history recipe uses its exact maintained history directory.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: '✅ Validation passed
+
+    uv run linkml-term-validator validate-data data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    -s src/communitymech/schema/communitymech.yaml --labels'
+  target_ids:
+  - CommunityMech:000321
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    just --no-dotenv validate-terms data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Single target; history recipe uses its exact maintained history directory.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: 'PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+
+
+    files checked: 1
+
+    incoherent blocks: 0
+
+    malformed lineages: 0
+
+    lineage conflicts: 0'
+  target_ids:
+  - CommunityMech:000321
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    just --no-dotenv validate-gtdb data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Single target; history recipe uses its exact maintained history directory.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: 'files checked: 1
+
+    contradictory lineages: 0
+
+    PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml'
+  target_ids:
+  - CommunityMech:000321
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    just --no-dotenv validate-gtdb-domain data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Single target; history recipe uses its exact maintained history directory.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: No issues found
+  target_ids:
+  - CommunityMech:000321
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    just --no-dotenv validate-history history/records/BioModels_MODEL2204300002_Kefir_Rothia_Model
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Single target; history recipe uses its exact maintained history directory.
+- check_id: normalize-cache-names
+  name: normalize-cache-names
+  status: passed
+  required: false
+  summary: Actual command returned exit 0 with no reported issues or output.
+  target_ids:
+  - CommunityMech:000321
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names
+  scope_note: Full-corpus cache filename check; no cache mutation.
+- check_id: validate-references-initial
+  name: validate-references-initial
+  status: failed
+  required: false
+  summary: Initial recipe failed before reference validation because nested just rejected
+    JUST_NO_DOTENV=1; the corrected literal true retry passed. Actual exit 2 is retained;
+    no scientific defect inferred.
+  target_ids:
+  - CommunityMech:000321
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    just --no-dotenv validate-references-explained data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  exit_code: 2
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-initial
+  scope_note: Single target; history recipe uses its exact maintained history directory.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: "Validating data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml\
+    \ against schema src/communitymech/schema/communitymech.yaml\nCache directory:\
+    \ references_cache\n\nValidation Summary:\n  Reported validation issues: 0\n \
+    \ All validations passed!\n\n[annotate] This is not a count of checked excerpts\
+    \ (#1469). Native Discussion evidence coverage remains incomplete (#476)."
+  target_ids:
+  - CommunityMech:000321
+  command: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=true
+    just --no-dotenv validate-references-explained data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Single target; history recipe uses its exact maintained history directory.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: 'Actual full-corpus recipe exit 1: 462 records, 57 warnings in 21 records,
+    zero errors. No target-specific network finding. Reused this session result against
+    unchanged record bytes and the same Git base; these corpus warnings are not attributed
+    to KRP.'
+  target_ids:
+  - CommunityMech:000321
+  command: just --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  scope_note: Corpus-wide gate; all declared isolate/community roots included. Target-specific
+    finding inventory is empty.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: 'Actual full-corpus recipe exit 1: 462 records, 57 warnings in 21 records,
+    zero errors. No target-specific network finding. Reused this session result against
+    unchanged record bytes and the same Git base; these corpus warnings are not attributed
+    to KRP.'
+  target_ids:
+  - CommunityMech:000321
+  command: just --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  scope_note: Corpus-wide gate; all declared isolate/community roots included. Target-specific
+    finding inventory is empty.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  locator: 'Entire canonical record: one taxon, one computational interaction, zero
+    downstream edges, three dataset entries, one growth medium, external resource,
+    discussion and embedded history'
+  accessed_at: '2026-10-19T07:34:18Z'
+  support: supports
+  summary: Read the entire maintained record and resolved its stable ID and exact
+    target. It expressly represents one genome-scale metabolic model, and separates
+    computational potential from observed ecological exchange.
+- evidence_id: genome-paper
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC5624747/
+  locator: PMID:28963201; DOI:10.1128/genomeA.00869-17; complete Genome Announcement,
+    cultivation paragraph, assembly paragraph, and Accession numbers; matching references_cache/PMID_28963201.txt
+  accessed_at: '2026-10-19T07:35:03Z'
+  support: supports
+  summary: The primary report identifies the kefir-grain isolate and supplies its
+    cultivation and published genome provenance. This historical report is distinguished
+    from current deposited accession metadata.
+  quote: R. kefirresidentii KRP (ISC 156)
+- evidence_id: cultivation-source
+  kind: primary_source
+  reference: PMID:28963201
+  locator: Genome Announcement, isolation paragraph; PMC5624747 main text; references_cache/PMID_28963201.txt
+    full-text body
+  accessed_at: '2026-10-19T07:35:03Z'
+  support: supports
+  summary: The KRP-specific isolation passage supports ground kefir grains, serial
+    dilution on GAM agar, 30 degrees C and two days. Atmosphere and medium composition
+    are not supplied for this isolate.
+  quote: grown for 2 days at 30°C
+- evidence_id: published-assembly
+  kind: primary_source
+  reference: PMID:28963201
+  locator: Genome Announcement assembly paragraph and Accession number(s); references_cache/PMID_28963201.txt
+  accessed_at: '2026-10-19T07:35:03Z'
+  support: supports
+  summary: The publication reports KRP as 2,522,693 bp, 58.47% GC and 81 contigs,
+    and assigns NDFM00000000 to it. These figures are publication-specific observations,
+    not remeasured genome properties.
+  quote: NDFM00000000 for R. kefirresidentii KRP
+- evidence_id: modeling-paper
+  kind: primary_source
+  reference: PMID:33398099
+  locator: DOI:10.1038/s41564-020-00816-5; references_cache/PMID_33398099.md line
+    227, modeling Methods; results lines 115,120,153; live author-manuscript metadata
+    https://api.repository.cam.ac.uk/server/api/core/bitstreams/b4fa91ba-bcd9-461f-b5c0-1ae64ebbd862/content
+  accessed_at: '2026-10-19T07:35:19Z'
+  support: supports
+  summary: The inspected Methods describe CarveMe reconstruction and FBA amino-acid
+    uptake/secretion estimates. Community-scale predictions combine species rates
+    with measured abundance. This does not establish a measured KRP-to-partner exchange.
+  quote: simulate the expected uptake/secretion rates of amino acids using flux balance
+    analysis
+- evidence_id: authors-species
+  kind: primary_source
+  reference: https://raw.githubusercontent.com/cdanielmachado/kefir_paper/master/species_list.tsv
+  locator: Header GenomeID/Species; row 156_03182016 (web line 17); comparison rows
+    245_03182016 and 286a1_03232016
+  accessed_at: '2026-10-19T07:35:19Z'
+  support: supports
+  summary: The authors map 156_03182016 to Rothia kefirresidentii KRP and assign the
+    two R. dentocariosa isolates different model keys. This independently resolves
+    the authors model participant.
+- evidence_id: authors-readme
+  kind: primary_source
+  reference: https://raw.githubusercontent.com/cdanielmachado/kefir_paper/master/README.md
+  locator: 'Technical details: model reconstruction and flux-balance analysis bullets'
+  accessed_at: '2026-10-19T07:35:19Z'
+  support: supports
+  summary: The authors repository identifies CarveMe for reconstruction and ReFramed
+    for FBA, with SBML and notebooks supplied. No simulation was rerun during this
+    review.
+- evidence_id: authors-sbml
+  kind: primary_source
+  reference: https://raw.githubusercontent.com/cdanielmachado/kefir_paper/master/models/156_03182016.xml
+  locator: Parsed SBML model element and reaction/species collections; RDF description
+    at file line 9
+  accessed_at: '2026-10-19T07:36:14.964766Z'
+  support: supports
+  summary: The fetched authors artifact has model ID m_156_03182016, SBML L3V1, 893
+    species and 1,274 reactions, with a CarveMe 1.6.1 description. Its 4,313,642-byte
+    SHA-256 identifies the inspected version.
+  snapshot_sha256: 255cf2e2757c3498f1c6ae27be0221a68bcce579f7e756f53a599111136494af
+- evidence_id: biomodels
+  kind: database
+  reference: https://www.biomodels.org/MODEL2204300002?format=json
+  locator: submissionId, name, description, publication.accession, files.main, history.revisions,
+    curationStatus
+  accessed_at: '2026-10-19T07:36:11.057737Z'
+  support: supports
+  summary: Primary BioModels metadata confirms MODEL2204300002 as the KRP model associated
+    with DOI 10.1038/s41564-020-00816-5. It is NON_CURATED; revision history includes
+    a 2024 gene-reaction-association update. This verifies deposit identity, not scientific
+    reproduction.
+  snapshot_sha256: 530de72cc3dd54cea63c233b9b01584c303fd9faa8ab447a2928ae5960e1f22a
+- evidence_id: biomodels-sbml
+  kind: database
+  reference: https://www.biomodels.org/model/download/MODEL2204300002?filename=MODEL2204300002.xml
+  locator: Parsed SBML model element, species/reaction collections and model annotations;
+    checksum compared with BioModels files.main metadata
+  accessed_at: '2026-10-19T07:36:41.456426Z'
+  support: supports
+  summary: The exact MODEL2204300002.xml download has model ID m_156_03182016, 962
+    species and 1,336 reactions. Its SHA-256 matches the provider checksum. It differs
+    in bytes and structure from the authors artifact; matching ID does not establish
+    equivalent predictions.
+  snapshot_sha256: 5c167d59905454e0d8ebb5da5ea0dda43f70fa2d281c28bb3926eec23529e3dc
+- evidence_id: nuccore
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NDFM00000000&rettype=gb&retmode=text
+  locator: 'NDFM00000000.1 GenBank master: DEFINITION, ACCESSION, VERSION, DBLINK,
+    source qualifiers, WGS range'
+  accessed_at: '2026-10-19T07:36:12.212313Z'
+  support: partial
+  summary: NDFM00000000 resolves, but current source metadata names Rothia sp. Olga,
+    strain Olga, NCBITaxon:1979525, BioSample SAMN06718477 and 401 component sequences.
+    The publication-to-deposit strain wording is not fully reconciled.
+  snapshot_sha256: 57721bf6711536c95f8a697add9f2b01640ed183293d1fc32361e26d4859d567
+- evidence_id: ena
+  kind: database
+  reference: https://www.ebi.ac.uk/ena/browser/api/embl/NDFM00000000.1?download=false
+  locator: 'NDFM01000000 master: organism, strain, BioSample cross-reference, component
+    sequence range'
+  accessed_at: '2026-10-19T07:36:11.599471Z'
+  support: partial
+  summary: ENA independently reports the same Olga designation and 401-sequence WGS
+    project for NDFM00000000.1. This corroborates the database metadata, not a biological
+    distinction between Olga and KRP.
+  snapshot_sha256: 7beee9f1a195902c4f44ce1428a0e880db4527ee885e9cfd31576cb4087fb611
+- evidence_id: biosample
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=biosample&id=SAMN06718477&retmode=xml
+  locator: 'BioSample SAMN06718477: Id with db_label Sample name, Organism, strain
+    and isolation-source attributes'
+  accessed_at: '2026-10-19T07:36:41.460112Z'
+  support: partial
+  summary: The sample name 156 - R.dentocariosa shares stock number 156 with the publication,
+    providing a plausible bridge. Its organism/strain remain Rothia sp. Olga/Olga,
+    without an explicit KRP synonym in the inspected XML.
+  snapshot_sha256: 2c11227f6e1d89b2192479ee461d4d42175fb6abd36317adedb59d33befd7b1d
+- evidence_id: assembly
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=assembly&id=1163481&retmode=json
+  locator: 'Assembly esummary UID1163481: WGS NDFM01, accession synonyms, meta Stats,
+    anomalouslist, exclfromrefseq and update date'
+  accessed_at: '2026-10-19T07:37:17.847439Z'
+  support: partial
+  summary: GCA_002238135.1/GCF_002238135.1 ASM223813v1 links to NDFM01 and the same
+    BioSample, but reports 2,756,010 bp/401 contigs. Current metadata marks contamination
+    and RefSeq suppression, updated 2026-09-23. These flags require provenance review;
+    they do not by themselves falsify the historical modeled phenotype.
+  snapshot_sha256: 8dac93eb670fc178aadecca5d1033f455c7a5a5ef498eddf6c130e7fac4bf5a2
+- evidence_id: ncbi-taxa
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&id=1979525,32207&retmode=xml
+  locator: 'TaxaSet: Taxon1979525 and Taxon32207 rank, names and LineageEx'
+  accessed_at: '2026-10-19T07:36:41.459973Z'
+  support: supports
+  summary: NCBITaxon:32207 is genus Rothia and an ancestor of the deposited organism.
+    Genus grounding is broader than the preferred KRP source-strain label; no species-level
+    genome assignment follows from genus ancestry.
+  snapshot_sha256: d8ee6d607daef280a474701cb8cf4e9de8fef6e71d308c6b0e5dfe064bfa712c
+- evidence_id: envo-definition
+  kind: authority
+  reference: https://semanticsql.berkeleybop.io/envo.db.gz
+  locator: Official local SemanticSQL ENVO snapshot; ontology version 2026-06-26;
+    ENVO:00003862 rdfs:label and IAO:0000115. snapshot_sha256 hashes the exact bytes
+    of the extracted query JSON at /private/tmp/cm-review-session/000321/envo-dairy-authority.json,
+    not the full database or compressed download.
+  accessed_at: '2026-10-19T07:36:21.643885Z'
+  support: refutes
+  summary: The canonical term dairy denotes a building used for milk harvesting/processing.
+    It is not the milk or kefir material modeled in this record. This is an ID-selection
+    problem despite a correct label.
+  snapshot_sha256: e6df117eaa844b663ad9e263ca34c36cc0d9c1d917378b55f00dfaaa7b26c1bc
+  quote: A dairy is a building in which animal milk is harvested
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: MicrobialCommunity.modeled_environment, TaxonomicComposition, EvidenceItem,
+    InteractionDownstream, CommunityEngineeringDesign, ComputationalProvenance
+  accessed_at: '2026-10-19T07:43:29.981188Z'
+  support: supports
+  summary: Maintained schema distinguishes physical setting from represented environment;
+    a taxonomic descriptor retains separate preferred wording and canonical grounding.
+    Computational evidence and source provenance must retain their assay/model scope.
+- evidence_id: history
+  kind: record_content
+  reference: history/records/BioModels_MODEL2204300002_Kefir_Rothia_Model/2026-10-05T071439Z-codex-9feb28.yaml
+  locator: Entire append-only history file; reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+    target entry; embedded curation_history[0]
+  accessed_at: '2026-10-19T07:43:29.981282Z'
+  support: supports
+  summary: The prior source-based graph audit removed isolation/sequencing workflow
+    arrows and disclosed AI assistance. Its scope explicitly excluded certification
+    of other metadata. It is not a structured predecessor finding to supersede.
+- evidence_id: access-scope
+  kind: search
+  reference: PMID:28963201; PMID:33398099; BioModels:MODEL2204300002; NDFM00000000
+  locator: Current session primary metadata, article source text, authors repository
+    and accession inspection
+  accessed_at: '2026-10-19T07:43:29.981286Z'
+  support: context_only
+  summary: Initial web-only BioModels/NCBI accesses failed, but later ordinary public
+    API retrieval succeeded. PMC7610452 presented a browser challenge; committed source
+    text and an accessible author manuscript provided article context. No challenge
+    bypass or provider call occurred.
+  search_scope: Read entire target; rg --no-ignore --hidden searched references_cache,
+    history, reports, research, data/isolates, kb/taxa and scripts for record slug,
+    MODEL2204300002, PMID/DOI and model key, including ignored files. Broad generated
+    HTML/baseline diagnostic output was excluded. BioSample and taxonomy alias absence
+    is bounded to the fully inspected returned XML, not every database or publication.
+- evidence_id: check-validate
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    just --no-dotenv validate data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  locator: Actual recipe output; exit_code=0
+  accessed_at: '2026-10-19T07:35:03.045378Z'
+  support: context_only
+  summary: 'No issues found
+
+    uv run linkml-validate -s src/communitymech/schema/communitymech.yaml data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml'
+  snapshot_sha256: cba3d352a5ab5ed354879127ad0151386fc652622842080232b8b28931559a22
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    just --no-dotenv validate-strict data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    --out /private/tmp/cm-review-session/000321/strict-report.tsv
+  locator: Actual recipe output; exit_code=0
+  accessed_at: '2026-10-19T07:35:05.325326Z'
+  support: context_only
+  summary: "uv run python scripts/validate_strict.py data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml\
+    \ --out /private/tmp/cm-review-session/000321/strict-report.tsv\nValidating 1\
+    \ files with 17 workers; schema=/private/tmp/communitymech-record-reviews-20261019/src/communitymech/schema/communitymech.yaml\n\
+    \n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:\
+    \   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/cm-review-session/000321/strict-report.tsv"
+  snapshot_sha256: 1ca56b41a13121c19dd11658257f073931447a15acb678fdd7e38aefa2724a7b
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    just --no-dotenv validate-terms data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  locator: Actual recipe output; exit_code=0
+  accessed_at: '2026-10-19T07:35:04.862870Z'
+  support: context_only
+  summary: '✅ Validation passed
+
+    uv run linkml-term-validator validate-data data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    -s src/communitymech/schema/communitymech.yaml --labels'
+  snapshot_sha256: 84ed7b6c6c326cbe2e344616536b921c1247fd135f1586ad69bd6f6d408459de
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    just --no-dotenv validate-gtdb data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  locator: Actual recipe output; exit_code=0
+  accessed_at: '2026-10-19T07:35:03.169368Z'
+  support: context_only
+  summary: 'PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+
+
+    files checked: 1
+
+    incoherent blocks: 0
+
+    malformed lineages: 0
+
+    lineage conflicts: 0'
+  snapshot_sha256: 1af9dee9026f7b0b39e2935e2f77d9193bdbfb3c7dc699a48ba4c88283d44741
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    just --no-dotenv validate-gtdb-domain data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  locator: Actual recipe output; exit_code=0
+  accessed_at: '2026-10-19T07:35:05.421426Z'
+  support: context_only
+  summary: 'files checked: 1
+
+    contradictory lineages: 0
+
+    PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml'
+  snapshot_sha256: 51818f36656668a93b4f3d70cf5c7def138a7561d8105a45445c56398f4d6f30
+- evidence_id: check-validate-history
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    just --no-dotenv validate-history history/records/BioModels_MODEL2204300002_Kefir_Rothia_Model
+  locator: Actual recipe output; exit_code=0
+  accessed_at: '2026-10-19T07:35:05.758973Z'
+  support: context_only
+  summary: No issues found
+  snapshot_sha256: b449fdf5f5377c3d683b0561576b70ff503aca3f60e2ab4b07fc9ec4a2f77440
+- evidence_id: check-normalize-cache-names
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual recipe output; exit_code=0
+  accessed_at: '2026-10-19T07:35:05.842315Z'
+  support: context_only
+  summary: Actual command returned exit 0 with no reported issues or output.
+  snapshot_sha256: 25a40dfb3f0e0a13150edb0c61b8faacbf7a1c139350b1433d583b81bfe088d8
+- evidence_id: check-validate-references-initial
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=1
+    just --no-dotenv validate-references-explained data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  locator: Actual recipe output; exit_code=2
+  accessed_at: '2026-10-19T07:35:06.061324Z'
+  support: context_only
+  summary: Initial recipe failed before reference validation because nested just rejected
+    JUST_NO_DOTENV=1; the corrected literal true retry passed. Actual exit 2 is retained;
+    no scientific defect inferred.
+  snapshot_sha256: 61e0f16ff493ada6519c7b875ee72605c8ef2aac0f74ca4e92f0188d83dcada7
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 JUST_NO_DOTENV=true
+    just --no-dotenv validate-references-explained data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  locator: Actual recipe output; exit_code=0
+  accessed_at: '2026-10-19T07:35:13.760505Z'
+  support: context_only
+  summary: "Validating data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml\
+    \ against schema src/communitymech/schema/communitymech.yaml\nCache directory:\
+    \ references_cache\n\nValidation Summary:\n  Reported validation issues: 0\n \
+    \ All validations passed!\n\n[annotate] This is not a count of checked excerpts\
+    \ (#1469). Native Discussion evidence coverage remains incomplete (#476)."
+  snapshot_sha256: 7aab679327a99d3e4658329e64ddadf092bdab39a985a6a98e308eb8f190af79
+- evidence_id: check-audit-network
+  kind: validation
+  reference: just --no-dotenv audit-network
+  locator: Full-corpus output from 2026-10-19T07:30:27.845593+00:00
+  accessed_at: '2026-10-19T07:30:27.845593Z'
+  support: context_only
+  summary: 'Actual full-corpus recipe exit 1: 462 records, 57 warnings in 21 records,
+    zero errors. No target-specific network finding. Reused this session result against
+    unchanged record bytes and the same Git base; these corpus warnings are not attributed
+    to KRP.'
+  snapshot_sha256: bedf3fd18a964bda429f7c6b5feb01b8918e1440b48a4329664501161c80e3f4
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: just --no-dotenv check-network-quality
+  locator: Full-corpus output from 2026-10-19T07:30:43.193891+00:00
+  accessed_at: '2026-10-19T07:30:43.193891Z'
+  support: context_only
+  summary: 'Actual full-corpus recipe exit 1: 462 records, 57 warnings in 21 records,
+    zero errors. No target-specific network finding. Reused this session result against
+    unchanged record bytes and the same Git base; these corpus warnings are not attributed
+    to KRP.'
+  snapshot_sha256: 885e62e84ed8d3e69a6e5ef5be43f941ef64d756107c3b062846831f76e081aa
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: BioModels record identity and scope
+  outcome: supported
+  summary: The canonical target denotes the KRP genome-scale model, independently
+    confirmed by BioModels metadata, exact downloaded SBML and authors species mapping.
+    ENGINEERED/BIOTECHNOLOGY is the declared model-platform representation; it must
+    not imply genetic engineering of the natural kefir isolate. It does not represent
+    the entire natural kefir consortium.
+  target_ids:
+  - CommunityMech:000321
+  evidence_ids:
+  - record
+  - biomodels
+  - biomodels-sbml
+  - authors-species
+  dimensions:
+  - name: source_strain
+    value: Rothia kefirresidentii KRP; ISC 156 in publication
+    definition: Strain wording from the source; database Olga designation requires
+      reconciliation.
+    evidence_ids:
+    - genome-paper
+    - biosample
+  - name: taxon_rank
+    value: 'NCBITaxon:32207 and GTDB:g__Rothia: genus'
+    definition: Canonical grounding is broader than the preferred KRP label; no genome-level
+      identity inferred.
+    evidence_ids:
+    - record
+    - ncbi-taxa
+  - name: community_scope
+    value: Single-member computational model
+    definition: Interoperability representation, not a measured KRP coculture or the
+      complete kefir community.
+    evidence_ids:
+    - record
+    - biomodels
+  - name: experimental_setting
+    value: KRP isolation on GAM agar; computational kefir context
+    definition: Cultivation, prediction and natural-community context remain separate.
+    evidence_ids:
+    - cultivation-source
+    - modeling-paper
+  - name: source_category
+    value: Primary genome report, full-text modeling Methods, model repository and
+      primary database records
+    definition: Article evidence and model artifact evidence have different scopes.
+    evidence_ids:
+    - genome-paper
+    - modeling-paper
+    - biomodels-sbml
+  - name: biomass_state
+    value: Cultured isolate supplies genomic provenance; metabolic activity is simulated
+    definition: The computational record does not assert measured partner-specific
+      transfer.
+    evidence_ids:
+    - record
+    - genome-paper
+    - modeling-paper
+- assessment_id: taxonomy
+  area: grounding
+  topic: Taxon and genome-source correspondence
+  outcome: concern
+  summary: KRP is the publication/model participant. Canonical NCBI and GTDB genus
+    resolution is internally coherent and does not pretend to be strain-level taxonomic
+    grounding. The publication assigns NDFM to KRP, while current deposit metadata
+    uses Olga; stock code 156 partly bridges the naming. Current assembly statistics
+    and QC flags differ from the publication, so exact model-input accession correspondence
+    remains uncertain.
+  target_ids:
+  - CommunityMech:000321
+  evidence_ids:
+  - record
+  - genome-paper
+  - published-assembly
+  - ncbi-taxa
+  - nuccore
+  - ena
+  - biosample
+  - assembly
+  dimensions:
+  - name: genome_identity
+    value: Published KRP/NDFM versus deposited Olga/NDFM01; sample 156 bridge
+    definition: Unreconciled metadata and version relationship, not proof of different
+      organisms.
+    evidence_ids:
+    - published-assembly
+    - nuccore
+    - biosample
+    - assembly
+  - name: gtdb_grounding
+    value: GROUNDED at genus g__Rothia
+    definition: Coherence validation does not independently reproduce the declared
+      1075-genome mapping aggregate.
+    evidence_ids:
+    - record
+    - ncbi-taxa
+- assessment_id: engineering
+  area: evidence
+  topic: Design objective and computational endpoints
+  outcome: supported
+  summary: The objective is a model reconstruction; declared reconstruction and amino-acid
+    FBA endpoints match the inspected Methods and authors workflow. The primary metadata
+    establishes the exact deposit. No inoculation, passaging or engineered genotype
+    is invented. The design evidence currently cites the publication title, which
+    provides context but should be replaced by assertion-specific provenance.
+  target_ids:
+  - CommunityMech:000321
+  evidence_ids:
+  - record
+  - modeling-paper
+  - authors-readme
+  - biomodels
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Rothia KRP Genome-Scale Amino-Acid Flux Model'
+  outcome: supported
+  summary: The sole node correctly declares COMPUTATIONAL POTENTIAL. Participant is
+    KRP with genus grounding; no microbial target, exchange partner or directed transfer
+    is asserted. Source-supported reconstruction and FBA justify the bounded amino-acid
+    process/transport annotations as model scope, without experimentally proving flux
+    or fitness effects.
+  target_ids:
+  - CommunityMech:000321
+  evidence_ids:
+  - record
+  - modeling-paper
+  - authors-species
+  - authors-sbml
+  - biomodels-sbml
+  details: 'Exact paths: ecological_interactions[0].participating_taxa[0], metabolites[0],
+    biological_processes[0:2], evidence[0:2]. Both evidence_source values are COMPUTATIONAL.
+    Model ID m_156_03182016 is verified in both artifacts; current BioModels and authors
+    artifacts differ in bytes and reaction/species counts. The two computational_provenance.input_accession
+    fields inherit the genome correspondence concern. simulated_medium is a contextual
+    description, not a reproducible set of exchange bounds.'
+- assessment_id: edges
+  area: graph
+  topic: Complete downstream inventory and direction/context
+  outcome: supported
+  summary: The full target has one node and zero downstream edges. No missing biological
+    arrow is inferred. Previous isolation-to-sequencing-to-model workflow arrows were
+    removed; restoring them would confuse data-production provenance with ecological
+    causation. The singleton has explicit KRP participation and no unresolved edge
+    target.
+  target_ids:
+  - CommunityMech:000321
+  evidence_ids:
+  - record
+  - history
+- assessment_id: environment
+  area: grounding
+  topic: Physical and modeled environment
+  outcome: concern
+  summary: Laboratory environment is appropriate for the isolation/study context.
+    The modeled environment is kefir/milk, but ENVO:00003862 denotes a dairy building.
+    Matching the canonical label dairy does not make that ontology class a suitable
+    material or habitat annotation. No environmental-factor values are invented for
+    the computational platform.
+  target_ids:
+  - CommunityMech:000321
+  evidence_ids:
+  - record
+  - schema
+  - genome-paper
+  - envo-definition
+- assessment_id: cultivation
+  area: evidence
+  topic: growth_media[0] isolation conditions
+  outcome: supported
+  summary: GAM agar, 30 degrees C, two days, ground kefir-grain inoculum and plate
+    context match the KRP-specific isolation passage. These are isolation conditions,
+    not the simulated FBA medium. The term anaerobic in the medium name does not justify
+    adding an anaerobic atmosphere. No CultureMech linkage is claimed; composition,
+    pH and atmosphere remain unspecified.
+  target_ids:
+  - CommunityMech:000321
+  evidence_ids:
+  - record
+  - cultivation-source
+  dimensions:
+  - name: medium
+    value: Gifu anaerobic medium agar; isolation use
+    definition: Source-backed recipe name without assuming its atmosphere or reconstructing
+      ingredients.
+    evidence_ids:
+    - cultivation-source
+  - name: incubation
+    value: 30 degrees C for 2 days
+    definition: Conditions specifically attached to KRP isolation.
+    evidence_ids:
+    - cultivation-source
+- assessment_id: resources
+  area: provenance
+  topic: Datasets, external resource and computational versions
+  outcome: concern
+  summary: The BioModels accession, file name and publication DOI resolve to the stated
+    model. The WGS accession also resolves, with conflicting current metadata requiring
+    reconciliation. Authors and deposit share a model ID but differ structurally,
+    so neither byte equivalence nor reproduced predictions is established. The older
+    in-record retrieval disclaimer is a historical review boundary; successful retrieval
+    here does not authorize rewriting it or closing the exchange discussion.
+  target_ids:
+  - CommunityMech:000321
+  evidence_ids:
+  - record
+  - biomodels
+  - biomodels-sbml
+  - authors-sbml
+  - nuccore
+  - assembly
+- assessment_id: discussion-history
+  area: provenance
+  topic: Open question, claim placement and history
+  outcome: supported
+  summary: The open discussion correctly distinguishes computational prediction from
+    partner-specific measurement. Its node attachment resolves. Embedded history and
+    the append-only event describe the earlier graph repair consistently and disclose
+    agent assistance; no new record/history/status transition is made. The current
+    review improves external artifact verification while preserving the unresolved
+    biological exchange question.
+  target_ids:
+  - CommunityMech:000321
+  evidence_ids:
+  - record
+  - history
+  - modeling-paper
+- assessment_id: imodulondb
+  area: evidence
+  topic: Structured expression-module source applicability
+  outcome: not_applicable
+  summary: No gene, locus, UniProt accession, regulator or KRP transcriptomics dataset
+    is asserted. The node is genome model and FBA evidence; the paper RNA-seq passages
+    inspected concern other named partner pairs. Broad amino-acid process labels do
+    not identify a KRP expression-module claim. No iModulonDB lookup was used as support
+    or as negative evidence.
+  target_ids:
+  - CommunityMech:000321
+  evidence_ids:
+  - record
+  - modeling-paper
+  - authors-species
+- assessment_id: validation
+  area: schema
+  topic: Deterministic gates and ontology correspondence
+  outcome: supported
+  summary: Focused schema, strict, term, reference, GTDB coherence/domain and history
+    recipes passed on final execution. Reference checks establish snippet correspondence
+    within their documented coverage; they do not adjudicate biological support or
+    the source/deposit discrepancy. NCBITaxon32207, ENVO01001405/00003862, CHEBI33709,
+    GO0006520/0006865 labels pass their authority snapshot. Correct dairy label does
+    not resolve its semantic misuse.
+  target_ids:
+  - CommunityMech:000321
+  evidence_ids:
+  - record
+  - check-validate
+  - check-validate-strict
+  - check-validate-terms
+  - check-validate-references-explained
+  - check-validate-gtdb
+  - check-validate-gtdb-domain
+  - check-validate-history
+- assessment_id: scores
+  area: completeness
+  topic: Native completeness and validation-quality metrics
+  outcome: concern
+  summary: Native completeness 30 reflects missing functional_role in the all-or-nothing
+    50-point metadata block and sparse optional fields. The omission does not require
+    inventing an ecological role for a computational model. Validation quality caps
+    at 100 despite two major and one minor finding; the score is not scientific approval.
+    The declared singleton graph has no target-specific network defect.
+  target_ids:
+  - CommunityMech:000321
+  evidence_ids:
+  - record
+  - check-audit-network
+  - genome-paper
+  - modeling-paper
+  metrics:
+  - name: completeness
+    value: 30
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100,50 for id/name/description/taxonomy-with-roles/ecological_state/community_category
+      +5 environment +10 at least 3 environmental factors +10 at least 3 interactions
+      +5 external resources +10 growth_media +5 associated_datasets +5 any interaction
+      metabolites). Required block 0 because functional_role is absent; applied 0+5+0+0+5+10+5+5=30.
+      Presence-based rubric, not evidence correctness.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100-50*P1-10*P2-2*P3+20*min(mean_interaction_evidence/2,1)+15
+      for COMPLETE network,0,100). P1=0, P2=2, P3=1; 2/1 interaction evidence; COMPLETE
+      for declared single-node/zero-arrow target with no audit finding. Raw 113, capped
+      100; unrelated corpus gate warnings are reported separately.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Target-specific normalized blocker findings.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Target-specific normalized major findings.
+  - name: P3
+    value: 1
+    unit: findings
+    definition: Target-specific normalized minor findings.
+  - name: interaction_evidence
+    value: 2
+    unit: evidence items per interaction
+    denominator: 1
+    definition: Two EvidenceItem entries directly attached to one computational node;
+      repeated source does not count as independent replication.
+findings:
+- finding_id: environment
+  issue_key: cm-000321-dairy-building-grounding
+  category: grounding
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Modeled environment is grounded to a dairy building
+  description: modeled_environment[0] uses ENVO:00003862 with its correct label dairy.
+    The authoritative definition denotes a building for harvesting/processing milk.
+    The record represents an isolate-derived kefir model and does not establish that
+    built-environment scope. This is semantic misgrounding, not a label spelling failure;
+    the term validator can correctly pass the label while this finding remains.
+  target_ids:
+  - CommunityMech:000321
+  field_paths:
+  - modeled_environment[0].term.id
+  - modeled_environment[0].preferred_term
+  evidence_ids:
+  - record
+  - envo-definition
+  - schema
+  - genome-paper
+  rule_id: review-checklist.environment
+  native_severity: P2
+  normalization_reason: 'P2 major: the representation or provenance materially changes
+    interpretation of the modeled entity or its source.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    role: canonical_record
+- finding_id: genome-provenance
+  issue_key: cm-000321-genome-input-provenance
+  category: provenance
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Published genome provenance and current deposited assembly are unreconciled
+  description: The paper associates KRP with NDFM and reports 2,522,693 bp / 81 contigs.
+    Current NDFM00000000.1 and assembly metadata use Rothia sp. Olga, 2,756,010 bp
+    / 401 contigs; current assembly QC flags include contamination and RefSeq suppression.
+    BioSample name 156 - R.dentocariosa and the publication ISC 156 provide a partial
+    bridge, so these sources do not prove different isolates. The exact assembly/version/preprocessing
+    used for the KRP model is nevertheless not established by the present accession
+    assertion. The target model identity itself is confirmed by primary BioModels
+    metadata.
+  target_ids:
+  - CommunityMech:000321
+  field_paths:
+  - taxonomy[0].taxon_term.notes
+  - taxonomy[0].evidence[1]
+  - ecological_interactions[0].evidence[0].computational_provenance.input_accession
+  - ecological_interactions[0].evidence[1].computational_provenance.input_accession
+  - associated_datasets[2]
+  evidence_ids:
+  - record
+  - published-assembly
+  - nuccore
+  - ena
+  - biosample
+  - assembly
+  - authors-species
+  - biomodels
+  rule_id: CLAUDE.claim-level-evidence
+  native_severity: P2
+  normalization_reason: 'P2 major: the representation or provenance materially changes
+    interpretation of the modeled entity or its source.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    role: canonical_record
+- finding_id: citation-placement
+  issue_key: cm-000321-title-only-evidence
+  category: evidence
+  severity: minor
+  status: open
+  certainty: confirmed
+  title: Design and resource evidence quote only a publication title
+  description: engineering_design.evidence[0] and external_resources[0].evidence[0]
+    repeat the publication title. A title supplies study context but does not identify
+    the KRP artifact or substantiate reconstruction/FBA readouts. The underlying claims
+    are now independently supported by inspected Methods, authors mapping and primary
+    BioModels metadata, so this is a bounded assertion-level provenance gap rather
+    than an unsupported model identity.
+  target_ids:
+  - CommunityMech:000321
+  field_paths:
+  - engineering_design.evidence[0]
+  - external_resources[0].evidence[0]
+  evidence_ids:
+  - record
+  - modeling-paper
+  - authors-species
+  - biomodels
+  - biomodels-sbml
+  rule_id: CLAUDE.claim-level-evidence
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded claim-level provenance weakness; the underlying
+    model identity is independently supported.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    role: canonical_record
+actions:
+- action_id: fix-environment
+  description: Curate modeled_environment to an authoritative term whose definition
+    matches the source-supported kefir/milk setting, or omit the unsupported class
+    until such grounding is established.
+  finding_ids:
+  - environment
+  target_ids:
+  - CommunityMech:000321
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Inspect the proposed ontology definition and source context together; do not select
+    a merely similar label.
+  - Preserve the separation between laboratory isolation and the represented natural/applied
+    kefir setting.
+  - just validate-strict data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml;
+    just validate-terms data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+  - If separately authorized curation changes records, append history and regenerate/check
+    affected documentation.
+- action_id: fix-genome-provenance
+  description: Reconcile publication strain aliases and assembly processing/version
+    against deposited sources; preserve the documented conflict and qualification
+    until the exact model input is established.
+  finding_ids:
+  - genome-provenance
+  target_ids:
+  - CommunityMech:000321
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Document evidence for any KRP/ISC 156/Olga alias relationship and distinguish
+    source-paper statistics from current assembly metadata.
+  - Identify the model input assembly/protein sequence artifact and explain version/filtering
+    differences before claiming exact correspondence.
+  - Retain current deposited QC limitations without inferring that all historical
+    model predictions are invalid or automatically replacing the source taxon.
+  - just validate data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml;
+    just validate-strict data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml;
+    just validate-references-explained data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml;
+    just validate-gtdb data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+- action_id: fix-citation-placement
+  description: Replace title-only evidence with concise claim-specific Methods support
+    and exact model/deposit provenance in schema-supported fields.
+  finding_ids:
+  - citation-placement
+  target_ids:
+  - CommunityMech:000321
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Evidence distinguishes the publication modeling method from the particular KRP/BioModels
+    artifact.
+  - Any stored quotations are verbatim and have precise source locators; model versions/hashes
+    are identified where equivalence matters.
+  - just validate-strict data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml;
+    just validate-references-explained data/isolates/BioModels_MODEL2204300002_Kefir_Rothia_Model.yaml
+limitations:
+- Exact model artifact identity and structure were inspected, but neither FBA nor
+  the provider FROG report was rerun; no claim of numerical reproduction or equivalence
+  between versions is made.
+- KRP/ISC 156 and deposited Olga naming share a stock-code bridge but are not explicitly
+  reconciled in the inspected primary records; assembly version/preprocessing and
+  current QC flags remain unresolved.
+- Current ontology and GTDB gates verify labels/coherence/domain, not the original
+  1075-genome mapping support count calculation, which was not independently regenerated.
+- The full-corpus network recipes returned warnings elsewhere; the target has no network
+  finding. Corpus failures are preserved as required failed checks rather than silently
+  recast as passes.
+- The source paper supports biological cultivation conditions for the isolate; these
+  are not FBA exchange-bound specifications. Source-medium composition and atmosphere
+  were not reconstructed.
+- This review used one agent with delegated read-only validator/source checks. The
+  agents did not author or modify the target this session; historical record curation
+  also used codex identity, so person-level independence is unknown.
+notes:
+- No record, history, generated product or scientific-status field was edited. All
+  proposed actions require separately authorized curation.
+- Successful current retrieval improves the evidence available to this review without
+  pretending that the older embedded review had retrieved the deposit.
+- Seven record EvidenceItems cite two publications. Graph evidence comprises two excerpts
+  from one modeling article, not independent replication.
+- External evidence snapshots were retained in session scratch and their SHA-256 values
+  are recorded with precise URLs; repository-local inputs are hashed in source.inputs.
+tags:
+- record-review
+- isolate
+- computational-model
+- batch-01
+```

@@ -1,0 +1,1552 @@
+# Asgard wetland-soil substrate community: whole-record source review
+
+- Review: 20261021T071211Z-asgard-wetland-soil-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T07:06:25.698188Z
+- Finished UTC: 2026-10-21T07:12:11.086268Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Three major findings concern realized substrate-feeding prose, an unsupported obligatory hydrogen headspace and role attribution. Two minor findings concern environmental evidence/qualification and source dataset links. All three nodes and two hypothetical arrows remain supported. Six focused native checks and the cache filename preflight pass; the reference gate retains a known bracket-stripping failure despite eleven verified snippets.
+
+## Scope And Provenance
+
+Entire record, all three taxonomic descriptors, three nodes and two arrows, eleven evidence occurrences, full primary main article and source data metadata. Genome sequences, raw transcripts, supplements, modeled structures and figure geometry were not independently reanalyzed.
+
+Selection: First uncovered path of fresh batch04 after the published batch03; one resolved maintained record.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base c6e5a9b9af2d05e12eaafb2555a53f3a079268f3.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000219 | kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml | maintained | Asgard Archaea Wetland Soil Methanogenesis-Substrate Community |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000219 | Schema validation passed for the target. |
+| validate-strict | passed | True | CommunityMech:000219 | Strict closed-schema and cross-field validation passed for the target. |
+| validate-terms | passed | True | CommunityMech:000219 | Native ontology-term validation passed for the target. |
+| validate-gtdb | passed | True | CommunityMech:000219 | GTDB structural validation passed, preserving the two unresolved lineage assignments. |
+| validate-gtdb-domain | passed | True | CommunityMech:000219 | GTDB domain validation passed for the target. |
+| validate-history | passed | True | CommunityMech:000219 | Both target history sidecars passed native validation. |
+| normalize-cache-names-check | passed | True | CommunityMech:000219 | Read-only reference-cache filename preflight passed. |
+| validate-references-explained | failed | True | CommunityMech:000219 | Reference validation failed solely on known [NiFe] bracket stripping, while the original quote matches the sources. |
+| audit-network | failed | True | CommunityMech:000219 | Fresh batch04 corpus run returned 57 warnings across 21 of 477 records, zero errors and exit 1; this target was not listed. |
+| check-network-quality | failed | True | CommunityMech:000219 | Fresh batch04 corpus run returned 57 warnings across 21 of 477 records, zero errors and exit 1; this target was not listed. |
+| Independent publication identity and full text | passed | True | CommunityMech:000219 | Fresh PubMed, Crossref and full primary XML verify the source identity and support claim-level assessment. |
+| Public source dataset metadata | passed | True | CommunityMech:000219 | The source BioProject and Zenodo dataset resolve with matching study metadata. |
+| Optional structured source adapter availability | unavailable | False | CommunityMech:000219 | No runner was available in the owned runtime, and no expression-module catalog coverage was established. |
+
+## Scientific And Domain Assessments
+
+### Natural wetland-soil Asgard and methanogen context
+
+identity: supported. Targets: CommunityMech:000219.
+
+The record and source community are resolved at the site/lineage level, with genomes and environmental transcripts rather than cultivated partner strains.
+
+### Broad lineage anchors, GTDB and roles
+
+grounding: concern. Targets: CommunityMech:000219.
+
+Explicit lineage names and unresolved GTDB status preserve uncertainty despite shared kingdom grounding. Predicted primary degradation has source support, but trophic sequence and blanket methanogen autotrophy do not follow from membership or expression evidence.
+
+### ecological_interactions[0]: Asgard Acetogenesis Modulates Methanogenic Substrates
+
+graph: supported. Targets: CommunityMech:000219.
+
+The explicitly hypothesized substrate-pool effect is supported.
+
+Participants: source Atabeyarchaeia/Freyarchaeia and co-resident methanogens. Direction: possible production or consumption of shared pools; no measured transfer or net methane response. Context: natural soil genomes/transcripts. Linked evidence supplies the source locator and a bounded excerpt.
+
+### ecological_interactions[1]: Wood-Ljungdahl Carbon Fixation and Hydrogen Cycling
+
+graph: supported. Targets: CommunityMech:000219.
+
+Expressed WLP and hydrogen-related capacity is supported with unresolved direction.
+
+Participants: the two Asgard lineages. Direction: reversible CO2/formate assimilation or acetate oxidation coupled to possible hydrogen cycling; no direct flux measurement. Context: environmental transcript mapping and annotated genomes. Linked evidence supplies the source locator and a bounded excerpt.
+
+### ecological_interactions[2]: Carbohydrate Breakdown to Acetate and Formate
+
+graph: supported. Targets: CommunityMech:000219.
+
+Lineage-dependent carbohydrate-conversion potential is supported.
+
+Participants: source Atabeyarchaeia and Freyarchaeia. Direction: proposed carbohydrate entry and metabolism toward acetate/formate, with distinct entry substrates and enzymes; no proof of identical product release. Context: genome/transcript reconstruction. Linked evidence supplies the source locator and a bounded excerpt.
+
+### ecological_interactions[1].downstream[0]
+
+graph: supported. Targets: CommunityMech:000219.
+
+The hypothetical WLP/hydrogen-to-pool arrow is supported as qualified.
+
+Source participants are the Asgard lineages; the target includes methanogens. Expressed capacity may change substrate pools through production or consumption, but direction, exchange and recipient response remain unresolved. The arrow is a hypothesis linking source capacities, not an observed ecological flux.
+
+### ecological_interactions[2].downstream[0]
+
+graph: supported. Targets: CommunityMech:000219.
+
+The hypothetical carbohydrate-to-pool arrow is supported as qualified.
+
+Source participants are the Asgard lineages; the target includes methanogens. Predicted carbon metabolism could supply shared acetate/formate, but consumption and no measured partner transfer remain explicit. The arrow is a hypothesis linking source capacities, not an observed ecological flux.
+
+### All metabolites, GO processes and ingredient claims
+
+grounding: concern. Targets: CommunityMech:000219.
+
+Chemical identities and broad process terms resolve, but related acetate/formate prose states realized feeding more strongly than its computational evidence and the qualified graph permit.
+
+### Origin, ecological state, category and conditions
+
+scope: concern. Targets: CommunityMech:000219.
+
+NATURAL and wetland grounding fit the source, and methanogens support the METHANOGENESIS context without assigning methanogenesis to Asgard. STABLE equilibrium and microaerobic conditions are not established by the cited knowledge-gap snippet.
+
+### Empty growth media and proposed hydrogen headspace
+
+scope: concern. Targets: CommunityMech:000219.
+
+The focal lineages are uncultured, so an empty growth_media list is appropriate; hydrogenase expression does not establish a necessary H2 headspace for every possible culture design.
+
+### Publication links and associated datasets
+
+completeness: concern. Targets: CommunityMech:000219.
+
+Publication IDs resolve, and source BioProject/Zenodo metadata verifies; associated_datasets is empty despite these directly relevant genomic and transcriptomic resources.
+
+### History, cache boundaries and graph discussion
+
+provenance: supported. Targets: CommunityMech:000219.
+
+The current graph and discussion retain prior uncertainty on pathway direction and pooled RNA; stale cache metadata and the bracket-stripping validator issue must not be mistaken for unsupported source quotations.
+
+### Pathway expression and structured adapter limits
+
+scope: supported. Targets: CommunityMech:000219.
+
+Named hydrogenase/WLP activities describe annotation and transcript evidence, with novel enzyme functions still unresolved; no protein-level biochemical assay or shared expression-module result is implied.
+
+### Metal and rare-earth fields
+
+scope: supported. Targets: CommunityMech:000219.
+
+Metal-containing enzyme cofactors do not establish community metal processing or rare-earth recovery; the explicit NOT_APPLICABLE processing context is reasonable.
+
+### Native gates and independent checks
+
+schema: supported. Targets: CommunityMech:000219.
+
+Six focused native checks and the cache filename preflight passed, the reference gate retains its explained failure, nine ontology pairs match and eleven snippets verify against fresh sources; corpus warning failures remain explicit.
+
+### Native completeness and validation quality
+
+completeness: supported. Targets: CommunityMech:000219.
+
+Completeness 75 measures populated fields and quality 91 includes scientific findings; neither score proves role or flux claims.
+
+## Findings
+
+### realized-substrate-feeding: Ingredient prose upgrades potential substrate metabolism to realized feeding
+
+major / open / confirmed; issue key: cm-000219-realized-substrate-feeding.
+
+Acetate and formate relevance text describes production and feeding of methanogens as established. The study combines pathway annotation with transcripts and explicitly allows reversible WLP activity; the current graph correctly retains uncertain direction, transfer and methane response.
+
+### required-hydrogen-headspace: Hydrogenase expression does not establish an obligatory H2 headspace
+
+major / open / confirmed; issue key: cm-000219-required-hydrogen-headspace.
+
+The dihydrogen ingredient states that any cultivation medium would need an H2 headspace. The source describes uncultured lineages with inferred hydrogen-linked and organotrophic capacities, and no cultivation experiment tests that necessity.
+
+### role-attribution: Taxon roles exceed the attached evidence and inferred trophic scope
+
+major / open / confirmed; issue key: cm-000219-role-attribution.
+
+Membership snippets do not support their functional roles. The full source supports predicted complex-substrate/protein degradation, but it does not establish a primary-degrader-to-secondary-fermenter sequence or autotrophy for the entire methanogen aggregate.
+
+### environment-evidence: Environmental and equilibrium assertions lack specific support
+
+minor / open / confirmed; issue key: cm-000219-environment-evidence.
+
+The environmental-factor snippet states a prior knowledge gap rather than the sampled location, oxygen context or equilibrium. Source sampling and anaerobic predictions can support a more precise description; oxygen-stress defenses do not alone establish microaerobic microsites, and seasonal sampling does not certify STABLE equilibrium.
+
+### dataset-links: Verified source datasets are absent from structured resources
+
+minor / open / confirmed; issue key: cm-000219-dataset-links.
+
+The record links the article but leaves associated_datasets empty despite public source-linked metagenomic/metatranscriptomic and supporting-analysis resources.
+
+## Recommended Actions And Acceptance Checks
+
+### fix-realized-substrate-feeding
+
+Align ingredient prose with the qualified graph, distinguishing predicted production/consumption from measured partner transfer and separating carbohydrate metabolism from WLP direction.
+
+- No unmeasured Asgard-to-methanogen flux is asserted.
+- Acetate production and possible reverse oxidation remain distinct.
+- Source interpretation is retained without claiming direct functional validation.
+- Run strict and reference checks, retaining any independently confirmed tool defect.
+
+### fix-required-hydrogen-headspace
+
+Remove the universal cultivation requirement or recast it as an explicitly untested hypothesis without prescribing a source-validated medium.
+
+- Hydrogenase expression is not treated as proof of an obligatory culture condition.
+- No culture recipe or gas requirement is fabricated.
+- The valid [NiFe] quotation remains intact despite the validator defect.
+- Run strict and reference checks.
+
+### fix-role-attribution
+
+Retain primary-degrader capacity only with claim-specific computational evidence and qualification; remove or explicitly qualify unsupported secondary-fermenter and aggregate autotroph roles.
+
+- Predicted primary degradation is not discarded as wholly unsupported.
+- SECONDARY_FERMENTER is not inferred from fermentation alone.
+- Methanogen presence is retained with direct source evidence, without blanket autotrophy.
+- Run strict, term and reference checks.
+
+### fix-environment-evidence
+
+Replace the generic snippet with source-specific sampling evidence and qualify unmeasured oxygen/equilibrium assumptions in the environmental description.
+
+- Location, sampled depth and natural field scope match source Methods.
+- No pH, temperature or measured oxygen condition is invented.
+- The equilibrium limitation is explicit within the available schema.
+- Run strict and reference checks.
+
+### fix-dataset-links
+
+Add appropriately typed BioProject and supporting-analysis links, with exact relevance and source evidence; verify any finer-grained accession before including it.
+
+- PRJNA1050611 and Zenodo 10.5281/zenodo.11671770 retain their distinct data roles.
+- Project metadata does not stand in for raw-read, genome or biochemical reanalysis.
+- No unverified individual SRX or assembly identity is certified.
+- Run strict and reference checks.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml; Whole record: three descriptors, three nodes, two arrows and eleven evidence occurrences | supports | The target describes a natural wetland-soil community through two Asgard lineages and a methanogenic aggregate; the graph explicitly separates inferred metabolic potential from realized exchange. |
+| primary | PMID:39085194; https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11291895/fullTextXML; full Introduction, Results, Discussion and Methods, figure captions and Data availability | supports | Fresh full primary XML was read. Genome reconstruction, transcript mapping, pathway annotation and structural modeling support predicted capacities; neither cultivation requirements nor partner-resolved substrate flux was experimentally established. |
+| identity | PMID:39085194; Results: complete genomes and phylogenetic placement; Discussion first paragraph; Methods sample acquisition | supports | The source samples a seasonal vernal pool in Lake County, California, across multiple years and depths. Three closed genomes represent two Atabeyarchaeia groups and Freyarchaeia within a much larger natural community; additional draft genomes and public comparison genomes are distinct from those three. |
+| methanogens | PMID:39085194; Results first subsection: archaeal distribution and MCR expression | supports | Co-resident Methanomicrobia and Methanomethylicia transcribe the MCR complex, supporting the methane-cycling context. Their presence is not merely inferred from the paper title, but it does not establish uniform autotrophy or exchange from a particular Asgard donor. |
+| acetogenesis | PMID:39085194; Discussion: WLP acetogenesis and possible methanogen support; Results: reversible WLP | supports | Genomes and transcripts support potential non-methanogenic acetogenesis. Acetate production could support acetoclastic methanogens, while competing substrate consumption could reduce availability; realized transfer and the net methane effect remain unresolved. |
+| wlp | PMID:39085194; Results: Expression of energy conservation pathways, final paragraphs | supports | Both WLP branches and hydrogenase-related systems are encoded and expressed. CO2/formate reduction and reverse acetate oxidation remain possible; transcript presence alone does not determine pathway direction or hydrogen flux. |
+| carbohydrates | PMID:39085194; Results: Carbon compound metabolic pathways; Discussion metabolic differences | supports | Freyarchaeia has predicted extracellular complex-carbon degradation and glucose entry; Atabeyarchaeia uses proposed phosphorylated-sugar entry. Protein/peptide breakdown and amino-acid use have genomic/transcript support, but products and trophic sequence are not directly measured. |
+| hydrogen | PMID:39085194; Results: group 3 and group 4 hydrogenases; Discussion energy conservation; Methods uncultured type material | supports | Hydrogen-linked capacities and possible lithoautotrophic growth are inferred, with the novel group 4 function unresolved. The study reports uncultured lineages and supplies no cultivation result establishing an obligatory hydrogen headspace. |
+| sampling | PMID:39085194; Methods: sample acquisition and metatranscriptomic preparation; Fig. 3 caption; Results environmental protection | supports | Soil cores span 20-175 cm in the study, with closed genomes recovered from 60-100 cm and transcript samples from deep soil. RNA samples were homogenized and pooled before sequencing; detoxification genes support predicted anaerobes coping with oxygen stress, not measured microaerobic conditions or ecological equilibrium. |
+| datasets-source | PMID:39085194; Data availability; Methods nomenclature and type material | supports | The source links BioProject PRJNA1050611, seven SRX experiments, genome resources at ggKbase and Zenodo 10.5281/zenodo.11671770. These resources support provenance and reproducibility rather than direct evidence of metabolite exchange. |
+| schema | src/communitymech/schema/communitymech.yaml; FunctionalRoleEnum, EcologicalStateEnum and CommunityCategoryEnum | supports | PRIMARY_PRODUCER means carbon-fixing autotroph; SECONDARY_FERMENTER consumes products of primary degraders; PRIMARY_DEGRADER covers complex-substrate degradation. STABLE asserts equilibrium, while METHANOGENESIS describes methane-producing communities. |
+| ontology | Local OAK NCBITaxon, ENVO, CHEBI and GO snapshots; Nine distinct ID-label pairs across twenty-three occurrences; rank and definition checks | supports | Every label matches. Promethearchaeati is a kingdom-level anchor shared by two source-distinct lineages, while Archaea is a domain-level anchor for an explicitly named methanogen aggregate; neither ID alone establishes lineage identity or metabolic function. |
+| snippets | kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml; Eleven evidence occurrences compared with both committed caches and independently retrieved primary XML | supports | All snippets retain source provenance; the native reference error is separately triaged as bracket stripping rather than an invalid quotation. |
+| reference-triage | Native reference validator and independent literal comparison; related_ingredients[2].evidence[0].snippet; reference-failure-triage.json | supports | The validator removes [NiFe] before matching and then rejects the altered text; the unchanged original snippet matches both caches, so the failed gate is a known tool defect rather than evidence fabrication. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=39085194&amp;retmode=xml; Independent public metadata | supports | PMID 39085194 identifies the cited Valentin-Alvarado et al. Nature Communications article. |
+| crossref | https://api.crossref.org/works/10.1038/s41467-024-49872-z; Independent public metadata | supports | DOI 10.1038/s41467-024-49872-z resolves to the same article. |
+| bioproject | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=bioproject&amp;id=1050611&amp;retmode=xml; Independent public metadata | supports | PRJNA1050611 is public wetland-soil genomic/transcriptomic project metadata and links the cited article DOI; no raw reads or assemblies were reanalyzed. |
+| zenodo | https://zenodo.org/api/records/11671770; Independent public metadata | supports | 10.5281/zenodo.11671770 is an open supporting dataset for the cited article, with fifteen listed files including sequences, alignments, trees and an AlphaFold archive; file contents were not downloaded. |
+| history | history/records/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community; reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml; Two target sidecars and prior graph decision at lines 167-221 | supports | Prior snippet repair and graph curation preserve contiguous quotations and hypothetical metabolic links; the prior decision explicitly excluded non-graph metadata from certification. |
+| local-search | references_cache; history; reports/causal_graph_review/decisions; kb/taxa; Ignored-inclusive source/slug/ID and reusable-taxon searches | supports | Both caches, two sidecars and the graph decision were located; bounded member-name and NCBI-ID searches found no matching reusable taxon identity, while a generic methanogen mention in an unrelated DIET record did not establish a match. |
+| adapter | Optional kg-microbe-sources runner availability; Fresh batch04 runtime and bounded ignored-inclusive shared-tool discovery | supports | No runner/module was available in the owned runtime; another checkout candidate was not executed. No expression-module coverage was queried or inferred from broad Asgard taxonomy. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml; Actual execution 2026-10-21T07:07:15.727770+00:00 to 2026-10-21T07:07:16.638704+00:00 | supports | Schema validation passed for the target. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-strict kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml --out /private/tmp/cm-review-session/batch-04/000219/strict-report.tsv; Actual execution 2026-10-21T07:07:15.729862+00:00 to 2026-10-21T07:07:22.742269+00:00 | supports | Strict closed-schema and cross-field validation passed for the target. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-terms kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml; Actual execution 2026-10-21T07:07:15.731930+00:00 to 2026-10-21T07:07:17.887300+00:00 | supports | Native ontology-term validation passed for the target. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-gtdb kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml; Actual execution 2026-10-21T07:07:16.638965+00:00 to 2026-10-21T07:07:16.721850+00:00 | supports | GTDB structural validation passed, preserving the two unresolved lineage assignments. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-gtdb-domain kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml; Actual execution 2026-10-21T07:07:16.722134+00:00 to 2026-10-21T07:07:18.150751+00:00 | supports | GTDB domain validation passed for the target. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-history history/records/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community; Actual execution 2026-10-21T07:07:17.887623+00:00 to 2026-10-21T07:07:18.667423+00:00 | supports | Both target history sidecars passed native validation. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T07:07:22.743102+00:00 to 2026-10-21T07:07:22.813948+00:00 | supports | Read-only reference-cache filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-references-explained kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml; Actual execution 2026-10-21T07:07:22.814197+00:00 to 2026-10-21T07:07:23.937559+00:00 | supports | Reference validation failed solely on known [NiFe] bracket stripping, while the original quote matches the sources. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T07:06:05.543108+00:00 to 2026-10-21T07:06:16.498440+00:00 | supports | Fresh batch04 corpus run returned 57 warnings across 21 of 477 records, zero errors and exit 1; this target was not listed. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T07:06:16.498920+00:00 to 2026-10-21T07:06:23.361213+00:00 | supports | Fresh batch04 corpus run returned 57 warnings across 21 of 477 records, zero errors and exit 1; this target was not listed. |
+| native-target | NetworkIntegrityAuditor().audit_community(target); Independent read-only API diagnostic and native metric components in support-audit.json | supports | The target returned zero issues and native COMPLETE; three node evidence items across three nodes give mean 1.0, with two qualified arrows. |
+| dataset-verification | Independent BioProject and Zenodo metadata inspection; dataset-verification.json | supports | Both source-linked resources were independently checked from downloaded metadata; seven SRX experiments and ggKbase remain article-reported without independent accession retrieval. |
+
+## Limits And Additional Notes
+
+- Broad NCBI kingdom/domain anchors do not resolve the two Asgard lineages or every methanogen identity; unresolved GTDB statuses remain explicit, and historical crosswalk counts were not independently recomputed.
+- Methods and figure captions were read, but raw genomic/transcriptomic data, supplement files, biochemical activity and model structures were not independently reanalyzed.
+- RNA samples were homogenized and pooled without technical replicates; transcript patterns cannot certify replicated depth-specific fluxes, pathway direction or partner exchange.
+- BioProject and Zenodo metadata were verified; individual SRX records, ggKbase genomes and archive file contents were not independently fetched.
+- Optional shared-expression adapter was unavailable in the owned runtime; an external-checkout candidate was not executed and no catalog-coverage conclusion follows.
+- The native reference gate remains failed due to confirmed [NiFe] bracket stripping; the original quotation must not be weakened to satisfy it. Required corpus gates also retain actual warning failures.
+- Cache markdown frontmatter labels the source abstract_only despite substantive appended full text; source boundaries were checked against fresh primary XML, and caches were left unchanged.
+- Canonical records, caches, history and generated outputs remain unchanged.
+- Source quotations total 22 words.
+- The study directly reports methanogen presence; the review does not infer absence from broad taxonomy or weak local evidence.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T071211Z-asgard-wetland-soil-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Asgard wetland-soil substrate community: whole-record source review'
+started_at: '2026-10-21T07:06:25.698188Z'
+finished_at: '2026-10-21T07:12:11.086268Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Canonical target unchanged in this session; prior codex graph
+    curation prevents person-level independence claims. Separate agents checked ontology,
+    gates, snippets, metadata, history and native metrics; root independently assessed
+    source sections.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Three major findings concern realized substrate-feeding prose, an unsupported
+  obligatory hydrogen headspace and role attribution. Two minor findings concern environmental
+  evidence/qualification and source dataset links. All three nodes and two hypothetical
+  arrows remain supported. Six focused native checks and the cache filename preflight
+  pass; the reference gate retains a known bracket-stripping failure despite eleven
+  verified snippets.
+source:
+  git_revision: c6e5a9b9af2d05e12eaafb2555a53f3a079268f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community/2026-08-31T075013Z-claude-code-ee7911.yaml
+    sha256: f4a5a5b260b462b7bc6eb38f94571772ef7ea755d7e8a89751158d0299db8afa
+    role: context
+  - path: history/records/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community/2026-10-05T101149Z-codex-7906da.yaml
+    sha256: 505d6fbefa7d9b76775cb4cf6fad76d276a1a0e0e1e060972d06c8ccd16d7e2a
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+    sha256: 90510230f2053bb53ef0f2020d0bf60b557586fa250312df1c6bdb56ade99a23
+    role: target
+  - path: references_cache/PMID_39085194.md
+    sha256: 6c940fa8eb69f5540e6c0c3709317846ab37d347ac77e3f59454f2ce0f5a880e
+    role: context
+  - path: references_cache/PMID_39085194.txt
+    sha256: 59718376f83ca9ad36dc16b22790a62d5f03000e5c6ede9040060c9c0aeb862c
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+    sha256: 5076ec8295dacfaae0ae1d829836e4380a312a702c4a43df5f604c3b1b1e0ad3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000219
+  path: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+  label: Asgard Archaea Wetland Soil Methanogenesis-Substrate Community
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+    role: canonical_record
+scope:
+  description: Entire record, all three taxonomic descriptors, three nodes and two
+    arrows, eleven evidence occurrences, full primary main article and source data
+    metadata. Genome sequences, raw transcripts, supplements, modeled structures and
+    figure geometry were not independently reanalyzed.
+  selection: First uncovered path of fresh batch04 after the published batch03; one
+    resolved maintained record.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000219
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema validation passed for the target.
+  target_ids:
+  - CommunityMech:000219
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history check or read-only cache preflight; both committed
+    cache hashes remained unchanged.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict closed-schema and cross-field validation passed for the target.
+  target_ids:
+  - CommunityMech:000219
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-strict kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+    --out /private/tmp/cm-review-session/batch-04/000219/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history check or read-only cache preflight; both committed
+    cache hashes remained unchanged.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Native ontology-term validation passed for the target.
+  target_ids:
+  - CommunityMech:000219
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-terms kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history check or read-only cache preflight; both committed
+    cache hashes remained unchanged.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB structural validation passed, preserving the two unresolved lineage
+    assignments.
+  target_ids:
+  - CommunityMech:000219
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history check or read-only cache preflight; both committed
+    cache hashes remained unchanged.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: GTDB domain validation passed for the target.
+  target_ids:
+  - CommunityMech:000219
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history check or read-only cache preflight; both committed
+    cache hashes remained unchanged.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Both target history sidecars passed native validation.
+  target_ids:
+  - CommunityMech:000219
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-history history/records/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history check or read-only cache preflight; both committed
+    cache hashes remained unchanged.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only reference-cache filename preflight passed.
+  target_ids:
+  - CommunityMech:000219
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history check or read-only cache preflight; both committed
+    cache hashes remained unchanged.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: failed
+  required: true
+  summary: Reference validation failed solely on known [NiFe] bracket stripping, while
+    the original quote matches the sources.
+  target_ids:
+  - CommunityMech:000219
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-references-explained kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  - reference-triage
+  - snippets
+  scope_note: Focused target/history check or read-only cache preflight; both committed
+    cache hashes remained unchanged.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch04 corpus run returned 57 warnings across 21 of 477 records,
+    zero errors and exit 1; this target was not listed.
+  target_ids:
+  - CommunityMech:000219
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  scope_note: Correct batch04 runtime and full-corpus scope; a clean target diagnostic
+    does not replace the failed corpus gate.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch04 corpus run returned 57 warnings across 21 of 477 records,
+    zero errors and exit 1; this target was not listed.
+  target_ids:
+  - CommunityMech:000219
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  scope_note: Correct batch04 runtime and full-corpus scope; a clean target diagnostic
+    does not replace the failed corpus gate.
+- check_id: public-source-identity
+  name: Independent publication identity and full text
+  status: passed
+  required: true
+  summary: Fresh PubMed, Crossref and full primary XML verify the source identity
+    and support claim-level assessment.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - pubmed
+  - crossref
+  - primary
+- check_id: source-datasets
+  name: Public source dataset metadata
+  status: passed
+  required: true
+  summary: The source BioProject and Zenodo dataset resolve with matching study metadata.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - bioproject
+  - zenodo
+  - dataset-verification
+- check_id: structured-expression-adapter
+  name: Optional structured source adapter availability
+  status: unavailable
+  required: false
+  summary: No runner was available in the owned runtime, and no expression-module
+    catalog coverage was established.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+  locator: 'Whole record: three descriptors, three nodes, two arrows and eleven evidence
+    occurrences'
+  summary: The target describes a natural wetland-soil community through two Asgard
+    lineages and a methanogenic aggregate; the graph explicitly separates inferred
+    metabolic potential from realized exchange.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.026917Z'
+- evidence_id: primary
+  kind: primary_source
+  reference: PMID:39085194
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11291895/fullTextXML;
+    full Introduction, Results, Discussion and Methods, figure captions and Data availability
+  summary: Fresh full primary XML was read. Genome reconstruction, transcript mapping,
+    pathway annotation and structural modeling support predicted capacities; neither
+    cultivation requirements nor partner-resolved substrate flux was experimentally
+    established.
+  support: supports
+  accessed_at: '2026-10-21T07:06:44.039483Z'
+  snapshot_sha256: 94f48901dbec5562fa4a7df044456bd3f427d75454326828d47b6cfbb3165f1c
+- evidence_id: identity
+  kind: primary_source
+  reference: PMID:39085194
+  locator: 'Results: complete genomes and phylogenetic placement; Discussion first
+    paragraph; Methods sample acquisition'
+  summary: The source samples a seasonal vernal pool in Lake County, California, across
+    multiple years and depths. Three closed genomes represent two Atabeyarchaeia groups
+    and Freyarchaeia within a much larger natural community; additional draft genomes
+    and public comparison genomes are distinct from those three.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.027025Z'
+  quote: less than 1%
+- evidence_id: methanogens
+  kind: primary_source
+  reference: PMID:39085194
+  locator: 'Results first subsection: archaeal distribution and MCR expression'
+  summary: Co-resident Methanomicrobia and Methanomethylicia transcribe the MCR complex,
+    supporting the methane-cycling context. Their presence is not merely inferred
+    from the paper title, but it does not establish uniform autotrophy or exchange
+    from a particular Asgard donor.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.027027Z'
+- evidence_id: acetogenesis
+  kind: primary_source
+  reference: PMID:39085194
+  locator: 'Discussion: WLP acetogenesis and possible methanogen support; Results:
+    reversible WLP'
+  summary: Genomes and transcripts support potential non-methanogenic acetogenesis.
+    Acetate production could support acetoclastic methanogens, while competing substrate
+    consumption could reduce availability; realized transfer and the net methane effect
+    remain unresolved.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.027029Z'
+  quote: may support the growth
+- evidence_id: wlp
+  kind: primary_source
+  reference: PMID:39085194
+  locator: 'Results: Expression of energy conservation pathways, final paragraphs'
+  summary: Both WLP branches and hydrogenase-related systems are encoded and expressed.
+    CO2/formate reduction and reverse acetate oxidation remain possible; transcript
+    presence alone does not determine pathway direction or hydrogen flux.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.027030Z'
+  quote: reverse operation of the WLP
+- evidence_id: carbohydrates
+  kind: primary_source
+  reference: PMID:39085194
+  locator: 'Results: Carbon compound metabolic pathways; Discussion metabolic differences'
+  summary: Freyarchaeia has predicted extracellular complex-carbon degradation and
+    glucose entry; Atabeyarchaeia uses proposed phosphorylated-sugar entry. Protein/peptide
+    breakdown and amino-acid use have genomic/transcript support, but products and
+    trophic sequence are not directly measured.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.027032Z'
+  quote: fructose 6-phosphate
+- evidence_id: hydrogen
+  kind: primary_source
+  reference: PMID:39085194
+  locator: 'Results: group 3 and group 4 hydrogenases; Discussion energy conservation;
+    Methods uncultured type material'
+  summary: Hydrogen-linked capacities and possible lithoautotrophic growth are inferred,
+    with the novel group 4 function unresolved. The study reports uncultured lineages
+    and supplies no cultivation result establishing an obligatory hydrogen headspace.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.027033Z'
+  quote: not been validated biochemically
+- evidence_id: sampling
+  kind: primary_source
+  reference: PMID:39085194
+  locator: 'Methods: sample acquisition and metatranscriptomic preparation; Fig. 3
+    caption; Results environmental protection'
+  summary: Soil cores span 20-175 cm in the study, with closed genomes recovered from
+    60-100 cm and transcript samples from deep soil. RNA samples were homogenized
+    and pooled before sequencing; detoxification genes support predicted anaerobes
+    coping with oxygen stress, not measured microaerobic conditions or ecological
+    equilibrium.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.027034Z'
+  quote: absence of technical replicates
+- evidence_id: datasets-source
+  kind: primary_source
+  reference: PMID:39085194
+  locator: Data availability; Methods nomenclature and type material
+  summary: The source links BioProject PRJNA1050611, seven SRX experiments, genome
+    resources at ggKbase and Zenodo 10.5281/zenodo.11671770. These resources support
+    provenance and reproducibility rather than direct evidence of metabolite exchange.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.027036Z'
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: FunctionalRoleEnum, EcologicalStateEnum and CommunityCategoryEnum
+  summary: PRIMARY_PRODUCER means carbon-fixing autotroph; SECONDARY_FERMENTER consumes
+    products of primary degraders; PRIMARY_DEGRADER covers complex-substrate degradation.
+    STABLE asserts equilibrium, while METHANOGENESIS describes methane-producing communities.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.027037Z'
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO, CHEBI and GO snapshots
+  locator: Nine distinct ID-label pairs across twenty-three occurrences; rank and
+    definition checks
+  summary: Every label matches. Promethearchaeati is a kingdom-level anchor shared
+    by two source-distinct lineages, while Archaea is a domain-level anchor for an
+    explicitly named methanogen aggregate; neither ID alone establishes lineage identity
+    or metabolic function.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.027243Z'
+  snapshot_sha256: 12ddd31cbc31bd80e6f877347f9421d002446c3ab597b929ebe49dcceec729e7
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+  locator: Eleven evidence occurrences compared with both committed caches and independently
+    retrieved primary XML
+  summary: All snippets retain source provenance; the native reference error is separately
+    triaged as bracket stripping rather than an invalid quotation.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.027436Z'
+  snapshot_sha256: 796ca5e9f5c526dc17d7303f3dbc37ea7f357dd0aed2ba41c731e9ca90cb41e4
+- evidence_id: reference-triage
+  kind: validation
+  reference: Native reference validator and independent literal comparison
+  locator: related_ingredients[2].evidence[0].snippet; reference-failure-triage.json
+  summary: The validator removes [NiFe] before matching and then rejects the altered
+    text; the unchanged original snippet matches both caches, so the failed gate is
+    a known tool defect rather than evidence fabrication.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.027631Z'
+  snapshot_sha256: 866c3792d50d901bd61e88c42d0c56dea14b5d5ebbb262691e310b0cace33ac5
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39085194&retmode=xml
+  locator: Independent public metadata
+  summary: PMID 39085194 identifies the cited Valentin-Alvarado et al. Nature Communications
+    article.
+  support: supports
+  accessed_at: '2026-10-21T07:06:44.039847Z'
+  snapshot_sha256: 9bb7eeaffa274d18b5c76ab610526504bdfe053aa7b1aaa946e9b63814a57a54
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1038/s41467-024-49872-z
+  locator: Independent public metadata
+  summary: DOI 10.1038/s41467-024-49872-z resolves to the same article.
+  support: supports
+  accessed_at: '2026-10-21T07:06:44.040004Z'
+  snapshot_sha256: 73190b8276a8d0f0cea17690393457bdb1fb6fc591e0e1452fe85ae84ab65d0a
+- evidence_id: bioproject
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=bioproject&id=1050611&retmode=xml
+  locator: Independent public metadata
+  summary: PRJNA1050611 is public wetland-soil genomic/transcriptomic project metadata
+    and links the cited article DOI; no raw reads or assemblies were reanalyzed.
+  support: supports
+  accessed_at: '2026-10-21T07:07:54.901877Z'
+  snapshot_sha256: 4fe73110b9e3c9c9ca350639f86e0389d2d5860466f7f16611920c9cad8135e1
+- evidence_id: zenodo
+  kind: database
+  reference: https://zenodo.org/api/records/11671770
+  locator: Independent public metadata
+  summary: 10.5281/zenodo.11671770 is an open supporting dataset for the cited article,
+    with fifteen listed files including sequences, alignments, trees and an AlphaFold
+    archive; file contents were not downloaded.
+  support: supports
+  accessed_at: '2026-10-21T07:07:54.902266Z'
+  snapshot_sha256: 8befe4816eefc6a70bd86995026f8e0e8c1ca4445cff5e91ff158d0e59b53ef1
+- evidence_id: history
+  kind: record_content
+  reference: history/records/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community;
+    reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  locator: Two target sidecars and prior graph decision at lines 167-221
+  summary: Prior snippet repair and graph curation preserve contiguous quotations
+    and hypothetical metabolic links; the prior decision explicitly excluded non-graph
+    metadata from certification.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.028373Z'
+- evidence_id: local-search
+  kind: search
+  reference: references_cache; history; reports/causal_graph_review/decisions; kb/taxa
+  locator: Ignored-inclusive source/slug/ID and reusable-taxon searches
+  summary: Both caches, two sidecars and the graph decision were located; bounded
+    member-name and NCBI-ID searches found no matching reusable taxon identity, while
+    a generic methanogen mention in an unrelated DIET record did not establish a match.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.028375Z'
+  search_scope: rg --no-ignore --hidden for 39085194, record ID/slug, Atabeyarchaeia,
+    Freyarchaeia, NCBITaxon:1935183 and NCBITaxon:2157 in the named trees; no global
+    absence claim.
+- evidence_id: adapter
+  kind: search
+  reference: Optional kg-microbe-sources runner availability
+  locator: Fresh batch04 runtime and bounded ignored-inclusive shared-tool discovery
+  summary: No runner/module was available in the owned runtime; another checkout candidate
+    was not executed. No expression-module coverage was queried or inferred from broad
+    Asgard taxonomy.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.028547Z'
+  snapshot_sha256: eaa502c9929ebfdbca1a97dfbe577ec6d76fa301ce433ff65170daf620818c27
+  search_scope: Fresh PATH and batch04 virtualenv/module checks plus bounded ignored-inclusive
+    filenames in named task checkouts and shared-tool candidates.
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+  locator: Actual execution 2026-10-21T07:07:15.727770+00:00 to 2026-10-21T07:07:16.638704+00:00
+  summary: Schema validation passed for the target.
+  support: supports
+  accessed_at: '2026-10-21T07:07:16.638704Z'
+  snapshot_sha256: e78f3a0b6f56bca0fa8e710bba6fc761e2618fa2f554b5855095580791c264b5
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-strict kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+    --out /private/tmp/cm-review-session/batch-04/000219/strict-report.tsv
+  locator: Actual execution 2026-10-21T07:07:15.729862+00:00 to 2026-10-21T07:07:22.742269+00:00
+  summary: Strict closed-schema and cross-field validation passed for the target.
+  support: supports
+  accessed_at: '2026-10-21T07:07:22.742269Z'
+  snapshot_sha256: f0c8d9b260ae6becf31ba7d9cae61146a36fece8ff80859378ded95641ff5cde
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-terms kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+  locator: Actual execution 2026-10-21T07:07:15.731930+00:00 to 2026-10-21T07:07:17.887300+00:00
+  summary: Native ontology-term validation passed for the target.
+  support: supports
+  accessed_at: '2026-10-21T07:07:17.887300Z'
+  snapshot_sha256: 17606311a55e2cb6dcda0840657b91462cdd30950cf6e7776852e2ddf4dbb52e
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+  locator: Actual execution 2026-10-21T07:07:16.638965+00:00 to 2026-10-21T07:07:16.721850+00:00
+  summary: GTDB structural validation passed, preserving the two unresolved lineage
+    assignments.
+  support: supports
+  accessed_at: '2026-10-21T07:07:16.721850Z'
+  snapshot_sha256: 815f95a4943ca4cdc939ca25f4d870ef0043952fa297a983a7fae440c3c4a0b8
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+  locator: Actual execution 2026-10-21T07:07:16.722134+00:00 to 2026-10-21T07:07:18.150751+00:00
+  summary: GTDB domain validation passed for the target.
+  support: supports
+  accessed_at: '2026-10-21T07:07:18.150751Z'
+  snapshot_sha256: 70f93e51f9be19b5fe392c5e77b21e600ec26c477a063e5c4fb582a813d89be7
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-history history/records/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community
+  locator: Actual execution 2026-10-21T07:07:17.887623+00:00 to 2026-10-21T07:07:18.667423+00:00
+  summary: Both target history sidecars passed native validation.
+  support: supports
+  accessed_at: '2026-10-21T07:07:18.667423Z'
+  snapshot_sha256: 4392c57cd1dc50736a60c742ce0b5cb8c177df57e5e2d4e028b1dca73fb33088
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T07:07:22.743102+00:00 to 2026-10-21T07:07:22.813948+00:00
+  summary: Read-only reference-cache filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T07:07:22.813948Z'
+  snapshot_sha256: 652f390e08b1e7afa19a81f7d6fb3e99f54c1094134ad53759290e43fe58bd1b
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-references-explained kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+  locator: Actual execution 2026-10-21T07:07:22.814197+00:00 to 2026-10-21T07:07:23.937559+00:00
+  summary: Reference validation failed solely on known [NiFe] bracket stripping, while
+    the original quote matches the sources.
+  support: supports
+  accessed_at: '2026-10-21T07:07:23.937559Z'
+  snapshot_sha256: 8f2ffc298d8e91f4c43cb61939c2eb288128b203c9829cadd270f28fa925eb96
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T07:06:05.543108+00:00 to 2026-10-21T07:06:16.498440+00:00
+  summary: Fresh batch04 corpus run returned 57 warnings across 21 of 477 records,
+    zero errors and exit 1; this target was not listed.
+  support: supports
+  accessed_at: '2026-10-21T07:06:16.498440Z'
+  snapshot_sha256: 7e9c998a5a9fe2b1a28c809bd5eb651205b3256dd64666ef7a9ca6fbde7504fa
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T07:06:16.498920+00:00 to 2026-10-21T07:06:23.361213+00:00
+  summary: Fresh batch04 corpus run returned 57 warnings across 21 of 477 records,
+    zero errors and exit 1; this target was not listed.
+  support: supports
+  accessed_at: '2026-10-21T07:06:23.361213Z'
+  snapshot_sha256: 5ba6a0b7c789574c80df1b60d81f0e54454b66e4f919949ad352cff92dd9744e
+- evidence_id: native-target
+  kind: validation
+  reference: NetworkIntegrityAuditor().audit_community(target)
+  locator: Independent read-only API diagnostic and native metric components in support-audit.json
+  summary: The target returned zero issues and native COMPLETE; three node evidence
+    items across three nodes give mean 1.0, with two qualified arrows.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.030628Z'
+  snapshot_sha256: f3ab6d0e3c43f40750f0d3611d6e09adec4979772a8263b456e5a0ba46a410d8
+- evidence_id: dataset-verification
+  kind: validation
+  reference: Independent BioProject and Zenodo metadata inspection
+  locator: dataset-verification.json
+  summary: Both source-linked resources were independently checked from downloaded
+    metadata; seven SRX experiments and ggKbase remain article-reported without independent
+    accession retrieval.
+  support: supports
+  accessed_at: '2026-10-21T07:11:37.030884Z'
+  snapshot_sha256: 42e9a79d64e101ea43ebd3bec79a5b690aa3011852815251cec6c0e95ef218c0
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Natural wetland-soil Asgard and methanogen context
+  outcome: supported
+  summary: The record and source community are resolved at the site/lineage level,
+    with genomes and environmental transcripts rather than cultivated partner strains.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - identity
+  - methanogens
+  - primary
+  - pubmed
+  - crossref
+  dimensions:
+  - name: community_scope
+    value: Natural seasonal wetland-soil community
+    definition: Multiple cores, depths and years characterize one source site; public
+      comparison genomes do not all belong to this community.
+    evidence_ids:
+    - identity
+    - sampling
+  - name: source_strain
+    value: Two closed Atabeyarchaeia genomes and one closed Freyarchaeia genome
+    definition: Source-resolved environmental genomes are not culture isolates or
+      species-level proof from broad NCBI anchors.
+    evidence_ids:
+    - identity
+    - ontology
+  - name: experimental_setting
+    value: Field soil sampling, metagenomics and pooled metatranscriptomics
+    definition: Closed genomes from 60-100 cm and deep-soil transcripts inform the
+      mechanism without replicated depth-specific flux measurements.
+    evidence_ids:
+    - sampling
+  - name: evidence_tier
+    value: Genome annotation, transcription and protein modeling
+    definition: Expression supports active capacity; substrate direction and partner-resolved
+      transfer remain inferred.
+    evidence_ids:
+    - wlp
+    - acetogenesis
+    - hydrogen
+  - name: medium
+    value: No cultivation medium reported for the focal uncultured lineages
+    definition: Empty growth_media is appropriate; a mandatory H2 requirement is not
+      supported by this study.
+    evidence_ids:
+    - hydrogen
+- assessment_id: taxonomy
+  area: grounding
+  topic: Broad lineage anchors, GTDB and roles
+  outcome: concern
+  summary: Explicit lineage names and unresolved GTDB status preserve uncertainty
+    despite shared kingdom grounding. Predicted primary degradation has source support,
+    but trophic sequence and blanket methanogen autotrophy do not follow from membership
+    or expression evidence.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - ontology
+  - schema
+  - carbohydrates
+  - methanogens
+  dimensions:
+  - name: taxon_grounding
+    value: NCBITaxon:1935183 Promethearchaeati (kingdom) anchors both named Asgard
+      lineages with GTDB UNRESOLVED; NCBITaxon:2157 Archaea maps to GTDB:d__Archaea
+      for the named methanogen aggregate
+    definition: Rank-level anchors preserve broad identity but neither resolve source
+      genomes to a lineage-specific taxon identifier nor establish metabolic roles.
+    evidence_ids:
+    - record
+    - ontology
+    - identity
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Asgard Acetogenesis Modulates Methanogenic Substrates'
+  outcome: supported
+  summary: The explicitly hypothesized substrate-pool effect is supported.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - acetogenesis
+  - primary
+  details: 'Participants: source Atabeyarchaeia/Freyarchaeia and co-resident methanogens.
+    Direction: possible production or consumption of shared pools; no measured transfer
+    or net methane response. Context: natural soil genomes/transcripts. Linked evidence
+    supplies the source locator and a bounded excerpt.'
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Wood-Ljungdahl Carbon Fixation and Hydrogen
+    Cycling'
+  outcome: supported
+  summary: Expressed WLP and hydrogen-related capacity is supported with unresolved
+    direction.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - wlp
+  - primary
+  details: 'Participants: the two Asgard lineages. Direction: reversible CO2/formate
+    assimilation or acetate oxidation coupled to possible hydrogen cycling; no direct
+    flux measurement. Context: environmental transcript mapping and annotated genomes.
+    Linked evidence supplies the source locator and a bounded excerpt.'
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: Carbohydrate Breakdown to Acetate and Formate'
+  outcome: supported
+  summary: Lineage-dependent carbohydrate-conversion potential is supported.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - carbohydrates
+  - primary
+  details: 'Participants: source Atabeyarchaeia and Freyarchaeia. Direction: proposed
+    carbohydrate entry and metabolism toward acetate/formate, with distinct entry
+    substrates and enzymes; no proof of identical product release. Context: genome/transcript
+    reconstruction. Linked evidence supplies the source locator and a bounded excerpt.'
+- assessment_id: arrow-1
+  area: graph
+  topic: ecological_interactions[1].downstream[0]
+  outcome: supported
+  summary: The hypothetical WLP/hydrogen-to-pool arrow is supported as qualified.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - wlp
+  - acetogenesis
+  details: Source participants are the Asgard lineages; the target includes methanogens.
+    Expressed capacity may change substrate pools through production or consumption,
+    but direction, exchange and recipient response remain unresolved. The arrow is
+    a hypothesis linking source capacities, not an observed ecological flux.
+- assessment_id: arrow-2
+  area: graph
+  topic: ecological_interactions[2].downstream[0]
+  outcome: supported
+  summary: The hypothetical carbohydrate-to-pool arrow is supported as qualified.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - carbohydrates
+  - acetogenesis
+  details: Source participants are the Asgard lineages; the target includes methanogens.
+    Predicted carbon metabolism could supply shared acetate/formate, but consumption
+    and no measured partner transfer remain explicit. The arrow is a hypothesis linking
+    source capacities, not an observed ecological flux.
+- assessment_id: chemicals-processes
+  area: grounding
+  topic: All metabolites, GO processes and ingredient claims
+  outcome: concern
+  summary: Chemical identities and broad process terms resolve, but related acetate/formate
+    prose states realized feeding more strongly than its computational evidence and
+    the qualified graph permit.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - ontology
+  - acetogenesis
+  - wlp
+  - carbohydrates
+- assessment_id: environment
+  area: scope
+  topic: Origin, ecological state, category and conditions
+  outcome: concern
+  summary: NATURAL and wetland grounding fit the source, and methanogens support the
+    METHANOGENESIS context without assigning methanogenesis to Asgard. STABLE equilibrium
+    and microaerobic conditions are not established by the cited knowledge-gap snippet.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - schema
+  - identity
+  - methanogens
+  - sampling
+  dimensions:
+  - name: environment
+    value: ENVO:00000043 wetland area; seasonal vernal pool, Lake County, California
+    definition: Natural field-soil context; source-specific depth and pooled sampling
+      qualify interpretation without measured ecological equilibrium or oxygen conditions.
+    evidence_ids:
+    - record
+    - ontology
+    - identity
+    - sampling
+- assessment_id: cultivation
+  area: scope
+  topic: Empty growth media and proposed hydrogen headspace
+  outcome: concern
+  summary: The focal lineages are uncultured, so an empty growth_media list is appropriate;
+    hydrogenase expression does not establish a necessary H2 headspace for every possible
+    culture design.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - hydrogen
+  - wlp
+- assessment_id: datasets
+  area: completeness
+  topic: Publication links and associated datasets
+  outcome: concern
+  summary: Publication IDs resolve, and source BioProject/Zenodo metadata verifies;
+    associated_datasets is empty despite these directly relevant genomic and transcriptomic
+    resources.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - datasets-source
+  - bioproject
+  - zenodo
+- assessment_id: history
+  area: provenance
+  topic: History, cache boundaries and graph discussion
+  outcome: supported
+  summary: The current graph and discussion retain prior uncertainty on pathway direction
+    and pooled RNA; stale cache metadata and the bracket-stripping validator issue
+    must not be mistaken for unsupported source quotations.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - history
+  - snippets
+  - reference-triage
+  - sampling
+- assessment_id: genes
+  area: scope
+  topic: Pathway expression and structured adapter limits
+  outcome: supported
+  summary: Named hydrogenase/WLP activities describe annotation and transcript evidence,
+    with novel enzyme functions still unresolved; no protein-level biochemical assay
+    or shared expression-module result is implied.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - hydrogen
+  - wlp
+  - adapter
+- assessment_id: metals
+  area: scope
+  topic: Metal and rare-earth fields
+  outcome: supported
+  summary: Metal-containing enzyme cofactors do not establish community metal processing
+    or rare-earth recovery; the explicit NOT_APPLICABLE processing context is reasonable.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - primary
+- assessment_id: validation
+  area: schema
+  topic: Native gates and independent checks
+  outcome: supported
+  summary: Six focused native checks and the cache filename preflight passed, the
+    reference gate retains its explained failure, nine ontology pairs match and eleven
+    snippets verify against fresh sources; corpus warning failures remain explicit.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - ontology
+  - snippets
+  - reference-triage
+  - check-validate
+  - check-validate-strict
+  - check-validate-history
+  - check-audit-network
+  - native-target
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: supported
+  summary: Completeness 75 measures populated fields and quality 91 includes scientific
+    findings; neither score proves role or flux claims.
+  target_ids:
+  - CommunityMech:000219
+  evidence_ids:
+  - record
+  - schema
+  - native-target
+  metrics:
+  - name: completeness
+    value: 75
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100, 50 required metadata including all roles + 5 environment
+      + 10 at least 3 factors + 10 at least 3 nodes + 5 resources + 10 media + 5 datasets
+      + 5 node metabolites). 50 + 5 + 0 + 10 + 5 + 0 + 0 + 5 = 75; populated but unsupported
+      role assignments still earn native field points.
+  - name: validation_quality
+    value: 91
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 - 50P1 - 10P2 - 2P3 + 20 min(mean node evidence / 2, 1)
+      + 15 if native COMPLETE, 0, 100). P1 = 0, P2 = 3, P3 = 2, P4 = 0; 3 items /
+      3 nodes = 1; native COMPLETE. 100 - 30 - 4 + 10 + 15 = 91. The bracket-stripping
+      false positive is not counted as a fabricated citation or P1 defect.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P2
+    value: 3
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count for this reviewed target.
+findings:
+- finding_id: realized-substrate-feeding
+  issue_key: cm-000219-realized-substrate-feeding
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: an unqualified metabolic role, realized flux or
+    cultivation requirement exceeds the evidence.'
+  rule_id: review-checklist.causal_claims
+  status: open
+  certainty: confirmed
+  title: Ingredient prose upgrades potential substrate metabolism to realized feeding
+  description: Acetate and formate relevance text describes production and feeding
+    of methanogens as established. The study combines pathway annotation with transcripts
+    and explicitly allows reversible WLP activity; the current graph correctly retains
+    uncertain direction, transfer and methane response.
+  target_ids:
+  - CommunityMech:000219
+  field_paths:
+  - related_ingredients[0].relevance
+  - related_ingredients[1].relevance
+  evidence_ids:
+  - record
+  - acetogenesis
+  - wlp
+  - carbohydrates
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+    role: canonical_record
+- finding_id: required-hydrogen-headspace
+  issue_key: cm-000219-required-hydrogen-headspace
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: an unqualified metabolic role, realized flux or
+    cultivation requirement exceeds the evidence.'
+  rule_id: review-checklist.cultivation
+  status: open
+  certainty: confirmed
+  title: Hydrogenase expression does not establish an obligatory H2 headspace
+  description: The dihydrogen ingredient states that any cultivation medium would
+    need an H2 headspace. The source describes uncultured lineages with inferred hydrogen-linked
+    and organotrophic capacities, and no cultivation experiment tests that necessity.
+  target_ids:
+  - CommunityMech:000219
+  field_paths:
+  - related_ingredients[2].relevance
+  evidence_ids:
+  - record
+  - hydrogen
+  - wlp
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+    role: canonical_record
+- finding_id: role-attribution
+  issue_key: cm-000219-role-attribution
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: an unqualified metabolic role, realized flux or
+    cultivation requirement exceeds the evidence.'
+  rule_id: P2.4
+  status: open
+  certainty: confirmed
+  title: Taxon roles exceed the attached evidence and inferred trophic scope
+  description: Membership snippets do not support their functional roles. The full
+    source supports predicted complex-substrate/protein degradation, but it does not
+    establish a primary-degrader-to-secondary-fermenter sequence or autotrophy for
+    the entire methanogen aggregate.
+  target_ids:
+  - CommunityMech:000219
+  field_paths:
+  - taxonomy[0].functional_role
+  - taxonomy[1].functional_role
+  - taxonomy[2].functional_role
+  - taxonomy[*].evidence
+  evidence_ids:
+  - record
+  - schema
+  - carbohydrates
+  - methanogens
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+    role: canonical_record
+- finding_id: environment-evidence
+  issue_key: cm-000219-environment-evidence
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded evidence-context, environment or cultivation-linkage
+    gap; source-supported endpoints remain recoverable.'
+  rule_id: review-checklist.environment
+  status: open
+  certainty: confirmed
+  title: Environmental and equilibrium assertions lack specific support
+  description: The environmental-factor snippet states a prior knowledge gap rather
+    than the sampled location, oxygen context or equilibrium. Source sampling and
+    anaerobic predictions can support a more precise description; oxygen-stress defenses
+    do not alone establish microaerobic microsites, and seasonal sampling does not
+    certify STABLE equilibrium.
+  target_ids:
+  - CommunityMech:000219
+  field_paths:
+  - environment_term.notes
+  - environmental_factors[0]
+  - ecological_state
+  evidence_ids:
+  - record
+  - sampling
+  - schema
+  - identity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+    role: canonical_record
+- finding_id: dataset-links
+  issue_key: cm-000219-dataset-links
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded evidence-context, environment or cultivation-linkage
+    gap; source-supported endpoints remain recoverable.'
+  rule_id: review-checklist.datasets
+  status: open
+  certainty: confirmed
+  title: Verified source datasets are absent from structured resources
+  description: The record links the article but leaves associated_datasets empty despite
+    public source-linked metagenomic/metatranscriptomic and supporting-analysis resources.
+  target_ids:
+  - CommunityMech:000219
+  field_paths:
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - record
+  - datasets-source
+  - bioproject
+  - zenodo
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+    role: canonical_record
+actions:
+- action_id: fix-realized-substrate-feeding
+  description: Align ingredient prose with the qualified graph, distinguishing predicted
+    production/consumption from measured partner transfer and separating carbohydrate
+    metabolism from WLP direction.
+  finding_ids:
+  - realized-substrate-feeding
+  target_ids:
+  - CommunityMech:000219
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - No unmeasured Asgard-to-methanogen flux is asserted.
+  - Acetate production and possible reverse oxidation remain distinct.
+  - Source interpretation is retained without claiming direct functional validation.
+  - Run strict and reference checks, retaining any independently confirmed tool defect.
+- action_id: fix-required-hydrogen-headspace
+  description: Remove the universal cultivation requirement or recast it as an explicitly
+    untested hypothesis without prescribing a source-validated medium.
+  finding_ids:
+  - required-hydrogen-headspace
+  target_ids:
+  - CommunityMech:000219
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Hydrogenase expression is not treated as proof of an obligatory culture condition.
+  - No culture recipe or gas requirement is fabricated.
+  - The valid [NiFe] quotation remains intact despite the validator defect.
+  - Run strict and reference checks.
+- action_id: fix-role-attribution
+  description: Retain primary-degrader capacity only with claim-specific computational
+    evidence and qualification; remove or explicitly qualify unsupported secondary-fermenter
+    and aggregate autotroph roles.
+  finding_ids:
+  - role-attribution
+  target_ids:
+  - CommunityMech:000219
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Predicted primary degradation is not discarded as wholly unsupported.
+  - SECONDARY_FERMENTER is not inferred from fermentation alone.
+  - Methanogen presence is retained with direct source evidence, without blanket autotrophy.
+  - Run strict, term and reference checks.
+- action_id: fix-environment-evidence
+  description: Replace the generic snippet with source-specific sampling evidence
+    and qualify unmeasured oxygen/equilibrium assumptions in the environmental description.
+  finding_ids:
+  - environment-evidence
+  target_ids:
+  - CommunityMech:000219
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Location, sampled depth and natural field scope match source Methods.
+  - No pH, temperature or measured oxygen condition is invented.
+  - The equilibrium limitation is explicit within the available schema.
+  - Run strict and reference checks.
+- action_id: fix-dataset-links
+  description: Add appropriately typed BioProject and supporting-analysis links, with
+    exact relevance and source evidence; verify any finer-grained accession before
+    including it.
+  finding_ids:
+  - dataset-links
+  target_ids:
+  - CommunityMech:000219
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - PRJNA1050611 and Zenodo 10.5281/zenodo.11671770 retain their distinct data roles.
+  - Project metadata does not stand in for raw-read, genome or biochemical reanalysis.
+  - No unverified individual SRX or assembly identity is certified.
+  - Run strict and reference checks.
+limitations:
+- Broad NCBI kingdom/domain anchors do not resolve the two Asgard lineages or every
+  methanogen identity; unresolved GTDB statuses remain explicit, and historical crosswalk
+  counts were not independently recomputed.
+- Methods and figure captions were read, but raw genomic/transcriptomic data, supplement
+  files, biochemical activity and model structures were not independently reanalyzed.
+- RNA samples were homogenized and pooled without technical replicates; transcript
+  patterns cannot certify replicated depth-specific fluxes, pathway direction or partner
+  exchange.
+- BioProject and Zenodo metadata were verified; individual SRX records, ggKbase genomes
+  and archive file contents were not independently fetched.
+- Optional shared-expression adapter was unavailable in the owned runtime; an external-checkout
+  candidate was not executed and no catalog-coverage conclusion follows.
+- The native reference gate remains failed due to confirmed [NiFe] bracket stripping;
+  the original quotation must not be weakened to satisfy it. Required corpus gates
+  also retain actual warning failures.
+- Cache markdown frontmatter labels the source abstract_only despite substantive appended
+  full text; source boundaries were checked against fresh primary XML, and caches
+  were left unchanged.
+notes:
+- Canonical records, caches, history and generated outputs remain unchanged.
+- Source quotations total 22 words.
+- The study directly reports methanogen presence; the review does not infer absence
+  from broad taxonomy or weak local evidence.
+tags:
+- record-review
+- asgard
+- wetland
+- metagenomics
+- batch-04
+```

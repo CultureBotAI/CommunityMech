@@ -65,6 +65,9 @@ taxonomy:
   abundance_value: Defined organic-nitrogen co-culture member
   evidence:
   - *id001
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_level: ABUNDANT
 - taxon_term:
     preferred_term: Nitrosomonas europaea NBRC 14298
     term:
@@ -91,6 +94,10 @@ taxonomy:
   evidence:
   - *id001
   - *id002
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  abundance_level: ABUNDANT
 - taxon_term:
     preferred_term: Nitrobacter winogradskyi NBRC 14297
     term:
@@ -116,6 +123,10 @@ taxonomy:
   evidence:
   - *id001
   - *id002
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  abundance_level: ABUNDANT
 ecological_interactions:
 - name: Sequential organic-nitrogen conversion
   description: The three defined strains jointly perform complete ammonification and nitrification under selected organic
@@ -240,4 +251,11 @@ curation_history:
   action: ADDRESS_REVIEW_FINDINGS
   changes: Tightened the organic-nitrogen wording to avoid unsupported substrate-level specificity and added nitrite as the
     transient nitrification intermediate for review issues 977 and 978.
+  llm_assisted: true
+- timestamp: '2026-10-31T23:45:00Z'
+  curator: antigravity
+  action: RESOLVE_REVIEW_FINDINGS
+  changes: 'Added functional_role: [PRIMARY_DEGRADER] and abundance_level: ABUNDANT on Bacillus badius NBRC 15713, and functional_role:
+    [PRIMARY_PRODUCER, CROSS_FEEDER] and abundance_level: ABUNDANT on Nitrosomonas europaea NBRC 14298 and Nitrobacter winogradskyi
+    NBRC 14297 per PMID:42668143. Issue #2095; reports/causal_graph_review/decisions/20261031-c4s5-review-remediation.yaml'
   llm_assisted: true

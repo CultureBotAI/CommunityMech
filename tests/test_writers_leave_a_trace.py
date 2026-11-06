@@ -42,6 +42,38 @@ REPO = pathlib.Path(__file__).parent.parent
 # Writes YAML, but not a curated community record — so there is no record whose
 # history it could belong to.
 _EXEMPT = {
+    "scripts/adhoc/pr2034_273_audit.py": (
+        "writes a target manifest and audit receipts under .temp/pr2034/273; "
+        "reads canonical records for review and never edits them"
+    ),
+    "scripts/adhoc/pr2034_273_build_review.py": (
+        "writes a scratch structured-review candidate under .temp/pr2034/273; "
+        "the candidate is a review observation, not a curated record"
+    ),
+    "scripts/adhoc/pr2034_273_locator.py": (
+        "writes a scratch review-successor candidate under .temp/pr2034/273 "
+        "to correct review locators; never edits canonical records or history"
+    ),
+    "scripts/adhoc/pr2034_273_reconcile.py": (
+        "writes a scratch review-successor candidate under .temp/pr2034/273 "
+        "to reconcile helper hashes; never edits canonical records or history"
+    ),
+    "scripts/adhoc/pr2034_321_finish.py": (
+        "writes scratch review candidates under .temp/pr2034/321 with refreshed "
+        "input metadata; no curated record is written"
+    ),
+    "scripts/adhoc/pr2034_321_review.py": (
+        "writes a scratch structured-review candidate under .temp/pr2034/321; "
+        "the candidate is a review observation, not a curated record"
+    ),
+    "scripts/adhoc/pr2034_adversarial_inputs.py": (
+        "emits YAML inspection views to stdout and optionally writes a JSON "
+        "audit report; never writes a canonical record or curation history"
+    ),
+    "scripts/adhoc/pr2035_434_review.py": (
+        "writes a scratch structured-review candidate under .temp/pr2035/434; "
+        "the candidate is an immutable review observation, not a curated record"
+    ),
     "scripts/record_review.py": (
         "writes immutable YAML/Markdown review bundles under reviews/structured, "
         "not kb/communities records; review observations are not curation events"

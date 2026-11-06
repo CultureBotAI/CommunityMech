@@ -1,0 +1,1182 @@
+# Brocadia low-nitrogen anammox consortium record review
+
+- Review: 20261021T133803Z-brocadia-low-nitrogen-anammox-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T13:33:42.952316Z
+- Finished UTC: 2026-10-21T13:38:03.201135Z
+- Reviewer: codex (unknown)
+- Completion: partial
+- Verdict: needs_curation
+- Scientific review: false
+
+## Summary
+
+The temporal biofilter identity, reported quantitative responses and sole model-qualified cross-feeding node are supported at direct abstract scope. One minor finding concerns outcomes placed as environmental conditions. Full main Methods/Results and supplements remain inaccessible; indexed reactor details are follow-up leads only.
+
+## Scope And Provenance
+
+Entire record and its single node/no arrows assessed against direct abstract, exact schema/ontology, history and bounded source-access/resource evidence.
+
+Selection: Only released CommunityMech:000447 in the fresh batch08 checkout.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000447 | kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml | maintained | Brocadia Low-Nitrogen Anammox Consortium |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000447 | Schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000447 | Strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000447 | Term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000447 | GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000447 | GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000447 | History validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000447 | Read-only cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000447 | Reference validation passed against the pinned cache. |
+| audit-network | failed | True | CommunityMech:000447 | Fresh batch08 corpus check reports 57 warnings across 21 of 477 records; the focal network separately reports INCOMPLETE for the disconnected early Kuenenia lineage. |
+| check-network-quality | failed | True | CommunityMech:000447 | Fresh batch08 corpus check reports 57 warnings across 21 of 477 records; the focal network separately reports INCOMPLETE for the disconnected early Kuenenia lineage. |
+| Primary bibliographic identity | passed | True | CommunityMech:000447 | Exact PMID, DOI, title and complete direct abstract agree. |
+| Full primary source and critical supplemental verification | unavailable | True | CommunityMech:000447 | Full Methods/Results, figures and SI remain unavailable through inspected direct routes; indexed fragments remain leads. |
+| Medium and archive correspondence | not_applicable | False | CommunityMech:000447 | No exact recipe or archive accession established at inspected scope; no guessed linkage or omission finding. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000447 | No runnable task adapter or exact covered expression dataset established; no module inference. |
+
+## Scientific And Domain Assessments
+
+### Operated biofilter and temporal community
+
+identity: supported. Targets: CommunityMech:000447.
+
+The record correctly represents early Kuenenia and a later multispecies Brocadia assemblage, not a defined two-isolate coculture. ENGINEERED state/origin and biotechnology application are appropriate.
+
+### Genus names, roles and ordinal dominance
+
+grounding: supported. Targets: CommunityMech:000447.
+
+Canonical genus labels and explicit dominant Brocadia status are supported; role meanings must remain scoped to biological context and model inference.
+
+PRIMARY_PRODUCER denotes autotrophy, not merely nitrogen-removal prominence. The role is biologically plausible in the anammox context, but the attached abstract snippets are not direct carbon-fixation measurements. CROSS_FEEDER is supported at the predicted-recipient/complementarity level; the nearest abundance snippets alone do not establish observed uptake. No automatic role removal or invented species is warranted. DOMINANT requires no numerical-majority threshold.
+
+### Abundance, transcription and modeled overlap
+
+evidence: supported. Targets: CommunityMech:000447.
+
+Retain all reported abstract values with their existing measurement distinctions.
+
+The 44.7% relative organism abundance and 71.5% transcriptional contribution have separate denominators. Approximately 18-fold expression is a response, and resource overlap is a model output rather than a reactor setting. The exact high-nitrogen comparison design remains unavailable.
+
+### ecological_interactions[0]
+
+graph: supported. Targets: CommunityMech:000447.
+
+Retain the COMMUNITY_LEVEL CROSS_FEEDING node as explicitly model-inferred complementary auxotrophy among Brocadia species.
+
+COMPUTATIONAL evidence and SMETANA provenance correctly signal inference. One genus descriptor can summarize a multispecies assemblage. No metabolite-specific transfer, direct flux, selective perturbation or obligatory dependence is asserted or required for this bounded claim. No downstream arrows are encoded, and none is added to satisfy a connectivity score.
+
+### environmental_factors[1] and [2]
+
+representation: concern. Targets: CommunityMech:000447.
+
+Transcriptional activation and lower modeled resource overlap are outcomes, not environmental conditions.
+
+environmental_factors[0] correctly represents sustained low-nitrogen stress. Preserve the other two observations and their computational evidence in the appropriate taxon, interaction or design/result context; do not create new mechanisms simply to relocate supported results.
+
+### Reactor, feed and modeled conditions
+
+scope: unknown. Targets: CommunityMech:000447.
+
+Direct abstract evidence supports an operated low-nitrogen biofilter but not a reproducible recipe or exact operating regime.
+
+The indexed preview is a useful lead for future direct-source verification, not authority for importing reactor volume, scale, bed geometry or influent concentrations. The current abstract-limited discussion remains honest. Retain the broad physical bioreactor and modeled application distinction until Methods is directly inspected.
+
+### Publication links and unresolved model/archive identities
+
+provenance: supported. Targets: CommunityMech:000447.
+
+PMID and DOI resources identify the focal article; source-specific datasets, MAGs, model sources and versions remain unresolved rather than presumed absent.
+
+Retain existing SMETANA prediction type/tool entries. Bibliographic snippets corroborate identifiers, not experimental methods. No medium, strain catalogue or archive search is invented from generic anammox context.
+
+### Prior repairs and exact snippet categories
+
+provenance: supported. Targets: CommunityMech:000447.
+
+Earlier repairs remain intact and the existing discussion preserves source gaps.
+
+The sole text mismatch is the engineering-design co-occurrence hyphen glyph: ASCII hyphen in the record versus nonbreaking hyphen in the source. It is typographic only, not a scientific contradiction. The two identifier excerpts are metadata rather than abstract prose; zero full-text matches are claimed.
+
+### Native validators and semantic scope
+
+schema: supported. Targets: CommunityMech:000447.
+
+All eight native checks and four ontology pairs pass; the network diagnostic and source-access limits remain explicit.
+
+### Native mechanical scores
+
+completeness: supported. Targets: CommunityMech:000447.
+
+Completeness and quality measure encoded structure and checks, not whole-source scientific certification.
+
+## Findings
+
+### outcome-placement: Separate response and modeling outcomes from environmental conditions
+
+minor / open / confirmed; issue key: cm-000447-outcome-placement.
+
+environmental_factors[1] encodes transcriptional activation and environmental_factors[2] encodes predicted resource overlap. These are study outcomes rather than imposed or measured environmental conditions; sustained low-nitrogen stress is already correctly represented in environmental_factors[0].
+
+## Recommended Actions And Acceptance Checks
+
+### repair-outcome-placement
+
+Relocate the two outcome-valued environmental factors while retaining their source scope, numerical values and computational provenance.
+
+- Keep sustained low-nitrogen stress as a condition. Place transcriptional activation and modeled resource overlap with the relevant taxon, process or design/result summary; avoid redundant environmental-factor entries.
+- Preserve approximately 18-fold expression and the resource-overlap comparison as distinct response/model measurements. Keep 44.7% abundance separate from 71.5% transcriptional activity.
+- Retain the sole explicitly model-inferred interaction, genus-level temporal membership, unresolved GTDB and model-source limits. Do not add an exchange edge merely to connect the early Kuenenia lineage.
+- Any reactor details, species/MAG identities or model inputs recovered from indexed leads require direct Methods/SI verification before curation. Preserve conditional role interpretation and do not substitute literature examples or typical influent concentrations.
+- After separately authorized curation, run focused schema, strict, term, reference and history checks and inspect the network warning at its temporal scope.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml; Entire record, including the sole node and absence of downstream arrows | supports | The record describes a temporally changing biofilter community, explicitly retains genus-level resolution and predicts rather than demonstrates cross-feeding. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=42323145&amp;retmode=xml; Article-level metadata and abstract where supplied | supports | Exact PMID, DOI, title and full abstract establish the focal publication; online publication on 20 June 2026 precedes the November issue date. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42323145%20AND%20SRC:MED&amp;format=json&amp;resultType=core; Article-level metadata and abstract where supplied | supports | The focal abstract and identifiers agree; no PMCID and only a subscription DOI route are supplied. |
+| crossref | https://api.crossref.org/works/10.1016/j.biortech.2026.135206; Article-level metadata and abstract where supplied | supports | Bibliographic identity agrees; metadata is not an independent mechanistic or full-methods source. |
+| succession | PMID:42323145; Abstract: early acclimation and final succession sentences | supports | Early Kuenenia reduces expression of costly biosynthetic pathways; later Brocadia becomes the dominant functional lineage. Membership spans those phases rather than asserting fixed simultaneous abundance. |
+| model | PMID:42323145; Abstract: long-term low-nitrogen community sentence | supports | Complementary auxotrophies and lower resource overlap are model-inferred. Positive network associations and source-proposed cooperation do not constitute a direct exchange assay. |
+| quantities | PMID:42323145; Abstract: transcription, resource-overlap and final abundance sentences | supports | The source reports approximately 18-fold anammox-gene upregulation, resource overlap 0.66 ± 0.12 versus 0.77 ± 0.10, abundance rising from 1.0% to 44.7%, and 71.5% of total transcriptional activity. These are different measurements and denominators. |
+| operation | PMID:42323145; Abstract: experimental design sentence | supports | The operated anammox biofilter underwent sustained low-nitrogen stress and was analyzed with metagenomics, metatranscriptomics, co-occurrence networks and SMETANA. Exact reactor configuration and nutrient loading are not supplied by the abstract. |
+| schema | src/communitymech/schema/communitymech.yaml; EnvironmentalFactor; MicrobialCommunity.environmental_factors/ecological_state; EcologicalStateEnum; CommunityOriginEnum; FunctionalRoleEnum; AbundanceEnum; InteractionTypeEnum.CROSS_FEEDING | supports | Environmental factors are conditions or parameters. ENGINEERED is valid for both state and origin. DOMINANT is ordinal; PRIMARY_PRODUCER means carbon-fixing autotroph and CROSS_FEEDER means using metabolites from other taxa. |
+| ontology | ontology-authority.json; Whole bounded receipt | supports | Four unique ontology pairs across five occurrences match current local OAK labels; both microbial taxa are genera. |
+| semantics | ontology-semantic-notes.json; Whole bounded receipt | supports | Roles, temporal membership, environment and measurement denominators are bounded explicitly; no automatic role or state replacement is justified. |
+| resources | dataset-verification.json; Whole bounded receipt | supports | The two publication links are verified bibliography. No exact species/MAG accession or recipe is available at direct abstract scope; no archive-absence or recipe-omission finding is inferred. |
+| snippets | snippet-audit.json; Whole bounded receipt | supports | Twelve occurrences comprise nine strict abstract matches, one hyphen-only equivalent and two directly corroborated bibliographic identifiers. Strict NFKC/whitespace matching does not equate the ASCII and source hyphen glyphs. |
+| history | provenance-audit.json; Whole bounded receipt | supports | Both histories and the exact prior decision were read; issues 1139, 1140 and 1141 are closed with their fix comments inspected. The historical graph-only abstract review does not certify current whole-source scope. |
+| native-target | support-audit.json; Whole bounded receipt | supports | Native completeness and quality scores are mechanical. The network remains INCOMPLETE because the early Kuenenia lineage has no interaction node; this is not a mandate to invent an edge. |
+| source-scope | source-audit.json; Whole bounded receipt | supports | Actual source access supports a partial review, with no full-main, figure or supplement certification. |
+| independent-source | root-independent-source-audit.json; Whole bounded receipt | supports | Root independently concurs with retaining the qualified graph and one bounded outcome-placement finding at abstract scope. |
+| access-doi | https://doi.org/10.1016/j.biortech.2026.135206; Inspected response and retrieval receipt | context_only | HTTP 200 contains a redirect shell only. |
+| access-article-api | https://api.elsevier.com/content/article/pii/S0960852426012885?httpAccept=text/xml; Inspected response and retrieval receipt | context_only | HTTP 200 contains bibliographic coredata without article text. |
+| access-publisher | https://www.sciencedirect.com/science/article/pii/S0960852426012885; Inspected response and retrieval receipt | context_only | HTTP 403 contains a visible access-error page. |
+| access-openalex | https://api.openalex.org/works/https://doi.org/10.1016/j.biortech.2026.135206; Inspected response and retrieval receipt | context_only | Closed-access metadata offers no open PDF location; this does not establish global source absence. |
+| search-leads | Exact focal DOI/title/PII discovery; indexed-search-leads.json; direct-web-attempts.json; root-primary/publisher-preview-access.json | context_only | Indexed publisher methods suggest recoverable reactor context. Direct main/abstract opens returned 403, so these remain follow-up leads and are not a second graded deficiency. |
+| local-search | Maintained local corpus; local-search.json | supports | Ignored-inclusive searches define local reuse and provenance boundaries. |
+| adapter | Optional structured source adapter; adapter-check.json | supports | Fresh batch08 runtime discovery did not establish a usable adapter; no exact strain, gene or covered expression-module dataset was inferred. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src just --no-dotenv validate kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml; Actual execution 2026-10-21T13:33:58.452782+00:00 to 2026-10-21T13:33:59.289964+00:00 | supports | Schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src just --no-dotenv validate-strict kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml --out /private/tmp/cm-review-session/batch-08/000447/strict-report.tsv; Actual execution 2026-10-21T13:33:58.452945+00:00 to 2026-10-21T13:34:03.011853+00:00 | supports | Strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src just --no-dotenv validate-terms kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml; Actual execution 2026-10-21T13:33:58.453055+00:00 to 2026-10-21T13:34:01.632792+00:00 | supports | Term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src just --no-dotenv validate-gtdb kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml; Actual execution 2026-10-21T13:33:59.290355+00:00 to 2026-10-21T13:33:59.366424+00:00 | supports | GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src just --no-dotenv validate-gtdb-domain kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml; Actual execution 2026-10-21T13:33:59.366689+00:00 to 2026-10-21T13:34:03.013828+00:00 | supports | GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src just --no-dotenv validate-history history/records/Brocadia_Low_Nitrogen_Anammox_Consortium; Actual execution 2026-10-21T13:34:01.633243+00:00 to 2026-10-21T13:34:03.126652+00:00 | supports | History validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T13:34:03.128246+00:00 to 2026-10-21T13:34:03.275680+00:00 | supports | Read-only cache-filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src just --no-dotenv validate-references-explained kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml; Actual execution 2026-10-21T13:34:03.276350+00:00 to 2026-10-21T13:34:06.517943+00:00 | supports | Reference validation passed against the pinned cache. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T13:06:00.734617+00:00 to 2026-10-21T13:06:11.311177+00:00 | supports | Fresh batch08 corpus check reports 57 warnings across 21 of 477 records; the focal network separately reports INCOMPLETE for the disconnected early Kuenenia lineage. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T13:06:00.741568+00:00 to 2026-10-21T13:06:15.408522+00:00 | supports | Fresh batch08 corpus check reports 57 warnings across 21 of 477 records; the focal network separately reports INCOMPLETE for the disconnected early Kuenenia lineage. |
+
+## Limits And Additional Notes
+
+- Critical main Methods/Results, figures, supplements, species/MAG identities, model construction and exact reactor conditions were not directly accessible through the inspected public routes. Whole-source scientific certification is incomplete.
+- The direct abstract supports succession, transcriptional responses and SMETANA-predicted complementarity. It does not establish measured metabolite exchange, specific donor-recipient flux or carbon fixation by a focal assay. Biological-context autotrophy and predicted recipient roles must remain distinct from direct measurements.
+- The indexed publisher preview suggests specific reactor scale and configuration, but direct page requests failed. Those details are unverified follow-up leads, not source-certified cultivation values. Typical influent concentrations and species examples from indexed introduction text are not assigned to the focal reactor or MAGs.
+- No full-text match, raw omics inspection, metabolic simulation, isotope/flux reanalysis or figure inspection is claimed. No guessed genome accession, model source, strain, recipe or medium link is supplied.
+- Bounded unsuccessful access or adapter discovery does not establish global absence of public sources, datasets or tools. No paid provider, contact or authentication bypass was used.
+- No canonical, cache, history, generated or saved-review file changed; all 24 inspected inputs remain pinned.
+- Twelve snippets: nine strict abstract matches, one hyphen-only equivalent and two corroborated article identifiers. No full-text verification is claimed.
+- Native INCOMPLETE reflects the early Kuenenia lineage without an encoded interaction. No unsupported interaction is requested to improve the score.
+- Completeness70 and quality100/raw108 are mechanical; completion remains partial and scientific_review false.
+- Indexed methods suggest a useful future cultivation check but do not establish a second graded omission at direct-source scope.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T133803Z-brocadia-low-nitrogen-anammox-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Brocadia low-nitrogen anammox consortium record review
+started_at: '2026-10-21T13:33:42.952316Z'
+finished_at: '2026-10-21T13:38:03.201135Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary source scope, local native/ontology
+    checks and supporting provenance; no person-level independence asserted.
+skill: review-yaml-record
+completion: partial
+verdict: needs_curation
+scientific_review: false
+summary: The temporal biofilter identity, reported quantitative responses and sole
+  model-qualified cross-feeding node are supported at direct abstract scope. One minor
+  finding concerns outcomes placed as environmental conditions. Full main Methods/Results
+  and supplements remain inaccessible; indexed reactor details are follow-up leads
+  only.
+source:
+  git_revision: 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Brocadia_Low_Nitrogen_Anammox_Consortium/2026-09-27T071843Z-claude-code-a3a0aa.yaml
+    sha256: fc186aa974700cfdfa206c64bc62ff9c6261c3e05626bbd929561ba22c261806
+    role: context
+  - path: history/records/Brocadia_Low_Nitrogen_Anammox_Consortium/2026-09-27T072435Z-claude-code-2c4140.yaml
+    sha256: e2a99f489164c6a4a059b72ba7a13b99ca01e4a44c648bd6d5f4aeb813b0cb15
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    sha256: 227362963f3008129281c29d08829d1bf49aa57230b126cc7986e592c6cd9a96
+    role: target
+  - path: references_cache/PMID_42323145.txt
+    sha256: dae56a2cb0f7223e87c5c6069c6437f02cfb7a7dc09c09135c30273626dfb018
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-twelve-records-batch8.yaml
+    sha256: a03eceb4ca205fdd9092a4f18c0fa4c068e8ec91ee5a62d09da97b87a4f50a25
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000447
+  path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  label: Brocadia Low-Nitrogen Anammox Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    role: canonical_record
+scope:
+  description: Entire record and its single node/no arrows assessed against direct
+    abstract, exact schema/ontology, history and bounded source-access/resource evidence.
+  selection: Only released CommunityMech:000447 in the fresh batch08 checkout.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000447
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema validation passed.
+  target_ids:
+  - CommunityMech:000447
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    just --no-dotenv validate kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Fresh focused checks and corpus cache-filename preflight; mechanical
+    success does not certify source science.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict validation passed.
+  target_ids:
+  - CommunityMech:000447
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    just --no-dotenv validate-strict kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    --out /private/tmp/cm-review-session/batch-08/000447/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Fresh focused checks and corpus cache-filename preflight; mechanical
+    success does not certify source science.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Term validation passed.
+  target_ids:
+  - CommunityMech:000447
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    just --no-dotenv validate-terms kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Fresh focused checks and corpus cache-filename preflight; mechanical
+    success does not certify source science.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000447
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    just --no-dotenv validate-gtdb kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Fresh focused checks and corpus cache-filename preflight; mechanical
+    success does not certify source science.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000447
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Fresh focused checks and corpus cache-filename preflight; mechanical
+    success does not certify source science.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: History validation passed.
+  target_ids:
+  - CommunityMech:000447
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    just --no-dotenv validate-history history/records/Brocadia_Low_Nitrogen_Anammox_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Fresh focused checks and corpus cache-filename preflight; mechanical
+    success does not certify source science.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000447
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Fresh focused checks and corpus cache-filename preflight; mechanical
+    success does not certify source science.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Reference validation passed against the pinned cache.
+  target_ids:
+  - CommunityMech:000447
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    just --no-dotenv validate-references-explained kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Fresh focused checks and corpus cache-filename preflight; mechanical
+    success does not certify source science.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch08 corpus check reports 57 warnings across 21 of 477 records;
+    the focal network separately reports INCOMPLETE for the disconnected early Kuenenia
+    lineage.
+  target_ids:
+  - CommunityMech:000447
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Explicit reuse of fresh batch08 corpus receipts, not a target-specific
+    pass. Do not fabricate a temporal interaction to improve connectivity.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch08 corpus check reports 57 warnings across 21 of 477 records;
+    the focal network separately reports INCOMPLETE for the disconnected early Kuenenia
+    lineage.
+  target_ids:
+  - CommunityMech:000447
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Explicit reuse of fresh batch08 corpus receipts, not a target-specific
+    pass. Do not fabricate a temporal interaction to improve connectivity.
+- check_id: source-identity
+  name: Primary bibliographic identity
+  status: passed
+  required: true
+  summary: Exact PMID, DOI, title and complete direct abstract agree.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - pubmed
+  - epmc
+  - crossref
+- check_id: scientific-source
+  name: Full primary source and critical supplemental verification
+  status: unavailable
+  required: true
+  summary: Full Methods/Results, figures and SI remain unavailable through inspected
+    direct routes; indexed fragments remain leads.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - source-scope
+  - independent-source
+  - access-publisher
+  - access-article-api
+- check_id: cross-mech
+  name: Medium and archive correspondence
+  status: not_applicable
+  required: false
+  summary: No exact recipe or archive accession established at inspected scope; no
+    guessed linkage or omission finding.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - resources
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: No runnable task adapter or exact covered expression dataset established;
+    no module inference.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  locator: Entire record, including the sole node and absence of downstream arrows
+  summary: The record describes a temporally changing biofilter community, explicitly
+    retains genus-level resolution and predicts rather than demonstrates cross-feeding.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.096359Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42323145&retmode=xml
+  locator: Article-level metadata and abstract where supplied
+  summary: Exact PMID, DOI, title and full abstract establish the focal publication;
+    online publication on 20 June 2026 precedes the November issue date.
+  support: supports
+  accessed_at: '2026-10-21T13:34:11.369181Z'
+  snapshot_sha256: 5442ac3ade38171fbb4daaa653e4da99e08e3ecebdd3c0dbc5ce7e45f5c45b48
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42323145%20AND%20SRC:MED&format=json&resultType=core
+  locator: Article-level metadata and abstract where supplied
+  summary: The focal abstract and identifiers agree; no PMCID and only a subscription
+    DOI route are supplied.
+  support: supports
+  accessed_at: '2026-10-21T13:34:11.708118Z'
+  snapshot_sha256: 4cdde2e1c0e8c0c4291f271c9320fffc6aa9ac3275132fc824170455e5d20ab1
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1016/j.biortech.2026.135206
+  locator: Article-level metadata and abstract where supplied
+  summary: Bibliographic identity agrees; metadata is not an independent mechanistic
+    or full-methods source.
+  support: supports
+  accessed_at: '2026-10-21T13:34:11.392190Z'
+  snapshot_sha256: 675952c2193323b6720145c6255ad0feef65b526b5c26d04bb144f310bc4add3
+- evidence_id: succession
+  kind: primary_source
+  reference: PMID:42323145
+  locator: 'Abstract: early acclimation and final succession sentences'
+  summary: Early Kuenenia reduces expression of costly biosynthetic pathways; later
+    Brocadia becomes the dominant functional lineage. Membership spans those phases
+    rather than asserting fixed simultaneous abundance.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.096570Z'
+  snapshot_sha256: 5442ac3ade38171fbb4daaa653e4da99e08e3ecebdd3c0dbc5ce7e45f5c45b48
+  quote: dominant functional lineage
+- evidence_id: model
+  kind: primary_source
+  reference: PMID:42323145
+  locator: 'Abstract: long-term low-nitrogen community sentence'
+  summary: Complementary auxotrophies and lower resource overlap are model-inferred.
+    Positive network associations and source-proposed cooperation do not constitute
+    a direct exchange assay.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.096603Z'
+  snapshot_sha256: 5442ac3ade38171fbb4daaa653e4da99e08e3ecebdd3c0dbc5ce7e45f5c45b48
+  quote: complementary model-inferred auxotrophies
+- evidence_id: quantities
+  kind: primary_source
+  reference: PMID:42323145
+  locator: 'Abstract: transcription, resource-overlap and final abundance sentences'
+  summary: The source reports approximately 18-fold anammox-gene upregulation, resource
+    overlap 0.66 ± 0.12 versus 0.77 ± 0.10, abundance rising from 1.0% to 44.7%, and
+    71.5% of total transcriptional activity. These are different measurements and
+    denominators.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.096645Z'
+  snapshot_sha256: 5442ac3ade38171fbb4daaa653e4da99e08e3ecebdd3c0dbc5ce7e45f5c45b48
+- evidence_id: operation
+  kind: primary_source
+  reference: PMID:42323145
+  locator: 'Abstract: experimental design sentence'
+  summary: The operated anammox biofilter underwent sustained low-nitrogen stress
+    and was analyzed with metagenomics, metatranscriptomics, co-occurrence networks
+    and SMETANA. Exact reactor configuration and nutrient loading are not supplied
+    by the abstract.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.096680Z'
+  snapshot_sha256: 5442ac3ade38171fbb4daaa653e4da99e08e3ecebdd3c0dbc5ce7e45f5c45b48
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: EnvironmentalFactor; MicrobialCommunity.environmental_factors/ecological_state;
+    EcologicalStateEnum; CommunityOriginEnum; FunctionalRoleEnum; AbundanceEnum; InteractionTypeEnum.CROSS_FEEDING
+  summary: Environmental factors are conditions or parameters. ENGINEERED is valid
+    for both state and origin. DOMINANT is ordinal; PRIMARY_PRODUCER means carbon-fixing
+    autotroph and CROSS_FEEDER means using metabolites from other taxa.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.096770Z'
+  snapshot_sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+- evidence_id: ontology
+  kind: authority
+  reference: ontology-authority.json
+  locator: Whole bounded receipt
+  summary: Four unique ontology pairs across five occurrences match current local
+    OAK labels; both microbial taxa are genera.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.096937Z'
+  snapshot_sha256: b436d285dd9690ff67a4fc876f30c3d89e4c945dfe905cfc96389cb47eb83476
+- evidence_id: semantics
+  kind: authority
+  reference: ontology-semantic-notes.json
+  locator: Whole bounded receipt
+  summary: Roles, temporal membership, environment and measurement denominators are
+    bounded explicitly; no automatic role or state replacement is justified.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.097100Z'
+  snapshot_sha256: 2e1c2cfa4a1fb748fafa5eebae97deca378bb080ad90b5326f6350ed367d7f88
+- evidence_id: resources
+  kind: database
+  reference: dataset-verification.json
+  locator: Whole bounded receipt
+  summary: The two publication links are verified bibliography. No exact species/MAG
+    accession or recipe is available at direct abstract scope; no archive-absence
+    or recipe-omission finding is inferred.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.097258Z'
+  snapshot_sha256: b3fdedd166f35494c28fe23fd471b276f15f32084d6cfd839fc6423c91c85fb3
+- evidence_id: snippets
+  kind: validation
+  reference: snippet-audit.json
+  locator: Whole bounded receipt
+  summary: Twelve occurrences comprise nine strict abstract matches, one hyphen-only
+    equivalent and two directly corroborated bibliographic identifiers. Strict NFKC/whitespace
+    matching does not equate the ASCII and source hyphen glyphs.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.097419Z'
+  snapshot_sha256: 6724eea26f7a670750ce44fe6e5fc31ba587d82de14ba95ff11894e99f4cc505
+- evidence_id: history
+  kind: record_content
+  reference: provenance-audit.json
+  locator: Whole bounded receipt
+  summary: Both histories and the exact prior decision were read; issues 1139, 1140
+    and 1141 are closed with their fix comments inspected. The historical graph-only
+    abstract review does not certify current whole-source scope.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.097585Z'
+  snapshot_sha256: a7c38fcc8b25ef76fd0a6828a666d8e61ed2a5f4bb9e7cedc9ea81fb33dc24ba
+- evidence_id: native-target
+  kind: validation
+  reference: support-audit.json
+  locator: Whole bounded receipt
+  summary: Native completeness and quality scores are mechanical. The network remains
+    INCOMPLETE because the early Kuenenia lineage has no interaction node; this is
+    not a mandate to invent an edge.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.097625Z'
+  snapshot_sha256: 91670c8fb8432a4ff94e4530d48a91710f3b97be846f8d923a7c3b922e1981ee
+- evidence_id: source-scope
+  kind: validation
+  reference: source-audit.json
+  locator: Whole bounded receipt
+  summary: Actual source access supports a partial review, with no full-main, figure
+    or supplement certification.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.097652Z'
+  snapshot_sha256: c66451bea9eb8150b9ded57e2aaf40a87198a1f0d73fccb52bbc17f92f8f5e10
+- evidence_id: independent-source
+  kind: validation
+  reference: root-independent-source-audit.json
+  locator: Whole bounded receipt
+  summary: Root independently concurs with retaining the qualified graph and one bounded
+    outcome-placement finding at abstract scope.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.097677Z'
+  snapshot_sha256: 6a838d9cdf11af93832eeecd38d88266fec1895ac986a29cd324e79e01453c1e
+- evidence_id: access-doi
+  kind: database
+  reference: https://doi.org/10.1016/j.biortech.2026.135206
+  locator: Inspected response and retrieval receipt
+  summary: HTTP 200 contains a redirect shell only.
+  support: context_only
+  accessed_at: '2026-10-21T13:34:11.897875Z'
+  snapshot_sha256: 8637b05c4035a7d3dd584d2264f46f73aa0f29d9d8722a8986a830f1e0490144
+- evidence_id: access-article-api
+  kind: database
+  reference: https://api.elsevier.com/content/article/pii/S0960852426012885?httpAccept=text/xml
+  locator: Inspected response and retrieval receipt
+  summary: HTTP 200 contains bibliographic coredata without article text.
+  support: context_only
+  accessed_at: '2026-10-21T13:34:25.443258Z'
+  snapshot_sha256: 69cae6708948b9bd6392a842bd606cfdce2507723635481cb3305d473c81eec2
+- evidence_id: access-publisher
+  kind: database
+  reference: https://www.sciencedirect.com/science/article/pii/S0960852426012885
+  locator: Inspected response and retrieval receipt
+  summary: HTTP 403 contains a visible access-error page.
+  support: context_only
+  accessed_at: '2026-10-21T13:34:25.090045Z'
+  snapshot_sha256: 5bbda23da99785cfecf0cc3ade73a55723380efab0ab50770a78911d6174b152
+- evidence_id: access-openalex
+  kind: database
+  reference: https://api.openalex.org/works/https://doi.org/10.1016/j.biortech.2026.135206
+  locator: Inspected response and retrieval receipt
+  summary: Closed-access metadata offers no open PDF location; this does not establish
+    global source absence.
+  support: context_only
+  accessed_at: '2026-10-21T13:34:25.431253Z'
+  snapshot_sha256: 98d5b2956e9544ccadd4a0d1e7ae395c90e666c5c87f3de5e06e8a960d9d2a1e
+- evidence_id: search-leads
+  kind: search
+  reference: Exact focal DOI/title/PII discovery
+  locator: indexed-search-leads.json; direct-web-attempts.json; root-primary/publisher-preview-access.json
+  summary: Indexed publisher methods suggest recoverable reactor context. Direct main/abstract
+    opens returned 403, so these remain follow-up leads and are not a second graded
+    deficiency.
+  support: context_only
+  accessed_at: '2026-10-21T13:37:50.097837Z'
+  snapshot_sha256: 79ed654a4c9da1cbfe28f86280800b6758ce44b8645aeca8daddad9032ea06df
+  search_scope: Bounded public exact DOI/title/PII and PDF/institution discovery;
+    no global absence claim.
+- evidence_id: local-search
+  kind: search
+  reference: Maintained local corpus
+  locator: local-search.json
+  summary: Ignored-inclusive searches define local reuse and provenance boundaries.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.097989Z'
+  snapshot_sha256: 32a140ce3e37fca521696e04dcc7267a88738d38b8c1b9c67c0598c7e9aaacf7
+  search_scope: Maintained record, taxon and mapping roots including ignored files,
+    as recorded in the receipt.
+- evidence_id: adapter
+  kind: search
+  reference: Optional structured source adapter
+  locator: adapter-check.json
+  summary: Fresh batch08 runtime discovery did not establish a usable adapter; no
+    exact strain, gene or covered expression-module dataset was inferred.
+  support: supports
+  accessed_at: '2026-10-21T13:37:50.098150Z'
+  snapshot_sha256: 85fd9ca27456e580579a437a2ff24457cef1bd26bcb7447c6f2f467fdd6bbadc
+  search_scope: Task runtime PATH, modules and ignored-inclusive filenames; bounded
+    discovery only.
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    just --no-dotenv validate kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  locator: Actual execution 2026-10-21T13:33:58.452782+00:00 to 2026-10-21T13:33:59.289964+00:00
+  summary: Schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T13:33:59.289964Z'
+  snapshot_sha256: 31edd8dd8aaded43132af49230f7c3d2928fccb57095aa9d38de69a69e32f6f5
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    just --no-dotenv validate-strict kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    --out /private/tmp/cm-review-session/batch-08/000447/strict-report.tsv
+  locator: Actual execution 2026-10-21T13:33:58.452945+00:00 to 2026-10-21T13:34:03.011853+00:00
+  summary: Strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T13:34:03.011853Z'
+  snapshot_sha256: 055c08d743db31127fedf53b955893b48210893cc6fe001efea7076d5680ecf9
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    just --no-dotenv validate-terms kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  locator: Actual execution 2026-10-21T13:33:58.453055+00:00 to 2026-10-21T13:34:01.632792+00:00
+  summary: Term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T13:34:01.632792Z'
+  snapshot_sha256: 978e339594afdd99e24a953a535a04f0588f436922aac1c8cc177fcf7716ea11
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    just --no-dotenv validate-gtdb kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  locator: Actual execution 2026-10-21T13:33:59.290355+00:00 to 2026-10-21T13:33:59.366424+00:00
+  summary: GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T13:33:59.366424Z'
+  snapshot_sha256: 3cb76918751abf6efe852994445f2630d7692c13af0218f6b371dea13f20a928
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  locator: Actual execution 2026-10-21T13:33:59.366689+00:00 to 2026-10-21T13:34:03.013828+00:00
+  summary: GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T13:34:03.013828Z'
+  snapshot_sha256: 6e63a4103d22f6e825f173f49503a9a0cdbc9154a541dda3d043bae418e9ee1c
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    just --no-dotenv validate-history history/records/Brocadia_Low_Nitrogen_Anammox_Consortium
+  locator: Actual execution 2026-10-21T13:34:01.633243+00:00 to 2026-10-21T13:34:03.126652+00:00
+  summary: History validation passed.
+  support: supports
+  accessed_at: '2026-10-21T13:34:03.126652Z'
+  snapshot_sha256: e92eb6c552649ac614b8382cdec3fa709ed2075fdf7a27182976487cb028af85
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T13:34:03.128246+00:00 to 2026-10-21T13:34:03.275680+00:00
+  summary: Read-only cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T13:34:03.275680Z'
+  snapshot_sha256: c1ab9f090df589c86291d8bf839542a87b1b5be1cfb440b04788617a679d62a9
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src
+    just --no-dotenv validate-references-explained kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+  locator: Actual execution 2026-10-21T13:34:03.276350+00:00 to 2026-10-21T13:34:06.517943+00:00
+  summary: Reference validation passed against the pinned cache.
+  support: supports
+  accessed_at: '2026-10-21T13:34:06.517943Z'
+  snapshot_sha256: 751e11a6a8758c36abd4c6d29d2d6f661d206c8d0c4089c3fc2ac03bd603d371
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T13:06:00.734617+00:00 to 2026-10-21T13:06:11.311177+00:00
+  summary: Fresh batch08 corpus check reports 57 warnings across 21 of 477 records;
+    the focal network separately reports INCOMPLETE for the disconnected early Kuenenia
+    lineage.
+  support: supports
+  accessed_at: '2026-10-21T13:06:11.311177Z'
+  snapshot_sha256: 2d17097db768619fa7fea156f7c37781fa9cd463a6abdce6f529112518848cf0
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-08/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T13:06:00.741568+00:00 to 2026-10-21T13:06:15.408522+00:00
+  summary: Fresh batch08 corpus check reports 57 warnings across 21 of 477 records;
+    the focal network separately reports INCOMPLETE for the disconnected early Kuenenia
+    lineage.
+  support: supports
+  accessed_at: '2026-10-21T13:06:15.408522Z'
+  snapshot_sha256: 1332cfd7980ec54d517d625aff43fa6328c1a19fd405a7aef071f78af9774f3f
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Operated biofilter and temporal community
+  outcome: supported
+  summary: The record correctly represents early Kuenenia and a later multispecies
+    Brocadia assemblage, not a defined two-isolate coculture. ENGINEERED state/origin
+    and biotechnology application are appropriate.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - operation
+  - succession
+  - schema
+  - record
+  dimensions:
+  - name: community_scope
+    value: Temporal low-nitrogen biofilter assemblage
+    definition: Membership spans source-described phases.
+    evidence_ids:
+    - succession
+  - name: taxon_rank
+    value: Two genus descriptors
+    definition: Exact species, MAGs and strain identities remain unresolved.
+    evidence_ids:
+    - ontology
+    - source-scope
+  - name: grounding_status
+    value: UNRESOLVED GTDB for both genera
+    definition: No unsupported genome-specific mapping is added.
+    evidence_ids:
+    - ontology
+  - name: environment
+    value: Physical bioreactor; represented wastewater-treatment application
+    definition: The modeled facility context does not prove full-scale operation.
+    evidence_ids:
+    - operation
+    - semantics
+  - name: medium
+    value: Unresolved exact feed and cultivation conditions
+    definition: Only sustained low-nitrogen stress is directly verified.
+    evidence_ids:
+    - operation
+    - source-scope
+  - name: evidence_tier
+    value: Direct abstract with computational interpretation
+    definition: Main methods, figures and SI remain unavailable.
+    evidence_ids:
+    - source-scope
+- assessment_id: taxonomy
+  area: grounding
+  topic: Genus names, roles and ordinal dominance
+  outcome: supported
+  summary: Canonical genus labels and explicit dominant Brocadia status are supported;
+    role meanings must remain scoped to biological context and model inference.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - ontology
+  - semantics
+  - succession
+  - model
+  details: PRIMARY_PRODUCER denotes autotrophy, not merely nitrogen-removal prominence.
+    The role is biologically plausible in the anammox context, but the attached abstract
+    snippets are not direct carbon-fixation measurements. CROSS_FEEDER is supported
+    at the predicted-recipient/complementarity level; the nearest abundance snippets
+    alone do not establish observed uptake. No automatic role removal or invented
+    species is warranted. DOMINANT requires no numerical-majority threshold.
+- assessment_id: quantities
+  area: evidence
+  topic: Abundance, transcription and modeled overlap
+  outcome: supported
+  summary: Retain all reported abstract values with their existing measurement distinctions.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - quantities
+  - schema
+  details: The 44.7% relative organism abundance and 71.5% transcriptional contribution
+    have separate denominators. Approximately 18-fold expression is a response, and
+    resource overlap is a model output rather than a reactor setting. The exact high-nitrogen
+    comparison design remains unavailable.
+- assessment_id: node-0
+  area: graph
+  topic: ecological_interactions[0]
+  outcome: supported
+  summary: Retain the COMMUNITY_LEVEL CROSS_FEEDING node as explicitly model-inferred
+    complementary auxotrophy among Brocadia species.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - model
+  - record
+  - schema
+  details: COMPUTATIONAL evidence and SMETANA provenance correctly signal inference.
+    One genus descriptor can summarize a multispecies assemblage. No metabolite-specific
+    transfer, direct flux, selective perturbation or obligatory dependence is asserted
+    or required for this bounded claim. No downstream arrows are encoded, and none
+    is added to satisfy a connectivity score.
+- assessment_id: context
+  area: representation
+  topic: environmental_factors[1] and [2]
+  outcome: concern
+  summary: Transcriptional activation and lower modeled resource overlap are outcomes,
+    not environmental conditions.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - record
+  - quantities
+  - schema
+  details: environmental_factors[0] correctly represents sustained low-nitrogen stress.
+    Preserve the other two observations and their computational evidence in the appropriate
+    taxon, interaction or design/result context; do not create new mechanisms simply
+    to relocate supported results.
+- assessment_id: cultivation
+  area: scope
+  topic: Reactor, feed and modeled conditions
+  outcome: unknown
+  summary: Direct abstract evidence supports an operated low-nitrogen biofilter but
+    not a reproducible recipe or exact operating regime.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - operation
+  - source-scope
+  - search-leads
+  details: The indexed preview is a useful lead for future direct-source verification,
+    not authority for importing reactor volume, scale, bed geometry or influent concentrations.
+    The current abstract-limited discussion remains honest. Retain the broad physical
+    bioreactor and modeled application distinction until Methods is directly inspected.
+- assessment_id: resources
+  area: provenance
+  topic: Publication links and unresolved model/archive identities
+  outcome: supported
+  summary: PMID and DOI resources identify the focal article; source-specific datasets,
+    MAGs, model sources and versions remain unresolved rather than presumed absent.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - pubmed
+  - crossref
+  - resources
+  - source-scope
+  details: Retain existing SMETANA prediction type/tool entries. Bibliographic snippets
+    corroborate identifiers, not experimental methods. No medium, strain catalogue
+    or archive search is invented from generic anammox context.
+- assessment_id: history
+  area: provenance
+  topic: Prior repairs and exact snippet categories
+  outcome: supported
+  summary: Earlier repairs remain intact and the existing discussion preserves source
+    gaps.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - history
+  - snippets
+  details: 'The sole text mismatch is the engineering-design co-occurrence hyphen
+    glyph: ASCII hyphen in the record versus nonbreaking hyphen in the source. It
+    is typographic only, not a scientific contradiction. The two identifier excerpts
+    are metadata rather than abstract prose; zero full-text matches are claimed.'
+- assessment_id: validation
+  area: schema
+  topic: Native validators and semantic scope
+  outcome: supported
+  summary: All eight native checks and four ontology pairs pass; the network diagnostic
+    and source-access limits remain explicit.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - check-validate
+  - check-validate-references-explained
+  - ontology
+  - native-target
+- assessment_id: metrics
+  area: completeness
+  topic: Native mechanical scores
+  outcome: supported
+  summary: Completeness and quality measure encoded structure and checks, not whole-source
+    scientific certification.
+  target_ids:
+  - CommunityMech:000447
+  evidence_ids:
+  - native-target
+  metrics:
+  - name: completeness
+    value: 70
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 50 required-field/taxon-role component +5 environment +10 for at least
+      three environmental factors +5 external resources; no interaction-count, medium,
+      dataset or metabolite bonus.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      P1=0/P2=0/P3=1/P4=0; one node evidence/one node gives10; INCOMPLETE gives0;
+      raw108, capped100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: outcome-placement
+  issue_key: cm-000447-outcome-placement
+  category: representation
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded field placement; the numerical results and explicitly
+    qualified model node remain supported.'
+  rule_id: review-checklist.environment-and-claim-evidence
+  status: open
+  certainty: confirmed
+  title: Separate response and modeling outcomes from environmental conditions
+  description: environmental_factors[1] encodes transcriptional activation and environmental_factors[2]
+    encodes predicted resource overlap. These are study outcomes rather than imposed
+    or measured environmental conditions; sustained low-nitrogen stress is already
+    correctly represented in environmental_factors[0].
+  target_ids:
+  - CommunityMech:000447
+  field_paths:
+  - environmental_factors[1]
+  - environmental_factors[2]
+  evidence_ids:
+  - record
+  - quantities
+  - schema
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    role: canonical_record
+actions:
+- action_id: repair-outcome-placement
+  description: Relocate the two outcome-valued environmental factors while retaining
+    their source scope, numerical values and computational provenance.
+  finding_ids:
+  - outcome-placement
+  target_ids:
+  - CommunityMech:000447
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Brocadia_Low_Nitrogen_Anammox_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Keep sustained low-nitrogen stress as a condition. Place transcriptional activation
+    and modeled resource overlap with the relevant taxon, process or design/result
+    summary; avoid redundant environmental-factor entries.
+  - Preserve approximately 18-fold expression and the resource-overlap comparison
+    as distinct response/model measurements. Keep 44.7% abundance separate from 71.5%
+    transcriptional activity.
+  - Retain the sole explicitly model-inferred interaction, genus-level temporal membership,
+    unresolved GTDB and model-source limits. Do not add an exchange edge merely to
+    connect the early Kuenenia lineage.
+  - Any reactor details, species/MAG identities or model inputs recovered from indexed
+    leads require direct Methods/SI verification before curation. Preserve conditional
+    role interpretation and do not substitute literature examples or typical influent
+    concentrations.
+  - After separately authorized curation, run focused schema, strict, term, reference
+    and history checks and inspect the network warning at its temporal scope.
+limitations:
+- Critical main Methods/Results, figures, supplements, species/MAG identities, model
+  construction and exact reactor conditions were not directly accessible through the
+  inspected public routes. Whole-source scientific certification is incomplete.
+- The direct abstract supports succession, transcriptional responses and SMETANA-predicted
+  complementarity. It does not establish measured metabolite exchange, specific donor-recipient
+  flux or carbon fixation by a focal assay. Biological-context autotrophy and predicted
+  recipient roles must remain distinct from direct measurements.
+- The indexed publisher preview suggests specific reactor scale and configuration,
+  but direct page requests failed. Those details are unverified follow-up leads, not
+  source-certified cultivation values. Typical influent concentrations and species
+  examples from indexed introduction text are not assigned to the focal reactor or
+  MAGs.
+- No full-text match, raw omics inspection, metabolic simulation, isotope/flux reanalysis
+  or figure inspection is claimed. No guessed genome accession, model source, strain,
+  recipe or medium link is supplied.
+- Bounded unsuccessful access or adapter discovery does not establish global absence
+  of public sources, datasets or tools. No paid provider, contact or authentication
+  bypass was used.
+notes:
+- No canonical, cache, history, generated or saved-review file changed; all 24 inspected
+  inputs remain pinned.
+- 'Twelve snippets: nine strict abstract matches, one hyphen-only equivalent and two
+  corroborated article identifiers. No full-text verification is claimed.'
+- Native INCOMPLETE reflects the early Kuenenia lineage without an encoded interaction.
+  No unsupported interaction is requested to improve the score.
+- Completeness70 and quality100/raw108 are mechanical; completion remains partial
+  and scientific_review false.
+- Indexed methods suggest a useful future cultivation check but do not establish a
+  second graded omission at direct-source scope.
+tags:
+- record-review
+- anammox
+- computational-cross-feeding
+- partial-source
+- batch-08
+```

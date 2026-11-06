@@ -1,0 +1,1576 @@
+# Cellulose ethanol coculture ingredient and cultivation review
+
+- Review: 20261021T224235Z-cellulose-ethanol-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T22:35:27.901769Z
+- Finished UTC: 2026-10-21T22:42:35.272672Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Two major findings address ethanol as a supplied medium ingredient and conflated cultivation arms/stale reactor detail. One minor finding addresses GTDB snapshot provenance. Preserve the three-node/two-arrow graph, conditional cooperation, valid roles and ordinal abundance. Eight native checks pass; completeness 95, raw quality 109.66666666666669/capped 100.
+
+## Scope And Provenance
+
+Whole current record, complete fresh scientific main and references, all six main figures and six SI PDFs/captions, exact authorities and provenance.
+
+Selection: Only released CommunityMech:000206 in owned batch12.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 95812d3412d5aab41fd03422340cf736ac7b56f3.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000206 | kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml | maintained | Clostridium-Saccharomyces Cellulose Ethanol Coculture |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000206 | Native command exit 0. |
+| validate-strict | passed | True | CommunityMech:000206 | Native command exit 0. |
+| validate-terms | passed | True | CommunityMech:000206 | Native command exit 0. |
+| validate-references-explained | passed | True | CommunityMech:000206 | Native command exit 0. |
+| validate-gtdb | passed | True | CommunityMech:000206 | Native command exit 0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000206 | Native command exit 0. |
+| validate-history | passed | True | CommunityMech:000206 | Native command exit 0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000206 | Native command exit 0. |
+| audit-network | failed | True | CommunityMech:000206 | Same-batch corpus diagnostic. |
+| check-network-quality | failed | True | CommunityMech:000206 | Same-batch corpus diagnostic. |
+| Whole source scientific assessment | passed | True | CommunityMech:000206 | Complete main/references, six main figures and six SI pages assessed. |
+| Reference-specific literal support | passed | True | CommunityMech:000206 | All 26 excerpts strictly match fresh XML and cache. |
+| Ontology and native semantic review | passed | True | CommunityMech:000206 | Ten pairs/23 placements match; source-specific role and cultivation meanings separately assessed. |
+| Optional structured adapter | unavailable | False | CommunityMech:000206 | Current runtime checks plus explicitly reused discovery; no external runner execution. |
+| Numerical reproduction | skipped | False | CommunityMech:000206 | No raw statistical, sequence or image reanalysis. |
+
+## Scientific And Domain Assessments
+
+### Exact focal membership
+
+identity: supported. Targets: CommunityMech:000206.
+
+ISDg and engineered cdt-1 identify the requested two-member consortium.
+
+Candida comparison cultures, Neurospora engineering donor and Trichoderma enzyme source remain outside focal taxonomy. Yeast species grounding is paired with its construct designation.
+
+### GTDB identity and provenance
+
+grounding: concern. Targets: CommunityMech:000206.
+
+The exact bacterial mapping is valid; release/build language is unsupported.
+
+Retain 1.0/two genomes, current lineage and yeast NO_GTDB_EQUIVALENT. Document actual file digest and method instead of calling mtime a release date.
+
+### Functional roles and abundance
+
+scope: supported. Targets: CommunityMech:000206.
+
+Bacterial degradation/fermentation and yeast recipient/fermentation roles fit the source.
+
+No requirement that primary-degrader products come from a different species is imposed. Both ABUNDANT labels are ordinal; late CFU samples do not establish a universal percentage or continuous equilibrium.
+
+### Three nodes and two arrows
+
+graph: supported. Targets: CommunityMech:000206.
+
+The graph already preserves conditional cooperation and separate maintenance/output arms.
+
+Keep both qualified arrows and the community-level maintenance outcome. The source supports a positive respiratory-protection model without universal obligacy or isolated flux measurements.
+
+### Supplied ingredients versus products
+
+grounding: concern. Targets: CommunityMech:000206.
+
+Ethanol is a valid chemical identity in the wrong recipe role.
+
+Retain ethanol as product and source-grounded metabolite context, while removing the unsupported medium ingredient. Trace metals in GS2 do not establish metal-processing relevance.
+
+### Assay-specific cultivation
+
+scope: concern. Targets: CommunityMech:000206.
+
+The record mixes the 25 mL long-term arm with 50 mL experiments and understates full reactor Methods.
+
+Separate all working volumes, loads, durations, media variants and controls. The 500 mL Sixfors is explicitly stirred and pH-controlled; optional stirred-tank refinement is available. Retain liquid BATCH and recover stage-scoped formulation.
+
+### Oxygen transport and measurement
+
+quantity: supported. Targets: CommunityMech:000206.
+
+The environmental mechanism is supported, with calculated-rate and source-conflict limits.
+
+Tube-internal air is not broth sparging. Resazurin is qualitative. The scale-up total-rate inconsistency remains an explicit limit within cultivation repair, not silently corrected arithmetic.
+
+### Output and population evidence
+
+evidence: supported. Targets: CommunityMech:000206.
+
+CFU maintenance and enzyme-assisted ethanol measurements have distinct designs.
+
+Preserve the approximately 400-hour 22 g/L result, two-independent-experiment Figure 5 and single-experiment 640-hour extension separately. Selective plate/drop variability is not another growth regime.
+
+### Exact source excerpts
+
+evidence: supported. Targets: CommunityMech:000206.
+
+All 26 occurrences strictly match fresh XML and cache.
+
+Fourteen full context projections were inspected. Lexical success does not justify recipe placement or merging experiment scopes.
+
+### Publication and supplementary resources
+
+representation: supported. Targets: CommunityMech:000206.
+
+All publication identifiers and six supplementary payloads resolve.
+
+No named new deposit or cross-Mech recipe equivalence is inferred. Empty associated_datasets does not itself create a finding.
+
+### Prior repair and current issue ownership
+
+provenance: supported. Targets: CommunityMech:000206.
+
+The graph repair remains supported and current follow-up is bounded.
+
+Current 1338 covers the two major focal issues; 746 is broader provenance. Cache abstract_only metadata understates its full appended main, but neither that label nor old source paths replace actual fresh reads.
+
+### Native checks and scientific completion
+
+schema: supported. Targets: CommunityMech:000206.
+
+Eight native checks pass and all critical scientific assets are assessed.
+
+The incidental read-only Python import failure was superseded by the owned environment; no native candidate failure follows.
+
+### Native rubric scores
+
+completeness: supported. Targets: CommunityMech:000206.
+
+Completeness 95; raw quality 109.66666666666669, capped 100.
+
+## Findings
+
+### remove-ethanol-reagent: Remove ethanol from the supplied medium
+
+major / open / confirmed; issue key: cm-000206-remove-ethanol-reagent.
+
+The growth-medium composition lists ethanol as a supplied component although the complete GS2/ETGtGS2 recipe does not include it. It is the measured fermentation output; inoculum carryover was quantified and subtracted. Remove ethanol from the medium reagent list while retaining its grounded product/context annotations and the enzyme-assisted approximately 22 g/L result. Do not convert a higher-oxygen exploratory observation about possible ethanol consumption into a reagent or exchange claim for the low-oxygen production arm.
+
+### separate-cultivation-arms: Separate cultivation arms and recover the source recipe
+
+major / open / confirmed; issue key: cm-000206-separate-cultivation-arms.
+
+The 50 mL setup absorbs the distinct 25 mL/150 g/L, 50-day maintenance experiment. The 500 mL setup falsely says its identity and operation are only abstract-level despite explicit Infors Sixfors Methods. The shared medium block omits the available GS2/ETGtGS2 recipe and mixes assay scopes. Separate the 50 mL, 25 g/L population time course; 25 mL GS2/150 g/L long-term assay; 50 mL ETGtGS2/100 g/L/400 mg/L endoglucanase approximately 400-hour output; and 500 mL Sixfors/100 g/L scale-up. Preserve 100 mL serum-vial capacity separately from working volume. Add source-scoped 30 °C, vial 200 rpm versus Sixfors 300 rpm, 1 N NaOH pH control without inventing its setpoint, and 10 versus 100 cm neoprene tubing. Keep BATCH for the liquid cultivation regime; optional STIRRED_TANK_BIOREACTOR refinement fits the explicitly stirred Sixfors. Recover basal GS2 formulation and ETGtGS2 replacements, distinguish preculture/plating media and strain-specific inoculation from production, and retain initial basal pH 7 before sterilization as that stage only. Preserve the source oxygen-rate inconsistency and qualitative resazurin observation. Replace unsupported absolute statements about partner dependence, flask impossibility and sole-carbon composition with actual assay operations. No future fix may merge distinct durations, controls or oxygen regimes.
+
+### document-gtdb-snapshot: Document the reproducible GTDB snapshot
+
+minor / open / confirmed; issue key: cm-000206-document-gtdb-snapshot.
+
+The bacterial mapping reproduces, but latest-release/build wording treats a local file modification date as a verified GTDB release or build. Record the actual crosswalk digest and exact ncbi_id lookup route with local snapshot metadata. Retain the valid ISDg 1.0/2 result, label/lineage and false reclassification flag. Retain NO_GTDB_EQUIVALENT for the eukaryotic yeast; the species taxon identifies the engineered cdt-1 construct only with its separate source designation, not a guessed collection stock.
+
+## Recommended Actions And Acceptance Checks
+
+### separate-input-output
+
+Remove the unsupported ethanol reagent.
+
+- Remove growth_media[0].composition[2] ethanol while preserving its product annotation and the enzyme-assisted approximately 22 g/L endpoint. Source inoculum-product subtraction is not evidence of deliberate ethanol supplementation.
+- Keep cellulose feedstock, soluble-sugar transfer and ethanol output distinct. The exploratory higher-oxygen data-not-shown statement must not become a universal low-oxygen exchange or ingredient claim.
+
+### separate-protocols
+
+Represent each actual cultivation arm and formulation.
+
+- Separate the 50 mL/25 g/L population course, 25 mL GS2/150 g/L, 50-day maintenance arm sampled on days 30/40/50, 50 mL ETGtGS2/100 g/L/400 mg/L endoglucanase approximately 400-hour output, and 500 mL Sixfors/100 g/L scale-up. Preserve 100 mL serum-vial capacity separately from working volume.
+- Record 30 °C, vial 200 rpm versus Sixfors 300 rpm, 1 N NaOH pH control without an invented setpoint, and 10 cm versus 100 cm neoprene tubing. Retain BATCH; optionally refine the explicitly stirred Sixfors to STIRRED_TANK_BIOREACTOR. No unsupported flask-impossibility statement remains.
+- Add the published GS2 basal components with exact source amounts, separately sterilized salt/resazurin additions, and basal pH 7 before sterilization. ETGtGS2 adds 10 mg/L ergosterol and 420 mg/L Tween80 and substitutes 4.09 g/L glutathione for 2.33 g/L cysteine reagent. Keep yeast preculture and selective CFU media separate.
+- Scope strain-specific OD inocula and approximately equal 10^5 CFU/mL in the long-term assay separately. Preserve initially oxygenated static filter-paper tests versus initially degassed production cultures, and keep analytical plating, HPLC and dry-weight conditions out of growth fields.
+- Describe oxygen delivery as calculated diffusion from tube-internal air, not broth sparging or direct measured zero dissolved oxygen. Preserve the source 500 mL total-rate inconsistency; do not silently normalize rates between volumes or transfer the 50 mL rate to every arm.
+- Replace stale abstract-only and issue-history prose with biological operations. Preserve conditioned mutualism, source-control differences, single-experiment 640-hour extension and unsupplemented versus enzyme-assisted output.
+
+### document-mapping
+
+Replace release/build shorthand with verified snapshot provenance.
+
+- Record crosswalk SHA 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd and exact ncbi_id lookup route. Label July 25 local mtime as file metadata, not a verified latest release/build date.
+- Retain ISDg NCBITaxon:357809 majority 1.0/count 2, current labels/lineage and false reclassification flag; retain species 4932 with engineered cdt-1 designation and NO_GTDB_EQUIVALENT. No guessed yeast collection parent, new genotype or catalogue growth protocol is added.
+
+### validate-future-curation
+
+Validate separately authorized canonical repair.
+
+- Attach exact source-local evidence to each changed ingredient, assay and apparatus claim. Preserve all three nodes/two qualified arrows, valid roles and ordinal ABUNDANT; no new source-conflict value is invented.
+- After authorized edits, append history and run schema, strict, terms, references, GTDB/domain and history checks plus required generated-page gates. This review changes no canonical record, cache, history, generated output or issue.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml; Whole maintained record | supports | The exact ISDg–engineered yeast consortium has three nodes and two qualified arrows. The graph already distinguishes soluble-sugar supply, conditional respiratory protection, enzyme-assisted output and the separate long-term viable-population outcome. |
+| identity | PMID:23628342; DOI:10.1186/1754-6834-6-59; Results and discussion → Design and development of C. phytofermentans/yeast symbiosis, paragraph 1; Methods → Inoculation | supports | The focal pair is C. phytofermentans ISDg and engineered S. cerevisiae cdt-1. The yeast expresses Neurospora-derived cellodextrin transport and intracellular beta-glucosidase functions. Candida is a comparator and Neurospora a gene donor; neither joins this record. |
+| recipe | PMID:23628342; DOI:10.1186/1754-6834-6-59; Methods → Media and chemical sources | supports | GS2 per liter contains 6 g yeast extract, 2.9 g K2HPO4, 2.1 g urea, 1.5 g KH2PO4, 3 g Tri-Na Citrate H2O, 2.33 g cysteine HCl H2O, 1 g MOPS, 0.1 g MgCl2·6H2O, 0.0113 g anhydrous CaCl2, 0.000125 g FeSO4·7H2O and 0.01% resazurin. Salts and resazurin are sterilized separately and added after autoclaving. Basal pH is adjusted to 7 before sterilization; this is not a reactor control setpoint. Ethanol is absent from the recipe. |
+| medium-variants | PMID:23628342; DOI:10.1186/1754-6834-6-59; Methods → Media and chemical sources; Additional file 2 | supports | ETGtGS2 adds 10 mg/L ergosterol and 420 mg/L Tween 80 and replaces cysteine with 4.09 g/L glutathione. Inocula use 3 g/L cellobiose in place of cellulose. Yeast preculture uses GS2 without the reductants or YPC with 5 g/L yeast extract, 10 g/L peptone and 3 g/L cellobiose. The selective plating media are analytical. Additional file 2 shows anaerobic growth in the modified medium; universal partner dependence is not established. |
+| inoculation | PMID:23628342; DOI:10.1186/1754-6834-6-59; Methods → Inoculation, paragraphs 1–2; Fermentation product determination | supports | Bacterial starter culture is degassed in 1.5% H2/98.5% N2 and grown at 30 °C. Bacterial and cellobiose/filter-paper yeast inocula give initial OD600 0.0125–0.025; alpha-cellulose yeast preparation gives OD600 0.05. These are assay-specific settings, not a universal viable-cell ratio. Substrate/product carried with inocula is measured and subtracted from production results; carryover does not make ethanol a recipe component. |
+| apparatus | PMID:23628342; DOI:10.1186/1754-6834-6-59; Methods → Experimental cultures, paragraph 1; Figure 3 | supports | Serum fermentations use 100 mL vessels at 30 °C and 200 rpm; the 500 mL Infors Sixfors uses 30 °C and 300 rpm with 1 N NaOH pH control, whose setpoint is not stated here. The source specifies neoprene tubing as OR = 3.175 mm and IR = 1.45 mm. Air flows inside tubing at about 100 L/h, not directly through broth. Oxygen-negative controls use a stainless-steel loop. Figure 3 assigns 10 cm tubing to the serum vessel and 100 cm to the reactor. |
+| population-arms | PMID:23628342; DOI:10.1186/1754-6834-6-59; Results and discussion → Stable co-culture cellulose fermentation, paragraphs 1–3; Figure 4; Additional files 4–5 | supports | The 50 mL, 25 g/L alpha-cellulose population time course differs from the 25 mL GS2, 150 g/L, 50-day arm. The latter starts at approximately equal 10^5 CFU/mL and samples days 30, 40 and 50; oxygen-positive cultures retain both organisms while yeast falls below detection without oxygen. The 500 mL, 100 g/L Sixfors run is a separate scale-up. No duration or cell fraction is transferred between these arms. |
+| oxygen-scope | PMID:23628342; DOI:10.1186/1754-6834-6-59; Results and discussion → Low level oxygen transfer promotes symbiosis while maintaining ethanol production, paragraph 1; Stable co-culture cellulose fermentation, paragraphs 2 and 4 | supports | Oxygen transport is calculated using permeability, geometry and an assumed driving force; decolorized resazurin is qualitative. The paper gives approximately 0.04 micromol/cm/h and about 8 micromol/L/h for the small setup, but prints 0.4 micromol/h for 100 cm tubing in the 500 mL scale-up. Preserve this internal rate inconsistency rather than silently imposing a calculated correction or calling dissolved oxygen instrument-measured zero. |
+| static | PMID:23628342; DOI:10.1186/1754-6834-6-59; Results and discussion → Design and development of C. phytofermentans/yeast symbiosis, paragraph 3; Figure 2; Methods → Experimental cultures, paragraph 2 | supports | Filter-paper tests use initially oxygenated 30 mL flat-bottom tubes at 30 °C, static with periodic agitation and gas exchange. Only cocultures degrade the filter paper under those conditions, with different times for the two yeast pairings. These tests are distinct from sealed, initially degassed alpha-cellulose production vessels. A higher-oxygen exploratory statement about ethanol use is explicitly data-not-shown context. |
+| products | PMID:23628342; DOI:10.1186/1754-6834-6-59; Results and discussion → Co-culture simultaneous saccharifcation and fermentation, paragraphs 1–3; Figure 5; Methods → Experimental cultures, paragraph 3 | supports | The approximately 400-hour output uses 50 mL ETGtGS2, 100 g/L alpha-cellulose and 400 mg/L added Trichoderma endoglucanase in 100 mL serum vials. With oxygen and enzyme, the pair reaches about 22 g/L ethanol and 72% conversion; controls reach about 6 or 9 g/L. Unsupplemented coculture does not give the same productivity gain. The enzyme is an addition, not another member. A separate single experiment extends to roughly 640 hours. |
+| population-assay | PMID:23628342; DOI:10.1186/1754-6834-6-59; Methods → Colony forming unit determination; Additional file 5 caption | supports | Populations are measured by selective drop plating, with C. phytofermentans on GS2/lactose anaerobically and yeasts on half-strength Sabouraud aerobically at 30 °C. Counts are variable because cells may attach to or be trapped by cellulose. The long-term supplement shows two replicates at three late samples; it is not continuous monitoring or a universal abundance percentage. |
+| mechanisms | PMID:23628342; DOI:10.1186/1754-6834-6-59; Results and discussion → Design and development of C. phytofermentans/yeast symbiosis; Low level oxygen transfer promotes symbiosis while maintaining ethanol production; Conclusions; Figure 6 | supports | The culture comparisons support soluble-sugar utilization and oxygen-associated respiratory protection under the tested conditions. Figure 6 is a proposed cooperation model. The current two arrows appropriately retain unresolved mediator partitioning; neither universal obligacy nor isolated partner-resolved carbon/oxygen flux follows. Bacterial hydrolysis and its own sugar fermentation support both of its roles. |
+| supplement-1 | PMID:23628342; DOI:10.1186/1754-6834-6-59 Additional file 1; Additional file 1, single PDF page and its complete XML caption | supports | Monoculture cellobiose growth and products with and without oxygen; Candida is comparator only. The page was visually inspected; extracted PDF text contains only its title. |
+| supplement-2 | PMID:23628342; DOI:10.1186/1754-6834-6-59 Additional file 2; Additional file 2, single PDF page and its complete XML caption | supports | Two trials with two replicates each test anaerobic yeast growth in ergosterol/Tween/glutathione medium. The page was visually inspected; extracted PDF text contains only its title. |
+| supplement-3 | PMID:23628342; DOI:10.1186/1754-6834-6-59 Additional file 3; Additional file 3, single PDF page and its complete XML caption | supports | Cellobiose coculture growth and product comparisons distinguish the Candida pair and focal Saccharomyces pair. The page was visually inspected; extracted PDF text contains only its title. |
+| supplement-4 | PMID:23628342; DOI:10.1186/1754-6834-6-59 Additional file 4; Additional file 4, single PDF page and its complete XML caption | supports | 50 mL, 25 g/L alpha-cellulose monoculture viable-count controls; drop-count error bars do not become independent cultures. The page was visually inspected; extracted PDF text contains only its title. |
+| supplement-5 | PMID:23628342; DOI:10.1186/1754-6834-6-59 Additional file 5; Additional file 5, single PDF page and its complete XML caption | supports | Long-term coculture viable counts and soluble sugars at days 30, 40 and 50; separate 25 mL/150 g/L conditions come from the main Results. The page was visually inspected; extracted PDF text contains only its title. |
+| supplement-6 | PMID:23628342; DOI:10.1186/1754-6834-6-59 Additional file 6; Additional file 6, single PDF page and its complete XML caption | supports | The approximately 640-hour extended enzyme experiment has two replicates within one experiment; it is distinct from the two independent approximately 400-hour experiments in Figure 5. The page was visually inspected; extracted PDF text contains only its title. |
+| ontology | /private/tmp/cm-review-session/batch-12/000206/ontology-authority.json; Ten exact ID/label/definition pairs across 23 placements | supports | All labels match. Correct ethanol identity does not justify placing a fermentation product in the supplied medium. |
+| schema | /private/tmp/cm-review-session/batch-12/000206/child-schema-semantics.json; Literal roles, abundance and cultivation definitions | supports | SECONDARY_FERMENTER can consume products released by the same primary degrader. ABUNDANT is ordinal. BATCH describes the liquid cultivation regime; controlled gas diffusion alone is not a continuous-medium reactor. |
+| gtdb | /private/tmp/cm-review-session/batch-12/000206/child-gtdb-crosswalk.json; Exact 357809 row and absent yeast crosswalk result | supports | The bacterial exact-ID mapping reproduces at 1.0 across two genomes. Local mtime does not establish latest GTDB release or build. The yeast lookup has no crosswalk result; its eukaryotic domain rationale is separately documented in child-strain-authority.json. |
+| strain | /private/tmp/cm-review-session/batch-12/000206/child-strain-authority.json; Fresh focal strain context and explicitly reused DSM 18823 identity snapshot | supports | ISDg aliases ATCC 700394/DSM 18823 are supported by the original record196 catalogue snapshot, accessed at its original time and freshly byte-verified here. The engineered cdt-1 construct is not assigned a guessed collection parent or plasmid. No catalogue recipe is imported. |
+| semantics | /private/tmp/cm-review-session/batch-12/000206/ontology-semantic-notes.json; Final source-aware role, chemistry and cultivation interpretation | supports | Retain all four encoded member roles, ordinal ABUNDANT, the three-node/two-arrow graph and yeast domain exception. Refine cultivation stages and mapping provenance without inventing stronger mechanism requirements. |
+| semantic-label-clarification | /private/tmp/cm-review-session/batch-12/000206/child-semantic-label-clarification.json; Exact ENVO label correction in the immutable semantic summary | supports | The summary shorthand laboratory is clarified to the actual label laboratory environment for ENVO:01001405. Original notes and manifest remain unchanged; the authoritative ID/label receipt and canonical record were already correct. |
+| resources | /private/tmp/cm-review-session/batch-12/000206/dataset-verification.json; Publication identity, six PDF MD5s, package inventory and bounded source-declaration scan | supports | PMID/PMCID/DOI identify the focal paper. Eighteen package members are six main JPEGs, six thumbnails and six supplementary PDFs. No concrete new deposit is named in the inspected source scope, and no mandatory dataset omission is inferred. |
+| snippets | /private/tmp/cm-review-session/batch-12/000206/snippet-audit.json; Twenty-six reference-specific excerpt occurrences and 14 whole contexts | supports | All 26 occurrences strictly match fresh XML and the selected cache. Title, abstract, body and caption matches retain their source locations; exact matching is separate from claim entailment. |
+| history | /private/tmp/cm-review-session/batch-12/000206/provenance-final-audit.json; Whole history/exact prior row, focal adversarial context and current issues | supports | Current 1336 and 529 are closed; 1338 and 746 remain open. The prior graph repair is preserved. Shared issue1338 directly owns the focal medium/stage errors; this review does not close its other records. |
+| provenance-clarification | /private/tmp/cm-review-session/batch-12/000206/provenance-scope-clarification.json; One exact prior-read-scope correction | supports | The original receipt remains frozen. Its copied reference to two tables/five captions is corrected to the actual prior row: full main body and six captions, no image/SI inspection. No scientific grade or canonical input changed. |
+| historical-source | /private/tmp/cm-review-session/batch-12/000206/historical-source-byte-comparison.json; Historical digest compared with fresh XML | supports | The fresh XML is byte-identical to the earlier source digest. The old scratch path remains historical ledger metadata, with no active missing-file exception. |
+| historical-field | /private/tmp/cm-review-session/batch-12/000206/root-historical-field-clarification.json; Exact copied historical source object in root prior-row extraction | supports | The full extraction equals maintained records[1]. Only its named source_review field containing the exact old path/digest is classified as historical metadata after fresh-byte verification. No missing current file is waived or old path recreated. |
+| inspect | /private/tmp/cm-review-session/batch-12/000206/inspect.json; Fresh official 26-input inspection | supports | Target, cache, history, exact prior decision/adversarial and 21 authorities were captured before assessment. Ignored-inclusive discovery found no additional focal review in its declared directories. |
+| assets | /private/tmp/cm-review-session/batch-12/000206/lead-source-assets.json; Six main figures, six supplementary PDFs and captions | supports | All twelve scientific figure pages were visually read. Thumbnails are not extra figures; PDF title-only extraction is not represented as full chart prose. |
+| lead-read | /private/tmp/cm-review-session/batch-12/000206/lead-primary-read-scope.json; Whole main, 42 references and all visual assets | supports | Lead read the entire 52,926-character main projection, all 42 references, all six main images, all six SI pages and exact captions. No main table or numerical reanalysis is claimed. |
+| source-scope | /private/tmp/cm-review-session/batch-12/000206/source-audit.json; Final three findings with exact canonical selectors | supports | Two major findings address ethanol as reagent and conflated cultivation operations; one minor finding addresses GTDB snapshot provenance. All current mechanism/role/ordinal bounds remain. |
+| root-source | /private/tmp/cm-review-session/batch-12/000206/root-independent-source-audit.json; Independent complete scientific and authority audit | supports | Root independently read the whole main and references, six main figures and six SI pages, with native definitions and support context; the final three groups agree. |
+| metrics | /private/tmp/cm-review-session/batch-12/000206/support-final-audit.json; Distinct final supporting audit and native arithmetic | supports | Completeness 95. Five node-evidence occurrences over three nodes give bonus 16.6667; COMPLETE adds 15. Two major and one minor yield raw 109.66666666666669, capped 100. The completeness node bonus requires three nodes, not three typed nodes. |
+| support-manifest | /private/tmp/cm-review-session/batch-12/000206/supporting-artifact-manifest.json; Frozen final supporting artifacts | supports | Final support is distinct from immutable preliminary support and pins the corrected provenance scope. |
+| auxiliary | /private/tmp/cm-review-session/batch-12/000206/auxiliary-frozen-manifest.json; Final child native and authority artifacts | supports | Eight native checks pass; ten exact ID/label pairs and 23 placements match; all 26 inputs remain unchanged. Initial validation receipts remain preserved. |
+| final-native | /private/tmp/cm-review-session/batch-12/000206/final-validator-summary.json; Actual eight command results | supports | Schema, strict, terms, references, GTDB, domain, history and cache-name checks pass. Scientific support is assessed separately. |
+| adapter | /private/tmp/cm-review-session/batch-12/000206/adapter-check.json; Fresh runtime compatibility plus explicitly reused discovery | supports | Batch 12 PATH/module/venv checks reuse batch 11 record 403 filename discovery at 2026-10-21T19:20:45.556660+00:00. No new filename search, global absence claim or other-checkout runner execution is asserted. |
+| check-validate | /private/tmp/cm-review-session/batch-12/000206/validate.json; Actual command and recorded output | supports | Native result; scientific entailment separately assessed. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-12/000206/validate-strict.json; Actual command and recorded output | supports | Native result; scientific entailment separately assessed. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-12/000206/validate-terms.json; Actual command and recorded output | supports | Native result; scientific entailment separately assessed. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-12/000206/validate-references-explained.json; Actual command and recorded output | supports | Native result; scientific entailment separately assessed. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-12/000206/validate-gtdb.json; Actual command and recorded output | supports | Native result; scientific entailment separately assessed. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-12/000206/validate-gtdb-domain.json; Actual command and recorded output | supports | Native result; scientific entailment separately assessed. |
+| check-validate-history | /private/tmp/cm-review-session/batch-12/000206/validate-history.json; Actual command and recorded output | supports | Native result; scientific entailment separately assessed. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-12/000206/normalize-cache-names-check.json; Actual command and recorded output | supports | Native result; scientific entailment separately assessed. |
+| check-audit-network | /private/tmp/cm-review-session/batch-12/audit-network.json; Same-batch corpus diagnostic | supports | Actual corpus result reused without assessment of later records. |
+| check-check-network-quality | /private/tmp/cm-review-session/batch-12/check-network-quality.json; Same-batch corpus diagnostic | supports | Actual corpus result reused without assessment of later records. |
+
+## Limits And Additional Notes
+
+- Whole 52,926-character main projection and all 42 references were read, with six main figures and all six single-page SI PDFs/captions. PDF text contains only labels, so supplementary chart assessment is explicitly visual. No critical source gap.
+- The source 500 mL oxygen-transfer total conflicts with its per-length rate and tubing scale-up. Basal pH 7 before sterilization is not the reactor setpoint, and resazurin decolorization is qualitative. No silent numerical correction or new measurement is asserted.
+- The source approximately 30% comparison of 22 g/L with 6 + 9 g/L controls is internally inconsistent but not encoded in the current record. Retain measured titers, control conditions and experiment-specific replication without creating an unencoded numerical finding.
+- Late long-term CFU samples, short-term population curves and enzyme-assisted product measurements are distinct. The 640-hour supplement is a single-experiment extension, not the standard endpoint or another replication set.
+- All 26 excerpts match fresh XML and selected cache strictly. Sibling read the complete cache; lead science uses fresh source. The prior-scope receipt correction and all original bytes are preserved.
+- Optional adapter availability uses fresh runtime checks plus explicit prior filename-discovery reuse. No paid source, author contact, other-checkout execution, raw statistical analysis or canonical modification.
+- Completed scientific review: 2 major/1 minor; completeness 95/raw quality 109.66666666666669/cap 100.
+- Initial inspection/validator/source/preliminary-support files remain immutable. Parent alone saves after whole candidate acceptance.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T224235Z-cellulose-ethanol-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Cellulose ethanol coculture ingredient and cultivation review
+started_at: '2026-10-21T22:35:27.901769Z'
+finished_at: '2026-10-21T22:42:35.272672Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate scientific, authority and support agents; no person-level
+    independence claim.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Two major findings address ethanol as a supplied medium ingredient and conflated
+  cultivation arms/stale reactor detail. One minor finding addresses GTDB snapshot
+  provenance. Preserve the three-node/two-arrow graph, conditional cooperation, valid
+  roles and ordinal abundance. Eight native checks pass; completeness 95, raw quality
+  109.66666666666669/capped 100.
+source:
+  git_revision: 95812d3412d5aab41fd03422340cf736ac7b56f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture/2026-10-06T005604Z-codex-10cfff.yaml
+    sha256: 1cfe114d59ecd2844cefccd1f3d817068bacf12dc5caf02252fb91318d66ed56
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+    sha256: fa05e29f87dd939c2d7a694b88083fb080077be68faa3d53007d0762609c7915
+    role: target
+  - path: references_cache/PMID_23628342.md
+    sha256: 28d1da49aa2fa358bdfeded20f3e04b5e7dcaecd4f67085ea81353b8fe42f6e9
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261005-batch21.yaml
+    sha256: 959e1bbfd9ebc6a0ced96d007d906ea4d60763066daf33bdb079ea1be2421c7f
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-three-records-batch21.yaml
+    sha256: bb0ddeece256367ba7d0152ef425d8852e57d53520846bec08a668091ee31ffc
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000206
+  path: kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+  label: Clostridium-Saccharomyces Cellulose Ethanol Coculture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+    role: canonical_record
+scope:
+  description: Whole current record, complete fresh scientific main and references,
+    all six main figures and six SI PDFs/captions, exact authorities and provenance.
+  selection: Only released CommunityMech:000206 in owned batch12.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000206
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000206
+  command: just --no-dotenv validate kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000206
+  command: just --no-dotenv validate-strict kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-12/000206/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000206
+  command: just --no-dotenv validate-terms kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000206
+  command: just --no-dotenv validate-references-explained kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000206
+  command: just --no-dotenv validate-gtdb kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000206
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000206
+  command: just --no-dotenv validate-history history/records/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000206
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Same-batch corpus diagnostic.
+  target_ids:
+  - CommunityMech:000206
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-12/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - metrics
+  scope_note: Explicit batch 12 reuse; current focused results remain separate.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Same-batch corpus diagnostic.
+  target_ids:
+  - CommunityMech:000206
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-12/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - metrics
+  scope_note: Explicit batch 12 reuse; current focused results remain separate.
+- check_id: scientific-source
+  name: Whole source scientific assessment
+  status: passed
+  required: true
+  summary: Complete main/references, six main figures and six SI pages assessed.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - lead-read
+  - source-scope
+  - root-source
+- check_id: direct-excerpts
+  name: Reference-specific literal support
+  status: passed
+  required: true
+  summary: All 26 excerpts strictly match fresh XML and cache.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - snippets
+- check_id: authority-review
+  name: Ontology and native semantic review
+  status: passed
+  required: true
+  summary: Ten pairs/23 placements match; source-specific role and cultivation meanings
+    separately assessed.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - ontology
+  - schema
+  - gtdb
+  - strain
+- check_id: adapter
+  name: Optional structured adapter
+  status: unavailable
+  required: false
+  summary: Current runtime checks plus explicitly reused discovery; no external runner
+    execution.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - adapter
+- check_id: reanalysis
+  name: Numerical reproduction
+  status: skipped
+  required: false
+  summary: No raw statistical, sequence or image reanalysis.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - lead-read
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+  locator: Whole maintained record
+  summary: The exact ISDg–engineered yeast consortium has three nodes and two qualified
+    arrows. The graph already distinguishes soluble-sugar supply, conditional respiratory
+    protection, enzyme-assisted output and the separate long-term viable-population
+    outcome.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.266519Z'
+- evidence_id: identity
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59
+  locator: Results and discussion → Design and development of C. phytofermentans/yeast
+    symbiosis, paragraph 1; Methods → Inoculation
+  summary: The focal pair is C. phytofermentans ISDg and engineered S. cerevisiae
+    cdt-1. The yeast expresses Neurospora-derived cellodextrin transport and intracellular
+    beta-glucosidase functions. Candida is a comparator and Neurospora a gene donor;
+    neither joins this record.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.266577Z'
+  snapshot_sha256: 3db696d51deeadee8570d2136696451462a35c25bace69c3a3853fbad9efb8e0
+- evidence_id: recipe
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59
+  locator: Methods → Media and chemical sources
+  summary: GS2 per liter contains 6 g yeast extract, 2.9 g K2HPO4, 2.1 g urea, 1.5
+    g KH2PO4, 3 g Tri-Na Citrate H2O, 2.33 g cysteine HCl H2O, 1 g MOPS, 0.1 g MgCl2·6H2O,
+    0.0113 g anhydrous CaCl2, 0.000125 g FeSO4·7H2O and 0.01% resazurin. Salts and
+    resazurin are sterilized separately and added after autoclaving. Basal pH is adjusted
+    to 7 before sterilization; this is not a reactor control setpoint. Ethanol is
+    absent from the recipe.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.266868Z'
+  snapshot_sha256: 3db696d51deeadee8570d2136696451462a35c25bace69c3a3853fbad9efb8e0
+- evidence_id: medium-variants
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59
+  locator: Methods → Media and chemical sources; Additional file 2
+  summary: ETGtGS2 adds 10 mg/L ergosterol and 420 mg/L Tween 80 and replaces cysteine
+    with 4.09 g/L glutathione. Inocula use 3 g/L cellobiose in place of cellulose.
+    Yeast preculture uses GS2 without the reductants or YPC with 5 g/L yeast extract,
+    10 g/L peptone and 3 g/L cellobiose. The selective plating media are analytical.
+    Additional file 2 shows anaerobic growth in the modified medium; universal partner
+    dependence is not established.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.266926Z'
+  snapshot_sha256: 3db696d51deeadee8570d2136696451462a35c25bace69c3a3853fbad9efb8e0
+- evidence_id: inoculation
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59
+  locator: Methods → Inoculation, paragraphs 1–2; Fermentation product determination
+  summary: Bacterial starter culture is degassed in 1.5% H2/98.5% N2 and grown at
+    30 °C. Bacterial and cellobiose/filter-paper yeast inocula give initial OD600
+    0.0125–0.025; alpha-cellulose yeast preparation gives OD600 0.05. These are assay-specific
+    settings, not a universal viable-cell ratio. Substrate/product carried with inocula
+    is measured and subtracted from production results; carryover does not make ethanol
+    a recipe component.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.266980Z'
+  snapshot_sha256: 3db696d51deeadee8570d2136696451462a35c25bace69c3a3853fbad9efb8e0
+- evidence_id: apparatus
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59
+  locator: Methods → Experimental cultures, paragraph 1; Figure 3
+  summary: Serum fermentations use 100 mL vessels at 30 °C and 200 rpm; the 500 mL
+    Infors Sixfors uses 30 °C and 300 rpm with 1 N NaOH pH control, whose setpoint
+    is not stated here. The source specifies neoprene tubing as OR = 3.175 mm and
+    IR = 1.45 mm. Air flows inside tubing at about 100 L/h, not directly through broth.
+    Oxygen-negative controls use a stainless-steel loop. Figure 3 assigns 10 cm tubing
+    to the serum vessel and 100 cm to the reactor.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.267034Z'
+  snapshot_sha256: 3db696d51deeadee8570d2136696451462a35c25bace69c3a3853fbad9efb8e0
+  quote: 300 rpm
+- evidence_id: population-arms
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59
+  locator: Results and discussion → Stable co-culture cellulose fermentation, paragraphs
+    1–3; Figure 4; Additional files 4–5
+  summary: The 50 mL, 25 g/L alpha-cellulose population time course differs from the
+    25 mL GS2, 150 g/L, 50-day arm. The latter starts at approximately equal 10^5
+    CFU/mL and samples days 30, 40 and 50; oxygen-positive cultures retain both organisms
+    while yeast falls below detection without oxygen. The 500 mL, 100 g/L Sixfors
+    run is a separate scale-up. No duration or cell fraction is transferred between
+    these arms.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.267087Z'
+  snapshot_sha256: 3db696d51deeadee8570d2136696451462a35c25bace69c3a3853fbad9efb8e0
+- evidence_id: oxygen-scope
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59
+  locator: Results and discussion → Low level oxygen transfer promotes symbiosis while
+    maintaining ethanol production, paragraph 1; Stable co-culture cellulose fermentation,
+    paragraphs 2 and 4
+  summary: Oxygen transport is calculated using permeability, geometry and an assumed
+    driving force; decolorized resazurin is qualitative. The paper gives approximately
+    0.04 micromol/cm/h and about 8 micromol/L/h for the small setup, but prints 0.4
+    micromol/h for 100 cm tubing in the 500 mL scale-up. Preserve this internal rate
+    inconsistency rather than silently imposing a calculated correction or calling
+    dissolved oxygen instrument-measured zero.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.267142Z'
+  snapshot_sha256: 3db696d51deeadee8570d2136696451462a35c25bace69c3a3853fbad9efb8e0
+- evidence_id: static
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59
+  locator: Results and discussion → Design and development of C. phytofermentans/yeast
+    symbiosis, paragraph 3; Figure 2; Methods → Experimental cultures, paragraph 2
+  summary: Filter-paper tests use initially oxygenated 30 mL flat-bottom tubes at
+    30 °C, static with periodic agitation and gas exchange. Only cocultures degrade
+    the filter paper under those conditions, with different times for the two yeast
+    pairings. These tests are distinct from sealed, initially degassed alpha-cellulose
+    production vessels. A higher-oxygen exploratory statement about ethanol use is
+    explicitly data-not-shown context.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.267193Z'
+  snapshot_sha256: 3db696d51deeadee8570d2136696451462a35c25bace69c3a3853fbad9efb8e0
+- evidence_id: products
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59
+  locator: Results and discussion → Co-culture simultaneous saccharifcation and fermentation,
+    paragraphs 1–3; Figure 5; Methods → Experimental cultures, paragraph 3
+  summary: The approximately 400-hour output uses 50 mL ETGtGS2, 100 g/L alpha-cellulose
+    and 400 mg/L added Trichoderma endoglucanase in 100 mL serum vials. With oxygen
+    and enzyme, the pair reaches about 22 g/L ethanol and 72% conversion; controls
+    reach about 6 or 9 g/L. Unsupplemented coculture does not give the same productivity
+    gain. The enzyme is an addition, not another member. A separate single experiment
+    extends to roughly 640 hours.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.267248Z'
+  snapshot_sha256: 3db696d51deeadee8570d2136696451462a35c25bace69c3a3853fbad9efb8e0
+- evidence_id: population-assay
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59
+  locator: Methods → Colony forming unit determination; Additional file 5 caption
+  summary: Populations are measured by selective drop plating, with C. phytofermentans
+    on GS2/lactose anaerobically and yeasts on half-strength Sabouraud aerobically
+    at 30 °C. Counts are variable because cells may attach to or be trapped by cellulose.
+    The long-term supplement shows two replicates at three late samples; it is not
+    continuous monitoring or a universal abundance percentage.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.267298Z'
+  snapshot_sha256: 3db696d51deeadee8570d2136696451462a35c25bace69c3a3853fbad9efb8e0
+- evidence_id: mechanisms
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59
+  locator: Results and discussion → Design and development of C. phytofermentans/yeast
+    symbiosis; Low level oxygen transfer promotes symbiosis while maintaining ethanol
+    production; Conclusions; Figure 6
+  summary: The culture comparisons support soluble-sugar utilization and oxygen-associated
+    respiratory protection under the tested conditions. Figure 6 is a proposed cooperation
+    model. The current two arrows appropriately retain unresolved mediator partitioning;
+    neither universal obligacy nor isolated partner-resolved carbon/oxygen flux follows.
+    Bacterial hydrolysis and its own sugar fermentation support both of its roles.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.267349Z'
+  snapshot_sha256: 3db696d51deeadee8570d2136696451462a35c25bace69c3a3853fbad9efb8e0
+- evidence_id: supplement-1
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59 Additional file 1
+  locator: Additional file 1, single PDF page and its complete XML caption
+  summary: Monoculture cellobiose growth and products with and without oxygen; Candida
+    is comparator only. The page was visually inspected; extracted PDF text contains
+    only its title.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.267404Z'
+  snapshot_sha256: 2fdbad8ab42c33b5d78a3c9e458720099c69c84e577222978d83e8a92b593368
+- evidence_id: supplement-2
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59 Additional file 2
+  locator: Additional file 2, single PDF page and its complete XML caption
+  summary: Two trials with two replicates each test anaerobic yeast growth in ergosterol/Tween/glutathione
+    medium. The page was visually inspected; extracted PDF text contains only its
+    title.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.267641Z'
+  snapshot_sha256: 2269f6c2c4637605bd3598bf03572a889953f4bb8bb54d21ad1cf5ffa441a57c
+- evidence_id: supplement-3
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59 Additional file 3
+  locator: Additional file 3, single PDF page and its complete XML caption
+  summary: Cellobiose coculture growth and product comparisons distinguish the Candida
+    pair and focal Saccharomyces pair. The page was visually inspected; extracted
+    PDF text contains only its title.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.267856Z'
+  snapshot_sha256: c43e856cfa63e35aac69c06510f5ed9ab5c6c231e296d3c21443f1182602f643
+- evidence_id: supplement-4
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59 Additional file 4
+  locator: Additional file 4, single PDF page and its complete XML caption
+  summary: 50 mL, 25 g/L alpha-cellulose monoculture viable-count controls; drop-count
+    error bars do not become independent cultures. The page was visually inspected;
+    extracted PDF text contains only its title.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.268064Z'
+  snapshot_sha256: d44c18b6ee3052f889913f27b4018a1f168c6501cb1092bc88dec277ec7dc984
+- evidence_id: supplement-5
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59 Additional file 5
+  locator: Additional file 5, single PDF page and its complete XML caption
+  summary: Long-term coculture viable counts and soluble sugars at days 30, 40 and
+    50; separate 25 mL/150 g/L conditions come from the main Results. The page was
+    visually inspected; extracted PDF text contains only its title.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.268257Z'
+  snapshot_sha256: c55f37cd3e0f9f3aa4561a6606b19d14a378405cf4ddb41fb069440f6387a5a2
+- evidence_id: supplement-6
+  kind: primary_source
+  reference: PMID:23628342; DOI:10.1186/1754-6834-6-59 Additional file 6
+  locator: Additional file 6, single PDF page and its complete XML caption
+  summary: The approximately 640-hour extended enzyme experiment has two replicates
+    within one experiment; it is distinct from the two independent approximately 400-hour
+    experiments in Figure 5. The page was visually inspected; extracted PDF text contains
+    only its title.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.268443Z'
+  snapshot_sha256: aade951a746aa8126ef2889569afe9fa4a46010902d7b05314501842b91b996a
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000206/ontology-authority.json
+  locator: Ten exact ID/label/definition pairs across 23 placements
+  summary: All labels match. Correct ethanol identity does not justify placing a fermentation
+    product in the supplied medium.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.268657Z'
+  snapshot_sha256: ce10ec8178a695b8609cfc6ca731285c8f9ec05255d8ad2d962009586200c823
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000206/child-schema-semantics.json
+  locator: Literal roles, abundance and cultivation definitions
+  summary: SECONDARY_FERMENTER can consume products released by the same primary degrader.
+    ABUNDANT is ordinal. BATCH describes the liquid cultivation regime; controlled
+    gas diffusion alone is not a continuous-medium reactor.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.268791Z'
+  snapshot_sha256: bfdf521ebda187c47e0258f1455400fc46835ed432752d1a76cb3953ab3286c7
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000206/child-gtdb-crosswalk.json
+  locator: Exact 357809 row and absent yeast crosswalk result
+  summary: The bacterial exact-ID mapping reproduces at 1.0 across two genomes. Local
+    mtime does not establish latest GTDB release or build. The yeast lookup has no
+    crosswalk result; its eukaryotic domain rationale is separately documented in
+    child-strain-authority.json.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.268962Z'
+  snapshot_sha256: b7dfcee50b8f737ef0f9d0f9cb56f35e5e918a8b8e7d6ba689c3a2054243a0a0
+- evidence_id: strain
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000206/child-strain-authority.json
+  locator: Fresh focal strain context and explicitly reused DSM 18823 identity snapshot
+  summary: ISDg aliases ATCC 700394/DSM 18823 are supported by the original record196
+    catalogue snapshot, accessed at its original time and freshly byte-verified here.
+    The engineered cdt-1 construct is not assigned a guessed collection parent or
+    plasmid. No catalogue recipe is imported.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.269079Z'
+  snapshot_sha256: e479f61343812cce72162c61501be51c4e968246f9d2832abad2c743af99c52d
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000206/ontology-semantic-notes.json
+  locator: Final source-aware role, chemistry and cultivation interpretation
+  summary: Retain all four encoded member roles, ordinal ABUNDANT, the three-node/two-arrow
+    graph and yeast domain exception. Refine cultivation stages and mapping provenance
+    without inventing stronger mechanism requirements.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.269191Z'
+  snapshot_sha256: fe2cfb662679bf1da461771742d8ae2f39792b4921c76bbd7bbb658f3e360bf3
+- evidence_id: semantic-label-clarification
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/child-semantic-label-clarification.json
+  locator: Exact ENVO label correction in the immutable semantic summary
+  summary: The summary shorthand laboratory is clarified to the actual label laboratory
+    environment for ENVO:01001405. Original notes and manifest remain unchanged; the
+    authoritative ID/label receipt and canonical record were already correct.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.269336Z'
+  snapshot_sha256: 8b4ba75b4f951627028e9c90be9ed4e7bf0d75dafdb6d62ee2977ee277b21505
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/dataset-verification.json
+  locator: Publication identity, six PDF MD5s, package inventory and bounded source-declaration
+    scan
+  summary: PMID/PMCID/DOI identify the focal paper. Eighteen package members are six
+    main JPEGs, six thumbnails and six supplementary PDFs. No concrete new deposit
+    is named in the inspected source scope, and no mandatory dataset omission is inferred.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.269463Z'
+  snapshot_sha256: 9f2f250ceecd3994ae08a8c4dd188ceebdb4b5c9d50cb752832e5d0c540bec0f
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/snippet-audit.json
+  locator: Twenty-six reference-specific excerpt occurrences and 14 whole contexts
+  summary: All 26 occurrences strictly match fresh XML and the selected cache. Title,
+    abstract, body and caption matches retain their source locations; exact matching
+    is separate from claim entailment.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.269610Z'
+  snapshot_sha256: 9011503c5c9880fc99f4f6c50d28fddf8c31fddedb19672b416fa24d36e99ea5
+- evidence_id: history
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-12/000206/provenance-final-audit.json
+  locator: Whole history/exact prior row, focal adversarial context and current issues
+  summary: Current 1336 and 529 are closed; 1338 and 746 remain open. The prior graph
+    repair is preserved. Shared issue1338 directly owns the focal medium/stage errors;
+    this review does not close its other records.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.269798Z'
+  snapshot_sha256: 9caab70b7b9b98e05c26750ab918a4775ca746b49c120b4060c34e77cb03133e
+- evidence_id: provenance-clarification
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/provenance-scope-clarification.json
+  locator: One exact prior-read-scope correction
+  summary: 'The original receipt remains frozen. Its copied reference to two tables/five
+    captions is corrected to the actual prior row: full main body and six captions,
+    no image/SI inspection. No scientific grade or canonical input changed.'
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.269922Z'
+  snapshot_sha256: a3102cec7683508a8843eb35dc7b5589b69a2f4ca51c73f706c277de3a2f5b71
+- evidence_id: historical-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/historical-source-byte-comparison.json
+  locator: Historical digest compared with fresh XML
+  summary: The fresh XML is byte-identical to the earlier source digest. The old scratch
+    path remains historical ledger metadata, with no active missing-file exception.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.270028Z'
+  snapshot_sha256: 8cc491071510a8c8c21dff2d598ff0d666f9a42fff35efa8bdfc6cf762ccbb57
+- evidence_id: historical-field
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/root-historical-field-clarification.json
+  locator: Exact copied historical source object in root prior-row extraction
+  summary: The full extraction equals maintained records[1]. Only its named source_review
+    field containing the exact old path/digest is classified as historical metadata
+    after fresh-byte verification. No missing current file is waived or old path recreated.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.270141Z'
+  snapshot_sha256: 588ad89717b5fc01c4425b1ca08f94760f19801c999c5c7474445931acf6d73f
+- evidence_id: inspect
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/inspect.json
+  locator: Fresh official 26-input inspection
+  summary: Target, cache, history, exact prior decision/adversarial and 21 authorities
+    were captured before assessment. Ignored-inclusive discovery found no additional
+    focal review in its declared directories.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.270253Z'
+  snapshot_sha256: 0fbd54d67d620379286daa742319d70e6c3ed91accc3a1ff2fdf64f097217ed1
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/lead-source-assets.json
+  locator: Six main figures, six supplementary PDFs and captions
+  summary: All twelve scientific figure pages were visually read. Thumbnails are not
+    extra figures; PDF title-only extraction is not represented as full chart prose.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.270280Z'
+  snapshot_sha256: 82959110b81ce1f356fc58ab67970e9f5363dba2fb66f87432705f0374f076ca
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/lead-primary-read-scope.json
+  locator: Whole main, 42 references and all visual assets
+  summary: Lead read the entire 52,926-character main projection, all 42 references,
+    all six main images, all six SI pages and exact captions. No main table or numerical
+    reanalysis is claimed.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.270384Z'
+  snapshot_sha256: 9ec843a599c57f335903c064a6152401e73c142af024a0b5d1e1dee00b11fb50
+- evidence_id: source-scope
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/source-audit.json
+  locator: Final three findings with exact canonical selectors
+  summary: Two major findings address ethanol as reagent and conflated cultivation
+    operations; one minor finding addresses GTDB snapshot provenance. All current
+    mechanism/role/ordinal bounds remain.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.270514Z'
+  snapshot_sha256: 35994e545c6cfa229411ed7146f4e8e7a0134042cc948607c968a2d5ac4b072c
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/root-independent-source-audit.json
+  locator: Independent complete scientific and authority audit
+  summary: Root independently read the whole main and references, six main figures
+    and six SI pages, with native definitions and support context; the final three
+    groups agree.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.270629Z'
+  snapshot_sha256: e06abda19592f74a4fbc30c330c2d82da030db559a83c28e9754a3773cb533a9
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/support-final-audit.json
+  locator: Distinct final supporting audit and native arithmetic
+  summary: Completeness 95. Five node-evidence occurrences over three nodes give bonus
+    16.6667; COMPLETE adds 15. Two major and one minor yield raw 109.66666666666669,
+    capped 100. The completeness node bonus requires three nodes, not three typed
+    nodes.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.270661Z'
+  snapshot_sha256: 992a9046b51b47edef8ff9db2b105b88ea8008849937dee892d50e65f9d1f9a9
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/supporting-artifact-manifest.json
+  locator: Frozen final supporting artifacts
+  summary: Final support is distinct from immutable preliminary support and pins the
+    corrected provenance scope.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.270687Z'
+  snapshot_sha256: 7ddd4365e5110e4d2fef9cc219e9e8719c1461d46ab36e36e9594cd8c6becc66
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/auxiliary-frozen-manifest.json
+  locator: Final child native and authority artifacts
+  summary: Eight native checks pass; ten exact ID/label pairs and 23 placements match;
+    all 26 inputs remain unchanged. Initial validation receipts remain preserved.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.270713Z'
+  snapshot_sha256: f5d508086d1b78268c4ceccdccd257c7f7a4b7e761c0e7e95f34ae2a25b63e6f
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/final-validator-summary.json
+  locator: Actual eight command results
+  summary: Schema, strict, terms, references, GTDB, domain, history and cache-name
+    checks pass. Scientific support is assessed separately.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.270843Z'
+  snapshot_sha256: d1e1fda89c9b279536babb22b7eb17468dd025986459a668e3f3aaef91852581
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/adapter-check.json
+  locator: Fresh runtime compatibility plus explicitly reused discovery
+  summary: Batch 12 PATH/module/venv checks reuse batch 11 record 403 filename discovery
+    at 2026-10-21T19:20:45.556660+00:00. No new filename search, global absence claim
+    or other-checkout runner execution is asserted.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.270980Z'
+  snapshot_sha256: 57d844089b0e20cd11a21bae0bf9f01d692753cc2aed76cc345636952f6b94ad
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/validate.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.271264Z'
+  snapshot_sha256: d4807f58bc2ad83fd49e9de18e5fd660ddf90b656f24a6b32c8b00a7d9e07d79
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/validate-strict.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.271411Z'
+  snapshot_sha256: b3895b1fafff742af15f2d14b121bf8d565b7285a7736f2cdc85acc669fbaa03
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/validate-terms.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.271534Z'
+  snapshot_sha256: dfa06d1d590396983a1821bcc5c5a49cf42795bf96f2f97f90b1d91b775502a3
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/validate-references-explained.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.271661Z'
+  snapshot_sha256: 04843e5d69824a8ddbfa7caf5100d36759d0084a7d9f1cb24bb4efd9e1561e35
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/validate-gtdb.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.271812Z'
+  snapshot_sha256: 6474e2a0f27f0797c395608890b946a276bfc2199904ea1f4fc25bae1e71d2a2
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/validate-gtdb-domain.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.271998Z'
+  snapshot_sha256: 6f164a2e05eb917d73a11147d20991eeac335ae6f6474c624a2d8d11d428d5b4
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/validate-history.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.272114Z'
+  snapshot_sha256: 7f9413053eea6cdde8364752790a488d2984a66adf33fc0ed140eedc1ae4b9ac
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000206/normalize-cache-names-check.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.272275Z'
+  snapshot_sha256: e77190babf59d5667973e1af2fe514c057f41a07385a87e5da3d089d24edcee6
+- evidence_id: check-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/audit-network.json
+  locator: Same-batch corpus diagnostic
+  summary: Actual corpus result reused without assessment of later records.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.272465Z'
+  snapshot_sha256: 1621a1dd35060a1052cf4669f27e9a936a82f4759be38e4f39a9a4a1a73a14b8
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/check-network-quality.json
+  locator: Same-batch corpus diagnostic
+  summary: Actual corpus result reused without assessment of later records.
+  support: supports
+  accessed_at: '2026-10-21T22:42:35.272591Z'
+  snapshot_sha256: 34467f31f8dad2a00579e8350771795ee0f769be41af2e9435c88b603ec9fa1e
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Exact focal membership
+  outcome: supported
+  summary: ISDg and engineered cdt-1 identify the requested two-member consortium.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - identity
+  - strain
+  details: Candida comparison cultures, Neurospora engineering donor and Trichoderma
+    enzyme source remain outside focal taxonomy. Yeast species grounding is paired
+    with its construct designation.
+- assessment_id: taxonomy
+  area: grounding
+  topic: GTDB identity and provenance
+  outcome: concern
+  summary: The exact bacterial mapping is valid; release/build language is unsupported.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - gtdb
+  - strain
+  details: Retain 1.0/two genomes, current lineage and yeast NO_GTDB_EQUIVALENT. Document
+    actual file digest and method instead of calling mtime a release date.
+- assessment_id: roles
+  area: scope
+  topic: Functional roles and abundance
+  outcome: supported
+  summary: Bacterial degradation/fermentation and yeast recipient/fermentation roles
+    fit the source.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - mechanisms
+  - identity
+  - schema
+  - semantics
+  details: No requirement that primary-degrader products come from a different species
+    is imposed. Both ABUNDANT labels are ordinal; late CFU samples do not establish
+    a universal percentage or continuous equilibrium.
+- assessment_id: graph
+  area: graph
+  topic: Three nodes and two arrows
+  outcome: supported
+  summary: The graph already preserves conditional cooperation and separate maintenance/output
+    arms.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - mechanisms
+  - population-arms
+  - products
+  details: Keep both qualified arrows and the community-level maintenance outcome.
+    The source supports a positive respiratory-protection model without universal
+    obligacy or isolated flux measurements.
+- assessment_id: chemistry
+  area: grounding
+  topic: Supplied ingredients versus products
+  outcome: concern
+  summary: Ethanol is a valid chemical identity in the wrong recipe role.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - recipe
+  - inoculation
+  - products
+  - ontology
+  details: Retain ethanol as product and source-grounded metabolite context, while
+    removing the unsupported medium ingredient. Trace metals in GS2 do not establish
+    metal-processing relevance.
+- assessment_id: culture
+  area: scope
+  topic: Assay-specific cultivation
+  outcome: concern
+  summary: The record mixes the 25 mL long-term arm with 50 mL experiments and understates
+    full reactor Methods.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - recipe
+  - medium-variants
+  - apparatus
+  - population-arms
+  - static
+  - schema
+  details: Separate all working volumes, loads, durations, media variants and controls.
+    The 500 mL Sixfors is explicitly stirred and pH-controlled; optional stirred-tank
+    refinement is available. Retain liquid BATCH and recover stage-scoped formulation.
+- assessment_id: oxygen
+  area: quantity
+  topic: Oxygen transport and measurement
+  outcome: supported
+  summary: The environmental mechanism is supported, with calculated-rate and source-conflict
+    limits.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - oxygen-scope
+  - apparatus
+  - mechanisms
+  details: Tube-internal air is not broth sparging. Resazurin is qualitative. The
+    scale-up total-rate inconsistency remains an explicit limit within cultivation
+    repair, not silently corrected arithmetic.
+- assessment_id: assays
+  area: evidence
+  topic: Output and population evidence
+  outcome: supported
+  summary: CFU maintenance and enzyme-assisted ethanol measurements have distinct
+    designs.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - population-assay
+  - population-arms
+  - products
+  - supplement-5
+  - supplement-6
+  details: Preserve the approximately 400-hour 22 g/L result, two-independent-experiment
+    Figure 5 and single-experiment 640-hour extension separately. Selective plate/drop
+    variability is not another growth regime.
+- assessment_id: snippets
+  area: evidence
+  topic: Exact source excerpts
+  outcome: supported
+  summary: All 26 occurrences strictly match fresh XML and cache.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - snippets
+  details: Fourteen full context projections were inspected. Lexical success does
+    not justify recipe placement or merging experiment scopes.
+- assessment_id: resources
+  area: representation
+  topic: Publication and supplementary resources
+  outcome: supported
+  summary: All publication identifiers and six supplementary payloads resolve.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - resources
+  - assets
+  details: No named new deposit or cross-Mech recipe equivalence is inferred. Empty
+    associated_datasets does not itself create a finding.
+- assessment_id: provenance
+  area: provenance
+  topic: Prior repair and current issue ownership
+  outcome: supported
+  summary: The graph repair remains supported and current follow-up is bounded.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - history
+  - historical-source
+  - provenance-clarification
+  - inspect
+  details: Current 1338 covers the two major focal issues; 746 is broader provenance.
+    Cache abstract_only metadata understates its full appended main, but neither that
+    label nor old source paths replace actual fresh reads.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and scientific completion
+  outcome: supported
+  summary: Eight native checks pass and all critical scientific assets are assessed.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - source-scope
+  - root-source
+  details: The incidental read-only Python import failure was superseded by the owned
+    environment; no native candidate failure follows.
+- assessment_id: metrics
+  area: completeness
+  topic: Native rubric scores
+  outcome: supported
+  summary: Completeness 95; raw quality 109.66666666666669, capped 100.
+  target_ids:
+  - CommunityMech:000206
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 95
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required fields/taxon roles 50 + environment 5 + at least 3 environmental
+      factors 10 + at least 3 nodes 10 + external resources 5 + growth media 10 +
+      datasets 0 + node metabolites 5 = 95. Node count is not typed-node count.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      Five evidence/three nodes gives mean 5/3, bonus 16.6666666667; COMPLETE 15;
+      two P2/one P3 yields raw 109.66666666666669/cap 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: remove-ethanol-reagent
+  issue_key: cm-000206-remove-ethanol-reagent
+  category: representation
+  severity: major
+  native_severity: P2
+  normalization_reason: The medium incorrectly represents a measured output as an
+    input.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Remove ethanol from the supplied medium
+  description: The growth-medium composition lists ethanol as a supplied component
+    although the complete GS2/ETGtGS2 recipe does not include it. It is the measured
+    fermentation output; inoculum carryover was quantified and subtracted. Remove
+    ethanol from the medium reagent list while retaining its grounded product/context
+    annotations and the enzyme-assisted approximately 22 g/L result. Do not convert
+    a higher-oxygen exploratory observation about possible ethanol consumption into
+    a reagent or exchange claim for the low-oxygen production arm.
+  target_ids:
+  - CommunityMech:000206
+  field_paths:
+  - growth_media[0].composition[2]
+  evidence_ids:
+  - recipe
+  - inoculation
+  - products
+  - ontology
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns repair. Coordinate existing 1338/746 without
+    closing their broader scopes.
+- finding_id: separate-cultivation-arms
+  issue_key: cm-000206-separate-cultivation-arms
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: Different assays and an explicitly documented reactor are
+    materially misrepresented.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Separate cultivation arms and recover the source recipe
+  description: The 50 mL setup absorbs the distinct 25 mL/150 g/L, 50-day maintenance
+    experiment. The 500 mL setup falsely says its identity and operation are only
+    abstract-level despite explicit Infors Sixfors Methods. The shared medium block
+    omits the available GS2/ETGtGS2 recipe and mixes assay scopes. Separate the 50
+    mL, 25 g/L population time course; 25 mL GS2/150 g/L long-term assay; 50 mL ETGtGS2/100
+    g/L/400 mg/L endoglucanase approximately 400-hour output; and 500 mL Sixfors/100
+    g/L scale-up. Preserve 100 mL serum-vial capacity separately from working volume.
+    Add source-scoped 30 °C, vial 200 rpm versus Sixfors 300 rpm, 1 N NaOH pH control
+    without inventing its setpoint, and 10 versus 100 cm neoprene tubing. Keep BATCH
+    for the liquid cultivation regime; optional STIRRED_TANK_BIOREACTOR refinement
+    fits the explicitly stirred Sixfors. Recover basal GS2 formulation and ETGtGS2
+    replacements, distinguish preculture/plating media and strain-specific inoculation
+    from production, and retain initial basal pH 7 before sterilization as that stage
+    only. Preserve the source oxygen-rate inconsistency and qualitative resazurin
+    observation. Replace unsupported absolute statements about partner dependence,
+    flask impossibility and sole-carbon composition with actual assay operations.
+    No future fix may merge distinct durations, controls or oxygen regimes.
+  target_ids:
+  - CommunityMech:000206
+  field_paths:
+  - growth_media[0].composition
+  - growth_media[0].vessel_type
+  - growth_media[0].preparation_notes
+  - growth_media[0].evidence
+  - cultivation_setup[0].instrument_detail
+  - cultivation_setup[0].notes
+  - cultivation_setup[0].evidence
+  - cultivation_setup[1].system_type
+  - cultivation_setup[1].instrument_detail
+  - cultivation_setup[1].notes
+  - cultivation_setup[1].evidence
+  evidence_ids:
+  - recipe
+  - medium-variants
+  - apparatus
+  - population-arms
+  - oxygen-scope
+  - static
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns repair. Coordinate existing 1338/746 without
+    closing their broader scopes.
+- finding_id: document-gtdb-snapshot
+  issue_key: cm-000206-document-gtdb-snapshot
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Core mapping is valid; unsupported release/build provenance
+    is bounded.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Document the reproducible GTDB snapshot
+  description: The bacterial mapping reproduces, but latest-release/build wording
+    treats a local file modification date as a verified GTDB release or build. Record
+    the actual crosswalk digest and exact ncbi_id lookup route with local snapshot
+    metadata. Retain the valid ISDg 1.0/2 result, label/lineage and false reclassification
+    flag. Retain NO_GTDB_EQUIVALENT for the eukaryotic yeast; the species taxon identifies
+    the engineered cdt-1 construct only with its separate source designation, not
+    a guessed collection stock.
+  target_ids:
+  - CommunityMech:000206
+  field_paths:
+  - taxonomy[0].taxon_term.gtdb_classification.mapping_source
+  evidence_ids:
+  - gtdb
+  - strain
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns repair. Coordinate existing 1338/746 without
+    closing their broader scopes.
+actions:
+- action_id: separate-input-output
+  description: Remove the unsupported ethanol reagent.
+  finding_ids:
+  - remove-ethanol-reagent
+  target_ids:
+  - CommunityMech:000206
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove growth_media[0].composition[2] ethanol while preserving its product annotation
+    and the enzyme-assisted approximately 22 g/L endpoint. Source inoculum-product
+    subtraction is not evidence of deliberate ethanol supplementation.
+  - Keep cellulose feedstock, soluble-sugar transfer and ethanol output distinct.
+    The exploratory higher-oxygen data-not-shown statement must not become a universal
+    low-oxygen exchange or ingredient claim.
+- action_id: separate-protocols
+  description: Represent each actual cultivation arm and formulation.
+  finding_ids:
+  - separate-cultivation-arms
+  target_ids:
+  - CommunityMech:000206
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Separate the 50 mL/25 g/L population course, 25 mL GS2/150 g/L, 50-day maintenance
+    arm sampled on days 30/40/50, 50 mL ETGtGS2/100 g/L/400 mg/L endoglucanase approximately
+    400-hour output, and 500 mL Sixfors/100 g/L scale-up. Preserve 100 mL serum-vial
+    capacity separately from working volume.
+  - Record 30 °C, vial 200 rpm versus Sixfors 300 rpm, 1 N NaOH pH control without
+    an invented setpoint, and 10 cm versus 100 cm neoprene tubing. Retain BATCH; optionally
+    refine the explicitly stirred Sixfors to STIRRED_TANK_BIOREACTOR. No unsupported
+    flask-impossibility statement remains.
+  - Add the published GS2 basal components with exact source amounts, separately sterilized
+    salt/resazurin additions, and basal pH 7 before sterilization. ETGtGS2 adds 10
+    mg/L ergosterol and 420 mg/L Tween80 and substitutes 4.09 g/L glutathione for
+    2.33 g/L cysteine reagent. Keep yeast preculture and selective CFU media separate.
+  - Scope strain-specific OD inocula and approximately equal 10^5 CFU/mL in the long-term
+    assay separately. Preserve initially oxygenated static filter-paper tests versus
+    initially degassed production cultures, and keep analytical plating, HPLC and
+    dry-weight conditions out of growth fields.
+  - Describe oxygen delivery as calculated diffusion from tube-internal air, not broth
+    sparging or direct measured zero dissolved oxygen. Preserve the source 500 mL
+    total-rate inconsistency; do not silently normalize rates between volumes or transfer
+    the 50 mL rate to every arm.
+  - Replace stale abstract-only and issue-history prose with biological operations.
+    Preserve conditioned mutualism, source-control differences, single-experiment
+    640-hour extension and unsupplemented versus enzyme-assisted output.
+- action_id: document-mapping
+  description: Replace release/build shorthand with verified snapshot provenance.
+  finding_ids:
+  - document-gtdb-snapshot
+  target_ids:
+  - CommunityMech:000206
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Record crosswalk SHA 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    and exact ncbi_id lookup route. Label July 25 local mtime as file metadata, not
+    a verified latest release/build date.
+  - Retain ISDg NCBITaxon:357809 majority 1.0/count 2, current labels/lineage and
+    false reclassification flag; retain species 4932 with engineered cdt-1 designation
+    and NO_GTDB_EQUIVALENT. No guessed yeast collection parent, new genotype or catalogue
+    growth protocol is added.
+- action_id: validate-future-curation
+  description: Validate separately authorized canonical repair.
+  finding_ids:
+  - remove-ethanol-reagent
+  - separate-cultivation-arms
+  - document-gtdb-snapshot
+  target_ids:
+  - CommunityMech:000206
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Attach exact source-local evidence to each changed ingredient, assay and apparatus
+    claim. Preserve all three nodes/two qualified arrows, valid roles and ordinal
+    ABUNDANT; no new source-conflict value is invented.
+  - After authorized edits, append history and run schema, strict, terms, references,
+    GTDB/domain and history checks plus required generated-page gates. This review
+    changes no canonical record, cache, history, generated output or issue.
+limitations:
+- Whole 52,926-character main projection and all 42 references were read, with six
+  main figures and all six single-page SI PDFs/captions. PDF text contains only labels,
+  so supplementary chart assessment is explicitly visual. No critical source gap.
+- The source 500 mL oxygen-transfer total conflicts with its per-length rate and tubing
+  scale-up. Basal pH 7 before sterilization is not the reactor setpoint, and resazurin
+  decolorization is qualitative. No silent numerical correction or new measurement
+  is asserted.
+- The source approximately 30% comparison of 22 g/L with 6 + 9 g/L controls is internally
+  inconsistent but not encoded in the current record. Retain measured titers, control
+  conditions and experiment-specific replication without creating an unencoded numerical
+  finding.
+- Late long-term CFU samples, short-term population curves and enzyme-assisted product
+  measurements are distinct. The 640-hour supplement is a single-experiment extension,
+  not the standard endpoint or another replication set.
+- All 26 excerpts match fresh XML and selected cache strictly. Sibling read the complete
+  cache; lead science uses fresh source. The prior-scope receipt correction and all
+  original bytes are preserved.
+- Optional adapter availability uses fresh runtime checks plus explicit prior filename-discovery
+  reuse. No paid source, author contact, other-checkout execution, raw statistical
+  analysis or canonical modification.
+notes:
+- 'Completed scientific review: 2 major/1 minor; completeness 95/raw quality 109.66666666666669/cap
+  100.'
+- Initial inspection/validator/source/preliminary-support files remain immutable.
+  Parent alone saves after whole candidate acceptance.
+tags:
+- record-review
+- cellulose
+- ethanol
+- batch-12
+```
