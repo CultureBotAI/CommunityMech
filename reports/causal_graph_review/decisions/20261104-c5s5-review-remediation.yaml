@@ -1,0 +1,198 @@
+reviewer: antigravity
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+recorded_at: '2026-11-04T05:45:00Z'
+scope: 'Cycle 5 Stage 5 remediation of Cycle 5 Stage 4 record review findings (#2105);
+  ecological_interactions causal graph nodes and directed downstream edges unchanged.'
+records:
+- path: kb/communities/SMutans_SSputigena_ECC_Pathobiont.yaml
+  id: CommunityMech:000084
+  original_sha256: 8c32ed74a997011d25ad1e3501b42f6da246ba28e23d58a85a92ee9fad169846
+  record_sha256: 04ab8c93316524a7316f27651a9cf1b29cd83f6495e558c9a4c190c216301516
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261104-c5s5-review-remediation.yaml
+  scope: Whole record and every existing node/direction reviewed, with source-access limits; not new-mechanism discovery
+    or non-graph certification.
+  summary: Retain supported directional colonization facilitation and the existing structural link, correcting modality.;
+    Retain community structure and acidogenesis, with positive perturbation evidence and PARTIAL in-vivo mediation.;
+    Retain the rodent disease comparison at two-member community scope.
+  node_decisions:
+  - node: Streptococcal Exoglucan Entrapment of Selenomonas sputigena
+    rationale: Retain supported directional colonization facilitation and the existing structural link, correcting
+      modality.
+  - node: Honeycomb Biofilm Acidogenesis
+    rationale: Retain community structure and acidogenesis, with positive perturbation evidence and PARTIAL in-vivo
+      mediation.
+  - node: Rodent Coinfection Caries Outcome
+    rationale: Retain the rodent disease comparison at two-member community scope.
+  removed_node_decisions: []
+  renamed_nodes:
+    Pathobiont-Enhanced Cariogenicity: Rodent Coinfection Caries Outcome
+  edges_before:
+  - &id005
+    source: Streptococcal Exoglucan Entrapment of Selenomonas sputigena
+    target: Honeycomb Biofilm Acidogenesis
+    description: Exoglucan entrapment immobilizes and supports S. sputigena in the mixed biofilm, leading to a honeycomb-like
+      superstructure around S. mutans that enhances acidogenesis.
+  - &id007
+    source: Honeycomb Biofilm Acidogenesis
+    target: Pathobiont-Enhanced Cariogenicity
+    description: The structured S. mutans-S. sputigena biofilm intensifies acidogenesis, providing the local virulence
+      context for the extensive enamel lesions observed during coinfection.
+  edges_after:
+  - &id006
+    source: Streptococcal Exoglucan Entrapment of Selenomonas sputigena
+    target: Honeycomb Biofilm Acidogenesis
+    description: Exoglucan entrapment immobilizes and supports S. sputigena in the mixed biofilm, leading to a honeycomb-like
+      superstructure around S. mutans that enhances acidogenesis.
+  - &id008
+    source: Honeycomb Biofilm Acidogenesis
+    target: Rodent Coinfection Caries Outcome
+    description: 'PARTIAL: the structured acidic biofilm is the proposed mediator of the rodent lesion outcome.
+      The primary in-vitro disruption and ex-vivo enamel results support the structure-to-damage interpretation,
+      while the rodent coinfection comparison does not independently isolate that mediator in vivo.'
+  retained_edge_decisions:
+  - before: *id005
+    after: *id006
+    rationale: Existing direction retained with source-specific community or PARTIAL mediation limits.
+  - before: *id007
+    after: *id008
+    rationale: Existing direction retained with source-specific community or PARTIAL mediation limits.
+  removed_edge_decisions: []
+  references:
+  - PMID:37217495
+  issues:
+  - 2105
+  allowed_changed_fields:
+  - curation_history
+  - environmental_factors
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/SMutans_SSputigena_ECC_Pathobiont/2026-11-04T054500Z-antigravity-2105.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch97.yaml
+    record_sha256: 8c32ed74a997011d25ad1e3501b42f6da246ba28e23d58a85a92ee9fad169846
+- path: kb/communities/SMutans_VParvula_ASC_Biofilm.yaml
+  id: CommunityMech:000085
+  original_sha256: 1c331f8546d510e5a20819f77901353203ba43b317c92f5bdb4ad8ab2364e265
+  record_sha256: 05bdd8b0222ec8e14e7b5b63b6be37e9f73bd8de356023cf52c0b6c47bb182d6
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261104-c5s5-review-remediation.yaml
+  scope: Whole record and every existing node/direction reviewed, with source-access limits; not new-mechanism discovery
+    or non-graph certification.
+  summary: Retain measured expression and EPS, not direct enzyme activity or colonization.; Retain in-vitro composite
+    phenotypes at community scope with correct modality.; Retain the positive rodent outcome, not proven human adult
+    causation.
+  node_decisions:
+  - node: Veillonella-Associated gtf Expression and Mixed-Biofilm EPS
+    rationale: Retain measured expression and EPS, not direct enzyme activity or colonization.
+  - node: Mixed-Biofilm and Stress-Response Phenotypes
+    rationale: Retain in-vitro composite phenotypes at community scope with correct modality.
+  - node: Rodent Coinfection Caries Outcome
+    rationale: Retain the positive rodent outcome, not proven human adult causation.
+  removed_node_decisions: []
+  renamed_nodes:
+    Veillonella parvula Boost of Streptococcus mutans Glucosyltransferase-EPS Output: Veillonella-Associated gtf
+      Expression and Mixed-Biofilm EPS
+    Veillonella parvula Promotion of Streptococcus mutans Biofilm Virulence: Mixed-Biofilm and Stress-Response Phenotypes
+    Pathobiont-Driven Adult Severe Caries Exacerbation: Rodent Coinfection Caries Outcome
+  edges_before:
+  - &id009
+    source: Veillonella parvula Boost of Streptococcus mutans Glucosyltransferase-EPS Output
+    target: Veillonella parvula Promotion of Streptococcus mutans Biofilm Virulence
+    description: Increased S. mutans glucosyltransferase expression and EPS production strengthen the sucrose-grown
+      mixed biofilm matrix that V. parvula makes denser and more viable.
+  - &id011
+    source: Veillonella parvula Promotion of Streptococcus mutans Biofilm Virulence
+    target: Pathobiont-Driven Adult Severe Caries Exacerbation
+    description: Veillonella-driven mature biofilm formation and stress tolerance set up the dual-species biofilm
+      virulence measured as worsened rodent caries.
+  edges_after:
+  - &id010
+    source: Veillonella-Associated gtf Expression and Mixed-Biofilm EPS
+    target: Mixed-Biofilm and Stress-Response Phenotypes
+    description: 'PARTIAL: increased EPS is proposed to contribute to the observed mixed-biofilm phenotype. The
+      expression and imaging comparisons do not independently isolate the expression-to-phenotype mediator or establish
+      its contribution to the separate stress-response assays.'
+  - &id012
+    source: Mixed-Biofilm and Stress-Response Phenotypes
+    target: Rodent Coinfection Caries Outcome
+    description: 'PARTIAL: the in-vitro phenotypes are proposed contributors to the greater rodent disease outcome.
+      The coinfection experiment supports the overall disease effect, but does not independently identify which
+      phenotype mediates it or prove a causal effect in adults.'
+  retained_edge_decisions:
+  - before: *id009
+    after: *id010
+    rationale: Existing direction retained with source-specific community or PARTIAL mediation limits.
+  - before: *id011
+    after: *id012
+    rationale: Existing direction retained with source-specific community or PARTIAL mediation limits.
+  removed_edge_decisions: []
+  references:
+  - PMID:39345197
+  issues:
+  - 2105
+  allowed_changed_fields:
+  - curation_history
+  - environmental_factors
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/SMutans_VParvula_ASC_Biofilm/2026-11-04T054500Z-antigravity-2105.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch97.yaml
+    record_sha256: 1c331f8546d510e5a20819f77901353203ba43b317c92f5bdb4ad8ab2364e265
+- path: kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml
+  id: CommunityMech:000385
+  original_sha256: b70b100dcdc43b4caf560b3794f0165db3b7c99410a7ba8d5b811825ebdceef4
+  record_sha256: bc1fb667da9be21480d7f27961b01fc547c45dc3cef1ca63b58fe01584104076
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261104-c5s5-review-remediation.yaml
+  scope: Whole record and every existing node/direction reviewed, with source-access limits; not new-mechanism discovery
+    or non-graph certification.
+  summary: Retain detoxification and its leaching direction without an unsupported neutral-partner fitness claim.;
+    Retain the primary EET interpretation while distinguishing perturbation support from quantitative flux partition.
+  node_decisions:
+  - node: BS3 ethanol detoxification of brewing wastewater
+    rationale: Retain detoxification and its leaching direction without an unsupported neutral-partner fitness claim.
+  - node: MtrC/OmcA and riboflavin NCM reduction
+    rationale: Retain the primary EET interpretation while distinguishing perturbation support from quantitative
+      flux partition.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before:
+  - &id013
+    source: BS3 ethanol detoxification of brewing wastewater
+    target: MtrC/OmcA and riboflavin NCM reduction
+    description: Removing ethanol relieves inhibition of the S. oneidensis EET machinery that reduces NCM for metal
+      oxide leaching.
+  edges_after:
+  - &id014
+    source: BS3 ethanol detoxification of brewing wastewater
+    target: MtrC/OmcA and riboflavin NCM reduction
+    description: Ethanol removal relieves inhibition of Shewanella electron transfer and thereby supports NCM leaching
+      in the authors' consortium model. The detoxification comparisons were conducted in predecessor strains; the
+      final SO3-BS3 synthesis retains this function, without separately isolating its quantitative contribution
+      from the other modifications.
+  retained_edge_decisions:
+  - before: *id013
+    after: *id014
+    rationale: Existing direction retained with source-specific community or PARTIAL mediation limits.
+  removed_edge_decisions: []
+  references:
+  - PMID:42733304
+  issues:
+  - 2105
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/SO3_BS3_Lithium_Battery_Bioleaching_Consortium/2026-11-04T054500Z-antigravity-2105.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch97.yaml
+    record_sha256: b70b100dcdc43b4caf560b3794f0165db3b7c99410a7ba8d5b811825ebdceef4

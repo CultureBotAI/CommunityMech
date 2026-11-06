@@ -56,6 +56,9 @@ taxonomy:
       NDFM00000000 and reported as 2,522,693 bp with 58.47% GC.
   strain_designation:
     strain_name: KRP
+  functional_role:
+  - CROSS_FEEDER
+  abundance_level: RARE
   evidence:
   - reference: PMID:28963201
     supports: SUPPORT
@@ -68,6 +71,24 @@ taxonomy:
     evidence_source: IN_VITRO
     snippet: NDFM00000000 for R. kefirresidentii KRP
     explanation: Reports the DDBJ/ENA/GenBank whole-genome shotgun accession for strain KRP.
+  - reference: PMID:28963201
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Draft Genome Sequences of Three Novel Low-Abundance Species Strains Isolated from Kefir Grain.
+    explanation: Identifies Rothia kefirresidentii KRP as one of three low-abundance species strains isolated from kefir grain, supporting abundance_level RARE.
+  - reference: PMID:33398099
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The models were used to simulate the expected uptake/secretion rates of amino acids using flux balance analysis
+    explanation: Supports the computationally modeled amino-acid cross-feeding role of Rothia kefirresidentii KRP.
+    computational_provenance:
+      prediction_type: FLUX_BALANCE_ANALYSIS
+      tools:
+      - tool_name: flux balance analysis
+        role: simulate expected amino-acid uptake and secretion rates
+      model_name: MODEL2204300002
+      model_source: Rothia kefirresidentii KRP genome-scale metabolic model
+      input_accession: NDFM00000000
 ecological_interactions:
 - name: Rothia KRP Genome-Scale Amino-Acid Flux Model
   description: COMPUTATIONAL POTENTIAL - the kefir workflow reconstructed bacterial metabolic models with CarveMe and used
@@ -191,4 +212,9 @@ curation_history:
   action: REVIEW_CAUSAL_GRAPH
   changes: 'Remove laboratory provenance arrows from the Rothia ecological graph; complete node/edge decisions: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml;
     https://github.com/CultureBotAI/CommunityMech/issues/1240'
+  llm_assisted: true
+- timestamp: '2026-10-21T19:00:00Z'
+  curator: claude
+  action: CURATE_YAML_RECORD
+  changes: 'Populated functional_role: [CROSS_FEEDER] and abundance_level: RARE on Rothia kefirresidentii KRP taxonomy entry (#2050).'
   llm_assisted: true
