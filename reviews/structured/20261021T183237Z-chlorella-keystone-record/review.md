@@ -1,0 +1,1750 @@
+# Chlorella keystone SynCom membership, protocol and provenance review
+
+- Review: 20261021T183237Z-chlorella-keystone-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T18:22:44.129022Z
+- Finished UTC: 2026-10-21T18:32:37.412308Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Whole-source review retains six qualified nodes and zero arrows. One major finding removes external plant hosts and challenged Fusarium from community membership. Three minor findings recover stage-specific protocol context, the available FT92W mapping with optional REN4 precision, and verified sequencing/publication provenance. Source conflicts and narrow precursor access remain explicit.
+
+## Scope And Provenance
+
+Entire maintained record assessed against full focal main and critical SI, narrow precursor abstract, current authorities, source-linked resources and exact provenance.
+
+Selection: Only released CommunityMech:000313 in the owned batch 10 checkout.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 95812d3412d5aab41fd03422340cf736ac7b56f3.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000313 | kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml | maintained | Chlorella fusca CHK0059 Keystone-Taxa Antifungal SynCom |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000313 | Schema passed. |
+| validate-strict | passed | True | CommunityMech:000313 | Strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000313 | Term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000313 | GTDB structure/coherence passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000313 | Algal and bacterial GTDB applicability passed. |
+| validate-history | passed | True | CommunityMech:000313 | History validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000313 | Read-only cache filename check passed. |
+| validate-references-explained | passed | True | CommunityMech:000313 | Native references pass against unchanged source-specific caches; fresh scientific checks separately verify excerpt context. |
+| audit-network | failed | True | CommunityMech:000313 | Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal graph separately reports COMPLETE. |
+| check-network-quality | failed | True | CommunityMech:000313 | Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal graph separately reports COMPLETE. |
+| Focal main and current-claim-critical supplementary assets | passed | True | CommunityMech:000313 | Full focal scientific main, two tables, five main figures, complete supplementary text/tables and all seven SI figures assessed. The precursor abstract is sufficient only for its narrow encoded genus-level statement. |
+| Fresh reference-specific excerpt support | passed | True | CommunityMech:000313 | All 22 occurrences match appropriate fresh sources and caches: nine focal abstract, one precursor abstract and twelve focal body/table. Original XML text/tail concatenation preserves inline boundaries. |
+| Optional precursor full paper and supplements | unavailable | False | CommunityMech:000313 | Only its directly accessible abstract is certified. No precursor genomic, mechanistic or pathway claim beyond the encoded genus correlation/name distinction is imported. |
+| Ontology, catalogue and exact native GTDB authority | passed | True | CommunityMech:000313 | All ten ID-label pairs match; direct catalogue/nomenclature and native grounder support FT92W recovery and optional REN4 precision. Exact strain-genome classification is not inferred. |
+| Raw data and experimental reproduction | skipped | False | CommunityMech:000313 | No raw amplicon processing, isolate genome analysis, statistical retesting, growth experiment or mechanism perturbation was performed. Metadata scope and published figure/table assessment are explicit. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000313 | Explicit same-runtime discovery reuse is pinned; public sources and local authority supplied the review without paid providers or an external task interpreter. |
+
+## Scientific And Domain Assessments
+
+### Membership versus external host/pathogen participants
+
+identity: concern. Targets: CommunityMech:000313.
+
+Remove the challenged fungus and two host species from membership while preserving their graph context.
+
+taxonomy[4], taxonomy[5] and taxonomy[6] represent the challenged Fusarium and strawberry/tomato hosts, not members of the beneficial SynCom. The fungal note that a roster entry is needed for graph resolution contradicts the current schema. The intended four bacterial isolates remain identifiable, with CHK0059 dependent on treatment. The species terms themselves are valid and should remain available in the relevant graph nodes.
+
+### Microbial functional roles and identity precision
+
+evidence: supported. Targets: CommunityMech:000313.
+
+Retain broad pathogen-antagonist and primary-producer roles with their existing source qualifications.
+
+Host disease reduction supports broad biocontrol context without proving direct fungal killing or a particular mediator. Proxy screens do not demonstrate nitrogen fixation or pathway flux, and primary production does not establish photosynthate transfer. Do not assign roles to external participants merely to satisfy the completeness rubric. There is no separate unsupported-role finding here.
+
+### ecological_interactions[0] and ecological_interactions[5]
+
+evidence: supported. Targets: CommunityMech:000313.
+
+Retain in-vitro compositional responses and the exogenous D-mannitol association.
+
+These nodes correctly avoid absolute abundance, algal mannitol secretion, strain recruitment and automatic translation to plant protection. The fraction assay, network candidate selection and actual collection isolates are distinct. Preserve the precursor genus-name contrast and narrow abstract access scope.
+
+### ecological_interactions[2]
+
+evidence: supported. Targets: CommunityMech:000313.
+
+Retain the four-isolate proxy-trait pool and FT92W IAA positivity.
+
+Table S2 and Figure S7 support the encoded FT92W response despite abbreviated body wording. Nfb color, CAS and Salkowski responses remain screening evidence. No nitrogen-fixation flux, structurally identified IAA product, causal effector or new directed edge is certified.
+
+### ecological_interactions[1], ecological_interactions[3] and ecological_interactions[4]
+
+evidence: supported. Targets: CommunityMech:000313.
+
+Preserve treatment- and host-specific disease outcomes without claiming a resolved protective mechanism.
+
+The approximate strawberry week-5 comparison, tomato week-4 values and supplementary host phenotypes retain their current scope. Single-member responses, shared statistical groups and source percentage inconsistencies prevent universal mixture superiority or a formal synergy claim. Six nodes and zero arrows remain appropriate; duplicate summary-to-outcome arrows are not restored.
+
+### Preparation, fraction assay and plant-challenge stages
+
+completeness: concern. Targets: CommunityMech:000313.
+
+Recover available protocol detail while explicitly attributing source conflicts.
+
+Separate five-day algal maintenance, three-day washed treatment stocks, exogenous fraction amendments, proxy-screen media, host substrate and fungal challenge. The main/SI temperature and replicate descriptions differ. One-to-one mixing does not establish every final per-member dose. No catalogue recipe, extraction-buffer pH, inferred rpm or reconstructed replicate design is imported.
+
+### FT92W GTDB and optional REN4 species precision
+
+identity: concern. Targets: CommunityMech:000313.
+
+Replace the stale unresolved-path rationale with current exact grounding.
+
+The verified native crosswalk maps FT92W species 2666085 using three genomes at fraction 1.0. Existing genus aggregates reproduce under the actual native filters, so initial unfiltered diagnostics do not constitute drift. REN4 species 2776916 is a supported optional refinement. Keep homotypic name-policy differences, source strain names and taxonomic rank limits explicit; no separate algal identity error follows from its accepted synonym.
+
+### Study data and marker/reference provenance
+
+provenance: concern. Targets: CommunityMech:000313.
+
+Add the exact verified study resource with its microbiome-fraction assay scope.
+
+The missing resource fields can link PRJNA1150354 and the publication/SI. The sequencing concerns substance-treated rhizosphere fraction profiles, not host disease endpoints or genomes of all inocula. Eighty-five runs sharing one BioSample are archive records, not a sample-count proof. Short clone markers, type-strain reference sequences and the older FT92W assembly must be labeled separately; preserve their source/archive provenance disagreements.
+
+### Community state, origin, environment and chemical scope
+
+identity: supported. Targets: CommunityMech:000313.
+
+Retain engineered synthetic, plant-associated and rhizosphere scope.
+
+The laboratory fraction and host challenge are separately described contexts. D-mannitol is an exogenous treatment, not demonstrated secretion. There is no encoded biological metal-processing claim or obligatory dataset/ingredient field to invent. Hosts remain relevant context after their membership entries are removed.
+
+### Current issues, prior repair and exact excerpts
+
+provenance: supported. Targets: CommunityMech:000313.
+
+Preserve closed historical issues and the separate extended input inventory.
+
+Issues 1305 and 1306 are currently closed; no current open owner is asserted. Existing graph repairs remain valid context. All 22 excerpts have fresh reference-specific support, while whole-source review identifies a separate membership problem. This review does not reopen issues, mutate caches or broaden precursor coverage.
+
+### Native checks and immutable review workflow
+
+schema: supported. Targets: CommunityMech:000313.
+
+All eight focused native checks pass; scientific findings remain actionable.
+
+Initial 27-input inspect and native receipts remain immutable. The separate official extension adds only the GTDB grounder before use and supplies the candidate’s 28-input inventory. Passing labels, schema and references does not validate roster membership or experimental mechanism. No canonical, cache, history or generated file is changed; persistence is limited to a new immutable review bundle.
+
+### Native mechanical completeness and quality
+
+completeness: supported. Targets: CommunityMech:000313.
+
+Completeness 30 and capped quality 100/raw 112.33333333333333 are structural metrics.
+
+## Findings
+
+### external-participant-membership: Separate hosts and challenged Fusarium from SynCom membership
+
+major / open / confirmed; issue key: cm-000313-external-participant-membership.
+
+taxonomy includes the challenged Fusarium and both plant hosts as members. Its fungal note says this is needed for graph resolution, but current schema explicitly excludes external hosts and antagonists from membership and allows direct graph descriptors. Remove these three roster entries while retaining host/challenge evidence and graph participants. Preserve four bacterial isolates and the treatment-dependent alga.
+
+### cultivation-and-assay-context: Recover stage-specific protocols and attribute source conflicts
+
+minor / open / confirmed; issue key: cm-000313-cultivation-and-assay-context.
+
+The two existing growth-media entries cover maintenance and viability context but omit available bacterial preparation, washed treatment stocks, host substrate and challenge stages. Recover those conditions without conflating five-day maintenance with three-day stock preparation or resolving main/SI temperatures silently. The one-to-one mixture instruction is insufficient for a complete per-member dose reconstruction.
+
+### recoverable-taxonomic-grounding: Resolve the stale FT92W mapping limitation and document optional REN4 precision
+
+minor / open / confirmed; issue key: cm-000313-recoverable-taxonomic-grounding.
+
+The current FT92W UNRESOLVED rationale reflects an older missing-path search, while the current pinned native mapping yields the exact species at three genomes/fraction 1.0. Existing Pseudomonas/Brevibacterium genus aggregates reproduce and do not require invented drift corrections. REN4 has verified species-level authority as an optional refinement; its current genus is valid.
+
+### source-and-data-resources: Record verified sequencing and publication provenance with accurate scope
+
+minor / open / confirmed; issue key: cm-000313-source-and-data-resources.
+
+The source declares PRJNA1150354 and supplies identifiable SI and marker/reference resources, while associated_datasets and external_resources are absent. Add the specific fraction-sequencing dataset and source links with accurate assay identity. Do not treat 85 archive runs as 85 biological samples, short marker clones as whole genomes, or collection/BLAST-reference origins as experimental isolation claims.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-membership
+
+Align the roster with the actual beneficial SynCom and current membership semantics.
+
+- Remove the current taxonomy[4], taxonomy[5] and taxonomy[6] entries for challenged Fusarium, strawberry and tomato. Remove the claim that fungal taxonomy membership is required for graph resolution. Preserve their valid current taxon terms and evidence as external participants in the relevant ecological_interactions and host/challenge descriptions.
+- Keep four bacterial isolates: Pseudomonas 8C3D12 and 6C7F4, FT92W and REN4. Preserve the two Pseudomonas strains within their shared genus descriptor or another supported representation; do not report only three bacterial isolates. Keep CHK0059 as treatment-dependent: Treat8 contains the four bacteria, Treat9 adds the alga, and other treatment compositions remain explicitly scoped.
+- Retain all six qualified nodes and zero arrows, including the explicit PARTIAL/HYPOTHESIZED language, proxy-trait limits and host-specific symptom endpoints. Do not restore duplicate summary-to-outcome arrows, invent a mediator chain or remove valid external participants from the graph.
+- Do not assign synthetic host/pathogen functional roles to satisfy completeness. Retain the broad bacterial PATHOGEN_ANTAGONIST and algal PRIMARY_PRODUCER interpretations with source-specific evidence and no requirement for a resolved direct mechanism.
+
+### recover-cultivation-context
+
+Add exact experimental stages without merging preparation, analytical screens and plant assays.
+
+- Preserve existing CHK0059 maintenance as R2A 3.15 g/L, agar 20 g/L, 28 C, five days and 16:8 light:dark, and distinguish it from three-day plant-treatment stock preparation. Add accurate evidence locators for each stage rather than assigning a single duration or temperature to the whole community.
+- For treatment stocks, record separately grown bacteria/algae in R2A at 28 C with shaking for three days, 3134 g centrifugation for 20 minutes, equal-volume sterile-water resuspension, 30-second vortexing and the stated repeated washes. Record source-reported bacterial 1e6 CFU/mL and 10 mL applications, algal 1e7 cells/mL stock diluted 1/500 for 10 mL, and the one-to-one instruction with its unresolved per-member final-dose scope. Do not invent rpm or a calibrated CFU conversion from OD600.
+- Keep the microbiome-fraction experiment distinct: 1 g soil plus 9 mL MES at pH 5.7 is extraction; 3 mL treatment volume in 5 mL tubes uses one-tenth-volume amendments at 27 C with shaking and 12/24/36/48-hour sampling. Main viability replating says R2A 27 C for five days; Figure S1 says 28 C. Preserve both attributed statements rather than silently normalizing them.
+- Represent the named host cultivars, approximately 5 cm selection, Boonong No. 2 substrate, ten-plant treatment groups and stated treatment/challenge sequence. Main plant settings are 27 C, 70% humidity and 16:8; Figure S5 gives 25 C greenhouse pre-growth and 28 C chamber conditions. Preserve these source differences and the Methods/table replicate discrepancy instead of constructing an undocumented unified design.
+- Keep fungal preparation and source-reported 1e5 CFU/mL challenge separate from beneficial member cultivation, and distinguish strawberry and tomato forma-specialis contexts. Proxy-screen media, extraction buffers, methanol extraction and analytical reagents must not be inserted as universal SynCom medium ingredients.
+- Retain D-mannitol 2% as an exogenous condition with separate fraction-assay and plant Treat10 scopes. Do not claim algal secretion, an actual nutrient-exchange route, absolute Pseudomonas expansion or strain-specific recruitment from relative abundance. Preserve the supported graph’s comparisons and its source-conflict notes.
+
+### recover-current-authority
+
+Use verified current mappings without transferring source-strain or nomenclature scope.
+
+- Replace the stale FT92W UNRESOLVED/missing-path rationale using the pinned native grounder result for NCBITaxon:2666085 and GTDB:s__Pseudoduganella_rivuli, three genomes and fraction 1.0. Populate the actual lineage and method from the receipt, preserve its small reference count and crosswalk hash, and do not claim an independently classified FT92W genome or verified release date.
+- Keep the existing Pseudomonas and Brevibacterium genus mappings unless another substantive change is authorized. Their exact native aggregation reproduces 17956/25706 fraction 0.699 and 469/469 fraction 1.0. Do not treat the initial unfiltered diagnostic counts as contradictory drift.
+- Consider optional REN4 refinement to independently verified NCBITaxon:2776916 Brevibacterium renqingii, with JCM 33953/KCTC 49366 type-strain context and exact six-genome mapping. The current genus 1696 is valid; any refinement must be consistent across applicable descriptors without falsely assigning species to unrelated genus-level network ASVs.
+- Preserve the source’s FT92W/Pseudoduganella designation and distinguish current NCBI/GTDB from LPSN’s Massilia homotypic name preference. Keep catalogue origin and network host association separate. Do not import collection maintenance conditions or claim that failed KACC/KCTC record routes were successfully read.
+- Retain NCBITaxon:3073 Scenedesmus fuscus with its explicit Chlorella fusca synonym, and eukaryote GTDB applicability. A historical source name alone is not evidence for an algal taxon correction. Revalidate ID-label/rank correspondence and the actual final descriptors after any authorized precision change.
+
+### attach-scoped-resources
+
+Add the exact verified data and publication links while preserving metadata disagreements.
+
+- Add PRJNA1150354 as the source-linked rhizosphere microbiome-fraction sequencing resource. Describe 16S amplicon, paired MiSeq profiling after Chlorella-derived/exogenous amendments; do not label it shotgun metagenomics, isolate-genome sequencing or a host-disease endpoint dataset merely because generic archive fields say METAGENOMIC.
+- If inventory counts are recorded, distinguish 85 runs and 85 experiments from their shared BioSample SAMN43048576. This metadata does not certify 85 independent biological samples or a complete biological replication design. Preserve the successful retry and earlier response history without treating transient access as data absence.
+- Link the focal article and exact supplementary PDF as publication/source assets. Keep the precursor DOI/PMID as a separate abstract-supported genus-correlation context, without asserting full precursor-paper access or transferring its Rhizomicrobium name to the focal Brevibacterium member.
+- If adding strain-marker provenance, label PQ555449.1/PQ555450.1 as 251/261 nt uncultured Pseudomonas clone marker records and retain the discrepancy between archive Ginseng-rhizosphere isolation_source and the paper’s host/network context. Do not use these short markers to assert species-level identities or whole-genome sequence availability.
+- Keep NR_180844.1/NR_181446.1 type/reference sequence identities and the older FT92W SAMN13220418/GCA_009674485.1/GCF_009674485.1 reference assembly distinct from PRJNA1150354. Collection origins and BLAST references do not prove isolation of the exact inoculated strains from this experiment. No raw sequence reanalysis or new accession is required to repair the documented provenance.
+
+### validate-authorized-curation
+
+After separately authorized curation, preserve fresh history and complete the documented validators and generated-page gates.
+
+- Apply only separately authorized canonical changes and append fresh curation history with exact source, version and locator provenance. Refer to closed 1305/1306 as historical repair context, not open ownership. No issue reopening or new external message is authorized by this review.
+- Run focused schema, strict, term, GTDB/domain, reference, cache-name and history checks. Confirm that the corrected membership excludes external hosts/pathogen while all intended graph descriptors remain valid, and that six nodes/zero arrows preserve their qualifications. Recheck changed claims against their full source context, not only literal snippet matching.
+- After canonical changes run just gen-html and just check-docs-current in the required environment and inspect the intended record’s generated changes. This review performs no canonical, source-cache, history or generator mutation; persistence is limited to its new immutable review bundle.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml; Whole maintained YAML: seven taxonomy descriptors, six interaction nodes, zero arrows and all non-graph fields | supports | The record correctly describes four bacterial isolates, treatment-dependent CHK0059 and qualified assays. Three taxonomy entries instead represent an external fungal challenge and two plant hosts. Source-backed culture stages, a recoverable FT92W mapping and resource provenance also warrant curation. The six qualified nodes and zero arrows are retained. |
+| identity | PMID:41937467; doi:10.4014/jmb.2601.01023; Materials and Methods: SynCom and Chlorella Cultivation and Treatment; Results: Biological Activities of the SynCom in Strawberry and Tomato in vivo; Table 1; Figures 4–5 | supports | The experimental bacterial set contains Pseudomonas isolates 8C3D12 and 6C7F4, FT92W and REN4. Treat8 is the four-bacterium mixture with fungal challenge; Treat9 adds CHK0059. The two Pseudomonas isolates share a genus descriptor, which must not reduce the stated bacterial count to three. Strawberry and tomato are hosts, and Fusarium is the challenged antagonist, rather than inoculated beneficial SynCom members. Keep engineered synthetic, plant-associated and rhizosphere context. |
+| strain-provenance | PMID:41937467; doi:10.4014/jmb.2601.01023; Results: Keystone Taxa Response to CHK0059 in Rhizosphere MF; Table 1 | supports | The table combines network origins, ASV identifiers, identification strings, sequence references and culture collection labels. These columns have different meanings. FT92W KACC 21474 and REN4 KCTC 49366 are collection isolates corresponding to selected genus-level network candidates; the network does not prove that these deposited strains were isolated from the study host rhizospheres. Preserve the two Pseudomonas clone names and Table 1 source nomenclature alongside current authority. |
+| fraction | PMID:41937467; doi:10.4014/jmb.2601.01023; Materials and Methods: Strawberry Growth Condition and Rhizosphere Microbiome Fraction; Strawberry Rhizosphere MF Stock Treated CHK0059; Microbiome Analysis of Strawberry Rhizosphere MF; Results: Rhizosphere Microbial Community Diversity by CHK0059 Substances; Figures 1–2 | supports | The study treats a laboratory strawberry-rhizosphere microbiome fraction with live or killed algae, algal methanol extract and exogenous D-mannitol. Relative 16S abundance and network association are community-composition readouts. They do not establish absolute Pseudomonas growth, recruitment of each named inoculum strain, algal secretion of mannitol or in-plant transfer. The 2% D-mannitol, 36-hour comparison is distinct from plant Treat10. |
+| pgp | PMID:41937467; doi:10.4014/jmb.2601.01023; Materials and Methods: Plant Growth-Promoting Activity Test of Keystone Taxa; Results: PGP Activities of Keystone Taxa | supports | The isolate tests use skim-milk protease, phosphate-solubilization, Nfb color, CAS siderophore, cellulase/chitinase and Salkowski IAA screens. These are in-vitro proxy phenotypes, not demonstrated nitrogen-fixation flux, identified secreted effectors or a causal plant-protection mechanism. A nominal OD600 of 0.6 belongs to stock preparation and should not be converted to a viable count without calibration. Table S2 and actual Figure S7 support FT92W IAA positivity; the shorter body list does not negate it. |
+| strawberry | PMID:41937467; doi:10.4014/jmb.2601.01023; Results: Biological Activities of the SynCom in Strawberry and Tomato in vivo; Figure 4; Materials and Methods: Plant Phenotype and Disease Severity Investigation; Results: In vivo PGP Activities of Keystone Taxa in Strawberry and Tomato; supplementary Table S3 | supports | The week-5 strawberry disease-index comparison is approximately 20% for Treat8 versus approximately 60% in the fungal control. The currently encoded approximation is appropriately bounded. Symptoms are not fungal load. Later percentage prose is inconsistent, so it should not replace the bounded plot-based comparison. Supplementary Table S3 shows Treat8 shoot weight 1.47 g versus 0.43 g in the fungal control, while the single 6C7F4 treatment (Treat3) is 2.24 g; FT92W (Treat2) is 1.38 g. Neither the mixture nor added alga is universally superior. |
+| tomato | PMID:41937467; doi:10.4014/jmb.2601.01023; Results: Biological Activities of the SynCom in Strawberry and Tomato in vivo; Figure 5; Materials and Methods: Plant Phenotype and Disease Severity Investigation | supports | The text reports week-4 tomato disease indices of 25% for Treat8 and 18% for Treat9 versus 68–75% in fungal controls. A single FT92W treatment is reported at 22.2%. Shared post-hoc groups and condition-specific outcomes limit claims of universal superiority or formal synergy. Preserve host, week, treatment composition and disease-score scope; no direct antifungal molecular mechanism or new causal edge follows. |
+| mechanism-limit | PMID:41937467; doi:10.4014/jmb.2601.01023; Discussion | supports | The authors propose contributions from bacterial plant-growth-promoting traits, altered microbiota and algal effects. These hypotheses do not identify a genetically confirmed Chlorella-to-strain-to-protection chain. The current nodes already separate those interpretations from relative-abundance and host-disease observations. |
+| maintenance | PMID:41937467; doi:10.4014/jmb.2601.01023; Materials and Methods: Chlorella Culture Condition | supports | CHK0059 maintenance is reported on R2A, 3.15 g/L, with agar 20 g/L, at 28 C for five days under a 16:8 light:dark cycle. This is not automatically the plant inoculum preparation or the entire SynCom culture regime. The current medium entry is useful but incomplete for the other experimental stages. |
+| fraction-protocol | PMID:41937467; doi:10.4014/jmb.2601.01023; Materials and Methods: Strawberry Growth Condition and Rhizosphere Microbiome Fraction; C. fusca CHK0059 Culture Media Extracted by Methanol; Strawberry Rhizosphere MF Stock Treated CHK0059 | supports | Rhizosphere extraction uses 1 g soil and 9 mL MES buffer at pH 5.7; that is extraction-buffer pH, not culture pH. The treatment assay uses 3 mL in 5 mL tubes, amendment volume one-tenth of the total, and 27 C with shaking. Samples are collected at 12, 24, 36 and 48 hours. Main-text viability replating is R2A at 27 C for five days; Figure S1 says 28 C. Preserve both source-attributed values and do not infer a shaking speed. |
+| inoculum | PMID:41937467; doi:10.4014/jmb.2601.01023; Materials and Methods: SynCom and Chlorella Cultivation and Treatment | supports | For plant treatments, bacteria and algae are separately grown in R2A at 28 C with shaking for three days. Cells are centrifuged at 3134 g for 20 minutes, resuspended in equal-volume sterile water and vortexed for 30 seconds, with washing repeated twice. The source reports bacterial preparations at 1e6 CFU/mL and 10 mL applications, an algal stock at 1e7 cells/mL diluted 1/500 for a 10 mL treatment, and a 1:1 mixing instruction. This does not unambiguously specify every member’s final mixed dose. Distinguish these stocks from five-day algal maintenance and from OD-based proxy-screen cultures. |
+| host-protocol | PMID:41937467; doi:10.4014/jmb.2601.01023; Materials and Methods: Plants (Strawberry and Tomato) Cultivation; SynCom and Chlorella Cultivation and Treatment; Plant Phenotype and Disease Severity Investigation | supports | BerriPop haruhi strawberry and Seogwang tomato seedlings are selected at approximately 5 cm aerial size and grown in the named Boonong No. 2 substrate. The main paper reports 27 C, 70% humidity and 16:8 light:dark, with ten plants per treatment group. Treatment starts one week after transplantation, with subsequent microbial/fungal applications described in the Methods. Fusarium preparations are obtained through PDA/PDB stages and applied at a source-reported 1e5 CFU/mL. Keep strawberry f. sp. fragariae and tomato f. sp. lycopersici challenge contexts separate. The exact schedule should be represented from the stated sequence without inventing missing calendar dates. |
+| si | PMID:41937467 supplementary material, jmb-36-e2601023-supple.pdf; Complete supplementary text and Tables S1–S5; Figures S1–S7 and captions | supports | Lead and root read all five supplementary tables and viewed all seven figures. S1 describes relative ASV patterns and colony-count time points; S2 lists four isolates’ proxy traits, including FT92W IAA positivity; S3 and S4 report host phenotypes; S5 gives pairwise community-composition statistics. The S2 header does not turn plate/color screens into in-vivo assays. Figure S5 reports 25 C greenhouse pre-growth and 28 C chamber conditions, differing from the main plant Methods. Methods three-plant phenotype wording and table n=10 are not silently reconciled. Some main text references to SI figure numbers differ from actual captions. |
+| precursor | PMID:40064531; doi:10.1093/jambio/lxaf060; Fresh Europe PMC core abstract: Aims; Methods and Results; Conclusion | supports | The accessible precursor abstract supports a genus-level correlation involving Pseudomonas, Duganella and Rhizomicrobium. It does not establish that these are the same strains used in the focal SynCom, and Rhizomicrobium must not be silently substituted for the focal Brevibacterium. No precursor full-paper, supplementary, genomic or pathway-flux assessment is claimed. The narrow current contrast is assessable from this abstract. |
+| schema | src/communitymech/schema/communitymech.yaml; MicrobialCommunity.taxonomy description; FunctionalRoleEnum; taxon descriptors and graph participant fields | supports | The taxonomy slot describes community membership and expressly excludes external hosts and antagonists. External organisms may be directly represented in graph taxon descriptors without membership entries. PATHOGEN_ANTAGONIST broadly covers pathogen suppression/biocontrol and does not require a resolved direct mechanism. PRIMARY_PRODUCER describes capability; no measured photosynthate transfer is implied. |
+| ontology | ontology-authority.json; Whole frozen receipt and its stated read scope | supports | All ten distinct ID-label pairs match across 34 occurrences. Correct labels do not establish community membership. NCBITaxon:3073 Scenedesmus fuscus explicitly includes Chlorella fusca as a synonym; no name-only identity finding is justified. |
+| semantics | ontology-semantic-notes.json; Whole frozen receipt and its stated read scope | supports | The exact schema separates external hosts/pathogens from membership, permits broad biocontrol roles, and preserves the six qualified nodes with zero arrows. The child independently assessed authorities, not full primary scientific assets. |
+| catalogues | child-strain-catalogue-authority.json; Whole frozen receipt and its stated read scope | supports | Direct LPSN verifies FT92W, KACC 21474 and GDMCC 1.1682 linkage. Direct JCM verifies REN4, JCM 33953 and KCTC 49366. KACC yielded a search form and KCTC did not return a usable record. Catalogue origins and maintenance conditions are not study isolation or culture conditions. LPSN Massilia versus NCBI Pseudoduganella naming is authority-specific. |
+| finer-ren4 | child-finer-taxonomy-candidate.json; Whole frozen receipt and its stated read scope | supports | REN4 has independently verified species NCBITaxon:2776916 Brevibacterium renqingii, parent genus 1696, with an exact six-genome GTDB mapping. This is an optional precision improvement for a currently valid genus descriptor, not a new genome analysis or mandatory replacement based solely on name matching. |
+| gtdb | child-gtdb-grounder.json; Whole frozen receipt and its stated read scope | supports | Read-only native grounding reproduces current Pseudomonas genus 17956/25706 fraction 0.699 and Brevibacterium 469/469 fraction 1.0. FT92W species 2666085 resolves to GTDB:s__Pseudoduganella_rivuli with three genomes and fraction 1.0. The stale unavailable-file rationale can be corrected. This small species-level reference set is not exact strain classification or a current release-date certification. |
+| resources | dataset-verification.json; Whole frozen receipt and its stated read scope | supports | PRJNA1150354 directly matches the focal microbiome-fraction study. The successful ENA retry lists 85 AMPLICON/METAGENOMIC/PCR paired MiSeq runs and 85 experiments sharing BioSample SAMN43048576; this does not imply 85 biological samples. Source Table 1 markers and the older FT92W reference genome have distinct identities and scopes. PQ555449/50 are 251/261 nt uncultured clone markers with an archive Ginseng-rhizosphere isolation-source discrepancy. No raw payload was analyzed. |
+| snippets | snippet-audit.json; Whole frozen receipt and its stated read scope | supports | All 22 excerpts match the appropriate fresh source and cache: nine focal abstract, one precursor abstract and twelve focal body/table. Initial three separator artifacts were resolved through original XML text/tail concatenation, without rewriting source punctuation. Matching alone does not certify membership, strain identity or causal interpretation. |
+| history | provenance-audit.json; Whole frozen receipt and its stated read scope | supports | All three histories and exact prior decision were read. Current issues 1305 and 1306 are closed/completed, with three and one comments respectively. Earlier comments requesting an open state are historical. The prior repair removed duplicate arrows and improved assay qualifications; it does not certify every current non-graph field. Current target and cache hashes match that prior provenance. |
+| metrics | support-audit.json; Whole frozen receipt and its stated read scope | supports | The native graph is COMPLETE with six nodes, zero arrows and eight node-evidence entries. Completeness 30 reflects current encoded structure, including external roster entries without roles. One major and three minor findings yield raw 112.33333333333333, capped 100. Do not invent host/pathogen roles or fields to increase the score. |
+| inspect-extension | inspect-gtdb-extension-command.json; Whole frozen receipt and its stated read scope | supports | Initial official 27-input inspection remains immutable. A separate official extension adds only scripts/gtdb_ground.py before its use, resulting in 28 unchanged input pins. This candidate binds the extended official source/target inventory. |
+| lead-read | lead-primary-read-scope.json; Whole frozen receipt and its stated read scope | supports | Lead read the full focal scientific main, both main tables, all five main figures, all SI text and Tables S1–S5, and all seven SI figure images. Selected table page images were also viewed. The precursor abstract supports only the narrow encoded genus comparison; no full precursor coverage is claimed. |
+| source-scope | source-audit.json; Whole frozen receipt and its stated read scope | supports | Frozen lead assessment records one major membership finding and three minor cultivation, authority and resource findings. Source conflicts, metadata boundaries and treatment-dependent algal membership remain explicit. |
+| root-source | root-independent-source-audit.json; Whole frozen receipt and its stated read scope | supports | Root independently assessed complete focal main and current critical SI, all five main figures and seven SI figures, both main tables and all SI tables. Its separate receipt agrees with completed current-claim review and the four findings. Precursor coverage remains abstract-only. |
+| auxiliary | auxiliary-frozen-manifest.json; Whole frozen receipt and its stated read scope | supports | Eight focused native checks passed. Initial 27-input native scope and final 28-input integrity are separate; initial validator summary is immutable and final metadata use a new file. All authority receipts have explicit scope. |
+| adapter | adapter-check.json; Whole frozen receipt and its stated read scope | supports | The optional structured adapter is unavailable in this owned runtime. Its initial fresh batch 10 discovery is explicitly reused under the same verified interpreter/worktree, rather than described as a new search. An external task interpreter was not executed. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml; Actual execution 2026-10-21T18:23:18.653417+00:00 to 2026-10-21T18:23:19.606514+00:00 | supports | Schema passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-strict kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml --out /private/tmp/cm-review-session/batch-10/000313/strict-report.tsv; Actual execution 2026-10-21T18:23:18.653587+00:00 to 2026-10-21T18:23:20.821692+00:00 | supports | Strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-terms kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml; Actual execution 2026-10-21T18:23:18.653665+00:00 to 2026-10-21T18:23:20.475281+00:00 | supports | Term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-gtdb kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml; Actual execution 2026-10-21T18:23:19.606817+00:00 to 2026-10-21T18:23:19.695884+00:00 | supports | GTDB structure/coherence passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-gtdb-domain kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml; Actual execution 2026-10-21T18:23:19.696232+00:00 to 2026-10-21T18:23:20.944774+00:00 | supports | Algal and bacterial GTDB applicability passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-history history/records/Chlorella_Keystone_Taxa_Antifungal_SynCom; Actual execution 2026-10-21T18:23:20.475590+00:00 to 2026-10-21T18:23:21.185383+00:00 | supports | History validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T18:23:21.186010+00:00 to 2026-10-21T18:23:21.227813+00:00 | supports | Read-only cache filename check passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-references-explained kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml; Actual execution 2026-10-21T18:23:21.228124+00:00 to 2026-10-21T18:23:22.455529+00:00 | supports | Native references pass against unchanged source-specific caches; fresh scientific checks separately verify excerpt context. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T17:04:17.819938+00:00 to 2026-10-21T17:04:25.370848+00:00 | supports | Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal graph separately reports COMPLETE. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T17:04:17.819995+00:00 to 2026-10-21T17:04:26.163649+00:00 | supports | Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal graph separately reports COMPLETE. |
+
+## Limits And Additional Notes
+
+- Completed scientific review covers the current encoded claims. Lead and root assessed the whole focal scientific main, both main tables, all five main figures, complete supplementary text and Tables S1–S5, and all seven SI figure images. Selected supplementary table pages were also visually inspected; no claim of pixel-by-pixel review of every supplementary page is made.
+- The precursor PMID 40064531 is assessed from its direct abstract only. That scope suffices for the encoded genus-level correlation/name distinction. No precursor full-paper, supplement, genome/pathway or causal-mechanism assessment is certified.
+- The external fungus and plant hosts are valid taxonomic concepts but incorrect members under the current explicit taxonomy definition. Their graph participation and host/challenge context must remain. Treat8 and Treat9 differ in algal presence, and two Pseudomonas isolates share a genus descriptor.
+- Relative microbiome composition, isolate proxy-screen response, host symptom scores and growth phenotypes are different measurements. No absolute bacterial expansion, strain recruitment, secreted algal mannitol, nitrogen-fixation flux, genetically confirmed mediator, fungal-load reduction or formal interaction coefficient is inferred.
+- The source contains main/SI temperature differences, Methods/table replicate differences, later strawberry percentage inconsistencies and some misnumbered supplementary references. The review preserves attributed conditions and existing bounded graph values without statistical reanalysis or silent source repair. Multi-member and single-member comparisons do not establish uniform mixture superiority.
+- Five-day algal maintenance, three-day treatment preparation, fraction amendments, proxy-screen incubation and plant challenge are distinct stages. Extraction-buffer pH is not culture pH. The source one-to-one mixing wording does not completely establish per-member final inoculum dose or a universal viable-count calibration.
+- FT92W GTDB recovery is an exact current species-concept mapping supported by three reference genomes, not an independent classification of the inoculated strain. REN4 species refinement is optional; current genus grounding is valid. NCBI/GTDB and LPSN homotypic-name policies remain distinct, and catalogue conditions do not transfer to the study.
+- The dataset metadata confirms 85 runs and 85 experiments but one archive BioSample; it is not proof of 85 biological replicates. The records use AMPLICON/METAGENOMIC/PCR metadata. Short Pseudomonas clone markers, their Ginseng-rhizosphere discrepancy, type-reference sequences and the older FT92W assembly have separate provenance scopes. No sequence payload or archive code was analyzed.
+- All 22 snippets are directly supported: nine focal abstract, one precursor abstract and twelve focal body/table. Three initial XML separation artifacts were resolved with original text/tail concatenation, not source-text rewriting. Matching does not certify membership or interpretation. Current 1305/1306 are closed even though earlier comments requested continued follow-up.
+- The original 27-input inspect and initial native summary remain immutable. A separate official extension adds only scripts/gtdb_ground.py before its use; all 28 final input hashes are unchanged. Optional adapter discovery is explicit same-runtime batch reuse, and no external task interpreter, paid provider, author contact or later-record assessment was used.
+- All eight focused native checks pass; corpus-wide nonzero diagnostics retain their wider scope. Completeness 30 and quality 100/raw 112.33333333333333 do not erase one major and three minor findings. The completeness bonus counts at least three interaction nodes, not typed nodes, and no unsupported role or resource is inserted for metric credit.
+- All 28 extended official inputs remain unchanged; initial 27-input inspection is preserved. No canonical, cache, history, generated or previously saved artifact was edited.
+- Lead/root scientific and child/sibling authority/provenance scopes are separately pinned. Full focal current-claim coverage does not imply full precursor coverage or raw-data reanalysis.
+- One major and three minor findings give raw quality 112.33333333333333/capped 100; completeness is 30. Existing closed 1305/1306 remain historical context. Six nodes and zero arrows retain their source qualifications.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T183237Z-chlorella-keystone-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Chlorella keystone SynCom membership, protocol and provenance review
+started_at: '2026-10-21T18:22:44.129022Z'
+finished_at: '2026-10-21T18:32:37.412308Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary science, auxiliary authorities
+    and provenance; no person-level independence is asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Whole-source review retains six qualified nodes and zero arrows. One major
+  finding removes external plant hosts and challenged Fusarium from community membership.
+  Three minor findings recover stage-specific protocol context, the available FT92W
+  mapping with optional REN4 precision, and verified sequencing/publication provenance.
+  Source conflicts and narrow precursor access remain explicit.
+source:
+  git_revision: 95812d3412d5aab41fd03422340cf736ac7b56f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Chlorella_Keystone_Taxa_Antifungal_SynCom/2026-10-02T054248Z-codex-4d5f9a.yaml
+    sha256: afbdad2c4652f001b5a71b31b6cae948a2dbf60f060d708c838c650c1915c654
+    role: context
+  - path: history/records/Chlorella_Keystone_Taxa_Antifungal_SynCom/2026-10-05T212346Z-codex-851520.yaml
+    sha256: d46f99719fbce478e71f387208428977ee128d31c24cfdfbcee0a0afeecc69d0
+    role: context
+  - path: history/records/Chlorella_Keystone_Taxa_Antifungal_SynCom/2026-10-05T212347Z-codex-17ef70.yaml
+    sha256: 0c7a8b5e917a8fcebcc962aafc10e4f1385f0376c36597a66bf96879aa73760d
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+    sha256: 506d388b39c47c8ebafff9d587222d3880f9cff303e1c161fbf0e0188f8278c6
+    role: target
+  - path: references_cache/PMID_40064531.txt
+    sha256: 112679a2ee67592a7412525f65f0c46ee016e9b846c2a19a1d6d2c7497c2605a
+    role: context
+  - path: references_cache/PMID_41937467.txt
+    sha256: 772f52aded8ffb54ebaf8a1d99120afa1282399ece384b21c820431a60d9d5ec
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-two-records-batch14.yaml
+    sha256: 8f8080ded57f038a83c00273330655f591560d3206ab0a42b265a7e8c30d5721
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000313
+  path: kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+  label: Chlorella fusca CHK0059 Keystone-Taxa Antifungal SynCom
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+    role: canonical_record
+scope:
+  description: Entire maintained record assessed against full focal main and critical
+    SI, narrow precursor abstract, current authorities, source-linked resources and
+    exact provenance.
+  selection: Only released CommunityMech:000313 in the owned batch 10 checkout.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000313
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema passed.
+  target_ids:
+  - CommunityMech:000313
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict validation passed.
+  target_ids:
+  - CommunityMech:000313
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-strict kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+    --out /private/tmp/cm-review-session/batch-10/000313/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Term validation passed.
+  target_ids:
+  - CommunityMech:000313
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-terms kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB structure/coherence passed.
+  target_ids:
+  - CommunityMech:000313
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Algal and bacterial GTDB applicability passed.
+  target_ids:
+  - CommunityMech:000313
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: History validation passed.
+  target_ids:
+  - CommunityMech:000313
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-history history/records/Chlorella_Keystone_Taxa_Antifungal_SynCom
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only cache filename check passed.
+  target_ids:
+  - CommunityMech:000313
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Native references pass against unchanged source-specific caches; fresh
+    scientific checks separately verify excerpt context.
+  target_ids:
+  - CommunityMech:000313
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-references-explained kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal
+    graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000313
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - metrics
+  scope_note: Explicit same-batch corpus reuse. Nonzero corpus status is not assigned
+    as a new defect to this target.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal
+    graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000313
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - metrics
+  scope_note: Explicit same-batch corpus reuse. Nonzero corpus status is not assigned
+    as a new defect to this target.
+- check_id: scientific-source
+  name: Focal main and current-claim-critical supplementary assets
+  status: passed
+  required: true
+  summary: Full focal scientific main, two tables, five main figures, complete supplementary
+    text/tables and all seven SI figures assessed. The precursor abstract is sufficient
+    only for its narrow encoded genus-level statement.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - lead-read
+  - root-source
+  - source-scope
+- check_id: direct-snippets
+  name: Fresh reference-specific excerpt support
+  status: passed
+  required: true
+  summary: 'All 22 occurrences match appropriate fresh sources and caches: nine focal
+    abstract, one precursor abstract and twelve focal body/table. Original XML text/tail
+    concatenation preserves inline boundaries.'
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - snippets
+- check_id: precursor-fulltext
+  name: Optional precursor full paper and supplements
+  status: unavailable
+  required: false
+  summary: Only its directly accessible abstract is certified. No precursor genomic,
+    mechanistic or pathway claim beyond the encoded genus correlation/name distinction
+    is imported.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - precursor
+  - lead-read
+- check_id: taxon-authority
+  name: Ontology, catalogue and exact native GTDB authority
+  status: passed
+  required: true
+  summary: All ten ID-label pairs match; direct catalogue/nomenclature and native
+    grounder support FT92W recovery and optional REN4 precision. Exact strain-genome
+    classification is not inferred.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - ontology
+  - catalogues
+  - finer-ren4
+  - gtdb
+  - semantics
+- check_id: reanalysis
+  name: Raw data and experimental reproduction
+  status: skipped
+  required: false
+  summary: No raw amplicon processing, isolate genome analysis, statistical retesting,
+    growth experiment or mechanism perturbation was performed. Metadata scope and
+    published figure/table assessment are explicit.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - resources
+  - lead-read
+- check_id: adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Explicit same-runtime discovery reuse is pinned; public sources and local
+    authority supplied the review without paid providers or an external task interpreter.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+  locator: 'Whole maintained YAML: seven taxonomy descriptors, six interaction nodes,
+    zero arrows and all non-graph fields'
+  summary: The record correctly describes four bacterial isolates, treatment-dependent
+    CHK0059 and qualified assays. Three taxonomy entries instead represent an external
+    fungal challenge and two plant hosts. Source-backed culture stages, a recoverable
+    FT92W mapping and resource provenance also warrant curation. The six qualified
+    nodes and zero arrows are retained.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.404561Z'
+- evidence_id: identity
+  kind: primary_source
+  reference: PMID:41937467; doi:10.4014/jmb.2601.01023
+  locator: 'Materials and Methods: SynCom and Chlorella Cultivation and Treatment;
+    Results: Biological Activities of the SynCom in Strawberry and Tomato in vivo;
+    Table 1; Figures 4–5'
+  summary: The experimental bacterial set contains Pseudomonas isolates 8C3D12 and
+    6C7F4, FT92W and REN4. Treat8 is the four-bacterium mixture with fungal challenge;
+    Treat9 adds CHK0059. The two Pseudomonas isolates share a genus descriptor, which
+    must not reduce the stated bacterial count to three. Strawberry and tomato are
+    hosts, and Fusarium is the challenged antagonist, rather than inoculated beneficial
+    SynCom members. Keep engineered synthetic, plant-associated and rhizosphere context.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.404665Z'
+  snapshot_sha256: ca96fc4005031c536003dd108a5ada7a025c1938cecc2f2f11a480c0ff867fda
+- evidence_id: strain-provenance
+  kind: primary_source
+  reference: PMID:41937467; doi:10.4014/jmb.2601.01023
+  locator: 'Results: Keystone Taxa Response to CHK0059 in Rhizosphere MF; Table 1'
+  summary: The table combines network origins, ASV identifiers, identification strings,
+    sequence references and culture collection labels. These columns have different
+    meanings. FT92W KACC 21474 and REN4 KCTC 49366 are collection isolates corresponding
+    to selected genus-level network candidates; the network does not prove that these
+    deposited strains were isolated from the study host rhizospheres. Preserve the
+    two Pseudomonas clone names and Table 1 source nomenclature alongside current
+    authority.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.405069Z'
+  snapshot_sha256: ca96fc4005031c536003dd108a5ada7a025c1938cecc2f2f11a480c0ff867fda
+- evidence_id: fraction
+  kind: primary_source
+  reference: PMID:41937467; doi:10.4014/jmb.2601.01023
+  locator: 'Materials and Methods: Strawberry Growth Condition and Rhizosphere Microbiome
+    Fraction; Strawberry Rhizosphere MF Stock Treated CHK0059; Microbiome Analysis
+    of Strawberry Rhizosphere MF; Results: Rhizosphere Microbial Community Diversity
+    by CHK0059 Substances; Figures 1–2'
+  summary: The study treats a laboratory strawberry-rhizosphere microbiome fraction
+    with live or killed algae, algal methanol extract and exogenous D-mannitol. Relative
+    16S abundance and network association are community-composition readouts. They
+    do not establish absolute Pseudomonas growth, recruitment of each named inoculum
+    strain, algal secretion of mannitol or in-plant transfer. The 2% D-mannitol, 36-hour
+    comparison is distinct from plant Treat10.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.405190Z'
+  snapshot_sha256: ca96fc4005031c536003dd108a5ada7a025c1938cecc2f2f11a480c0ff867fda
+- evidence_id: pgp
+  kind: primary_source
+  reference: PMID:41937467; doi:10.4014/jmb.2601.01023
+  locator: 'Materials and Methods: Plant Growth-Promoting Activity Test of Keystone
+    Taxa; Results: PGP Activities of Keystone Taxa'
+  summary: The isolate tests use skim-milk protease, phosphate-solubilization, Nfb
+    color, CAS siderophore, cellulase/chitinase and Salkowski IAA screens. These are
+    in-vitro proxy phenotypes, not demonstrated nitrogen-fixation flux, identified
+    secreted effectors or a causal plant-protection mechanism. A nominal OD600 of
+    0.6 belongs to stock preparation and should not be converted to a viable count
+    without calibration. Table S2 and actual Figure S7 support FT92W IAA positivity;
+    the shorter body list does not negate it.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.405282Z'
+  snapshot_sha256: ca96fc4005031c536003dd108a5ada7a025c1938cecc2f2f11a480c0ff867fda
+- evidence_id: strawberry
+  kind: primary_source
+  reference: PMID:41937467; doi:10.4014/jmb.2601.01023
+  locator: 'Results: Biological Activities of the SynCom in Strawberry and Tomato
+    in vivo; Figure 4; Materials and Methods: Plant Phenotype and Disease Severity
+    Investigation; Results: In vivo PGP Activities of Keystone Taxa in Strawberry
+    and Tomato; supplementary Table S3'
+  summary: The week-5 strawberry disease-index comparison is approximately 20% for
+    Treat8 versus approximately 60% in the fungal control. The currently encoded approximation
+    is appropriately bounded. Symptoms are not fungal load. Later percentage prose
+    is inconsistent, so it should not replace the bounded plot-based comparison. Supplementary
+    Table S3 shows Treat8 shoot weight 1.47 g versus 0.43 g in the fungal control,
+    while the single 6C7F4 treatment (Treat3) is 2.24 g; FT92W (Treat2) is 1.38 g.
+    Neither the mixture nor added alga is universally superior.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.405364Z'
+  snapshot_sha256: ca96fc4005031c536003dd108a5ada7a025c1938cecc2f2f11a480c0ff867fda
+- evidence_id: tomato
+  kind: primary_source
+  reference: PMID:41937467; doi:10.4014/jmb.2601.01023
+  locator: 'Results: Biological Activities of the SynCom in Strawberry and Tomato
+    in vivo; Figure 5; Materials and Methods: Plant Phenotype and Disease Severity
+    Investigation'
+  summary: The text reports week-4 tomato disease indices of 25% for Treat8 and 18%
+    for Treat9 versus 68–75% in fungal controls. A single FT92W treatment is reported
+    at 22.2%. Shared post-hoc groups and condition-specific outcomes limit claims
+    of universal superiority or formal synergy. Preserve host, week, treatment composition
+    and disease-score scope; no direct antifungal molecular mechanism or new causal
+    edge follows.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.405449Z'
+  snapshot_sha256: ca96fc4005031c536003dd108a5ada7a025c1938cecc2f2f11a480c0ff867fda
+- evidence_id: mechanism-limit
+  kind: primary_source
+  reference: PMID:41937467; doi:10.4014/jmb.2601.01023
+  locator: Discussion
+  summary: The authors propose contributions from bacterial plant-growth-promoting
+    traits, altered microbiota and algal effects. These hypotheses do not identify
+    a genetically confirmed Chlorella-to-strain-to-protection chain. The current nodes
+    already separate those interpretations from relative-abundance and host-disease
+    observations.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.405534Z'
+  snapshot_sha256: ca96fc4005031c536003dd108a5ada7a025c1938cecc2f2f11a480c0ff867fda
+  quote: Further experiments are needed
+- evidence_id: maintenance
+  kind: primary_source
+  reference: PMID:41937467; doi:10.4014/jmb.2601.01023
+  locator: 'Materials and Methods: Chlorella Culture Condition'
+  summary: CHK0059 maintenance is reported on R2A, 3.15 g/L, with agar 20 g/L, at
+    28 C for five days under a 16:8 light:dark cycle. This is not automatically the
+    plant inoculum preparation or the entire SynCom culture regime. The current medium
+    entry is useful but incomplete for the other experimental stages.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.405617Z'
+  snapshot_sha256: ca96fc4005031c536003dd108a5ada7a025c1938cecc2f2f11a480c0ff867fda
+- evidence_id: fraction-protocol
+  kind: primary_source
+  reference: PMID:41937467; doi:10.4014/jmb.2601.01023
+  locator: 'Materials and Methods: Strawberry Growth Condition and Rhizosphere Microbiome
+    Fraction; C. fusca CHK0059 Culture Media Extracted by Methanol; Strawberry Rhizosphere
+    MF Stock Treated CHK0059'
+  summary: Rhizosphere extraction uses 1 g soil and 9 mL MES buffer at pH 5.7; that
+    is extraction-buffer pH, not culture pH. The treatment assay uses 3 mL in 5 mL
+    tubes, amendment volume one-tenth of the total, and 27 C with shaking. Samples
+    are collected at 12, 24, 36 and 48 hours. Main-text viability replating is R2A
+    at 27 C for five days; Figure S1 says 28 C. Preserve both source-attributed values
+    and do not infer a shaking speed.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.405724Z'
+  snapshot_sha256: ca96fc4005031c536003dd108a5ada7a025c1938cecc2f2f11a480c0ff867fda
+- evidence_id: inoculum
+  kind: primary_source
+  reference: PMID:41937467; doi:10.4014/jmb.2601.01023
+  locator: 'Materials and Methods: SynCom and Chlorella Cultivation and Treatment'
+  summary: For plant treatments, bacteria and algae are separately grown in R2A at
+    28 C with shaking for three days. Cells are centrifuged at 3134 g for 20 minutes,
+    resuspended in equal-volume sterile water and vortexed for 30 seconds, with washing
+    repeated twice. The source reports bacterial preparations at 1e6 CFU/mL and 10
+    mL applications, an algal stock at 1e7 cells/mL diluted 1/500 for a 10 mL treatment,
+    and a 1:1 mixing instruction. This does not unambiguously specify every member’s
+    final mixed dose. Distinguish these stocks from five-day algal maintenance and
+    from OD-based proxy-screen cultures.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.405874Z'
+  snapshot_sha256: ca96fc4005031c536003dd108a5ada7a025c1938cecc2f2f11a480c0ff867fda
+- evidence_id: host-protocol
+  kind: primary_source
+  reference: PMID:41937467; doi:10.4014/jmb.2601.01023
+  locator: 'Materials and Methods: Plants (Strawberry and Tomato) Cultivation; SynCom
+    and Chlorella Cultivation and Treatment; Plant Phenotype and Disease Severity
+    Investigation'
+  summary: BerriPop haruhi strawberry and Seogwang tomato seedlings are selected at
+    approximately 5 cm aerial size and grown in the named Boonong No. 2 substrate.
+    The main paper reports 27 C, 70% humidity and 16:8 light:dark, with ten plants
+    per treatment group. Treatment starts one week after transplantation, with subsequent
+    microbial/fungal applications described in the Methods. Fusarium preparations
+    are obtained through PDA/PDB stages and applied at a source-reported 1e5 CFU/mL.
+    Keep strawberry f. sp. fragariae and tomato f. sp. lycopersici challenge contexts
+    separate. The exact schedule should be represented from the stated sequence without
+    inventing missing calendar dates.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.406035Z'
+  snapshot_sha256: ca96fc4005031c536003dd108a5ada7a025c1938cecc2f2f11a480c0ff867fda
+- evidence_id: si
+  kind: primary_source
+  reference: PMID:41937467 supplementary material, jmb-36-e2601023-supple.pdf
+  locator: Complete supplementary text and Tables S1–S5; Figures S1–S7 and captions
+  summary: Lead and root read all five supplementary tables and viewed all seven figures.
+    S1 describes relative ASV patterns and colony-count time points; S2 lists four
+    isolates’ proxy traits, including FT92W IAA positivity; S3 and S4 report host
+    phenotypes; S5 gives pairwise community-composition statistics. The S2 header
+    does not turn plate/color screens into in-vivo assays. Figure S5 reports 25 C
+    greenhouse pre-growth and 28 C chamber conditions, differing from the main plant
+    Methods. Methods three-plant phenotype wording and table n=10 are not silently
+    reconciled. Some main text references to SI figure numbers differ from actual
+    captions.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.406129Z'
+  snapshot_sha256: eff63583669bc008020e404023e6b657049bbc0df61e3b1c384ef39d4b70b84a
+- evidence_id: precursor
+  kind: primary_source
+  reference: PMID:40064531; doi:10.1093/jambio/lxaf060
+  locator: 'Fresh Europe PMC core abstract: Aims; Methods and Results; Conclusion'
+  summary: The accessible precursor abstract supports a genus-level correlation involving
+    Pseudomonas, Duganella and Rhizomicrobium. It does not establish that these are
+    the same strains used in the focal SynCom, and Rhizomicrobium must not be silently
+    substituted for the focal Brevibacterium. No precursor full-paper, supplementary,
+    genomic or pathway-flux assessment is claimed. The narrow current contrast is
+    assessable from this abstract.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.407150Z'
+  snapshot_sha256: 246ad85939a7d590b7dd75b7fee1013cec444bae17379ce2de8879a7d8799587
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: MicrobialCommunity.taxonomy description; FunctionalRoleEnum; taxon descriptors
+    and graph participant fields
+  summary: The taxonomy slot describes community membership and expressly excludes
+    external hosts and antagonists. External organisms may be directly represented
+    in graph taxon descriptors without membership entries. PATHOGEN_ANTAGONIST broadly
+    covers pathogen suppression/biocontrol and does not require a resolved direct
+    mechanism. PRIMARY_PRODUCER describes capability; no measured photosynthate transfer
+    is implied.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.407904Z'
+  snapshot_sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+- evidence_id: ontology
+  kind: authority
+  reference: ontology-authority.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: All ten distinct ID-label pairs match across 34 occurrences. Correct labels
+    do not establish community membership. NCBITaxon:3073 Scenedesmus fuscus explicitly
+    includes Chlorella fusca as a synonym; no name-only identity finding is justified.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.407999Z'
+  snapshot_sha256: 173c4d2651480463f57c9aa33ef36f20ccac3e9b0ddcfe6a0a7849c6669cb2db
+- evidence_id: semantics
+  kind: authority
+  reference: ontology-semantic-notes.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: The exact schema separates external hosts/pathogens from membership, permits
+    broad biocontrol roles, and preserves the six qualified nodes with zero arrows.
+    The child independently assessed authorities, not full primary scientific assets.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.408217Z'
+  snapshot_sha256: 7134f8183c92d8cd29295dc3b40f660752468e6e509ddfdc9662427659f9dc3f
+- evidence_id: catalogues
+  kind: authority
+  reference: child-strain-catalogue-authority.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Direct LPSN verifies FT92W, KACC 21474 and GDMCC 1.1682 linkage. Direct
+    JCM verifies REN4, JCM 33953 and KCTC 49366. KACC yielded a search form and KCTC
+    did not return a usable record. Catalogue origins and maintenance conditions are
+    not study isolation or culture conditions. LPSN Massilia versus NCBI Pseudoduganella
+    naming is authority-specific.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.408390Z'
+  snapshot_sha256: d401a62a62312fe807464fa9e3ab4568eb13e2947984bb42faef271cd413cf3c
+- evidence_id: finer-ren4
+  kind: authority
+  reference: child-finer-taxonomy-candidate.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: REN4 has independently verified species NCBITaxon:2776916 Brevibacterium
+    renqingii, parent genus 1696, with an exact six-genome GTDB mapping. This is an
+    optional precision improvement for a currently valid genus descriptor, not a new
+    genome analysis or mandatory replacement based solely on name matching.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.408526Z'
+  snapshot_sha256: 7675233fed78c987a02b12e876ac3d8a7515612d4af6342dfd0e1a448a6ce0df
+- evidence_id: gtdb
+  kind: authority
+  reference: child-gtdb-grounder.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Read-only native grounding reproduces current Pseudomonas genus 17956/25706
+    fraction 0.699 and Brevibacterium 469/469 fraction 1.0. FT92W species 2666085
+    resolves to GTDB:s__Pseudoduganella_rivuli with three genomes and fraction 1.0.
+    The stale unavailable-file rationale can be corrected. This small species-level
+    reference set is not exact strain classification or a current release-date certification.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.408642Z'
+  snapshot_sha256: 267bf924228041952eeec7a5e705ecb64ee6f391a7084c79ee91767eca01dcb6
+- evidence_id: resources
+  kind: database
+  reference: dataset-verification.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: PRJNA1150354 directly matches the focal microbiome-fraction study. The
+    successful ENA retry lists 85 AMPLICON/METAGENOMIC/PCR paired MiSeq runs and 85
+    experiments sharing BioSample SAMN43048576; this does not imply 85 biological
+    samples. Source Table 1 markers and the older FT92W reference genome have distinct
+    identities and scopes. PQ555449/50 are 251/261 nt uncultured clone markers with
+    an archive Ginseng-rhizosphere isolation-source discrepancy. No raw payload was
+    analyzed.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.408783Z'
+  snapshot_sha256: b629261079afa7b86728ab546af661587a1a4597a33393b6b17f06776b02774b
+- evidence_id: snippets
+  kind: validation
+  reference: snippet-audit.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: 'All 22 excerpts match the appropriate fresh source and cache: nine focal
+    abstract, one precursor abstract and twelve focal body/table. Initial three separator
+    artifacts were resolved through original XML text/tail concatenation, without
+    rewriting source punctuation. Matching alone does not certify membership, strain
+    identity or causal interpretation.'
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.408947Z'
+  snapshot_sha256: 5dd059496bad86714564f90723684ef816614c0f09fad55c9247c8fd54c42647
+- evidence_id: history
+  kind: record_content
+  reference: provenance-audit.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: All three histories and exact prior decision were read. Current issues
+    1305 and 1306 are closed/completed, with three and one comments respectively.
+    Earlier comments requesting an open state are historical. The prior repair removed
+    duplicate arrows and improved assay qualifications; it does not certify every
+    current non-graph field. Current target and cache hashes match that prior provenance.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.409151Z'
+  snapshot_sha256: 29d6e7141785814e365ffdfc6500900b035f1a69e1b991f6bca124ed7646c029
+- evidence_id: metrics
+  kind: validation
+  reference: support-audit.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: The native graph is COMPLETE with six nodes, zero arrows and eight node-evidence
+    entries. Completeness 30 reflects current encoded structure, including external
+    roster entries without roles. One major and three minor findings yield raw 112.33333333333333,
+    capped 100. Do not invent host/pathogen roles or fields to increase the score.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.409337Z'
+  snapshot_sha256: 700c847c8b036ec15b4b2cc933d955ee188d31819254f9ddb85f027dd21e35f0
+- evidence_id: inspect-extension
+  kind: validation
+  reference: inspect-gtdb-extension-command.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Initial official 27-input inspection remains immutable. A separate official
+    extension adds only scripts/gtdb_ground.py before its use, resulting in 28 unchanged
+    input pins. This candidate binds the extended official source/target inventory.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.409372Z'
+  snapshot_sha256: f9acf2434ac3de7628affb4bb818dce67b2a5667d8718faad0dd63fbc0d4beaf
+- evidence_id: lead-read
+  kind: validation
+  reference: lead-primary-read-scope.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Lead read the full focal scientific main, both main tables, all five main
+    figures, all SI text and Tables S1–S5, and all seven SI figure images. Selected
+    table page images were also viewed. The precursor abstract supports only the narrow
+    encoded genus comparison; no full precursor coverage is claimed.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.409509Z'
+  snapshot_sha256: 205461428ec9e529815dbac401d8993b05e705cbe668aaa3e91764cc24e64bdd
+- evidence_id: source-scope
+  kind: validation
+  reference: source-audit.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Frozen lead assessment records one major membership finding and three minor
+    cultivation, authority and resource findings. Source conflicts, metadata boundaries
+    and treatment-dependent algal membership remain explicit.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.409667Z'
+  snapshot_sha256: e323e189a2a599790a1606de1df82df1b5e2ccca477d21ebfe13cfcfac0bdef6
+- evidence_id: root-source
+  kind: validation
+  reference: root-independent-source-audit.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Root independently assessed complete focal main and current critical SI,
+    all five main figures and seven SI figures, both main tables and all SI tables.
+    Its separate receipt agrees with completed current-claim review and the four findings.
+    Precursor coverage remains abstract-only.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.409829Z'
+  snapshot_sha256: 13f6af4c3d7dd092538c0fabcb46303a5ce868a3a80594c2ec1bf3ee590233c8
+- evidence_id: auxiliary
+  kind: validation
+  reference: auxiliary-frozen-manifest.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Eight focused native checks passed. Initial 27-input native scope and final
+    28-input integrity are separate; initial validator summary is immutable and final
+    metadata use a new file. All authority receipts have explicit scope.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.409985Z'
+  snapshot_sha256: 516b32f8b8f21040d8dfabb2a1c2d979cd969f515dd5b9410710a9a5a4e360af
+- evidence_id: adapter
+  kind: validation
+  reference: adapter-check.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: The optional structured adapter is unavailable in this owned runtime. Its
+    initial fresh batch 10 discovery is explicitly reused under the same verified
+    interpreter/worktree, rather than described as a new search. An external task
+    interpreter was not executed.
+  support: supports
+  accessed_at: '2026-10-21T18:32:37.410141Z'
+  snapshot_sha256: 122dd101c655735ee76aaef8337c916c600d3e304db1c438ed8e7c03a4648e96
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+  locator: Actual execution 2026-10-21T18:23:18.653417+00:00 to 2026-10-21T18:23:19.606514+00:00
+  summary: Schema passed.
+  support: supports
+  accessed_at: '2026-10-21T18:23:19.606514Z'
+  snapshot_sha256: f65213827952372ff2131df66dd2803e43f6b26847ce246ce0ee43321691e2fb
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-strict kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+    --out /private/tmp/cm-review-session/batch-10/000313/strict-report.tsv
+  locator: Actual execution 2026-10-21T18:23:18.653587+00:00 to 2026-10-21T18:23:20.821692+00:00
+  summary: Strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T18:23:20.821692Z'
+  snapshot_sha256: e07a3c21c30f2c39dd7428f0218b450eb1edccc66fbd63c4e7ea7b260606ec8d
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-terms kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+  locator: Actual execution 2026-10-21T18:23:18.653665+00:00 to 2026-10-21T18:23:20.475281+00:00
+  summary: Term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T18:23:20.475281Z'
+  snapshot_sha256: ebf3e9b342ff9d963b33ccbcf451a8a0ebd97c72e6202ed0409a4ffa3bc45eaa
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+  locator: Actual execution 2026-10-21T18:23:19.606817+00:00 to 2026-10-21T18:23:19.695884+00:00
+  summary: GTDB structure/coherence passed.
+  support: supports
+  accessed_at: '2026-10-21T18:23:19.695884Z'
+  snapshot_sha256: b2e93c10126219b67ea52276551046ea2502d4c6c1fd417b488b64b87de49bbf
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+  locator: Actual execution 2026-10-21T18:23:19.696232+00:00 to 2026-10-21T18:23:20.944774+00:00
+  summary: Algal and bacterial GTDB applicability passed.
+  support: supports
+  accessed_at: '2026-10-21T18:23:20.944774Z'
+  snapshot_sha256: 117c336fbfad8e805d8e908a892bb88f3528c8d80e54b78115cf2a421964769a
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-history history/records/Chlorella_Keystone_Taxa_Antifungal_SynCom
+  locator: Actual execution 2026-10-21T18:23:20.475590+00:00 to 2026-10-21T18:23:21.185383+00:00
+  summary: History validation passed.
+  support: supports
+  accessed_at: '2026-10-21T18:23:21.185383Z'
+  snapshot_sha256: cc5f4b204ceb3a9dd3acc7d2754bf4ccedf5ef43122794f21cd8c404dbf91a1f
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T18:23:21.186010+00:00 to 2026-10-21T18:23:21.227813+00:00
+  summary: Read-only cache filename check passed.
+  support: supports
+  accessed_at: '2026-10-21T18:23:21.227813Z'
+  snapshot_sha256: ada2347f4c5b49a317830eae95fd3175c027a7bb29660647570162671004e333
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-references-explained kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+  locator: Actual execution 2026-10-21T18:23:21.228124+00:00 to 2026-10-21T18:23:22.455529+00:00
+  summary: Native references pass against unchanged source-specific caches; fresh
+    scientific checks separately verify excerpt context.
+  support: supports
+  accessed_at: '2026-10-21T18:23:22.455529Z'
+  snapshot_sha256: 27c6551fc4d9a47f3f0513ba1472d44ee0a4c686f3981d0947f33b91d47a4f7f
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T17:04:17.819938+00:00 to 2026-10-21T17:04:25.370848+00:00
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal
+    graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T17:04:25.370848Z'
+  snapshot_sha256: 301cbda477198c0cff0f38601fdb49af8d805cafa7da106733150d64786d987d
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T17:04:17.819995+00:00 to 2026-10-21T17:04:26.163649+00:00
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal
+    graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T17:04:26.163649Z'
+  snapshot_sha256: f8dae0e292e8e2f8c221450aacc2bb120abe0e3f32c16ed59f8406e8b859a895
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Membership versus external host/pathogen participants
+  outcome: concern
+  summary: Remove the challenged fungus and two host species from membership while
+    preserving their graph context.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - identity
+  - schema
+  - semantics
+  details: taxonomy[4], taxonomy[5] and taxonomy[6] represent the challenged Fusarium
+    and strawberry/tomato hosts, not members of the beneficial SynCom. The fungal
+    note that a roster entry is needed for graph resolution contradicts the current
+    schema. The intended four bacterial isolates remain identifiable, with CHK0059
+    dependent on treatment. The species terms themselves are valid and should remain
+    available in the relevant graph nodes.
+- assessment_id: roles
+  area: evidence
+  topic: Microbial functional roles and identity precision
+  outcome: supported
+  summary: Retain broad pathogen-antagonist and primary-producer roles with their
+    existing source qualifications.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - pgp
+  - strawberry
+  - tomato
+  - schema
+  - semantics
+  details: Host disease reduction supports broad biocontrol context without proving
+    direct fungal killing or a particular mediator. Proxy screens do not demonstrate
+    nitrogen fixation or pathway flux, and primary production does not establish photosynthate
+    transfer. Do not assign roles to external participants merely to satisfy the completeness
+    rubric. There is no separate unsupported-role finding here.
+- assessment_id: node-fraction
+  area: evidence
+  topic: ecological_interactions[0] and ecological_interactions[5]
+  outcome: supported
+  summary: Retain in-vitro compositional responses and the exogenous D-mannitol association.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - fraction
+  - si
+  - precursor
+  details: These nodes correctly avoid absolute abundance, algal mannitol secretion,
+    strain recruitment and automatic translation to plant protection. The fraction
+    assay, network candidate selection and actual collection isolates are distinct.
+    Preserve the precursor genus-name contrast and narrow abstract access scope.
+- assessment_id: node-traits
+  area: evidence
+  topic: ecological_interactions[2]
+  outcome: supported
+  summary: Retain the four-isolate proxy-trait pool and FT92W IAA positivity.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - pgp
+  - si
+  details: Table S2 and Figure S7 support the encoded FT92W response despite abbreviated
+    body wording. Nfb color, CAS and Salkowski responses remain screening evidence.
+    No nitrogen-fixation flux, structurally identified IAA product, causal effector
+    or new directed edge is certified.
+- assessment_id: node-disease
+  area: evidence
+  topic: ecological_interactions[1], ecological_interactions[3] and ecological_interactions[4]
+  outcome: supported
+  summary: Preserve treatment- and host-specific disease outcomes without claiming
+    a resolved protective mechanism.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - strawberry
+  - tomato
+  - si
+  - mechanism-limit
+  details: The approximate strawberry week-5 comparison, tomato week-4 values and
+    supplementary host phenotypes retain their current scope. Single-member responses,
+    shared statistical groups and source percentage inconsistencies prevent universal
+    mixture superiority or a formal synergy claim. Six nodes and zero arrows remain
+    appropriate; duplicate summary-to-outcome arrows are not restored.
+- assessment_id: cultivation
+  area: completeness
+  topic: Preparation, fraction assay and plant-challenge stages
+  outcome: concern
+  summary: Recover available protocol detail while explicitly attributing source conflicts.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - maintenance
+  - fraction-protocol
+  - inoculum
+  - host-protocol
+  - si
+  details: Separate five-day algal maintenance, three-day washed treatment stocks,
+    exogenous fraction amendments, proxy-screen media, host substrate and fungal challenge.
+    The main/SI temperature and replicate descriptions differ. One-to-one mixing does
+    not establish every final per-member dose. No catalogue recipe, extraction-buffer
+    pH, inferred rpm or reconstructed replicate design is imported.
+- assessment_id: authority
+  area: identity
+  topic: FT92W GTDB and optional REN4 species precision
+  outcome: concern
+  summary: Replace the stale unresolved-path rationale with current exact grounding.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - ontology
+  - gtdb
+  - catalogues
+  - finer-ren4
+  details: The verified native crosswalk maps FT92W species 2666085 using three genomes
+    at fraction 1.0. Existing genus aggregates reproduce under the actual native filters,
+    so initial unfiltered diagnostics do not constitute drift. REN4 species 2776916
+    is a supported optional refinement. Keep homotypic name-policy differences, source
+    strain names and taxonomic rank limits explicit; no separate algal identity error
+    follows from its accepted synonym.
+- assessment_id: resources
+  area: provenance
+  topic: Study data and marker/reference provenance
+  outcome: concern
+  summary: Add the exact verified study resource with its microbiome-fraction assay
+    scope.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - resources
+  - strain-provenance
+  - si
+  details: The missing resource fields can link PRJNA1150354 and the publication/SI.
+    The sequencing concerns substance-treated rhizosphere fraction profiles, not host
+    disease endpoints or genomes of all inocula. Eighty-five runs sharing one BioSample
+    are archive records, not a sample-count proof. Short clone markers, type-strain
+    reference sequences and the older FT92W assembly must be labeled separately; preserve
+    their source/archive provenance disagreements.
+- assessment_id: environment
+  area: identity
+  topic: Community state, origin, environment and chemical scope
+  outcome: supported
+  summary: Retain engineered synthetic, plant-associated and rhizosphere scope.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - identity
+  - fraction
+  - schema
+  - semantics
+  details: The laboratory fraction and host challenge are separately described contexts.
+    D-mannitol is an exogenous treatment, not demonstrated secretion. There is no
+    encoded biological metal-processing claim or obligatory dataset/ingredient field
+    to invent. Hosts remain relevant context after their membership entries are removed.
+- assessment_id: provenance
+  area: provenance
+  topic: Current issues, prior repair and exact excerpts
+  outcome: supported
+  summary: Preserve closed historical issues and the separate extended input inventory.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - history
+  - snippets
+  - inspect-extension
+  details: Issues 1305 and 1306 are currently closed; no current open owner is asserted.
+    Existing graph repairs remain valid context. All 22 excerpts have fresh reference-specific
+    support, while whole-source review identifies a separate membership problem. This
+    review does not reopen issues, mutate caches or broaden precursor coverage.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and immutable review workflow
+  outcome: supported
+  summary: All eight focused native checks pass; scientific findings remain actionable.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - auxiliary
+  - ontology
+  - snippets
+  - inspect-extension
+  details: Initial 27-input inspect and native receipts remain immutable. The separate
+    official extension adds only the GTDB grounder before use and supplies the candidate’s
+    28-input inventory. Passing labels, schema and references does not validate roster
+    membership or experimental mechanism. No canonical, cache, history or generated
+    file is changed; persistence is limited to a new immutable review bundle.
+- assessment_id: metrics
+  area: completeness
+  topic: Native mechanical completeness and quality
+  outcome: supported
+  summary: Completeness 30 and capped quality 100/raw 112.33333333333333 are structural
+    metrics.
+  target_ids:
+  - CommunityMech:000313
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 30
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 'Native rubric: required fields with all taxon roles 0 + environment
+      5 + at least three environmental factors 0 + at least three interaction nodes
+      10 + external resources 0 + growth media 10 + associated datasets 0 + any node
+      metabolites 5. The external host/pathogen entries lack roles, so the current
+      all-roles bonus is absent. Do not invent roles or fields for points; this is
+      current encoded structure, not an estimate after curation.'
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      P1=0, P2=1, P3=3, P4=0. Eight node-evidence occurrences over six nodes give
+      mean 4/3 and an evidence bonus 13.333333333333332; COMPLETE adds 15. Raw 112.33333333333333
+      is capped at 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: external-participant-membership
+  issue_key: cm-000313-external-participant-membership
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: external hosts and the challenged antagonist are incorrectly
+    represented as microbial community members under the explicit current membership
+    definition.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Separate hosts and challenged Fusarium from SynCom membership
+  description: taxonomy includes the challenged Fusarium and both plant hosts as members.
+    Its fungal note says this is needed for graph resolution, but current schema explicitly
+    excludes external hosts and antagonists from membership and allows direct graph
+    descriptors. Remove these three roster entries while retaining host/challenge
+    evidence and graph participants. Preserve four bacterial isolates and the treatment-dependent
+    alga.
+  target_ids:
+  - CommunityMech:000313
+  field_paths:
+  - taxonomy[4]
+  - taxonomy[4].taxon_term.notes
+  - taxonomy[5]
+  - taxonomy[6]
+  evidence_ids:
+  - identity
+  - record
+  - schema
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+    role: canonical_record
+- finding_id: cultivation-and-assay-context
+  issue_key: cm-000313-cultivation-and-assay-context
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded source-backed protocol, authority or resource-provenance
+    recovery preserves the supported experimental interpretation.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Recover stage-specific protocols and attribute source conflicts
+  description: The two existing growth-media entries cover maintenance and viability
+    context but omit available bacterial preparation, washed treatment stocks, host
+    substrate and challenge stages. Recover those conditions without conflating five-day
+    maintenance with three-day stock preparation or resolving main/SI temperatures
+    silently. The one-to-one mixture instruction is insufficient for a complete per-member
+    dose reconstruction.
+  target_ids:
+  - CommunityMech:000313
+  field_paths:
+  - growth_media
+  - engineering_design
+  - environmental_factors
+  evidence_ids:
+  - maintenance
+  - fraction-protocol
+  - inoculum
+  - host-protocol
+  - si
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+    role: canonical_record
+- finding_id: recoverable-taxonomic-grounding
+  issue_key: cm-000313-recoverable-taxonomic-grounding
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded source-backed protocol, authority or resource-provenance
+    recovery preserves the supported experimental interpretation.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Resolve the stale FT92W mapping limitation and document optional REN4 precision
+  description: The current FT92W UNRESOLVED rationale reflects an older missing-path
+    search, while the current pinned native mapping yields the exact species at three
+    genomes/fraction 1.0. Existing Pseudomonas/Brevibacterium genus aggregates reproduce
+    and do not require invented drift corrections. REN4 has verified species-level
+    authority as an optional refinement; its current genus is valid.
+  target_ids:
+  - CommunityMech:000313
+  field_paths:
+  - taxonomy[2].taxon_term.gtdb_grounding_status
+  - taxonomy[2].taxon_term.notes
+  - taxonomy[2].taxon_term
+  - taxonomy[3].taxon_term
+  evidence_ids:
+  - gtdb
+  - catalogues
+  - finer-ren4
+  - ontology
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+    role: canonical_record
+- finding_id: source-and-data-resources
+  issue_key: cm-000313-source-and-data-resources
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded source-backed protocol, authority or resource-provenance
+    recovery preserves the supported experimental interpretation.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Record verified sequencing and publication provenance with accurate scope
+  description: The source declares PRJNA1150354 and supplies identifiable SI and marker/reference
+    resources, while associated_datasets and external_resources are absent. Add the
+    specific fraction-sequencing dataset and source links with accurate assay identity.
+    Do not treat 85 archive runs as 85 biological samples, short marker clones as
+    whole genomes, or collection/BLAST-reference origins as experimental isolation
+    claims.
+  target_ids:
+  - CommunityMech:000313
+  field_paths:
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - resources
+  - strain-provenance
+  - si
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+    role: canonical_record
+actions:
+- action_id: repair-membership
+  description: Align the roster with the actual beneficial SynCom and current membership
+    semantics.
+  finding_ids:
+  - external-participant-membership
+  target_ids:
+  - CommunityMech:000313
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove the current taxonomy[4], taxonomy[5] and taxonomy[6] entries for challenged
+    Fusarium, strawberry and tomato. Remove the claim that fungal taxonomy membership
+    is required for graph resolution. Preserve their valid current taxon terms and
+    evidence as external participants in the relevant ecological_interactions and
+    host/challenge descriptions.
+  - 'Keep four bacterial isolates: Pseudomonas 8C3D12 and 6C7F4, FT92W and REN4. Preserve
+    the two Pseudomonas strains within their shared genus descriptor or another supported
+    representation; do not report only three bacterial isolates. Keep CHK0059 as treatment-dependent:
+    Treat8 contains the four bacteria, Treat9 adds the alga, and other treatment compositions
+    remain explicitly scoped.'
+  - Retain all six qualified nodes and zero arrows, including the explicit PARTIAL/HYPOTHESIZED
+    language, proxy-trait limits and host-specific symptom endpoints. Do not restore
+    duplicate summary-to-outcome arrows, invent a mediator chain or remove valid external
+    participants from the graph.
+  - Do not assign synthetic host/pathogen functional roles to satisfy completeness.
+    Retain the broad bacterial PATHOGEN_ANTAGONIST and algal PRIMARY_PRODUCER interpretations
+    with source-specific evidence and no requirement for a resolved direct mechanism.
+- action_id: recover-cultivation-context
+  description: Add exact experimental stages without merging preparation, analytical
+    screens and plant assays.
+  finding_ids:
+  - cultivation-and-assay-context
+  target_ids:
+  - CommunityMech:000313
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Preserve existing CHK0059 maintenance as R2A 3.15 g/L, agar 20 g/L, 28 C, five
+    days and 16:8 light:dark, and distinguish it from three-day plant-treatment stock
+    preparation. Add accurate evidence locators for each stage rather than assigning
+    a single duration or temperature to the whole community.
+  - For treatment stocks, record separately grown bacteria/algae in R2A at 28 C with
+    shaking for three days, 3134 g centrifugation for 20 minutes, equal-volume sterile-water
+    resuspension, 30-second vortexing and the stated repeated washes. Record source-reported
+    bacterial 1e6 CFU/mL and 10 mL applications, algal 1e7 cells/mL stock diluted
+    1/500 for 10 mL, and the one-to-one instruction with its unresolved per-member
+    final-dose scope. Do not invent rpm or a calibrated CFU conversion from OD600.
+  - 'Keep the microbiome-fraction experiment distinct: 1 g soil plus 9 mL MES at pH
+    5.7 is extraction; 3 mL treatment volume in 5 mL tubes uses one-tenth-volume amendments
+    at 27 C with shaking and 12/24/36/48-hour sampling. Main viability replating says
+    R2A 27 C for five days; Figure S1 says 28 C. Preserve both attributed statements
+    rather than silently normalizing them.'
+  - Represent the named host cultivars, approximately 5 cm selection, Boonong No.
+    2 substrate, ten-plant treatment groups and stated treatment/challenge sequence.
+    Main plant settings are 27 C, 70% humidity and 16:8; Figure S5 gives 25 C greenhouse
+    pre-growth and 28 C chamber conditions. Preserve these source differences and
+    the Methods/table replicate discrepancy instead of constructing an undocumented
+    unified design.
+  - Keep fungal preparation and source-reported 1e5 CFU/mL challenge separate from
+    beneficial member cultivation, and distinguish strawberry and tomato forma-specialis
+    contexts. Proxy-screen media, extraction buffers, methanol extraction and analytical
+    reagents must not be inserted as universal SynCom medium ingredients.
+  - Retain D-mannitol 2% as an exogenous condition with separate fraction-assay and
+    plant Treat10 scopes. Do not claim algal secretion, an actual nutrient-exchange
+    route, absolute Pseudomonas expansion or strain-specific recruitment from relative
+    abundance. Preserve the supported graph’s comparisons and its source-conflict
+    notes.
+- action_id: recover-current-authority
+  description: Use verified current mappings without transferring source-strain or
+    nomenclature scope.
+  finding_ids:
+  - recoverable-taxonomic-grounding
+  target_ids:
+  - CommunityMech:000313
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Replace the stale FT92W UNRESOLVED/missing-path rationale using the pinned native
+    grounder result for NCBITaxon:2666085 and GTDB:s__Pseudoduganella_rivuli, three
+    genomes and fraction 1.0. Populate the actual lineage and method from the receipt,
+    preserve its small reference count and crosswalk hash, and do not claim an independently
+    classified FT92W genome or verified release date.
+  - Keep the existing Pseudomonas and Brevibacterium genus mappings unless another
+    substantive change is authorized. Their exact native aggregation reproduces 17956/25706
+    fraction 0.699 and 469/469 fraction 1.0. Do not treat the initial unfiltered diagnostic
+    counts as contradictory drift.
+  - Consider optional REN4 refinement to independently verified NCBITaxon:2776916
+    Brevibacterium renqingii, with JCM 33953/KCTC 49366 type-strain context and exact
+    six-genome mapping. The current genus 1696 is valid; any refinement must be consistent
+    across applicable descriptors without falsely assigning species to unrelated genus-level
+    network ASVs.
+  - Preserve the source’s FT92W/Pseudoduganella designation and distinguish current
+    NCBI/GTDB from LPSN’s Massilia homotypic name preference. Keep catalogue origin
+    and network host association separate. Do not import collection maintenance conditions
+    or claim that failed KACC/KCTC record routes were successfully read.
+  - Retain NCBITaxon:3073 Scenedesmus fuscus with its explicit Chlorella fusca synonym,
+    and eukaryote GTDB applicability. A historical source name alone is not evidence
+    for an algal taxon correction. Revalidate ID-label/rank correspondence and the
+    actual final descriptors after any authorized precision change.
+- action_id: attach-scoped-resources
+  description: Add the exact verified data and publication links while preserving
+    metadata disagreements.
+  finding_ids:
+  - source-and-data-resources
+  target_ids:
+  - CommunityMech:000313
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Add PRJNA1150354 as the source-linked rhizosphere microbiome-fraction sequencing
+    resource. Describe 16S amplicon, paired MiSeq profiling after Chlorella-derived/exogenous
+    amendments; do not label it shotgun metagenomics, isolate-genome sequencing or
+    a host-disease endpoint dataset merely because generic archive fields say METAGENOMIC.
+  - If inventory counts are recorded, distinguish 85 runs and 85 experiments from
+    their shared BioSample SAMN43048576. This metadata does not certify 85 independent
+    biological samples or a complete biological replication design. Preserve the successful
+    retry and earlier response history without treating transient access as data absence.
+  - Link the focal article and exact supplementary PDF as publication/source assets.
+    Keep the precursor DOI/PMID as a separate abstract-supported genus-correlation
+    context, without asserting full precursor-paper access or transferring its Rhizomicrobium
+    name to the focal Brevibacterium member.
+  - If adding strain-marker provenance, label PQ555449.1/PQ555450.1 as 251/261 nt
+    uncultured Pseudomonas clone marker records and retain the discrepancy between
+    archive Ginseng-rhizosphere isolation_source and the paper’s host/network context.
+    Do not use these short markers to assert species-level identities or whole-genome
+    sequence availability.
+  - Keep NR_180844.1/NR_181446.1 type/reference sequence identities and the older
+    FT92W SAMN13220418/GCA_009674485.1/GCF_009674485.1 reference assembly distinct
+    from PRJNA1150354. Collection origins and BLAST references do not prove isolation
+    of the exact inoculated strains from this experiment. No raw sequence reanalysis
+    or new accession is required to repair the documented provenance.
+- action_id: validate-authorized-curation
+  description: After separately authorized curation, preserve fresh history and complete
+    the documented validators and generated-page gates.
+  finding_ids:
+  - external-participant-membership
+  - cultivation-and-assay-context
+  - recoverable-taxonomic-grounding
+  - source-and-data-resources
+  target_ids:
+  - CommunityMech:000313
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Keystone_Taxa_Antifungal_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Apply only separately authorized canonical changes and append fresh curation history
+    with exact source, version and locator provenance. Refer to closed 1305/1306 as
+    historical repair context, not open ownership. No issue reopening or new external
+    message is authorized by this review.
+  - Run focused schema, strict, term, GTDB/domain, reference, cache-name and history
+    checks. Confirm that the corrected membership excludes external hosts/pathogen
+    while all intended graph descriptors remain valid, and that six nodes/zero arrows
+    preserve their qualifications. Recheck changed claims against their full source
+    context, not only literal snippet matching.
+  - After canonical changes run just gen-html and just check-docs-current in the required
+    environment and inspect the intended record’s generated changes. This review performs
+    no canonical, source-cache, history or generator mutation; persistence is limited
+    to its new immutable review bundle.
+limitations:
+- Completed scientific review covers the current encoded claims. Lead and root assessed
+  the whole focal scientific main, both main tables, all five main figures, complete
+  supplementary text and Tables S1–S5, and all seven SI figure images. Selected supplementary
+  table pages were also visually inspected; no claim of pixel-by-pixel review of every
+  supplementary page is made.
+- The precursor PMID 40064531 is assessed from its direct abstract only. That scope
+  suffices for the encoded genus-level correlation/name distinction. No precursor
+  full-paper, supplement, genome/pathway or causal-mechanism assessment is certified.
+- The external fungus and plant hosts are valid taxonomic concepts but incorrect members
+  under the current explicit taxonomy definition. Their graph participation and host/challenge
+  context must remain. Treat8 and Treat9 differ in algal presence, and two Pseudomonas
+  isolates share a genus descriptor.
+- Relative microbiome composition, isolate proxy-screen response, host symptom scores
+  and growth phenotypes are different measurements. No absolute bacterial expansion,
+  strain recruitment, secreted algal mannitol, nitrogen-fixation flux, genetically
+  confirmed mediator, fungal-load reduction or formal interaction coefficient is inferred.
+- The source contains main/SI temperature differences, Methods/table replicate differences,
+  later strawberry percentage inconsistencies and some misnumbered supplementary references.
+  The review preserves attributed conditions and existing bounded graph values without
+  statistical reanalysis or silent source repair. Multi-member and single-member comparisons
+  do not establish uniform mixture superiority.
+- Five-day algal maintenance, three-day treatment preparation, fraction amendments,
+  proxy-screen incubation and plant challenge are distinct stages. Extraction-buffer
+  pH is not culture pH. The source one-to-one mixing wording does not completely establish
+  per-member final inoculum dose or a universal viable-count calibration.
+- FT92W GTDB recovery is an exact current species-concept mapping supported by three
+  reference genomes, not an independent classification of the inoculated strain. REN4
+  species refinement is optional; current genus grounding is valid. NCBI/GTDB and
+  LPSN homotypic-name policies remain distinct, and catalogue conditions do not transfer
+  to the study.
+- The dataset metadata confirms 85 runs and 85 experiments but one archive BioSample;
+  it is not proof of 85 biological replicates. The records use AMPLICON/METAGENOMIC/PCR
+  metadata. Short Pseudomonas clone markers, their Ginseng-rhizosphere discrepancy,
+  type-reference sequences and the older FT92W assembly have separate provenance scopes.
+  No sequence payload or archive code was analyzed.
+- 'All 22 snippets are directly supported: nine focal abstract, one precursor abstract
+  and twelve focal body/table. Three initial XML separation artifacts were resolved
+  with original text/tail concatenation, not source-text rewriting. Matching does
+  not certify membership or interpretation. Current 1305/1306 are closed even though
+  earlier comments requested continued follow-up.'
+- The original 27-input inspect and initial native summary remain immutable. A separate
+  official extension adds only scripts/gtdb_ground.py before its use; all 28 final
+  input hashes are unchanged. Optional adapter discovery is explicit same-runtime
+  batch reuse, and no external task interpreter, paid provider, author contact or
+  later-record assessment was used.
+- All eight focused native checks pass; corpus-wide nonzero diagnostics retain their
+  wider scope. Completeness 30 and quality 100/raw 112.33333333333333 do not erase
+  one major and three minor findings. The completeness bonus counts at least three
+  interaction nodes, not typed nodes, and no unsupported role or resource is inserted
+  for metric credit.
+notes:
+- All 28 extended official inputs remain unchanged; initial 27-input inspection is
+  preserved. No canonical, cache, history, generated or previously saved artifact
+  was edited.
+- Lead/root scientific and child/sibling authority/provenance scopes are separately
+  pinned. Full focal current-claim coverage does not imply full precursor coverage
+  or raw-data reanalysis.
+- One major and three minor findings give raw quality 112.33333333333333/capped 100;
+  completeness is 30. Existing closed 1305/1306 remain historical context. Six nodes
+  and zero arrows retain their source qualifications.
+tags:
+- record-review
+- algal-bacterial-syncom
+- main-and-critical-si-assessed
+- batch-10
+```
