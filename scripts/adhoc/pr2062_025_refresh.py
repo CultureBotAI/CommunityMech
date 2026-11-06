@@ -168,7 +168,7 @@ def build(inspection_path):
         "stock-table",
         OUT / "sources/ring-s013.json",
         "Complete S2 stock table, 17 stock rows; original XLSX independently pinned",
-        "Exact stock names, DSM IDs, medium assignments and genome projects were read. Rhizobium, Bradyrhizobium, Mycobacterium and Niastella use 1/10 R2A; Gottfriedia uses LB; other stocks use R2A.",
+        "Exact stock names, medium assignments and genome projects were read. Rhizobium, Bradyrhizobium, Mycobacterium and Niastella use 1/10 R2A; Gottfriedia uses LB; other stocks use R2A.",
         "primary_source",
     )
     ev(
