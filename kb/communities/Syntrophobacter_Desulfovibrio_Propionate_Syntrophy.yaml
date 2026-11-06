@@ -1,0 +1,379 @@
+id: CommunityMech:000510
+name: Syntrophobacter-Desulfovibrio Propionate Syntrophy
+description: A defined two-member anaerobic syntrophic coculture of the propionate-oxidizing bacterium Syntrophobacter fumaroxidans
+  strain MPOBT (DSM 10017) and the sulfate-reducing bacterium Desulfovibrio desulfuricans strain G11 (DSM 7057) grown in batch
+  culture with 20 mM propionate and 20 mM sulfate at 37 degrees Celsius under a pressurized (172 kPa) N2/CO2 (80:20, vol/vol)
+  atmosphere. Comparative quantitative proteomics across pure-culture and syntrophic conditions showed that S. fumaroxidans
+  simultaneously performed sulfidogenic metabolism and interspecies electron transfer (IET) via formate and hydrogen to D.
+  desulfuricans at a 2:1 cell ratio, while D. desulfuricans expressed sulfate-reduction enzymes (including AprA, G11_01440)
+  and periplasmic formate dehydrogenase (FDH3, G11_11530) to couple interspecies formate and H2 oxidation to sulfate reduction.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+engineering_design:
+  objective: Characterize the proteomic profile and interspecies electron transfer (IET) mechanisms of Syntrophobacter fumaroxidans
+    MPOBT (DSM 10017) grown in coculture with the non-methanogenic sulfate-reducing partner Desulfovibrio desulfuricans strain
+    G11 (DSM 7057) on 20 mM propionate and 20 mM sulfate.
+  assembly_strategy: Pair the propionate-oxidizing syntroph Syntrophobacter fumaroxidans MPOBT (DSM 10017) with the hydrogen-
+    and formate-scavenging sulfate reducer Desulfovibrio desulfuricans strain G11 (DSM 7057), which cannot oxidize propionate
+    directly, and adapt the coculture over at least five transfers prior to mid-exponential proteomic harvesting.
+  inoculation_strategy: Inoculate triplicate 1 L batch flasks (550 mL basal medium with 20 mM propionate and 20 mM sulfate
+    under 172 kPa N2/CO2 80:20 vol/vol at 37 degrees Celsius) with coculture cells adapted through at least five serial transfers.
+  perturbation_design: Compare the S. fumaroxidans + D. desulfuricans coculture (20 mM propionate + 20 mM sulfate) against
+    axenic S. fumaroxidans (20 mM propionate + 60 mM fumarate or 20 mM propionate + 20 mM sulfate), methanogenic cocultures
+    with M. hungatei JF1T or M. formicicum MFT (30 mM propionate), and axenic D. desulfuricans G11 (20 mM sulfate + 40 mM
+    formate or 1.7 atm H2/CO2).
+  measurement_endpoints:
+  - quantitative label-free proteomics (iBAQ and Z-score normalized abundance)
+  - substrate consumption and product formation (propionate, sulfate, acetate, succinate, malate, sulfide)
+  - phase-contrast microscopic partner ratio (2:1 S. fumaroxidans to D. desulfuricans)
+  evidence:
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A coculture of S. fumaroxidans with Desulfovibrio desulfuricans strain G11 (DSM 7057; Sheik et al., 2017 ) was
+      grown with 20 mM propionate and 20 mM sulfate. Axenic cultures of D. desulfuricans were grown with 20 mM sulfate and
+      40 mM formate or hydrogen (1.7 atm H2/CO2 80:20 vol/vol).
+    explanation: Establishes the defined coculture composition (S. fumaroxidans MPOBT with D. desulfuricans strain G11 / DSM
+      7057) and substrate regime (20 mM propionate and 20 mM sulfate) alongside axenic D. desulfuricans controls.
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: By comparing the proteomic profile of S. fumaroxidans grown in coculture with D. desulfuricans with the proteomic
+      profiles of the other known syntrophic lifestyles, and the sulfidogenic condition, we expect to be able to define the
+      symbiotic relationship of S. fumaroxidans with D. desulfuricans.
+    explanation: Documents the experimental design objective comparing the S. fumaroxidans + D. desulfuricans coculture against
+      methanogenic syntrophic and axenic sulfidogenic lifestyles.
+environment_term:
+  preferred_term: anaerobic laboratory batch coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Batch cocultures in 1 L flasks with 550 mL anoxic basal medium supplemented with 20 mM propionate and 20 mM sulfate
+    at 37 degrees Celsius under 172 kPa (1.7 atm) N2/CO2 (80:20, vol/vol).
+modeled_environment:
+- preferred_term: anaerobic bioreactor
+  term:
+    id: ENVO:00002124
+    label: anaerobic bioreactor
+  notes: Models syntrophic propionate oxidation coupled to sulfate reduction and interspecies hydrogen/formate transfer in
+    sulfate-containing anoxic bioreactors and sediments.
+taxonomy:
+- taxon_term:
+    preferred_term: Syntrophobacter fumaroxidans
+    term:
+      id: NCBITaxon:119484
+      label: Syntrophobacter fumaroxidans
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Syntrophobacter_fumaroxidans
+      gtdb_taxon: Syntrophobacter fumaroxidans
+      gtdb_lineage: d__Bacteria;p__Desulfobacterota;c__Syntrophobacteria;o__Syntrophobacterales;f__Syntrophobacteraceae;g__Syntrophobacter;s__Syntrophobacter
+        fumaroxidans
+      ncbi_source_id: NCBITaxon:119484
+      majority_fraction: 1.0
+      total_genomes: 1
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Syntrophic propionate-oxidizing bacterium (strain MPOBT / DSM 10017) grown in coculture with Desulfovibrio desulfuricans
+      strain G11 on 20 mM propionate and 20 mM sulfate at a microscopically observed 2:1 S. fumaroxidans to D. desulfuricans
+      cell ratio.
+  strain_designation:
+    strain_name: MPOBT (DSM:10017)
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - PRIMARY_DEGRADER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Syntrophobacter fumaroxidans was grown in pure culture and in cocultures. Syntrophobacter fumaroxidans MPOBT
+      (DSM 10017) was cultivated under anoxic conditions in basal medium as described previously (Stams et al., 1993 ).
+    explanation: Identifies Syntrophobacter fumaroxidans strain MPOBT (DSM 10017) as the propionate-oxidizing partner.
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: From microscopic observations we know that the ratio of S. fumaroxidans to D. desulfuricans was 2:1 (data not
+      shown).
+    explanation: Supports DOMINANT abundance of S. fumaroxidans (2:1 cell ratio over D. desulfuricans) in the defined two-member
+      coculture.
+- taxon_term:
+    preferred_term: Desulfovibrio desulfuricans
+    term:
+      id: NCBITaxon:876
+      label: Desulfovibrio desulfuricans
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Desulfovibrio_desulfuricans
+    - GTDB:s__Desulfovibrio_sp900243745
+    notes: Hydrogen- and formate-scavenging sulfate-reducing partner (strain G11 / DSM 7057, GenBank CP023415) that cannot
+      oxidize propionate directly and couples interspecies formate and H2 oxidation to sulfate reduction.
+  strain_designation:
+    strain_name: G11 (DSM:7057)
+    genome_accession: CP023415
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  abundance_level: ABUNDANT
+  evidence:
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A coculture of S. fumaroxidans with Desulfovibrio desulfuricans strain G11 (DSM 7057; Sheik et al., 2017 ) was
+      grown with 20 mM propionate and 20 mM sulfate.
+    explanation: Identifies Desulfovibrio desulfuricans strain G11 (DSM 7057) as the coculture partner grown with S. fumaroxidans
+      on 20 mM propionate and 20 mM sulfate.
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The protein database of Desulfovibrio desulfuricans strain G11 was downloaded from GenBank accession number CP023415
+      .
+    explanation: Confirms the genome accession (CP023415) of Desulfovibrio desulfuricans strain G11 used for coculture proteomic
+      profiling.
+ecological_interactions:
+- name: Syntrophic Propionate Oxidation with Interspecies Formate and Hydrogen Transfer
+  description: Syntrophobacter fumaroxidans MPOBT oxidizes propionate via the methylmalonyl-CoA pathway in the presence of
+    20 mM propionate and 20 mM sulfate, simultaneously performing sulfidogenic reduction (via AprAB, Sat, DsrMKJOP, Qmo, and
+    Hdr/Flox) and transferring electrons as formate and hydrogen (via cytoplasmic Fdh1, periplasmic Fdh2, periplasmic hydrogenase
+    Hyn coupled with FrdABEF/SdhABC, and confurcating hydrogenase Hox) to Desulfovibrio desulfuricans strain G11.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Syntrophobacter fumaroxidans
+    term:
+      id: NCBITaxon:119484
+      label: Syntrophobacter fumaroxidans
+  target_taxon:
+    preferred_term: Desulfovibrio desulfuricans
+    term:
+      id: NCBITaxon:876
+      label: Desulfovibrio desulfuricans
+  metabolites:
+  - preferred_term: propionate
+    term:
+      id: CHEBI:30768
+      label: propionic acid
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  biological_processes:
+  - preferred_term: propionate catabolic process
+    term:
+      id: GO:0019543
+      label: propionate catabolic process
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: Hydrogen- and Formate-Coupled Dissimilatory Sulfate Reduction
+    description: Formate and H2 released by S. fumaroxidans during propionate oxidation serve as the sole electron donors
+      for D. desulfuricans G11 dissimilatory sulfate reduction in the propionate-sulfate coculture.
+  evidence:
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The proteomic profiles of both bacteria in the coculture of S. fumaroxidans with D. desulfuricans give insight
+      in the metabolic flexibility of S. fumaroxidans. Results showed a proteomic profile of S. fumaroxidans in which sulfate
+      reduction took place, while energy conservation and IET mechanisms were also used similarly as in the syntrophic associations
+      with methanogens. The proteomic analysis of the partner D. desulfuricans confirmed IET via formate and hydrogen carried
+      on by S. fumaroxidans in a sulfate rich environment.
+    explanation: Demonstrates that S. fumaroxidans combines sulfidogenic metabolism with interspecies formate and hydrogen
+      transfer to D. desulfuricans during coculture growth on propionate and sulfate.
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Considering the high levels of Hyn and FrdABEF in the coculture with D. desulfuricans, we suggest that indeed
+      Hyn is involved in RET with FrdABEF, whether reducing fumarate in fumarate conditions or reversibly oxidizing succinate
+      in the coculture with D. desulfuricans (Fig. 4 ).
+    explanation: Details the periplasmic hydrogenase Hyn and FrdABEF reverse electron transport mechanism active in S. fumaroxidans
+      during coculture with D. desulfuricans.
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The abundance of the proteins involved in sulfate reduction confirm that D. desulfuricans was actively reducing
+      sulfate for which it certainly needed electron donors which could only come from S. fumaroxidans in such growth condition.
+    explanation: Directly links electron-donor transfer (formate and hydrogen) from S. fumaroxidans propionate oxidation to
+      active sulfate reduction by D. desulfuricans.
+- name: Hydrogen- and Formate-Coupled Dissimilatory Sulfate Reduction
+  description: Desulfovibrio desulfuricans strain G11, which cannot utilize propionate, scavenges interspecies formate and
+    hydrogen transferred from S. fumaroxidans and couples their oxidation (via periplasmic formate dehydrogenase FDH3 [G11_11530]
+    and hydrogenases) to dissimilatory sulfate reduction (with adenylylsulfate reductase alpha subunit AprA [G11_01440] among
+    its ten most abundant proteins in coculture).
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Syntrophobacter fumaroxidans
+    term:
+      id: NCBITaxon:119484
+      label: Syntrophobacter fumaroxidans
+  target_taxon:
+    preferred_term: Desulfovibrio desulfuricans
+    term:
+      id: NCBITaxon:876
+      label: Desulfovibrio desulfuricans
+  metabolites:
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  biological_processes:
+  - preferred_term: dissimilatory sulfate reduction
+    term:
+      id: GO:0019420
+      label: dissimilatory sulfate reduction
+  evidence:
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Although fewer D. desulfuricans proteins were detected in cells grown in coculture with S. fumaroxidans, proteins
+      required for sulfate reduction such as AprA (G11_01440) were found among the ten most abundant proteins along with a
+      periplasmic formate dehydrogenase (FDH3; G11_11530–11545)
+    explanation: Confirms high abundance of sulfate-reduction enzyme AprA (G11_01440) and periplasmic formate dehydrogenase
+      FDH3 (G11_11530) in D. desulfuricans G11 grown in coculture with S. fumaroxidans.
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: D. desulfuricans is a sulfate reducer that utilizes lactate, ethanol, hydrogen and formate in the presence of
+      sulfate, but not acetate, propionate, butyrate or glucose (McInerney et al., 1979 ). Therefore, a syntrophic relationship
+      with S. fumaroxidans, in which hydrogen and formate are produced, would be beneficial for D. desulfuricans.
+    explanation: Explains why D. desulfuricans depends on S. fumaroxidans for hydrogen and formate electron donors in propionate-sulfate
+      medium.
+environmental_factors:
+- name: Propionate and sulfate concentrations
+  value: 20 mM propionate and 20 mM sulfate
+  unit: mM
+  description: The S. fumaroxidans + D. desulfuricans G11 coculture was grown on 20 mM propionate and 20 mM sulfate in anoxic
+    basal medium.
+  evidence:
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A coculture of S. fumaroxidans with Desulfovibrio desulfuricans strain G11 (DSM 7057; Sheik et al., 2017 ) was
+      grown with 20 mM propionate and 20 mM sulfate.
+    explanation: Specifies the 20 mM propionate and 20 mM sulfate medium composition for the coculture.
+- name: Headspace gas pressure
+  value: '172'
+  unit: kPa
+  description: Pressurized anoxic headspace of N2/CO2 (80:20, vol/vol) at 172 kPa (1.7 atm) and 37 degrees Celsius.
+  evidence:
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All organisms were batch cultured in triplicate at 37°C in 1 l flasks with 550 ml medium under anaerobic conditions
+      provided by a pressurised (172 kPa; 1.7 atm) gas phase of N2/CO2 (80:20, vol/vol).
+    explanation: Documents the 37 degrees Celsius incubation temperature, 1 L flask / 550 mL liquid volume, and 172 kPa N2/CO2
+      (80:20) headspace.
+growth_media:
+- name: Anoxic basal medium with 20 mM propionate and 20 mM sulfate
+  composition:
+  - name: propionate
+    concentration: '20'
+    unit: mM
+    chebi_term:
+      preferred_term: propionate
+      term:
+        id: CHEBI:30768
+        label: propionic acid
+    from_source: community_curated
+  - name: sulfate
+    concentration: '20'
+    unit: mM
+    chebi_term:
+      preferred_term: sulfate
+      term:
+        id: CHEBI:16189
+        label: sulfate
+    from_source: community_curated
+  temperature: '37'
+  temperature_unit: degrees Celsius
+  atmosphere: ANAEROBIC
+  headspace_gas: N2/CO2 (80:20, vol/vol) at 172 kPa (1.7 atm)
+  inoculum_source: Coculture of Syntrophobacter fumaroxidans MPOBT (DSM 10017) and Desulfovibrio desulfuricans G11 (DSM 7057)
+    adapted over at least five transfers on 20 mM propionate and 20 mM sulfate
+  preparation_notes: Cultivated in triplicate at 37 degrees Celsius in 1 L flasks with 550 mL anoxic basal medium (Stams et
+    al., 1993) supplemented with 20 mM propionate and 20 mM sulfate under 172 kPa N2/CO2 (80:20, vol/vol) and harvested at
+    mid-exponential phase without Percoll separation.
+  evidence:
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A coculture of S. fumaroxidans with Desulfovibrio desulfuricans strain G11 (DSM 7057; Sheik et al., 2017 ) was
+      grown with 20 mM propionate and 20 mM sulfate. Axenic cultures of D. desulfuricans were grown with 20 mM sulfate and
+      40 mM formate or hydrogen (1.7 atm H2/CO2 80:20 vol/vol). All organisms were batch cultured in triplicate at 37°C in
+      1 l flasks with 550 ml medium under anaerobic conditions provided by a pressurised (172 kPa; 1.7 atm) gas phase of N2/CO2
+      (80:20, vol/vol).
+    explanation: Documents the substrate concentrations (20 mM propionate, 20 mM sulfate), temperature (37 degrees Celsius),
+      vessel (1 L flasks with 550 mL medium), and pressurized N2/CO2 headspace.
+  vessel_type: 1 L batch flasks containing 550 mL medium
+external_resources:
+- name: Primary publication - S. fumaroxidans and D. desulfuricans syntrophic proteomics
+  repository: OTHER
+  resource_id: doi:10.1111/1462-2920.14119
+  url: https://doi.org/10.1111/1462-2920.14119
+  description: Environmental Microbiology study profiling the quantitative proteomes of Syntrophobacter fumaroxidans MPOBT
+    and Desulfovibrio desulfuricans G11 in propionate-sulfate coculture alongside methanogenic cocultures.
+  evidence:
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: We performed a proteome analysis of S. fumaroxidans growing with propionate axenically with sulfate or fumarate,
+      and in syntrophy with Methanospirillum hungatei, Methanobacterium formicicum or Desulfovibrio desulfuricans.
+    explanation: Links the primary comparative proteomics study (PMID:29611893) characterizing S. fumaroxidans in coculture
+      with D. desulfuricans.
+discussions:
+- discussion_id: sfum-ddes-partitioning-of-sulfate-vs-iet-flux
+  prompt: Although comparative proteomics confirms that S. fumaroxidans expresses both dissimilatory sulfate-reduction enzymes
+    and interspecies formate/hydrogen transfer complexes while D. desulfuricans expresses AprA and FDH3 during growth on 20
+    mM propionate and 20 mM sulfate, what fraction of propionate-derived electrons is routed through S. fumaroxidans' own
+    sulfate reduction versus interspecies formate and H2 transfer to D. desulfuricans?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Syntrophic Propionate Oxidation with Interspecies Formate and Hydrogen Transfer
+  rationale: The coculture cells of S. fumaroxidans and D. desulfuricans were not separated by Percoll gradient centrifugation
+    (which was applied only to the S. fumaroxidans + M. hungatei coculture), and bulk substrate/product monitoring does not
+    partition sulfate reduction flux between the two sulfate-reducing partners or separate formate versus H2 electron transfer
+    flux quantitatively.
+  evidence:
+  - reference: PMID:29611893
+    reference_title: Comparative proteome analysis of propionate degradation by Syntrophobacter fumaroxidans in pure culture
+      and in coculture with methanogens.
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: Only cells from the syntrophic coculture of S. fumaroxidans and M. hungatei were separated by Percoll gradient
+      centrifugation (Percoll®, Sigma‐Aldrich, Missouri) as described elsewhere (De Bok et al., 2002b ).
+    explanation: Confirms that Percoll physical cell separation was performed only for the M. hungatei coculture, not for
+      the D. desulfuricans coculture.
+  posed_by: antigravity
+  posed_date: '2026-11-05'
+metals_present:
+- IRON
+- NICKEL
+rare_earth_elements_present: []
+metal_relevance: INCIDENTAL
+metal_notes: Iron-sulfur clusters, [NiFe]-hydrogenases (Hyn, Hox, Fhl-h), and molybdenum/tungsten-dependent formate dehydrogenases
+  (Fdh1, Fdh2, FDH3) mediate interspecies electron transfer, but the study focuses on syntrophic propionate oxidation and
+  sulfate reduction rather than bulk metal transformation.
+curation_history:
+- timestamp: '2026-11-05T21:45:00Z'
+  curator: antigravity
+  action: CREATE_COMMUNITY_RECORD
+  changes: Created CommunityMech:000510 for the defined Syntrophobacter fumaroxidans MPOBT (DSM 10017) + Desulfovibrio desulfuricans
+    G11 (DSM 7057) propionate and sulfate syntrophic coculture from PMID:29611893 / doi:10.1111/1462-2920.14119, sibling to
+    CommunityMech:000068 and CommunityMech:000069.
+  llm_assisted: true
