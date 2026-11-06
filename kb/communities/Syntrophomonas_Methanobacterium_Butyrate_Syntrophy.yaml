@@ -1,0 +1,310 @@
+id: CommunityMech:000511
+name: Syntrophomonas-Methanobacterium Butyrate Syntrophy
+description: A defined two-member anaerobic syntrophic biculture of the butyrate-oxidizing bacterium Syntrophomonas wolfei
+  strain G311 and the hydrogen- and formate-utilizing methanogen Methanobacterium formicicum strain MF (DSM 1535) grown at
+  37 degrees Celsius in bicarbonate-buffered mineral salt medium supplemented with 20 mM butyrate, 1 mM glycerol, 0.05 g/L
+  yeast extract, and 2 mM sodium acetate under N2/CO2 (80/20, vol/vol) at 1.5 bar. In Doloman et al. (2022, PMID:35699440,
+  Table 1 and Fig. 2B), the S. wolfei + M. formicicum biculture converted butyrate to acetate and methane with a lag phase
+  of 5.38 (0.43) days, a volumetric methane production rate of 0.15 (0.006)* mmol/L/day, and a maximal methane concentration
+  of 3.92 (0.23) mmol/L, and was positively stimulated by 1.1 mM starting acetate (Fig. S2).
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+engineering_design:
+  objective: Establish the two-member syntrophic butyrate-degrading baseline of Syntrophomonas wolfei G311 and Methanobacterium
+    formicicum MF (DSM 1535) on 20 mM sodium butyrate and evaluate whether adding fermentative Trichococcus flocculiformis
+    ES5 or 1.1 mM acetate accelerates methanogenic butyrate conversion.
+  assembly_strategy: Combine mid-log-phase cultures of butyrate-oxidizing Syntrophomonas wolfei G311 (DSM 10235; pre-grown
+    syntrophically) and hydrogen/formate-consuming Methanobacterium formicicum MF (DSM 1535; pre-grown on H2/CO2 + 5 mM formate)
+    in mineral medium with 20 mM sodium butyrate.
+  inoculation_strategy: Construct the syntrophic biculture in 120-mL serum vials containing 50 mL bicarbonate-buffered mineral
+    salt medium (20 mM butyrate, 1 mM glycerol, 0.05 g/L yeast extract, 2 mM sodium acetate, N2/CO2 80/20 vol/vol at 1.5 bar)
+    by mixing a 10% (vol/vol) inoculum of pre-grown pure cultures of S. wolfei G311 and M. formicicum MF.
+  perturbation_design: Compare the S. wolfei G311 + M. formicicum MF biculture against the three-member triculture with Trichococcus
+    flocculiformis ES5 (CommunityMech:000512), the parallel M. hungatei JF1 biculture and triculture (CommunityMech:000188),
+    and bicultures supplemented with 1.1 mM initial acetate or yeast extract (Fig. S2).
+  measurement_endpoints:
+  - lag phase of methane production (days)
+  - volumetric methane production rate (mmol/L/day)
+  - maximal methane concentration (mmol/L)
+  - butyrate consumption and acetate accumulation (mM)
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each of the three syntrophic bi-cultures was constructed by mixing a 10% (vol/vol) inoculum of the pre-grown
+      pure culture of S. wolfei and methanogens.
+    explanation: Documents the 10% (vol/vol) co-inoculation strategy used to assemble the S. wolfei + M. formicicum biculture.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. wolfei + M. formicicum 5.38 (0.43) 0.15 (0.006)* 3.92 (0.23)
+    explanation: Reports the Table 1 lag phase (5.38 +- 0.43 days), methane production rate (0.15 +- 0.006 mmol/L/day), and
+      maximal methane concentration (3.92 +- 0.23 mmol/L) for the S. wolfei + M. formicicum biculture.
+environment_term:
+  preferred_term: anaerobic laboratory serum-bottle coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Static 120-mL serum-bottle cultures containing 50 mL bicarbonate-buffered mineral medium with 20 mM sodium butyrate
+    under 1.5 atm N2/CO2 (80:20, v/v) at 37 degrees Celsius in the dark.
+modeled_environment:
+- preferred_term: anaerobic bioreactor
+  term:
+    id: ENVO:00002124
+    label: anaerobic bioreactor
+  notes: Models syntrophic beta-oxidation of butyrate coupled to hydrogenotrophic and formatotrophic methanogenesis in anaerobic
+    bioreactors.
+taxonomy:
+- taxon_term:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Syntrophomonas_methylbutyratica
+    - GTDB:s__Syntrophomonas_wolfei
+    notes: Butyrate-oxidizing syntrophic bacterium (strain G311 / DSM 10235) grown in defined biculture with Methanobacterium
+      formicicum MF (DSM 1535) on 20 mM sodium butyrate.
+  strain_designation:
+    strain_name: G311
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanospirillum hungatei strain JF1 (DSM 864), Methanobrevibacter arboriphilus strain SA (DSM 7056), and Methanobacterium
+      formicicum strain MF (DSM 1535). A pure culture of Syntrophomonas wolfei strain G311 was kindly provided by Michael
+      J. McInerney, the University of Oklahoma.
+    explanation: Identifies Syntrophomonas wolfei strain G311 as the butyrate-oxidizing syntroph.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. wolfei + M. formicicum 5.38 (0.43) 0.15 (0.006)* 3.92 (0.23)
+    explanation: Confirms S. wolfei as a member of the S. wolfei + M. formicicum biculture in Table 1.
+- taxon_term:
+    preferred_term: Methanobacterium formicicum
+    term:
+      id: NCBITaxon:2162
+      label: Methanobacterium formicicum
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Methanobacterium_formicicum
+      gtdb_taxon: Methanobacterium formicicum
+      gtdb_lineage: d__Archaea;p__Methanobacteriota;c__Methanobacteria;o__Methanobacteriales;f__Methanobacteriaceae;g__Methanobacterium;s__Methanobacterium
+        formicicum
+      ncbi_source_id: NCBITaxon:2162
+      majority_fraction: 0.94
+      total_genomes: 17
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Hydrogen- and formate-scavenging methanogenic partner (strain MF / DSM 1535) paired with Syntrophomonas wolfei
+      G311 in the two-member butyrate-degrading biculture.
+  strain_designation:
+    strain_name: MF (DSM:1535)
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanospirillum hungatei strain JF1 (DSM 864), Methanobrevibacter arboriphilus strain SA (DSM 7056), and Methanobacterium
+      formicicum strain MF (DSM 1535). A pure culture of Syntrophomonas wolfei strain G311 was kindly provided by Michael
+      J. McInerney, the University of Oklahoma.
+    explanation: Identifies Methanobacterium formicicum strain MF (DSM 1535) as the methanogenic partner.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. wolfei + M. formicicum 5.38 (0.43) 0.15 (0.006)* 3.92 (0.23)
+    explanation: Confirms M. formicicum as a member of the S. wolfei + M. formicicum biculture in Table 1.
+ecological_interactions:
+- name: Syntrophic Butyrate Beta-Oxidation Coupled to Methanogenesis
+  description: In the two-member S. wolfei G311 + M. formicicum MF biculture grown on 20 mM sodium butyrate, S. wolfei oxidizes
+    butyrate to acetate while transferring reducing equivalents (hydrogen and formate) to M. formicicum for methanogenesis,
+    yielding a 5.38 (0.43) day lag phase, a 0.15 (0.006)* mmol/L/day methane production rate, and 3.92 (0.23) mmol/L maximal
+    methane concentration (Table 1, Fig. 2B). Supplementing the S. wolfei + M. formicicum biculture with 1.1 mM initial acetate
+    positively stimulated methane production (Fig. S2).
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  target_taxon:
+    preferred_term: Methanobacterium formicicum
+    term:
+      id: NCBITaxon:2162
+      label: Methanobacterium formicicum
+  metabolites:
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:30772
+      label: butyric acid
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: fatty acid beta-oxidation
+    term:
+      id: GO:0006635
+      label: fatty acid beta-oxidation
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. wolfei + M. formicicum 5.38 (0.43) 0.15 (0.006)* 3.92 (0.23)
+    explanation: Quantifies the syntrophic methanogenesis kinetics (lag phase, rate, and maximal methane concentration) of
+      the S. wolfei + M. formicicum biculture.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Notably, the tri-culture with M. formicicum had a significantly higher (~2-fold increase) methane production
+      rate compared to the bi-culture pair.
+    explanation: Establishes the S. wolfei + M. formicicum biculture pair as the baseline against which the ~2-fold triculture
+      rate increase is measured.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A bi-culture of the syntroph with M. formicicum was indeed positively affected (increased methane production)
+      by a slightly elevated starting amount of acetate in the growth media.
+    explanation: Documents that starting acetate supplementation (1.1 mM, Fig. S2) positively affected methane production
+      in the S. wolfei + M. formicicum biculture.
+environmental_factors:
+- name: Sodium butyrate substrate concentration
+  value: '20'
+  unit: mM
+  description: Sodium butyrate (20 mM) served as the carbon and energy source for the syntrophic biculture.
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All the experiments with bi- and tri-cultures were supplemented with butyrate (20 mM), glycerol (1 mM), yeast
+      extract (0.05 g/L), and sodium acetate (2 mM).
+    explanation: Specifies the 20 mM butyrate, 1 mM glycerol, 0.05 g/L yeast extract, and 2 mM sodium acetate medium supplements.
+- name: Initial acetate supplementation
+  value: '1.1'
+  unit: mM
+  description: Supplementing 1.1 mM initial acetate stimulated methane production in the S. wolfei + M. formicicum biculture
+    (Fig. S2), in contrast to the S. wolfei + M. hungatei biculture.
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A bi-culture of the syntroph with M. formicicum was indeed positively affected (increased methane production)
+      by a slightly elevated starting amount of acetate in the growth media.
+    explanation: Supports the positive effect of elevated starting acetate on the S. wolfei + M. formicicum biculture.
+growth_media:
+- name: Bicarbonate-buffered anaerobic mineral medium with 20 mM sodium butyrate
+  composition:
+  - name: sodium butyrate
+    concentration: '20'
+    unit: mM
+    chebi_term:
+      preferred_term: butyrate
+      term:
+        id: CHEBI:30772
+        label: butyric acid
+    from_source: community_curated
+  ph: 7.0-7.2
+  temperature: '37'
+  temperature_unit: degrees Celsius
+  atmosphere: ANAEROBIC
+  headspace_gas: N2/CO2 (80/20, vol/vol) at 1.5 bar
+  shaking_speed: '0'
+  shaking_speed_unit: rpm
+  light_regime: Dark (static incubation in the dark)
+  inoculum_size: 10% (vol/vol) inoculum of pre-grown pure cultures of S. wolfei and M. formicicum
+  preparation_notes: Cultivated statically at 37 degrees Celsius in the dark in 120-mL serum bottles with 50 mL bicarbonate-buffered
+    mineral medium supplemented with 20 mM sodium butyrate under 1.5 atm N2/CO2 (80:20, v/v).
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All the experiments with bi- and tri-cultures were supplemented with butyrate (20 mM), glycerol (1 mM), yeast
+      extract (0.05 g/L), and sodium acetate (2 mM).
+    explanation: Documents the 20 mM butyrate, 1 mM glycerol, 0.05 g/L yeast extract, and 2 mM sodium acetate composition.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Boiled and N2-flushed medium (50 mL) was dispensed into 120-mL serum vials, sealed with black butyl rubber septa,
+      and crimped with aluminum caps. The vial headspace was flushed with H2/CO2 (for growing pure cultures of methanogens)
+      or N2/CO2 (for syntrophic cocultures and pure T. flocculiformis ES5 cultures) at 80/20 (vol/vol) and pressurized to
+      1.5 bar.
+    explanation: Documents the 120-mL serum vials (50 mL medium) and N2/CO2 (80/20, vol/vol) headspace at 1.5 bar.
+  vessel_type: 120-mL serum bottles containing 50 mL medium
+external_resources:
+- name: Primary publication - S. wolfei + M. formicicum butyrate syntrophy
+  repository: OTHER
+  resource_id: doi:10.1128/aem.00391-22
+  url: https://doi.org/10.1128/aem.00391-22
+  description: Applied and Environmental Microbiology study characterizing syntrophic butyrate oxidation in the S. wolfei
+    + M. formicicum biculture alongside the T. flocculiformis-stimulated triculture.
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Stimulating Effect of Trichococcus flocculiformis on a Coculture of Syntrophomonas wolfei and Methanospirillum
+      hungatei.
+    explanation: Identifies the primary publication (PMID:35699440) reporting the S. wolfei + M. formicicum biculture in Fig.
+      2B and Table 1.
+discussions:
+- discussion_id: swol-mfor-biculture-proteomics-not-measured
+  prompt: Why did 1.1 mM initial acetate stimulate methane production in the S. wolfei + M. formicicum biculture (Fig. S2)
+    when it had no effect on the S. wolfei + M. hungatei biculture, and do the same proteomics patterns measured for the M.
+    hungatei system hold in the M. formicicum biculture?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Syntrophic Butyrate Beta-Oxidation Coupled to Methanogenesis
+  rationale: Doloman et al. (2022) performed quantitative proteomics and lactate/formate transfer follow-ups on the S. wolfei
+    + M. hungatei biculture and triculture, not on the S. wolfei + M. formicicum biculture. Because M. formicicum MF lacks
+    the organic carbon assimilation requirement of M. hungatei JF1, the physiological basis of the 1.1 mM acetate stimulation
+    in the M. formicicum biculture remains an open question.
+  evidence:
+  - reference: PMID:35699440
+    reference_title: Stimulating Effect of Trichococcus flocculiformis on a Coculture of Syntrophomonas wolfei and Methanospirillum
+      hungatei.
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: A bi-culture of the syntroph with M. formicicum was indeed positively affected (increased methane production)
+      by a slightly elevated starting amount of acetate in the growth media.
+    explanation: Documents the positive effect of starting acetate on the S. wolfei + M. formicicum biculture.
+  posed_by: antigravity
+  posed_date: '2026-11-05'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: Standard trace metals were supplied in the anaerobic mineral medium, with no bulk metal or rare earth element
+  bioprocessing role.
+curation_history:
+- timestamp: '2026-11-05T21:45:00Z'
+  curator: antigravity
+  action: CREATE_COMMUNITY_RECORD
+  changes: Created CommunityMech:000511 for the defined two-member Syntrophomonas wolfei G311 + Methanobacterium formicicum
+    MF butyrate-oxidizing syntrophic biculture from PMID:35699440 / doi:10.1128/aem.00391-22 (Table 1, Fig. 2B, Fig. S2),
+    sibling to CommunityMech:000188 and CommunityMech:000512.
+  llm_assisted: true

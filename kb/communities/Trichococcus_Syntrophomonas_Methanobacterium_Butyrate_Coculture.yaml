@@ -1,0 +1,331 @@
+id: CommunityMech:000512
+name: Trichococcus-Syntrophomonas-Methanobacterium Butyrate Coculture
+description: A defined three-member anaerobic syntrophic triculture composed of the fermentative bacterium Trichococcus flocculiformis
+  strain ES5 (DSM 23957), the butyrate-oxidizing syntroph Syntrophomonas wolfei strain G311, and the hydrogen- and formate-utilizing
+  methanogen Methanobacterium formicicum strain MF (DSM 1535) grown on 20 mM butyrate, 1 mM glycerol, 0.05 g/L yeast extract,
+  and 2 mM sodium acetate in bicarbonate-buffered mineral salt medium under N2/CO2 (80/20, vol/vol) at 1.5 bar. In Doloman
+  et al. (2022, PMID:35699440, Table 1 and Fig. 2B), co-inoculating 1% (vol/vol) T. flocculiformis ES5 into the S. wolfei
+  + M. formicicum coculture shortened the lag phase from 5.38 (0.43) days to 3.3 (0.55) days and produced a statistically
+  significant ~2-fold increase in volumetric methane production rate from 0.15 (0.006)* mmol/L/day to 0.26 (0.02)* mmol/L/day
+  (maximal methane concentration 4.1 +- 0.14 mmol/L).
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+engineering_design:
+  objective: Test whether adding the fermentative bacterium Trichococcus flocculiformis ES5 stimulates syntrophic butyrate
+    conversion to methane when Methanospirillum hungatei JF1 is replaced by Methanobacterium formicicum MF (DSM 1535) as the
+    methanogenic partner of Syntrophomonas wolfei G311.
+  assembly_strategy: Assemble a three-species syntrophic triculture by adding pre-grown Trichococcus flocculiformis ES5 (DSM
+    23957, washed twice in mineral medium without carbon source) to the Syntrophomonas wolfei G311 + Methanobacterium formicicum
+    MF butyrate-oxidizing biculture.
+  inoculation_strategy: Inoculate 120-mL serum vials containing 50 mL bicarbonate-buffered mineral salt medium (20 mM butyrate,
+    1 mM glycerol, 0.05 g/L yeast extract, 2 mM sodium acetate) with 10% (vol/vol) pre-grown S. wolfei G311 and M. formicicum
+    MF plus 1% (vol/vol) T. flocculiformis ES5 under 1.5 bar N2/CO2 (80/20, vol/vol).
+  perturbation_design: Compare the three-member T. flocculiformis ES5 + S. wolfei G311 + M. formicicum MF triculture against
+    the two-member S. wolfei G311 + M. formicicum MF biculture (CommunityMech:000511) and the parallel M. hungatei JF1 triculture
+    (CommunityMech:000188) on 20 mM sodium butyrate.
+  measurement_endpoints:
+  - lag phase of methane production (days)
+  - volumetric methane production rate (mmol/L/day)
+  - maximal methane concentration (mmol/L)
+  - butyrate consumption and acetate accumulation (mM)
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each of the three syntrophic bi-cultures was constructed by mixing a 10% (vol/vol) inoculum of the pre-grown
+      pure culture of S. wolfei and methanogens. For tri-cultures T. flocculiformis was additionally inoculated in 1% (vol/vol).
+    explanation: Documents the 10% (vol/vol) syntroph/methanogen and 1% (vol/vol) T. flocculiformis triculture assembly protocol.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: T. flocculiformis ES5 + S. wolfei + M. formicicum 3.3 (0.55) 0.26 (0.02)* 4.1 (0.14)
+    explanation: Reports the Table 1 lag phase (3.3 +- 0.55 days), methane production rate (0.26 +- 0.02 mmol/L/day), and
+      maximal methane concentration (4.1 +- 0.14 mmol/L) for the triculture.
+environment_term:
+  preferred_term: anaerobic laboratory serum-bottle triculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Static 120-mL serum-bottle tricultures containing 50 mL bicarbonate-buffered mineral medium with 20 mM sodium butyrate
+    under 1.5 atm N2/CO2 (80:20, v/v) at 37 degrees Celsius in the dark.
+modeled_environment:
+- preferred_term: anaerobic bioreactor
+  term:
+    id: ENVO:00002124
+    label: anaerobic bioreactor
+  notes: Models syntrophic butyrate conversion to methane in anaerobic digester bioreactors augmented with fermentative adjunct
+    bacteria.
+taxonomy:
+- taxon_term:
+    preferred_term: Trichococcus flocculiformis strain ES5
+    term:
+      id: NCBITaxon:82803
+      label: Trichococcus flocculiformis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Trichococcus_flocculiformis
+      gtdb_taxon: Trichococcus flocculiformis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Aerococcaceae;g__Trichococcus;s__Trichococcus
+        flocculiformis
+      ncbi_source_id: NCBITaxon:82803
+      majority_fraction: 1.0
+      total_genomes: 256
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Fermentative bacterium (strain ES5 / DSM 23957) added as an adjunct partner without its own fermentable sugar substrate
+      to stimulate the Syntrophomonas wolfei G311 + Methanobacterium formicicum MF butyrate-degrading coculture.
+  strain_designation:
+    strain_name: ES5 (DSM:23957)
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_level: ABUNDANT
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanospirillum hungatei strain JF1 (DSM 864), Methanobrevibacter arboriphilus strain SA (DSM 7056), and Methanobacterium
+      formicicum strain MF (DSM 1535). A pure culture of Syntrophomonas wolfei strain G311 was kindly provided by Michael
+      J. McInerney, the University of Oklahoma. A Trichococcus flocculiformis ES5 (DSM 23957) culture was originally isolated
+      in our laboratory
+    explanation: Identifies Trichococcus flocculiformis ES5 as a defined strain used in the triculture study.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: T. flocculiformis ES5 + S. wolfei + M. formicicum 3.3 (0.55) 0.26 (0.02)* 4.1 (0.14)
+    explanation: Confirms Trichococcus flocculiformis ES5 as a constituent of the three-member triculture in Table 1.
+- taxon_term:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Syntrophomonas_methylbutyratica
+    - GTDB:s__Syntrophomonas_wolfei
+    notes: Butyrate-oxidizing syntroph (strain G311 / DSM 10235) converting 20 mM butyrate to acetate, H2, and formate in
+      the three-member triculture.
+  strain_designation:
+    strain_name: G311
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanospirillum hungatei strain JF1 (DSM 864), Methanobrevibacter arboriphilus strain SA (DSM 7056), and Methanobacterium
+      formicicum strain MF (DSM 1535). A pure culture of Syntrophomonas wolfei strain G311 was kindly provided by Michael
+      J. McInerney, the University of Oklahoma. A Trichococcus flocculiformis ES5 (DSM 23957) culture was originally isolated
+      in our laboratory
+    explanation: Identifies Syntrophomonas wolfei G311 as a defined strain used in the triculture study.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: T. flocculiformis ES5 + S. wolfei + M. formicicum 3.3 (0.55) 0.26 (0.02)* 4.1 (0.14)
+    explanation: Confirms Syntrophomonas wolfei G311 as a constituent of the three-member triculture in Table 1.
+- taxon_term:
+    preferred_term: Methanobacterium formicicum
+    term:
+      id: NCBITaxon:2162
+      label: Methanobacterium formicicum
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Methanobacterium_formicicum
+      gtdb_taxon: Methanobacterium formicicum
+      gtdb_lineage: d__Archaea;p__Methanobacteriota;c__Methanobacteria;o__Methanobacteriales;f__Methanobacteriaceae;g__Methanobacterium;s__Methanobacterium
+        formicicum
+      ncbi_source_id: NCBITaxon:2162
+      majority_fraction: 0.94
+      total_genomes: 17
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Hydrogen- and formate-scavenging methanogen (strain MF / DSM 1535) coupling interspecies electron transfer to methane
+      production in the three-member triculture.
+  strain_designation:
+    strain_name: MF (DSM:1535)
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanospirillum hungatei strain JF1 (DSM 864), Methanobrevibacter arboriphilus strain SA (DSM 7056), and Methanobacterium
+      formicicum strain MF (DSM 1535). A pure culture of Syntrophomonas wolfei strain G311 was kindly provided by Michael
+      J. McInerney, the University of Oklahoma. A Trichococcus flocculiformis ES5 (DSM 23957) culture was originally isolated
+      in our laboratory
+    explanation: Identifies Methanobacterium formicicum MF as a defined strain used in the triculture study.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: T. flocculiformis ES5 + S. wolfei + M. formicicum 3.3 (0.55) 0.26 (0.02)* 4.1 (0.14)
+    explanation: Confirms Methanobacterium formicicum MF as a constituent of the three-member triculture in Table 1.
+ecological_interactions:
+- name: Trichococcus-Stimulated Syntrophic Butyrate Conversion to Methane
+  description: In the three-member triculture of Trichococcus flocculiformis ES5, Syntrophomonas wolfei G311, and Methanobacterium
+    formicicum MF grown on 20 mM sodium butyrate without added sugars, adding washed T. flocculiformis ES5 shortened the methanogenic
+    lag phase from 5.38 (0.43) days to 3.3 (0.55) days and doubled the volumetric methane production rate from 0.15 (0.006)*
+    mmol/L/day to 0.26 (0.02)* mmol/L/day, reaching a maximal methane concentration of 4.1 (0.14) mmol/L (Table 1, Fig. 2B).
+    Because quantitative proteomics and donor-to-recipient metabolite flux were measured only on the M. hungatei JF1 system,
+    this three-member outcome is represented at COMMUNITY_LEVEL without unverified pairwise donor-recipient edges.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Trichococcus flocculiformis
+    term:
+      id: NCBITaxon:82803
+      label: Trichococcus flocculiformis
+  - preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  - preferred_term: Methanobacterium formicicum
+    term:
+      id: NCBITaxon:2162
+      label: Methanobacterium formicicum
+  metabolites:
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:30772
+      label: butyric acid
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: fatty acid beta-oxidation
+    term:
+      id: GO:0006635
+      label: fatty acid beta-oxidation
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Notably, the tri-culture with M. formicicum had a significantly higher (~2-fold increase) methane production
+      rate compared to the bi-culture pair.
+    explanation: Demonstrates that adding T. flocculiformis ES5 to the S. wolfei + M. formicicum coculture increased the volumetric
+      methane production rate ~2-fold.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: T. flocculiformis ES5 + S. wolfei + M. formicicum 3.3 (0.55) 0.26 (0.02)* 4.1 (0.14)
+    explanation: Quantifies the lag phase (3.3 +- 0.55 days), volumetric methane production rate (0.26 +- 0.02 mmol/L/day),
+      and maximal methane concentration (4.1 +- 0.14 mmol/L) of the three-member triculture.
+environmental_factors:
+- name: Sodium butyrate substrate concentration
+  value: '20'
+  unit: mM
+  description: The T. flocculiformis + S. wolfei + M. formicicum triculture was grown on 20 mM sodium butyrate without fermentable
+    sugars.
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All the experiments with bi- and tri-cultures were supplemented with butyrate (20 mM), glycerol (1 mM), yeast
+      extract (0.05 g/L), and sodium acetate (2 mM).
+    explanation: Specifies the 20 mM butyrate, 1 mM glycerol, 0.05 g/L yeast extract, and 2 mM sodium acetate medium supplements.
+growth_media:
+- name: Bicarbonate-buffered anaerobic mineral medium with 20 mM sodium butyrate
+  composition:
+  - name: sodium butyrate
+    concentration: '20'
+    unit: mM
+    chebi_term:
+      preferred_term: butyrate
+      term:
+        id: CHEBI:30772
+        label: butyric acid
+    from_source: community_curated
+  ph: 7.0-7.2
+  temperature: '37'
+  temperature_unit: degrees Celsius
+  atmosphere: ANAEROBIC
+  headspace_gas: N2/CO2 (80/20, vol/vol) at 1.5 bar
+  shaking_speed: '0'
+  shaking_speed_unit: rpm
+  light_regime: Dark (static incubation in the dark)
+  inoculum_size: 10% (vol/vol) S. wolfei + M. formicicum and 1% (vol/vol) T. flocculiformis ES5
+  preparation_notes: T. flocculiformis ES5 cells were pre-grown on 10 mM glucose, washed twice in sugar-free mineral medium,
+    and co-inoculated with S. wolfei G311 and M. formicicum MF into 120-mL serum bottles containing 50 mL mineral medium with
+    20 mM sodium butyrate at 37 degrees Celsius.
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All the experiments with bi- and tri-cultures were supplemented with butyrate (20 mM), glycerol (1 mM), yeast
+      extract (0.05 g/L), and sodium acetate (2 mM).
+    explanation: Documents the 20 mM butyrate, 1 mM glycerol, 0.05 g/L yeast extract, and 2 mM sodium acetate composition.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Boiled and N2-flushed medium (50 mL) was dispensed into 120-mL serum vials, sealed with black butyl rubber septa,
+      and crimped with aluminum caps. The vial headspace was flushed with H2/CO2 (for growing pure cultures of methanogens)
+      or N2/CO2 (for syntrophic cocultures and pure T. flocculiformis ES5 cultures) at 80/20 (vol/vol) and pressurized to
+      1.5 bar.
+    explanation: Documents the 120-mL serum vials (50 mL medium) and N2/CO2 (80/20, vol/vol) headspace at 1.5 bar.
+  vessel_type: 120-mL serum bottles containing 50 mL medium
+external_resources:
+- name: Primary publication - T. flocculiformis + S. wolfei + M. formicicum triculture
+  repository: OTHER
+  resource_id: doi:10.1128/aem.00391-22
+  url: https://doi.org/10.1128/aem.00391-22
+  description: Applied and Environmental Microbiology study reporting the 2-fold stimulation of syntrophic butyrate methanogenesis
+    by T. flocculiformis ES5 in the S. wolfei + M. formicicum triculture.
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Stimulating Effect of Trichococcus flocculiformis on a Coculture of Syntrophomonas wolfei and Methanospirillum
+      hungatei.
+    explanation: Identifies the primary publication (PMID:35699440) characterizing the T. flocculiformis + S. wolfei + M.
+      formicicum triculture.
+discussions:
+- discussion_id: tfloc-swol-mfor-mediator-unmeasured
+  prompt: Which specific compounds or cellular components released by prewashed T. flocculiformis ES5 drive the 2-fold increase
+    in methane production rate in the S. wolfei G311 + M. formicicum MF triculture when M. formicicum is already autotrophic?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Trichococcus-Stimulated Syntrophic Butyrate Conversion to Methane
+  rationale: Unlike Methanospirillum hungatei JF1, Methanobacterium formicicum MF is autotrophic and does not require exogenous
+    organic carbon for biosynthesis, yet both the addition of T. flocculiformis ES5 (Table 1, Fig. 2B) and the addition of
+    1.1 mM initial acetate (Fig. S2) stimulated methane production in the S. wolfei + M. formicicum system. Because proteomics
+    and metabolite fractionation were performed only on the M. hungatei triculture, the molecular mediator in the M. formicicum
+    triculture remains unverified.
+  evidence:
+  - reference: PMID:35699440
+    reference_title: Stimulating Effect of Trichococcus flocculiformis on a Coculture of Syntrophomonas wolfei and Methanospirillum
+      hungatei.
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: Cocultures with M. formicicum had the smallest amounts of formate. In contrast to the tri-cultures, no formate
+      was detected in the bi-cultures without T. flocculiformis ES5. Cocultures with M. hungatei were chosen for further close-up
+      investigation
+    explanation: Confirms that formate accumulated in the M. formicicum triculture but that close-up proteomic and SEM investigations
+      were performed only on the M. hungatei system.
+  posed_by: antigravity
+  posed_date: '2026-11-05'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: Standard trace metals were supplied in the anaerobic mineral medium, with no bulk metal or rare earth element
+  bioprocessing role.
+curation_history:
+- timestamp: '2026-11-05T21:45:00Z'
+  curator: antigravity
+  action: CREATE_COMMUNITY_RECORD
+  changes: Created CommunityMech:000512 for the defined three-member Trichococcus flocculiformis ES5 + Syntrophomonas wolfei
+    G311 + Methanobacterium formicicum MF butyrate-oxidizing triculture from PMID:35699440 / doi:10.1128/aem.00391-22 (Table
+    1, Fig. 2B), sibling to CommunityMech:000188 and CommunityMech:000511.
+  llm_assisted: true
