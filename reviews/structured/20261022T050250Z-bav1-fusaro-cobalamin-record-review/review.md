@@ -1,0 +1,1483 @@
+# BAV1–Fusaro DMB-guided cobalamin coculture review
+
+- Review: 20261022T050250Z-bav1-fusaro-cobalamin-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-22T04:55:37.558920Z
+- Finished UTC: 2026-10-22T05:02:50.824955Z
+- Reviewer: codex (unknown)
+- Completion: partial
+- Verdict: needs_curation
+- Scientific review: false
+
+## Summary
+
+Three major findings concern a wrong GO process identifier, unsupported Fusaro recipient-role evidence and unseparated medium/control inputs. One minor finding concerns GTDB provenance. Exact strain identities and the qualified biological graph are retained. The principal 2013 main is unavailable, so this review is partial despite eight native passes. Literal completeness 95 and capped quality 100 (raw103) do not negate the findings.
+
+## Scope And Provenance
+
+Whole target; complete fresh abstracts; recovered 2003 primary main with bounded figure views; exact ontology/stock/provenance context. Principal 2013 main unavailable after bounded ordinary routes.
+
+Selection: Only released CommunityMech:000209 in owned batch15.
+Coverage: partial; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base cb7a782c8ba80299dca8761ad0a2c90bccd8a117.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000209 | kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml | maintained | Dehalococcoides-Methanosarcina DMB-Guided Cobalamin Coculture |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000209 | Actual native exit 0. |
+| validate-strict | passed | True | CommunityMech:000209 | Actual native exit 0. |
+| validate-terms | passed | True | CommunityMech:000209 | Actual native exit 0. |
+| validate-references-explained | passed | True | CommunityMech:000209 | Actual native exit 0. |
+| validate-gtdb | passed | True | CommunityMech:000209 | Actual native exit 0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000209 | Actual native exit 0. |
+| validate-history | passed | True | CommunityMech:000209 | Actual native exit 0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000209 | Actual native exit 0. |
+| audit-network corpus context | failed | False | CommunityMech:000209 | Actual corpus exit 1 retained. |
+| check-network-quality corpus context | failed | False | CommunityMech:000209 | Actual corpus exit 1 retained. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000209 | Unavailable in owned runtime. |
+
+## Scientific And Domain Assessments
+
+### Defined experimental pair
+
+identity: supported. Targets: CommunityMech:000209.
+
+Retain BAV1 and Fusaro as the two members.
+
+NCBITaxon:216389 and 269797 identify the exact strains. The additional Dehalococcoides strains and acetogens tested by the paper are comparison populations, not members to add to this pair. Local BAV1 strain rank differs from the direct browser no-rank display without changing identity.
+
+### Fusaro recipient-role direction
+
+grounding: concern. Targets: CommunityMech:000209.
+
+Cobamide production does not establish Fusaro uptake of a BAV1 metabolite.
+
+Retain BAV1 CROSS_FEEDER and the donor-to-recipient exchange node. Qualify or omit the optional Fusaro role unless claim-local recipient evidence is supplied; this does not claim reciprocal uptake is impossible.
+
+### DMB-Guided Cobalamin Support
+
+graph: supported. Targets: CommunityMech:000209.
+
+Retain conditional DMB-associated cofactor support.
+
+Exact selector ecological_interactions[0]; scope PAIRWISE; interaction_type CROSS_FEEDING. Actual taxa: {"source": {"preferred_term": "Methanosarcina barkeri strain Fusaro", "term": {"id": "NCBITaxon:269797", "label": "Methanosarcina barkeri str. Fusaro"}}, "target": {"preferred_term": "Dehalococcoides mccartyi BAV1", "term": {"id": "NCBITaxon:216389", "label": "Dehalococcoides mccartyi BAV1"}}, "participants": []}. Canonical excerpt bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet", "sha256": "19081059d8c1eb66bda9f13ea85ce56edf4ddce4ada4a6398cdca7cb1ea1088e", "reference": "PMID:23479750", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}, {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "32021eba1af13144b60d9c40748d6ec84a5f0c646c40382e80ddb7f239081acf", "reference": "PMID:23479750", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 d098669c1ca666b09de15755afb2481086643b059a1d8a4e862d0e9e642f3444. Locators: Abstract sentences 4–8, especially the eighth sentence. Retain SUPPORT / IN_VITRO at available source scope. 269797 → 216389; external DMB and nonexclusive cofactor remodeling remain explicit. Biological narrative is supported; the separate incorrect GO annotation must be repaired.
+
+### Factor III Is Insufficient Without DMB
+
+graph: supported. Targets: CommunityMech:000209.
+
+Retain native-cobamide insufficiency without toxicity or active inhibition.
+
+Exact selector ecological_interactions[1]; scope PAIRWISE; interaction_type absent. Actual taxa: {"source": {"preferred_term": "Methanosarcina barkeri strain Fusaro", "term": {"id": "NCBITaxon:269797", "label": "Methanosarcina barkeri str. Fusaro"}}, "target": {"preferred_term": "Dehalococcoides mccartyi BAV1", "term": {"id": "NCBITaxon:216389", "label": "Dehalococcoides mccartyi BAV1"}}, "participants": []}. Canonical excerpt bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet", "sha256": "406751ad6eba2ba623744dc8cb1bf0cef035c9f160454a4be43ec05bfd8cf561", "reference": "PMID:23479750", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}, {"selector": "ecological_interactions[1].evidence[1].snippet", "sha256": "c3ec068de1fca4a4e0cf13228cb89f299500b55c5eca5d0dc1007af4a9030ade", "reference": "PMID:23479750", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 d098669c1ca666b09de15755afb2481086643b059a1d8a4e862d0e9e642f3444. Locators: Abstract sentences 5–7. Retain SUPPORT / IN_VITRO at available source scope. 269797 → 216389; missing compatible cofactor is distinct from harming an adequately supplemented recipient. Biological narrative is supported; the separate incorrect GO annotation must be repaired.
+
+### Cobalamin-Dependent Reductive Dechlorination
+
+graph: supported. Targets: CommunityMech:000209.
+
+Retain the recipient dechlorination phenotype.
+
+Exact selector ecological_interactions[2]; scope PAIRWISE; interaction_type absent. Actual taxa: {"source": {"preferred_term": "Dehalococcoides mccartyi BAV1", "term": {"id": "NCBITaxon:216389", "label": "Dehalococcoides mccartyi BAV1"}}, "target": null, "participants": []}. Canonical excerpt bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet", "sha256": "c938935b1995f1278eaeec37924d6912d575a8d4692941277ec5f37035b69577", "reference": "PMID:23479750", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}, {"selector": "ecological_interactions[2].evidence[1].snippet", "sha256": "68de694ca3cd461c3f009eaaab423241397d4e2e7646ada73e8781d6d37cf056", "reference": "PMID:23479750", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 d098669c1ca666b09de15755afb2481086643b059a1d8a4e862d0e9e642f3444. Locators: 2013 Abstract sentences 1–3 and 7–8; 2003 archived page 3 and Figure 2. Retain SUPPORT / IN_VITRO at available source scope. Source 216389; target absent. No forced Fusaro target or reverse-transfer arrow. Pooled BAV1/GT/FL2 rates and substrates remain qualified. Biological narrative is supported; the separate incorrect GO annotation must be repaired.
+
+### DMB-Guided Cobalamin Support → Cobalamin-Dependent Reductive Dechlorination
+
+graph: supported. Targets: CommunityMech:000209.
+
+Retain conditional cofactor support leading to recipient activity.
+
+Exact selector ecological_interactions[0].downstream[0]; source node 0 → node 2. Source interaction 269797 → 216389; downstream phenotype belongs to 216389. Exact description: With externally supplied DMB, the partner-associated corrinoid system supplies compatible cofactor and enables BAV1 dechlorination and growth. This does not assign an exclusive donor-versus-recipient remodeling route or imply that DMB is required when compatible cobalamin is supplied directly. Description SHA256 05037c493b2e25fe2eab5c3375df035f1e8e61371eec6256f068c2eeb9a2cbb5. PMID23479750 Abstract sentences 5–8. Preserve external DMB, direct-compatible-cobalamin rescue, and no exclusive donor-versus-recipient remodeling route.
+
+### Factor III Is Insufficient Without DMB → Cobalamin-Dependent Reductive Dechlorination
+
+graph: supported. Targets: CommunityMech:000209.
+
+Retain the missing-input constraint, not active inhibition.
+
+Exact selector ecological_interactions[1].downstream[0]; source node 1 → node 2. Source interaction 269797 → 216389; downstream phenotype belongs to 216389. Exact description: Failure to supply an adequate compatible cofactor leaves BAV1 dechlorination constrained in the unamended coculture. This denotes a missing nutritional input, not active inhibition by factor III. DMB-associated cofactor production or direct compatible-cobalamin supplementation can overcome that limitation. Description SHA256 6de0d4373c3316615b5a7eb95335dde654f59408171034c95bfb647975cfe4d3. PMID23479750 Abstract sentences 5–8. Preserve external DMB, direct-compatible-cobalamin rescue, and no exclusive donor-versus-recipient remodeling route.
+
+### Separate actual inputs from generated cofactors and controls
+
+scope: concern. Targets: CommunityMech:000209.
+
+The medium combines distinct assay contexts without sufficient pair-specific evidence.
+
+The preparation note accurately declines to assert a full recipe. It does not resolve whether cobalamin is an added ingredient versus generated product in this arm, nor select VC as the exact 2013 input from a generic chlorinated-ethene excerpt. H2/CO2 is explicitly the Fusaro axenic production context. VC is a verified BAV1 growth substrate, and no alternative pair recipe is invented.
+
+### Respiration process identity
+
+grounding: concern. Targets: CommunityMech:000209.
+
+GO:0070812 is unrelated to organohalide respiration.
+
+Correct all three process placements. Its GO:0015430 redirect is a molecular-function transporter term, not a repair candidate. Verified broader GO:0009061 anaerobic respiration is optional; omitting unsupported exact grounding is also valid. Retain the source-supported narrative and valid GO:0009236 cobalamin biosynthetic process.
+
+### Correct chemicals with assay-specific roles
+
+grounding: supported. Targets: CommunityMech:000209.
+
+The seven chemical IDs and laboratory environment label match authority.
+
+Cobalamin, cyanocobalamin, factor III and DMB are not interchangeable. TCE/PCE are upstream pollutant context; the 2003 paper does not support their use as BAV1 growth substrates. Retain incidental cobalt relevance without inventing metal extraction.
+
+### Valid cores and unsupported release wording
+
+provenance: concern. Targets: CommunityMech:000209.
+
+Both exact strain mappings reproduce; only release/build provenance needs repair.
+
+Retain the _B species names, domains, full lineages, fraction 1.0 and one-reference denominators. is_reclassified is a name-comparison flag. The 2026-07-25 date is local file mtime, not an established GTDB build or latest release.
+
+### Publication and data traceability
+
+evidence: supported. Targets: CommunityMech:000209.
+
+All three encoded publication resources identify the intended sources.
+
+The PMCID link is identity-correct despite current challenges; free access and open licensing are distinct. No missing-deposit finding is inferred from unavailable main content. AY165308 is an optional 2003 BAV1 marker declaration, not a coculture deposit verified here.
+
+### Maintained record and historical scope
+
+ownership: supported. Targets: CommunityMech:000209.
+
+Future repairs belong to the focal YAML; history remains intact.
+
+The prior graph repair and dated limited-access discussion are preserved. The new authority error and non-graph repairs do not close shared issues or rewrite the earlier reading event.
+
+### Partial principal-source access
+
+scope: concern. Targets: CommunityMech:000209.
+
+The 2013 main is unavailable, so scientific completion remains false.
+
+Whole fresh abstracts and the recovered 2003 main support bounded judgments. The 2013 first-page publisher preview adds no full Methods/Results coverage; citing material is excluded. No unseen figures, Table 1, supplements or raw data are treated as read.
+
+### Focused and contextual checks
+
+schema: supported. Targets: CommunityMech:000209.
+
+All eight required native checks passed.
+
+The independent GO error remains despite native success. Both corpus failures and the optional adapter are nonrequired; candidate validation is not asserted in advance.
+
+### Literal metrics and findings
+
+completeness: supported. Targets: CommunityMech:000209.
+
+Completeness 95; quality raw 103, capped 100.
+
+## Findings
+
+### go-process: Correct the wrong respiration identifier
+
+major / open / confirmed; issue key: cm-000209-go-process.
+
+GO:0070812 is deprecated and redirects to unrelated ABC-type glycerol-3-phosphate transporter activity. The recorded label is not its meaning.
+
+### fusaro-role: Support the Fusaro recipient role or omit it
+
+major / open / confirmed; issue key: cm-000209-fusaro-role.
+
+The available source demonstrates cobamide production, not a BAV1-derived metabolite utilized by Fusaro. This fails the literal uptake definition of CROSS_FEEDER at the encoded evidence scope.
+
+### medium-arms: Separate amendments, generated cofactor and strain-specific inputs
+
+major / open / confirmed; issue key: cm-000209-medium-arms.
+
+The medium combines DMB, cobalamin and VC-specific chloroethene while evidence covers different contexts. Added CN-Cbl controls, generated cofactor, Fusaro axenic gas conditions and actual pair input need explicit separation. The precise 2013 recipe remains unverified.
+
+### gtdb-provenance: Replace unsupported GTDB release/build wording
+
+minor / open / confirmed; issue key: cm-000209-gtdb-provenance.
+
+Both valid strain mappings carry latest/build wording derived from local mtime, without upstream release/build evidence.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-go
+
+Repair all three process annotations without following the unrelated redirect.
+
+- Retain organohalide respiration in source-backed prose. Omit unsupported exact GO grounding or use independently verified broader GO:0009061 anaerobic respiration with its correct label and explicit breadth.
+- Do not substitute GO:0015430. Preserve GO:0009236, exact taxa, all three qualified nodes and both arrows; recheck ID-label and process semantics independently of native pass.
+
+### repair-role
+
+Qualify or remove the unsupported Fusaro uptake role.
+
+- Supply claim-local evidence identifying a partner-produced metabolite taken up by Fusaro, or omit its optional CROSS_FEEDER tag. Donor cobamide production, supplied H2/CO2 and external DMB do not establish that direction.
+- Retain BAV1 recipient role and conditional donor-to-recipient CROSS_FEEDING interaction. Do not invent reciprocal transfer, mutualism, obligacy or a replacement enum.
+
+### repair-medium
+
+Represent verified treatment contexts separately and retain unknowns.
+
+- Separate limiting/high CN-Cbl comparisons (1 and 25 micrograms per liter) from DMB-associated generated cobalamin. Do not list generated product as an added ingredient without arm-specific Methods evidence.
+- CHEBI:28509 is specifically VC, not all chlorinated ethenes. Preserve valid VC/DCE BAV1 phenotype, but verify the actual 2013 pair starting acceptor before selecting an input; do not assert that VC is biologically invalid.
+- Keep the 10 microM external DMB observation. Treat H2/CO2 as established for Fusaro axenic production unless exact pair Methods confirm transfer. Do not import 2003 monoculture vessel, temperature or recipe, or earlier records/catalogue conditions.
+- Record the missing 2013 Methods/figures/supplement access boundary. If later recovered, bind exact strain, substrate, amendment, gas and control arms to precise locators; do not invent a complete recipe now.
+
+### repair-gtdb
+
+Retain verified mapping cores with accurate snapshot provenance.
+
+- Preserve exact BAV1/Fusaro routes, _B names, lineages, fraction 1.0 and one mapped genome each. Do not interpret the denominator as culture abundance or is_reclassified as an independent nomenclatural act.
+- Pin local mapping SHA256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd; label 2026-07-25 as filesystem mtime only and leave unverified upstream release/build unknown.
+
+### validate-curation
+
+Validate any separately authorized canonical repair.
+
+- Recheck source-specific treatments, evidence placement and graph qualifiers; run focused schema/strict/terms/explained-reference/GTDB/domain/history checks. Run just gen-html and just check-docs-current if canonical curation is authorized.
+- Preserve source, cache, history and prior-review bytes. This review authorizes no canonical, issue, Git or status mutation.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml; Whole maintained YAML | supports | Two exact strains, three interaction nodes and two downstream arrows. |
+| cofactor | PMID:23479750; DOI:10.1098/rstb.2012.0320; Fresh MED Abstract, eighth sentence beginning 'Even though the methanogen and acetogen populations tested' (quoted words) | supports | External DMB enables a compatible generated cofactor. This establishes conditional assistance without an exclusive donor-versus-recipient remodeling route. |
+| comparisons | PMID:23479750; DOI:10.1098/rstb.2012.0320; Fresh MED Abstract, sentences 1–3 (CN-Cbl comparisons) and 4–8 (partners, factor III and DMB) | supports | The pooled strains, exogenous CN-Cbl controls, Fusaro axenic H2/CO2 growth and DMB-associated rescue are distinct experimental contexts. |
+| bav1 | PMID:12840758; DOI:10.1038/nature01717; EPA archived Nature print, physical page 3, paragraph beginning Isolate BAV1 respired VC; Figure 2 | supports | BAV1 grows with VC and DCE isomers; PCE/TCE are cometabolized only with a growth substrate. This pure-isolate result does not establish the exact 2013 pair input. |
+| monoculture | PMID:12840758; EPA archived print, physical page 5, Methods → Medium preparation, sole paragraph | supports | The 2003 pure-isolate culture protocol is available, but is not imported into the 2013 coculture. |
+| ontology | /private/tmp/cm-review-session/batch-15/000209/ontology-authority.json; 12 distinct pairs / 27 placements | supports | Eleven labels match. GO:0070812 is wrong in three process placements. |
+| go | /private/tmp/cm-review-session/batch-15/000209/child-go-identifier-clarification.json; Deprecated GO identifier and actual replacement definition | supports | The redirect is an unrelated glycerol-3-phosphate transporter activity, not organohalide respiration. |
+| schema | /private/tmp/cm-review-session/batch-15/000209/child-schema-semantics.json; Literal recipient-role, interaction and chemical semantics | supports | CROSS_FEEDER means utilization of metabolites from other taxa; donor status alone does not satisfy it. |
+| stocks | /private/tmp/cm-review-session/batch-15/000209/child-strain-authority.json; Exact BAV1 and Fusaro identities | supports | Both exact IDs are valid; direct catalogue and local synonym scope are distinguished. No BAV1=195 inference. |
+| gtdb | /private/tmp/cm-review-session/batch-15/000209/child-gtdb-crosswalk.json; Two exact strain-ID routes | supports | Both mapping cores reproduce 1.0 over one mapped genome; local mtime is not a verified release/build date. |
+| semantics | /private/tmp/cm-review-session/batch-15/000209/ontology-semantic-notes.json; Final auxiliary source-local interpretation | supports | Retains identity and graph qualifications while separating the GO defect, unsupported recipient role and provenance. |
+| resources | /private/tmp/cm-review-session/batch-15/000209/dataset-verification.json; Three publication identities and bounded source inventory | supports | All encoded resources identify the intended papers. Optional BAV1 marker AY165308 is source-declared, not a registry-certified coculture deposit. |
+| snippets | /private/tmp/cm-review-session/batch-15/000209/snippet-audit.json; All 27 canonical excerpt placements | supports | Twenty-five Abstract and two Title matches are exact in fresh MED and caches; entailment remains separately assessed. |
+| provenance | /private/tmp/cm-review-session/batch-15/000209/provenance-audit.json; Exact focal history, batch-30 row, issues and cohort context | supports | Earlier graph repair is preserved; source and non-graph issues remain distinct. |
+| inspection | /private/tmp/cm-review-session/batch-15/000209/inspect.json; 31 immutable inputs | supports | One target, 21 authorities and nine focal contexts after ignored-inclusive discovery excluding environment files and Git/runtime internals. |
+| assets | /private/tmp/cm-review-session/batch-15/000209/lead-source-assets.json; Actual public retrieval inventory | supports | The 2013 main remains unavailable. Fresh abstracts and a complete 2003 archived main are available; challenge pages are not articles. |
+| lead-read | /private/tmp/cm-review-session/batch-15/000209/lead-primary-read-scope.json; Actual lead read and visual scope | supports | Whole canonical, both fresh MED records, 2003 main, two figure thumbnails and physical pages 3/5; no 2013 main reading claim. |
+| locators | /private/tmp/cm-review-session/batch-15/000209/source-locator-verification.json; Direct Abstract sentence and archived-page locators | supports | The two quoted words occur in the verified eighth Abstract sentence. No unavailable 2013 section locator is invented. |
+| source-audit | /private/tmp/cm-review-session/batch-15/000209/source-audit.json; Reconciled lead judgment | supports | Three major and one minor findings at explicitly partial source scope. |
+| root-source | /private/tmp/cm-review-session/batch-15/000209/root-independent-source-audit.json; Independent root science and actual scopes | supports | Independent source, authority and claim review agrees with the bounded findings. |
+| root-bav1 | /private/tmp/cm-review-session/batch-15/000209/root-12840758-source-audit.json; Independent 2003 primary-source recovery | supports | Complete EPA archived text, bounded figure views and unavailable Table 1/full-legend limits are recorded. |
+| metrics | /private/tmp/cm-review-session/batch-15/000209/support-final-audit.json; Final support reconciliation | supports | Literal completeness 95; base quality 135 minus 32 gives raw 103, capped 100. |
+| support-manifest | /private/tmp/cm-review-session/batch-15/000209/support-frozen-manifest.json; Frozen supporting dependencies | supports | Source, resource, provenance and metric reconciliation is complete. |
+| auxiliary | /private/tmp/cm-review-session/batch-15/000209/auxiliary-frozen-manifest.json; Frozen native and authority dependencies | supports | Eight focused checks pass; independent OAK exposes the GO error despite native term-validator success. |
+| final-native | /private/tmp/cm-review-session/batch-15/000209/final-validator-summary.json; Actual eight command receipts | supports | Focused passes and unchanged official inputs are documented. |
+| corpus-context | /private/tmp/cm-review-session/batch-15/000209/child-corpus-context.json; Fresh batch-15 corpus baseline | supports | Two nonrequired corpus checks returned exit 1 with 44 warnings across 16/477 records and zero errors. |
+| adapter | /private/tmp/cm-review-session/batch-15/000209/adapter-check.json; Owned-runtime optional adapter | supports | Unavailable in this runtime; no external-checkout execution or global absence claim. |
+| check-validate | /private/tmp/cm-review-session/batch-15/000209/validate.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific/ontology review is separate. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-15/000209/validate-strict.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific/ontology review is separate. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-15/000209/validate-terms.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific/ontology review is separate. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-15/000209/validate-references-explained.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific/ontology review is separate. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-15/000209/validate-gtdb.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific/ontology review is separate. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-15/000209/validate-gtdb-domain.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific/ontology review is separate. |
+| check-validate-history | /private/tmp/cm-review-session/batch-15/000209/validate-history.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific/ontology review is separate. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-15/000209/normalize-cache-names-check.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific/ontology review is separate. |
+| context-audit-network | /private/tmp/cm-review-session/batch-15/audit-network.json; Fresh batch-15 corpus baseline | supports | Actual exit 1; 44 warnings across 16/477 records, zero errors. |
+| context-check-network-quality | /private/tmp/cm-review-session/batch-15/check-network-quality.json; Fresh batch-15 corpus baseline | supports | Actual exit 1; 44 warnings across 16/477 records, zero errors. |
+
+## Limits And Additional Notes
+
+- The principal 2013 main Methods, Results, figure images and any supplementary content were not recovered. REST failures, HTTP403 and HTTP200 challenge payloads remain preserved; no bypass or global unavailability claim.
+- The public 2013 publisher preview covers only its first page and Introduction beginning; citing-paper material is excluded. The 2003 archived main is complete through Methods/references, but Table 1/full figure legends were not recovered. Figure views are publisher thumbnails, not digitized raw data.
+- No exact 2013 pair recipe, control-substrate assignment or cell-resolved remodeling route is reconstructed. No raw-data reanalysis or registry certification of optional AY165308 is claimed.
+- Three node assessments bind six exact canonical snippet hashes and actual taxa; two edge assessments bind exact directions and description hashes.
+- The sole primary quote is two words from the fresh 2013 MED Abstract. All31 official inputs remain unchanged.
+- Actual candidate validation and parent-owned saving/post-save gates follow this review.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261022T050250Z-bav1-fusaro-cobalamin-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: BAV1–Fusaro DMB-guided cobalamin coculture review
+started_at: '2026-10-22T04:55:37.558920Z'
+finished_at: '2026-10-22T05:02:50.824955Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate lead, root, auxiliary and supporting reviewers; no
+    person-level independence claim.
+skill: review-yaml-record
+completion: partial
+verdict: needs_curation
+scientific_review: false
+summary: Three major findings concern a wrong GO process identifier, unsupported Fusaro
+  recipient-role evidence and unseparated medium/control inputs. One minor finding
+  concerns GTDB provenance. Exact strain identities and the qualified biological graph
+  are retained. The principal 2013 main is unavailable, so this review is partial
+  despite eight native passes. Literal completeness 95 and capped quality 100 (raw103)
+  do not negate the findings.
+source:
+  git_revision: cb7a782c8ba80299dca8761ad0a2c90bccd8a117
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture/2026-10-06T054824Z-codex-bed9ca.yaml
+    sha256: 0d83300a53ccf810fd60db50b43f3e2d24b644343adcb015906dff80052fc70e
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+    sha256: fbf9a3612c04d172cd46cc210b069e03e627b5dcec722682651abfe6e0e6afb7
+    role: target
+  - path: references_cache/PMID_12840758.md
+    sha256: 5c4788473d6b8c184ef6ae98f9a46e49182a8a733e2e1465b148cc328399f01c
+    role: context
+  - path: references_cache/PMID_23479750.md
+    sha256: dbae8f2e9156373b1b4a6043c9ecead8a0a4e2368fc55d36fe7c7408fc4e65b7
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261006-batch30.yaml
+    sha256: 173e2bfe58bed7b38cbf3e535062651728c15533668958b6e56dc8332b5c9e2f
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-three-records-batch30.yaml
+    sha256: cb60e4a113592fd34842090d5f2db473831a31066febb469d2438a8d8b217c3c
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.md
+    sha256: e432615b147787c8d009d96d2f11e5b78a45927bf9c69e45ec0d31123d1fc2e9
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/frozen_inventory_metrics.tsv
+    sha256: d5a47bbcc3745a489ff507680aa7360a6a65ce070ce4ec88f886b70128791313
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md
+    sha256: 4e7781aa8cdfc4bb42d896ebe75920719d9dcade92ffc4a0ae07af7481cb37b3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000209
+  path: kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+  label: Dehalococcoides-Methanosarcina DMB-Guided Cobalamin Coculture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+    role: canonical_record
+scope:
+  description: Whole target; complete fresh abstracts; recovered 2003 primary main
+    with bounded figure views; exact ontology/stock/provenance context. Principal
+    2013 main unavailable after bounded ordinary routes.
+  selection: Only released CommunityMech:000209 in owned batch15.
+  coverage: partial
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000209
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000209
+  command: just --no-dotenv validate kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000209
+  command: just --no-dotenv validate-strict kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-15/000209/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000209
+  command: just --no-dotenv validate-terms kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000209
+  command: just --no-dotenv validate-references-explained kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000209
+  command: just --no-dotenv validate-gtdb kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000209
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000209
+  command: just --no-dotenv validate-history history/records/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000209
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: context-audit-network
+  name: audit-network corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit 1 retained.
+  target_ids:
+  - CommunityMech:000209
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-15/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-audit-network
+  - corpus-context
+  scope_note: Nonrequired corpus context.
+- check_id: context-check-network-quality
+  name: check-network-quality corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit 1 retained.
+  target_ids:
+  - CommunityMech:000209
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-15/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-check-network-quality
+  - corpus-context
+  scope_note: Nonrequired corpus context.
+- check_id: optional-structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Unavailable in owned runtime.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - adapter
+  scope_note: No external adapter execution or absence-based biological inference.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+  locator: Whole maintained YAML
+  summary: Two exact strains, three interaction nodes and two downstream arrows.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.127536Z'
+- evidence_id: cofactor
+  kind: primary_source
+  reference: PMID:23479750; DOI:10.1098/rstb.2012.0320
+  locator: Fresh MED Abstract, eighth sentence beginning 'Even though the methanogen
+    and acetogen populations tested' (quoted words)
+  summary: External DMB enables a compatible generated cofactor. This establishes
+    conditional assistance without an exclusive donor-versus-recipient remodeling
+    route.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.127600Z'
+  snapshot_sha256: c14c5e1d43f119f40473db269a62da82bad3936eb8243705c79a7d501234fd28
+  quote: guided biosynthesis
+- evidence_id: comparisons
+  kind: primary_source
+  reference: PMID:23479750; DOI:10.1098/rstb.2012.0320
+  locator: Fresh MED Abstract, sentences 1–3 (CN-Cbl comparisons) and 4–8 (partners,
+    factor III and DMB)
+  summary: The pooled strains, exogenous CN-Cbl controls, Fusaro axenic H2/CO2 growth
+    and DMB-associated rescue are distinct experimental contexts.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.127632Z'
+  snapshot_sha256: c14c5e1d43f119f40473db269a62da82bad3936eb8243705c79a7d501234fd28
+- evidence_id: bav1
+  kind: primary_source
+  reference: PMID:12840758; DOI:10.1038/nature01717
+  locator: EPA archived Nature print, physical page 3, paragraph beginning Isolate
+    BAV1 respired VC; Figure 2
+  summary: BAV1 grows with VC and DCE isomers; PCE/TCE are cometabolized only with
+    a growth substrate. This pure-isolate result does not establish the exact 2013
+    pair input.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.127652Z'
+  snapshot_sha256: 74b55f002d88dd07a51b580db44ec921e87b876e31b164bbfc406eb168c566ab
+- evidence_id: monoculture
+  kind: primary_source
+  reference: PMID:12840758
+  locator: EPA archived print, physical page 5, Methods → Medium preparation, sole
+    paragraph
+  summary: The 2003 pure-isolate culture protocol is available, but is not imported
+    into the 2013 coculture.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128054Z'
+  snapshot_sha256: 74b55f002d88dd07a51b580db44ec921e87b876e31b164bbfc406eb168c566ab
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000209/ontology-authority.json
+  locator: 12 distinct pairs / 27 placements
+  summary: Eleven labels match. GO:0070812 is wrong in three process placements.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128400Z'
+  snapshot_sha256: 0665cbb0cf62d6142d79b1979d8693ee4e0e6a7d1dc67fc9a55075e83e04eb97
+- evidence_id: go
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000209/child-go-identifier-clarification.json
+  locator: Deprecated GO identifier and actual replacement definition
+  summary: The redirect is an unrelated glycerol-3-phosphate transporter activity,
+    not organohalide respiration.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128439Z'
+  snapshot_sha256: 48c1ba4d2dcbccdb79dd38340d1fc00cc1cf72037850ea254ddb152947c82490
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000209/child-schema-semantics.json
+  locator: Literal recipient-role, interaction and chemical semantics
+  summary: CROSS_FEEDER means utilization of metabolites from other taxa; donor status
+    alone does not satisfy it.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128478Z'
+  snapshot_sha256: 58964d20687aefec0f874f7338a2a964d149534683847b4ad954f06e65d94ccb
+- evidence_id: stocks
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000209/child-strain-authority.json
+  locator: Exact BAV1 and Fusaro identities
+  summary: Both exact IDs are valid; direct catalogue and local synonym scope are
+    distinguished. No BAV1=195 inference.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128512Z'
+  snapshot_sha256: 10a14b5e0429047cadf1438f723329be614f263151b0eed1b9c9edfaf0ab586f
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000209/child-gtdb-crosswalk.json
+  locator: Two exact strain-ID routes
+  summary: Both mapping cores reproduce 1.0 over one mapped genome; local mtime is
+    not a verified release/build date.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128539Z'
+  snapshot_sha256: c9fc589e1ae15387a2f8ae8b9d6205dea95e4d923d1317a207ffbe392c64e663
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000209/ontology-semantic-notes.json
+  locator: Final auxiliary source-local interpretation
+  summary: Retains identity and graph qualifications while separating the GO defect,
+    unsupported recipient role and provenance.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128567Z'
+  snapshot_sha256: 596a674be7e17c8e678483bb4ead1f5a6bb73a390977be09ffa917f510c48aaf
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/dataset-verification.json
+  locator: Three publication identities and bounded source inventory
+  summary: All encoded resources identify the intended papers. Optional BAV1 marker
+    AY165308 is source-declared, not a registry-certified coculture deposit.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128598Z'
+  snapshot_sha256: 37f980613a190e6664798ca717c1f5dd8992c87811a720073c440480a35b265d
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/snippet-audit.json
+  locator: All 27 canonical excerpt placements
+  summary: Twenty-five Abstract and two Title matches are exact in fresh MED and caches;
+    entailment remains separately assessed.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128630Z'
+  snapshot_sha256: d098669c1ca666b09de15755afb2481086643b059a1d8a4e862d0e9e642f3444
+- evidence_id: provenance
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-15/000209/provenance-audit.json
+  locator: Exact focal history, batch-30 row, issues and cohort context
+  summary: Earlier graph repair is preserved; source and non-graph issues remain distinct.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128663Z'
+  snapshot_sha256: a2a470d7b51750caf85787e22c2a440d72de57c1f6f3301ea20bffd87c3543ba
+- evidence_id: inspection
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/inspect.json
+  locator: 31 immutable inputs
+  summary: One target, 21 authorities and nine focal contexts after ignored-inclusive
+    discovery excluding environment files and Git/runtime internals.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128694Z'
+  snapshot_sha256: 2ca0710dea0e413416238b61165193e565370ef35261d3e2b450c12c569ea073
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/lead-source-assets.json
+  locator: Actual public retrieval inventory
+  summary: The 2013 main remains unavailable. Fresh abstracts and a complete 2003
+    archived main are available; challenge pages are not articles.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128717Z'
+  snapshot_sha256: 597374ad97319dd699c838c946f75071602b3cd2c3317a3b7cbfe5691fc0f776
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/lead-primary-read-scope.json
+  locator: Actual lead read and visual scope
+  summary: Whole canonical, both fresh MED records, 2003 main, two figure thumbnails
+    and physical pages 3/5; no 2013 main reading claim.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128752Z'
+  snapshot_sha256: 01d030967e1c6333e36460be0299c5747f8673b2e1f33b80c148fa2e8e95ab52
+- evidence_id: locators
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/source-locator-verification.json
+  locator: Direct Abstract sentence and archived-page locators
+  summary: The two quoted words occur in the verified eighth Abstract sentence. No
+    unavailable 2013 section locator is invented.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128779Z'
+  snapshot_sha256: d5afc0e674306a0d5c4e8ad0b81b4197e1ae833119484aaf01d9c692b75eeb5e
+- evidence_id: source-audit
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/source-audit.json
+  locator: Reconciled lead judgment
+  summary: Three major and one minor findings at explicitly partial source scope.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128807Z'
+  snapshot_sha256: fcd9cf9ba717bf9a7d2b3da5172a4ef6518fb65fe7705e0a7fd3c12a52a68f52
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/root-independent-source-audit.json
+  locator: Independent root science and actual scopes
+  summary: Independent source, authority and claim review agrees with the bounded
+    findings.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128836Z'
+  snapshot_sha256: 832259f8d088784db429b980c5a7f1cc08a968d08cb2df8e21b697fbaad6ebd1
+- evidence_id: root-bav1
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/root-12840758-source-audit.json
+  locator: Independent 2003 primary-source recovery
+  summary: Complete EPA archived text, bounded figure views and unavailable Table
+    1/full-legend limits are recorded.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128868Z'
+  snapshot_sha256: 1b497116396af143738916cb544599942ef44ff7ae2fd64ed275e8b27a91dcb6
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/support-final-audit.json
+  locator: Final support reconciliation
+  summary: Literal completeness 95; base quality 135 minus 32 gives raw 103, capped
+    100.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128897Z'
+  snapshot_sha256: d63fd365e4dc253a10e53e9b0d6646fcde3440d97a8ceb4ec7f713367e565021
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/support-frozen-manifest.json
+  locator: Frozen supporting dependencies
+  summary: Source, resource, provenance and metric reconciliation is complete.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128920Z'
+  snapshot_sha256: 3ac614507c0109809ce599ba67ca432a0a4b0c3ad04ec9b6451d3ce54a89b55d
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/auxiliary-frozen-manifest.json
+  locator: Frozen native and authority dependencies
+  summary: Eight focused checks pass; independent OAK exposes the GO error despite
+    native term-validator success.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.128946Z'
+  snapshot_sha256: 035d1c84a22aaf343d93b6f6e0a5015fa3ee17a17cbd3ccf8e742ec649d3db08
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/final-validator-summary.json
+  locator: Actual eight command receipts
+  summary: Focused passes and unchanged official inputs are documented.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.129165Z'
+  snapshot_sha256: 37d6ccd8e8992b27d75e80a9d20a6980ff7ae0d6047ac32dc9ca172a080247d5
+- evidence_id: corpus-context
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/child-corpus-context.json
+  locator: Fresh batch-15 corpus baseline
+  summary: Two nonrequired corpus checks returned exit 1 with 44 warnings across 16/477
+    records and zero errors.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.129212Z'
+  snapshot_sha256: b048601a207dea8e23e172292b3f9cb3540b3dc750bdeb8253761d1dcebd7dd0
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/adapter-check.json
+  locator: Owned-runtime optional adapter
+  summary: Unavailable in this runtime; no external-checkout execution or global absence
+    claim.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.129242Z'
+  snapshot_sha256: 053b52ac77bcfb2ba86181287e62be2ae11b0c8d087ee26cd6f2ae27e5e75dfe
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/validate.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific/ontology review is separate.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.129455Z'
+  snapshot_sha256: d118759ad3f152bcf6011d17dfd4ec1c6bde3f26fae4da6689850c3c07046b9f
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/validate-strict.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific/ontology review is separate.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.129510Z'
+  snapshot_sha256: 6cd86c831e75d90571be070b3e45901f071a95abdc3aa5fa376ce8285007608a
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/validate-terms.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific/ontology review is separate.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.129558Z'
+  snapshot_sha256: b0824e71f6ba67853f6135239a2558d7facaf911044208c973ea091def94b96e
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/validate-references-explained.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific/ontology review is separate.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.129605Z'
+  snapshot_sha256: 3d30d0d9af5db08bbc1c701b9c199b55044271ff0de6b90eae5873d8e1bbd772
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/validate-gtdb.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific/ontology review is separate.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.129649Z'
+  snapshot_sha256: 5d350407024229eea22dbb18e16a033658a42adb4066d8778b09fa5c598fda22
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/validate-gtdb-domain.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific/ontology review is separate.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.129693Z'
+  snapshot_sha256: 8e8bf17837b2aa7dd516a159dfd6e5d7c1ed3e5d97e0c45d8bf27912feb4b16b
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/validate-history.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific/ontology review is separate.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.129738Z'
+  snapshot_sha256: aece2b1161bb5f40165891506f12b7068fc7a81711440bf1a36793780b35b5fc
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000209/normalize-cache-names-check.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific/ontology review is separate.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.129782Z'
+  snapshot_sha256: 2ec89166f0fd8901294fdf6ea6759ee6d132f21f10782a92334acf5cda498154
+- evidence_id: context-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/audit-network.json
+  locator: Fresh batch-15 corpus baseline
+  summary: Actual exit 1; 44 warnings across 16/477 records, zero errors.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.130162Z'
+  snapshot_sha256: b92af84b02acf105f8dc7c3625cc2a7e52a436b24a8243fe7e1d53012c9be1d9
+- evidence_id: context-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/check-network-quality.json
+  locator: Fresh batch-15 corpus baseline
+  summary: Actual exit 1; 44 warnings across 16/477 records, zero errors.
+  support: supports
+  accessed_at: '2026-10-22T05:02:32.130346Z'
+  snapshot_sha256: 10b4cbb4180b20137e22c994ff8cd71d5ca52ab6ac3ef21fef5580eb4c9200fc
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Defined experimental pair
+  outcome: supported
+  summary: Retain BAV1 and Fusaro as the two members.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - record
+  - stocks
+  - ontology
+  - comparisons
+  dimensions:
+  - name: taxon_scope
+    value: BAV1 and Fusaro
+    definition: Two exact experimental strains; no species-type or other-stock substitution.
+    evidence_ids:
+    - stocks
+  - name: experimental_setting
+    value: Synthetic anaerobic laboratory bioremediation model
+    definition: ENGINEERED state and SYNTHETIC origin are compatible; environmental
+      relevance is not field validation.
+    evidence_ids:
+    - ontology
+    - comparisons
+  details: NCBITaxon:216389 and 269797 identify the exact strains. The additional
+    Dehalococcoides strains and acetogens tested by the paper are comparison populations,
+    not members to add to this pair. Local BAV1 strain rank differs from the direct
+    browser no-rank display without changing identity.
+- assessment_id: role
+  area: grounding
+  topic: Fusaro recipient-role direction
+  outcome: concern
+  summary: Cobamide production does not establish Fusaro uptake of a BAV1 metabolite.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - schema
+  - comparisons
+  - semantics
+  details: Retain BAV1 CROSS_FEEDER and the donor-to-recipient exchange node. Qualify
+    or omit the optional Fusaro role unless claim-local recipient evidence is supplied;
+    this does not claim reciprocal uptake is impossible.
+- assessment_id: node-0
+  area: graph
+  topic: DMB-Guided Cobalamin Support
+  outcome: supported
+  summary: Retain conditional DMB-associated cofactor support.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - cofactor
+  - comparisons
+  - snippets
+  - schema
+  - go
+  details: 'Exact selector ecological_interactions[0]; scope PAIRWISE; interaction_type
+    CROSS_FEEDING. Actual taxa: {"source": {"preferred_term": "Methanosarcina barkeri
+    strain Fusaro", "term": {"id": "NCBITaxon:269797", "label": "Methanosarcina barkeri
+    str. Fusaro"}}, "target": {"preferred_term": "Dehalococcoides mccartyi BAV1",
+    "term": {"id": "NCBITaxon:216389", "label": "Dehalococcoides mccartyi BAV1"}},
+    "participants": []}. Canonical excerpt bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet",
+    "sha256": "19081059d8c1eb66bda9f13ea85ce56edf4ddce4ada4a6398cdca7cb1ea1088e",
+    "reference": "PMID:23479750", "supports": "SUPPORT", "evidence_source": "IN_VITRO"},
+    {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "32021eba1af13144b60d9c40748d6ec84a5f0c646c40382e80ddb7f239081acf",
+    "reference": "PMID:23479750", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 d098669c1ca666b09de15755afb2481086643b059a1d8a4e862d0e9e642f3444.
+    Locators: Abstract sentences 4–8, especially the eighth sentence. Retain SUPPORT
+    / IN_VITRO at available source scope. 269797 → 216389; external DMB and nonexclusive
+    cofactor remodeling remain explicit. Biological narrative is supported; the separate
+    incorrect GO annotation must be repaired.'
+- assessment_id: node-1
+  area: graph
+  topic: Factor III Is Insufficient Without DMB
+  outcome: supported
+  summary: Retain native-cobamide insufficiency without toxicity or active inhibition.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - comparisons
+  - snippets
+  - schema
+  - go
+  details: 'Exact selector ecological_interactions[1]; scope PAIRWISE; interaction_type
+    absent. Actual taxa: {"source": {"preferred_term": "Methanosarcina barkeri strain
+    Fusaro", "term": {"id": "NCBITaxon:269797", "label": "Methanosarcina barkeri str.
+    Fusaro"}}, "target": {"preferred_term": "Dehalococcoides mccartyi BAV1", "term":
+    {"id": "NCBITaxon:216389", "label": "Dehalococcoides mccartyi BAV1"}}, "participants":
+    []}. Canonical excerpt bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet",
+    "sha256": "406751ad6eba2ba623744dc8cb1bf0cef035c9f160454a4be43ec05bfd8cf561",
+    "reference": "PMID:23479750", "supports": "SUPPORT", "evidence_source": "IN_VITRO"},
+    {"selector": "ecological_interactions[1].evidence[1].snippet", "sha256": "c3ec068de1fca4a4e0cf13228cb89f299500b55c5eca5d0dc1007af4a9030ade",
+    "reference": "PMID:23479750", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 d098669c1ca666b09de15755afb2481086643b059a1d8a4e862d0e9e642f3444.
+    Locators: Abstract sentences 5–7. Retain SUPPORT / IN_VITRO at available source
+    scope. 269797 → 216389; missing compatible cofactor is distinct from harming an
+    adequately supplemented recipient. Biological narrative is supported; the separate
+    incorrect GO annotation must be repaired.'
+- assessment_id: node-2
+  area: graph
+  topic: Cobalamin-Dependent Reductive Dechlorination
+  outcome: supported
+  summary: Retain the recipient dechlorination phenotype.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - comparisons
+  - bav1
+  - snippets
+  - schema
+  - go
+  details: 'Exact selector ecological_interactions[2]; scope PAIRWISE; interaction_type
+    absent. Actual taxa: {"source": {"preferred_term": "Dehalococcoides mccartyi BAV1",
+    "term": {"id": "NCBITaxon:216389", "label": "Dehalococcoides mccartyi BAV1"}},
+    "target": null, "participants": []}. Canonical excerpt bindings: [{"selector":
+    "ecological_interactions[2].evidence[0].snippet", "sha256": "c938935b1995f1278eaeec37924d6912d575a8d4692941277ec5f37035b69577",
+    "reference": "PMID:23479750", "supports": "SUPPORT", "evidence_source": "IN_VITRO"},
+    {"selector": "ecological_interactions[2].evidence[1].snippet", "sha256": "68de694ca3cd461c3f009eaaab423241397d4e2e7646ada73e8781d6d37cf056",
+    "reference": "PMID:23479750", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 d098669c1ca666b09de15755afb2481086643b059a1d8a4e862d0e9e642f3444.
+    Locators: 2013 Abstract sentences 1–3 and 7–8; 2003 archived page 3 and Figure
+    2. Retain SUPPORT / IN_VITRO at available source scope. Source 216389; target
+    absent. No forced Fusaro target or reverse-transfer arrow. Pooled BAV1/GT/FL2
+    rates and substrates remain qualified. Biological narrative is supported; the
+    separate incorrect GO annotation must be repaired.'
+- assessment_id: edge-0-0
+  area: graph
+  topic: DMB-Guided Cobalamin Support → Cobalamin-Dependent Reductive Dechlorination
+  outcome: supported
+  summary: Retain conditional cofactor support leading to recipient activity.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - comparisons
+  - cofactor
+  - snippets
+  details: 'Exact selector ecological_interactions[0].downstream[0]; source node 0
+    → node 2. Source interaction 269797 → 216389; downstream phenotype belongs to
+    216389. Exact description: With externally supplied DMB, the partner-associated
+    corrinoid system supplies compatible cofactor and enables BAV1 dechlorination
+    and growth. This does not assign an exclusive donor-versus-recipient remodeling
+    route or imply that DMB is required when compatible cobalamin is supplied directly.
+    Description SHA256 05037c493b2e25fe2eab5c3375df035f1e8e61371eec6256f068c2eeb9a2cbb5.
+    PMID23479750 Abstract sentences 5–8. Preserve external DMB, direct-compatible-cobalamin
+    rescue, and no exclusive donor-versus-recipient remodeling route.'
+- assessment_id: edge-1-0
+  area: graph
+  topic: Factor III Is Insufficient Without DMB → Cobalamin-Dependent Reductive Dechlorination
+  outcome: supported
+  summary: Retain the missing-input constraint, not active inhibition.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - comparisons
+  - cofactor
+  - snippets
+  details: 'Exact selector ecological_interactions[1].downstream[0]; source node 1
+    → node 2. Source interaction 269797 → 216389; downstream phenotype belongs to
+    216389. Exact description: Failure to supply an adequate compatible cofactor leaves
+    BAV1 dechlorination constrained in the unamended coculture. This denotes a missing
+    nutritional input, not active inhibition by factor III. DMB-associated cofactor
+    production or direct compatible-cobalamin supplementation can overcome that limitation.
+    Description SHA256 6de0d4373c3316615b5a7eb95335dde654f59408171034c95bfb647975cfe4d3.
+    PMID23479750 Abstract sentences 5–8. Preserve external DMB, direct-compatible-cobalamin
+    rescue, and no exclusive donor-versus-recipient remodeling route.'
+- assessment_id: cultivation
+  area: scope
+  topic: Separate actual inputs from generated cofactors and controls
+  outcome: concern
+  summary: The medium combines distinct assay contexts without sufficient pair-specific
+    evidence.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - comparisons
+  - bav1
+  - monoculture
+  - ontology
+  dimensions:
+  - name: medium
+    value: DMB amendment with unresolved pair-specific recipe
+    definition: Separate external 10 microM DMB, 1/25 micrograms per liter CN-Cbl
+      comparisons and generated cobalamin. No full 2013 Methods available.
+    evidence_ids:
+    - comparisons
+  - name: environmental_context
+    value: Anaerobic laboratory pair
+    definition: The 2003 isolate protocol, catalogue conditions and intended subsurface
+      application are distinct.
+    evidence_ids:
+    - monoculture
+    - ontology
+  details: The preparation note accurately declines to assert a full recipe. It does
+    not resolve whether cobalamin is an added ingredient versus generated product
+    in this arm, nor select VC as the exact 2013 input from a generic chlorinated-ethene
+    excerpt. H2/CO2 is explicitly the Fusaro axenic production context. VC is a verified
+    BAV1 growth substrate, and no alternative pair recipe is invented.
+- assessment_id: ontology
+  area: grounding
+  topic: Respiration process identity
+  outcome: concern
+  summary: GO:0070812 is unrelated to organohalide respiration.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - ontology
+  - go
+  - cofactor
+  details: Correct all three process placements. Its GO:0015430 redirect is a molecular-function
+    transporter term, not a repair candidate. Verified broader GO:0009061 anaerobic
+    respiration is optional; omitting unsupported exact grounding is also valid. Retain
+    the source-supported narrative and valid GO:0009236 cobalamin biosynthetic process.
+- assessment_id: chemistry
+  area: grounding
+  topic: Correct chemicals with assay-specific roles
+  outcome: supported
+  summary: The seven chemical IDs and laboratory environment label match authority.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - ontology
+  - comparisons
+  - bav1
+  details: Cobalamin, cyanocobalamin, factor III and DMB are not interchangeable.
+    TCE/PCE are upstream pollutant context; the 2003 paper does not support their
+    use as BAV1 growth substrates. Retain incidental cobalt relevance without inventing
+    metal extraction.
+- assessment_id: gtdb
+  area: provenance
+  topic: Valid cores and unsupported release wording
+  outcome: concern
+  summary: Both exact strain mappings reproduce; only release/build provenance needs
+    repair.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - gtdb
+  - stocks
+  details: Retain the _B species names, domains, full lineages, fraction 1.0 and one-reference
+    denominators. is_reclassified is a name-comparison flag. The 2026-07-25 date is
+    local file mtime, not an established GTDB build or latest release.
+- assessment_id: resources
+  area: evidence
+  topic: Publication and data traceability
+  outcome: supported
+  summary: All three encoded publication resources identify the intended sources.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - resources
+  - assets
+  details: The PMCID link is identity-correct despite current challenges; free access
+    and open licensing are distinct. No missing-deposit finding is inferred from unavailable
+    main content. AY165308 is an optional 2003 BAV1 marker declaration, not a coculture
+    deposit verified here.
+- assessment_id: ownership
+  area: ownership
+  topic: Maintained record and historical scope
+  outcome: supported
+  summary: Future repairs belong to the focal YAML; history remains intact.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - inspection
+  - provenance
+  details: The prior graph repair and dated limited-access discussion are preserved.
+    The new authority error and non-graph repairs do not close shared issues or rewrite
+    the earlier reading event.
+- assessment_id: source-scope
+  area: scope
+  topic: Partial principal-source access
+  outcome: concern
+  summary: The 2013 main is unavailable, so scientific completion remains false.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - assets
+  - lead-read
+  - locators
+  - root-source
+  - root-bav1
+  details: Whole fresh abstracts and the recovered 2003 main support bounded judgments.
+    The 2013 first-page publisher preview adds no full Methods/Results coverage; citing
+    material is excluded. No unseen figures, Table 1, supplements or raw data are
+    treated as read.
+- assessment_id: native
+  area: schema
+  topic: Focused and contextual checks
+  outcome: supported
+  summary: All eight required native checks passed.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - corpus-context
+  - adapter
+  details: The independent GO error remains despite native success. Both corpus failures
+    and the optional adapter are nonrequired; candidate validation is not asserted
+    in advance.
+- assessment_id: metrics
+  area: completeness
+  topic: Literal metrics and findings
+  outcome: supported
+  summary: Completeness 95; quality raw 103, capped 100.
+  target_ids:
+  - CommunityMech:000209
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 95
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 50 required/roles +5 environment +10 factors +10 nodes +5 resources
+      +10 medium +5 node metabolites; no dataset block. Populated slots do not prove
+      support.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 100 -3 major*10 -1 minor*2 +20*min((6 evidence/3 nodes)/2,1) +15 COMPLETE
+      =103 raw, capped100. Three nodes (one typed), two arrows. Structural COMPLETE
+      does not mean complete scientific review.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: go-process
+  issue_key: cm-000209-go-process
+  category: grounding
+  severity: major
+  native_severity: P2
+  normalization_reason: Material identity, directed-role or treatment-scope assertion
+    requires repair.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Correct the wrong respiration identifier
+  description: GO:0070812 is deprecated and redirects to unrelated ABC-type glycerol-3-phosphate
+    transporter activity. The recorded label is not its meaning.
+  target_ids:
+  - CommunityMech:000209
+  field_paths:
+  - ecological_interactions[0].biological_processes[1].term
+  - ecological_interactions[1].biological_processes[0].term
+  - ecological_interactions[2].biological_processes[0].term
+  evidence_ids:
+  - ontology
+  - go
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+    role: canonical_record
+  ownership_note: Future authorized curation belongs to the maintained focal YAML;
+    no shared issue or historical finding is closed.
+- finding_id: fusaro-role
+  issue_key: cm-000209-fusaro-role
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Material identity, directed-role or treatment-scope assertion
+    requires repair.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Support the Fusaro recipient role or omit it
+  description: The available source demonstrates cobamide production, not a BAV1-derived
+    metabolite utilized by Fusaro. This fails the literal uptake definition of CROSS_FEEDER
+    at the encoded evidence scope.
+  target_ids:
+  - CommunityMech:000209
+  field_paths:
+  - taxonomy[1].functional_role
+  evidence_ids:
+  - schema
+  - comparisons
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+    role: canonical_record
+  ownership_note: Future authorized curation belongs to the maintained focal YAML;
+    no shared issue or historical finding is closed.
+- finding_id: medium-arms
+  issue_key: cm-000209-medium-arms
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Material identity, directed-role or treatment-scope assertion
+    requires repair.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Separate amendments, generated cofactor and strain-specific inputs
+  description: The medium combines DMB, cobalamin and VC-specific chloroethene while
+    evidence covers different contexts. Added CN-Cbl controls, generated cofactor,
+    Fusaro axenic gas conditions and actual pair input need explicit separation. The
+    precise 2013 recipe remains unverified.
+  target_ids:
+  - CommunityMech:000209
+  field_paths:
+  - growth_media[0].composition
+  - growth_media[0].headspace_gas
+  - growth_media[0].preparation_notes
+  - growth_media[0].evidence
+  evidence_ids:
+  - comparisons
+  - ontology
+  - bav1
+  - monoculture
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+    role: canonical_record
+  ownership_note: Future authorized curation belongs to the maintained focal YAML;
+    no shared issue or historical finding is closed.
+- finding_id: gtdb-provenance
+  issue_key: cm-000209-gtdb-provenance
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded provenance repair; mapping cores remain valid.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Replace unsupported GTDB release/build wording
+  description: Both valid strain mappings carry latest/build wording derived from
+    local mtime, without upstream release/build evidence.
+  target_ids:
+  - CommunityMech:000209
+  field_paths:
+  - taxonomy[0].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[1].taxon_term.gtdb_classification.mapping_source
+  evidence_ids:
+  - gtdb
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+    role: canonical_record
+  ownership_note: Future authorized curation belongs to the maintained focal YAML;
+    no shared issue or historical finding is closed.
+actions:
+- action_id: repair-go
+  description: Repair all three process annotations without following the unrelated
+    redirect.
+  finding_ids:
+  - go-process
+  target_ids:
+  - CommunityMech:000209
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain organohalide respiration in source-backed prose. Omit unsupported exact
+    GO grounding or use independently verified broader GO:0009061 anaerobic respiration
+    with its correct label and explicit breadth.
+  - Do not substitute GO:0015430. Preserve GO:0009236, exact taxa, all three qualified
+    nodes and both arrows; recheck ID-label and process semantics independently of
+    native pass.
+- action_id: repair-role
+  description: Qualify or remove the unsupported Fusaro uptake role.
+  finding_ids:
+  - fusaro-role
+  target_ids:
+  - CommunityMech:000209
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Supply claim-local evidence identifying a partner-produced metabolite taken up
+    by Fusaro, or omit its optional CROSS_FEEDER tag. Donor cobamide production, supplied
+    H2/CO2 and external DMB do not establish that direction.
+  - Retain BAV1 recipient role and conditional donor-to-recipient CROSS_FEEDING interaction.
+    Do not invent reciprocal transfer, mutualism, obligacy or a replacement enum.
+- action_id: repair-medium
+  description: Represent verified treatment contexts separately and retain unknowns.
+  finding_ids:
+  - medium-arms
+  target_ids:
+  - CommunityMech:000209
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Separate limiting/high CN-Cbl comparisons (1 and 25 micrograms per liter) from
+    DMB-associated generated cobalamin. Do not list generated product as an added
+    ingredient without arm-specific Methods evidence.
+  - CHEBI:28509 is specifically VC, not all chlorinated ethenes. Preserve valid VC/DCE
+    BAV1 phenotype, but verify the actual 2013 pair starting acceptor before selecting
+    an input; do not assert that VC is biologically invalid.
+  - Keep the 10 microM external DMB observation. Treat H2/CO2 as established for Fusaro
+    axenic production unless exact pair Methods confirm transfer. Do not import 2003
+    monoculture vessel, temperature or recipe, or earlier records/catalogue conditions.
+  - Record the missing 2013 Methods/figures/supplement access boundary. If later recovered,
+    bind exact strain, substrate, amendment, gas and control arms to precise locators;
+    do not invent a complete recipe now.
+- action_id: repair-gtdb
+  description: Retain verified mapping cores with accurate snapshot provenance.
+  finding_ids:
+  - gtdb-provenance
+  target_ids:
+  - CommunityMech:000209
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Preserve exact BAV1/Fusaro routes, _B names, lineages, fraction 1.0 and one mapped
+    genome each. Do not interpret the denominator as culture abundance or is_reclassified
+    as an independent nomenclatural act.
+  - Pin local mapping SHA256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd;
+    label 2026-07-25 as filesystem mtime only and leave unverified upstream release/build
+    unknown.
+- action_id: validate-curation
+  description: Validate any separately authorized canonical repair.
+  finding_ids:
+  - go-process
+  - fusaro-role
+  - medium-arms
+  - gtdb-provenance
+  target_ids:
+  - CommunityMech:000209
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Recheck source-specific treatments, evidence placement and graph qualifiers; run
+    focused schema/strict/terms/explained-reference/GTDB/domain/history checks. Run
+    just gen-html and just check-docs-current if canonical curation is authorized.
+  - Preserve source, cache, history and prior-review bytes. This review authorizes
+    no canonical, issue, Git or status mutation.
+limitations:
+- The principal 2013 main Methods, Results, figure images and any supplementary content
+  were not recovered. REST failures, HTTP403 and HTTP200 challenge payloads remain
+  preserved; no bypass or global unavailability claim.
+- The public 2013 publisher preview covers only its first page and Introduction beginning;
+  citing-paper material is excluded. The 2003 archived main is complete through Methods/references,
+  but Table 1/full figure legends were not recovered. Figure views are publisher thumbnails,
+  not digitized raw data.
+- No exact 2013 pair recipe, control-substrate assignment or cell-resolved remodeling
+  route is reconstructed. No raw-data reanalysis or registry certification of optional
+  AY165308 is claimed.
+notes:
+- Three node assessments bind six exact canonical snippet hashes and actual taxa;
+  two edge assessments bind exact directions and description hashes.
+- The sole primary quote is two words from the fresh 2013 MED Abstract. All31 official
+  inputs remain unchanged.
+- Actual candidate validation and parent-owned saving/post-save gates follow this
+  review.
+tags:
+- record-review
+- corrinoids
+- dechlorination
+- batch-15
+```

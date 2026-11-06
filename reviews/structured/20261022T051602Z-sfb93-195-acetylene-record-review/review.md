@@ -1,0 +1,1640 @@
+# SFB93–195 acetylene-fed dechlorinating coculture review
+
+- Review: 20261022T051602Z-sfb93-195-acetylene-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-22T05:06:25.209060Z
+- Finished UTC: 2026-10-22T05:16:02.069420Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Two major findings concern narrower role/type labels and strain-specific input/product scope. Three minor findings concern current SFB93 grounding/provenance, chromosome versus assembly fields, and cultivation phase/rationale representation. The measured nutritional and rescue pathways remain supported. Whole main and supplement review is complete; all eight native checks passed. Literal completeness 100 and capped quality 100 (raw 105.66666666666669) do not negate these findings.
+
+## Scope And Provenance
+
+Whole released record, both cited papers, six main figures, Table 1 and the full five-page supplement; exact authority/resource and prior-context checks.
+
+Selection: Only released CommunityMech:000184 in owned batch 15.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base cb7a782c8ba80299dca8761ad0a2c90bccd8a117.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000184 | kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml | maintained | Dehalococcoides-Pelobacter Acetylene TCE Coculture |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000184 | Actual native exit 0. |
+| validate-strict | passed | True | CommunityMech:000184 | Actual native exit 0. |
+| validate-terms | passed | True | CommunityMech:000184 | Actual native exit 0. |
+| validate-references-explained | passed | True | CommunityMech:000184 | Actual native exit 0. |
+| validate-gtdb | passed | True | CommunityMech:000184 | Actual native exit 0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000184 | Actual native exit 0. |
+| validate-history | passed | True | CommunityMech:000184 | Actual native exit 0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000184 | Actual native exit 0. |
+| audit-network corpus context | failed | False | CommunityMech:000184 | Actual corpus exit 1 retained. |
+| check-network-quality corpus context | failed | False | CommunityMech:000184 | Actual corpus exit 1 retained. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000184 | Unavailable in owned runtime. |
+
+## Scientific And Domain Assessments
+
+### Two exact source partners
+
+identity: supported. Targets: CommunityMech:000184.
+
+Retain 195 and SFB93; modern taxonomy can be reconciled without changing membership.
+
+Historical Pelobacter SFB93 is unambiguous from the source chromosome and current assembly metadata. NCBITaxon 1842532 is a species node with strain SFB93 retained separately. BAV1 and ANAS are comparison systems, not members.
+
+### Role and interaction semantics
+
+grounding: concern. Targets: CommunityMech:000184.
+
+Fermentation and transfer are supported; narrower role/type labels need qualification.
+
+Supplied acetylene is not a product of a primary degrader. The SYNTROPHY interaction requires product removal that makes donor metabolism favorable; steady hydrogen and 195 growth do not establish that condition. SYNTROPHIC_PARTNER has the broader definition Engages in syntrophic metabolism and may retain qualified source-attributed inference. Neither definition establishes obligacy; preserve the observed transfer evidence.
+
+### Acetylene-Fueled Dechlorinating Coculture
+
+graph: concern. Targets: CommunityMech:000184.
+
+Retain nutritional transfer; qualify the SYNTROPHY type.
+
+Exact selector ecological_interactions[0]; scope PAIRWISE; type SYNTROPHY. Actual taxa: {"source": {"preferred_term": "Pelobacter strain SFB93", "term": {"id": "NCBITaxon:18", "label": "Pelobacter"}}, "target": {"preferred_term": "Dehalococcoides mccartyi strain 195", "term": {"id": "NCBITaxon:243164", "label": "Dehalococcoides mccartyi 195"}}, "participants": []}. Canonical snippet bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet", "sha256": "bc97812166f7477ba156e28babce60a07804d14e75b9a33077d3068028878516", "reference": "PMID:28075122", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}, {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "d74f3f46fc5bc92888278fec7de0d07e721cd8b62b94645a6e1a4b2b004d97b8", "reference": "PMID:28075122", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 391bb7d65809311b560239ec6f8ca754afa76a796224556f9234ac3aa0957adf. PMID 28075122 locators: Results #S10 paragraph 1, Figure 3; Discussion #S13 paragraph 3. The type requires support beyond steady H2 and recipient growth. Retain SUPPORT/IN_VITRO for the observed pair, without turning gene expression into donor thermodynamic evidence.
+
+### D. mccartyi Reductive Dechlorination
+
+graph: supported. Targets: CommunityMech:000184.
+
+Retain 195 reductive dechlorination as an intrinsic phenotype.
+
+Exact selector ecological_interactions[1]; scope PAIRWISE; type absent. Actual taxa: {"source": {"preferred_term": "Dehalococcoides mccartyi strain 195", "term": {"id": "NCBITaxon:243164", "label": "Dehalococcoides mccartyi 195"}}, "target": null, "participants": []}. Canonical snippet bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet", "sha256": "a3857aa2260d0e0c34c36943c59642f3794330d08ffd8e8812e63b88d0e2871f", "reference": "PMID:28075122", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}, {"selector": "ecological_interactions[1].evidence[1].snippet", "sha256": "6ce8cbe7d4df925c983c7492d61f52b658ab77e99cd85372da140c8652f766d3", "reference": "PMID:28075122", "supports": "PARTIAL", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 391bb7d65809311b560239ec6f8ca754afa76a796224556f9234ac3aa0957adf. PMID 28075122 locators: Results #S10 paragraph 1, Figure 3; Results #S12 and SI Table S1. The source-only PAIRWISE node is valid. Retain SUPPORT for phenotype and PARTIAL for the RDase excerpt; unchanged tceA is not induction or enzyme-activity proof.
+
+### SFB93-Mediated Relief of Acetylene Inhibition
+
+graph: supported. Targets: CommunityMech:000184.
+
+Retain SFB93-mediated relief of 195 acetylene inhibition.
+
+Exact selector ecological_interactions[2]; scope PAIRWISE; type absent. Actual taxa: {"source": {"preferred_term": "Pelobacter strain SFB93", "term": {"id": "NCBITaxon:18", "label": "Pelobacter"}}, "target": {"preferred_term": "Dehalococcoides mccartyi strain 195", "term": {"id": "NCBITaxon:243164", "label": "Dehalococcoides mccartyi 195"}}, "participants": []}. Canonical snippet bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet", "sha256": "17cd7ea1584f7cd2538f96ceb3ee2ee9b51a4e15f3e0616e69d7146875fed4a6", "reference": "PMID:28075122", "supports": "PARTIAL", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 391bb7d65809311b560239ec6f8ca754afa76a796224556f9234ac3aa0957adf. PMID 28075122 locators: Results #S9 sole direct paragraph and Figure 2; Abstract rescue sentence separately concerns ANAS. Retain PARTIAL/IN_VITRO for the current Abstract excerpt; direct195 Results/Figure 2 provide stronger claim-local support for future evidence placement. No ANAS methanogenesis transfer.
+
+### Acetylene-Fueled Dechlorinating Coculture → D. mccartyi Reductive Dechlorination
+
+graph: supported. Targets: CommunityMech:000184.
+
+Nutritional coupling supports 195 dechlorination.
+
+Exact selector ecological_interactions[0].downstream[0]; source node 0 → node 1. Upstream participants are encoded NCBITaxon18 → 243164; downstream phenotype belongs to 243164. Exact description: SFB93 acetylene fermentation supplies hydrogen and acetate that support strain-195 TCE dechlorination and growth. This positive nutritional coupling is distinct from removal of an initially inhibitory acetylene exposure; it does not assign BAV1 vinyl-chloride respiration to strain 195. Description SHA256 c9f2476a5775eb1e2eac665b3459e230fa877053cd29d2c463576d258526a558. PMID 28075122 Results #S10 paragraph 1/Figure 3. Preserve the distinction between nutrient provision and detoxification; no reciprocal causal edge is inferred.
+
+### SFB93-Mediated Relief of Acetylene Inhibition → D. mccartyi Reductive Dechlorination
+
+graph: supported. Targets: CommunityMech:000184.
+
+Removal of inhibitory acetylene permits195 dechlorination to resume.
+
+Exact selector ecological_interactions[2].downstream[0]; source node 2 → node 1. Upstream participants are encoded NCBITaxon18 → 243164; downstream phenotype belongs to 243164. Exact description: SFB93 consumption of inhibitory acetylene permits strain 195 to resume TCE reductive dechlorination, as tested by delayed partner addition in the primary Results and Figure 2 caption. The local abstract rescue phrase concerns ANAS and alone does not establish this exact-pair result; ANAS methanogenesis is not transferred to this arrow. Description SHA256 766778273bfa53401a3e20ab180dbee0af709ec90e242452855d7d0534b5b596. PMID 28075122 Results #S9 sole direct paragraph/Figure 2. Preserve the distinction between nutrient provision and detoxification; no reciprocal causal edge is inferred.
+
+### Pair inputs and products
+
+scope: concern. Targets: CommunityMech:000184.
+
+The medium and generic product prose need the same strain boundaries as the graph.
+
+The 195 pair starts with TCE and acetylene; VC predominates, with trace cis-DCE and ethene. Valid 195 cis-DCE physiology is not an added pair substrate. BAV1’s separate VC-to-ethene growth assay cannot define the 195 endpoint. Ethanol oxidation is general community context; chloride equivalents normalize yield rather than establish an independent chloride assay.
+
+### Verified protocol and unsupported rationale
+
+scope: concern. Targets: CommunityMech:000184.
+
+Retain the numeric protocol and remove the invented explanation for static incubation.
+
+Startup is 60 mL bottles with 25 mL ABW, N2, 34 °C, 10% inoculation of each partner and 0.1 mM TCE/acetylene. The source then specifies 5% transfers after 20 µmol TCE and 36 µmol acetylene depletion, followed by repeated feeding after three subcultures. Separate these phases; do not characterize every phase as no-feed BATCH. No full ABW salt formula is reconstructed from another source.
+
+### Dose and environmental scope
+
+grounding: supported. Targets: CommunityMech:000184.
+
+Laboratory inhibition and rescue are distinguished from groundwater relevance.
+
+The 0.4/1.3 mM observations are experimental dose contexts, not environmental setpoints. Acetylene generation by minerals is abiotic context; no primary-degrader role follows from it. The three current environmental-factor claims remain appropriately laboratory-scoped.
+
+### Current SFB93 identity and provenance
+
+grounding: concern. Targets: CommunityMech:000184.
+
+Use the exact SFB93 identity chain, not generic Pelobacter majority.
+
+Retain 195’s valid mapping core. A source-attributed SFB93 refinement can update roster and both graph-source descriptors consistently to species 1842532 and exact GTDB Syntrophotalea_A acetylenivorans. Mapping fractions count reference genomes, not abundance. Filesystem dates do not establish latest/build release provenance.
+
+### Chromosome, assembly and project scopes
+
+representation: concern. Targets: CommunityMech:000184.
+
+The chromosome is real but occupies an Assembly-described slot.
+
+Use GCA_001887775.1 in the assembly slot and preserve CP015519.1 separately. PRJNA214 is the 195 reference genome; PRJNA319824 is a broader three-genome project containing SFB93, not a new coculture assay deposit. No missing-array-deposit finding is inferred from available text.
+
+### Maintained record and prior evidence
+
+ownership: supported. Targets: CommunityMech:000184.
+
+Repairs belong to this YAML; historical source events remain intact.
+
+Current full access does not falsify the earlier cache-removal or source-limited review event. No canonical, cache, history, issue or Git mutation is authorized by this review.
+
+### Complete current-claim review
+
+scope: supported. Targets: CommunityMech:000184.
+
+Both source papers and the focal supplement were reviewed at explicit scopes.
+
+All 6 main figures, Table 1, all 3 SI figures and Table S1 were assessed. Failed source routes remain preserved. No raw omics analysis or enzyme-function proof is claimed; source-internal timing and SI wording discrepancies remain limitations.
+
+### Required and contextual checks
+
+schema: supported. Targets: CommunityMech:000184.
+
+All eight required native checks passed.
+
+Both corpus failures and the optional adapter remain nonrequired. Native pass does not settle role semantics or certify source entailment; actual candidate validation follows rendering.
+
+### Literal metrics
+
+completeness: supported. Targets: CommunityMech:000184.
+
+Completeness 100; raw quality 105.66666666666669, capped 100.
+
+## Findings
+
+### role-type: Qualify the narrower fermentation and syntrophy labels
+
+major / open / confirmed; issue key: cm-000184-role-type.
+
+Supplied or abiotic acetylene does not satisfy SECONDARY_FERMENTER. The paper establishes hydrogen/acetate transfer and recipient growth, but steady hydrogen does not establish the donor-favorability condition in the current SYNTROPHY definition. Source-attributed syntrophic interpretation can be retained with that limit.
+
+### strain-arm: Keep pair inputs and products specific to 195
+
+major / open / confirmed; issue key: cm-000184-strain-arm.
+
+The medium includes cis-DCE as an added input, while the exact 195/SFB93 experiment uses TCE. Generic complete-ethene wording exceeds its predominant VC endpoint; BAV1’s separate assay and valid 195 cometabolic activity need explicit distinction.
+
+### taxon-provenance: Reconcile current SFB93 grounding and mapping provenance
+
+minor / open / confirmed; issue key: cm-000184-taxon-provenance.
+
+Exact SFB93 archive metadata supports a current species refinement and corresponding GTDB route. The existing historical genus is identity-qualified, but can now be made precise; both mappings carry unsupported release/build wording.
+
+### assembly-type: Separate the SFB93 chromosome from its assembly
+
+minor / open / confirmed; issue key: cm-000184-assembly-type.
+
+CP015519 is a valid chromosome, not the Assembly accession/URL requested by these strain slots. The containing exact assembly is verified.
+
+### cultivation-context: Separate cultivation phases and remove the invented agitation rationale
+
+minor / open / confirmed; issue key: cm-000184-cultivation-context.
+
+The numeric startup and serial-transfer protocol is correct. The explanation that agitation would disrupt gas balance and syntrophic exchange is unsupported; later repeated feeding also needs distinction from the literal no-feed BATCH mode.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-role-type
+
+Match the typed claims to the measured transfer and schema definitions.
+
+- Remove or replace the unsupported SECONDARY_FERMENTER tag without inventing a replacement role. Retain acetylene-fermenter prose.
+- Use a supported broader interaction type such as CROSS_FEEDING, or retain source-attributed syntrophy only with an explicit limit on donor product-removal benefit and claim-local evidence. Qualify related SYNTROPHIC_PARTNER tags consistently; do not equate lack of obligacy with a defect.
+- Preserve three biological nodes and both downstream directions. Nutrient provision and inhibitor removal remain distinct. Retain the valid 195 PRIMARY_DEGRADER role and no reverse-transfer inference.
+
+### repair-arm-scope
+
+Separate source physiology, added inputs and measured endpoints.
+
+- For the focal pair retain TCE and acetylene as startup amendments; keep cis-DCE as a valid physiological acceptor/background or trace product, not an added pair feed without an arm-specific source.
+- State predominant VC and only trace cis-DCE/ethene in the 195 pair. Distinguish 195 cometabolic VC conversion from BAV1 growth-linked VC-to-ethene respiration; do not import BAV1 or ANAS membership or outcomes.
+- Preserve the source-backed general ethanol-community statement with its breadth explicit. Describe chloride equivalents as the cell-yield denominator without implying an independently measured chloride-ion assay. These are contextual clarifications, not claims that the source’s general chemistry is false.
+- Where evidence is improved, cite Results #S10/Figure 3 for nutritional support and #S9/Figure 2 for exact 195 rescue. Preserve current PARTIAL qualifiers until excerpts are replaced with claim-local evidence.
+
+### repair-grounding
+
+Reconcile all source-linked SFB93 descriptors with current authorities.
+
+- Retain historical Pelobacter SFB93 wording and strain_name SFB93. If applying current taxonomy, use species NCBITaxon 1842532 Syntrophotalea acetylenivorans consistently in taxonomy and both source_taxon fields; do not call it a strain-rank node.
+- Use its exact GTDB:s__Syntrophotalea_A_acetylenivorans route, full lineage and 1.0 / 3 reference-genome support. Do not replace it with generic Pelobacter majority Seleniibacterium or transfer a genus-level fraction.
+- Retain 195’s verified exact mapping core. Replace latest/build assertions with the pinned local mapping SHA 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd and actual retrieval/snapshot provenance; filesystem dates alone are not GTDB release dates.
+
+### repair-resource-type
+
+Put each verified resource in a compatible slot.
+
+- Use exact GCA_001887775.1 and its Assembly URL in the strain assembly slots; retain CP015519.1 separately as chromosome context. Do not discard a valid chromosome identifier.
+- Preserve PRJNA214 and PRJNA319824 with their reference-genome scopes. The latter contains SFB93 and two other genomes; it is not an exclusively focal pair transcriptome dataset.
+
+### repair-culture
+
+Retain verified setup and describe its phases with direct Methods support.
+
+- Preserve 60 mL bottles/25 mL ABW/N2 / 34 °C/no agitation, 10% inoculum of each partner, 0.1 mM startup TCE and acetylene, and 5% transfers after 20 µmol TCE and 36 µmol acetylene depletion.
+- Remove the unsupported agitation mechanism and unrelated thermophilic-coculture analogy. Separate startup, serial transfers and repeated-feed performance after three subcultures. Use FED_BATCH for a documented repeatedly fed phase only if its no-broth-removal condition is established; it is not a synonym for serial transfers.
+- Attach source-local Methods #S3 first-paragraph evidence. Do not import BAV1’s 28 °C/carbonate medium, ANAS lactate conditions, axenic H2/CO2, or an unverified full ABW recipe.
+
+### validate-curation
+
+Validate any separately authorized canonical repair.
+
+- Recheck exact source/taxon/treatment and graph evidence boundaries, then focused schema/strict/terms/references/GTDB/domain/history gates. Run just gen-html and just check-docs-current if canonical curation is authorized.
+- Preserve source snapshots, cache, history and prior-review events. No canonical, issue, Git or status mutation is performed by this review.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml; Whole maintained YAML | supports | The focal pair is strain 195 and historical Pelobacter SFB93, with three nodes and two directed links. |
+| cultivation | PMID:28075122; DOI:10.1021/acs.est.6b05770; Materials and Methods → Bacterial Cultures and Growth Conditions, section #S3, first direct paragraph (quoted words) | supports | The exact pair startup, atmosphere, temperature, inocula, serial transfers and later repeated feeds are explicitly described. |
+| transfer | PMID:28075122; DOI:10.1021/acs.est.6b05770; Results → Acetylene Fuels Dechlorination by D. mccartyi Strains, #S10 first direct paragraph; Figure 3A–C; Discussion #S13 third direct paragraph | supports | Acetylene consumption, hydrogen, TCE-to-VC conversion and 195 growth support nutritional coupling; donor thermodynamic benefit was not established. |
+| rescue | PMID:28075122; DOI:10.1021/acs.est.6b05770; Results → Inhibitory Effects of Acetylene and TCE on Isolates, #S9 sole direct paragraph; Figure 2 | supports | Delayed SFB93 addition consumes acetylene and restores 195 dechlorination. This is distinct from the ANAS enrichment rescue. |
+| arms | PMID:28075122; DOI:10.1021/acs.est.6b05770; Introduction #S1 first direct paragraph; Methods #S3 first paragraph; Results #S10 paragraphs 1–2; Figures 3–4 and Table 1 | supports | The 195 pair uses TCE and accumulates VC with trace cis-DCE/ethene. BAV1 uses VC in its separate pair; 195 VC conversion is cometabolic. |
+| expression | PMID:28075122; DOI:10.1021/acs.est.6b05770; Methods #S6–S7; Results #S12 sole direct paragraph; Figure 6; supplement Table S1 physical pages 4–5 | supports | The array compares acetylene-stressed195 and controls. The tceA ratio is 0.9; transcript stability does not prove enzyme inhibition or induction-mediated rescue. |
+| dose | PMID:28075122; DOI:10.1021/acs.est.6b05770; Results #S9 and #S11; Table 1; supplement Figures S1–S3 physical pages 2–3 | supports | Dose, donor and population differ across195, BAV1 and ANAS. The source-internal S2 wording discrepancy is not silently reconciled. |
+| genome | PMID:28183760; DOI:10.1128/genomeA.01573-16; GENOME ANNOUNCEMENT paragraphs2–4 and Accession number(s), sole paragraph | supports | The announcement links historical SFB93 to chromosome CP015519 and PRJNA319824; annotated enzymes do not establish focal pair flux. |
+| ontology | /private/tmp/cm-review-session/batch-15/000184/ontology-authority.json; 14 distinct pairs and 27 placements | supports | All encoded labels match the current local authorities; semantic claim scope is separately assessed. |
+| schema | /private/tmp/cm-review-session/batch-15/000184/child-schema-semantics.json; Role, interaction, cultivation and strain-resource definitions | supports | SECONDARY_FERMENTER requires primary-degrader products; SYNTROPHY requires product-removal benefit; genome slots require Assembly. |
+| gtdb | /private/tmp/cm-review-session/batch-15/000184/child-gtdb-crosswalk.json; Current encoded-ID mapping routes | supports | The 195 core reproduces; generic Pelobacter majority does not override source-specific identity. Local mtime is not release provenance. |
+| candidate-taxonomy | /private/tmp/cm-review-session/batch-15/000184/child-SFB93-candidate-authority.json; Exact NCBITaxon 1842532 species and GTDB route | supports | Current species Syntrophotalea acetylenivorans maps to Syntrophotalea_A acetylenivorans, 1.0 over 3 genomes. |
+| stocks | /private/tmp/cm-review-session/batch-15/000184/child-strain-authority.json; Exact SFB93 chromosome-to-assembly-to-species chain | supports | GCA_001887775.1 and CP015519.1 identify SFB93; the candidate NCBI node is species rank, not a new strain node. |
+| semantics | /private/tmp/cm-review-session/batch-15/000184/ontology-semantic-notes.json; Final source-local auxiliary judgment | supports | Numeric cultivation and graph directions remain supported; role/type and resource semantics require bounded repair. |
+| resources | /private/tmp/cm-review-session/batch-15/000184/dataset-verification.json; Both genome projects and encoded strain resources | supports | Reference genomes are distinguished from focal assay deposits; PRJNA319824 includes other isolates. |
+| external | /private/tmp/cm-review-session/batch-15/000184/external-resource-verification.json; Two encoded publication identities | supports | PMID/DOI/title identities match fresh metadata. |
+| snippets | /private/tmp/cm-review-session/batch-15/000184/snippet-audit.json; 18 exact canonical placements | supports | Fresh Abstract and selected-cache matches verify text, not every broader claim. |
+| provenance | /private/tmp/cm-review-session/batch-15/000184/provenance-audit.json; Focal history, batch 31, infrastructure removal, issues and cohort | supports | Earlier source-access and graph-curation events remain unchanged. |
+| inspection | /private/tmp/cm-review-session/batch-15/000184/inspect.json; 31 immutable inputs | supports | Target, 21 authorities and 9 focal contexts established before assessment. |
+| assets | /private/tmp/cm-review-session/batch-15/000184/lead-source-assets.json; Public retrievals and precise payload classification | supports | Whole primary main and SI were recovered; failed routes are retained separately. |
+| lead-read | /private/tmp/cm-review-session/batch-15/000184/lead-primary-read-scope.json; Actual whole-text and image reading | supports | Whole main, Table 1, supplement, genome announcement and all 6 main / 3 SI figures assessed. |
+| locators | /private/tmp/cm-review-session/batch-15/000184/source-locator-verification.json; Direct headings, paragraph counts and quote | supports | The sole two-word quote is in #S3 first direct paragraph. |
+| table-correction | /private/tmp/cm-review-session/batch-15/000184/primary/table-inventory-correction.json; Table 1 direct HTML cell matrix | supports | The initial CSS inventory missed Table 1; this append-only correction preserves and replaces that inventory claim. |
+| source-audit | /private/tmp/cm-review-session/batch-15/000184/source-audit.json; Final lead source judgment | supports | Two major and three minor findings; completed scientific review at explicit source scope. |
+| root-source | /private/tmp/cm-review-session/batch-15/000184/root-independent-source-audit.json; Independent root source and claim audit | supports | Independent reading agrees with the final scientific groups. |
+| root-genome | /private/tmp/cm-review-session/batch-15/000184/root-genome-source-audit.json; Genome-announcement source recovery | supports | Whole source, five references and genome-only boundaries are documented. |
+| metrics | /private/tmp/cm-review-session/batch-15/000184/support-final-audit.json; Final supporting reconciliation | supports | Completeness 100; quality 131.66666666666669 base minus 26 equals 105.66666666666669 raw, capped 100. |
+| support-manifest | /private/tmp/cm-review-session/batch-15/000184/support-frozen-manifest.json; Frozen support dependencies | supports | Final source, authority, resource and metric scope is reconciled. |
+| auxiliary | /private/tmp/cm-review-session/batch-15/000184/auxiliary-frozen-manifest.json; Frozen native and ontology dependencies | supports | All eight required focused checks passed. |
+| final-native | /private/tmp/cm-review-session/batch-15/000184/final-validator-summary.json; Actual command receipts and input integrity | supports | Native success is retained without equating it with scientific correctness. |
+| corpus-context | /private/tmp/cm-review-session/batch-15/000184/child-corpus-context.json; Fresh batch 15 nonrequired corpus baseline | supports | Two corpus commands exit 1 with 44 warnings across 16/477 records and zero errors. |
+| adapter | /private/tmp/cm-review-session/batch-15/000184/adapter-check.json; Optional adapter availability | supports | The optional adapter is unavailable; no biological absence is inferred. |
+| failed-response | /private/tmp/cm-review-session/batch-15/000184/failed-empty-response-classification.json; Exactly one HTTP 202 empty repository response | supports | Only the exact failed response is classified; it is not a successful scientific source. |
+| root-clarification | /private/tmp/cm-review-session/batch-15/000184/root-source-clarification.json; Append-only role, culture-stage and chemistry clarification | supports | Product-removal benefit is the interaction criterion; the syntrophic-partner role is broader. FED_BATCH requires established no-broth-removal. |
+| check-validate | /private/tmp/cm-review-session/batch-15/000184/validate.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific review remains separate. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-15/000184/validate-strict.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific review remains separate. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-15/000184/validate-terms.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific review remains separate. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-15/000184/validate-references-explained.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific review remains separate. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-15/000184/validate-gtdb.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific review remains separate. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-15/000184/validate-gtdb-domain.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific review remains separate. |
+| check-validate-history | /private/tmp/cm-review-session/batch-15/000184/validate-history.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific review remains separate. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-15/000184/normalize-cache-names-check.json; Actual command/stdout/stderr | supports | Actual native exit 0; independent scientific review remains separate. |
+| context-audit-network | /private/tmp/cm-review-session/batch-15/audit-network.json; Fresh batch 15 corpus baseline | supports | Actual exit 1; 44 warnings across 16/477 records, zero errors. |
+| context-check-network-quality | /private/tmp/cm-review-session/batch-15/check-network-quality.json; Fresh batch 15 corpus baseline | supports | Actual exit 1; 44 warnings across 16/477 records, zero errors. |
+
+## Limits And Additional Notes
+
+- The initial Table 1 selector missed the table; a separate direct-cell projection corrects that inventory without changing its original bytes.
+- The main describes distinct startup and later dose phases. Its RNA-preparation paragraph mentions both day 7 and day 6 sampling; no new exact sampling time is inserted. SI Figure S2 and main ANAS wording differ; no silent harmonization or transfer into the 195 pair.
+- No raw transcriptomic or sequence reanalysis, figure digitization, enzyme activity inference, or full ABW formula reconstruction. The genome announcement supplies reference-genome context, not a focal pair culture protocol.
+- Failed HTTP 500/404, challenge HTML, non-OA supplement API error and one empty HTTP 202 response are preserved. Genuine PMC/Figshare payloads support completion; failed bodies are not scientific sources.
+- Three node assessments bind five exact canonical snippets; two edge assessments preserve exact descriptions, hashes and directions.
+- The sole primary quote is two words from the first direct Methods #S3 paragraph. All 31 official inputs remain unchanged.
+- Native candidate validation and parent-owned save/post-save gates follow rendering.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261022T051602Z-sfb93-195-acetylene-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: SFB93–195 acetylene-fed dechlorinating coculture review
+started_at: '2026-10-22T05:06:25.209060Z'
+finished_at: '2026-10-22T05:16:02.069420Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate lead, root, auxiliary and supporting reviewers; no
+    person-level independence claim.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Two major findings concern narrower role/type labels and strain-specific
+  input/product scope. Three minor findings concern current SFB93 grounding/provenance,
+  chromosome versus assembly fields, and cultivation phase/rationale representation.
+  The measured nutritional and rescue pathways remain supported. Whole main and supplement
+  review is complete; all eight native checks passed. Literal completeness 100 and
+  capped quality 100 (raw 105.66666666666669) do not negate these findings.
+source:
+  git_revision: cb7a782c8ba80299dca8761ad0a2c90bccd8a117
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/infrastructure/paywalled-text-removal/2026-09-11T025818Z-claude-code-366122.yaml
+    sha256: 317990e487936c8020d2c3160ec10b4e31b8676637a23a49ca266177a1ac01e6
+    role: context
+  - path: history/records/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture/2026-10-06T061823Z-codex-d74031.yaml
+    sha256: ac733d15084452c279c29136f5c94c217f9ddd1eec2c146e44e6ecaf12de7a1e
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+    sha256: ab28a71ff971a76db7e6bc3989a24ff65fbf03b0eb1177ae70c85fab1d04c813
+    role: target
+  - path: references_cache/PMID_28075122.md
+    sha256: 9ff2ad42fd8c164b8779258503d2f08241e105d3b5f35b684f7508be4c9dfb48
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261006-batch31.yaml
+    sha256: 2c1e54bb636d8534313e280c6a19fdee4bedaa235c76d0e5ff5a17f71d573541
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-three-records-batch31.yaml
+    sha256: 3ae6fd42367e69f8ffe653271b91ef4cabc271b302f7f729d6d1204a1d7e7b88
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.md
+    sha256: e432615b147787c8d009d96d2f11e5b78a45927bf9c69e45ec0d31123d1fc2e9
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/frozen_inventory_metrics.tsv
+    sha256: d5a47bbcc3745a489ff507680aa7360a6a65ce070ce4ec88f886b70128791313
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md
+    sha256: 4e7781aa8cdfc4bb42d896ebe75920719d9dcade92ffc4a0ae07af7481cb37b3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000184
+  path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+  label: Dehalococcoides-Pelobacter Acetylene TCE Coculture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+    role: canonical_record
+scope:
+  description: Whole released record, both cited papers, six main figures, Table 1
+    and the full five-page supplement; exact authority/resource and prior-context
+    checks.
+  selection: Only released CommunityMech:000184 in owned batch 15.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000184
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000184
+  command: just --no-dotenv validate kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000184
+  command: just --no-dotenv validate-strict kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-15/000184/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000184
+  command: just --no-dotenv validate-terms kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000184
+  command: just --no-dotenv validate-references-explained kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000184
+  command: just --no-dotenv validate-gtdb kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000184
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000184
+  command: just --no-dotenv validate-history history/records/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000184
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: context-audit-network
+  name: audit-network corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit 1 retained.
+  target_ids:
+  - CommunityMech:000184
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-15/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-audit-network
+  - corpus-context
+  scope_note: Nonrequired corpus context.
+- check_id: context-check-network-quality
+  name: check-network-quality corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit 1 retained.
+  target_ids:
+  - CommunityMech:000184
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-15/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-check-network-quality
+  - corpus-context
+  scope_note: Nonrequired corpus context.
+- check_id: optional-structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Unavailable in owned runtime.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - adapter
+  scope_note: No adapter execution or biological absence inference.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+  locator: Whole maintained YAML
+  summary: The focal pair is strain 195 and historical Pelobacter SFB93, with three
+    nodes and two directed links.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.264033Z'
+- evidence_id: cultivation
+  kind: primary_source
+  reference: PMID:28075122; DOI:10.1021/acs.est.6b05770
+  locator: 'Materials and Methods → Bacterial Cultures and Growth Conditions, section
+    #S3, first direct paragraph (quoted words)'
+  summary: The exact pair startup, atmosphere, temperature, inocula, serial transfers
+    and later repeated feeds are explicitly described.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.264103Z'
+  snapshot_sha256: 6040889e2169e8760d16dabac4e231bc1a820ec30abede2d7a1e6c3401cf8102
+  quote: without agitation
+- evidence_id: transfer
+  kind: primary_source
+  reference: PMID:28075122; DOI:10.1021/acs.est.6b05770
+  locator: 'Results → Acetylene Fuels Dechlorination by D. mccartyi Strains, #S10
+    first direct paragraph; Figure 3A–C; Discussion #S13 third direct paragraph'
+  summary: Acetylene consumption, hydrogen, TCE-to-VC conversion and 195 growth support
+    nutritional coupling; donor thermodynamic benefit was not established.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.264471Z'
+  snapshot_sha256: 6040889e2169e8760d16dabac4e231bc1a820ec30abede2d7a1e6c3401cf8102
+- evidence_id: rescue
+  kind: primary_source
+  reference: PMID:28075122; DOI:10.1021/acs.est.6b05770
+  locator: 'Results → Inhibitory Effects of Acetylene and TCE on Isolates, #S9 sole
+    direct paragraph; Figure 2'
+  summary: Delayed SFB93 addition consumes acetylene and restores 195 dechlorination.
+    This is distinct from the ANAS enrichment rescue.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.264567Z'
+  snapshot_sha256: 6040889e2169e8760d16dabac4e231bc1a820ec30abede2d7a1e6c3401cf8102
+- evidence_id: arms
+  kind: primary_source
+  reference: PMID:28075122; DOI:10.1021/acs.est.6b05770
+  locator: 'Introduction #S1 first direct paragraph; Methods #S3 first paragraph;
+    Results #S10 paragraphs 1–2; Figures 3–4 and Table 1'
+  summary: The 195 pair uses TCE and accumulates VC with trace cis-DCE/ethene. BAV1
+    uses VC in its separate pair; 195 VC conversion is cometabolic.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.264706Z'
+  snapshot_sha256: 6040889e2169e8760d16dabac4e231bc1a820ec30abede2d7a1e6c3401cf8102
+- evidence_id: expression
+  kind: primary_source
+  reference: PMID:28075122; DOI:10.1021/acs.est.6b05770
+  locator: 'Methods #S6–S7; Results #S12 sole direct paragraph; Figure 6; supplement
+    Table S1 physical pages 4–5'
+  summary: The array compares acetylene-stressed195 and controls. The tceA ratio is
+    0.9; transcript stability does not prove enzyme inhibition or induction-mediated
+    rescue.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.264794Z'
+  snapshot_sha256: 2d76ef30256eb70a6df116aab5b1042322940e3859abdd9a044ebd7a2e3a6052
+- evidence_id: dose
+  kind: primary_source
+  reference: PMID:28075122; DOI:10.1021/acs.est.6b05770
+  locator: 'Results #S9 and #S11; Table 1; supplement Figures S1–S3 physical pages
+    2–3'
+  summary: Dose, donor and population differ across195, BAV1 and ANAS. The source-internal
+    S2 wording discrepancy is not silently reconciled.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.265130Z'
+  snapshot_sha256: 2d76ef30256eb70a6df116aab5b1042322940e3859abdd9a044ebd7a2e3a6052
+- evidence_id: genome
+  kind: primary_source
+  reference: PMID:28183760; DOI:10.1128/genomeA.01573-16
+  locator: GENOME ANNOUNCEMENT paragraphs2–4 and Accession number(s), sole paragraph
+  summary: The announcement links historical SFB93 to chromosome CP015519 and PRJNA319824;
+    annotated enzymes do not establish focal pair flux.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.265213Z'
+  snapshot_sha256: 9740fde3343add0117b94fda17a0a1d694e928dca37dd0785cde85df570b2e00
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000184/ontology-authority.json
+  locator: 14 distinct pairs and 27 placements
+  summary: All encoded labels match the current local authorities; semantic claim
+    scope is separately assessed.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.265399Z'
+  snapshot_sha256: 025706e14fa4d8e6df269a3a121ae51ebf4c1d1fcd8ad6121451cb4f220ab0a2
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000184/child-schema-semantics.json
+  locator: Role, interaction, cultivation and strain-resource definitions
+  summary: SECONDARY_FERMENTER requires primary-degrader products; SYNTROPHY requires
+    product-removal benefit; genome slots require Assembly.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.265587Z'
+  snapshot_sha256: bf706df90c78788bedf22cd8728c58e200465e659b878c2f418d3544c470f33a
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000184/child-gtdb-crosswalk.json
+  locator: Current encoded-ID mapping routes
+  summary: The 195 core reproduces; generic Pelobacter majority does not override
+    source-specific identity. Local mtime is not release provenance.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.265778Z'
+  snapshot_sha256: 55c18f0973e6f41b2febdc100ced89cd398c7a339811d77e9422e5f2f3ca9482
+- evidence_id: candidate-taxonomy
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000184/child-SFB93-candidate-authority.json
+  locator: Exact NCBITaxon 1842532 species and GTDB route
+  summary: Current species Syntrophotalea acetylenivorans maps to Syntrophotalea_A
+    acetylenivorans, 1.0 over 3 genomes.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.265897Z'
+  snapshot_sha256: bafa74eb6c3115482aa7ec0cc3e176f668a83953d35b4408754feb22f7288643
+- evidence_id: stocks
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000184/child-strain-authority.json
+  locator: Exact SFB93 chromosome-to-assembly-to-species chain
+  summary: GCA_001887775.1 and CP015519.1 identify SFB93; the candidate NCBI node
+    is species rank, not a new strain node.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.266005Z'
+  snapshot_sha256: f08c35deaa58d2e4ec6bca0c9b0f623f9b8e14c4b288b2ea2d223d0eb4f58ddb
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000184/ontology-semantic-notes.json
+  locator: Final source-local auxiliary judgment
+  summary: Numeric cultivation and graph directions remain supported; role/type and
+    resource semantics require bounded repair.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.266147Z'
+  snapshot_sha256: 731a21568b2b56055b5e9cf6093b503c28d02568ba929b2ce85de951bc574494
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/dataset-verification.json
+  locator: Both genome projects and encoded strain resources
+  summary: Reference genomes are distinguished from focal assay deposits; PRJNA319824
+    includes other isolates.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.266317Z'
+  snapshot_sha256: 61e2ca06c5a1f79683adcd3d8f0979341258ebc4536998fe9529b1439def6726
+- evidence_id: external
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/external-resource-verification.json
+  locator: Two encoded publication identities
+  summary: PMID/DOI/title identities match fresh metadata.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.266461Z'
+  snapshot_sha256: 425cf2c8fa9abac4278fcac69d0904ac1e4785f1589229891297be87ae3bfba5
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/snippet-audit.json
+  locator: 18 exact canonical placements
+  summary: Fresh Abstract and selected-cache matches verify text, not every broader
+    claim.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.266550Z'
+  snapshot_sha256: 391bb7d65809311b560239ec6f8ca754afa76a796224556f9234ac3aa0957adf
+- evidence_id: provenance
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-15/000184/provenance-audit.json
+  locator: Focal history, batch 31, infrastructure removal, issues and cohort
+  summary: Earlier source-access and graph-curation events remain unchanged.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.266677Z'
+  snapshot_sha256: afbf0c64f44720fa5d3e675b70ac4130539fe4a19ec8218168b5924e572fdef6
+- evidence_id: inspection
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/inspect.json
+  locator: 31 immutable inputs
+  summary: Target, 21 authorities and 9 focal contexts established before assessment.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.266803Z'
+  snapshot_sha256: 5f27e4b40e32f9b23044e1da8159ca9ad4a231ce5972272fd9a2bfeb13570ae0
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/lead-source-assets.json
+  locator: Public retrievals and precise payload classification
+  summary: Whole primary main and SI were recovered; failed routes are retained separately.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.266831Z'
+  snapshot_sha256: 7ed178eee4afc94c1f222a680b5720b9669ee1253006419b4771edaef81890ff
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/lead-primary-read-scope.json
+  locator: Actual whole-text and image reading
+  summary: Whole main, Table 1, supplement, genome announcement and all 6 main / 3
+    SI figures assessed.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.266965Z'
+  snapshot_sha256: 66a167f78005311c9b02d2faf3db4f44dc0bc5492cb8129f5f151ebe107282e5
+- evidence_id: locators
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/source-locator-verification.json
+  locator: Direct headings, paragraph counts and quote
+  summary: 'The sole two-word quote is in #S3 first direct paragraph.'
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.267088Z'
+  snapshot_sha256: a07f24cdfecfde479589a24e562cd82717dbbc7f953c06ec3b31ea203b6d5a6a
+- evidence_id: table-correction
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/primary/table-inventory-correction.json
+  locator: Table 1 direct HTML cell matrix
+  summary: The initial CSS inventory missed Table 1; this append-only correction preserves
+    and replaces that inventory claim.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.267243Z'
+  snapshot_sha256: 6311f0e6a86c1d24c993fbf0a8bc1ecabce29320f9ed9e21ac09c60c09c3440c
+- evidence_id: source-audit
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/source-audit.json
+  locator: Final lead source judgment
+  summary: Two major and three minor findings; completed scientific review at explicit
+    source scope.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.267363Z'
+  snapshot_sha256: 9f09da92b97397799f181872639aec9f7b18b6333118cc18f53e1473213af8eb
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/root-independent-source-audit.json
+  locator: Independent root source and claim audit
+  summary: Independent reading agrees with the final scientific groups.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.267498Z'
+  snapshot_sha256: 0fa81783b7c49e9e1d6446a226ee76c6da5dd8186d51f6bc03d36c768695ac90
+- evidence_id: root-genome
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/root-genome-source-audit.json
+  locator: Genome-announcement source recovery
+  summary: Whole source, five references and genome-only boundaries are documented.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.267717Z'
+  snapshot_sha256: 15631a81e99692496ae75176576a0196852ad98df0004a6e0ed93f926b6c300e
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/support-final-audit.json
+  locator: Final supporting reconciliation
+  summary: Completeness 100; quality 131.66666666666669 base minus 26 equals 105.66666666666669
+    raw, capped 100.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.267890Z'
+  snapshot_sha256: 1859a9fb72affda77845db87347682f4fe7043aa445bb00334447ecb2738c7c9
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/support-frozen-manifest.json
+  locator: Frozen support dependencies
+  summary: Final source, authority, resource and metric scope is reconciled.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.267937Z'
+  snapshot_sha256: c52d0495d5a3722737cf4033fbfacbe4fc4340c40adf25735f10f0340f639608
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/auxiliary-frozen-manifest.json
+  locator: Frozen native and ontology dependencies
+  summary: All eight required focused checks passed.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.268071Z'
+  snapshot_sha256: fe916d6aea4282728e4700bbbd3c938bbe401f5f5df36e284e661c005e8d5c1f
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/final-validator-summary.json
+  locator: Actual command receipts and input integrity
+  summary: Native success is retained without equating it with scientific correctness.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.268185Z'
+  snapshot_sha256: e06cc4ce95a34c2630f4036545d3b448c89582bb69ba31f3d62becec98d1db31
+- evidence_id: corpus-context
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/child-corpus-context.json
+  locator: Fresh batch 15 nonrequired corpus baseline
+  summary: Two corpus commands exit 1 with 44 warnings across 16/477 records and zero
+    errors.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.268322Z'
+  snapshot_sha256: afe7fd29d002fbf790d466ea806b2880df30e6cf6a3b4397e801bf6a00a571af
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/adapter-check.json
+  locator: Optional adapter availability
+  summary: The optional adapter is unavailable; no biological absence is inferred.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.268443Z'
+  snapshot_sha256: 6473e4d04c8efe0dbf756a252d7fda674ccf3537cac31a728991dd3914c6a33a
+- evidence_id: failed-response
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/failed-empty-response-classification.json
+  locator: Exactly one HTTP 202 empty repository response
+  summary: Only the exact failed response is classified; it is not a successful scientific
+    source.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.268544Z'
+  snapshot_sha256: 6091a713d368775a3d3d09485ce6e1138aa146599e9c4e4729bf275b986cd644
+- evidence_id: root-clarification
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/root-source-clarification.json
+  locator: Append-only role, culture-stage and chemistry clarification
+  summary: Product-removal benefit is the interaction criterion; the syntrophic-partner
+    role is broader. FED_BATCH requires established no-broth-removal.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.268672Z'
+  snapshot_sha256: f844758fb5866a134624bd8883e9357e28e4d31d2de0fd21284080b89470bf56
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/validate.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific review remains separate.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.268995Z'
+  snapshot_sha256: 860f847c6c786e8d15e4ec0867f17cb29e918eeb30da9ece062e7bd8e97a2282
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/validate-strict.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific review remains separate.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.269171Z'
+  snapshot_sha256: a4b6d739e13324a0cbbd6720c1649e690559461e64ea11dce640b8fdba31df88
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/validate-terms.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific review remains separate.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.269350Z'
+  snapshot_sha256: 44e7cedc7cd804653ef1424a1c6cabe5e579660b7508dd6e2a01a13a28789218
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/validate-references-explained.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific review remains separate.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.269514Z'
+  snapshot_sha256: 9f38f49cfbfbf2f1d37538e26fd7ca56579d3704f48327bba3061c0f51166832
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/validate-gtdb.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific review remains separate.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.269685Z'
+  snapshot_sha256: f047958f21ff007542ded6dd342520b8f9886089a683b1d3e60970308a11b5f1
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/validate-gtdb-domain.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific review remains separate.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.269877Z'
+  snapshot_sha256: 0cfbeb42dd6ec65e5646bcb9c1fafb02ee078cf0a2befec569e3e1dbb85dd097
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/validate-history.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific review remains separate.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.270038Z'
+  snapshot_sha256: aad1068fd6509b5fd44ad29dd2aad5daa16b0946637c9ee089a1fde5069bdddb
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000184/normalize-cache-names-check.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit 0; independent scientific review remains separate.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.270193Z'
+  snapshot_sha256: 227add8e548cd2a3549c98e114357b16f3aae0affbf513815358489e092e77a9
+- evidence_id: context-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/audit-network.json
+  locator: Fresh batch 15 corpus baseline
+  summary: Actual exit 1; 44 warnings across 16/477 records, zero errors.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.270389Z'
+  snapshot_sha256: b92af84b02acf105f8dc7c3625cc2a7e52a436b24a8243fe7e1d53012c9be1d9
+- evidence_id: context-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/check-network-quality.json
+  locator: Fresh batch 15 corpus baseline
+  summary: Actual exit 1; 44 warnings across 16/477 records, zero errors.
+  support: supports
+  accessed_at: '2026-10-22T05:15:39.270560Z'
+  snapshot_sha256: 10b4cbb4180b20137e22c994ff8cd71d5ca52ab6ac3ef21fef5580eb4c9200fc
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Two exact source partners
+  outcome: supported
+  summary: Retain 195 and SFB93; modern taxonomy can be reconciled without changing
+    membership.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - record
+  - stocks
+  - candidate-taxonomy
+  - genome
+  dimensions:
+  - name: taxon_scope
+    value: Strain 195 and SFB93
+    definition: A two-member experimental pair; exact genome metadata supports current
+      naming.
+    evidence_ids:
+    - stocks
+  - name: experimental_setting
+    value: Engineered anaerobic laboratory model
+    definition: Synthetic origin, laboratory environment and bioremediation purpose
+      are supported; field application remains prospective.
+    evidence_ids:
+    - cultivation
+    - ontology
+  details: Historical Pelobacter SFB93 is unambiguous from the source chromosome and
+    current assembly metadata. NCBITaxon 1842532 is a species node with strain SFB93
+    retained separately. BAV1 and ANAS are comparison systems, not members.
+- assessment_id: roles
+  area: grounding
+  topic: Role and interaction semantics
+  outcome: concern
+  summary: Fermentation and transfer are supported; narrower role/type labels need
+    qualification.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - schema
+  - transfer
+  - semantics
+  - root-clarification
+  details: Supplied acetylene is not a product of a primary degrader. The SYNTROPHY
+    interaction requires product removal that makes donor metabolism favorable; steady
+    hydrogen and 195 growth do not establish that condition. SYNTROPHIC_PARTNER has
+    the broader definition Engages in syntrophic metabolism and may retain qualified
+    source-attributed inference. Neither definition establishes obligacy; preserve
+    the observed transfer evidence.
+- assessment_id: node-0
+  area: graph
+  topic: Acetylene-Fueled Dechlorinating Coculture
+  outcome: concern
+  summary: Retain nutritional transfer; qualify the SYNTROPHY type.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - transfer
+  - arms
+  - snippets
+  - schema
+  details: 'Exact selector ecological_interactions[0]; scope PAIRWISE; type SYNTROPHY.
+    Actual taxa: {"source": {"preferred_term": "Pelobacter strain SFB93", "term":
+    {"id": "NCBITaxon:18", "label": "Pelobacter"}}, "target": {"preferred_term": "Dehalococcoides
+    mccartyi strain 195", "term": {"id": "NCBITaxon:243164", "label": "Dehalococcoides
+    mccartyi 195"}}, "participants": []}. Canonical snippet bindings: [{"selector":
+    "ecological_interactions[0].evidence[0].snippet", "sha256": "bc97812166f7477ba156e28babce60a07804d14e75b9a33077d3068028878516",
+    "reference": "PMID:28075122", "supports": "SUPPORT", "evidence_source": "IN_VITRO"},
+    {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "d74f3f46fc5bc92888278fec7de0d07e721cd8b62b94645a6e1a4b2b004d97b8",
+    "reference": "PMID:28075122", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 391bb7d65809311b560239ec6f8ca754afa76a796224556f9234ac3aa0957adf.
+    PMID 28075122 locators: Results #S10 paragraph 1, Figure 3; Discussion #S13 paragraph
+    3. The type requires support beyond steady H2 and recipient growth. Retain SUPPORT/IN_VITRO
+    for the observed pair, without turning gene expression into donor thermodynamic
+    evidence.'
+- assessment_id: node-1
+  area: graph
+  topic: D. mccartyi Reductive Dechlorination
+  outcome: supported
+  summary: Retain 195 reductive dechlorination as an intrinsic phenotype.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - transfer
+  - expression
+  - snippets
+  - schema
+  details: 'Exact selector ecological_interactions[1]; scope PAIRWISE; type absent.
+    Actual taxa: {"source": {"preferred_term": "Dehalococcoides mccartyi strain 195",
+    "term": {"id": "NCBITaxon:243164", "label": "Dehalococcoides mccartyi 195"}},
+    "target": null, "participants": []}. Canonical snippet bindings: [{"selector":
+    "ecological_interactions[1].evidence[0].snippet", "sha256": "a3857aa2260d0e0c34c36943c59642f3794330d08ffd8e8812e63b88d0e2871f",
+    "reference": "PMID:28075122", "supports": "SUPPORT", "evidence_source": "IN_VITRO"},
+    {"selector": "ecological_interactions[1].evidence[1].snippet", "sha256": "6ce8cbe7d4df925c983c7492d61f52b658ab77e99cd85372da140c8652f766d3",
+    "reference": "PMID:28075122", "supports": "PARTIAL", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 391bb7d65809311b560239ec6f8ca754afa76a796224556f9234ac3aa0957adf.
+    PMID 28075122 locators: Results #S10 paragraph 1, Figure 3; Results #S12 and SI
+    Table S1. The source-only PAIRWISE node is valid. Retain SUPPORT for phenotype
+    and PARTIAL for the RDase excerpt; unchanged tceA is not induction or enzyme-activity
+    proof.'
+- assessment_id: node-2
+  area: graph
+  topic: SFB93-Mediated Relief of Acetylene Inhibition
+  outcome: supported
+  summary: Retain SFB93-mediated relief of 195 acetylene inhibition.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - rescue
+  - dose
+  - snippets
+  - schema
+  details: 'Exact selector ecological_interactions[2]; scope PAIRWISE; type absent.
+    Actual taxa: {"source": {"preferred_term": "Pelobacter strain SFB93", "term":
+    {"id": "NCBITaxon:18", "label": "Pelobacter"}}, "target": {"preferred_term": "Dehalococcoides
+    mccartyi strain 195", "term": {"id": "NCBITaxon:243164", "label": "Dehalococcoides
+    mccartyi 195"}}, "participants": []}. Canonical snippet bindings: [{"selector":
+    "ecological_interactions[2].evidence[0].snippet", "sha256": "17cd7ea1584f7cd2538f96ceb3ee2ee9b51a4e15f3e0616e69d7146875fed4a6",
+    "reference": "PMID:28075122", "supports": "PARTIAL", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 391bb7d65809311b560239ec6f8ca754afa76a796224556f9234ac3aa0957adf.
+    PMID 28075122 locators: Results #S9 sole direct paragraph and Figure 2; Abstract
+    rescue sentence separately concerns ANAS. Retain PARTIAL/IN_VITRO for the current
+    Abstract excerpt; direct195 Results/Figure 2 provide stronger claim-local support
+    for future evidence placement. No ANAS methanogenesis transfer.'
+- assessment_id: edge-0-0
+  area: graph
+  topic: Acetylene-Fueled Dechlorinating Coculture → D. mccartyi Reductive Dechlorination
+  outcome: supported
+  summary: Nutritional coupling supports 195 dechlorination.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - transfer
+  - snippets
+  details: 'Exact selector ecological_interactions[0].downstream[0]; source node 0
+    → node 1. Upstream participants are encoded NCBITaxon18 → 243164; downstream phenotype
+    belongs to 243164. Exact description: SFB93 acetylene fermentation supplies hydrogen
+    and acetate that support strain-195 TCE dechlorination and growth. This positive
+    nutritional coupling is distinct from removal of an initially inhibitory acetylene
+    exposure; it does not assign BAV1 vinyl-chloride respiration to strain 195. Description
+    SHA256 c9f2476a5775eb1e2eac665b3459e230fa877053cd29d2c463576d258526a558. PMID
+    28075122 Results #S10 paragraph 1/Figure 3. Preserve the distinction between nutrient
+    provision and detoxification; no reciprocal causal edge is inferred.'
+- assessment_id: edge-2-0
+  area: graph
+  topic: SFB93-Mediated Relief of Acetylene Inhibition → D. mccartyi Reductive Dechlorination
+  outcome: supported
+  summary: Removal of inhibitory acetylene permits195 dechlorination to resume.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - rescue
+  - snippets
+  details: 'Exact selector ecological_interactions[2].downstream[0]; source node 2
+    → node 1. Upstream participants are encoded NCBITaxon18 → 243164; downstream phenotype
+    belongs to 243164. Exact description: SFB93 consumption of inhibitory acetylene
+    permits strain 195 to resume TCE reductive dechlorination, as tested by delayed
+    partner addition in the primary Results and Figure 2 caption. The local abstract
+    rescue phrase concerns ANAS and alone does not establish this exact-pair result;
+    ANAS methanogenesis is not transferred to this arrow. Description SHA256 766778273bfa53401a3e20ab180dbee0af709ec90e242452855d7d0534b5b596.
+    PMID 28075122 Results #S9 sole direct paragraph/Figure 2. Preserve the distinction
+    between nutrient provision and detoxification; no reciprocal causal edge is inferred.'
+- assessment_id: chemistry
+  area: scope
+  topic: Pair inputs and products
+  outcome: concern
+  summary: The medium and generic product prose need the same strain boundaries as
+    the graph.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - arms
+  - transfer
+  - ontology
+  details: The 195 pair starts with TCE and acetylene; VC predominates, with trace
+    cis-DCE and ethene. Valid 195 cis-DCE physiology is not an added pair substrate.
+    BAV1’s separate VC-to-ethene growth assay cannot define the 195 endpoint. Ethanol
+    oxidation is general community context; chloride equivalents normalize yield rather
+    than establish an independent chloride assay.
+- assessment_id: cultivation
+  area: scope
+  topic: Verified protocol and unsupported rationale
+  outcome: concern
+  summary: Retain the numeric protocol and remove the invented explanation for static
+    incubation.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - cultivation
+  - schema
+  - table-correction
+  dimensions:
+  - name: medium
+    value: Modified artificial bay water with TCE and acetylene
+    definition: Source-specific pair startup; trace products and other-strain substrates
+      are not added ingredients.
+    evidence_ids:
+    - cultivation
+    - arms
+  - name: conditions
+    value: 34 °C, anaerobic N2, static; staged inoculation and feeding
+    definition: Supported physical conditions without an untested gas-balance or syntrophy
+      rationale.
+    evidence_ids:
+    - cultivation
+  details: Startup is 60 mL bottles with 25 mL ABW, N2, 34 °C, 10% inoculation of
+    each partner and 0.1 mM TCE/acetylene. The source then specifies 5% transfers
+    after 20 µmol TCE and 36 µmol acetylene depletion, followed by repeated feeding
+    after three subcultures. Separate these phases; do not characterize every phase
+    as no-feed BATCH. No full ABW salt formula is reconstructed from another source.
+- assessment_id: environment
+  area: grounding
+  topic: Dose and environmental scope
+  outcome: supported
+  summary: Laboratory inhibition and rescue are distinguished from groundwater relevance.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - dose
+  - ontology
+  details: The 0.4/1.3 mM observations are experimental dose contexts, not environmental
+    setpoints. Acetylene generation by minerals is abiotic context; no primary-degrader
+    role follows from it. The three current environmental-factor claims remain appropriately
+    laboratory-scoped.
+- assessment_id: taxon-grounding
+  area: grounding
+  topic: Current SFB93 identity and provenance
+  outcome: concern
+  summary: Use the exact SFB93 identity chain, not generic Pelobacter majority.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - candidate-taxonomy
+  - gtdb
+  - stocks
+  details: Retain 195’s valid mapping core. A source-attributed SFB93 refinement can
+    update roster and both graph-source descriptors consistently to species 1842532
+    and exact GTDB Syntrophotalea_A acetylenivorans. Mapping fractions count reference
+    genomes, not abundance. Filesystem dates do not establish latest/build release
+    provenance.
+- assessment_id: resources
+  area: representation
+  topic: Chromosome, assembly and project scopes
+  outcome: concern
+  summary: The chromosome is real but occupies an Assembly-described slot.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - resources
+  - external
+  - schema
+  - genome
+  details: Use GCA_001887775.1 in the assembly slot and preserve CP015519.1 separately.
+    PRJNA214 is the 195 reference genome; PRJNA319824 is a broader three-genome project
+    containing SFB93, not a new coculture assay deposit. No missing-array-deposit
+    finding is inferred from available text.
+- assessment_id: ownership
+  area: ownership
+  topic: Maintained record and prior evidence
+  outcome: supported
+  summary: Repairs belong to this YAML; historical source events remain intact.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - inspection
+  - provenance
+  details: Current full access does not falsify the earlier cache-removal or source-limited
+    review event. No canonical, cache, history, issue or Git mutation is authorized
+    by this review.
+- assessment_id: source-scope
+  area: scope
+  topic: Complete current-claim review
+  outcome: supported
+  summary: Both source papers and the focal supplement were reviewed at explicit scopes.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - assets
+  - lead-read
+  - locators
+  - root-source
+  - root-genome
+  - table-correction
+  details: All 6 main figures, Table 1, all 3 SI figures and Table S1 were assessed.
+    Failed source routes remain preserved. No raw omics analysis or enzyme-function
+    proof is claimed; source-internal timing and SI wording discrepancies remain limitations.
+- assessment_id: native
+  area: schema
+  topic: Required and contextual checks
+  outcome: supported
+  summary: All eight required native checks passed.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - corpus-context
+  - adapter
+  details: Both corpus failures and the optional adapter remain nonrequired. Native
+    pass does not settle role semantics or certify source entailment; actual candidate
+    validation follows rendering.
+- assessment_id: metrics
+  area: completeness
+  topic: Literal metrics
+  outcome: supported
+  summary: Completeness 100; raw quality 105.66666666666669, capped 100.
+  target_ids:
+  - CommunityMech:000184
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 50 required/roles +5 environment +10 factors +10 nodes +5 resources
+      +10 medium +5 datasets +5 node metabolites. Filled slots do not prove scientific
+      support.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 100 - 2 major*10 - 3 minor*2 + 20*min((5 evidence/3 nodes)/2,1) +
+      15 COMPLETE = 105.66666666666669 raw, capped 100. Three nodes (one typed), two
+      arrows; structural completeness is not a scientific verdict.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: role-type
+  issue_key: cm-000184-role-type
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Material role/type or strain-specific experimental interpretation
+    needs repair.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Qualify the narrower fermentation and syntrophy labels
+  description: Supplied or abiotic acetylene does not satisfy SECONDARY_FERMENTER.
+    The paper establishes hydrogen/acetate transfer and recipient growth, but steady
+    hydrogen does not establish the donor-favorability condition in the current SYNTROPHY
+    definition. Source-attributed syntrophic interpretation can be retained with that
+    limit.
+  target_ids:
+  - CommunityMech:000184
+  field_paths:
+  - taxonomy[0].functional_role
+  - taxonomy[1].functional_role
+  - ecological_interactions[0].interaction_type
+  evidence_ids:
+  - schema
+  - transfer
+  - semantics
+  - root-clarification
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+    role: canonical_record
+  ownership_note: Future authorized curation belongs to this maintained YAML; no history
+    or shared issue is changed.
+- finding_id: strain-arm
+  issue_key: cm-000184-strain-arm
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: Material role/type or strain-specific experimental interpretation
+    needs repair.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Keep pair inputs and products specific to 195
+  description: The medium includes cis-DCE as an added input, while the exact 195/SFB93
+    experiment uses TCE. Generic complete-ethene wording exceeds its predominant VC
+    endpoint; BAV1’s separate assay and valid 195 cometabolic activity need explicit
+    distinction.
+  target_ids:
+  - CommunityMech:000184
+  field_paths:
+  - growth_media[0].composition[2]
+  - growth_media[0].preparation_notes
+  - growth_media[0].evidence[1]
+  - related_ingredients[1].relevance
+  - related_ingredients[2].relevance
+  - related_ingredients[3].relevance
+  evidence_ids:
+  - arms
+  - transfer
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+    role: canonical_record
+  ownership_note: Future authorized curation belongs to this maintained YAML; no history
+    or shared issue is changed.
+- finding_id: taxon-provenance
+  issue_key: cm-000184-taxon-provenance
+  category: grounding
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded traceability, resource typing or protocol representation
+    repair.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Reconcile current SFB93 grounding and mapping provenance
+  description: Exact SFB93 archive metadata supports a current species refinement
+    and corresponding GTDB route. The existing historical genus is identity-qualified,
+    but can now be made precise; both mappings carry unsupported release/build wording.
+  target_ids:
+  - CommunityMech:000184
+  field_paths:
+  - taxonomy[1].taxon_term
+  - ecological_interactions[0].source_taxon
+  - ecological_interactions[2].source_taxon
+  - taxonomy[0].taxon_term.gtdb_classification.mapping_source
+  evidence_ids:
+  - candidate-taxonomy
+  - gtdb
+  - stocks
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+    role: canonical_record
+  ownership_note: Future authorized curation belongs to this maintained YAML; no history
+    or shared issue is changed.
+- finding_id: assembly-type
+  issue_key: cm-000184-assembly-type
+  category: representation
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded traceability, resource typing or protocol representation
+    repair.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Separate the SFB93 chromosome from its assembly
+  description: CP015519 is a valid chromosome, not the Assembly accession/URL requested
+    by these strain slots. The containing exact assembly is verified.
+  target_ids:
+  - CommunityMech:000184
+  field_paths:
+  - taxonomy[1].strain_designation.genome_accession
+  - taxonomy[1].strain_designation.genome_url
+  evidence_ids:
+  - resources
+  - stocks
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+    role: canonical_record
+  ownership_note: Future authorized curation belongs to this maintained YAML; no history
+    or shared issue is changed.
+- finding_id: cultivation-context
+  issue_key: cm-000184-cultivation-context
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded traceability, resource typing or protocol representation
+    repair.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Separate cultivation phases and remove the invented agitation rationale
+  description: The numeric startup and serial-transfer protocol is correct. The explanation
+    that agitation would disrupt gas balance and syntrophic exchange is unsupported;
+    later repeated feeding also needs distinction from the literal no-feed BATCH mode.
+  target_ids:
+  - CommunityMech:000184
+  field_paths:
+  - cultivation_setup[0].cultivation_mode
+  - cultivation_setup[0].notes
+  - cultivation_setup[0].instrument_detail
+  evidence_ids:
+  - cultivation
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+    role: canonical_record
+  ownership_note: Future authorized curation belongs to this maintained YAML; no history
+    or shared issue is changed.
+actions:
+- action_id: repair-role-type
+  description: Match the typed claims to the measured transfer and schema definitions.
+  finding_ids:
+  - role-type
+  target_ids:
+  - CommunityMech:000184
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove or replace the unsupported SECONDARY_FERMENTER tag without inventing a
+    replacement role. Retain acetylene-fermenter prose.
+  - Use a supported broader interaction type such as CROSS_FEEDING, or retain source-attributed
+    syntrophy only with an explicit limit on donor product-removal benefit and claim-local
+    evidence. Qualify related SYNTROPHIC_PARTNER tags consistently; do not equate
+    lack of obligacy with a defect.
+  - Preserve three biological nodes and both downstream directions. Nutrient provision
+    and inhibitor removal remain distinct. Retain the valid 195 PRIMARY_DEGRADER role
+    and no reverse-transfer inference.
+- action_id: repair-arm-scope
+  description: Separate source physiology, added inputs and measured endpoints.
+  finding_ids:
+  - strain-arm
+  target_ids:
+  - CommunityMech:000184
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - For the focal pair retain TCE and acetylene as startup amendments; keep cis-DCE
+    as a valid physiological acceptor/background or trace product, not an added pair
+    feed without an arm-specific source.
+  - State predominant VC and only trace cis-DCE/ethene in the 195 pair. Distinguish
+    195 cometabolic VC conversion from BAV1 growth-linked VC-to-ethene respiration;
+    do not import BAV1 or ANAS membership or outcomes.
+  - Preserve the source-backed general ethanol-community statement with its breadth
+    explicit. Describe chloride equivalents as the cell-yield denominator without
+    implying an independently measured chloride-ion assay. These are contextual clarifications,
+    not claims that the source’s general chemistry is false.
+  - 'Where evidence is improved, cite Results #S10/Figure 3 for nutritional support
+    and #S9/Figure 2 for exact 195 rescue. Preserve current PARTIAL qualifiers until
+    excerpts are replaced with claim-local evidence.'
+- action_id: repair-grounding
+  description: Reconcile all source-linked SFB93 descriptors with current authorities.
+  finding_ids:
+  - taxon-provenance
+  target_ids:
+  - CommunityMech:000184
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain historical Pelobacter SFB93 wording and strain_name SFB93. If applying
+    current taxonomy, use species NCBITaxon 1842532 Syntrophotalea acetylenivorans
+    consistently in taxonomy and both source_taxon fields; do not call it a strain-rank
+    node.
+  - Use its exact GTDB:s__Syntrophotalea_A_acetylenivorans route, full lineage and
+    1.0 / 3 reference-genome support. Do not replace it with generic Pelobacter majority
+    Seleniibacterium or transfer a genus-level fraction.
+  - Retain 195’s verified exact mapping core. Replace latest/build assertions with
+    the pinned local mapping SHA 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    and actual retrieval/snapshot provenance; filesystem dates alone are not GTDB
+    release dates.
+- action_id: repair-resource-type
+  description: Put each verified resource in a compatible slot.
+  finding_ids:
+  - assembly-type
+  target_ids:
+  - CommunityMech:000184
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Use exact GCA_001887775.1 and its Assembly URL in the strain assembly slots; retain
+    CP015519.1 separately as chromosome context. Do not discard a valid chromosome
+    identifier.
+  - Preserve PRJNA214 and PRJNA319824 with their reference-genome scopes. The latter
+    contains SFB93 and two other genomes; it is not an exclusively focal pair transcriptome
+    dataset.
+- action_id: repair-culture
+  description: Retain verified setup and describe its phases with direct Methods support.
+  finding_ids:
+  - cultivation-context
+  target_ids:
+  - CommunityMech:000184
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Preserve 60 mL bottles/25 mL ABW/N2 / 34 °C/no agitation, 10% inoculum of each
+    partner, 0.1 mM startup TCE and acetylene, and 5% transfers after 20 µmol TCE
+    and 36 µmol acetylene depletion.
+  - Remove the unsupported agitation mechanism and unrelated thermophilic-coculture
+    analogy. Separate startup, serial transfers and repeated-feed performance after
+    three subcultures. Use FED_BATCH for a documented repeatedly fed phase only if
+    its no-broth-removal condition is established; it is not a synonym for serial
+    transfers.
+  - 'Attach source-local Methods #S3 first-paragraph evidence. Do not import BAV1’s
+    28 °C/carbonate medium, ANAS lactate conditions, axenic H2/CO2, or an unverified
+    full ABW recipe.'
+- action_id: validate-curation
+  description: Validate any separately authorized canonical repair.
+  finding_ids:
+  - role-type
+  - strain-arm
+  - taxon-provenance
+  - assembly-type
+  - cultivation-context
+  target_ids:
+  - CommunityMech:000184
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Recheck exact source/taxon/treatment and graph evidence boundaries, then focused
+    schema/strict/terms/references/GTDB/domain/history gates. Run just gen-html and
+    just check-docs-current if canonical curation is authorized.
+  - Preserve source snapshots, cache, history and prior-review events. No canonical,
+    issue, Git or status mutation is performed by this review.
+limitations:
+- The initial Table 1 selector missed the table; a separate direct-cell projection
+  corrects that inventory without changing its original bytes.
+- The main describes distinct startup and later dose phases. Its RNA-preparation paragraph
+  mentions both day 7 and day 6 sampling; no new exact sampling time is inserted.
+  SI Figure S2 and main ANAS wording differ; no silent harmonization or transfer into
+  the 195 pair.
+- No raw transcriptomic or sequence reanalysis, figure digitization, enzyme activity
+  inference, or full ABW formula reconstruction. The genome announcement supplies
+  reference-genome context, not a focal pair culture protocol.
+- Failed HTTP 500/404, challenge HTML, non-OA supplement API error and one empty HTTP
+  202 response are preserved. Genuine PMC/Figshare payloads support completion; failed
+  bodies are not scientific sources.
+notes:
+- Three node assessments bind five exact canonical snippets; two edge assessments
+  preserve exact descriptions, hashes and directions.
+- 'The sole primary quote is two words from the first direct Methods #S3 paragraph.
+  All 31 official inputs remain unchanged.'
+- Native candidate validation and parent-owned save/post-save gates follow rendering.
+tags:
+- record-review
+- acetylene
+- dechlorination
+- batch-15
+```

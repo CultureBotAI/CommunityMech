@@ -79,6 +79,64 @@ def pin_pair(inputs, path):
     inputs.update([path, str(Path(path).with_name("review.md"))])
 
 
+def continuing_occurrence(finding, previous, review):
+    return any(
+        p["repository"] == REPOSITORY
+        and p["review_id"] == review["review_id"]
+        and p["finding_id"] == previous["finding_id"]
+        for p in finding.get("previous_occurrences", [])
+    )
+
+
+def retained_actions(review, keys):
+    """Keep exact action objects selected by live heads and prerequisite closure."""
+    if keys == {f["issue_key"] for f in review["findings"]}:
+        return review["actions"]
+    if any(not a["finding_ids"] for a in review["actions"]):
+        raise ValueError("Partial succession needs explicit handling of unlinked actions")
+    finding_ids = {f["finding_id"] for f in review["findings"] if f["issue_key"] in keys}
+    by_id = {a["action_id"]: a for a in review["actions"]}
+    pending = [a["action_id"] for a in review["actions"] if finding_ids & set(a["finding_ids"])]
+    selected = set()
+    while pending:
+        action_id = pending.pop()
+        if action_id not in selected:
+            selected.add(action_id)
+            pending.extend(by_id[action_id].get("depends_on", []))
+    return [a for a in review["actions"] if a["action_id"] in selected]
+
+
+def apply_partial_successors(active, names, target_id):
+    """Advance only explicitly linked keys; retain every unaffected head."""
+    for name in names:
+        review = read_review(name)
+        if target_id not in {t["target_id"] for t in review["targets"]}:
+            raise ValueError(f"Partial observation omits target: {name}")
+        all_keys = [key for _, _, keys in active for key in keys]
+        if len(all_keys) != len(set(all_keys)):
+            raise ValueError(f"Ambiguous predecessor heads: {target_id}")
+        current = {
+            f["issue_key"]: (r, f)
+            for r, _, keys in active
+            for f in r["findings"]
+            if f["issue_key"] in keys
+        }
+        new_keys = {f["issue_key"] for f in review["findings"]}
+        if not new_keys or not new_keys <= set(current):
+            raise ValueError(f"Partial successor must update existing keys: {name}")
+        for finding in review["findings"]:
+            prior_review, prior = current[finding["issue_key"]]
+            if not continuing_occurrence(finding, prior, prior_review):
+                raise ValueError(f"Missing exact partial lineage: {finding['issue_key']}")
+            if not set(prior["target_ids"]) <= set(finding["target_ids"]):
+                raise ValueError(
+                    f"Partial successor drops affected targets: {finding['issue_key']}"
+                )
+        active = [(r, p, keys - new_keys) for r, p, keys in active if keys - new_keys]
+        active.append((review, name, new_keys))
+    return active
+
+
 def capture(args, config, out):
     inputs = set(RULES + [SELF, args.config, config["inventory"]] + config["extra_inputs"])
     manifest_targets = {}
@@ -86,7 +144,8 @@ def capture(args, config, out):
         name = spec if isinstance(spec, str) else spec["path"]
         manifest = read_json(name)
         inputs.add(name)
-        for item in manifest["inputs"]:
+        member_key = "inputs" if isinstance(spec, str) else spec.get("member_key", "inputs")
+        for item in manifest[member_key]:
             if digest(item["path"]) != item["sha256"]:
                 raise ValueError(f"Changed manifest input: {item['path']}")
             inputs.add(item["path"])
@@ -111,37 +170,40 @@ def capture(args, config, out):
         original_pin = next(i for i in original["source"]["inputs"] if i["path"] == path)
         original_keys = {f["issue_key"] for f in original["findings"]}
         original_by_key = {f["issue_key"]: f for f in original["findings"]}
-        active = [(original, entry["review"])]
+        active = [(original, entry["review"], original_keys)]
         replacement = config["replacements"].get(target_id)
         if digest(path) != original_pin["sha256"] and not replacement:
             raise ValueError(f"Changed target lacks an explicit successor: {target_id}")
         if replacement:
             review = read_review(replacement)
-            if original_keys != {f["issue_key"] for f in review["findings"]}:
+            replacement_keys = {f["issue_key"] for f in review["findings"]}
+            if not original_keys <= replacement_keys:
                 raise ValueError(f"Replacement does not preserve original keys: {target_id}")
             for finding in review["findings"]:
+                if finding["issue_key"] not in original_keys:
+                    continue
                 previous = original_by_key[finding["issue_key"]]
-                if not any(
-                    p["repository"] == REPOSITORY
-                    and p["review_id"] == original["review_id"]
-                    and p["finding_id"] == previous["finding_id"]
-                    for p in finding.get("previous_occurrences", [])
-                ):
+                if not continuing_occurrence(finding, previous, original):
                     raise ValueError(f"Missing exact replacement lineage: {finding['issue_key']}")
-            active = [(review, replacement)]
+                if not set(previous["target_ids"]) <= set(finding["target_ids"]):
+                    raise ValueError(f"Replacement drops affected targets: {finding['issue_key']}")
+            active = [(review, replacement, replacement_keys)]
         for name in config["supplements"].get(target_id, []):
-            active.append((read_review(name), name))
+            review = read_review(name)
+            active.append((review, name, {f["issue_key"] for f in review["findings"]}))
+        active = apply_partial_successors(
+            active, config.get("partial_successors", {}).get(target_id, []), target_id
+        )
         active_keys, actions = set(), []
-        for review, name in active:
+        for review, name, keys in active:
             if target_id not in {t["target_id"] for t in review["targets"]}:
                 raise ValueError(f"Current observation omits target: {name}")
             if any(f["status"] != "open" for f in review["findings"]):
                 raise ValueError(f"Unexpected disposition in current observation: {name}")
-            keys = {f["issue_key"] for f in review["findings"]}
             if active_keys & keys:
                 raise ValueError(f"Ambiguous active finding heads: {target_id}")
             active_keys.update(keys)
-            actions.extend(review["actions"])
+            actions.extend(retained_actions(review, keys))
             pin_pair(inputs, name)
             if name != entry["review"]:
                 for item in review["source"]["inputs"]:
@@ -168,16 +230,29 @@ def capture(args, config, out):
                 for i in original["source"]["inputs"]
             ),
             "original_actions": original["actions"],
-            "current_observations": [review_metadata(r, p) for r, p in active],
+            "current_observations": [
+                {**review_metadata(r, p), "effective_issue_keys": sorted(keys)}
+                for r, p, keys in active
+            ],
             "current_issue_keys": sorted(active_keys),
             "current_actions": actions,
+            "current_action_sources": [
+                {"review_id": r["review_id"], "action_id": a["action_id"]}
+                for r, _, keys in active
+                for a in retained_actions(r, keys)
+            ],
             "current_manifest_paths": manifest_targets[target_id],
             "limitation": "Historical scratch is unavailable; current artifacts do not reconstruct old bytes. This process observation changes no scientific occurrence or action.",
         }
         name = write_json(out, f"records/{target_id.split(':')[1]}.json", row)
         inputs.add(name)
         records.append({**row, "manifest": name})
-    unknown = (set(config["replacements"]) | set(config["supplements"])) - seen_targets
+    unknown = (
+        set(config["replacements"])
+        | set(config["supplements"])
+        | set(config.get("partial_successors", {}))
+        | set(config["additional_keys"])
+    ) - seen_targets
     if unknown:
         raise ValueError(f"Unknown configured targets: {sorted(unknown)}")
     counts = {
@@ -234,7 +309,9 @@ def build(args, config, out):
             else "unchanged"
         )
         current = "; ".join(
-            f"{r['review_id']} ({r['completion']}/{r['verdict']}, scientific_review={r['scientific_review']})"
+            f"{r['review_id']} ({r['completion']}/{r['verdict']}, "
+            f"scientific_review={r['scientific_review']}; "
+            f"{len(r['effective_issue_keys'])} retained finding heads)"
             for r in row["current_observations"]
         )
         evidence.append(

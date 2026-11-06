@@ -1,0 +1,1541 @@
+# Desert-derived tomato salt-stress SynCom5 review
+
+- Review: 20261022T060638Z-desert-tomato-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-22T05:57:20.893429Z
+- Finished UTC: 2026-10-22T06:06:38.710713Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: pass_with_limitations
+- Scientific review: true
+
+## Summary
+
+The five-member identity, measured host responses and qualified four-node, two-arrow graph are supported. Three minor findings concern host evidence mode/excerpt casing, recoverable tomato cultivation context, and GTDB provenance. All eight required checks passed. Completeness 30 and capped quality 100 (raw 121.5) are literal metrics, not proof of causal mediation.
+
+## Scope And Provenance
+
+Whole released target and all encoded claims, using full fresh main text, seven main figures, applicable SI text/pixels/tables, bounded dataset metadata and authority/native checks.
+
+Selection: Only released CommunityMech:000096 in owned batch15.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base cb7a782c8ba80299dca8761ad0a2c90bccd8a117.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000096 | kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml | maintained | Desert-Derived Tomato Salt Stress SynCom5 |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000096 | Actual native exit0. |
+| validate-strict | passed | True | CommunityMech:000096 | Actual native exit0. |
+| validate-terms | passed | True | CommunityMech:000096 | Actual native exit0. |
+| validate-references-explained | passed | True | CommunityMech:000096 | Actual native exit0. |
+| validate-gtdb | passed | True | CommunityMech:000096 | Actual native exit0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000096 | Actual native exit0. |
+| validate-history | passed | True | CommunityMech:000096 | Actual native exit0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000096 | Actual native exit0. |
+| audit-network corpus context | failed | False | CommunityMech:000096 | Actual corpus exit1 retained. |
+| check-network-quality corpus context | failed | False | CommunityMech:000096 | Actual corpus exit1 retained. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000096 | Unavailable in owned runtime. |
+
+## Scientific And Domain Assessments
+
+### Five-member desert-root SynCom C
+
+identity: supported. Targets: CommunityMech:000096.
+
+The record identifies the intended five strains and recipient host context.
+
+Retain ENGINEERED/SYNTHETIC/RHIZOSPHERE. The donor Indigofera root, recipient tomato, and larger 15-member tracking community are distinct. No functional_role is required merely because that absence lowers the literal metric.
+
+### SynCom C promotion of salt-stressed tomato biomass
+
+graph: supported. Targets: CommunityMech:000096.
+
+Retain the sterile-sand biomass comparison.
+
+Exact selector ecological_interactions[0]; scope COMMUNITY_LEVEL; no interaction_type, source_taxon or target_taxon encoded. Actual participating_taxa: [{"preferred_term": "Massilia sp. SA087", "term": {"id": "NCBITaxon:149698", "label": "Massilia"}}, {"preferred_term": "Enterobacter sp. SA187", "term": {"id": "NCBITaxon:547", "label": "Enterobacter"}}, {"preferred_term": "Ensifer sp. SA403", "term": {"id": "NCBITaxon:106591", "label": "Ensifer"}}, {"preferred_term": "Bacillus sp. SA436", "term": {"id": "NCBITaxon:1386", "label": "Bacillus &lt;firmicutes&gt;"}}, {"preferred_term": "Streptomyces sp. SA444", "term": {"id": "NCBITaxon:1883", "label": "Streptomyces"}}]. Canonical snippet bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet", "sha256": "e67e0b790a15b8903deeaf83c1002f98d9e6c23aaac376635a8ef545a21fa9c4", "reference": "PMID:35444261", "supports": "SUPPORT", "evidence_source": "IN_VIVO"}]. Snippet audit SHA256 b7d4ca37ea545d1a6c0257703ca06adc673a4a0e4314c48d64675c597a3820d8. PMID35444261 source locator: Results Sec7 third paragraph/Par17; Figure 5a and Figure S7a,b; separate nonsterile Figure S8a,b. Only SynCom C significantly improved biomass in the sterile-sand five-single-strain comparison. This does not negate the separate nonsterile single-strain benefits.
+
+### SynCom C activation of root SOS marker expression
+
+graph: supported. Targets: CommunityMech:000096.
+
+Retain measured early root marker activation.
+
+Exact selector ecological_interactions[1]; scope COMMUNITY_LEVEL; no interaction_type, source_taxon or target_taxon encoded. Actual participating_taxa: [{"preferred_term": "Massilia sp. SA087", "term": {"id": "NCBITaxon:149698", "label": "Massilia"}}, {"preferred_term": "Enterobacter sp. SA187", "term": {"id": "NCBITaxon:547", "label": "Enterobacter"}}, {"preferred_term": "Ensifer sp. SA403", "term": {"id": "NCBITaxon:106591", "label": "Ensifer"}}, {"preferred_term": "Bacillus sp. SA436", "term": {"id": "NCBITaxon:1386", "label": "Bacillus &lt;firmicutes&gt;"}}, {"preferred_term": "Streptomyces sp. SA444", "term": {"id": "NCBITaxon:1883", "label": "Streptomyces"}}]. Canonical snippet bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet", "sha256": "362674d0a24cab9ad97788bf5e0e5094c9130fef7c6d2f585f554159f870cc17", "reference": "PMID:35444261", "supports": "SUPPORT", "evidence_source": "IN_VIVO"}]. Snippet audit SHA256 b7d4ca37ea545d1a6c0257703ca06adc673a4a0e4314c48d64675c597a3820d8. PMID35444261 source locator: Results Sec7 third paragraph/Par17; Figure 5b and Figure S7e,f; Methods Sec18 paragraphs1–3. SOS1/SOS2/WRKY8 upregulation at day 4 is host expression, not bacterial gene annotation or proof of mediation.
+
+### SynCom C reduction of shoot sodium-potassium imbalance
+
+graph: supported. Targets: CommunityMech:000096.
+
+Retain the measured shoot sodium/potassium response.
+
+Exact selector ecological_interactions[2]; scope COMMUNITY_LEVEL; no interaction_type, source_taxon or target_taxon encoded. Actual participating_taxa: [{"preferred_term": "Massilia sp. SA087", "term": {"id": "NCBITaxon:149698", "label": "Massilia"}}, {"preferred_term": "Enterobacter sp. SA187", "term": {"id": "NCBITaxon:547", "label": "Enterobacter"}}, {"preferred_term": "Ensifer sp. SA403", "term": {"id": "NCBITaxon:106591", "label": "Ensifer"}}, {"preferred_term": "Bacillus sp. SA436", "term": {"id": "NCBITaxon:1386", "label": "Bacillus &lt;firmicutes&gt;"}}, {"preferred_term": "Streptomyces sp. SA444", "term": {"id": "NCBITaxon:1883", "label": "Streptomyces"}}]. Canonical snippet bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet", "sha256": "5534ad83b2ca651a9aca54335ef75b7ee2cfd85b57255ed2b748b5de2f09f451", "reference": "PMID:35444261", "supports": "SUPPORT", "evidence_source": "IN_VIVO"}, {"selector": "ecological_interactions[2].evidence[1].snippet", "sha256": "b85df2ec4b353e4f3fe38c4e278159337d217faa3d9d5a2626d0356b91c4e8da", "reference": "PMID:35444261", "supports": "SUPPORT", "evidence_source": "IN_VIVO"}]. Snippet audit SHA256 b7d4ca37ea545d1a6c0257703ca06adc673a4a0e4314c48d64675c597a3820d8. PMID35444261 source locator: Results Sec7 third paragraph/Par17; Figure 5c; Figures S7c,d andS8c,d; Methods Sec18 paragraphs4–5; Abstract Par1 contextual evidence. The day 10 ratio is measured. Sodium transport and reduced toxicity remain qualified interpretations; the additional Abstract excerpt supplies community context, not a second direct ion assay.
+
+### SynCom C five-strain salt protection
+
+graph: supported. Targets: CommunityMech:000096.
+
+Retain the separate reduced-community screen.
+
+Exact selector ecological_interactions[3]; scope COMMUNITY_LEVEL; no interaction_type, source_taxon or target_taxon encoded. Actual participating_taxa: [{"preferred_term": "Massilia sp. SA087", "term": {"id": "NCBITaxon:149698", "label": "Massilia"}}, {"preferred_term": "Enterobacter sp. SA187", "term": {"id": "NCBITaxon:547", "label": "Enterobacter"}}, {"preferred_term": "Ensifer sp. SA403", "term": {"id": "NCBITaxon:106591", "label": "Ensifer"}}, {"preferred_term": "Bacillus sp. SA436", "term": {"id": "NCBITaxon:1386", "label": "Bacillus &lt;firmicutes&gt;"}}, {"preferred_term": "Streptomyces sp. SA444", "term": {"id": "NCBITaxon:1883", "label": "Streptomyces"}}]. Canonical snippet bindings: [{"selector": "ecological_interactions[3].evidence[0].snippet", "sha256": "b324c098785d32d5fc0015dbd7aa365d16a59d153c603f5ec7845be2482bc464", "reference": "PMID:35444261", "supports": "SUPPORT", "evidence_source": "IN_VIVO"}]. Snippet audit SHA256 b7d4ca37ea545d1a6c0257703ca06adc673a4a0e4314c48d64675c597a3820d8. PMID35444261 source locator: Results Sec7 paragraphs1–2/Par15–16; Figure 4b caption; Table S2. The screen selected SynCom C from 20 reported combinations. Correct initial case only in its excerpt; do not restore a screen-to-validation workflow edge. Main nonredundancy prose and Table S2 duplication remain a source limitation.
+
+### SynCom C activation of root SOS marker expression → SynCom C reduction of shoot sodium-potassium imbalance
+
+graph: supported. Targets: CommunityMech:000096.
+
+Retain the qualified expression-to-ion-balance hypothesis.
+
+Exact selector ecological_interactions[1].downstream[0]; node1 → node2. Both nodes bind the same five community participants listed in their assessments; no directed taxon pair is inferred. Exact description: PARTIAL - early SOS-associated expression could support ion transport and thereby reduce later shoot ionic imbalance. Expression was measured, but its mediation of the ion phenotype was not selectively perturbed in this SynCom experiment. Description SHA256 2f8425d6191f69ffc52b9da4b9e87eaac2654f29cd4434eccb6ba8fd6a8c5437. Source PMID35444261, Sec7 third paragraph/Par17, Figure 5 and Methods Sec18; Figures S7–S8. Early host expression and later ion measurements support a possible contribution, but selective mediation was not perturbed.
+
+### SynCom C reduction of shoot sodium-potassium imbalance → SynCom C promotion of salt-stressed tomato biomass
+
+graph: supported. Targets: CommunityMech:000096.
+
+Retain the qualified ion-balance-to-biomass hypothesis.
+
+Exact selector ecological_interactions[2].downstream[0]; node2 → node0. Both nodes bind the same five community participants listed in their assessments; no directed taxon pair is inferred. Exact description: PARTIAL - improved shoot ion balance could reduce salt injury and support biomass accumulation. Treatment-associated endpoints support this interpretation without selectively establishing ion balance as the mediator. Description SHA256 728fc370c4facd510860289f630de33cf651963c5d0e141a8d062528f931362f. Source PMID35444261, Sec7 third paragraph/Par17, Figure 5 and Methods Sec18; Figures S7–S8. Treatment-associated ion and biomass responses do not establish ion balance as the mediator.
+
+### Claim-local evidence mode and excerpt fidelity
+
+evidence: concern. Targets: CommunityMech:000096.
+
+Two host-response tags and one initial letter need correction.
+
+engineering_design.evidence[0] and environmental_factors[0].evidence[0] alias the same whole-tomato excerpt and should use IN_VIVO. The five roster excerpts and bacterial preculture evidence are not automatically retyped. Node3 is supported through a transparent initial-case projection, not counted as a strict match. The native reference gate still passed.
+
+### Bacterial preparation and host-stage conditions
+
+completeness: concern. Targets: CommunityMech:000096.
+
+Retain the correct broth facts and add the recoverable tomato protocol.
+
+The record currently provides TSB/YEM precultures,28 °C and 5×10^8 CFU/mL mixture. Recover MoneyMaker tomato in plastic cups,10^9 cells/plant,25 °C,12 h lighting,60% RH; sterile river sand or10% Mossel soil/90% sand, matched to each assay. Salt is imposed day 7 by30 min soak with nominal200 mM target after returning to60% WHC. Day21 screening and4/7/10 days post-salt follow-up are separate. Main S4 citations refer to actual S5 diagram. Do not import Indigofera35/25 °C or analytical temperatures.
+
+### Valid genera and bounded GTDB provenance
+
+grounding: concern. Targets: CommunityMech:000096.
+
+All 11 ontology pairs match; four mapping-source strings overstate release/build provenance.
+
+Retain Telluria140/140, Enterobacter2761/2763, Bacillus4981/8737 and Streptomyces3010/3040 genus reference mappings, and Ensifer/Sinorhizobium ambiguity. These are not strain genomes or culture abundance. SA187 exact source-table/registry identity may support optional refinement; it is not a newly graded error in valid genus grounding. GO sodium ion transport remains contextually inferred, not direct flux.
+
+### Resource declarations and comparative genome scope
+
+representation: supported. Targets: CommunityMech:000096.
+
+No missing-deposit finding is justified.
+
+The paper states reads, processed tables and scripts are available upon request pending SRA upload. Comparative/reference genome identifiers and tomato primer assembly are not the focal 2022 assay dataset. Dataset S2 row214 and Dataset S3 row25 identify SA187 as GCF_001888805.2, paired GCA_001888805.2 and SAMN05967246. The current registry confirms NCBITaxon:1914861 and PRJNA352128; the table instead lists shared RefSeq annotation umbrella PRJNA224116. This 2018 reference is not the 2022 assay deposit. Other SA names are not inferred from nearest neighbors.
+
+### Complete claim review at explicit reading boundaries
+
+scope: supported. Targets: CommunityMech:000096.
+
+The full main, figures and applicable supplements support a completed scientific review.
+
+Lead read81192 main characters,33098 SI characters,all 7 main figures,all 18 SI pages and complete TablesS1–S5. Dataset sheets were inventoried and exact resource rows inspected by support, not reanalysed. Preserve main/SI cross-reference, Table S2 nonredundancy and S6 inoculum-label discrepancies as source limits.
+
+### Maintained owner and immutable prior context
+
+ownership: supported. Targets: CommunityMech:000096.
+
+Repair belongs to the canonical YAML under separate curation authorization.
+
+Ignored-inclusive discovery pinned both caches, both histories, exact prior decision/adversarial and four cohort contexts. Review does not alter canonical data, caches, history, issues or Git. Current 1394 graph repair is retained; 1397 evidence-mode follow-up remains applicable.
+
+### Actual validation outcomes
+
+schema: supported. Targets: CommunityMech:000096.
+
+All eight required native checks passed.
+
+Nonrequired corpus failures and unavailable optional adapter are preserved. A passed reference gate does not erase the separately detected capitalization discrepancy.
+
+### Literal native metrics
+
+completeness: supported. Targets: CommunityMech:000096.
+
+Completeness 30; raw validation quality 121.5, capped100.
+
+## Findings
+
+### evidence-provenance: Correct host evidence mode and exact excerpt casing
+
+minor / open / confirmed; issue key: cm-000096-evidence-provenance.
+
+Two aliased whole-tomato evidence placements are tagged IN_VITRO. The supported screen excerpt has one initial-case discrepancy. Neither correction changes the qualified graph.
+
+### host-cultivation: Record the host experiment separately from broth preparation
+
+minor / open / confirmed; issue key: cm-000096-host-cultivation.
+
+The existing TSB/YEM culture facts are valid, but source-reported tomato substrate, chamber, vessel, inoculum and salt-treatment timing are not represented.
+
+### taxonomy-provenance: Replace unsupported GTDB release/build claims
+
+minor / open / confirmed; issue key: cm-000096-taxonomy-provenance.
+
+Four mapping_source strings treat a local filemtime as a build/release date. Core mappings and Ensifer ambiguity reproduce and should remain. Optional SA187 refinement is distinct from correcting that provenance.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-evidence
+
+Apply claim-local evidence corrections.
+
+- Set engineering_design.evidence[0].evidence_source and environmental_factors[0].evidence[0].evidence_source to IN_VIVO, respecting their shared YAML anchor. Keep bacterial preculture and roster evidence at its actual scope.
+- Restore initial The in ecological_interactions[3].evidence[0].snippet from Figure 4 caption; preserve the supported meaning, five participants and both PARTIAL arrows. Do not restore the removed screen-selection workflow edge.
+
+### recover-host-context
+
+Add a distinct tomato cultivation context.
+
+- Preserve TSB/YEM at 28 °C and 5×10^8 CFU/mL mixture; add source 10^9 cells/plant independently. Do not replace broth temperature with host chamber temperature.
+- Record MoneyMaker tomato in plastic cups; distinguish sterile river sand from10% Mossel soil/90% sand. Add25 °C,12 h lighting and60% RH with Methods Sec12 second paragraph evidence. Use OTHER system/mode only with explicit host-pot meaning; invent no working volume, aeration or broth feeding schedule.
+- Tie nominal200 mM salt to the source day 7/30 min soaking and return-to-60% WHC protocol in actual Figure S5. Separate day 21 screening from4/7/10 days after salt imposition in the five-member follow-up. Preserve the main S4/S5 reference typo and S6 inoculum-label discrepancy.
+
+### repair-gtdb-provenance
+
+Use actual mapping provenance without forcing finer taxonomy.
+
+- Replace latest/build-date wording in the four mapping_source values with actual crosswalk/helper hash and accessed date; preserve reproduced genus cores/confidences and Ensifer ambiguity.
+- Optional SA187 enrichment can record GCF_001888805.2 (paired GCA_001888805.2), SAMN05967246 and the source-linked NCBITaxon:1914861 candidate. Use the exact Dataset S2/S3 rows and current registry bridge; keep its 2018 reference genome separate from 2022 assay data. A finer taxon replacement would require consistent participant and GTDB reconciliation. Do not infer species for SA087/SA403/SA436/SA444 from phylogenetic nearest neighbors.
+
+### validate-curation
+
+Validate any separately authorized canonical repair.
+
+- Recheck exact claims, evidence tiers and source locators, then focused schema/strict/ontology/reference/GTDB/history gates. Canonical curation requires appropriate generated-document checks; this review performs none.
+- Keep all four current graph nodes and two qualified arrows unless new claim-local evidence warrants a separate change. Preserve caches, history and issue status; root alone saves this review bundle.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml; Whole maintained YAML | supports | Five source-named members; four community-level nodes and two qualified causal arrows. |
+| abstract | PMID:35444261; DOI:10.1038/s41396-022-01238-3; Fresh MED resultList.result[0].abstractText; JATS Abstract Par1 | supports | Whole-tomato salt protection is supported; this is a host experiment. |
+| roster | PMID:35444261; DOI:10.1038/s41396-022-01238-3; Results Sec7 second direct paragraph, Par16; Table S2 SynCom C columnE | supports | SA087, SA187, SA403, SA436 and SA444 form the five-member SynCom C. Twenty reduced combinations and the larger 15-member community are separate contexts. |
+| host-response | PMID:35444261; DOI:10.1038/s41396-022-01238-3; Results Sec7 third direct paragraph, Par17; Figure 5; Methods Sec18 paragraphs1–5 | supports | Sterile-sand validation measures biomass, root SOS1/SOS2/WRKY8 expression and later shoot ion content; separate nonsterile validation supports protection. |
+| screen | PMID:35444261; DOI:10.1038/s41396-022-01238-3; Results Sec7 paragraphs1–2/Par15–16; Figure 4 caption and panels; Table S2 | supports | The reduced-community screen supports SynCom C as the strongest tested subset. Its caption starts The; the record starts the. |
+| supplement | PMID:35444261; DOI:10.1038/s41396-022-01238-3 supplementary material; Figure S5 physicalpage13; S7 page15; S8 page16; S9–S10 pages17–18; Table S2 and S4 in separate XLSX files | supports | Actual salt protocol and host outcomes are visible; larger-community tracking remains distinct from five-member causal validation. |
+| cultivation | PMID:35444261; DOI:10.1038/s41396-022-01238-3; Methods, Plant assay for indigofera and tomato, second direct paragraph (Sec12/Par31); quoted words in that paragraph. Also Sec11 sole paragraph/Par29 and Sec18 paragraphs1 and5; actual SI Figure S5. | supports | Separate bacterial preculture from tomato substrate, vessel, chamber, inoculation and salt treatment. |
+| tracking | PMID:35444261; DOI:10.1038/s41396-022-01238-3; Results Sec8 paragraphs1–4/Par18–21; Figures 6–7; Table S4 and Figures S9–S10 | supports | The fifteen-strain Jizan experiment and ASV filtering do not establish individual necessity or reciprocal microbial benefit in SynCom C. |
+| ontology | /private/tmp/cm-review-session/batch-15/000096/ontology-authority.json; Eleven ID/label definitions and33 placements | supports | All labels match; host-process annotations retain their measured-response versus inferred-flux boundary. |
+| schema | /private/tmp/cm-review-session/batch-15/000096/child-schema-semantics.json; EvidenceSource, origin, state, cultivation and participant definitions | supports | Whole-host evidence is IN_VIVO; optional bacterial roles and host taxonomy need not be invented. |
+| gtdb | /private/tmp/cm-review-session/batch-15/000096/child-gtdb-crosswalk.json; Five genus routes, reference counts and mapping-file provenance | supports | Four grounded cores and Ensifer ambiguity reproduce; filesystem mtime does not establish release/build metadata. |
+| strain-scope | /private/tmp/cm-review-session/batch-15/000096/child-strain-candidates.json; Bounded exact-name local lookup | supports | Enterobacter sp. SA187 has species-rank NCBITaxon1914861; this candidate does not invalidate the current genus grounding. |
+| semantics | /private/tmp/cm-review-session/batch-15/000096/ontology-semantic-notes.json; Final child semantic and source-local assessment | supports | Retain four qualified nodes and two arrows; three minor follow-up groups. |
+| resources | /private/tmp/cm-review-session/batch-15/000096/dataset-verification.json; Available resource declarations and exact focal comparative-genome rows | supports | Preserve reference-genome versus focal 2022 assay scope; no missing-deposit finding. |
+| snippets | /private/tmp/cm-review-session/batch-15/000096/snippet-audit.json; Fourteen canonical placements | supports | Thirteen strict source/cache matches plus one explicit initial-case projection; no unresolved biological support. |
+| provenance | /private/tmp/cm-review-session/batch-15/000096/provenance-audit.json; Both histories, exact batch32 row, bounded cohort and current issues | supports | Prior repair and remaining issue scopes are preserved without changing caches or issue status. |
+| inspection | /private/tmp/cm-review-session/batch-15/000096/inspect-v2.json; Current 32-input inspection | supports | Target,21 authorities and 10 focal contexts pinned before their assessment. |
+| inspection-original | /private/tmp/cm-review-session/batch-15/000096/inspect.json; Preserved initial 31-input inspection | supports | Native checks originally bind 31 inputs; the second cache was added in a distinct official inspection. |
+| inspection-extension | /private/tmp/cm-review-session/batch-15/000096/child-inspect-extension-integrity.json; Current 32 and original31 hash checks | supports | All inputs remain unchanged; no invented native rerun. |
+| assets | /private/tmp/cm-review-session/batch-15/000096/lead-source-assets.json; Fresh main, seven actual figures and ten distinct supplements | supports | Genuine successful payloads are separated from initial404/DNS failures. |
+| lead-read | /private/tmp/cm-review-session/batch-15/000096/lead-primary-read-scope.json; Actual whole and bounded lead reading | supports | Whole main, SI text,18 pages, seven main figures and TablesS1–S5 read; raw matrices not reanalysed. |
+| locators | /private/tmp/cm-review-session/batch-15/000096/source-locator-verification.json; Direct JATS headings and paragraph inventory | supports | The sole two-word quote is in Sec12 second paragraph, Par31; actual salt diagram is S5 despite main S4 cross-reference. |
+| source-audit | /private/tmp/cm-review-session/batch-15/000096/source-audit.json; Final scientific finding groups and graph bindings | supports | Completed scientific review, zero major and three minor findings. |
+| root-source | /private/tmp/cm-review-session/batch-15/000096/root-independent-source-audit.json; Independent source and input review | supports | Root independently read the complete main, SI and figures and agrees with the bounded findings. |
+| root-addendum | /private/tmp/cm-review-session/batch-15/000096/root-final-source-addendum.json; Final source and resource reading scope | supports | Root read final lead receipts and all focal resource rows, with unrelated accession arrays explicitly excluded. |
+| metrics | /private/tmp/cm-review-session/batch-15/000096/support-final-audit.json; Final independent reconciliation | supports | Completeness 30; base 127.5 less 6 gives raw 121.5, capped100. |
+| support-manifest | /private/tmp/cm-review-session/batch-15/000096/support-frozen-manifest.json; Frozen supporting dependencies | supports | Actual source, input and resource pins verified. |
+| auxiliary | /private/tmp/cm-review-session/batch-15/000096/auxiliary-frozen-manifest.json; Frozen native and authority dependencies | supports | Eight required checks passed; original/current inspection boundaries remain explicit. |
+| final-native | /private/tmp/cm-review-session/batch-15/000096/final-validator-summary.json; Actual eight-check summary | supports | Eight native passes do not replace source entailment. |
+| corpus-context | /private/tmp/cm-review-session/batch-15/000096/child-corpus-context.json; Fresh batch15 corpus baseline | supports | Two nonrequired corpus commands returned 1 ; 44 warnings in 16/477 records, zero errors. |
+| adapter | /private/tmp/cm-review-session/batch-15/000096/adapter-check.json; Optional structured adapter availability | supports | Unavailable in owned runtime; no biological absence inferred. |
+| check-validate | /private/tmp/cm-review-session/batch-15/000096/validate.json; Actual command/stdout/stderr | supports | Actual native exit0; science assessed separately. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-15/000096/validate-strict.json; Actual command/stdout/stderr | supports | Actual native exit0; science assessed separately. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-15/000096/validate-terms.json; Actual command/stdout/stderr | supports | Actual native exit0; science assessed separately. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-15/000096/validate-references-explained.json; Actual command/stdout/stderr | supports | Actual native exit0; science assessed separately. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-15/000096/validate-gtdb.json; Actual command/stdout/stderr | supports | Actual native exit0; science assessed separately. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-15/000096/validate-gtdb-domain.json; Actual command/stdout/stderr | supports | Actual native exit0; science assessed separately. |
+| check-validate-history | /private/tmp/cm-review-session/batch-15/000096/validate-history.json; Actual command/stdout/stderr | supports | Actual native exit0; science assessed separately. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-15/000096/normalize-cache-names-check.json; Actual command/stdout/stderr | supports | Actual native exit0; science assessed separately. |
+| context-audit-network | /private/tmp/cm-review-session/batch-15/audit-network.json; Fresh batch15 corpus baseline | supports | Actual exit1 ; 44 warnings across16/477 records,zero errors. |
+| context-check-network-quality | /private/tmp/cm-review-session/batch-15/check-network-quality.json; Fresh batch15 corpus baseline | supports | Actual exit1 ; 44 warnings across16/477 records,zero errors. |
+
+## Limits And Additional Notes
+
+- Host expression and ion/biomass associations do not establish selective mediation, individual member necessity or reciprocal microbial benefit. Both current causal arrows already state PARTIAL.
+- Main Results describes nonredundant subsets, while some Table S2 combinations contain two Pseudomonas strains; SynCom C membership is consistent. Figure 4b shows a subset of 20 reported combinations. S6 names SynCom C where the main optimization text describes the15-strain Jizan community; main S4 salt citations point to actual S5. These source discrepancies are retained without invented numeric or membership repairs.
+- All encoded claims and relevant figures/tables were reviewed, but raw sequence libraries and complete comparative-genome/OTU matrices were not independently reanalysed. Resource declarations and reference genomes do not imply a missing focal deposit.
+- The native checks originally bind 31 inputs; distinct inspect-v2 extends to 32 with the second cache and reverified integrity. Thirteen snippets strictly match; one is supported only after explicit initial-case projection.
+- SA187 exact identity is an optional source-linked refinement, not proof that valid genus grounding or the other four SA labels are wrong. No bacterial functional roles or host taxonomy membership are invented.
+- Four node assessments bind five exact canonical excerpt hashes; two edge assessments bind current descriptions and directions. Eight evidence-linked dimensions cover identity, strain, scope, grounding, setting, medium, environment and source access.
+- The sole primary-source quote contains two words. Thirty-two official inputs remain unchanged. All source/receipt snapshots retain their actual access and reading scopes.
+- Completed scientific status reflects claim-level source review; root owns saving and post-save gates.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261022T060638Z-desert-tomato-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Desert-derived tomato salt-stress SynCom5 review
+started_at: '2026-10-22T05:57:20.893429Z'
+finished_at: '2026-10-22T06:06:38.710713Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate lead, root, auxiliary and supporting reviewers; no
+    person-level independence claim.
+skill: review-yaml-record
+completion: completed
+verdict: pass_with_limitations
+scientific_review: true
+summary: The five-member identity, measured host responses and qualified four-node,
+  two-arrow graph are supported. Three minor findings concern host evidence mode/excerpt
+  casing, recoverable tomato cultivation context, and GTDB provenance. All eight required
+  checks passed. Completeness 30 and capped quality 100 (raw 121.5) are literal metrics,
+  not proof of causal mediation.
+source:
+  git_revision: cb7a782c8ba80299dca8761ad0a2c90bccd8a117
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Desert_Tomato_Salt_Stress_SynCom5/2026-10-02T055533Z-codex-des354.yaml
+    sha256: a550e9c95f3950fa6d586b62ba21593984e533b7877fe2511d7360b9ecaee35d
+    role: context
+  - path: history/records/Desert_Tomato_Salt_Stress_SynCom5/2026-10-06T063853Z-codex-acfd6b.yaml
+    sha256: a5a48759bb47110a8a93ca1dd841a0e1ca43715508e24dbe0e0f2074b21c0182
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+    sha256: 7fb2c3641380b2013a82dfebdeda01aa6df976f96e8307e2e2df4e93f75d92c6
+    role: target
+  - path: references_cache/PMID_35444261.txt
+    sha256: 512688fc42016679773aacfbe511569358a537a6a5c78fb82591080cf12d0345
+    role: context
+  - path: references_cache/pmc_full_pmid_35444261.txt
+    sha256: c0c0b4d55a1a8d0e38380e9d9c4e73a8c05dc2e436c392515cad7342ffc82602
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261006-batch32.yaml
+    sha256: fb31af941ac34e88b7c749a987c6fef46ab8a95dc173b8ccbdd890e23ee1c279
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-three-records-batch32.yaml
+    sha256: 400a8403214d7c2fbd88bb8e533cc5e22c2982013a5c900f6ebd62c9a0263f16
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.md
+    sha256: e432615b147787c8d009d96d2f11e5b78a45927bf9c69e45ec0d31123d1fc2e9
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/frozen_inventory_metrics.tsv
+    sha256: d5a47bbcc3745a489ff507680aa7360a6a65ce070ce4ec88f886b70128791313
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md
+    sha256: 4e7781aa8cdfc4bb42d896ebe75920719d9dcade92ffc4a0ae07af7481cb37b3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000096
+  path: kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+  label: Desert-Derived Tomato Salt Stress SynCom5
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+    role: canonical_record
+scope:
+  description: Whole released target and all encoded claims, using full fresh main
+    text, seven main figures, applicable SI text/pixels/tables, bounded dataset metadata
+    and authority/native checks.
+  selection: Only released CommunityMech:000096 in owned batch15.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000096
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000096
+  command: just --no-dotenv validate kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Native target/history check bound to initial 31 inputs; later32-input
+    extension is separately hash-verified. Cache-name preflight is corpus-wide.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000096
+  command: just --no-dotenv validate-strict kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+    --out /private/tmp/cm-review-session/batch-15/000096/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Native target/history check bound to initial 31 inputs; later32-input
+    extension is separately hash-verified. Cache-name preflight is corpus-wide.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000096
+  command: just --no-dotenv validate-terms kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Native target/history check bound to initial 31 inputs; later32-input
+    extension is separately hash-verified. Cache-name preflight is corpus-wide.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000096
+  command: just --no-dotenv validate-references-explained kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Native target/history check bound to initial 31 inputs; later32-input
+    extension is separately hash-verified. Cache-name preflight is corpus-wide.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000096
+  command: just --no-dotenv validate-gtdb kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Native target/history check bound to initial 31 inputs; later32-input
+    extension is separately hash-verified. Cache-name preflight is corpus-wide.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000096
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Native target/history check bound to initial 31 inputs; later32-input
+    extension is separately hash-verified. Cache-name preflight is corpus-wide.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000096
+  command: just --no-dotenv validate-history history/records/Desert_Tomato_Salt_Stress_SynCom5
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Native target/history check bound to initial 31 inputs; later32-input
+    extension is separately hash-verified. Cache-name preflight is corpus-wide.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000096
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Native target/history check bound to initial 31 inputs; later32-input
+    extension is separately hash-verified. Cache-name preflight is corpus-wide.
+- check_id: context-audit-network
+  name: audit-network corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit1 retained.
+  target_ids:
+  - CommunityMech:000096
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-15/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-audit-network
+  - corpus-context
+  scope_note: Nonrequired corpus context, not a target or candidate failure.
+- check_id: context-check-network-quality
+  name: check-network-quality corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit1 retained.
+  target_ids:
+  - CommunityMech:000096
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-15/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-check-network-quality
+  - corpus-context
+  scope_note: Nonrequired corpus context, not a target or candidate failure.
+- check_id: optional-structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Unavailable in owned runtime.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - adapter
+  scope_note: No adapter execution or biological absence inference.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+  locator: Whole maintained YAML
+  summary: Five source-named members; four community-level nodes and two qualified
+    causal arrows.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.701910Z'
+- evidence_id: abstract
+  kind: primary_source
+  reference: PMID:35444261; DOI:10.1038/s41396-022-01238-3
+  locator: Fresh MED resultList.result[0].abstractText; JATS Abstract Par1
+  summary: Whole-tomato salt protection is supported; this is a host experiment.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.701969Z'
+  snapshot_sha256: 4b73587221a5aa1e57ce8a5d7c9dd51eb4d535396e27c0f8044e26f6d3833e3a
+- evidence_id: roster
+  kind: primary_source
+  reference: PMID:35444261; DOI:10.1038/s41396-022-01238-3
+  locator: Results Sec7 second direct paragraph, Par16; Table S2 SynCom C columnE
+  summary: SA087, SA187, SA403, SA436 and SA444 form the five-member SynCom C. Twenty
+    reduced combinations and the larger 15-member community are separate contexts.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.702093Z'
+  snapshot_sha256: cfe09374b4e8be88077ad89f3f5257d1496bcf9b6eaf9e1aa0d5d295a5164df7
+- evidence_id: host-response
+  kind: primary_source
+  reference: PMID:35444261; DOI:10.1038/s41396-022-01238-3
+  locator: Results Sec7 third direct paragraph, Par17; Figure 5; Methods Sec18 paragraphs1–5
+  summary: Sterile-sand validation measures biomass, root SOS1/SOS2/WRKY8 expression
+    and later shoot ion content; separate nonsterile validation supports protection.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.702464Z'
+  snapshot_sha256: cfe09374b4e8be88077ad89f3f5257d1496bcf9b6eaf9e1aa0d5d295a5164df7
+- evidence_id: screen
+  kind: primary_source
+  reference: PMID:35444261; DOI:10.1038/s41396-022-01238-3
+  locator: Results Sec7 paragraphs1–2/Par15–16; Figure 4 caption and panels; Table
+    S2
+  summary: The reduced-community screen supports SynCom C as the strongest tested
+    subset. Its caption starts The; the record starts the.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.702557Z'
+  snapshot_sha256: cfe09374b4e8be88077ad89f3f5257d1496bcf9b6eaf9e1aa0d5d295a5164df7
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:35444261; DOI:10.1038/s41396-022-01238-3 supplementary material
+  locator: Figure S5 physicalpage13; S7 page15; S8 page16; S9–S10 pages17–18; Table
+    S2 and S4 in separate XLSX files
+  summary: Actual salt protocol and host outcomes are visible; larger-community tracking
+    remains distinct from five-member causal validation.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.702640Z'
+  snapshot_sha256: 32324963a173bbe61891cd3a0a27a7b9cf23583dcda5c976f51a87536d3ddcef
+- evidence_id: cultivation
+  kind: primary_source
+  reference: PMID:35444261; DOI:10.1038/s41396-022-01238-3
+  locator: Methods, Plant assay for indigofera and tomato, second direct paragraph
+    (Sec12/Par31); quoted words in that paragraph. Also Sec11 sole paragraph/Par29
+    and Sec18 paragraphs1 and5; actual SI Figure S5.
+  summary: Separate bacterial preculture from tomato substrate, vessel, chamber, inoculation
+    and salt treatment.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.706180Z'
+  snapshot_sha256: cfe09374b4e8be88077ad89f3f5257d1496bcf9b6eaf9e1aa0d5d295a5164df7
+  quote: plastic cups
+- evidence_id: tracking
+  kind: primary_source
+  reference: PMID:35444261; DOI:10.1038/s41396-022-01238-3
+  locator: Results Sec8 paragraphs1–4/Par18–21; Figures 6–7; Table S4 and Figures
+    S9–S10
+  summary: The fifteen-strain Jizan experiment and ASV filtering do not establish
+    individual necessity or reciprocal microbial benefit in SynCom C.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.706305Z'
+  snapshot_sha256: cfe09374b4e8be88077ad89f3f5257d1496bcf9b6eaf9e1aa0d5d295a5164df7
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000096/ontology-authority.json
+  locator: Eleven ID/label definitions and33 placements
+  summary: All labels match; host-process annotations retain their measured-response
+    versus inferred-flux boundary.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.706417Z'
+  snapshot_sha256: 82f8966bb71827f7baf7850bc7b2fc5d0b171220df1ff9533d9484d95473767e
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000096/child-schema-semantics.json
+  locator: EvidenceSource, origin, state, cultivation and participant definitions
+  summary: Whole-host evidence is IN_VIVO; optional bacterial roles and host taxonomy
+    need not be invented.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.706548Z'
+  snapshot_sha256: 3a21dd0b810f980eb2643d27a8c521e5131e7883643c801178cb53d3a1e0f42a
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000096/child-gtdb-crosswalk.json
+  locator: Five genus routes, reference counts and mapping-file provenance
+  summary: Four grounded cores and Ensifer ambiguity reproduce; filesystem mtime does
+    not establish release/build metadata.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.706696Z'
+  snapshot_sha256: ef69846f8ad989184acb274cab65cc0647806bffb5b61287d3619910c72a5877
+- evidence_id: strain-scope
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000096/child-strain-candidates.json
+  locator: Bounded exact-name local lookup
+  summary: Enterobacter sp. SA187 has species-rank NCBITaxon1914861; this candidate
+    does not invalidate the current genus grounding.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.706803Z'
+  snapshot_sha256: 5e0924ad128f62bd8c6cea67629b629c12dd9ed6784b448b5888115e4836d5a0
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000096/ontology-semantic-notes.json
+  locator: Final child semantic and source-local assessment
+  summary: Retain four qualified nodes and two arrows; three minor follow-up groups.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.706914Z'
+  snapshot_sha256: 5f4dabd24eb018360089b5b83894c681562015b13cf2563db9d181a803f35c11
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/dataset-verification.json
+  locator: Available resource declarations and exact focal comparative-genome rows
+  summary: Preserve reference-genome versus focal 2022 assay scope; no missing-deposit
+    finding.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.707067Z'
+  snapshot_sha256: ed37bfda2446b7a2323f5c422c2b61dcc7b90cffd51e7cf362bd8b916770b34b
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/snippet-audit.json
+  locator: Fourteen canonical placements
+  summary: Thirteen strict source/cache matches plus one explicit initial-case projection;
+    no unresolved biological support.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.707137Z'
+  snapshot_sha256: b7d4ca37ea545d1a6c0257703ca06adc673a4a0e4314c48d64675c597a3820d8
+- evidence_id: provenance
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-15/000096/provenance-audit.json
+  locator: Both histories, exact batch32 row, bounded cohort and current issues
+  summary: Prior repair and remaining issue scopes are preserved without changing
+    caches or issue status.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.707167Z'
+  snapshot_sha256: c61600c9c490f94e52eb8f412a5ce174fd5281017ecba82afe2ea556efff18a7
+- evidence_id: inspection
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/inspect-v2.json
+  locator: Current 32-input inspection
+  summary: Target,21 authorities and 10 focal contexts pinned before their assessment.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.707293Z'
+  snapshot_sha256: b37e20bc84835b37bd1e4c1655625a7175ad48d1c8cba96a0f2ffe97840640c8
+- evidence_id: inspection-original
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/inspect.json
+  locator: Preserved initial 31-input inspection
+  summary: Native checks originally bind 31 inputs; the second cache was added in
+    a distinct official inspection.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.707320Z'
+  snapshot_sha256: afbdf746bd42730db22dee31cde01ff012e4c65124daa4bc2f0125ac49c276bb
+- evidence_id: inspection-extension
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/child-inspect-extension-integrity.json
+  locator: Current 32 and original31 hash checks
+  summary: All inputs remain unchanged; no invented native rerun.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.707458Z'
+  snapshot_sha256: 21d17aa7bceb1b213f1ef6d48eaab25cb589053e3e42b44da2b97ca32bbc3df3
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/lead-source-assets.json
+  locator: Fresh main, seven actual figures and ten distinct supplements
+  summary: Genuine successful payloads are separated from initial404/DNS failures.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.707579Z'
+  snapshot_sha256: 2278b4e0078cadf444fba10c6ec563d135854508c6e8802569be78a8566bab6b
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/lead-primary-read-scope.json
+  locator: Actual whole and bounded lead reading
+  summary: Whole main, SI text,18 pages, seven main figures and TablesS1–S5 read;
+    raw matrices not reanalysed.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.707713Z'
+  snapshot_sha256: 54e3d5f4e2f9e56d22f22a1d4b50d2feda8f26a826e9e0b6445c35c0092bbbeb
+- evidence_id: locators
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/source-locator-verification.json
+  locator: Direct JATS headings and paragraph inventory
+  summary: The sole two-word quote is in Sec12 second paragraph, Par31; actual salt
+    diagram is S5 despite main S4 cross-reference.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.707829Z'
+  snapshot_sha256: 9f047db0e4f97e7f4af4af044a1fd6fccb13fa2759014738e808450cff0b9467
+- evidence_id: source-audit
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/source-audit.json
+  locator: Final scientific finding groups and graph bindings
+  summary: Completed scientific review, zero major and three minor findings.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.707899Z'
+  snapshot_sha256: 7a3cd4f0d38b77539f80d21cea3628970665f74e2dd8d2497b15248d886829cf
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/root-independent-source-audit.json
+  locator: Independent source and input review
+  summary: Root independently read the complete main, SI and figures and agrees with
+    the bounded findings.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.708031Z'
+  snapshot_sha256: bae1ff96864e6e3bd00ade3b59cddda8ab22013bca0b85f57eb98679cc01be9b
+- evidence_id: root-addendum
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/root-final-source-addendum.json
+  locator: Final source and resource reading scope
+  summary: Root read final lead receipts and all focal resource rows, with unrelated
+    accession arrays explicitly excluded.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.708166Z'
+  snapshot_sha256: c49f606ef35a77384e81378ed263d6291d540366c62a66d79854b28240d98487
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/support-final-audit.json
+  locator: Final independent reconciliation
+  summary: Completeness 30; base 127.5 less 6 gives raw 121.5, capped100.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.708198Z'
+  snapshot_sha256: 72ede22479e8039bfd45b2a5f1c1de0a505ae987b6b4a42dae55c9fef9489953
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/support-frozen-manifest.json
+  locator: Frozen supporting dependencies
+  summary: Actual source, input and resource pins verified.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.708225Z'
+  snapshot_sha256: 3a573a18c125ed88a1ec44b18a098eb654e02fccc37f5a82504b99a987c35c11
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/auxiliary-frozen-manifest.json
+  locator: Frozen native and authority dependencies
+  summary: Eight required checks passed; original/current inspection boundaries remain
+    explicit.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.708354Z'
+  snapshot_sha256: 87f07011ba237862d5eea052d0fdf7417472541552364fa7997cd0e61f73d179
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/final-validator-summary.json
+  locator: Actual eight-check summary
+  summary: Eight native passes do not replace source entailment.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.708468Z'
+  snapshot_sha256: 2c709531675ce52427369e326ef19a0bbb2e5f18b470bf935e77c9de6e2fa469
+- evidence_id: corpus-context
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/child-corpus-context.json
+  locator: Fresh batch15 corpus baseline
+  summary: Two nonrequired corpus commands returned 1 ; 44 warnings in 16/477 records,
+    zero errors.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.708605Z'
+  snapshot_sha256: 5fdea9e3917591917dfe2fb79061de725863512c355db51dcb9ca3436bb8f926
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/adapter-check.json
+  locator: Optional structured adapter availability
+  summary: Unavailable in owned runtime; no biological absence inferred.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.708726Z'
+  snapshot_sha256: dd4a8fa11145dafbc744380777da9fd9143c4a2efd4b9414a7121c2341192e65
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/validate.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; science assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.709192Z'
+  snapshot_sha256: 2a568dbe755fbd76c7a11dbb1530c92a4912e01f5faa997d1b5ff365d05c6657
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/validate-strict.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; science assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.709364Z'
+  snapshot_sha256: a457b2b59de651a76e8d2f02cc1aa16f174515b628b52a1c76d54cae6ece91c2
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/validate-terms.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; science assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.709539Z'
+  snapshot_sha256: c918b61188d1c8754d88620f1f5e89cecffcc1b3e150454516b764618622c701
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/validate-references-explained.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; science assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.709694Z'
+  snapshot_sha256: b69e59c2d521c58ec692255034fd7227a431521882f64e8ee5afa2a5c4618fc9
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/validate-gtdb.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; science assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.709843Z'
+  snapshot_sha256: a09d4d613b46bc564ca6915171a6b68bf6d6a9eefd9c0f248133b4f04dd1f621
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/validate-gtdb-domain.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; science assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.709999Z'
+  snapshot_sha256: 8cc60b9e3572f6b5b7225ef38635e077f5785394c8b32801ae911554620e28c9
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/validate-history.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; science assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.710101Z'
+  snapshot_sha256: 417eafe57c228251835cc13d69c9c4baea23140e0054bd4bc6f8e9295a674a6a
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000096/normalize-cache-names-check.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; science assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.710252Z'
+  snapshot_sha256: e552de12165526343d1cfafb0c2b20ae137bf1af5ac6811634e6b893470e48e2
+- evidence_id: context-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/audit-network.json
+  locator: Fresh batch15 corpus baseline
+  summary: Actual exit1 ; 44 warnings across16/477 records,zero errors.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.710466Z'
+  snapshot_sha256: b92af84b02acf105f8dc7c3625cc2a7e52a436b24a8243fe7e1d53012c9be1d9
+- evidence_id: context-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/check-network-quality.json
+  locator: Fresh batch15 corpus baseline
+  summary: Actual exit1 ; 44 warnings across16/477 records,zero errors.
+  support: supports
+  accessed_at: '2026-10-22T06:06:38.710672Z'
+  snapshot_sha256: 10b4cbb4180b20137e22c994ff8cd71d5ca52ab6ac3ef21fef5580eb4c9200fc
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Five-member desert-root SynCom C
+  outcome: supported
+  summary: The record identifies the intended five strains and recipient host context.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - record
+  - abstract
+  - roster
+  - strain-scope
+  dimensions:
+  - name: stable_id
+    value: CommunityMech:000096
+    definition: Stable maintained record; PMID35444261 and DOI10.1038/s41396-022-01238-3
+      identify its source.
+    evidence_ids:
+    - record
+    - inspection
+    - abstract
+  - name: source_strains
+    value: Massilia SA087; Enterobacter SA187; Ensifer SA403; Bacillus SA436; Streptomyces
+      SA444
+    definition: Exact source SA designations; valid current genus groundings do not
+      establish named species or strain-specific GTDB classifications.
+    evidence_ids:
+    - roster
+    - strain-scope
+  - name: community_scope
+    value: Defined five-strain SynCom C, with separate 15-member Jizan and reduced-community
+      screens
+    definition: All five strains are contextual participants, not independently proven
+      necessary contributors. Tomato remains host context rather than microbial membership.
+    evidence_ids:
+    - roster
+    - host-response
+    - tracking
+  details: Retain ENGINEERED/SYNTHETIC/RHIZOSPHERE. The donor Indigofera root, recipient
+    tomato, and larger 15-member tracking community are distinct. No functional_role
+    is required merely because that absence lowers the literal metric.
+- assessment_id: node-0
+  area: graph
+  topic: SynCom C promotion of salt-stressed tomato biomass
+  outcome: supported
+  summary: Retain the sterile-sand biomass comparison.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - host-response
+  - supplement
+  - snippets
+  details: 'Exact selector ecological_interactions[0]; scope COMMUNITY_LEVEL; no interaction_type,
+    source_taxon or target_taxon encoded. Actual participating_taxa: [{"preferred_term":
+    "Massilia sp. SA087", "term": {"id": "NCBITaxon:149698", "label": "Massilia"}},
+    {"preferred_term": "Enterobacter sp. SA187", "term": {"id": "NCBITaxon:547", "label":
+    "Enterobacter"}}, {"preferred_term": "Ensifer sp. SA403", "term": {"id": "NCBITaxon:106591",
+    "label": "Ensifer"}}, {"preferred_term": "Bacillus sp. SA436", "term": {"id":
+    "NCBITaxon:1386", "label": "Bacillus <firmicutes>"}}, {"preferred_term": "Streptomyces
+    sp. SA444", "term": {"id": "NCBITaxon:1883", "label": "Streptomyces"}}]. Canonical
+    snippet bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet",
+    "sha256": "e67e0b790a15b8903deeaf83c1002f98d9e6c23aaac376635a8ef545a21fa9c4",
+    "reference": "PMID:35444261", "supports": "SUPPORT", "evidence_source": "IN_VIVO"}].
+    Snippet audit SHA256 b7d4ca37ea545d1a6c0257703ca06adc673a4a0e4314c48d64675c597a3820d8.
+    PMID35444261 source locator: Results Sec7 third paragraph/Par17; Figure 5a and
+    Figure S7a,b; separate nonsterile Figure S8a,b. Only SynCom C significantly improved
+    biomass in the sterile-sand five-single-strain comparison. This does not negate
+    the separate nonsterile single-strain benefits.'
+- assessment_id: node-1
+  area: graph
+  topic: SynCom C activation of root SOS marker expression
+  outcome: supported
+  summary: Retain measured early root marker activation.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - host-response
+  - supplement
+  - snippets
+  details: 'Exact selector ecological_interactions[1]; scope COMMUNITY_LEVEL; no interaction_type,
+    source_taxon or target_taxon encoded. Actual participating_taxa: [{"preferred_term":
+    "Massilia sp. SA087", "term": {"id": "NCBITaxon:149698", "label": "Massilia"}},
+    {"preferred_term": "Enterobacter sp. SA187", "term": {"id": "NCBITaxon:547", "label":
+    "Enterobacter"}}, {"preferred_term": "Ensifer sp. SA403", "term": {"id": "NCBITaxon:106591",
+    "label": "Ensifer"}}, {"preferred_term": "Bacillus sp. SA436", "term": {"id":
+    "NCBITaxon:1386", "label": "Bacillus <firmicutes>"}}, {"preferred_term": "Streptomyces
+    sp. SA444", "term": {"id": "NCBITaxon:1883", "label": "Streptomyces"}}]. Canonical
+    snippet bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet",
+    "sha256": "362674d0a24cab9ad97788bf5e0e5094c9130fef7c6d2f585f554159f870cc17",
+    "reference": "PMID:35444261", "supports": "SUPPORT", "evidence_source": "IN_VIVO"}].
+    Snippet audit SHA256 b7d4ca37ea545d1a6c0257703ca06adc673a4a0e4314c48d64675c597a3820d8.
+    PMID35444261 source locator: Results Sec7 third paragraph/Par17; Figure 5b and
+    Figure S7e,f; Methods Sec18 paragraphs1–3. SOS1/SOS2/WRKY8 upregulation at day
+    4 is host expression, not bacterial gene annotation or proof of mediation.'
+- assessment_id: node-2
+  area: graph
+  topic: SynCom C reduction of shoot sodium-potassium imbalance
+  outcome: supported
+  summary: Retain the measured shoot sodium/potassium response.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - host-response
+  - abstract
+  - supplement
+  - snippets
+  details: 'Exact selector ecological_interactions[2]; scope COMMUNITY_LEVEL; no interaction_type,
+    source_taxon or target_taxon encoded. Actual participating_taxa: [{"preferred_term":
+    "Massilia sp. SA087", "term": {"id": "NCBITaxon:149698", "label": "Massilia"}},
+    {"preferred_term": "Enterobacter sp. SA187", "term": {"id": "NCBITaxon:547", "label":
+    "Enterobacter"}}, {"preferred_term": "Ensifer sp. SA403", "term": {"id": "NCBITaxon:106591",
+    "label": "Ensifer"}}, {"preferred_term": "Bacillus sp. SA436", "term": {"id":
+    "NCBITaxon:1386", "label": "Bacillus <firmicutes>"}}, {"preferred_term": "Streptomyces
+    sp. SA444", "term": {"id": "NCBITaxon:1883", "label": "Streptomyces"}}]. Canonical
+    snippet bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet",
+    "sha256": "5534ad83b2ca651a9aca54335ef75b7ee2cfd85b57255ed2b748b5de2f09f451",
+    "reference": "PMID:35444261", "supports": "SUPPORT", "evidence_source": "IN_VIVO"},
+    {"selector": "ecological_interactions[2].evidence[1].snippet", "sha256": "b85df2ec4b353e4f3fe38c4e278159337d217faa3d9d5a2626d0356b91c4e8da",
+    "reference": "PMID:35444261", "supports": "SUPPORT", "evidence_source": "IN_VIVO"}].
+    Snippet audit SHA256 b7d4ca37ea545d1a6c0257703ca06adc673a4a0e4314c48d64675c597a3820d8.
+    PMID35444261 source locator: Results Sec7 third paragraph/Par17; Figure 5c; Figures
+    S7c,d andS8c,d; Methods Sec18 paragraphs4–5; Abstract Par1 contextual evidence.
+    The day 10 ratio is measured. Sodium transport and reduced toxicity remain qualified
+    interpretations; the additional Abstract excerpt supplies community context, not
+    a second direct ion assay.'
+- assessment_id: node-3
+  area: graph
+  topic: SynCom C five-strain salt protection
+  outcome: supported
+  summary: Retain the separate reduced-community screen.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - roster
+  - screen
+  - snippets
+  details: 'Exact selector ecological_interactions[3]; scope COMMUNITY_LEVEL; no interaction_type,
+    source_taxon or target_taxon encoded. Actual participating_taxa: [{"preferred_term":
+    "Massilia sp. SA087", "term": {"id": "NCBITaxon:149698", "label": "Massilia"}},
+    {"preferred_term": "Enterobacter sp. SA187", "term": {"id": "NCBITaxon:547", "label":
+    "Enterobacter"}}, {"preferred_term": "Ensifer sp. SA403", "term": {"id": "NCBITaxon:106591",
+    "label": "Ensifer"}}, {"preferred_term": "Bacillus sp. SA436", "term": {"id":
+    "NCBITaxon:1386", "label": "Bacillus <firmicutes>"}}, {"preferred_term": "Streptomyces
+    sp. SA444", "term": {"id": "NCBITaxon:1883", "label": "Streptomyces"}}]. Canonical
+    snippet bindings: [{"selector": "ecological_interactions[3].evidence[0].snippet",
+    "sha256": "b324c098785d32d5fc0015dbd7aa365d16a59d153c603f5ec7845be2482bc464",
+    "reference": "PMID:35444261", "supports": "SUPPORT", "evidence_source": "IN_VIVO"}].
+    Snippet audit SHA256 b7d4ca37ea545d1a6c0257703ca06adc673a4a0e4314c48d64675c597a3820d8.
+    PMID35444261 source locator: Results Sec7 paragraphs1–2/Par15–16; Figure 4b caption;
+    Table S2. The screen selected SynCom C from 20 reported combinations. Correct
+    initial case only in its excerpt; do not restore a screen-to-validation workflow
+    edge. Main nonredundancy prose and Table S2 duplication remain a source limitation.'
+- assessment_id: edge-1-0
+  area: graph
+  topic: SynCom C activation of root SOS marker expression → SynCom C reduction of
+    shoot sodium-potassium imbalance
+  outcome: supported
+  summary: Retain the qualified expression-to-ion-balance hypothesis.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - host-response
+  - supplement
+  details: 'Exact selector ecological_interactions[1].downstream[0]; node1 → node2.
+    Both nodes bind the same five community participants listed in their assessments;
+    no directed taxon pair is inferred. Exact description: PARTIAL - early SOS-associated
+    expression could support ion transport and thereby reduce later shoot ionic imbalance.
+    Expression was measured, but its mediation of the ion phenotype was not selectively
+    perturbed in this SynCom experiment. Description SHA256 2f8425d6191f69ffc52b9da4b9e87eaac2654f29cd4434eccb6ba8fd6a8c5437.
+    Source PMID35444261, Sec7 third paragraph/Par17, Figure 5 and Methods Sec18; Figures
+    S7–S8. Early host expression and later ion measurements support a possible contribution,
+    but selective mediation was not perturbed.'
+- assessment_id: edge-2-0
+  area: graph
+  topic: SynCom C reduction of shoot sodium-potassium imbalance → SynCom C promotion
+    of salt-stressed tomato biomass
+  outcome: supported
+  summary: Retain the qualified ion-balance-to-biomass hypothesis.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - host-response
+  - supplement
+  details: 'Exact selector ecological_interactions[2].downstream[0]; node2 → node0.
+    Both nodes bind the same five community participants listed in their assessments;
+    no directed taxon pair is inferred. Exact description: PARTIAL - improved shoot
+    ion balance could reduce salt injury and support biomass accumulation. Treatment-associated
+    endpoints support this interpretation without selectively establishing ion balance
+    as the mediator. Description SHA256 728fc370c4facd510860289f630de33cf651963c5d0e141a8d062528f931362f.
+    Source PMID35444261, Sec7 third paragraph/Par17, Figure 5 and Methods Sec18; Figures
+    S7–S8. Treatment-associated ion and biomass responses do not establish ion balance
+    as the mediator.'
+- assessment_id: evidence-provenance
+  area: evidence
+  topic: Claim-local evidence mode and excerpt fidelity
+  outcome: concern
+  summary: Two host-response tags and one initial letter need correction.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - abstract
+  - schema
+  - snippets
+  - screen
+  details: engineering_design.evidence[0] and environmental_factors[0].evidence[0]
+    alias the same whole-tomato excerpt and should use IN_VIVO. The five roster excerpts
+    and bacterial preculture evidence are not automatically retyped. Node3 is supported
+    through a transparent initial-case projection, not counted as a strict match.
+    The native reference gate still passed.
+- assessment_id: cultivation
+  area: completeness
+  topic: Bacterial preparation and host-stage conditions
+  outcome: concern
+  summary: Retain the correct broth facts and add the recoverable tomato protocol.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - cultivation
+  - host-response
+  - supplement
+  dimensions:
+  - name: medium
+    value: TSB/YEM bacterial precultures; sterile river sand or10% Mossel soil/90%
+      sand host substrate
+    definition: Source-backed stages differ; a broth recipe is not the host cultivation
+      environment.
+    evidence_ids:
+    - cultivation
+    - host-response
+  - name: environment
+    value: Controlled tomato chamber,25 °C,12 h lighting,60% RH, nominal200 mM NaCl
+      challenge
+    definition: Target salinity after return to60%water-holding capacity differs from
+      initial saline soak concentration. No vessel capacity, shaking or generic fermentation
+      mode is inferred.
+    evidence_ids:
+    - cultivation
+    - supplement
+  details: The record currently provides TSB/YEM precultures,28 °C and 5×10^8 CFU/mL
+    mixture. Recover MoneyMaker tomato in plastic cups,10^9 cells/plant,25 °C,12 h
+    lighting,60% RH; sterile river sand or10% Mossel soil/90% sand, matched to each
+    assay. Salt is imposed day 7 by30 min soak with nominal200 mM target after returning
+    to60% WHC. Day21 screening and4/7/10 days post-salt follow-up are separate. Main
+    S4 citations refer to actual S5 diagram. Do not import Indigofera35/25 °C or analytical
+    temperatures.
+- assessment_id: grounding
+  area: grounding
+  topic: Valid genera and bounded GTDB provenance
+  outcome: concern
+  summary: All 11 ontology pairs match; four mapping-source strings overstate release/build
+    provenance.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - ontology
+  - gtdb
+  - strain-scope
+  - resources
+  dimensions:
+  - name: taxon_grounding
+    value: NCBITaxon149698,547,106591,1386,1883; four reproduced genus GTDB cores
+      and one ambiguity
+    definition: Keep species/strain resolution separate from reference-genome aggregation;
+      use actual crosswalk hash/access provenance instead of the filemtime as a release/build
+      date.
+    evidence_ids:
+    - ontology
+    - gtdb
+    - strain-scope
+    - resources
+  details: Retain Telluria140/140, Enterobacter2761/2763, Bacillus4981/8737 and Streptomyces3010/3040
+    genus reference mappings, and Ensifer/Sinorhizobium ambiguity. These are not strain
+    genomes or culture abundance. SA187 exact source-table/registry identity may support
+    optional refinement; it is not a newly graded error in valid genus grounding.
+    GO sodium ion transport remains contextually inferred, not direct flux.
+- assessment_id: resources
+  area: representation
+  topic: Resource declarations and comparative genome scope
+  outcome: supported
+  summary: No missing-deposit finding is justified.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - resources
+  - roster
+  - tracking
+  details: The paper states reads, processed tables and scripts are available upon
+    request pending SRA upload. Comparative/reference genome identifiers and tomato
+    primer assembly are not the focal 2022 assay dataset. Dataset S2 row214 and Dataset
+    S3 row25 identify SA187 as GCF_001888805.2, paired GCA_001888805.2 and SAMN05967246.
+    The current registry confirms NCBITaxon:1914861 and PRJNA352128; the table instead
+    lists shared RefSeq annotation umbrella PRJNA224116. This 2018 reference is not
+    the 2022 assay deposit. Other SA names are not inferred from nearest neighbors.
+- assessment_id: source-scope
+  area: scope
+  topic: Complete claim review at explicit reading boundaries
+  outcome: supported
+  summary: The full main, figures and applicable supplements support a completed scientific
+    review.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - assets
+  - lead-read
+  - root-source
+  - locators
+  dimensions:
+  - name: experimental_setting
+    value: Whole-tomato controlled host assays and separate bacterial preculture
+    definition: Sterile-sand validation, nonsterile validation, reduced-community
+      screen and15-member tracking have distinct participants and comparisons.
+    evidence_ids:
+    - host-response
+    - screen
+    - tracking
+    - cultivation
+  - name: source_access
+    value: Fresh full JATS, all 7 main figures,18-page SI PDF, five supplementary
+      tables and four dataset workbooks
+    definition: All encoded claims adjudicated; dataset matrices were not exhaustively
+      reanalysed. Earlier404/DNS responses remain failed routes, not sources.
+    evidence_ids:
+    - assets
+    - lead-read
+    - root-source
+  details: Lead read81192 main characters,33098 SI characters,all 7 main figures,all
+    18 SI pages and complete TablesS1–S5. Dataset sheets were inventoried and exact
+    resource rows inspected by support, not reanalysed. Preserve main/SI cross-reference,
+    Table S2 nonredundancy and S6 inoculum-label discrepancies as source limits.
+- assessment_id: ownership
+  area: ownership
+  topic: Maintained owner and immutable prior context
+  outcome: supported
+  summary: Repair belongs to the canonical YAML under separate curation authorization.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - inspection
+  - inspection-original
+  - inspection-extension
+  - provenance
+  details: Ignored-inclusive discovery pinned both caches, both histories, exact prior
+    decision/adversarial and four cohort contexts. Review does not alter canonical
+    data, caches, history, issues or Git. Current 1394 graph repair is retained; 1397
+    evidence-mode follow-up remains applicable.
+- assessment_id: native
+  area: schema
+  topic: Actual validation outcomes
+  outcome: supported
+  summary: All eight required native checks passed.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - inspection-extension
+  - corpus-context
+  - adapter
+  details: Nonrequired corpus failures and unavailable optional adapter are preserved.
+    A passed reference gate does not erase the separately detected capitalization
+    discrepancy.
+- assessment_id: metrics
+  area: completeness
+  topic: Literal native metrics
+  outcome: supported
+  summary: Completeness 30; raw validation quality 121.5, capped100.
+  target_ids:
+  - CommunityMech:000096
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 30
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required-and-roles50-point block is 0 because functional_role is absent;
+      environment 5 +four nodes 10 +growth medium 10 +metabolites 5 =30. One environmental
+      factor earns no factor bonus; no external resources/datasets. Optional-role
+      absence is not a scientific finding.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Base100 +20*min((5 evidence/4 nodes)/2,1)=12.5 +15 COMPLETE =127.5;0
+      major*10 and 3 minor*2 yield121.5, capped100. Network completion and numeric
+      scores do not establish causation.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: evidence-provenance
+  issue_key: cm-000096-evidence-provenance
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded nonblocking metadata, provenance or recoverable context
+    repair; core source-supported graph remains valid.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Correct host evidence mode and exact excerpt casing
+  description: Two aliased whole-tomato evidence placements are tagged IN_VITRO. The
+    supported screen excerpt has one initial-case discrepancy. Neither correction
+    changes the qualified graph.
+  target_ids:
+  - CommunityMech:000096
+  field_paths:
+  - engineering_design.evidence[0].evidence_source
+  - environmental_factors[0].evidence[0].evidence_source
+  - ecological_interactions[3].evidence[0].snippet
+  evidence_ids:
+  - abstract
+  - schema
+  - screen
+  - snippets
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+    role: canonical_record
+  ownership_note: Future authorized repair belongs to maintained YAML; immutable source/history/review
+    artifacts remain unchanged.
+- finding_id: host-cultivation
+  issue_key: cm-000096-host-cultivation
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded nonblocking metadata, provenance or recoverable context
+    repair; core source-supported graph remains valid.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Record the host experiment separately from broth preparation
+  description: The existing TSB/YEM culture facts are valid, but source-reported tomato
+    substrate, chamber, vessel, inoculum and salt-treatment timing are not represented.
+  target_ids:
+  - CommunityMech:000096
+  field_paths:
+  - engineering_design
+  - environmental_factors
+  - growth_media
+  - cultivation_setup
+  evidence_ids:
+  - cultivation
+  - supplement
+  - host-response
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+    role: canonical_record
+  ownership_note: Future authorized repair belongs to maintained YAML; immutable source/history/review
+    artifacts remain unchanged.
+- finding_id: taxonomy-provenance
+  issue_key: cm-000096-taxonomy-provenance
+  category: grounding
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded nonblocking metadata, provenance or recoverable context
+    repair; core source-supported graph remains valid.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Replace unsupported GTDB release/build claims
+  description: Four mapping_source strings treat a local filemtime as a build/release
+    date. Core mappings and Ensifer ambiguity reproduce and should remain. Optional
+    SA187 refinement is distinct from correcting that provenance.
+  target_ids:
+  - CommunityMech:000096
+  field_paths:
+  - taxonomy[0].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[1].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[3].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[4].taxon_term.gtdb_classification.mapping_source
+  evidence_ids:
+  - gtdb
+  - ontology
+  - strain-scope
+  - resources
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+    role: canonical_record
+  ownership_note: Future authorized repair belongs to maintained YAML; immutable source/history/review
+    artifacts remain unchanged.
+actions:
+- action_id: repair-evidence
+  description: Apply claim-local evidence corrections.
+  finding_ids:
+  - evidence-provenance
+  target_ids:
+  - CommunityMech:000096
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Set engineering_design.evidence[0].evidence_source and environmental_factors[0].evidence[0].evidence_source
+    to IN_VIVO, respecting their shared YAML anchor. Keep bacterial preculture and
+    roster evidence at its actual scope.
+  - Restore initial The in ecological_interactions[3].evidence[0].snippet from Figure
+    4 caption; preserve the supported meaning, five participants and both PARTIAL
+    arrows. Do not restore the removed screen-selection workflow edge.
+- action_id: recover-host-context
+  description: Add a distinct tomato cultivation context.
+  finding_ids:
+  - host-cultivation
+  target_ids:
+  - CommunityMech:000096
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Preserve TSB/YEM at 28 °C and 5×10^8 CFU/mL mixture; add source 10^9 cells/plant
+    independently. Do not replace broth temperature with host chamber temperature.
+  - Record MoneyMaker tomato in plastic cups; distinguish sterile river sand from10%
+    Mossel soil/90% sand. Add25 °C,12 h lighting and60% RH with Methods Sec12 second
+    paragraph evidence. Use OTHER system/mode only with explicit host-pot meaning;
+    invent no working volume, aeration or broth feeding schedule.
+  - Tie nominal200 mM salt to the source day 7/30 min soaking and return-to-60% WHC
+    protocol in actual Figure S5. Separate day 21 screening from4/7/10 days after
+    salt imposition in the five-member follow-up. Preserve the main S4/S5 reference
+    typo and S6 inoculum-label discrepancy.
+- action_id: repair-gtdb-provenance
+  description: Use actual mapping provenance without forcing finer taxonomy.
+  finding_ids:
+  - taxonomy-provenance
+  target_ids:
+  - CommunityMech:000096
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Replace latest/build-date wording in the four mapping_source values with actual
+    crosswalk/helper hash and accessed date; preserve reproduced genus cores/confidences
+    and Ensifer ambiguity.
+  - Optional SA187 enrichment can record GCF_001888805.2 (paired GCA_001888805.2),
+    SAMN05967246 and the source-linked NCBITaxon:1914861 candidate. Use the exact
+    Dataset S2/S3 rows and current registry bridge; keep its 2018 reference genome
+    separate from 2022 assay data. A finer taxon replacement would require consistent
+    participant and GTDB reconciliation. Do not infer species for SA087/SA403/SA436/SA444
+    from phylogenetic nearest neighbors.
+- action_id: validate-curation
+  description: Validate any separately authorized canonical repair.
+  finding_ids:
+  - evidence-provenance
+  - host-cultivation
+  - taxonomy-provenance
+  target_ids:
+  - CommunityMech:000096
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Desert_Tomato_Salt_Stress_SynCom5.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Recheck exact claims, evidence tiers and source locators, then focused schema/strict/ontology/reference/GTDB/history
+    gates. Canonical curation requires appropriate generated-document checks; this
+    review performs none.
+  - Keep all four current graph nodes and two qualified arrows unless new claim-local
+    evidence warrants a separate change. Preserve caches, history and issue status;
+    root alone saves this review bundle.
+limitations:
+- Host expression and ion/biomass associations do not establish selective mediation,
+  individual member necessity or reciprocal microbial benefit. Both current causal
+  arrows already state PARTIAL.
+- Main Results describes nonredundant subsets, while some Table S2 combinations contain
+  two Pseudomonas strains; SynCom C membership is consistent. Figure 4b shows a subset
+  of 20 reported combinations. S6 names SynCom C where the main optimization text
+  describes the15-strain Jizan community; main S4 salt citations point to actual S5.
+  These source discrepancies are retained without invented numeric or membership repairs.
+- All encoded claims and relevant figures/tables were reviewed, but raw sequence libraries
+  and complete comparative-genome/OTU matrices were not independently reanalysed.
+  Resource declarations and reference genomes do not imply a missing focal deposit.
+- The native checks originally bind 31 inputs; distinct inspect-v2 extends to 32 with
+  the second cache and reverified integrity. Thirteen snippets strictly match; one
+  is supported only after explicit initial-case projection.
+- SA187 exact identity is an optional source-linked refinement, not proof that valid
+  genus grounding or the other four SA labels are wrong. No bacterial functional roles
+  or host taxonomy membership are invented.
+notes:
+- Four node assessments bind five exact canonical excerpt hashes; two edge assessments
+  bind current descriptions and directions. Eight evidence-linked dimensions cover
+  identity, strain, scope, grounding, setting, medium, environment and source access.
+- The sole primary-source quote contains two words. Thirty-two official inputs remain
+  unchanged. All source/receipt snapshots retain their actual access and reading scopes.
+- Completed scientific status reflects claim-level source review; root owns saving
+  and post-save gates.
+tags:
+- record-review
+- tomato
+- salt-stress
+- batch-15
+```
