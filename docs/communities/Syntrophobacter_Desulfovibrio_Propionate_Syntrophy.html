@@ -657,7 +657,7 @@
                     <h3>Syntrophic Propionate Oxidation with Interspecies Formate and Hydrogen Transfer</h3>
                     <span class="interaction-type">SYNTROPHY</span>
                 </div>
-                <p class="prewrap interaction-description">Syntrophobacter fumaroxidans MPOBT oxidizes propionate via the methylmalonyl-CoA pathway in the presence of 20 mM propionate and 20 mM sulfate, simultaneously performing sulfidogenic reduction (via AprAB, Sat, DsrMKJOP, Qmo, and Hdr/Flox) and transferring electrons as formate and hydrogen (via cytoplasmic Fdh1, periplasmic Fdh2, periplasmic hydrogenase Hyn coupled with FrdABEF/SdhABC, and confurcating hydrogenase Hox) to Desulfovibrio desulfuricans strain G11.</p>
+                <p class="prewrap interaction-description">Syntrophobacter fumaroxidans MPOB (DSM 10017) oxidizes propionate via the methylmalonyl-CoA pathway in batch coculture with Desulfovibrio desulfuricans G11 (DSM 7057) on 20 mM propionate and 20 mM sulfate, simultaneously expressing its dissimilatory sulfate reduction pathway (Sat, HppA, AprAB, DsrAB, DsrC, QmoABC, DsrMKJOP, and the sulfate-specific confurcating complex HdrABC/HdrL Sfum_0819-0824) together with reverse electron transport and interspecies electron transfer enzymes (confurcating cytoplasmic Fdh1 and Hox, periplasmic Fdh2 and Hyn Sfum_2952-53, and fumarate reductase FrdABEF Sfum_4092-4095) that release formate and H2 to D. desulfuricans G11.</p>
 
 
                 <p><strong>Source Taxon:</strong> Syntrophobacter fumaroxidans</p>
@@ -726,7 +726,7 @@
 
                     <div class="flow-item">
                         <span class="flow-arrow">→</span> Hydrogen- and Formate-Coupled Dissimilatory Sulfate Reduction
-                        <p class="prewrap causal-description">Formate and H2 released by S. fumaroxidans during propionate oxidation serve as the sole electron donors for D. desulfuricans G11 dissimilatory sulfate reduction in the propionate-sulfate coculture.</p>
+                        <p class="prewrap causal-description">Interspecies formate and hydrogen released during propionate oxidation by S. fumaroxidans MPOB supply the electron donors required for dissimilatory sulfate reduction by D. desulfuricans G11 in the propionate-plus-sulfate coculture; separate formate versus hydrogen flux partitioning and relative sulfate-reduction rates between the two sulfate reducers were not independently resolved.</p>
                     </div>
 
                 </div>
@@ -775,6 +775,19 @@
 
                     </li>
 
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/29611893/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29611893</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"Two of the three predicted heterodisulfide reductases‐like enzymes in S. fumaroxidans were detected in this study, one associated with a flavin oxidoreductase complex Hdr/Flox (Sfum_1970–1977) and the other with a multicomplex that includes an HdrL, a MvhD and an FeS electron transfer protein: HdrABC/HdrL (Sfum_0819–0824). The Flox section of Hdr/Flox is produced in all conditions. HdrABC/HdrL was abundant when sulfate was present whereas only the subunits containing FAD/NAD‐binding domains were detected in syntrophic cultures."</div>
+
+                    </li>
+
                 </ul>
 
             </div>
@@ -784,7 +797,7 @@
                     <h3>Hydrogen- and Formate-Coupled Dissimilatory Sulfate Reduction</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
-                <p class="prewrap interaction-description">Desulfovibrio desulfuricans strain G11, which cannot utilize propionate, scavenges interspecies formate and hydrogen transferred from S. fumaroxidans and couples their oxidation (via periplasmic formate dehydrogenase FDH3 [G11_11530] and hydrogenases) to dissimilatory sulfate reduction (with adenylylsulfate reductase alpha subunit AprA [G11_01440] among its ten most abundant proteins in coculture).</p>
+                <p class="prewrap interaction-description">Desulfovibrio desulfuricans G11 (DSM 7057), which cannot oxidize propionate directly, grows in a 1:2 ratio with S. fumaroxidans MPOB (317 core proteins detected in coculture versus &gt;750 in axenic formate or H2 cultures, separated along PC1 explaining ~70% of proteomic variance) by coupling periplasmic formate dehydrogenase FDH3 (G11_11530-11545), periplasmic hydrogenase Hyd-3 (G11_06350-06355), cytoplasmic FDH1 (G11_05250-05260), and cytoplasmic Hyd-1 (G11_01905-01920) to dissimilatory sulfate reduction via highly abundant AprA (G11_01440).</p>
 
 
                 <p><strong>Source Taxon:</strong> Syntrophobacter fumaroxidans</p>
@@ -868,6 +881,19 @@
                         </div>
 
                         <div class="snippet">"D. desulfuricans is a sulfate reducer that utilizes lactate, ethanol, hydrogen and formate in the presence of sulfate, but not acetate, propionate, butyrate or glucose (McInerney et al., 1979 ). Therefore, a syntrophic relationship with S. fumaroxidans, in which hydrogen and formate are produced, would be beneficial for D. desulfuricans."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/29611893/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29611893</a>
+
+                            - SUPPORT (IN_VITRO)
+                        </div>
+
+                        <div class="snippet">"The first principal component (PC1; ∼ 70% of total variance) clearly separates growth in coculture from axenic growth in formate or hydrogen. However, PC1 did not establish a difference between growth on hydrogen or on formate."</div>
 
                     </li>
 
@@ -1324,7 +1350,7 @@
             processes.push("electron transport chain");
 
 
-            var evidenceCount = 3;
+            var evidenceCount = 4;
 
             nodes.push({
                 id: intId,
@@ -1370,7 +1396,7 @@
             processes.push("dissimilatory sulfate reduction");
 
 
-            var evidenceCount = 2;
+            var evidenceCount = 3;
 
             nodes.push({
                 id: intId,

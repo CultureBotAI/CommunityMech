@@ -126,11 +126,12 @@ taxonomy:
     explanation: Confirms M. formicicum as a member of the S. wolfei + M. formicicum biculture in Table 1.
 ecological_interactions:
 - name: Syntrophic Butyrate Beta-Oxidation Coupled to Methanogenesis
-  description: In the two-member S. wolfei G311 + M. formicicum MF biculture grown on 20 mM sodium butyrate, S. wolfei oxidizes
-    butyrate to acetate while transferring reducing equivalents (hydrogen and formate) to M. formicicum for methanogenesis,
-    yielding a 5.38 (0.43) day lag phase, a 0.15 (0.006)* mmol/L/day methane production rate, and 3.92 (0.23) mmol/L maximal
-    methane concentration (Table 1, Fig. 2B). Supplementing the S. wolfei + M. formicicum biculture with 1.1 mM initial acetate
-    positively stimulated methane production (Fig. S2).
+  description: Syntrophomonas wolfei G311 oxidizes 20 mM butyrate to acetate (1 mM butyrate -> 2 mM acetate) via beta-oxidation
+    while Methanobacterium formicicum MF (DSM 1535) scavenges the resulting reducing equivalents to reduce CO2 to methane
+    (lag phase 5.38 ± 0.43 days, methane production rate 0.15 ± 0.006 mmol/L/day, maximal methane 3.92 ± 0.23 mmol/L, with
+    no extracellular formate accumulation detected in the biculture), maintaining hydrogen partial pressure low enough for
+    endergonic butyrate oxidation to proceed; separate H2 versus formate transfer fluxes and biculture proteomics were not
+    resolved for the M. formicicum pair.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -194,6 +195,14 @@ ecological_interactions:
       by a slightly elevated starting amount of acetate in the growth media.
     explanation: Documents that starting acetate supplementation (1.1 mM, Fig. S2) positively affected methane production
       in the S. wolfei + M. formicicum biculture.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cocultures with M. formicicum had the smallest amounts of formate. In contrast to the tri-cultures, no formate
+      was detected in the bi-cultures without T. flocculiformis ES5.
+    explanation: Demonstrates that no extracellular formate accumulated in the S. wolfei G311 + M. formicicum MF biculture
+      without T. flocculiformis ES5, confirming tight coupling of interspecies electron transfer during syntrophic butyrate
+      oxidation.
 environmental_factors:
 - name: Sodium butyrate substrate concentration
   value: '20'
@@ -308,4 +317,11 @@ curation_history:
   changes: Created CommunityMech:000511 for the defined two-member Syntrophomonas wolfei G311 + Methanobacterium formicicum
     MF butyrate-oxidizing syntrophic biculture from PMID:35699440 / doi:10.1128/aem.00391-22 (Table 1, Fig. 2B, Fig. S2),
     sibling to CommunityMech:000188 and CommunityMech:000512.
+  llm_assisted: true
+- timestamp: '2026-11-06T05:15:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: Reviewed and enriched the single PAIRWISE syntrophic butyrate beta-oxidation node in CommunityMech:000511 against
+    PMID:35699440, adding verbatim evidence for the absence of formate accumulation in the biculture and documenting why 0
+    downstream edges are curated.
   llm_assisted: true
