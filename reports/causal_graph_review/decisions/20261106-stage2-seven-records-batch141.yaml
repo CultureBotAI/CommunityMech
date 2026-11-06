@@ -1,0 +1,1253 @@
+reviewer: antigravity
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 318415938f0ad0409027a704c3f2ae4584e46277
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+reviewed_counts:
+  retained_nodes: 21
+  removed_nodes: 0
+  retained_arrows: 2
+  removed_arrows: 0
+  renamed_nodes: 0
+  graph_quotations: 55
+  discussion_quotations: 5
+limitations:
+- 'Source-based causal-graph and taxon-grounding curation and review for all 7 unindexed MicrobialCommunity
+  records (CommunityMech:000515 and CommunityMech:000516 from PR #2102 plus CommunityMech:000517 through
+  CommunityMech:000521 from Cycle 9 Stage 1 PR #2667).'
+- Other 508 MicrobialCommunity records verified via SHA-256 hash census against reports/causal_graph_review/inventory.tsv
+  (454 reviewed, 54 needs_research preserved unchanged) plus 2 CommonTaxon records in kb/taxa/.
+records:
+- path: kb/communities/Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm.yaml
+  id: CommunityMech:000515
+  original_sha256: 426262aed2d7549edf249c0463f48b2dfde260e6ba591eeb4f57e996de3d4c30
+  record_sha256: 426262aed2d7549edf249c0463f48b2dfde260e6ba591eeb4f57e996de3d4c30
+  status: reviewed
+  outcome: unchanged
+  review_file: reports/causal_graph_review/decisions/20261106-stage2-seven-records-batch141.yaml
+  scope: Whole record read; every graph node, COMMUNITY_LEVEL scope, participating_taxa, and zero-edge
+    boundary verified against cached open-access full text and abstract (PMID:42660928, PMC13522444, doi:10.1073/pnas.2522679123)
+    and sibling dopamine SynCom16 record CommunityMech:000516.
+  summary: Reviewed and certified the 2-node, 0-edge COMMUNITY_LEVEL representation for Yolo silt loam
+    soil catecholamine amendment microcosms in PMID:42660928 (1 mM and 10 mM dopamine or norepinephrine
+    vs water/10 mM HCl controls over 7 days), preserving the separate Actinobacteria enrichment and Acidobacteria
+    depletion nodes without fabricated cross-phylum mediation arrows.
+  node_decisions:
+  - node: High-Dose Catecholamine Amendment Enriches Actinobacteria
+    rationale: Supported by primary source (PMID:42660928, Fig. 4D) with COMMUNITY_LEVEL scope; captures
+      relative-abundance enrichment of Actinobacteria (predominantly Micrococcaceae/Arthrobacter) in Yolo
+      silt loam soil amended with 10 mM dopamine or norepinephrine relative to water/HCl controls, bounded
+      as compositional 16S profiling without absolute cell-count or metabolic-pathway proof.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:42660928, PMC13522444)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Actinobacteria (Actinomycetota)
+        term:
+          id: NCBITaxon:201174
+          label: Actinomycetota
+    evidence:
+    - reference: PMID:42660928
+      supports: SUPPORT
+      evidence_source: MESOCOSM
+      snippet: Among all bacterial phyla, only Actinobacteria were significantly enriched in soils treated
+        with both dopamine and norepinephrine at the high dose; however, dopamine had a greater effect
+        than norepinephrine
+      explanation: Phylum-level enrichment at the high dose.
+  - node: High-Dose Norepinephrine Depletes Acidobacteria
+    rationale: Supported by primary source (PMID:42660928, Fig. 4D) with COMMUNITY_LEVEL scope; captures
+      relative-abundance depletion of Acidobacteria under 10 mM norepinephrine amendment relative to water/HCl
+      controls without asserting direct inter-phylum antagonism.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:42660928, PMC13522444)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Acidobacteria (Acidobacteriota)
+        term:
+          id: NCBITaxon:57723
+          label: Acidobacteriota
+    evidence:
+    - reference: PMID:42660928
+      supports: SUPPORT
+      evidence_source: MESOCOSM
+      snippet: Acidobacteria significantly decreased in the soil treated with the high dose of norepinephrine
+        compared to those in the control soil
+      explanation: Phylum-level depletion under high norepinephrine.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42660928
+  allowed_changed_fields: []
+  curation_events_added: 0
+  history_files: []
+- path: kb/communities/Brachypodium_Natural_Variation_Dopamine_SynCom16.yaml
+  id: CommunityMech:000516
+  original_sha256: c9f8d489241eb57dbbe7046d668e15abd7bb0d04a718fe014eac465466ebc735
+  record_sha256: c9f8d489241eb57dbbe7046d668e15abd7bb0d04a718fe014eac465466ebc735
+  status: reviewed
+  outcome: unchanged
+  review_file: reports/causal_graph_review/decisions/20261106-stage2-seven-records-batch141.yaml
+  scope: Whole record read; every graph node, COMMUNITY_LEVEL scope, participating_taxa, host_participation,
+    and zero-edge boundary verified against cached open-access full text and abstract (PMID:42660928,
+    PMC13522444, doi:10.1073/pnas.2522679123) and sibling Yolo soil record CommunityMech:000515.
+  summary: Reviewed and certified the 5-node, 0-edge COMMUNITY_LEVEL representation for the 16-member
+    Brachypodium distachyon root-colonizing SynCom across eight natural plant accessions in PMID:42660928,
+    preserving distinct nodes for positive/negative exudate-dopamine abundance correlations, in vitro
+    0.5 mM dopamine growth stimulation/inhibition, and SynCom-induced exudate-dopamine reduction without
+    asserting an untested closed causal loop in planta.
+  node_decisions:
+  - node: Exudate Dopamine Correlates Positively With Five Members
+    rationale: Supported by primary source (PMID:42660928, Fig. 3C-D) with COMMUNITY_LEVEL scope and host_participation
+      (Brachypodium distachyon); captures positive correlation between exudate dopamine levels and rhizosphere
+      relative abundance of five SynCom16 members across eight Brachypodium accessions.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:42660928, PMC13522444)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Rhodococcus sp. OAS809
+        term:
+          id: NCBITaxon:1827
+          label: Rhodococcus <high G+C Gram-positive bacteria>
+      - preferred_term: Marmoricola sp. OAE513
+        term:
+          id: NCBITaxon:86795
+          label: Marmoricola
+      - preferred_term: Rhizobium sp. OAE497
+        term:
+          id: NCBITaxon:379
+          label: Rhizobium
+      - preferred_term: Lysobacter sp. OAE881
+        term:
+          id: NCBITaxon:68
+          label: Lysobacter
+      - preferred_term: Bosea sp. OAE506
+        term:
+          id: NCBITaxon:85413
+          label: Allobosea
+    evidence:
+    - reference: PMID:42660928
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Dopamine was positively associated with the relative abundances of two Actinobacteria,
+        Rhodococcus OAS809 and Marmoricola OAE513, and three Proteobacteria, Rhizobium OAE497, Lysobacter
+        OAE881, and Bosea OAE506, whereas it was negatively associated with another Proteobacteria, Burkholderia
+        OAS925
+      explanation: Direction of each of the six significant correlations.
+    - reference: PMID:42660928
+      supports: PARTIAL
+      evidence_source: IN_VIVO
+      snippet: No multiple-comparison adjustment was applied.
+      explanation: Figure 3a legend; correlations are unadjusted and hypothesis-generating.
+  - node: Exudate Dopamine Correlates Negatively With Paraburkholderia OAS925
+    rationale: Supported by primary source (PMID:42660928, Fig. 3C-D) with COMMUNITY_LEVEL scope and host_participation
+      (Brachypodium distachyon); captures negative correlation between exudate dopamine levels and dominant
+      colonizer Paraburkholderia sp. OAS925 relative abundance.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:42660928, PMC13522444)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Paraburkholderia sp. OAS925
+        term:
+          id: NCBITaxon:1822464
+          label: Paraburkholderia
+    evidence:
+    - reference: PMID:42660928
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: Dopamine was positively associated with the relative abundances of two Actinobacteria,
+        Rhodococcus OAS809 and Marmoricola OAE513, and three Proteobacteria, Rhizobium OAE497, Lysobacter
+        OAE881, and Bosea OAE506, whereas it was negatively associated with another Proteobacteria, Burkholderia
+        OAS925
+      explanation: Direction of each of the six significant correlations.
+    - reference: PMID:42660928
+      supports: PARTIAL
+      evidence_source: IN_VIVO
+      snippet: No multiple-comparison adjustment was applied.
+      explanation: Figure 3a legend; correlations are unadjusted and hypothesis-generating.
+  - node: Dopamine Stimulates Growth of Five Positively Correlated Isolates
+    rationale: Supported by primary source (PMID:42660928, Fig. 4A) with COMMUNITY_LEVEL scope; captures
+      in vitro growth stimulation of the five positively correlated isolates by 0.5 mM exogenous dopamine
+      in 0.1x R2A medium.
+    field_path: ecological_interactions[2]
+    source_locator: Cached full text and abstract (PMID:42660928, PMC13522444)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Rhodococcus sp. OAS809
+        term:
+          id: NCBITaxon:1827
+          label: Rhodococcus <high G+C Gram-positive bacteria>
+      - preferred_term: Marmoricola sp. OAE513
+        term:
+          id: NCBITaxon:86795
+          label: Marmoricola
+      - preferred_term: Rhizobium sp. OAE497
+        term:
+          id: NCBITaxon:379
+          label: Rhizobium
+      - preferred_term: Lysobacter sp. OAE881
+        term:
+          id: NCBITaxon:68
+          label: Lysobacter
+      - preferred_term: Bosea sp. OAE506
+        term:
+          id: NCBITaxon:85413
+          label: Allobosea
+    evidence:
+    - reference: PMID:42660928
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: we observed that dopamine at 100 μg/mL significantly stimulated the growth of all five
+        isolates whose abundances were positively associated with dopamine
+      explanation: Monoculture growth-curve result for the five positively correlated members.
+  - node: Dopamine Inhibits Paraburkholderia OAS925 Growth
+    rationale: Supported by primary source (PMID:42660928, Fig. 4A-B) with COMMUNITY_LEVEL scope; captures
+      in vitro growth inhibition of Paraburkholderia sp. OAS925 by 0.5 mM dopamine in 0.1x R2A medium.
+    field_path: ecological_interactions[3]
+    source_locator: Cached full text and abstract (PMID:42660928, PMC13522444)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Paraburkholderia sp. OAS925
+        term:
+          id: NCBITaxon:1822464
+          label: Paraburkholderia
+    evidence:
+    - reference: PMID:42660928
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: while inhibiting the growth of Burkholderia OAS925, whose abundance was negatively correlated
+        with dopamine
+      explanation: Monoculture growth-curve result for OAS925.
+  - node: SynCom Colonization Lowers Exudate Dopamine
+    rationale: Supported by primary source (PMID:42660928, Fig. 3B) with COMMUNITY_LEVEL scope and host_participation
+      (Brachypodium distachyon); captures lower root-exudate dopamine abundance in SynCom16-colonized
+      plants compared with sterile controls while noting that bacterial consumption versus host down-regulation
+      was not separated.
+    field_path: ecological_interactions[4]
+    source_locator: Cached full text and abstract (PMID:42660928, PMC13522444)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Lysobacter sp. OAE881
+        term:
+          id: NCBITaxon:68
+          label: Lysobacter
+      - preferred_term: Paraburkholderia sp. OAS925
+        term:
+          id: NCBITaxon:1822464
+          label: Paraburkholderia
+      - preferred_term: Variovorax sp. OAS795
+        term:
+          id: NCBITaxon:34072
+          label: Variovorax
+      - preferred_term: Chitinophaga sp. OAE865
+        term:
+          id: NCBITaxon:79328
+          label: Chitinophaga
+      - preferred_term: Bosea sp. OAE506
+        term:
+          id: NCBITaxon:85413
+          label: Allobosea
+      - preferred_term: Rhodococcus sp. OAS809
+        term:
+          id: NCBITaxon:1827
+          label: Rhodococcus <high G+C Gram-positive bacteria>
+      - preferred_term: Marmoricola sp. OAE513
+        term:
+          id: NCBITaxon:86795
+          label: Marmoricola
+      - preferred_term: Paenibacillus sp. OAE614
+        term:
+          id: NCBITaxon:44249
+          label: Paenibacillus
+      - preferred_term: Methylobacterium sp. OAE515
+        term:
+          id: NCBITaxon:407
+          label: Methylobacterium
+      - preferred_term: Arthrobacter sp. OAP107
+        term:
+          id: NCBITaxon:1667
+          label: Arthrobacter sp.
+      - preferred_term: Mucilaginibacter sp. OAE612
+        term:
+          id: NCBITaxon:423349
+          label: Mucilaginibacter
+      - preferred_term: Brevibacillus sp. OAP136
+        term:
+          id: NCBITaxon:55080
+          label: Brevibacillus
+      - preferred_term: Niastella sp. OAS944
+        term:
+          id: NCBITaxon:354354
+          label: Niastella
+      - preferred_term: Rhizobium sp. OAE497
+        term:
+          id: NCBITaxon:379
+          label: Rhizobium
+      - preferred_term: Mycobacterium sp. OAE908
+        term:
+          id: NCBITaxon:1763
+          label: Mycobacterium
+      - preferred_term: Gottfriedia sp. OAE603
+        term:
+          id: NCBITaxon:2837503
+          label: Gottfriedia
+    evidence:
+    - reference: PMID:42660928
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: SynCom inoculation was consistently associated with reduced dopamine abundance across lines
+      explanation: Axenic versus SynCom comparison of exudate dopamine.
+    - reference: PMID:42660928
+      supports: PARTIAL
+      evidence_source: IN_VIVO
+      snippet: suggesting potential microbial utilization of dopamine and/or altered dopamine production
+        or exudation in response to microbial colonization
+      explanation: Authors leave the cause unresolved; microbial utilization is a hypothesis.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42660928
+  allowed_changed_fields: []
+  curation_events_added: 0
+  history_files: []
+- path: kb/communities/Parmigiano_NWS_Set1_LAB_Triculture.yaml
+  id: CommunityMech:000517
+  original_sha256: c29477e83756f32bef49c1e54a7420d7f084039e644e8df32442985470fd2118
+  record_sha256: 4e7b3ede948c94c55e73ea88c428e23368af66a92642940ef89f4d95157af74e
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261106-stage2-seven-records-batch141.yaml
+  scope: Whole record read; every graph node, COMMUNITY_LEVEL scope, participating_taxa, and zero-edge
+    boundary verified against cached open-access full text and abstract (PMID:41859451, PMC12996222, doi:10.3389/fmicb.2026.1755652).
+  summary: Reviewed and enriched the 4-node, 0-edge COMMUNITY_LEVEL representation for Parmigiano Reggiano
+    natural-whey-starter inoculation set 1 (L. helveticus C001.15, S. thermophilus RBC06, and L. delbrueckii
+    subsp. lactis T1104) in PMID:41859451 with verbatim Section 3.7/3.8 evidence for maximum fermentative
+    efficiency (Delta pHmax, Fig. 7B), positive St+Lh/St+Ld versus negative Lh+Ld pairwise interactions,
+    C001.15 metabolic dominance in the 67.42% L-lactate Lh+Ld co-culture, and monoculture/triculture D-/L-lactate
+    enantiomer baselines, while preserving 0 downstream edges.
+  node_decisions:
+  - node: Set 1 triculture milk acidification and total lactate enhancement
+    rationale: Supported by primary source (PMID:41859451, Fig. 7A-B, Fig. 8) with COMMUNITY_LEVEL scope
+      covering all 3 set 1 strains; documents superior umax, Delta pHmax, and total lactic acid production
+      in the 1:1:1 triculture without fabricating per-strain CFU or metabolite-exchange edges.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:41859451, PMC12996222)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Lactobacillus helveticus C001.15
+        term:
+          id: NCBITaxon:1587
+          label: Lactobacillus helveticus
+      - preferred_term: Streptococcus thermophilus RBC06
+        term:
+          id: NCBITaxon:1308
+          label: Streptococcus thermophilus
+      - preferred_term: Lactobacillus delbrueckii subsp. lactis T1104
+        term:
+          id: NCBITaxon:29397
+          label: Lactobacillus delbrueckii subsp. lactis
+    evidence:
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Across all inoculation sets, tri-cultures consistently displayed the highest μmax values
+        (p < 0.05), followed by the co-cultures St + Lh and St + Ld.
+      explanation: Supports the highest maximum milk acidification rate in the set 1 C001.15/RBC06/T1104
+        triculture.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Across all three strain combinations, total lactic acid production was highest in tri-cultures,
+        followed by St + Lh and St + Ld co-cultures (p < 0.05)
+      explanation: Supports the highest total lactic acid production in the set 1 triculture relative
+        to monocultures and 1:1 co-cultures.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Statistical analysis of the maximum acidification efficiency (ΔpHmax) largely confirmed
+        the trends described for μmax, with the exception of Ld strain T1104 in inoculation set 1 ( Figure
+        7B ).
+      explanation: Confirms that maximum fermentative efficiency (Delta pHmax) in the set 1 triculture
+        followed the same superior trend as umax relative to monocultures and binary pairs.
+  - node: RBC06-containing pairwise acidification and lactate stimulation
+    rationale: Supported by primary source (PMID:41859451, Fig. 7A-B, Fig. 8) with COMMUNITY_LEVEL scope;
+      documents enhanced umax and total lactate in both RBC06-containing 1:1 co-cultures (RBC06+T1104
+      and RBC06+C001.15, 86.73% L-lactate) relative to monocultures.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:41859451, PMC12996222)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Lactobacillus helveticus C001.15
+        term:
+          id: NCBITaxon:1587
+          label: Lactobacillus helveticus
+      - preferred_term: Streptococcus thermophilus RBC06
+        term:
+          id: NCBITaxon:1308
+          label: Streptococcus thermophilus
+      - preferred_term: Lactobacillus delbrueckii subsp. lactis T1104
+        term:
+          id: NCBITaxon:29397
+          label: Lactobacillus delbrueckii subsp. lactis
+    evidence:
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: By contrast, in St + Ld co-cultures, μmax values were significantly higher than those observed
+        in the corresponding Ld and St monocultures (p < 0.05) ( Figure 7A ), indicating a mutual benefit
+        from co-cultivation. A similar enhancement was observed in Lh + St co-cultures, where all strain
+        combinations exhibited significantly higher acidification rates than their respective monocultures
+        (p < 0.05)
+      explanation: Supports higher maximum acidification rates in both St + Ld (RBC06 + T1104) and Lh
+        + St (C001.15 + RBC06) co-cultures relative to monocultures.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Under St + Lh conditions, L-lactate predominates, accounting for 86.73% of total lactate
+        in the co-culture of strains RBC06 and C001.5 and 74.08% in the co-culture of strains C001.27
+        and LBB04. Similarly, in St + Ld co-cultures, total lactate concentrations also exceeded those
+        of the respective monocultures, with production dominated by D-lactate
+      explanation: Quantifies the 86.73% L-lactate share in the set 1 RBC06 + C001.15 co-culture (printed
+        as C001.5 in this sentence) and D-lactate predominance in St + Ld co-cultures.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Overall, the findings support the presence of negative interactions between L. helveticus
+        and L. delbrueckii subsp. lactis and positive interactions between L. delbrueckii subsp. lactis
+        and S. thermophilus, as well as between S. thermophilus and L. helveticus.
+      explanation: Summarizes the positive pairwise interactions in both S. thermophilus-containing pairs
+        (St + Ld and St + Lh) in contrast to the Lh + Ld binary pair.
+  - node: C001.15-T1104 reduced acidification rate and Set 1 Delta pHmax/lactate exception
+    rationale: Supported by primary source (PMID:41859451, Fig. 7A-B, Fig. 8) with COMMUNITY_LEVEL scope
+      covering C001.15 and T1104; documents reduced umax alongside the set 1 exception in Delta pHmax
+      and total lactate (67.42% L-lactate driven by higher metabolic activity of C001.15 relative to slow-acidifying
+      T1104).
+    field_path: ecological_interactions[2]
+    source_locator: Cached full text and abstract (PMID:41859451, PMC12996222)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Lactobacillus helveticus C001.15
+        term:
+          id: NCBITaxon:1587
+          label: Lactobacillus helveticus
+      - preferred_term: Lactobacillus delbrueckii subsp. lactis T1104
+        term:
+          id: NCBITaxon:29397
+          label: Lactobacillus delbrueckii subsp. lactis
+    evidence:
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Remarkably, in all strain combinations tested, co-inoculation of milk with Lh and Ld resulted
+        in reduced acidification rates compared with the corresponding monocultures, regardless of the
+        specific Ld and Lh strains used
+      explanation: Supports the lower maximum acidification rate (umax) of the C001.15 + T1104 co-culture
+        relative to monocultures.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Strain T1104 showed lower ΔpHmax than the conspecific strain C5I3 and exhibited a such
+        limited acidification ability in monoculture that co-cultivation with Lh strain C001.15 resulted
+        in lower final pH values and, consequently, a higher ΔpHmax compared with the T1104 monoculture
+        (p < 0.05). Nonetheless, even under these conditions, Lh + Ld co-cultures remained less effective
+        in acidification than Lh monoculture (p < 0.05).
+      explanation: Documents the set 1 Delta pHmax exception where C001.15 + T1104 exceeded the slow T1104
+        monoculture while remaining below the C001.15 monoculture.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Consistent with ΔpHmax values, an exception was observed in inoculation set 1, where the
+        Lh + Ld co-culture, represented by C001.15 and T1104, produced total lactate amount comparable
+        to those of St + Lh and St + Ld co-cultures (p > 0.05) ( Figure 8 ), but significantly lower than
+        the corresponding tri-culture (p < 0.05) ( Figure 8 ). In this Lh + Ld combination, L-lactate
+        represented 67.42% of total lactate
+      explanation: Quantifies the set 1 C001.15 + T1104 total lactate exception and its 67.42% L-lactate
+        composition.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In this Lh + Ld combination, L-lactate represented 67.42% of total lactate, suggesting
+        that Lh was more metabolically active than Ld. This result is likely attributable to the very
+        slow acidification phenotype of Ld strain T1104.
+      explanation: Attributes the 67.42% L-lactate share in the set 1 C001.15 + T1104 co-culture to higher
+        metabolic activity of L. helveticus C001.15 relative to the very slow acidification phenotype
+        of L. delbrueckii subsp. lactis T1104.
+  - node: Set 1 triculture D-lactate accumulation
+    rationale: Supported by primary source (PMID:41859451, Fig. 8) with COMMUNITY_LEVEL scope covering
+      all 3 set 1 strains; documents significantly higher triculture D-lactate than T1104 monoculture
+      and comparable D-/L-lactate pools, bounded by racemic C001.15 and 67.2% L-lactate RBC06 monoculture
+      baselines.
+    field_path: ecological_interactions[3]
+    source_locator: Cached full text and abstract (PMID:41859451, PMC12996222)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Lactobacillus helveticus C001.15
+        term:
+          id: NCBITaxon:1587
+          label: Lactobacillus helveticus
+      - preferred_term: Streptococcus thermophilus RBC06
+        term:
+          id: NCBITaxon:1308
+          label: Streptococcus thermophilus
+      - preferred_term: Lactobacillus delbrueckii subsp. lactis T1104
+        term:
+          id: NCBITaxon:29397
+          label: Lactobacillus delbrueckii subsp. lactis
+    evidence:
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In two of the three sets (sets 1 and 2), D-lactate levels in tri-cultures were significantly
+        higher than those detected in the corresponding Ld monocultures (p < 0.05)
+      explanation: Supports significantly higher D-lactate accumulation in the set 1 triculture than in
+        the T1104 monoculture.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In monoculture, Lh strains produced a racemic mixture of lactic acid, whereas Ld strains
+        produced exclusively D-lactate, as expected ( Figure 8 ). However, the limited growth of Ld strain
+        T1104 resulted in a very low level of D-lactate. St strains RBC06 and C001.27 predominately produced
+        L-lactate, which accounted for 67.2 and 83% of total lactate, respectively.
+      explanation: Establishes the single-strain D- and L-lactate enantiomer baselines (racemic Lh C001.15,
+        D-lactate-exclusive but slow-growing Ld T1104, and 67.2% L-lactate St RBC06), bounding why bulk
+        triculture D-lactate cannot be attributed exclusively to T1104.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Although absolute lactate concentrations varied among inoculation sets, D-lactate and L-lactate
+        were produced in comparable amounts in all tri-cultures, indicating that Ld strains remained viable
+        and metabolically active.
+      explanation: Documents comparable D- and L-lactate accumulation at the 160 h triculture endpoint.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:41859451
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Parmigiano_NWS_Set1_LAB_Triculture/2026-11-06T222500Z-antigravity-c9s201.yaml
+- path: kb/communities/Banana_Fusarium_Biocontrol_SynCom11.yaml
+  id: CommunityMech:000518
+  original_sha256: e74d662a4bb5e7eddb0cd22eec134dca53838d4f029e61939d73b29b5c6c9f07
+  record_sha256: f43b3987533f86813d7953105ebcfc0b2538a317101f900b9e7ca02814db7446
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261106-stage2-seven-records-batch141.yaml
+  scope: Whole record read; every graph node, COMMUNITY_LEVEL scope, participating_taxa, and zero-edge
+    boundary verified against cached open-access full text and abstract (PMID:35992653, PMC9389584, doi:10.3389/fmicb.2022.955849).
+  summary: Reviewed and enriched the 3-node, 0-edge COMMUNITY_LEVEL representation for the seven-member
+    banana rhizosphere biocontrol consortium SynCom 1.1 in PMID:35992653 with verbatim evidence for the
+    unplanted-soil Foc TR4 inoculum-density control (10^3, 10^5, and 10^7 CFU g^-1 over 32 days, Supplementary
+    Fig. S2), Bacillus sp. BT1 volatile inhibition of Trichoderma virens T2C1.4, and genus-specific partitioning
+    of 2,3-butanediol, phytase, and ACC deaminase activities (Table 1), while preserving 0 downstream
+    edges.
+  node_decisions:
+  - node: SynCom 1.1 Biocontrol Trial B Symptom and Vascular-Browning Reduction
+    rationale: Supported by primary source (PMID:35992653, Fig. 4B-E, Supplementary Fig. S2) with COMMUNITY_LEVEL
+      scope covering all 7 SynCom 1.1 members; captures the 35% Fusarium wilt symptom-severity reduction
+      and vascular browning decrease (2.3 to 1.4) at 35 dpt alongside transient-only soil Foc CFU reduction
+      at transplanting and null effect in unplanted soil across 10^3-10^7 CFU g^-1.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:35992653, PMC9389584)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Pseudomonas chlororaphis PS5
+        term:
+          id: NCBITaxon:587753
+          label: Pseudomonas chlororaphis
+      - preferred_term: Pseudomonas sp. P1A1
+        term:
+          id: NCBITaxon:286
+          label: Pseudomonas
+      - preferred_term: Pseudomonas sp. P1C1
+        term:
+          id: NCBITaxon:286
+          label: Pseudomonas
+      - preferred_term: Bacillus velezensis BN8.2
+        term:
+          id: NCBITaxon:492670
+          label: Bacillus velezensis
+      - preferred_term: Bacillus sp. BT1
+        term:
+          id: NCBITaxon:1386
+          label: Bacillus <firmicutes>
+      - preferred_term: Streptomyces sp. St2AOB1
+        term:
+          id: NCBITaxon:1883
+          label: Streptomyces
+      - preferred_term: Trichoderma virens T2C1.4
+        term:
+          id: NCBITaxon:29875
+          label: Trichoderma virens
+    evidence:
+    - reference: PMID:35992653
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: At the end of the experiment, 35 dpt, symptom severity in SynCom-treated plants was significantly
+        (P < 0.05) reduced by 35% compared to control ( Figures 4B,E ). Also, while in the control plants
+        the vascular browning was 2.3 (on a 0–4 scale), in SynCom-treated plants it was 1.4 (P < 0.05;
+        Figure 4C ).
+      explanation: Quantifies the 35% symptom-severity reduction and vascular-browning decrease (2.3 to
+        1.4) in Biocontrol Trial B with SynCom 1.1.
+    - reference: PMID:35992653
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: At transplanting, Foc density in the soil was significantly lower in the SynCom-treated
+        samples but no significant difference occurred later on
+      explanation: Documents that soil Foc suppression by SynCom 1.1 was transient at transplanting and
+        did not persist at later time points.
+    - reference: PMID:35992653
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Another experiment with inoculated soil but without banana plants showed that the transient
+        or null effect of SynCom 1.1 on Foc TR4 in the soil was not dependent on the initial pathogen
+        inoculum density (103, 105, or 107 CFU g–1) over 32 days ( Supplementary Figure S2 ).
+      explanation: Confirms in unplanted soil microcosms across three pathogen inoculum densities that
+        SynCom 1.1 does not cause sustained bulk-soil eradication of Foc TR4, bounding why Trial B symptom
+        suppression is not modeled as downstream of bulk-soil pathogen removal.
+  - node: Intra-SynCom 1.1 Diffusible-Metabolite and Volatile Cross-Inhibition
+    rationale: Supported by primary source (PMID:35992653, Fig. 5, Fig. 6, Table 2) with COMMUNITY_LEVEL
+      COMPETITION scope covering all 7 SynCom 1.1 members; captures agar-diffusible metabolite cross-inhibition
+      by Pseudomonas sp. P1A1 and P1C1, volatile inhibition of Trichoderma virens T2C1.4 by Bacillus sp.
+      BT1, and fusaric-acid sensitivity.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:35992653, PMC9389584)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Pseudomonas chlororaphis PS5
+        term:
+          id: NCBITaxon:587753
+          label: Pseudomonas chlororaphis
+      - preferred_term: Pseudomonas sp. P1A1
+        term:
+          id: NCBITaxon:286
+          label: Pseudomonas
+      - preferred_term: Pseudomonas sp. P1C1
+        term:
+          id: NCBITaxon:286
+          label: Pseudomonas
+      - preferred_term: Bacillus velezensis BN8.2
+        term:
+          id: NCBITaxon:492670
+          label: Bacillus velezensis
+      - preferred_term: Bacillus sp. BT1
+        term:
+          id: NCBITaxon:1386
+          label: Bacillus <firmicutes>
+      - preferred_term: Streptomyces sp. St2AOB1
+        term:
+          id: NCBITaxon:1883
+          label: Streptomyces
+      - preferred_term: Trichoderma virens T2C1.4
+        term:
+          id: NCBITaxon:29875
+          label: Trichoderma virens
+    evidence:
+    - reference: PMID:35992653
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: On these plates, Pseudomonas sp. PS5 and Trichoderma sp. T2C1.4 grew like in the control;
+        therefore, they were resistant to metabolites produced by P1A1. In contrast, Bacillus sp. BT1
+        and Streptomyces sp. St2AOB1 did not grow at all, indicating they were sensitive to these metabolites.
+        Pseudomonas sp. P1C1 and Bacillus sp. BN8.2 showed a faint growth (partially sensitive to the
+        metabolites of P1A1).
+      explanation: Documents the cellophane-PDA cross-inhibition profile of Pseudomonas sp. P1A1 against
+        the other SynCom 1.1 isolates.
+    - reference: PMID:35992653
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Pseudomonas sp. P1C1 (third row of plates in Figure 5 ) inhibited all tested bacteria (including
+        itself) but not the fungus Trichoderma sp. T2C1.4.
+      explanation: Documents broad antibacterial cross-inhibition by Pseudomonas sp. P1C1 across all bacterial
+        SynCom 1.1 members.
+    - reference: PMID:35992653
+      supports: PARTIAL
+      evidence_source: IN_VITRO
+      snippet: fusaric acid, known as one of the secondary metabolites of Fusarium species, might be involved
+        in such an interaction
+      explanation: Supports fusaric acid as a candidate mediator of Foc antagonism toward SynCom 1.1 isolates
+        based on exogenous EC50 assays.
+    - reference: PMID:35992653
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Trichoderma sp. T2C1.4 showed some stress (no pigmentation and/or reduced growth) when
+        exposed to Pseudomonas spp. and Bacillus spp. volatiles. Finally, volatiles emitted by Bacillus
+        sp. BT1 completely inhibited this fungus.
+      explanation: Demonstrates volatile-mediated inhibition of Trichoderma virens T2C1.4 by Bacillus
+        sp. BT1 and stress from Pseudomonas spp. and Bacillus spp. volatiles in overlapping-plate assays.
+  - node: SynCom 1.1 Multi-Trait Biocontrol and PGP Enzyme/Metabolite Repertoire
+    rationale: Supported by primary source (PMID:35992653, Table 1) with COMMUNITY_LEVEL scope covering
+      all 7 SynCom 1.1 members; captures genus-specific partitioning of 2,3-butanediol (Bacillus spp.),
+      phytase (Pseudomonas spp.), and ACC deaminase (Streptomyces sp. St2AOB1 and Trichoderma virens T2C1.4)
+      without asserting untested single-trait causal mediation in planta.
+    field_path: ecological_interactions[2]
+    source_locator: Cached full text and abstract (PMID:35992653, PMC9389584)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Pseudomonas chlororaphis PS5
+        term:
+          id: NCBITaxon:587753
+          label: Pseudomonas chlororaphis
+      - preferred_term: Pseudomonas sp. P1A1
+        term:
+          id: NCBITaxon:286
+          label: Pseudomonas
+      - preferred_term: Pseudomonas sp. P1C1
+        term:
+          id: NCBITaxon:286
+          label: Pseudomonas
+      - preferred_term: Bacillus velezensis BN8.2
+        term:
+          id: NCBITaxon:492670
+          label: Bacillus velezensis
+      - preferred_term: Bacillus sp. BT1
+        term:
+          id: NCBITaxon:1386
+          label: Bacillus <firmicutes>
+      - preferred_term: Streptomyces sp. St2AOB1
+        term:
+          id: NCBITaxon:1883
+          label: Streptomyces
+      - preferred_term: Trichoderma virens T2C1.4
+        term:
+          id: NCBITaxon:29875
+          label: Trichoderma virens
+    evidence:
+    - reference: PMID:35992653
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Isolates of SynCom 1.1 displayed several biocontrol and/or plant growth promotion-related
+        traits ( Table 1 ). Some of them were shared among isolates and genera while others showed specificity.
+      explanation: Supports the shared and genus-specific biocontrol/PGP trait distribution across the
+        seven SynCom 1.1 members.
+    - reference: PMID:35992653
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: For instance, Bacillus spp. were the sole isolates producing 2,3 butanediol, Pseudomonas
+        spp. had phytase activity, while ACC deaminase activity was found only in Streptomyces sp. St2AOB1
+        and Trichoderma sp. T2C1.4.
+      explanation: Directly enumerates the genus-specific partitioning of 2,3-butanediol (Bacillus spp.),
+        phytase (Pseudomonas spp.), and ACC deaminase (Streptomyces sp. St2AOB1 and Trichoderma virens
+        T2C1.4) across SynCom 1.1.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:35992653
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Banana_Fusarium_Biocontrol_SynCom11/2026-11-06T222500Z-antigravity-c9s202.yaml
+- path: kb/communities/SO1_BS1_Lithium_Battery_Bioleaching_Consortium.yaml
+  id: CommunityMech:000519
+  original_sha256: 780f37e85d85846510a55f23cea3952b48b516f4c54c0b9caab01f9350f02f76
+  record_sha256: a0ededb80bb7e3c2dd2fc0de36ca8a06df12abc0ea8ce82cabd2b7efc624d088
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261106-stage2-seven-records-batch141.yaml
+  scope: Whole record read; every graph node, PAIRWISE/COMMUNITY_LEVEL scope, participant, and directed
+    downstream causal edge verified against cached open-access full text and abstract (PMID:42733304,
+    PMC13572860, doi:10.1002/advs.202506035) and sibling consortium record CommunityMech:000520.
+  summary: Reviewed and enriched the 2-node, 1-edge causal interaction graph for the engineered S. oneidensis
+    SO1 + B. subtilis BS1 brewing-wastewater NCM bioleaching consortium in PMID:42733304 with verbatim
+    evidence for the 61.62-fold ethanol inhibition of S. oneidensis EET (2.08 vs 128.20 mW m^-2), the
+    wild-type BS0 partial ethanol removal control (35.6% to 1.16% v/v), the 51.14% S. oneidensis relative
+    abundance on the NCM surface, and the late-stage leaching rate decline (7.222 to 0.921 mg L^-1 day^-1),
+    while retaining and bounding the directed downstream edge.
+  node_decisions:
+  - node: BS1 Adh-AldH ethanol detoxification relieving SO1 EET inhibition
+    rationale: Supported by primary source (PMID:42733304, Fig. 1b, Fig. 2b-c) with PAIRWISE scope (Bacillus
+      subtilis 168 BS1 -> Shewanella oneidensis MR-1 SO1); captures P43::adh-aldH removal of 97.6% of
+      inhibitory ethanol (vs 35.6% by wild-type BS0) and restoration of MFC maximum power density from
+      2.08 mW m^-2 in ethanol and 3.10 mW m^-2 in SO1 alone to 116.15 mW m^-2.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Bacillus subtilis 168 BS1
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+      target_taxon:
+        preferred_term: Shewanella oneidensis MR-1 SO1
+        term:
+          id: NCBITaxon:70863
+          label: Shewanella oneidensis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: It was found that 97.6% of ethanol in the brewing wastewater could be removed by the SO1‐BS1
+        microbial consortium within 48 h (Figure 2b ). Moreover, the maximum power density of the SO1‐BS1
+        consortium reached 116.15 mW m−2, representing 34.47‐ and 92.92‐fold increases compared to that
+        observed in strain SO1 (3.10 mW m−2) and BS1 (1.25 mW m−2), respectively (Figure 2c ), confirming
+        that the ethanol inhibition of the EET of the SO1‐BS1 consortium was significantly alleviated.
+      explanation: Demonstrates 97.6% ethanol removal and 34.47-fold EET power-density restoration in
+        the SO1-BS1 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results revealed that the EET rate, as measured by the maximum power density of a microbial
+        fuel cell, was only 2.08 mW m−2 in the presence of ethanol (1.8% v/v) (Figure 1b ). In contrast,
+        in the absence of ethanol, the maximum power density of S. oneidensis was 128.20 mW m−2 (Figure
+        1b ), which was 61.62‐fold higher than the maximum power density observed in the presence of ethanol.
+      explanation: Quantifies the 61.62-fold inhibition of S. oneidensis SO1 EET maximum power density
+        by 1.8% (v/v) ethanol (2.08 vs 128.20 mW m^-2).
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In contrast, the wild‐type strain BS0 removed only approximately 35.6% of ethanol within
+        48 h, lowering the ethanol concentration from 1.8% to 1.16% (v/v) (Figure 2b ).
+      explanation: Establishes the wild-type B. subtilis BS0 control baseline (only ~35.6% ethanol removal
+        to 1.16% v/v in 48 h) against which engineered BS1 97.6% ethanol removal is compared.
+  - node: SO1-BS1 extracellular electron transfer reduction of NCM metal oxides
+    rationale: Supported by primary source (PMID:42733304, Fig. 2d-f, Fig. 4a, Fig. 5b, Fig. S1-S2) with
+      COMMUNITY_LEVEL scope covering SO1 (51.14% of NCM-attached cells) and BS1; captures EET-catalyzed
+      reduction of solid NCM Mn4+/Mn3+, Co3+, and Ni3+ and leaching of 50.7 mg L^-1 total metal ions before
+      Ni2+/Co2+ accumulation lowers the daily leaching rate from 7.222 to 0.921 mg L^-1 day^-1.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Shewanella oneidensis MR-1 SO1
+        term:
+          id: NCBITaxon:70863
+          label: Shewanella oneidensis
+      - preferred_term: Bacillus subtilis 168 BS1
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: When applying the SO1‐BS1 consortium to catalyze the brewing wastewater‐mediated reduction
+        of NCM, 50.7 mg L−1 of the total leached metal ions (including Li, Ni, Co, and Mn) was leached
+        over 2 week period (Figure 2d ), in which the ionic concentrations of Li, Ni, Co, and Mn were
+        45.6, 2.4, 1.0, and 1.7 mg L−1, respectively (Figure S1 ), and the leaching efficiencies of Li,
+        Ni, Co, and Mn were 57.7%, 9.5%, 11.1%, and 13.1%, respectively.
+      explanation: Quantifies total and element-specific metal leaching by the SO1-BS1 consortium over
+        14 days.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Following treatment using brewing wastewater catalyzed by the SO1‐BS1 consortium, the levels
+        of Mn4+ and Mn3+ decreased to 45.40% and 6.80%, whereas the level of Mn2+ increased to 47.80%,
+        respectively, indicating that a substantial fraction of Mn4+ and Mn3+ in NCM was reduced.
+      explanation: Provides XPS confirmation of solid-phase NCM metal-oxide reduction by the SO1-BS1 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Specifically, the average leaching rates decreased from 7.222 mg L−1·day−1 to 0.921 mg
+        L−1·day−1 for the SO1‐BS1 consortium, from 9.867 to 0.617 mg L−1·day−1 for the SO2‐BS1 biocatalyst,
+        and from 10.033 to 1.171 mg L−1·day−1 for the SO2‐BS2 consortium, as shown in Figure 4a .
+      explanation: Quantifies the decline in SO1-BS1 average metal leaching rate from 7.222 to 0.921 mg
+        L^-1 day^-1 between days 1-6 and days 7-14.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: This study showed that the relative abundance of S. oneidensis on the NCM surface was 51.14%
+        for the SO1‐BS1 consortium, 63.28% for the SO2‐BS2 consortium, and 69.38% for the SO3‐BS3 consortium,
+        as illustrated in Figure 5b .
+      explanation: Documents the 51.14% relative abundance of S. oneidensis on the NCM cathode surface
+        in the SO1-BS1 consortium.
+  edges_before:
+  - source: BS1 Adh-AldH ethanol detoxification relieving SO1 EET inhibition
+    target: SO1-BS1 extracellular electron transfer reduction of NCM metal oxides
+    description: Removal of 97.6% of inhibitory ethanol by BS1 restores SO1 extracellular electron transfer
+      (116.15 mW m^-2 vs 3.10 mW m^-2 in SO1 alone), enabling 3.29-fold higher total NCM metal ion leaching
+      by SO1-BS1 (50.7 mg L^-1) compared with SO1 alone (15.4 mg L^-1).
+  edges_after:
+  - source: BS1 Adh-AldH ethanol detoxification relieving SO1 EET inhibition
+    target: SO1-BS1 extracellular electron transfer reduction of NCM metal oxides
+    description: Removal of 97.6% of inhibitory ethanol (1.8% v/v) by BS1 via P43::adh-aldH restores SO1
+      extracellular electron transfer (116.15 mW m^-2 vs 3.10 mW m^-2 in SO1 alone and 2.08 mW m^-2 in
+      1.8% ethanol), enabling 3.29-fold higher total NCM metal ion leaching by SO1-BS1 (50.7 mg L^-1,
+      maximal rate 12.3 mg L^-1 day^-1) compared with SO1 alone (15.4 mg L^-1); secondary contribution
+      of Adh-AldH-generated acetate versus brewing-wastewater lactate and late-stage Ni2+/Co2+ rate decline
+      (7.222 to 0.921 mg L^-1 day^-1) are bounded in the node descriptions.
+  retained_edge_decisions:
+  - edge: BS1 Adh-AldH ethanol detoxification relieving SO1 EET inhibition -> SO1-BS1 extracellular electron
+      transfer reduction of NCM metal oxides
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:42733304 demonstrates with single-strain (SO1, BS1) and wild-type (BS0) controls that
+      1.8% (v/v) ethanol suppresses S. oneidensis EET power density 61.62-fold (to 2.08 mW m^-2) and limits
+      SO1-only NCM leaching to 15.4 mg L^-1, whereas BS1 Adh-AldH removal of 97.6% ethanol restores EET
+      (116.15 mW m^-2) and increases NCM metal leaching 3.29-fold to 50.7 mg L^-1.
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: It was found that 97.6% of ethanol in the brewing wastewater could be removed by the SO1‐BS1
+        microbial consortium within 48 h (Figure 2b ). Moreover, the maximum power density of the SO1‐BS1
+        consortium reached 116.15 mW m−2, representing 34.47‐ and 92.92‐fold increases compared to that
+        observed in strain SO1 (3.10 mW m−2) and BS1 (1.25 mW m−2), respectively (Figure 2c ), confirming
+        that the ethanol inhibition of the EET of the SO1‐BS1 consortium was significantly alleviated.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: When applying the SO1‐BS1 consortium to catalyze the brewing wastewater‐mediated reduction
+        of NCM, 50.7 mg L−1 of the total leached metal ions (including Li, Ni, Co, and Mn) was leached
+        over 2 week period (Figure 2d ), in which the ionic concentrations of Li, Ni, Co, and Mn were
+        45.6, 2.4, 1.0, and 1.7 mg L−1, respectively (Figure S1 ), and the leaching efficiencies of Li,
+        Ni, Co, and Mn were 57.7%, 9.5%, 11.1%, and 13.1%, respectively.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42733304
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/SO1_BS1_Lithium_Battery_Bioleaching_Consortium/2026-11-06T222500Z-antigravity-c9s203.yaml
+- path: kb/communities/SO2_BS2_Lithium_Battery_Bioleaching_Consortium.yaml
+  id: CommunityMech:000520
+  original_sha256: 18303acd2f81c3b514daf43d817f353734669b445b8f82e404fef312eb4ec3c5
+  record_sha256: c5b276c06146da6355ee395656fbc23397d8d3c816d4f1be849ec0b8bd7760d8
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261106-stage2-seven-records-batch141.yaml
+  scope: Whole record read; every graph node, COMMUNITY_LEVEL scope, participant, and directed downstream
+    causal edge verified against cached open-access full text and abstract (PMID:42733304, PMC13572860,
+    doi:10.1002/advs.202506035) and sibling consortium record CommunityMech:000519.
+  summary: Reviewed and enriched the 2-node, 1-edge COMMUNITY_LEVEL causal interaction graph for the riboflavin-overproducing
+    S. oneidensis SO2 + B. subtilis BS2 brewing-wastewater NCM bioleaching consortium in PMID:42733304
+    with verbatim evidence for the intermediate SO2-BS1 step (3.65 uM riboflavin, 243.71 mW m^-2, 64.1
+    mg L^-1 leached at 16.4 mg L^-1 day^-1), the 63.28% S. oneidensis NCM-surface abundance in SO2-BS2,
+    and Ni2+ (6 mg L^-1) / Co2+ (3 mg L^-1) growth inhibition of both SO2 (OD600 1.941 to 1.367) and BS2
+    (OD600 0.830), while retaining and bounding the directed downstream edge.
+  node_decisions:
+  - node: Dual-Partner Riboflavin Overproduction and Ethanol Detoxification
+    rationale: Supported by primary source (PMID:42733304, Fig. 3b-c, Fig. 5b) with COMMUNITY_LEVEL scope
+      covering SO2 (63.28% of NCM-attached cells) and BS2; captures dual-strain riboflavin overproduction
+      (3.65 uM in SO2-BS1 and 46.00 uM in SO2-BS2 vs 0.276 uM in SO1-BS1) and EET power density elevation
+      (243.71 mW m^-2 in SO2-BS1 and 347.29 mW m^-2 in SO2-BS2).
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Shewanella oneidensis MR-1 SO2
+        term:
+          id: NCBITaxon:70863
+          label: Shewanella oneidensis
+      - preferred_term: Bacillus subtilis 168 BS2
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: When fed with the brewing wastewater, the synthesized riboflavin by the SO2‐BS2 consortium
+        reached 46.00 µM, which was 166.67‐ and 12.60‐fold higher than that of the SO1‐BS1 (0.276 µM)
+        and SO2‐BS1 consortia (3.65 µM), respectively (Figure 3b ). The maximal power density of the SO2‐BS2
+        consortium reached 347.29 mW m−2, 2.99‐ and 1.42‐fold higher than that of the SO1‐BS1 (116.15
+        mW m−2) and SO2‐BS1 consortia (243.71 mW m−2), respectively
+      explanation: Quantifies the 46.00 uM riboflavin production and 347.29 mW m^-2 EET power density
+        in SO2-BS2.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: When fed with the brewing wastewater, riboflavin synthesized by the SO2‐BS1 consortium
+        reached 3.65 µm, 13.22‐fold higher than that synthesized by the SO1‐BS1 consortium (0.276 µm,
+        Figure 3b ). Correspondingly, the maximum power density achieved by the SO2‐BS1 consortium rose
+        to 243.71 mW m−2, 2.10‐fold increase relative to the SO1‐BS1 consortium (116.15 mW m− 2, Figure
+        3c ), demonstrating an improved EET rate of the SO1‐BS1 consortium via enhanced riboflavin synthesis.
+      explanation: Establishes the intermediate SO2-BS1 step (3.65 uM riboflavin, 243.71 mW m^-2) prior
+        to adding BS2 riboflavin overproduction in SO2-BS2 (46.00 uM riboflavin, 347.29 mW m^-2).
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: This study showed that the relative abundance of S. oneidensis on the NCM surface was 51.14%
+        for the SO1‐BS1 consortium, 63.28% for the SO2‐BS2 consortium, and 69.38% for the SO3‐BS3 consortium,
+        as illustrated in Figure 5b .
+      explanation: Quantifies the 63.28% relative abundance of S. oneidensis on the NCM cathode surface
+        in the SO2-BS2 consortium.
+  - node: Riboflavin-Accelerated NCM Leaching and Late-Stage Ni/Co Cytotoxicity Bottleneck
+    rationale: Supported by primary source (PMID:42733304, Fig. 3d, Fig. 4a-f, Fig. S2) with COMMUNITY_LEVEL
+      scope covering SO2 and BS2; captures riboflavin-accelerated NCM metal leaching (64.1 mg L^-1 in
+      SO2-BS1 and 69.6 mg L^-1 in SO2-BS2 vs 50.7 mg L^-1 in SO1-BS1) and the late-stage Ni2+/Co2+ cytotoxicity
+      bottleneck that inhibits SO2 and BS2 growth and lowers the daily leaching rate from 10.033 to 1.171
+      mg L^-1 day^-1.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Shewanella oneidensis MR-1 SO2
+        term:
+          id: NCBITaxon:70863
+          label: Shewanella oneidensis
+      - preferred_term: Bacillus subtilis 168 BS2
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: However, although the EET rate of the SO2‐BS2 consortium (347.29 mW m−2) was 43% higher
+        than that of the SO2‐BS1 consortium (243.71 mW m−2) (Figure 3c ), its metal oxide leaching performance
+        (69.6 mg L−1, 16.2 mg L−1·day−1) did not exhibit a corresponding enhancement compared to the SO2‐BS1
+        consortium (64.1 mg L−1, 16.4 mg L−1·day−1)
+      explanation: Demonstrates that EET rate was no longer the sole rate-limiting step in SO2-BS2 metal
+        leaching.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Specifically, the average leaching rates decreased from 7.222 mg L−1·day−1 to 0.921 mg
+        L−1·day−1 for the SO1‐BS1 consortium, from 9.867 to 0.617 mg L−1·day−1 for the SO2‐BS1 biocatalyst,
+        and from 10.033 to 1.171 mg L−1·day−1 for the SO2‐BS2 consortium
+      explanation: Quantifies the drop in SO2-BS2 average leaching rate between days 1-6 (10.033 mg L^-1
+        day^-1) and days 7-14 (1.171 mg L^-1 day^-1).
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results showed 64.1 mg L−1 of the metal ions were leached when catalyzed by the SO2‐BS1
+        consortium, representing a 1.26‐fold increase compared to that catalyzed by the SO1‐BS1 consortium
+        (50.7 mg L−1, Figure 3d ). Furthermore, the maximal metal oxide leaching rate was 16.4 mg L−1·day−1
+        (the SO2‐BS1 consortium), 1.33 times higher than that catalyzed by SO1‐BS1 biocatalyst (12.3 mg
+        L−1·day−1, Figure S2 ).
+      explanation: Provides the intermediate SO2-BS1 leaching yield (64.1 mg L^-1, 16.4 mg L^-1 day^-1)
+        showing that most of the leaching gain before Ni2+/Co2+ toxicity onset was already achieved at
+        3.65 uM riboflavin.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: When exposed to 6 mg L−1 Ni2+ and 3 mg L−1 Co2+, the growth of strain SO2 was notably inhibited,
+        with its maximum cell density decreasing from 1.941 (in the absence of Ni2+ and Co2+) to 1.367
+        (Figure 4e ).
+      explanation: Demonstrates growth inhibition of S. oneidensis SO2 by leached Ni2+ (6 mg L^-1) and
+        Co2+ (3 mg L^-1).
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Likewise, strain BS2 experienced growth inhibition under 6 mg L−1 Ni2+ and 3 mg L−1 Co2+
+        stress, whereas the introduction of IrrE into strain BS3 relieved the cytotoxicity of Ni2+ and
+        Co2+, increasing the maximum cell density of strain BS3 to 1.175 from 0.830 (strain BS2 exposed
+        to Ni2+(6 mg L−1) and Co2+(3 mg L−1); Figure 4f ).
+      explanation: Demonstrates growth inhibition of B. subtilis BS2 (maximum OD600 = 0.830) under 6 mg
+        L^-1 Ni2+ and 3 mg L^-1 Co2+ stress.
+  edges_before:
+  - source: Dual-Partner Riboflavin Overproduction and Ethanol Detoxification
+    target: Riboflavin-Accelerated NCM Leaching and Late-Stage Ni/Co Cytotoxicity Bottleneck
+    description: Elevated riboflavin (46.00 uM) and extracellular electron transfer (347.29 mW m^-2) increased
+      total NCM metal leaching to 69.6 mg L^-1 (16.2 mg L^-1 day^-1 maximal rate) relative to SO1-BS1
+      (50.7 mg L^-1), while the resulting accumulation of dissolved Ni2+ (6.3 mg L^-1) and Co2+ (2.8 mg
+      L^-1) inhibited SO2 and BS2 viability and depressed the day 7-14 average leaching rate from 10.033
+      to 1.171 mg L^-1 day^-1.
+  edges_after:
+  - source: Dual-Partner Riboflavin Overproduction and Ethanol Detoxification
+    target: Riboflavin-Accelerated NCM Leaching and Late-Stage Ni/Co Cytotoxicity Bottleneck
+    description: Elevated riboflavin (3.65 uM in SO2-BS1 and 46.00 uM in SO2-BS2 vs 0.276 uM in SO1-BS1)
+      and extracellular electron transfer (243.71 mW m^-2 in SO2-BS1 and 347.29 mW m^-2 in SO2-BS2) increased
+      total NCM metal leaching to 64.1 mg L^-1 in SO2-BS1 and 69.6 mg L^-1 in SO2-BS2 (16.2 mg L^-1 day^-1
+      maximal rate) relative to SO1-BS1 (50.7 mg L^-1), while the resulting accumulation of dissolved
+      Ni2+ (6.3 mg L^-1) and Co2+ (2.8 mg L^-1) inhibited SO2 and BS2 viability and depressed the day
+      7-14 average leaching rate from 10.033 to 1.171 mg L^-1 day^-1.
+  retained_edge_decisions:
+  - edge: Dual-Partner Riboflavin Overproduction and Ethanol Detoxification -> Riboflavin-Accelerated
+      NCM Leaching and Late-Stage Ni/Co Cytotoxicity Bottleneck
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:42733304 demonstrates across the SO1-BS1 -> SO2-BS1 -> SO2-BS2 engineering series that
+      elevating riboflavin synthesis (0.276 -> 3.65 -> 46.00 uM) increases EET power density (116.15 ->
+      243.71 -> 347.29 mW m^-2) and NCM metal leaching (50.7 -> 64.1 -> 69.6 mg L^-1), where leached Ni2+
+      and Co2+ cytotoxicity caps further gain without IrrE.
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: When fed with the brewing wastewater, the synthesized riboflavin by the SO2‐BS2 consortium
+        reached 46.00 µM, which was 166.67‐ and 12.60‐fold higher than that of the SO1‐BS1 (0.276 µM)
+        and SO2‐BS1 consortia (3.65 µM), respectively (Figure 3b ). The maximal power density of the SO2‐BS2
+        consortium reached 347.29 mW m−2, 2.99‐ and 1.42‐fold higher than that of the SO1‐BS1 (116.15
+        mW m−2) and SO2‐BS1 consortia (243.71 mW m−2), respectively
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: However, although the EET rate of the SO2‐BS2 consortium (347.29 mW m−2) was 43% higher
+        than that of the SO2‐BS1 consortium (243.71 mW m−2) (Figure 3c ), its metal oxide leaching performance
+        (69.6 mg L−1, 16.2 mg L−1·day−1) did not exhibit a corresponding enhancement compared to the SO2‐BS1
+        consortium (64.1 mg L−1, 16.4 mg L−1·day−1)
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42733304
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/SO2_BS2_Lithium_Battery_Bioleaching_Consortium/2026-11-06T222500Z-antigravity-c9s204.yaml
+- path: data/isolates/Pseudomonas_Protegens_E1BL2_Jala_Maize_Isolate_Baseline.yaml
+  id: CommunityMech:000521
+  original_sha256: 69346777597dfccdc4e0ee980715b526b26bc6a3acacd1d00b9c329e35fb2a1d
+  record_sha256: 64b3114cddeee0140d34709e04dd0510dbc62710da0a73810629133c72147f71
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261106-stage2-seven-records-batch141.yaml
+  scope: Whole record read; every graph node, COMMUNITY_LEVEL scope, participant, and zero-edge boundary
+    verified against cached open-access full text and abstract (PMID:37275168, PMC10235630, doi:10.3389/fmicb.2023.1167839)
+    and sibling maize SynCom record CommunityMech:000180.
+  summary: Reviewed and enriched the 3-node, 0-edge COMMUNITY_LEVEL isolate-baseline representation for
+    Jala maize seed-endophyte Pseudomonas protegens E1BL2 in PMID:37275168 with verbatim evidence for
+    its zero cross-inhibition profile in the 9-isolate Mueller-Hinton compatibility screen, its experimental
+    role as the single-strain positive control benchmark alongside SynComs 1-3, and the authors explicit
+    statement that individual phenotypic trait contributions to gnotobiotic, greenhouse, and open-field
+    PGP were not resolved, while preserving 0 downstream edges.
+  node_decisions:
+  - node: In Vitro ACC Deaminase, Auxin, and Metallophore Production by E1BL2
+    rationale: Supported by primary source (PMID:37275168, Table 2, Section 3.1-3.2) with COMMUNITY_LEVEL
+      scope for the single-strain isolate baseline (Pseudomonas protegens E1BL2); captures zero cross-inhibition
+      in the Mueller-Hinton compatibility matrix, unique ACC deaminase activity, IAA production (4.33
+      +- 0.4 ug/mL), and metallophore chelation.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:37275168, PMC10235630)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Pseudomonas protegens E1BL2
+        term:
+          id: NCBITaxon:380021
+          label: Pseudomonas protegens
+    evidence:
+    - reference: PMID:37275168
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Aminocyclopropane-1-carboxylate (ACC) deaminase production was only detected in P. protegens
+        E1BL2; the other P. protegens E2HL9 did not express this enzymatic activity.
+      explanation: Demonstrates strain-specific ACC deaminase activity in P. protegens E1BL2.
+    - reference: PMID:37275168
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Pseudomonas protegens E1BL2 - 1 ± 0.2 - 4.33 ± 0.4 3 ± 0.3 - 3 ± 0.5 - 3 ± 0.4 - 4 ± 0.4
+        - 4 ± 0.6 - 3 ± 0.5 3.3 ± 0.6 3 ± 0.7 - +
+      explanation: Reports the quantitative Table 2 values for P. protegens E1BL2 including IAA production
+        (4.33 +- 0.4 ug/mL), metallophore halos, Ca2+ chelation (3.3 +- 0.6%), and ACC deaminase (+).
+    - reference: PMID:37275168
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Antagonistic interactions were only detected for Pantoea sp. E2AD2 on Burkholderia sp.
+        Z1AL11, P. protegens E2HL9, P. ananatis E2HD8, and K. pseudosacchari Z2WD1; and for P. ananatis
+        E2HD8 on P. protegens E2HL9 and K. pseudosacchari Z2WD1.
+      explanation: Establishes that P. protegens E1BL2 (unlike P. protegens E2HL9) neither inhibited nor
+        was inhibited by any other Jala maize isolate in the Mueller-Hinton compatibility assay, qualifying
+        it as the core member of SynComs 1-3 and the single-strain positive control.
+  - node: Dual-Culture Fungal Phytopathogen Inhibition and Root PAL Activity Assay
+    rationale: Supported by primary source (PMID:37275168, Fig. 1, Fig. 3) with COMMUNITY_LEVEL scope;
+      captures dual-culture radial growth inhibition (up to 80%) against maize phytopathogenic fungi and
+      numerical (non-significant by Tukey test, unlike SynCom 3) elevation of maize root PAL activity.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:37275168, PMC10235630)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Pseudomonas protegens E1BL2
+        term:
+          id: NCBITaxon:380021
+          label: Pseudomonas protegens
+    evidence:
+    - reference: PMID:37275168
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: P. protegens E1BL2 and SynCom 3 exhibited the highest inhibition percentages reaching 80%
+        of inhibition. Pestalotia sp. and Helminthosporium sp. were hardly inhibited by P. protegens E1BL2
+        and SynCom 3, respectively.
+      explanation: Quantifies the dual-culture antifungal inhibition profile of P. protegens E1BL2 (up
+        to 80% inhibition, with weak inhibition of Pestalotia sp.).
+    - reference: PMID:37275168
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: The treatments of the plants with P. protegens E1BL2 and SynCom 3 increased the PAL enzymatic
+        activity of the corn root tissues. However, as shown in Figure 3 , only the effect of SynCom 3
+        was statistically significant as it tripled the activity of the enzyme of the untreated control.
+      explanation: Preserves the distinction that E1BL2 elevated root PAL activity numerically but only
+        SynCom 3 reached statistical significance.
+  - node: Gnotobiotic, Greenhouse, and Open-Field Maize Yield Enhancement by E1BL2
+    rationale: Supported by primary source (PMID:37275168, Fig. 4-6, Section 2.8, Discussion) with COMMUNITY_LEVEL
+      scope; captures E1BL2 positive-control seedling growth promotion and open-field hybrid CPL9105W
+      maize yield increase (14 vs 11 Tons/ha in control and 16 Tons/ha in SynCom 3) with explicit PARTIAL
+      evidence that individual trait contributions to in planta PGP were not experimentally separated.
+    field_path: ecological_interactions[2]
+    source_locator: Cached full text and abstract (PMID:37275168, PMC10235630)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Pseudomonas protegens E1BL2
+        term:
+          id: NCBITaxon:380021
+          label: Pseudomonas protegens
+    evidence:
+    - reference: PMID:37275168
+      supports: SUPPORT
+      evidence_source: FIELD_STUDY
+      snippet: As shown in Figure 6 , the productivity yield of the control treatment was 11 Tons/ha,
+        but P. protegens E1BL2 and the SynCom 3 treatments resulted in yields of 14 and 16 Tons/ha, respectively.
+      explanation: Quantifies the open-field hybrid CPL9105W maize grain yield increase from 11 Tons/ha
+        (control) to 14 Tons/ha with P. protegens E1BL2.
+    - reference: PMID:37275168
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: 'The treatments were as follows: seeds inoculated with SynCom 1, SynCom 2, SynCom 3, P.
+        protegens E1BL2 (positive control), and sterile water (negative control).'
+      explanation: Documents the experimental design in which P. protegens E1BL2 served as the single-strain
+        positive control benchmark against SynComs 1-3 and sterile water.
+    - reference: PMID:37275168
+      supports: PARTIAL
+      evidence_source: IN_VIVO
+      snippet: The set of experiments proposed in this study did not allow us to determine the contribution
+        of each of the bacteria and their phenotypic traits in the observed PGP at the gnotobiotic, greenhouse,
+        or open field levels.
+      explanation: Explicitly bounds why in vitro auxin, ACC deaminase, metallophore, and antifungal traits
+        (Nodes 0-1) are not connected by directed causal edges to in planta growth and grain-yield promotion
+        (Node 2).
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:37275168
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Pseudomonas_Protegens_E1BL2_Jala_Maize_Isolate_Baseline/2026-11-06T222500Z-antigravity-c9s205.yaml

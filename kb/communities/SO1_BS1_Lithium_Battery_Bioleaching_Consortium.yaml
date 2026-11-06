@@ -148,10 +148,12 @@ taxonomy:
     explanation: Establishes the ethanol-detoxifying partner role of B. subtilis BS1 in the SO1-BS1 consortium.
 ecological_interactions:
 - name: BS1 Adh-AldH ethanol detoxification relieving SO1 EET inhibition
-  description: In the SO1-BS1 consortium, Bacillus subtilis 168 BS1 oxidizes residual ethanol (1.8% v/v) in Moutai brewing
-    wastewater via acetaldehyde to acetate through heterologous P43::adh-aldH, removing 97.6% of ethanol within 48 h and increasing
-    microbial fuel cell maximum power density to 116.15 mW m^-2 (34.47-fold higher than SO1 alone at 3.10 mW m^-2 and 92.92-fold
-    higher than BS1 alone at 1.25 mW m^-2).
+  description: In the SO1-BS1 consortium, residual ethanol (1.8% v/v) in Moutai brewing wastewater lowered S. oneidensis MR-1
+    SO1 microbial fuel cell maximum power density 61.62-fold (to 2.08 mW m^-2 versus 128.20 mW m^-2 without ethanol), and
+    wild-type B. subtilis BS0 removed only ~35.6% of ethanol over 48 h (to 1.16% v/v). Engineered Bacillus subtilis 168 BS1
+    oxidizes residual ethanol (1.8% v/v) via acetaldehyde to acetate through heterologous P43::adh-aldH, removing 97.6% of
+    ethanol within 48 h and increasing microbial fuel cell maximum power density to 116.15 mW m^-2 (34.47-fold higher than
+    SO1 alone at 3.10 mW m^-2 and 92.92-fold higher than BS1 alone at 1.25 mW m^-2).
   scope: PAIRWISE
   source_taxon:
     preferred_term: Bacillus subtilis 168 BS1
@@ -174,9 +176,11 @@ ecological_interactions:
       label: acetate
   downstream:
   - target: SO1-BS1 extracellular electron transfer reduction of NCM metal oxides
-    description: Removal of 97.6% of inhibitory ethanol by BS1 restores SO1 extracellular electron transfer (116.15 mW m^-2
-      vs 3.10 mW m^-2 in SO1 alone), enabling 3.29-fold higher total NCM metal ion leaching by SO1-BS1 (50.7 mg L^-1) compared
-      with SO1 alone (15.4 mg L^-1).
+    description: Removal of 97.6% of inhibitory ethanol (1.8% v/v) by BS1 via P43::adh-aldH restores SO1 extracellular electron
+      transfer (116.15 mW m^-2 vs 3.10 mW m^-2 in SO1 alone and 2.08 mW m^-2 in 1.8% ethanol), enabling 3.29-fold higher total
+      NCM metal ion leaching by SO1-BS1 (50.7 mg L^-1, maximal rate 12.3 mg L^-1 day^-1) compared with SO1 alone (15.4 mg
+      L^-1); secondary contribution of Adh-AldH-generated acetate versus brewing-wastewater lactate and late-stage Ni2+/Co2+
+      rate decline (7.222 to 0.921 mg L^-1 day^-1) are bounded in the node descriptions.
   evidence:
   - reference: PMID:42733304
     supports: SUPPORT
@@ -186,12 +190,29 @@ ecological_interactions:
       34.47‐ and 92.92‐fold increases compared to that observed in strain SO1 (3.10 mW m−2) and BS1 (1.25 mW m−2), respectively
       (Figure 2c ), confirming that the ethanol inhibition of the EET of the SO1‐BS1 consortium was significantly alleviated.
     explanation: Demonstrates 97.6% ethanol removal and 34.47-fold EET power-density restoration in the SO1-BS1 consortium.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results revealed that the EET rate, as measured by the maximum power density of a microbial fuel cell, was
+      only 2.08 mW m−2 in the presence of ethanol (1.8% v/v) (Figure 1b ). In contrast, in the absence of ethanol, the maximum
+      power density of S. oneidensis was 128.20 mW m−2 (Figure 1b ), which was 61.62‐fold higher than the maximum power density
+      observed in the presence of ethanol.
+    explanation: Quantifies the 61.62-fold inhibition of S. oneidensis SO1 EET maximum power density by 1.8% (v/v) ethanol
+      (2.08 vs 128.20 mW m^-2).
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In contrast, the wild‐type strain BS0 removed only approximately 35.6% of ethanol within 48 h, lowering the ethanol
+      concentration from 1.8% to 1.16% (v/v) (Figure 2b ).
+    explanation: Establishes the wild-type B. subtilis BS0 control baseline (only ~35.6% ethanol removal to 1.16% v/v in 48
+      h) against which engineered BS1 97.6% ethanol removal is compared.
 - name: SO1-BS1 extracellular electron transfer reduction of NCM metal oxides
-  description: With ethanol inhibition alleviated by BS1, the SO1-BS1 consortium catalyzes anaerobic brewing-wastewater reduction
-    of high-valence NCM cathode metal oxides (reducing Mn4+/Mn3+ from 68.69%/23.64% to 45.40%/6.80% with Mn2+ rising from
-    7.67% to 47.80%, reducing Co3+ from 98.06% to almost exclusively Co2+, and reducing Ni3+ from 96.93% to 12.96% with Ni2+
-    rising to 87.04%), leaching 50.7 mg L^-1 total dissolved metal ions (45.6 mg L^-1 Li, 2.4 mg L^-1 Ni, 1.0 mg L^-1 Co,
-    and 1.7 mg L^-1 Mn) over 14 days.
+  description: With ethanol inhibition alleviated by BS1, the SO1-BS1 consortium (with S. oneidensis SO1 accounting for 51.14%
+    of NCM surface-attached cells) catalyzes anaerobic brewing-wastewater reduction of high-valence NCM cathode metal oxides
+    (reducing Mn4+/Mn3+ from 68.69%/23.64% to 45.40%/6.80% with Mn2+ rising from 7.67% to 47.80%, reducing Co3+ from 98.06%
+    to almost exclusively Co2+, and reducing Ni3+ from 96.93% to 12.96% with Ni2+ rising to 87.04%), leaching 50.7 mg L^-1
+    total dissolved metal ions (45.6 mg L^-1 Li, 2.4 mg L^-1 Ni, 1.0 mg L^-1 Co, and 1.7 mg L^-1 Mn) over 14 days before accumulated
+    Ni2+ and Co2+ lower the average leaching rate from 7.222 to 0.921 mg L^-1 day^-1.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Shewanella oneidensis MR-1 SO1
@@ -240,6 +261,20 @@ ecological_interactions:
       decreased to 45.40% and 6.80%, whereas the level of Mn2+ increased to 47.80%, respectively, indicating that a substantial
       fraction of Mn4+ and Mn3+ in NCM was reduced.
     explanation: Provides XPS confirmation of solid-phase NCM metal-oxide reduction by the SO1-BS1 consortium.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Specifically, the average leaching rates decreased from 7.222 mg L−1·day−1 to 0.921 mg L−1·day−1 for the SO1‐BS1
+      consortium, from 9.867 to 0.617 mg L−1·day−1 for the SO2‐BS1 biocatalyst, and from 10.033 to 1.171 mg L−1·day−1 for
+      the SO2‐BS2 consortium, as shown in Figure 4a .
+    explanation: Quantifies the decline in SO1-BS1 average metal leaching rate from 7.222 to 0.921 mg L^-1 day^-1 between
+      days 1-6 and days 7-14.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study showed that the relative abundance of S. oneidensis on the NCM surface was 51.14% for the SO1‐BS1
+      consortium, 63.28% for the SO2‐BS2 consortium, and 69.38% for the SO3‐BS3 consortium, as illustrated in Figure 5b .
+    explanation: Documents the 51.14% relative abundance of S. oneidensis on the NCM cathode surface in the SO1-BS1 consortium.
 environmental_factors:
 - name: SO1-BS1 total leached Li, Ni, Co, and Mn
   value: 50.7 mg L^-1 total dissolved metal ions (12.3 mg L^-1 day^-1 maximal rate)
@@ -372,4 +407,13 @@ curation_history:
   changes: Created CommunityMech:000519 (SO1-BS1 Lithium-ion Battery Bioleaching Consortium) from PMID:42733304 / doi:10.1002/advs.77699
     for the first-generation engineered S. oneidensis MR-1 SO1 and B. subtilis 168 BS1 consortium catalyzing 97.6% brewing-wastewater
     ethanol removal, 116.15 mW m^-2 EET power density, and 50.7 mg L^-1 NCM cathode metal leaching.
+  llm_assisted: true
+- timestamp: '2026-11-06T22:25:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: Reviewed and enriched the 2-node, 1-edge causal graph for SO1-BS1 lithium battery bioleaching consortium (PMID:42733304)
+    with verbatim evidence for the 61.62-fold ethanol inhibition of S. oneidensis EET (2.08 vs 128.20 mW m^-2), the wild-type
+    BS0 partial ethanol removal baseline (35.6% to 1.16% v/v), the 51.14% S. oneidensis relative abundance on the NCM surface,
+    and the late-stage leaching rate decline (7.222 to 0.921 mg L^-1 day^-1), while refining the retained downstream edge
+    boundary.
   llm_assisted: true

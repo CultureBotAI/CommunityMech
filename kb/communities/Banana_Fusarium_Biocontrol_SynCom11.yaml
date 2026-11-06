@@ -251,7 +251,8 @@ ecological_interactions:
     g^-1 soil of Fusarium oxysporum f. sp. cubense tropical race 4 (Foc TR4), SynCom 1.1 significantly reduced Fusarium wilt
     symptom severity by 35% at 35 days post-transplanting (P < 0.05) and lowered the vascular browning index from 2.3 to 1.4
     on a 0-4 scale (P < 0.05), while disease incidence over time did not differ from untreated controls and bulk-soil Foc
-    CFU reduction was transient (significant only at transplanting).
+    CFU reduction was transient (significant only at transplanting in planted pots and null across 10^3, 10^5, or 10^7 CFU
+    g^-1 in unplanted soil over 32 days).
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Pseudomonas chlororaphis PS5
@@ -303,12 +304,22 @@ ecological_interactions:
       difference occurred later on
     explanation: Documents that soil Foc suppression by SynCom 1.1 was transient at transplanting and did not persist at later
       time points.
+  - reference: PMID:35992653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Another experiment with inoculated soil but without banana plants showed that the transient or null effect of
+      SynCom 1.1 on Foc TR4 in the soil was not dependent on the initial pathogen inoculum density (103, 105, or 107 CFU g–1)
+      over 32 days ( Supplementary Figure S2 ).
+    explanation: Confirms in unplanted soil microcosms across three pathogen inoculum densities that SynCom 1.1 does not cause
+      sustained bulk-soil eradication of Foc TR4, bounding why Trial B symptom suppression is not modeled as downstream of
+      bulk-soil pathogen removal.
 - name: Intra-SynCom 1.1 Diffusible-Metabolite and Volatile Cross-Inhibition
   description: 'Cellophane-agar (PDA) and overlapping-plate assays among the seven SynCom 1.1 members demonstrated widespread
     intra-community antagonism: agar-diffusible metabolites of Pseudomonas sp. P1A1 completely inhibited Bacillus sp. BT1,
     Streptomyces sp. St2AOB1, and P1A1 itself while partially inhibiting P1C1 and BN8.2; Pseudomonas sp. P1C1 inhibited all
-    tested bacterial members (including itself) while sparing Trichoderma virens T2C1.4; and Foc R1/TR4 metabolites and commercial
-    fusaric acid inhibited multiple bacterial members (especially BT1 and St2AOB1).'
+    tested bacterial members (including itself) while sparing Trichoderma virens T2C1.4; volatiles emitted by Bacillus sp.
+    BT1 completely inhibited T2C1.4 while Pseudomonas spp. and Bacillus spp. volatiles stressed T2C1.4; and Foc R1/TR4 metabolites
+    and commercial fusaric acid inhibited multiple bacterial members (especially BT1 and St2AOB1).'
   interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -373,6 +384,13 @@ ecological_interactions:
     snippet: fusaric acid, known as one of the secondary metabolites of Fusarium species, might be involved in such an interaction
     explanation: Supports fusaric acid as a candidate mediator of Foc antagonism toward SynCom 1.1 isolates based on exogenous
       EC50 assays.
+  - reference: PMID:35992653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Trichoderma sp. T2C1.4 showed some stress (no pigmentation and/or reduced growth) when exposed to Pseudomonas
+      spp. and Bacillus spp. volatiles. Finally, volatiles emitted by Bacillus sp. BT1 completely inhibited this fungus.
+    explanation: Demonstrates volatile-mediated inhibition of Trichoderma virens T2C1.4 by Bacillus sp. BT1 and stress from
+      Pseudomonas spp. and Bacillus spp. volatiles in overlapping-plate assays.
 - name: SynCom 1.1 Multi-Trait Biocontrol and PGP Enzyme/Metabolite Repertoire
   description: 'In vitro physiological characterization (Table 1) showed that the seven SynCom 1.1 isolates partition biocontrol
     and plant-growth-promotion traits across taxa: Bacillus spp. BN8.2 and BT1 were the sole producers of 2,3-butanediol,
@@ -422,6 +440,13 @@ ecological_interactions:
     snippet: Isolates of SynCom 1.1 displayed several biocontrol and/or plant growth promotion-related traits ( Table 1 ).
       Some of them were shared among isolates and genera while others showed specificity.
     explanation: Supports the shared and genus-specific biocontrol/PGP trait distribution across the seven SynCom 1.1 members.
+  - reference: PMID:35992653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For instance, Bacillus spp. were the sole isolates producing 2,3 butanediol, Pseudomonas spp. had phytase activity,
+      while ACC deaminase activity was found only in Streptomyces sp. St2AOB1 and Trichoderma sp. T2C1.4.
+    explanation: Directly enumerates the genus-specific partitioning of 2,3-butanediol (Bacillus spp.), phytase (Pseudomonas
+      spp.), and ACC deaminase (Streptomyces sp. St2AOB1 and Trichoderma virens T2C1.4) across SynCom 1.1.
 environmental_factors:
 - name: Biocontrol Trial B Foc TR4 challenge density
   value: 5.105 CFU g^-1 steam-sterilized soil
@@ -536,4 +561,12 @@ curation_history:
   changes: Created CommunityMech:000518 (Banana Fusarium Wilt Biocontrol SynCom 1.1) from PMID:35992653 / doi:10.3389/fmicb.2022.967885
     with exact seven-isolate cross-kingdom membership (PS5, P1A1, P1C1, BN8.2, BT1, St2AOB1, T2C1.4), Biocontrol Trial B 35%
     symptom-severity and vascular-browning reduction, cellophane-PDA cross-inhibition mapping, and PGP/biocontrol trait repertoire.
+  llm_assisted: true
+- timestamp: '2026-11-06T22:25:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: Reviewed and enriched the 3-node, 0-edge COMMUNITY_LEVEL representation for Banana Fusarium Biocontrol SynCom 1.1
+    (PMID:35992653) with verbatim evidence for the unplanted-soil Foc TR4 inoculum-density control (10^3, 10^5, and 10^7 CFU
+    g^-1 over 32 days), Bacillus sp. BT1 volatile inhibition of Trichoderma virens T2C1.4, and genus-specific partitioning
+    of 2,3-butanediol, phytase, and ACC deaminase activities.
   llm_assisted: true
