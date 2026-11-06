@@ -498,8 +498,14 @@
                         </td>
                         <td>
 
+                            <div class="roles-list">
+
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+
+                            </div>
+
                         </td>
-                        <td>N/A</td>
+                        <td>DOMINANT</td>
                     </tr>
 
                     <tr class="evidence-row-container">
@@ -561,7 +567,7 @@
                         <td>
 
                         </td>
-                        <td>N/A</td>
+                        <td>ABUNDANT</td>
                     </tr>
 
                     <tr class="evidence-row-container">
@@ -623,7 +629,7 @@
                         <td>
 
                         </td>
-                        <td>N/A</td>
+                        <td>DOMINANT</td>
                     </tr>
 
                     <tr class="evidence-row-container">
@@ -754,9 +760,32 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Streptococcus salivarius subsp. thermophilus,
+
+                    Lactobacillus delbrueckii subsp. bulgaricus,
+
+                    Lactiplantibacillus plantarum
+
+                </p>
 
 
 
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        fermentation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006113"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006113</a>
+                        · <a href="https://culturebotai.github.io/PathwayMech/browse.html?q=fermentation"
+                             class="term-link" target="_blank" rel="noopener noreferrer">PathwayMech</a>)
+                    </li>
+
+                </ul>
 
 
 
@@ -1097,21 +1126,21 @@
         taxonData["Streptococcus salivarius subsp. thermophilus"] = {
             id: "NCBITaxon:1308",
             label: "Streptococcus salivarius subsp. thermophilus",
-            abundance: "UNKNOWN",
-            roles: []
+            abundance: "DOMINANT",
+            roles: ["PRIMARY_DEGRADER"]
         };
 
         taxonData["Lactobacillus delbrueckii subsp. bulgaricus"] = {
             id: "NCBITaxon:1585",
             label: "Lactobacillus delbrueckii subsp. bulgaricus",
-            abundance: "UNKNOWN",
+            abundance: "ABUNDANT",
             roles: []
         };
 
         taxonData["Lactiplantibacillus plantarum"] = {
             id: "NCBITaxon:1590",
             label: "Lactiplantibacillus plantarum",
-            abundance: "UNKNOWN",
+            abundance: "DOMINANT",
             roles: []
         };
 
@@ -1186,6 +1215,10 @@
 
             var processes = [];
 
+
+            processes.push("fermentation");
+
+
             var evidenceCount = 1;
 
             nodes.push({
@@ -1200,6 +1233,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Streptococcus salivarius subsp. thermophilus",
+
+                "Lactobacillus delbrueckii subsp. bulgaricus",
+
+                "Lactiplantibacillus plantarum"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

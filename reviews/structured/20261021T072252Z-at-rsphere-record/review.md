@@ -1,0 +1,1820 @@
+# At-RSPHERE SynCom: whole-record source review
+
+- Review: 20261021T072252Z-at-rsphere-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T07:14:28.653955Z
+- Finished UTC: 2026-10-21T07:22:52.978799Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Three major findings concern unsupported assembly/roster assertions, host/challenge membership and source-mismatched cultivation. Four minor findings concern ingredient qualifications, metal provenance, obsolete external links and missing dataset links. All four graph nodes and two qualified arrows remain supported. Seven focused checks and cache preflight pass; corpus network and cross-Mech link checks retain failures.
+
+## Scope And Provenance
+
+Entire record, all seven entries, four nodes, two arrows, two media and seventeen evidence occurrences; both full main papers, selected source supplements, public publication/project metadata and linked medium/ingredient records. No raw sequence, genome, abundance or molecular analysis was repeated.
+
+Selection: Next uncovered maintained path after CommunityMech:000219 in batch04; one resolved umbrella record.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base c6e5a9b9af2d05e12eaafb2555a53f3a079268f3.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000003 | kb/communities/At_RSPHERE_SynCom.yaml | maintained | At-RSPHERE SynCom |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000003 | Target schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000003 | Target strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000003 | Target ontology term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000003 | Target GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000003 | Target GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000003 | Target history validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000003 | Read-only corpus cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000003 | Target native reference validation passed; independent checks covered source meaning and Discussion scope. |
+| audit-network | failed | True | CommunityMech:000003 | Fresh batch04 corpus run returned 57 warnings across 21 of 477 records, including this target's five disconnections, with zero errors and exit 1. |
+| check-network-quality | failed | True | CommunityMech:000003 | Fresh batch04 corpus run returned 57 warnings across 21 of 477 records, including this target's five disconnections, with zero errors and exit 1. |
+| Publication identity and full primary texts | passed | True | CommunityMech:000003 | Both cited publications resolve through fresh metadata and full primary texts, with selected supplements inspected. |
+| Cross-Mech link verification | failed | True | CommunityMech:000003 | Logical medium IDs resolve, but eleven encoded URL paths return 404 and two legacy ingredient aliases remain unverified. |
+| Public source dataset metadata | passed | True | CommunityMech:000003 | Both selected public BioProjects resolve with study-compatible metadata and source accession links. |
+| Optional structured source adapter availability | unavailable | False | CommunityMech:000003 | The same-runtime availability receipt was reused; no Root401 expression-module coverage was queried. |
+
+## Scientific And Domain Assessments
+
+### Resolved collection umbrella and distinct experimental assemblies
+
+identity: supported. Targets: CommunityMech:000003.
+
+The target is identifiable without treating the representative subset as a complete roster; the graph correctly distinguishes Bai's 188-isolate mixture from the later 17-member assays.
+
+### All seven entries, abundance labels and membership roles
+
+grounding: concern. Targets: CommunityMech:000003.
+
+The host and challenge strain violate the membership contract; five representative bacterial labels lack assembly-specific identities and abundance support. Optional bacterial roles should remain absent unless source-backed.
+
+### ecological_interactions[0]: At-RSPHERE Root SynCom Recolonization
+
+graph: supported. Targets: CommunityMech:000003.
+
+Bai root recolonization is supported.
+
+Participants are defined bacterial mixtures and living Arabidopsis; the listed host is deliberately non-exhaustive. Direction is inoculation followed by root assembly, not established mutual facilitation. Context is gnotobiotic clay recolonization. Linked source evidence includes a locator and short excerpt.
+
+### ecological_interactions[1]: R401 Exometabolite Antagonism of At-SynCom Members
+
+graph: supported. Targets: CommunityMech:000003.
+
+The qualified R401 inhibition phenotype is supported.
+
+Participants are R401 and At/Lj commensals in the inhibition assay; the graph lists only the verified invader. Direction is exometabolite-dependent growth inhibition, with joint mutant perturbation and no uniform reciprocal fitness claim. Linked source evidence includes a locator and short excerpt.
+
+### ecological_interactions[2]: DAPG/Pyoverdine-Dependent AtSC6 Remodeling
+
+graph: supported. Targets: CommunityMech:000003.
+
+The AtSC6-specific root composition shift is supported.
+
+Participants are R401, 17 AtSC6 commensals and Col-0; graph participants identify host/invader rather than the full roster. Direction is R401-dependent composition change in roots; relative abundance changes are not predicted by inhibition magnitude. Linked source evidence includes a locator and short excerpt.
+
+### ecological_interactions[3]: R401 Root Invasion of AtSC6-Precolonized Arabidopsis
+
+graph: supported. Targets: CommunityMech:000003.
+
+Root invasion and its partial mutant impairment are supported.
+
+Participants are R401, established AtSC6 and Col-0. Direction is invasion of precolonized roots by relative abundance, contrasted with failed stable invasion of established liquid communities; no unique resource or selective composition mediator is established. Linked source evidence includes a locator and short excerpt.
+
+### ecological_interactions[1].downstream[0]
+
+graph: supported. Targets: CommunityMech:000003.
+
+The PARTIAL inhibition-to-remodeling arrow appropriately limits cross-assay mediation.
+
+R401 products inhibit At/Lj commensals in vitro and the double mutant alters AtSC6 remodeling on Col-0 roots; individual inhibition magnitude does not predict root abundance changes, so quantitative mediation is not claimed.
+
+### ecological_interactions[2].downstream[0]
+
+graph: supported. Targets: CommunityMech:000003.
+
+The PARTIAL remodeling-to-invasion arrow preserves the unresolved independent mediator.
+
+The source links R401-dependent AtSC6 remodeling to root invasion, but the joint mutation changes inhibition, composition and invasion together; selective intervention on composition was not performed.
+
+### Both media, composition and cross-Mech provenance
+
+scope: concern. Targets: CommunityMech:000003.
+
+The inherited half-MS formulation matches neither study, and R2A is documented for Bai leaf isolation; valid external recipe IDs do not certify these experimental contexts.
+
+### Engineering, category, environment and environmental factors
+
+scope: concern. Targets: CommunityMech:000003.
+
+Engineered assembly and root-associated category are appropriate, but family/size fields describe unsupported design generalizations rather than measured environmental conditions; clay, agar and liquid contexts need explicit separation.
+
+### DAPG, pyoverdine, sucrose and GO processes
+
+grounding: concern. Targets: CommunityMech:000003.
+
+All chemical/process labels are compatible, including broad pyoverdine chemistry; ingredient prose needs the same combined-perturbation and mediation limits already preserved by the graph.
+
+### Metal/REE assertions
+
+scope: concern. Targets: CommunityMech:000003.
+
+Iron chelation is mechanistically relevant background, but no environmental metal/REE measurement supports the automated detection note.
+
+### Source accessions and missing structured dataset links
+
+completeness: concern. Targets: CommunityMech:000003.
+
+Two directly relevant public projects verify at metadata level, while associated_datasets and external_resources remain absent.
+
+### Caches, prior graph decisions and live follow-up
+
+provenance: supported. Targets: CommunityMech:000003.
+
+Prior scope qualifications remain intact; all snippets verify freshly and the known membership warning issue remains open.
+
+### pvdY/phlD perturbation and optional expression adapter
+
+scope: supported. Targets: CommunityMech:000003.
+
+The source provides direct joint genetic perturbation of biosynthetic pathways; no single-molecule necessity or shared expression-module dataset is independently established.
+
+### Native gates, ontology and snippet checks
+
+schema: supported. Targets: CommunityMech:000003.
+
+Seven focused checks and cache preflight pass; thirteen ontology pairs and seventeen snippets verify, while corpus network and external-link failures remain explicit.
+
+### Native completeness and validation quality
+
+completeness: supported. Targets: CommunityMech:000003.
+
+Completeness is 40 and quality is 74.5; optional missing roles affect field coverage, while known disconnections prevent a network bonus.
+
+## Findings
+
+### assembly-and-roster: Assembly counts and representative taxa lack source-specific support
+
+major / open / confirmed; issue key: cm-000003-assembly-and-roster.
+
+The description/design/factors state 16 families and a general 5-20-member range, while Bai distinguishes a 206-isolate/28-family/four-phyla library from a 188-isolate root/soil mixture, and Amrhein tests 17-family/17-member assemblies. Generic collection excerpts do not establish the five representatives or their DOMINANT/COMMON labels; four sp. anchors are unclassified species rather than genus IDs. The existing graph already preserves the correct assay distinction.
+
+### host-challenge-membership: The host and challenge organism are encoded as community members
+
+major / open / confirmed; issue key: cm-000003-host-challenge-membership.
+
+Arabidopsis and Root401 appear in taxonomy even though the schema excludes hosts and external antagonists. Root401's own note and the source identify it as the challenge strain, and S1 Table separates it from the inoculated commensals. The host's autotrophic biology does not fix its membership placement.
+
+### cultivation-context: The growth protocol is attributed to the wrong source context
+
+major / open / confirmed; issue key: cm-000003-cultivation-context.
+
+Bai uses sucrose-free half-MS at pH 7 in clay/Magenta boxes with 11-hour light, not the recorded pH 5.7, sucrose/agar vertical plates and 16-hour light. Amrhein's separate plate assay uses 1% agar and 10/14-hour light/dark. Bai Supplement 7A assigns R2A to leaf isolation, and neither the attached abstract nor the inspected supplement establishes root maintenance at 28 C for 48 hours. CultureMech 015433 repeats a CommunityMech import, so it is not independent confirmation.
+
+### ingredient-qualification: Ingredient explanations need the graph's source and mediation limits
+
+minor / open / confirmed; issue key: cm-000003-ingredient-qualification.
+
+The greater-than-70-percent estimate is a valid quotation of earlier-study background. The current pvdY/phlD double mutant supports joint exometabolite involvement, but does not isolate pyoverdine necessity or prove iron depletion as the mediator of root invasion. Intra-genus competition is supported by strain swaps and is not intrinsically incorrect.
+
+### metal-provenance: The metal detection note has no measurement provenance
+
+minor / open / confirmed; issue key: cm-000003-metal-provenance.
+
+metal_notes asserts environmental metal/REE detection through measurements and keyword matching despite no corresponding measured factor or metal entry. The paper discusses iron chelation, which does not establish metal contamination, recovery or environmental measurements.
+
+### cross-mech-links: Encoded medium and ingredient URLs no longer resolve
+
+minor / open / confirmed; issue key: cm-000003-cross-mech-links.
+
+Both CultureMech IDs are valid, but their encoded paths and the nine distinct ingredient paths return 404. The ingredient numeric scheme is vestigial: seven IDs have historical support and two aliases remain unverified; current name/chemical counterparts exist for all nine. This is linkage drift, not evidence that every ID was fabricated.
+
+### dataset-links: Relevant source data projects are not linked
+
+minor / open / confirmed; issue key: cm-000003-dataset-links.
+
+The source articles provide root-genome PRJNA297942 and experimental amplicon PRJNA1162794, and both public metadata records resolve, but the record has no structured data links. The two projects cover different scopes and should not be conflated.
+
+## Recommended Actions And Acceptance Checks
+
+### fix-assembly-and-roster
+
+Replace unsupported generalizations with explicit collection/assembly scope and source strain rosters or carefully defined aggregates; reassess abundance by assay and resolve existing issue 1251 without inventing interactions.
+
+- Keep the umbrella identifiable and preserve the graph's distinct 188-isolate and 17-member contexts.
+- Ground any retained representative at the intended genus/species/strain rank with source-specific evidence.
+- DOMINANT/COMMON assignments have measured context or are removed; no numerical cutoff is invented.
+- Re-run term/reference and network checks; document unresolved participation rather than forcing edges.
+
+### fix-host-challenge-membership
+
+Represent the host and R401 in their supported external graph/experimental roles, retaining source identity while separating them from designed commensal membership.
+
+- Host and challenge roles remain explicit and source-backed.
+- Supported Root401 graph participation is preserved after membership repair.
+- Strict, term and network checks are rerun without creating unsupported member roles.
+
+### fix-cultivation-context
+
+Replace inherited parameters with separately scoped source protocols and claim-specific Methods/supplement evidence; distinguish isolate preparation from living-host and liquid assays.
+
+- Bai clay and Amrhein plate protocols are not merged.
+- R2A's documented leaf-isolation context and unresolved root maintenance parameters are explicit.
+- No magnesium sulfate quantity error is inferred without resolving hydration and molar equivalence.
+- Living-host evidence is classified consistently with the actual assay.
+- Strict and reference checks pass; external recipe agreement is not used circularly.
+
+### fix-ingredient-qualification
+
+Attribute the quantitative estimate to earlier-study background and qualify individual-molecule and iron-mediated root-invasion claims consistently with the graph.
+
+- Preserve the valid source quotations.
+- Combined perturbation is not reported as a selective single-molecule necessity test.
+- Broad inhibition and strain-specific intra-genus competition remain distinct.
+- Reference checks pass.
+
+### fix-metal-provenance
+
+Remove the unsupported detection artifact and describe only the source-supported iron context, choosing metal relevance according to the maintained scope.
+
+- No measured metal/REE detection is claimed without a cited assay.
+- Iron-chelation context is not conflated with environmental metal processing.
+- Strict and reference checks pass.
+
+### fix-cross-mech-links
+
+Repair URLs using current canonical record paths and reconcile legacy ingredient keys with current upstream identity conventions, preserving chemical form and provenance.
+
+- Both valid CultureMech IDs retain their identity while their URLs resolve.
+- All nine distinct ingredient links resolve to the intended name/chemical form.
+- Unverified legacy aliases are not silently treated as confirmed equivalences.
+- Do not edit external repositories as part of this record-only follow-up.
+
+### fix-dataset-links
+
+Add evidence-backed data links with explicit collection-genome versus later experimental-amplicon scope.
+
+- Use source accessions and verified public metadata without asserting reanalysis.
+- Do not claim the Amrhein BioProject database itself lists its PMID.
+- Keep other unverified accessions article-reported until checked.
+- Strict and reference checks pass.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/At_RSPHERE_SynCom.yaml; Whole record: seven taxonomic entries, four nodes, two arrows, two media and seventeen evidence occurrences | supports | The record is an explicit At-RSPHERE umbrella, with a representative list and a graph that separates Bai recolonization from later AtSC5/AtSC6 challenge assays. |
+| bai-primary | doi:10.1038/nature16192; https://www.nature.com/articles/nature16192; full main article including Methods, Results and Discussion/conclusions | supports | Fresh full primary text was read with figure captions and data availability; cached abstract/metadata coverage is not substituted for source Methods. |
+| bai-pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=26633631&amp;retmode=xml; Independent public publication metadata | supports | The publication title, authors and DOI/PMID identify the corresponding cited study. |
+| bai-crossref | https://api.crossref.org/works/10.1038/nature16192; Independent public publication metadata | supports | The publication title, authors and DOI/PMID identify the corresponding cited study. |
+| amrhein-primary | PMID:40663585; https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12262851/fullTextXML; full main article including Methods, Results and Discussion/conclusions | supports | Fresh full primary text was read with figure captions and data availability; cached abstract/metadata coverage is not substituted for source Methods. |
+| amrhein-pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=40663585&amp;retmode=xml; Independent public publication metadata | supports | The publication title, authors and DOI/PMID identify the corresponding cited study. |
+| amrhein-crossref | https://api.crossref.org/works/10.1371/journal.pbio.3002882; Independent public publication metadata | supports | The publication title, authors and DOI/PMID identify the corresponding cited study. |
+| bai-scope | doi:10.1038/nature16192; At-RSPHERE and At-LSPHERE culture collections; SynCom colonization; Supplementary Data 6A column headings and counts | supports | At-RSPHERE contains 206 root isolates across 28 families and four phyla. The main root/soil assembly has 188 isolates, comprising 158 root and 30 soil isolates; the 218-member leaf assembly and other mixtures are separate experimental contexts. |
+| recolonization | doi:10.1038/nature16192; Abstract; Synthetic communities colonize germ-free plants; niche-specific assembly results | supports | Defined mixtures recolonize living plants and resemble cognate natural communities at coarse taxonomic levels; this does not establish mutual benefit or certify the inherited representative roster. |
+| bai-medium | doi:10.1038/nature16192; Methods: recolonization experiments; Supplementary Data 7A rows 5-96 | supports | Recolonization uses calcined clay in Magenta boxes with half-strength MS at pH 7, vitamins, no sucrose, 22 C and an 11-hour light period. Supplement 7A assigns seven media to root isolation and R2A to leaf isolation; R2A pH 7.2 is real but does not establish this record's root maintenance at 28 C for 48 hours. |
+| amrhein-roster | PMID:40663585; Methods: Bacteria; full S1 Table, seventeen strain/family rows and four assembly columns | supports | AtSC5 and AtSC6 each contain 17 distinct strains from 17 families; the host and challenge R401 are outside these commensal rosters. AtRoot569 and AtRoot68 are their respective Pseudomonas members. The source gives concrete strain identities rather than the inherited five genus-like representatives. |
+| amrhein-medium | PMID:40663585; Methods: Bacteria, plant co-cultivation, inhibition assay and liquid co-cultivation; S1 Table header | supports | Bacteria use TSB or TY at 25 C. Plant plates use half-strength MS plus vitamins/MES at pH 5.7 with 10 g/L agar and a 10/14-hour light/dark cycle; sucrose is not listed. These conditions differ from both Bai clay cultures and the inherited 1% sucrose, 0.8% agar and 16/8-hour formulation. |
+| antagonism | PMID:40663585; Results sec004; Fig. 1D; Methods in vitro inhibition assay | supports | The pvdY/phlD double mutant reduces R401 inhibition of diverse At- and Lj-derived commensals. The combined perturbation supports exometabolite involvement without isolating each molecule's necessity or predicting every in-planta abundance change. |
+| remodeling | PMID:40663585; Results sec005; Fig. 2A-B; Discussion first two paragraphs | supports | Wild-type R401 shifts AtSC6 composition on Col-0 roots, while the double mutant loses the characteristic shift; the LjSC6 effect is not significant. The paper links this with invasion, but does not intervene on composition independently. |
+| invasion | PMID:40663585; Results sec005; Fig. 2C and comparison with established liquid cultures; Discussion | supports | R401 root invasion is measured by relative abundance and is partly impaired in the double mutant; established liquid AtSC6 instead resists stable invasion. Plant protection and root-context effects do not identify a unique limiting resource or reciprocal harm to every member. |
+| ingredient-scope | PMID:40663585; Results sec004 background attribution to reference 34; strain-swap Results sec006; Discussion resource hypotheses | supports | The greater-than-70-percent estimate and iron-chelation mechanism are background from an earlier study. The current combined mutant supports joint exometabolite involvement, and strain swaps support intra-genus competition; neither proves that pyoverdine-mediated iron depletion selectively mediates root invasion. |
+| supplements | doi:10.1038/nature16192; PMID:40663585; Bai Supplementary Data guide, full 7A and bounded 6A inspection; Amrhein full S1 Table | supports | Both supplements were freshly downloaded. Data 6A contains separate 188, 218, 218, 406 and 233-member mixture columns; no full strain-to-taxonomy join or raw abundance reanalysis was undertaken. |
+| bai-supplement-data | doi:10.1038/nature16192; https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fnature16192/MediaObjects/41586_2015_BFnature16192_MOESM82_ESM.zip | supports | Public supplement download succeeded; the assessment scope is bounded by the supplement evidence item. |
+| amrhein-s1-table | PMID:40663585; https://journals.plos.org/plosbiology/article/file?id=10.1371/journal.pbio.3002882.s016&amp;type=supplementary | supports | Public supplement download succeeded; the assessment scope is bounded by the supplement evidence item. |
+| schema | src/communitymech/schema/communitymech.yaml; taxonomy slot; AbundanceLevelEnum; evidence_source; environmental and metal fields | supports | Community membership excludes hosts and external antagonists, which may remain graph participants. DOMINANT is ordinal, not a numerical threshold. Optional roles are not a schema requirement; missing roles only affect the native completeness rubric. |
+| ontology | Local OAK NCBITaxon, ENVO, GO and CHEBI snapshots; Thirteen unique pairs across twenty-five occurrences; definitions and rank/parent checks | supports | All labels match, including Rhodococcus. Four generic sp. terms are unclassified species nodes rather than genus identifiers or verified isolates; Rhodococcus is genus-level and Root401 is anchored to its source species. Broad GO symbiosis does not require mutualism, and pyoverdine denotes a family. |
+| snippets | kb/communities/At_RSPHERE_SynCom.yaml; All seventeen snippet occurrences against source-specific pinned caches and fresh primary text | supports | All seventeen occurrences match fresh articles after Unicode/whitespace normalization. Bai caches supply abstract/metadata only; Amrhein caches include full text, with one node snippet found only in the dedicated full-text cache. |
+| history | history/records/At_RSPHERE_SynCom; history/infrastructure/biological-process-regrounding; reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml; One target sidecar, one infrastructure sidecar and exact prior-decision row; live issues 1248 and 1251 | supports | History matches the current graph and target hash. Issue 1248 is closed after graph repair; issue 1251 remains open for membership resolution. Prior certification explicitly excluded non-graph metadata. |
+| local-search | references_cache; history; prior decisions; kb/taxa; Ignored-inclusive source/record/member lookup | supports | The five pinned cache files and relevant history were located; bounded exact taxon-ID, Root401, brassicacearum and At-RSPHERE searches found no supported reusable taxon record. |
+| cross-mech | CultureBotAI/CultureMech and CultureBotAI/MediaIngredientMech public GitHub records; Pinned indexes, exact record blobs, eleven contents API paths and bounded legacy-ID metadata searches | supports | Both CultureMech logical IDs resolve; all eleven distinct encoded repository paths return 404. Nine ingredient-name counterparts resolve under current FOODON/CHEBI keys, seven old numeric IDs have compatible archived identities, and yeast/glucose legacy aliases remain unverified. |
+| circular-medium | CultureMech:015433; source_origin and source_community_ids in current public YAML | supports | The half-MS recipe was imported from CommunityMech 000003/000022, so agreement with this record is circular. CultureMech 002706 is an independently sourced JCM R2A recipe; recipe identity alone does not establish experimental use. |
+| datasets-source | doi:10.1038/nature16192; PMID:40663585; Bai Accession codes; Amrhein Data Availability | supports | The articles identify root-genome BioProject PRJNA297942 and amplicon BioProject PRJNA1162794, respectively; other Bai project identifiers are source-reported but not independently retrieved here. |
+| dataset-verification | Independent source-project metadata audit; dataset-verification.json | supports | The independent audit confirms the two selected project identities and preserves the difference between direct PMID metadata and article-established accession linkage. |
+| bioproject-297942 | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=bioproject&amp;id=297942&amp;retmode=xml; Public NCBI BioProject metadata only | supports | Public root culture-collection genome project metadata directly cites PMID 26633631. |
+| bioproject-1162794 | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=bioproject&amp;id=1162794&amp;retmode=xml; Public NCBI BioProject metadata only | supports | Public SynCom/Pseudomonas project metadata matches the article-linked accession; its database publication field is empty, so the article supplies the publication association. |
+| adapter | Optional kg-microbe-sources runner availability; Explicitly reused discovery in the same batch04 runtime | supports | The runner/module was unavailable in the owned runtime; an external-checkout candidate was not executed and Root401 expression-module coverage was not queried. |
+| native-target | NetworkIntegrityAuditor().audit_community(target); Independent API diagnostic and support-audit.json native components | supports | Five inherited representative taxa are disconnected, giving native INCOMPLETE and no network bonus; there are four nodes, two arrows and five node evidence items, mean 1.25. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate kb/communities/At_RSPHERE_SynCom.yaml; Actual execution 2026-10-21T07:15:19.657812+00:00 to 2026-10-21T07:15:22.513681+00:00 | supports | Target schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-strict kb/communities/At_RSPHERE_SynCom.yaml --out /private/tmp/cm-review-session/batch-04/000003/strict-report.tsv; Actual execution 2026-10-21T07:15:19.660720+00:00 to 2026-10-21T07:15:28.057590+00:00 | supports | Target strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-terms kb/communities/At_RSPHERE_SynCom.yaml; Actual execution 2026-10-21T07:15:19.665968+00:00 to 2026-10-21T07:15:25.626935+00:00 | supports | Target ontology term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-gtdb kb/communities/At_RSPHERE_SynCom.yaml; Actual execution 2026-10-21T07:15:22.514061+00:00 to 2026-10-21T07:15:22.734682+00:00 | supports | Target GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-gtdb-domain kb/communities/At_RSPHERE_SynCom.yaml; Actual execution 2026-10-21T07:15:22.735018+00:00 to 2026-10-21T07:15:28.544766+00:00 | supports | Target GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-history history/records/At_RSPHERE_SynCom; Actual execution 2026-10-21T07:15:25.627259+00:00 to 2026-10-21T07:15:28.633333+00:00 | supports | Target history validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T07:15:28.634544+00:00 to 2026-10-21T07:15:28.712526+00:00 | supports | Read-only corpus cache-filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-references-explained kb/communities/At_RSPHERE_SynCom.yaml; Actual execution 2026-10-21T07:15:28.712855+00:00 to 2026-10-21T07:15:32.302660+00:00 | supports | Target native reference validation passed; independent checks covered source meaning and Discussion scope. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T07:06:05.543108+00:00 to 2026-10-21T07:06:16.498440+00:00 | supports | Fresh batch04 corpus run returned 57 warnings across 21 of 477 records, including this target's five disconnections, with zero errors and exit 1. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T07:06:16.498920+00:00 to 2026-10-21T07:06:23.361213+00:00 | supports | Fresh batch04 corpus run returned 57 warnings across 21 of 477 records, including this target's five disconnections, with zero errors and exit 1. |
+
+## Limits And Additional Notes
+
+- The umbrella is resolved, but the inherited representative list is not a verified strain roster; a complete source-isolate/taxonomy join and all historical GTDB mapping counts were not recomputed.
+- Both main papers and Amrhein S1 Table were read; Bai Supplementary Data 7A was fully assessed, while Data 6A inspection was limited to headings, selected initial rows and column counts. Other supplement contents, PDF color highlighting and raw sequence/abundance data were not reassessed.
+- The joint pvdY/phlD perturbation does not selectively isolate each molecule, composition mediation or a unique limiting resource in roots.
+- BioProject checks inspect metadata only; additional article-reported accessions were not independently retrieved and no repository contents were biologically reanalyzed.
+- External link verification distinguishes logical IDs, archived aliases, current name/chemical records and physical URL paths; two legacy ingredient aliases remain unverified.
+- Native network status is INCOMPLETE because of five already-known representative-taxon disconnections; required corpus gates retain warning failures and no unsupported edges were added.
+- The optional source adapter was unavailable in the owned runtime; discovery was explicitly reused from the same batch04 runtime, and an external-checkout candidate was not executed.
+- Canonical records, caches, history and generated outputs remain unchanged.
+- Quoted source excerpts total 6 words for Bai including supplements and 14 words for Amrhein including supplements.
+- The first inspect attempt rejected an unsafe duplicate cache filename; the unread duplicate was excluded and the successful official inspect preceded assessment.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T072252Z-at-rsphere-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'At-RSPHERE SynCom: whole-record source review'
+started_at: '2026-10-21T07:14:28.653955Z'
+finished_at: '2026-10-21T07:22:52.978799Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Canonical target unchanged in this session; prior codex graph
+    curation prevents person-level independence claims. Separate agents checked ontology,
+    gates, snippets, metadata, history and native metrics; root independently read
+    both sources.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Three major findings concern unsupported assembly/roster assertions, host/challenge
+  membership and source-mismatched cultivation. Four minor findings concern ingredient
+  qualifications, metal provenance, obsolete external links and missing dataset links.
+  All four graph nodes and two qualified arrows remain supported. Seven focused checks
+  and cache preflight pass; corpus network and cross-Mech link checks retain failures.
+source:
+  git_revision: c6e5a9b9af2d05e12eaafb2555a53f3a079268f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/infrastructure/biological-process-regrounding/2026-09-11T020728Z-claude-code-8d9619.yaml
+    sha256: eb16d771e883912242f7127e95ea5ce7c763521f1c8c3ba4a2f7a1b54d2095e3
+    role: context
+  - path: history/records/At_RSPHERE_SynCom/2026-10-05T101148Z-codex-c9a21f.yaml
+    sha256: 233b273d3c7f3281ea4bfec9dd61584274ed30dd58c5827098acae6d209344f0
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/At_RSPHERE_SynCom.yaml
+    sha256: b615c84fa2415eecbf9eb3964ee830fdb3bc573508fbc42ce601fb340f3500c0
+    role: target
+  - path: references_cache/PMID_26633631.txt
+    sha256: c85860d50505a1166d97f3b870e07bf9cff4c73475823caaf73ff9afa7d39882
+    role: context
+  - path: references_cache/PMID_40663585.txt
+    sha256: a57fec8c2fb4c37ebd5c724e38406be4c6cdb098edcb79bd575cd7028678c09f
+    role: context
+  - path: references_cache/doi_10.1038_nature16192.json
+    sha256: 7c244a2ba90a6d055f915c7511665ae5a4e9ea39eb4ec70182d59aa88ee6b94f
+    role: context
+  - path: references_cache/doi_10.1038_nature16192.md
+    sha256: afe55a64c8b8d338c8709d3f0c0623ed14898a72ccdeed4474df0bc44348522a
+    role: context
+  - path: references_cache/pmc_full_pmid_40663585.txt
+    sha256: 89e1e65dc290e03886b71918681b7aee0efaa7d63650b31e1a30e02cdce1de3a
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+    sha256: 5076ec8295dacfaae0ae1d829836e4380a312a702c4a43df5f604c3b1b1e0ad3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000003
+  path: kb/communities/At_RSPHERE_SynCom.yaml
+  label: At-RSPHERE SynCom
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+scope:
+  description: Entire record, all seven entries, four nodes, two arrows, two media
+    and seventeen evidence occurrences; both full main papers, selected source supplements,
+    public publication/project metadata and linked medium/ingredient records. No raw
+    sequence, genome, abundance or molecular analysis was repeated.
+  selection: Next uncovered maintained path after CommunityMech:000219 in batch04;
+    one resolved umbrella record.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000003
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000003
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate kb/communities/At_RSPHERE_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    all pinned cache and input hashes remained unchanged.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000003
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-strict kb/communities/At_RSPHERE_SynCom.yaml --out /private/tmp/cm-review-session/batch-04/000003/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    all pinned cache and input hashes remained unchanged.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target ontology term validation passed.
+  target_ids:
+  - CommunityMech:000003
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-terms kb/communities/At_RSPHERE_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    all pinned cache and input hashes remained unchanged.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000003
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb kb/communities/At_RSPHERE_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    all pinned cache and input hashes remained unchanged.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000003
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb-domain kb/communities/At_RSPHERE_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    all pinned cache and input hashes remained unchanged.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000003
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-history history/records/At_RSPHERE_SynCom
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    all pinned cache and input hashes remained unchanged.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000003
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    all pinned cache and input hashes remained unchanged.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target native reference validation passed; independent checks covered source
+    meaning and Discussion scope.
+  target_ids:
+  - CommunityMech:000003
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-references-explained kb/communities/At_RSPHERE_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    all pinned cache and input hashes remained unchanged.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch04 corpus run returned 57 warnings across 21 of 477 records,
+    including this target's five disconnections, with zero errors and exit 1.
+  target_ids:
+  - CommunityMech:000003
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Reused fresh full-corpus batch04 execution with correct runtime; not
+    a target-specific pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch04 corpus run returned 57 warnings across 21 of 477 records,
+    including this target's five disconnections, with zero errors and exit 1.
+  target_ids:
+  - CommunityMech:000003
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Reused fresh full-corpus batch04 execution with correct runtime; not
+    a target-specific pass.
+- check_id: public-source-identity
+  name: Publication identity and full primary texts
+  status: passed
+  required: true
+  summary: Both cited publications resolve through fresh metadata and full primary
+    texts, with selected supplements inspected.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - bai-pubmed
+  - bai-crossref
+  - amrhein-pubmed
+  - amrhein-crossref
+  - bai-primary
+  - amrhein-primary
+  - supplements
+- check_id: cross-mech
+  name: Cross-Mech link verification
+  status: failed
+  required: true
+  summary: Logical medium IDs resolve, but eleven encoded URL paths return 404 and
+    two legacy ingredient aliases remain unverified.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - cross-mech
+  - circular-medium
+- check_id: source-datasets
+  name: Public source dataset metadata
+  status: passed
+  required: true
+  summary: Both selected public BioProjects resolve with study-compatible metadata
+    and source accession links.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - datasets-source
+  - bioproject-297942
+  - bioproject-1162794
+  - dataset-verification
+- check_id: structured-expression-adapter
+  name: Optional structured source adapter availability
+  status: unavailable
+  required: false
+  summary: The same-runtime availability receipt was reused; no Root401 expression-module
+    coverage was queried.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/At_RSPHERE_SynCom.yaml
+  locator: 'Whole record: seven taxonomic entries, four nodes, two arrows, two media
+    and seventeen evidence occurrences'
+  summary: The record is an explicit At-RSPHERE umbrella, with a representative list
+    and a graph that separates Bai recolonization from later AtSC5/AtSC6 challenge
+    assays.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.976930Z'
+- evidence_id: bai-primary
+  kind: primary_source
+  reference: doi:10.1038/nature16192
+  locator: https://www.nature.com/articles/nature16192; full main article including
+    Methods, Results and Discussion/conclusions
+  summary: Fresh full primary text was read with figure captions and data availability;
+    cached abstract/metadata coverage is not substituted for source Methods.
+  support: supports
+  accessed_at: '2026-10-21T07:15:01.443831Z'
+  snapshot_sha256: c2b3aab3601bf95725b8684bdfc60fc0f7d8abfab8236d3e3637119ebf9ae85f
+- evidence_id: bai-pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=26633631&retmode=xml
+  locator: Independent public publication metadata
+  summary: The publication title, authors and DOI/PMID identify the corresponding
+    cited study.
+  support: supports
+  accessed_at: '2026-10-21T07:15:01.440386Z'
+  snapshot_sha256: 50f747b8023095750b84db0b3653fdfb1cd2471c349fd716987440494d44220f
+- evidence_id: bai-crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1038/nature16192
+  locator: Independent public publication metadata
+  summary: The publication title, authors and DOI/PMID identify the corresponding
+    cited study.
+  support: supports
+  accessed_at: '2026-10-21T07:15:01.442882Z'
+  snapshot_sha256: 4ffc3516ea8516eb8744735300500c1167ad756f510385926b3bc676d85c2b17
+- evidence_id: amrhein-primary
+  kind: primary_source
+  reference: PMID:40663585
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12262851/fullTextXML;
+    full main article including Methods, Results and Discussion/conclusions
+  summary: Fresh full primary text was read with figure captions and data availability;
+    cached abstract/metadata coverage is not substituted for source Methods.
+  support: supports
+  accessed_at: '2026-10-21T07:15:01.445093Z'
+  snapshot_sha256: b0cb95e24fcef6ced1af705d8cc299046bab296fcd4577f996d675b11874a1f1
+- evidence_id: amrhein-pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=40663585&retmode=xml
+  locator: Independent public publication metadata
+  summary: The publication title, authors and DOI/PMID identify the corresponding
+    cited study.
+  support: supports
+  accessed_at: '2026-10-21T07:15:01.444201Z'
+  snapshot_sha256: 03c1965ec3b5f85c8e5577bcf039139ddb0797fbefe87285fc90ae8ccc893bf1
+- evidence_id: amrhein-crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1371/journal.pbio.3002882
+  locator: Independent public publication metadata
+  summary: The publication title, authors and DOI/PMID identify the corresponding
+    cited study.
+  support: supports
+  accessed_at: '2026-10-21T07:15:01.444761Z'
+  snapshot_sha256: bdc3802d2fd9a63489f4c8b6006d984f2b1e6a30ee6b5e1f765828219895c700
+- evidence_id: bai-scope
+  kind: primary_source
+  reference: doi:10.1038/nature16192
+  locator: At-RSPHERE and At-LSPHERE culture collections; SynCom colonization; Supplementary
+    Data 6A column headings and counts
+  summary: At-RSPHERE contains 206 root isolates across 28 families and four phyla.
+    The main root/soil assembly has 188 isolates, comprising 158 root and 30 soil
+    isolates; the 218-member leaf assembly and other mixtures are separate experimental
+    contexts.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977330Z'
+- evidence_id: recolonization
+  kind: primary_source
+  reference: doi:10.1038/nature16192
+  locator: Abstract; Synthetic communities colonize germ-free plants; niche-specific
+    assembly results
+  summary: Defined mixtures recolonize living plants and resemble cognate natural
+    communities at coarse taxonomic levels; this does not establish mutual benefit
+    or certify the inherited representative roster.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977332Z'
+  quote: assemblies resembling natural microbiota
+- evidence_id: bai-medium
+  kind: primary_source
+  reference: doi:10.1038/nature16192
+  locator: 'Methods: recolonization experiments; Supplementary Data 7A rows 5-96'
+  summary: Recolonization uses calcined clay in Magenta boxes with half-strength MS
+    at pH 7, vitamins, no sucrose, 22 C and an 11-hour light period. Supplement 7A
+    assigns seven media to root isolation and R2A to leaf isolation; R2A pH 7.2 is
+    real but does not establish this record's root maintenance at 28 C for 48 hours.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977334Z'
+  quote: without sucrose
+- evidence_id: amrhein-roster
+  kind: primary_source
+  reference: PMID:40663585
+  locator: 'Methods: Bacteria; full S1 Table, seventeen strain/family rows and four
+    assembly columns'
+  summary: AtSC5 and AtSC6 each contain 17 distinct strains from 17 families; the
+    host and challenge R401 are outside these commensal rosters. AtRoot569 and AtRoot68
+    are their respective Pseudomonas members. The source gives concrete strain identities
+    rather than the inherited five genus-like representatives.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977335Z'
+- evidence_id: amrhein-medium
+  kind: primary_source
+  reference: PMID:40663585
+  locator: 'Methods: Bacteria, plant co-cultivation, inhibition assay and liquid co-cultivation;
+    S1 Table header'
+  summary: Bacteria use TSB or TY at 25 C. Plant plates use half-strength MS plus
+    vitamins/MES at pH 5.7 with 10 g/L agar and a 10/14-hour light/dark cycle; sucrose
+    is not listed. These conditions differ from both Bai clay cultures and the inherited
+    1% sucrose, 0.8% agar and 16/8-hour formulation.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977337Z'
+- evidence_id: antagonism
+  kind: primary_source
+  reference: PMID:40663585
+  locator: Results sec004; Fig. 1D; Methods in vitro inhibition assay
+  summary: The pvdY/phlD double mutant reduces R401 inhibition of diverse At- and
+    Lj-derived commensals. The combined perturbation supports exometabolite involvement
+    without isolating each molecule's necessity or predicting every in-planta abundance
+    change.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977338Z'
+  quote: significant decrease of antagonism
+- evidence_id: remodeling
+  kind: primary_source
+  reference: PMID:40663585
+  locator: Results sec005; Fig. 2A-B; Discussion first two paragraphs
+  summary: Wild-type R401 shifts AtSC6 composition on Col-0 roots, while the double
+    mutant loses the characteristic shift; the LjSC6 effect is not significant. The
+    paper links this with invasion, but does not intervene on composition independently.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977339Z'
+  quote: requires production of pyoverdine and DAPG
+- evidence_id: invasion
+  kind: primary_source
+  reference: PMID:40663585
+  locator: Results sec005; Fig. 2C and comparison with established liquid cultures;
+    Discussion
+  summary: R401 root invasion is measured by relative abundance and is partly impaired
+    in the double mutant; established liquid AtSC6 instead resists stable invasion.
+    Plant protection and root-context effects do not identify a unique limiting resource
+    or reciprocal harm to every member.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977341Z'
+  quote: partially impaired for R401mut
+- evidence_id: ingredient-scope
+  kind: primary_source
+  reference: PMID:40663585
+  locator: Results sec004 background attribution to reference 34; strain-swap Results
+    sec006; Discussion resource hypotheses
+  summary: The greater-than-70-percent estimate and iron-chelation mechanism are background
+    from an earlier study. The current combined mutant supports joint exometabolite
+    involvement, and strain swaps support intra-genus competition; neither proves
+    that pyoverdine-mediated iron depletion selectively mediates root invasion.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977342Z'
+- evidence_id: supplements
+  kind: primary_source
+  reference: doi:10.1038/nature16192; PMID:40663585
+  locator: Bai Supplementary Data guide, full 7A and bounded 6A inspection; Amrhein
+    full S1 Table
+  summary: Both supplements were freshly downloaded. Data 6A contains separate 188,
+    218, 218, 406 and 233-member mixture columns; no full strain-to-taxonomy join
+    or raw abundance reanalysis was undertaken.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977395Z'
+  snapshot_sha256: c6920bd484bd689c7f762e3e949636aa276075dabf40bf0beb9a1df5c5e9b988
+- evidence_id: bai-supplement-data
+  kind: primary_source
+  reference: doi:10.1038/nature16192
+  locator: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fnature16192/MediaObjects/41586_2015_BFnature16192_MOESM82_ESM.zip
+  summary: Public supplement download succeeded; the assessment scope is bounded by
+    the supplement evidence item.
+  support: supports
+  accessed_at: '2026-10-21T07:18:43.113084Z'
+  snapshot_sha256: ca617dd689d64b53a824433c84fface2727f6a1f00ff4e1188141b663a41666a
+- evidence_id: amrhein-s1-table
+  kind: primary_source
+  reference: PMID:40663585
+  locator: https://journals.plos.org/plosbiology/article/file?id=10.1371/journal.pbio.3002882.s016&type=supplementary
+  summary: Public supplement download succeeded; the assessment scope is bounded by
+    the supplement evidence item.
+  support: supports
+  accessed_at: '2026-10-21T07:18:24.236391Z'
+  snapshot_sha256: 5ad2b7351d509000c772ab6725f489511497deac9f690698f242e5a9bbe6bf0c
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: taxonomy slot; AbundanceLevelEnum; evidence_source; environmental and metal
+    fields
+  summary: Community membership excludes hosts and external antagonists, which may
+    remain graph participants. DOMINANT is ordinal, not a numerical threshold. Optional
+    roles are not a schema requirement; missing roles only affect the native completeness
+    rubric.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977479Z'
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO, GO and CHEBI snapshots
+  locator: Thirteen unique pairs across twenty-five occurrences; definitions and rank/parent
+    checks
+  summary: All labels match, including Rhodococcus. Four generic sp. terms are unclassified
+    species nodes rather than genus identifiers or verified isolates; Rhodococcus
+    is genus-level and Root401 is anchored to its source species. Broad GO symbiosis
+    does not require mutualism, and pyoverdine denotes a family.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977530Z'
+  snapshot_sha256: ba4ff1f89e6896b4ba7a83a1e8121da328dc3ed1d334fd84bf03b77ee75a527d
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/At_RSPHERE_SynCom.yaml
+  locator: All seventeen snippet occurrences against source-specific pinned caches
+    and fresh primary text
+  summary: All seventeen occurrences match fresh articles after Unicode/whitespace
+    normalization. Bai caches supply abstract/metadata only; Amrhein caches include
+    full text, with one node snippet found only in the dedicated full-text cache.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977578Z'
+  snapshot_sha256: f1a83f107d316f2f05267c7e627d6061f0490225748c88ecd383f8dc3dff104b
+- evidence_id: history
+  kind: record_content
+  reference: history/records/At_RSPHERE_SynCom; history/infrastructure/biological-process-regrounding;
+    reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  locator: One target sidecar, one infrastructure sidecar and exact prior-decision
+    row; live issues 1248 and 1251
+  summary: History matches the current graph and target hash. Issue 1248 is closed
+    after graph repair; issue 1251 remains open for membership resolution. Prior certification
+    explicitly excluded non-graph metadata.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977612Z'
+  snapshot_sha256: f5b77892ec7a0d9704ec5a6c5f26d9962bbf9877731f410ab4293ebb445b27c2
+- evidence_id: local-search
+  kind: search
+  reference: references_cache; history; prior decisions; kb/taxa
+  locator: Ignored-inclusive source/record/member lookup
+  summary: The five pinned cache files and relevant history were located; bounded
+    exact taxon-ID, Root401, brassicacearum and At-RSPHERE searches found no supported
+    reusable taxon record.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977649Z'
+  snapshot_sha256: 0abc0aa8e320c566ae021a99bbdc56845d2c5a55b550b63320b9844fba311b23
+  search_scope: rg --no-ignore --hidden across the named owned-worktree directories;
+    no global absence claim and no inferred identity from generic taxon wording.
+- evidence_id: cross-mech
+  kind: database
+  reference: CultureBotAI/CultureMech and CultureBotAI/MediaIngredientMech public
+    GitHub records
+  locator: Pinned indexes, exact record blobs, eleven contents API paths and bounded
+    legacy-ID metadata searches
+  summary: Both CultureMech logical IDs resolve; all eleven distinct encoded repository
+    paths return 404. Nine ingredient-name counterparts resolve under current FOODON/CHEBI
+    keys, seven old numeric IDs have compatible archived identities, and yeast/glucose
+    legacy aliases remain unverified.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977700Z'
+  snapshot_sha256: 898b58d3d5261995681135860fc4664fcc06d940555a23d42283c0b4e576b292
+- evidence_id: circular-medium
+  kind: database
+  reference: CultureMech:015433
+  locator: source_origin and source_community_ids in current public YAML
+  summary: The half-MS recipe was imported from CommunityMech 000003/000022, so agreement
+    with this record is circular. CultureMech 002706 is an independently sourced JCM
+    R2A recipe; recipe identity alone does not establish experimental use.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977742Z'
+  snapshot_sha256: 57b6d90c8f83b0fa6e9d6b18d6a402dbbf142f4c9900f35c99506cb63f31b7dc
+- evidence_id: datasets-source
+  kind: primary_source
+  reference: doi:10.1038/nature16192; PMID:40663585
+  locator: Bai Accession codes; Amrhein Data Availability
+  summary: The articles identify root-genome BioProject PRJNA297942 and amplicon BioProject
+    PRJNA1162794, respectively; other Bai project identifiers are source-reported
+    but not independently retrieved here.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977743Z'
+- evidence_id: dataset-verification
+  kind: validation
+  reference: Independent source-project metadata audit
+  locator: dataset-verification.json
+  summary: The independent audit confirms the two selected project identities and
+    preserves the difference between direct PMID metadata and article-established
+    accession linkage.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977782Z'
+  snapshot_sha256: 901b139fc88d9d64d820f48dcbcf37013b7dfa5db3405a2806ac345f1640186d
+- evidence_id: bioproject-297942
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=bioproject&id=297942&retmode=xml
+  locator: Public NCBI BioProject metadata only
+  summary: Public root culture-collection genome project metadata directly cites PMID
+    26633631.
+  support: supports
+  accessed_at: '2026-10-21T07:19:26.248301Z'
+  snapshot_sha256: 96f10380ee009f5f340cae6a5c159bcb7099cc929dfecedc54037ec084d040a3
+- evidence_id: bioproject-1162794
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=bioproject&id=1162794&retmode=xml
+  locator: Public NCBI BioProject metadata only
+  summary: Public SynCom/Pseudomonas project metadata matches the article-linked accession;
+    its database publication field is empty, so the article supplies the publication
+    association.
+  support: supports
+  accessed_at: '2026-10-21T07:19:26.248926Z'
+  snapshot_sha256: 0ffbf59c5f6ccde00d326973c49ba826ceac34652fc576ba70daf941cf9fe553
+- evidence_id: adapter
+  kind: search
+  reference: Optional kg-microbe-sources runner availability
+  locator: Explicitly reused discovery in the same batch04 runtime
+  summary: The runner/module was unavailable in the owned runtime; an external-checkout
+    candidate was not executed and Root401 expression-module coverage was not queried.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977911Z'
+  snapshot_sha256: 3e2a461d1d3f69f61979ae07b3a9cbc43ba9812abb6bacc6bfa4240135f4c072
+  search_scope: Prior fresh batch04 PATH, virtualenv, module and bounded ignored-inclusive
+    shared-tool discovery, reused without claiming a new search.
+- evidence_id: native-target
+  kind: validation
+  reference: NetworkIntegrityAuditor().audit_community(target)
+  locator: Independent API diagnostic and support-audit.json native components
+  summary: Five inherited representative taxa are disconnected, giving native INCOMPLETE
+    and no network bonus; there are four nodes, two arrows and five node evidence
+    items, mean 1.25.
+  support: supports
+  accessed_at: '2026-10-21T07:22:52.977951Z'
+  snapshot_sha256: 52422731e897d28a4eef7af9b49645b319f8e19d534911e19c8f0973076d7f6f
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate kb/communities/At_RSPHERE_SynCom.yaml
+  locator: Actual execution 2026-10-21T07:15:19.657812+00:00 to 2026-10-21T07:15:22.513681+00:00
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:15:22.513681Z'
+  snapshot_sha256: f5fa88afbee83ffaace0df4640f54a6d1547b89f22a72f65d91fb00a405eb86c
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-strict kb/communities/At_RSPHERE_SynCom.yaml --out /private/tmp/cm-review-session/batch-04/000003/strict-report.tsv
+  locator: Actual execution 2026-10-21T07:15:19.660720+00:00 to 2026-10-21T07:15:28.057590+00:00
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:15:28.057590Z'
+  snapshot_sha256: b1f460a1c878e7c8c33a433c6e138029ea31152947a80b1624038c6b303b60f3
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-terms kb/communities/At_RSPHERE_SynCom.yaml
+  locator: Actual execution 2026-10-21T07:15:19.665968+00:00 to 2026-10-21T07:15:25.626935+00:00
+  summary: Target ontology term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:15:25.626935Z'
+  snapshot_sha256: 0592cc38b2b6f5776c8b3b6d241c75d19c42b683721f408a26543e55776787a4
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb kb/communities/At_RSPHERE_SynCom.yaml
+  locator: Actual execution 2026-10-21T07:15:22.514061+00:00 to 2026-10-21T07:15:22.734682+00:00
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:15:22.734682Z'
+  snapshot_sha256: ff2e8e435df426b7a1a4dd1386625385bdb64cca151b068067c5a88b49597ded
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb-domain kb/communities/At_RSPHERE_SynCom.yaml
+  locator: Actual execution 2026-10-21T07:15:22.735018+00:00 to 2026-10-21T07:15:28.544766+00:00
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:15:28.544766Z'
+  snapshot_sha256: 2db9e35ff3e6bcc79d699b542fe3a637f6a162713389677f3f661dc50372b893
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-history history/records/At_RSPHERE_SynCom
+  locator: Actual execution 2026-10-21T07:15:25.627259+00:00 to 2026-10-21T07:15:28.633333+00:00
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:15:28.633333Z'
+  snapshot_sha256: 77d8745f5c50be5a54a92cbf6b7f4ded8b3b54aeeca828238430a18998167c3c
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T07:15:28.634544+00:00 to 2026-10-21T07:15:28.712526+00:00
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T07:15:28.712526Z'
+  snapshot_sha256: 39fceb3ad13dcd7541bfc4202b52915fd4c0fd6a70e2f1fe8eeed6cdb5e5f631
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-references-explained kb/communities/At_RSPHERE_SynCom.yaml
+  locator: Actual execution 2026-10-21T07:15:28.712855+00:00 to 2026-10-21T07:15:32.302660+00:00
+  summary: Target native reference validation passed; independent checks covered source
+    meaning and Discussion scope.
+  support: supports
+  accessed_at: '2026-10-21T07:15:32.302660Z'
+  snapshot_sha256: ffa86ad6ce9bf76522b29c80ecfc2c38cd44bc500f0c19b8b080c48ce7ae6718
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T07:06:05.543108+00:00 to 2026-10-21T07:06:16.498440+00:00
+  summary: Fresh batch04 corpus run returned 57 warnings across 21 of 477 records,
+    including this target's five disconnections, with zero errors and exit 1.
+  support: supports
+  accessed_at: '2026-10-21T07:06:16.498440Z'
+  snapshot_sha256: 7e9c998a5a9fe2b1a28c809bd5eb651205b3256dd64666ef7a9ca6fbde7504fa
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T07:06:16.498920+00:00 to 2026-10-21T07:06:23.361213+00:00
+  summary: Fresh batch04 corpus run returned 57 warnings across 21 of 477 records,
+    including this target's five disconnections, with zero errors and exit 1.
+  support: supports
+  accessed_at: '2026-10-21T07:06:23.361213Z'
+  snapshot_sha256: 5ba6a0b7c789574c80df1b60d81f0e54454b66e4f919949ad352cff92dd9744e
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Resolved collection umbrella and distinct experimental assemblies
+  outcome: supported
+  summary: The target is identifiable without treating the representative subset as
+    a complete roster; the graph correctly distinguishes Bai's 188-isolate mixture
+    from the later 17-member assays.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - record
+  - bai-scope
+  - amrhein-roster
+  - bai-pubmed
+  - amrhein-pubmed
+  dimensions:
+  - name: community_scope
+    value: At-RSPHERE-derived synthetic-community umbrella
+    definition: One maintained record describes several explicitly distinguished experimental
+      assemblies, not a fixed six-member formula.
+    evidence_ids:
+    - record
+    - bai-scope
+    - amrhein-roster
+  - name: source_strain
+    value: Bai isolate library; AtSC5/AtSC6 commensals; R401 challenge
+    definition: A collection, an inoculated roster and a challenge organism are different
+      biological scopes.
+    evidence_ids:
+    - bai-scope
+    - amrhein-roster
+  - name: environment
+    value: Natural root source; gnotobiotic root-associated assays
+    definition: Rhizosphere is an ecological source/model context; actual assays use
+      clay or agar and include separate liquid tests.
+    evidence_ids:
+    - bai-medium
+    - amrhein-medium
+  - name: experimental_setting
+    value: Living Col-0 roots plus in-vitro inhibition and liquid cultures
+    definition: Assay-specific evidence must remain separate across graph nodes, media
+      and membership.
+    evidence_ids:
+    - antagonism
+    - invasion
+    - bai-medium
+  - name: evidence_tier
+    value: Culture reconstitution, mutant perturbation and abundance profiling
+    definition: The combined mutant and strain swaps support community phenotypes
+      without selective composition or resource mediation.
+    evidence_ids:
+    - antagonism
+    - remodeling
+    - invasion
+  - name: grounding_status
+    value: All thirteen labels match; strain/aggregate specificity remains limited
+    definition: Correct labels do not certify source roster identities; unresolved
+      GTDB entries remain explicit and the Rhodococcus map was not recomputed.
+    evidence_ids:
+    - ontology
+- assessment_id: taxonomy
+  area: grounding
+  topic: All seven entries, abundance labels and membership roles
+  outcome: concern
+  summary: The host and challenge strain violate the membership contract; five representative
+    bacterial labels lack assembly-specific identities and abundance support. Optional
+    bacterial roles should remain absent unless source-backed.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - record
+  - schema
+  - ontology
+  - amrhein-roster
+  - bai-scope
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: At-RSPHERE Root SynCom Recolonization'
+  outcome: supported
+  summary: Bai root recolonization is supported.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - record
+  - recolonization
+  details: Participants are defined bacterial mixtures and living Arabidopsis; the
+    listed host is deliberately non-exhaustive. Direction is inoculation followed
+    by root assembly, not established mutual facilitation. Context is gnotobiotic
+    clay recolonization. Linked source evidence includes a locator and short excerpt.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: R401 Exometabolite Antagonism of At-SynCom Members'
+  outcome: supported
+  summary: The qualified R401 inhibition phenotype is supported.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - record
+  - antagonism
+  details: Participants are R401 and At/Lj commensals in the inhibition assay; the
+    graph lists only the verified invader. Direction is exometabolite-dependent growth
+    inhibition, with joint mutant perturbation and no uniform reciprocal fitness claim.
+    Linked source evidence includes a locator and short excerpt.
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: DAPG/Pyoverdine-Dependent AtSC6 Remodeling'
+  outcome: supported
+  summary: The AtSC6-specific root composition shift is supported.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - record
+  - remodeling
+  details: Participants are R401, 17 AtSC6 commensals and Col-0; graph participants
+    identify host/invader rather than the full roster. Direction is R401-dependent
+    composition change in roots; relative abundance changes are not predicted by inhibition
+    magnitude. Linked source evidence includes a locator and short excerpt.
+- assessment_id: node-3
+  area: graph
+  topic: 'ecological_interactions[3]: R401 Root Invasion of AtSC6-Precolonized Arabidopsis'
+  outcome: supported
+  summary: Root invasion and its partial mutant impairment are supported.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - record
+  - invasion
+  details: Participants are R401, established AtSC6 and Col-0. Direction is invasion
+    of precolonized roots by relative abundance, contrasted with failed stable invasion
+    of established liquid communities; no unique resource or selective composition
+    mediator is established. Linked source evidence includes a locator and short excerpt.
+- assessment_id: arrow-1
+  area: graph
+  topic: ecological_interactions[1].downstream[0]
+  outcome: supported
+  summary: The PARTIAL inhibition-to-remodeling arrow appropriately limits cross-assay
+    mediation.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - record
+  - antagonism
+  - remodeling
+  details: R401 products inhibit At/Lj commensals in vitro and the double mutant alters
+    AtSC6 remodeling on Col-0 roots; individual inhibition magnitude does not predict
+    root abundance changes, so quantitative mediation is not claimed.
+- assessment_id: arrow-2
+  area: graph
+  topic: ecological_interactions[2].downstream[0]
+  outcome: supported
+  summary: The PARTIAL remodeling-to-invasion arrow preserves the unresolved independent
+    mediator.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - record
+  - remodeling
+  - invasion
+  details: The source links R401-dependent AtSC6 remodeling to root invasion, but
+    the joint mutation changes inhibition, composition and invasion together; selective
+    intervention on composition was not performed.
+- assessment_id: cultivation
+  area: scope
+  topic: Both media, composition and cross-Mech provenance
+  outcome: concern
+  summary: The inherited half-MS formulation matches neither study, and R2A is documented
+    for Bai leaf isolation; valid external recipe IDs do not certify these experimental
+    contexts.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - record
+  - bai-medium
+  - amrhein-medium
+  - supplements
+  - circular-medium
+  - cross-mech
+- assessment_id: environment
+  area: scope
+  topic: Engineering, category, environment and environmental factors
+  outcome: concern
+  summary: Engineered assembly and root-associated category are appropriate, but family/size
+    fields describe unsupported design generalizations rather than measured environmental
+    conditions; clay, agar and liquid contexts need explicit separation.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - record
+  - bai-scope
+  - amrhein-roster
+  - bai-medium
+  - amrhein-medium
+- assessment_id: chemicals
+  area: grounding
+  topic: DAPG, pyoverdine, sucrose and GO processes
+  outcome: concern
+  summary: All chemical/process labels are compatible, including broad pyoverdine
+    chemistry; ingredient prose needs the same combined-perturbation and mediation
+    limits already preserved by the graph.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - ontology
+  - ingredient-scope
+  - antagonism
+  - invasion
+- assessment_id: metals
+  area: scope
+  topic: Metal/REE assertions
+  outcome: concern
+  summary: Iron chelation is mechanistically relevant background, but no environmental
+    metal/REE measurement supports the automated detection note.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - record
+  - ingredient-scope
+  - schema
+- assessment_id: datasets
+  area: completeness
+  topic: Source accessions and missing structured dataset links
+  outcome: concern
+  summary: Two directly relevant public projects verify at metadata level, while associated_datasets
+    and external_resources remain absent.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - record
+  - datasets-source
+  - bioproject-297942
+  - bioproject-1162794
+- assessment_id: history
+  area: provenance
+  topic: Caches, prior graph decisions and live follow-up
+  outcome: supported
+  summary: Prior scope qualifications remain intact; all snippets verify freshly and
+    the known membership warning issue remains open.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - history
+  - snippets
+  - native-target
+  - local-search
+- assessment_id: genes
+  area: scope
+  topic: pvdY/phlD perturbation and optional expression adapter
+  outcome: supported
+  summary: The source provides direct joint genetic perturbation of biosynthetic pathways;
+    no single-molecule necessity or shared expression-module dataset is independently
+    established.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - antagonism
+  - ingredient-scope
+  - adapter
+- assessment_id: validation
+  area: schema
+  topic: Native gates, ontology and snippet checks
+  outcome: supported
+  summary: Seven focused checks and cache preflight pass; thirteen ontology pairs
+    and seventeen snippets verify, while corpus network and external-link failures
+    remain explicit.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - ontology
+  - snippets
+  - check-validate
+  - check-validate-strict
+  - check-audit-network
+  - native-target
+  - cross-mech
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: supported
+  summary: Completeness is 40 and quality is 74.5; optional missing roles affect field
+    coverage, while known disconnections prevent a network bonus.
+  target_ids:
+  - CommunityMech:000003
+  evidence_ids:
+  - record
+  - schema
+  - native-target
+  metrics:
+  - name: completeness
+    value: 40
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100, 50 required metadata including all taxon roles + 5 environment
+      + 10 at least 3 factors + 10 at least 3 nodes + 5 resources + 10 media + 5 datasets
+      + 5 node metabolites). 0 + 5 + 10 + 10 + 0 + 10 + 0 + 5 = 40; six missing bacterial
+      roles withhold the required-field component but are not themselves schema defects.
+  - name: validation_quality
+    value: 74.5
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 - 50P1 - 10P2 - 2P3 + 20 min(mean node evidence / 2, 1)
+      + 15 if native COMPLETE, 0, 100). P1 = 0, P2 = 3, P3 = 4, P4 = 0; 5 items /
+      4 nodes = 1.25; native INCOMPLETE with five known disconnections. 100 - 30 -
+      8 + 12.5 + 0 = 74.5; no extra penalty duplicates the membership warnings.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P2
+    value: 3
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P3
+    value: 4
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count for this reviewed target.
+findings:
+- finding_id: assembly-and-roster
+  issue_key: cm-000003-assembly-and-roster
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: material assembly, membership or cultivation assertions
+    exceed the source or membership contract.'
+  rule_id: review-checklist.identity
+  status: open
+  certainty: confirmed
+  title: Assembly counts and representative taxa lack source-specific support
+  description: The description/design/factors state 16 families and a general 5-20-member
+    range, while Bai distinguishes a 206-isolate/28-family/four-phyla library from
+    a 188-isolate root/soil mixture, and Amrhein tests 17-family/17-member assemblies.
+    Generic collection excerpts do not establish the five representatives or their
+    DOMINANT/COMMON labels; four sp. anchors are unclassified species rather than
+    genus IDs. The existing graph already preserves the correct assay distinction.
+  target_ids:
+  - CommunityMech:000003
+  field_paths:
+  - description
+  - engineering_design.assembly_strategy
+  - environmental_factors[0:4]
+  - taxonomy[1]
+  - taxonomy[3:7]
+  evidence_ids:
+  - record
+  - bai-scope
+  - amrhein-roster
+  - ontology
+  - native-target
+  - history
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+- finding_id: host-challenge-membership
+  issue_key: cm-000003-host-challenge-membership
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: material assembly, membership or cultivation assertions
+    exceed the source or membership contract.'
+  rule_id: review-checklist.membership
+  status: open
+  certainty: confirmed
+  title: The host and challenge organism are encoded as community members
+  description: Arabidopsis and Root401 appear in taxonomy even though the schema excludes
+    hosts and external antagonists. Root401's own note and the source identify it
+    as the challenge strain, and S1 Table separates it from the inoculated commensals.
+    The host's autotrophic biology does not fix its membership placement.
+  target_ids:
+  - CommunityMech:000003
+  field_paths:
+  - taxonomy[0]
+  - taxonomy[2]
+  evidence_ids:
+  - record
+  - schema
+  - amrhein-roster
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+- finding_id: cultivation-context
+  issue_key: cm-000003-cultivation-context
+  category: provenance
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: material assembly, membership or cultivation assertions
+    exceed the source or membership contract.'
+  rule_id: review-checklist.cultivation
+  status: open
+  certainty: confirmed
+  title: The growth protocol is attributed to the wrong source context
+  description: Bai uses sucrose-free half-MS at pH 7 in clay/Magenta boxes with 11-hour
+    light, not the recorded pH 5.7, sucrose/agar vertical plates and 16-hour light.
+    Amrhein's separate plate assay uses 1% agar and 10/14-hour light/dark. Bai Supplement
+    7A assigns R2A to leaf isolation, and neither the attached abstract nor the inspected
+    supplement establishes root maintenance at 28 C for 48 hours. CultureMech 015433
+    repeats a CommunityMech import, so it is not independent confirmation.
+  target_ids:
+  - CommunityMech:000003
+  field_paths:
+  - growth_media[0]
+  - growth_media[1]
+  - engineering_design.evidence[0].evidence_source
+  evidence_ids:
+  - record
+  - bai-medium
+  - amrhein-medium
+  - supplements
+  - circular-medium
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+- finding_id: ingredient-qualification
+  issue_key: cm-000003-ingredient-qualification
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded provenance, linkage or completeness defect
+    with the source-supported graph recoverable.'
+  rule_id: review-checklist.causal_claims
+  status: open
+  certainty: confirmed
+  title: Ingredient explanations need the graph's source and mediation limits
+  description: The greater-than-70-percent estimate is a valid quotation of earlier-study
+    background. The current pvdY/phlD double mutant supports joint exometabolite involvement,
+    but does not isolate pyoverdine necessity or prove iron depletion as the mediator
+    of root invasion. Intra-genus competition is supported by strain swaps and is
+    not intrinsically incorrect.
+  target_ids:
+  - CommunityMech:000003
+  field_paths:
+  - related_ingredients[0]
+  - related_ingredients[1]
+  evidence_ids:
+  - ingredient-scope
+  - antagonism
+  - invasion
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+- finding_id: metal-provenance
+  issue_key: cm-000003-metal-provenance
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded provenance, linkage or completeness defect
+    with the source-supported graph recoverable.'
+  rule_id: review-checklist.environment
+  status: open
+  certainty: confirmed
+  title: The metal detection note has no measurement provenance
+  description: metal_notes asserts environmental metal/REE detection through measurements
+    and keyword matching despite no corresponding measured factor or metal entry.
+    The paper discusses iron chelation, which does not establish metal contamination,
+    recovery or environmental measurements.
+  target_ids:
+  - CommunityMech:000003
+  field_paths:
+  - metal_notes
+  - metal_relevance
+  - metals_present
+  evidence_ids:
+  - record
+  - schema
+  - ingredient-scope
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+- finding_id: cross-mech-links
+  issue_key: cm-000003-cross-mech-links
+  category: grounding
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded provenance, linkage or completeness defect
+    with the source-supported graph recoverable.'
+  rule_id: review-checklist.external_linkage
+  status: open
+  certainty: confirmed
+  title: Encoded medium and ingredient URLs no longer resolve
+  description: 'Both CultureMech IDs are valid, but their encoded paths and the nine
+    distinct ingredient paths return 404. The ingredient numeric scheme is vestigial:
+    seven IDs have historical support and two aliases remain unverified; current name/chemical
+    counterparts exist for all nine. This is linkage drift, not evidence that every
+    ID was fabricated.'
+  target_ids:
+  - CommunityMech:000003
+  field_paths:
+  - growth_media[*].culturemech_url
+  - growth_media[*].composition[*].media_ingredient_mech_id
+  - growth_media[*].composition[*].media_ingredient_mech_url
+  evidence_ids:
+  - cross-mech
+  - circular-medium
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+- finding_id: dataset-links
+  issue_key: cm-000003-dataset-links
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded provenance, linkage or completeness defect
+    with the source-supported graph recoverable.'
+  rule_id: review-checklist.datasets
+  status: open
+  certainty: confirmed
+  title: Relevant source data projects are not linked
+  description: The source articles provide root-genome PRJNA297942 and experimental
+    amplicon PRJNA1162794, and both public metadata records resolve, but the record
+    has no structured data links. The two projects cover different scopes and should
+    not be conflated.
+  target_ids:
+  - CommunityMech:000003
+  field_paths:
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - datasets-source
+  - bioproject-297942
+  - bioproject-1162794
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+actions:
+- action_id: fix-assembly-and-roster
+  description: Replace unsupported generalizations with explicit collection/assembly
+    scope and source strain rosters or carefully defined aggregates; reassess abundance
+    by assay and resolve existing issue 1251 without inventing interactions.
+  finding_ids:
+  - assembly-and-roster
+  target_ids:
+  - CommunityMech:000003
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Keep the umbrella identifiable and preserve the graph's distinct 188-isolate and
+    17-member contexts.
+  - Ground any retained representative at the intended genus/species/strain rank with
+    source-specific evidence.
+  - DOMINANT/COMMON assignments have measured context or are removed; no numerical
+    cutoff is invented.
+  - Re-run term/reference and network checks; document unresolved participation rather
+    than forcing edges.
+- action_id: fix-host-challenge-membership
+  description: Represent the host and R401 in their supported external graph/experimental
+    roles, retaining source identity while separating them from designed commensal
+    membership.
+  finding_ids:
+  - host-challenge-membership
+  target_ids:
+  - CommunityMech:000003
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Host and challenge roles remain explicit and source-backed.
+  - Supported Root401 graph participation is preserved after membership repair.
+  - Strict, term and network checks are rerun without creating unsupported member
+    roles.
+- action_id: fix-cultivation-context
+  description: Replace inherited parameters with separately scoped source protocols
+    and claim-specific Methods/supplement evidence; distinguish isolate preparation
+    from living-host and liquid assays.
+  finding_ids:
+  - cultivation-context
+  target_ids:
+  - CommunityMech:000003
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Bai clay and Amrhein plate protocols are not merged.
+  - R2A's documented leaf-isolation context and unresolved root maintenance parameters
+    are explicit.
+  - No magnesium sulfate quantity error is inferred without resolving hydration and
+    molar equivalence.
+  - Living-host evidence is classified consistently with the actual assay.
+  - Strict and reference checks pass; external recipe agreement is not used circularly.
+- action_id: fix-ingredient-qualification
+  description: Attribute the quantitative estimate to earlier-study background and
+    qualify individual-molecule and iron-mediated root-invasion claims consistently
+    with the graph.
+  finding_ids:
+  - ingredient-qualification
+  target_ids:
+  - CommunityMech:000003
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Preserve the valid source quotations.
+  - Combined perturbation is not reported as a selective single-molecule necessity
+    test.
+  - Broad inhibition and strain-specific intra-genus competition remain distinct.
+  - Reference checks pass.
+- action_id: fix-metal-provenance
+  description: Remove the unsupported detection artifact and describe only the source-supported
+    iron context, choosing metal relevance according to the maintained scope.
+  finding_ids:
+  - metal-provenance
+  target_ids:
+  - CommunityMech:000003
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - No measured metal/REE detection is claimed without a cited assay.
+  - Iron-chelation context is not conflated with environmental metal processing.
+  - Strict and reference checks pass.
+- action_id: fix-cross-mech-links
+  description: Repair URLs using current canonical record paths and reconcile legacy
+    ingredient keys with current upstream identity conventions, preserving chemical
+    form and provenance.
+  finding_ids:
+  - cross-mech-links
+  target_ids:
+  - CommunityMech:000003
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Both valid CultureMech IDs retain their identity while their URLs resolve.
+  - All nine distinct ingredient links resolve to the intended name/chemical form.
+  - Unverified legacy aliases are not silently treated as confirmed equivalences.
+  - Do not edit external repositories as part of this record-only follow-up.
+- action_id: fix-dataset-links
+  description: Add evidence-backed data links with explicit collection-genome versus
+    later experimental-amplicon scope.
+  finding_ids:
+  - dataset-links
+  target_ids:
+  - CommunityMech:000003
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/At_RSPHERE_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Use source accessions and verified public metadata without asserting reanalysis.
+  - Do not claim the Amrhein BioProject database itself lists its PMID.
+  - Keep other unverified accessions article-reported until checked.
+  - Strict and reference checks pass.
+limitations:
+- The umbrella is resolved, but the inherited representative list is not a verified
+  strain roster; a complete source-isolate/taxonomy join and all historical GTDB mapping
+  counts were not recomputed.
+- Both main papers and Amrhein S1 Table were read; Bai Supplementary Data 7A was fully
+  assessed, while Data 6A inspection was limited to headings, selected initial rows
+  and column counts. Other supplement contents, PDF color highlighting and raw sequence/abundance
+  data were not reassessed.
+- The joint pvdY/phlD perturbation does not selectively isolate each molecule, composition
+  mediation or a unique limiting resource in roots.
+- BioProject checks inspect metadata only; additional article-reported accessions
+  were not independently retrieved and no repository contents were biologically reanalyzed.
+- External link verification distinguishes logical IDs, archived aliases, current
+  name/chemical records and physical URL paths; two legacy ingredient aliases remain
+  unverified.
+- Native network status is INCOMPLETE because of five already-known representative-taxon
+  disconnections; required corpus gates retain warning failures and no unsupported
+  edges were added.
+- The optional source adapter was unavailable in the owned runtime; discovery was
+  explicitly reused from the same batch04 runtime, and an external-checkout candidate
+  was not executed.
+notes:
+- Canonical records, caches, history and generated outputs remain unchanged.
+- Quoted source excerpts total 6 words for Bai including supplements and 14 words
+  for Amrhein including supplements.
+- The first inspect attempt rejected an unsafe duplicate cache filename; the unread
+  duplicate was excluded and the successful official inspect preceded assessment.
+tags:
+- record-review
+- arabidopsis
+- syncom
+- batch-04
+```

@@ -1,0 +1,1786 @@
+# Australian lead-zinc model: whole-record source review
+
+- Review: 20261021T073926Z-australian-lead-zinc-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T07:26:53.741395Z
+- Finished UTC: 2026-10-21T07:39:26.496237Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Two major findings concern taxon/site/role attribution and Leptospirillum sulfur oxidation; four minor findings concern category, evidence placement, mineral specificity and data links. All three graph nodes and two arrows remain supported at their stated PARTIAL/HYPOTHESIZED scope. Seven focused gates and cache preflight pass; corpus network gates retain warning failures.
+
+## Scope And Provenance
+
+Entire record, all three taxa, three nodes, two arrows, eight factors, three ingredients and 26 evidence occurrences; four full main primary papers, two freshly verified abstracts, publication metadata and selected accession metadata. No raw sequence, genome, expression, abundance or geochemical analysis was repeated.
+
+Selection: Next uncovered maintained path after CommunityMech:000003 in batch04; exactly one resolved composite record.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base c6e5a9b9af2d05e12eaafb2555a53f3a079268f3.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000004 | kb/communities/Australian_Lead_Zinc_Polymetallic.yaml | maintained | Australian Lead Zinc Polymetallic Tailings Consortium |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000004 | Target schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000004 | Target strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000004 | Target term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000004 | Target GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000004 | Target GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000004 | Target history validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000004 | Read-only corpus cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000004 | Target native reference validation passed; semantic source assessment remains separate. |
+| audit-network | failed | True | CommunityMech:000004 | Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records, including this target's two disconnections, with zero errors and exit 1. |
+| check-network-quality | failed | True | CommunityMech:000004 | Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records, including this target's two disconnections, with zero errors and exit 1. |
+| Publication identity and current scientific claims | passed | True | CommunityMech:000004 | Six publication identities and all current material claims were assessed using four full main papers and two verified abstracts. |
+| Additional Chen/Luo full-text retrieval | unavailable | False | CommunityMech:000004 | Public attempts did not yield these two full papers; no unread Methods or supplement contents are certified. |
+| Selected source accession metadata | passed | True | CommunityMech:000004 | Four selected accession records resolve with study-compatible metadata within the declared endpoint/clone/run scope. |
+| CultureMech and ingredient linkages | not_applicable | False | CommunityMech:000004 | The complete target encodes no medium or ingredient-Mech IDs or URLs. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000004 | Same-runtime discovery was reused; no expression-module coverage was queried. |
+
+## Scientific And Domain Assessments
+
+### Composite model, source systems and experimental scope
+
+identity: supported. Targets: CommunityMech:000004.
+
+The maintained target is resolved as an explicitly composite natural-tailings model; its qualifications prevent treating it as one cultured or geographically uniform consortium.
+
+### All three taxa, roles and ordinal abundances
+
+grounding: concern. Targets: CommunityMech:000004.
+
+Source-specific identity, abundance and function need tighter attribution; the representative notes are explicit, but uniform PRIMARY_DEGRADER and species-level abundance interpretation are not established by the attached evidence.
+
+### ecological_interactions[0]: Surface Iron and Sulfur Oxidation Potential
+
+graph: supported. Targets: CommunityMech:000004.
+
+The node is supported at its stated PARTIAL community-level scope.
+
+Ferroplasma acidiphilum is the sole listed participant, representing a Chinese survey association rather than every metabolic carrier. Direction is potential Fe/S transformation toward oxidants/acidity; context is genomic inference and oxidation-zone occurrence, explicitly not measured Australian flux. Linked source evidence provides exact locators and short excerpts.
+
+### ecological_interactions[1]: Pb-Zn Tailings Acidification and Metal Mobilization
+
+graph: supported. Targets: CommunityMech:000004.
+
+The node is supported at its stated PARTIAL community-level scope.
+
+The sole listed F. acidiphilum participant is a Chinese association alongside a separate Australian geochemical observation. Direction is proposed weathering/acidification toward mobile products; neither species-mediated lead flux nor syntrophic exchange is demonstrated. Linked source evidence provides exact locators and short excerpts.
+
+### ecological_interactions[2]: pH-Structured Acidophile Succession
+
+graph: supported. Targets: CommunityMech:000004.
+
+The node is supported at its stated PARTIAL community-level scope.
+
+The sole listed F. acidiphilum participant represents source-linked composition patterns. Direction is pH/oxidation-associated community filtering across Chinese spatial samples; seasonal observations are separately qualified and do not establish controlled longitudinal succession. Linked source evidence provides exact locators and short excerpts.
+
+### ecological_interactions[0].downstream[0]
+
+graph: supported. Targets: CommunityMech:000004.
+
+The oxidation-potential to acidification/mobilization arrow is appropriately HYPOTHESIZED.
+
+The representative F. acidiphilum association remains nested within a community process: realized Fe/S oxidation could regenerate ferric iron/acidity and promote weathering. The Chinese/Australian sources do not establish a same-community flux or selective causal intervention.
+
+### ecological_interactions[2].downstream[0]
+
+graph: supported. Targets: CommunityMech:000004.
+
+The pH-structured succession to oxidation-potential arrow remains a defensible hypothesis.
+
+Community filtering could alter the abundance of Fe/S metabolic carriers, with F. acidiphilum listed only as a supported representative. Spatial associations do not establish imposed-pH causality, pathway activation or realized flux.
+
+### All GO processes and ionic/mineral terms
+
+grounding: concern. Targets: CommunityMech:000004.
+
+Labels are correct, but mineral specificity and biological-response scope need explicit limits.
+
+GO:0006790 includes sulfur assimilation as well as other sulfur metabolism. GO:0009268 and GO:0010038 are at most hypothesized organism-response context here; population filtering and measured chemistry are not direct assays of those cellular processes. The graph explicitly disclaims cellular pH homeostasis. Elemental Fe/Pb measurements also do not independently specify every ionic pool; the ingredient prose remains contextual.
+
+### Origin, state, category and all eight environmental factors
+
+scope: concern. Targets: CommunityMech:000004.
+
+NATURAL, PERTURBED and mine-tailing context are supported; BIOREMEDIATION and the evidence tiers of inferred metabolism require revision.
+
+The pH values, late-stage genus fraction, MAG count, abandoned status and arid setting are source-supported within their distinct studies. Attached excerpts should include the numerical/status fact and retain spatial-inference limits.
+
+### All three ingredients and metal relevance
+
+scope: supported. Targets: CommunityMech:000004.
+
+Significant Fe/Pb/Zn context is real; metal occurrence, ionic interpretation and demonstrated mobilization remain distinct.
+
+The automated metal note is not evidence of a new assay, but primary measurements support the underlying metal relevance. No unmeasured lead flux, exact ferrous pool at every site or newly verified REE function is inferred.
+
+### Absent growth_media and cultivation_setup
+
+scope: supported. Targets: CommunityMech:000004.
+
+No required whole-community cultivation block is missing from this natural composite model.
+
+Sample rewetting and separate enumeration media are assay preparation; any future conditions must retain that scope rather than becoming a consortium growth recipe.
+
+### Absent structured dataset/resource links
+
+completeness: concern. Targets: CommunityMech:000004.
+
+Verified source accession metadata offers bounded enrichment without establishing a unified species roster.
+
+### Cache boundaries, history and current linked issues
+
+provenance: supported. Targets: CommunityMech:000004.
+
+All snippets verify within declared access limits; earlier graph qualifications and the open membership follow-up remain intact.
+
+### Native gates, ontology and evidence checks
+
+schema: supported. Targets: CommunityMech:000004.
+
+Seven focused gates and cache preflight pass; 14 ontology pairs and 26 snippets verify, while corpus network warning failures remain explicit.
+
+### Native completeness and validation quality
+
+completeness: supported. Targets: CommunityMech:000004.
+
+Completeness is 80 and quality is 92; the two known disconnections prevent a network-completeness bonus.
+
+## Findings
+
+### taxon-attribution: Representative taxa need source-specific identity, abundance and role support
+
+major / open / confirmed; issue key: cm-000004-taxon-attribution.
+
+The explicit composite model is identifiable, but species entries combine genus-level abundance, observations from different sites and uniform PRIMARY_DEGRADER roles. The Ferroplasma fraction is correctly genus-labelled yet cannot independently quantify F. acidiphilum; L. ferriphilum evidence from Chinese copper tailings does not prove its Australian or attached Pb-Zn occurrence. The attached evidence does not establish complex-substrate degradation uniformly. Correct identifiers and GTDB mappings do not resolve these source-to-role transfers.
+
+### leptospirillum-sulfur: Leptospirillum is assigned sulfur oxidation contrary to the cited allocation
+
+major / open / confirmed; issue key: cm-000004-leptospirillum-sulfur.
+
+Taxonomy notes and the Chen evidence explanation assign sulfur oxidation to Leptospirillum, while the cited T6 respectively clause allocates that function to Acidithiobacillus. The graph already preserves the distinction between sulfur assimilation and dissimilatory oxidation. This is a material functional attribution error, not a fabricated quotation or a claim that unread Chen Methods contain no relevant genes.
+
+### category: BIOREMEDIATION overstates the demonstrated community function
+
+minor / open / confirmed; issue key: cm-000004-category.
+
+The cited studies characterize naturally acidifying and metal-affected communities; remediation motivation or biomarker relevance does not demonstrate pollutant removal by this modeled community.
+
+### evidence-tier: Computational potential and field evidence are mixed outside the graph
+
+minor / open / confirmed; issue key: cm-000004-evidence-tier.
+
+Chen taxon functional predictions and Luo depth/MAG metabolic models are labelled IN_VIVO despite supporting computational inference. Some exact snippets also omit the completed occurrence clause or the numerical/status fact they are used to support; inspected source text supplies those facts.
+
+### mineral-specificity: Two distinct minerals share an undifferentiated sulfide-salt anchor
+
+minor / open / confirmed; issue key: cm-000004-mineral-specificity.
+
+Galena and sphalerite occur in the source setting, but both use CHEBI:46718, a broad sulfide-salt class. The labels are canonical; the defect is loss of named mineral identity, not false mineral occurrence or a verified wrong replacement ID.
+
+### dataset-links: Available source sequence resources are not linked
+
+minor / open / confirmed; issue key: cm-000004-dataset-links.
+
+The record has no structured source-data links although selected primary accession metadata verifies. These resources cover separate sites and assays, not one pooled consortium or verified species-genome set.
+
+## Recommended Actions And Acceptance Checks
+
+### fix-taxon-attribution
+
+Resolve the membership follow-up using source-specific rosters or explicitly supported representative/aggregate taxonomy; attach abundance and roles at the rank, site and assay actually measured.
+
+- Keep the declared composite identity or justify any source/system separation; a split is not mandatory.
+- Species occurrence and genus-level fractions remain distinguishable.
+- Each retained role has claim-specific support; no universal replacement role or numerical abundance cutoff is invented.
+- Rerun term, reference and network checks without adding speculative interactions to clear warnings.
+
+### fix-leptospirillum-sulfur
+
+Remove the unsupported sulfur-oxidation assignment or replace it only with precise source-backed functional evidence, preserving supported carbon/nitrogen and iron-oxidizer context.
+
+- The cited allocation is parsed by pathway and taxon.
+- Assimilation is not equated with dissimilatory oxidation.
+- Taxonomy and graph explanations are consistent; reference validation passes.
+
+### fix-category
+
+Choose a source-supported category for the observed natural community and retain remediation relevance as context where appropriate.
+
+- The category reflects demonstrated function or habitat rather than intended research application.
+- Natural origin and disturbance state remain source-backed.
+- Strict validation passes.
+
+### fix-evidence-tier
+
+Separate field observations from computational interpretations and use short complete excerpts for the exact attached claim.
+
+- Functional predictions have the appropriate evidence tier without relabelling every field observation computational.
+- Numerical pH/MAG and abandoned-status claims have direct source locators/excerpts.
+- Preserve exact valid quotations and rerun reference validation.
+
+### fix-mineral-specificity
+
+Verify more specific chemical/mineral grounding if available, or explicitly mark the existing anchors as broad class mappings.
+
+- Retain distinct PbS/ZnS mineral identities in the representation.
+- Do not invent an exact ontology replacement from an unverified synonym.
+- Term and reference checks pass.
+
+### fix-dataset-links
+
+Add appropriately scoped source data references, distinguishing accession ranges reported by articles from individually verified metadata.
+
+- Mark Huang endpoint-only verification and the uninspected intermediate range.
+- Retain the Mendez clone identity and Liu run/study context without upgrading either to an Australian species genome.
+- No raw sequence analysis or contents verification is implied.
+- Strict and reference checks pass.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Australian_Lead_Zinc_Polymetallic.yaml; Whole record: three taxa, three nodes, two arrows, eight factors and three ingredients | supports | The description and graph explicitly define a composite tailings model; species representatives are not presented as a cultured three-member consortium. |
+| wakelin-primary | PMID:22092956; https://oup.silverchair-cdn.com/article-minimal/468428; complete main article, Methods, Results, Discussion and tables | supports | Fresh primary main text was assessed; supplements and raw data were not reanalyzed. |
+| huang-primary | doi:10.1128/aem.02458-10; https://pmc.ncbi.nlm.nih.gov/articles/PMC3147485/; complete main article, Methods, Results, Discussion and tables | supports | Fresh primary main text was assessed; supplements and raw data were not reanalyzed. |
+| liu-primary | doi:10.1128/aem.00294-14; https://pmc.ncbi.nlm.nih.gov/articles/PMC4054149/; complete main article, Methods, Results, Discussion and tables | supports | Fresh primary main text was assessed; supplements and raw data were not reanalyzed. |
+| mendez-primary | doi:10.1128/aem.02883-07; https://pmc.ncbi.nlm.nih.gov/articles/PMC2446573/; complete main article, Methods, Results, Discussion and tables | supports | Fresh primary main text was assessed; supplements and raw data were not reanalyzed. |
+| publication-identities | Six cited DOI/PMID pairs; source-metadata-audit.json; Europe PMC, PubMed, Crossref and article citation metadata | supports | All six titles and publication identifiers correspond; Mendez metadata omits PMCID, but the matching primary text is independently available at PMC2446573. |
+| chen2013-abstract | PMID:23574280; https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1111%2F1462-2920.12114&amp;format=json&amp;resultType=core; fresh abstract only | supports | The verified abstract supports the bounded claims assessed here; full Methods, supplementary claims and complete dataset availability were not certified. |
+| luo2023-abstract | doi:10.1016/j.jhazmat.2023.130774; https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1016%2Fj.jhazmat.2023.130774&amp;format=json&amp;resultType=core; fresh abstract only | supports | The verified abstract supports the bounded claims assessed here; full Methods, supplementary claims and complete dataset availability were not certified. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=22092956,23574280,36641850&amp;retmode=xml; PubMed XML for 22092956, 23574280 and 36641850 | supports | Independent publication and abstract metadata matches the corresponding cited studies. |
+| wakelin-setting | PMID:22092956; Site description; sampling and PhyloChip methods; geochemical Results and Discussion; Tables 1-2 | supports | Teutonic Bore is a natural waste-affected soil slope with galena, sphalerite and measured Fe/Pb/Zn. Episodic rainfall supports the wet/dry setting. PhyloChip samples were rewetted to 50% water-holding capacity at 25 C for seven days; the diverse assemblage is not a three-species census. Conductivity was more strongly associated with composition than pH. |
+| weathering | PMID:22092956; Abstract; geochemical Results and Discussion | supports | Bulk-element dispersal and mobile S/Zn/Cl/Al are measured; neither lead flux nor species-mediated coupling is resolved. BioLog assays measure laboratory heterotrophic potential, not in-situ Fe/S flux. |
+| chen-functions | PMID:23574280; Fresh abstract: T2/T6 metagenomic sentence and its respectively clauses | supports | The T6 carbon/nitrogen assignments include Leptospirillum; the sulfur-oxidation assignment names Acidithiobacillus. This is pathway potential, not realized flux or species-level attribution. |
+| chen-stages | PMID:23574280; Fresh abstract: six geochemical stages and 16S composition | supports | The six samples are interpreted as an acidification sequence; the 28-58% late-stage fraction concerns Ferroplasma-related sequences, not an independently quantified F. acidiphilum population. |
+| huang-occurrence | doi:10.1128/aem.02458-10; Abstract (quoted occurrence clause); full main text clone libraries, Fig. 2, oxidation-zone Results and site comparison | supports | Chinese Pb-Zn samples support A. ferrooxidans and mostly F. acidiphilum-related archaea; generic Leptospirillum occurrence does not identify L. ferriphilum. The Lianping comparison names L. ferrodiazotrophum. Genuine seasonal sampling found little seasonal variation. |
+| huang-mechanism | doi:10.1128/aem.02458-10; Final discussion of pioneer populations, changing chemistry and future functional work | supports | The proposed feedback between microbial metabolism, geochemistry and recruitment remains a hypothesis; the authors caution against unqualified transfer across geology and geography. |
+| liu-association | doi:10.1128/aem.00294-14; Results: community composition; Discussion and Concluding remarks | supports | Spatial Chinese copper-tailings data associate pH with composition and infer succession; they do not track one population through an imposed pH change. Around 20% of Leptospirillum reads are affiliated with L. ferriphilum, providing positive support in that distinct system. Ferrous and ferric ions were measured. |
+| mendez-context | doi:10.1128/aem.02883-07; Site/sampling; enumeration methods; Table 4; Summary | supports | The abandoned Klondyke site is in Arizona; sample pH values are 2.7 and 5.7. Separate Fe/S-oxidizer and heterotroph enumeration assays do not establish cultivation of the whole community. A Leptospirillum isolate has only 98% 16S similarity to L. ferriphilum; remediation monitoring motivates the survey but is not a demonstrated community cleanup function. |
+| luo-potential | doi:10.1016/j.jhazmat.2023.130774; Fresh abstract: genome recovery and depth-related metabolic models | supports | The abstract reports 406 intermediate/high-quality MAGs and depth-related predicted pathways. Gene distributions and proposed metabolic models support computational potential, not direct metabolic flux. |
+| schema | src/communitymech/schema/communitymech.yaml; CommunityCategoryEnum; FunctionalRoleEnum; AbundanceEnum; EvidenceSourceEnum | supports | BIOREMEDIATION denotes pollutant degradation/remediation; PRIMARY_DEGRADER denotes complex-substrate degradation, without an organic-only restriction. COMMON and ABUNDANT are ordinal. Field sampling and computational functional prediction are different evidence scopes. |
+| ontology | Local OAK NCBITaxon, ENVO, CHEBI and GO snapshots; ontology-authority.json; 14 unique pairs across 24 occurrences; definitions and chemical specificity | supports | All labels match. Sulfide salt is a parent class, not an exact identity for two distinct minerals. GO pH/metal response concerns a cell or organism changing state/activity, which is not directly established by community sorting or measured geochemistry alone. |
+| mineral-lookup | Local CHEBI snapshot; Bounded exact label and synonym checks for galena/sphalerite | supports | No exact replacement was verified in the bounded lookup; valid broad grounding must not be silently presented as exact mineral identity. |
+| snippets | kb/communities/Australian_Lead_Zinc_Polymetallic.yaml; All 26 occurrences, 15 unique snippets; pinned caches, fresh abstracts and available full articles | supports | All snippets are supported: 24 match fresh abstracts after Unicode/whitespace normalization; two require removal of extraction-inserted spaces before commas. Seventeen occurrences also match fresh full text; nine Chen/Luo occurrences remain abstract-verified only. |
+| history | history/records/Australian_Lead_Zinc_Polymetallic; reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml; One sidecar and exact decision row, lines 576-673 | supports | The prior decision hash matches; graph qualifications are intentional and non-graph metadata was outside the earlier certification. |
+| issue-1249 | https://github.com/CultureBotAI/CommunityMech/issues/1249; Fresh public body/status; gh issue view 1249 --repo CultureBotAI/CommunityMech --json number,title,state,url,updatedAt,body,comments | supports | Issue 1249 is closed after a scoped graph repair; its body explicitly excludes broader non-graph identity and metadata certification. |
+| issue-1251 | https://github.com/CultureBotAI/CommunityMech/issues/1251; Fresh public body/status; gh issue view 1251 --repo CultureBotAI/CommunityMech --json number,title,state,url,updatedAt,body,comments | supports | Issue 1251 is open; the membership follow-up permits source/system separation or explicitly supported representative taxonomy. |
+| local-search | kb/taxa; kb/communities; data/isolates; references_cache; history; prior decisions; Ignored-inclusive exact taxon IDs/names and related site/source lookup | supports | No supported reusable taxon was found in the bounded search, and the related source/site search matched only this community; six pinned caches are genuinely abstract-only. |
+| datasets | Source accession paragraphs and public ENA metadata; dataset-verification.json; FR682998 and FR683084 endpoints, EU014795, SRR1040478 | supports | The two Huang endpoints and the Mendez clone link their exact publications; EU014795 remains an uncultured Acidithiobacillus clone. Liu run metadata maps to PRJNA230134/SRP033381/SRX385209 and is consistent with the article-linked SMC tailings study. Intermediate accession records and sequence content were not assessed. |
+| dataset-FR682998 | https://www.ebi.ac.uk/ena/browser/api/embl/FR682998?download=false; Public accession metadata only | supports | The metadata identity was checked within the scope described by the dataset audit; no raw-read or sequence analysis was performed. |
+| dataset-FR683084 | https://www.ebi.ac.uk/ena/browser/api/embl/FR683084?download=false; Public accession metadata only | supports | The metadata identity was checked within the scope described by the dataset audit; no raw-read or sequence analysis was performed. |
+| dataset-EU014795 | https://www.ebi.ac.uk/ena/browser/api/embl/EU014795?download=false; Public accession metadata only | supports | The metadata identity was checked within the scope described by the dataset audit; no raw-read or sequence analysis was performed. |
+| dataset-SRR1040478 | https://www.ebi.ac.uk/ena/portal/api/filereport?accession=SRR1040478&amp;result=read_run&amp;fields=run_accession,study_accession,secondary_study_accession,experiment_accession,sample_accession,scientific_name,study_title&amp;format=json; Public accession metadata only | supports | The metadata identity was checked within the scope described by the dataset audit; no raw-read or sequence analysis was performed. |
+| adapter | Optional kg-microbe-sources runner; Explicit same-batch04-runtime discovery reuse | supports | The runner/module was unavailable; an external-checkout candidate was not executed, and no organism/expression-module coverage was claimed. |
+| native-target | NetworkIntegrityAuditor().audit_community(target); support-audit.json: fresh targeted diagnostic and native score components | supports | Three nodes have six evidence items, mean two; two known representative-taxon disconnections make the native graph INCOMPLETE, with zero graph errors. |
+| access-limits | Fresh public full-text retrieval receipts; Chen university/Wiley requests; Luo publisher shell and public API attempts | supports | Chen full-text requests were denied; Luo responses contained a linking shell or failed access, not a full article. The two fresh abstracts were assessed without certifying unread Methods or an absence of additional source evidence. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate kb/communities/Australian_Lead_Zinc_Polymetallic.yaml; Actual execution 2026-10-21T07:27:44.487743+00:00 to 2026-10-21T07:27:47.940582+00:00 | supports | Target schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-strict kb/communities/Australian_Lead_Zinc_Polymetallic.yaml --out /private/tmp/cm-review-session/batch-04/000004/strict-report.tsv; Actual execution 2026-10-21T07:27:44.488309+00:00 to 2026-10-21T07:27:54.465236+00:00 | supports | Target strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-terms kb/communities/Australian_Lead_Zinc_Polymetallic.yaml; Actual execution 2026-10-21T07:27:44.493302+00:00 to 2026-10-21T07:27:52.113721+00:00 | supports | Target term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-gtdb kb/communities/Australian_Lead_Zinc_Polymetallic.yaml; Actual execution 2026-10-21T07:27:47.941566+00:00 to 2026-10-21T07:27:48.234883+00:00 | supports | Target GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-gtdb-domain kb/communities/Australian_Lead_Zinc_Polymetallic.yaml; Actual execution 2026-10-21T07:27:48.235334+00:00 to 2026-10-21T07:27:54.864207+00:00 | supports | Target GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-history history/records/Australian_Lead_Zinc_Polymetallic; Actual execution 2026-10-21T07:27:52.114024+00:00 to 2026-10-21T07:27:55.419178+00:00 | supports | Target history validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T07:27:55.421230+00:00 to 2026-10-21T07:27:55.570354+00:00 | supports | Read-only corpus cache-filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src just --no-dotenv validate-references-explained kb/communities/Australian_Lead_Zinc_Polymetallic.yaml; Actual execution 2026-10-21T07:27:55.570879+00:00 to 2026-10-21T07:28:00.169186+00:00 | supports | Target native reference validation passed; semantic source assessment remains separate. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T07:06:05.543108+00:00 to 2026-10-21T07:06:16.498440+00:00 | supports | Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records, including this target's two disconnections, with zero errors and exit 1. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T07:06:16.498920+00:00 to 2026-10-21T07:06:23.361213+00:00 | supports | Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records, including this target's two disconnections, with zero errors and exit 1. |
+
+## Limits And Additional Notes
+
+- Chen 2013 and Luo 2023 full text was unavailable through attempted public routes; their current material claims were assessed from fresh verified abstracts. Unread Methods, supplements and complete data availability are not certified, and no whole-paper absence claim is made.
+- Wakelin, Huang, Liu and Mendez main texts were reviewed; supplements and raw measurements/sequences were not reanalyzed. All six committed source caches contain abstracts only and were preserved.
+- This is a declared composite model, not a verified three-species co-occurrence census. GTDB mapping counts were not recomputed, and source marker-gene similarity does not authenticate strains.
+- GO pH/metal-response annotations are at most proposed organism-response context; the observations do not directly assay cellular pH homeostasis or metal-response mechanisms.
+- Dataset checks cover metadata for two Huang range endpoints, one Mendez clone and one Liu run. Other accessions remain article-reported; intermediate records and raw data were not assessed.
+- Native graph status is INCOMPLETE because of two known representative-taxon disconnections; required corpus gates retain their actual warning failures, and no speculative links were added.
+- The optional structured adapter was unavailable in the owned runtime; the same-batch discovery receipt was explicitly reused and an external-checkout candidate was not executed.
+- Canonical records, caches, history and generated outputs remain unchanged.
+- Quoted excerpts total 3 words for Wakelin, 8 for Chen, 11 for Huang and 3 for Liu; Mendez and Luo have no direct excerpts.
+- The earlier Discussion access limitation is historical; this review newly assesses available full primary text without rewriting that history.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T073926Z-australian-lead-zinc-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Australian lead-zinc model: whole-record source review'
+started_at: '2026-10-21T07:26:53.741395Z'
+finished_at: '2026-10-21T07:39:26.496237Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Canonical target unchanged in this session; earlier codex graph
+    curation prevents person-level independence claims. Separate agents checked ontology,
+    native gates, snippets, history, metadata and metrics; root independently assessed
+    available full sources.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Two major findings concern taxon/site/role attribution and Leptospirillum
+  sulfur oxidation; four minor findings concern category, evidence placement, mineral
+  specificity and data links. All three graph nodes and two arrows remain supported
+  at their stated PARTIAL/HYPOTHESIZED scope. Seven focused gates and cache preflight
+  pass; corpus network gates retain warning failures.
+source:
+  git_revision: c6e5a9b9af2d05e12eaafb2555a53f3a079268f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Australian_Lead_Zinc_Polymetallic/2026-10-05T101150Z-codex-b69920.yaml
+    sha256: 8940179b5ef1c973ff98d30d6bf3d0de9c6d0bc814b18a7759d4928aad4bbb46
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    sha256: 6caa95c7d95905e4ae235578c54a75a73908c698bbf8f5d0ad6b3339595caf63
+    role: target
+  - path: references_cache/PMID_22092956.md
+    sha256: c92b55e92e4f9042ef834e8229f1bfe168b6a246de66151c277fb1c659b3d02f
+    role: context
+  - path: references_cache/PMID_23574280.md
+    sha256: 7c80ba77dff58b2dd0a75437fb046036d2ab361b34baaaeae5ead70a9d57de1c
+    role: context
+  - path: references_cache/doi_10.1016_j.jhazmat.2023.130774.md
+    sha256: 0f3cf7747802336165059e1e4e7ffc404512989e2b3462ac2c5a8b2a10eed863
+    role: context
+  - path: references_cache/doi_10.1128_aem.00294-14.md
+    sha256: e42afd0f9036516e93a9e9b3961928b4b2901e9f5df486e8593fde749867bd13
+    role: context
+  - path: references_cache/doi_10.1128_aem.02458-10.md
+    sha256: 0662e6da3f0634568e51ec042d6961184dc0d592d5cbef9391d1c6db36598f2d
+    role: context
+  - path: references_cache/doi_10.1128_aem.02883-07.md
+    sha256: a499965573f5d30fe3c6759c395284c7c7279fd11fa6b3498741e0de42ccd9bd
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+    sha256: 5076ec8295dacfaae0ae1d829836e4380a312a702c4a43df5f604c3b1b1e0ad3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000004
+  path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+  label: Australian Lead Zinc Polymetallic Tailings Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    role: canonical_record
+scope:
+  description: Entire record, all three taxa, three nodes, two arrows, eight factors,
+    three ingredients and 26 evidence occurrences; four full main primary papers,
+    two freshly verified abstracts, publication metadata and selected accession metadata.
+    No raw sequence, genome, expression, abundance or geochemical analysis was repeated.
+  selection: Next uncovered maintained path after CommunityMech:000003 in batch04;
+    exactly one resolved composite record.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000004
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000004
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    pinned inputs and six caches remained unchanged.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000004
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-strict kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    --out /private/tmp/cm-review-session/batch-04/000004/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    pinned inputs and six caches remained unchanged.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000004
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-terms kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    pinned inputs and six caches remained unchanged.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000004
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    pinned inputs and six caches remained unchanged.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000004
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    pinned inputs and six caches remained unchanged.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000004
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-history history/records/Australian_Lead_Zinc_Polymetallic
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    pinned inputs and six caches remained unchanged.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000004
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    pinned inputs and six caches remained unchanged.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target native reference validation passed; semantic source assessment remains
+    separate.
+  target_ids:
+  - CommunityMech:000004
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-references-explained kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    pinned inputs and six caches remained unchanged.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records,
+    including this target's two disconnections, with zero errors and exit 1.
+  target_ids:
+  - CommunityMech:000004
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Reused fresh full-corpus batch04 execution with the correct runtime;
+    not a target-specific pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records,
+    including this target's two disconnections, with zero errors and exit 1.
+  target_ids:
+  - CommunityMech:000004
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Reused fresh full-corpus batch04 execution with the correct runtime;
+    not a target-specific pass.
+- check_id: primary-source-claims
+  name: Publication identity and current scientific claims
+  status: passed
+  required: true
+  summary: Six publication identities and all current material claims were assessed
+    using four full main papers and two verified abstracts.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - publication-identities
+  - pubmed
+  - wakelin-primary
+  - huang-primary
+  - liu-primary
+  - mendez-primary
+  - chen2013-abstract
+  - luo2023-abstract
+- check_id: remaining-fulltexts
+  name: Additional Chen/Luo full-text retrieval
+  status: unavailable
+  required: false
+  summary: Public attempts did not yield these two full papers; no unread Methods
+    or supplement contents are certified.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - access-limits
+- check_id: dataset-metadata
+  name: Selected source accession metadata
+  status: passed
+  required: true
+  summary: Four selected accession records resolve with study-compatible metadata
+    within the declared endpoint/clone/run scope.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - datasets
+  - dataset-FR682998
+  - dataset-FR683084
+  - dataset-EU014795
+  - dataset-SRR1040478
+- check_id: cross-mech
+  name: CultureMech and ingredient linkages
+  status: not_applicable
+  required: false
+  summary: The complete target encodes no medium or ingredient-Mech IDs or URLs.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - record
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Same-runtime discovery was reused; no expression-module coverage was queried.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+  locator: 'Whole record: three taxa, three nodes, two arrows, eight factors and three
+    ingredients'
+  summary: The description and graph explicitly define a composite tailings model;
+    species representatives are not presented as a cultured three-member consortium.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651260Z'
+- evidence_id: wakelin-primary
+  kind: primary_source
+  reference: PMID:22092956
+  locator: https://oup.silverchair-cdn.com/article-minimal/468428; complete main article,
+    Methods, Results, Discussion and tables
+  summary: Fresh primary main text was assessed; supplements and raw data were not
+    reanalyzed.
+  support: supports
+  accessed_at: '2026-10-21T07:28:10.111743Z'
+  snapshot_sha256: 21b3ee158e8119efe759abffb4849a738ccb0ecdb69f5e2ea5080f6d7e23d1a1
+- evidence_id: huang-primary
+  kind: primary_source
+  reference: doi:10.1128/aem.02458-10
+  locator: https://pmc.ncbi.nlm.nih.gov/articles/PMC3147485/; complete main article,
+    Methods, Results, Discussion and tables
+  summary: Fresh primary main text was assessed; supplements and raw data were not
+    reanalyzed.
+  support: supports
+  accessed_at: '2026-10-21T07:29:44.047067Z'
+  snapshot_sha256: d744e4fdd3d4edc2da87659460162b601aef790574722a036c1dea0a4cf0a516
+- evidence_id: liu-primary
+  kind: primary_source
+  reference: doi:10.1128/aem.00294-14
+  locator: https://pmc.ncbi.nlm.nih.gov/articles/PMC4054149/; complete main article,
+    Methods, Results, Discussion and tables
+  summary: Fresh primary main text was assessed; supplements and raw data were not
+    reanalyzed.
+  support: supports
+  accessed_at: '2026-10-21T07:29:44.049060Z'
+  snapshot_sha256: 5348c07f9a30207978876c75087dd70083e273b610884d0d504f5f1b6db90423
+- evidence_id: mendez-primary
+  kind: primary_source
+  reference: doi:10.1128/aem.02883-07
+  locator: https://pmc.ncbi.nlm.nih.gov/articles/PMC2446573/; complete main article,
+    Methods, Results, Discussion and tables
+  summary: Fresh primary main text was assessed; supplements and raw data were not
+    reanalyzed.
+  support: supports
+  accessed_at: '2026-10-21T07:29:43.995509Z'
+  snapshot_sha256: 271885b85630f0ae2a2def179305517feb9bebdba84b8c0a30410d76b4fa7f51
+- evidence_id: publication-identities
+  kind: database
+  reference: Six cited DOI/PMID pairs
+  locator: source-metadata-audit.json; Europe PMC, PubMed, Crossref and article citation
+    metadata
+  summary: All six titles and publication identifiers correspond; Mendez metadata
+    omits PMCID, but the matching primary text is independently available at PMC2446573.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651721Z'
+  snapshot_sha256: 49da2273dcb2ba5ff3155296f777860c9aad3d7f5c4d66b0ddef686e55d8bc8b
+- evidence_id: chen2013-abstract
+  kind: primary_source
+  reference: PMID:23574280
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1111%2F1462-2920.12114&format=json&resultType=core;
+    fresh abstract only
+  summary: The verified abstract supports the bounded claims assessed here; full Methods,
+    supplementary claims and complete dataset availability were not certified.
+  support: supports
+  accessed_at: '2026-10-21T07:27:34.147084Z'
+  snapshot_sha256: a8cb4dec74d9eb8acc3d3c5ef7bc2d5c79a9e304ceb192407d3d44efe0910d4c
+- evidence_id: luo2023-abstract
+  kind: primary_source
+  reference: doi:10.1016/j.jhazmat.2023.130774
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1016%2Fj.jhazmat.2023.130774&format=json&resultType=core;
+    fresh abstract only
+  summary: The verified abstract supports the bounded claims assessed here; full Methods,
+    supplementary claims and complete dataset availability were not certified.
+  support: supports
+  accessed_at: '2026-10-21T07:27:37.449805Z'
+  snapshot_sha256: c5ce89533b09c5e470ac026d224b5148da032b820e2d812f08d7d7c7547dc21c
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22092956,23574280,36641850&retmode=xml
+  locator: PubMed XML for 22092956, 23574280 and 36641850
+  summary: Independent publication and abstract metadata matches the corresponding
+    cited studies.
+  support: supports
+  accessed_at: '2026-10-21T07:27:31.836010Z'
+  snapshot_sha256: b92c6287e0f0ac6d9c15c869fd4f6a9c109b47b004e228d7eee1d0088b31aae7
+- evidence_id: wakelin-setting
+  kind: primary_source
+  reference: PMID:22092956
+  locator: Site description; sampling and PhyloChip methods; geochemical Results and
+    Discussion; Tables 1-2
+  summary: Teutonic Bore is a natural waste-affected soil slope with galena, sphalerite
+    and measured Fe/Pb/Zn. Episodic rainfall supports the wet/dry setting. PhyloChip
+    samples were rewetted to 50% water-holding capacity at 25 C for seven days; the
+    diverse assemblage is not a three-species census. Conductivity was more strongly
+    associated with composition than pH.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651846Z'
+- evidence_id: weathering
+  kind: primary_source
+  reference: PMID:22092956
+  locator: Abstract; geochemical Results and Discussion
+  summary: Bulk-element dispersal and mobile S/Zn/Cl/Al are measured; neither lead
+    flux nor species-mediated coupling is resolved. BioLog assays measure laboratory
+    heterotrophic potential, not in-situ Fe/S flux.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651847Z'
+  quote: varying elemental dispersal
+- evidence_id: chen-functions
+  kind: primary_source
+  reference: PMID:23574280
+  locator: 'Fresh abstract: T2/T6 metagenomic sentence and its respectively clauses'
+  summary: The T6 carbon/nitrogen assignments include Leptospirillum; the sulfur-oxidation
+    assignment names Acidithiobacillus. This is pathway potential, not realized flux
+    or species-level attribution.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651849Z'
+  quote: genes encoding key enzymes
+- evidence_id: chen-stages
+  kind: primary_source
+  reference: PMID:23574280
+  locator: 'Fresh abstract: six geochemical stages and 16S composition'
+  summary: The six samples are interpreted as an acidification sequence; the 28-58%
+    late-stage fraction concerns Ferroplasma-related sequences, not an independently
+    quantified F. acidiphilum population.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651850Z'
+  quote: likely represented sequential stages
+- evidence_id: huang-occurrence
+  kind: primary_source
+  reference: doi:10.1128/aem.02458-10
+  locator: Abstract (quoted occurrence clause); full main text clone libraries, Fig.
+    2, oxidation-zone Results and site comparison
+  summary: Chinese Pb-Zn samples support A. ferrooxidans and mostly F. acidiphilum-related
+    archaea; generic Leptospirillum occurrence does not identify L. ferriphilum. The
+    Lianping comparison names L. ferrodiazotrophum. Genuine seasonal sampling found
+    little seasonal variation.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651851Z'
+  quote: were predominant in the oxidized zones
+- evidence_id: huang-mechanism
+  kind: primary_source
+  reference: doi:10.1128/aem.02458-10
+  locator: Final discussion of pioneer populations, changing chemistry and future
+    functional work
+  summary: The proposed feedback between microbial metabolism, geochemistry and recruitment
+    remains a hypothesis; the authors caution against unqualified transfer across
+    geology and geography.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651853Z'
+  quote: gradual change in geochemical conditions
+- evidence_id: liu-association
+  kind: primary_source
+  reference: doi:10.1128/aem.00294-14
+  locator: 'Results: community composition; Discussion and Concluding remarks'
+  summary: Spatial Chinese copper-tailings data associate pH with composition and
+    infer succession; they do not track one population through an imposed pH change.
+    Around 20% of Leptospirillum reads are affiliated with L. ferriphilum, providing
+    positive support in that distinct system. Ferrous and ferric ions were measured.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651854Z'
+  quote: space-for-time substitution approach
+- evidence_id: mendez-context
+  kind: primary_source
+  reference: doi:10.1128/aem.02883-07
+  locator: Site/sampling; enumeration methods; Table 4; Summary
+  summary: The abandoned Klondyke site is in Arizona; sample pH values are 2.7 and
+    5.7. Separate Fe/S-oxidizer and heterotroph enumeration assays do not establish
+    cultivation of the whole community. A Leptospirillum isolate has only 98% 16S
+    similarity to L. ferriphilum; remediation monitoring motivates the survey but
+    is not a demonstrated community cleanup function.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651855Z'
+- evidence_id: luo-potential
+  kind: primary_source
+  reference: doi:10.1016/j.jhazmat.2023.130774
+  locator: 'Fresh abstract: genome recovery and depth-related metabolic models'
+  summary: The abstract reports 406 intermediate/high-quality MAGs and depth-related
+    predicted pathways. Gene distributions and proposed metabolic models support computational
+    potential, not direct metabolic flux.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651857Z'
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: CommunityCategoryEnum; FunctionalRoleEnum; AbundanceEnum; EvidenceSourceEnum
+  summary: BIOREMEDIATION denotes pollutant degradation/remediation; PRIMARY_DEGRADER
+    denotes complex-substrate degradation, without an organic-only restriction. COMMON
+    and ABUNDANT are ordinal. Field sampling and computational functional prediction
+    are different evidence scopes.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651858Z'
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO, CHEBI and GO snapshots
+  locator: ontology-authority.json; 14 unique pairs across 24 occurrences; definitions
+    and chemical specificity
+  summary: All labels match. Sulfide salt is a parent class, not an exact identity
+    for two distinct minerals. GO pH/metal response concerns a cell or organism changing
+    state/activity, which is not directly established by community sorting or measured
+    geochemistry alone.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651910Z'
+  snapshot_sha256: 71947b04de29b618d4f34af80d91c2df4b4b24a5e67641058e1758e064f39b38
+- evidence_id: mineral-lookup
+  kind: search
+  reference: Local CHEBI snapshot
+  locator: Bounded exact label and synonym checks for galena/sphalerite
+  summary: No exact replacement was verified in the bounded lookup; valid broad grounding
+    must not be silently presented as exact mineral identity.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651948Z'
+  snapshot_sha256: 1d4a02b267fb1b8c9fb5de94bd49458ec7db4507e90fe2a70acd5ab9ef16690a
+  search_scope: Local ontology label/synonym candidates only; no global absence claim.
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+  locator: All 26 occurrences, 15 unique snippets; pinned caches, fresh abstracts
+    and available full articles
+  summary: 'All snippets are supported: 24 match fresh abstracts after Unicode/whitespace
+    normalization; two require removal of extraction-inserted spaces before commas.
+    Seventeen occurrences also match fresh full text; nine Chen/Luo occurrences remain
+    abstract-verified only.'
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.651998Z'
+  snapshot_sha256: a73fe6233d46471de1fefd4ba870389c634e4a549e39a22a0c0c5fb9b539f1bd
+- evidence_id: history
+  kind: record_content
+  reference: history/records/Australian_Lead_Zinc_Polymetallic; reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+  locator: One sidecar and exact decision row, lines 576-673
+  summary: The prior decision hash matches; graph qualifications are intentional and
+    non-graph metadata was outside the earlier certification.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.652040Z'
+  snapshot_sha256: 5ab6b76ef97aff8f57b4592005c558a255c9c925a9939ef5cef1dde85b9683a1
+- evidence_id: issue-1249
+  kind: database
+  reference: https://github.com/CultureBotAI/CommunityMech/issues/1249
+  locator: Fresh public body/status; gh issue view 1249 --repo CultureBotAI/CommunityMech
+    --json number,title,state,url,updatedAt,body,comments
+  summary: Issue 1249 is closed after a scoped graph repair; its body explicitly excludes
+    broader non-graph identity and metadata certification.
+  support: supports
+  accessed_at: '2026-10-21T07:34:57.978315Z'
+  snapshot_sha256: 7b4d4b29141187be68ad6c3d9d1d9f868c8a55bb6d90c828034e4035f340e79a
+- evidence_id: issue-1251
+  kind: database
+  reference: https://github.com/CultureBotAI/CommunityMech/issues/1251
+  locator: Fresh public body/status; gh issue view 1251 --repo CultureBotAI/CommunityMech
+    --json number,title,state,url,updatedAt,body,comments
+  summary: Issue 1251 is open; the membership follow-up permits source/system separation
+    or explicitly supported representative taxonomy.
+  support: supports
+  accessed_at: '2026-10-21T07:34:58.015271Z'
+  snapshot_sha256: b56c2bc12584336a111e1aebd9bccabddd6e9093c6e28260ac304acde3a234a8
+- evidence_id: local-search
+  kind: search
+  reference: kb/taxa; kb/communities; data/isolates; references_cache; history; prior
+    decisions
+  locator: Ignored-inclusive exact taxon IDs/names and related site/source lookup
+  summary: No supported reusable taxon was found in the bounded search, and the related
+    source/site search matched only this community; six pinned caches are genuinely
+    abstract-only.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.652184Z'
+  snapshot_sha256: 952055b7be19bcedfae0cb8d66bb1f82283acc0119ada2d53af041a352496076
+  search_scope: rg --no-ignore --hidden in the owned worktree, using the three exact
+    IDs/names and source/site terms; not a global absence claim.
+- evidence_id: datasets
+  kind: database
+  reference: Source accession paragraphs and public ENA metadata
+  locator: dataset-verification.json; FR682998 and FR683084 endpoints, EU014795, SRR1040478
+  summary: The two Huang endpoints and the Mendez clone link their exact publications;
+    EU014795 remains an uncultured Acidithiobacillus clone. Liu run metadata maps
+    to PRJNA230134/SRP033381/SRX385209 and is consistent with the article-linked SMC
+    tailings study. Intermediate accession records and sequence content were not assessed.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.652497Z'
+  snapshot_sha256: 3a861ff48c61f3b64a328bc1ab183765cebb018d71913c8a87b684f150226575
+- evidence_id: dataset-FR682998
+  kind: database
+  reference: https://www.ebi.ac.uk/ena/browser/api/embl/FR682998?download=false
+  locator: Public accession metadata only
+  summary: The metadata identity was checked within the scope described by the dataset
+    audit; no raw-read or sequence analysis was performed.
+  support: supports
+  accessed_at: '2026-10-21T07:31:05.112432Z'
+  snapshot_sha256: 4890c9169c0acc89174be8eeb3c8528129173089951e58d9156261007cf09f03
+- evidence_id: dataset-FR683084
+  kind: database
+  reference: https://www.ebi.ac.uk/ena/browser/api/embl/FR683084?download=false
+  locator: Public accession metadata only
+  summary: The metadata identity was checked within the scope described by the dataset
+    audit; no raw-read or sequence analysis was performed.
+  support: supports
+  accessed_at: '2026-10-21T07:31:05.113076Z'
+  snapshot_sha256: f17c2d1f9d7316bf21b6c397ee524f3a3ef40cee30d6f2eac6962570a6083f56
+- evidence_id: dataset-EU014795
+  kind: database
+  reference: https://www.ebi.ac.uk/ena/browser/api/embl/EU014795?download=false
+  locator: Public accession metadata only
+  summary: The metadata identity was checked within the scope described by the dataset
+    audit; no raw-read or sequence analysis was performed.
+  support: supports
+  accessed_at: '2026-10-21T07:31:05.113168Z'
+  snapshot_sha256: 2bf73ac11d93901965adfa229a5c2ff2eaad604e5fe5d029e46ac941f7a2aaaf
+- evidence_id: dataset-SRR1040478
+  kind: database
+  reference: https://www.ebi.ac.uk/ena/portal/api/filereport?accession=SRR1040478&result=read_run&fields=run_accession,study_accession,secondary_study_accession,experiment_accession,sample_accession,scientific_name,study_title&format=json
+  locator: Public accession metadata only
+  summary: The metadata identity was checked within the scope described by the dataset
+    audit; no raw-read or sequence analysis was performed.
+  support: supports
+  accessed_at: '2026-10-21T07:31:05.113240Z'
+  snapshot_sha256: 14a03ace9de44088b754ee869c8a200dda43bc47fee41e2ae553faa345f5a9ba
+- evidence_id: adapter
+  kind: search
+  reference: Optional kg-microbe-sources runner
+  locator: Explicit same-batch04-runtime discovery reuse
+  summary: The runner/module was unavailable; an external-checkout candidate was not
+    executed, and no organism/expression-module coverage was claimed.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.652816Z'
+  snapshot_sha256: fb0b8ae82535a56279bd3920faa3e215de5b6f36edf06046bf149eb73f627d94
+  search_scope: Reused prior fresh batch04 PATH, virtualenv, module and bounded ignored-inclusive
+    shared-tool checks.
+- evidence_id: native-target
+  kind: validation
+  reference: NetworkIntegrityAuditor().audit_community(target)
+  locator: 'support-audit.json: fresh targeted diagnostic and native score components'
+  summary: Three nodes have six evidence items, mean two; two known representative-taxon
+    disconnections make the native graph INCOMPLETE, with zero graph errors.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.652861Z'
+  snapshot_sha256: e335fd87d6fbeca7f1d7becda42dcf2a888fe2d6a93f398efc4c80e4f8921e09
+- evidence_id: access-limits
+  kind: validation
+  reference: Fresh public full-text retrieval receipts
+  locator: Chen university/Wiley requests; Luo publisher shell and public API attempts
+  summary: Chen full-text requests were denied; Luo responses contained a linking
+    shell or failed access, not a full article. The two fresh abstracts were assessed
+    without certifying unread Methods or an absence of additional source evidence.
+  support: supports
+  accessed_at: '2026-10-21T07:38:15.652903Z'
+  snapshot_sha256: 181fbefc41210d8176c1eca36bea47c0137c96cc1efbd5da160c4d266e6a2155
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+  locator: Actual execution 2026-10-21T07:27:44.487743+00:00 to 2026-10-21T07:27:47.940582+00:00
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:27:47.940582Z'
+  snapshot_sha256: 0949d90f69483365051e1cbc9fcb888940e5e579c1b66dd29e929e34e3ebcb46
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-strict kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    --out /private/tmp/cm-review-session/batch-04/000004/strict-report.tsv
+  locator: Actual execution 2026-10-21T07:27:44.488309+00:00 to 2026-10-21T07:27:54.465236+00:00
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:27:54.465236Z'
+  snapshot_sha256: 96e12236448c2c30e7c1941cf08f4956f0424f5d6f4c9254056fa303abc40902
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-terms kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+  locator: Actual execution 2026-10-21T07:27:44.493302+00:00 to 2026-10-21T07:27:52.113721+00:00
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:27:52.113721Z'
+  snapshot_sha256: 84fa2afeeaa2e8bc9fd49cdc8d3b7a5ae186622cee607e272ff0ff600fb6089b
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+  locator: Actual execution 2026-10-21T07:27:47.941566+00:00 to 2026-10-21T07:27:48.234883+00:00
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:27:48.234883Z'
+  snapshot_sha256: 2532e8efa969ef2a278429a7d674e3b313ff7d169b4cb3d611ddf747a5b38153
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+  locator: Actual execution 2026-10-21T07:27:48.235334+00:00 to 2026-10-21T07:27:54.864207+00:00
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:27:54.864207Z'
+  snapshot_sha256: 5eb5c79348660ea7042df691deafc6e4d1ad097db9377ab4fd2d68368d34c087
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-history history/records/Australian_Lead_Zinc_Polymetallic
+  locator: Actual execution 2026-10-21T07:27:52.114024+00:00 to 2026-10-21T07:27:55.419178+00:00
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-10-21T07:27:55.419178Z'
+  snapshot_sha256: cb4beb9df8a5c29ee8e075d15a5b96b8aafc117acba1660951a38c46d75150c2
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T07:27:55.421230+00:00 to 2026-10-21T07:27:55.570354+00:00
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T07:27:55.570354Z'
+  snapshot_sha256: ab29cdbbad67603a1c4675df2ca062901ddbf72b76c09a1276ef4783b7be05ea
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src
+    just --no-dotenv validate-references-explained kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+  locator: Actual execution 2026-10-21T07:27:55.570879+00:00 to 2026-10-21T07:28:00.169186+00:00
+  summary: Target native reference validation passed; semantic source assessment remains
+    separate.
+  support: supports
+  accessed_at: '2026-10-21T07:28:00.169186Z'
+  snapshot_sha256: 57350420446c9750b3b444277a371b9a8777bc0ea21a927e4b676c4818b148cc
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T07:06:05.543108+00:00 to 2026-10-21T07:06:16.498440+00:00
+  summary: Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records,
+    including this target's two disconnections, with zero errors and exit 1.
+  support: supports
+  accessed_at: '2026-10-21T07:06:16.498440Z'
+  snapshot_sha256: 7e9c998a5a9fe2b1a28c809bd5eb651205b3256dd64666ef7a9ca6fbde7504fa
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-04/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T07:06:16.498920+00:00 to 2026-10-21T07:06:23.361213+00:00
+  summary: Fresh batch04 corpus execution returned 57 warnings across 21 of 477 records,
+    including this target's two disconnections, with zero errors and exit 1.
+  support: supports
+  accessed_at: '2026-10-21T07:06:23.361213Z'
+  snapshot_sha256: 5ba6a0b7c789574c80df1b60d81f0e54454b66e4f919949ad352cff92dd9744e
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Composite model, source systems and experimental scope
+  outcome: supported
+  summary: The maintained target is resolved as an explicitly composite natural-tailings
+    model; its qualifications prevent treating it as one cultured or geographically
+    uniform consortium.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - record
+  - publication-identities
+  - wakelin-setting
+  - huang-occurrence
+  - liu-association
+  - mendez-context
+  dimensions:
+  - name: community_scope
+    value: Declared composite natural-tailings model
+    definition: Representative taxa and community processes are synthesized across
+      explicitly distinguished studies.
+    evidence_ids:
+    - record
+  - name: source_taxon_scope
+    value: Species representatives with genus-level abundance and separate site observations
+    definition: A valid species identifier does not establish co-occurrence or identical
+      function at every source site.
+    evidence_ids:
+    - huang-occurrence
+    - liu-association
+    - chen-stages
+    - mendez-context
+  - name: environment
+    value: Mine tailings and waste-affected soil, across distinct climates and ore
+      systems
+    definition: The mine-tailing term is appropriate; site-specific pH and mineral
+      results must retain their source.
+    evidence_ids:
+    - ontology
+    - wakelin-setting
+    - mendez-context
+  - name: experimental_setting
+    value: Field chemistry and community profiling, plus laboratory preparation/enumeration
+    definition: Natural origin is compatible with laboratory sample treatment; these
+      are not whole-consortium cultivation protocols.
+    evidence_ids:
+    - wakelin-setting
+    - mendez-context
+  - name: evidence_tier
+    value: Measured chemistry/composition, predicted genes, proposed feedback
+    definition: Genomic potential and observational association do not establish realized
+      coupled flux.
+    evidence_ids:
+    - chen-functions
+    - liu-association
+    - luo-potential
+  - name: grounding_status
+    value: All 14 ontology pairs valid, with rank and specificity limits
+    definition: GTDB syntax/domain passes do not independently recompute historical
+      genome mappings or certify source species identity.
+    evidence_ids:
+    - ontology
+  - name: source_strain
+    value: No verified common strain roster across source systems
+    definition: Species or marker-related population assignments do not authenticate
+      a shared strain-level consortium.
+    evidence_ids:
+    - huang-occurrence
+    - liu-association
+    - mendez-context
+  - name: medium
+    value: No whole-community cultivation medium specified
+    definition: Source-specific sample rewetting and enumeration assays retain their
+      experimental context.
+    evidence_ids:
+    - wakelin-setting
+    - mendez-context
+- assessment_id: taxonomy
+  area: grounding
+  topic: All three taxa, roles and ordinal abundances
+  outcome: concern
+  summary: Source-specific identity, abundance and function need tighter attribution;
+    the representative notes are explicit, but uniform PRIMARY_DEGRADER and species-level
+    abundance interpretation are not established by the attached evidence.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - record
+  - schema
+  - huang-occurrence
+  - chen-stages
+  - liu-association
+  - mendez-context
+  - ontology
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Surface Iron and Sulfur Oxidation Potential'
+  outcome: supported
+  summary: The node is supported at its stated PARTIAL community-level scope.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - record
+  - chen-functions
+  - huang-occurrence
+  details: Ferroplasma acidiphilum is the sole listed participant, representing a
+    Chinese survey association rather than every metabolic carrier. Direction is potential
+    Fe/S transformation toward oxidants/acidity; context is genomic inference and
+    oxidation-zone occurrence, explicitly not measured Australian flux. Linked source
+    evidence provides exact locators and short excerpts.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Pb-Zn Tailings Acidification and Metal Mobilization'
+  outcome: supported
+  summary: The node is supported at its stated PARTIAL community-level scope.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - record
+  - weathering
+  - huang-occurrence
+  details: The sole listed F. acidiphilum participant is a Chinese association alongside
+    a separate Australian geochemical observation. Direction is proposed weathering/acidification
+    toward mobile products; neither species-mediated lead flux nor syntrophic exchange
+    is demonstrated. Linked source evidence provides exact locators and short excerpts.
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: pH-Structured Acidophile Succession'
+  outcome: supported
+  summary: The node is supported at its stated PARTIAL community-level scope.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - record
+  - chen-stages
+  - liu-association
+  details: The sole listed F. acidiphilum participant represents source-linked composition
+    patterns. Direction is pH/oxidation-associated community filtering across Chinese
+    spatial samples; seasonal observations are separately qualified and do not establish
+    controlled longitudinal succession. Linked source evidence provides exact locators
+    and short excerpts.
+- assessment_id: arrow-0
+  area: graph
+  topic: ecological_interactions[0].downstream[0]
+  outcome: supported
+  summary: The oxidation-potential to acidification/mobilization arrow is appropriately
+    HYPOTHESIZED.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - record
+  - chen-functions
+  - huang-mechanism
+  - weathering
+  details: 'The representative F. acidiphilum association remains nested within a
+    community process: realized Fe/S oxidation could regenerate ferric iron/acidity
+    and promote weathering. The Chinese/Australian sources do not establish a same-community
+    flux or selective causal intervention.'
+- assessment_id: arrow-2
+  area: graph
+  topic: ecological_interactions[2].downstream[0]
+  outcome: supported
+  summary: The pH-structured succession to oxidation-potential arrow remains a defensible
+    hypothesis.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - record
+  - liu-association
+  - huang-mechanism
+  details: Community filtering could alter the abundance of Fe/S metabolic carriers,
+    with F. acidiphilum listed only as a supported representative. Spatial associations
+    do not establish imposed-pH causality, pathway activation or realized flux.
+- assessment_id: process-grounding
+  area: grounding
+  topic: All GO processes and ionic/mineral terms
+  outcome: concern
+  summary: Labels are correct, but mineral specificity and biological-response scope
+    need explicit limits.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - ontology
+  - mineral-lookup
+  - chen-functions
+  - liu-association
+  - weathering
+  details: GO:0006790 includes sulfur assimilation as well as other sulfur metabolism.
+    GO:0009268 and GO:0010038 are at most hypothesized organism-response context here;
+    population filtering and measured chemistry are not direct assays of those cellular
+    processes. The graph explicitly disclaims cellular pH homeostasis. Elemental Fe/Pb
+    measurements also do not independently specify every ionic pool; the ingredient
+    prose remains contextual.
+- assessment_id: environment
+  area: scope
+  topic: Origin, state, category and all eight environmental factors
+  outcome: concern
+  summary: NATURAL, PERTURBED and mine-tailing context are supported; BIOREMEDIATION
+    and the evidence tiers of inferred metabolism require revision.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - record
+  - schema
+  - wakelin-setting
+  - mendez-context
+  - chen-stages
+  - luo-potential
+  details: The pH values, late-stage genus fraction, MAG count, abandoned status and
+    arid setting are source-supported within their distinct studies. Attached excerpts
+    should include the numerical/status fact and retain spatial-inference limits.
+- assessment_id: metals
+  area: scope
+  topic: All three ingredients and metal relevance
+  outcome: supported
+  summary: Significant Fe/Pb/Zn context is real; metal occurrence, ionic interpretation
+    and demonstrated mobilization remain distinct.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - record
+  - weathering
+  - wakelin-setting
+  - liu-association
+  - ontology
+  details: The automated metal note is not evidence of a new assay, but primary measurements
+    support the underlying metal relevance. No unmeasured lead flux, exact ferrous
+    pool at every site or newly verified REE function is inferred.
+- assessment_id: cultivation
+  area: scope
+  topic: Absent growth_media and cultivation_setup
+  outcome: supported
+  summary: No required whole-community cultivation block is missing from this natural
+    composite model.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - record
+  - wakelin-setting
+  - mendez-context
+  details: Sample rewetting and separate enumeration media are assay preparation;
+    any future conditions must retain that scope rather than becoming a consortium
+    growth recipe.
+- assessment_id: datasets
+  area: completeness
+  topic: Absent structured dataset/resource links
+  outcome: concern
+  summary: Verified source accession metadata offers bounded enrichment without establishing
+    a unified species roster.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - record
+  - datasets
+- assessment_id: history
+  area: provenance
+  topic: Cache boundaries, history and current linked issues
+  outcome: supported
+  summary: All snippets verify within declared access limits; earlier graph qualifications
+    and the open membership follow-up remain intact.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - snippets
+  - history
+  - issue-1249
+  - issue-1251
+  - local-search
+- assessment_id: validation
+  area: schema
+  topic: Native gates, ontology and evidence checks
+  outcome: supported
+  summary: Seven focused gates and cache preflight pass; 14 ontology pairs and 26
+    snippets verify, while corpus network warning failures remain explicit.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - ontology
+  - snippets
+  - check-validate
+  - check-validate-strict
+  - check-audit-network
+  - native-target
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: supported
+  summary: Completeness is 80 and quality is 92; the two known disconnections prevent
+    a network-completeness bonus.
+  target_ids:
+  - CommunityMech:000004
+  evidence_ids:
+  - record
+  - schema
+  - native-target
+  metrics:
+  - name: completeness
+    value: 80
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100, 50 required metadata including all taxon roles + 5 environment
+      + 10 at least 3 factors + 10 at least 3 nodes + 5 resources + 10 media + 5 datasets
+      + 5 node metabolites). 50 + 5 + 10 + 10 + 0 + 0 + 0 + 5 = 80; populated roles
+      receive coverage credit regardless of their scientific support.
+  - name: validation_quality
+    value: 92
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 - 50P1 - 10P2 - 2P3 + 20 min(mean node evidence / 2, 1)
+      + 15 if native COMPLETE, 0, 100). P1 = 0, P2 = 2, P3 = 4, P4 = 0; 6 items /
+      3 nodes = 2; native INCOMPLETE with two known disconnections. 100 - 20 - 8 +
+      20 + 0 = 92; no duplicate finding penalty for the membership warnings.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P3
+    value: 4
+    unit: findings
+    definition: Native severity count for this reviewed target.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count for this reviewed target.
+findings:
+- finding_id: taxon-attribution
+  issue_key: cm-000004-taxon-attribution
+  category: scope
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: source attribution materially changes the inferred
+    membership or ecological function.'
+  rule_id: review-checklist.membership
+  status: open
+  certainty: confirmed
+  title: Representative taxa need source-specific identity, abundance and role support
+  description: The explicit composite model is identifiable, but species entries combine
+    genus-level abundance, observations from different sites and uniform PRIMARY_DEGRADER
+    roles. The Ferroplasma fraction is correctly genus-labelled yet cannot independently
+    quantify F. acidiphilum; L. ferriphilum evidence from Chinese copper tailings
+    does not prove its Australian or attached Pb-Zn occurrence. The attached evidence
+    does not establish complex-substrate degradation uniformly. Correct identifiers
+    and GTDB mappings do not resolve these source-to-role transfers.
+  target_ids:
+  - CommunityMech:000004
+  field_paths:
+  - taxonomy[*].taxon_term.notes
+  - taxonomy[*].functional_role
+  - taxonomy[*].abundance_level
+  - taxonomy[*].abundance_value
+  - taxonomy[*].evidence
+  evidence_ids:
+  - record
+  - schema
+  - huang-occurrence
+  - liu-association
+  - chen-stages
+  - mendez-context
+  - ontology
+  - issue-1251
+  - native-target
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    role: canonical_record
+- finding_id: leptospirillum-sulfur
+  issue_key: cm-000004-leptospirillum-sulfur
+  category: provenance
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: source attribution materially changes the inferred
+    membership or ecological function.'
+  rule_id: review-checklist.functional_attribution
+  status: open
+  certainty: confirmed
+  title: Leptospirillum is assigned sulfur oxidation contrary to the cited allocation
+  description: Taxonomy notes and the Chen evidence explanation assign sulfur oxidation
+    to Leptospirillum, while the cited T6 respectively clause allocates that function
+    to Acidithiobacillus. The graph already preserves the distinction between sulfur
+    assimilation and dissimilatory oxidation. This is a material functional attribution
+    error, not a fabricated quotation or a claim that unread Chen Methods contain
+    no relevant genes.
+  target_ids:
+  - CommunityMech:000004
+  field_paths:
+  - taxonomy[1].taxon_term.notes
+  - taxonomy[1].evidence[0].explanation
+  evidence_ids:
+  - record
+  - chen-functions
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    role: canonical_record
+- finding_id: category
+  issue_key: cm-000004-category
+  category: scope
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded classification, provenance, specificity
+    or completeness defect without loss of the qualified model.'
+  rule_id: review-checklist.category
+  status: open
+  certainty: confirmed
+  title: BIOREMEDIATION overstates the demonstrated community function
+  description: The cited studies characterize naturally acidifying and metal-affected
+    communities; remediation motivation or biomarker relevance does not demonstrate
+    pollutant removal by this modeled community.
+  target_ids:
+  - CommunityMech:000004
+  field_paths:
+  - community_category
+  evidence_ids:
+  - record
+  - schema
+  - mendez-context
+  - weathering
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    role: canonical_record
+- finding_id: evidence-tier
+  issue_key: cm-000004-evidence-tier
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded classification, provenance, specificity
+    or completeness defect without loss of the qualified model.'
+  rule_id: review-checklist.evidence_placement
+  status: open
+  certainty: confirmed
+  title: Computational potential and field evidence are mixed outside the graph
+  description: Chen taxon functional predictions and Luo depth/MAG metabolic models
+    are labelled IN_VIVO despite supporting computational inference. Some exact snippets
+    also omit the completed occurrence clause or the numerical/status fact they are
+    used to support; inspected source text supplies those facts.
+  target_ids:
+  - CommunityMech:000004
+  field_paths:
+  - taxonomy[0].evidence[0].evidence_source
+  - taxonomy[1].evidence[0].evidence_source
+  - environmental_factors[4].evidence[0].evidence_source
+  - environmental_factors[6].evidence[0].evidence_source
+  - taxonomy[0:2].evidence[1]
+  - environmental_factors[0].evidence
+  - environmental_factors[6:8].evidence
+  evidence_ids:
+  - schema
+  - chen-functions
+  - luo-potential
+  - huang-occurrence
+  - mendez-context
+  - snippets
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    role: canonical_record
+- finding_id: mineral-specificity
+  issue_key: cm-000004-mineral-specificity
+  category: grounding
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded classification, provenance, specificity
+    or completeness defect without loss of the qualified model.'
+  rule_id: review-checklist.chemical_specificity
+  status: open
+  certainty: confirmed
+  title: Two distinct minerals share an undifferentiated sulfide-salt anchor
+  description: Galena and sphalerite occur in the source setting, but both use CHEBI:46718,
+    a broad sulfide-salt class. The labels are canonical; the defect is loss of named
+    mineral identity, not false mineral occurrence or a verified wrong replacement
+    ID.
+  target_ids:
+  - CommunityMech:000004
+  field_paths:
+  - ecological_interactions[1].metabolites[0].term
+  - ecological_interactions[1].metabolites[1].term
+  evidence_ids:
+  - ontology
+  - mineral-lookup
+  - wakelin-setting
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    role: canonical_record
+- finding_id: dataset-links
+  issue_key: cm-000004-dataset-links
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded classification, provenance, specificity
+    or completeness defect without loss of the qualified model.'
+  rule_id: review-checklist.datasets
+  status: open
+  certainty: confirmed
+  title: Available source sequence resources are not linked
+  description: The record has no structured source-data links although selected primary
+    accession metadata verifies. These resources cover separate sites and assays,
+    not one pooled consortium or verified species-genome set.
+  target_ids:
+  - CommunityMech:000004
+  field_paths:
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - datasets
+  - dataset-FR682998
+  - dataset-FR683084
+  - dataset-EU014795
+  - dataset-SRR1040478
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    role: canonical_record
+actions:
+- action_id: fix-taxon-attribution
+  description: Resolve the membership follow-up using source-specific rosters or explicitly
+    supported representative/aggregate taxonomy; attach abundance and roles at the
+    rank, site and assay actually measured.
+  finding_ids:
+  - taxon-attribution
+  target_ids:
+  - CommunityMech:000004
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Keep the declared composite identity or justify any source/system separation;
+    a split is not mandatory.
+  - Species occurrence and genus-level fractions remain distinguishable.
+  - Each retained role has claim-specific support; no universal replacement role or
+    numerical abundance cutoff is invented.
+  - Rerun term, reference and network checks without adding speculative interactions
+    to clear warnings.
+- action_id: fix-leptospirillum-sulfur
+  description: Remove the unsupported sulfur-oxidation assignment or replace it only
+    with precise source-backed functional evidence, preserving supported carbon/nitrogen
+    and iron-oxidizer context.
+  finding_ids:
+  - leptospirillum-sulfur
+  target_ids:
+  - CommunityMech:000004
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    role: canonical_record
+  acceptance_checks:
+  - The cited allocation is parsed by pathway and taxon.
+  - Assimilation is not equated with dissimilatory oxidation.
+  - Taxonomy and graph explanations are consistent; reference validation passes.
+- action_id: fix-category
+  description: Choose a source-supported category for the observed natural community
+    and retain remediation relevance as context where appropriate.
+  finding_ids:
+  - category
+  target_ids:
+  - CommunityMech:000004
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    role: canonical_record
+  acceptance_checks:
+  - The category reflects demonstrated function or habitat rather than intended research
+    application.
+  - Natural origin and disturbance state remain source-backed.
+  - Strict validation passes.
+- action_id: fix-evidence-tier
+  description: Separate field observations from computational interpretations and
+    use short complete excerpts for the exact attached claim.
+  finding_ids:
+  - evidence-tier
+  target_ids:
+  - CommunityMech:000004
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Functional predictions have the appropriate evidence tier without relabelling
+    every field observation computational.
+  - Numerical pH/MAG and abandoned-status claims have direct source locators/excerpts.
+  - Preserve exact valid quotations and rerun reference validation.
+- action_id: fix-mineral-specificity
+  description: Verify more specific chemical/mineral grounding if available, or explicitly
+    mark the existing anchors as broad class mappings.
+  finding_ids:
+  - mineral-specificity
+  target_ids:
+  - CommunityMech:000004
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain distinct PbS/ZnS mineral identities in the representation.
+  - Do not invent an exact ontology replacement from an unverified synonym.
+  - Term and reference checks pass.
+- action_id: fix-dataset-links
+  description: Add appropriately scoped source data references, distinguishing accession
+    ranges reported by articles from individually verified metadata.
+  finding_ids:
+  - dataset-links
+  target_ids:
+  - CommunityMech:000004
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Australian_Lead_Zinc_Polymetallic.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Mark Huang endpoint-only verification and the uninspected intermediate range.
+  - Retain the Mendez clone identity and Liu run/study context without upgrading either
+    to an Australian species genome.
+  - No raw sequence analysis or contents verification is implied.
+  - Strict and reference checks pass.
+limitations:
+- Chen 2013 and Luo 2023 full text was unavailable through attempted public routes;
+  their current material claims were assessed from fresh verified abstracts. Unread
+  Methods, supplements and complete data availability are not certified, and no whole-paper
+  absence claim is made.
+- Wakelin, Huang, Liu and Mendez main texts were reviewed; supplements and raw measurements/sequences
+  were not reanalyzed. All six committed source caches contain abstracts only and
+  were preserved.
+- This is a declared composite model, not a verified three-species co-occurrence census.
+  GTDB mapping counts were not recomputed, and source marker-gene similarity does
+  not authenticate strains.
+- GO pH/metal-response annotations are at most proposed organism-response context;
+  the observations do not directly assay cellular pH homeostasis or metal-response
+  mechanisms.
+- Dataset checks cover metadata for two Huang range endpoints, one Mendez clone and
+  one Liu run. Other accessions remain article-reported; intermediate records and
+  raw data were not assessed.
+- Native graph status is INCOMPLETE because of two known representative-taxon disconnections;
+  required corpus gates retain their actual warning failures, and no speculative links
+  were added.
+- The optional structured adapter was unavailable in the owned runtime; the same-batch
+  discovery receipt was explicitly reused and an external-checkout candidate was not
+  executed.
+notes:
+- Canonical records, caches, history and generated outputs remain unchanged.
+- Quoted excerpts total 3 words for Wakelin, 8 for Chen, 11 for Huang and 3 for Liu;
+  Mendez and Luo have no direct excerpts.
+- The earlier Discussion access limitation is historical; this review newly assesses
+  available full primary text without rewriting that history.
+tags:
+- record-review
+- mine-tailings
+- acidification
+- batch-04
+```

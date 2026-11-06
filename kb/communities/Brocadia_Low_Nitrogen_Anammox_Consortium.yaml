@@ -82,7 +82,9 @@ taxonomy:
     explanation: Supports Ca. Kuenenia as the early-acclimation lineage tracked in the biofilter succession study.
 ecological_interactions:
 - name: Brocadia complementary low-nitrogen auxotrophy
-  description: SMETANA modeling inferred complementary auxotrophies among the long-term Ca. Brocadia assemblage, consistent
+  description: Under sustained low-nitrogen biofilter operation, functional succession replaced the early-acclimation Ca.
+    Kuenenia lineage (which downregulated costly aromatic amino-acid biosynthesis by 25.6%-38.8%) with a transcriptionally
+    activated multispecies Ca. Brocadia assemblage characterized by SMETANA-inferred complementary auxotrophies, consistent
     with potential cooperation rather than dominance by one superior anammox competitor.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
@@ -91,7 +93,16 @@ ecological_interactions:
     term:
       id: NCBITaxon:380240
       label: Candidatus Brocadia
+  - preferred_term: Ca. Kuenenia early-acclimation lineage
+    term:
+      id: NCBITaxon:380738
+      label: Candidatus Kuenenia
   evidence:
+  - reference: PMID:42323145
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Ultimately, Ca. Brocadia replaced Ca. Kuenenia as the dominant functional lineage
+    explanation: Supports the community-level low-nitrogen succession linking the early-acclimation Ca. Kuenenia lineage and the replacing Ca. Brocadia assemblage.
   - reference: PMID:42323145
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
@@ -207,4 +218,9 @@ curation_history:
     biofilter instead of laboratory environment, removing an inferred SMETANA model_source, dropping unsupported Ca. Kuenenia
     ordinal abundance, and tightening quantitative evidence snippets for Brocadia anammox-gene upregulation and metabolic
     resource overlap.
+  llm_assisted: true
+- timestamp: '2026-10-21T19:00:00Z'
+  curator: claude
+  action: CURATE_YAML_RECORD
+  changes: Added Ca. Kuenenia early-acclimation lineage to participating_taxa on the COMMUNITY_LEVEL low-nitrogen succession/auxotrophy interaction (#2048).
   llm_assisted: true

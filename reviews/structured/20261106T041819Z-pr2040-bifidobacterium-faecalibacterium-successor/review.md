@@ -1,0 +1,2078 @@
+# Bifidobacterium–Faecalibacterium 2′-FL/FOS: current-main review successor
+
+- Review: 20261106T041819Z-pr2040-bifidobacterium-faecalibacterium-successor
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-06T04:11:33.264631Z
+- Finished UTC: 2026-11-06T04:18:19.626551Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Current main adds DOMINANT to both members and one source-exact abundance quotation under B. bifidum. Fresh complete primary text, Figures 1–4, Supplementary S1 and culture/taxonomic authorities retain all three original findings: A2-165 species grounding (P2), unsupported DIET category (P2), and B. bifidum consumer role (P3). A new P3 asks for local Faecalibacterium abundance evidence and its FOS-only treatment qualifier. Both members can be prominent across different treatment arms; they are not simultaneously measured at 60% and 95%. Eight focused checks pass; corpus network checks retain 44 warnings across 16 of 503 records, with no target issues.
+
+## Scope And Provenance
+
+Entire current target, two nodes, no downstream arrows, 32 snippets and four history sidecars. Fresh complete main XML, all four main figures, full one-page S1 PDF and pixels, current JCM/NCBI authority metadata and native checks were assessed. No raw-data, genome or statistical reanalysis.
+
+Selection: Refresh the only stale target in PR 2040 against current merged main. Exactly four parsed leaves were added: taxonomy[0].abundance_level, taxonomy[0].evidence[2], taxonomy[1].abundance_level and curation_history[3]. All three original findings were reassessed with stable issue keys and exact predecessor links.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 64fc1f97b55421109911e02a1cacf0e7a7fffec6.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000401 | kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml | maintained | Bifidobacterium-Faecalibacterium 2′-FL/FOS Butyrate Coculture |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000401 | Target schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000401 | Target strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000401 | Target term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000401 | Target GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000401 | Target GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000401 | Target history validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000401 | Read-only corpus cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000401 | Target reference validation passed against the pinned cache. |
+| audit-network | failed | True | CommunityMech:000401 | Fresh corpus command retains baseline exit 1: 44 warnings across 16 of 503 records; target-specific native audit is empty. |
+| check-network-quality | failed | True | CommunityMech:000401 | Fresh corpus command retains baseline exit 1: 44 warnings across 16 of 503 records; target-specific native audit is empty. |
+| Primary publication and strain authority | passed | True | CommunityMech:000401 | Direct metadata/full text and JCM/OAK identities were verified, revealing the current A2-165 nomenclature mismatch. |
+| Full primary scientific assessment | passed | True | CommunityMech:000401 | Fresh complete main text, all four figures and full one-page S1 were inspected; numerical, treatment and mechanism scopes remain distinct. |
+| Encoded medium/ingredient-Mech links | not_applicable | False | CommunityMech:000401 | No CultureMech or MediaIngredientMech identifier is encoded; exact recipe equivalence was not inferred. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000401 | Optional runner unavailable in the bounded discovery; fresh public catalog contains no applicable organism entry. |
+
+## Scientific And Domain Assessments
+
+### Exact model and strain provenance
+
+identity: concern. Targets: CommunityMech:000401.
+
+The experiment is resolved, but its A2-165 current species grounding must be reconciled with the paper’s legacy name.
+
+### taxonomy[0]: B. bifidum JCM1254
+
+grounding: concern. Targets: CommunityMech:000401.
+
+Species and collection identity are supported, but the recipient CROSS_FEEDER role lacks source support.
+
+The substrate-response evidence supports degradation of the supplied oligosaccharide and a donor interpretation. The source does not show B. bifidum consuming Faecalibacterium metabolites. Its existing species 1681 ID is compatible with the named strain; optional strain 398514 enrichment is not required to fix a wrong identity.
+
+### taxonomy[1]: A2-165/JCM31915
+
+grounding: concern. Targets: CommunityMech:000401.
+
+The named culture is current F. duncaniae, not species 853 F. prausnitzii.
+
+This is a current grounding correction for the same biological isolate, not a different experiment or evidence fabrication. Preserve A2-165/JCM31915 and legacy source quotations; use verified current nomenclature consistently in taxonomy and graph participants. FOS utilization supports the substrate-degrader role; acetate uptake remains author-inferred and should retain its qualification. Catalogue identity alone does not resolve GTDB. Its new DOMINANT field is defensible as prominence in this model across treatment conditions, but its own evidence list does not contain the FOS-only relative-abundance support; add that local evidence and condition qualifier without changing the source's literal legacy species name.
+
+### community_category: DIET
+
+evidence: concern. Targets: CommunityMech:000401.
+
+A dietary-substrate experiment does not establish direct interspecies electron transfer.
+
+No direct electrical coupling is measured or proposed in the inspected study. Choose a schema-valid category matching the verified gut-culture experiment, with rationale; do not infer a replacement category solely from the word diet or force a syntrophy classification.
+
+### ecological_interactions[0]: ratio-dependent butyrate peak
+
+graph: supported. Targets: CommunityMech:000401.
+
+Retain the measured community-level endpoint with its present assay and mechanism limits.
+
+Participants are JCM1254 and A2-165, whose current taxon annotation needs the separate correction. The node has no donor-to-recipient direction or downstream arrow. Its 10:90 maximum, growth/output distinction, fixed added carbohydrate and 24-hour endpoint are supported; Figure 3d separates the peak statistically. Preserve its warning against an in-vivo optimum or donor-resolved transfer claim.
+
+### ecological_interactions[1]: putative JCM1254 → A2-165 acetate support
+
+graph: supported. Targets: CommunityMech:000401.
+
+Retain the explicitly PARTIAL cross-feeding interpretation, distinct from the measured acid endpoints.
+
+The proposed donor is B. bifidum and recipient is A2-165/current F. duncaniae; acetate is the only encoded pairwise metabolite. Main Discussion proposes this direction while acknowledging absent flux, pH and residual-substrate measurements. qPCR and S1 are abundance estimates, not viable counts. Keep zero downstream arrows and do not convert this interpretation into demonstrated acetate transfer.
+
+### Medium, design, factors and batch setup
+
+completeness: supported. Targets: CommunityMech:000401.
+
+The recorded perturbation, incubation and derived working volume agree with the focal Methods.
+
+Monocultures receive one 8 µL standardized suspension; cocultures receive two into 800 µL medium, giving the explicitly modeled 816 µL. This arithmetic does not establish equal cell counts or biomass. Keep initial glucose-YCFA revival distinct from sugar/VFA-free YCFA− assays. Culture pH is unmeasured; chromatographic mobile-phase pH and column temperature are analytical settings, not culture conditions. Basal recipe expansion would require the cited formulation; no catalogue protocol is substituted.
+
+### 2′-FL, FOS, acetate, butyrate and GO scope
+
+grounding: supported. Targets: CommunityMech:000401.
+
+The ingredients and broad carbohydrate-process grounding fit the bounded experiment.
+
+FOS is the source preparation of kestose, nystose and fructofuranosylnystose, not an automatically interchangeable single compound. Acetate is measured and only a proposed contributor to butyrate; the ingredient prose preserves that distinction. No metal/REE phenotype is asserted. The broad GO label is valid without proving a unique enzymatic pathway.
+
+### Source excerpts, prior repairs and resources
+
+provenance: supported. Targets: CommunityMech:000401.
+
+All 32 snippets and four sidecars preserve source provenance; current abundance fields resolve the narrow omission while their evidence placement needs one local refinement.
+
+Issues 991–994 and 1254 are CLOSED and their graph/volume/evidence repairs remain present; 1256 is OPEN for taxonomy. Issue 2113 is CLOSED and both abundance fields now exist. The one new quotation covers both organisms but resides only under taxonomy[0]. This observation does not declare history false or reopen the resolved missing-field finding. Publication resources resolve; catalogue genome links remain separate from focal-study data.
+
+### Native checks and current source assessment
+
+schema: supported. Targets: CommunityMech:000401.
+
+Eight focused/native checks pass, all eight encoded term labels and all 32 snippets match. Fresh NCBI/JCM checks expose the persistent strain-species mismatch beyond lexical validation. Corpus network commands retain their 44-warning exits, with no target issues.
+
+### Native completeness and quality
+
+completeness: supported. Targets: CommunityMech:000401.
+
+Mechanical metrics remain distinct from experimental correctness and taxonomic attribution.
+
+### Fresh input and bounded prior abundance resolution
+
+provenance: concern. Targets: CommunityMech:000401.
+
+Both previously missing abundance fields are present, but Faecalibacterium needs its own condition-scoped evidence.
+
+The exact delta preserves all three original finding surfaces. The source's two-sentence passage covers both taxa but was added only to taxonomy[0]. The prior c6s5 resolution of missing fields remains intact; a distinct new concern addresses local attachment and interpretation, without claiming both organisms dominate every treatment. No other issue-2113 target or grouped disposition is superseded.
+
+## Findings
+
+### a2-165-current-taxon: Reconcile A2-165 with current F. duncaniae grounding
+
+major / open / confirmed; issue key: cm-000401-a2-165-current-taxon.
+
+The exact JCM culture is verified as F. duncaniae, while taxonomy and graph participants use the distinct current F. prausnitzii species ID.
+
+### diet-category: Replace the unsupported electron-transfer category
+
+major / open / confirmed; issue key: cm-000401-diet-category.
+
+The record uses DIET for a dietary-substrate model even though the schema defines it as direct interspecies electron transfer and the source supplies no such evidence.
+
+### donor-recipient-role: Qualify the B. bifidum recipient-role assignment
+
+minor / open / confirmed; issue key: cm-000401-donor-recipient-role.
+
+The source supports substrate use and a proposed metabolite-donor role, but not B. bifidum uptake of metabolites from its partner.
+
+### faecalibacterium-abundance-evidence-scope: Attach treatment-scoped abundance support to the Faecalibacterium member
+
+minor / open / confirmed; issue key: cm-000401-faecalibacterium-abundance-evidence-scope.
+
+Taxonomy[1] now has abundance_level DOMINANT, but its own evidence list still contains only exact strain identity and failure to grow on 2′-FL alone. The new quotation under taxonomy[0] supplies the approximately 60% FOS-only Faecalibacterium observation as well as the approximately 95% 2′-FL-rich Bifidobacterium observation. Attach the relevant support locally and distinguish these treatment-dependent relative-qPCR observations from simultaneous dominance or viable abundance.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-a2-165-current-taxon
+
+Reconcile A2-165 with current F. duncaniae grounding.
+
+- Ground A2-165/JCM31915 to verified NCBITaxon:411483 Faecalibacterium duncaniae consistently in taxonomy and graph participants, retaining the exact culture identity.
+- Preserve literal source quotations and explain that the paper uses the legacy F. prausnitzii name; do not rewrite historical evidence or imply a different experimental isolate.
+- Keep source naming, current nomenclature and exact strain distinct in prose and notes; reassess GTDB only with an applicable verified mapping, without forcing an assignment.
+- Rerun term, GTDB/domain and network consistency checks after a separately authorized correction.
+
+### repair-diet-category
+
+Replace the unsupported electron-transfer category.
+
+- Select a schema-valid category justified by the verified experiment, with an explicit rationale; OTHER is preferable to an unsupported mechanistic classification where no narrower category fits.
+- Do not reinterpret DIET as dietary supplementation or infer electron transfer from fermentation/metabolite exchange.
+- Preserve the bounded carbohydrate-ratio and putative acetate-transfer graph; category correction does not require new nodes or arrows.
+
+### repair-donor-recipient-role
+
+Qualify the B. bifidum recipient-role assignment.
+
+- Remove or source-qualify B. bifidum CROSS_FEEDER under its consumer definition; donor secretion alone is insufficient.
+- Attach role-specific substrate/fermentation evidence to retained roles, without inventing reverse transfer or a new replacement role.
+- Retain Faecalibacterium recipient support as author-inferred and preserve the explicit unresolved flux, pH and substrate limitations.
+
+### preserve-qualified-model
+
+Preserve the two qualified nodes, zero arrows and experimental limitations during separately authorized follow-up.
+
+- Do not convert acid pools, relative qPCR or estimated copies into donor-resolved flux, viable abundance or an in-vivo optimal formulation.
+- Do not import catalogue growth conditions or reference-genome records as the focal study’s experimental data.
+- Preserve append-only history and rerun schema, strict, term, reference, history and target/corpus network checks after authorized curation.
+
+### attach-faecalibacterium-abundance-evidence
+
+Add the local source-exact Faecalibacterium abundance support and treatment explanation during separately authorized record curation.
+
+- Attach the exact Results 3.4 FOS-only abundance passage to taxonomy[1] with PMID 42655156 and IN_VITRO provenance, preserving literal legacy source naming.
+- Explain that approximately 60% refers to the 24-hour FOS-only relative-qPCR result, while approximately 95% Bifidobacterium belongs to 2′-FL-rich arms. Do not imply simultaneous percentages, viable counts or equal starting cell counts.
+- Retain DOMINANT only with the record-relative and treatment scope made explicit; do not invent a numerical enum cutoff or change other source-supported fields to force consistency.
+- Keep the separate A2-165 nomenclature, DIET-category and Bifidobacterium consumer-role findings open until independently corrected; preserve the qualified graph and unresolved pH/substrate/flux discussion.
+- Append normal curation history without rewriting old entries, then run schema, strict, term, reference, history and generated-document checks. No historical correction is requested solely for the shared quotation's placement.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml; Whole current record: exact two-strain model, two nodes, no arrows and 32 evidence occurrences | supports | The experiment and strains are identifiable; category, current taxonomic grounding and one functional-role attribution require correction. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=42655156&amp;retmode=xml; Article-level metadata | supports | PubMed verifies PMID, DOI, title and abstract. |
+| crossref | https://api.crossref.org/works/10.3390/microorganisms14081812; Article-level metadata | supports | Crossref verifies the DOI/title and publisher identity. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42655156&amp;format=json&amp;resultType=core; Article-level metadata | supports | Europe PMC verifies the article metadata, PMC identifier and open full-text route. |
+| methods | PMID:42655156; Fresh XML sec2dot1–sec2dot5: strains, growth, qPCR, acids and statistics | supports | Methods establish the exact JCM strains, 48-well anaerobic YCFA− experiment and distinct growth, qPCR and acid-concentration measurements. |
+| peak | PMID:42655156; Fresh XML sec3dot3 and sec5; Figure 3d | supports | The tested 10:90 substrate ratio gives the maximal butyrate endpoint, distinct from the conditions maximizing total OD600. |
+| transfer | PMID:42655156; Fresh XML sec4: acetate interpretation and five explicit limitations | supports | The authors propose a bifidobacterial contribution while acknowledging unmeasured flux, culture pH and residual substrates; they do not establish reciprocal uptake by B. bifidum. |
+| mono | PMID:42655156; Fresh XML sec3dot1–sec3dot2 and Figures1–2 | supports | Monoculture substrate responses and acid endpoints support complementary substrate use; donor secretion alone does not establish a recipient functional role. |
+| figure-1 | PMID:42655156; Fresh primary Figure 1: all panels and caption visually inspected | supports | Faecalibacterium monoculture responds to FOS-containing conditions; endpoints remain concentrations and OD. |
+| figure-2 | PMID:42655156; Fresh primary Figure 2: all panels and caption visually inspected | supports | B. bifidum responds to increasing 2′-FL with lactate/acetate accumulation and no detected butyrate. |
+| figure-3 | PMID:42655156; Fresh primary Figure 3: all panels and caption visually inspected | supports | The 10% 2′-FL butyrate bar has a distinct significance letter; OD and other acid patterns differ. |
+| figure-4 | PMID:42655156; Fresh primary Figure 4: all panels and caption visually inspected | supports | Relative qPCR composition changes across 24-hour substrate arms. Faecalibacterium is approximately 60% in FOS-only medium and Bifidobacterium reaches approximately 95% at high 2′-FL. These are different conditions, not simultaneous shares, viable-cell counts or donor-resolved flux. |
+| supplement | PMID:42655156; Full one-page Supplementary S1 PDF extracted from the public Europe PMC supplementaryFiles package, rendered and inspected | supports | S1 shows estimated genome-copy profiles: Faecalibacterium falls at high 2′-FL and Bifidobacterium rises, with distinct absolute and relative trajectories. These estimates do not measure viable cells, acetate transfer or the causal basis of the butyrate peak. Direct PMC returned an HTML shell and the guessed publisher PDF route failed; the authentic public supplementary package supplied the verified PDF. |
+| catalogues | https://www.jcm.riken.jp/cgi-bin/jcm/jcm_number?JCM=31915; https://www.jcm.riken.jp/cgi-bin/jcm/jcm_number?JCM=1254; Fresh JCM31915 and JCM1254 HTML and parsed text | supports | Current JCM identifies A2-165/JCM31915/DSM17677 as F. duncaniae and links NCBITaxon:411483. JCM1254/DSM20082 remains B. bifidum and links strain NCBITaxon:398514. Catalogue-maintenance recipes and genomes are not the focal experiment's conditions or newly generated datasets. |
+| strain-authority | Fresh NCBI Taxonomy efetch: 411483, 853, 398514 and 1681; ncbi-taxonomy.xml and ncbi-authorities.json: names, ranks and parent chains | supports | Current NCBI independently resolves species 411483 as F. duncaniae and species 853 as the distinct F. prausnitzii. Strain 398514 is B. bifidum JCM 1254 under species 1681. Correct lexical labels on the target do not fix its A2-165 species mismatch. |
+| ontology | Local OAK NCBITaxon, ENVO, CHEBI and GO; All eight unique current curated term pairs replayed through local OAK authorities | supports | Current ID/label strings match authority labels; that lexical match does not make species 853 correct for the specifically named A2-165 culture. |
+| schema | src/communitymech/schema/communitymech.yaml; CommunityCategoryEnum.DIET; FunctionalRoleEnum.CROSS_FEEDER and PRIMARY_DEGRADER | supports | DIET means direct interspecies electron transfer. CROSS_FEEDER denotes consumption of other taxa's metabolites. DOMINANT is ordinal prominence, with no fixed percentage cutoff; it does not mean both members have the same population share across every treatment. |
+| snippets | kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml; Fresh snippet-replay.json: all 32 current occurrences | supports | All 32 snippets, including the new two-sentence abundance passage, match fresh full primary XML and the committed cache after NFKC/whitespace normalization. Main-text comparison is not an abstract-only check. |
+| history | kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml; Four target sidecars, embedded entries, exact 000401 graph-decision row and fresh issue receipts | supports | The graph-only decision's frozen record hash matches the original review input. Issues 991–994 and 1254 are CLOSED; 1256 remains OPEN for the separate A2-165 taxonomy follow-up. Issue 2113 is CLOSED and both abundance fields are now present. Its new quotation covers both taxa, but the parsed delta adds it only to taxonomy[0]; this placement fact does not by itself make the history's general coverage wording false. |
+| resources | kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml; Fresh primary Data Availability Statement; JCM source-strain catalogues; current resource fields | supports | The article's Data Availability points to article/SI and further inquiry without a study archive accession. Existing PMID and DOI resolve. Catalogue genome links are distinct identity resources and were not fetched or reanalyzed; no dataset-omission defect is inferred. |
+| native-target | kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml; Fresh target-network.json and current two-node/evidence inventory | supports | Native target audit returns no issues. Two nodes contain six evidence items with no downstream arrows; community-level participants and directed pair endpoints match current taxonomy identifiers. This structural consistency does not establish correct current strain grounding or scientific mechanism. |
+| source-scope | PMID:42655156; Fresh source/media receipts, complete XML, four main figure images and supplementary fallback receipt | supports | The author inspected the entire scientific main text, all four main figures and full Supplementary S1. Current source bytes are preserved separately in scratch; no raw-data or genome reanalysis and no independent-approval claim are made. |
+| search | Owned maintained roots; Fresh ignored-inclusive exact record ID/slug, PMID and JCM1254/JCM31915/A2-165 query | supports | The bounded search found the primary cache, four histories and graph decisions. It produced no exact strain hit in kb/taxa; other source-paper matches are leads rather than automatically equivalent strain evidence. |
+| adapter | Optional structured source adapter; Fresh adapter-discovery.json and public iModulonDB catalog | supports | No optional runner was found in PATH or either exact probed sibling checkout. The fresh public catalog has no Bifidobacterium or Faecalibacterium dataset entry; no target strain/expression-module query was available. Absence from this catalog is not negative biological evidence. |
+| current-delta | kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml; semantic-diff.json: frozen original target versus current merged main | supports | Two DOMINANT fields, one abundance quotation under taxonomy[0], and curation_history[3] are new. No original taxonomy-grounding, category or consumer-role finding was repaired by these additions. |
+| abundance-scope | PMID:42655156; Methods 2.2–2.3, Results 3.4, Figure 4 and Supplementary S1 | supports | Both strains are material contributors to the model and alternate in relative prominence across substrate arms. Approximately 60% Faecalibacterium applies to FOS-only culture; approximately 95% Bifidobacterium applies to 2′-FL-rich culture. Taxonomy[0]'s new quote states both observations; taxonomy[1] still has only identity and failure-to-grow-on-2′-FL snippets, which do not locally substantiate its abundance annotation. |
+| abundance-lineage | reviews/structured/20261104T203000Z-c6s5-remediation-verification/review.yaml; c6s4-000401-bifido-faecali-abundance-levels and its two exact Stage 4 predecessor occurrences; fresh issue 2113 | supports | The later review resolves the narrow missing-field finding and both fields are now present. This successor confirms that bounded resolution and records exact evidence placement without superseding the existing disposition. The new local-evidence concern has a distinct issue key; unrelated findings and the other issue-2113 records are not reassessed. |
+| check-validate | just --no-dotenv validate kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml; .temp/pr2040/401/validate.json; 2026-11-06T04:11:39.019157Z to 2026-11-06T04:11:39.509657Z | supports | Target schema validation passed. |
+| check-validate-strict | just --no-dotenv validate-strict kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml --out /Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2040-batch06/.temp/pr2040/401/strict.tsv; .temp/pr2040/401/validate-strict.json; 2026-11-06T04:11:39.509848Z to 2026-11-06T04:11:41.260447Z | supports | Target strict validation passed. |
+| check-validate-terms | just --no-dotenv validate-terms kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml; .temp/pr2040/401/validate-terms.json; 2026-11-06T04:11:41.260599Z to 2026-11-06T04:11:42.206695Z | supports | Target term validation passed. |
+| check-validate-gtdb | just --no-dotenv validate-gtdb kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml; .temp/pr2040/401/validate-gtdb.json; 2026-11-06T04:11:42.206846Z to 2026-11-06T04:11:42.267916Z | supports | Target GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | just --no-dotenv validate-gtdb-domain kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml; .temp/pr2040/401/validate-gtdb-domain.json; 2026-11-06T04:11:42.268068Z to 2026-11-06T04:11:43.103316Z | supports | Target GTDB domain validation passed. |
+| check-validate-history | just --no-dotenv validate-history history/records/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture; .temp/pr2040/401/validate-history.json; 2026-11-06T04:11:43.103479Z to 2026-11-06T04:11:43.663238Z | supports | Target history validation passed. |
+| check-normalize-cache-names-check | uv run python scripts/normalize_cache_names.py --check; .temp/pr2040/401/normalize-cache-names-check.json; 2026-11-06T04:11:43.663395Z to 2026-11-06T04:11:43.699927Z | supports | Read-only corpus cache-filename preflight passed. |
+| check-validate-references-explained | just --no-dotenv validate-references-explained kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml; .temp/pr2040/401/validate-references-explained.json; 2026-11-06T04:11:43.700119Z to 2026-11-06T04:11:44.458875Z | supports | Target reference validation passed against the pinned cache. |
+| check-audit-network | just --no-dotenv audit-network; .temp/pr2040/401/audit-network.json; 2026-11-06T04:11:44.459035Z to 2026-11-06T04:11:48.613862Z | supports | Fresh corpus command retains baseline exit 1: 44 warnings across 16 of 503 records; target-specific native audit is empty. |
+| check-check-network-quality | just --no-dotenv check-network-quality; .temp/pr2040/401/check-network-quality.json; 2026-11-06T04:11:48.614029Z to 2026-11-06T04:11:52.802200Z | supports | Fresh corpus command retains baseline exit 1: 44 warnings across 16 of 503 records; target-specific native audit is empty. |
+
+## Limits And Additional Notes
+
+- No raw data, statistical analysis, genome sequence, isotope tracing or biochemical flux was reanalyzed. Figure inspection verifies reported patterns and scope, not a new quantitative reconstruction.
+- Only one strain pair and a 24-hour batch endpoint are studied; pH, residual substrate and direct flux are explicitly unmeasured. The optimal tested ratio is not an established in-vivo optimum.
+- Current catalogue identity does not alter literal source nomenclature, verify historical GTDB release statistics or authorize an inferred new GTDB mapping.
+- The basal YCFA recipe cited to an earlier reference was not independently reconstructed; no CultureMech formulation or catalogue-maintenance transfer is certified.
+- Data Availability points to article/SI and author inquiry; no unreported archive accession or dataset omission is inferred. Catalogue genome links were not fetched or analyzed.
+- Both DOMINANT values are ordinal prominence across the substrate series. Different treatment arms produce the approximately 60% and 95% relative-qPCR observations; neither the percentages nor S1 copy estimates measure viable abundance or persistence.
+- Direct PMC supplement retrieval returned an HTML preparation page and the guessed publisher PDF route failed. The public Europe PMC supplementaryFiles package supplied the authentic PDF, which was extracted and inspected without access-control bypass or paid retrieval.
+- The corpus network commands retain baseline exit 1 with 44 warnings across 16 of 503 records, recorded as failed. The target-specific native audit is empty; other records are outside this review.
+- Author refresh only; no independent approval claim and no canonical record, cache, history, schema or generated-product edits.
+- Initial repository inputs were hashed before judgment and rechecked before final inspection. All three original unresolved findings retain stable keys and exact previous_occurrences.
+- The narrow c6s5 missing-field resolution remains intact. One new quotation covers both organisms but appears only in taxonomy[0]; no false-history finding is inferred from that placement.
+- The existing bifido_faecali_2fl_fos_flux_unresolved discussion remains a source boundary covered by the preserve-qualified-model action. No experiment, paid research or author contact is requested.
+- Native quality is capped at 100 from 111; completeness remains 75. Fifteen quoted words from the focal article are retained from the predecessor, with other source descriptions paraphrased.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261106T041819Z-pr2040-bifidobacterium-faecalibacterium-successor
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Bifidobacterium–Faecalibacterium 2′-FL/FOS: current-main review successor'
+started_at: '2026-11-06T04:11:33.264631Z'
+finished_at: '2026-11-06T04:18:19.626551Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Author refresh of a stale PR 2040 review. Historical Codex record
+    creation and graph review exist. This pass does not claim independent adversarial
+    approval.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: 'Current main adds DOMINANT to both members and one source-exact abundance
+  quotation under B. bifidum. Fresh complete primary text, Figures 1–4, Supplementary
+  S1 and culture/taxonomic authorities retain all three original findings: A2-165
+  species grounding (P2), unsupported DIET category (P2), and B. bifidum consumer
+  role (P3). A new P3 asks for local Faecalibacterium abundance evidence and its FOS-only
+  treatment qualifier. Both members can be prominent across different treatment arms;
+  they are not simultaneously measured at 60% and 95%. Eight focused checks pass;
+  corpus network checks retain 44 warnings across 16 of 503 records, with no target
+  issues.'
+source:
+  git_revision: 64fc1f97b55421109911e02a1cacf0e7a7fffec6
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: .temp/pr2040/401/adapter-discovery.json
+    sha256: 0ea2a569e36cbd47d8101eb92f6efa24d72a7fba5f4daad45f6b9277fd6add98
+    role: context
+  - path: .temp/pr2040/401/audit-network.json
+    sha256: a75c9889fa5ebd90b5b9bc18e941f5962d83d2088c7e9917e19abf7062fe9b4f
+    role: context
+  - path: .temp/pr2040/401/audit-network.stderr.txt
+    sha256: a71fb29e950f3eaf0eb2b834a43c59d4a1b6aa85a2a89473ae99b0e408a27a36
+    role: context
+  - path: .temp/pr2040/401/audit-network.stdout.txt
+    sha256: f5dc190f832300fc5a73fcf3e7e8e3cd53d560ba09b17179ce6c7fcc8aa022e8
+    role: context
+  - path: .temp/pr2040/401/check-network-quality.json
+    sha256: 8fd48d9b141d30ca2db37467950d0ded4de36de760771dfab1be4c3415fd6d86
+    role: context
+  - path: .temp/pr2040/401/check-network-quality.stderr.txt
+    sha256: f9a8e9fb5a4e4ea545236a809393dbc1ce4325b14579c65a3130bcfe713e798a
+    role: context
+  - path: .temp/pr2040/401/check-network-quality.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/crossref.json
+    sha256: 7e5fe42277634757c3787f44565c9113221e8080c9fde137992bb753d096a451
+    role: context
+  - path: .temp/pr2040/401/epmc.json
+    sha256: 1e70b9ec7302c5f1856ad1c8a224bd54931a59bf1b3789b69760ebae98c0e047
+    role: context
+  - path: .temp/pr2040/401/fetch-crossref.json.json
+    sha256: e75c807b77b3c4ac632b6bbfeae48a8d6e23271b0a4b9d215c3bc4e85c588ad7
+    role: context
+  - path: .temp/pr2040/401/fetch-crossref.json.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-crossref.json.stdout.txt
+    sha256: 7e5fe42277634757c3787f44565c9113221e8080c9fde137992bb753d096a451
+    role: context
+  - path: .temp/pr2040/401/fetch-epmc.json.json
+    sha256: 04397b725339c33b34f75a0a7d11cc29c530981586a5238c704149b5529dae55
+    role: context
+  - path: .temp/pr2040/401/fetch-epmc.json.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-epmc.json.stdout.txt
+    sha256: 1e70b9ec7302c5f1856ad1c8a224bd54931a59bf1b3789b69760ebae98c0e047
+    role: context
+  - path: .temp/pr2040/401/fetch-imodulon-catalog.json.json
+    sha256: f8db002e190c6fa5853310fdc04a9f6c6591f79a31efb06ae3ce7544040e14aa
+    role: context
+  - path: .temp/pr2040/401/fetch-imodulon-catalog.json.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-imodulon-catalog.json.stdout.txt
+    sha256: 155607e7023efdead5ebab3919279a0776d5665a7de9e28b67f02f8f521b0693
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-1254.json
+    sha256: 32fbeb65b2e56dc0a3bdf17f92e83582ac9c68ce8950faa6a3626cd3e7ed63d0
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-1254.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-1254.stdout.txt
+    sha256: 3bb70384419ad1d81b23998203d9c5940bd85bb1516ba2cd5aadf41abff10dea
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-1256.json
+    sha256: d34fdc1a58adc1818d29c38f4e7002fc0f8861b9cbe5371b571c008e5d7e2331
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-1256.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-1256.stdout.txt
+    sha256: 599e593a667610b6b434be191d5ed168ba8de0dd60693126ffd9d304b621c5aa
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-2113.json
+    sha256: c4cf1e9510a7c1df795ff291f9271bd75d02dd4f9a77657edeb2d2f9c9e9fed9
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-2113.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-2113.stdout.txt
+    sha256: d64ba65ab0765d334ed90315913be6bf08db8dc357abb70adc54a1c575f75508
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-991.json
+    sha256: e36cbac9db1cbccd262ac1dd87b8b62affe923f154e49115dfa8f4bdecddc78c
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-991.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-991.stdout.txt
+    sha256: cb1fa1953c7d0078dc1a1482000ca99d96145febb57b448f66491e9615757a38
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-992.json
+    sha256: 0b07f0dd65ef3d150381b0d2a983d64d004c25afa7a6a60475ee775d05c012f4
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-992.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-992.stdout.txt
+    sha256: a20c8bff29f983003f76f99bbb219e251630c5916978312cb7f2e24938d9bdd4
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-993.json
+    sha256: d0911c1570225baa92be7e2ef6f1e19f907582366feba018b1d06b500eb4cba0
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-993.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-993.stdout.txt
+    sha256: e5adf90a5b080669060a4771ba40d0e20d01fcfc3913db3da2203dd67fadcaa2
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-994.json
+    sha256: ac30c4e808a858257042853288a81013c08de7f478cfe441bb1a595409e20934
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-994.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-issue-994.stdout.txt
+    sha256: 76293f7fe7b94e316a7dd9a2cd1c6fa74559cbf7f4368f307e5c4acccdd2f5ad
+    role: context
+  - path: .temp/pr2040/401/fetch-jcm1254.html.json
+    sha256: d0b146b46944acb4329589a1fa2df5d549e0cdb3e7ced876e4208fa47c94afa4
+    role: context
+  - path: .temp/pr2040/401/fetch-jcm1254.html.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-jcm1254.html.stdout.txt
+    sha256: cd4e8bb387ce1a4aa819508e7e320159e8bd449bf483066c55ebf354e0d35e77
+    role: context
+  - path: .temp/pr2040/401/fetch-jcm31915.html.json
+    sha256: 3ce22374b0cce5df1bae52ef023fee78131e2f0633d44949a71b86d9cbc10395
+    role: context
+  - path: .temp/pr2040/401/fetch-jcm31915.html.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-jcm31915.html.stdout.txt
+    sha256: 89b265f007a32acc3fa541504a586173b16d9e40820a32ea6e1963d1abaa6bf6
+    role: context
+  - path: .temp/pr2040/401/fetch-microorganisms-14-01812-f001.webp.json
+    sha256: c42f5e78e6946c6602886bd68ee612619e5e1b313a6cb44a942987567e9c684e
+    role: context
+  - path: .temp/pr2040/401/fetch-microorganisms-14-01812-f001.webp.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-microorganisms-14-01812-f001.webp.stdout.txt
+    sha256: e46a66bf27563bda2f8edb356d09102fd4eaf97528228c667517c0ee018d2448
+    role: context
+  - path: .temp/pr2040/401/fetch-microorganisms-14-01812-f002.webp.json
+    sha256: 3be50b7a3bafb28f2f2852cbac7fc59dbb4096be6566fd72fbee8ab5bbd40878
+    role: context
+  - path: .temp/pr2040/401/fetch-microorganisms-14-01812-f002.webp.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-microorganisms-14-01812-f002.webp.stdout.txt
+    sha256: 6cf48baf52a11315933c97e6dd6096ed2828ebde0810851682e17d7197863937
+    role: context
+  - path: .temp/pr2040/401/fetch-microorganisms-14-01812-f003.webp.json
+    sha256: b8ae8127fa7b2ecb85ca552bc9350bcdd7f4966827589eb41c8573ff0e877c62
+    role: context
+  - path: .temp/pr2040/401/fetch-microorganisms-14-01812-f003.webp.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-microorganisms-14-01812-f003.webp.stdout.txt
+    sha256: 054d2ca9f5791622e172e859ce08157094e70a1d5de298db27b38163a74bd093
+    role: context
+  - path: .temp/pr2040/401/fetch-microorganisms-14-01812-f004.webp.json
+    sha256: 1e32f35a6d75f02cc77ba7b882e87b0f884ef2d1021b4377c893e20a0ea6817b
+    role: context
+  - path: .temp/pr2040/401/fetch-microorganisms-14-01812-f004.webp.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-microorganisms-14-01812-f004.webp.stdout.txt
+    sha256: 8810a3e762e33beceaa06a42389b2a2da573d6bb421783ab1de631cb39a6d2dd
+    role: context
+  - path: .temp/pr2040/401/fetch-ncbi-taxonomy.xml.json
+    sha256: ee9c2ceacb53d3f5c4d4951219cd64efe0aa7962cb2721ecf3e39fcd6945cffe
+    role: context
+  - path: .temp/pr2040/401/fetch-ncbi-taxonomy.xml.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-ncbi-taxonomy.xml.stdout.txt
+    sha256: a96f5c8065453e7ce718246641b1efe336c868b52dca9d71c3dc2c86d81dcdc5
+    role: context
+  - path: .temp/pr2040/401/fetch-pmc.html.json
+    sha256: 8e17a73fd62048fda42320fef614d1d14f206b57638513d2abe8420b627e5339
+    role: context
+  - path: .temp/pr2040/401/fetch-pmc.html.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-pmc.html.stdout.txt
+    sha256: 4f443544b7de89b57f8c1050cf130c4b575d1a078ea4c3763f3915b7a84bf200
+    role: context
+  - path: .temp/pr2040/401/fetch-primary.xml.json
+    sha256: f431adc9dcfe123e6258c06cd9d3d8047e75a10b30f820f0fb45dcb5caa26879
+    role: context
+  - path: .temp/pr2040/401/fetch-primary.xml.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-primary.xml.stdout.txt
+    sha256: c5b4d94fcd98543be47d7eb623a69180ae15cc98dbe1a3b1ad772818f65d421e
+    role: context
+  - path: .temp/pr2040/401/fetch-publication.xml.json
+    sha256: adb3319f9ce8ec0760867af367b1111c0c7151909bb26ce0a6baf595d323a482
+    role: context
+  - path: .temp/pr2040/401/fetch-publication.xml.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-publication.xml.stdout.txt
+    sha256: 6e79683213ef0c5254dba123b5b1b1728afd00e49bd8b93ce2bc9c275ed0b7e8
+    role: context
+  - path: .temp/pr2040/401/fetch-supplement-epmc.zip.json
+    sha256: 274d02d2d23c1582056d3e2bfeb21323644d96c89a3c7adf75c0b73303663418
+    role: context
+  - path: .temp/pr2040/401/fetch-supplement-epmc.zip.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-supplement-epmc.zip.stdout.txt
+    sha256: d22ee1ef60b0cf094694ecfad567b9fbc977b88e71dc2b5231f748e0f3167c53
+    role: context
+  - path: .temp/pr2040/401/fetch-supplement.pdf.json
+    sha256: ad35fe5b252fc48e515646bf219cffc8acdb5ab68609defcb981e84e0ff46775
+    role: context
+  - path: .temp/pr2040/401/fetch-supplement.pdf.stderr.txt
+    sha256: f035fd345092fbd87ef3c303a659a95c297ba432b8de7fdb7c1de113e9ed8db9
+    role: context
+  - path: .temp/pr2040/401/fetch-supplement.pdf.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-supplement.zip.json
+    sha256: 533bea3917d2c12fff26b34f3a82d876d038b75ab3bd213b3cd0a9b530590bcd
+    role: context
+  - path: .temp/pr2040/401/fetch-supplement.zip.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/fetch-supplement.zip.stdout.txt
+    sha256: 867f545281324e7ffb8fb9b76568e6215626c6e0e6325a497000b9f68be27373
+    role: context
+  - path: .temp/pr2040/401/frozen-target.json
+    sha256: 2ff1bef4c66d2e32f7ae860c4e098abd04a55318621e1cc858822a51ae420e61
+    role: context
+  - path: .temp/pr2040/401/frozen-target.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/frozen-target.stdout.txt
+    sha256: fb0edcb5af076a247ed278b42027f036f101484395333493653d4e6f75f8b319
+    role: context
+  - path: .temp/pr2040/401/imodulon-catalog.json
+    sha256: 155607e7023efdead5ebab3919279a0776d5665a7de9e28b67f02f8f521b0693
+    role: context
+  - path: .temp/pr2040/401/inspect.json
+    sha256: d196d0094af1ee2ac656970f297c1f3e7e1837c29c21d37b9defeb1616046149
+    role: context
+  - path: .temp/pr2040/401/inspect.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/inspect.stdout.txt
+    sha256: 765baa3adc289669008533792623e026a5f73dde6197a8a311ec70f8aba94174
+    role: context
+  - path: .temp/pr2040/401/inspection.json
+    sha256: e7d9f630dc78e0131760a27e088edbf26fa3413bc60b0df361a4b445a5311965
+    role: context
+  - path: .temp/pr2040/401/issue-1254.json
+    sha256: 8fb815306d4a20668b6241d55db0efb0227743fbc06a6405c5b8feb68a5bad7a
+    role: context
+  - path: .temp/pr2040/401/issue-1256.json
+    sha256: eee42f252be20831d8f45bbc97a4336ca757f408ef2c707f2eb98188d6288077
+    role: context
+  - path: .temp/pr2040/401/issue-2113.json
+    sha256: 636ab31cd9af44acbd770e71ab94022cc7a61e8218ace1a7061f7bec43968abb
+    role: context
+  - path: .temp/pr2040/401/issue-991.json
+    sha256: 04b1d00985635f86f2533d41247d89af6ff281638c9649840d9d25e7674a7478
+    role: context
+  - path: .temp/pr2040/401/issue-992.json
+    sha256: bae15029d214d3ba2dfaae8663453d35b856fe85095ade0818202bf4bab241dc
+    role: context
+  - path: .temp/pr2040/401/issue-993.json
+    sha256: a69d42d5738fc09d5eadb8db05b6f317279465c796e912bce04f4c44714c4ee5
+    role: context
+  - path: .temp/pr2040/401/issue-994.json
+    sha256: b14b39afa86da607140b3ae89a27d6830cb9dd225846d2ff8e23ed32e08181fd
+    role: context
+  - path: .temp/pr2040/401/jcm1254.html
+    sha256: cd4e8bb387ce1a4aa819508e7e320159e8bd449bf483066c55ebf354e0d35e77
+    role: context
+  - path: .temp/pr2040/401/jcm1254.txt
+    sha256: a8ad56a458979e9cd010cab3a776ea22ce0ed9191f6604a05ed7e5b6cdc2d1cf
+    role: context
+  - path: .temp/pr2040/401/jcm31915.html
+    sha256: 89b265f007a32acc3fa541504a586173b16d9e40820a32ea6e1963d1abaa6bf6
+    role: context
+  - path: .temp/pr2040/401/jcm31915.txt
+    sha256: bf960a9970a5091fd093cb20077763155b88516a8b9e075f9630ba4a97afcde4
+    role: context
+  - path: .temp/pr2040/401/lineage.json
+    sha256: cd796fdf794a9dd02a05472c59e3127c04031eac057b101ce12956886c02028b
+    role: context
+  - path: .temp/pr2040/401/local-search.json
+    sha256: 2ad64bd6c0fc5432ad017d2ac4f7bb3285b739c5d7e59ae7ac2f4e4f90c9aa62
+    role: context
+  - path: .temp/pr2040/401/local-search.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/local-search.stdout.txt
+    sha256: 75f977b1f6a605465a89cc04473451136eb01d4b703e8b37334cd9ee89956086
+    role: context
+  - path: .temp/pr2040/401/media-sources.json
+    sha256: 0947c005698b98d85d2b12f5ce9698306cb880649890c1633e71edfeddd8ff0d
+    role: context
+  - path: .temp/pr2040/401/microorganisms-14-01812-f001.webp
+    sha256: e46a66bf27563bda2f8edb356d09102fd4eaf97528228c667517c0ee018d2448
+    role: context
+  - path: .temp/pr2040/401/microorganisms-14-01812-f002.webp
+    sha256: 6cf48baf52a11315933c97e6dd6096ed2828ebde0810851682e17d7197863937
+    role: context
+  - path: .temp/pr2040/401/microorganisms-14-01812-f003.webp
+    sha256: 054d2ca9f5791622e172e859ce08157094e70a1d5de298db27b38163a74bd093
+    role: context
+  - path: .temp/pr2040/401/microorganisms-14-01812-f004.webp
+    sha256: 8810a3e762e33beceaa06a42389b2a2da573d6bb421783ab1de631cb39a6d2dd
+    role: context
+  - path: .temp/pr2040/401/ncbi-authorities.json
+    sha256: 60e469021ba59b15b1d883a94f7e36725f28578d7da68caf5046b7e4e9b234d9
+    role: context
+  - path: .temp/pr2040/401/ncbi-taxonomy.xml
+    sha256: a96f5c8065453e7ce718246641b1efe336c868b52dca9d71c3dc2c86d81dcdc5
+    role: context
+  - path: .temp/pr2040/401/normalize-cache-names-check.json
+    sha256: 3b7196a007c5b998f9cd8d1a89046dc99a1d77118d1db6f7b4339983cbd97460
+    role: context
+  - path: .temp/pr2040/401/normalize-cache-names-check.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/normalize-cache-names-check.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/ontology-authorities.json
+    sha256: 20e805ae9958d24825e65b5f1b5843612ac901379ddc7fe1abc60b50a9332831
+    role: context
+  - path: .temp/pr2040/401/pmc.html
+    sha256: 4f443544b7de89b57f8c1050cf130c4b575d1a078ea4c3763f3915b7a84bf200
+    role: context
+  - path: .temp/pr2040/401/primary-sections.json
+    sha256: e8c3c7c9fdd6ce6d044179d14455c9d1fca1a93f11fe4ceefdace65bd4b61d76
+    role: context
+  - path: .temp/pr2040/401/primary.xml
+    sha256: c5b4d94fcd98543be47d7eb623a69180ae15cc98dbe1a3b1ad772818f65d421e
+    role: context
+  - path: .temp/pr2040/401/publication.xml
+    sha256: 6e79683213ef0c5254dba123b5b1b1728afd00e49bd8b93ce2bc9c275ed0b7e8
+    role: context
+  - path: .temp/pr2040/401/sec1-microorganisms-14-01812.txt
+    sha256: fb87f3fbe4d3598b22db2262031b67aa6a0149b9085613800a7a76ca6d3ba239
+    role: context
+  - path: .temp/pr2040/401/sec2-microorganisms-14-01812.txt
+    sha256: 9bbbba8fdaa4cd755ee3d46d6310bbaf0814c9520c63e1a8e5917a14c04d30a2
+    role: context
+  - path: .temp/pr2040/401/sec3-microorganisms-14-01812.txt
+    sha256: ed903f0f18f7655218c6a25a4b886e0e7bed35dc42761848d762f08080524529
+    role: context
+  - path: .temp/pr2040/401/sec4-microorganisms-14-01812.txt
+    sha256: c5b488dfb8087cde3ad7146e2b006ba56e59dc814de8bb0c1352de21e645854e
+    role: context
+  - path: .temp/pr2040/401/sec5-microorganisms-14-01812.txt
+    sha256: ea11b1e043cae75dc8955d6c708e7562b21ca21c8467a89af07f77792501a56a
+    role: context
+  - path: .temp/pr2040/401/semantic-diff.json
+    sha256: 454b040db4defc6e4b127e573979d0a8607bd2cfc77774bcbc30236a5237ea3c
+    role: context
+  - path: .temp/pr2040/401/snippet-replay.json
+    sha256: 2ab78990e55ef724cbfeb8c621b22c233513fe3d7c226cba66263a0e8ff09436
+    role: context
+  - path: .temp/pr2040/401/sources.json
+    sha256: 83c644ae5ed12035ebdf6108ba33dace3a33439d743242d139be4425f7a58122
+    role: context
+  - path: .temp/pr2040/401/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/pr2040/401/supplement-epmc-1-0.pdf
+    sha256: 64dda1580ce88954d8a0c636014281b14542004e81cbc69abf10e0b7b27151c0
+    role: context
+  - path: .temp/pr2040/401/supplement-epmc-members.json
+    sha256: bc12f8aaa29b8e2c227f56a1a28ad4f3fa1921651ea1201ef1bccdcc7c52f0a2
+    role: context
+  - path: .temp/pr2040/401/supplement-epmc.zip
+    sha256: d22ee1ef60b0cf094694ecfad567b9fbc977b88e71dc2b5231f748e0f3167c53
+    role: context
+  - path: .temp/pr2040/401/supplement-fallback.json
+    sha256: dacc5f8df7061f1f0f40f3b6e9b7664e0cd64278574c416c8a0e33724311dbe3
+    role: context
+  - path: .temp/pr2040/401/supplement-image.json
+    sha256: 29ccd61b5a7b8d6d0986380e3359a843a4f29139fdad01634f38dd20b7a975ec
+    role: context
+  - path: .temp/pr2040/401/supplement-image.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/supplement-image.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/supplement-page.png
+    sha256: 27fd8e81f24b7e59ba9ecb1a3e3790a5e2f08d0953e606a76086bde901b6a35e
+    role: context
+  - path: .temp/pr2040/401/supplement-text.json
+    sha256: 1e8bc3cea3619a47d5e8fda8a4385871b9e90fa20d0c0ec713bddde1db3021dc
+    role: context
+  - path: .temp/pr2040/401/supplement-text.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/supplement-text.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/supplement-text.txt
+    sha256: e19a9ef0cca43e98d50a5e761d6e089f1582e4ad79266ed48ba5219a38b09269
+    role: context
+  - path: .temp/pr2040/401/supplement.zip
+    sha256: 867f545281324e7ffb8fb9b76568e6215626c6e0e6325a497000b9f68be27373
+    role: context
+  - path: .temp/pr2040/401/target-diff.json
+    sha256: 9c695c573a0fb2b88fac9469082dfbb7b9f2519947717cc161f48a95fe2679b9
+    role: context
+  - path: .temp/pr2040/401/target-diff.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/target-diff.stdout.txt
+    sha256: 7e783d1d835daaa0672b4c6ef0ece78960b0f8ceb5d38797b7db60cc7fc8549a
+    role: context
+  - path: .temp/pr2040/401/target-network.json
+    sha256: 37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570
+    role: context
+  - path: .temp/pr2040/401/targets.json
+    sha256: e84559d02002e4fa899a2a56eb82baa1654c3570eed29c3b96b2710ae671c035
+    role: context
+  - path: .temp/pr2040/401/validate-gtdb-domain.json
+    sha256: cf176197198f8e03d23aa029ab5e2b0097f4531d2fae727ecc45e15e0b5c0154
+    role: context
+  - path: .temp/pr2040/401/validate-gtdb-domain.stderr.txt
+    sha256: 93a8c95a4dd0b57d0fe7128906a4e253f9f957b0f7d3b295435c86999d05fe44
+    role: context
+  - path: .temp/pr2040/401/validate-gtdb-domain.stdout.txt
+    sha256: ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae
+    role: context
+  - path: .temp/pr2040/401/validate-gtdb.json
+    sha256: 30b6eea4b8b030ca834b38c4125237baedd3d49c9c4ba5f55c55065d2443875f
+    role: context
+  - path: .temp/pr2040/401/validate-gtdb.stderr.txt
+    sha256: 418bc66cc27e39c75084199d85223fc54a8dd822157367185374923995a9ca79
+    role: context
+  - path: .temp/pr2040/401/validate-gtdb.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/validate-history.json
+    sha256: c5d96969c94ade14be8d7821c47d7869f278dd9ec1866e7c8fdd56e8a529d697
+    role: context
+  - path: .temp/pr2040/401/validate-history.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/validate-history.stdout.txt
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2040/401/validate-references-explained.json
+    sha256: de4cca00272508ccdb55175d248fc6f33a421680be30c38d808a0b5f006a8815
+    role: context
+  - path: .temp/pr2040/401/validate-references-explained.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/validate-references-explained.stdout.txt
+    sha256: 7a64fd276d05a835a6340110565411518334e085137f7e477332335a5cea7250
+    role: context
+  - path: .temp/pr2040/401/validate-strict.json
+    sha256: ff686c41cfbc6af133d9140b2f8dd5a8cdeaa8f8dad4dd9d3a9c1384953b820b
+    role: context
+  - path: .temp/pr2040/401/validate-strict.stderr.txt
+    sha256: dc13a0b1eae3861baeabd2a070846aa64f6fc9333df86d7fbe6d040c4d6e6e40
+    role: context
+  - path: .temp/pr2040/401/validate-strict.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2040/401/validate-terms.json
+    sha256: 8092e60645298ccdd1d1f60b565411bec92ee2f30ef8998a38381512270b3ebb
+    role: context
+  - path: .temp/pr2040/401/validate-terms.stderr.txt
+    sha256: 1b7fa1eedc35d99b52fd95b876fbb2ab491eef37699ee933c52355df7ffb1c93
+    role: context
+  - path: .temp/pr2040/401/validate-terms.stdout.txt
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/pr2040/401/validate.json
+    sha256: dd583fda63b9c76749f99e9e05ab1978432db3f8c30d6ce2f1a7b1fe18422f74
+    role: context
+  - path: .temp/pr2040/401/validate.stderr.txt
+    sha256: 52a179c0ccae58de604f12b8124ac6017a28dae1c258ff774dccaa447e7570cd
+    role: context
+  - path: .temp/pr2040/401/validate.stdout.txt
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: AGENTS.md
+    sha256: 8f23dcad7ed9c9873f00058995d1219cca8810c27ed5d787cb9b66a8abf96728
+    role: context
+  - path: conf/record_review.yaml
+    sha256: c4ad25505a87a040c57eb93f1ee9673a09389a474c6d4e1136781456ff190fc8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture/2026-09-21T023720Z-codex-64dd83.yaml
+    sha256: 39c5386f7abbed87c36316495f9b44c7f40ae157e77f2371fc43e0a3529e108f
+    role: context
+  - path: history/records/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture/2026-09-21T024109Z-codex-f468fd.yaml
+    sha256: ecd3755e9bfb361ff922f29791f7da2f4792c709ceb538b6a42e9f4bffd72a29
+    role: context
+  - path: history/records/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture/2026-10-05T112950Z-codex-4bd70f.yaml
+    sha256: 33d82b7786f0178a39bd4c9c935288511e7223b1ed85842764acf7a8a4532472
+    role: context
+  - path: history/records/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture/2026-11-04T202200Z-antigravity-2113a1.yaml
+    sha256: 11dc5adba5073e0acf749722b3fcaf2c072d884cedd2d033dc32894fea0848ff
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    sha256: c751d65f77ac054c5c8686bb6fd9d0ecf503fe729c1bb5c1d2409bbfe781169e
+    role: target
+  - path: references_cache/PMID_42655156.txt
+    sha256: f40ae202ccae35dad94ef7ed446f94adc2d089879ac64cec97302fc090b35e4c
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml
+    sha256: 23f5fa6fc197e020f7cb3469749ebe4aa78886f8973cb6ed63fde321470a7f96
+    role: context
+  - path: reviews/structured/20261021T105953Z-bifidobacterium-faecalibacterium-2fl-fos-record/review.yaml
+    sha256: 0f575ecf3075fb4ce97449762db1a6803ff09ccdcf20dab47a089a08c664dc4f
+    role: context
+  - path: reviews/structured/20261104T180000Z-c6s4-record-deep-audit/review.yaml
+    sha256: 47976319669248c26320528ed574b6da77b38aa592f3c0c9b1f76aaf6e0dc208
+    role: context
+  - path: reviews/structured/20261104T180100Z-c6s4-frozen-cohort-review/review.yaml
+    sha256: 60d9ce7de9da126368e0db1407f3403509ba4766df437feeed2f220dc66ef575
+    role: context
+  - path: reviews/structured/20261104T203000Z-c6s5-remediation-verification/review.yaml
+    sha256: cd6fd6cd070920315b7ee4c96ef9e22dd482b1192b9fcc1f6ba386cd371422af
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/pr2040_401_audit.py
+    sha256: c00d189fbb14591f356975b5b346ec3414f1a3a93992b61da7cb1043a214d1b4
+    role: context
+  - path: scripts/adhoc/pr2040_401_media.py
+    sha256: 09c07d003fa11ad66dc279d729d59dfd24c2e1a518428163b112bddb923a41a1
+    role: context
+  - path: scripts/adhoc/pr2040_401_review.py
+    sha256: cc5461cda6d543677f006c0f1cd3c9263073a4560d75cf4d308964da5bfcc908
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: bb3803581ac2946b2ca8e14278e36cd660faf12db9237f9688a6cef577fa9016
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: a00434e0d75020b2926c9f755d625c09cc78b6f88135805991fcb0ecd4230c83
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000401
+  path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  label: Bifidobacterium-Faecalibacterium 2′-FL/FOS Butyrate Coculture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    role: canonical_record
+scope:
+  description: Entire current target, two nodes, no downstream arrows, 32 snippets
+    and four history sidecars. Fresh complete main XML, all four main figures, full
+    one-page S1 PDF and pixels, current JCM/NCBI authority metadata and native checks
+    were assessed. No raw-data, genome or statistical reanalysis.
+  selection: 'Refresh the only stale target in PR 2040 against current merged main.
+    Exactly four parsed leaves were added: taxonomy[0].abundance_level, taxonomy[0].evidence[2],
+    taxonomy[1].abundance_level and curation_history[3]. All three original findings
+    were reassessed with stable issue keys and exact predecessor links.'
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000401
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000401
+  command: just --no-dotenv validate kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Fresh focused target/history check, except read-only corpus cache-name
+    preflight; exact runtime environment is recorded in the pinned receipt.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000401
+  command: just --no-dotenv validate-strict kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    --out /Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2040-batch06/.temp/pr2040/401/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Fresh focused target/history check, except read-only corpus cache-name
+    preflight; exact runtime environment is recorded in the pinned receipt.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000401
+  command: just --no-dotenv validate-terms kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Fresh focused target/history check, except read-only corpus cache-name
+    preflight; exact runtime environment is recorded in the pinned receipt.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000401
+  command: just --no-dotenv validate-gtdb kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Fresh focused target/history check, except read-only corpus cache-name
+    preflight; exact runtime environment is recorded in the pinned receipt.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000401
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Fresh focused target/history check, except read-only corpus cache-name
+    preflight; exact runtime environment is recorded in the pinned receipt.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000401
+  command: just --no-dotenv validate-history history/records/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Fresh focused target/history check, except read-only corpus cache-name
+    preflight; exact runtime environment is recorded in the pinned receipt.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000401
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Fresh focused target/history check, except read-only corpus cache-name
+    preflight; exact runtime environment is recorded in the pinned receipt.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target reference validation passed against the pinned cache.
+  target_ids:
+  - CommunityMech:000401
+  command: just --no-dotenv validate-references-explained kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Fresh focused target/history check, except read-only corpus cache-name
+    preflight; exact runtime environment is recorded in the pinned receipt.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: 'Fresh corpus command retains baseline exit 1: 44 warnings across 16 of
+    503 records; target-specific native audit is empty.'
+  target_ids:
+  - CommunityMech:000401
+  command: just --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  scope_note: Full-corpus warning exit preserved, not converted into a target pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: 'Fresh corpus command retains baseline exit 1: 44 warnings across 16 of
+    503 records; target-specific native audit is empty.'
+  target_ids:
+  - CommunityMech:000401
+  command: just --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  scope_note: Full-corpus warning exit preserved, not converted into a target pass.
+- check_id: source-identity
+  name: Primary publication and strain authority
+  status: passed
+  required: true
+  summary: Direct metadata/full text and JCM/OAK identities were verified, revealing
+    the current A2-165 nomenclature mismatch.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - pubmed
+  - crossref
+  - methods
+  - catalogues
+  - strain-authority
+- check_id: scientific-source
+  name: Full primary scientific assessment
+  status: passed
+  required: true
+  summary: Fresh complete main text, all four figures and full one-page S1 were inspected;
+    numerical, treatment and mechanism scopes remain distinct.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - source-scope
+  - supplement
+  - abundance-scope
+- check_id: cross-mech
+  name: Encoded medium/ingredient-Mech links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech identifier is encoded; exact recipe
+    equivalence was not inferred.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - record
+  - resources
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Optional runner unavailable in the bounded discovery; fresh public catalog
+    contains no applicable organism entry.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  locator: 'Whole current record: exact two-strain model, two nodes, no arrows and
+    32 evidence occurrences'
+  summary: The experiment and strains are identifiable; category, current taxonomic
+    grounding and one functional-role attribution require correction.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+  snapshot_sha256: c751d65f77ac054c5c8686bb6fd9d0ecf503fe729c1bb5c1d2409bbfe781169e
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42655156&retmode=xml
+  locator: Article-level metadata
+  summary: PubMed verifies PMID, DOI, title and abstract.
+  support: supports
+  accessed_at: '2026-11-06T04:11:46.014837Z'
+  snapshot_sha256: 6e79683213ef0c5254dba123b5b1b1728afd00e49bd8b93ce2bc9c275ed0b7e8
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.3390/microorganisms14081812
+  locator: Article-level metadata
+  summary: Crossref verifies the DOI/title and publisher identity.
+  support: supports
+  accessed_at: '2026-11-06T04:11:46.358479Z'
+  snapshot_sha256: 7e5fe42277634757c3787f44565c9113221e8080c9fde137992bb753d096a451
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42655156&format=json&resultType=core
+  locator: Article-level metadata
+  summary: Europe PMC verifies the article metadata, PMC identifier and open full-text
+    route.
+  support: supports
+  accessed_at: '2026-11-06T04:11:46.999029Z'
+  snapshot_sha256: 1e70b9ec7302c5f1856ad1c8a224bd54931a59bf1b3789b69760ebae98c0e047
+- evidence_id: methods
+  kind: primary_source
+  reference: PMID:42655156
+  locator: 'Fresh XML sec2dot1–sec2dot5: strains, growth, qPCR, acids and statistics'
+  summary: Methods establish the exact JCM strains, 48-well anaerobic YCFA− experiment
+    and distinct growth, qPCR and acid-concentration measurements.
+  support: supports
+  accessed_at: '2026-11-06T04:11:50.560202Z'
+  quote: A2-165 (JCM31915)
+  snapshot_sha256: c5b4d94fcd98543be47d7eb623a69180ae15cc98dbe1a3b1ad772818f65d421e
+- evidence_id: peak
+  kind: primary_source
+  reference: PMID:42655156
+  locator: Fresh XML sec3dot3 and sec5; Figure 3d
+  summary: The tested 10:90 substrate ratio gives the maximal butyrate endpoint, distinct
+    from the conditions maximizing total OD600.
+  support: supports
+  accessed_at: '2026-11-06T04:11:50.560202Z'
+  quote: butyrate production was highest at 10% 2′-FL and 90% FOS
+  snapshot_sha256: c5b4d94fcd98543be47d7eb623a69180ae15cc98dbe1a3b1ad772818f65d421e
+- evidence_id: transfer
+  kind: primary_source
+  reference: PMID:42655156
+  locator: 'Fresh XML sec4: acetate interpretation and five explicit limitations'
+  summary: The authors propose a bifidobacterial contribution while acknowledging
+    unmeasured flux, culture pH and residual substrates; they do not establish reciprocal
+    uptake by B. bifidum.
+  support: supports
+  accessed_at: '2026-11-06T04:11:50.560202Z'
+  quote: may have contributed
+  snapshot_sha256: c5b4d94fcd98543be47d7eb623a69180ae15cc98dbe1a3b1ad772818f65d421e
+- evidence_id: mono
+  kind: primary_source
+  reference: PMID:42655156
+  locator: Fresh XML sec3dot1–sec3dot2 and Figures1–2
+  summary: Monoculture substrate responses and acid endpoints support complementary
+    substrate use; donor secretion alone does not establish a recipient functional
+    role.
+  support: supports
+  accessed_at: '2026-11-06T04:11:50.560202Z'
+  snapshot_sha256: c5b4d94fcd98543be47d7eb623a69180ae15cc98dbe1a3b1ad772818f65d421e
+- evidence_id: figure-1
+  kind: primary_source
+  reference: PMID:42655156
+  locator: 'Fresh primary Figure 1: all panels and caption visually inspected'
+  summary: Faecalibacterium monoculture responds to FOS-containing conditions; endpoints
+    remain concentrations and OD.
+  support: supports
+  accessed_at: '2026-11-06T04:13:01.888416Z'
+  snapshot_sha256: e46a66bf27563bda2f8edb356d09102fd4eaf97528228c667517c0ee018d2448
+- evidence_id: figure-2
+  kind: primary_source
+  reference: PMID:42655156
+  locator: 'Fresh primary Figure 2: all panels and caption visually inspected'
+  summary: B. bifidum responds to increasing 2′-FL with lactate/acetate accumulation
+    and no detected butyrate.
+  support: supports
+  accessed_at: '2026-11-06T04:13:02.046989Z'
+  snapshot_sha256: 6cf48baf52a11315933c97e6dd6096ed2828ebde0810851682e17d7197863937
+- evidence_id: figure-3
+  kind: primary_source
+  reference: PMID:42655156
+  locator: 'Fresh primary Figure 3: all panels and caption visually inspected'
+  summary: The 10% 2′-FL butyrate bar has a distinct significance letter; OD and other
+    acid patterns differ.
+  support: supports
+  accessed_at: '2026-11-06T04:13:02.199228Z'
+  snapshot_sha256: 054d2ca9f5791622e172e859ce08157094e70a1d5de298db27b38163a74bd093
+- evidence_id: figure-4
+  kind: primary_source
+  reference: PMID:42655156
+  locator: 'Fresh primary Figure 4: all panels and caption visually inspected'
+  summary: Relative qPCR composition changes across 24-hour substrate arms. Faecalibacterium
+    is approximately 60% in FOS-only medium and Bifidobacterium reaches approximately
+    95% at high 2′-FL. These are different conditions, not simultaneous shares, viable-cell
+    counts or donor-resolved flux.
+  support: supports
+  accessed_at: '2026-11-06T04:13:02.478490Z'
+  snapshot_sha256: 8810a3e762e33beceaa06a42389b2a2da573d6bb421783ab1de631cb39a6d2dd
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:42655156
+  locator: Full one-page Supplementary S1 PDF extracted from the public Europe PMC
+    supplementaryFiles package, rendered and inspected
+  summary: 'S1 shows estimated genome-copy profiles: Faecalibacterium falls at high
+    2′-FL and Bifidobacterium rises, with distinct absolute and relative trajectories.
+    These estimates do not measure viable cells, acetate transfer or the causal basis
+    of the butyrate peak. Direct PMC returned an HTML shell and the guessed publisher
+    PDF route failed; the authentic public supplementary package supplied the verified
+    PDF.'
+  support: supports
+  accessed_at: '2026-11-06T04:14:45.823693Z'
+  snapshot_sha256: 64dda1580ce88954d8a0c636014281b14542004e81cbc69abf10e0b7b27151c0
+- evidence_id: catalogues
+  kind: authority
+  reference: https://www.jcm.riken.jp/cgi-bin/jcm/jcm_number?JCM=31915; https://www.jcm.riken.jp/cgi-bin/jcm/jcm_number?JCM=1254
+  locator: Fresh JCM31915 and JCM1254 HTML and parsed text
+  summary: Current JCM identifies A2-165/JCM31915/DSM17677 as F. duncaniae and links
+    NCBITaxon:411483. JCM1254/DSM20082 remains B. bifidum and links strain NCBITaxon:398514.
+    Catalogue-maintenance recipes and genomes are not the focal experiment's conditions
+    or newly generated datasets.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+  snapshot_sha256: 89b265f007a32acc3fa541504a586173b16d9e40820a32ea6e1963d1abaa6bf6
+- evidence_id: strain-authority
+  kind: authority
+  reference: 'Fresh NCBI Taxonomy efetch: 411483, 853, 398514 and 1681'
+  locator: 'ncbi-taxonomy.xml and ncbi-authorities.json: names, ranks and parent chains'
+  summary: Current NCBI independently resolves species 411483 as F. duncaniae and
+    species 853 as the distinct F. prausnitzii. Strain 398514 is B. bifidum JCM 1254
+    under species 1681. Correct lexical labels on the target do not fix its A2-165
+    species mismatch.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+  snapshot_sha256: a96f5c8065453e7ce718246641b1efe336c868b52dca9d71c3dc2c86d81dcdc5
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO, CHEBI and GO
+  locator: All eight unique current curated term pairs replayed through local OAK
+    authorities
+  summary: Current ID/label strings match authority labels; that lexical match does
+    not make species 853 correct for the specifically named A2-165 culture.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+  snapshot_sha256: 20e805ae9958d24825e65b5f1b5843612ac901379ddc7fe1abc60b50a9332831
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: CommunityCategoryEnum.DIET; FunctionalRoleEnum.CROSS_FEEDER and PRIMARY_DEGRADER
+  summary: DIET means direct interspecies electron transfer. CROSS_FEEDER denotes
+    consumption of other taxa's metabolites. DOMINANT is ordinal prominence, with
+    no fixed percentage cutoff; it does not mean both members have the same population
+    share across every treatment.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  locator: 'Fresh snippet-replay.json: all 32 current occurrences'
+  summary: All 32 snippets, including the new two-sentence abundance passage, match
+    fresh full primary XML and the committed cache after NFKC/whitespace normalization.
+    Main-text comparison is not an abstract-only check.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+  snapshot_sha256: 2ab78990e55ef724cbfeb8c621b22c233513fe3d7c226cba66263a0e8ff09436
+- evidence_id: history
+  kind: record_content
+  reference: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  locator: Four target sidecars, embedded entries, exact 000401 graph-decision row
+    and fresh issue receipts
+  summary: The graph-only decision's frozen record hash matches the original review
+    input. Issues 991–994 and 1254 are CLOSED; 1256 remains OPEN for the separate
+    A2-165 taxonomy follow-up. Issue 2113 is CLOSED and both abundance fields are
+    now present. Its new quotation covers both taxa, but the parsed delta adds it
+    only to taxonomy[0]; this placement fact does not by itself make the history's
+    general coverage wording false.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+  snapshot_sha256: 454b040db4defc6e4b127e573979d0a8607bd2cfc77774bcbc30236a5237ea3c
+- evidence_id: resources
+  kind: validation
+  reference: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  locator: Fresh primary Data Availability Statement; JCM source-strain catalogues;
+    current resource fields
+  summary: The article's Data Availability points to article/SI and further inquiry
+    without a study archive accession. Existing PMID and DOI resolve. Catalogue genome
+    links are distinct identity resources and were not fetched or reanalyzed; no dataset-omission
+    defect is inferred.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+  snapshot_sha256: c5b4d94fcd98543be47d7eb623a69180ae15cc98dbe1a3b1ad772818f65d421e
+- evidence_id: native-target
+  kind: validation
+  reference: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  locator: Fresh target-network.json and current two-node/evidence inventory
+  summary: Native target audit returns no issues. Two nodes contain six evidence items
+    with no downstream arrows; community-level participants and directed pair endpoints
+    match current taxonomy identifiers. This structural consistency does not establish
+    correct current strain grounding or scientific mechanism.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+  snapshot_sha256: 37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570
+- evidence_id: source-scope
+  kind: validation
+  reference: PMID:42655156
+  locator: Fresh source/media receipts, complete XML, four main figure images and
+    supplementary fallback receipt
+  summary: The author inspected the entire scientific main text, all four main figures
+    and full Supplementary S1. Current source bytes are preserved separately in scratch;
+    no raw-data or genome reanalysis and no independent-approval claim are made.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+  snapshot_sha256: dacc5f8df7061f1f0f40f3b6e9b7664e0cd64278574c416c8a0e33724311dbe3
+- evidence_id: search
+  kind: search
+  reference: Owned maintained roots
+  locator: Fresh ignored-inclusive exact record ID/slug, PMID and JCM1254/JCM31915/A2-165
+    query
+  summary: The bounded search found the primary cache, four histories and graph decisions.
+    It produced no exact strain hit in kb/taxa; other source-paper matches are leads
+    rather than automatically equivalent strain evidence.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+  search_scope: rg --no-ignore --hidden over references_cache, history, reports/causal_graph_review/decisions
+    and kb/taxa; includes ignored files, with no machine-wide absence assertion.
+  snapshot_sha256: 75f977b1f6a605465a89cc04473451136eb01d4b703e8b37334cd9ee89956086
+- evidence_id: adapter
+  kind: search
+  reference: Optional structured source adapter
+  locator: Fresh adapter-discovery.json and public iModulonDB catalog
+  summary: No optional runner was found in PATH or either exact probed sibling checkout.
+    The fresh public catalog has no Bifidobacterium or Faecalibacterium dataset entry;
+    no target strain/expression-module query was available. Absence from this catalog
+    is not negative biological evidence.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+  search_scope: PATH plus two explicit sibling paths, including ignored files, followed
+    by the inspected public organism/dataset catalog.
+  snapshot_sha256: 155607e7023efdead5ebab3919279a0776d5665a7de9e28b67f02f8f521b0693
+- evidence_id: current-delta
+  kind: record_content
+  reference: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  locator: 'semantic-diff.json: frozen original target versus current merged main'
+  summary: Two DOMINANT fields, one abundance quotation under taxonomy[0], and curation_history[3]
+    are new. No original taxonomy-grounding, category or consumer-role finding was
+    repaired by these additions.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+  snapshot_sha256: 454b040db4defc6e4b127e573979d0a8607bd2cfc77774bcbc30236a5237ea3c
+- evidence_id: abundance-scope
+  kind: primary_source
+  reference: PMID:42655156
+  locator: Methods 2.2–2.3, Results 3.4, Figure 4 and Supplementary S1
+  summary: Both strains are material contributors to the model and alternate in relative
+    prominence across substrate arms. Approximately 60% Faecalibacterium applies to
+    FOS-only culture; approximately 95% Bifidobacterium applies to 2′-FL-rich culture.
+    Taxonomy[0]'s new quote states both observations; taxonomy[1] still has only identity
+    and failure-to-grow-on-2′-FL snippets, which do not locally substantiate its abundance
+    annotation.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+  snapshot_sha256: c5b4d94fcd98543be47d7eb623a69180ae15cc98dbe1a3b1ad772818f65d421e
+- evidence_id: abundance-lineage
+  kind: prior_review
+  reference: reviews/structured/20261104T203000Z-c6s5-remediation-verification/review.yaml
+  locator: c6s4-000401-bifido-faecali-abundance-levels and its two exact Stage 4 predecessor
+    occurrences; fresh issue 2113
+  summary: The later review resolves the narrow missing-field finding and both fields
+    are now present. This successor confirms that bounded resolution and records exact
+    evidence placement without superseding the existing disposition. The new local-evidence
+    concern has a distinct issue key; unrelated findings and the other issue-2113
+    records are not reassessed.
+  support: supports
+  accessed_at: '2026-11-06T04:18:19.626551Z'
+  snapshot_sha256: cd796fdf794a9dd02a05472c59e3127c04031eac057b101ce12956886c02028b
+- evidence_id: check-validate
+  kind: validation
+  reference: just --no-dotenv validate kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  locator: .temp/pr2040/401/validate.json; 2026-11-06T04:11:39.019157Z to 2026-11-06T04:11:39.509657Z
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-11-06T04:11:39.509657Z'
+  snapshot_sha256: dd583fda63b9c76749f99e9e05ab1978432db3f8c30d6ce2f1a7b1fe18422f74
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: just --no-dotenv validate-strict kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    --out /Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2040-batch06/.temp/pr2040/401/strict.tsv
+  locator: .temp/pr2040/401/validate-strict.json; 2026-11-06T04:11:39.509848Z to 2026-11-06T04:11:41.260447Z
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-11-06T04:11:41.260447Z'
+  snapshot_sha256: ff686c41cfbc6af133d9140b2f8dd5a8cdeaa8f8dad4dd9d3a9c1384953b820b
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: just --no-dotenv validate-terms kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  locator: .temp/pr2040/401/validate-terms.json; 2026-11-06T04:11:41.260599Z to 2026-11-06T04:11:42.206695Z
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-11-06T04:11:42.206695Z'
+  snapshot_sha256: 8092e60645298ccdd1d1f60b565411bec92ee2f30ef8998a38381512270b3ebb
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: just --no-dotenv validate-gtdb kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  locator: .temp/pr2040/401/validate-gtdb.json; 2026-11-06T04:11:42.206846Z to 2026-11-06T04:11:42.267916Z
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-11-06T04:11:42.267916Z'
+  snapshot_sha256: 30b6eea4b8b030ca834b38c4125237baedd3d49c9c4ba5f55c55065d2443875f
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: just --no-dotenv validate-gtdb-domain kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  locator: .temp/pr2040/401/validate-gtdb-domain.json; 2026-11-06T04:11:42.268068Z
+    to 2026-11-06T04:11:43.103316Z
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-11-06T04:11:43.103316Z'
+  snapshot_sha256: cf176197198f8e03d23aa029ab5e2b0097f4531d2fae727ecc45e15e0b5c0154
+- evidence_id: check-validate-history
+  kind: validation
+  reference: just --no-dotenv validate-history history/records/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture
+  locator: .temp/pr2040/401/validate-history.json; 2026-11-06T04:11:43.103479Z to
+    2026-11-06T04:11:43.663238Z
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-11-06T04:11:43.663238Z'
+  snapshot_sha256: c5d96969c94ade14be8d7821c47d7869f278dd9ec1866e7c8fdd56e8a529d697
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: uv run python scripts/normalize_cache_names.py --check
+  locator: .temp/pr2040/401/normalize-cache-names-check.json; 2026-11-06T04:11:43.663395Z
+    to 2026-11-06T04:11:43.699927Z
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-11-06T04:11:43.699927Z'
+  snapshot_sha256: 3b7196a007c5b998f9cd8d1a89046dc99a1d77118d1db6f7b4339983cbd97460
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: just --no-dotenv validate-references-explained kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+  locator: .temp/pr2040/401/validate-references-explained.json; 2026-11-06T04:11:43.700119Z
+    to 2026-11-06T04:11:44.458875Z
+  summary: Target reference validation passed against the pinned cache.
+  support: supports
+  accessed_at: '2026-11-06T04:11:44.458875Z'
+  snapshot_sha256: de4cca00272508ccdb55175d248fc6f33a421680be30c38d808a0b5f006a8815
+- evidence_id: check-audit-network
+  kind: validation
+  reference: just --no-dotenv audit-network
+  locator: .temp/pr2040/401/audit-network.json; 2026-11-06T04:11:44.459035Z to 2026-11-06T04:11:48.613862Z
+  summary: 'Fresh corpus command retains baseline exit 1: 44 warnings across 16 of
+    503 records; target-specific native audit is empty.'
+  support: supports
+  accessed_at: '2026-11-06T04:11:48.613862Z'
+  snapshot_sha256: a75c9889fa5ebd90b5b9bc18e941f5962d83d2088c7e9917e19abf7062fe9b4f
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: just --no-dotenv check-network-quality
+  locator: .temp/pr2040/401/check-network-quality.json; 2026-11-06T04:11:48.614029Z
+    to 2026-11-06T04:11:52.802200Z
+  summary: 'Fresh corpus command retains baseline exit 1: 44 warnings across 16 of
+    503 records; target-specific native audit is empty.'
+  support: supports
+  accessed_at: '2026-11-06T04:11:52.802200Z'
+  snapshot_sha256: 8fd48d9b141d30ca2db37467950d0ded4de36de760771dfab1be4c3415fd6d86
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Exact model and strain provenance
+  outcome: concern
+  summary: The experiment is resolved, but its A2-165 current species grounding must
+    be reconciled with the paper’s legacy name.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - record
+  - methods
+  - catalogues
+  - strain-authority
+  dimensions:
+  - name: community_scope
+    value: Defined two-strain in-vitro prebiotic model
+    definition: The 10:90 optimum is specific to the tested batch assay and is not
+      an established adult-gut or clinical optimum.
+    evidence_ids:
+    - methods
+    - peak
+    - transfer
+  - name: source_strain
+    value: B. bifidum JCM1254 and A2-165/JCM31915
+    definition: Retain exact strains and the paper’s historical name while grounding
+      A2-165 to current F. duncaniae.
+    evidence_ids:
+    - methods
+    - catalogues
+    - strain-authority
+  - name: environment
+    value: Laboratory culture modeling adult intestinal metabolism
+    definition: Laboratory ENVO and explicitly modeled intestine are distinct; the
+      cultures are not an intact gut community.
+    evidence_ids:
+    - record
+    - ontology
+    - methods
+  - name: medium
+    value: Sugar- and volatile-fatty-acid-free YCFA with varied carbohydrate
+    definition: The culture contains basal medium constituents; its 0.5% added 2′-FL/FOS
+      series is not a chemically carbon-free formulation.
+    evidence_ids:
+    - methods
+  - name: experimental_setting
+    value: Anaerobic 48-well batch incubation at 37 °C for 24 h
+    definition: OD-standardized inocula, monoculture controls and triplicate endpoint
+      assays support a bounded formulation comparison.
+    evidence_ids:
+    - methods
+  - name: evidence_tier
+    value: Measured endpoints plus explicitly inferred acetate contribution
+    definition: OD, acid pools and qPCR estimates do not establish direct transfer,
+      metabolic flux or viable counts; no arrows are encoded.
+    evidence_ids:
+    - peak
+    - transfer
+    - figure-4
+    - supplement
+  - name: grounding_status
+    value: Eight matched labels with one strain-to-species mismatch
+    definition: Current nomenclature correction must propagate through the graph;
+      no GTDB assignment follows automatically from a catalogue name.
+    evidence_ids:
+    - ontology
+    - strain-authority
+  - name: abundance_interpretation
+    value: Ordinal prominence across distinct substrate arms
+    definition: The two DOMINANT fields describe important members across this defined
+      pair's treatment series. The approximately 60% and 95% qPCR observations belong
+      to different substrate ratios and do not establish simultaneous dominance, viable
+      counts, equal starting cells or persistent in-vivo prevalence.
+    evidence_ids:
+    - abundance-scope
+    - figure-4
+    - supplement
+    - schema
+- assessment_id: taxon-bifidum
+  area: grounding
+  topic: 'taxonomy[0]: B. bifidum JCM1254'
+  outcome: concern
+  summary: Species and collection identity are supported, but the recipient CROSS_FEEDER
+    role lacks source support.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - methods
+  - catalogues
+  - strain-authority
+  - mono
+  - transfer
+  - schema
+  details: The substrate-response evidence supports degradation of the supplied oligosaccharide
+    and a donor interpretation. The source does not show B. bifidum consuming Faecalibacterium
+    metabolites. Its existing species 1681 ID is compatible with the named strain;
+    optional strain 398514 enrichment is not required to fix a wrong identity.
+- assessment_id: taxon-faecalibacterium
+  area: grounding
+  topic: 'taxonomy[1]: A2-165/JCM31915'
+  outcome: concern
+  summary: The named culture is current F. duncaniae, not species 853 F. prausnitzii.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - methods
+  - catalogues
+  - strain-authority
+  - ontology
+  - abundance-scope
+  details: This is a current grounding correction for the same biological isolate,
+    not a different experiment or evidence fabrication. Preserve A2-165/JCM31915 and
+    legacy source quotations; use verified current nomenclature consistently in taxonomy
+    and graph participants. FOS utilization supports the substrate-degrader role;
+    acetate uptake remains author-inferred and should retain its qualification. Catalogue
+    identity alone does not resolve GTDB. Its new DOMINANT field is defensible as
+    prominence in this model across treatment conditions, but its own evidence list
+    does not contain the FOS-only relative-abundance support; add that local evidence
+    and condition qualifier without changing the source's literal legacy species name.
+- assessment_id: category
+  area: evidence
+  topic: 'community_category: DIET'
+  outcome: concern
+  summary: A dietary-substrate experiment does not establish direct interspecies electron
+    transfer.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - schema
+  - methods
+  - transfer
+  details: No direct electrical coupling is measured or proposed in the inspected
+    study. Choose a schema-valid category matching the verified gut-culture experiment,
+    with rationale; do not infer a replacement category solely from the word diet
+    or force a syntrophy classification.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: ratio-dependent butyrate peak'
+  outcome: supported
+  summary: Retain the measured community-level endpoint with its present assay and
+    mechanism limits.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - peak
+  - figure-3
+  - methods
+  - transfer
+  details: Participants are JCM1254 and A2-165, whose current taxon annotation needs
+    the separate correction. The node has no donor-to-recipient direction or downstream
+    arrow. Its 10:90 maximum, growth/output distinction, fixed added carbohydrate
+    and 24-hour endpoint are supported; Figure 3d separates the peak statistically.
+    Preserve its warning against an in-vivo optimum or donor-resolved transfer claim.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: putative JCM1254 → A2-165 acetate support'
+  outcome: supported
+  summary: Retain the explicitly PARTIAL cross-feeding interpretation, distinct from
+    the measured acid endpoints.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - transfer
+  - mono
+  - peak
+  - figure-4
+  - supplement
+  details: The proposed donor is B. bifidum and recipient is A2-165/current F. duncaniae;
+    acetate is the only encoded pairwise metabolite. Main Discussion proposes this
+    direction while acknowledging absent flux, pH and residual-substrate measurements.
+    qPCR and S1 are abundance estimates, not viable counts. Keep zero downstream arrows
+    and do not convert this interpretation into demonstrated acetate transfer.
+- assessment_id: cultivation
+  area: completeness
+  topic: Medium, design, factors and batch setup
+  outcome: supported
+  summary: The recorded perturbation, incubation and derived working volume agree
+    with the focal Methods.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - methods
+  - record
+  details: Monocultures receive one 8 µL standardized suspension; cocultures receive
+    two into 800 µL medium, giving the explicitly modeled 816 µL. This arithmetic
+    does not establish equal cell counts or biomass. Keep initial glucose-YCFA revival
+    distinct from sugar/VFA-free YCFA− assays. Culture pH is unmeasured; chromatographic
+    mobile-phase pH and column temperature are analytical settings, not culture conditions.
+    Basal recipe expansion would require the cited formulation; no catalogue protocol
+    is substituted.
+- assessment_id: ingredients
+  area: grounding
+  topic: 2′-FL, FOS, acetate, butyrate and GO scope
+  outcome: supported
+  summary: The ingredients and broad carbohydrate-process grounding fit the bounded
+    experiment.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - ontology
+  - methods
+  - mono
+  - peak
+  - transfer
+  details: FOS is the source preparation of kestose, nystose and fructofuranosylnystose,
+    not an automatically interchangeable single compound. Acetate is measured and
+    only a proposed contributor to butyrate; the ingredient prose preserves that distinction.
+    No metal/REE phenotype is asserted. The broad GO label is valid without proving
+    a unique enzymatic pathway.
+- assessment_id: provenance
+  area: provenance
+  topic: Source excerpts, prior repairs and resources
+  outcome: supported
+  summary: All 32 snippets and four sidecars preserve source provenance; current abundance
+    fields resolve the narrow omission while their evidence placement needs one local
+    refinement.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - snippets
+  - history
+  - resources
+  - source-scope
+  details: Issues 991–994 and 1254 are CLOSED and their graph/volume/evidence repairs
+    remain present; 1256 is OPEN for taxonomy. Issue 2113 is CLOSED and both abundance
+    fields now exist. The one new quotation covers both organisms but resides only
+    under taxonomy[0]. This observation does not declare history false or reopen the
+    resolved missing-field finding. Publication resources resolve; catalogue genome
+    links remain separate from focal-study data.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and current source assessment
+  outcome: supported
+  summary: Eight focused/native checks pass, all eight encoded term labels and all
+    32 snippets match. Fresh NCBI/JCM checks expose the persistent strain-species
+    mismatch beyond lexical validation. Corpus network commands retain their 44-warning
+    exits, with no target issues.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - check-validate
+  - check-validate-references-explained
+  - ontology
+  - strain-authority
+  - source-scope
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and quality
+  outcome: supported
+  summary: Mechanical metrics remain distinct from experimental correctness and taxonomic
+    attribution.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - native-target
+  - record
+  metrics:
+  - name: completeness
+    value: 75
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100,50 required metadata including all roles +5 environment +10
+      at least 3 factors +10 at least 3 nodes +5 resources +10 media +5 datasets +5
+      node metabolites). 50+5+0+0+5+10+0+5=75.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 - 50P1 - 10P2 - 2P3 + 20 min(mean node evidence / 2, 1)
+      + 15 if native COMPLETE, 0, 100). P1 = 0, P2 = 2, P3 = 2, P4 = 0; 6 evidence
+      items / 2 nodes = 3 gives 20 evidence bonus. Native target audit is empty. 100
+      - 20 - 4 + 20 + 15 = 111 before capping; high mechanical quality does not erase
+      semantic findings.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Observed native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Observed native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+- assessment_id: staleness-and-abundance-lineage
+  area: provenance
+  topic: Fresh input and bounded prior abundance resolution
+  outcome: concern
+  summary: Both previously missing abundance fields are present, but Faecalibacterium
+    needs its own condition-scoped evidence.
+  details: The exact delta preserves all three original finding surfaces. The source's
+    two-sentence passage covers both taxa but was added only to taxonomy[0]. The prior
+    c6s5 resolution of missing fields remains intact; a distinct new concern addresses
+    local attachment and interpretation, without claiming both organisms dominate
+    every treatment. No other issue-2113 target or grouped disposition is superseded.
+  target_ids:
+  - CommunityMech:000401
+  evidence_ids:
+  - current-delta
+  - abundance-scope
+  - abundance-lineage
+  - history
+  - schema
+findings:
+- finding_id: a2-165-current-taxon
+  issue_key: cm-000401-a2-165-current-taxon
+  category: grounding
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: current species grounding attaches the known isolate
+    and graph endpoints to a different species concept; the experiment and strain
+    identity remain resolved.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Reconcile A2-165 with current F. duncaniae grounding
+  description: The exact JCM culture is verified as F. duncaniae, while taxonomy and
+    graph participants use the distinct current F. prausnitzii species ID.
+  target_ids:
+  - CommunityMech:000401
+  field_paths:
+  - taxonomy[1].taxon_term
+  - ecological_interactions[0].participating_taxa[1]
+  - ecological_interactions[1].target_taxon
+  - description
+  evidence_ids:
+  - methods
+  - catalogues
+  - strain-authority
+  - ontology
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T105953Z-bifidobacterium-faecalibacterium-2fl-fos-record
+    finding_id: a2-165-current-taxon
+- finding_id: diet-category
+  issue_key: cm-000401-diet-category
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: the category encodes an unsupported ecological
+    mechanism and misclassifies the entire record.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Replace the unsupported electron-transfer category
+  description: The record uses DIET for a dietary-substrate model even though the
+    schema defines it as direct interspecies electron transfer and the source supplies
+    no such evidence.
+  target_ids:
+  - CommunityMech:000401
+  field_paths:
+  - community_category
+  evidence_ids:
+  - schema
+  - methods
+  - transfer
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T105953Z-bifidobacterium-faecalibacterium-2fl-fos-record
+    finding_id: diet-category
+- finding_id: donor-recipient-role
+  issue_key: cm-000401-donor-recipient-role
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: one local functional-role attribution needs narrowing;
+    the existing graph already encodes the donor-to-recipient direction cautiously.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Qualify the B. bifidum recipient-role assignment
+  description: The source supports substrate use and a proposed metabolite-donor role,
+    but not B. bifidum uptake of metabolites from its partner.
+  target_ids:
+  - CommunityMech:000401
+  field_paths:
+  - taxonomy[0].functional_role
+  - taxonomy[0].evidence
+  evidence_ids:
+  - schema
+  - mono
+  - transfer
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T105953Z-bifidobacterium-faecalibacterium-2fl-fos-record
+    finding_id: donor-recipient-role
+- finding_id: faecalibacterium-abundance-evidence-scope
+  issue_key: cm-000401-faecalibacterium-abundance-evidence-scope
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: the source supports prominence under a specific
+    treatment, but the newly populated taxon annotation lacks its local supporting
+    snippet and condition qualifier; the exact pair and source observation remain
+    resolved.'
+  rule_id: review-checklist.claim_evidence
+  status: open
+  certainty: confirmed
+  title: Attach treatment-scoped abundance support to the Faecalibacterium member
+  description: Taxonomy[1] now has abundance_level DOMINANT, but its own evidence
+    list still contains only exact strain identity and failure to grow on 2′-FL alone.
+    The new quotation under taxonomy[0] supplies the approximately 60% FOS-only Faecalibacterium
+    observation as well as the approximately 95% 2′-FL-rich Bifidobacterium observation.
+    Attach the relevant support locally and distinguish these treatment-dependent
+    relative-qPCR observations from simultaneous dominance or viable abundance.
+  target_ids:
+  - CommunityMech:000401
+  field_paths:
+  - taxonomy[1].abundance_level
+  - taxonomy[1].evidence
+  evidence_ids:
+  - abundance-scope
+  - figure-4
+  - methods
+  - schema
+  - current-delta
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    role: canonical_record
+actions:
+- action_id: repair-a2-165-current-taxon
+  description: Reconcile A2-165 with current F. duncaniae grounding.
+  finding_ids:
+  - a2-165-current-taxon
+  target_ids:
+  - CommunityMech:000401
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Ground A2-165/JCM31915 to verified NCBITaxon:411483 Faecalibacterium duncaniae
+    consistently in taxonomy and graph participants, retaining the exact culture identity.
+  - Preserve literal source quotations and explain that the paper uses the legacy
+    F. prausnitzii name; do not rewrite historical evidence or imply a different experimental
+    isolate.
+  - Keep source naming, current nomenclature and exact strain distinct in prose and
+    notes; reassess GTDB only with an applicable verified mapping, without forcing
+    an assignment.
+  - Rerun term, GTDB/domain and network consistency checks after a separately authorized
+    correction.
+- action_id: repair-diet-category
+  description: Replace the unsupported electron-transfer category.
+  finding_ids:
+  - diet-category
+  target_ids:
+  - CommunityMech:000401
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Select a schema-valid category justified by the verified experiment, with an explicit
+    rationale; OTHER is preferable to an unsupported mechanistic classification where
+    no narrower category fits.
+  - Do not reinterpret DIET as dietary supplementation or infer electron transfer
+    from fermentation/metabolite exchange.
+  - Preserve the bounded carbohydrate-ratio and putative acetate-transfer graph; category
+    correction does not require new nodes or arrows.
+- action_id: repair-donor-recipient-role
+  description: Qualify the B. bifidum recipient-role assignment.
+  finding_ids:
+  - donor-recipient-role
+  target_ids:
+  - CommunityMech:000401
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove or source-qualify B. bifidum CROSS_FEEDER under its consumer definition;
+    donor secretion alone is insufficient.
+  - Attach role-specific substrate/fermentation evidence to retained roles, without
+    inventing reverse transfer or a new replacement role.
+  - Retain Faecalibacterium recipient support as author-inferred and preserve the
+    explicit unresolved flux, pH and substrate limitations.
+- action_id: preserve-qualified-model
+  description: Preserve the two qualified nodes, zero arrows and experimental limitations
+    during separately authorized follow-up.
+  finding_ids:
+  - a2-165-current-taxon
+  - diet-category
+  - donor-recipient-role
+  target_ids:
+  - CommunityMech:000401
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Do not convert acid pools, relative qPCR or estimated copies into donor-resolved
+    flux, viable abundance or an in-vivo optimal formulation.
+  - Do not import catalogue growth conditions or reference-genome records as the focal
+    study’s experimental data.
+  - Preserve append-only history and rerun schema, strict, term, reference, history
+    and target/corpus network checks after authorized curation.
+- action_id: attach-faecalibacterium-abundance-evidence
+  description: Add the local source-exact Faecalibacterium abundance support and treatment
+    explanation during separately authorized record curation.
+  finding_ids:
+  - faecalibacterium-abundance-evidence-scope
+  target_ids:
+  - CommunityMech:000401
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bifidobacterium_Faecalibacterium_2FL_FOS_Butyrate_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Attach the exact Results 3.4 FOS-only abundance passage to taxonomy[1] with PMID
+    42655156 and IN_VITRO provenance, preserving literal legacy source naming.
+  - Explain that approximately 60% refers to the 24-hour FOS-only relative-qPCR result,
+    while approximately 95% Bifidobacterium belongs to 2′-FL-rich arms. Do not imply
+    simultaneous percentages, viable counts or equal starting cell counts.
+  - Retain DOMINANT only with the record-relative and treatment scope made explicit;
+    do not invent a numerical enum cutoff or change other source-supported fields
+    to force consistency.
+  - Keep the separate A2-165 nomenclature, DIET-category and Bifidobacterium consumer-role
+    findings open until independently corrected; preserve the qualified graph and
+    unresolved pH/substrate/flux discussion.
+  - Append normal curation history without rewriting old entries, then run schema,
+    strict, term, reference, history and generated-document checks. No historical
+    correction is requested solely for the shared quotation's placement.
+limitations:
+- No raw data, statistical analysis, genome sequence, isotope tracing or biochemical
+  flux was reanalyzed. Figure inspection verifies reported patterns and scope, not
+  a new quantitative reconstruction.
+- Only one strain pair and a 24-hour batch endpoint are studied; pH, residual substrate
+  and direct flux are explicitly unmeasured. The optimal tested ratio is not an established
+  in-vivo optimum.
+- Current catalogue identity does not alter literal source nomenclature, verify historical
+  GTDB release statistics or authorize an inferred new GTDB mapping.
+- The basal YCFA recipe cited to an earlier reference was not independently reconstructed;
+  no CultureMech formulation or catalogue-maintenance transfer is certified.
+- Data Availability points to article/SI and author inquiry; no unreported archive
+  accession or dataset omission is inferred. Catalogue genome links were not fetched
+  or analyzed.
+- Both DOMINANT values are ordinal prominence across the substrate series. Different
+  treatment arms produce the approximately 60% and 95% relative-qPCR observations;
+  neither the percentages nor S1 copy estimates measure viable abundance or persistence.
+- Direct PMC supplement retrieval returned an HTML preparation page and the guessed
+  publisher PDF route failed. The public Europe PMC supplementaryFiles package supplied
+  the authentic PDF, which was extracted and inspected without access-control bypass
+  or paid retrieval.
+- The corpus network commands retain baseline exit 1 with 44 warnings across 16 of
+  503 records, recorded as failed. The target-specific native audit is empty; other
+  records are outside this review.
+notes:
+- Author refresh only; no independent approval claim and no canonical record, cache,
+  history, schema or generated-product edits.
+- Initial repository inputs were hashed before judgment and rechecked before final
+  inspection. All three original unresolved findings retain stable keys and exact
+  previous_occurrences.
+- The narrow c6s5 missing-field resolution remains intact. One new quotation covers
+  both organisms but appears only in taxonomy[0]; no false-history finding is inferred
+  from that placement.
+- The existing bifido_faecali_2fl_fos_flux_unresolved discussion remains a source
+  boundary covered by the preserve-qualified-model action. No experiment, paid research
+  or author contact is requested.
+- Native quality is capped at 100 from 111; completeness remains 75. Fifteen quoted
+  words from the focal article are retained from the predecessor, with other source
+  descriptions paraphrased.
+tags:
+- record-review
+- gut-coculture
+- taxonomy
+- prebiotic
+- batch-06
+- pr-2040-refresh
+```
