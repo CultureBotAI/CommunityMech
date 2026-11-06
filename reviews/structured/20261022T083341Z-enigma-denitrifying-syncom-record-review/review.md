@@ -1,0 +1,1598 @@
+# ENIGMA denitrifying SynCom record review
+
+- Review: 20261022T083341Z-enigma-denitrifying-syncom-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-22T08:17:59.011577Z
+- Finished UTC: 2026-10-22T08:33:41.458019Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+The defined two-isolate community and qualified three-node/two-arrow graph are supported. Two major findings concern non-graph certainty and soil-versus-groundwater identity; one minor finding concerns source-specific taxonomy and GTDB provenance. Eight required checks passed. Completeness 85; raw quality 109.66666666666667, capped at 100.
+
+## Scope And Provenance
+
+Whole released record and principal source; all main/SI figures and explicit bounded workbook rows, authorities and resource metadata.
+
+Selection: Sole released CommunityMech:000024 in owned batch16.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base cb7a782c8ba80299dca8761ad0a2c90bccd8a117.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000024 | kb/communities/ENIGMA_Denitrifying_SynCom.yaml | maintained | ENIGMA Denitrifying SynCom |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000024 | Actual native exit 0. |
+| validate-strict | passed | True | CommunityMech:000024 | Actual native exit 0. |
+| validate-terms | passed | True | CommunityMech:000024 | Actual native exit 0. |
+| validate-references-explained | passed | True | CommunityMech:000024 | Actual native exit 0. |
+| validate-gtdb | passed | True | CommunityMech:000024 | Actual native exit 0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000024 | Actual native exit 0. |
+| validate-history | passed | True | CommunityMech:000024 | Actual native exit 0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000024 | Actual native exit 0. |
+| audit-network corpus context | failed | False | CommunityMech:000024 | Actual corpus exit 1; separate from target checks. |
+| check-network-quality corpus context | failed | False | CommunityMech:000024 | Actual corpus exit 1; separate from target checks. |
+| Source-specific structured adapter | unavailable | False | CommunityMech:000024 | No callable owned-runtime runner; exact gene and strain applicability recorded. |
+
+## Scientific And Domain Assessments
+
+### Source strains and community boundary
+
+identity: supported. Targets: CommunityMech:000024.
+
+The record identifies the correct defined two-isolate experiment.
+
+FW510-R12 and GW101-3H11 are source-named isolates. The laboratory SynCom is not the natural groundwater community or the field OTU analysis. Both isolates grow separately; improved paired growth does not imply obligate dependence.
+
+### Measured outcomes and inferred exchange
+
+evidence: concern. Targets: CommunityMech:000024.
+
+Bring non-graph claims into agreement with the qualified graph.
+
+Growth, nitrate/nitrite physiology, N2O endpoints and omics abundance are measured. Reverse NO transfer and high-condition SynCom nitrite exposure are model-derived; complete N2 formation is inferred from product accounting. Description, design notes, member-role evidence and nitrite/NO ingredient claims currently blur those layers. Retain broad SYNTROPHIC_PARTNER and CROSS_FEEDER roles with direction-specific evidence, including R12 nitrite consumption and inferred reverse NO use by 3H11. Neither independent growth nor neighboring enum wording requires deleting the roles. Competition and nutritional complementarity remain alternatives.
+
+### Pathway-Partitioned Denitrification Cooperation
+
+graph: supported. Targets: CommunityMech:000024.
+
+Retain the qualified COMMUNITY_LEVEL claim.
+
+Exact selector ecological_interactions[0]. Participants: {"participating_taxa": [{"preferred_term": "Rhodanobacter thiooxydans FW510-R12", "term": {"id": "NCBITaxon:416169", "label": "Rhodanobacter thiooxydans"}}, {"preferred_term": "Acidovorax sp. GW101-3H11", "term": {"id": "NCBITaxon:1872122", "label": "Acidovorax sp."}}]}. Exact canonical snippet bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet", "sha256": "d031972982cd95df1e5b2d772f585f502b82e32aecea52e67f23ee7e8cec6578", "reference": "PMID:40349173", "supports": "PARTIAL", "evidence_source": "COMPUTATIONAL"}, {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "4ccbd0b16d1a1c84174358f525a719f234649cfbc29c8b71140e20495e513118", "reference": "PMID:40349173", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Source: PMID:40349173; DOI:10.1093/ismejo/wraf093. Locator: Results, Denitrification pathway is partitioned across members of microbial communities at the ORR, third direct paragraph; Figure 1E–F; Results, Exchange of intermediates in the denitrification pathway largely explain enhanced growth phenotype of the SynCom, third direct paragraph; Figure2C. Retain enhanced paired growth and nitrite clearance as observations. Reverse R12-to-3H11 NO transfer is inferred by the kinetic model and corroborated by transcription; no direct NO flux or N2 assay is established.
+
+### High-Nitrate Destabilization of Cooperation
+
+graph: supported. Targets: CommunityMech:000024.
+
+Retain the qualified COMMUNITY_LEVEL claim.
+
+Exact selector ecological_interactions[1]. Participants: {"participating_taxa": [{"preferred_term": "Rhodanobacter thiooxydans FW510-R12", "term": {"id": "NCBITaxon:416169", "label": "Rhodanobacter thiooxydans"}}, {"preferred_term": "Acidovorax sp. GW101-3H11", "term": {"id": "NCBITaxon:1872122", "label": "Acidovorax sp."}}]}. Exact canonical snippet bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet", "sha256": "d1612faec47fa636dfe9693cb3bb76c8663f380c9f37e0b714d903b0f4b2929f", "reference": "PMID:40349173", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}, {"selector": "ecological_interactions[1].evidence[1].snippet", "sha256": "0810959fd33ee689a5acd62a71b7dff1072a38fcc99c1bcfad9845eed1dd1c96", "reference": "PMID:40349173", "supports": "PARTIAL", "evidence_source": "COMPUTATIONAL"}]. Source: PMID:40349173; DOI:10.1093/ismejo/wraf093. Locator: Results, Proteomics analysis of the SynCom supports the dominant role of 3H11 across varied NO3 concentrations and reveals global physiological adaptations, first direct paragraph; Figure 4; Results, Nitrite accumulation drives nitrous oxide emissions across variation in initial nitrate concentration and community composition, third and fourth direct paragraphs; Figure 5D–E. Retain nitrate/composition perturbations: 1–40 mM nitrate at equal inoculation, or 5–98% 3H11 at 10 mM nitrate. Measured endpoint N2O and omics trends do not independently demonstrate pairwise competition.
+
+### High-Nitrate Destabilization of Cooperation → Toxic Nitrite Accumulation and N2O Off-Gassing
+
+graph: supported. Targets: CommunityMech:000024.
+
+Retain the PARTIAL directed inference.
+
+Exact selector ecological_interactions[1].downstream[0]. Exact description: "PARTIAL - faster 3H11 nitrate reduction relative to R12 nitrite removal can increase toxic nitrite exposure. Across varied nitrate and inoculum ratios, kinetic-model predictions of nitrite exposure correlate with measured endpoint N2O; selective SynCom nitrite mediation was not isolated.". Description SHA256: d9ff6ce506fd5021db67f16972e4bb23dc973aaa0cadf85ee4b269aa1d0d6409. Source: PMID:40349173; DOI:10.1093/ismejo/wraf093. Locator: Results, Nitrite accumulation drives nitrous oxide emissions across variation in initial nitrate concentration and community composition, third and fourth direct paragraphs; Figure 5D–E; Figure 5D–E; Supplementary Figure S1. Loading/inoculum context → modeled nitrite exposure and measured N2O; the model-to-endpoint correlation does not isolate nitrite mediation.
+
+### Toxic Nitrite Accumulation and N2O Off-Gassing
+
+graph: supported. Targets: CommunityMech:000024.
+
+Retain the qualified COMMUNITY_LEVEL claim.
+
+Exact selector ecological_interactions[2]. Participants: {"participating_taxa": [{"preferred_term": "Rhodanobacter thiooxydans FW510-R12", "term": {"id": "NCBITaxon:416169", "label": "Rhodanobacter thiooxydans"}}, {"preferred_term": "Acidovorax sp. GW101-3H11", "term": {"id": "NCBITaxon:1872122", "label": "Acidovorax sp."}}]}. Exact canonical snippet bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet", "sha256": "0810959fd33ee689a5acd62a71b7dff1072a38fcc99c1bcfad9845eed1dd1c96", "reference": "PMID:40349173", "supports": "PARTIAL", "evidence_source": "COMPUTATIONAL"}]. Source: PMID:40349173; DOI:10.1093/ismejo/wraf093. Locator: Results, Nitrite accumulation drives nitrous oxide emissions across variation in initial nitrate concentration and community composition, third and fourth direct paragraphs; Figure 5D–E; Discussion, first direct paragraph. Retain measured monoculture nitrite inhibition, modeled SynCom exposure and measured N2O. N2O is not the identified inhibitory agent, and the high-condition mechanism was not selectively isolated.
+
+### Toxic Nitrite Accumulation and N2O Off-Gassing → Pathway-Partitioned Denitrification Cooperation
+
+graph: supported. Targets: CommunityMech:000024.
+
+Retain the PARTIAL directed inference.
+
+Exact selector ecological_interactions[2].downstream[0]. Exact description: "PARTIAL - accumulated nitrite can inhibit partner growth and thereby impair completion of the shared denitrification pathway. Monoculture inhibition and model-to-N2O correspondence support this negative effect, not selective proof that NO exchange fails in the SynCom or that N2O is the inhibitory agent.". Description SHA256: 085fd7d5fcb22ebf3366c6566bbfbd8f39c6e9b9cf63da4b7e75463ddba64b80. Source: PMID:40349173; DOI:10.1093/ismejo/wraf093. Locator: Results, Nitrite accumulation drives nitrous oxide emissions across variation in initial nitrate concentration and community composition, third and fourth direct paragraphs; Figure 5D–E; Figure 5D–E; Supplementary Figure S1. Nitrite inhibition → impaired completion of the shared pathway; no selective proof of failed NO exchange or N2O toxicity.
+
+### Groundwater provenance versus soil
+
+grounding: concern. Targets: CommunityMech:000024.
+
+The soil term conflicts with the documented source wells.
+
+ENVO:00002116 is correctly labelled contaminated soil but is not the source habitat. Use verified ENVO:01001004 groundwater for provenance and preserve nitrate contamination in notes. Describe the laboratory assay separately; ENVO:01001405 laboratory environment is an available broader context, not a replacement for source groundwater.
+
+### Standard culture and perturbation conditions
+
+scope: supported. Targets: CommunityMech:000024.
+
+The existing medium and core culture conditions are supported.
+
+Retain 30 °C, pH 7.2, 20 mM sodium acetate, 10 mM sodium nitrate, 0.1 g/L yeast extract and 80:20 N2/CO2. R2A starter culture is separate. Standard co-inoculation uses 100 µL per partner at matched density, giving initial OD600 about 0.01. Do not infer tube capacity from 10 mL culture volume or apply every later automated shaking condition to every assay.
+
+### Source-specific taxa and GTDB provenance
+
+grounding: concern. Targets: CommunityMech:000024.
+
+Use the exact source-linked isolate where justified and state mapping provenance accurately.
+
+Encoded NCBITaxon:416169 is Rhodanobacter thiooxydans; NCBITaxon:1872122 is an unnamed Acidovorax species, not a genus or an ancestor of the source-specific node. PRJNA314893 identifies NCBITaxon:1813946 Acidovorax sp. GW101-3H11, mapping to GTDB:s__Acidovorax_sp001633105, fraction 1.0 over 4 genomes. Propagate any source-linked refinement through taxonomy and all three participant lists. R12 paper species 416169 maps by name to GTDB:s__Rhodanobacter_thiooxydans,1.0/2; archive 1525219 names Rhodanobacter sp. FW510-R12 and maps to GTDB:s__Rhodanobacter_sp001617365,1.0/2. Preserve this difference before choosing a taxon. Filesystem mtime 2026-07-25 does not establish a GTDB release or build.
+
+### Exact excerpts and assay-specific interpretation
+
+evidence: supported. Targets: CommunityMech:000024.
+
+All 19 excerpts match; matching text does not establish direct mechanism.
+
+Sixteen Abstract, one Results and two Methods placements strictly match fresh source and cache. Retain measured omics as IN_VITRO while qualifying the flux interpretation. Supplementary annotation labels, including 3H11 nirK and DHA2-family norB rows, are not catalytic or exchange assays.
+
+### Public assay and reference resources
+
+evidence: supported. Targets: CommunityMech:000024.
+
+All five encoded resource identities resolve at their stated scopes.
+
+GSE272493 holds 39 RNA samples: 12 mono-3H11, 12 mono-R12 and 15 SynCom. Source analyzed subsets and repository design tables differ; no canonical sample count is asserted. PXD051979 is mixed proteomics. PRJNA255897/PRJNA314893 are reference-genome projects, not new SynCom sequence assays. Repository metadata and design CSVs were checked without code or raw-data execution.
+
+### Complete source with bounded workbook inspection
+
+scope: supported. Targets: CommunityMech:000024.
+
+Every encoded scientific claim was assessed against the full main and relevant supplements.
+
+Whole 86,929-character main including 60 references and five main figures read. All five SI pages/captions read. Four workbook headers/inventories and 50 selected full rows inspected; remaining bulk matrix cells were not exhaustively reviewed. Direct supplementary HTML challenges and publisher403 were preserved; authentic PDF/XLS files were recovered through the official EPMC ZIP. No sequence, raw-omics or model reanalysis.
+
+### Prior review and maintained owner
+
+ownership: supported. Targets: CommunityMech:000024.
+
+Preserve current graph repairs and leave issue status unchanged.
+
+Lead read whole canonical/history/adversarial and exact batch34 records[2] with shared metadata. Support/root read whole cache and current issue/cohort context. Issues 1412/1415 remain open; this review neither closes them nor edits canonical, cache or history. No generated product owns these scientific fixes.
+
+### Actual required checks
+
+schema: supported. Targets: CommunityMech:000024.
+
+Eight required native checks passed.
+
+Target network COMPLETE has no structural warnings and does not certify mechanism. Nonrequired corpus exits and the unavailable optional structured adapter remain explicit. Retrieval/reader failures are separate from native validation results.
+
+### Literal profile metrics
+
+completeness: supported. Targets: CommunityMech:000024.
+
+Completeness 85; raw quality 109.66666666666667, capped at 100.
+
+Presence-based scores do not substitute for biological support.
+
+## Findings
+
+### non-graph-certainty: Separate measured physiology from inferred exchange and mediation
+
+major / open / confirmed; issue key: cm-000024-non-graph-certainty.
+
+Non-graph prose and IN_VITRO placement turn modeled reverse NO transfer and predicted SynCom nitrite exposure into direct mechanistic claims.
+
+### groundwater-environment: Represent the documented groundwater source instead of soil
+
+major / open / confirmed; issue key: cm-000024-groundwater-environment.
+
+The exact soil label is valid, but source isolates came from contaminated wells and the experiments are defined laboratory cultures.
+
+### taxon-provenance: Refine source-linked taxon identity and GTDB provenance
+
+minor / open / confirmed; issue key: cm-000024-taxon-provenance.
+
+Generic Acidovorax grounding misses an exact source-linked node, while R12 paper/archive identities need an explicit distinction and mapping mtime is misrepresented as release/build provenance.
+
+## Recommended Actions And Acceptance Checks
+
+### qualify-mechanisms
+
+Align non-graph claims with measured, modeled and inferred evidence.
+
+- Qualify reverse R12-to-3H11 NO transfer as model-enabled and transcript-supported, not measured flux; qualify complete N2 production as inferred accounting.
+- Separate measured monoculture nitrite inhibition and endpoint N2O from predicted high-condition SynCom nitrite exposure. Preserve competition and nutritional complementarity as alternatives.
+- Repair description, design notes/evidence, member-role evidence, environmental_factors[1] and nitrite/NO ingredient relevance/evidence at their exact assertion scope. Keep IN_VITRO for actual measurements and COMPUTATIONAL/PARTIAL for modeled mechanism.
+- Retain broad SYNTROPHIC_PARTNER and CROSS_FEEDER roles with direction-specific support; do not add obligacy or automatically impose an interaction-type definition on roles. Retain all three qualified nodes and two PARTIAL arrows.
+
+### repair-environment
+
+Separate source groundwater from laboratory culture setting.
+
+- Replace contaminated-soil grounding with verified ENVO:01001004 groundwater for the documented source habitat, including its exact label and source-specific nitrate-contamination notes.
+- Describe the actual laboratory Balch-tube context separately; do not invent a composite contaminated-groundwater CURIE or present the synthetic culture as the intact field community.
+
+### refine-taxa
+
+Apply source-specific taxon and mapping provenance consistently.
+
+- Use the source-linked NCBITaxon:1813946 Acidovorax sp. GW101-3H11 where accepted, consistently in taxonomy and all three participant lists. Its exact mapping is GTDB:s__Acidovorax_sp001633105, fraction 1.0 over 4 genomes.
+- Explain R12 paper species NCBITaxon:416169 versus archive NCBITaxon:1525219 and their different GTDB species routes before any taxon substitution. Preserve the exact FW510-R12 descriptor and do not infer an ancestor relationship between generic and isolate-named nodes.
+- Replace unsupported latest/build-date wording with the actual hashed mapping source and retrieval context. Filesystem mtime is not a GTDB release.
+- Run focused schema, strict, ontology, reference, GTDB/domain and history gates after separately authorized curation; recheck all participant IDs and claim-level evidence.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/ENIGMA_Denitrifying_SynCom.yaml; Whole maintained record | supports | Defined two-member SynCom, three qualified community nodes and two directed arrows. |
+| cultivation | PMID:40349173; DOI:10.1093/ismejo/wraf093; Materials and methods, Strains and medium preparation, sole direct paragraph; XPath //*[@id="sec8"]/p[1] | supports | Source strains came from contaminated wells; laboratory cultures use anaerobic Balch tubes. |
+| inoculum | PMID:40349173; DOI:10.1093/ismejo/wraf093; Materials and methods, Preparation of R12 and 3H11 co-cultures and pure cultures, sole direct paragraph; XPath //*[@id="sec9"]/p[1] | supports | Standard pair and monocultures use matched initial density; nitrate and composition perturbations are separate experiments. |
+| growth | PMID:40349173; DOI:10.1093/ismejo/wraf093; Results, Denitrification pathway is partitioned across members of microbial communities at the ORR, third direct paragraph; Figure 1E–F; XPath //*[@id="sec22"]/p[3] | supports | The pair grows faster than either monoculture and clears transient nitrite under cooperative conditions. |
+| NO-model | PMID:40349173; DOI:10.1093/ismejo/wraf093; Results, Exchange of intermediates in the denitrification pathway largely explain enhanced growth phenotype of the SynCom, third direct paragraph; Figure2C; XPath //*[@id="sec23"]/p[3] | supports | Reverse NO transfer is a kinetic-model inference without directly measured NO reduction rates. |
+| omics | PMID:40349173; DOI:10.1093/ismejo/wraf093; Results, Community growth drives global changes in transcriptional states of 3H11 and R12, second direct paragraph; Figure3E; XPath //*[@id="sec24"]/p[2] | supports | Transcript patterns corroborate proposed physiology; they do not directly measure exchanged flux. |
+| loading | PMID:40349173; DOI:10.1093/ismejo/wraf093; Results, Proteomics analysis of the SynCom supports the dominant role of 3H11 across varied NO3 concentrations and reveals global physiological adaptations, first direct paragraph; Figure 4; XPath //*[@id="sec25"]/p[1] | supports | Nitrate loading and protein patterns reveal context-dependent responses without isolating pairwise competition. |
+| nitrite | PMID:40349173; DOI:10.1093/ismejo/wraf093; Results, Nitrite accumulation drives nitrous oxide emissions across variation in initial nitrate concentration and community composition, third and fourth direct paragraphs; Figure 5D–E; XPath //*[@id="sec26"]/p[3] | supports | Modeled SynCom nitrite exposure correlates with measured N2O endpoints; monoculture inhibition supplies separate physiological evidence. |
+| roles | PMID:40349173; DOI:10.1093/ismejo/wraf093; Discussion, first direct paragraph; XPath //*[@id="sec27"]/p[1] | supports | Product removal and complementary metabolism support broad partner roles; NO exchange remains inferred. |
+| genomes | PMID:40349173; DOI:10.1093/ismejo/wraf093; Materials and methods, Read processing, sole direct paragraph; XPath //*[@id="sec14"]/p[1] | supports | Named source genomes are used for strain-specific mapping; archive taxonomy requires exact-source interpretation. |
+| data | PMID:40349173; DOI:10.1093/ismejo/wraf093; Data availability, sole direct paragraph; XPath //*[@id="sec31"]/p[1] | supports | Data availability declares GEO, PRIDE and the analysis repository; the two reference-genome projects are separately documented under Read processing. |
+| supplement | PMID:40349173; DOI:10.1093/ismejo/wraf093; Supplementary figures S1–S5, all five physical PDF pages | supports | All figures/captions read. S2 inhibition wording and S4 model scope remain distinct from the main kinetic model. |
+| RNA-table | PMID:40349173; DOI:10.1093/ismejo/wraf093; Supplementary Table 1, both sheet headers and 31 exact selected enzyme-label rows | supports | Bounded full-cell inspection of NarG/NirK/NorB/NosZ/leuE rows; not a whole-matrix reanalysis. |
+| protein-table | PMID:40349173; DOI:10.1093/ismejo/wraf093; Supplementary Table 2, both sheet headers and 19 exact selected enzyme-label rows | supports | Protein annotations and abundance are retained at their actual assay scope; annotation alone is not enzyme activity. |
+| inspection | /private/tmp/cm-review-session/batch-16/000024/inspect.json; Official 30-input boundary | supports | Exact target, 21 authorities and eight focal contexts. |
+| ontology | /private/tmp/cm-review-session/batch-16/000024/ontology-authority.json; Nine distinct pairs, 21 placements | supports | All encoded labels match; term applicability is assessed separately. |
+| schema | /private/tmp/cm-review-session/batch-16/000024/child-schema-semantics.json; Current role, graph, culture and evidence definitions | supports | Broad partner roles are distinct from interaction-type criteria; obligacy is not required. |
+| environment-authority | /private/tmp/cm-review-session/batch-16/000024/child-environment-candidates.json; Exact ENVO groundwater and laboratory definitions | supports | Groundwater is verified for source habitat; laboratory context is separate. |
+| gtdb | /private/tmp/cm-review-session/batch-16/000024/child-gtdb-crosswalk.json; Encoded species routes and mapping provenance | supports | R12 name-based mapping reproduces; generic Acidovorax has no resolved route. |
+| strain-authority | /private/tmp/cm-review-session/batch-16/000024/child-source-strain-candidates.json; Exact source-linked isolate identities | supports | 3H11 has a source-specific species node; R12 paper and archive labels remain distinct. |
+| adapter | /private/tmp/cm-review-session/batch-16/000024/child-structured-adapter-applicability.json; NarG/NirK/NorB/NosZ and methionine-related gene context | supports | Owned-runtime runner unavailable; exact organism coverage was not queried. |
+| semantics | /private/tmp/cm-review-session/batch-16/000024/ontology-semantic-notes.json; Final auxiliary scientific semantics | supports | Roles, core culture and graph retained; two major findings and one minor identity/provenance refinement. |
+| resources | /private/tmp/cm-review-session/batch-16/000024/dataset-verification.json; Five encoded public resources | supports | Genome, RNA, protein and code metadata verified at explicit study scopes. |
+| links | /private/tmp/cm-review-session/batch-16/000024/external-resource-verification.json; PMID/DOI/PMC and resource identity | supports | No resource mismatch or omission finding. |
+| snippets | /private/tmp/cm-review-session/batch-16/000024/snippet-audit.json; All 19 canonical placements | supports | Sixteen Abstract, one Results and two Methods excerpts strictly match fresh source and cache. |
+| provenance | /private/tmp/cm-review-session/batch-16/000024/provenance-audit.json; Exact batch34 records[2], history, cohort and current issues | supports | Prior graph repair retained; issues 1412/1415 remain open without automatic closure or duplicate grading. |
+| assets | /private/tmp/cm-review-session/batch-16/000024/lead-source-assets.json; Actual retrieved primary and supplementary objects | supports | Failed HTML responses are separated from recovered genuine source payloads. |
+| read-scope | /private/tmp/cm-review-session/batch-16/000024/lead-primary-read-scope.json; Whole primary and bounded supplemental reading | supports | Whole main including 60 references, five main figures, all five SI pages and 50 selected workbook rows. |
+| locators | /private/tmp/cm-review-session/batch-16/000024/source-locator-verification.json; Direct JATS headings and paragraph checks | supports | Source locators and exact two-word quote verified against fresh XML. |
+| source-audit | /private/tmp/cm-review-session/batch-16/000024/source-audit.json; Lead final science and graph bindings | supports | Two P2 findings and one P3; three nodes and two arrows retained. |
+| root-source | /private/tmp/cm-review-session/batch-16/000024/root-independent-source-audit.json; Independent root source assessment | supports | Independent scientific acceptance and exact reading boundaries. |
+| support | /private/tmp/cm-review-session/batch-16/000024/support-final-audit.json; Final supporting reconciliation | supports | Completeness 85; raw quality 109.66666666666667, capped at 100. |
+| support-manifest | /private/tmp/cm-review-session/batch-16/000024/support-frozen-manifest.json; Final supporting pins | supports | Exact current inputs and source/authority receipts verified. |
+| auxiliary | /private/tmp/cm-review-session/batch-16/000024/auxiliary-frozen-manifest.json; Frozen child authority and native outputs | supports | Eight required checks passed; scientific interpretation remains separate. |
+| native-summary | /private/tmp/cm-review-session/batch-16/000024/final-validator-summary.json; Actual eight native outcomes | supports | Eight passes, zero failures; no changed official inputs. |
+| corpus-context | /private/tmp/cm-review-session/batch-16/000024/child-corpus-context.json; Fresh batch16 corpus checks | supports | Nonrequired corpus warning results remain distinct from this record. |
+| check-validate | /private/tmp/cm-review-session/batch-16/000024/validate.json; Actual command, stdout and stderr | supports | Required native check exited0. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-16/000024/validate-strict.json; Actual command, stdout and stderr | supports | Required native check exited0. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-16/000024/validate-terms.json; Actual command, stdout and stderr | supports | Required native check exited0. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-16/000024/validate-references-explained.json; Actual command, stdout and stderr | supports | Required native check exited0. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-16/000024/validate-gtdb.json; Actual command, stdout and stderr | supports | Required native check exited0. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-16/000024/validate-gtdb-domain.json; Actual command, stdout and stderr | supports | Required native check exited0. |
+| check-validate-history | /private/tmp/cm-review-session/batch-16/000024/validate-history.json; Actual command, stdout and stderr | supports | Required native check exited0. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-16/000024/normalize-cache-names-check.json; Actual command, stdout and stderr | supports | Required native check exited0. |
+| context-audit-network | /private/tmp/cm-review-session/batch-16/audit-network.json; Fresh batch16 corpus baseline | supports | Actual nonrequired corpus result. |
+| context-check-network-quality | /private/tmp/cm-review-session/batch-16/check-network-quality.json; Fresh batch16 corpus baseline | supports | Actual nonrequired corpus result. |
+| source-correction | /private/tmp/cm-review-session/batch-16/000024/source-correction-addendum.json; Two explicit corrections to preserved source receipts | supports | Growth panels are Figure 1E–F; the Acidovorax GTDB identifier ends105, with fraction 1.0 over 4 genomes. |
+
+## Limits And Additional Notes
+
+- NO flux and N2 completion were not directly measured; genomic and transcript/protein evidence does not establish exchange flux.
+- SI Figure S2 names NO3 inhibition whereas the main kinetic analysis concerns NO2. SI Figure S4 genome-scale flux uses N2O exchange and zero NO flux, distinct from the kinetic NO-transfer model.
+- Selected supplementary rows annotate 3H11 nirK despite the main missing-Nir interpretation; annotation alone does not prove functional nitrite reduction. DHA2-family norB rows are not NO reductase.
+- Methods correlation-threshold wording differs from the Figure 4 signed cutoff. No statistics or model fits were recomputed.
+- GEO holds 39 samples and repository designs differ from the reported analyzed subset; no exact 30-sample bridge or completeness claim is inferred.
+- All 50 selected workbook rows were read, not every bulk matrix cell. No raw-read, sequence, expression, protein or code reanalysis.
+- Direct supplementary requests returned nonpayload HTML; genuine PDF/XLS files were recovered from the official EPMC ZIP. Optional structured adapter unavailable; organism coverage unknown.
+- Exact official source/target arrays are copied and reverified before native candidate validation.
+- Three nodes, five exact canonical snippet hashes, two directed descriptions and eight evidence-linked dimensions are bound.
+- The only direct primary-source quotation has two words. Root alone saves the review and runs post-save gates.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261022T083341Z-enigma-denitrifying-syncom-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: ENIGMA denitrifying SynCom record review
+started_at: '2026-10-22T08:17:59.011577Z'
+finished_at: '2026-10-22T08:33:41.458019Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate lead, root, auxiliary and supporting reviews; no person-level
+    independence claim.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: The defined two-isolate community and qualified three-node/two-arrow graph
+  are supported. Two major findings concern non-graph certainty and soil-versus-groundwater
+  identity; one minor finding concerns source-specific taxonomy and GTDB provenance.
+  Eight required checks passed. Completeness 85; raw quality 109.66666666666667, capped
+  at 100.
+source:
+  git_revision: cb7a782c8ba80299dca8761ad0a2c90bccd8a117
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/ENIGMA_Denitrifying_SynCom/2026-10-06T073011Z-codex-ccfc4e.yaml
+    sha256: 00a81ebc93b25922b0d33dcfea155ecc5a2c1491d2984f2108feee9e90cbc5bc
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+    sha256: a35550c54115980d58745e932271f5af7eff69dfa8eafa13c73a8bbc36e1676b
+    role: target
+  - path: references_cache/PMID_40349173.md
+    sha256: 6c5bc1c705b51608327c1e9e8cb97687a870010f5aa1b37de89ea1c04f92d6e9
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261006-batch34.yaml
+    sha256: 3a44d2f69b8390801b62eb251ddd652ffd2f0804a1c02c193a159bec2b9eff20
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-three-records-batch34.yaml
+    sha256: fe62f390c239a8feab12aed2824b5786db78b13fd75c40d0f244b447631f67d0
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.md
+    sha256: e432615b147787c8d009d96d2f11e5b78a45927bf9c69e45ec0d31123d1fc2e9
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/frozen_inventory_metrics.tsv
+    sha256: d5a47bbcc3745a489ff507680aa7360a6a65ce070ce4ec88f886b70128791313
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md
+    sha256: 4e7781aa8cdfc4bb42d896ebe75920719d9dcade92ffc4a0ae07af7481cb37b3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000024
+  path: kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+  label: ENIGMA Denitrifying SynCom
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+    role: canonical_record
+scope:
+  description: Whole released record and principal source; all main/SI figures and
+    explicit bounded workbook rows, authorities and resource metadata.
+  selection: Sole released CommunityMech:000024 in owned batch16.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000024
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000024
+  command: just --no-dotenv validate kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000024
+  command: just --no-dotenv validate-strict kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+    --out /private/tmp/cm-review-session/batch-16/000024/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000024
+  command: just --no-dotenv validate-terms kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000024
+  command: just --no-dotenv validate-references-explained kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000024
+  command: just --no-dotenv validate-gtdb kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000024
+  command: just --no-dotenv validate-gtdb-domain kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000024
+  command: just --no-dotenv validate-history history/records/ENIGMA_Denitrifying_SynCom
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000024
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide.
+- check_id: context-audit-network
+  name: audit-network corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit 1; separate from target checks.
+  target_ids:
+  - CommunityMech:000024
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-16/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-audit-network
+  - corpus-context
+- check_id: context-check-network-quality
+  name: check-network-quality corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit 1; separate from target checks.
+  target_ids:
+  - CommunityMech:000024
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-16/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-check-network-quality
+  - corpus-context
+- check_id: structured-adapter
+  name: Source-specific structured adapter
+  status: unavailable
+  required: false
+  summary: No callable owned-runtime runner; exact gene and strain applicability recorded.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - adapter
+  scope_note: No provider query, installation, paid call or external-checkout execution.
+    Organism coverage remains unknown.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+  locator: Whole maintained record
+  summary: Defined two-member SynCom, three qualified community nodes and two directed
+    arrows.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.048746Z'
+- evidence_id: cultivation
+  kind: primary_source
+  reference: PMID:40349173; DOI:10.1093/ismejo/wraf093
+  locator: Materials and methods, Strains and medium preparation, sole direct paragraph;
+    XPath //*[@id="sec8"]/p[1]
+  summary: Source strains came from contaminated wells; laboratory cultures use anaerobic
+    Balch tubes.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.048809Z'
+  snapshot_sha256: 3a7ccdf2b69b72498d58b37f60bf8a57eea176bec0f8628ec959d4310209c03b
+  quote: Balch tubes
+- evidence_id: inoculum
+  kind: primary_source
+  reference: PMID:40349173; DOI:10.1093/ismejo/wraf093
+  locator: Materials and methods, Preparation of R12 and 3H11 co-cultures and pure
+    cultures, sole direct paragraph; XPath //*[@id="sec9"]/p[1]
+  summary: Standard pair and monocultures use matched initial density; nitrate and
+    composition perturbations are separate experiments.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.048924Z'
+  snapshot_sha256: 3a7ccdf2b69b72498d58b37f60bf8a57eea176bec0f8628ec959d4310209c03b
+- evidence_id: growth
+  kind: primary_source
+  reference: PMID:40349173; DOI:10.1093/ismejo/wraf093
+  locator: Results, Denitrification pathway is partitioned across members of microbial
+    communities at the ORR, third direct paragraph; Figure 1E–F; XPath //*[@id="sec22"]/p[3]
+  summary: The pair grows faster than either monoculture and clears transient nitrite
+    under cooperative conditions.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.049004Z'
+  snapshot_sha256: 3a7ccdf2b69b72498d58b37f60bf8a57eea176bec0f8628ec959d4310209c03b
+- evidence_id: NO-model
+  kind: primary_source
+  reference: PMID:40349173; DOI:10.1093/ismejo/wraf093
+  locator: Results, Exchange of intermediates in the denitrification pathway largely
+    explain enhanced growth phenotype of the SynCom, third direct paragraph; Figure2C;
+    XPath //*[@id="sec23"]/p[3]
+  summary: Reverse NO transfer is a kinetic-model inference without directly measured
+    NO reduction rates.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.049081Z'
+  snapshot_sha256: 3a7ccdf2b69b72498d58b37f60bf8a57eea176bec0f8628ec959d4310209c03b
+- evidence_id: omics
+  kind: primary_source
+  reference: PMID:40349173; DOI:10.1093/ismejo/wraf093
+  locator: Results, Community growth drives global changes in transcriptional states
+    of 3H11 and R12, second direct paragraph; Figure3E; XPath //*[@id="sec24"]/p[2]
+  summary: Transcript patterns corroborate proposed physiology; they do not directly
+    measure exchanged flux.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.049161Z'
+  snapshot_sha256: 3a7ccdf2b69b72498d58b37f60bf8a57eea176bec0f8628ec959d4310209c03b
+- evidence_id: loading
+  kind: primary_source
+  reference: PMID:40349173; DOI:10.1093/ismejo/wraf093
+  locator: Results, Proteomics analysis of the SynCom supports the dominant role of
+    3H11 across varied NO3 concentrations and reveals global physiological adaptations,
+    first direct paragraph; Figure 4; XPath //*[@id="sec25"]/p[1]
+  summary: Nitrate loading and protein patterns reveal context-dependent responses
+    without isolating pairwise competition.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.049235Z'
+  snapshot_sha256: 3a7ccdf2b69b72498d58b37f60bf8a57eea176bec0f8628ec959d4310209c03b
+- evidence_id: nitrite
+  kind: primary_source
+  reference: PMID:40349173; DOI:10.1093/ismejo/wraf093
+  locator: Results, Nitrite accumulation drives nitrous oxide emissions across variation
+    in initial nitrate concentration and community composition, third and fourth direct
+    paragraphs; Figure 5D–E; XPath //*[@id="sec26"]/p[3]
+  summary: Modeled SynCom nitrite exposure correlates with measured N2O endpoints;
+    monoculture inhibition supplies separate physiological evidence.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.049309Z'
+  snapshot_sha256: 3a7ccdf2b69b72498d58b37f60bf8a57eea176bec0f8628ec959d4310209c03b
+- evidence_id: roles
+  kind: primary_source
+  reference: PMID:40349173; DOI:10.1093/ismejo/wraf093
+  locator: Discussion, first direct paragraph; XPath //*[@id="sec27"]/p[1]
+  summary: Product removal and complementary metabolism support broad partner roles;
+    NO exchange remains inferred.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.049383Z'
+  snapshot_sha256: 3a7ccdf2b69b72498d58b37f60bf8a57eea176bec0f8628ec959d4310209c03b
+- evidence_id: genomes
+  kind: primary_source
+  reference: PMID:40349173; DOI:10.1093/ismejo/wraf093
+  locator: Materials and methods, Read processing, sole direct paragraph; XPath //*[@id="sec14"]/p[1]
+  summary: Named source genomes are used for strain-specific mapping; archive taxonomy
+    requires exact-source interpretation.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.049461Z'
+  snapshot_sha256: 3a7ccdf2b69b72498d58b37f60bf8a57eea176bec0f8628ec959d4310209c03b
+- evidence_id: data
+  kind: primary_source
+  reference: PMID:40349173; DOI:10.1093/ismejo/wraf093
+  locator: Data availability, sole direct paragraph; XPath //*[@id="sec31"]/p[1]
+  summary: Data availability declares GEO, PRIDE and the analysis repository; the
+    two reference-genome projects are separately documented under Read processing.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.049534Z'
+  snapshot_sha256: 3a7ccdf2b69b72498d58b37f60bf8a57eea176bec0f8628ec959d4310209c03b
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:40349173; DOI:10.1093/ismejo/wraf093
+  locator: Supplementary figures S1–S5, all five physical PDF pages
+  summary: All figures/captions read. S2 inhibition wording and S4 model scope remain
+    distinct from the main kinetic model.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.049608Z'
+  snapshot_sha256: e76f835f00e4d198694004681d5b117e80a2fecb9c7a436a424f4ae3b3d16b74
+- evidence_id: RNA-table
+  kind: primary_source
+  reference: PMID:40349173; DOI:10.1093/ismejo/wraf093
+  locator: Supplementary Table 1, both sheet headers and 31 exact selected enzyme-label
+    rows
+  summary: Bounded full-cell inspection of NarG/NirK/NorB/NosZ/leuE rows; not a whole-matrix
+    reanalysis.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.050595Z'
+  snapshot_sha256: 2748c4a3d25e0b3f8abb29072f47662470e91bcf011bb01670f207d41b617194
+- evidence_id: protein-table
+  kind: primary_source
+  reference: PMID:40349173; DOI:10.1093/ismejo/wraf093
+  locator: Supplementary Table 2, both sheet headers and 19 exact selected enzyme-label
+    rows
+  summary: Protein annotations and abundance are retained at their actual assay scope;
+    annotation alone is not enzyme activity.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.052687Z'
+  snapshot_sha256: f75dc8aee5b6e2b97669bacdac7b77519f0ce477dd479ddbbc7aed897bb176d8
+- evidence_id: inspection
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/inspect.json
+  locator: Official 30-input boundary
+  summary: Exact target, 21 authorities and eight focal contexts.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.053666Z'
+  snapshot_sha256: ec15ac2926fa5fcb3712607478b4104ae364cf081b3be77abe2e568514f71fa5
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-16/000024/ontology-authority.json
+  locator: Nine distinct pairs, 21 placements
+  summary: All encoded labels match; term applicability is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.053712Z'
+  snapshot_sha256: da0bf1dbde159c1cb045688e82cc439a4f7810a6a9f62bff9d13069575682137
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-16/000024/child-schema-semantics.json
+  locator: Current role, graph, culture and evidence definitions
+  summary: Broad partner roles are distinct from interaction-type criteria; obligacy
+    is not required.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.053752Z'
+  snapshot_sha256: ca9bf659d6d013e3f8b4736f61192dfba5c0f32dbf615c1324dee569eb053e41
+- evidence_id: environment-authority
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-16/000024/child-environment-candidates.json
+  locator: Exact ENVO groundwater and laboratory definitions
+  summary: Groundwater is verified for source habitat; laboratory context is separate.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.053792Z'
+  snapshot_sha256: 95751463692c2076a983c05a0324fbc0353a5c5efe8dec002f951c0ae19ccadd
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-16/000024/child-gtdb-crosswalk.json
+  locator: Encoded species routes and mapping provenance
+  summary: R12 name-based mapping reproduces; generic Acidovorax has no resolved route.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.053822Z'
+  snapshot_sha256: 6d0b71695a2449cc2cb19f9990af7e07aee96d18059c7d49cbbf5761b6ec7bbc
+- evidence_id: strain-authority
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-16/000024/child-source-strain-candidates.json
+  locator: Exact source-linked isolate identities
+  summary: 3H11 has a source-specific species node; R12 paper and archive labels remain
+    distinct.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.053848Z'
+  snapshot_sha256: a059fd2931802db54118cf4f870165ed05a7c0b8aabc66cd3edfa0bd3b5ed39f
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/child-structured-adapter-applicability.json
+  locator: NarG/NirK/NorB/NosZ and methionine-related gene context
+  summary: Owned-runtime runner unavailable; exact organism coverage was not queried.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.053878Z'
+  snapshot_sha256: f60c41727fdf2a22be92fe91990d57242e7dc50cc9cf46ffa5ae116dcb84a3b9
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-16/000024/ontology-semantic-notes.json
+  locator: Final auxiliary scientific semantics
+  summary: Roles, core culture and graph retained; two major findings and one minor
+    identity/provenance refinement.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.053904Z'
+  snapshot_sha256: 9b8c2a7a7c37f0460e5897766f46720ac8445e9a1dc6c3921d7c0e4162c3a91b
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/dataset-verification.json
+  locator: Five encoded public resources
+  summary: Genome, RNA, protein and code metadata verified at explicit study scopes.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.053935Z'
+  snapshot_sha256: 54d2533dc131e1a434ac915510394d89845377c3304b2f8246d568c666887665
+- evidence_id: links
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/external-resource-verification.json
+  locator: PMID/DOI/PMC and resource identity
+  summary: No resource mismatch or omission finding.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.053964Z'
+  snapshot_sha256: a42776e8660a344d8d1d41d96d15e839cbb09e38774ab1caedb3a96da6ceccea
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/snippet-audit.json
+  locator: All 19 canonical placements
+  summary: Sixteen Abstract, one Results and two Methods excerpts strictly match fresh
+    source and cache.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.053991Z'
+  snapshot_sha256: cd0260c0a46c791ef071f867de64b94b3d8161b2da520c4fa8f15147212c4d00
+- evidence_id: provenance
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-16/000024/provenance-audit.json
+  locator: Exact batch34 records[2], history, cohort and current issues
+  summary: Prior graph repair retained; issues 1412/1415 remain open without automatic
+    closure or duplicate grading.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.054024Z'
+  snapshot_sha256: 01122b6b37f876328d8eb8de8947fe61264bd8e7ee5d3e1596549dd83dbac84b
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/lead-source-assets.json
+  locator: Actual retrieved primary and supplementary objects
+  summary: Failed HTML responses are separated from recovered genuine source payloads.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.054053Z'
+  snapshot_sha256: ce978dccb008dd29b2003b93fb81ad15ada9be9e2ed02352d9e1ab81255375be
+- evidence_id: read-scope
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/lead-primary-read-scope.json
+  locator: Whole primary and bounded supplemental reading
+  summary: Whole main including 60 references, five main figures, all five SI pages
+    and 50 selected workbook rows.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.054083Z'
+  snapshot_sha256: 0fa0418fa10aaaece7c99539feac58325fdf2237696edd3638141970440faa19
+- evidence_id: locators
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/source-locator-verification.json
+  locator: Direct JATS headings and paragraph checks
+  summary: Source locators and exact two-word quote verified against fresh XML.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.054109Z'
+  snapshot_sha256: 28b0d329d285c5aadcc51e8cd3468b33d96ac29f2fb801176dd7caae4d12286c
+- evidence_id: source-audit
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/source-audit.json
+  locator: Lead final science and graph bindings
+  summary: Two P2 findings and one P3; three nodes and two arrows retained.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.054136Z'
+  snapshot_sha256: cf4cf5d71ef5a3d0f9b031235b3a6d6bcfb72001b9f2b35dbbb69940722dba54
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/root-independent-source-audit.json
+  locator: Independent root source assessment
+  summary: Independent scientific acceptance and exact reading boundaries.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.054165Z'
+  snapshot_sha256: a3e27c0eaaeccfe9b68e5f939e0facc9c97f0363061bbade648047891550aed0
+- evidence_id: support
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/support-final-audit.json
+  locator: Final supporting reconciliation
+  summary: Completeness 85; raw quality 109.66666666666667, capped at 100.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.054196Z'
+  snapshot_sha256: cc8312adfd8c321d082dffa14f8a593261bd8d85a06278fc0e215b461a9db642
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/support-frozen-manifest.json
+  locator: Final supporting pins
+  summary: Exact current inputs and source/authority receipts verified.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.054224Z'
+  snapshot_sha256: be59195ce5ec9dfc6bfe003af0fc5b1599626bbb426bdd6e6b446d574aa7dc36
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/auxiliary-frozen-manifest.json
+  locator: Frozen child authority and native outputs
+  summary: Eight required checks passed; scientific interpretation remains separate.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.054251Z'
+  snapshot_sha256: c642f6f76b78ba12a4f2242f03a6c4eb3002eec96ec13806cc6fd43d8f916078
+- evidence_id: native-summary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/final-validator-summary.json
+  locator: Actual eight native outcomes
+  summary: Eight passes, zero failures; no changed official inputs.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.054278Z'
+  snapshot_sha256: 56bbca693de3317f0ff1ef66dad06ac30593f0647cd24b9129b7935769bf3cae
+- evidence_id: corpus-context
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/child-corpus-context.json
+  locator: Fresh batch16 corpus checks
+  summary: Nonrequired corpus warning results remain distinct from this record.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.054304Z'
+  snapshot_sha256: e04438b2cbfcdab3dcf3a7e5f59f1e6435a4ced76195a055ed87a570a5a96ecf
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/validate.json
+  locator: Actual command, stdout and stderr
+  summary: Required native check exited0.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.054672Z'
+  snapshot_sha256: a699830487e17a7594b1920462e82311a05b1516009101bfb7fd38a9515fa3b3
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/validate-strict.json
+  locator: Actual command, stdout and stderr
+  summary: Required native check exited0.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.054858Z'
+  snapshot_sha256: aca9a7224774f5d46b22013e637d389f0660972e65bb7911eaead1ce711d905b
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/validate-terms.json
+  locator: Actual command, stdout and stderr
+  summary: Required native check exited0.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.055016Z'
+  snapshot_sha256: b51efb8e9ea8ccabd4274645e77478cee792989adaa01c0fd88d263bfb2315c4
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/validate-references-explained.json
+  locator: Actual command, stdout and stderr
+  summary: Required native check exited0.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.055180Z'
+  snapshot_sha256: 0e21b5918499c12a79dff72ced76a117754bf887d94b32f7894c7b35c862806d
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/validate-gtdb.json
+  locator: Actual command, stdout and stderr
+  summary: Required native check exited0.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.055302Z'
+  snapshot_sha256: 983626c7a70535b54e088c617816b8c5e4bca3f7a20d9a3a51fa70d651db1d15
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/validate-gtdb-domain.json
+  locator: Actual command, stdout and stderr
+  summary: Required native check exited0.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.055449Z'
+  snapshot_sha256: 7ed6df26087a2ed7e39f397955aa02bd285542a4e13250e43d0a0a5960cbd8ef
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/validate-history.json
+  locator: Actual command, stdout and stderr
+  summary: Required native check exited0.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.055605Z'
+  snapshot_sha256: 8de381ba5d3f397d0825f2a787b789d8decbfb9f567cb2cede48a6d29eaf4fd6
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/normalize-cache-names-check.json
+  locator: Actual command, stdout and stderr
+  summary: Required native check exited0.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.055727Z'
+  snapshot_sha256: 01fc185b66717b4c5ddd80175e413a8912df3fc3fcb331718b8bdfea8ab29ac0
+- evidence_id: context-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/audit-network.json
+  locator: Fresh batch16 corpus baseline
+  summary: Actual nonrequired corpus result.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.055930Z'
+  snapshot_sha256: f4809c6a349f1496dbfe0243fb5ce661f469f7235f2aa00e6294ee3aa04f3123
+- evidence_id: context-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/check-network-quality.json
+  locator: Fresh batch16 corpus baseline
+  summary: Actual nonrequired corpus result.
+  support: supports
+  accessed_at: '2026-10-22T08:30:47.056082Z'
+  snapshot_sha256: 759ba13f2cda067251275491bbafc401d0be8bddf7907c7f962eb4369f61688f
+- evidence_id: source-correction
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000024/source-correction-addendum.json
+  locator: Two explicit corrections to preserved source receipts
+  summary: Growth panels are Figure 1E–F; the Acidovorax GTDB identifier ends105,
+    with fraction 1.0 over 4 genomes.
+  support: supports
+  accessed_at: '2026-10-22T08:32:12.028867Z'
+  snapshot_sha256: 1cd5bb8d6bc5d3ffe9bd048640955900f7603fc4ae6a620f6c7d107ef923a1ee
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Source strains and community boundary
+  outcome: supported
+  summary: The record identifies the correct defined two-isolate experiment.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - record
+  - cultivation
+  - genomes
+  - strain-authority
+  details: FW510-R12 and GW101-3H11 are source-named isolates. The laboratory SynCom
+    is not the natural groundwater community or the field OTU analysis. Both isolates
+    grow separately; improved paired growth does not imply obligate dependence.
+  dimensions:
+  - name: stable_id
+    value: CommunityMech:000024; PMID:40349173; PMC12146267; DOI:10.1093/ismejo/wraf093
+    definition: Exact record and publication identity.
+    evidence_ids:
+    - record
+    - inspection
+    - links
+  - name: source_strains
+    value: Rhodanobacter thiooxydans FW510-R12 and Acidovorax sp. GW101-3H11
+    definition: Paper strain names remain explicit; archive taxon labels are separately
+      evaluated.
+    evidence_ids:
+    - cultivation
+    - genomes
+    - strain-authority
+  - name: community_scope
+    value: Defined two-member laboratory SynCom with monoculture controls
+    definition: Groundwater provenance and field-community comparisons do not expand
+      the experimental pair.
+    evidence_ids:
+    - cultivation
+    - growth
+    - inoculum
+- assessment_id: non-graph-certainty
+  area: evidence
+  topic: Measured outcomes and inferred exchange
+  outcome: concern
+  summary: Bring non-graph claims into agreement with the qualified graph.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - growth
+  - NO-model
+  - omics
+  - loading
+  - nitrite
+  - roles
+  - schema
+  details: Growth, nitrate/nitrite physiology, N2O endpoints and omics abundance are
+    measured. Reverse NO transfer and high-condition SynCom nitrite exposure are model-derived;
+    complete N2 formation is inferred from product accounting. Description, design
+    notes, member-role evidence and nitrite/NO ingredient claims currently blur those
+    layers. Retain broad SYNTROPHIC_PARTNER and CROSS_FEEDER roles with direction-specific
+    evidence, including R12 nitrite consumption and inferred reverse NO use by 3H11.
+    Neither independent growth nor neighboring enum wording requires deleting the
+    roles. Competition and nutritional complementarity remain alternatives.
+- assessment_id: node-0
+  area: graph
+  topic: Pathway-Partitioned Denitrification Cooperation
+  outcome: supported
+  summary: Retain the qualified COMMUNITY_LEVEL claim.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - record
+  - growth
+  - NO-model
+  - snippets
+  - source-correction
+  details: 'Exact selector ecological_interactions[0]. Participants: {"participating_taxa":
+    [{"preferred_term": "Rhodanobacter thiooxydans FW510-R12", "term": {"id": "NCBITaxon:416169",
+    "label": "Rhodanobacter thiooxydans"}}, {"preferred_term": "Acidovorax sp. GW101-3H11",
+    "term": {"id": "NCBITaxon:1872122", "label": "Acidovorax sp."}}]}. Exact canonical
+    snippet bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet",
+    "sha256": "d031972982cd95df1e5b2d772f585f502b82e32aecea52e67f23ee7e8cec6578",
+    "reference": "PMID:40349173", "supports": "PARTIAL", "evidence_source": "COMPUTATIONAL"},
+    {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "4ccbd0b16d1a1c84174358f525a719f234649cfbc29c8b71140e20495e513118",
+    "reference": "PMID:40349173", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Source: PMID:40349173; DOI:10.1093/ismejo/wraf093. Locator: Results, Denitrification
+    pathway is partitioned across members of microbial communities at the ORR, third
+    direct paragraph; Figure 1E–F; Results, Exchange of intermediates in the denitrification
+    pathway largely explain enhanced growth phenotype of the SynCom, third direct
+    paragraph; Figure2C. Retain enhanced paired growth and nitrite clearance as observations.
+    Reverse R12-to-3H11 NO transfer is inferred by the kinetic model and corroborated
+    by transcription; no direct NO flux or N2 assay is established.'
+- assessment_id: node-1
+  area: graph
+  topic: High-Nitrate Destabilization of Cooperation
+  outcome: supported
+  summary: Retain the qualified COMMUNITY_LEVEL claim.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - record
+  - loading
+  - nitrite
+  - snippets
+  details: 'Exact selector ecological_interactions[1]. Participants: {"participating_taxa":
+    [{"preferred_term": "Rhodanobacter thiooxydans FW510-R12", "term": {"id": "NCBITaxon:416169",
+    "label": "Rhodanobacter thiooxydans"}}, {"preferred_term": "Acidovorax sp. GW101-3H11",
+    "term": {"id": "NCBITaxon:1872122", "label": "Acidovorax sp."}}]}. Exact canonical
+    snippet bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet",
+    "sha256": "d1612faec47fa636dfe9693cb3bb76c8663f380c9f37e0b714d903b0f4b2929f",
+    "reference": "PMID:40349173", "supports": "SUPPORT", "evidence_source": "IN_VITRO"},
+    {"selector": "ecological_interactions[1].evidence[1].snippet", "sha256": "0810959fd33ee689a5acd62a71b7dff1072a38fcc99c1bcfad9845eed1dd1c96",
+    "reference": "PMID:40349173", "supports": "PARTIAL", "evidence_source": "COMPUTATIONAL"}].
+    Source: PMID:40349173; DOI:10.1093/ismejo/wraf093. Locator: Results, Proteomics
+    analysis of the SynCom supports the dominant role of 3H11 across varied NO3 concentrations
+    and reveals global physiological adaptations, first direct paragraph; Figure 4;
+    Results, Nitrite accumulation drives nitrous oxide emissions across variation
+    in initial nitrate concentration and community composition, third and fourth direct
+    paragraphs; Figure 5D–E. Retain nitrate/composition perturbations: 1–40 mM nitrate
+    at equal inoculation, or 5–98% 3H11 at 10 mM nitrate. Measured endpoint N2O and
+    omics trends do not independently demonstrate pairwise competition.'
+- assessment_id: edge-1-0
+  area: graph
+  topic: High-Nitrate Destabilization of Cooperation → Toxic Nitrite Accumulation
+    and N2O Off-Gassing
+  outcome: supported
+  summary: Retain the PARTIAL directed inference.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - record
+  - nitrite
+  - NO-model
+  - snippets
+  details: 'Exact selector ecological_interactions[1].downstream[0]. Exact description:
+    "PARTIAL - faster 3H11 nitrate reduction relative to R12 nitrite removal can increase
+    toxic nitrite exposure. Across varied nitrate and inoculum ratios, kinetic-model
+    predictions of nitrite exposure correlate with measured endpoint N2O; selective
+    SynCom nitrite mediation was not isolated.". Description SHA256: d9ff6ce506fd5021db67f16972e4bb23dc973aaa0cadf85ee4b269aa1d0d6409.
+    Source: PMID:40349173; DOI:10.1093/ismejo/wraf093. Locator: Results, Nitrite accumulation
+    drives nitrous oxide emissions across variation in initial nitrate concentration
+    and community composition, third and fourth direct paragraphs; Figure 5D–E; Figure
+    5D–E; Supplementary Figure S1. Loading/inoculum context → modeled nitrite exposure
+    and measured N2O; the model-to-endpoint correlation does not isolate nitrite mediation.'
+- assessment_id: node-2
+  area: graph
+  topic: Toxic Nitrite Accumulation and N2O Off-Gassing
+  outcome: supported
+  summary: Retain the qualified COMMUNITY_LEVEL claim.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - record
+  - nitrite
+  - roles
+  - snippets
+  details: 'Exact selector ecological_interactions[2]. Participants: {"participating_taxa":
+    [{"preferred_term": "Rhodanobacter thiooxydans FW510-R12", "term": {"id": "NCBITaxon:416169",
+    "label": "Rhodanobacter thiooxydans"}}, {"preferred_term": "Acidovorax sp. GW101-3H11",
+    "term": {"id": "NCBITaxon:1872122", "label": "Acidovorax sp."}}]}. Exact canonical
+    snippet bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet",
+    "sha256": "0810959fd33ee689a5acd62a71b7dff1072a38fcc99c1bcfad9845eed1dd1c96",
+    "reference": "PMID:40349173", "supports": "PARTIAL", "evidence_source": "COMPUTATIONAL"}].
+    Source: PMID:40349173; DOI:10.1093/ismejo/wraf093. Locator: Results, Nitrite accumulation
+    drives nitrous oxide emissions across variation in initial nitrate concentration
+    and community composition, third and fourth direct paragraphs; Figure 5D–E; Discussion,
+    first direct paragraph. Retain measured monoculture nitrite inhibition, modeled
+    SynCom exposure and measured N2O. N2O is not the identified inhibitory agent,
+    and the high-condition mechanism was not selectively isolated.'
+- assessment_id: edge-2-0
+  area: graph
+  topic: Toxic Nitrite Accumulation and N2O Off-Gassing → Pathway-Partitioned Denitrification
+    Cooperation
+  outcome: supported
+  summary: Retain the PARTIAL directed inference.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - record
+  - nitrite
+  - NO-model
+  - snippets
+  details: 'Exact selector ecological_interactions[2].downstream[0]. Exact description:
+    "PARTIAL - accumulated nitrite can inhibit partner growth and thereby impair completion
+    of the shared denitrification pathway. Monoculture inhibition and model-to-N2O
+    correspondence support this negative effect, not selective proof that NO exchange
+    fails in the SynCom or that N2O is the inhibitory agent.". Description SHA256:
+    085fd7d5fcb22ebf3366c6566bbfbd8f39c6e9b9cf63da4b7e75463ddba64b80. Source: PMID:40349173;
+    DOI:10.1093/ismejo/wraf093. Locator: Results, Nitrite accumulation drives nitrous
+    oxide emissions across variation in initial nitrate concentration and community
+    composition, third and fourth direct paragraphs; Figure 5D–E; Figure 5D–E; Supplementary
+    Figure S1. Nitrite inhibition → impaired completion of the shared pathway; no
+    selective proof of failed NO exchange or N2O toxicity.'
+- assessment_id: environment
+  area: grounding
+  topic: Groundwater provenance versus soil
+  outcome: concern
+  summary: The soil term conflicts with the documented source wells.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - cultivation
+  - environment-authority
+  - ontology
+  details: ENVO:00002116 is correctly labelled contaminated soil but is not the source
+    habitat. Use verified ENVO:01001004 groundwater for provenance and preserve nitrate
+    contamination in notes. Describe the laboratory assay separately; ENVO:01001405
+    laboratory environment is an available broader context, not a replacement for
+    source groundwater.
+  dimensions:
+  - name: environment
+    value: Contaminated groundwater wells as isolate source; defined laboratory SynCom
+      as assay
+    definition: Correct the existing soil term without inventing a composite contaminated-groundwater
+      CURIE.
+    evidence_ids:
+    - cultivation
+    - environment-authority
+- assessment_id: cultivation
+  area: scope
+  topic: Standard culture and perturbation conditions
+  outcome: supported
+  summary: The existing medium and core culture conditions are supported.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - cultivation
+  - inoculum
+  - loading
+  details: Retain 30 °C, pH 7.2, 20 mM sodium acetate, 10 mM sodium nitrate, 0.1 g/L
+    yeast extract and 80:20 N2/CO2. R2A starter culture is separate. Standard co-inoculation
+    uses 100 µL per partner at matched density, giving initial OD600 about 0.01. Do
+    not infer tube capacity from 10 mL culture volume or apply every later automated
+    shaking condition to every assay.
+  dimensions:
+  - name: medium
+    value: Defined minimal medium with 20 mM acetate, 10 mM nitrate and0.1 g/L yeast
+      extract, pH 7.2
+    definition: Culture formulation is distinct from R2A starter and analytical GC-vial
+      handling.
+    evidence_ids:
+    - cultivation
+  - name: experimental_setting
+    value: Balch tubes with 10 mL culture, 30 °C, 80:20 N2/CO2
+    definition: Standard pair and monoculture controls are distinct from loading,
+      inoculum-ratio and omics sampling arms.
+    evidence_ids:
+    - cultivation
+    - inoculum
+    - loading
+- assessment_id: grounding
+  area: grounding
+  topic: Source-specific taxa and GTDB provenance
+  outcome: concern
+  summary: Use the exact source-linked isolate where justified and state mapping provenance
+    accurately.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - ontology
+  - gtdb
+  - strain-authority
+  - genomes
+  - resources
+  - source-correction
+  details: Encoded NCBITaxon:416169 is Rhodanobacter thiooxydans; NCBITaxon:1872122
+    is an unnamed Acidovorax species, not a genus or an ancestor of the source-specific
+    node. PRJNA314893 identifies NCBITaxon:1813946 Acidovorax sp. GW101-3H11, mapping
+    to GTDB:s__Acidovorax_sp001633105, fraction 1.0 over 4 genomes. Propagate any
+    source-linked refinement through taxonomy and all three participant lists. R12
+    paper species 416169 maps by name to GTDB:s__Rhodanobacter_thiooxydans,1.0/2;
+    archive 1525219 names Rhodanobacter sp. FW510-R12 and maps to GTDB:s__Rhodanobacter_sp001617365,1.0/2.
+    Preserve this difference before choosing a taxon. Filesystem mtime 2026-07-25
+    does not establish a GTDB release or build.
+  dimensions:
+  - name: taxon_grounding
+    value: Encoded NCBITaxon:416169 and NCBITaxon:1872122; candidate NCBITaxon:1813946
+      for exact 3H11
+    definition: Current source strain names are already unambiguous. R12 archive candidate
+      NCBITaxon:1525219 is an alternative authority scope, not an automatic renaming.
+    evidence_ids:
+    - ontology
+    - gtdb
+    - strain-authority
+    - genomes
+- assessment_id: evidence-quality
+  area: evidence
+  topic: Exact excerpts and assay-specific interpretation
+  outcome: supported
+  summary: All 19 excerpts match; matching text does not establish direct mechanism.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - snippets
+  - NO-model
+  - nitrite
+  - RNA-table
+  - protein-table
+  details: Sixteen Abstract, one Results and two Methods placements strictly match
+    fresh source and cache. Retain measured omics as IN_VITRO while qualifying the
+    flux interpretation. Supplementary annotation labels, including 3H11 nirK and
+    DHA2-family norB rows, are not catalytic or exchange assays.
+  dimensions:
+  - name: evidence_tier
+    value: Measured physiology/omics, computational exchange/exposure, inferred N2
+      completion
+    definition: Use claim-local support and source layers; no wholesale relabelling
+      of measured data as computational.
+    evidence_ids:
+    - snippets
+    - NO-model
+    - omics
+    - nitrite
+    - RNA-table
+    - protein-table
+- assessment_id: resources
+  area: evidence
+  topic: Public assay and reference resources
+  outcome: supported
+  summary: All five encoded resource identities resolve at their stated scopes.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - resources
+  - links
+  - data
+  details: 'GSE272493 holds 39 RNA samples: 12 mono-3H11, 12 mono-R12 and 15 SynCom.
+    Source analyzed subsets and repository design tables differ; no canonical sample
+    count is asserted. PXD051979 is mixed proteomics. PRJNA255897/PRJNA314893 are
+    reference-genome projects, not new SynCom sequence assays. Repository metadata
+    and design CSVs were checked without code or raw-data execution.'
+- assessment_id: source-access
+  area: scope
+  topic: Complete source with bounded workbook inspection
+  outcome: supported
+  summary: Every encoded scientific claim was assessed against the full main and relevant
+    supplements.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - assets
+  - read-scope
+  - locators
+  - supplement
+  - RNA-table
+  - protein-table
+  - root-source
+  - source-correction
+  details: Whole 86,929-character main including 60 references and five main figures
+    read. All five SI pages/captions read. Four workbook headers/inventories and 50
+    selected full rows inspected; remaining bulk matrix cells were not exhaustively
+    reviewed. Direct supplementary HTML challenges and publisher403 were preserved;
+    authentic PDF/XLS files were recovered through the official EPMC ZIP. No sequence,
+    raw-omics or model reanalysis.
+- assessment_id: provenance
+  area: ownership
+  topic: Prior review and maintained owner
+  outcome: supported
+  summary: Preserve current graph repairs and leave issue status unchanged.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - inspection
+  - provenance
+  details: Lead read whole canonical/history/adversarial and exact batch34 records[2]
+    with shared metadata. Support/root read whole cache and current issue/cohort context.
+    Issues 1412/1415 remain open; this review neither closes them nor edits canonical,
+    cache or history. No generated product owns these scientific fixes.
+- assessment_id: validation
+  area: schema
+  topic: Actual required checks
+  outcome: supported
+  summary: Eight required native checks passed.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - native-summary
+  - auxiliary
+  - corpus-context
+  details: Target network COMPLETE has no structural warnings and does not certify
+    mechanism. Nonrequired corpus exits and the unavailable optional structured adapter
+    remain explicit. Retrieval/reader failures are separate from native validation
+    results.
+- assessment_id: metrics
+  area: completeness
+  topic: Literal profile metrics
+  outcome: supported
+  summary: Completeness 85; raw quality 109.66666666666667, capped at 100.
+  target_ids:
+  - CommunityMech:000024
+  evidence_ids:
+  - support
+  details: Presence-based scores do not substitute for biological support.
+  metrics:
+  - name: completeness
+    value: 85
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 50 required fields and encoded roles +5 environment +0 factors threshold
+      +10 three nodes +0 external resources +10 medium +5 datasets +5 node metabolites
+      =85. Presence is not endorsement.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 100 -10*2 P2 -2*1 P3 +20*min((5/3)/2,1) +15 COMPLETE =109.66666666666667,
+      capped at 100. Three nodes carry five evidence entries; arithmetic follows rubric
+      order.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: non-graph-certainty
+  issue_key: cm-000024-non-graph-certainty
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: The mismatch materially overstates evidence for the central
+    community mechanism despite correctly qualified graph nodes.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Separate measured physiology from inferred exchange and mediation
+  description: Non-graph prose and IN_VITRO placement turn modeled reverse NO transfer
+    and predicted SynCom nitrite exposure into direct mechanistic claims.
+  target_ids:
+  - CommunityMech:000024
+  field_paths:
+  - description
+  - engineering_design.notes
+  - engineering_design.evidence
+  - taxonomy[0].evidence
+  - taxonomy[1].evidence
+  - environmental_factors[1]
+  - related_ingredients[1]
+  - related_ingredients[2]
+  evidence_ids:
+  - growth
+  - NO-model
+  - omics
+  - nitrite
+  - roles
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+    role: canonical_record
+- finding_id: groundwater-environment
+  issue_key: cm-000024-groundwater-environment
+  category: grounding
+  severity: major
+  native_severity: P2
+  normalization_reason: The environment CURIE denotes a different habitat and can
+    misclassify the community independently of correct free-text notes.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Represent the documented groundwater source instead of soil
+  description: The exact soil label is valid, but source isolates came from contaminated
+    wells and the experiments are defined laboratory cultures.
+  target_ids:
+  - CommunityMech:000024
+  field_paths:
+  - environment_term
+  evidence_ids:
+  - cultivation
+  - environment-authority
+  - ontology
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+    role: canonical_record
+- finding_id: taxon-provenance
+  issue_key: cm-000024-taxon-provenance
+  category: grounding
+  severity: minor
+  native_severity: P3
+  normalization_reason: Source strain descriptors already identify the intended pair;
+    this is a bounded authority/provenance improvement without changing the experimental
+    community.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Refine source-linked taxon identity and GTDB provenance
+  description: Generic Acidovorax grounding misses an exact source-linked node, while
+    R12 paper/archive identities need an explicit distinction and mapping mtime is
+    misrepresented as release/build provenance.
+  target_ids:
+  - CommunityMech:000024
+  field_paths:
+  - taxonomy[0].taxon_term
+  - taxonomy[1].taxon_term
+  - ecological_interactions[0].participating_taxa
+  - ecological_interactions[1].participating_taxa
+  - ecological_interactions[2].participating_taxa
+  evidence_ids:
+  - gtdb
+  - strain-authority
+  - genomes
+  - resources
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+    role: canonical_record
+actions:
+- action_id: qualify-mechanisms
+  description: Align non-graph claims with measured, modeled and inferred evidence.
+  finding_ids:
+  - non-graph-certainty
+  target_ids:
+  - CommunityMech:000024
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Qualify reverse R12-to-3H11 NO transfer as model-enabled and transcript-supported,
+    not measured flux; qualify complete N2 production as inferred accounting.
+  - Separate measured monoculture nitrite inhibition and endpoint N2O from predicted
+    high-condition SynCom nitrite exposure. Preserve competition and nutritional complementarity
+    as alternatives.
+  - Repair description, design notes/evidence, member-role evidence, environmental_factors[1]
+    and nitrite/NO ingredient relevance/evidence at their exact assertion scope. Keep
+    IN_VITRO for actual measurements and COMPUTATIONAL/PARTIAL for modeled mechanism.
+  - Retain broad SYNTROPHIC_PARTNER and CROSS_FEEDER roles with direction-specific
+    support; do not add obligacy or automatically impose an interaction-type definition
+    on roles. Retain all three qualified nodes and two PARTIAL arrows.
+- action_id: repair-environment
+  description: Separate source groundwater from laboratory culture setting.
+  finding_ids:
+  - groundwater-environment
+  target_ids:
+  - CommunityMech:000024
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Replace contaminated-soil grounding with verified ENVO:01001004 groundwater for
+    the documented source habitat, including its exact label and source-specific nitrate-contamination
+    notes.
+  - Describe the actual laboratory Balch-tube context separately; do not invent a
+    composite contaminated-groundwater CURIE or present the synthetic culture as the
+    intact field community.
+- action_id: refine-taxa
+  description: Apply source-specific taxon and mapping provenance consistently.
+  finding_ids:
+  - taxon-provenance
+  target_ids:
+  - CommunityMech:000024
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/ENIGMA_Denitrifying_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Use the source-linked NCBITaxon:1813946 Acidovorax sp. GW101-3H11 where accepted,
+    consistently in taxonomy and all three participant lists. Its exact mapping is
+    GTDB:s__Acidovorax_sp001633105, fraction 1.0 over 4 genomes.
+  - Explain R12 paper species NCBITaxon:416169 versus archive NCBITaxon:1525219 and
+    their different GTDB species routes before any taxon substitution. Preserve the
+    exact FW510-R12 descriptor and do not infer an ancestor relationship between generic
+    and isolate-named nodes.
+  - Replace unsupported latest/build-date wording with the actual hashed mapping source
+    and retrieval context. Filesystem mtime is not a GTDB release.
+  - Run focused schema, strict, ontology, reference, GTDB/domain and history gates
+    after separately authorized curation; recheck all participant IDs and claim-level
+    evidence.
+limitations:
+- NO flux and N2 completion were not directly measured; genomic and transcript/protein
+  evidence does not establish exchange flux.
+- SI Figure S2 names NO3 inhibition whereas the main kinetic analysis concerns NO2.
+  SI Figure S4 genome-scale flux uses N2O exchange and zero NO flux, distinct from
+  the kinetic NO-transfer model.
+- Selected supplementary rows annotate 3H11 nirK despite the main missing-Nir interpretation;
+  annotation alone does not prove functional nitrite reduction. DHA2-family norB rows
+  are not NO reductase.
+- Methods correlation-threshold wording differs from the Figure 4 signed cutoff. No
+  statistics or model fits were recomputed.
+- GEO holds 39 samples and repository designs differ from the reported analyzed subset;
+  no exact 30-sample bridge or completeness claim is inferred.
+- All 50 selected workbook rows were read, not every bulk matrix cell. No raw-read,
+  sequence, expression, protein or code reanalysis.
+- Direct supplementary requests returned nonpayload HTML; genuine PDF/XLS files were
+  recovered from the official EPMC ZIP. Optional structured adapter unavailable; organism
+  coverage unknown.
+notes:
+- Exact official source/target arrays are copied and reverified before native candidate
+  validation.
+- Three nodes, five exact canonical snippet hashes, two directed descriptions and
+  eight evidence-linked dimensions are bound.
+- The only direct primary-source quotation has two words. Root alone saves the review
+  and runs post-save gates.
+tags:
+- record-review
+- denitrification
+- synthetic-community
+- batch-16
+```

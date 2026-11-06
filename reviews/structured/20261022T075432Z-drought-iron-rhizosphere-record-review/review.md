@@ -1,0 +1,1576 @@
+# Drought rhizosphere iron Actinobacteria record review
+
+- Review: 20261022T075432Z-drought-iron-rhizosphere-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-22T07:39:09.841922Z
+- Finished UTC: 2026-10-22T07:54:32.609706Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+The three qualified observations and zero-arrow graph are supported. One major finding concerns pooled non-graph experimental scope, role and evidence tiers; two minor findings concern GTDB provenance and missing declared data/code links. All eight required native checks passed. Completeness is 85; raw quality 114.33333333333331 is capped at 100.
+
+## Scope And Provenance
+
+Whole released record and complete primary text, all eight figures, all supplement/reporting PDF pages, explicit workbook scopes and bounded authority/archive checks.
+
+Selection: Only released CommunityMech:000235 in owned batch 16.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base cb7a782c8ba80299dca8761ad0a2c90bccd8a117.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000235 | kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml | maintained | Drought-Induced Rhizosphere Iron-Enriched Actinobacteria Community |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000235 | Actual native exit 0. |
+| validate-strict | passed | True | CommunityMech:000235 | Actual native exit 0. |
+| validate-terms | passed | True | CommunityMech:000235 | Actual native exit 0. |
+| validate-references-explained | passed | True | CommunityMech:000235 | Actual native exit 0. |
+| validate-gtdb | passed | True | CommunityMech:000235 | Actual native exit 0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000235 | Actual native exit 0. |
+| validate-history | passed | True | CommunityMech:000235 | Actual native exit 0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000235 | Actual native exit 0. |
+| audit-network corpus context | failed | False | CommunityMech:000235 | Actual corpus exit 1 with zero structural errors. |
+| check-network-quality corpus context | failed | False | CommunityMech:000235 | Actual corpus exit 1 with zero structural errors. |
+| Source-specific structured adapter | unavailable | False | CommunityMech:000235 | Runner unavailable in the owned runtime; actual host/COG applicability recorded. |
+
+## Scientific And Domain Assessments
+
+### Field community and separate experimental systems
+
+identity: concern. Targets: CommunityMech:000235.
+
+The natural field-community identity is valid, but broad prose pools distinct experiments.
+
+Retain NATURAL, PERTURBED, RHIZOSPHERE and the explicitly partial Actinomycetota grouping. A clearer name would identify drought-enriched field sorghum rhizosphere rather than imply iron enrichment. Host genotypes and reductionist inoculations are context, not a complete community membership list.
+
+### Role, chemistry and causal interpretation
+
+evidence: concern. Targets: CommunityMech:000235.
+
+Apply the graph’s existing assay boundaries to the surrounding fields.
+
+PRIMARY_DEGRADER has positive annotation support for selected MAGs, but its current lineage-enrichment excerpt does not establish a measured phylum-wide role. Qualify it as computational subset potential or omit the optional unqualified tag. The iron/carbohydrate ingredient excerpts are genomic-capacity claims and need COMPUTATIONAL tiers. Root-exudate supply, microbial iron flux and causal structuring remain proposed. CHEBI:18248 can remain an elemental index only; the tested reagent was Fe3+-EDTA. IRON/SIGNIFICANT is defensible as study relevance with explicit host and isolate scope. The genotype factor needs a claim-local source rather than a generic drought-homeostasis excerpt.
+
+### Drought-Associated Genomic Transport Capacity
+
+graph: supported. Targets: CommunityMech:000235.
+
+Retain the current qualified COMMUNITY_LEVEL observation.
+
+Exact selector ecological_interactions[0]. Participants: [{"preferred_term": "drought-enriched rhizosphere Actinobacteria", "term": {"id": "NCBITaxon:201174", "label": "Actinomycetota"}}]. Exact canonical snippet bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet", "sha256": "7631e034e2820d410266eaaea2528ea8ff85e94f5902fa66ba196a8147f3f2cf", "reference": "PMID:34050180", "supports": "SUPPORT", "evidence_source": "COMPUTATIONAL"}, {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "c7afc0cb2fbb04ecd4c6e1f642cf3f269116543bc27869433fe95f82e1ef8c20", "reference": "PMID:34050180", "supports": "SUPPORT", "evidence_source": "COMPUTATIONAL"}]. Source: PMID:34050180; DOI:10.1038/s41467-021-23553-7. Locator: Results, MAG-based comparative genomics identifies differentially abundant functions between enriched and nonenriched Actinobacteria, paragraphs 1–2; Figures 3–4; Supplementary Data 1–2. Retain both COMPUTATIONAL SUPPORT excerpts and GO iron/carbohydrate transport as genomic capacity. Gene-content enrichment is not expression, transport flux or selective microbial-gene causality. The phylum is an incomplete grouping.
+
+### Maize TOM1 Loss and Relative Actinobacteria Enrichment
+
+graph: supported. Targets: CommunityMech:000235.
+
+Retain the current qualified COMMUNITY_LEVEL observation.
+
+Exact selector ecological_interactions[1]. Participants: [{"preferred_term": "drought-enriched rhizosphere Actinobacteria", "term": {"id": "NCBITaxon:201174", "label": "Actinomycetota"}}]. Exact canonical snippet bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet", "sha256": "5826c967552636c11eb77e51a940acae718a7bc6b4a91f300314722af58a9b12", "reference": "PMID:34050180", "supports": "SUPPORT", "evidence_source": "IN_VIVO"}]. Source: PMID:34050180; DOI:10.1038/s41467-021-23553-7. Locator: Results, Loss of a host phytosiderophore transporter increases Actinobacterial abundance in the maize rhizosphere, paragraph 3; Figure 6; Methods tom1/ys3 maize mutants. Retain IN_VIVO SUPPORT for separate maize TOM1 perturbation: relative enrichment under watered control, nonsignificant genotype contrast under drought. No absolute growth, sorghum knockout or field gene-repertoire effect follows.
+
+### Iron Amendment Suppresses the Sc1 Drought Response
+
+graph: supported. Targets: CommunityMech:000235.
+
+Retain the current qualified COMMUNITY_LEVEL observation.
+
+Exact selector ecological_interactions[2]. Participants: [{"preferred_term": "drought-enriched rhizosphere Actinobacteria", "term": {"id": "NCBITaxon:201174", "label": "Actinomycetota"}}]. Exact canonical snippet bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet", "sha256": "efac43a06b20f688a988f0db885938d331222cd440a48b56243b04ffdeee9aef", "reference": "PMID:34050180", "supports": "PARTIAL", "evidence_source": "IN_VIVO"}]. Source: PMID:34050180; DOI:10.1038/s41467-021-23553-7. Locator: Results, Exogenous iron disrupts the plant growth promotion capacity of Streptomyces under drought, sole direct paragraph; Figure 7; Methods Exogenous iron-solution treatment and Bacterial quantification from microboxes. Retain IN_VIVO PARTIAL: separately inoculated Sc1/Ps1 sorghum, not coculture. Iron removes the drought/control abundance contrast and Sc1 fresh-root benefit. Preserve assay-normalized qPCR scope and avoid phylum-wide suppression or whole-field benefit.
+
+### Three observations and zero downstream arrows
+
+graph: supported. Targets: CommunityMech:000235.
+
+No cross-assay causal arrows are established or required.
+
+All downstream lists are absent. No encoded edge assessment is omitted. The proposed Figure 8 model does not supply selective evidence linking a host or isolate intervention to the field MAG repertoire.
+
+### Field environment and separate assay conditions
+
+scope: supported. Targets: CommunityMech:000235.
+
+An empty growth_media list is appropriate for this field community.
+
+Do not import chamber substrate, temperatures or isolate inoculation into the field community. If enriching environmental context, keep site, cultivars, weekly sampling and drought/rewatering stages explicit. The separate sorghum assay used 0.1/1 mM Fe3+-EDTA and 1 mM EDTA mock; maize used field-site soil with clay/vermiculite. Neither is a microbial cultivation recipe for the focal field record.
+
+### Current phylum mapping and provenance
+
+grounding: concern. Targets: CommunityMech:000235.
+
+The NCBI/GTDB core is valid; the asserted release/build metadata is not verified.
+
+NCBITaxon:201174 is Actinomycetota, with historical Actinobacteria naming. The ncbi_rank_p route reproduces GTDB:p__Actinomycetota, 91,744 of 91,751 genomes and three distinct GTDB phyla. Rounded majority_fraction 1.0 is not universal support. These are reference mapping counts, not field abundance or an exact strain result.
+
+### Verbatim support and claim tiers
+
+evidence: concern. Targets: CommunityMech:000235.
+
+Twelve exact excerpts are present, but some broad claims exceed their local context.
+
+The graph already distinguishes capacity, genotype and isolate observations. Apply that distinction to name/description, environment and taxon notes, factors, ingredient relevance and metal notes. Preserve genuine positive evidence while narrowing what it establishes.
+
+### Declared sequence archive and analysis code
+
+representation: concern. Targets: CommunityMech:000235.
+
+The record omits recoverable data and code links.
+
+PRJNA435634/SRP133339 resolves to EPICON Sorghum Drought Microbiome. The current umbrella has 772 amplicon and 47 WGS runs; it is not an exact accession for each MAG or proof that all 52 processed metagenomic samples are reconciled. The code repository is verified by metadata/root inventory, not executed. Preserve existing publication links.
+
+### Source coverage and limits
+
+scope: supported. Targets: CommunityMech:000235.
+
+The complete primary and all declared supplementary objects were recovered.
+
+Lead read all 111,203 article characters including 107 references, viewed all eight main figures and all seventeen supplement/reporting PDF pages. Workbook reading covered inventories/headers, selected Data 1 degradation rows, five Data 3 host-gene rows and all Data 4 nonempty cells. Auxiliary read all 215 Data 1 and 194 Data 2 annotation rows. No full Data 3 matrix or raw sequence reanalysis is claimed. Failed DNS/404 routes and an incomplete timed-out ZIP remain failures, superseded for access by genuine publisher/PMC assets.
+
+### Prior reviews and curation ownership
+
+ownership: supported. Targets: CommunityMech:000235.
+
+The prior graph repair is preserved; follow-up belongs to future canonical curation.
+
+Lead read the sole history, whole adversarial wrapper and exact batch 34 records[0]/shared metadata; support read both caches and exact cohort/issue scopes. Current 647, 1410 and 1413 remain open; status alone does not establish a new defect. No canonical, cache, history, issue or Git mutation is authorized by this report.
+
+### Actual validation results
+
+schema: supported. Targets: CommunityMech:000235.
+
+All eight required native checks passed.
+
+The target network has no structural issues. Native COMPLETE does not prove biological mediation, complete membership or demonstrated gene function.
+
+### Literal profile scores
+
+completeness: supported. Targets: CommunityMech:000235.
+
+Completeness 85; raw quality 114.33333333333331, capped 100.
+
+## Findings
+
+### assay-scope: Keep field, host and isolate claims separate
+
+major / open / confirmed; issue key: cm-000235-assay-scope.
+
+Non-graph fields pool three systems and leave a broad degrader role and genomic-capacity tiers insufficiently qualified.
+
+### gtdb-provenance: Replace unsupported GTDB release/build wording
+
+minor / open / confirmed; issue key: cm-000235-gtdb-provenance.
+
+The phylum mapping reproduces, but latest and built-date assertions are not established by the crosswalk file mtime.
+
+### data-code: Link the declared archive and analysis code
+
+minor / open / confirmed; issue key: cm-000235-data-code.
+
+PRJNA435634 and the analysis repository are source-declared and publicly verified but absent from current resources.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-assay-scope
+
+Apply exact study and evidence boundaries across non-graph fields.
+
+- Name the drought-enriched field sorghum rhizosphere explicitly. Keep natural partial phylum scope; do not add maize or isolate cultures to its membership.
+- Separate field genomic capacity, host sorghum RNA-seq, watered-control maize TOM1 relative enrichment and independent Sc1/Ps1 iron interventions in description, environment/taxon notes, factors, ingredients and metal notes. Preserve the nonsignificant drought genotype contrast and Sc1-specific fresh-root endpoint.
+- For PRIMARY_DEGRADER, either attach COMPUTATIONAL selected-MAG potential with precise Data 1 degradation annotations or omit the optional unqualified tag. Do not claim degradation annotations are absent, universal phylum activity, or measured substrate flux.
+- Use COMPUTATIONAL for iron/carbohydrate gene-content excerpts; replace the genotype factor’s generic homeostasis excerpt with specific Methods/Results evidence. Keep root-exudate supply and causal structuring as proposed unless directly supported.
+- Retain CHEBI:18248 only as explicitly generic elemental indexing; distinguish actual Fe3+-EDTA doses and EDTA mock. Keep broad cation/phytosiderophore class terms and SIGNIFICANT study relevance without asserting direct iron-atom exposure or microbial field flux.
+- Preserve all three qualified nodes and zero arrows. Keep empty field growth_media; any environmental enrichment must separate field site/stages from chamber substrates/conditions.
+
+### repair-gtdb-provenance
+
+Record verified mapping provenance without changing valid classification.
+
+- Retain GTDB:p__Actinomycetota and current rank-route counts 91,744/91,751, three distinct GTDB phyla in total and rounded fraction 1.0. Do not interpret these as field abundance.
+- Replace latest/build-date claims with actual crosswalk identifier/hash, access date and method. A filesystem mtime alone is not a GTDB release or build date.
+
+### link-data-code
+
+Add source-qualified sequence and code resources.
+
+- Link PRJNA435634/SRP133339 using an appropriate sequence-project dataset/resource type and the source declaration. Distinguish WGS and amplicon content; do not assign all runs to the 52 processed metagenomic samples or to maize/isolate assays.
+- Link LingXu2018/EPICON_IRON as analysis code, preserving existing PMID/DOI bibliography. No code execution, raw-data completeness or accession for each MAG is implied.
+
+### validate-curation
+
+Validate any separately authorized changes.
+
+- Run focused schema, strict, term-label, reference, GTDB/domain and history gates; recheck source-local entailment and exact excerpts.
+- Preserve immutable caches/history/prior reviews. Root alone saves this review and runs post-save gates.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml; Whole maintained YAML | supports | Natural drought-perturbed field rhizosphere; three qualified observations and no arrows. |
+| field-context | PMID:34050180; DOI:10.1038/s41467-021-23553-7; Methods, Experiment design and sampling time points, sole direct paragraph; XPath //*[@id="Sec13"]/p[1] | supports | Field sorghum at Kearney, Parlier, California; RTx430 and BTx642, randomized blocks, drought and rewatering stages. |
+| capacity | PMID:34050180; DOI:10.1038/s41467-021-23553-7; Results, MAG-based comparative genomics identifies differentially abundant functions between enriched and nonenriched Actinobacteria, paragraphs 1–2; Figures 3–4; Supplementary Data 1–2; XPath //*[@id="Sec7"]/p[1] | supports | Comparative gene content of ten enriched and five nonenriched Actinobacterial MAGs supports genomic potential, not measured microbial expression or causal fitness. |
+| host | PMID:34050180; DOI:10.1038/s41467-021-23553-7; Results, Host iron status, sole direct paragraph; Figure 5; Supplementary Data 3; XPath //*[@id="Sec8"]/p[1] | supports | Sorghum root RNA-seq measures host iron-homeostasis expression; it is distinct from microbial metagenomic capacity. |
+| maize | PMID:34050180; DOI:10.1038/s41467-021-23553-7; Results, Loss of a host phytosiderophore transporter increases Actinobacterial abundance in the maize rhizosphere, paragraph 3; Figure 6; Methods tom1/ys3 maize mutants; XPath //*[@id="Sec9"]/p[3] | supports | The maize TOM1 genotype contrast concerns relative Actinobacteria abundance, significant under watered controls but not drought. |
+| isolate | PMID:34050180; DOI:10.1038/s41467-021-23553-7; Results, Exogenous iron disrupts the plant growth promotion capacity of Streptomyces under drought, sole direct paragraph; Figure 7; Methods Exogenous iron-solution treatment and Bacterial quantification from microboxes; XPath //*[@id="Sec10"]/p[1] | supports | Separate Sc1 and Ps1 inoculations in gnotobiotic sorghum show an iron-sensitive Sc1 drought response and fresh-root phenotype. |
+| amendment | PMID:34050180; DOI:10.1038/s41467-021-23553-7; Methods, Exogenous iron-solution treatment, sole direct paragraph; Supplementary Figure 13; XPath //*[@id="Sec26"]/p[1] | supports | The isolate assay used 0.1 and 1 mM Fe3+-EDTA with 1 mM EDTA mock; it was not a field-community amendment. |
+| model | PMID:34050180; DOI:10.1038/s41467-021-23553-7; Discussion, paragraphs 5–7; Figure 8 proposed model; XPath //*[@id="Sec11"]/p[5] | supports | Figure 8 is a proposed cross-system model, not selective proof of the complete field microbial mechanism. |
+| data | PMID:34050180; DOI:10.1038/s41467-021-23553-7; Data availability, sole direct paragraph; XPath //*[@id="notes2"]/p[1] | supports | The source declares sequence project PRJNA435634. |
+| code | PMID:34050180; DOI:10.1038/s41467-021-23553-7; Code availability, sole direct paragraph; XPath //*[@id="notes3"]/p[1] | supports | The source declares the analysis repository LingXu2018/EPICON_IRON. |
+| degradation-potential | PMID:34050180; DOI:10.1038/s41467-021-23553-7; Supplementary Data 1, Table-S1, A1:F2 and A37:F37, A44:F44, A60:F60, A66:F66, A109:F109 | supports | Selected enriched-MAG COG annotations include aromatic dioxygenase, arabinofuranosidase, beta-glucosidase, pullulanase and esterase/lipase. These are positive computational capacity evidence. |
+| supplement | PMID:34050180; DOI:10.1038/s41467-021-23553-7; Supplementary Figures 1–13 and Table 1; all fourteen PDF pages | supports | Field timing, composition, host qPCR/iron and separate shoot-weight results reinforce assay boundaries. |
+| host-annotations | PMID:34050180; DOI:10.1038/s41467-021-23553-7; Supplementary Data 3, Sheet1, A1:L7 | supports | Five focal host-gene annotations and FDR values include sorghum TOM1; host expression is not bacterial transport flux. |
+| community-comparison | PMID:34050180; DOI:10.1038/s41467-021-23553-7; Supplementary Data 4, Sheet1, all nonempty cells A1:G15 | supports | Phylum-level enrichment differs across amplicon, contig and MAG measurements; these are not interchangeable abundance censuses. |
+| inspection | /private/tmp/cm-review-session/batch-16/000235/inspect.json; Official 31-input inspection | supports | Target, 21 authorities and nine focal contexts pinned before assessment. |
+| ontology | /private/tmp/cm-review-session/batch-16/000235/ontology-authority.json; Eight distinct pairs, fourteen placements | supports | Current NCBI/ENVO/CHEBI/GO labels match; claim scope remains separate. |
+| schema | /private/tmp/cm-review-session/batch-16/000235/child-schema-field-addendum.json; Community, taxon and ingredient fields | supports | Roles are optional; related ingredients can describe environmental relevance rather than culture reagents. |
+| gtdb | /private/tmp/cm-review-session/batch-16/000235/child-gtdb-crosswalk.json; NCBITaxon:201174 phylum route | supports | The existing core mapping reproduces; filesystem mtime is not a release/build date. |
+| strains | /private/tmp/cm-review-session/batch-16/000235/child-source-strain-scope.json; Field membership and separate isolate provenance | supports | Sc1 and Ps1 are source-local isolates, not inferred collection stocks or required additions to the field roster. |
+| adapter | /private/tmp/cm-review-session/batch-16/000235/child-structured-adapter-applicability.json; Actual TOM1/TOM3/FER1 and COG applicability | supports | The owned-runtime runner is unavailable; organism coverage is unknown. No bacterial activity inferred from host genes. |
+| semantics | /private/tmp/cm-review-session/batch-16/000235/ontology-semantic-notes.json; Final auxiliary source-aware conclusions | supports | Retain qualified graph, positive selected-MAG degradation potential, and elemental iron only at explicit scope. |
+| resources | /private/tmp/cm-review-session/batch-16/000235/dataset-verification.json; Project, run metadata and code inventory | supports | PRJNA435634/SRP133339 and the declared code repository resolve; the umbrella project has multiple assay types. |
+| links | /private/tmp/cm-review-session/batch-16/000235/external-resource-verification.json; Encoded PubMed and DOI links | supports | Both references identify the correct publication; no cross-Mech identifiers are encoded. |
+| snippets | /private/tmp/cm-review-session/batch-16/000235/snippet-audit.json; All twelve canonical excerpt placements | supports | All twelve strictly match fresh Abstract and both caches. Literal identity does not certify local entailment. |
+| provenance | /private/tmp/cm-review-session/batch-16/000235/provenance-audit.json; Exact batch 34 records[0], history, cohort and current issues | supports | Prior graph repair is present; non-graph follow-up remains distinct. Current 647, 1410 and 1413 are open. |
+| assets | /private/tmp/cm-review-session/batch-16/000235/lead-source-assets.json; Actual retrieved source objects and failures | supports | Full main, eight figures and six unique supplements recovered; failed routes are retained separately. |
+| read-scope | /private/tmp/cm-review-session/batch-16/000235/lead-primary-read-scope.json; Whole main and explicit supplementary scope | supports | Lead read all 111,203 projected characters, eight figures, seventeen PDF pages and bounded workbook rows. |
+| locators | /private/tmp/cm-review-session/batch-16/000235/source-locator-verification.json; Direct section/paragraph inventory | supports | All cited headings and the two-word quote checked against actual JATS. |
+| source-audit | /private/tmp/cm-review-session/batch-16/000235/source-audit.json; Final lead scientific assessment | supports | One major scope finding and two minor provenance/resource findings; three nodes and four exact snippet hashes. |
+| scope-addendum | /private/tmp/cm-review-session/batch-16/000235/source-scope-addendum.json; Additional exact existing P2 selectors | supports | The same scope repair also covers environment_term.notes and taxonomy[0].taxon_term.notes. |
+| root-source | /private/tmp/cm-review-session/batch-16/000235/root-independent-source-audit.json; Independent root source audit | supports | Independent reading agrees with the source boundaries and final counts. |
+| support | /private/tmp/cm-review-session/batch-16/000235/support-final-audit.json; Final supporting reconciliation | supports | Completeness 85; quality base 128.33333333333331 minus 14 gives raw 114.33333333333331, capped 100. |
+| support-manifest | /private/tmp/cm-review-session/batch-16/000235/support-frozen-manifest.json; Frozen supporting inputs | supports | Actual source/provenance pins and official inputs verified. |
+| auxiliary | /private/tmp/cm-review-session/batch-16/000235/auxiliary-frozen-manifest.json; Final native and authority receipts | supports | Eight required native checks pass; ancillary limits remain distinct. |
+| auxiliary-addendum | /private/tmp/cm-review-session/batch-16/000235/auxiliary-frozen-manifest-addendum.json; Preserved definition typography clarification | supports | A missing space in the displayed iron-atom definition was clarified without changing the source authority or scientific conclusion. |
+| native-summary | /private/tmp/cm-review-session/batch-16/000235/final-validator-summary.json; Actual eight command receipts | supports | All eight required native checks exited 0. |
+| corpus-context | /private/tmp/cm-review-session/batch-16/000235/child-corpus-context.json; Fresh batch 16 corpus baseline | supports | Warning-only corpus exits are separate from the focused record checks. |
+| check-validate | /private/tmp/cm-review-session/batch-16/000235/validate.json; Actual command/stdout/stderr | supports | Required native command exited 0. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-16/000235/validate-strict.json; Actual command/stdout/stderr | supports | Required native command exited 0. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-16/000235/validate-terms.json; Actual command/stdout/stderr | supports | Required native command exited 0. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-16/000235/validate-references-explained.json; Actual command/stdout/stderr | supports | Required native command exited 0. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-16/000235/validate-gtdb.json; Actual command/stdout/stderr | supports | Required native command exited 0. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-16/000235/validate-gtdb-domain.json; Actual command/stdout/stderr | supports | Required native command exited 0. |
+| check-validate-history | /private/tmp/cm-review-session/batch-16/000235/validate-history.json; Actual command/stdout/stderr | supports | Required native command exited 0. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-16/000235/normalize-cache-names-check.json; Actual command/stdout/stderr | supports | Required native command exited 0. |
+| context-audit-network | /private/tmp/cm-review-session/batch-16/audit-network.json; Fresh batch 16 corpus baseline | supports | Actual warning-only corpus exit 1. |
+| context-check-network-quality | /private/tmp/cm-review-session/batch-16/check-network-quality.json; Fresh batch 16 corpus baseline | supports | Actual warning-only corpus exit 1. |
+
+## Limits And Additional Notes
+
+- Field irrigation text alternates 80% and 100% ETc, with SI mentioning 80% ETo; emergence dates differ. These are source ambiguities, not silently resolved doses.
+- Figure 6 timing and replication statements vary across captions/Methods. Figure 7 uses assay-normalized bacterial quantities; no new absolute cell-count claim is inferred.
+- Discussion reverses ferric/ferrous names beside charge symbols. Use explicit Fe3+-EDTA Methods for reagent scope; do not propagate the typo.
+- Lead workbook reading is bounded to inventory/headers and selected annotations/host rows plus all Data 4 cells; auxiliary read all Data 1/Data 2 annotation columns. No full host matrix, raw sequence, MAG reconstruction or code reanalysis is claimed.
+- The current archive has 47 WGS runs while the source reports 52 processed metagenomic samples; exact completeness was not reconciled, so no deposit-defect claim follows.
+- The optional structured adapter was unavailable in the owned runtime; source-specific query applicability was assessed and dataset coverage remains unknown.
+- Completion describes this bounded record review, not closure of current issues, universal mechanism validation or curation authorization.
+- All 31 official input hashes remain unchanged. Eight linked dimensions and four exact graph snippet hashes are explicit.
+- Failed retrievals remain recorded; recovered source assets establish the reviewed scope. Actual native candidate results are recorded after rendering.
+- The only direct source quote has two words. Root owns saving and post-save gates.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261022T075432Z-drought-iron-rhizosphere-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Drought rhizosphere iron Actinobacteria record review
+started_at: '2026-10-22T07:39:09.841922Z'
+finished_at: '2026-10-22T07:54:32.609706Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate lead, root, auxiliary and support reviews; no person-level
+    independence claim.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: The three qualified observations and zero-arrow graph are supported. One
+  major finding concerns pooled non-graph experimental scope, role and evidence tiers;
+  two minor findings concern GTDB provenance and missing declared data/code links.
+  All eight required native checks passed. Completeness is 85; raw quality 114.33333333333331
+  is capped at 100.
+source:
+  git_revision: cb7a782c8ba80299dca8761ad0a2c90bccd8a117
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Drought_Rhizosphere_Iron_Actinobacteria_Community/2026-10-06T073010Z-codex-98278f.yaml
+    sha256: c8c04504a794bbc8540e0751094a953050082d2a06f26a5c3e06f550766525f5
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+    sha256: 43a6278925edf2172f53f949f654de35a85d0139160a6445e6e09a6483967d7b
+    role: target
+  - path: references_cache/PMID_34050180.md
+    sha256: ce71ad46852a9d64dc73cc702230e7960c22058a53c9c3f3d2186c8fc5d8cb63
+    role: context
+  - path: references_cache/PMID_34050180.txt
+    sha256: 4369c7f89dbe65b652e604034f5e5ada6c717692943298d6d9c2d4f7719a785e
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261006-batch34.yaml
+    sha256: 3a44d2f69b8390801b62eb251ddd652ffd2f0804a1c02c193a159bec2b9eff20
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-three-records-batch34.yaml
+    sha256: fe62f390c239a8feab12aed2824b5786db78b13fd75c40d0f244b447631f67d0
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.md
+    sha256: e432615b147787c8d009d96d2f11e5b78a45927bf9c69e45ec0d31123d1fc2e9
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/frozen_inventory_metrics.tsv
+    sha256: d5a47bbcc3745a489ff507680aa7360a6a65ce070ce4ec88f886b70128791313
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md
+    sha256: 4e7781aa8cdfc4bb42d896ebe75920719d9dcade92ffc4a0ae07af7481cb37b3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000235
+  path: kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+  label: Drought-Induced Rhizosphere Iron-Enriched Actinobacteria Community
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+    role: canonical_record
+scope:
+  description: Whole released record and complete primary text, all eight figures,
+    all supplement/reporting PDF pages, explicit workbook scopes and bounded authority/archive
+    checks.
+  selection: Only released CommunityMech:000235 in owned batch 16.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000235
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000235
+  command: just --no-dotenv validate kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide. Scientific
+    support assessed separately.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000235
+  command: just --no-dotenv validate-strict kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+    --out /private/tmp/cm-review-session/batch-16/000235/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide. Scientific
+    support assessed separately.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000235
+  command: just --no-dotenv validate-terms kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide. Scientific
+    support assessed separately.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000235
+  command: just --no-dotenv validate-references-explained kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide. Scientific
+    support assessed separately.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000235
+  command: just --no-dotenv validate-gtdb kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide. Scientific
+    support assessed separately.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000235
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide. Scientific
+    support assessed separately.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000235
+  command: just --no-dotenv validate-history history/records/Drought_Rhizosphere_Iron_Actinobacteria_Community
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide. Scientific
+    support assessed separately.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000235
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused record/history gate; cache-name preflight is corpus-wide. Scientific
+    support assessed separately.
+- check_id: context-audit-network
+  name: audit-network corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit 1 with zero structural errors.
+  target_ids:
+  - CommunityMech:000235
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-16/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-audit-network
+  - corpus-context
+  scope_note: Nonrequired corpus context, not a target native or candidate failure.
+- check_id: context-check-network-quality
+  name: check-network-quality corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit 1 with zero structural errors.
+  target_ids:
+  - CommunityMech:000235
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-16/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-check-network-quality
+  - corpus-context
+  scope_note: Nonrequired corpus context, not a target native or candidate failure.
+- check_id: structured-adapter
+  name: Source-specific structured adapter
+  status: unavailable
+  required: false
+  summary: Runner unavailable in the owned runtime; actual host/COG applicability
+    recorded.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - adapter
+  scope_note: Host TOM1/TOM3/FER1 and microbial COG capacity are distinct; organism/dataset
+    coverage remains unknown. No installation or other-checkout execution.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+  locator: Whole maintained YAML
+  summary: Natural drought-perturbed field rhizosphere; three qualified observations
+    and no arrows.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.618416Z'
+- evidence_id: field-context
+  kind: primary_source
+  reference: PMID:34050180; DOI:10.1038/s41467-021-23553-7
+  locator: Methods, Experiment design and sampling time points, sole direct paragraph;
+    XPath //*[@id="Sec13"]/p[1]
+  summary: Field sorghum at Kearney, Parlier, California; RTx430 and BTx642, randomized
+    blocks, drought and rewatering stages.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.618474Z'
+  snapshot_sha256: 1ab2d187ada6ac7e93bef025ca22f176f69c9f65b683ef519509011d8780a161
+  quote: field experiments
+- evidence_id: capacity
+  kind: primary_source
+  reference: PMID:34050180; DOI:10.1038/s41467-021-23553-7
+  locator: Results, MAG-based comparative genomics identifies differentially abundant
+    functions between enriched and nonenriched Actinobacteria, paragraphs 1–2; Figures
+    3–4; Supplementary Data 1–2; XPath //*[@id="Sec7"]/p[1]
+  summary: Comparative gene content of ten enriched and five nonenriched Actinobacterial
+    MAGs supports genomic potential, not measured microbial expression or causal fitness.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.618582Z'
+  snapshot_sha256: 1ab2d187ada6ac7e93bef025ca22f176f69c9f65b683ef519509011d8780a161
+- evidence_id: host
+  kind: primary_source
+  reference: PMID:34050180; DOI:10.1038/s41467-021-23553-7
+  locator: Results, Host iron status, sole direct paragraph; Figure 5; Supplementary
+    Data 3; XPath //*[@id="Sec8"]/p[1]
+  summary: Sorghum root RNA-seq measures host iron-homeostasis expression; it is distinct
+    from microbial metagenomic capacity.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.618673Z'
+  snapshot_sha256: 1ab2d187ada6ac7e93bef025ca22f176f69c9f65b683ef519509011d8780a161
+- evidence_id: maize
+  kind: primary_source
+  reference: PMID:34050180; DOI:10.1038/s41467-021-23553-7
+  locator: Results, Loss of a host phytosiderophore transporter increases Actinobacterial
+    abundance in the maize rhizosphere, paragraph 3; Figure 6; Methods tom1/ys3 maize
+    mutants; XPath //*[@id="Sec9"]/p[3]
+  summary: The maize TOM1 genotype contrast concerns relative Actinobacteria abundance,
+    significant under watered controls but not drought.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.618765Z'
+  snapshot_sha256: 1ab2d187ada6ac7e93bef025ca22f176f69c9f65b683ef519509011d8780a161
+- evidence_id: isolate
+  kind: primary_source
+  reference: PMID:34050180; DOI:10.1038/s41467-021-23553-7
+  locator: Results, Exogenous iron disrupts the plant growth promotion capacity of
+    Streptomyces under drought, sole direct paragraph; Figure 7; Methods Exogenous
+    iron-solution treatment and Bacterial quantification from microboxes; XPath //*[@id="Sec10"]/p[1]
+  summary: Separate Sc1 and Ps1 inoculations in gnotobiotic sorghum show an iron-sensitive
+    Sc1 drought response and fresh-root phenotype.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.618858Z'
+  snapshot_sha256: 1ab2d187ada6ac7e93bef025ca22f176f69c9f65b683ef519509011d8780a161
+- evidence_id: amendment
+  kind: primary_source
+  reference: PMID:34050180; DOI:10.1038/s41467-021-23553-7
+  locator: Methods, Exogenous iron-solution treatment, sole direct paragraph; Supplementary
+    Figure 13; XPath //*[@id="Sec26"]/p[1]
+  summary: The isolate assay used 0.1 and 1 mM Fe3+-EDTA with 1 mM EDTA mock; it was
+    not a field-community amendment.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.618949Z'
+  snapshot_sha256: 1ab2d187ada6ac7e93bef025ca22f176f69c9f65b683ef519509011d8780a161
+- evidence_id: model
+  kind: primary_source
+  reference: PMID:34050180; DOI:10.1038/s41467-021-23553-7
+  locator: Discussion, paragraphs 5–7; Figure 8 proposed model; XPath //*[@id="Sec11"]/p[5]
+  summary: Figure 8 is a proposed cross-system model, not selective proof of the complete
+    field microbial mechanism.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.619040Z'
+  snapshot_sha256: 1ab2d187ada6ac7e93bef025ca22f176f69c9f65b683ef519509011d8780a161
+- evidence_id: data
+  kind: primary_source
+  reference: PMID:34050180; DOI:10.1038/s41467-021-23553-7
+  locator: Data availability, sole direct paragraph; XPath //*[@id="notes2"]/p[1]
+  summary: The source declares sequence project PRJNA435634.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.619133Z'
+  snapshot_sha256: 1ab2d187ada6ac7e93bef025ca22f176f69c9f65b683ef519509011d8780a161
+- evidence_id: code
+  kind: primary_source
+  reference: PMID:34050180; DOI:10.1038/s41467-021-23553-7
+  locator: Code availability, sole direct paragraph; XPath //*[@id="notes3"]/p[1]
+  summary: The source declares the analysis repository LingXu2018/EPICON_IRON.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.619223Z'
+  snapshot_sha256: 1ab2d187ada6ac7e93bef025ca22f176f69c9f65b683ef519509011d8780a161
+- evidence_id: degradation-potential
+  kind: primary_source
+  reference: PMID:34050180; DOI:10.1038/s41467-021-23553-7
+  locator: Supplementary Data 1, Table-S1, A1:F2 and A37:F37, A44:F44, A60:F60, A66:F66,
+    A109:F109
+  summary: Selected enriched-MAG COG annotations include aromatic dioxygenase, arabinofuranosidase,
+    beta-glucosidase, pullulanase and esterase/lipase. These are positive computational
+    capacity evidence.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.619313Z'
+  snapshot_sha256: 68d9d61eb4f659aa4079c73222d4dbe76b784cf2c6257c4142fbe2860128e4d3
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:34050180; DOI:10.1038/s41467-021-23553-7
+  locator: Supplementary Figures 1–13 and Table 1; all fourteen PDF pages
+  summary: Field timing, composition, host qPCR/iron and separate shoot-weight results
+    reinforce assay boundaries.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.619535Z'
+  snapshot_sha256: 9ffc7be7d1bb33efd49e8d2d29319b46a7b8645cb2316255cdccf3456c344a61
+- evidence_id: host-annotations
+  kind: primary_source
+  reference: PMID:34050180; DOI:10.1038/s41467-021-23553-7
+  locator: Supplementary Data 3, Sheet1, A1:L7
+  summary: Five focal host-gene annotations and FDR values include sorghum TOM1; host
+    expression is not bacterial transport flux.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.621179Z'
+  snapshot_sha256: a15ae628577202c9844c6eb645bc17c4f01300dcbadf40e8c40bc3a41147922d
+- evidence_id: community-comparison
+  kind: primary_source
+  reference: PMID:34050180; DOI:10.1038/s41467-021-23553-7
+  locator: Supplementary Data 4, Sheet1, all nonempty cells A1:G15
+  summary: Phylum-level enrichment differs across amplicon, contig and MAG measurements;
+    these are not interchangeable abundance censuses.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.621425Z'
+  snapshot_sha256: 5f83b64d5c7a23602c32604103388ee9522074d73e2c9c1f941dc6985dca90be
+- evidence_id: inspection
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/inspect.json
+  locator: Official 31-input inspection
+  summary: Target, 21 authorities and nine focal contexts pinned before assessment.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.621691Z'
+  snapshot_sha256: caf2f64d7b498fa4ae1397fc52dd54f62a7cfd4f1ba2fb94da27250e667406f9
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-16/000235/ontology-authority.json
+  locator: Eight distinct pairs, fourteen placements
+  summary: Current NCBI/ENVO/CHEBI/GO labels match; claim scope remains separate.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.621723Z'
+  snapshot_sha256: d8cfbde6a45216c837514eb0f983452892433a4514d45c086bb8d56e285fa460
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-16/000235/child-schema-field-addendum.json
+  locator: Community, taxon and ingredient fields
+  summary: Roles are optional; related ingredients can describe environmental relevance
+    rather than culture reagents.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.621863Z'
+  snapshot_sha256: d53f7466455d5c52f0ce5a28dbd48839eec8a8ea5a19a0bc5807004b94d7bbb0
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-16/000235/child-gtdb-crosswalk.json
+  locator: NCBITaxon:201174 phylum route
+  summary: The existing core mapping reproduces; filesystem mtime is not a release/build
+    date.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622011Z'
+  snapshot_sha256: e58cc59bdb6571ecde92d1c239ccb3b1f6c3c4c27d45a3681da76676052e29cb
+- evidence_id: strains
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-16/000235/child-source-strain-scope.json
+  locator: Field membership and separate isolate provenance
+  summary: Sc1 and Ps1 are source-local isolates, not inferred collection stocks or
+    required additions to the field roster.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622050Z'
+  snapshot_sha256: 9b3a8c9b5077fdb69792e81416eb2e716a06ec06874a202b47ecac363102e556
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/child-structured-adapter-applicability.json
+  locator: Actual TOM1/TOM3/FER1 and COG applicability
+  summary: The owned-runtime runner is unavailable; organism coverage is unknown.
+    No bacterial activity inferred from host genes.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622086Z'
+  snapshot_sha256: 52aaba556d7f92bb59791a961fe3b2ff60edc5c12b5f82c8b8d42e49c8b69cdf
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-16/000235/ontology-semantic-notes.json
+  locator: Final auxiliary source-aware conclusions
+  summary: Retain qualified graph, positive selected-MAG degradation potential, and
+    elemental iron only at explicit scope.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622117Z'
+  snapshot_sha256: 23473e01468a4103b2e2695a455ae871b973d2007337e9331f5056f2e641ecc5
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/dataset-verification.json
+  locator: Project, run metadata and code inventory
+  summary: PRJNA435634/SRP133339 and the declared code repository resolve; the umbrella
+    project has multiple assay types.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622159Z'
+  snapshot_sha256: b2cd0cb9f52a0df53c1e3d9e95a0e7ed78795fd13f9e671fe710e266c9664f5d
+- evidence_id: links
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/external-resource-verification.json
+  locator: Encoded PubMed and DOI links
+  summary: Both references identify the correct publication; no cross-Mech identifiers
+    are encoded.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622204Z'
+  snapshot_sha256: d38a2484cfb257754fb3d18da04fa4dd224290ae11618c676835a67543385e1e
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/snippet-audit.json
+  locator: All twelve canonical excerpt placements
+  summary: All twelve strictly match fresh Abstract and both caches. Literal identity
+    does not certify local entailment.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622233Z'
+  snapshot_sha256: 4e965888f57c35bf0dfc6c8ba685ac0f61e5a89519eb456428e1259095bed457
+- evidence_id: provenance
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-16/000235/provenance-audit.json
+  locator: Exact batch 34 records[0], history, cohort and current issues
+  summary: Prior graph repair is present; non-graph follow-up remains distinct. Current
+    647, 1410 and 1413 are open.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622266Z'
+  snapshot_sha256: edaa6c47bbff6a7b83d864f2bcea03a761daaf804d3abf461fc59297ef5a8f6a
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/lead-source-assets.json
+  locator: Actual retrieved source objects and failures
+  summary: Full main, eight figures and six unique supplements recovered; failed routes
+    are retained separately.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622295Z'
+  snapshot_sha256: 2e7dfcd879ef8fb3ea460bccda51c85c4c90d3c350bbd17e826634227216b514
+- evidence_id: read-scope
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/lead-primary-read-scope.json
+  locator: Whole main and explicit supplementary scope
+  summary: Lead read all 111,203 projected characters, eight figures, seventeen PDF
+    pages and bounded workbook rows.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622331Z'
+  snapshot_sha256: 6b136826e136e19f72d83239c415f2a56d464d10ec6198b2fa473b1127fec6ea
+- evidence_id: locators
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/source-locator-verification.json
+  locator: Direct section/paragraph inventory
+  summary: All cited headings and the two-word quote checked against actual JATS.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622359Z'
+  snapshot_sha256: 1cebfa74feaeb0d9e48076c07ece22b042367df596d2c793eef7d02d6a62e1f4
+- evidence_id: source-audit
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/source-audit.json
+  locator: Final lead scientific assessment
+  summary: One major scope finding and two minor provenance/resource findings; three
+    nodes and four exact snippet hashes.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622409Z'
+  snapshot_sha256: fc43638db0b6c979666aca01893d849d138b1dc6a187e1d958c9434e476c7883
+- evidence_id: scope-addendum
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/source-scope-addendum.json
+  locator: Additional exact existing P2 selectors
+  summary: The same scope repair also covers environment_term.notes and taxonomy[0].taxon_term.notes.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622439Z'
+  snapshot_sha256: 1e590816aa936a7866b269921d87e88965048856c46c7120dffe9726c822237b
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/root-independent-source-audit.json
+  locator: Independent root source audit
+  summary: Independent reading agrees with the source boundaries and final counts.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622466Z'
+  snapshot_sha256: 7734fa7c472b8a15c991b0d2194ee2fd08e84d4ceefb2f99df555c73aa63026e
+- evidence_id: support
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/support-final-audit.json
+  locator: Final supporting reconciliation
+  summary: Completeness 85; quality base 128.33333333333331 minus 14 gives raw 114.33333333333331,
+    capped 100.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622500Z'
+  snapshot_sha256: 6e7ae59ac347b29805b008abcc371705e85b742e682eb106ddd1993617345c5a
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/support-frozen-manifest.json
+  locator: Frozen supporting inputs
+  summary: Actual source/provenance pins and official inputs verified.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622526Z'
+  snapshot_sha256: 032cae1e12426f53435bc9925196df46fd734ce3d1cb7d5e971ce4fa023f7617
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/auxiliary-frozen-manifest.json
+  locator: Final native and authority receipts
+  summary: Eight required native checks pass; ancillary limits remain distinct.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622553Z'
+  snapshot_sha256: a5c617ee0757fb81c725a638327677aa43f1d304393c38cf8d591c294c1344b1
+- evidence_id: auxiliary-addendum
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/auxiliary-frozen-manifest-addendum.json
+  locator: Preserved definition typography clarification
+  summary: A missing space in the displayed iron-atom definition was clarified without
+    changing the source authority or scientific conclusion.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622590Z'
+  snapshot_sha256: bf99271048d5569580be1a76396a94ccab7f5a55d078c683ea69021a6af86af3
+- evidence_id: native-summary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/final-validator-summary.json
+  locator: Actual eight command receipts
+  summary: All eight required native checks exited 0.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622618Z'
+  snapshot_sha256: 541ce1ec307406742939f3a9f74181d1e905f02a342de7364e12cb2f29b0ed2a
+- evidence_id: corpus-context
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/child-corpus-context.json
+  locator: Fresh batch 16 corpus baseline
+  summary: Warning-only corpus exits are separate from the focused record checks.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622663Z'
+  snapshot_sha256: 8f3be07ad0055be653817ccd976cb11353ed5bc10e36245bd43e4c208c881693
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/validate.json
+  locator: Actual command/stdout/stderr
+  summary: Required native command exited 0.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.622947Z'
+  snapshot_sha256: a37a3030fa1ecac234cf802f1e8a9397a514f9f51fbbec774913ef7239803646
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/validate-strict.json
+  locator: Actual command/stdout/stderr
+  summary: Required native command exited 0.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.623005Z'
+  snapshot_sha256: 8188af165d85ae6004706b19fe2eebbc1921b281cc75072218ac2e4ef4d8366b
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/validate-terms.json
+  locator: Actual command/stdout/stderr
+  summary: Required native command exited 0.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.623055Z'
+  snapshot_sha256: f13a855b2d4bbf96ddd6a82152903d47df4714dee558733042bc0b234d36a307
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/validate-references-explained.json
+  locator: Actual command/stdout/stderr
+  summary: Required native command exited 0.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.623101Z'
+  snapshot_sha256: 36a87aa26889a869884d23b21c725fb015b9afb07595712e7cf2ba1cc504b5d4
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/validate-gtdb.json
+  locator: Actual command/stdout/stderr
+  summary: Required native command exited 0.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.623157Z'
+  snapshot_sha256: 3939d3dd0d66f663c428a5e7ba3ce378462c06bd71f58b81374999c90b0ca555
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/validate-gtdb-domain.json
+  locator: Actual command/stdout/stderr
+  summary: Required native command exited 0.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.623205Z'
+  snapshot_sha256: 703e7cfd675e3514cfb2f57f7b80cbdb328fb2a9f05390d16b27a041054a42f6
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/validate-history.json
+  locator: Actual command/stdout/stderr
+  summary: Required native command exited 0.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.623254Z'
+  snapshot_sha256: 156d102be60bbdeffbe8f39c19971e02be3f14be0b6b62ea26be7febb49ac7ff
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/000235/normalize-cache-names-check.json
+  locator: Actual command/stdout/stderr
+  summary: Required native command exited 0.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.623296Z'
+  snapshot_sha256: 8f062ecc881b79165ea26d5bb8c259ab91dd60907feb6b1f85dc54068acbb565
+- evidence_id: context-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/audit-network.json
+  locator: Fresh batch 16 corpus baseline
+  summary: Actual warning-only corpus exit 1.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.623529Z'
+  snapshot_sha256: f4809c6a349f1496dbfe0243fb5ce661f469f7235f2aa00e6294ee3aa04f3123
+- evidence_id: context-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-16/check-network-quality.json
+  locator: Fresh batch 16 corpus baseline
+  summary: Actual warning-only corpus exit 1.
+  support: supports
+  accessed_at: '2026-10-22T07:49:57.623671Z'
+  snapshot_sha256: 759ba13f2cda067251275491bbafc401d0be8bddf7907c7f962eb4369f61688f
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Field community and separate experimental systems
+  outcome: concern
+  summary: The natural field-community identity is valid, but broad prose pools distinct
+    experiments.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - record
+  - field-context
+  - capacity
+  - maize
+  - isolate
+  dimensions:
+  - name: stable_id
+    value: CommunityMech:000235; PMID:34050180; PMC8163885; DOI:10.1038/s41467-021-23553-7
+    definition: Exact record and primary publication identity.
+    evidence_ids:
+    - record
+    - inspection
+    - links
+  - name: source_strains
+    value: Field sorghum RTx430/BTx642; separate maize tom1/ys3; separate sorghum
+      Sc1 and Ps1 inoculations
+    definition: Sc1 is source-named Streptomyces coelicolor; Ps1 is Pseudomonas syringae.
+      No collection accession or field strain replacement is inferred.
+    evidence_ids:
+    - field-context
+    - maize
+    - isolate
+    - strains
+  - name: community_scope
+    value: Partial phylum grouping within a natural field microbiome; 55 recovered
+      MAGs, including 15 Actinobacterial MAGs
+    definition: Ten of the fifteen significantly enriched; the five others did not.
+      Separate host and isolate tests do not establish a universal phylum response.
+    evidence_ids:
+    - capacity
+    - community-comparison
+    - maize
+    - isolate
+  details: Retain NATURAL, PERTURBED, RHIZOSPHERE and the explicitly partial Actinomycetota
+    grouping. A clearer name would identify drought-enriched field sorghum rhizosphere
+    rather than imply iron enrichment. Host genotypes and reductionist inoculations
+    are context, not a complete community membership list.
+- assessment_id: non-graph-scope
+  area: evidence
+  topic: Role, chemistry and causal interpretation
+  outcome: concern
+  summary: Apply the graph’s existing assay boundaries to the surrounding fields.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - capacity
+  - host
+  - maize
+  - isolate
+  - amendment
+  - model
+  - degradation-potential
+  - ontology
+  - schema
+  details: PRIMARY_DEGRADER has positive annotation support for selected MAGs, but
+    its current lineage-enrichment excerpt does not establish a measured phylum-wide
+    role. Qualify it as computational subset potential or omit the optional unqualified
+    tag. The iron/carbohydrate ingredient excerpts are genomic-capacity claims and
+    need COMPUTATIONAL tiers. Root-exudate supply, microbial iron flux and causal
+    structuring remain proposed. CHEBI:18248 can remain an elemental index only; the
+    tested reagent was Fe3+-EDTA. IRON/SIGNIFICANT is defensible as study relevance
+    with explicit host and isolate scope. The genotype factor needs a claim-local
+    source rather than a generic drought-homeostasis excerpt.
+- assessment_id: node-0
+  area: graph
+  topic: Drought-Associated Genomic Transport Capacity
+  outcome: supported
+  summary: Retain the current qualified COMMUNITY_LEVEL observation.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - record
+  - capacity
+  - supplement
+  - snippets
+  - semantics
+  details: 'Exact selector ecological_interactions[0]. Participants: [{"preferred_term":
+    "drought-enriched rhizosphere Actinobacteria", "term": {"id": "NCBITaxon:201174",
+    "label": "Actinomycetota"}}]. Exact canonical snippet bindings: [{"selector":
+    "ecological_interactions[0].evidence[0].snippet", "sha256": "7631e034e2820d410266eaaea2528ea8ff85e94f5902fa66ba196a8147f3f2cf",
+    "reference": "PMID:34050180", "supports": "SUPPORT", "evidence_source": "COMPUTATIONAL"},
+    {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "c7afc0cb2fbb04ecd4c6e1f642cf3f269116543bc27869433fe95f82e1ef8c20",
+    "reference": "PMID:34050180", "supports": "SUPPORT", "evidence_source": "COMPUTATIONAL"}].
+    Source: PMID:34050180; DOI:10.1038/s41467-021-23553-7. Locator: Results, MAG-based
+    comparative genomics identifies differentially abundant functions between enriched
+    and nonenriched Actinobacteria, paragraphs 1–2; Figures 3–4; Supplementary Data
+    1–2. Retain both COMPUTATIONAL SUPPORT excerpts and GO iron/carbohydrate transport
+    as genomic capacity. Gene-content enrichment is not expression, transport flux
+    or selective microbial-gene causality. The phylum is an incomplete grouping.'
+- assessment_id: node-1
+  area: graph
+  topic: Maize TOM1 Loss and Relative Actinobacteria Enrichment
+  outcome: supported
+  summary: Retain the current qualified COMMUNITY_LEVEL observation.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - record
+  - maize
+  - supplement
+  - snippets
+  - semantics
+  details: 'Exact selector ecological_interactions[1]. Participants: [{"preferred_term":
+    "drought-enriched rhizosphere Actinobacteria", "term": {"id": "NCBITaxon:201174",
+    "label": "Actinomycetota"}}]. Exact canonical snippet bindings: [{"selector":
+    "ecological_interactions[1].evidence[0].snippet", "sha256": "5826c967552636c11eb77e51a940acae718a7bc6b4a91f300314722af58a9b12",
+    "reference": "PMID:34050180", "supports": "SUPPORT", "evidence_source": "IN_VIVO"}].
+    Source: PMID:34050180; DOI:10.1038/s41467-021-23553-7. Locator: Results, Loss
+    of a host phytosiderophore transporter increases Actinobacterial abundance in
+    the maize rhizosphere, paragraph 3; Figure 6; Methods tom1/ys3 maize mutants.
+    Retain IN_VIVO SUPPORT for separate maize TOM1 perturbation: relative enrichment
+    under watered control, nonsignificant genotype contrast under drought. No absolute
+    growth, sorghum knockout or field gene-repertoire effect follows.'
+- assessment_id: node-2
+  area: graph
+  topic: Iron Amendment Suppresses the Sc1 Drought Response
+  outcome: supported
+  summary: Retain the current qualified COMMUNITY_LEVEL observation.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - record
+  - isolate
+  - supplement
+  - snippets
+  - semantics
+  details: 'Exact selector ecological_interactions[2]. Participants: [{"preferred_term":
+    "drought-enriched rhizosphere Actinobacteria", "term": {"id": "NCBITaxon:201174",
+    "label": "Actinomycetota"}}]. Exact canonical snippet bindings: [{"selector":
+    "ecological_interactions[2].evidence[0].snippet", "sha256": "efac43a06b20f688a988f0db885938d331222cd440a48b56243b04ffdeee9aef",
+    "reference": "PMID:34050180", "supports": "PARTIAL", "evidence_source": "IN_VIVO"}].
+    Source: PMID:34050180; DOI:10.1038/s41467-021-23553-7. Locator: Results, Exogenous
+    iron disrupts the plant growth promotion capacity of Streptomyces under drought,
+    sole direct paragraph; Figure 7; Methods Exogenous iron-solution treatment and
+    Bacterial quantification from microboxes. Retain IN_VIVO PARTIAL: separately inoculated
+    Sc1/Ps1 sorghum, not coculture. Iron removes the drought/control abundance contrast
+    and Sc1 fresh-root benefit. Preserve assay-normalized qPCR scope and avoid phylum-wide
+    suppression or whole-field benefit.'
+- assessment_id: graph-topology
+  area: graph
+  topic: Three observations and zero downstream arrows
+  outcome: supported
+  summary: No cross-assay causal arrows are established or required.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - capacity
+  - maize
+  - isolate
+  - model
+  - semantics
+  details: All downstream lists are absent. No encoded edge assessment is omitted.
+    The proposed Figure 8 model does not supply selective evidence linking a host
+    or isolate intervention to the field MAG repertoire.
+- assessment_id: cultivation
+  area: scope
+  topic: Field environment and separate assay conditions
+  outcome: supported
+  summary: An empty growth_media list is appropriate for this field community.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - field-context
+  - maize
+  - amendment
+  - supplement
+  - schema
+  dimensions:
+  - name: medium
+    value: Field rhizosphere soil; growth_media remains empty
+    definition: Field soil is habitat, not a defined microbial medium. Separate chamber
+      substrates and iron treatments belong to their own assay context.
+    evidence_ids:
+    - field-context
+    - amendment
+    - schema
+  - name: experimental_setting
+    value: Kearney Agricultural Research Center, Parlier, California; randomized field
+      blocks and weekly sampling
+    definition: Field metagenomes at TP3, 4, 8, 9, 10 and 11; separate maize pots
+      and gnotobiotic sorghum microboxes are reductionist experiments.
+    evidence_ids:
+    - field-context
+    - maize
+    - amendment
+  - name: environment
+    value: ENVO:00005801 rhizosphere; preflowering drought followed by rewatering
+    definition: No fixed chamber temperature, laboratory vessel or irrigation percentage
+      is assigned to the field community; source irrigation wording is inconsistent.
+    evidence_ids:
+    - field-context
+    - supplement
+    - ontology
+  details: Do not import chamber substrate, temperatures or isolate inoculation into
+    the field community. If enriching environmental context, keep site, cultivars,
+    weekly sampling and drought/rewatering stages explicit. The separate sorghum assay
+    used 0.1/1 mM Fe3+-EDTA and 1 mM EDTA mock; maize used field-site soil with clay/vermiculite.
+    Neither is a microbial cultivation recipe for the focal field record.
+- assessment_id: grounding
+  area: grounding
+  topic: Current phylum mapping and provenance
+  outcome: concern
+  summary: The NCBI/GTDB core is valid; the asserted release/build metadata is not
+    verified.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - ontology
+  - gtdb
+  - semantics
+  dimensions:
+  - name: taxon_grounding
+    value: Encoded NCBITaxon:201174 and GTDB:p__Actinomycetota
+    definition: Keep valid phylum labels, lineage and rank route; use verified crosswalk
+      snapshot/access metadata rather than filesystem mtime as a release/build claim.
+    evidence_ids:
+    - ontology
+    - gtdb
+  details: NCBITaxon:201174 is Actinomycetota, with historical Actinobacteria naming.
+    The ncbi_rank_p route reproduces GTDB:p__Actinomycetota, 91,744 of 91,751 genomes
+    and three distinct GTDB phyla. Rounded majority_fraction 1.0 is not universal
+    support. These are reference mapping counts, not field abundance or an exact strain
+    result.
+- assessment_id: evidence-quality
+  area: evidence
+  topic: Verbatim support and claim tiers
+  outcome: concern
+  summary: Twelve exact excerpts are present, but some broad claims exceed their local
+    context.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - snippets
+  - capacity
+  - host
+  - maize
+  - isolate
+  - degradation-potential
+  dimensions:
+  - name: evidence_tier
+    value: COMPUTATIONAL field gene-content capacity; IN_VIVO host and single-isolate
+      interventions
+    definition: Host root RNA-seq is not bacterial expression. Annotation potential
+      is not substrate flux; Sc1 root biomass is not a whole-community benefit.
+    evidence_ids:
+    - capacity
+    - host
+    - maize
+    - isolate
+    - degradation-potential
+  details: The graph already distinguishes capacity, genotype and isolate observations.
+    Apply that distinction to name/description, environment and taxon notes, factors,
+    ingredient relevance and metal notes. Preserve genuine positive evidence while
+    narrowing what it establishes.
+- assessment_id: resources
+  area: representation
+  topic: Declared sequence archive and analysis code
+  outcome: concern
+  summary: The record omits recoverable data and code links.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - data
+  - code
+  - resources
+  - links
+  details: PRJNA435634/SRP133339 resolves to EPICON Sorghum Drought Microbiome. The
+    current umbrella has 772 amplicon and 47 WGS runs; it is not an exact accession
+    for each MAG or proof that all 52 processed metagenomic samples are reconciled.
+    The code repository is verified by metadata/root inventory, not executed. Preserve
+    existing publication links.
+- assessment_id: source-scope
+  area: scope
+  topic: Source coverage and limits
+  outcome: supported
+  summary: The complete primary and all declared supplementary objects were recovered.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - assets
+  - read-scope
+  - locators
+  - root-source
+  - supplement
+  - degradation-potential
+  - host-annotations
+  - community-comparison
+  details: Lead read all 111,203 article characters including 107 references, viewed
+    all eight main figures and all seventeen supplement/reporting PDF pages. Workbook
+    reading covered inventories/headers, selected Data 1 degradation rows, five Data
+    3 host-gene rows and all Data 4 nonempty cells. Auxiliary read all 215 Data 1
+    and 194 Data 2 annotation rows. No full Data 3 matrix or raw sequence reanalysis
+    is claimed. Failed DNS/404 routes and an incomplete timed-out ZIP remain failures,
+    superseded for access by genuine publisher/PMC assets.
+- assessment_id: ownership
+  area: ownership
+  topic: Prior reviews and curation ownership
+  outcome: supported
+  summary: The prior graph repair is preserved; follow-up belongs to future canonical
+    curation.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - inspection
+  - provenance
+  details: Lead read the sole history, whole adversarial wrapper and exact batch 34
+    records[0]/shared metadata; support read both caches and exact cohort/issue scopes.
+    Current 647, 1410 and 1413 remain open; status alone does not establish a new
+    defect. No canonical, cache, history, issue or Git mutation is authorized by this
+    report.
+- assessment_id: native
+  area: schema
+  topic: Actual validation results
+  outcome: supported
+  summary: All eight required native checks passed.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - native-summary
+  - auxiliary
+  - schema
+  - corpus-context
+  details: The target network has no structural issues. Native COMPLETE does not prove
+    biological mediation, complete membership or demonstrated gene function.
+- assessment_id: metrics
+  area: completeness
+  topic: Literal profile scores
+  outcome: supported
+  summary: Completeness 85; raw quality 114.33333333333331, capped 100.
+  target_ids:
+  - CommunityMech:000235
+  evidence_ids:
+  - support
+  metrics:
+  - name: completeness
+    value: 85
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 50 required fields and encoded roles +5 environment +10 at least three
+      factors +10 at least three nodes +5 external resources +0 growth medium +0 datasets
+      +5 node metabolites = 85. Role presence is scored literally, not endorsed; no
+      missing-medium defect is inferred.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 100 +20*min((4/3)/2,1) +15 COMPLETE -10*1 P2 -2*2 P3 = 114.33333333333331,
+      capped at 100. Evidence bonus is 13.333333333333332; structural bonus is 15.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: assay-scope
+  issue_key: cm-000235-assay-scope
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Pooled experimental scope materially overstates the field
+    mechanism.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Keep field, host and isolate claims separate
+  description: Non-graph fields pool three systems and leave a broad degrader role
+    and genomic-capacity tiers insufficiently qualified.
+  target_ids:
+  - CommunityMech:000235
+  field_paths:
+  - name
+  - description
+  - environment_term.notes
+  - taxonomy[0].taxon_term.notes
+  - taxonomy[0].functional_role
+  - taxonomy[0].evidence
+  - environmental_factors[1]
+  - environmental_factors[2]
+  - related_ingredients[0]
+  - related_ingredients[1]
+  - related_ingredients[2]
+  - metal_notes
+  evidence_ids:
+  - capacity
+  - host
+  - maize
+  - isolate
+  - amendment
+  - degradation-potential
+  - ontology
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+    role: canonical_record
+  ownership_note: Future maintained YAML curation only; preserve sources, caches,
+    history and prior reviews.
+- finding_id: gtdb-provenance
+  issue_key: cm-000235-gtdb-provenance
+  category: grounding
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded provenance or resource enrichment; core identity and
+    qualified graph remain supported.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Replace unsupported GTDB release/build wording
+  description: The phylum mapping reproduces, but latest and built-date assertions
+    are not established by the crosswalk file mtime.
+  target_ids:
+  - CommunityMech:000235
+  field_paths:
+  - taxonomy[0].taxon_term.gtdb_classification.mapping_source
+  evidence_ids:
+  - gtdb
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+    role: canonical_record
+  ownership_note: Future maintained YAML curation only; preserve sources, caches,
+    history and prior reviews.
+- finding_id: data-code
+  issue_key: cm-000235-data-code
+  category: representation
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded provenance or resource enrichment; core identity and
+    qualified graph remain supported.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Link the declared archive and analysis code
+  description: PRJNA435634 and the analysis repository are source-declared and publicly
+    verified but absent from current resources.
+  target_ids:
+  - CommunityMech:000235
+  field_paths:
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - data
+  - code
+  - resources
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+    role: canonical_record
+  ownership_note: Future maintained YAML curation only; preserve sources, caches,
+    history and prior reviews.
+actions:
+- action_id: repair-assay-scope
+  description: Apply exact study and evidence boundaries across non-graph fields.
+  finding_ids:
+  - assay-scope
+  target_ids:
+  - CommunityMech:000235
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Name the drought-enriched field sorghum rhizosphere explicitly. Keep natural partial
+    phylum scope; do not add maize or isolate cultures to its membership.
+  - Separate field genomic capacity, host sorghum RNA-seq, watered-control maize TOM1
+    relative enrichment and independent Sc1/Ps1 iron interventions in description,
+    environment/taxon notes, factors, ingredients and metal notes. Preserve the nonsignificant
+    drought genotype contrast and Sc1-specific fresh-root endpoint.
+  - For PRIMARY_DEGRADER, either attach COMPUTATIONAL selected-MAG potential with
+    precise Data 1 degradation annotations or omit the optional unqualified tag. Do
+    not claim degradation annotations are absent, universal phylum activity, or measured
+    substrate flux.
+  - Use COMPUTATIONAL for iron/carbohydrate gene-content excerpts; replace the genotype
+    factor’s generic homeostasis excerpt with specific Methods/Results evidence. Keep
+    root-exudate supply and causal structuring as proposed unless directly supported.
+  - Retain CHEBI:18248 only as explicitly generic elemental indexing; distinguish
+    actual Fe3+-EDTA doses and EDTA mock. Keep broad cation/phytosiderophore class
+    terms and SIGNIFICANT study relevance without asserting direct iron-atom exposure
+    or microbial field flux.
+  - Preserve all three qualified nodes and zero arrows. Keep empty field growth_media;
+    any environmental enrichment must separate field site/stages from chamber substrates/conditions.
+- action_id: repair-gtdb-provenance
+  description: Record verified mapping provenance without changing valid classification.
+  finding_ids:
+  - gtdb-provenance
+  target_ids:
+  - CommunityMech:000235
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain GTDB:p__Actinomycetota and current rank-route counts 91,744/91,751, three
+    distinct GTDB phyla in total and rounded fraction 1.0. Do not interpret these
+    as field abundance.
+  - Replace latest/build-date claims with actual crosswalk identifier/hash, access
+    date and method. A filesystem mtime alone is not a GTDB release or build date.
+- action_id: link-data-code
+  description: Add source-qualified sequence and code resources.
+  finding_ids:
+  - data-code
+  target_ids:
+  - CommunityMech:000235
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Link PRJNA435634/SRP133339 using an appropriate sequence-project dataset/resource
+    type and the source declaration. Distinguish WGS and amplicon content; do not
+    assign all runs to the 52 processed metagenomic samples or to maize/isolate assays.
+  - Link LingXu2018/EPICON_IRON as analysis code, preserving existing PMID/DOI bibliography.
+    No code execution, raw-data completeness or accession for each MAG is implied.
+- action_id: validate-curation
+  description: Validate any separately authorized changes.
+  finding_ids:
+  - assay-scope
+  - gtdb-provenance
+  - data-code
+  target_ids:
+  - CommunityMech:000235
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Run focused schema, strict, term-label, reference, GTDB/domain and history gates;
+    recheck source-local entailment and exact excerpts.
+  - Preserve immutable caches/history/prior reviews. Root alone saves this review
+    and runs post-save gates.
+limitations:
+- Field irrigation text alternates 80% and 100% ETc, with SI mentioning 80% ETo; emergence
+  dates differ. These are source ambiguities, not silently resolved doses.
+- Figure 6 timing and replication statements vary across captions/Methods. Figure
+  7 uses assay-normalized bacterial quantities; no new absolute cell-count claim is
+  inferred.
+- Discussion reverses ferric/ferrous names beside charge symbols. Use explicit Fe3+-EDTA
+  Methods for reagent scope; do not propagate the typo.
+- Lead workbook reading is bounded to inventory/headers and selected annotations/host
+  rows plus all Data 4 cells; auxiliary read all Data 1/Data 2 annotation columns.
+  No full host matrix, raw sequence, MAG reconstruction or code reanalysis is claimed.
+- The current archive has 47 WGS runs while the source reports 52 processed metagenomic
+  samples; exact completeness was not reconciled, so no deposit-defect claim follows.
+- The optional structured adapter was unavailable in the owned runtime; source-specific
+  query applicability was assessed and dataset coverage remains unknown.
+- Completion describes this bounded record review, not closure of current issues,
+  universal mechanism validation or curation authorization.
+notes:
+- All 31 official input hashes remain unchanged. Eight linked dimensions and four
+  exact graph snippet hashes are explicit.
+- Failed retrievals remain recorded; recovered source assets establish the reviewed
+  scope. Actual native candidate results are recorded after rendering.
+- The only direct source quote has two words. Root owns saving and post-save gates.
+tags:
+- record-review
+- rhizosphere
+- drought
+- iron
+- batch-16
+```
