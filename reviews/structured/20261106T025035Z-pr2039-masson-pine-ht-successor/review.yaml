@@ -1,0 +1,1783 @@
+schema_version: 1.0.0
+review_id: 20261106T025035Z-pr2039-masson-pine-ht-successor
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Masson pine HT Bacillus SynCom: current-main review successor'
+started_at: '2026-11-06T02:41:25.497889Z'
+finished_at: '2026-11-06T02:50:35.078794Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Author refresh of stale PR 2039 review; historical Codex curation
+    exists. Public main-source bytes were shared by a separate reviewer and independently
+    read by this author. This author pass claims no independent adversarial approval.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: 'Current main removes three external pathogen/host target_taxon slots and
+  records that change. All five original scientific findings remain open: two major
+  treatment/comparator conflicts and three minor cultivation, alias/resource and local-evidence
+  gaps. A new minor finding identifies unrelated organism/record claims in the newest
+  history sidecar. Eight focused checks pass and the target network has no issues.
+  Two corpus network commands retain exit 1 for 44 warnings across 16 of 503 records.
+  No canonical record or historical review was changed.'
+source:
+  git_revision: d0e2089599f282254bae8a4c8c4c3be342c633be
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: .temp/pr2039/347/OQ996934.embl
+    sha256: 9771df1a77fac834a9d99d2fd9ca75f71faec122181d8934c08eccda20204412
+    role: context
+  - path: .temp/pr2039/347/OQ996945.embl
+    sha256: ede4315dcc382efdfb251237500226cc210c861aa716ac888708730d027e99ac
+    role: context
+  - path: .temp/pr2039/347/PS-82-8758-s001.docx
+    sha256: 499d4dd6462ef0f3c1cc4d3917dcfd45950d49a74111c5707557f6850c5ea993
+    role: context
+  - path: .temp/pr2039/347/PS-82-8758-s002.docx
+    sha256: 990a3d0ff3c46683736f855a8d693f01b0d070cc114627e767389c4f8d9a70e1
+    role: context
+  - path: .temp/pr2039/347/PS-82-8758-s003.docx
+    sha256: e0ecd8b151a88417fa300de51ef82a693225cb3c78f683b48442e74aa8c4561f
+    role: context
+  - path: .temp/pr2039/347/adapter-discovery.json
+    sha256: ac5145fd304caddb4953c75a5c6fd02123dbdf33f54fb85c33c8459b2b09b0a1
+    role: context
+  - path: .temp/pr2039/347/audit-network.json
+    sha256: 1a2a1478491c7ca747da6993f99b37e4fd4cd3f8d94c2ebfee68bea444ca7c99
+    role: context
+  - path: .temp/pr2039/347/audit-network.stderr.txt
+    sha256: a71fb29e950f3eaf0eb2b834a43c59d4a1b6aa85a2a89473ae99b0e408a27a36
+    role: context
+  - path: .temp/pr2039/347/audit-network.stdout.txt
+    sha256: f5dc190f832300fc5a73fcf3e7e8e3cd53d560ba09b17179ce6c7fcc8aa022e8
+    role: context
+  - path: .temp/pr2039/347/author-source-assessment.json
+    sha256: 5a8fdd6e4cf222a29166a1a78bd2dceb419245e49770cc3e566f1a646cfa9181
+    role: context
+  - path: .temp/pr2039/347/bioproject.xml
+    sha256: 2a0861191724b6bea47a5cbdea6f02054440fe218cae456a2ccdf4366341c6db
+    role: context
+  - path: .temp/pr2039/347/check-network-quality.json
+    sha256: 3d25248eed113d552dff4975b929897db34b2a0884627ec842f0f8f3eed8643a
+    role: context
+  - path: .temp/pr2039/347/check-network-quality.stderr.txt
+    sha256: f9a8e9fb5a4e4ea545236a809393dbc1ce4325b14579c65a3130bcfe713e798a
+    role: context
+  - path: .temp/pr2039/347/check-network-quality.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/crossref.json
+    sha256: da0e03311a5dac694e4a67a1313a62e59d9d65824f067598c52a663ca208f95b
+    role: context
+  - path: .temp/pr2039/347/fetch-OQ996934.embl.json
+    sha256: 7faad0ab80d0cfe690fdeeef8e5abfed8fe81a3712cd74760d9b928167be5809
+    role: context
+  - path: .temp/pr2039/347/fetch-OQ996934.embl.stderr.txt
+    sha256: 6c17c738b5c81b71d3d41179af4e6329d080676519bc63584db27617bfac8652
+    role: context
+  - path: .temp/pr2039/347/fetch-OQ996934.embl.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-OQ996945.embl.json
+    sha256: f55dc6ce651cfeb7100592fc9ff7b12ccf8053d722bae6919ef2fbbf5b269700
+    role: context
+  - path: .temp/pr2039/347/fetch-OQ996945.embl.stderr.txt
+    sha256: ea8932905c006a78525a2c265317e9402f66be4ad444a1244b50331d0f386c07
+    role: context
+  - path: .temp/pr2039/347/fetch-OQ996945.embl.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-PS-82-8758-s001.docx.json
+    sha256: d65235a51f26ba49e923bc9b15571e18f03d111a8a816dd2c6dcb49d561c4af1
+    role: context
+  - path: .temp/pr2039/347/fetch-PS-82-8758-s001.docx.stderr.txt
+    sha256: 6a2f7a1f7a024c75d2e724239060db2e7259890a89e8a058b80635cf2c3c06bb
+    role: context
+  - path: .temp/pr2039/347/fetch-PS-82-8758-s001.docx.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-PS-82-8758-s002.docx.json
+    sha256: 9193ee819a0e203dc66d25ff5f2e3eeac5da946f56d75d3b7c2581a62162d98e
+    role: context
+  - path: .temp/pr2039/347/fetch-PS-82-8758-s002.docx.stderr.txt
+    sha256: 1fe089cca0d118a56137912848ab2a6d5d23742495ce7150af89bfd3f4ad16fc
+    role: context
+  - path: .temp/pr2039/347/fetch-PS-82-8758-s002.docx.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-PS-82-8758-s003.docx.json
+    sha256: 4225db40a2670d20e1a4d45066facebef39ad299bfad54e6ca0d02cfa9f82400
+    role: context
+  - path: .temp/pr2039/347/fetch-PS-82-8758-s003.docx.stderr.txt
+    sha256: 3449c7a67250c0d167a3bcadc0e2ae5dd0cc4e8274c3fd90f15de6e49e15216b
+    role: context
+  - path: .temp/pr2039/347/fetch-PS-82-8758-s003.docx.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-bioproject.xml.json
+    sha256: 3af2495aca5c93c5a6264befe72928d139e55224594e44f121a9ae0b20393b02
+    role: context
+  - path: .temp/pr2039/347/fetch-bioproject.xml.stderr.txt
+    sha256: 6f2f625ece018a815285cda082dd6a10b7b30e01b29f8fb61a34150d6e747166
+    role: context
+  - path: .temp/pr2039/347/fetch-bioproject.xml.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-crossref.json.json
+    sha256: 94198667c590b14b0ba35e368371e1f0591cd9fbee4406f94d6d6893a358d966
+    role: context
+  - path: .temp/pr2039/347/fetch-crossref.json.stderr.txt
+    sha256: aa40b4ce680ecf55be40fd3c805a059bee7945a2e023932d05525601861ebd01
+    role: context
+  - path: .temp/pr2039/347/fetch-crossref.json.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-europepmc-main.html.json
+    sha256: d02b3932c915b253232ebdcf9a90d478b88e91712aece7a51540a8c7fc850ffe
+    role: context
+  - path: .temp/pr2039/347/fetch-europepmc-main.html.stderr.txt
+    sha256: c7c9980f87360ab254a22ecdf8e25cfcf3c9df9a2336d4519b81023c03aca8f7
+    role: context
+  - path: .temp/pr2039/347/fetch-europepmc-main.html.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-figure-4.jpg.json
+    sha256: 5be32172ad76e25df5701f86319d16a550da42055c8631b46456fa470b8df356
+    role: context
+  - path: .temp/pr2039/347/fetch-figure-4.jpg.stderr.txt
+    sha256: 21c2a8735f2a03c3d8ade31d2cf46756d12c9f724b23102b70096fb520e29f07
+    role: context
+  - path: .temp/pr2039/347/fetch-figure-4.jpg.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-figure-5.jpg.json
+    sha256: f47abb2745028f047f4550809508b49b5424da6089ed07f818e01b1003f1b801
+    role: context
+  - path: .temp/pr2039/347/fetch-figure-5.jpg.stderr.txt
+    sha256: 88b7ffacc9a755de8fff0be48046ff39e83744fc1ac3677fbc618cd4cf4ed21c
+    role: context
+  - path: .temp/pr2039/347/fetch-figure-5.jpg.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-figure-6.jpg.json
+    sha256: 8bd6919e932bf7d5fbbf02aa9ccb079ed53261d6efef68168c00f5499f9455b9
+    role: context
+  - path: .temp/pr2039/347/fetch-figure-6.jpg.stderr.txt
+    sha256: a1b5e09df5638046db099639c87ca206c63f8a9cf2d30c2f5ec014c4548dbf58
+    role: context
+  - path: .temp/pr2039/347/fetch-figure-6.jpg.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-figure-7.jpg.json
+    sha256: 4c18c01d38c934efeb4ae146fc35b283c0ebbc3ac7aa8f92210d550a5a6d399f
+    role: context
+  - path: .temp/pr2039/347/fetch-figure-7.jpg.stderr.txt
+    sha256: 29238024130c9eb2e3046ec59793e6369f504c9a2905adace64225d78d55b907
+    role: context
+  - path: .temp/pr2039/347/fetch-figure-7.jpg.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-imodulon-catalog.json.json
+    sha256: f1204e5894148b886402b401db64208bd09bf854959acad2a6daf74674e9ade9
+    role: context
+  - path: .temp/pr2039/347/fetch-imodulon-catalog.json.stderr.txt
+    sha256: a27f743c5f5f06eaec7d65bdb5fbf405d18f4b387634afa18166be868a7359f6
+    role: context
+  - path: .temp/pr2039/347/fetch-imodulon-catalog.json.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-pmc-bioc.xml.json
+    sha256: c437fe924530b50eef6125467c2a0f7d891d8977f102f8e4d151dbded37e0d55
+    role: context
+  - path: .temp/pr2039/347/fetch-pmc-bioc.xml.stderr.txt
+    sha256: ad128c2984acdcc6ef38cfc3ab2a4d280e1049399e56f65e310e67d6b2d35a91
+    role: context
+  - path: .temp/pr2039/347/fetch-pmc-bioc.xml.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-pmc-efetch.xml.json
+    sha256: c9d032e70bd72718887ac870814c0994fddc051ee67fbf9bf632018ac05098f0
+    role: context
+  - path: .temp/pr2039/347/fetch-pmc-efetch.xml.stderr.txt
+    sha256: ef6cd81609b6b18b9b9c1d83bec7c6f55a8161280766aa68863bc56a3d0d9620
+    role: context
+  - path: .temp/pr2039/347/fetch-pmc-efetch.xml.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-pmc-main.html.json
+    sha256: b2db34b6bc67095a311dae12dbbd65ad844f13116a38b845a05755ac7c4f796e
+    role: context
+  - path: .temp/pr2039/347/fetch-pmc-main.html.stderr.txt
+    sha256: dd01e42d2f489a69d3af4e3ca6bc2c3fc33524730f7fa139e31415ffb43fedff
+    role: context
+  - path: .temp/pr2039/347/fetch-pmc-main.html.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-primary.xml.json
+    sha256: 9f7744378a2693b38492853064119c51720776f7a6341e13057236200e704e4e
+    role: context
+  - path: .temp/pr2039/347/fetch-primary.xml.stderr.txt
+    sha256: a97107f78448ed1450c784fd359593106cb2971cf54cc059c347cef67b02e635
+    role: context
+  - path: .temp/pr2039/347/fetch-primary.xml.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-publication.xml.json
+    sha256: 68415f438e34e837271c4c7ad15f0286047dfac832f9c9b4cb75aeec651dfc6d
+    role: context
+  - path: .temp/pr2039/347/fetch-publication.xml.stderr.txt
+    sha256: 96be3a4f7834c2194c67931ca7b82788d9dbe1c7e101300c140f047b8482b4e9
+    role: context
+  - path: .temp/pr2039/347/fetch-publication.xml.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/fetch-publisher-main.html.json
+    sha256: e52eef4c5be8ef1d27b5df7b675cee40545723e869b79e052460a8487562e2d5
+    role: context
+  - path: .temp/pr2039/347/fetch-publisher-main.html.stderr.txt
+    sha256: e249c0c8899011baf6b09560b4f0da1b892228502858a27af11b18348fef19a8
+    role: context
+  - path: .temp/pr2039/347/fetch-publisher-main.html.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/figure-4.jpg
+    sha256: c81b54740a66abf17c940a4f5b5323c286def1ac1861c0f5c70c43b0bef9b9ab
+    role: context
+  - path: .temp/pr2039/347/figure-5.jpg
+    sha256: ca134578ab6fef0ce2d2259882bf527a0e9f9fbf86f93154c99ef0b7e4159a7b
+    role: context
+  - path: .temp/pr2039/347/figure-6.jpg
+    sha256: 953fcef6ee5627f1a3dfa144d05894911148fc3921734239016e0304a1f98cf5
+    role: context
+  - path: .temp/pr2039/347/figure-7.jpg
+    sha256: 609b6f939caf99cff554dbf90dc40d7dd8c794c819e4a74a61042e5d72cb9e0a
+    role: context
+  - path: .temp/pr2039/347/frozen-target.json
+    sha256: 612e2690029521e2b74b61342397599059a01335790a89a499b099dcceee9cb4
+    role: context
+  - path: .temp/pr2039/347/frozen-target.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/frozen-target.stdout.txt
+    sha256: c0cb1ddb17e22f1fba3db44ecdb5cf8cc8a3412d23be6910a043851f23ce51d6
+    role: context
+  - path: .temp/pr2039/347/imodulon-catalog.json
+    sha256: 155607e7023efdead5ebab3919279a0776d5665a7de9e28b67f02f8f521b0693
+    role: context
+  - path: .temp/pr2039/347/inspect.json
+    sha256: cb84edab5f67be2bc74c110fbee3d1e30125786d5f402e5808972a02993cdfff
+    role: context
+  - path: .temp/pr2039/347/inspect.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/inspect.stdout.txt
+    sha256: 5cc3ae37817eeb9a29da908e88c228ae004cee9cdf2c63145a112f5beb42c157
+    role: context
+  - path: .temp/pr2039/347/inspection.json
+    sha256: 5cc3ae37817eeb9a29da908e88c228ae004cee9cdf2c63145a112f5beb42c157
+    role: context
+  - path: .temp/pr2039/347/lineage.json
+    sha256: 8a4b7583f0e7bc1bd31a1f9ffd94ef4ccb5ef3dad3a3c08d42b54c53e9d55f59
+    role: context
+  - path: .temp/pr2039/347/local-search.json
+    sha256: 0b94beeb609cc02a79b37f7c182f823e8a6242730e5f776c79f2209ae6b6c84a
+    role: context
+  - path: .temp/pr2039/347/local-search.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/local-search.stdout.txt
+    sha256: d8b0a9c241fa8995986c7d5e8b357462f4ee669bbf109a777c280a408e582189
+    role: context
+  - path: .temp/pr2039/347/normalize-cache-names-check.json
+    sha256: 63fee47068f7124f4eef0a4029ef3d8a92a3eb8db709dffc834cef59be214001
+    role: context
+  - path: .temp/pr2039/347/normalize-cache-names-check.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/normalize-cache-names-check.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/ontology-authorities.json
+    sha256: 4a315cc0b7a999cc982fd740611ae87c153a7aef667c0afc36ece28a2454c987
+    role: context
+  - path: .temp/pr2039/347/pmc-bioc.xml
+    sha256: 478f38e0765ee9c406831bb2fc27e8019ac5227c20c6b28ca0de582d8449354a
+    role: context
+  - path: .temp/pr2039/347/pmc-efetch.xml
+    sha256: 31d3fd23b42936d5b1432d86fd371288f248a015e0ca7d39895e0c085f97f7db
+    role: context
+  - path: .temp/pr2039/347/pmc-main.html
+    sha256: c3e4fc662c2885a4d99c77a709a8e8cf9054fd7bb684fe59b31b4169daf690e5
+    role: context
+  - path: .temp/pr2039/347/primary-sections.json
+    sha256: e2a197e8efbfef7339db55ae52971c63cfd96bec1604d981fef60d12bf0ec128
+    role: context
+  - path: .temp/pr2039/347/primary.html
+    sha256: 117f9510e9b94be6721d5a2ebe293472d5693f802f0dd7655b7be4dc315dbf07
+    role: context
+  - path: .temp/pr2039/347/publication.xml
+    sha256: 448d9b7ed17de1fc7b4191908ec8b90e8cf7344f7f71fca2a7659762cd10acd8
+    role: context
+  - path: .temp/pr2039/347/reusable-isolate-search.json
+    sha256: a63d06f1c63dc11eb3f4dc93e27770f7535ec2aef451c1211d2fbb9c84cee8c6
+    role: context
+  - path: .temp/pr2039/347/reusable-isolate-search.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/reusable-isolate-search.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/semantic-diff.json
+    sha256: 579b283e50491558c458faafe85c180c2f17513fc6ce0d33a434a94dd9125765
+    role: context
+  - path: .temp/pr2039/347/shared-retrieval.json
+    sha256: 27bf2d0efaaf87027f55385765bf9fa9f2d1e669d9d0694fe618d9a0f04cc921
+    role: context
+  - path: .temp/pr2039/347/snippet-replay.json
+    sha256: b3c9dfbe1b21ee675cfde4242e3385b37c8b3a6a387a5a81f0867844a5d21b5a
+    role: context
+  - path: .temp/pr2039/347/strict.tsv
+    sha256: b184ed5450b968070bb6c75648407e388f41a1eaf7017890723cf560999fc3f7
+    role: context
+  - path: .temp/pr2039/347/target-diff.json
+    sha256: 20b58430f9d22966f576af45aea4dbcd302e2dc763bc3095654c338f75d3e78e
+    role: context
+  - path: .temp/pr2039/347/target-diff.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/target-diff.stdout.txt
+    sha256: 5ffc0b3493d49dd2dcb0d0dfe512e20342c9a47a16f846fdda4d8992c44a7d51
+    role: context
+  - path: .temp/pr2039/347/target-network.json
+    sha256: 37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570
+    role: context
+  - path: .temp/pr2039/347/targets.json
+    sha256: 6e406b76beb09ac6c97c6f1e11db68f63e85a5e1991257f69028383b2675ca98
+    role: context
+  - path: .temp/pr2039/347/validate-gtdb-domain.json
+    sha256: 9c0a206fc6dafe922b4990b3f5c0d64bb52a48091444d50fe86de5f3d533e5be
+    role: context
+  - path: .temp/pr2039/347/validate-gtdb-domain.stderr.txt
+    sha256: 002995e50276aed5c214fe7d69fea6f9cd8c1547ed5797616606518ecfd2b21a
+    role: context
+  - path: .temp/pr2039/347/validate-gtdb-domain.stdout.txt
+    sha256: ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae
+    role: context
+  - path: .temp/pr2039/347/validate-gtdb.json
+    sha256: 4d0a76d1857c6dfda6f441504df7b21bfa97a15e6ed6ed4bc474faab3bf92206
+    role: context
+  - path: .temp/pr2039/347/validate-gtdb.stderr.txt
+    sha256: 0282e3ae2c8c4f4fbb94b0b6214b9ac7349872bb01e4a59bb2e9b5ee642821c9
+    role: context
+  - path: .temp/pr2039/347/validate-gtdb.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/validate-history.json
+    sha256: 70038377edd739b559dd64910b6a8a0912a78894d869ac8db4aeed04340f9fd4
+    role: context
+  - path: .temp/pr2039/347/validate-history.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/validate-history.stdout.txt
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2039/347/validate-references-explained.json
+    sha256: f395766a1b78511b897210738dcb7594b1a40779fc6c91be34e14504b0ff27e5
+    role: context
+  - path: .temp/pr2039/347/validate-references-explained.stderr.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/validate-references-explained.stdout.txt
+    sha256: 4e4106f2c1f5214f5689cbda4a9e22a81eb139b42e317fbf55ef8181be721d69
+    role: context
+  - path: .temp/pr2039/347/validate-strict.json
+    sha256: f598ef83c3f07573e1430c9bdfaa85fa8f7904f4d1bf3591426886eaa29048be
+    role: context
+  - path: .temp/pr2039/347/validate-strict.stderr.txt
+    sha256: a90d1025cd26a4e1ea10119e7ec4696b32f029067efc74d92ee73ef2f800b879
+    role: context
+  - path: .temp/pr2039/347/validate-strict.stdout.txt
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    role: context
+  - path: .temp/pr2039/347/validate-terms.json
+    sha256: cbf846177ab9dd7503768bcceee39131bb8570b073a5512411df5508f491c00a
+    role: context
+  - path: .temp/pr2039/347/validate-terms.stderr.txt
+    sha256: 7db6cb00c966df8432ba5422a5da03db5d89c913f8cd7f423a9e85d15da2d68e
+    role: context
+  - path: .temp/pr2039/347/validate-terms.stdout.txt
+    sha256: 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018
+    role: context
+  - path: .temp/pr2039/347/validate.json
+    sha256: 2862750d8ff01fd98146e2e876f5f346cd92f96cfde0d1eac958f3fd41368694
+    role: context
+  - path: .temp/pr2039/347/validate.stderr.txt
+    sha256: 27fc2974bdeb3f683949540d3968abc9637bcadd9d37f95c5cb55adfcbefa543
+    role: context
+  - path: .temp/pr2039/347/validate.stdout.txt
+    sha256: de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de
+    role: context
+  - path: .temp/pr2039/adversarial/fresh-html-receipts.json
+    sha256: 6a24bbe61286ed383697e0da870e525e824c95177e8c5b148a5f11b65d8caec9
+    role: context
+  - path: AGENTS.md
+    sha256: 8f23dcad7ed9c9873f00058995d1219cca8810c27ed5d787cb9b66a8abf96728
+    role: context
+  - path: conf/record_review.yaml
+    sha256: c4ad25505a87a040c57eb93f1ee9673a09389a474c6d4e1136781456ff190fc8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom/2026-09-11T143458Z-codex-421445.yaml
+    sha256: 541be9584126f96f148581dc0135fdaf1de6d4fdd13208ce843a81320e5eb012
+    role: context
+  - path: history/records/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom/2026-10-05T112951Z-codex-12cf22.yaml
+    sha256: cc1e18295e8ef2c698c439c39b041cf6d3d934f72b8fc1c2113473be05413298
+    role: context
+  - path: history/records/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom/2026-10-21T190000Z-claude-2049.yaml
+    sha256: 5dc080b0ca418ccc5eefe755e646d229dcc3e19aca9cfac9c4fcaff0be0fb0b5
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    sha256: 27ce7cf055aef35383089e1adeac31ea1cbab0c5c3b9765537b188da34a48cff
+    role: target
+  - path: references_cache/PMID_42144568.txt
+    sha256: d2cf960eca50e700df52316443b8a45c78b6509ea83982aa984c0768ed9ae006
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-eleven-records-batch6.yaml
+    sha256: 23f5fa6fc197e020f7cb3469749ebe4aa78886f8973cb6ed63fde321470a7f96
+    role: context
+  - path: reviews/structured/20261021T092904Z-masson-pine-ht-syncom-record/review.yaml
+    sha256: cc1656fa372e99d03a1f103a97f1dab68eb10ad7cae43364fbd8dee259175ad7
+    role: context
+  - path: reviews/structured/20261021T101000Z-stage4-record-deep-audit/review.yaml
+    sha256: f32db16fda535e46adee4bd7d8d2de5c3f206dc7fdb892d137e1fe00e3346b59
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/structured/20261021T193000Z-stage5-remediation-verification/review.yaml
+    sha256: 8f8f980813203a0336e27f0bc0a3c3b6e68bb68c2f2a7d71460183f4fe3bbc09
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/pr2039_347_audit.py
+    sha256: 719dfd3115ce82b25cb3020003b24487fec1821931b17d9e07864b98c96e42fc
+    role: context
+  - path: scripts/adhoc/pr2039_347_review.py
+    sha256: 260a8cf10d39af46c8a86b7e2d85d1be1a3e1f943be3e11419a61719218ce35b
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/ontology_adapters.py
+    sha256: bb3803581ac2946b2ca8e14278e36cd660faf12db9237f9688a6cef577fa9016
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: a00434e0d75020b2926c9f755d625c09cc78b6f88135805991fcb0ecd4230c83
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000347
+  path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  label: Bacillus siamensis-vallismortis HT Masson Pine SynCom
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    role: canonical_record
+scope:
+  description: Entire current target, both taxa, all three community-level nodes,
+    zero arrows, ten evidence occurrences, one discussion and three history sidecars.
+    Fresh main scientific text, all captions, Figs.4-7 pixels and bounded accession
+    metadata reviewed. Supplement contents and raw data are not certified.
+  selection: 'Refresh stale CommunityMech:000347 in PR 2039 against merged main. Parsed
+    comparison finds six changed paths: three removed external targets, two host-specific
+    description additions and one inline history entry. Every original finding is
+    reassessed with its exact predecessor; related grouped reviews are considered
+    only for the current 347 representation.'
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000347
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000347
+  command: just --no-dotenv validate kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Actual current-worktree execution; exact safe runtime environment and
+    times retained in the frozen receipt.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000347
+  command: just --no-dotenv validate-strict kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    --out /Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2039-batch05/.temp/pr2039/347/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Actual current-worktree execution; exact safe runtime environment and
+    times retained in the frozen receipt.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000347
+  command: just --no-dotenv validate-terms kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Actual current-worktree execution; exact safe runtime environment and
+    times retained in the frozen receipt.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000347
+  command: just --no-dotenv validate-gtdb kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Actual current-worktree execution; exact safe runtime environment and
+    times retained in the frozen receipt.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000347
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Actual current-worktree execution; exact safe runtime environment and
+    times retained in the frozen receipt.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000347
+  command: just --no-dotenv validate-history history/records/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Actual current-worktree execution; exact safe runtime environment and
+    times retained in the frozen receipt.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000347
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Actual current-worktree execution; exact safe runtime environment and
+    times retained in the frozen receipt.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target reference validation passed against the abstract/figure-transcription
+    cache.
+  target_ids:
+  - CommunityMech:000347
+  command: just --no-dotenv validate-references-explained kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Actual current-worktree execution; exact safe runtime environment and
+    times retained in the frozen receipt.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: 'Actual corpus command exits 1: 44 warnings, zero errors across 16 of 503
+    records. The current target has zero native network issues; this preserves the
+    existing corpus warning baseline.'
+  target_ids:
+  - CommunityMech:000347
+  command: just --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Actual current-worktree execution; exact safe runtime environment and
+    times retained in the frozen receipt.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: 'Actual corpus command exits 1: 44 warnings, zero errors across 16 of 503
+    records. The current target has zero native network issues; this preserves the
+    existing corpus warning baseline.'
+  target_ids:
+  - CommunityMech:000347
+  command: just --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Actual current-worktree execution; exact safe runtime environment and
+    times retained in the frozen receipt.
+- check_id: publication-identity
+  name: Publication identifiers and main source
+  status: passed
+  required: true
+  summary: Fresh metadata, PMC main text and critical figure assets identify the study
+    and its treatment-specific evidence.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - pubmed
+  - crossref
+  - pmc-main
+  - figure4
+- check_id: full-primary-source
+  name: Complete main scientific assessment
+  status: passed
+  required: true
+  summary: Complete main text and critical figures support assessment of current claims
+    with explicit source discrepancies.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - pmc-main
+  - figure4
+  - figure5
+  - figure7
+  - physiology
+  - source-scope
+  scope_note: All main text/captions read; Figs. 4-7 pixels inspected; supplemental
+    DOCX contents and raw data remain unreviewed, including Table S1 alias information.
+- check_id: source-data
+  name: Two encoded 16S accessions and source-linked host project
+  status: passed
+  required: true
+  summary: Live metadata resolves all three accessions with species agreement and
+    an explicit strain-alias discrepancy.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - datasets
+  - transcriptome
+- check_id: cross-mech
+  name: Encoded medium/ingredient-Mech links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech IDs are encoded; no unique external
+    recipe was inferred.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - record
+  - cultivation
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Optional runner unavailable within checked PATH/checkout scope. Public
+    catalog fallback inspected; no covered target dataset, so no strain/module query
+    applies.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  locator: 'Entire target: two strains, three nodes and no arrows'
+  summary: HT is distinguished from C2 and from the conditioning fungus, host and
+    pathogen; quantitative and named-gene claims still inherit broad abstract language.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 27ce7cf055aef35383089e1adeac31ea1cbab0c5c3b9765537b188da34a48cff
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42144568&retmode=xml
+  locator: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42144568&retmode=xml
+  summary: Article-level identifiers verify PMID 42144568, PMC13453252, DOI 10.1002/ps.70924
+    and the primary abstract.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 448d9b7ed17de1fc7b4191908ec8b90e8cf7344f7f71fca2a7659762cd10acd8
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1002/ps.70924
+  locator: https://api.crossref.org/works/10.1002/ps.70924
+  summary: Crossref DOI/title metadata identifies the Wiley Pest Management Science
+    article.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: da0e03311a5dac694e4a67a1313a62e59d9d65824f067598c52a663ca208f95b
+- evidence_id: pmc-main
+  kind: primary_source
+  reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC13453252/
+  locator: https://pmc.ncbi.nlm.nih.gov/articles/PMC13453252/
+  summary: Complete main scientific article, captions, supplement inventory and data
+    statement inspected from shared fresh public PMC HTML. Retrieval was completed
+    no later than 2026-11-06T02:42:17.671292Z; the author independently assessed the
+    source and claims no separate approval.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 117f9510e9b94be6721d5a2ebe293472d5693f802f0dd7655b7be4dc315dbf07
+- evidence_id: membership
+  kind: primary_source
+  reference: PMID:42144568
+  locator: Methods 2.5; Results 3.4; Fig. 4 caption
+  summary: HT combines RW5 and RW8 at 1:1 volume ratio and simplifies the five-member
+    C2 mixture; source species names resolve the intended two-member community.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 117f9510e9b94be6721d5a2ebe293472d5693f802f0dd7655b7be4dc315dbf07
+- evidence_id: isolate-activity
+  kind: primary_source
+  reference: PMID:42144568
+  locator: 'Results 3.4: individual antagonistic activities'
+  summary: RW5 and RW8 inhibit F. oxysporum individually by source-reported 59.05%
+    and 59.52%; role evidence is recoverable without inferring bacterial mutualism.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 117f9510e9b94be6721d5a2ebe293472d5693f802f0dd7655b7be4dc315dbf07
+- evidence_id: figure4
+  kind: primary_source
+  reference: PMID:42144568
+  locator: 'Fig. 4b/e/f: strain labels, mixture inhibition and spore germination'
+  summary: Pixels confirm the two accession/RW labels and HT inhibition; they do not
+    validate the archive alias relation or prove plate activity mediates protection.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: c81b54740a66abf17c940a4f5b5323c286def1ac1861c0f5c70c43b0bef9b9ab
+- evidence_id: outcomes
+  kind: primary_source
+  reference: PMID:42144568
+  locator: Abstract Results; Methods 2.3/2.7; Results 3.5
+  summary: Abstract HT disease reduction is 36.67%, whereas Results gives 46.67% against
+    FO; height 9.44% uses an unspecified control. Methods reports 60 days but Results
+    opens with 30 days.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 117f9510e9b94be6721d5a2ebe293472d5693f802f0dd7655b7be4dc315dbf07
+- evidence_id: figure5
+  kind: primary_source
+  reference: PMID:42144568
+  locator: 'Fig. 5b/c and caption: disease indices and height'
+  summary: Separate CK and FO bars support outcome direction but do not justify assigning
+    the height percentage to FO or resolving conflicting disease percentages by visual
+    estimation.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: ca134578ab6fef0ce2d2259882bf527a0e9f9fbf86f93154c99ef0b7e4159a7b
+- evidence_id: genes
+  kind: primary_source
+  reference: PMID:42144568
+  locator: Results 3.7; Discussion 4.3; Fig. 7a-d
+  summary: Named PR1/FLS2/CAT1 upregulation is assigned to C2 in Results, while Discussion
+    describes CAT1 downregulation; the abstract generalizes to C2 and HT.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 117f9510e9b94be6721d5a2ebe293472d5693f802f0dd7655b7be4dc315dbf07
+- evidence_id: figure7
+  kind: primary_source
+  reference: PMID:42144568
+  locator: Fig. 7a/b enrichment panels and c/d pathway heatmaps
+  summary: Panels a and b distinguish C2-versus-FO and HT-versus-FO; heatmap axes
+    in c/d are C2/FO only, so those panels do not establish the named genes in HT.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 609b6f939caf99cff554dbf90dc40d7dd8c794c819e4a74a61042e5d72cb9e0a
+- evidence_id: physiology
+  kind: primary_source
+  reference: PMID:42144568
+  locator: Results 3.5; Fig. 6b-i
+  summary: HT host protective-enzyme and membrane-injury directions are supported
+    versus FO. Total enzyme activity is distinct from CAT1 transcript direction and
+    does not prove pathway necessity.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 953fcef6ee5627f1a3dfa144d05894911148fc3921734239016e0304a1f98cf5
+- evidence_id: cultivation
+  kind: primary_source
+  reference: PMID:42144568
+  locator: Methods 2.2, 2.3 and 2.5-2.7
+  summary: Source reports LB Miller agar, equal-volume HT assembly, standardized inoculum,
+    potting substrate and challenge design; these recoverable conditions are currently
+    absent.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 117f9510e9b94be6721d5a2ebe293472d5693f802f0dd7655b7be4dc315dbf07
+- evidence_id: transcriptome
+  kind: primary_source
+  reference: PMID:42144568
+  locator: 'Methods 2.8: Transcriptome sequencing'
+  summary: PRJNA1166410 is explicitly the host transcriptome for CK, FO, C2+FO and
+    HT+FO; twelve RNA samples and sequencing details are article-reported, not independently
+    enumerated archive results.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 117f9510e9b94be6721d5a2ebe293472d5693f802f0dd7655b7be4dc315dbf07
+- evidence_id: datasets
+  kind: database
+  reference: GenBank OQ996945.1/OQ996934.1 and BioProject PRJNA1166410
+  locator: Fresh OQ996945.embl, OQ996934.embl and bioproject.xml frozen in source.inputs
+  summary: Species match, but archive strains are H4 and TK2 rather than source RW5
+    and RW8. Both deposits are partial 16S; the host-transcriptome project resolves
+    without proving isolate aliases.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 2a0861191724b6bea47a5cbdea6f02054440fe218cae456a2ccdf4366341c6db
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO and GO snapshots
+  locator: Four current unique canonical pairs, verified by local OAK adapters
+  summary: Both Bacillus species, ENVO rhizosphere and GO defense response to fungus
+    labels match. Removed external host/pathogen slots are no longer among the current
+    encoded ontology values.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 4a315cc0b7a999cc982fd740611ae87c153a7aef667c0afc36ece28a2454c987
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: FunctionalRoleEnum.PATHOGEN_ANTAGONIST; AbundanceEnum.DOMINANT; community
+    taxonomy scope
+  summary: PATHOGEN_ANTAGONIST fits both source-assayed strains; DOMINANT permits
+    coequal ordinal prominence within the defined formulation. COMMUNITY_LEVEL descriptions
+    retain the external host/pathogen context; no removed nonmember target_taxon is
+    restored.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  locator: .temp/pr2039/347/snippet-replay.json plus Fig.4b image inspection
+  summary: Five occurrences match normalized fresh main/abstract text; two accession
+    labels are visually exact Fig.4b transcriptions; three repeated composition equations
+    remain nonverbatim shorthand. All ten exist in the committed cache, whose validator
+    pass cannot certify original source precision.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: b3c9dfbe1b21ee675cfde4242e3385b37c8b3a6a387a5a81f0867844a5d21b5a
+- evidence_id: history
+  kind: record_content
+  reference: history/records/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom/2026-10-21T190000Z-claude-2049.yaml
+  locator: Three sidecars, inline curation_history[1], six-path semantic diff and
+    historical decision row
+  summary: The current inline history accurately records removal of external Fusarium/Pinus
+    targets. The matching sidecar incorrectly describes record 000448 and nematode
+    CounterSelection; append-only clarification is required. Earlier causal arrows
+    remain absent and the historical decision row retains its narrower source scope.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 5dc080b0ca418ccc5eefe755e646d229dcc3e19aca9cfac9c4fcaff0be0fb0b5
+- evidence_id: search
+  kind: search
+  reference: references_cache, history, reports/causal_graph_review/decisions, kb/taxa
+    and data/isolates
+  locator: Ignored-inclusive exact identifier/slug search and RW5/RW8/OQ accession
+    search
+  summary: The bounded local lookup resolves current cache, history and decision context;
+    no RW5/RW8/OQ996945/OQ996934 match was found in kb/taxa or data/isolates. This
+    is not a machine-wide alias absence claim.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  search_scope: rg --no-ignore --hidden covered the named local roots; exact-name/accession
+    lookup cannot exclude unrecognized aliases.
+- evidence_id: adapter
+  kind: search
+  reference: https://imodulondb.org/api/datasets
+  locator: Fresh full public catalog and adapter-discovery.json
+  summary: No Pinus, B. siamensis or B. vallismortis dataset is listed; B. subtilis
+    is not a valid substitute. No covered strain/module search applies and absence
+    supplies no negative biological evidence. The optional runner is unavailable in
+    the bounded checked environment.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  search_scope: Console PATH and two conventional claw checkout paths; full public
+    dataset catalog inspected, not a machine-wide runner search.
+  snapshot_sha256: 155607e7023efdead5ebab3919279a0776d5665a7de9e28b67f02f8f521b0693
+- evidence_id: native-target
+  kind: validation
+  reference: NetworkIntegrityAuditor().audit_community(target)
+  locator: .temp/pr2039/347/target-network.json and author-source-assessment.json
+  summary: Target network audit returns an empty issue list after main removed external
+    target slots. The metric's native network condition is COMPLETE; there are four
+    evidence items across three nodes and no arrows.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570
+- evidence_id: source-scope
+  kind: validation
+  reference: PMID:42144568
+  locator: author-source-assessment.json and exact fresh retrieval receipts
+  summary: Entire main text and Figs.4-7 inspected. Own EPMC XML retrieval failed,
+    own initial PMC route and three DOCX routes yielded HTML challenges, NCBI XML
+    exposes only an abstract, and BioC gives no article. Shared complete public HTML
+    supplies main text; supplement contents remain unread.
+  support: context_only
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 5a8fdd6e4cf222a29166a1a78bd2dceb419245e49770cc3e566f1a646cfa9181
+- evidence_id: main-delta
+  kind: record_content
+  reference: .temp/pr2039/347/semantic-diff.json
+  locator: Six differences against the original frozen input; exact grouped review
+    lineage in lineage.json
+  summary: Only the endpoint representation and inline history changed. Stage4 grouped
+    endpoint findings already have a stage5 resolution; this single-target successor
+    observes 347's repaired representation without superseding those multi-target
+    findings.
+  support: supports
+  accessed_at: '2026-11-06T02:50:35.078794Z'
+  snapshot_sha256: 579b283e50491558c458faafe85c180c2f17513fc6ce0d33a434a94dd9125765
+- evidence_id: check-validate
+  kind: validation
+  reference: just --no-dotenv validate kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  locator: .temp/pr2039/347/validate.json; execution 2026-11-06T02:41:40.539712Z to
+    2026-11-06T02:41:41.054760Z
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-11-06T02:41:41.054760Z'
+  snapshot_sha256: 2862750d8ff01fd98146e2e876f5f346cd92f96cfde0d1eac958f3fd41368694
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: just --no-dotenv validate-strict kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    --out /Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2039-batch05/.temp/pr2039/347/strict.tsv
+  locator: .temp/pr2039/347/validate-strict.json; execution 2026-11-06T02:41:41.054932Z
+    to 2026-11-06T02:41:42.465782Z
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-11-06T02:41:42.465782Z'
+  snapshot_sha256: f598ef83c3f07573e1430c9bdfaa85fa8f7904f4d1bf3591426886eaa29048be
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: just --no-dotenv validate-terms kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  locator: .temp/pr2039/347/validate-terms.json; execution 2026-11-06T02:41:42.465949Z
+    to 2026-11-06T02:41:43.435490Z
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-11-06T02:41:43.435490Z'
+  snapshot_sha256: cbf846177ab9dd7503768bcceee39131bb8570b073a5512411df5508f491c00a
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: just --no-dotenv validate-gtdb kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  locator: .temp/pr2039/347/validate-gtdb.json; execution 2026-11-06T02:41:43.435650Z
+    to 2026-11-06T02:41:43.487875Z
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-11-06T02:41:43.487875Z'
+  snapshot_sha256: 4d0a76d1857c6dfda6f441504df7b21bfa97a15e6ed6ed4bc474faab3bf92206
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: just --no-dotenv validate-gtdb-domain kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  locator: .temp/pr2039/347/validate-gtdb-domain.json; execution 2026-11-06T02:41:43.488037Z
+    to 2026-11-06T02:41:44.372801Z
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-11-06T02:41:44.372801Z'
+  snapshot_sha256: 9c0a206fc6dafe922b4990b3f5c0d64bb52a48091444d50fe86de5f3d533e5be
+- evidence_id: check-validate-history
+  kind: validation
+  reference: just --no-dotenv validate-history history/records/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom
+  locator: .temp/pr2039/347/validate-history.json; execution 2026-11-06T02:41:45.101489Z
+    to 2026-11-06T02:41:45.639777Z
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-11-06T02:41:45.639777Z'
+  snapshot_sha256: 70038377edd739b559dd64910b6a8a0912a78894d869ac8db4aeed04340f9fd4
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: uv run python scripts/normalize_cache_names.py --check
+  locator: .temp/pr2039/347/normalize-cache-names-check.json; execution 2026-11-06T02:41:45.639928Z
+    to 2026-11-06T02:41:45.677892Z
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-11-06T02:41:45.677892Z'
+  snapshot_sha256: 63fee47068f7124f4eef0a4029ef3d8a92a3eb8db709dffc834cef59be214001
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: just --no-dotenv validate-references-explained kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+  locator: .temp/pr2039/347/validate-references-explained.json; execution 2026-11-06T02:41:44.372971Z
+    to 2026-11-06T02:41:45.101254Z
+  summary: Target reference validation passed against the abstract/figure-transcription
+    cache.
+  support: supports
+  accessed_at: '2026-11-06T02:41:45.101254Z'
+  snapshot_sha256: f395766a1b78511b897210738dcb7594b1a40779fc6c91be34e14504b0ff27e5
+- evidence_id: check-audit-network
+  kind: validation
+  reference: just --no-dotenv audit-network
+  locator: .temp/pr2039/347/audit-network.json; execution 2026-11-06T02:41:45.678072Z
+    to 2026-11-06T02:41:49.888957Z
+  summary: 'Actual corpus command exits 1: 44 warnings, zero errors across 16 of 503
+    records. The current target has zero native network issues; this preserves the
+    existing corpus warning baseline.'
+  support: supports
+  accessed_at: '2026-11-06T02:41:49.888957Z'
+  snapshot_sha256: 1a2a1478491c7ca747da6993f99b37e4fd4cd3f8d94c2ebfee68bea444ca7c99
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: just --no-dotenv check-network-quality
+  locator: .temp/pr2039/347/check-network-quality.json; execution 2026-11-06T02:41:49.889132Z
+    to 2026-11-06T02:41:54.076156Z
+  summary: 'Actual corpus command exits 1: 44 warnings, zero errors across 16 of 503
+    records. The current target has zero native network issues; this preserves the
+    existing corpus warning baseline.'
+  support: supports
+  accessed_at: '2026-11-06T02:41:54.076156Z'
+  snapshot_sha256: 3d25248eed113d552dff4975b929897db34b2a0884627ec842f0f8f3eed8643a
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Two-member HT versus C2 and fungal-conditioning populations
+  outcome: supported
+  summary: HT is the RW5/RW8 pair; C2, the fungal-conditioning phase, host and pathogen
+    are distinct scopes.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - membership
+  - figure4
+  - record
+  - ontology
+  dimensions:
+  - name: community_scope
+    value: Engineered two-Bacillus rhizosphere SynCom HT
+    definition: HT simplifies C2; the conditioning fungus is not part of the defined
+      HT inoculum.
+    evidence_ids:
+    - membership
+    - record
+  - name: source_strain
+    value: B. siamensis RW5 and B. vallismortis RW8
+    definition: Paper names/figure labels establish the intended roster; live 16S
+      archive labels H4/TK2 require alias reconciliation without changing source strain
+      names.
+    evidence_ids:
+    - membership
+    - figure4
+    - datasets
+  - name: environment
+    value: Masson pine rhizosphere and controlled pot challenge
+    definition: The initial substrate is a sterilized forest-topsoil/potting-soil/vermiculite
+      mixture; original conditioning and final SynCom treatments remain separate.
+    evidence_ids:
+    - cultivation
+    - ontology
+  - name: medium
+    value: LB Miller agar and defined source pot-substrate mixture
+    definition: Culture and plant-substrate conditions are recoverable; no unique
+      CultureMech identity or unreported bacterial incubation temperature is inferred.
+    evidence_ids:
+    - cultivation
+  - name: experimental_setting
+    value: Plate inhibition and HT+Fusarium seedling challenge
+    definition: HT assembly is 1:1 volume ratio; assay controls and 30/60-day source
+      inconsistency need explicit treatment-specific reporting.
+    evidence_ids:
+    - cultivation
+    - outcomes
+    - figure5
+  - name: evidence_tier
+    value: Measured inhibition/host physiology plus treatment-specific transcriptomics
+    definition: Expression and enrichment are not pathway-necessity interventions;
+      C2 gene panels cannot be assigned to HT without additional evidence.
+    evidence_ids:
+    - isolate-activity
+    - physiology
+    - genes
+    - figure7
+  - name: grounding_status
+    value: Four current matched ontology pairs; strain-level archive aliases unresolved
+    definition: Historical GTDB statistics/status were not recomputed; 16S species
+      support does not establish a unique strain genome or GTDB placement.
+    evidence_ids:
+    - ontology
+    - datasets
+    - adapter
+- assessment_id: taxonomy
+  area: grounding
+  topic: Both member roles, abundance and strain provenance
+  outcome: concern
+  summary: Both pathogen-antagonist roles are supported by individual assays, but
+    their local evidence and accession notes need precise provenance.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - isolate-activity
+  - membership
+  - figure4
+  - datasets
+  - schema
+  details: DOMINANT can describe the coequal two-member formulation; equal-volume
+    assembly is not proof of rhizosphere persistence or relative cell abundance. Sequence-label
+    snippets establish paper identity, not individual inhibition. Source RW5/RW8 and
+    archive H4/TK2 aliases remain unresolved; no species contradiction is asserted.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: HT SynCom Suppression of Fusarium oxysporum'
+  outcome: supported
+  summary: Retain community-level HT-to-pathogen inhibition with its explicit limits
+    on reciprocal harm and mediation.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - membership
+  - isolate-activity
+  - figure4
+  - schema
+  details: HT is RW5+RW8, F. oxysporum is the external target. Plate and spore-germination
+    assays support inhibition; HT is weaker than C2 in Fig. 4e. No arrow from plate
+    inhibition to seedling protection is required, and no mutualism or specific bacterial
+    metabolite is established. The external pathogen is retained in prose, not as
+    a restored nonmember target_taxon slot.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: HT SynCom Masson Pine Damping-Off Protection'
+  outcome: concern
+  summary: Preserve HT protection/growth direction but qualify numerical values, comparator
+    and timing conflicts.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - outcomes
+  - figure5
+  - cultivation
+  details: The external recipient is Pinus massoniana under pathogen challenge. Abstract
+    and main Results disagree on HT disease reduction; the height percentage is not
+    explicitly anchored to FO, while CK is distinct. No direct bacterial fitness benefit
+    or protection-to-defense-expression direction is demonstrated. Pinus context remains
+    in prose after main's endpoint-slot repair.
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: Protective Enzyme and Resistance-Gene Activation'
+  outcome: concern
+  summary: Retain HT physiological effects; separate them from C2-specific named-gene
+    panels and conflicting CAT1 direction.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - physiology
+  - genes
+  - figure7
+  - transcriptome
+  details: The recipient is the host. HT and C2 both have physiological outcomes and
+    transcriptomic comparisons, but Fig. 7c/d displays C2/FO only. The existing PARTIAL
+    pathway-necessity caveat does not resolve treatment attribution. Preserve zero
+    downstream arrows; total catalase activity is not CAT1 transcript activation.
+- assessment_id: conditions
+  area: completeness
+  topic: Recoverable cultivation and environmental conditions
+  outcome: concern
+  summary: Main Methods provide actionable culture and pot conditions absent from
+    the record.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - cultivation
+  - outcomes
+  - source-scope
+  details: Distinguish seed germination/tray temperatures, bacterial preparation and
+    final challenge. Initial pH is not a treatment-time trajectory. Discussion 4.1
+    mentions 25°C and 60% soil moisture in the conditioning context; do not automatically
+    treat these as verified HT settings. Unavailable supplementary methods are not
+    silently filled by generic protocols.
+- assessment_id: resources
+  area: completeness
+  topic: Sequence metadata and host transcriptome resource
+  outcome: concern
+  summary: Encoded sequence species resolve, but source aliases are unverified; a
+    concrete source-linked host transcriptome can be represented.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - datasets
+  - transcriptome
+  - source-scope
+  details: OQ996945.1 and OQ996934.1 are partial 16S sequences, not complete genomes.
+    PRJNA1166410 is host RNA sequencing, not a bacterial SynCom genome or the conditioning
+    microbiome project. No raw reads, source Table S1 aliases or archive sample enumeration
+    were analyzed.
+- assessment_id: provenance
+  area: evidence
+  topic: Abstract, main text, figure transcriptions and history
+  outcome: concern
+  summary: Exact abstract support coexists with main-source conflicts and three nonverbatim
+    composition snippets.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - pubmed
+  - pmc-main
+  - snippets
+  - history
+  - source-scope
+  details: The cache contains an abstract and selected figure transcriptions. Valid
+    image labels are distinguished from curator shorthand; current source disagreements
+    must not be erased by choosing the abstract or main Results silently. Supplement
+    access limits are bounded and do not prevent assessment of the existing claims.
+    The new sidecar's unrelated 000448/nematode narrative requires append-only correction;
+    do not rewrite it or the historical source-access discussion.
+- assessment_id: validation
+  area: schema
+  topic: Native gates versus scientific findings
+  outcome: concern
+  summary: Eight focused checks pass and this target has zero network issues; cache
+    validation does not resolve the scientific attribution/provenance findings.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - ontology
+  - snippets
+  - check-validate
+  - check-validate-strict
+  - native-target
+  - schema
+  details: Do not add Fusarium or Pinus to HT membership or restore removed target_taxon
+    slots. Preserve COMMUNITY_LEVEL scope and use only legitimate community participants.
+    Required corpus commands retain baseline warning exits, not a false green.
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and quality
+  outcome: supported
+  summary: 'Completeness remains 65. Quality is capped at 100 after the network repair:
+    two P2 and four P3 findings, four evidence items across three nodes, and the COMPLETE
+    bonus. This score is not a scientific pass.'
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - record
+  - native-target
+  metrics:
+  - name: completeness
+    value: 65
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100, 50 required metadata including all taxon roles + 5 environment
+      + 10 at least 3 factors + 10 at least 3 nodes + 5 resources + 10 media + 5 datasets
+      + 5 node metabolites). 50 + 5 + 0 + 10 + 0 + 0 + 0 + 0 = 65.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 - 50P1 - 10P2 - 2P3 + 20 min(mean node evidence / 2, 1)
+      + 15 if native COMPLETE, 0, 100). P1=0, P2=2, P3=4, P4=0; 4 items / 3 nodes.
+      Current target has zero network issues. clamp(100 - 20 - 8 + 13.3333333 + 15)
+      = 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Observed native severity count within this completed record review.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Observed native severity count within this completed record review.
+  - name: P3
+    value: 4
+    unit: findings
+    definition: Observed native severity count within this completed record review.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Observed native severity count within this completed record review.
+- assessment_id: main-refresh
+  area: provenance
+  topic: Current endpoint repair and bounded grouped-review lineage
+  outcome: concern
+  summary: The record's three external-target removals are preserved; the associated
+    sidecar describes a different record and biological system.
+  target_ids:
+  - CommunityMech:000347
+  evidence_ids:
+  - main-delta
+  - history
+  - record
+  - native-target
+  details: The stage4 grouped external-host/pathogen finding also covers 364 and 373
+    and has a stage5 resolution. This review reassesses only 347 and creates no terminal
+    disposition or successor for that grouped key. All five original single-target
+    scientific findings remain open; the unrelated sidecar narrative is a new bounded
+    provenance finding.
+findings:
+- finding_id: ht-gene-attribution
+  issue_key: cm-000347-ht-gene-attribution
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: treatment attribution or quantitative efficacy
+    interpretation materially changes the reported biological result.'
+  rule_id: review-checklist.experimental-scope
+  status: open
+  certainty: confirmed
+  title: Separate HT physiology from C2 named-gene evidence
+  description: The description assigns activation of PR1, FLS2 and CAT1 to HT, and
+    node 2 groups both treatments. The abstract supports that broad wording, but Results
+    3.7 and Fig. 7c/d establish named-gene panels for C2 only; Discussion 4.3 also
+    describes CAT1 downregulation. A pathway-necessity caveat alone does not repair
+    this treatment/direction conflict.
+  target_ids:
+  - CommunityMech:000347
+  field_paths:
+  - description
+  - ecological_interactions[2].name
+  - ecological_interactions[2].description
+  - ecological_interactions[2].evidence[1]
+  evidence_ids:
+  - genes
+  - figure7
+  - physiology
+  - transcriptome
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T092904Z-masson-pine-ht-syncom-record
+    finding_id: ht-gene-attribution
+- finding_id: efficacy-comparator
+  issue_key: cm-000347-efficacy-comparator
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: treatment attribution or quantitative efficacy
+    interpretation materially changes the reported biological result.'
+  rule_id: review-checklist.quantitative-claims
+  status: open
+  certainty: confirmed
+  title: Qualify efficacy values and source inconsistencies
+  description: The description assigns both 9.44% height and 36.67% disease reduction
+    to the pathogen control. Main Results gives HT disease reduction 46.67% versus
+    FO and height 9.44% versus an unspecified control, while Fig. 5 separates CK/FO.
+    Methods uses 60 days and Results states 30 days. Exact outcome interpretation
+    requires explicit source/version/comparator qualification.
+  target_ids:
+  - CommunityMech:000347
+  field_paths:
+  - description
+  - ecological_interactions[1].description
+  - ecological_interactions[1].evidence[0]
+  evidence_ids:
+  - outcomes
+  - figure5
+  - cultivation
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T092904Z-masson-pine-ht-syncom-record
+    finding_id: efficacy-comparator
+- finding_id: cultivation-context
+  issue_key: cm-000347-cultivation-context
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: recoverable contextual or provenance precision
+    is needed without disproving the source-defined HT roster or efficacy direction.'
+  rule_id: review-checklist.cultivation
+  status: open
+  certainty: confirmed
+  title: Recover the reported culture and pot context
+  description: The record omits growth/cultivation and environmental parameters that
+    are available in the main Methods, limiting interpretation and reuse of the HT
+    assays.
+  target_ids:
+  - CommunityMech:000347
+  field_paths:
+  - engineering_design
+  - environment_term
+  - growth_media
+  - cultivation_setup
+  - environmental_factors
+  evidence_ids:
+  - cultivation
+  - outcomes
+  - source-scope
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T092904Z-masson-pine-ht-syncom-record
+    finding_id: cultivation-context
+- finding_id: strain-alias-and-resource
+  issue_key: cm-000347-strain-alias-and-resource
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: recoverable contextual or provenance precision
+    is needed without disproving the source-defined HT roster or efficacy direction.'
+  rule_id: review-checklist.identifier-resolution
+  status: open
+  certainty: confirmed
+  title: Document archive strain aliases and the source-linked host dataset
+  description: The source figure identifies OQ996945/RW5 and OQ996934/RW8, but current
+    sequence-archive records name H4/TK2; species agree and the relation may be an
+    alias, but it is not verified. A host-transcriptome project is directly named
+    in the main Methods and is currently absent from structured resources.
+  target_ids:
+  - CommunityMech:000347
+  field_paths:
+  - taxonomy[0].taxon_term.notes
+  - taxonomy[0].strain_designation
+  - taxonomy[1].taxon_term.notes
+  - taxonomy[1].strain_designation
+  - associated_datasets
+  evidence_ids:
+  - figure4
+  - datasets
+  - transcriptome
+  - source-scope
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T092904Z-masson-pine-ht-syncom-record
+    finding_id: strain-alias-and-resource
+- finding_id: local-evidence-provenance
+  issue_key: cm-000347-local-evidence-provenance
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: recoverable contextual or provenance precision
+    is needed without disproving the source-defined HT roster or efficacy direction.'
+  rule_id: review-checklist.claim-level-evidence
+  status: open
+  certainty: confirmed
+  title: Use role-specific evidence and verbatim composition text
+  description: Taxon evidence presently establishes names and membership rather than
+    individual antagonism, and three HT composition snippets are curator equations
+    absent verbatim from the main source. The roles and two-member composition are
+    supported, so this is a placement/transcription repair rather than fabricated
+    biological content.
+  target_ids:
+  - CommunityMech:000347
+  field_paths:
+  - engineering_design.evidence[1]
+  - taxonomy[0].evidence
+  - taxonomy[1].evidence
+  evidence_ids:
+  - isolate-activity
+  - membership
+  - figure4
+  - snippets
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T092904Z-masson-pine-ht-syncom-record
+    finding_id: local-evidence-provenance
+- finding_id: history-identity
+  issue_key: cm-000347-history-identity
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: a misleading history narrative impairs traceability
+    but does not change the current record identity or supported HT composition.'
+  rule_id: AGENTS.append-only-history
+  status: open
+  certainty: confirmed
+  title: Clarify the unrelated organism and record claims in the endpoint-repair history
+  description: The 2026-10-21T190000Z-claude-2049 sidecar targets this 347 path but
+    its event names CommunityMech:000448 and Bursaphelenchus xylophilus pine-wilt
+    CounterSelection. The actual current record and six-path delta remove external
+    Fusarium/Pinus target_taxon slots and contain no such nematode interaction. The
+    inline history accurately describes that removal. Append a correction identifying
+    the erroneous sidecar; never rewrite its historical bytes.
+  target_ids:
+  - CommunityMech:000347
+  field_paths:
+  - history/records/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom/2026-10-21T190000Z-claude-2049.yaml#events[0].summary
+  - history/records/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom/2026-10-21T190000Z-claude-2049.yaml#events[0].details
+  evidence_ids:
+  - history
+  - main-delta
+  - record
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: history/records/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom
+    role: append_only_history
+actions:
+- action_id: repair-ht-gene-attribution
+  description: Separate HT physiology from C2 named-gene evidence.
+  finding_ids:
+  - ht-gene-attribution
+  target_ids:
+  - CommunityMech:000347
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain HT protective-enzyme and reduced-injury outcomes with their actual FO comparator.
+  - Attribute PR1/FLS2/CAT1 panels to C2 unless additional HT-specific evidence is
+    verified; document that the abstract generalizes beyond the displayed main analysis.
+  - Record the CAT1 source-direction conflict explicitly; do not equate total CAT
+    activity with one transcript isoform or silently select upregulation.
+  - Keep host defense GO scope and PARTIAL mechanistic interpretation; do not add
+    pathway-necessity or outcome-to-expression arrows.
+- action_id: repair-efficacy-comparator
+  description: Qualify efficacy values and source inconsistencies.
+  finding_ids:
+  - efficacy-comparator
+  target_ids:
+  - CommunityMech:000347
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain the supported direction of HT disease protection and growth promotion while
+    documenting abstract 36.67% versus Results 46.67% rather than silently replacing
+    one value.
+  - Do not attach the 9.44% height gain to FO without explicit source support; record
+    the source control ambiguity and distinct CK/FO arms.
+  - Distinguish relative percentages from percentage-point changes only when a verified
+    denominator supports that interpretation; do not estimate exact effects from plotted
+    bars.
+  - Keep Methods 60-day versus Results 30-day timing unresolved in source notes and
+    any future condition fields until reconciled.
+- action_id: repair-cultivation-context
+  description: Recover the reported culture and pot context.
+  finding_ids:
+  - cultivation-context
+  target_ids:
+  - CommunityMech:000347
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Represent source-named LB Miller agar and the 1:1 volume-ratio RW5/RW8 preparation
+    with bacterial suspension standardized to 10^6 CFU/mL; do not invent unreported
+    culture temperature or a unique external recipe ID.
+  - Represent the sterilized 5:2:1 forest-topsoil/potting-soil/vermiculite substrate,
+    500 g per pot, source pot dimensions and initial pH 4.40±0.03, preserving any
+    unspecified mixture-unit basis.
+  - Record the HT challenge as 10 mL SynCom plus 10 mL F. oxysporum suspension, distinguishing
+    10^6 CFU/mL bacteria from 10^6 spores/mL fungus and CK/FO controls.
+  - Retain three biological replicates with five pots and three seedlings per pot
+    as the source design, without treating all seedlings as independent biological
+    replicates.
+  - Keep germination/tray conditions, fungal conditioning and SynCom challenge separate;
+    resolve the 30/60-day source discrepancy before asserting one endpoint.
+- action_id: repair-strain-alias-and-resource
+  description: Document archive strain aliases and the source-linked host dataset.
+  finding_ids:
+  - strain-alias-and-resource
+  target_ids:
+  - CommunityMech:000347
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Preserve paper RW5/RW8 names and exact figure accession labels; explicitly record
+    archive H4/TK2 and the unresolved alias relation without declaring wrong species
+    or replacing the source strains.
+  - Do not claim Table S1 resolves the alias until its contents are actually inspected;
+    no sequence identity or unique strain genome was independently analyzed.
+  - If adding PRJNA1166410, label it host transcriptomics for the reported CK/FO/C2+FO/HT+FO
+    experiment; twelve samples is a source statement, not a verified repository count.
+  - Treat the two OQ records as partial 16S sequences and preserve historical GTDB
+    uncertainty rather than using them as complete-genome assignments.
+- action_id: repair-local-evidence-provenance
+  description: Use role-specific evidence and verbatim composition text.
+  finding_ids:
+  - local-evidence-provenance
+  target_ids:
+  - CommunityMech:000347
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Add Results 3.4 individual inhibition evidence to the corresponding PATHOGEN_ANTAGONIST
+    claims, preserving strain and in-vitro assay scope.
+  - Replace all three shorthand composition snippets with a short exact Methods/Fig.
+    4 caption span; retain the original cache transcription provenance.
+  - Retain image-sourced accession/strain labels as such, separate from live archive
+    metadata and unresolved aliases.
+  - Interpret DOMINANT as coequal formulation prominence if retained; do not infer
+    sustained rhizosphere abundance from equal-volume inoculation.
+- action_id: validate-curation
+  description: After separately authorized corrections, preserve graph scope and rerun
+    native checks with a new history event.
+  finding_ids:
+  - ht-gene-attribution
+  - efficacy-comparator
+  - cultivation-context
+  - strain-alias-and-resource
+  - local-evidence-provenance
+  target_ids:
+  - CommunityMech:000347
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Keep HT distinct from C2 and the conditioning fungus; retain zero causal arrows
+    unless new source-specific mediation evidence justifies them.
+  - Append a current source-scope assessment and remaining supplement/alias uncertainties
+    without rewriting old history or silently changing the historical discussion's
+    original scope.
+  - Run schema, strict, term, reference, history and network checks. Preserve host/pathogen
+    prose context and the repaired COMMUNITY_LEVEL representation; never restore removed
+    nonmember target_taxon slots or add them to the HT roster.
+  - No canonical record, cache, history event or prior review bundle is changed by
+    this review-only successor.
+- action_id: clarify-history-identity
+  description: Append a correction of the endpoint-repair sidecar's record/organism
+    narrative.
+  finding_ids:
+  - history-identity
+  target_ids:
+  - CommunityMech:000347
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: history/records/Bacillus_siamensis_vallismortis_HT_Masson_Pine_SynCom
+    role: append_only_history
+  acceptance_checks:
+  - Add a new history event naming CommunityMech:000347 and the exact erroneous sidecar,
+    explaining that the actual repair removed external Fusarium/Pinus endpoint slots.
+  - Do not rewrite old history bytes, invent nematode interactions or alter correct
+    current endpoint scope.
+  - Validate the new history entry and verify that its narrative matches the actual
+    recorded diff.
+limitations:
+- Full main text and all captions were read; Figs.4-7 pixels were inspected. Other
+  figure pixels and raw data were not reanalyzed. Public primary HTML was shared by
+  a separate reviewer; authorship here remains distinct from independent approval.
+- Three supplementary DOCX routes returned HTML challenges. Main HTML lists Methods
+  S1-S3 and Tables S1-S6, but their contents remain unread. Table S1 cannot resolve
+  RW5/H4 or RW8/TK2 aliases here. No access control was bypassed.
+- The source conflicts on HT disease reduction, outcome timing, named-gene treatment
+  scope and CAT1 direction. No exact effects were recalculated from bars and no convenient
+  source version was silently selected.
+- The abstract associates 153 isolates with Trichoderma treatment; main Results describes
+  isolation across four treatments. HT membership is explicit, but exact original
+  isolate-treatment provenance remains unresolved without the supplementary table.
+- Both OQ accessions are partial 16S records, not strain genomes. PRJNA1166410 resolves
+  as a host transcriptome project; twelve samples and treatment assignments are source
+  statements, not independently audited repository counts.
+- Host physiology, transcript enrichment, gene direction and pathway necessity are
+  distinct. No metabolite exchange, selective pathway intervention or protection-to-expression
+  edge is inferred. Existing mediation discussion remains an evidence-watch outcome,
+  not a demand for new experiments.
+- Historical GTDB metrics were not recomputed. Optional structured adapter availability
+  was checked only in PATH and two conventional checkout paths; the full public iModulonDB
+  dataset catalog has no matching target dataset.
+- 'Both required corpus network commands completed with their existing exit 1: 44
+  warnings, zero errors across 16/503 records. The target itself has no network findings.
+  The quality-score cap does not erase six open curation findings.'
+notes:
+- Initial native inspect preceded assessment; all immutable scientific inputs were
+  rechecked. The audit helper was extended for fresh retrieval/replay and formatted
+  before final inspection; both final helper files and all source/receipt bytes are
+  frozen.
+- Original single-target issue keys and exact previous occurrences are preserved.
+  No terminal disposition is created for any grouped review, and no other grouped
+  target is silently dropped.
+- Canonical records, caches, histories and generated products remain unchanged. JSON
+  candidates are passed to the native validate/save workflow; saved YAML and Markdown
+  are never hand-edited.
+tags:
+- record-review
+- completed
+- plant-biocontrol
+- batch-05
+related_reviews:
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T092904Z-masson-pine-ht-syncom-record
+  relationship: Original single-target review or bounded context for the previously
+    resolved grouped external-endpoint lineage; no grouped supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T101000Z-stage4-record-deep-audit
+  relationship: Original single-target review or bounded context for the previously
+    resolved grouped external-endpoint lineage; no grouped supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T101100Z-stage4-frozen-cohort-review
+  relationship: Original single-target review or bounded context for the previously
+    resolved grouped external-endpoint lineage; no grouped supersession.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T193000Z-stage5-remediation-verification
+  relationship: Original single-target review or bounded context for the previously
+    resolved grouped external-endpoint lineage; no grouped supersession.
