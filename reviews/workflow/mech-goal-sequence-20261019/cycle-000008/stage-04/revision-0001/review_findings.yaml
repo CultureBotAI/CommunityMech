@@ -1,0 +1,783 @@
+schema_version: 1.0.0
+run_id: mech-goal-sequence-20261019
+cycle: 8
+stage: 4
+revision: 1
+source_revision: 36fdbffc2427cfb3291b442cbaeda47a312ba55b
+structured_review_bundles:
+- reviews/structured/20261106T094000Z-c8s4-record-deep-audit/review.yaml
+- reviews/structured/20261106T094100Z-c8s4-frozen-cohort-review/review.yaml
+findings:
+- finding_id: c8s4-000210-zymomonas-ecoli-abundance-levels
+  issue_key: c8s4-000210-zymomonas-ecoli-abundance-levels
+  category: completeness
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Both obligate mutualist partners in Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism
+    (CommunityMech:000210) omit abundance_level despite defined two-member coculture
+    support in PMID:26885935
+  description: 'In kb/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml
+    (CommunityMech:000210), both Zymomonas mobilis (taxonomy[0], NCBITaxon:542, strain
+    ZM4 ZMO0748 cysteine synthase mutant, functional_role: [CROSS_FEEDER]) and Escherichia
+    coli (taxonomy[1], NCBITaxon:562, strain BW25113 Keio amino-acid auxotrophs proA,
+    pheA, and ilvA, functional_role: [CROSS_FEEDER]) omit abundance_level. The cited
+    study (PMID:26885935, doi:10.1021/acssynbio.5b00236) explicitly reports that ''Three
+    sets of cocultures between the Z. mobilis auxotroph and each of the three E. coli
+    auxotrophs were monitored by optical density for growth and analyzed by flow cytometry
+    to confirm high cell counts for each species.'' Setting abundance_level: DOMINANT
+    on both taxonomy[0] and taxonomy[1] while preserving discussions[0] (zymomonas_sulfur_identity_and_release_routes)
+    raises the review-communities s_ab abundance_level rubric component from 0/5 to
+    5/5 (0/2 -> 2/2 taxa with abundance_level).'
+  target_ids:
+  - CommunityMech:000210
+  field_paths:
+  - taxonomy[0].abundance_level
+  - taxonomy[1].abundance_level
+  evidence_ids:
+  - ev-completeness-audit
+  - ev-zymomonas-ecoli-pmid26885935
+  rule_id: review-yaml-record:taxonomy-abundance-level-completeness
+  native_severity: P2
+  normalization_reason: Missing source-backed abundance_level on both obligate mutualist
+    coculture partners leaves the review-communities s_ab rubric component at 0/5
+    (Completeness Score 98/100; scripts/audit_completeness.py score 85/100) and maps
+    to major (P2).
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml
+    role: canonical_record
+  tags:
+  - actionable
+  - stage5-candidate
+  - abundance-level
+  - completeness
+- finding_id: c8s4-000359-pphet-heterotroph-abundance-level
+  issue_key: c8s4-000359-pphet-heterotroph-abundance-level
+  category: completeness
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Non-cyanobacterial WCRM heterotrophs (taxonomy[1]) in PPHET_Hybrid_Photosynthetic_PHB_Microbiome
+    (CommunityMech:000359) omit abundance_level despite 16S community-composition
+    support in PMID:41559821
+  description: 'In kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml
+    (CommunityMech:000359), Synechocystis sp. PCC 6803 PPT1 (taxonomy[0], NCBITaxon:1148,
+    functional_role: [PRIMARY_PRODUCER]) carries abundance_level: DOMINANT, whereas
+    its co-cultivated heterotrophic partner fraction non-cyanobacterial WCRM heterotrophs
+    (taxonomy[1], NCBITaxon:2, functional_role: [CROSS_FEEDER]) omits abundance_level.
+    The cited open-access study (PMID:41559821, PMC12819161, doi:10.1111/1751-7915.70302)
+    explicitly reports that ''At the phylum level, both were dominated by Cyanobacteria,
+    Proteobacteria, and Bacteroidota, with Cyanobacteria representing ~70% of the
+    total community (Figure  2a ).'' Setting abundance_level: ABUNDANT on taxonomy[1]
+    (~30% non-cyanobacterial Proteobacteria/Bacteroidota heterotrophic fraction) while
+    preserving discussions[0] (DISCUSSION-PPHET-OXYGEN-SCAVENGING) and discussions[1]
+    (phb-production-assay-boundaries) raises the review-communities s_ab abundance_level
+    rubric component from 2.5/5 to 5/5 (1/2 -> 2/2 taxa with abundance_level).'
+  target_ids:
+  - CommunityMech:000359
+  field_paths:
+  - taxonomy[1].abundance_level
+  evidence_ids:
+  - ev-completeness-audit
+  - ev-pphet-hybrid-pmid41559821
+  rule_id: review-yaml-record:taxonomy-abundance-level-completeness
+  native_severity: P2
+  normalization_reason: Missing source-backed abundance_level on the co-dominating
+    non-cyanobacterial heterotrophic fraction leaves the review-communities s_ab rubric
+    component at 2.5/5 (Completeness Score 94/100; scripts/audit_completeness.py score
+    90/100) and maps to major (P2).
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml
+    role: canonical_record
+  tags:
+  - actionable
+  - stage5-candidate
+  - abundance-level
+  - completeness
+- finding_id: c8s4-000454-thermoleptolyngbya-chelatococcus-abundance-level
+  issue_key: c8s4-000454-thermoleptolyngbya-chelatococcus-abundance-level
+  category: completeness
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Chelatococcus sp. XZ-Ab1 (taxonomy[1]) in Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture
+    (CommunityMech:000454) omits abundance_level despite defined two-member co-culture
+    support in PMID:42468699
+  description: 'In kb/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml
+    (CommunityMech:000454), Thermoleptolyngbya sichuanensis XZ-Cy5 (taxonomy[0], NCBITaxon:3031812,
+    functional_role: [PRIMARY_PRODUCER]) carries abundance_level: DOMINANT, whereas
+    its paired arsenite-oxidizing mutualistic partner Chelatococcus sp. XZ-Ab1 (taxonomy[1],
+    NCBITaxon:3034027, functional_role: [CROSS_FEEDER]) omits abundance_level. The
+    cited study (PMID:42468699, doi:10.1016/j.biortech.2026.135440) explicitly establishes
+    the two-strain mutualistic co-culture (''A co-culture system demonstrated mutualistic
+    interactions where "T. sichuanensis" XZ-Cy5 secreted organic carbon to facilitate
+    heterotrophic growth of Chelatococcus sp. XZ-Ab1, while Chelatococcus sp. XZ-Ab1
+    promoted growth of "T. sichuanensis" XZ-Cy5 by oxidizing toxic As(Ⅲ) to the less
+    toxic arsenate.''). Setting abundance_level: DOMINANT on taxonomy[1] while preserving
+    discussions[0] (thermoleptolyngbya_chelatococcus_exact_culture_conditions) and
+    discussions[1] (arsenic_causal_scope_batch120) raises the review-communities s_ab
+    abundance_level rubric component from 2.5/5 to 5/5 (1/2 -> 2/2 taxa with abundance_level).'
+  target_ids:
+  - CommunityMech:000454
+  field_paths:
+  - taxonomy[1].abundance_level
+  evidence_ids:
+  - ev-completeness-audit
+  - ev-thermoleptolyngbya-chelatococcus-pmid42468699
+  rule_id: review-yaml-record:taxonomy-abundance-level-completeness
+  native_severity: P2
+  normalization_reason: Missing source-backed abundance_level on the sole heterotrophic
+    co-culture partner leaves the review-communities s_ab rubric component at 2.5/5
+    (Completeness Score 90/100; scripts/audit_completeness.py score 60/100) and maps
+    to major (P2).
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml
+    role: canonical_record
+  tags:
+  - actionable
+  - stage5-candidate
+  - abundance-level
+  - completeness
+- finding_id: cheese-assay-evidence-gap
+  issue_key: cheese-assay-evidence-gap
+  category: evidence
+  severity: minor
+  status: deferred
+  certainty: confirmed
+  title: Pairwise cheese-rind competition and cross-feeding assay details require
+    full-text tables beyond cached PMID:25043025 abstract
+  description: Cheese_Rind_InSitu_InVitro_Model_Community.yaml (CommunityMech:000153)
+    is grounded to the cached PMID:25043025 abstract; strain-pair competition and
+    cross-feeding assay specifics remain deferred until full-text supplementary tables
+    are available (#765).
+  target_ids:
+  - CommunityMech:000153
+  field_paths:
+  - ecological_interactions
+  evidence_ids:
+  - ev-prior-structured-reviews
+  rule_id: review-yaml-record:source-limited-gap
+  native_severity: P3
+  normalization_reason: Source-limited full-text evidence gap preserved as minor.
+  disposition_reason: 'Deferred: source-limited until full-text assay tables for PMID:25043025
+    are ingested (#765).'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T071900Z-cheese-rind-audit
+    finding_id: assay-evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: cheese-assay-evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T193000Z-stage5-remediation-verification
+    finding_id: cheese-assay-evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261025T113600Z-c2s4-frozen-cohort-review
+    finding_id: cheese-assay-evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261025T161500Z-c2s5-remediation-verification
+    finding_id: cheese-assay-evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261026T063100Z-c3s4-frozen-cohort-review
+    finding_id: cheese-assay-evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T081500Z-c3s5-remediation-verification
+    finding_id: cheese-assay-evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T200100Z-c4s4-frozen-cohort-review
+    finding_id: cheese-assay-evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T235500Z-c4s5-remediation-verification
+    finding_id: cheese-assay-evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
+    finding_id: cheese-assay-evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T060000Z-c5s5-remediation-verification
+    finding_id: cheese-assay-evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T180100Z-c6s4-frozen-cohort-review
+    finding_id: cheese-assay-evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T203000Z-c6s5-remediation-verification
+    finding_id: cheese-assay-evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T144100Z-c7s4-frozen-cohort-review
+    finding_id: cheese-assay-evidence-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T171000Z-c7s5-remediation-verification
+    finding_id: cheese-assay-evidence-gap
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/765
+  tags:
+  - carried-forward
+  - source-limited
+- finding_id: communitymech-1467-source-discrepancy-and-extension
+  issue_key: communitymech-1467-source-discrepancy-and-extension
+  category: completeness
+  severity: minor
+  status: deferred
+  certainty: confirmed
+  title: GLBRC Transwell exometabolite SynCom (CommunityMech:000091) full 18-species
+    campaign details require full-text tables
+  description: GLBRC_Exometabolite_Transwell_SynCom.yaml (CommunityMech:000091) captures
+    the cached abstract-supported five-member model; broader 18-species campaign details
+    and strain-table reconciliation require full-text tables (#1467).
+  target_ids:
+  - CommunityMech:000091
+  field_paths:
+  - taxonomy
+  - ecological_interactions
+  evidence_ids:
+  - ev-prior-structured-reviews
+  rule_id: review-yaml-record:source-limited-gap
+  native_severity: P3
+  normalization_reason: Source-limited full-text extension gap preserved as minor.
+  disposition_reason: 'Deferred: tracked in GitHub issue #1467 pending full-text table
+    reconciliation.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261014T223718Z-glbrc-before
+    finding_id: source-discrepancy
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261014T231926Z-glbrc-after
+    finding_id: source-discrepancy
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T193000Z-stage5-remediation-verification
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261025T113600Z-c2s4-frozen-cohort-review
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261025T161500Z-c2s5-remediation-verification
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261026T063100Z-c3s4-frozen-cohort-review
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T081500Z-c3s5-remediation-verification
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T200100Z-c4s4-frozen-cohort-review
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T235500Z-c4s5-remediation-verification
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T060000Z-c5s5-remediation-verification
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T180100Z-c6s4-frozen-cohort-review
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T203000Z-c6s5-remediation-verification
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T144100Z-c7s4-frozen-cohort-review
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T171000Z-c7s5-remediation-verification
+    finding_id: communitymech-1467-source-discrepancy-and-extension
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1467
+  tags:
+  - carried-forward
+  - source-limited
+- finding_id: communitymech-1699-coverage
+  issue_key: communitymech-1699-coverage
+  category: completeness
+  severity: minor
+  status: deferred
+  certainty: confirmed
+  title: Full heterotrophic isolate inventory for Phormidium alkaline consortium (CommunityMech:000054)
+    requires full-text tables
+  description: Phormidium_Alkaline_Consortium.yaml (CommunityMech:000054) records
+    the abstract-supported cyanobacterial host and glyoxylate-consuming heterotrophic
+    partner; additional co-isolated heterotrophs require full-text table verification
+    (#1699).
+  target_ids:
+  - CommunityMech:000054
+  field_paths:
+  - taxonomy
+  evidence_ids:
+  - ev-prior-structured-reviews
+  rule_id: review-yaml-record:source-limited-gap
+  native_severity: P3
+  normalization_reason: Source-limited full-text taxonomic coverage gap preserved
+    as minor.
+  disposition_reason: 'Deferred: tracked in GitHub issue #1699 pending full-text isolate
+    table verification.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Phormidium_Alkaline_Consortium.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T052328Z-phormidium-before
+    finding_id: coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T052748Z-phormidium-after
+    finding_id: coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: communitymech-1699-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T193000Z-stage5-remediation-verification
+    finding_id: communitymech-1699-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261025T113600Z-c2s4-frozen-cohort-review
+    finding_id: communitymech-1699-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261025T161500Z-c2s5-remediation-verification
+    finding_id: communitymech-1699-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261026T063100Z-c3s4-frozen-cohort-review
+    finding_id: communitymech-1699-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T081500Z-c3s5-remediation-verification
+    finding_id: communitymech-1699-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T200100Z-c4s4-frozen-cohort-review
+    finding_id: communitymech-1699-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T235500Z-c4s5-remediation-verification
+    finding_id: communitymech-1699-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
+    finding_id: communitymech-1699-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T060000Z-c5s5-remediation-verification
+    finding_id: communitymech-1699-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T180100Z-c6s4-frozen-cohort-review
+    finding_id: communitymech-1699-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T203000Z-c6s5-remediation-verification
+    finding_id: communitymech-1699-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T144100Z-c7s4-frozen-cohort-review
+    finding_id: communitymech-1699-coverage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T171000Z-c7s5-remediation-verification
+    finding_id: communitymech-1699-coverage
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1699
+  tags:
+  - carried-forward
+  - source-limited
+- finding_id: communitymech-1841
+  issue_key: communitymech-1841
+  category: grounding
+  severity: minor
+  status: deferred
+  certainty: confirmed
+  title: Lower-rank isolate resolution for Sulfide_Spring_Autotrophic_CPR_Biofilm
+    (CommunityMech:000222) requires full-text strain tables
+  description: Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml (CommunityMech:000222)
+    grounds parent-rank taxa from the abstract; resolving lower-rank MAG/isolate assignments
+    requires full-text supplementary tables (#1841).
+  target_ids:
+  - CommunityMech:000222
+  field_paths:
+  - taxonomy
+  evidence_ids:
+  - ev-prior-structured-reviews
+  rule_id: review-yaml-record:source-limited-gap
+  native_severity: P3
+  normalization_reason: Source-limited lower-rank taxonomic grounding gap preserved
+    as minor.
+  disposition_reason: 'Deferred: tracked in GitHub issue #1841 pending full-text supplementary
+    strain table inspection.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261014T200439Z-spring-parent-rank
+    finding_id: lower-rank
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: communitymech-1841
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T193000Z-stage5-remediation-verification
+    finding_id: communitymech-1841
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261025T113600Z-c2s4-frozen-cohort-review
+    finding_id: communitymech-1841
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261025T161500Z-c2s5-remediation-verification
+    finding_id: communitymech-1841
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261026T063100Z-c3s4-frozen-cohort-review
+    finding_id: communitymech-1841
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T081500Z-c3s5-remediation-verification
+    finding_id: communitymech-1841
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T200100Z-c4s4-frozen-cohort-review
+    finding_id: communitymech-1841
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T235500Z-c4s5-remediation-verification
+    finding_id: communitymech-1841
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
+    finding_id: communitymech-1841
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T060000Z-c5s5-remediation-verification
+    finding_id: communitymech-1841
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T180100Z-c6s4-frozen-cohort-review
+    finding_id: communitymech-1841
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T203000Z-c6s5-remediation-verification
+    finding_id: communitymech-1841
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T144100Z-c7s4-frozen-cohort-review
+    finding_id: communitymech-1841
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T171000Z-c7s5-remediation-verification
+    finding_id: communitymech-1841
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1841
+  tags:
+  - carried-forward
+  - source-limited
+- finding_id: communitymech-1847-metg2-membership
+  issue_key: communitymech-1847-metg2-membership
+  category: completeness
+  severity: minor
+  status: deferred
+  certainty: confirmed
+  title: Complete MetG2 rhizobacteria membership and host-assay specifics in CommunityMech:000302
+    require full-text tables
+  description: SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml (CommunityMech:000302)
+    models the abstract-enumerated rhizobacterial taxa; full isolate membership and
+    assay specifics require full-text tables (#1847).
+  target_ids:
+  - CommunityMech:000302
+  field_paths:
+  - taxonomy
+  - growth_media
+  evidence_ids:
+  - ev-prior-structured-reviews
+  rule_id: review-yaml-record:source-limited-gap
+  native_severity: P3
+  normalization_reason: Source-limited full-text membership/cultivation gap preserved
+    as minor.
+  disposition_reason: 'Deferred: tracked in GitHub issue #1847 pending full-text membership
+    and media table inspection.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T043154Z-metg2-host-before
+    finding_id: membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T044333Z-metg2-host-after
+    finding_id: membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: communitymech-1847-metg2-membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T193000Z-stage5-remediation-verification
+    finding_id: communitymech-1847-metg2-membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261025T113600Z-c2s4-frozen-cohort-review
+    finding_id: communitymech-1847-metg2-membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261025T161500Z-c2s5-remediation-verification
+    finding_id: communitymech-1847-metg2-membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261026T063100Z-c3s4-frozen-cohort-review
+    finding_id: communitymech-1847-metg2-membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T081500Z-c3s5-remediation-verification
+    finding_id: communitymech-1847-metg2-membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T200100Z-c4s4-frozen-cohort-review
+    finding_id: communitymech-1847-metg2-membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T235500Z-c4s5-remediation-verification
+    finding_id: communitymech-1847-metg2-membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
+    finding_id: communitymech-1847-metg2-membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T060000Z-c5s5-remediation-verification
+    finding_id: communitymech-1847-metg2-membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T180100Z-c6s4-frozen-cohort-review
+    finding_id: communitymech-1847-metg2-membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T203000Z-c6s5-remediation-verification
+    finding_id: communitymech-1847-metg2-membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T144100Z-c7s4-frozen-cohort-review
+    finding_id: communitymech-1847-metg2-membership
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T171000Z-c7s5-remediation-verification
+    finding_id: communitymech-1847-metg2-membership
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1847
+  tags:
+  - carried-forward
+  - source-limited
+- finding_id: okeke-fulltext-assay-gap
+  issue_key: okeke-fulltext-assay-gap
+  category: evidence
+  severity: minor
+  status: deferred
+  certainty: confirmed
+  title: Paywalled full-text assay parameters for Okeke-Lu cellulolytic consortium
+    (CommunityMech:000048) remain deferred
+  description: Okeke_Lu_Cellulolytic_Consortium.yaml (CommunityMech:000048) is grounded
+    to abstract-verified cellulolytic-xylanolytic claims; full-text monoculture vs
+    co-culture enzyme assay parameters remain paywalled.
+  target_ids:
+  - CommunityMech:000048
+  field_paths:
+  - ecological_interactions
+  - growth_media
+  evidence_ids:
+  - ev-prior-structured-reviews
+  rule_id: review-yaml-record:source-limited-gap
+  native_severity: P3
+  normalization_reason: Paywalled full-text assay detail gap preserved as minor.
+  disposition_reason: 'Deferred: source-limited because primary full text is paywalled
+    (#1657).'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T105803Z-okeke-before
+    finding_id: source-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T110432Z-okeke-after
+    finding_id: source-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: okeke-fulltext-assay-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T193000Z-stage5-remediation-verification
+    finding_id: okeke-fulltext-assay-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261025T113600Z-c2s4-frozen-cohort-review
+    finding_id: okeke-fulltext-assay-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261025T161500Z-c2s5-remediation-verification
+    finding_id: okeke-fulltext-assay-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261026T063100Z-c3s4-frozen-cohort-review
+    finding_id: okeke-fulltext-assay-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T081500Z-c3s5-remediation-verification
+    finding_id: okeke-fulltext-assay-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T200100Z-c4s4-frozen-cohort-review
+    finding_id: okeke-fulltext-assay-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T235500Z-c4s5-remediation-verification
+    finding_id: okeke-fulltext-assay-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
+    finding_id: okeke-fulltext-assay-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T060000Z-c5s5-remediation-verification
+    finding_id: okeke-fulltext-assay-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T180100Z-c6s4-frozen-cohort-review
+    finding_id: okeke-fulltext-assay-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T203000Z-c6s5-remediation-verification
+    finding_id: okeke-fulltext-assay-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T144100Z-c7s4-frozen-cohort-review
+    finding_id: okeke-fulltext-assay-gap
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T171000Z-c7s5-remediation-verification
+    finding_id: okeke-fulltext-assay-gap
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1657
+  tags:
+  - carried-forward
+  - source-limited
+- finding_id: parachlorella-remaining-research
+  issue_key: parachlorella-remaining-research
+  category: evidence
+  severity: minor
+  status: deferred
+  certainty: confirmed
+  title: Secondary metabolite exchange specifics in Parachlorella-Saccharomyces co-culture
+    (CommunityMech:000295) require full-text data
+  description: Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml (CommunityMech:000295)
+    captures the primary abstract-supported algal-yeast mutualism; secondary metabolite
+    exchange kinetics require full-text tables.
+  target_ids:
+  - CommunityMech:000295
+  field_paths:
+  - ecological_interactions
+  evidence_ids:
+  - ev-prior-structured-reviews
+  rule_id: review-yaml-record:source-limited-gap
+  native_severity: P3
+  normalization_reason: Source-limited full-text interaction detail gap preserved
+    as minor.
+  disposition_reason: 'Deferred: source-limited pending full-text interaction data
+    (#1681).'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T133733Z-parachlorella-before
+    finding_id: remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261015T134821Z-parachlorella-after
+    finding_id: remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: parachlorella-remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T193000Z-stage5-remediation-verification
+    finding_id: parachlorella-remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261025T113600Z-c2s4-frozen-cohort-review
+    finding_id: parachlorella-remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261025T161500Z-c2s5-remediation-verification
+    finding_id: parachlorella-remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261026T063100Z-c3s4-frozen-cohort-review
+    finding_id: parachlorella-remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T081500Z-c3s5-remediation-verification
+    finding_id: parachlorella-remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T200100Z-c4s4-frozen-cohort-review
+    finding_id: parachlorella-remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261031T235500Z-c4s5-remediation-verification
+    finding_id: parachlorella-remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T034100Z-c5s4-frozen-cohort-review
+    finding_id: parachlorella-remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T060000Z-c5s5-remediation-verification
+    finding_id: parachlorella-remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T180100Z-c6s4-frozen-cohort-review
+    finding_id: parachlorella-remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261104T203000Z-c6s5-remediation-verification
+    finding_id: parachlorella-remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T144100Z-c7s4-frozen-cohort-review
+    finding_id: parachlorella-remaining-research
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T171000Z-c7s5-remediation-verification
+    finding_id: parachlorella-remaining-research
+  external_issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/1681
+  tags:
+  - carried-forward
+  - source-limited
+workflow_findings:
+- finding_id: c8s4-000210-zymomonas-ecoli-abundance-levels
+  status: open
+  summary: 'CommunityMech:000210 (kb/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml)
+    omits abundance_level: DOMINANT on both Zymomonas mobilis (taxonomy[0], NCBITaxon:542)
+    and Escherichia coli (taxonomy[1], NCBITaxon:562) despite verbatim defined-coculture
+    and flow-cytometry cell-count support in PMID:26885935 (doi:10.1021/acssynbio.5b00236);
+    preserve discussions[0] (zymomonas_sulfur_identity_and_release_routes).'
+- finding_id: c8s4-000359-pphet-heterotroph-abundance-level
+  status: open
+  summary: 'CommunityMech:000359 (kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml)
+    omits abundance_level: ABUNDANT on non-cyanobacterial WCRM heterotrophs (taxonomy[1],
+    NCBITaxon:2) despite verbatim 16S rRNA amplicon community-composition support
+    in PMID:41559821 (PMC12819161, doi:10.1111/1751-7915.70302); preserve discussions[0]
+    (DISCUSSION-PPHET-OXYGEN-SCAVENGING) and discussions[1] (phb-production-assay-boundaries).'
+- finding_id: c8s4-000454-thermoleptolyngbya-chelatococcus-abundance-level
+  status: open
+  summary: 'CommunityMech:000454 (kb/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml)
+    omits abundance_level: DOMINANT on Chelatococcus sp. XZ-Ab1 (taxonomy[1], NCBITaxon:3034027)
+    despite verbatim defined two-member mutualistic co-culture support in PMID:42468699
+    (doi:10.1016/j.biortech.2026.135440); preserve discussions[0] (thermoleptolyngbya_chelatococcus_exact_culture_conditions)
+    and discussions[1] (arsenic_causal_scope_batch120).'
+- finding_id: cheese-assay-evidence-gap
+  status: deferred
+  carried_from: cheese-assay-evidence-gap
+  summary: CommunityMech:000153 (kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml)
+    pairwise assay specifics in PMID:25043025 require full-text tables beyond the
+    cached abstract (#765).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/765
+  disposition: 'Deferred: source-limited until full-text assay tables for PMID:25043025
+    are ingested (#765).'
+- finding_id: communitymech-1467-source-discrepancy-and-extension
+  status: deferred
+  carried_from: communitymech-1467-source-discrepancy-and-extension
+  summary: CommunityMech:000091 (kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml)
+    broader 18-species Transwell campaign and strain table reconciliation require
+    full-text tables (#1467).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1467
+  disposition: 'Deferred: tracked in GitHub issue #1467 pending full-text table reconciliation.'
+- finding_id: communitymech-1699-coverage
+  status: deferred
+  carried_from: communitymech-1699-coverage
+  summary: CommunityMech:000054 (kb/communities/Phormidium_Alkaline_Consortium.yaml)
+    additional heterotrophic co-isolates require full-text table verification (#1699).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1699
+  disposition: 'Deferred: tracked in GitHub issue #1699 pending full-text isolate
+    table verification.'
+- finding_id: communitymech-1841
+  status: deferred
+  carried_from: communitymech-1841
+  summary: CommunityMech:000222 (kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml)
+    lower-rank isolate resolution requires full-text supplementary strain tables (#1841).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1841
+  disposition: 'Deferred: tracked in GitHub issue #1841 pending full-text supplementary
+    strain table inspection.'
+- finding_id: communitymech-1847-metg2-membership
+  status: deferred
+  carried_from: communitymech-1847-metg2-membership
+  summary: CommunityMech:000302 (kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml)
+    full 18-isolate membership and media composition require full-text tables (#1847).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1847
+  disposition: 'Deferred: tracked in GitHub issue #1847 pending full-text membership
+    and media table inspection.'
+- finding_id: okeke-fulltext-assay-gap
+  status: deferred
+  carried_from: okeke-fulltext-assay-gap
+  summary: CommunityMech:000048 (kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml)
+    kinetic and co-culture assay parameters require paywalled full text (#1657).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1657
+  disposition: 'Deferred: source-limited because primary full text is paywalled (#1657).'
+- finding_id: parachlorella-remaining-research
+  status: deferred
+  carried_from: parachlorella-remaining-research
+  summary: CommunityMech:000295 (kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml)
+    secondary bacterial satellite interactions require full-text data (#1681).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1681
+  disposition: 'Deferred: source-limited pending full-text interaction data (#1681).'
