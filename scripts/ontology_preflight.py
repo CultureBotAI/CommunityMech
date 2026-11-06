@@ -61,7 +61,7 @@ DEFAULT_CONFIG = REPO_ROOT / "conf" / "id_label_targets.yaml"
 # Two independent conditions, in this order: the exception type NARROWS the
 # candidates, and this pin DECIDES.
 PINNED_ONTOLOGY_NAMES: frozenset[str] = frozenset(
-    {"chebi", "cl", "envo", "go", "ncbitaxon", "uberon"}
+    {"chebi", "cl", "envo", "go", "ncbitaxon", "po", "uberon", "uo"}
 )
 
 _OBO_SELECTOR_PREFIX = "sqlite:obo:"

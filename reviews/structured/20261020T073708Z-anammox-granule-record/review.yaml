@@ -1,0 +1,1327 @@
+schema_version: 1.0.0
+review_id: 20261020T073708Z-anammox-granule-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Anammox granule community: whole-record source review'
+started_at: '2026-10-20T07:32:36.919047Z'
+finished_at: '2026-10-20T07:37:08.795071Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: No target changes this session;historical codex graph curation
+    prevents person-level independence claim.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Four major findings address unsupported AMX1 species identity,wrong modern
+  CHB clade,overstated exchange and article-as-dataset representation. Four minor
+  findings address setting,evidence placement,background scope and media links. All
+  eight focused checks pass;independent source and ancestry review finds issues beyond
+  those gates.
+source:
+  git_revision: ade4a9acdc245e1090522bb4f6ec5fe82ee88689
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Anammox_Granule_Metabolic_Interaction_Community/2026-08-31T075013Z-claude-code-d590a8.yaml
+    sha256: ce6e53602b7729da68827d0a6ec5daf261626a92cbed85b97a2bb279791cf3bd
+    role: context
+  - path: history/records/Anammox_Granule_Metabolic_Interaction_Community/2026-10-05T084244Z-codex-0dd10f.yaml
+    sha256: c6bd4fecc697f4291f022c46b484f5c42b7004638e8b25b125258615acc1ac04
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    sha256: cfe33d321709ed3f502b1e4740464b352dbfe08fa226fe2b4c6a79f9c78d9f8a
+    role: target
+  - path: references_cache/doi_10.1038_ncomms15416.txt
+    sha256: 2349c596e93290d7185340aadc46317fe429a53146d530fab17f256f688c9b4f
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+    sha256: e21a355f676730e8e7e6de6ea663017c9b09e05a824ff383a272ab9f1399fd70
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000146
+  path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  label: Anammox Granule Metabolic Interaction Community
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+scope:
+  description: Whole record including3taxonomic groups,4nodes,3arrows,15snippets,environment/cultivation,datasets
+    and history. Primary maintext and tabletext plus public project/sample metadata
+    reviewed.
+  selection: Fifth uncovered record of batch03 in path order after validated baseline
+    and pending batches01/02.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000146
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: 'No issues found
+
+    uv run linkml-validate -s src/communitymech/schema/communitymech.yaml kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml'
+  target_ids:
+  - CommunityMech:000146
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history or read-only cache-name preflight;cache unchanged.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: "uv run python scripts/validate_strict.py kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml\
+    \ --out /private/tmp/cm-review-session/batch-03/000146/strict-report.tsv\nValidating\
+    \ 1 files with 17 workers; schema=/private/tmp/communitymech-record-reviews-batch-03/src/communitymech/schema/communitymech.yaml\n\
+    \n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:\
+    \   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/cm-review-session/batch-03/000146/strict-report.tsv"
+  target_ids:
+  - CommunityMech:000146
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-strict kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    --out /private/tmp/cm-review-session/batch-03/000146/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history or read-only cache-name preflight;cache unchanged.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: '✅ Validation passed
+
+    uv run linkml-term-validator validate-data kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    -s src/communitymech/schema/communitymech.yaml --labels'
+  target_ids:
+  - CommunityMech:000146
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-terms kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history or read-only cache-name preflight;cache unchanged.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: 'PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+
+
+    files checked: 1
+
+    incoherent blocks: 0
+
+    malformed lineages: 0
+
+    lineage conflicts: 0'
+  target_ids:
+  - CommunityMech:000146
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-gtdb kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history or read-only cache-name preflight;cache unchanged.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: 'files checked: 1
+
+    contradictory lineages: 0
+
+    PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml'
+  target_ids:
+  - CommunityMech:000146
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history or read-only cache-name preflight;cache unchanged.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: No issues found
+  target_ids:
+  - CommunityMech:000146
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-history history/records/Anammox_Granule_Metabolic_Interaction_Community
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history or read-only cache-name preflight;cache unchanged.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Command completed without reported issues.
+  target_ids:
+  - CommunityMech:000146
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history or read-only cache-name preflight;cache unchanged.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: "Validating kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml\
+    \ against schema src/communitymech/schema/communitymech.yaml\nCache directory:\
+    \ references_cache\n\nValidation Summary:\n  Reported validation issues: 0\n \
+    \ All validations passed!\n\n[annotate] This is not a count of checked excerpts\
+    \ (#1469). Native Discussion evidence coverage remains incomplete (#476)."
+  target_ids:
+  - CommunityMech:000146
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-references-explained kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target/history or read-only cache-name preflight;cache unchanged.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Correct batch03 PYTHONPATH corpus run:477 records,57 warnings in21 records,zero
+    errors;exit1. Target not listed among warnings. Actual run reused with unchanged
+    canonical inputs.
+  target_ids:
+  - CommunityMech:000146
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  scope_note: Corpus warning result retained;structural completeness does not validate
+    taxon identity.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Correct batch03 PYTHONPATH corpus run:477 records,57 warnings in21 records,zero
+    errors;exit1. Target not listed among warnings. Actual run reused with unchanged
+    canonical inputs.
+  target_ids:
+  - CommunityMech:000146
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  scope_note: Corpus warning result retained;structural completeness does not validate
+    taxon identity.
+- check_id: structured-expression-adapter
+  name: Structured expression-source adapter availability
+  status: unavailable
+  required: false
+  summary: command -v kg-microbe-sources returned exit1 with no executable. The prior
+    bounded ignored-inclusive search of the two expected sibling CLAW roots found
+    both absent. A structured iModulon catalog was not queried; no claim of dataset
+    absence is made. Primary Methods/Results and exact BioProject/BioSample metadata
+    provide the fallback for study MAG expression. Expression is not evidence of measured
+    intermember exchange.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - primary
+  - biosample_transcriptome
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  locator: 'Whole target: three taxonomic groups,four nodes,three arrows,all15 evidence
+    occurrences'
+  summary: Record represents a laboratory granular-sludge enrichment, with broader
+    placeholders for multiple MAGs rather than three isolates. Graph descriptions
+    preserve inferred exchange; exact taxon identifiers and summary require separate
+    assessment.
+  support: supports
+  accessed_at: '2026-10-20T07:37:08.791281Z'
+- evidence_id: primary
+  kind: primary_source
+  reference: doi:10.1038/ncomms15416
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5460018/fullTextXML;
+    abstract,introduction,all Results,Discussion,Methods,Tables1/2 text
+  summary: Independent primary XML inspected without truncated sections. Genome/transcript
+    inference is not partner-resolved flux. Maintext has study context and data accessions;
+    supplementary files and rendered images were not inspected.
+  support: supports
+  accessed_at: '2026-10-20T07:32:50.289380Z'
+  snapshot_sha256: 97f447184065af2bd3ac61582bac504aefdf99e13af9d8511806d074bdcf6db3
+- evidence_id: amx-identity
+  kind: primary_source
+  reference: doi:10.1038/ncomms15416
+  locator: 'Results: Anammox metatranscriptomic insights; Table1 AMX1 row'
+  summary: AMX1 is Brocadia-affiliated and related to both named species, not identified
+    as sinica. Table1 resolves genus only. A nearest representative does not justify
+    exact species identity in the graph.
+  support: supports
+  accessed_at: '2026-10-20T07:32:50.289380Z'
+  quote: closely related to both
+- evidence_id: chb-identity
+  kind: primary_source
+  reference: doi:10.1038/ncomms15416
+  locator: Table1 CHB1 and CHB2 rows
+  summary: CHB1 belongs to source Ignavibacteria/ Ignavibacteriales/ Melioribacteraceae;
+    CHB2 to Ignavibacteriaceae. Historical Chlorobi wording must be interpreted through
+    these finer source placements.
+  support: supports
+  accessed_at: '2026-10-20T07:32:50.289380Z'
+- evidence_id: lineage
+  kind: authority
+  reference: OAK local ncbitaxon.db
+  locator: rdfs:subClassOf ancestry of NCBITaxon1334117,795749 and1090
+  summary: Both source families descend through Ignavibacteria to Ignavibacteriota1134404,
+    not Chlorobiota1090. Thus the current modern-clade mapping is wrong even though
+    its label matches its ID. GTDB mapping based on that wrong anchor is not source-member
+    confirmation.
+  support: supports
+  accessed_at: '2026-10-20T07:37:08.791556Z'
+  snapshot_sha256: afa16fc06a0ab4e9a90496c37b8aa0f20d18aec0c90ed268d76cb20c1743b208
+- evidence_id: ontology
+  kind: authority
+  reference: OAK local NCBITaxon,ENVO,CHEBI and GO snapshots
+  locator: Ten unique curated ID-label pairs plus alternative setting terms
+  summary: All ten pairs resolve with matching labels. ENVO00002123 bioreactor and
+    ENVO01001405 laboratory environment also resolve, contradicting the record note
+    that wastewater treatment plant is the closest available setting.
+  support: supports
+  accessed_at: '2026-10-20T07:37:08.791699Z'
+  snapshot_sha256: b018d04628bf2c061d785f03f269c0326d1ef405fb6c33b4f07a56f7a6bdc9cd
+- evidence_id: anammox
+  kind: primary_source
+  reference: doi:10.1038/ncomms15416
+  locator: 'Results: Anammox metatranscriptomic insights'
+  summary: AMX1 expressed anammox-related genes. Reactor function and expression support
+    active potential; they do not validate the species assignment or downstream partner
+    flux.
+  support: supports
+  accessed_at: '2026-10-20T07:32:50.289380Z'
+  quote: genes involved in anammox metabolism
+- evidence_id: nitrite
+  kind: primary_source
+  reference: doi:10.1038/ncomms15416
+  locator: 'Results: Denitrification gene expression; Discussion'
+  summary: Nitrate-reductase expression supports candidate recycling, with other reduction
+    routes and component-expression caveats. A completed exchange loop is proposed
+    rather than measured.
+  support: supports
+  accessed_at: '2026-10-20T07:32:50.289380Z'
+  quote: could facilitate a nitrite loop
+- evidence_id: peptides
+  kind: primary_source
+  reference: doi:10.1038/ncomms15416
+  locator: 'Results: Amino acid and carbohydrate catabolism; Discussion'
+  summary: Peptidase expression and predicted localization support proposed protein
+    scavenging. Cited tracer evidence comes from other work, not this experiment;
+    substrate origin and intermember transfer were not traced.
+  support: supports
+  accessed_at: '2026-10-20T07:32:50.289380Z'
+  quote: may be involved
+- evidence_id: donors
+  kind: primary_source
+  reference: doi:10.1038/ncomms15416
+  locator: 'Results: Carbon and energy metabolism; Discussion'
+  summary: Acetate pathway direction remains unresolved; candidate formate/hydrogen
+    use does not prove AMX1 secretion. Wastewater-derived carbon prevents exclusive
+    attribution of heterotrophic substrates to AMX1.
+  support: supports
+  accessed_at: '2026-10-20T07:32:50.289380Z'
+  quote: it is unclear
+- evidence_id: operation
+  kind: primary_source
+  reference: doi:10.1038/ncomms15416
+  locator: 'Methods: Bioreactor operation; Table2; introductory granule background'
+  summary: Two-stage wastewater treatment feeds the laboratory anammox reactor with
+    filtrate after nitritation. Anaerobic operation is described directly. The record’s
+    genome-recovery snippet does not support medium/atmosphere. Oxygen diffusion and
+    matrix statements in the introduction are general background, not same-system
+    gradient measurements.
+  support: supports
+  accessed_at: '2026-10-20T07:32:50.289380Z'
+- evidence_id: abundance
+  kind: primary_source
+  reference: doi:10.1038/ncomms15416
+  locator: 'Results: Microbial community abundance and gene expression; Methods: metatranscriptomics'
+  summary: AMX1 and CHB1 proportions match the recorded approximate values. DNA/RNA
+    mapping proxies concern recovered genomes; DNA samples span two collection events
+    and RNA is from the second. These are not absolute cell counts.
+  support: supports
+  accessed_at: '2026-10-20T07:32:50.289380Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=28561030&retmode=xml
+  locator: Independent metadata retrieval
+  summary: Publication identity agrees with the primary article.
+  support: supports
+  accessed_at: '2026-10-20T07:32:50.289824Z'
+  snapshot_sha256: 0ae38e3f8e622ef59a24ce25416a610cb2584d98548bfce28790c4996df70560
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1038/ncomms15416
+  locator: Independent metadata retrieval
+  summary: Publication identity agrees with the primary article.
+  support: supports
+  accessed_at: '2026-10-20T07:32:50.289985Z'
+  snapshot_sha256: 5b237ef2869c42ac68f26fd11591d1e7697e6509f583132b411455c0a7058d9c
+- evidence_id: bioproject
+  kind: database
+  reference: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA343219
+  locator: Independent metadata retrieval
+  summary: Project/sample metadata matches the study and the source-described data
+    type. BioProjectPRJNA343219 links the publication; samples SAMN05785375/SAMN05785376
+    are HiSeq metagenome/metatranscriptome and SAMN05785373 is MiSeq metagenome. Raw
+    read files not audited.
+  support: supports
+  accessed_at: '2026-10-20T07:33:26.858221Z'
+  snapshot_sha256: 5ab3adbec9ee65a90d334cfe32cd715cce6d349f87bc3ea85aff404619c5d135
+- evidence_id: biosample_metagenome
+  kind: database
+  reference: https://www.ncbi.nlm.nih.gov/biosample/SAMN05785375
+  locator: Independent metadata retrieval
+  summary: Project/sample metadata matches the study and the source-described data
+    type. BioProjectPRJNA343219 links the publication; samples SAMN05785375/SAMN05785376
+    are HiSeq metagenome/metatranscriptome and SAMN05785373 is MiSeq metagenome. Raw
+    read files not audited.
+  support: supports
+  accessed_at: '2026-10-20T07:33:26.860747Z'
+  snapshot_sha256: d1a7cc2c1eba32d683ae757089fb9ab29b13cf9378edc7d9dfc395ea0bd2519c
+- evidence_id: biosample_transcriptome
+  kind: database
+  reference: https://www.ncbi.nlm.nih.gov/biosample/SAMN05785376
+  locator: Independent metadata retrieval
+  summary: Project/sample metadata matches the study and the source-described data
+    type. BioProjectPRJNA343219 links the publication; samples SAMN05785375/SAMN05785376
+    are HiSeq metagenome/metatranscriptome and SAMN05785373 is MiSeq metagenome. Raw
+    read files not audited.
+  support: supports
+  accessed_at: '2026-10-20T07:33:26.861150Z'
+  snapshot_sha256: aeb60eee206c3f10468325c930aaf6e9a8ec917604cc3d490efdbbc4b9c9595b
+- evidence_id: biosample_miseq
+  kind: database
+  reference: https://www.ncbi.nlm.nih.gov/biosample/SAMN05785373
+  locator: Independent metadata retrieval
+  summary: Project/sample metadata matches the study and the source-described data
+    type. BioProjectPRJNA343219 links the publication; samples SAMN05785375/SAMN05785376
+    are HiSeq metagenome/metatranscriptome and SAMN05785373 is MiSeq metagenome. Raw
+    read files not audited.
+  support: supports
+  accessed_at: '2026-10-20T07:33:26.861274Z'
+  snapshot_sha256: c900abe29452755a73107e6f3ec2647906ca0a52b3753b4c162ac872c303eda2
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  locator: All15 evidence occurrences including the alias used in growth_media
+  summary: All snippets match the independently fetched full text after NFKC/whitespace
+    normalization. Matching does not establish that a genome-recovery fragment supports
+    cultivation or that a short generic quote supports every encoded claim.
+  support: supports
+  accessed_at: '2026-10-20T07:37:08.792722Z'
+  snapshot_sha256: 5b1b062247fb1174a9a1454f9d4ae2d8c203a89c2048c5a262baee51df8406ea
+- evidence_id: history
+  kind: record_content
+  reference: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+  locator: Target decision and both target history sidecars
+  summary: Prior graph curation explicitly qualified exchange and excluded non-graph
+    metadata from certification; it already notes unresolved AMX1 species identity.
+    Sidecars validate and are not changed.
+  support: supports
+  accessed_at: '2026-10-20T07:37:08.792725Z'
+- evidence_id: local-search
+  kind: search
+  reference: references_cache;history;reports/causal_graph_review/decisions;kb/taxa
+  locator: DOI and target filename search including ignored and hidden files
+  summary: Located source cache,prior decision and sidecars; no matching reusable
+    taxon entry returned in the bounded taxon tree. Missing dataset/linkage observations
+    concern the entire target.
+  support: supports
+  accessed_at: '2026-10-20T07:37:08.792915Z'
+  search_scope: rg --no-ignore --hidden -l using ncomms15416 and target filename across
+    the four named trees
+  snapshot_sha256: ab72bedfef97efe85bba73b17d4d2afe0c31ce8e8443eebf6b41d79159748bd3
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  locator: Actual execution 2026-10-20T07:32:38.324529+00:00 to 2026-10-20T07:32:40.815937+00:00
+  summary: 'No issues found
+
+    uv run linkml-validate -s src/communitymech/schema/communitymech.yaml kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml'
+  support: supports
+  accessed_at: '2026-10-20T07:32:40.815937Z'
+  snapshot_sha256: f64a1572cd1f643854cb5916b57940814e6801e82167e60a496e4210cb568e2f
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-strict kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    --out /private/tmp/cm-review-session/batch-03/000146/strict-report.tsv
+  locator: Actual execution 2026-10-20T07:32:38.331706+00:00 to 2026-10-20T07:32:45.145966+00:00
+  summary: "uv run python scripts/validate_strict.py kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml\
+    \ --out /private/tmp/cm-review-session/batch-03/000146/strict-report.tsv\nValidating\
+    \ 1 files with 17 workers; schema=/private/tmp/communitymech-record-reviews-batch-03/src/communitymech/schema/communitymech.yaml\n\
+    \n=== validate-strict summary ===\n  files scanned:      1\n  files with ERROR:\
+    \   0\n  total ERROR rows:   0\n  TSV:                /private/tmp/cm-review-session/batch-03/000146/strict-report.tsv"
+  support: supports
+  accessed_at: '2026-10-20T07:32:45.145966Z'
+  snapshot_sha256: c766d725e4dba9fbae36c46bec2090aa72ca616ad7331e9ccb5c88b34aaa4b4a
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-terms kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  locator: Actual execution 2026-10-20T07:32:38.334349+00:00 to 2026-10-20T07:32:43.530083+00:00
+  summary: '✅ Validation passed
+
+    uv run linkml-term-validator validate-data kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    -s src/communitymech/schema/communitymech.yaml --labels'
+  support: supports
+  accessed_at: '2026-10-20T07:32:43.530083Z'
+  snapshot_sha256: 8e427e1e2ce91f9333f09974e1b51714bd98f9141de941c5944dfde90501dff8
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-gtdb kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  locator: Actual execution 2026-10-20T07:32:40.816334+00:00 to 2026-10-20T07:32:40.963735+00:00
+  summary: 'PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+
+
+    files checked: 1
+
+    incoherent blocks: 0
+
+    malformed lineages: 0
+
+    lineage conflicts: 0'
+  support: supports
+  accessed_at: '2026-10-20T07:32:40.963735Z'
+  snapshot_sha256: c153075ce001c05e9b45c027178756ac3ec7a2681a993574de277f708054045b
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  locator: Actual execution 2026-10-20T07:32:40.964098+00:00 to 2026-10-20T07:32:45.477308+00:00
+  summary: 'files checked: 1
+
+    contradictory lineages: 0
+
+    PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml'
+  support: supports
+  accessed_at: '2026-10-20T07:32:45.477308Z'
+  snapshot_sha256: e036b3d6a5f9a91ad85cee97827c5133f9996360681236522f3f946b42032ae2
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-history history/records/Anammox_Granule_Metabolic_Interaction_Community
+  locator: Actual execution 2026-10-20T07:32:43.530554+00:00 to 2026-10-20T07:32:45.311686+00:00
+  summary: No issues found
+  support: supports
+  accessed_at: '2026-10-20T07:32:45.311686Z'
+  snapshot_sha256: 369a1970e617b36a45cdcf2936764c0047bd2a6b27544ea1ddcde543219ff161
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-20T07:32:45.478053+00:00 to 2026-10-20T07:32:45.545439+00:00
+  summary: Command completed without reported issues.
+  support: supports
+  accessed_at: '2026-10-20T07:32:45.545439Z'
+  snapshot_sha256: cd1a32a71a08dc3f4a1eed1e68df703810f0883d5c508903fefe369b7940f2cc
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv validate-references-explained kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  locator: Actual execution 2026-10-20T07:32:45.545765+00:00 to 2026-10-20T07:32:47.570806+00:00
+  summary: "Validating kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml\
+    \ against schema src/communitymech/schema/communitymech.yaml\nCache directory:\
+    \ references_cache\n\nValidation Summary:\n  Reported validation issues: 0\n \
+    \ All validations passed!\n\n[annotate] This is not a count of checked excerpts\
+    \ (#1469). Native Discussion evidence coverage remains incomplete (#476)."
+  support: supports
+  accessed_at: '2026-10-20T07:32:47.570806Z'
+  snapshot_sha256: ca2f74a6e959d9535b3aa843e33488f86752c3dda72042d0ec510cbbb420e733
+- evidence_id: check-audit-network
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv audit-network
+  locator: Actual finish 2026-10-20T07:08:14.467705+00:00
+  summary: Correct batch03 PYTHONPATH corpus run:477 records,57 warnings in21 records,zero
+    errors;exit1. Target not listed among warnings. Actual run reused with unchanged
+    canonical inputs.
+  support: supports
+  accessed_at: '2026-10-20T07:08:14.467705Z'
+  snapshot_sha256: e2122e512641be2226ad12ab146b2c8f7d1e153f1211745e4816457834a42667
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-03/src
+    just --no-dotenv check-network-quality
+  locator: Actual finish 2026-10-20T07:08:13.673449+00:00
+  summary: Correct batch03 PYTHONPATH corpus run:477 records,57 warnings in21 records,zero
+    errors;exit1. Target not listed among warnings. Actual run reused with unchanged
+    canonical inputs.
+  support: supports
+  accessed_at: '2026-10-20T07:08:13.673449Z'
+  snapshot_sha256: b0cb58371a5a771dcbd671952ee68dfe5f26169d08240b66162aa83580fb5229
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Community and experiment scope
+  outcome: supported
+  summary: Publication and record concern the same laboratory anammox granule enrichment.
+    Three grouped entries must not be interpreted as three isolated organisms or an
+    exhaustive census of17 recovered genomes.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - primary
+  - pubmed
+  - crossref
+  dimensions:
+  - name: source_strain
+    value: AMX1,CHB1,CHB2 and aggregated flanking MAGs
+    definition: Genome bins are not confirmed named-species isolates.
+    evidence_ids:
+    - amx-identity
+    - chb-identity
+  - name: community_scope
+    value: Laboratory granular-sludge enrichment
+    definition: Study-specific community,not a universal wastewater consortium.
+    evidence_ids:
+    - primary
+  - name: experimental_setting
+    value: Downstream anammox reactor in two-stage treatment
+    definition: Upstream nitritation conditions must not be transferred to this reactor.
+    evidence_ids:
+    - operation
+  - name: medium
+    value: Wastewater filtrate after nitritation
+    definition: Residual organic carbon prevents exclusive anammox-derived substrate
+      attribution.
+    evidence_ids:
+    - operation
+    - donors
+  - name: evidence_tier
+    value: Metagenomics and metatranscriptomics
+    definition: Expression and reconstructed capacity are not resolved exchange flux.
+    evidence_ids:
+    - primary
+    - nitrite
+    - peptides
+- assessment_id: taxonomy
+  area: grounding
+  topic: taxonomy[0..2] and repeated graph participants
+  outcome: concern
+  summary: AMX1 species precision is unsupported; CHB family ancestry contradicts
+    the modern Chlorobiota anchor. Broad flanking Bacteria is a disclosed aggregate.
+    Valid ID-label pairs and GTDB syntax do not repair wrong biological attribution.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - amx-identity
+  - chb-identity
+  - lineage
+  - ontology
+- assessment_id: abundance
+  area: evidence
+  topic: taxonomy abundance values
+  outcome: supported
+  summary: Recorded approximate abundance/expression proportions agree with Results
+    when interpreted as mapping proxies for recovered genomes. Source context should
+    remain explicit.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - abundance
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Anammox Ammonium-Nitrite Conversion'
+  outcome: concern
+  summary: Expression supports the qualified anammox function, but the participant’s
+    sinica identity is unsupported.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - anammox
+  - amx-identity
+  details: Participant AMX1 is encoded as NCBITaxon795830; use of ammonium/nitrite
+    is study-supported at the Brocadia-MAG level. Source DOI10.1038/ncomms15416; exact
+    locator and short verbatim snippet in linked evidence. Mechanistic qualification
+    is retained; concerns are attribution,not a request to strengthen causation.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Heterotrophic Nitrite Loop'
+  outcome: concern
+  summary: The loop is appropriately hypothetical; participant identity and summary
+    wording still need correction.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - nitrite
+  - amx-identity
+  details: Participants are aggregated Bacteria and AMX1; proposed direction heterotrophic
+    nitrate reduction to nitrite returning to anammox. Source DOI10.1038/ncomms15416;
+    exact locator and short verbatim snippet in linked evidence. Mechanistic qualification
+    is retained; concerns are attribution,not a request to strengthen causation.
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: EPS Peptide Scavenging by Chlorobi'
+  outcome: concern
+  summary: Peptide scavenging is explicitly inferred, but Chlorobiota and sinica identifiers
+    misrepresent source population resolution.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - peptides
+  - amx-identity
+  - lineage
+  details: Participants AMX1 and CHB populations; proposed direction extracellular
+    protein toward heterotrophic scavengers. Proteolysis is supported as expressed
+    potential. Source DOI10.1038/ncomms15416; exact locator and short verbatim snippet
+    in linked evidence. Mechanistic qualification is retained; concerns are attribution,not
+    a request to strengthen causation.
+- assessment_id: node-3
+  area: graph
+  topic: 'ecological_interactions[3]: Detritus and Small-Donor Scavenging'
+  outcome: concern
+  summary: The node preserves unresolved acetate direction and carbon provenance;
+    its AMX1 species identifier remains unsupported.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - donors
+  - amx-identity
+  details: Participants AMX1 and aggregate flanking bacteria; candidate detritus/small-donor
+    use,not verified secretion and uptake. Source DOI10.1038/ncomms15416; exact locator
+    and short verbatim snippet in linked evidence. Mechanistic qualification is retained;
+    concerns are attribution,not a request to strengthen causation.
+- assessment_id: edge-0
+  area: graph
+  topic: ecological_interactions[0].downstream[0]
+  outcome: concern
+  summary: The arrow is correctly hypothetical,while its upstream AMX1 species attribution
+    requires correction.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - nitrite
+  - amx-identity
+  details: From Anammox Ammonium-Nitrite Conversion to Heterotrophic Nitrite Loop.
+    HYPOTHESIZED - anammox-derived nitrate could supply heterotrophic nitrate reduction
+    and a nitrite-return loop; expression supports potential but not the exchanged
+    flux. Participants AMX1 and the corresponding heterotrophic group. Direction is
+    proposed substrate provision,not measured transfer. Same-study expression supports
+    potential only; source locator/snippet in linked evidence.
+- assessment_id: edge-1
+  area: graph
+  topic: ecological_interactions[0].downstream[1]
+  outcome: concern
+  summary: The arrow is correctly hypothetical,while its upstream AMX1 species attribution
+    requires correction.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - peptides
+  - amx-identity
+  - lineage
+  details: From Anammox Ammonium-Nitrite Conversion to EPS Peptide Scavenging by Chlorobi.
+    HYPOTHESIZED - anammox-associated extracellular material could feed heterotrophic
+    proteolysis; the source of consumed protein and the transfer were not traced in
+    this study. Participants AMX1 and the corresponding heterotrophic group. Direction
+    is proposed substrate provision,not measured transfer. Same-study expression supports
+    potential only; source locator/snippet in linked evidence.
+- assessment_id: edge-2
+  area: graph
+  topic: ecological_interactions[0].downstream[2]
+  outcome: concern
+  summary: The arrow is correctly hypothetical,while its upstream AMX1 species attribution
+    requires correction.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - donors
+  - amx-identity
+  details: From Anammox Ammonium-Nitrite Conversion to Detritus and Small-Donor Scavenging.
+    HYPOTHESIZED - biomass turnover or released small substrates could feed heterotrophs;
+    wastewater-derived organic carbon and unresolved pathway directions prevent exclusive
+    attribution to AMX1. Participants AMX1 and the corresponding heterotrophic group.
+    Direction is proposed substrate provision,not measured transfer. Same-study expression
+    supports potential only; source locator/snippet in linked evidence.
+- assessment_id: summary
+  area: evidence
+  topic: Description and functional roles
+  outcome: concern
+  summary: Summary verbs and unqualified cross-feeder roles lose the graph’s uncertainty.
+    Source transfer hypotheses must not become established exchange claims; the broad
+    secondary-fermenter role also overgeneralizes variable capacities where nitrate
+    respiration dominates.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - primary
+  - nitrite
+  - peptides
+  - donors
+- assessment_id: environment
+  area: scope
+  topic: environment_term and environmental factors
+  outcome: concern
+  summary: Wastewater treatment plant describes the feedstock setting,not the laboratory
+    reactor itself. Oxygen-diffusion and EPS statements are general introductory context
+    rather than same-study spatial measurements.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - operation
+  - ontology
+- assessment_id: cultivation
+  area: evidence
+  topic: growth_media[0]
+  outcome: concern
+  summary: The stated anaerobic reactor context has Methods support,but its attached
+    genome-recovery snippet supports neither atmosphere nor influent identity. Sparse
+    operational detail is not itself a false claim.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - operation
+  - snippets
+- assessment_id: datasets
+  area: representation
+  topic: associated_datasets[0]
+  outcome: concern
+  summary: An article URL and publisher article number are typed as a metatranscriptomics
+    dataset. Verified project/sample accessions should represent data; publication
+    belongs in publication resources.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - bioproject
+  - biosample_metagenome
+  - biosample_transcriptome
+  - biosample_miseq
+- assessment_id: history
+  area: provenance
+  topic: History and open discussion
+  outcome: supported
+  summary: Two sidecars and prior graph decisions preserve provenance. The open question
+    correctly distinguishes inferred exchange from measured flux. Saving this review
+    does not resolve or mutate it.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - history
+- assessment_id: validation
+  area: schema
+  topic: Native and independent checks
+  outcome: supported
+  summary: Eight focused/history/preflight commands pass. Ten labels and15 snippets
+    verify. Additional lineage checks uncover identity errors that label/syntax gates
+    cannot detect. Required corpus warnings remain explicit.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - ontology
+  - lineage
+  - snippets
+  - check-validate
+  - check-validate-strict
+  - check-validate-history
+  - check-audit-network
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: concern
+  summary: Completeness95 counts populated fields including the misrepresented dataset;
+    quality79.5 reflects four major and four minor findings. Neither is a scientific
+    pass.
+  target_ids:
+  - CommunityMech:000146
+  evidence_ids:
+  - record
+  - check-audit-network
+  metrics:
+  - name: completeness
+    value: 95
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100,50required metadata including roles +5environment +10>=3factors
+      +10>=3nodes +5external resources +10media +5datasets +5node metabolites).50+5+10+10+0+10+5+5=95.
+      Populated dataset counts mechanically despite wrong representation.
+  - name: validation_quality
+    value: 79.5
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100-50P1-10P2-2P3+20min(mean node evidence/2,1)+15 if native
+      COMPLETE,0,100).P1=0,P2=4,P3=4,P4=0;5items/4nodes=1.25;all3declared taxa participate
+      structurally.100-40-8+12.5+15=79.5.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count for this target review.
+  - name: P2
+    value: 4
+    unit: findings
+    definition: Native severity count for this target review.
+  - name: P3
+    value: 4
+    unit: findings
+    definition: Native severity count for this target review.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count for this target review.
+findings:
+- finding_id: amx-species
+  issue_key: cm-000146-amx-species
+  category: grounding
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: material experimental, member or evidence attribution
+    defect.'
+  rule_id: review-checklist.taxonomy
+  status: open
+  certainty: confirmed
+  title: AMX1 is assigned an unsupported species
+  description: The source identifies Brocadia affiliation and proximity to both sinica
+    and fulgida. Closest-representative notes do not justify exact sinica NCBI/GTDB
+    identity propagated through participants.
+  target_ids:
+  - CommunityMech:000146
+  field_paths:
+  - taxonomy[0].taxon_term
+  - ecological_interactions[*].participating_taxa
+  evidence_ids:
+  - amx-identity
+  - record
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+- finding_id: chb-clade
+  issue_key: cm-000146-chb-clade
+  category: grounding
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: material experimental, member or evidence attribution
+    defect.'
+  rule_id: review-checklist.taxonomy
+  status: open
+  certainty: confirmed
+  title: Historical Chlorobi was mapped to the wrong modern clade
+  description: Source CHB families descend from Ignavibacteriota in authoritative
+    NCBI ancestry,not Chlorobiota1090. The curated GTDB Chlorobiia block follows the
+    wrong anchor and does not validate source identity.
+  target_ids:
+  - CommunityMech:000146
+  field_paths:
+  - taxonomy[1].taxon_term
+  - ecological_interactions[2].participating_taxa
+  evidence_ids:
+  - chb-identity
+  - lineage
+  - record
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+- finding_id: exchange-overstatement
+  issue_key: cm-000146-exchange-overstatement
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: material experimental, member or evidence attribution
+    defect.'
+  rule_id: review-checklist.causal
+  status: open
+  certainty: confirmed
+  title: Summary and roles overstate inferred exchanges
+  description: The description states recycling/scavenging as realized community functions
+    and cross-feeder roles lack the qualification retained in the graph. Fermentation
+    is not established as the shared principal mode of all flanking bacteria.
+  target_ids:
+  - CommunityMech:000146
+  field_paths:
+  - description
+  - taxonomy[*].functional_role
+  evidence_ids:
+  - record
+  - nitrite
+  - peptides
+  - donors
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+- finding_id: article-as-dataset
+  issue_key: cm-000146-article-as-dataset
+  category: representation
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: material experimental, member or evidence attribution
+    defect.'
+  rule_id: review-checklist.datasets
+  status: open
+  certainty: confirmed
+  title: Publication is represented as a sequencing dataset
+  description: Nature-Communications-15416 is an article locator,not the deposited
+    sequencing accession. The source and NCBI verify actual project and three sample
+    accessions.
+  target_ids:
+  - CommunityMech:000146
+  field_paths:
+  - associated_datasets[0]
+  evidence_ids:
+  - record
+  - bioproject
+  - biosample_metagenome
+  - biosample_transcriptome
+  - biosample_miseq
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+- finding_id: laboratory-setting
+  issue_key: cm-000146-laboratory-setting
+  category: grounding
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded representation/provenance gap; source context
+    remains recoverable.'
+  rule_id: review-checklist.environment
+  status: open
+  certainty: confirmed
+  title: Environment points to the source treatment plant
+  description: The target is a laboratory reactor; appropriate bioreactor/laboratory
+    terms exist. The nearest-validated-term rationale is unsupported.
+  target_ids:
+  - CommunityMech:000146
+  field_paths:
+  - environment_term
+  evidence_ids:
+  - record
+  - operation
+  - ontology
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+- finding_id: cultivation-evidence
+  issue_key: cm-000146-cultivation-evidence
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded representation/provenance gap; source context
+    remains recoverable.'
+  rule_id: review-checklist.cultivation
+  status: open
+  certainty: confirmed
+  title: Cultivation has an unrelated supporting snippet
+  description: The aliased genome-recovery quotation supports genome reconstruction
+    rather than influent/atmosphere. Methods contains directly relevant evidence.
+  target_ids:
+  - CommunityMech:000146
+  field_paths:
+  - growth_media[0].evidence
+  evidence_ids:
+  - record
+  - operation
+  - snippets
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+- finding_id: background-factor-scope
+  issue_key: cm-000146-background-factor-scope
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded representation/provenance gap; source context
+    remains recoverable.'
+  rule_id: review-checklist.environment
+  status: open
+  certainty: confirmed
+  title: General granule context is not identified as background
+  description: Introductory oxygen-diffusion and EPS statements are not measurements
+    of this experiment’s gradients or matrix composition.
+  target_ids:
+  - CommunityMech:000146
+  field_paths:
+  - environmental_factors[0]
+  - environmental_factors[1]
+  evidence_ids:
+  - record
+  - operation
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+- finding_id: media-links
+  issue_key: cm-000146-media-links
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: bounded representation/provenance gap; source context
+    remains recoverable.'
+  rule_id: P3.1
+  status: open
+  certainty: confirmed
+  title: Media lacks external linkage identifiers
+  description: No CultureMech/MediaIngredientMech links are present. Wastewater filtrate
+    is not interchangeable with a defined synthetic recipe.
+  target_ids:
+  - CommunityMech:000146
+  field_paths:
+  - growth_media
+  evidence_ids:
+  - record
+  - operation
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+actions:
+- action_id: fix-amx-species
+  description: Retain source-resolved Brocadia/MAG identity and independently verify
+    any narrower mapping before applying it consistently.
+  finding_ids:
+  - amx-species
+  target_ids:
+  - CommunityMech:000146
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - No exact species is inferred merely from closest related representatives.
+  - All repeated participant mappings agree.
+  - Run term,GTDB,strict and network gates.
+- action_id: fix-chb-clade
+  description: Reconcile each source CHB/MAG lineage and re-ground NCBI and GTDB from
+    that identity rather than historical phylum wording.
+  finding_ids:
+  - chb-clade
+  target_ids:
+  - CommunityMech:000146
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Source family placements and modern ancestry agree.
+  - GTDB mapping is independently recomputed/verified for the corrected anchor.
+  - Every graph participant is updated consistently.
+- action_id: fix-exchange-overstatement
+  description: Preserve inferred-expression evidence and unresolved transfer/direction
+    in summaries and roles.
+  finding_ids:
+  - exchange-overstatement
+  target_ids:
+  - CommunityMech:000146
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - No confirmed partner flux or exclusive AMX1 carbon source is asserted.
+  - Roles are source-specific or explicitly uncertain.
+  - Graph qualification is preserved.
+- action_id: fix-article-as-dataset
+  description: Separate publication resources from actual deposited datasets with
+    correct type and provenance.
+  finding_ids:
+  - article-as-dataset
+  target_ids:
+  - CommunityMech:000146
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Project/sample identifiers resolve to the correct study and data type.
+  - Article is not mislabeled as a raw sequencing dataset.
+  - Run strict and reference gates.
+- action_id: fix-laboratory-setting
+  description: Represent actual laboratory setting separately from the feedstock source
+    facility.
+  finding_ids:
+  - laboratory-setting
+  target_ids:
+  - CommunityMech:000146
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Setting term matches experimental context.
+  - Feedstock provenance remains intact.
+  - Run term validation.
+- action_id: fix-cultivation-evidence
+  description: Attach exact Methods evidence to the stated cultivation claims without
+    inventing an influent recipe.
+  finding_ids:
+  - cultivation-evidence
+  target_ids:
+  - CommunityMech:000146
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Attached evidence supports the actual atmosphere/influent claim.
+  - Do not conflate upstream/downstream reactors.
+  - Run reference validation.
+- action_id: fix-background-factor-scope
+  description: Identify background versus study-specific evidence and avoid implying
+    measured gradients.
+  finding_ids:
+  - background-factor-scope
+  target_ids:
+  - CommunityMech:000146
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - General context is marked as such.
+  - No unavailable same-system measurement is claimed.
+- action_id: fix-media-links
+  description: Assess exact applicable resource matches and leave unmatched identities
+    explicit.
+  finding_ids:
+  - media-links
+  target_ids:
+  - CommunityMech:000146
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+    role: canonical_record
+  acceptance_checks:
+  - No approximate recipe receives an exact identifier.
+  - Any accepted link resolves and matches its intended material.
+limitations:
+- Supplementary files,raw reads and rendered figure geometry were not inspected;no
+  independent reconstruction or flux measurement is claimed.
+- Current NCBI ancestry confirms the clade conflict;replacement GTDB grounding and
+  exact accessioned MAG identities require separate curation.
+- Abundance/expression are source mapping proxies,not absolute organism counts.
+- Required corpus checks have real nonzero warning exits;target structural participation
+  is not biological identity verification.
+- Structured expression adapter runner unavailable in bounded local search; primary
+  article and study-specific data metadata were inspected as fallback.
+notes:
+- Canonical records,caches,history and generated outputs unchanged.
+- Source quotes total22 words.
+- Public project/sample metadata inspected;raw deposited sequence content not audited.
+tags:
+- record-review
+- anammox
+- batch-03

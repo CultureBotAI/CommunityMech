@@ -1,0 +1,1470 @@
+# Banana Fusarium biocontrol SynCom 1.2: record review
+
+- Review: 20261021T102101Z-banana-syncom12-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T10:13:21.616036Z
+- Finished UTC: 2026-10-21T10:21:01.790278Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Whole-record review finds two major unsupported role/chemical attributions and two minor cultivation/identity completeness issues. The three qualified community-level nodes and zero arrows remain supported. Fresh Methods and supplementary S5 resolve the prior timing access gap while preserving the Discussion contradiction; exact strain and archive links are verified.
+
+## Scope And Provenance
+
+Every record field and all three nodes assessed using the fresh scientific main, supplementary tables/captions, critical figure pixels, independent complete-figure review, archive metadata, ontology and current provenance.
+
+Selection: Next assigned maintained path after 000365 was saved and both mandatory post-save checks passed; only CommunityMech:000097 reviewed.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000097 | kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml | maintained | Banana Fusarium Wilt Biocontrol SynCom1.2 |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000097 | Target schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000097 | Target strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000097 | Target term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000097 | Target GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000097 | Target GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000097 | Target history validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000097 | Read-only corpus cache-filename preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000097 | Target reference validation passed against the pinned cache. |
+| audit-network | failed | True | CommunityMech:000097 | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; the target-native graph has no issue. |
+| check-network-quality | failed | True | CommunityMech:000097 | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; the target-native graph has no issue. |
+| Publication identity and full scientific source assessment | passed | True | CommunityMech:000097 | Fresh main, supplements, critical figures and independent full-figure review support assessment of every current material claim. |
+| Source-linked project and isolate archive metadata | passed | True | CommunityMech:000097 | The project and all nine S2 BioSample/genome/experiment links match the three source isolates. |
+| Encoded medium/ingredient-Mech links | not_applicable | False | CommunityMech:000097 | No CultureMech or MediaIngredientMech identifier is encoded. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000097 | Owned-runtime discovery found no runnable adapter; no external checkout query was executed. |
+
+## Scientific And Domain Assessments
+
+### Defined three-member biocontrol SynCom and experimental variants
+
+identity: supported. Targets: CommunityMech:000097.
+
+The record resolves SynCom 1.2 and explicitly keeps earlier mixtures and external host/pathogen contexts separate.
+
+### Functional roles of PS5, BN8.2 and T2C1.4
+
+evidence: concern. Targets: CommunityMech:000097.
+
+All three CROSS_FEEDER assignments lack claim-level evidence of receiving and using another taxon’s metabolites.
+
+The cited snippet establishes composition. Metabolite production, defined-substrate utilization, pathogen antagonism and resistance to inhibitory compounds do not demonstrate feeding. Remove unsupported roles or use source-supported alternatives with direct strain-specific evidence; do not infer obligate dependence or restore roles merely to preserve a completeness score.
+
+### ecological_interactions[0]: SynCom1.0 and SynCom1.1 Pot Biocontrol
+
+graph: supported. Targets: CommunityMech:000097.
+
+Retain the two earlier-mixture host outcomes with their explicit membership distinction.
+
+The 44- and seven-member communities act on banana disease severity under Foc challenge in trials A and B. The Results report about 35% reductions; Figures 3B/4B support the direction of the severity effect. This is not reciprocal microbial fitness, universal disease-incidence reduction or evidence for the three-member mixture alone. The community-level scope and absence of a pairwise interaction type are appropriate.
+
+### ecological_interactions[1]: SynCom1.1 Cross-Inhibition Mapping
+
+graph: supported. Targets: CommunityMech:000097.
+
+Retain bounded reciprocal inhibition and PARTIAL fusaric-acid mediation.
+
+Producer-conditioned agar inhibits particular beneficial recipients, and Foc-derived conditioned medium inhibits selected beneficial isolates; not every pair is reciprocally inhibitory. COMPETITION fits the measured reciprocal negative subset without requiring resource exclusivity. CHEBI:5199 and broad GO:0044419 fit the assay context. Commercial FA sensitivity does not establish that the tested Foc strain produced FA or that FA caused soil protection.
+
+### ecological_interactions[2]: Staggered SynCom1.2 Soil Biocontrol
+
+graph: supported. Targets: CommunityMech:000097.
+
+Retain trial-specific disease protection and the unmeasured soil cross-inhibition caveat.
+
+The three-member application acts on banana disease outcomes under Foc challenge. Trial C protection is transient; trial D at lower challenge pressure has stronger endpoint protection. Figures 7–8 do not show sustained elimination of soil Foc or a demonstrated mediation chain. Methods and S5 now clarify initial application order; later trial-D booster applications are simultaneous. Zero downstream arrows remains appropriate: experimental design steps and S5 inhibition symbols are not ecological causal edges.
+
+### Fusaric-acid relevance versus explanation
+
+evidence: concern. Targets: CommunityMech:000097.
+
+The ingredient’s candidate wording and graph are appropriately cautious, but its evidence explanation asserts an established endogenous mediator.
+
+Align the explanation and evidence strength with the explicit source uncertainty. Keep toxin sensitivity, Foc-conditioned-medium inhibition and possible chemical involvement distinct; neither demonstrated FA production in this isolate nor necessary soil mediation follows from these assays.
+
+### Fungal preparation, pot conditions and application timing
+
+completeness: concern. Targets: CommunityMech:000097.
+
+Recover the omitted contexts and move assembly design out of environmental_factors.
+
+Retain correct bacterial LB preparation at 27°C, 250 rpm, three days, 20 mL in 50 mL tubes. Add separately the fungal PDA preparation at 27°C for seven days in darkness and the Gran Enana/steam-sterilized-soil greenhouse context (27°C, 80% relative humidity, natural light). Preserve trial C versus D challenge density and 70- versus 105-day duration. Methods and S5 support T2C1.4 at −6 days and PS5 at −3; Discussion reverses them. The current assembly/application environmental factor belongs in design/cultivation fields; do not import pot dimensions or medium composition across experiments without an explicit source link.
+
+### Structured strains and verified genome/read metadata
+
+completeness: concern. Targets: CommunityMech:000097.
+
+Known strain codes and a source-linked three-isolate dataset remain unstructured or absent.
+
+Preserve PS5, BN8.2 and T2C1.4 structurally; optional PS5 subspecies refinement is authority-supported. Link PRJNA834929 and the exact S2 mappings without calling BioSamples assemblies or SRX experiments FASTQ/run identifiers. CP097271.1 and CP097288.3 are complete circular chromosome records; JAMBQI000000000.1 is a fungal WGS master. Its summary length field is not genome size. MLSA markers are source-reported only, and PRJNA695870 is an unrelated comparative genome.
+
+### Ecological metadata, grounded chemistry and unencoded links
+
+schema: supported. Targets: CommunityMech:000097.
+
+The remaining ecological categories and valid chemical/environment terms fit the source; no cross-Mech link is encoded.
+
+No source-supported metal-processing phenotype is encoded or required by this biocontrol study; that does not imply absence of mineral nutrients. No culture recipe or ingredient-Mech identifier is inferred from a generic medium name. The graph’s historical separation of workflow, host outcomes and candidate mediation remains intact.
+
+### Current source access, exact snippets and historical follow-up
+
+evidence: supported. Targets: CommunityMech:000097.
+
+Fresh main and supplemental evidence expands the earlier review scope without changing canonical bytes.
+
+Issue 1259 is closed and its graph repair is preserved. Issue 1262 remains open and names this record’s role/timing gaps; unrelated issue 1261 concerns Bayan Obo. All 12 existing excerpts match fresh main text, so the findings concern claim attribution and completeness rather than fabricated quotations. The historical unread-S5 statement can now be updated with the new inspection and retained source discrepancy.
+
+### Native checks and scientific source assessment
+
+schema: supported. Targets: CommunityMech:000097.
+
+Eight native checks pass; source review identifies scientific claim-scope issues despite syntactic validity.
+
+### Native completeness and quality
+
+completeness: supported. Targets: CommunityMech:000097.
+
+Native scores describe the current record and do not certify its role or chemical assertions.
+
+## Findings
+
+### cross-feeder-roles: Remove or substantiate the three CROSS_FEEDER roles
+
+major / open / confirmed; issue key: cm-000097-cross-feeder-roles.
+
+Membership-only evidence accompanies all three consumer roles, while the inspected source establishes antagonism, tolerance, substrate-use phenotypes and host protection rather than consumption of partner metabolites.
+
+### fa-certainty: Qualify the ingredient explanation to match the candidate mechanism
+
+major / open / confirmed; issue key: cm-000097-fa-certainty.
+
+The fusaric-acid evidence explanation asserts established Foc-derived involvement, although the Discussion explicitly says production by the tested Foc strain still needs demonstration and the graph already preserves PARTIAL mediation.
+
+### cultivation-context: Complete cultivation contexts and resolve the recorded timing gap
+
+minor / open / confirmed; issue key: cm-000097-cultivation-context.
+
+The record covers bacterial stock preparation but omits recoverable fungal and pot contexts, stores assembly design as an environmental factor, and retains a now-resolvable unread-S5 timing gap.
+
+### strain-archive-completeness: Represent exact isolates and source-linked sequence resources
+
+minor / open / confirmed; issue key: cm-000097-strain-archive-completeness.
+
+The three strain codes occur in design prose but are absent from structured taxonomy, and the record omits a verified project with isolate-specific BioSample, genome and experiment mappings.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-cross-feeder-roles
+
+Remove or substantiate the three CROSS_FEEDER roles.
+
+- Remove unsupported CROSS_FEEDER assignments or retain a role only with exact-system evidence of the recipient consuming another taxon’s metabolite.
+- If adding a supported alternative such as pathogen antagonism, attach direct strain-specific assay evidence rather than the composition snippet.
+- Do not infer feeding from no-inhibition arrows, metabolite biosynthesis, shared medium or host protection; do not invent roles to preserve a score.
+
+### repair-fa-certainty
+
+Qualify the ingredient explanation to match the candidate mechanism.
+
+- State that commercial FA sensitivity supports a candidate mediator; retain the unresolved production and necessary-mediation limits.
+- Distinguish Foc-conditioned-medium inhibition from identification of the inhibitory molecule and from soil disease protection.
+- Keep the valid CHEBI identity and existing qualified graph; do not add transfer or mediation arrows without source support.
+
+### repair-cultivation-context
+
+Complete cultivation contexts and resolve the recorded timing gap.
+
+- Keep LB bacterial preparation unchanged in scope; separately add source-backed fungal PDA preparation and host-soil cultivation conditions.
+- Use the concordant Methods/Figure 1/S5 initial schedule, explicitly documenting the Discussion reversal; distinguish trial-D simultaneous boosters from the staggered initial application.
+- Separate C/D challenge pressure and observation duration; update the historical unread-figure discussion without asserting measured soil cross-inhibition.
+- Move the assembly/application design out of environmental_factors and retain genuine environmental conditions in an appropriate structured location.
+
+### repair-strain-archive-completeness
+
+Represent exact isolates and source-linked sequence resources.
+
+- Add structured source strain designations PS5, BN8.2 and T2C1.4 with exact evidence; optional subspecies refinement may use verified NCBITaxon:1513890 while preserving current species validity and GTDB uncertainty.
+- Add PRJNA834929 and the exact three S2 BioSample/genome/experiment mappings with source evidence and correctly typed identifiers.
+- Distinguish complete bacterial chromosome records from the fungal WGS master and SRX experiments from run/FASTQ identifiers; do not turn the master summary length into genome size.
+- Keep unqueried MLSA marker accessions source-reported and exclude the unrelated comparative PRJNA695870 project.
+
+### preserve-qualified-graph
+
+Preserve the source-qualified graph while applying separately authorized curation.
+
+- Retain all three distinct community-level nodes and zero arrows; do not convert screening, redesign, assay symbols or inoculation order into causal edges.
+- Keep transient C versus longer D protection, unconfirmed FA production and soil mediation, and the documented source timing discrepancy explicit.
+- After separately authorized curation, preserve history and rerun schema, strict, term, history, reference and target/corpus network checks.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml; Whole record: three taxa, three community-level nodes and zero arrows | supports | The canonical target is SynCom 1.2; earlier mixtures and the uncertain fusaric-acid mechanism are already distinguished in the graph. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=35992653&amp;retmode=xml; https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=35992653&amp;retmode=xml | supports | PubMed verifies PMID:35992653, DOI:10.3389/fmicb.2022.967885, title and abstract. |
+| crossref | https://api.crossref.org/works/10.3389/fmicb.2022.967885; https://api.crossref.org/works/10.3389/fmicb.2022.967885 | supports | Crossref verifies DOI/title metadata and the publisher route. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:35992653&amp;format=json&amp;resultType=core; https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:35992653&amp;format=json&amp;resultType=core | supports | Europe PMC verifies the publication metadata and provides full scientific XML for PMC9389584. |
+| membership | PMID:35992653; Full XML S2.SS7, S3.SS5 and S3.SS6; Supplementary Tables S1–S2 | supports | PS5, BN8.2 and T2C1.4 form SynCom 1.2; source identification resolves P. chlororaphis subsp. piscium, B. velezensis and T. virens. Earlier mixtures, banana, Foc and commercial products are separate contexts. |
+| earlier-trials | PMID:35992653; Full XML S3.SS2 and S3.SS3; Figures 3B and 4B | supports | The Results report about 35% severity reductions for the 44-member and seven-member mixtures in their respective pot trials; Figures 3B/4B support the direction of the effect, not an independently calculated percentage. This is not a three-member fitness measurement. |
+| inhibition | PMID:35992653; Full XML S2.SS6.SSS2 and S3.SS4.SSS2; Figure 5; Supplementary Figure S5A | supports | Conditioned-agar assays identify inhibitory producer–recipient pairs, including some beneficial isolates; tolerance or lack of inhibition is not partner-metabolite consumption. |
+| fa-limits | PMID:35992653; Full XML S3.SS4.SSS3 and S4 paragraph beginning We also discovered; Figure 6 | supports | Commercial fusaric-acid sensitivity and inhibition on Foc-conditioned agar are separate experiments. The Discussion explicitly leaves production by the tested Foc strain unconfirmed; necessary soil mediation is also unestablished. |
+| three-member-outcomes | PMID:35992653; Full XML S3.SS5; Figures 7–8 | supports | Trial C shows transient disease protection; lower-pressure trial D shows longer endpoint protection. Disease scores do not establish sustained pathogen elimination, reduced soil cross-inhibition or universal superiority to every commercial comparator. |
+| cultivation | PMID:35992653; Full XML S2.SS4, S2.SS7.SSS1 and S2.SS7.SSS2 | supports | Bacterial LB preparation is correctly recorded. Separate fungal PDA preparation, Gran Enana plants, sterilized soil, greenhouse conditions and distinct C/D application schedules are recoverable. |
+| timing | PMID:35992653; Supplementary Figure S5B pixels; compare full XML S2.SS7.SSS1 and S4 | supports | Methods and S5 agree on Foc at day −10, T2C1.4 at −6, PS5 at −3 and BN8.2 root dip at transplanting. Discussion reverses the two earlier beneficial applications; preserve the discrepancy and the concordant protocol evidence. |
+| supplement | PMID:35992653; supplement-text.json: Tables S1–S5 and Figures S1–S8 captions; Table S2 accession rows | supports | Tables provide source isolates, marker/genome/experiment identifiers, substrate-use phenotypes and assembly summaries. Defined-substrate utilization and genomic potential do not demonstrate cross-feeding. |
+| source-scope | PMID:35992653; source-audit.json: main, supplement and pixel read scope with source hashes | context_only | Lead review inspected the whole scientific main, all supplementary tables/captions, main Figures 3–8 and S5 pixels; the independent audit additionally inspected all figure pixels. No raw-data reanalysis is claimed. |
+| ontology | Local OAK NCBITaxon, ENVO, CHEBI and GO snapshots; ontology-authority.json: six unique pairs across seven occurrences | supports | All encoded ID/label pairs match. Species-level PS5 grounding is coarser than the source subspecies, not a wrong species; fusaric acid and the broad interspecies-process term are valid. |
+| subspecies | NCBITaxon:1513890; subspecies-grounding-candidate.json: canonical label, rank and parent | supports | Pseudomonas chlororaphis subsp. piscium is subspecies-ranked under NCBITaxon:587753. This supports optional source-led refinement, not substitution with a similarly named Pseudomonas species. |
+| schema | src/communitymech/schema/communitymech.yaml; FunctionalRoleEnum.CROSS_FEEDER; InteractionTypeEnum.COMPETITION; environmental_factors and strain_designation slots | supports | CROSS_FEEDER requires consumption of metabolites from other taxa; COMPETITION represents reciprocal negative effects. Composition/design belongs separately from environmental conditions, and source strains can be represented structurally. |
+| snippets | kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml; snippet-audit.json: all occurrence comparisons | supports | All 12 snippet occurrences match the committed cache and fresh publisher main; ten also match the fresh PubMed abstract. Exact wording does not establish every attached functional or mechanistic claim. |
+| datasets | PRJNA834929 and Supplementary Table S2 linked archives; dataset-verification.json: project and all three BioSample/genome/experiment mappings | supports | PS5 maps to SAMN28084625/CP097271/SRX15248154; BN8.2 to SAMN28084626/CP097288/SRX15248155; T2C1.4 to SAMN28084627/JAMBQI000000000/SRX15248156. All identities and project links verify by metadata; two bacterial chromosomes are circular, whereas the fungal identifier is a WGS master. |
+| history | Two target histories and batch7 graph-review decision; provenance-audit.json; exact target row lines 654–696 | supports | Closed issue 1259 records preserved graph repairs; open issue 1262 specifically tracks unsupported roles and conflicting timing. Newly inspected S5 resolves the historical access gap without erasing the source discrepancy. |
+| search | Owned maintained community, isolate and reusable-taxon roots; local-search.json: ignored-inclusive bounded source/name/taxon searches | supports | No reusable exact target identity was found within the recorded search scope; this is not global absence of taxon or sequence resources. |
+| adapter | Optional kg-microbe-sources runner; adapter-check.json: batch 06 owned-runtime availability discovery | supports | No runnable adapter was available in the owned task runtime; no external-checkout runner or pathway/module query was executed. |
+| native-target | NetworkIntegrityAuditor().audit_community(target); support-audit.json: target network and metric components | supports | Native network status is COMPLETE with zero issues; this does not validate cross-feeding roles or chemical mediation. |
+| independent-source | PMID:35992653; root-independent-source-audit.json: whole scientific main, all supplementary tables and all main/SI figure pixels | context_only | Independent review agrees with two major and two minor findings, preservation of the qualified graph, and a completed scientific assessment. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml; Actual execution 2026-10-21T10:13:39.080392+00:00 to 2026-10-21T10:13:40.028182+00:00 | supports | Target schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-strict kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml --out /private/tmp/cm-review-session/batch-06/000097/strict-report.tsv; Actual execution 2026-10-21T10:13:39.083315+00:00 to 2026-10-21T10:13:41.884963+00:00 | supports | Target strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-terms kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml; Actual execution 2026-10-21T10:13:39.085938+00:00 to 2026-10-21T10:13:41.211521+00:00 | supports | Target term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-gtdb kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml; Actual execution 2026-10-21T10:13:40.028525+00:00 to 2026-10-21T10:13:40.131471+00:00 | supports | Target GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-gtdb-domain kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml; Actual execution 2026-10-21T10:13:40.131959+00:00 to 2026-10-21T10:13:42.433694+00:00 | supports | Target GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-history history/records/Banana_Fusarium_Biocontrol_SynCom12; Actual execution 2026-10-21T10:13:41.211994+00:00 to 2026-10-21T10:13:42.970107+00:00 | supports | Target history validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T10:13:42.971563+00:00 to 2026-10-21T10:13:43.046102+00:00 | supports | Read-only corpus cache-filename preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src just --no-dotenv validate-references-explained kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml; Actual execution 2026-10-21T10:13:43.046374+00:00 to 2026-10-21T10:13:44.213961+00:00 | supports | Target reference validation passed against the pinned cache. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T10:06:35.990708+00:00 to 2026-10-21T10:06:41.713287+00:00 | supports | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; the target-native graph has no issue. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T10:06:35.990845+00:00 to 2026-10-21T10:06:41.708376+00:00 | supports | Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records and exit 1; the target-native graph has no issue. |
+
+## Limits And Additional Notes
+
+- The lead reviewer inspected main Figures 3–8 and S5 pixels; the independent reviewer inspected all main Figures 1–8 and supplementary Figures S1–S8. Both read the full scientific main; all five supplementary tables and eight captions were assessed.
+- Data Sheet 1 annotation/CDS/protein files were downloaded and extracted but not read or reanalyzed. No raw sequence, omics or disease-data reanalysis and no execution of external analysis code occurred.
+- Methods and Figures 1/S5 agree on initial isolate timing, while Discussion reverses PS5 and T2C1.4. Unencoded numerical/caption conflicts, including the T2C1.4 FA sensitivity value, are source limitations rather than added record findings.
+- Archive checks verify metadata and exact isolate links, not sequence quality. MLSA marker accessions remain source-reported; the fungal WGS master is not a complete chromosome and SRX identifiers are experiments.
+- Disease suppression does not establish partner feeding, soil elimination of Foc, endogenous FA production or necessary mediation. Genomic annotations and defined-substrate phenotypes are not flux measurements.
+- Historical GTDB mapping statistics were not recomputed. Optional adapter availability and full-corpus network receipts are explicitly separate from target-specific checks.
+- No canonical, cache, history or generated file was changed.
+- All 24 repository inputs were pinned before assessment and rechecked.
+- Direct quotations total 17 words across the primary publication and supplements.
+- Native quality 100 is capped from 104.3333333333 and does not cancel the four findings.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T102101Z-banana-syncom12-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Banana Fusarium biocontrol SynCom 1.2: record review'
+started_at: '2026-10-21T10:13:21.616036Z'
+finished_at: '2026-10-21T10:21:01.790278Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents reviewed source science/figures, ontology/native
+    checks and supporting provenance/datasets; canonical inputs are unchanged. No
+    person-level independence is asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Whole-record review finds two major unsupported role/chemical attributions
+  and two minor cultivation/identity completeness issues. The three qualified community-level
+  nodes and zero arrows remain supported. Fresh Methods and supplementary S5 resolve
+  the prior timing access gap while preserving the Discussion contradiction; exact
+  strain and archive links are verified.
+source:
+  git_revision: 00a4a35e57d262d57b5f1a66fc3b5bdc03ae715b
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Banana_Fusarium_Biocontrol_SynCom12/2026-10-02T051643Z-codex-3cb9de.yaml
+    sha256: 7825666b42df696bfbb8557a22b18c58813ab75a7c1baeb1ffe6f6ebe1e70c68
+    role: context
+  - path: history/records/Banana_Fusarium_Biocontrol_SynCom12/2026-10-05T124959Z-codex-537568.yaml
+    sha256: 53f7e7755491172922e9ec7636f13039aa03c38fba32f6312898b26f8c645c2a
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+    sha256: d05cdfe724f5fb51cfa545fcbf0c7e829877dc59c4cb81121b339eeb7fd111d7
+    role: target
+  - path: references_cache/PMID_35992653.txt
+    sha256: 2573e0b8fb8c57d1fdf1282c0c2b0c2674206cf1eacdf4c7061b5ddca3674fdc
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-twelve-records-batch7.yaml
+    sha256: c96f00489d2ad14f63cd035adc778adbf72d7fe6a11c2dffd81cd1a904cc0a75
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000097
+  path: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+  label: Banana Fusarium Wilt Biocontrol SynCom1.2
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+    role: canonical_record
+scope:
+  description: Every record field and all three nodes assessed using the fresh scientific
+    main, supplementary tables/captions, critical figure pixels, independent complete-figure
+    review, archive metadata, ontology and current provenance.
+  selection: Next assigned maintained path after 000365 was saved and both mandatory
+    post-save checks passed; only CommunityMech:000097 reviewed.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000097
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000097
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    scientific support was assessed separately.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000097
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-strict kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+    --out /private/tmp/cm-review-session/batch-06/000097/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    scientific support was assessed separately.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000097
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-terms kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    scientific support was assessed separately.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000097
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    scientific support was assessed separately.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000097
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    scientific support was assessed separately.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000097
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-history history/records/Banana_Fusarium_Biocontrol_SynCom12
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    scientific support was assessed separately.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000097
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    scientific support was assessed separately.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target reference validation passed against the pinned cache.
+  target_ids:
+  - CommunityMech:000097
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-references-explained kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Seven focused target/history checks plus one corpus cache-filename preflight;
+    scientific support was assessed separately.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; the target-native graph has no issue.
+  target_ids:
+  - CommunityMech:000097
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Reused fresh full-corpus batch 06 execution, not a target-specific pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; the target-native graph has no issue.
+  target_ids:
+  - CommunityMech:000097
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Reused fresh full-corpus batch 06 execution, not a target-specific pass.
+- check_id: publication-and-source
+  name: Publication identity and full scientific source assessment
+  status: passed
+  required: true
+  summary: Fresh main, supplements, critical figures and independent full-figure review
+    support assessment of every current material claim.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - pubmed
+  - crossref
+  - epmc
+  - source-scope
+  - independent-source
+- check_id: dataset-identifiers
+  name: Source-linked project and isolate archive metadata
+  status: passed
+  required: true
+  summary: The project and all nine S2 BioSample/genome/experiment links match the
+    three source isolates.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - datasets
+- check_id: cross-mech
+  name: Encoded medium/ingredient-Mech links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech identifier is encoded.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - record
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Owned-runtime discovery found no runnable adapter; no external checkout
+    query was executed.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+  locator: 'Whole record: three taxa, three community-level nodes and zero arrows'
+  summary: The canonical target is SynCom 1.2; earlier mixtures and the uncertain
+    fusaric-acid mechanism are already distinguished in the graph.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.783446Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=35992653&retmode=xml
+  locator: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=35992653&retmode=xml
+  summary: PubMed verifies PMID:35992653, DOI:10.3389/fmicb.2022.967885, title and
+    abstract.
+  support: supports
+  accessed_at: '2026-10-21T10:13:25.113367Z'
+  snapshot_sha256: 568f9fbfdf4ec01f9034b583b6e3179566317770903b377ae01eafac9188d02a
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.3389/fmicb.2022.967885
+  locator: https://api.crossref.org/works/10.3389/fmicb.2022.967885
+  summary: Crossref verifies DOI/title metadata and the publisher route.
+  support: supports
+  accessed_at: '2026-10-21T10:13:25.074167Z'
+  snapshot_sha256: 78ea104333f85a99ffe1527d0933d2196318850ea405436720ebaf5513b91157
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:35992653&format=json&resultType=core
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:35992653&format=json&resultType=core
+  summary: Europe PMC verifies the publication metadata and provides full scientific
+    XML for PMC9389584.
+  support: supports
+  accessed_at: '2026-10-21T10:13:30.496890Z'
+  snapshot_sha256: 513ddeb5b616e81313f5cd76fd3cd9587d0b18d9aa472bcedea162f196547d95
+- evidence_id: membership
+  kind: primary_source
+  reference: PMID:35992653
+  locator: Full XML S2.SS7, S3.SS5 and S3.SS6; Supplementary Tables S1–S2
+  summary: PS5, BN8.2 and T2C1.4 form SynCom 1.2; source identification resolves P.
+    chlororaphis subsp. piscium, B. velezensis and T. virens. Earlier mixtures, banana,
+    Foc and commercial products are separate contexts.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.784411Z'
+  snapshot_sha256: 3ba03cf7d889416b08331c8e019baec6b416e9c18fbf00a02b88670b3eb244c8
+- evidence_id: earlier-trials
+  kind: primary_source
+  reference: PMID:35992653
+  locator: Full XML S3.SS2 and S3.SS3; Figures 3B and 4B
+  summary: The Results report about 35% severity reductions for the 44-member and
+    seven-member mixtures in their respective pot trials; Figures 3B/4B support the
+    direction of the effect, not an independently calculated percentage. This is not
+    a three-member fitness measurement.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.784414Z'
+  quote: reduced by 35%
+  snapshot_sha256: 3ba03cf7d889416b08331c8e019baec6b416e9c18fbf00a02b88670b3eb244c8
+- evidence_id: inhibition
+  kind: primary_source
+  reference: PMID:35992653
+  locator: Full XML S2.SS6.SSS2 and S3.SS4.SSS2; Figure 5; Supplementary Figure S5A
+  summary: Conditioned-agar assays identify inhibitory producer–recipient pairs, including
+    some beneficial isolates; tolerance or lack of inhibition is not partner-metabolite
+    consumption.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.784417Z'
+  quote: other beneficial microbes as well
+  snapshot_sha256: 3ba03cf7d889416b08331c8e019baec6b416e9c18fbf00a02b88670b3eb244c8
+- evidence_id: fa-limits
+  kind: primary_source
+  reference: PMID:35992653
+  locator: Full XML S3.SS4.SSS3 and S4 paragraph beginning We also discovered; Figure
+    6
+  summary: Commercial fusaric-acid sensitivity and inhibition on Foc-conditioned agar
+    are separate experiments. The Discussion explicitly leaves production by the tested
+    Foc strain unconfirmed; necessary soil mediation is also unestablished.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.784419Z'
+  quote: would need a further demonstration
+  snapshot_sha256: 3ba03cf7d889416b08331c8e019baec6b416e9c18fbf00a02b88670b3eb244c8
+- evidence_id: three-member-outcomes
+  kind: primary_source
+  reference: PMID:35992653
+  locator: Full XML S3.SS5; Figures 7–8
+  summary: Trial C shows transient disease protection; lower-pressure trial D shows
+    longer endpoint protection. Disease scores do not establish sustained pathogen
+    elimination, reduced soil cross-inhibition or universal superiority to every commercial
+    comparator.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.784421Z'
+  quote: difference disappeared later on
+  snapshot_sha256: 3ba03cf7d889416b08331c8e019baec6b416e9c18fbf00a02b88670b3eb244c8
+- evidence_id: cultivation
+  kind: primary_source
+  reference: PMID:35992653
+  locator: Full XML S2.SS4, S2.SS7.SSS1 and S2.SS7.SSS2
+  summary: Bacterial LB preparation is correctly recorded. Separate fungal PDA preparation,
+    Gran Enana plants, sterilized soil, greenhouse conditions and distinct C/D application
+    schedules are recoverable.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.784422Z'
+  snapshot_sha256: 3ba03cf7d889416b08331c8e019baec6b416e9c18fbf00a02b88670b3eb244c8
+- evidence_id: timing
+  kind: primary_source
+  reference: PMID:35992653
+  locator: Supplementary Figure S5B pixels; compare full XML S2.SS7.SSS1 and S4
+  summary: Methods and S5 agree on Foc at day −10, T2C1.4 at −6, PS5 at −3 and BN8.2
+    root dip at transplanting. Discussion reverses the two earlier beneficial applications;
+    preserve the discrepancy and the concordant protocol evidence.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.784752Z'
+  snapshot_sha256: 5a378e60fc60f277984bc7e73edc1d44bc367b99e554339a6639e0c29399058a
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:35992653
+  locator: 'supplement-text.json: Tables S1–S5 and Figures S1–S8 captions; Table S2
+    accession rows'
+  summary: Tables provide source isolates, marker/genome/experiment identifiers, substrate-use
+    phenotypes and assembly summaries. Defined-substrate utilization and genomic potential
+    do not demonstrate cross-feeding.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.785055Z'
+  snapshot_sha256: 3c8ac8d03be6e8225ca8b78a7647c42457689bb4384fb7c38c85fb184c95feae
+- evidence_id: source-scope
+  kind: validation
+  reference: PMID:35992653
+  locator: 'source-audit.json: main, supplement and pixel read scope with source hashes'
+  summary: Lead review inspected the whole scientific main, all supplementary tables/captions,
+    main Figures 3–8 and S5 pixels; the independent audit additionally inspected all
+    figure pixels. No raw-data reanalysis is claimed.
+  support: context_only
+  accessed_at: '2026-10-21T10:21:01.785317Z'
+  snapshot_sha256: 1d64e15f51e27b51f78d5bc0a1758e43aed67c5f697a14043206f33d4d11ba5e
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO, CHEBI and GO snapshots
+  locator: 'ontology-authority.json: six unique pairs across seven occurrences'
+  summary: All encoded ID/label pairs match. Species-level PS5 grounding is coarser
+    than the source subspecies, not a wrong species; fusaric acid and the broad interspecies-process
+    term are valid.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.785487Z'
+  snapshot_sha256: a38f133721c3242178ed2dd7445269345c419759d6adf02e1a88d54b166dfc94
+- evidence_id: subspecies
+  kind: authority
+  reference: NCBITaxon:1513890
+  locator: 'subspecies-grounding-candidate.json: canonical label, rank and parent'
+  summary: Pseudomonas chlororaphis subsp. piscium is subspecies-ranked under NCBITaxon:587753.
+    This supports optional source-led refinement, not substitution with a similarly
+    named Pseudomonas species.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.785604Z'
+  snapshot_sha256: b375bc977f85a9f6c3dfd6e713fe89ab83fcf714f56425adcb4debfc2496e525
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: FunctionalRoleEnum.CROSS_FEEDER; InteractionTypeEnum.COMPETITION; environmental_factors
+    and strain_designation slots
+  summary: CROSS_FEEDER requires consumption of metabolites from other taxa; COMPETITION
+    represents reciprocal negative effects. Composition/design belongs separately
+    from environmental conditions, and source strains can be represented structurally.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.785607Z'
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+  locator: 'snippet-audit.json: all occurrence comparisons'
+  summary: All 12 snippet occurrences match the committed cache and fresh publisher
+    main; ten also match the fresh PubMed abstract. Exact wording does not establish
+    every attached functional or mechanistic claim.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.785806Z'
+  snapshot_sha256: 929df2d49772f0bbad246b7e49c114bb7a0ddc1398439ebbd4afe6b8fb32bb03
+- evidence_id: datasets
+  kind: database
+  reference: PRJNA834929 and Supplementary Table S2 linked archives
+  locator: 'dataset-verification.json: project and all three BioSample/genome/experiment
+    mappings'
+  summary: PS5 maps to SAMN28084625/CP097271/SRX15248154; BN8.2 to SAMN28084626/CP097288/SRX15248155;
+    T2C1.4 to SAMN28084627/JAMBQI000000000/SRX15248156. All identities and project
+    links verify by metadata; two bacterial chromosomes are circular, whereas the
+    fungal identifier is a WGS master.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.786050Z'
+  snapshot_sha256: 960c5a03428a91f877922ac2923bec765d11889b7387e95da412319ac794b94b
+- evidence_id: history
+  kind: record_content
+  reference: Two target histories and batch7 graph-review decision
+  locator: provenance-audit.json; exact target row lines 654–696
+  summary: Closed issue 1259 records preserved graph repairs; open issue 1262 specifically
+    tracks unsupported roles and conflicting timing. Newly inspected S5 resolves the
+    historical access gap without erasing the source discrepancy.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.786208Z'
+  snapshot_sha256: c061bc17b5ff1d47412e895c0b310ca5cd947aba1fe0c8607205e9ce2d8d4dc3
+- evidence_id: search
+  kind: search
+  reference: Owned maintained community, isolate and reusable-taxon roots
+  locator: 'local-search.json: ignored-inclusive bounded source/name/taxon searches'
+  summary: No reusable exact target identity was found within the recorded search
+    scope; this is not global absence of taxon or sequence resources.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.786355Z'
+  snapshot_sha256: 81c45b416dfa37e15cdf0cdc77990724d31dd369da7a9da043920a74f5e8caab
+  search_scope: Recorded rg --no-ignore --hidden searches in the owned maintained
+    roots and mapping filenames.
+- evidence_id: adapter
+  kind: search
+  reference: Optional kg-microbe-sources runner
+  locator: 'adapter-check.json: batch 06 owned-runtime availability discovery'
+  summary: No runnable adapter was available in the owned task runtime; no external-checkout
+    runner or pathway/module query was executed.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.786588Z'
+  snapshot_sha256: 48d83be799b2518ef8e2fb30ae08261fe1f538b27fc290035d833e0b282d33a3
+  search_scope: Reused fresh batch 06 PATH, venv/module and ignored-inclusive owned-worktree
+    discovery, with provenance retained.
+- evidence_id: native-target
+  kind: validation
+  reference: NetworkIntegrityAuditor().audit_community(target)
+  locator: 'support-audit.json: target network and metric components'
+  summary: Native network status is COMPLETE with zero issues; this does not validate
+    cross-feeding roles or chemical mediation.
+  support: supports
+  accessed_at: '2026-10-21T10:21:01.786792Z'
+  snapshot_sha256: 8b6bd66a6479ab43b023c27972f34faa161d2728d18ae82750d15df3ad003893
+- evidence_id: independent-source
+  kind: validation
+  reference: PMID:35992653
+  locator: 'root-independent-source-audit.json: whole scientific main, all supplementary
+    tables and all main/SI figure pixels'
+  summary: Independent review agrees with two major and two minor findings, preservation
+    of the qualified graph, and a completed scientific assessment.
+  support: context_only
+  accessed_at: '2026-10-21T10:21:01.787192Z'
+  snapshot_sha256: 9341b770e317ba26a4d252ccf07df5f55ddc563139a58987255c2fe39a0e60d8
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+  locator: Actual execution 2026-10-21T10:13:39.080392+00:00 to 2026-10-21T10:13:40.028182+00:00
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:13:40.028182Z'
+  snapshot_sha256: d0f4408bac81ff42f2659b155e660f920f7db503ef5a4d87ef41c8399feff197
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-strict kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+    --out /private/tmp/cm-review-session/batch-06/000097/strict-report.tsv
+  locator: Actual execution 2026-10-21T10:13:39.083315+00:00 to 2026-10-21T10:13:41.884963+00:00
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:13:41.884963Z'
+  snapshot_sha256: 4e20116c54a5c08a576c6b5b47b0a3dacc5ee71373893eaa3a5a4ae08c9df2dc
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-terms kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+  locator: Actual execution 2026-10-21T10:13:39.085938+00:00 to 2026-10-21T10:13:41.211521+00:00
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:13:41.211521Z'
+  snapshot_sha256: abe5253838248c4c82b0de497342ad2edbb0365a4fb560f14db66f4a525d849c
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+  locator: Actual execution 2026-10-21T10:13:40.028525+00:00 to 2026-10-21T10:13:40.131471+00:00
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:13:40.131471Z'
+  snapshot_sha256: 5dea07aaf3936a474824172453f439456d9aa5cc0e83bc0239cee3ddd66ff0b1
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+  locator: Actual execution 2026-10-21T10:13:40.131959+00:00 to 2026-10-21T10:13:42.433694+00:00
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:13:42.433694Z'
+  snapshot_sha256: 2254086a2653b470a802c90916ccb8db97f6bfa0f12e3f7c37f2e6121e827967
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-history history/records/Banana_Fusarium_Biocontrol_SynCom12
+  locator: Actual execution 2026-10-21T10:13:41.211994+00:00 to 2026-10-21T10:13:42.970107+00:00
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-10-21T10:13:42.970107Z'
+  snapshot_sha256: 678b961abdf4f25bd711817fd5e2fcea0a98ab83ff909e454c3fb8a4d0ef1c2b
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T10:13:42.971563+00:00 to 2026-10-21T10:13:43.046102+00:00
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T10:13:43.046102Z'
+  snapshot_sha256: ef8cddedc9bca3488b8ab09730c4956bbc0a4db89954ec7aed6f822cde7588cb
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src
+    just --no-dotenv validate-references-explained kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+  locator: Actual execution 2026-10-21T10:13:43.046374+00:00 to 2026-10-21T10:13:44.213961+00:00
+  summary: Target reference validation passed against the pinned cache.
+  support: supports
+  accessed_at: '2026-10-21T10:13:44.213961Z'
+  snapshot_sha256: e1875a1b48896e9ed0b513d359aece94d7fb2b34cf93c1fae419a550484f9bc0
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T10:06:35.990708+00:00 to 2026-10-21T10:06:41.713287+00:00
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; the target-native graph has no issue.
+  support: supports
+  accessed_at: '2026-10-21T10:06:41.713287Z'
+  snapshot_sha256: 330e4d9c9367a126afe7da9d93d310348e0ba6cc1289d806f4ff8df350be9620
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-06/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T10:06:35.990845+00:00 to 2026-10-21T10:06:41.708376+00:00
+  summary: Fresh batch 06 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; the target-native graph has no issue.
+  support: supports
+  accessed_at: '2026-10-21T10:06:41.708376Z'
+  snapshot_sha256: 0420f90879ef008b71c8bfcfe444d05d2c030519aca57834b4e2587766c5b854
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Defined three-member biocontrol SynCom and experimental variants
+  outcome: supported
+  summary: The record resolves SynCom 1.2 and explicitly keeps earlier mixtures and
+    external host/pathogen contexts separate.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - record
+  - membership
+  - earlier-trials
+  - ontology
+  dimensions:
+  - name: community_scope
+    value: PS5 + BN8.2 + T2C1.4 SynCom 1.2
+    definition: Earlier 44-member SynCom 1.0 and seven-member SynCom 1.1 provide contextual
+      outcomes, not the canonical membership.
+    evidence_ids:
+    - membership
+    - earlier-trials
+  - name: source_strain
+    value: Three exact experimental isolates are recoverable
+    definition: PS5, BN8.2 and T2C1.4 appear in design prose and verified archive
+      metadata but lack structured strain fields.
+    evidence_ids:
+    - membership
+    - datasets
+  - name: environment
+    value: Banana rhizosphere origin and controlled soil-pot model
+    definition: ENVO rhizosphere, SYNTHETIC origin, ENGINEERED state and RHIZOSPHERE
+      category fit the isolate-based design; no field efficacy is established.
+    evidence_ids:
+    - membership
+    - cultivation
+    - ontology
+  - name: medium
+    value: Separate bacterial LB, fungal PDA and host-soil contexts
+    definition: The existing bacterial preparation is valid but does not describe
+      fungal inoculum preparation or assembled pot cultivation.
+    evidence_ids:
+    - cultivation
+    - timing
+  - name: experimental_setting
+    value: In-vitro inhibition plus distinct A–D pot experiments
+    definition: Foc TR4 NRRL 36114 is the challenge organism; Foc R1 is an in-vitro
+      comparator. Banana and commercial comparators are not SynCom members.
+    evidence_ids:
+    - inhibition
+    - cultivation
+    - three-member-outcomes
+  - name: evidence_tier
+    value: Measured inhibition and host endpoints; candidate chemical mediation
+    definition: Commercial toxin sensitivity and sequence annotations do not establish
+      endogenous FA production, partner feeding or the soil protection mediator.
+    evidence_ids:
+    - fa-limits
+    - inhibition
+    - supplement
+  - name: grounding_status
+    value: Six valid current ontology pairs; verified optional subspecies
+    definition: NCBITaxon:1513890 can preserve source subspecies precision; historical
+      GTDB mapping statistics were not recomputed or replaced with an inferred strain
+      mapping.
+    evidence_ids:
+    - ontology
+    - subspecies
+    - adapter
+- assessment_id: roles
+  area: evidence
+  topic: Functional roles of PS5, BN8.2 and T2C1.4
+  outcome: concern
+  summary: All three CROSS_FEEDER assignments lack claim-level evidence of receiving
+    and using another taxon’s metabolites.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - membership
+  - inhibition
+  - supplement
+  - schema
+  details: The cited snippet establishes composition. Metabolite production, defined-substrate
+    utilization, pathogen antagonism and resistance to inhibitory compounds do not
+    demonstrate feeding. Remove unsupported roles or use source-supported alternatives
+    with direct strain-specific evidence; do not infer obligate dependence or restore
+    roles merely to preserve a completeness score.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: SynCom1.0 and SynCom1.1 Pot Biocontrol'
+  outcome: supported
+  summary: Retain the two earlier-mixture host outcomes with their explicit membership
+    distinction.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - earlier-trials
+  - record
+  details: The 44- and seven-member communities act on banana disease severity under
+    Foc challenge in trials A and B. The Results report about 35% reductions; Figures
+    3B/4B support the direction of the severity effect. This is not reciprocal microbial
+    fitness, universal disease-incidence reduction or evidence for the three-member
+    mixture alone. The community-level scope and absence of a pairwise interaction
+    type are appropriate.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: SynCom1.1 Cross-Inhibition Mapping'
+  outcome: supported
+  summary: Retain bounded reciprocal inhibition and PARTIAL fusaric-acid mediation.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - inhibition
+  - fa-limits
+  - ontology
+  - schema
+  details: Producer-conditioned agar inhibits particular beneficial recipients, and
+    Foc-derived conditioned medium inhibits selected beneficial isolates; not every
+    pair is reciprocally inhibitory. COMPETITION fits the measured reciprocal negative
+    subset without requiring resource exclusivity. CHEBI:5199 and broad GO:0044419
+    fit the assay context. Commercial FA sensitivity does not establish that the tested
+    Foc strain produced FA or that FA caused soil protection.
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: Staggered SynCom1.2 Soil Biocontrol'
+  outcome: supported
+  summary: Retain trial-specific disease protection and the unmeasured soil cross-inhibition
+    caveat.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - three-member-outcomes
+  - cultivation
+  - timing
+  details: 'The three-member application acts on banana disease outcomes under Foc
+    challenge. Trial C protection is transient; trial D at lower challenge pressure
+    has stronger endpoint protection. Figures 7–8 do not show sustained elimination
+    of soil Foc or a demonstrated mediation chain. Methods and S5 now clarify initial
+    application order; later trial-D booster applications are simultaneous. Zero downstream
+    arrows remains appropriate: experimental design steps and S5 inhibition symbols
+    are not ecological causal edges.'
+- assessment_id: ingredient
+  area: evidence
+  topic: Fusaric-acid relevance versus explanation
+  outcome: concern
+  summary: The ingredient’s candidate wording and graph are appropriately cautious,
+    but its evidence explanation asserts an established endogenous mediator.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - fa-limits
+  - record
+  - ontology
+  details: Align the explanation and evidence strength with the explicit source uncertainty.
+    Keep toxin sensitivity, Foc-conditioned-medium inhibition and possible chemical
+    involvement distinct; neither demonstrated FA production in this isolate nor necessary
+    soil mediation follows from these assays.
+- assessment_id: cultivation
+  area: completeness
+  topic: Fungal preparation, pot conditions and application timing
+  outcome: concern
+  summary: Recover the omitted contexts and move assembly design out of environmental_factors.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - cultivation
+  - timing
+  - supplement
+  - schema
+  details: Retain correct bacterial LB preparation at 27°C, 250 rpm, three days, 20
+    mL in 50 mL tubes. Add separately the fungal PDA preparation at 27°C for seven
+    days in darkness and the Gran Enana/steam-sterilized-soil greenhouse context (27°C,
+    80% relative humidity, natural light). Preserve trial C versus D challenge density
+    and 70- versus 105-day duration. Methods and S5 support T2C1.4 at −6 days and
+    PS5 at −3; Discussion reverses them. The current assembly/application environmental
+    factor belongs in design/cultivation fields; do not import pot dimensions or medium
+    composition across experiments without an explicit source link.
+- assessment_id: identifiers-resources
+  area: completeness
+  topic: Structured strains and verified genome/read metadata
+  outcome: concern
+  summary: Known strain codes and a source-linked three-isolate dataset remain unstructured
+    or absent.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - membership
+  - subspecies
+  - datasets
+  - supplement
+  details: Preserve PS5, BN8.2 and T2C1.4 structurally; optional PS5 subspecies refinement
+    is authority-supported. Link PRJNA834929 and the exact S2 mappings without calling
+    BioSamples assemblies or SRX experiments FASTQ/run identifiers. CP097271.1 and
+    CP097288.3 are complete circular chromosome records; JAMBQI000000000.1 is a fungal
+    WGS master. Its summary length field is not genome size. MLSA markers are source-reported
+    only, and PRJNA695870 is an unrelated comparative genome.
+- assessment_id: other-fields
+  area: schema
+  topic: Ecological metadata, grounded chemistry and unencoded links
+  outcome: supported
+  summary: The remaining ecological categories and valid chemical/environment terms
+    fit the source; no cross-Mech link is encoded.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - record
+  - ontology
+  - cultivation
+  - fa-limits
+  details: No source-supported metal-processing phenotype is encoded or required by
+    this biocontrol study; that does not imply absence of mineral nutrients. No culture
+    recipe or ingredient-Mech identifier is inferred from a generic medium name. The
+    graph’s historical separation of workflow, host outcomes and candidate mediation
+    remains intact.
+- assessment_id: provenance
+  area: evidence
+  topic: Current source access, exact snippets and historical follow-up
+  outcome: supported
+  summary: Fresh main and supplemental evidence expands the earlier review scope without
+    changing canonical bytes.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - history
+  - snippets
+  - source-scope
+  - independent-source
+  details: Issue 1259 is closed and its graph repair is preserved. Issue 1262 remains
+    open and names this record’s role/timing gaps; unrelated issue 1261 concerns Bayan
+    Obo. All 12 existing excerpts match fresh main text, so the findings concern claim
+    attribution and completeness rather than fabricated quotations. The historical
+    unread-S5 statement can now be updated with the new inspection and retained source
+    discrepancy.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and scientific source assessment
+  outcome: supported
+  summary: Eight native checks pass; source review identifies scientific claim-scope
+    issues despite syntactic validity.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - check-validate
+  - check-validate-strict
+  - check-validate-references-explained
+  - ontology
+  - source-scope
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and quality
+  outcome: supported
+  summary: Native scores describe the current record and do not certify its role or
+    chemical assertions.
+  target_ids:
+  - CommunityMech:000097
+  evidence_ids:
+  - record
+  - native-target
+  metrics:
+  - name: completeness
+    value: 80
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100,50 required metadata including all roles +5 environment +10
+      at least 3 factors +10 at least 3 nodes +5 resources +10 media +5 datasets +5
+      node metabolites). 50+5+0+10+0+10+0+5=80; populated roles receive native credit
+      even when scientific support is deficient.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100-50P1-10P2-2P3+20 min(mean node evidence/2,1)+15 if native
+      COMPLETE,0,100). P1=0, P2=2, P3=2, P4=0; 4 evidence items / 3 nodes = 4/3; 100-20-4+13.3333333333+15=104.3333333333
+      before capping.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Observed native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Observed native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Observed native severity count.
+findings:
+- finding_id: cross-feeder-roles
+  issue_key: cm-000097-cross-feeder-roles
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: unsupported ecological role or chemical attribution
+    materially changes the mechanism represented.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Remove or substantiate the three CROSS_FEEDER roles
+  description: Membership-only evidence accompanies all three consumer roles, while
+    the inspected source establishes antagonism, tolerance, substrate-use phenotypes
+    and host protection rather than consumption of partner metabolites.
+  target_ids:
+  - CommunityMech:000097
+  field_paths:
+  - taxonomy[0].functional_role
+  - taxonomy[1].functional_role
+  - taxonomy[2].functional_role
+  - taxonomy[0].evidence
+  - taxonomy[1].evidence
+  - taxonomy[2].evidence
+  evidence_ids:
+  - membership
+  - inhibition
+  - supplement
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+    role: canonical_record
+- finding_id: fa-certainty
+  issue_key: cm-000097-fa-certainty
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2 major: unsupported ecological role or chemical attribution
+    materially changes the mechanism represented.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Qualify the ingredient explanation to match the candidate mechanism
+  description: The fusaric-acid evidence explanation asserts established Foc-derived
+    involvement, although the Discussion explicitly says production by the tested
+    Foc strain still needs demonstration and the graph already preserves PARTIAL mediation.
+  target_ids:
+  - CommunityMech:000097
+  field_paths:
+  - related_ingredients[0].evidence[0].explanation
+  - related_ingredients[0].evidence[0].supports
+  evidence_ids:
+  - fa-limits
+  - record
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+    role: canonical_record
+- finding_id: cultivation-context
+  issue_key: cm-000097-cultivation-context
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: source-backed identity or cultivation completion;
+    the target and qualified graph remain resolved.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Complete cultivation contexts and resolve the recorded timing gap
+  description: The record covers bacterial stock preparation but omits recoverable
+    fungal and pot contexts, stores assembly design as an environmental factor, and
+    retains a now-resolvable unread-S5 timing gap.
+  target_ids:
+  - CommunityMech:000097
+  field_paths:
+  - growth_media
+  - cultivation_setup
+  - environmental_factors[0]
+  - engineering_design.perturbation_design
+  - discussions[0].rationale
+  evidence_ids:
+  - cultivation
+  - timing
+  - supplement
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+    role: canonical_record
+- finding_id: strain-archive-completeness
+  issue_key: cm-000097-strain-archive-completeness
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: source-backed identity or cultivation completion;
+    the target and qualified graph remain resolved.'
+  rule_id: review-checklist.claim-scope-and-completeness
+  status: open
+  certainty: confirmed
+  title: Represent exact isolates and source-linked sequence resources
+  description: The three strain codes occur in design prose but are absent from structured
+    taxonomy, and the record omits a verified project with isolate-specific BioSample,
+    genome and experiment mappings.
+  target_ids:
+  - CommunityMech:000097
+  field_paths:
+  - taxonomy
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - membership
+  - subspecies
+  - datasets
+  - supplement
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+    role: canonical_record
+actions:
+- action_id: repair-cross-feeder-roles
+  description: Remove or substantiate the three CROSS_FEEDER roles.
+  finding_ids:
+  - cross-feeder-roles
+  target_ids:
+  - CommunityMech:000097
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove unsupported CROSS_FEEDER assignments or retain a role only with exact-system
+    evidence of the recipient consuming another taxon’s metabolite.
+  - If adding a supported alternative such as pathogen antagonism, attach direct strain-specific
+    assay evidence rather than the composition snippet.
+  - Do not infer feeding from no-inhibition arrows, metabolite biosynthesis, shared
+    medium or host protection; do not invent roles to preserve a score.
+- action_id: repair-fa-certainty
+  description: Qualify the ingredient explanation to match the candidate mechanism.
+  finding_ids:
+  - fa-certainty
+  target_ids:
+  - CommunityMech:000097
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+    role: canonical_record
+  acceptance_checks:
+  - State that commercial FA sensitivity supports a candidate mediator; retain the
+    unresolved production and necessary-mediation limits.
+  - Distinguish Foc-conditioned-medium inhibition from identification of the inhibitory
+    molecule and from soil disease protection.
+  - Keep the valid CHEBI identity and existing qualified graph; do not add transfer
+    or mediation arrows without source support.
+- action_id: repair-cultivation-context
+  description: Complete cultivation contexts and resolve the recorded timing gap.
+  finding_ids:
+  - cultivation-context
+  target_ids:
+  - CommunityMech:000097
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Keep LB bacterial preparation unchanged in scope; separately add source-backed
+    fungal PDA preparation and host-soil cultivation conditions.
+  - Use the concordant Methods/Figure 1/S5 initial schedule, explicitly documenting
+    the Discussion reversal; distinguish trial-D simultaneous boosters from the staggered
+    initial application.
+  - Separate C/D challenge pressure and observation duration; update the historical
+    unread-figure discussion without asserting measured soil cross-inhibition.
+  - Move the assembly/application design out of environmental_factors and retain genuine
+    environmental conditions in an appropriate structured location.
+- action_id: repair-strain-archive-completeness
+  description: Represent exact isolates and source-linked sequence resources.
+  finding_ids:
+  - strain-archive-completeness
+  target_ids:
+  - CommunityMech:000097
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Add structured source strain designations PS5, BN8.2 and T2C1.4 with exact evidence;
+    optional subspecies refinement may use verified NCBITaxon:1513890 while preserving
+    current species validity and GTDB uncertainty.
+  - Add PRJNA834929 and the exact three S2 BioSample/genome/experiment mappings with
+    source evidence and correctly typed identifiers.
+  - Distinguish complete bacterial chromosome records from the fungal WGS master and
+    SRX experiments from run/FASTQ identifiers; do not turn the master summary length
+    into genome size.
+  - Keep unqueried MLSA marker accessions source-reported and exclude the unrelated
+    comparative PRJNA695870 project.
+- action_id: preserve-qualified-graph
+  description: Preserve the source-qualified graph while applying separately authorized
+    curation.
+  finding_ids:
+  - cross-feeder-roles
+  - fa-certainty
+  - cultivation-context
+  - strain-archive-completeness
+  target_ids:
+  - CommunityMech:000097
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Banana_Fusarium_Biocontrol_SynCom12.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain all three distinct community-level nodes and zero arrows; do not convert
+    screening, redesign, assay symbols or inoculation order into causal edges.
+  - Keep transient C versus longer D protection, unconfirmed FA production and soil
+    mediation, and the documented source timing discrepancy explicit.
+  - After separately authorized curation, preserve history and rerun schema, strict,
+    term, history, reference and target/corpus network checks.
+limitations:
+- The lead reviewer inspected main Figures 3–8 and S5 pixels; the independent reviewer
+  inspected all main Figures 1–8 and supplementary Figures S1–S8. Both read the full
+  scientific main; all five supplementary tables and eight captions were assessed.
+- Data Sheet 1 annotation/CDS/protein files were downloaded and extracted but not
+  read or reanalyzed. No raw sequence, omics or disease-data reanalysis and no execution
+  of external analysis code occurred.
+- Methods and Figures 1/S5 agree on initial isolate timing, while Discussion reverses
+  PS5 and T2C1.4. Unencoded numerical/caption conflicts, including the T2C1.4 FA sensitivity
+  value, are source limitations rather than added record findings.
+- Archive checks verify metadata and exact isolate links, not sequence quality. MLSA
+  marker accessions remain source-reported; the fungal WGS master is not a complete
+  chromosome and SRX identifiers are experiments.
+- Disease suppression does not establish partner feeding, soil elimination of Foc,
+  endogenous FA production or necessary mediation. Genomic annotations and defined-substrate
+  phenotypes are not flux measurements.
+- Historical GTDB mapping statistics were not recomputed. Optional adapter availability
+  and full-corpus network receipts are explicitly separate from target-specific checks.
+notes:
+- No canonical, cache, history or generated file was changed.
+- All 24 repository inputs were pinned before assessment and rechecked.
+- Direct quotations total 17 words across the primary publication and supplements.
+- Native quality 100 is capped from 104.3333333333 and does not cancel the four findings.
+tags:
+- record-review
+- biocontrol
+- rhizosphere
+- batch-06
+```
