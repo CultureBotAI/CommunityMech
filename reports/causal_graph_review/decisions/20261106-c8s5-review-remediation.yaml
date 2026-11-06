@@ -1,0 +1,141 @@
+reviewer: antigravity
+review_mode: stage5_review_remediation
+base_commit: 759733b22a3db951a042f4fd7e52f9d29ce16879
+issues:
+- 2514
+records:
+- path: kb/communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.yaml
+  id: CommunityMech:000210
+  original_sha256: efc6e7b31f9bc7ebe11fe5a26f9f45e2a7b845684fd3a15c8b10e0d1994e6be6
+  record_sha256: 5b3d04b715d8205492ee85f687246039f64c464c7e16d07d4f43bf7b6d2b3715
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261106-c8s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-six-records-batch124.yaml
+    record_sha256: efc6e7b31f9bc7ebe11fe5a26f9f45e2a7b845684fd3a15c8b10e0d1994e6be6
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy abundance_level remediation preserves all batch124 causal graph decisions.
+  summary: Add DOMINANT abundance_level and verbatim PMID:26885935 flow-cytometry coculture evidence to Zymomonas mobilis and Escherichia coli while preserving batch124 causal graph decisions.
+  node_decisions:
+  - node: Zymomonas Amino Acid Rescue of E. coli Auxotrophs
+    rationale: Retain experimental amino-acid rescue and distinguish three alternative pairs.
+  - node: E. coli Sulfur-Metabolite Rescue of Zymomonas Auxotroph
+    rationale: Retain sulfur-rescue controls while qualifying the exact transferred compound.
+  - node: Reciprocal Auxotroph Coculture Growth
+    rationale: Retain condition-specific obligate growth and species-resolved counts without long-term stability claims.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before:
+  - source: Zymomonas Amino Acid Rescue of E. coli Auxotrophs
+    target: Reciprocal Auxotroph Coculture Growth
+    description: Partner spent-medium and amino-acid rescue support the nutritional contribution to the three separately tested
+      reciprocal pairs. The molecular release route and all additional interactions are not resolved.
+  - source: E. coli Sulfur-Metabolite Rescue of Zymomonas Auxotroph
+    target: Reciprocal Auxotroph Coculture Growth
+    description: 'PARTIAL molecular assignment: sulfur-metabolite rescue supports the ZMO0748 contribution to reciprocal growth,
+      and glutathione is sufficient in supplementation. Its exclusive necessity in coculture and the exact exchanged sulfur
+      species were not established.'
+  edges_after:
+  - source: Zymomonas Amino Acid Rescue of E. coli Auxotrophs
+    target: Reciprocal Auxotroph Coculture Growth
+    description: Partner spent-medium and amino-acid rescue support the nutritional contribution to the three separately tested
+      reciprocal pairs. The molecular release route and all additional interactions are not resolved.
+  - source: E. coli Sulfur-Metabolite Rescue of Zymomonas Auxotroph
+    target: Reciprocal Auxotroph Coculture Growth
+    description: 'PARTIAL molecular assignment: sulfur-metabolite rescue supports the ZMO0748 contribution to reciprocal growth,
+      and glutathione is sufficient in supplementation. Its exclusive necessity in coculture and the exact exchanged sulfur
+      species were not established.'
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:26885935
+  issues:
+  - 2514
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism/2026-11-06T113500Z-antigravity-2514a1.yaml
+- path: kb/communities/PPHET_Hybrid_Photosynthetic_PHB_Microbiome.yaml
+  id: CommunityMech:000359
+  original_sha256: 85af3a32baae2c92ed06ee398e552add0b70df7c4e014fb13d7b7ad6f3901cd5
+  record_sha256: f11af6a3d089a413d75e3c07203473f02529734a75c90af1c4c5b33ce2c44243
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261106-c8s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch81.yaml
+    record_sha256: 85af3a32baae2c92ed06ee398e552add0b70df7c4e014fb13d7b7ad6f3901cd5
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy abundance_level remediation preserves all batch81 causal graph decisions.
+  summary: Add ABUNDANT abundance_level and verbatim PMID:41559821 16S rRNA amplicon composition evidence to non-cyanobacterial WCRM heterotrophs while preserving batch81 causal graph decisions.
+  node_decisions:
+  - node: Engineered Phototroph Integration
+    rationale: Preserve stable phototroph integration and its demonstrated high-PHB contribution without a priority-effect claim.
+  - node: Nitrate-Limited Photoautotrophic PHB Production
+    rationale: Preserve matched small-scale production and distinguish bulk quantification from cell localization.
+  - node: Dark Acetate PHB Accumulation
+    rationale: Preserve dark acetate flexibility while separating PHB fraction, biomass and titer.
+  - node: PPHET Stress Resilience and Scaled PHB Production
+    rationale: Preserve stress protection and scaled production with reactor-specific yields and unresolved oxygen mediation.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before:
+  - source: Engineered Phototroph Integration
+    target: Nitrate-Limited Photoautotrophic PHB Production
+    description: 'Replacing the native phototroph with PHB-optimized PPT1 gives the hybrid community high PHB-production capacity:
+      PPHET reached 48% PHB/CDW, compared with 50% for axenic PPT1 and about 10% for WCRM under the matched small-scale regime.
+      This supports the engineered phototroph contribution, not proof that every increment arises exclusively in PPT1 or from
+      colonization facilitation.'
+  edges_after:
+  - source: Engineered Phototroph Integration
+    target: Nitrate-Limited Photoautotrophic PHB Production
+    description: 'Replacing the native phototroph with PHB-optimized PPT1 gives the hybrid community high PHB-production capacity:
+      PPHET reached 48% PHB/CDW, compared with 50% for axenic PPT1 and about 10% for WCRM under the matched small-scale regime.
+      This supports the engineered phototroph contribution, not proof that every increment arises exclusively in PPT1 or from
+      colonization facilitation.'
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:41559821
+  issues:
+  - 2514
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/PPHET_Hybrid_Photosynthetic_PHB_Microbiome/2026-11-06T113500Z-antigravity-2514a2.yaml
+- path: kb/communities/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture.yaml
+  id: CommunityMech:000454
+  original_sha256: bc09df336e1e5a701bf24c3f47eed41c24829eb4618c8597840052a93d0f822c
+  record_sha256: a16dd88b010ff55a4e1cc7543271b42ba9641f05f070febffa3de96d66d966f9
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261106-c8s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-four-records-batch120.yaml
+    record_sha256: bc09df336e1e5a701bf24c3f47eed41c24829eb4618c8597840052a93d0f822c
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy abundance_level remediation preserves all batch120 causal graph decisions.
+  summary: Add DOMINANT abundance_level and verbatim PMID:42468699 coculture evidence to Chelatococcus sp. XZ-Ab1 while preserving batch120 causal graph decisions.
+  node_decisions:
+  - node: Cyanobacterial Organic-Carbon Provisioning
+    rationale: Retain experimentally supported carbon cross-feeding and tracer direction without inventing a compound or nitrogen flux.
+  - node: Chelatococcus Arsenite Detoxification
+    rationale: Retain reciprocal-growth mutualism with direct growth evidence, bounding supplemented-culture comparisons and genomic route inference.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42468699
+  issues:
+  - 2514
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Thermoleptolyngbya_Chelatococcus_Arsenic_Detoxification_Coculture/2026-11-06T113500Z-antigravity-2514a3.yaml

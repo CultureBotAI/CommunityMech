@@ -1,0 +1,418 @@
+reviewer: claude
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 0694c268437c0eba37f93b08ca45fc203ad30255
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+reviewed_counts:
+  retained_nodes: 5
+  removed_nodes: 0
+  retained_arrows: 0
+  removed_arrows: 0
+  renamed_nodes: 0
+  graph_quotations: 21
+  discussion_quotations: 5
+limitations:
+- Source-based causal-graph and taxon-grounding curation and review for all 5 newly added Cycle 7 Stage
+  1 records (CommunityMech:000505 through CommunityMech:000509).
+- Other 498 MicrobialCommunity records verified via SHA-256 hash census against reports/causal_graph_review/inventory.tsv
+  (444 reviewed, 54 needs_research preserved unchanged) plus 2 CommonTaxon records in kb/taxa/.
+records:
+- path: kb/communities/Hexamine_Formaldehyde_Consortium_C1.yaml
+  id: CommunityMech:000505
+  original_sha256: 60d92b655af5f221456b8a8691dffffdc8c2e060c35481856ce125d487a0a263
+  record_sha256: 1183b1f4762087ed7d8adf1b9960dc38beda73f5d23a8c378fdf8fd0a23e0a2a
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261105-stage2-five-records-batch139.yaml
+  scope: Whole record read; every graph node, scope, participant, and zero-edge boundary verified against
+    cached open-access full text and abstract (PMID:41743136, PMC12929517, doi:10.3389/fmicb.2026.1753858)
+    and sibling Consortium C6 record CommunityMech:000405 (Batch 50).
+  summary: 'Reviewed and enriched the 1-node COMMUNITY_LEVEL representation for two-member Consortium
+    C1 (Brucella pseudintermedia SRCHD05 + Ochrobactrum sp. SRCHD06 at 1:1) in PMID:41743136 by adding
+    verbatim snippets for constituent monoculture growth kinetics (SRCHD05: 13.5 h log phase, 73 min 2
+    s doubling time; SRCHD06: 14 h log phase, 128 min 12 s doubling time) and reversible acidic hexamine-formaldehyde-ammonia
+    equilibrium, while preserving 0 downstream edges because bulk supernatant spectrophotometry (hexamine,
+    formaldehyde, COD, ammonia) at 24/48/72 h in nutrient-containing AS broth does not resolve inter-strain
+    flux or complete mineralization.'
+  node_decisions:
+  - node: C1 suspended-culture hexamine, formaldehyde, and COD removal
+    rationale: Supported by primary source (PMID:41743136, Table 1, Table 2, Fig. 2C-D, Fig. 3) with explicit
+      COMMUNITY_LEVEL scope and participating_taxa covering both C1 constituents (SRCHD05 and SRCHD06);
+      captures 24/48/72 h hexamine (49.10/68.18/86.74%), formaldehyde (38.46/44.12/45.10%), and COD (2.03/2.41/19.86%)
+      removal and ammonia production (5.90/16.11/18.89%) alongside single-strain COD reduction (42% and
+      36% from 11,900 mg/L) and growth kinetics without fabricated downstream edges.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:41743136, PMC12929517)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Brucella pseudintermedia SRCHD05
+        term:
+          id: NCBITaxon:370111
+          label: Brucella pseudintermedia
+      - preferred_term: Ochrobactrum sp. SRCHD06
+        term:
+          id: NCBITaxon:528
+          label: Ochrobactrum
+    evidence:
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: C1 49.10 68.18 86.74 38.46 44.12 45.10 2.03 2.41 19.86 5.90 16.11 18.89
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: "COD analysis revealed that isolates SRCHD05 and SRCHD06 were more efficient among the\
+        \ selected isolates. They could reduce COD by 42 and 36% after 72 h of incubation at 37 \xB0C\
+        \ from an initial load of 11,900 mg/L, respectively"
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The remaining isolates showed an increase in ammonia concentration as an indication of
+        hexamine degradation, but demonstrated an inability to remove ammonia
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The growth curve data of the selected isolates revealed that the isolate SRCHD07 was the
+        fastest growing strain among the selected five isolates, with a log phase of 12 h and doubling
+        time of 49 min and 6 s. Isolates SRCHD06 (14 h log phase, 128 min and 12 s doubling time), SRCHD05
+        (13.5 h log phase, 73 min and 2 s doubling time), SRCHD03 (20 h log phase, 121 min and 4 s doubling
+        time), and SRCHD04 (25 h log phase, 80 min, and 6 s doubling time) took longer time to reach growth
+        saturation ( Figure 3 ).
+    - reference: PMID:41743136
+      supports: PARTIAL
+      evidence_source: OTHER
+      snippet: In acidic conditions, hexamine breaks down into ammonia and formaldehyde, both of which
+        play an important role in water pollution. This being a reversible reaction, leads to the production
+        of hexamine in the presence of formaldehyde and ammonia in wastewater, hence emphasizing the rapid
+        removal of both formaldehyde and ammonia from wastewater.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:41743136
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Hexamine_Formaldehyde_Consortium_C1/2026-11-05T095000Z-antigravity-c7s201.yaml
+- path: kb/communities/Hexamine_Formaldehyde_Consortium_C2.yaml
+  id: CommunityMech:000506
+  original_sha256: 69e753afea36f64daaa75ae9793d7f2f212dd9dd740694cad1b2f230a72fcdcd
+  record_sha256: 5a2c59369389c982d1a1f2a54d2a278eee49908493a78e5c54d85af2d575979d
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261105-stage2-five-records-batch139.yaml
+  scope: Whole record read; every graph node, scope, participant, and zero-edge boundary verified against
+    cached open-access full text and abstract (PMID:41743136, PMC12929517, doi:10.3389/fmicb.2026.1753858)
+    and sibling Consortium C6 record CommunityMech:000405 (Batch 50).
+  summary: Reviewed and enriched the 1-node COMMUNITY_LEVEL representation for three-member Consortium
+    C2 (Brevundimonas diminuta SRCHD03 + Brucella pseudintermedia SRCHD05 + Ochrobactrum sp. SRCHD06 at
+    1:1:1) in PMID:41743136 by adding verbatim snippets for SRCHD05/SRCHD06 monoculture COD reduction
+    baselines (42% and 36%) and SRCHD03/SRCHD05/SRCHD06 growth kinetics, while preserving 0 downstream
+    edges.
+  node_decisions:
+  - node: C2 suspended-culture hexamine, formaldehyde, and COD removal
+    rationale: Supported by primary source (PMID:41743136, Table 1, Table 2, Fig. 2C-D, Fig. 3) with explicit
+      COMMUNITY_LEVEL scope and participating_taxa covering all three C2 constituents (SRCHD03, SRCHD05,
+      SRCHD06); captures 24/48/72 h hexamine (64.20/77.26/89.07%), formaldehyde (37.12/41.69/41.57%),
+      and COD (7.39/18.85/26.86%) removal and net ammonia production (15.71/21.64/23.51%) despite SRCHD03
+      monoculture ammonia removal.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:41743136, PMC12929517)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Brevundimonas diminuta SRCHD03
+        term:
+          id: NCBITaxon:293
+          label: Brevundimonas diminuta
+      - preferred_term: Brucella pseudintermedia SRCHD05
+        term:
+          id: NCBITaxon:370111
+          label: Brucella pseudintermedia
+      - preferred_term: Ochrobactrum sp. SRCHD06
+        term:
+          id: NCBITaxon:528
+          label: Ochrobactrum
+    evidence:
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: C2 64.20 77.26 89.07 37.12 41.69 41.57 7.39 18.85 26.86 15.71 21.64 23.51
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Only SRCHD03 showed complete removal of produced ammonia (from the breakdown of hexamine
+        into ammonia and formaldehyde) at 72 h of incubation.
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: "COD analysis revealed that isolates SRCHD05 and SRCHD06 were more efficient among the\
+        \ selected isolates. They could reduce COD by 42 and 36% after 72 h of incubation at 37 \xB0C\
+        \ from an initial load of 11,900 mg/L, respectively"
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The growth curve data of the selected isolates revealed that the isolate SRCHD07 was the
+        fastest growing strain among the selected five isolates, with a log phase of 12 h and doubling
+        time of 49 min and 6 s. Isolates SRCHD06 (14 h log phase, 128 min and 12 s doubling time), SRCHD05
+        (13.5 h log phase, 73 min and 2 s doubling time), SRCHD03 (20 h log phase, 121 min and 4 s doubling
+        time), and SRCHD04 (25 h log phase, 80 min, and 6 s doubling time) took longer time to reach growth
+        saturation ( Figure 3 ).
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:41743136
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Hexamine_Formaldehyde_Consortium_C2/2026-11-05T095000Z-antigravity-c7s202.yaml
+- path: kb/communities/Hexamine_Formaldehyde_Consortium_C3.yaml
+  id: CommunityMech:000507
+  original_sha256: d780f6bd211cd7144fc0db26b4dedf54b3c734d12349ade1511d51f243ddb5c7
+  record_sha256: 042454b4b13904fcd05ee42b019346e9940ef68ae6504be8f745266e1d9f2c5f
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261105-stage2-five-records-batch139.yaml
+  scope: Whole record read; every graph node, scope, participant, and zero-edge boundary verified against
+    cached open-access full text and abstract (PMID:41743136, PMC12929517, doi:10.3389/fmicb.2026.1753858)
+    and sibling Consortium C6 record CommunityMech:000405 (Batch 50).
+  summary: Reviewed and enriched the 1-node COMMUNITY_LEVEL representation for three-member Consortium
+    C3 (Brevundimonas diminuta SRCHD04 + Brucella pseudintermedia SRCHD05 + Ochrobactrum sp. SRCHD06 at
+    1:1:1) in PMID:41743136 by adding verbatim snippets for non-SRCHD03 ammonia accumulation and SRCHD04/SRCHD05/SRCHD06
+    monoculture growth kinetics, while preserving 0 downstream edges.
+  node_decisions:
+  - node: C3 suspended-culture hexamine, formaldehyde, and COD removal
+    rationale: Supported by primary source (PMID:41743136, Table 1, Table 2, Fig. 2C-D, Fig. 3) with explicit
+      COMMUNITY_LEVEL scope and participating_taxa covering all three C3 constituents (SRCHD04, SRCHD05,
+      SRCHD06); captures 24/48/72 h hexamine (67.21/79.70/88.07%), formaldehyde (37.43/41.63/42.05%),
+      and COD (8.71/14.63/27.30%) removal and ammonia production (18.13/21.24/22.66%).
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:41743136, PMC12929517)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Brevundimonas diminuta SRCHD04
+        term:
+          id: NCBITaxon:293
+          label: Brevundimonas diminuta
+      - preferred_term: Brucella pseudintermedia SRCHD05
+        term:
+          id: NCBITaxon:370111
+          label: Brucella pseudintermedia
+      - preferred_term: Ochrobactrum sp. SRCHD06
+        term:
+          id: NCBITaxon:528
+          label: Ochrobactrum
+    evidence:
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: C3 67.21 79.70 88.07 37.43 41.63 42.05 8.71 14.63 27.30 18.13 21.24 22.66
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: "COD analysis revealed that isolates SRCHD05 and SRCHD06 were more efficient among the\
+        \ selected isolates. They could reduce COD by 42 and 36% after 72 h of incubation at 37 \xB0C\
+        \ from an initial load of 11,900 mg/L, respectively"
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The remaining isolates showed an increase in ammonia concentration as an indication of
+        hexamine degradation, but demonstrated an inability to remove ammonia
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The growth curve data of the selected isolates revealed that the isolate SRCHD07 was the
+        fastest growing strain among the selected five isolates, with a log phase of 12 h and doubling
+        time of 49 min and 6 s. Isolates SRCHD06 (14 h log phase, 128 min and 12 s doubling time), SRCHD05
+        (13.5 h log phase, 73 min and 2 s doubling time), SRCHD03 (20 h log phase, 121 min and 4 s doubling
+        time), and SRCHD04 (25 h log phase, 80 min, and 6 s doubling time) took longer time to reach growth
+        saturation ( Figure 3 ).
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:41743136
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Hexamine_Formaldehyde_Consortium_C3/2026-11-05T095000Z-antigravity-c7s203.yaml
+- path: kb/communities/Hexamine_Formaldehyde_Consortium_C4.yaml
+  id: CommunityMech:000508
+  original_sha256: 5906a4b9c77a88595b3fab441042bd01bf6809d8573a333600e1293367992f54
+  record_sha256: 63a03e2e8960e287c4637edf7562b97d8c90e9ee25d07a3f77fb8843170488bd
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261105-stage2-five-records-batch139.yaml
+  scope: Whole record read; every graph node, scope, participant, and zero-edge boundary verified against
+    cached open-access full text and abstract (PMID:41743136, PMC12929517, doi:10.3389/fmicb.2026.1753858)
+    and sibling Consortium C6 record CommunityMech:000405 (Batch 50).
+  summary: Reviewed and enriched the 1-node COMMUNITY_LEVEL representation for three-member Consortium
+    C4 (Brucella pseudintermedia SRCHD05 + Ochrobactrum sp. SRCHD06 + Brucella pseudintermedia SRCHD07
+    at 1:1:1) in PMID:41743136 by adding verbatim growth-curve evidence for SRCHD07's 12 h log phase and
+    49 min 6 s doubling time alongside its >66% hexamine and 38% formaldehyde 24 h monoculture benchmarks,
+    while preserving 0 downstream edges.
+  node_decisions:
+  - node: C4 suspended-culture hexamine, formaldehyde, and COD removal
+    rationale: Supported by primary source (PMID:41743136, Table 1, Table 2, Fig. 2A-B, Fig. 3) with explicit
+      COMMUNITY_LEVEL scope and participating_taxa covering all three C4 constituents (SRCHD05, SRCHD06,
+      SRCHD07); captures 24/48/72 h hexamine (71.13/83.62/91.11%), formaldehyde (42.11/43.76/45.64%),
+      and COD (4.81/14.26/19.61%) removal and ammonia production (19.98/23.67/24.63%).
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:41743136, PMC12929517)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Brucella pseudintermedia SRCHD05
+        term:
+          id: NCBITaxon:370111
+          label: Brucella pseudintermedia
+      - preferred_term: Ochrobactrum sp. SRCHD06
+        term:
+          id: NCBITaxon:528
+          label: Ochrobactrum
+      - preferred_term: Brucella pseudintermedia SRCHD07
+        term:
+          id: NCBITaxon:370111
+          label: Brucella pseudintermedia
+    evidence:
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: C4 71.13 83.62 91.11 42.11 43.76 45.64 4.81 14.26 19.61 19.98 23.67 24.63
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The direct hexamine quantification data revealed all isolates to be efficient in removing
+        hexamine after 48 h of incubation, while isolate SRCHD07 showed more than 66% reduction at 24th
+        h of incubation ( Figure 2A ), indicating rapid removal of hexamine from the very beginning.
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The isolate SRCHD07 showed the highest formaldehyde reduction (38%) at 24 h of incubation,
+        followed by SRCHD08, SRCHD09, and SRCHD10 (30.72, 25.40, and 23.21, respectively).
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The growth curve data of the selected isolates revealed that the isolate SRCHD07 was the
+        fastest growing strain among the selected five isolates, with a log phase of 12 h and doubling
+        time of 49 min and 6 s. Isolates SRCHD06 (14 h log phase, 128 min and 12 s doubling time), SRCHD05
+        (13.5 h log phase, 73 min and 2 s doubling time), SRCHD03 (20 h log phase, 121 min and 4 s doubling
+        time), and SRCHD04 (25 h log phase, 80 min, and 6 s doubling time) took longer time to reach growth
+        saturation ( Figure 3 ).
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:41743136
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Hexamine_Formaldehyde_Consortium_C4/2026-11-05T095000Z-antigravity-c7s204.yaml
+- path: kb/communities/Hexamine_Formaldehyde_Consortium_C5.yaml
+  id: CommunityMech:000509
+  original_sha256: 26627da7d477347c611e8339ff3da1239b97579faab867be6316259af710659d
+  record_sha256: c80260476fe0975446f9e2415313873060271d7a38240c64bae507ed7055b99e
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261105-stage2-five-records-batch139.yaml
+  scope: Whole record read; every graph node, scope, participant, and zero-edge boundary verified against
+    cached open-access full text and abstract (PMID:41743136, PMC12929517, doi:10.3389/fmicb.2026.1753858)
+    and sibling Consortium C6 record CommunityMech:000405 (Batch 50).
+  summary: Reviewed and enriched the 1-node COMMUNITY_LEVEL representation for five-member Consortium
+    C5 (SRCHD03, SRCHD04, SRCHD05, SRCHD06, SRCHD07 at 1:1:1:1:1) in PMID:41743136 by adding verbatim
+    evidence for the monoculture log-phase and doubling-time benchmarks of all five constituent isolates
+    alongside Table 2 (94.18% hexamine, 43.88% formaldehyde, 42.17% COD reduction, 29.45% ammonia production
+    at 72 h) and main-text (94.1% hexamine, 42.4% COD, 49% formaldehyde) reporting and Figure 3 44 h OD600
+    growth profiling, while preserving 0 downstream edges.
+  node_decisions:
+  - node: C5 suspended-culture hexamine, formaldehyde, and COD removal
+    rationale: Supported by primary source (PMID:41743136, Table 1, Table 2, Fig. 3, Results narrative)
+      with explicit COMMUNITY_LEVEL scope and participating_taxa covering all five C5 constituents (SRCHD03-SRCHD07);
+      captures 24/48/72 h hexamine (79.02/87.59/94.18%), formaldehyde (16.43/37.91/43.88%), and COD (1.15/36.21/42.17%)
+      removal and ammonia production (1.94/24.08/29.45%) plus 44 h OD600 growth profiling.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:41743136, PMC12929517)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Brevundimonas diminuta SRCHD03
+        term:
+          id: NCBITaxon:293
+          label: Brevundimonas diminuta
+      - preferred_term: Brevundimonas diminuta SRCHD04
+        term:
+          id: NCBITaxon:293
+          label: Brevundimonas diminuta
+      - preferred_term: Brucella pseudintermedia SRCHD05
+        term:
+          id: NCBITaxon:370111
+          label: Brucella pseudintermedia
+      - preferred_term: Ochrobactrum sp. SRCHD06
+        term:
+          id: NCBITaxon:528
+          label: Ochrobactrum
+      - preferred_term: Brucella pseudintermedia SRCHD07
+        term:
+          id: NCBITaxon:370111
+          label: Brucella pseudintermedia
+    evidence:
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: C5 79.02 87.59 94.18 16.43 37.91 43.88 1.15 36.21 42.17 1.94 24.08 29.45
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Among the different consortia developed ( Table 1 ), consortium (C5) showed 94.1% hexamine
+        reduction associated with 42.4% COD and 49% formaldehyde reduction after 72 h of incubation, while
+        producing ammonia simultaneously.
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: 'Figure 3 Growth curve of the isolates and consortium 5 and consortium 6. Line graph showing
+        optical density at 600 nm over 44 hours for different strains: SRCHD02, SRCHD03, SRCHD04, SRCHD05,
+        SRCHD06, SRCHD07, consortium 5, and consortium 6.'
+    - reference: PMID:41743136
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The growth curve data of the selected isolates revealed that the isolate SRCHD07 was the
+        fastest growing strain among the selected five isolates, with a log phase of 12 h and doubling
+        time of 49 min and 6 s. Isolates SRCHD06 (14 h log phase, 128 min and 12 s doubling time), SRCHD05
+        (13.5 h log phase, 73 min and 2 s doubling time), SRCHD03 (20 h log phase, 121 min and 4 s doubling
+        time), and SRCHD04 (25 h log phase, 80 min, and 6 s doubling time) took longer time to reach growth
+        saturation ( Figure 3 ).
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:41743136
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Hexamine_Formaldehyde_Consortium_C5/2026-11-05T095000Z-antigravity-c7s205.yaml

@@ -118,6 +118,8 @@ OBO_DATABASES: dict[str, str] = {
     "GO": "go",
     "NCBITaxon": "ncbitaxon",
     "UBERON": "uberon",
+    "PO": "po",
+    "UO": "uo",
 }
 
 

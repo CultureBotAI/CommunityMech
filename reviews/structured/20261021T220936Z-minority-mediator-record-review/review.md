@@ -1,0 +1,1554 @@
+# Minority-mediator consortium roles, assay scope and mapping review
+
+- Review: 20261021T220936Z-minority-mediator-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T22:02:08.547547Z
+- Finished UTC: 2026-10-21T22:09:36.920559Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Whole-source review identifies one major unsupported complex-substrate role and two minor assay/cultivation and GTDB-provenance issues. Preserve the exact three-strain consortium and four-node/zero-arrow qualified graph. Eight native checks pass; completeness 35, quality raw 121 / capped 100.
+
+## Scope And Provenance
+
+Whole current record, complete focal main and declared supplements, every main/SI figure, current authority and focal provenance assessed.
+
+Selection: Only released CommunityMech:000333 in owned batch 12.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 95812d3412d5aab41fd03422340cf736ac7b56f3.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000333 | kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml | maintained | Clostridium-E. coli-Nitratidesulfovibrio Minority-Mediator Consortium |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000333 | Native command exit 0. |
+| validate-strict | passed | True | CommunityMech:000333 | Native command exit 0. |
+| validate-terms | passed | True | CommunityMech:000333 | Native command exit 0. |
+| validate-references-explained | passed | True | CommunityMech:000333 | Native command exit 0. |
+| validate-gtdb | passed | True | CommunityMech:000333 | Native command exit 0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000333 | Native command exit 0. |
+| validate-history | passed | True | CommunityMech:000333 | Native command exit 0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000333 | Native command exit 0. |
+| audit-network | failed | True | CommunityMech:000333 | Same-batch corpus diagnostic. |
+| check-network-quality | failed | True | CommunityMech:000333 | Same-batch corpus diagnostic. |
+| Whole source scientific assessment | passed | True | CommunityMech:000333 | Full main, all figures, all declared supplement text/figures/statistical sheets assessed. |
+| Reference-specific exact text | passed | True | CommunityMech:000333 | 19 strict fresh/cache occurrences: 4 abstract / 15 body-only. |
+| Ontology and native semantic review | passed | True | CommunityMech:000333 | Seven pairs/13 occurrences match; source-specific roles independently assessed. |
+| Optional structured adapter | unavailable | False | CommunityMech:000333 | Fresh owned-runtime availability plus explicit earlier filename-discovery scope. |
+| Experimental or numerical reproduction | skipped | False | CommunityMech:000333 | No raw assay, image, statistical or genome reanalysis. |
+
+## Scientific And Domain Assessments
+
+### Membership and experimental setting
+
+identity: supported. Targets: CommunityMech:000333.
+
+The exact three-strain laboratory consortium is correctly identified.
+
+Retain current strain descriptors, SYNTHETIC origin, ENGINEERED state and laboratory environment. Microscopy reporter derivatives remain assay-specific.
+
+### NCBI and GTDB core classifications
+
+grounding: concern. Targets: CommunityMech:000333.
+
+Core identities and mappings are valid; snapshot provenance needs repair.
+
+Retain exact IDs 272562/316385/882 and counts 2/2/7. Correct only unsupported release/build wording; historical issue 746 does not justify replacing currently reproducible strain mappings.
+
+### Functional roles in the focal GY consortium
+
+scope: concern. Targets: CommunityMech:000333.
+
+C. acetobutylicum glucose fermentation does not establish complex-substrate degradation.
+
+Omit or independently support PRIMARY_DEGRADER. Cac CROSS_FEEDER can be supported by E. coli-associated lactate utilization; do not automatically add SECONDARY_FERMENTER. Retain minority roles as author-attributed metabolic-output dependence with unresolved currency. E. coli role omission is not itself a scientific defect.
+
+### ecological_interactions[0]
+
+graph: supported. Targets: CommunityMech:000333.
+
+Observed label exchange and a proposed shuttle remain properly separated from mediation.
+
+Retain untyped community-level scope. No identified nutrient transfer, shuttle necessity or causal growth arrow is established; morphology does not resolve the two rods independently.
+
+### ecological_interactions[1]
+
+graph: supported. Targets: CommunityMech:000333.
+
+Directed inhibition is retained without reciprocal-competition typing.
+
+The early E. coli phase appears unaffected. pH, glucose, added metabolites and spent medium do not reproduce all live-culture features. No inference that inhibition causes its own attenuation is required.
+
+### ecological_interactions[2]
+
+graph: supported. Targets: CommunityMech:000333.
+
+Binary and cell-free assays support directed extracellular lactate cross-feeding.
+
+Keep E. coli as provider and Cac as recipient; the lactate term does not select an enantiomer or quantify donor-resolved flux. No downstream arrow to every hydrogen or growth change is established.
+
+### ecological_interactions[3] and discussions[0]
+
+graph: supported. Targets: CommunityMech:000333.
+
+The qualified addition and soluble-medium benefit node is supported.
+
+Preserve four nodes and zero arrows. Mixed OD600 estimates are not direct taxon cell divisions; genomic copies/ng DNA are not viable-cell fractions. Soluble supernatant benefit prevents assigning unique contact-mediated causality.
+
+### GY recipe, inoculum and experimental arms
+
+scope: concern. Targets: CommunityMech:000333.
+
+Core conditions are correct; source-specific context and the non-graph OD value need clarification.
+
+Separate transfer percentage from OD composition, precursor media from GY, and control/labeling arms from baseline culture. Record periodic gas removal. Initial pH and complete inorganic formulation are unresolved rather than supplied from a control or catalogue.
+
+### Growth, qPCR, fluorescence and hydrogen comparisons
+
+evidence: supported. Targets: CommunityMech:000333.
+
+The sources support distinct measurements with explicit interpretation limits.
+
+Keep genomic qPCR separate from expression assays and direct live-cell counting. Preserve pRSET-B versus pRD3/pBGF4 source discrepancy and extraction-protocol wording conflict. Do not promote first-phase-subtracted hydrogen significance into every total-yield comparison.
+
+### Chemical/process/environment terms and metals
+
+grounding: supported. Targets: CommunityMech:000333.
+
+Current broad identifiers fit the reported chemistry and laboratory setting.
+
+D-glucose carries no alpha/beta selection; lactate carries no D/L selection. GO0044419 is an umbrella process, not mechanistic proof. No dedicated metal processing follows from medium salts or marker functions.
+
+### Citation identity and excerpt fidelity
+
+evidence: supported. Targets: CommunityMech:000333.
+
+All 19 occurrences strictly match fresh source and cache.
+
+Four abstract and fifteen body-only occurrences are distinct source tiers. The cache header remains abstract_only despite appended article body; no cache refresh or metadata repair occurred.
+
+### Publication, supplements and marker resources
+
+representation: supported. Targets: CommunityMech:000333.
+
+Source resources are verified without inventing a new study deposition.
+
+The DOCX/XLSX contain published figures and processed statistical comparisons. UniProt marker proteins are background resources; P69054 is broader K-12. Empty associated_datasets alone is not a missing-deposit finding.
+
+### Prior graph repair and current follow-up
+
+provenance: supported. Targets: CommunityMech:000333.
+
+The prior graph qualification and current issue ownership are retained.
+
+Keep shared 1333 and 746 follow-up scope separate from closed 1331. This review neither reopens repaired graph assertions nor closes shared issues or adjudicates unrelated records.
+
+### Native checks and scientific completion
+
+schema: supported. Targets: CommunityMech:000333.
+
+All eight focused native checks pass; scientific review is completed.
+
+Current claim-critical sources were available and assessed. Native validity does not certify PRIMARY_DEGRADER or causal mediation; final counts follow source review.
+
+### Native completeness and validation quality
+
+completeness: supported. Targets: CommunityMech:000333.
+
+Completeness 35; quality raw 121, capped 100.
+
+## Findings
+
+### support-complex-substrate-role: Support or omit the complex-substrate role
+
+major / open / confirmed; issue key: cm-000333-support-complex-substrate-role.
+
+C. acetobutylicum PRIMARY_DEGRADER is justified by glucose fermentation, which does not establish the native complex-substrate degradation role in this focal community. Attach source-local complex-substrate evidence before retaining this optional role, or omit it. A source-qualified CROSS_FEEDER role can instead use E. coli-associated lactate utilization in the binary culture and filtered supernatant. Do not automatically infer SECONDARY_FERMENTER, import catalogue xylan capability, or interpret endoG qPCR as measured enzyme activity.
+
+### clarify-assay-and-culture-context: Clarify assay and cultivation scope
+
+minor / open / confirmed; issue key: cm-000333-clarify-assay-and-culture-context.
+
+The non-graph doubling-time value omits its second mixed-culture OD600-phase basis, while the correct core GY setup lacks useful source-specific preculture, control, reporter and gas-sampling context. Qualify 5.5 h versus 9 h as author-reported second-phase mixed-OD estimates rather than directly counted taxon-specific divisions. Separate total 10% inoculation from equal OD 1:1:1 composition, distinguish precursor media, live consortium, 0.2-micrometer-filtered spent medium and microscopy arms, and record periodic removal of accumulated gas. Preserve correct 14 mM glucose, 0.1% yeast extract, 10 mL Hungate cultures, N2, 37 °C and no shaking; do not invent initial pH, full inherited inorganic concentrations, or a resolution of reporter/plasmid and extraction-description conflicts.
+
+### document-gtdb-snapshot: Document the reproducible GTDB snapshot
+
+minor / open / confirmed; issue key: cm-000333-document-gtdb-snapshot.
+
+The three valid strain mappings call the snapshot latest and give a build date supported only by local file mtime. Use the verified crosswalk SHA and exact-ID lookup route; label mtime as local snapshot metadata unless release/build provenance is independently obtained. Retain exact strains, lineages, majority fraction 1.0 and counts 2/2/7. Historical 746 non-reproduction does not override current successful exact-ID checks or authorize closing the broader issue.
+
+## Recommended Actions And Acceptance Checks
+
+### resolve-role
+
+Support or omit focal PRIMARY_DEGRADER; retain supported recipient interpretations.
+
+- For taxonomy[0].functional_role, provide source-local complex-substrate degradation evidence before retaining PRIMARY_DEGRADER, otherwise omit that optional role. Glucose fermentation, general strain capability and endoG genomic qPCR do not establish this focal function.
+- If adding Cac CROSS_FEEDER, attach the binary E. coli/Cac and filtered E. coli supernatant lactate-utilization passages with their exact assay scope. Do not automatically infer SECONDARY_FERMENTER without the native primary-degrader-product context.
+- Retain N. vulgaris broad CROSS_FEEDER/SYNTROPHIC_PARTNER as source-attributed partner-output dependence with unresolved metabolite identity. Preserve four nodes/zero arrows and the current discussion; impose no named-metabolite, obligacy or reciprocal-benefit requirement. Do not invent an E. coli role merely to gain completeness points.
+
+### clarify-protocol
+
+Align non-graph assay wording with source-specific experimental stages.
+
+- Qualify environmental_factors[1].value and its explanation as author-reported second mixed-culture OD600-phase estimates (5.5 h versus 9 h). Preserve genomic qPCR as copies/ng DNA, not direct live-cell division or endpoint fractions; retain the existing qualified growth node.
+- Keep 14 mmol/L glucose, 0.1% yeast extract, 10 mL GY, Hungate tubes, N2, 37 °C and no shaking. Separate total 10% inoculation from 1:1:1 OD600 composition in suitable setup notes. Do not convert equal OD into equal viable-cell counts or infer an initial pH from the pH 4 intervention.
+- Distinguish anaerobic Starkey N. vulgaris and 2YTG Cac precultures from aerobic LB-Miller E. coli preparation, focal washed-cell GY assembly, 0.2 μm filtered spent-medium recipient assays, and low-glucose/metabolite/pH controls. Full inherited inorganic concentrations remain unresolved unless separately verified; no catalogue recipe substitution.
+- Record the measured removal of accumulated gas at each H2 sampling point and cumulative gas accounting. No pressure, replenishment, liquid-feed or cultivation-mode change is invented from gas sampling alone.
+- Keep mCherry/calcein labeling and gentamycin selection within the microscopy preparation. Preserve Results pRSET-B versus Methods pBGF4/pRD3 naming and Figure 6 versus Methods extraction wording; do not silently choose a vector or assert separate extraction actually occurred. Exact source/SI evidence must support any added experimental detail.
+
+### document-mapping
+
+Replace release/build assertions with verified snapshot provenance.
+
+- Preserve exact NCBITaxon 272562/316385/882, current GTDB lineages, majority 1.0 and counts 2/2/7; all resolve by ncbi_id. Do not replace a strain with a generic species because of historical issue 746.
+- Record crosswalk SHA 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd and exact lookup route. Label July 25 mtime as file metadata unless independent release/build evidence is available; is_reclassified remains the helper name-comparison flag.
+- Keep catalogue aliases and source stock identities separate from reporter constructs and maintenance media. Scope any follow-up to this record without closing broader 746 or shared 1333.
+
+### validate-future-curation
+
+Validate separately authorized canonical repairs and preserve provenance.
+
+- Attach exact claim-local source evidence, preserve all four current nodes and no downstream arrows, and keep measured endpoints distinct from conceptual mediation. Do not generalize first-phase-subtracted hydrogen significance to total yields.
+- Any later cache metadata correction must retain source/version boundaries: the current abstract_only header coexists with appended main article text. Do not append supplement text into the article cache. UniProt marker resources are not newly deposited experimental datasets.
+- After authorized canonical changes, append history and run schema, strict, terms, references, GTDB, domain and history checks, then regenerate/check required HTML. This review itself makes no canonical/cache/history/generated changes or issue mutation.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml; Whole maintained record | supports | The defined three-strain GY consortium has four interaction nodes and no downstream arrows. Existing graph descriptions distinguish label exchange, lactate uptake, growth-phase estimates and unresolved mediation. |
+| identity | PMID:41684672; DOI:10.3389/fmicb.2026.1682391; Materials and methods: Cultures and growth conditions, paragraph 1 | supports | Focal stocks are C. acetobutylicum ATCC 824, E. coli DH10B (Invitrogen EC0113), and N. vulgaris Hildenborough NCIMB 8303. The deliberate laboratory assembly supports SYNTHETIC origin, ENGINEERED state and laboratory environment. Reporter constructs belong to their experimental arm. |
+| medium | PMID:41684672; DOI:10.3389/fmicb.2026.1682391; Materials and methods: Cultures and growth conditions, paragraphs 1–2 | supports | GY contains 14 mmol/L glucose and 0.1% yeast extract, with Starkey-like inorganic nutrients and MgCl2 replacing MgSO4. Initial GY pH and the complete inherited inorganic recipe are not given here. Starkey, 2YTG and aerobic LB-Miller are member precultures, not interchangeable focal media. |
+| operation | PMID:41684672; DOI:10.3389/fmicb.2026.1682391; Materials and methods: Cultures and growth conditions, paragraph 2 | supports | Washed exponential cultures provide a 10% inoculum. Equal OD600 contributions give binary 1:1 or triple 1:1:1 composition. The focal culture is 10 mL GY in anaerobic Hungate tubes under N2 at 37 °C without shaking. Composition ratio is distinct from transfer percentage and does not establish equal viable-cell numbers. |
+| controls | PMID:41684672; DOI:10.3389/fmicb.2026.1682391; Materials and methods: Cultures and growth conditions, paragraphs 3–6; Results: Deciphering C. acetobutylicum behavior with E. coli | supports | Spent-medium arms centrifuge and filter E. coli or E. coli/N. vulgaris cultures through 0.2 μm filters, then inoculate C. acetobutylicum at 10% v/v. Separate controls use 10 mmol/L glucose, 5 mmol/L lactate and/or acetate, 1 mmol/L succinate, or HCl-adjusted pH 4. They do not define the baseline GY composition or initial pH. |
+| gas | PMID:41684672; DOI:10.3389/fmicb.2026.1682391; Materials and methods: Analytical analyses → Analysis of hydrogen production | supports | Gas accumulated at each sampling time is measured and removed to limit hydrogen accumulation. Headspace GC and cumulative accounting include retained, dissolved and previously removed hydrogen; the source reports production per culture volume. This operating detail should accompany the focal setup without inventing gas pressure, replenishment or liquid-flow settings. |
+| fermentation | PMID:41684672; DOI:10.3389/fmicb.2026.1682391; Results: E. coli and C. acetobutylicum co-culture behavior, paragraphs 1–4; Supplementary Figure S1 | supports | The focal carbon source is glucose. C. acetobutylicum consumes it and produces acids and hydrogen; the supplementary model depicts sugar fermentation. Neither this observation nor an endoG genomic marker demonstrates complex-substrate degradation within the focal consortium. |
+| lactate | PMID:41684672; DOI:10.3389/fmicb.2026.1682391; Results: Deciphering C. acetobutylicum behavior with E. coli, paragraphs 3–4; Figures 3B–C and 4 | supports | Lactate consumption occurs in the binary E. coli/C. acetobutylicum culture and when C. acetobutylicum receives filtered E. coli supernatant. These complementary assays support the existing extracellular CROSS_FEEDING node and a source-qualified recipient role. They do not identify lactate as the unique cause of all growth or hydrogen changes. |
+| growth | PMID:41684672; DOI:10.3389/fmicb.2026.1682391; Results: Consortium complexification by adding N. vulgaris, paragraphs 1–2; Figures 1C–D and 2 | supports | The authors report second mixed-culture OD600-phase estimates of 5.5 h in the triple consortium versus 9 h in the binary culture. Filtered E. coli/N. vulgaris supernatant also improves C. acetobutylicum growth without simultaneous recipient contact. The graph already retains this assay basis; the environmental-factor value should match it. |
+| q-pcr | PMID:41684672; DOI:10.3389/fmicb.2026.1682391; Results: Quantification of E. coli, N. vulgaris and C. acetobutylicum in the 3-bacteria consortium; Materials and methods: DNA extraction and quantitative PCR; Figure 6 | supports | Genomic qPCR uses endoG, dsrA and sdhC and reports copies/ng DNA, not direct viable-cell divisions or universal fractions. Methods says the same extraction protocol was used because species could not be separated; the Figure 6 caption describes different protocol needs. Preserve the source discrepancy and taxon-dependent extraction bias, without inventing separate measured cell counts. |
+| labels | PMID:41684672; DOI:10.3389/fmicb.2026.1682391; Results: Exchange of biological material with N. vulgaris as shuttle; Materials and methods: Labeling with red fluorescent protein; Labeling with calcein-AM ester; Confocal microscopy; Figure 7 | supports | Microscopy uses calcein-labeled C. acetobutylicum, mCherry-expressing E. coli and initially unlabeled N. vulgaris, observed at time zero and 26 h. The reported double-label percentages support exchange and a proposed shuttle, not identified nutrient flux or unique growth mediation. Results names pRSET-B whereas Methods describes pBGF4-derived pRD3; do not resolve that discrepancy or apply reporter selection to every arm. |
+| minority-roles | PMID:41684672; DOI:10.3389/fmicb.2026.1682391; Results: Consortium complexification by adding N. vulgaris, final paragraph; Discussion, paragraphs 4–5 | supports | The authors infer that N. vulgaris exploits partner metabolic outputs while leaving its particular carbon source unresolved. This supports source-attributed broad recipient/syntrophic roles. An identified molecule, obligacy or reciprocal fitness is not imposed; fluorescence alone is not the utilization evidence. |
+| statistics | PMID:41684672; Supplementary Table_1.xlsx; Pvalues_for_Figure_2; Pvalues_for_Figure_4_hydrogen; Pvalues_for_Figure_7; Pvalues_for_Figure_S4 | supports | All eleven published sheets were read. Binary-versus-triple growth differs (P=.0241), while C. acetobutylicum versus triple is not different (P=.9995). Hydrogen P=.0259 compares first-phase-subtracted yields; total binary-versus-triple P=.9055 is a different contrast. The final two S4 hydrogen rows repeat a label; no silent reassignment or numerical reanalysis was made. |
+| supplement | PMID:41684672; Supplementary_file_1.docx; Figures S1–S4, all captions and plots | supports | S1 models fermentation pathways; S2 gives monoculture yields; S3 gives electron balances with sampling corrections; S4 compares E. coli-associated yields across arms. All four composites were viewed in a local PDF derivative. They do not establish complex-substrate degradation, a unique shuttle mechanism or universal statistical improvement. |
+| ontology | /private/tmp/cm-review-session/batch-12/000333/ontology-authority.json; Seven ID-label/definition pairs across 13 occurrences | supports | All labels match. D-glucose, non-stereospecific lactate and laboratory environment fit the source. GO:0044419 is a broad interspecies-process umbrella, not a specific shuttle mechanism; its gene-annotation QC subset is not an automatic CommunityMech error. |
+| schema | /private/tmp/cm-review-session/batch-12/000333/child-schema-semantics.json; FunctionalRoleEnum, InteractionTypeEnum and GrowthMedia definitions | supports | PRIMARY_DEGRADER requires complex-substrate degradation. CROSS_FEEDER requires partner-metabolite utilization; SECONDARY_FERMENTER requires products from primary degraders. SYNTROPHIC_PARTNER remains broader than the product-removal SYNTROPHY interaction. Roles are optional. |
+| gtdb | /private/tmp/cm-review-session/batch-12/000333/child-gtdb-crosswalk.json; Exact encoded IDs 272562, 316385 and 882 | supports | All three classifications reproduce by exact ncbi_id with majority 1.0 and counts two, two and seven. Current lineages remain valid. Local mtime does not establish a GTDB release named latest or a build date. |
+| strain | /private/tmp/cm-review-session/batch-12/000333/child-strain-authority.json; Fresh Methods, local NCBI ranks/parents and bounded public catalogue identity | supports | The current terms identify the intended stocks. Direct CIP catalogue links NCIMB 8303 to Hildenborough/DSM 644/ATCC 29579. ATCC 824 direct opens timed out; indexed catalogue capability remains general context. DH10B has no explicit rank in this local node; no species-rank replacement is inferred. |
+| semantics | /private/tmp/cm-review-session/batch-12/000333/ontology-semantic-notes.json; Final source-specific role, graph, chemistry and culture conclusions | supports | Preserve four nodes/zero arrows and the source-qualified minority roles. Glucose fermentation does not support the current complex-substrate role. Keep current strains and distinguish mixed OD600, genomic qPCR, label exchange and causal inference. |
+| resources | /private/tmp/cm-review-session/batch-12/000333/dataset-verification.json; Publication/SI identity and source-listed UniProt markers | supports | The primary publication and two acquired supplements are verified. Q97KU1, P45574 and P69054 are background marker proteins, not new study deposits. P69054 represents broader K-12 rather than an exact DH10B stock assignment. No mandatory dataset or cross-Mech recipe finding is inferred. |
+| snippets | /private/tmp/cm-review-session/batch-12/000333/snippet-audit.json; Nineteen reference-specific excerpt occurrences | supports | All 19 strictly match fresh XML and selected cache: four abstract-supported and fifteen body-only occurrences. Text matching does not prove the PRIMARY_DEGRADER role or shuttle-mediated growth. |
+| history | /private/tmp/cm-review-session/batch-12/000333/provenance-audit.json; Whole history, exact focal batch20 row/adversarial context and current issue bodies/comments | supports | Current 1331 is closed; shared non-graph 1333 and GTDB 746 are open. All comments were read. The prior graph repair is preserved. Current exact-strain mappings reproduce despite the historical 746 concern; this review does not close its broader scope or other targets. |
+| historical-source | /private/tmp/cm-review-session/batch-12/000333/historical-source-byte-comparison.json; Prior recorded XML digest versus fresh bytes | supports | Fresh XML is byte-identical to the prior source. The old path remains inert historical metadata; no missing-path hash exception or source reconstruction is used. |
+| inspect | /private/tmp/cm-review-session/batch-12/000333/inspect.json; Fresh official 26-input inspection | supports | The target, cache, sole history, exact batch20 decision/adversarial and 21 authorities were inspected. Ignored-inclusive focal discovery found no additional prior review within the declared directories; generic corpus context was not assessed as another record. |
+| assets | /private/tmp/cm-review-session/batch-12/000333/lead-source-assets.json; Sixteen package members and local supplement rendering | supports | Seven main JPEGs, seven thumbnails, one DOCX and one XLSX were recovered. Main F3/F4 alt-text is swapped; actual captions/images are used. Local rendering supplies all four SI figure pixels while preserving original files. |
+| lead-read | /private/tmp/cm-review-session/batch-12/000333/lead-primary-read-scope.json; Whole fresh main, 64 references, seven main images and complete SI | supports | Lead read all fresh scientific sections/back matter, all reference entries, every main and supplementary figure, and all eleven workbook sheets. No statistical or image reanalysis occurred. Cache and authority read scopes are explicitly distinguished. |
+| source-scope | /private/tmp/cm-review-session/batch-12/000333/source-audit.json; Three final groups, exact selectors and current-claim completion | supports | Completed source review identifies one major role-support issue and two minor assay/cultivation and GTDB-provenance issues. No extra mechanism, resource or compulsory-role finding is added. |
+| root-source | /private/tmp/cm-review-session/batch-12/000333/root-independent-source-audit.json; Independent primary, SI, authority and provenance assessment | supports | Root independently assessed the whole primary study and supplements and agrees with the three groups; its exact read scope is recorded separately. |
+| metrics | /private/tmp/cm-review-session/batch-12/000333/support-final-audit.json; Distinct final support and literal native arithmetic | supports | Completeness is 35 because the native all-role 50-point block is not earned when the optional E. coli role is absent. Eight evidence occurrences/four nodes give mean two; COMPLETE adds 15. One major/two minor yields raw 121, capped 100. No role is invented to improve a score. |
+| support-manifest | /private/tmp/cm-review-session/batch-12/000333/supporting-artifact-manifest.json; Final supporting artifacts | supports | Frozen support, source and resource hashes are retained; preliminary support remains unchanged. |
+| auxiliary | /private/tmp/cm-review-session/batch-12/000333/auxiliary-frozen-manifest.json; Final native and authority artifact hashes | supports | Eight native checks pass; seven pairs/13 occurrences match. All 26 inputs and the cache remain unchanged; initial validator summary is preserved. |
+| final-native | /private/tmp/cm-review-session/batch-12/000333/final-validator-summary.json; Actual eight native checks and input-integrity results | supports | Schema, strict, term, reference, GTDB, domain, history and cache-name checks pass. Native success is distinct from scientific support. |
+| adapter | /private/tmp/cm-review-session/batch-12/000333/adapter-check.json; Fresh batch 12 runtime checks and explicitly reused batch11 record403 discovery | supports | Owned-runtime PATH/module/venv checks were fresh; filename-search discovery is reused from 2026-10-21T19:20:45.556660+00:00. Another checkout runner was not executed; no global absence or new filename search is claimed. |
+| check-validate | /private/tmp/cm-review-session/batch-12/000333/validate.json; Actual command and recorded output | supports | Native result; scientific source entailment separately assessed. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-12/000333/validate-strict.json; Actual command and recorded output | supports | Native result; scientific source entailment separately assessed. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-12/000333/validate-terms.json; Actual command and recorded output | supports | Native result; scientific source entailment separately assessed. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-12/000333/validate-references-explained.json; Actual command and recorded output | supports | Native result; scientific source entailment separately assessed. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-12/000333/validate-gtdb.json; Actual command and recorded output | supports | Native result; scientific source entailment separately assessed. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-12/000333/validate-gtdb-domain.json; Actual command and recorded output | supports | Native result; scientific source entailment separately assessed. |
+| check-validate-history | /private/tmp/cm-review-session/batch-12/000333/validate-history.json; Actual command and recorded output | supports | Native result; scientific source entailment separately assessed. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-12/000333/normalize-cache-names-check.json; Actual command and recorded output | supports | Native result; scientific source entailment separately assessed. |
+| check-audit-network | /private/tmp/cm-review-session/batch-12/audit-network.json; Same-batch corpus diagnostic | supports | Actual corpus result reused without assessment of later records. |
+| check-check-network-quality | /private/tmp/cm-review-session/batch-12/check-network-quality.json; Same-batch corpus diagnostic | supports | Actual corpus result reused without assessment of later records. |
+
+## Limits And Additional Notes
+
+- Lead read the whole 67,866-character main projection, 64 references, all seven main figures, all four SI figures/captions and all eleven workbook sheets. No raw assay/statistical/image reanalysis. Published F3/F4 alt-text is swapped; caption/image identities are used.
+- Reporter-vector and extraction-description conflicts remain source-attributed. Final two S4 workbook hydrogen rows duplicate a label. No silent reconciliation or new mechanistic claim is inferred from these source issues.
+- Current GY core conditions are supported; the full inherited inorganic recipe and initial pH are not specified in the focal main. No unrelated catalogue medium or control condition is imported.
+- All 19 excerpt occurrences strictly match fresh XML/cache: 4 abstract and 15 body-only. The cache header/body mismatch is retained unchanged; lead fresh-source review and sibling whole-cache read are distinct scopes.
+- Authority checks preserve exact strains and mapping cores. Direct ATCC 824 opens timed out; indexed catalogue capability is general context. P69054 is a broader K-12 protein resource, not proof of exact study-stock sequence identity.
+- Optional adapter availability is fresh in batch 12; filename discovery is explicitly reused from batch 11 record 403. No other-checkout runner, paid source, source editing or canonical mutation occurred.
+- Completed scientific review; 1 major / 2 minor; completeness 35 and quality raw 121 / capped 100.
+- Missing optional E. coli role affects native arithmetic but is not a separate finding. No mandatory dataset omission or inferred new causal arrow.
+- Initial source/native/support artifacts remain immutable. Parent alone saves after independent whole-candidate acceptance.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T220936Z-minority-mediator-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Minority-mediator consortium roles, assay scope and mapping review
+started_at: '2026-10-21T22:02:08.547547Z'
+finished_at: '2026-10-21T22:09:36.920559Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate source, authority and support agents; no person-level
+    independence assertion.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Whole-source review identifies one major unsupported complex-substrate role
+  and two minor assay/cultivation and GTDB-provenance issues. Preserve the exact three-strain
+  consortium and four-node/zero-arrow qualified graph. Eight native checks pass; completeness
+  35, quality raw 121 / capped 100.
+source:
+  git_revision: 95812d3412d5aab41fd03422340cf736ac7b56f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium/2026-10-06T002338Z-codex-3e7140.yaml
+    sha256: 5513935b9ec69d259fe26f201e318361ea9cf61d02e6cd6c6ab9cb5c410faeb0
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+    sha256: 2f6a2ce202dc1f694ca8135b2fa16a97affaee218748de4a8de42ebf127a5e7a
+    role: target
+  - path: references_cache/PMID_41684672.md
+    sha256: a79b209e44712340ef9b0c877328edccd0f4b3cd992e851f07a84a4269fd4e1b
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261005-batch20.yaml
+    sha256: a75fc7a6bce8c3b04e20b5a5b9e061b503e803bc312fbf6c5dcb49e6cfc3032b
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-three-records-batch20.yaml
+    sha256: febd25cb92f04767991d8f3e54abf8e636a17c04b2cf97d5bd61ba9b6b400a45
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000333
+  path: kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+  label: Clostridium-E. coli-Nitratidesulfovibrio Minority-Mediator Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+    role: canonical_record
+scope:
+  description: Whole current record, complete focal main and declared supplements,
+    every main/SI figure, current authority and focal provenance assessed.
+  selection: Only released CommunityMech:000333 in owned batch 12.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000333
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000333
+  command: just --no-dotenv validate kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000333
+  command: just --no-dotenv validate-strict kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+    --out /private/tmp/cm-review-session/batch-12/000333/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000333
+  command: just --no-dotenv validate-terms kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000333
+  command: just --no-dotenv validate-references-explained kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000333
+  command: just --no-dotenv validate-gtdb kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000333
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000333
+  command: just --no-dotenv validate-history history/records/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000333
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Same-batch corpus diagnostic.
+  target_ids:
+  - CommunityMech:000333
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-12/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - metrics
+  scope_note: Explicit batch 12 reuse; focused current target checks retained separately.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Same-batch corpus diagnostic.
+  target_ids:
+  - CommunityMech:000333
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-12/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - metrics
+  scope_note: Explicit batch 12 reuse; focused current target checks retained separately.
+- check_id: scientific-source
+  name: Whole source scientific assessment
+  status: passed
+  required: true
+  summary: Full main, all figures, all declared supplement text/figures/statistical
+    sheets assessed.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - lead-read
+  - source-scope
+  - root-source
+- check_id: direct-excerpts
+  name: Reference-specific exact text
+  status: passed
+  required: true
+  summary: '19 strict fresh/cache occurrences: 4 abstract / 15 body-only.'
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - snippets
+- check_id: authority-review
+  name: Ontology and native semantic review
+  status: passed
+  required: true
+  summary: Seven pairs/13 occurrences match; source-specific roles independently assessed.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - ontology
+  - schema
+  - gtdb
+  - strain
+- check_id: adapter
+  name: Optional structured adapter
+  status: unavailable
+  required: false
+  summary: Fresh owned-runtime availability plus explicit earlier filename-discovery
+    scope.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - adapter
+- check_id: reanalysis
+  name: Experimental or numerical reproduction
+  status: skipped
+  required: false
+  summary: No raw assay, image, statistical or genome reanalysis.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - lead-read
+  - resources
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+  locator: Whole maintained record
+  summary: The defined three-strain GY consortium has four interaction nodes and no
+    downstream arrows. Existing graph descriptions distinguish label exchange, lactate
+    uptake, growth-phase estimates and unresolved mediation.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.917796Z'
+- evidence_id: identity
+  kind: primary_source
+  reference: PMID:41684672; DOI:10.3389/fmicb.2026.1682391
+  locator: 'Materials and methods: Cultures and growth conditions, paragraph 1'
+  summary: Focal stocks are C. acetobutylicum ATCC 824, E. coli DH10B (Invitrogen
+    EC0113), and N. vulgaris Hildenborough NCIMB 8303. The deliberate laboratory assembly
+    supports SYNTHETIC origin, ENGINEERED state and laboratory environment. Reporter
+    constructs belong to their experimental arm.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.917857Z'
+  snapshot_sha256: 11e0a13c235db5f00b4929ea591bc75580681bc34beaf93076e84032d1cbe004
+- evidence_id: medium
+  kind: primary_source
+  reference: PMID:41684672; DOI:10.3389/fmicb.2026.1682391
+  locator: 'Materials and methods: Cultures and growth conditions, paragraphs 1–2'
+  summary: GY contains 14 mmol/L glucose and 0.1% yeast extract, with Starkey-like
+    inorganic nutrients and MgCl2 replacing MgSO4. Initial GY pH and the complete
+    inherited inorganic recipe are not given here. Starkey, 2YTG and aerobic LB-Miller
+    are member precultures, not interchangeable focal media.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.917955Z'
+  snapshot_sha256: 11e0a13c235db5f00b4929ea591bc75580681bc34beaf93076e84032d1cbe004
+- evidence_id: operation
+  kind: primary_source
+  reference: PMID:41684672; DOI:10.3389/fmicb.2026.1682391
+  locator: 'Materials and methods: Cultures and growth conditions, paragraph 2'
+  summary: Washed exponential cultures provide a 10% inoculum. Equal OD600 contributions
+    give binary 1:1 or triple 1:1:1 composition. The focal culture is 10 mL GY in
+    anaerobic Hungate tubes under N2 at 37 °C without shaking. Composition ratio is
+    distinct from transfer percentage and does not establish equal viable-cell numbers.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.918032Z'
+  snapshot_sha256: 11e0a13c235db5f00b4929ea591bc75580681bc34beaf93076e84032d1cbe004
+  quote: without shaking
+- evidence_id: controls
+  kind: primary_source
+  reference: PMID:41684672; DOI:10.3389/fmicb.2026.1682391
+  locator: 'Materials and methods: Cultures and growth conditions, paragraphs 3–6;
+    Results: Deciphering C. acetobutylicum behavior with E. coli'
+  summary: Spent-medium arms centrifuge and filter E. coli or E. coli/N. vulgaris
+    cultures through 0.2 μm filters, then inoculate C. acetobutylicum at 10% v/v.
+    Separate controls use 10 mmol/L glucose, 5 mmol/L lactate and/or acetate, 1 mmol/L
+    succinate, or HCl-adjusted pH 4. They do not define the baseline GY composition
+    or initial pH.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.918108Z'
+  snapshot_sha256: 11e0a13c235db5f00b4929ea591bc75580681bc34beaf93076e84032d1cbe004
+- evidence_id: gas
+  kind: primary_source
+  reference: PMID:41684672; DOI:10.3389/fmicb.2026.1682391
+  locator: 'Materials and methods: Analytical analyses → Analysis of hydrogen production'
+  summary: Gas accumulated at each sampling time is measured and removed to limit
+    hydrogen accumulation. Headspace GC and cumulative accounting include retained,
+    dissolved and previously removed hydrogen; the source reports production per culture
+    volume. This operating detail should accompany the focal setup without inventing
+    gas pressure, replenishment or liquid-flow settings.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.918182Z'
+  snapshot_sha256: 11e0a13c235db5f00b4929ea591bc75580681bc34beaf93076e84032d1cbe004
+- evidence_id: fermentation
+  kind: primary_source
+  reference: PMID:41684672; DOI:10.3389/fmicb.2026.1682391
+  locator: 'Results: E. coli and C. acetobutylicum co-culture behavior, paragraphs
+    1–4; Supplementary Figure S1'
+  summary: The focal carbon source is glucose. C. acetobutylicum consumes it and produces
+    acids and hydrogen; the supplementary model depicts sugar fermentation. Neither
+    this observation nor an endoG genomic marker demonstrates complex-substrate degradation
+    within the focal consortium.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.918257Z'
+  snapshot_sha256: 11e0a13c235db5f00b4929ea591bc75580681bc34beaf93076e84032d1cbe004
+- evidence_id: lactate
+  kind: primary_source
+  reference: PMID:41684672; DOI:10.3389/fmicb.2026.1682391
+  locator: 'Results: Deciphering C. acetobutylicum behavior with E. coli, paragraphs
+    3–4; Figures 3B–C and 4'
+  summary: Lactate consumption occurs in the binary E. coli/C. acetobutylicum culture
+    and when C. acetobutylicum receives filtered E. coli supernatant. These complementary
+    assays support the existing extracellular CROSS_FEEDING node and a source-qualified
+    recipient role. They do not identify lactate as the unique cause of all growth
+    or hydrogen changes.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.918331Z'
+  snapshot_sha256: 11e0a13c235db5f00b4929ea591bc75580681bc34beaf93076e84032d1cbe004
+- evidence_id: growth
+  kind: primary_source
+  reference: PMID:41684672; DOI:10.3389/fmicb.2026.1682391
+  locator: 'Results: Consortium complexification by adding N. vulgaris, paragraphs
+    1–2; Figures 1C–D and 2'
+  summary: The authors report second mixed-culture OD600-phase estimates of 5.5 h
+    in the triple consortium versus 9 h in the binary culture. Filtered E. coli/N.
+    vulgaris supernatant also improves C. acetobutylicum growth without simultaneous
+    recipient contact. The graph already retains this assay basis; the environmental-factor
+    value should match it.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.918403Z'
+  snapshot_sha256: 11e0a13c235db5f00b4929ea591bc75580681bc34beaf93076e84032d1cbe004
+- evidence_id: q-pcr
+  kind: primary_source
+  reference: PMID:41684672; DOI:10.3389/fmicb.2026.1682391
+  locator: 'Results: Quantification of E. coli, N. vulgaris and C. acetobutylicum
+    in the 3-bacteria consortium; Materials and methods: DNA extraction and quantitative
+    PCR; Figure 6'
+  summary: Genomic qPCR uses endoG, dsrA and sdhC and reports copies/ng DNA, not direct
+    viable-cell divisions or universal fractions. Methods says the same extraction
+    protocol was used because species could not be separated; the Figure 6 caption
+    describes different protocol needs. Preserve the source discrepancy and taxon-dependent
+    extraction bias, without inventing separate measured cell counts.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.918476Z'
+  snapshot_sha256: 11e0a13c235db5f00b4929ea591bc75580681bc34beaf93076e84032d1cbe004
+- evidence_id: labels
+  kind: primary_source
+  reference: PMID:41684672; DOI:10.3389/fmicb.2026.1682391
+  locator: 'Results: Exchange of biological material with N. vulgaris as shuttle;
+    Materials and methods: Labeling with red fluorescent protein; Labeling with calcein-AM
+    ester; Confocal microscopy; Figure 7'
+  summary: Microscopy uses calcein-labeled C. acetobutylicum, mCherry-expressing E.
+    coli and initially unlabeled N. vulgaris, observed at time zero and 26 h. The
+    reported double-label percentages support exchange and a proposed shuttle, not
+    identified nutrient flux or unique growth mediation. Results names pRSET-B whereas
+    Methods describes pBGF4-derived pRD3; do not resolve that discrepancy or apply
+    reporter selection to every arm.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.918548Z'
+  snapshot_sha256: 11e0a13c235db5f00b4929ea591bc75580681bc34beaf93076e84032d1cbe004
+- evidence_id: minority-roles
+  kind: primary_source
+  reference: PMID:41684672; DOI:10.3389/fmicb.2026.1682391
+  locator: 'Results: Consortium complexification by adding N. vulgaris, final paragraph;
+    Discussion, paragraphs 4–5'
+  summary: The authors infer that N. vulgaris exploits partner metabolic outputs while
+    leaving its particular carbon source unresolved. This supports source-attributed
+    broad recipient/syntrophic roles. An identified molecule, obligacy or reciprocal
+    fitness is not imposed; fluorescence alone is not the utilization evidence.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.918621Z'
+  snapshot_sha256: 11e0a13c235db5f00b4929ea591bc75580681bc34beaf93076e84032d1cbe004
+- evidence_id: statistics
+  kind: primary_source
+  reference: PMID:41684672; Supplementary Table_1.xlsx
+  locator: Pvalues_for_Figure_2; Pvalues_for_Figure_4_hydrogen; Pvalues_for_Figure_7;
+    Pvalues_for_Figure_S4
+  summary: All eleven published sheets were read. Binary-versus-triple growth differs
+    (P=.0241), while C. acetobutylicum versus triple is not different (P=.9995). Hydrogen
+    P=.0259 compares first-phase-subtracted yields; total binary-versus-triple P=.9055
+    is a different contrast. The final two S4 hydrogen rows repeat a label; no silent
+    reassignment or numerical reanalysis was made.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.918694Z'
+  snapshot_sha256: c102cd0805b0134db1f056053fc70ae9f66db90006dd411391743656e7707c04
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:41684672; Supplementary_file_1.docx
+  locator: Figures S1–S4, all captions and plots
+  summary: S1 models fermentation pathways; S2 gives monoculture yields; S3 gives
+    electron balances with sampling corrections; S4 compares E. coli-associated yields
+    across arms. All four composites were viewed in a local PDF derivative. They do
+    not establish complex-substrate degradation, a unique shuttle mechanism or universal
+    statistical improvement.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.918736Z'
+  snapshot_sha256: b5cb6524745b4416043a19099889fe6e2bdd40050725e5101dbcdd08462621b0
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000333/ontology-authority.json
+  locator: Seven ID-label/definition pairs across 13 occurrences
+  summary: All labels match. D-glucose, non-stereospecific lactate and laboratory
+    environment fit the source. GO:0044419 is a broad interspecies-process umbrella,
+    not a specific shuttle mechanism; its gene-annotation QC subset is not an automatic
+    CommunityMech error.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.918954Z'
+  snapshot_sha256: c0addc41b1196bcfbcf59086b65d2e9559050b90eb5edf9980b044becd23f5c7
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000333/child-schema-semantics.json
+  locator: FunctionalRoleEnum, InteractionTypeEnum and GrowthMedia definitions
+  summary: PRIMARY_DEGRADER requires complex-substrate degradation. CROSS_FEEDER requires
+    partner-metabolite utilization; SECONDARY_FERMENTER requires products from primary
+    degraders. SYNTROPHIC_PARTNER remains broader than the product-removal SYNTROPHY
+    interaction. Roles are optional.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.918990Z'
+  snapshot_sha256: 8244aa7801c5673af55459f7b6b426f9e020e86dbc2f5d734d9495241b515202
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000333/child-gtdb-crosswalk.json
+  locator: Exact encoded IDs 272562, 316385 and 882
+  summary: All three classifications reproduce by exact ncbi_id with majority 1.0
+    and counts two, two and seven. Current lineages remain valid. Local mtime does
+    not establish a GTDB release named latest or a build date.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919028Z'
+  snapshot_sha256: 810718801a5af61fe28e28becbc9cb60a9041cc1d15baac7b8c4f141f53ed088
+- evidence_id: strain
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000333/child-strain-authority.json
+  locator: Fresh Methods, local NCBI ranks/parents and bounded public catalogue identity
+  summary: The current terms identify the intended stocks. Direct CIP catalogue links
+    NCIMB 8303 to Hildenborough/DSM 644/ATCC 29579. ATCC 824 direct opens timed out;
+    indexed catalogue capability remains general context. DH10B has no explicit rank
+    in this local node; no species-rank replacement is inferred.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919056Z'
+  snapshot_sha256: 84999fe3aff42a310a0b4c8d3d5f3bcaa3c563a61b97dfeea1ab9364ebccc610
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000333/ontology-semantic-notes.json
+  locator: Final source-specific role, graph, chemistry and culture conclusions
+  summary: Preserve four nodes/zero arrows and the source-qualified minority roles.
+    Glucose fermentation does not support the current complex-substrate role. Keep
+    current strains and distinguish mixed OD600, genomic qPCR, label exchange and
+    causal inference.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919083Z'
+  snapshot_sha256: 26d07d6176eff0dcae599cb869848ad42c838e7c1bb4f827ca56e384777e9061
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/dataset-verification.json
+  locator: Publication/SI identity and source-listed UniProt markers
+  summary: The primary publication and two acquired supplements are verified. Q97KU1,
+    P45574 and P69054 are background marker proteins, not new study deposits. P69054
+    represents broader K-12 rather than an exact DH10B stock assignment. No mandatory
+    dataset or cross-Mech recipe finding is inferred.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919113Z'
+  snapshot_sha256: 91418ba9add89c9733734d5c77c4742d23b5a11a70543d504bcdeadf9d3e5881
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/snippet-audit.json
+  locator: Nineteen reference-specific excerpt occurrences
+  summary: 'All 19 strictly match fresh XML and selected cache: four abstract-supported
+    and fifteen body-only occurrences. Text matching does not prove the PRIMARY_DEGRADER
+    role or shuttle-mediated growth.'
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919142Z'
+  snapshot_sha256: 2ac8987695244f02adf9f0c580078e89dbf30738023959c18013f2463a3e4b8c
+- evidence_id: history
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-12/000333/provenance-audit.json
+  locator: Whole history, exact focal batch20 row/adversarial context and current
+    issue bodies/comments
+  summary: Current 1331 is closed; shared non-graph 1333 and GTDB 746 are open. All
+    comments were read. The prior graph repair is preserved. Current exact-strain
+    mappings reproduce despite the historical 746 concern; this review does not close
+    its broader scope or other targets.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919184Z'
+  snapshot_sha256: 04bf6b1afe43fd8aee8af6fc81a15f9ef769c8ff8ca522da5128c1a3de213ab1
+- evidence_id: historical-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/historical-source-byte-comparison.json
+  locator: Prior recorded XML digest versus fresh bytes
+  summary: Fresh XML is byte-identical to the prior source. The old path remains inert
+    historical metadata; no missing-path hash exception or source reconstruction is
+    used.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919214Z'
+  snapshot_sha256: 9b38e7ccdc248020968a84f028e94d0728ee8d5d2836ed37cf895837f2dd286d
+- evidence_id: inspect
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/inspect.json
+  locator: Fresh official 26-input inspection
+  summary: The target, cache, sole history, exact batch20 decision/adversarial and
+    21 authorities were inspected. Ignored-inclusive focal discovery found no additional
+    prior review within the declared directories; generic corpus context was not assessed
+    as another record.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919240Z'
+  snapshot_sha256: b3209a559c40cf5458d964492503d9022bb5ef16f4e27f6c3cc27ab01b2d691a
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/lead-source-assets.json
+  locator: Sixteen package members and local supplement rendering
+  summary: Seven main JPEGs, seven thumbnails, one DOCX and one XLSX were recovered.
+    Main F3/F4 alt-text is swapped; actual captions/images are used. Local rendering
+    supplies all four SI figure pixels while preserving original files.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919261Z'
+  snapshot_sha256: 02329256cee6bf3f6d05851bb1a427320472a91529fb6a2c10ac126e5c9d18d1
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/lead-primary-read-scope.json
+  locator: Whole fresh main, 64 references, seven main images and complete SI
+  summary: Lead read all fresh scientific sections/back matter, all reference entries,
+    every main and supplementary figure, and all eleven workbook sheets. No statistical
+    or image reanalysis occurred. Cache and authority read scopes are explicitly distinguished.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919290Z'
+  snapshot_sha256: eb32977f84b20e2f262433c99207ce73f09cf50141a91a3632ca172efa178677
+- evidence_id: source-scope
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/source-audit.json
+  locator: Three final groups, exact selectors and current-claim completion
+  summary: Completed source review identifies one major role-support issue and two
+    minor assay/cultivation and GTDB-provenance issues. No extra mechanism, resource
+    or compulsory-role finding is added.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919317Z'
+  snapshot_sha256: 3951f4fec4b64dda94a94533989dce73bc4bb81a32f1032ecfe6966ed78fd25d
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/root-independent-source-audit.json
+  locator: Independent primary, SI, authority and provenance assessment
+  summary: Root independently assessed the whole primary study and supplements and
+    agrees with the three groups; its exact read scope is recorded separately.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919345Z'
+  snapshot_sha256: 35a69577adee94e284686fc6e27e4a434fa5f360096da1ca1a4b2d3ebbc04433
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/support-final-audit.json
+  locator: Distinct final support and literal native arithmetic
+  summary: Completeness is 35 because the native all-role 50-point block is not earned
+    when the optional E. coli role is absent. Eight evidence occurrences/four nodes
+    give mean two; COMPLETE adds 15. One major/two minor yields raw 121, capped 100.
+    No role is invented to improve a score.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919372Z'
+  snapshot_sha256: 43659b9dcff28da24174dfa1d53396237b274769a25506ee9ba0abff9ba78963
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/supporting-artifact-manifest.json
+  locator: Final supporting artifacts
+  summary: Frozen support, source and resource hashes are retained; preliminary support
+    remains unchanged.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919394Z'
+  snapshot_sha256: 15a51f5cfeb58868457b45ff62c299fcc2741c3aab3e2dec0f3afb5f137528df
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/auxiliary-frozen-manifest.json
+  locator: Final native and authority artifact hashes
+  summary: Eight native checks pass; seven pairs/13 occurrences match. All 26 inputs
+    and the cache remain unchanged; initial validator summary is preserved.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919421Z'
+  snapshot_sha256: ef254922227d2f1daf023629ccaa3d5ded34db81e3451db4865e766bf61053dd
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/final-validator-summary.json
+  locator: Actual eight native checks and input-integrity results
+  summary: Schema, strict, term, reference, GTDB, domain, history and cache-name checks
+    pass. Native success is distinct from scientific support.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919451Z'
+  snapshot_sha256: 6f18a5680c4fe597061455b88944e9beb7396ce62f3b40d16cff8a14808b7e40
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/adapter-check.json
+  locator: Fresh batch 12 runtime checks and explicitly reused batch11 record403 discovery
+  summary: Owned-runtime PATH/module/venv checks were fresh; filename-search discovery
+    is reused from 2026-10-21T19:20:45.556660+00:00. Another checkout runner was not
+    executed; no global absence or new filename search is claimed.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919481Z'
+  snapshot_sha256: 589a35da59bdca2703abd67afaf9f364ea10791cd8601928b0366c4fcf2b30a3
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/validate.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919552Z'
+  snapshot_sha256: b1b6bee52cf52dc88253354d7a03d4d5b230b0d53929cf0c74c9c90194145027
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/validate-strict.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919611Z'
+  snapshot_sha256: 65343884752ca22872fccd5742cea4ca27e23bd6648756a02c0d808e777cf644
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/validate-terms.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919662Z'
+  snapshot_sha256: 5b1667153d6f0f15868fffc4f6bcb43215aa20b4a67e2588f5f8379076752dfb
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/validate-references-explained.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919711Z'
+  snapshot_sha256: 08d390e45365e89a1b285d90ca17d9b856fa93e8d494fdcb8403a8d6a4baf3b7
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/validate-gtdb.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919757Z'
+  snapshot_sha256: de6a25278980896df8099fb6baf72e6c0cf0ce425fc98b2b773c48ede4209c46
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/validate-gtdb-domain.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919810Z'
+  snapshot_sha256: ecca06ac86eed9b2b0fddcfa13f45821525867f4bc3b89a29c90bfe21bf39997
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/validate-history.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919860Z'
+  snapshot_sha256: 70d519e6b9b1c596041c797f36eaf7d06d94b199951fb67c7932ee3950ddc92d
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000333/normalize-cache-names-check.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.919909Z'
+  snapshot_sha256: d5485c507be69f627e79b3c739096fb57925784c7d278052e2d4d31b1f175fac
+- evidence_id: check-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/audit-network.json
+  locator: Same-batch corpus diagnostic
+  summary: Actual corpus result reused without assessment of later records.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.920218Z'
+  snapshot_sha256: 1621a1dd35060a1052cf4669f27e9a936a82f4759be38e4f39a9a4a1a73a14b8
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/check-network-quality.json
+  locator: Same-batch corpus diagnostic
+  summary: Actual corpus result reused without assessment of later records.
+  support: supports
+  accessed_at: '2026-10-21T22:09:36.920454Z'
+  snapshot_sha256: 34467f31f8dad2a00579e8350771795ee0f769be41af2e9435c88b603ec9fa1e
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Membership and experimental setting
+  outcome: supported
+  summary: The exact three-strain laboratory consortium is correctly identified.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - identity
+  - strain
+  - ontology
+  details: Retain current strain descriptors, SYNTHETIC origin, ENGINEERED state and
+    laboratory environment. Microscopy reporter derivatives remain assay-specific.
+- assessment_id: taxonomy
+  area: grounding
+  topic: NCBI and GTDB core classifications
+  outcome: concern
+  summary: Core identities and mappings are valid; snapshot provenance needs repair.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - strain
+  - gtdb
+  details: Retain exact IDs 272562/316385/882 and counts 2/2/7. Correct only unsupported
+    release/build wording; historical issue 746 does not justify replacing currently
+    reproducible strain mappings.
+- assessment_id: roles
+  area: scope
+  topic: Functional roles in the focal GY consortium
+  outcome: concern
+  summary: C. acetobutylicum glucose fermentation does not establish complex-substrate
+    degradation.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - fermentation
+  - lactate
+  - minority-roles
+  - schema
+  details: Omit or independently support PRIMARY_DEGRADER. Cac CROSS_FEEDER can be
+    supported by E. coli-associated lactate utilization; do not automatically add
+    SECONDARY_FERMENTER. Retain minority roles as author-attributed metabolic-output
+    dependence with unresolved currency. E. coli role omission is not itself a scientific
+    defect.
+- assessment_id: label-node
+  area: graph
+  topic: ecological_interactions[0]
+  outcome: supported
+  summary: Observed label exchange and a proposed shuttle remain properly separated
+    from mediation.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - labels
+  - semantics
+  details: Retain untyped community-level scope. No identified nutrient transfer,
+    shuttle necessity or causal growth arrow is established; morphology does not resolve
+    the two rods independently.
+- assessment_id: inhibition-node
+  area: graph
+  topic: ecological_interactions[1]
+  outcome: supported
+  summary: Directed inhibition is retained without reciprocal-competition typing.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - controls
+  - growth
+  - schema
+  details: The early E. coli phase appears unaffected. pH, glucose, added metabolites
+    and spent medium do not reproduce all live-culture features. No inference that
+    inhibition causes its own attenuation is required.
+- assessment_id: lactate-node
+  area: graph
+  topic: ecological_interactions[2]
+  outcome: supported
+  summary: Binary and cell-free assays support directed extracellular lactate cross-feeding.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - lactate
+  - controls
+  details: Keep E. coli as provider and Cac as recipient; the lactate term does not
+    select an enantiomer or quantify donor-resolved flux. No downstream arrow to every
+    hydrogen or growth change is established.
+- assessment_id: growth-node
+  area: graph
+  topic: ecological_interactions[3] and discussions[0]
+  outcome: supported
+  summary: The qualified addition and soluble-medium benefit node is supported.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - growth
+  - q-pcr
+  - labels
+  - statistics
+  details: Preserve four nodes and zero arrows. Mixed OD600 estimates are not direct
+    taxon cell divisions; genomic copies/ng DNA are not viable-cell fractions. Soluble
+    supernatant benefit prevents assigning unique contact-mediated causality.
+- assessment_id: culture
+  area: scope
+  topic: GY recipe, inoculum and experimental arms
+  outcome: concern
+  summary: Core conditions are correct; source-specific context and the non-graph
+    OD value need clarification.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - medium
+  - operation
+  - controls
+  - gas
+  - growth
+  details: Separate transfer percentage from OD composition, precursor media from
+    GY, and control/labeling arms from baseline culture. Record periodic gas removal.
+    Initial pH and complete inorganic formulation are unresolved rather than supplied
+    from a control or catalogue.
+- assessment_id: assays
+  area: evidence
+  topic: Growth, qPCR, fluorescence and hydrogen comparisons
+  outcome: supported
+  summary: The sources support distinct measurements with explicit interpretation
+    limits.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - q-pcr
+  - labels
+  - statistics
+  - supplement
+  details: Keep genomic qPCR separate from expression assays and direct live-cell
+    counting. Preserve pRSET-B versus pRD3/pBGF4 source discrepancy and extraction-protocol
+    wording conflict. Do not promote first-phase-subtracted hydrogen significance
+    into every total-yield comparison.
+- assessment_id: chemistry
+  area: grounding
+  topic: Chemical/process/environment terms and metals
+  outcome: supported
+  summary: Current broad identifiers fit the reported chemistry and laboratory setting.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - ontology
+  - semantics
+  details: D-glucose carries no alpha/beta selection; lactate carries no D/L selection.
+    GO0044419 is an umbrella process, not mechanistic proof. No dedicated metal processing
+    follows from medium salts or marker functions.
+- assessment_id: excerpts
+  area: evidence
+  topic: Citation identity and excerpt fidelity
+  outcome: supported
+  summary: All 19 occurrences strictly match fresh source and cache.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - snippets
+  - history
+  details: Four abstract and fifteen body-only occurrences are distinct source tiers.
+    The cache header remains abstract_only despite appended article body; no cache
+    refresh or metadata repair occurred.
+- assessment_id: resources
+  area: representation
+  topic: Publication, supplements and marker resources
+  outcome: supported
+  summary: Source resources are verified without inventing a new study deposition.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - resources
+  - assets
+  details: The DOCX/XLSX contain published figures and processed statistical comparisons.
+    UniProt marker proteins are background resources; P69054 is broader K-12. Empty
+    associated_datasets alone is not a missing-deposit finding.
+- assessment_id: provenance
+  area: provenance
+  topic: Prior graph repair and current follow-up
+  outcome: supported
+  summary: The prior graph qualification and current issue ownership are retained.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - history
+  - historical-source
+  - inspect
+  details: Keep shared 1333 and 746 follow-up scope separate from closed 1331. This
+    review neither reopens repaired graph assertions nor closes shared issues or adjudicates
+    unrelated records.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and scientific completion
+  outcome: supported
+  summary: All eight focused native checks pass; scientific review is completed.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - source-scope
+  - root-source
+  details: Current claim-critical sources were available and assessed. Native validity
+    does not certify PRIMARY_DEGRADER or causal mediation; final counts follow source
+    review.
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: supported
+  summary: Completeness 35; quality raw 121, capped 100.
+  target_ids:
+  - CommunityMech:000333
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 35
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Native all-required-fields-and-taxon-roles block 0 because optional
+      E. coli role is absent; environment 5 + at least three interaction nodes 10
+      + external resources 5 + growth media 10 + node metabolites 5 = 35. Two environmental
+      factors and no associated_datasets earn no bonuses. This rubric is not schema
+      requiredness or scientific justification to invent a role.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      P1 = 0, P2 = 1, P3 = 2, P4 = 0; eight node-evidence occurrences/four nodes gives
+      mean 2 and bonus 20, COMPLETE adds 15. Raw 121 caps at 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: support-complex-substrate-role
+  issue_key: cm-000333-support-complex-substrate-role
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Unsupported role entails a different substrate metabolism
+    within the focal community.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Support or omit the complex-substrate role
+  description: C. acetobutylicum PRIMARY_DEGRADER is justified by glucose fermentation,
+    which does not establish the native complex-substrate degradation role in this
+    focal community. Attach source-local complex-substrate evidence before retaining
+    this optional role, or omit it. A source-qualified CROSS_FEEDER role can instead
+    use E. coli-associated lactate utilization in the binary culture and filtered
+    supernatant. Do not automatically infer SECONDARY_FERMENTER, import catalogue
+    xylan capability, or interpret endoG qPCR as measured enzyme activity.
+  target_ids:
+  - CommunityMech:000333
+  field_paths:
+  - taxonomy[0].functional_role
+  - taxonomy[0].evidence[1].explanation
+  evidence_ids:
+  - fermentation
+  - lactate
+  - schema
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns future repair. Coordinate existing 1333/746
+    as applicable; no issue mutation or closure of their other scope.
+- finding_id: clarify-assay-and-culture-context
+  issue_key: cm-000333-clarify-assay-and-culture-context
+  category: scope
+  severity: minor
+  native_severity: P3
+  normalization_reason: The core setup and numeric observations are correct; assay
+    qualification and preparation context are bounded omissions.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Clarify assay and cultivation scope
+  description: The non-graph doubling-time value omits its second mixed-culture OD600-phase
+    basis, while the correct core GY setup lacks useful source-specific preculture,
+    control, reporter and gas-sampling context. Qualify 5.5 h versus 9 h as author-reported
+    second-phase mixed-OD estimates rather than directly counted taxon-specific divisions.
+    Separate total 10% inoculation from equal OD 1:1:1 composition, distinguish precursor
+    media, live consortium, 0.2-micrometer-filtered spent medium and microscopy arms,
+    and record periodic removal of accumulated gas. Preserve correct 14 mM glucose,
+    0.1% yeast extract, 10 mL Hungate cultures, N2, 37 °C and no shaking; do not invent
+    initial pH, full inherited inorganic concentrations, or a resolution of reporter/plasmid
+    and extraction-description conflicts.
+  target_ids:
+  - CommunityMech:000333
+  field_paths:
+  - environmental_factors[1].value
+  - environmental_factors[1].evidence[0].explanation
+  - growth_media[0].inoculum_size
+  - growth_media[0].preparation_notes
+  - growth_media[0].evidence
+  - engineering_design.assembly_strategy
+  - engineering_design.measurement_endpoints
+  evidence_ids:
+  - medium
+  - operation
+  - controls
+  - gas
+  - growth
+  - q-pcr
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns future repair. Coordinate existing 1333/746
+    as applicable; no issue mutation or closure of their other scope.
+- finding_id: document-gtdb-snapshot
+  issue_key: cm-000333-document-gtdb-snapshot
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Current core mappings reproduce; only unsupported release/build
+    provenance needs repair.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Document the reproducible GTDB snapshot
+  description: The three valid strain mappings call the snapshot latest and give a
+    build date supported only by local file mtime. Use the verified crosswalk SHA
+    and exact-ID lookup route; label mtime as local snapshot metadata unless release/build
+    provenance is independently obtained. Retain exact strains, lineages, majority
+    fraction 1.0 and counts 2/2/7. Historical 746 non-reproduction does not override
+    current successful exact-ID checks or authorize closing the broader issue.
+  target_ids:
+  - CommunityMech:000333
+  field_paths:
+  - taxonomy[0].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[1].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[2].taxon_term.gtdb_classification.mapping_source
+  evidence_ids:
+  - gtdb
+  - strain
+  - history
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+    role: canonical_record
+  ownership_note: Maintained YAML owns future repair. Coordinate existing 1333/746
+    as applicable; no issue mutation or closure of their other scope.
+actions:
+- action_id: resolve-role
+  description: Support or omit focal PRIMARY_DEGRADER; retain supported recipient
+    interpretations.
+  finding_ids:
+  - support-complex-substrate-role
+  target_ids:
+  - CommunityMech:000333
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - For taxonomy[0].functional_role, provide source-local complex-substrate degradation
+    evidence before retaining PRIMARY_DEGRADER, otherwise omit that optional role.
+    Glucose fermentation, general strain capability and endoG genomic qPCR do not
+    establish this focal function.
+  - If adding Cac CROSS_FEEDER, attach the binary E. coli/Cac and filtered E. coli
+    supernatant lactate-utilization passages with their exact assay scope. Do not
+    automatically infer SECONDARY_FERMENTER without the native primary-degrader-product
+    context.
+  - Retain N. vulgaris broad CROSS_FEEDER/SYNTROPHIC_PARTNER as source-attributed
+    partner-output dependence with unresolved metabolite identity. Preserve four nodes/zero
+    arrows and the current discussion; impose no named-metabolite, obligacy or reciprocal-benefit
+    requirement. Do not invent an E. coli role merely to gain completeness points.
+- action_id: clarify-protocol
+  description: Align non-graph assay wording with source-specific experimental stages.
+  finding_ids:
+  - clarify-assay-and-culture-context
+  target_ids:
+  - CommunityMech:000333
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Qualify environmental_factors[1].value and its explanation as author-reported
+    second mixed-culture OD600-phase estimates (5.5 h versus 9 h). Preserve genomic
+    qPCR as copies/ng DNA, not direct live-cell division or endpoint fractions; retain
+    the existing qualified growth node.
+  - Keep 14 mmol/L glucose, 0.1% yeast extract, 10 mL GY, Hungate tubes, N2, 37 °C
+    and no shaking. Separate total 10% inoculation from 1:1:1 OD600 composition in
+    suitable setup notes. Do not convert equal OD into equal viable-cell counts or
+    infer an initial pH from the pH 4 intervention.
+  - Distinguish anaerobic Starkey N. vulgaris and 2YTG Cac precultures from aerobic
+    LB-Miller E. coli preparation, focal washed-cell GY assembly, 0.2 μm filtered
+    spent-medium recipient assays, and low-glucose/metabolite/pH controls. Full inherited
+    inorganic concentrations remain unresolved unless separately verified; no catalogue
+    recipe substitution.
+  - Record the measured removal of accumulated gas at each H2 sampling point and cumulative
+    gas accounting. No pressure, replenishment, liquid-feed or cultivation-mode change
+    is invented from gas sampling alone.
+  - Keep mCherry/calcein labeling and gentamycin selection within the microscopy preparation.
+    Preserve Results pRSET-B versus Methods pBGF4/pRD3 naming and Figure 6 versus
+    Methods extraction wording; do not silently choose a vector or assert separate
+    extraction actually occurred. Exact source/SI evidence must support any added
+    experimental detail.
+- action_id: document-mapping
+  description: Replace release/build assertions with verified snapshot provenance.
+  finding_ids:
+  - document-gtdb-snapshot
+  target_ids:
+  - CommunityMech:000333
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Preserve exact NCBITaxon 272562/316385/882, current GTDB lineages, majority 1.0
+    and counts 2/2/7; all resolve by ncbi_id. Do not replace a strain with a generic
+    species because of historical issue 746.
+  - Record crosswalk SHA 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    and exact lookup route. Label July 25 mtime as file metadata unless independent
+    release/build evidence is available; is_reclassified remains the helper name-comparison
+    flag.
+  - Keep catalogue aliases and source stock identities separate from reporter constructs
+    and maintenance media. Scope any follow-up to this record without closing broader
+    746 or shared 1333.
+- action_id: validate-future-curation
+  description: Validate separately authorized canonical repairs and preserve provenance.
+  finding_ids:
+  - support-complex-substrate-role
+  - clarify-assay-and-culture-context
+  - document-gtdb-snapshot
+  target_ids:
+  - CommunityMech:000333
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ecoli_Nitratidesulfovibrio_Minority_Mediator_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Attach exact claim-local source evidence, preserve all four current nodes and
+    no downstream arrows, and keep measured endpoints distinct from conceptual mediation.
+    Do not generalize first-phase-subtracted hydrogen significance to total yields.
+  - 'Any later cache metadata correction must retain source/version boundaries: the
+    current abstract_only header coexists with appended main article text. Do not
+    append supplement text into the article cache. UniProt marker resources are not
+    newly deposited experimental datasets.'
+  - After authorized canonical changes, append history and run schema, strict, terms,
+    references, GTDB, domain and history checks, then regenerate/check required HTML.
+    This review itself makes no canonical/cache/history/generated changes or issue
+    mutation.
+limitations:
+- Lead read the whole 67,866-character main projection, 64 references, all seven main
+  figures, all four SI figures/captions and all eleven workbook sheets. No raw assay/statistical/image
+  reanalysis. Published F3/F4 alt-text is swapped; caption/image identities are used.
+- Reporter-vector and extraction-description conflicts remain source-attributed. Final
+  two S4 workbook hydrogen rows duplicate a label. No silent reconciliation or new
+  mechanistic claim is inferred from these source issues.
+- Current GY core conditions are supported; the full inherited inorganic recipe and
+  initial pH are not specified in the focal main. No unrelated catalogue medium or
+  control condition is imported.
+- 'All 19 excerpt occurrences strictly match fresh XML/cache: 4 abstract and 15 body-only.
+  The cache header/body mismatch is retained unchanged; lead fresh-source review and
+  sibling whole-cache read are distinct scopes.'
+- Authority checks preserve exact strains and mapping cores. Direct ATCC 824 opens
+  timed out; indexed catalogue capability is general context. P69054 is a broader
+  K-12 protein resource, not proof of exact study-stock sequence identity.
+- Optional adapter availability is fresh in batch 12; filename discovery is explicitly
+  reused from batch 11 record 403. No other-checkout runner, paid source, source editing
+  or canonical mutation occurred.
+notes:
+- Completed scientific review; 1 major / 2 minor; completeness 35 and quality raw
+  121 / capped 100.
+- Missing optional E. coli role affects native arithmetic but is not a separate finding.
+  No mandatory dataset omission or inferred new causal arrow.
+- Initial source/native/support artifacts remain immutable. Parent alone saves after
+  independent whole-candidate acceptance.
+tags:
+- record-review
+- minority-mediator
+- synthetic-consortium
+- batch-12
+```

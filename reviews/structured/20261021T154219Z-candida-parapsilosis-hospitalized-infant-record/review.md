@@ -1,0 +1,1647 @@
+# Candida parapsilosis hospitalized-infant microbiome review
+
+- Review: 20261021T154219Z-candida-parapsilosis-hospitalized-infant-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T15:34:34.174389Z
+- Finished UTC: 2026-10-21T15:42:19.222919Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+The primary study supports the natural infant community and four carefully qualified interaction nodes with no downstream arrows. Two major findings concern omitted focal microbial members and an unsupported equilibrium state. Two minor findings concern genome-origin wording and absent verified data/code resources. Observational expression and proposed mannitol-transfer boundaries remain intact.
+
+## Scope And Provenance
+
+Whole canonical record and every node/arrow assessed using primary main, figures, scientific supplements, ontology/archive evidence and focused native checks.
+
+Selection: Only released CommunityMech:000248 in the owned batch 09 checkout.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base f491097e6f3cd52baf6c2e89b3e614756ebce558.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000248 | kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml | maintained | Candida parapsilosis Hospitalized Infant Gut Microbiome Community |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000248 | Schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000248 | Strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000248 | Term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000248 | GTDB syntax/status validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000248 | GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000248 | History validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000248 | Read-only cache-name preflight passed. |
+| validate-references-explained | passed | True | CommunityMech:000248 | Reference validation passed; independent matching verifies all 14 excerpts with explicit title/abstract/body categories. |
+| audit-network | failed | True | CommunityMech:000248 | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal graph separately reports COMPLETE. |
+| check-network-quality | failed | True | CommunityMech:000248 | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal graph separately reports COMPLETE. |
+| Primary scientific review | passed | True | CommunityMech:000248 | Entire scientific main, Table 1, six main figures, nine scientific SI figures and five small workbooks assessed against the whole record. |
+| Public resource identity | passed | True | CommunityMech:000248 | Two source-named BioProjects, all 24 declared NICU runs and their project, plus immutable author repository and bounded ggKbase access verified. |
+| Scientific supplements | passed | True | CommunityMech:000248 | All scientific supplementary figures/captions and all workbook cells inspected; S8 tiny-label limit is explicit. |
+| Ancillary video abstract | skipped | False | CommunityMech:000248 | The publication identifies a Video Abstract; it was not retrieved or viewed. No encoded claim depends on its content. |
+| Raw omics and statistical reproduction | skipped | False | CommunityMech:000248 | No raw sequence/proteome payload, patient-level reanalysis, gene-function experiment, flux tracing or new significance test. |
+| Optional structured expression adapter | unavailable | False | CommunityMech:000248 | No applicable expression-module evidence established through bounded runtime discovery. |
+
+## Scientific And Domain Assessments
+
+### Natural infant community and membership
+
+identity: concern. Targets: CommunityMech:000248.
+
+The source identity is correct, but structured membership omits two directly recovered infant-06 species.
+
+### ecological_state and natural origin
+
+scope: concern. Targets: CommunityMech:000248.
+
+NATURAL and OTHER remain appropriate; unqualified STABLE is not supported as whole-community equilibrium.
+
+Stable fungal peptide relative abundance is separate from rapid relative DNA/RNA succession and variable transcription. The optional state field may be omitted or given a separately supported developing/transient characterization; no automatic replacement is mandated. Antifungal treatment and isolate comparisons do not convert the naturally occurring community into an engineered assembly.
+
+### Current names and GTDB grounding
+
+identity: supported. Targets: CommunityMech:000248.
+
+Retain the correct current fungal label, source synonym and bacterial mapping.
+
+Lodderomyces parapsilosis and source Candida parapsilosis refer to the verified species concept. Fungal NO_GTDB_EQUIVALENT follows domain scope, not a failed search. E. faecalis mapping counts are not cohort counts. Added taxa need independent grounding; do not infer a L. gasseri split or use a type/reference strain to fill a missing exact row.
+
+### Repeated Candida-Enterococcus Co-Detection
+
+evidence: supported. Targets: CommunityMech:000248.
+
+Retain the observational community node. N=7 concerns Candida-positive infants across species and does not demonstrate facilitation or seven C. parapsilosis-specific pairs.
+
+### Relative Candida-Enterococcus Succession
+
+evidence: supported. Targets: CommunityMech:000248.
+
+Retain relative succession with persistence and compositional limits. No reciprocal-negative fitness effect, absolute fungal eradication or causal arrow is inferred.
+
+### Candida-Positive Enterococcus Mannitol-PTS Response
+
+evidence: supported. Targets: CommunityMech:000248.
+
+Retain HYPOTHESIZED/PARTIAL CROSS_FEEDING and its explicit strain/confounding boundary. Transport-associated transcription supports a proposed relation, not measured transfer or growth-rate change.
+
+### In Situ Candida Biofilm- and Respiration-Associated Transcripts
+
+evidence: supported. Targets: CommunityMech:000248.
+
+Retain expression associations and the heterogeneous comparator/ortholog caveats. Do not promote transcript enrichment into phenotype, oxygen, flux, virulence or ecological partitioning.
+
+### Every downstream edge
+
+scope: supported. Targets: CommunityMech:000248.
+
+There are zero downstream arrows; no workflow or mechanistic link needs to be restored.
+
+Genome reconstruction is an analysis step, and co-detection, succession and transcript comparisons are not a causal chain. Native COMPLETE does not prove the proposed mannitol mechanism. Broad GO labels do not override explicit observational qualifiers.
+
+### taxonomy[0] note and genome evidence
+
+scope: concern. Targets: CommunityMech:000248.
+
+Qualify the five-genome note using Table 1 and the source-specific sample origins.
+
+Do not silently rewrite the exact abstract quotation. Clarify that the broader comparison contains three infant-fecal, one NICU and one subway C. parapsilosis MAG; only C1_006 is the focal in situ activity strain. Existing species identity remains correct, so this is a bounded provenance correction.
+
+### Clinical environment and comparator cultivation
+
+scope: supported. Targets: CommunityMech:000248.
+
+Retain in situ fecal/clinical context and the empty community growth-media block.
+
+Table S2 supplies treatment context, but its fluconazole timing conflicts with S6 and does not isolate treatment causality. No precise chronology is needed for the present record. The isolate comparator culture can be described separately if useful; sample-processing reagents and temperatures must not become community growth conditions.
+
+### Public deposits and analysis code
+
+provenance: concern. Targets: CommunityMech:000248.
+
+Add directly verified resources with focal, prior-study and hospital-environment scopes.
+
+Neither the two BioProjects nor the 24 NICU run identifiers certify every omics modality, patient count or strain. Anonymous ggKbase visibility does not establish deletion. Code tree/README verification is not execution or reproducibility certification.
+
+### Prior repair, snippets and source boundaries
+
+provenance: supported. Targets: CommunityMech:000248.
+
+Retain the prior graph repair and correct name despite older historical normalization prose.
+
+The MD cache has appended full text despite its stale header; the TXT supports abstract/title only. All 14 existing excerpts match direct source spans. No excerpt failure or current graph defect is introduced by the broader non-graph review.
+
+### Native and ontology checks
+
+schema: supported. Targets: CommunityMech:000248.
+
+All eight focused native checks pass; source-specific membership, state and provenance concerns remain.
+
+### Native completeness and validation quality
+
+completeness: supported. Targets: CommunityMech:000248.
+
+Low completeness reflects optional rubric fields; no roles or cultivation are invented to improve the score.
+
+## Findings
+
+### incomplete-roster: Recover the two omitted infant-06 microbial members
+
+major / open / confirmed; issue key: cm-000248-incomplete-roster.
+
+The source and record overview identify L. gasseri and S. epidermidis alongside the two encoded species. Their omission materially narrows the focal four-member community; it is not a requirement to enumerate every organism from the wider cohort.
+
+### unsupported-stable-state: Do not equate fungal peptide persistence with community equilibrium
+
+major / open / confirmed; issue key: cm-000248-unsupported-stable-state.
+
+STABLE is an unqualified whole-community equilibrium claim. Relative DNA/RNA succession and variable expression are explicit, while the stable measurement concerns fungal peptide abundance.
+
+### genome-cohort-scope: Separate the five-genome comparison from the focal infant cohort
+
+minor / open / confirmed; issue key: cm-000248-genome-cohort-scope.
+
+The taxonomy note attributes five unique assembled genomes to this infant cohort. Table 1 instead includes three infant-fecal, one NICU and one subway C. parapsilosis genome, and detailed activity data are from one infant strain.
+
+### public-resources: Link verified study data and analysis resources
+
+minor / open / confirmed; issue key: cm-000248-public-resources.
+
+The empty associated_datasets list and publication-only links omit verified focal and comparative sequence resources and analysis provenance. Their material and assay scopes differ.
+
+## Recommended Actions And Acceptance Checks
+
+### recover-infant-roster
+
+Represent all four source-recovered infant-06 microbial species with narrow membership evidence.
+
+- Add Lactobacillus gasseri NCBITaxon:1596 and Staphylococcus epidermidis NCBITaxon:1282 using the direct recovery paragraph and Figure 3/S7 evidence. Keep these additions scoped to infant 06 rather than every Candida-positive infant.
+- Preserve current Lodderomyces parapsilosis NCBITaxon:5480 with Candida parapsilosis as source/preferred name, fungal NO_GTDB_EQUIVALENT and the valid E. faecalis mapping. Do not revert the current label based on older history prose.
+- Ground each added bacterial species independently. The pinned S. epidermidis candidate includes GTDB Staphylococcales and 5,694 genomes/fraction 1.0; these are mapping counts, not study abundance. Leave L. gasseri UNRESOLVED unless a supported exact mapping is recovered; do not infer a split, strain equivalence or NO_GTDB_EQUIVALENT from a missing row.
+- Do not import a human host, culture reference strain, subway strain or the broader cohort as a simultaneous infant-06 community member. Preserve the source C1_006/C1_06 notation in its proper scope without inventing a culture alias.
+- Leave functional roles and abundance enums unset unless claim-specific evidence supports them. Preserve four qualified graph nodes and zero downstream arrows; missing taxa do not justify new causal edges.
+
+### repair-stable-state
+
+Reconcile the optional ecological state with the observed time-series scope.
+
+- Remove the unsupported unqualified STABLE assignment, or replace it only with an explicitly source-supported developing/transient characterization and evidence. Ecological_state is optional; no replacement enum is mandatory.
+- Retain the source observation of relatively persistent fungal peptide abundance as an assay-specific observation alongside changing relative DNA/RNA composition. Do not infer whole-community equilibrium, absolute cell stability or fungal eradication.
+- Preserve NATURAL origin, OTHER category and the existing qualified succession node. Antimicrobial exposure and culture comparisons are not grounds to relabel the natural community as an engineered assembly.
+
+### qualify-genome-origins
+
+Clarify the fungal genome comparison without altering source quotations.
+
+- Revise taxonomy[0].taxon_term.notes and the five-genome evidence explanation to follow Table 1: C1_006, N3_182 and L2_023 are infant-fecal genomes; S2_005 is from the NICU and the NYC-subway genome is environmental. Three were newly reconstructed and two analyzed previously.
+- Keep the abstract quotation exact and explicitly distinguish its broad shorthand from the sample-specific Table 1 information. Do not silently repair the paper or call the existing matched excerpt fabricated.
+- Separate the broad five-genome comparison from C1_006 activity in infant 06 and from the N=7 cross-species Candida co-detection statement. Do not transfer the other strain's mannitol production, reference culture phenotype or genome counts to the focal infant strain.
+
+### add-public-resources
+
+Add the verified sequence/data and code links with their actual scope.
+
+- Add PRJNA717139 as the focal Candida/infant-06 genome/read resource with publication attribution. Metadata does not independently certify every reported omics modality or a patient/sample count; preserve this boundary.
+- Represent PRJNA471744 as the earlier infant-gut/NICU eukaryotic genome reconstruction resource. If adding SRR5420274–SRR5420297, identify the 24 runs as paired NICU surface/sink WGS under PRJNA376580, not infant-06 fecal transcriptomics or proteomics.
+- Add patrickwest/c_parapsilosis_analysis as code provenance with verified commit 49a44a29f99e16fb9f5e14b9f62e450b7a3179ca. The inspected tree contains three notebooks and a minimal README; no code was executed.
+- Preserve the ggKbase candida_genomes link with its source-reported sign-in requirement and anonymous-access limitation. A zero-project unauthenticated view does not establish absent or deleted genomes. Keep the existing publication links and use valid dataset/resource classifications.
+
+### validate-authorized-curation
+
+Apply any future changes only through a separately authorized curation pass.
+
+- After separately authorized canonical curation, append a fresh history event and run focused schema, strict, term, reference, GTDB/domain and history checks, followed by just gen-html and just check-docs-current. No canonical changes or generators are run during this review.
+- Preserve exact evidence and current graph qualifications, old history and saved review artifacts. Do not add YPD/30 °C as the natural community medium, convert respiratory transcripts into an oxygen setpoint, or resolve the source S6/Table S2 treatment-date conflict without new support.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml; Entire canonical record, four nodes and zero downstream arrows | supports | The natural hospitalized-infant microbiome record describes the four recovered infant-06 species but encodes only two in taxonomy. Its interaction descriptions already separate observed co-detection, relative succession and expression associations from causal hypotheses. |
+| pubmed | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;id=34154658&amp;retmode=xml; Direct bibliographic metadata | supports | Direct title, abstract and identifiers establish the focal publication. Two current excerpts match the abstract and two match the title. |
+| epmc | https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:34154658%20AND%20SRC:MED&amp;format=json&amp;resultType=core; Direct bibliographic metadata | supports | PMID 34154658, PMC8215838 and DOI 10.1186/s40168-021-01085-y identify the same open paper. |
+| crossref | https://api.crossref.org/works/10.1186/s40168-021-01085-y; Direct bibliographic metadata | supports | DOI bibliographic identity agrees with the publication. |
+| membership | PMID:34154658; Results: In situ metatranscriptomics and metaproteomics; Figure 3; Figures S7–S8 | supports | The focal infant-06 metagenomes recovered C. parapsilosis plus E. faecalis, L. gasseri and S. epidermidis. Figure 3 and S7 distinguish DNA, RNA and protein relative abundances. L. gasseri and S. epidermidis are members of this focal community, not organisms mentioned only in background studies. |
+| state | PMID:34154658; Results: In situ metatranscriptomics and metaproteomics; Proteomics; Discussion; Figure 3 | supports | The source reports rapid fungal-to-enterococcal relative succession and variable transcription, alongside comparatively persistent fungal protein abundance. Protein persistence and repeated detection do not establish equilibrium of the whole community. |
+| genomes | PMID:34154658; Abstract: Results; Results: Recovery of novel Candida strain genomes; Table 1 | supports | The abstract shorthand describes five fungal genomes from infant feces, but Table 1 resolves the five C. parapsilosis MAGs as C1_006, N3_182 and L2_023 from infant feces, S2_005 from the NICU and one NYC-subway genome. Three are newly reconstructed and two were analyzed previously. The detailed in situ activity series concerns C1_006 in infant 06. Preserve this source conflict while making the record note sample-specific. |
+| codetection | PMID:34154658; Results: In situ metatranscriptomics and metaproteomics | supports | The seven-infant statement concerns samples with a detected or assembled Candida genome across Candida species. It supports repeated co-detection of E. faecalis, not seven independent fungal-strain interactions or colonization facilitation. |
+| mannitol | PMID:34154658; Results: C. parapsilosis impact on bacterial expression; Discussion; Figure 5C; Figure S5; Table S3 | supports | Mannitol PTS and mannitol-1-phosphate dehydrogenase features distinguish Candida-positive E. faecalis transcriptomes. The paper cites mannitol production by a different fungal strain and proposes a substrate switch. It does not trace C1_006 secretion or recipient uptake. Between-infant variation remains a possible explanation; ribosomal transcription is not a measured growth rate. |
+| expression | PMID:34154658; Results: C. parapsilosis expression in situ vs. culture settings; Transcriptomics enriched gene functions; Figures 4–6; Table S4 | supports | The in situ fungal transcript profiles differ from heterogeneous culture comparators. Biofilm-related C. albicans orthologs show lower expression, while respiratory/LSM categories are enriched. These observations do not directly measure biofilm mass, oxygen concentration, respiration, virulence or ecological niche partitioning. S. epidermidis separation should not be used to strengthen the less-clear E. faecalis attribution. |
+| conditions | PMID:34154658; Methods: Metagenomic sampling and sequencing; Transcriptomic sequencing and analysis; Generation of proteomic datasets; Table S2 | supports | Natural infant fecal samples were profiled without cultivation of the intact community. YPD at 30 °C to mid-log describes the isolated C1_06 culture comparator only. Antimicrobial exposure is clinical context, not an experimentally isolated cause of succession. Sample processing temperatures, buffers and peptide digestion are not community growth conditions. |
+| availability | PMID:34154658; Availability of data and materials | supports | The source names two BioProjects, the 24-run SRA range, an author analysis repository and a ggKbase genome group. Focal infant-06 reads, older comparative genomes and hospital-environment metagenomes must remain distinct. The public metadata audit establishes those scopes without downloading raw data. |
+| figures | PMID:34154658; All six main figures; all nine scientific supplementary figures, including both S8 pages | supports | Figure 3 and S7 support four-member detection and assay-specific temporal changes. Figure 6 is an expression-based diagram, not a molecular perturbation assay. All figure overviews and captions were inspected; tiny S8 pathway labels were not all legible. |
+| tables | PMID:34154658; Table 1; all cells of Tables S1–S5 | supports | S1 describes copy-number estimates; S2 treatment context; S3 transcript discriminant features; S4 enriched gene/protein categories; S5 host-protein enrichment. S3 rows 5, 9 and 37 support the bounded mannitol-associated interpretation. S7 protein persistence and S8 pathway evidence do not establish flux or community equilibrium. |
+| schema | src/communitymech/schema/communitymech.yaml; MicrobialCommunity.taxonomy and ecological_state; EcologicalStateEnum; TaxonomicComposition; InteractionTypeEnum; GrowthMedia | supports | Taxonomy represents microbial membership and excludes the host. STABLE denotes equilibrium; ecological_state, functional roles and abundance fields are optional. CROSS_FEEDING denotes metabolite exchange, without an obligacy requirement. Growth-media fields concern actual cultivation. |
+| ontology | ontology-authority.json; Whole bounded frozen receipt | supports | All six encoded ID-label pairs match across ten occurrences. |
+| fungal-name | child-fungal-name-authority.json; Whole bounded frozen receipt | supports | Direct NCBI authority verifies Lodderomyces parapsilosis at NCBITaxon:5480, Candida parapsilosis as a homotypic synonym and the Eukaryota/Fungi lineage. Preserve current label and source name. |
+| semantics | ontology-semantic-notes.json; Whole bounded frozen receipt | supports | The source-specific semantics review distinguishes optional state/roles, fungal GTDB exclusion, current membership and qualified expression hypotheses. |
+| gtdb | child-gtdb-mapping-check.json; Whole bounded frozen receipt | supports | The exact E. faecalis crosswalk row agrees with the encoded lineage, 9,081 genomes and fraction 1.0. These are mapping statistics, not study abundance or strain-genome classification. |
+| roster-candidates | child-roster-candidates.json; Whole bounded frozen receipt | supports | OAK verifies Lactobacillus gasseri NCBITaxon:1596 and Staphylococcus epidermidis NCBITaxon:1282, both species rank. No culture collection strain is substituted for the infant genomes. |
+| roster-gtdb | child-roster-gtdb-mapping.json; Whole bounded frozen receipt | supports | An exact S. epidermidis species row is available, including GTDB Staphylococcales and 5,694 genomes at fraction 1.0. No exact L. gasseri row was found in the checked local crosswalk; leave unresolved without a strain-derived or split assignment. |
+| resources | dataset-verification.json; Whole bounded frozen receipt | supports | Verified resources distinguish PRJNA717139 focal infant study, PRJNA471744 prior infant/NICU reconstruction, and all 24 NICU WGS runs under PRJNA376580. The author tree/README and anonymous ggKbase access boundary are explicitly scoped. |
+| snippets | snippet-audit.json; Whole bounded frozen receipt | supports | All 14 excerpts match direct sources: two abstract, two publication-title and ten body spans. All match the full MD cache; four match the abstract/title-only TXT. |
+| history | provenance-audit.json; Whole bounded frozen receipt | supports | Both history sidecars and exact prior batch10 row are preserved. Issue 1272 closed the graph work; prior review explicitly left non-graph fields uncertified. Older reverse fungal-name normalization is historical and does not invalidate the current correct label. |
+| native-target | support-audit.json; Whole bounded frozen receipt | supports | The focal graph is COMPLETE: four nodes, zero arrows and nine node-evidence entries. Completeness 25 and capped quality 100 are mechanical scores, not scientific certification. |
+| source-scope | source-audit.json; Whole bounded frozen receipt | supports | Whole-record assessment finds two major and two minor groups while retaining the four qualified nodes and no arrows. Scientific-main and supplement scope and unresolved source inconsistencies are explicit. |
+| lead-read | lead-primary-read-scope.json; Whole bounded frozen receipt | supports | Whole scientific main, Table 1 and all six main images were read, with all nine scientific supplements and five small workbooks inspected to stated scope. |
+| independent-source | root-independent-source-audit.json; Whole bounded frozen receipt | supports | Root independently assessed the primary science, figures, critical tables, authority and resource boundaries and accepted the final grouping. |
+| auxiliary | auxiliary-frozen-manifest.json; Whole bounded frozen receipt | supports | Child-owned native, authority and adapter receipts are frozen; no shared receipt was overwritten. |
+| access-main | lead-primary-reuse.json; Explicit read-only reuse of root-retrieved XML | supports | The same-publication direct XML was reused with its exact hash; a separate direct publisher response returned the full article. |
+| access-si | lead-supplement-inventory.json; Fourteen source-linked publisher assets | supports | Nine PDFs and five XLSX files were successfully retrieved from the links in the publisher HTML and parsed. The Video Abstract is ancillary and was not retrieved or viewed. |
+| adapter | adapter-check.json; Bounded runtime discovery with preserved original timestamps | supports | No applicable structured expression-module evidence was established. Optional adapter limitations are not negative biological evidence. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml; Actual execution 2026-10-21T15:35:11.268659+00:00 to 2026-10-21T15:35:12.106203+00:00 | supports | Schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-strict kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml --out /private/tmp/cm-review-session/batch-09/000248/strict-report.tsv; Actual execution 2026-10-21T15:35:11.268877+00:00 to 2026-10-21T15:35:13.469492+00:00 | supports | Strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-terms kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml; Actual execution 2026-10-21T15:35:11.268974+00:00 to 2026-10-21T15:35:13.077846+00:00 | supports | Term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-gtdb kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml; Actual execution 2026-10-21T15:35:12.106465+00:00 to 2026-10-21T15:35:12.183601+00:00 | supports | GTDB syntax/status validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-gtdb-domain kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml; Actual execution 2026-10-21T15:35:12.183880+00:00 to 2026-10-21T15:35:13.524732+00:00 | supports | GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-history history/records/Candida_Parapsilosis_Hospitalized_Infant_Microbiome; Actual execution 2026-10-21T15:35:13.078112+00:00 to 2026-10-21T15:35:13.764005+00:00 | supports | History validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T15:35:13.764725+00:00 to 2026-10-21T15:35:13.823829+00:00 | supports | Read-only cache-name preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-references-explained kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml; Actual execution 2026-10-21T15:35:13.824081+00:00 to 2026-10-21T15:35:14.874664+00:00 | supports | Reference validation passed; independent matching verifies all 14 excerpts with explicit title/abstract/body categories. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T14:53:06.814378+00:00 to 2026-10-21T14:53:14.616064+00:00 | supports | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal graph separately reports COMPLETE. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T14:53:06.817734+00:00 to 2026-10-21T14:53:14.704428+00:00 | supports | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal graph separately reports COMPLETE. |
+
+## Limits And Additional Notes
+
+- Completed current-claim review covers the full primary scientific main, Table 1, six main figures, all nine scientific SI figures/captions and all cells of five small supplementary workbooks. The ancillary Video Abstract was not viewed.
+- S8 is a dense pathway-map raster; its caption and overview were inspected, but not every tiny pathway label. No conclusion relies on an unread individual label.
+- No raw metagenomic, transcriptomic or proteomic payload, patient-level reanalysis, gene-function experiment, transcript refitting, flux tracing or new significance test was performed.
+- Focal in situ activity is one strain in one infant. Comparison transcriptomes involve other infants, strains and culture conditions. Candida-positive association is not an isolated fungal causal effect.
+- The N=7 co-detection result includes Candida species; it is not seven independent C. parapsilosis-specific interactions. Relative DNA/RNA shifts are not absolute fungal eradication or reciprocal competition.
+- Mannitol transport/dehydrogenase annotations and a different fungal strain's production capacity support a hypothesis, not demonstrated transfer from C1_006. Ribosomal transcripts are not a growth-rate assay.
+- Lower expression of orthologs associated with biofilm and increased respiratory transcript categories do not measure biofilm biomass, gut oxygen tension, respiratory flux, virulence or ecological niche partitioning.
+- Fungal peptide persistence does not prove whole-community equilibrium. Proteins can persist longer than transcripts; source protein-group coverage and host dominance limit interpretation.
+- Source-local inconsistencies are preserved: abstract genome-origin shorthand differs from Table 1; source names include C1_006/C1_06 and CBS1954/CBS1984 variants; S6 fluconazole DOL 19 differs from Table S2 DOL 21; S8 pathway/protein evidence is not flux. No convenient reconstruction is substituted.
+- Archive checks verify public metadata, exact identifiers and immutable code tree/README only. The 24 declared SRA runs are NICU surface/sink WGS under PRJNA376580, not infant-06 transcriptomics/proteomics. Anonymous ggKbase visibility does not establish absence of sign-in-restricted genomes.
+- No functional roles or abundance enums are invented to improve the low native completeness score. Added source taxa require their own evidence and grounding; L. gasseri GTDB remains unresolved at the checked local crosswalk scope.
+- No canonical, cache, history, generated or saved-review files changed; all 25 inspected inputs remain pinned.
+- All 14 existing excerpts match direct sources: two abstract, two title and ten body spans. All match appended MD; four match abstract/title-only TXT. Stale MD frontmatter does not imply an absent main text.
+- Completeness 25 and quality 100 (raw 111) are native mechanical scores. Missing optional roles are not a scientific defect and should not be invented for points.
+- The Video Abstract was not viewed, S8 tiny pathway labels were not exhaustively legible, and no raw data or new statistical/flux analysis was undertaken. Current-claim scientific review is complete to these stated boundaries.
+- No code execution, paid provider, author contact, canonical mutation or later-target assessment.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T154219Z-candida-parapsilosis-hospitalized-infant-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Candida parapsilosis hospitalized-infant microbiome review
+started_at: '2026-10-21T15:34:34.174389Z'
+finished_at: '2026-10-21T15:42:19.222919Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary science, native/ontology checks
+    and supporting provenance; no person-level independence is asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: The primary study supports the natural infant community and four carefully
+  qualified interaction nodes with no downstream arrows. Two major findings concern
+  omitted focal microbial members and an unsupported equilibrium state. Two minor
+  findings concern genome-origin wording and absent verified data/code resources.
+  Observational expression and proposed mannitol-transfer boundaries remain intact.
+source:
+  git_revision: f491097e6f3cd52baf6c2e89b3e614756ebce558
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Candida_Parapsilosis_Hospitalized_Infant_Microbiome/2026-10-02T053834Z-codex-a93e6d.yaml
+    sha256: 54fa1a32bfb645410d8c3bffbb3517e04baf696f9c91b8424a21395296418f52
+    role: context
+  - path: history/records/Candida_Parapsilosis_Hospitalized_Infant_Microbiome/2026-10-05T173107Z-codex-a51a97.yaml
+    sha256: baff8a80eaed01fd9b58d4bd39a1749000657b5902884d7d2c50e042a7497380
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+    sha256: ef0e6ee9fda6f4499e4c6169fda621c21125e2651f7663a7a02961859ead9620
+    role: target
+  - path: references_cache/PMID_34154658.md
+    sha256: 22ec8ae3b96152bbe0df909fbeaf1ac4f17db66e00d031f98e9cd3d9182f5683
+    role: context
+  - path: references_cache/PMID_34154658.txt
+    sha256: 141c42f2e319d5cfec5bde1cdc7a3fc5c2d7c031ca37d7317d18d6b2e403b465
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+    sha256: 7149a6a81f091ff27d40deaf5bf99cb0a9b6486344db20009517f48652fe855d
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000248
+  path: kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+  label: Candida parapsilosis Hospitalized Infant Gut Microbiome Community
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+    role: canonical_record
+scope:
+  description: Whole canonical record and every node/arrow assessed using primary
+    main, figures, scientific supplements, ontology/archive evidence and focused native
+    checks.
+  selection: Only released CommunityMech:000248 in the owned batch 09 checkout.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000248
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema validation passed.
+  target_ids:
+  - CommunityMech:000248
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    completeness of biological membership, community equilibrium or metabolite transfer.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict validation passed.
+  target_ids:
+  - CommunityMech:000248
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-strict kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+    --out /private/tmp/cm-review-session/batch-09/000248/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    completeness of biological membership, community equilibrium or metabolite transfer.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Term validation passed.
+  target_ids:
+  - CommunityMech:000248
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-terms kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    completeness of biological membership, community equilibrium or metabolite transfer.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000248
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    completeness of biological membership, community equilibrium or metabolite transfer.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000248
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    completeness of biological membership, community equilibrium or metabolite transfer.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: History validation passed.
+  target_ids:
+  - CommunityMech:000248
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-history history/records/Candida_Parapsilosis_Hospitalized_Infant_Microbiome
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    completeness of biological membership, community equilibrium or metabolite transfer.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only cache-name preflight passed.
+  target_ids:
+  - CommunityMech:000248
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    completeness of biological membership, community equilibrium or metabolite transfer.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Reference validation passed; independent matching verifies all 14 excerpts
+    with explicit title/abstract/body categories.
+  target_ids:
+  - CommunityMech:000248
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-references-explained kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Fresh focused native execution. Mechanical validity does not establish
+    completeness of biological membership, community equilibrium or metabolite transfer.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000248
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Explicit same-batch corpus reuse with original execution timestamps.
+    Existing corpus warnings are not attributed to this focal record.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000248
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Explicit same-batch corpus reuse with original execution timestamps.
+    Existing corpus warnings are not attributed to this focal record.
+- check_id: scientific-source
+  name: Primary scientific review
+  status: passed
+  required: true
+  summary: Entire scientific main, Table 1, six main figures, nine scientific SI figures
+    and five small workbooks assessed against the whole record.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - source-scope
+  - independent-source
+  - lead-read
+  - tables
+- check_id: source-resources
+  name: Public resource identity
+  status: passed
+  required: true
+  summary: Two source-named BioProjects, all 24 declared NICU runs and their project,
+    plus immutable author repository and bounded ggKbase access verified.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - resources
+- check_id: supplements
+  name: Scientific supplements
+  status: passed
+  required: true
+  summary: All scientific supplementary figures/captions and all workbook cells inspected;
+    S8 tiny-label limit is explicit.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - figures
+  - tables
+- check_id: video-abstract
+  name: Ancillary video abstract
+  status: skipped
+  required: false
+  summary: The publication identifies a Video Abstract; it was not retrieved or viewed.
+    No encoded claim depends on its content.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - lead-read
+- check_id: raw-reanalysis
+  name: Raw omics and statistical reproduction
+  status: skipped
+  required: false
+  summary: No raw sequence/proteome payload, patient-level reanalysis, gene-function
+    experiment, flux tracing or new significance test.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - tables
+  - resources
+  - source-scope
+- check_id: structured-adapter
+  name: Optional structured expression adapter
+  status: unavailable
+  required: false
+  summary: No applicable expression-module evidence established through bounded runtime
+    discovery.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+  locator: Entire canonical record, four nodes and zero downstream arrows
+  summary: The natural hospitalized-infant microbiome record describes the four recovered
+    infant-06 species but encodes only two in taxonomy. Its interaction descriptions
+    already separate observed co-detection, relative succession and expression associations
+    from causal hypotheses.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.207688Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=34154658&retmode=xml
+  locator: Direct bibliographic metadata
+  summary: Direct title, abstract and identifiers establish the focal publication.
+    Two current excerpts match the abstract and two match the title.
+  support: supports
+  accessed_at: '2026-10-21T15:35:12.496404Z'
+  snapshot_sha256: f2507aeb2dfd3686788c13e1729a3502a85b9e5d8e1c0115caf608b4d809aa92
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:34154658%20AND%20SRC:MED&format=json&resultType=core
+  locator: Direct bibliographic metadata
+  summary: PMID 34154658, PMC8215838 and DOI 10.1186/s40168-021-01085-y identify the
+    same open paper.
+  support: supports
+  accessed_at: '2026-10-21T15:35:12.766231Z'
+  snapshot_sha256: c9e8dee7dddf10efa5c5b666a5c2a2262e9af40540a4a04ab8b6f64f4ea72380
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1186/s40168-021-01085-y
+  locator: Direct bibliographic metadata
+  summary: DOI bibliographic identity agrees with the publication.
+  support: supports
+  accessed_at: '2026-10-21T15:35:12.470844Z'
+  snapshot_sha256: 142bfebef0be47441d212fd17e29b4afeb332f5ec37dd4e857f5bd73af13610e
+- evidence_id: membership
+  kind: primary_source
+  reference: PMID:34154658
+  locator: 'Results: In situ metatranscriptomics and metaproteomics; Figure 3; Figures
+    S7–S8'
+  summary: The focal infant-06 metagenomes recovered C. parapsilosis plus E. faecalis,
+    L. gasseri and S. epidermidis. Figure 3 and S7 distinguish DNA, RNA and protein
+    relative abundances. L. gasseri and S. epidermidis are members of this focal community,
+    not organisms mentioned only in background studies.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.209669Z'
+  snapshot_sha256: 06e0b95a0d950dcaa98690543a91618c2d1d4c06974fce8ae4b05cf0a7f9f3eb
+  quote: genomes were recovered for three bacterial species
+- evidence_id: state
+  kind: primary_source
+  reference: PMID:34154658
+  locator: 'Results: In situ metatranscriptomics and metaproteomics; Proteomics; Discussion;
+    Figure 3'
+  summary: The source reports rapid fungal-to-enterococcal relative succession and
+    variable transcription, alongside comparatively persistent fungal protein abundance.
+    Protein persistence and repeated detection do not establish equilibrium of the
+    whole community.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.209868Z'
+  snapshot_sha256: 06e0b95a0d950dcaa98690543a91618c2d1d4c06974fce8ae4b05cf0a7f9f3eb
+  quote: proteomic abundance remained relatively stable over all timepoints
+- evidence_id: genomes
+  kind: primary_source
+  reference: PMID:34154658
+  locator: 'Abstract: Results; Results: Recovery of novel Candida strain genomes;
+    Table 1'
+  summary: The abstract shorthand describes five fungal genomes from infant feces,
+    but Table 1 resolves the five C. parapsilosis MAGs as C1_006, N3_182 and L2_023
+    from infant feces, S2_005 from the NICU and one NYC-subway genome. Three are newly
+    reconstructed and two were analyzed previously. The detailed in situ activity
+    series concerns C1_006 in infant 06. Preserve this source conflict while making
+    the record note sample-specific.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.209983Z'
+  snapshot_sha256: 06e0b95a0d950dcaa98690543a91618c2d1d4c06974fce8ae4b05cf0a7f9f3eb
+- evidence_id: codetection
+  kind: primary_source
+  reference: PMID:34154658
+  locator: 'Results: In situ metatranscriptomics and metaproteomics'
+  summary: The seven-infant statement concerns samples with a detected or assembled
+    Candida genome across Candida species. It supports repeated co-detection of E.
+    faecalis, not seven independent fungal-strain interactions or colonization facilitation.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.210078Z'
+  snapshot_sha256: 06e0b95a0d950dcaa98690543a91618c2d1d4c06974fce8ae4b05cf0a7f9f3eb
+- evidence_id: mannitol
+  kind: primary_source
+  reference: PMID:34154658
+  locator: 'Results: C. parapsilosis impact on bacterial expression; Discussion; Figure
+    5C; Figure S5; Table S3'
+  summary: Mannitol PTS and mannitol-1-phosphate dehydrogenase features distinguish
+    Candida-positive E. faecalis transcriptomes. The paper cites mannitol production
+    by a different fungal strain and proposes a substrate switch. It does not trace
+    C1_006 secretion or recipient uptake. Between-infant variation remains a possible
+    explanation; ribosomal transcription is not a measured growth rate.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.210169Z'
+  snapshot_sha256: 06e0b95a0d950dcaa98690543a91618c2d1d4c06974fce8ae4b05cf0a7f9f3eb
+- evidence_id: expression
+  kind: primary_source
+  reference: PMID:34154658
+  locator: 'Results: C. parapsilosis expression in situ vs. culture settings; Transcriptomics
+    enriched gene functions; Figures 4–6; Table S4'
+  summary: The in situ fungal transcript profiles differ from heterogeneous culture
+    comparators. Biofilm-related C. albicans orthologs show lower expression, while
+    respiratory/LSM categories are enriched. These observations do not directly measure
+    biofilm mass, oxygen concentration, respiration, virulence or ecological niche
+    partitioning. S. epidermidis separation should not be used to strengthen the less-clear
+    E. faecalis attribution.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.210260Z'
+  snapshot_sha256: 06e0b95a0d950dcaa98690543a91618c2d1d4c06974fce8ae4b05cf0a7f9f3eb
+- evidence_id: conditions
+  kind: primary_source
+  reference: PMID:34154658
+  locator: 'Methods: Metagenomic sampling and sequencing; Transcriptomic sequencing
+    and analysis; Generation of proteomic datasets; Table S2'
+  summary: Natural infant fecal samples were profiled without cultivation of the intact
+    community. YPD at 30 °C to mid-log describes the isolated C1_06 culture comparator
+    only. Antimicrobial exposure is clinical context, not an experimentally isolated
+    cause of succession. Sample processing temperatures, buffers and peptide digestion
+    are not community growth conditions.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.210350Z'
+  snapshot_sha256: 06e0b95a0d950dcaa98690543a91618c2d1d4c06974fce8ae4b05cf0a7f9f3eb
+- evidence_id: availability
+  kind: primary_source
+  reference: PMID:34154658
+  locator: Availability of data and materials
+  summary: The source names two BioProjects, the 24-run SRA range, an author analysis
+    repository and a ggKbase genome group. Focal infant-06 reads, older comparative
+    genomes and hospital-environment metagenomes must remain distinct. The public
+    metadata audit establishes those scopes without downloading raw data.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.210492Z'
+  snapshot_sha256: 06e0b95a0d950dcaa98690543a91618c2d1d4c06974fce8ae4b05cf0a7f9f3eb
+- evidence_id: figures
+  kind: primary_source
+  reference: PMID:34154658
+  locator: All six main figures; all nine scientific supplementary figures, including
+    both S8 pages
+  summary: Figure 3 and S7 support four-member detection and assay-specific temporal
+    changes. Figure 6 is an expression-based diagram, not a molecular perturbation
+    assay. All figure overviews and captions were inspected; tiny S8 pathway labels
+    were not all legible.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.210978Z'
+  snapshot_sha256: 6551338be5bcb4745e2f95a936652ae770ca641370262cad7b47e23f58c033d2
+- evidence_id: tables
+  kind: primary_source
+  reference: PMID:34154658
+  locator: Table 1; all cells of Tables S1–S5
+  summary: S1 describes copy-number estimates; S2 treatment context; S3 transcript
+    discriminant features; S4 enriched gene/protein categories; S5 host-protein enrichment.
+    S3 rows 5, 9 and 37 support the bounded mannitol-associated interpretation. S7
+    protein persistence and S8 pathway evidence do not establish flux or community
+    equilibrium.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.211361Z'
+  snapshot_sha256: 49d746dee7db0b6df6c21521038fa8c8f7d8d4baf3a9f055f566bf924f473447
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: MicrobialCommunity.taxonomy and ecological_state; EcologicalStateEnum;
+    TaxonomicComposition; InteractionTypeEnum; GrowthMedia
+  summary: Taxonomy represents microbial membership and excludes the host. STABLE
+    denotes equilibrium; ecological_state, functional roles and abundance fields are
+    optional. CROSS_FEEDING denotes metabolite exchange, without an obligacy requirement.
+    Growth-media fields concern actual cultivation.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.211839Z'
+  snapshot_sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+- evidence_id: ontology
+  kind: authority
+  reference: ontology-authority.json
+  locator: Whole bounded frozen receipt
+  summary: All six encoded ID-label pairs match across ten occurrences.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.212170Z'
+  snapshot_sha256: 8672ed60639f29cd3d59778aba9be902cee8e5451aa2d8ad853891732efbdccf
+- evidence_id: fungal-name
+  kind: authority
+  reference: child-fungal-name-authority.json
+  locator: Whole bounded frozen receipt
+  summary: Direct NCBI authority verifies Lodderomyces parapsilosis at NCBITaxon:5480,
+    Candida parapsilosis as a homotypic synonym and the Eukaryota/Fungi lineage. Preserve
+    current label and source name.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.212602Z'
+  snapshot_sha256: e4afd6f846b8ea1343b69d16b7adfdfac6d443082fe8f141ad57b1a8bd8b99ab
+- evidence_id: semantics
+  kind: authority
+  reference: ontology-semantic-notes.json
+  locator: Whole bounded frozen receipt
+  summary: The source-specific semantics review distinguishes optional state/roles,
+    fungal GTDB exclusion, current membership and qualified expression hypotheses.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.213127Z'
+  snapshot_sha256: dd1693f2c12eb8dfb94080048f85a1964b6534a67252f16b5c19fc09ea9d3008
+- evidence_id: gtdb
+  kind: authority
+  reference: child-gtdb-mapping-check.json
+  locator: Whole bounded frozen receipt
+  summary: The exact E. faecalis crosswalk row agrees with the encoded lineage, 9,081
+    genomes and fraction 1.0. These are mapping statistics, not study abundance or
+    strain-genome classification.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.213352Z'
+  snapshot_sha256: 87c7bda3d1455d9081fd5c6734c526bb7ef2fc755203b8f1c6f20821f36964d9
+- evidence_id: roster-candidates
+  kind: authority
+  reference: child-roster-candidates.json
+  locator: Whole bounded frozen receipt
+  summary: OAK verifies Lactobacillus gasseri NCBITaxon:1596 and Staphylococcus epidermidis
+    NCBITaxon:1282, both species rank. No culture collection strain is substituted
+    for the infant genomes.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.213872Z'
+  snapshot_sha256: f47fb3eabdefd917234b5cb2d71f2c97b03d3199ee1f30d5bd68895ee822ca26
+- evidence_id: roster-gtdb
+  kind: authority
+  reference: child-roster-gtdb-mapping.json
+  locator: Whole bounded frozen receipt
+  summary: An exact S. epidermidis species row is available, including GTDB Staphylococcales
+    and 5,694 genomes at fraction 1.0. No exact L. gasseri row was found in the checked
+    local crosswalk; leave unresolved without a strain-derived or split assignment.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.214261Z'
+  snapshot_sha256: a2be6714b754f8aaa5a42b1c62db34fe72f8796866960e0b10e478de1e17c71a
+- evidence_id: resources
+  kind: database
+  reference: dataset-verification.json
+  locator: Whole bounded frozen receipt
+  summary: Verified resources distinguish PRJNA717139 focal infant study, PRJNA471744
+    prior infant/NICU reconstruction, and all 24 NICU WGS runs under PRJNA376580.
+    The author tree/README and anonymous ggKbase access boundary are explicitly scoped.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.214551Z'
+  snapshot_sha256: eecd9d9953133f0569382c5a291d2ad9534347b63302c3f3509a42a85ab23dbb
+- evidence_id: snippets
+  kind: validation
+  reference: snippet-audit.json
+  locator: Whole bounded frozen receipt
+  summary: 'All 14 excerpts match direct sources: two abstract, two publication-title
+    and ten body spans. All match the full MD cache; four match the abstract/title-only
+    TXT.'
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.214844Z'
+  snapshot_sha256: f2f8500ba91b71362efa45ec965a38ab368cf5e70e6a0683aad4886a5fdc75b6
+- evidence_id: history
+  kind: record_content
+  reference: provenance-audit.json
+  locator: Whole bounded frozen receipt
+  summary: Both history sidecars and exact prior batch10 row are preserved. Issue
+    1272 closed the graph work; prior review explicitly left non-graph fields uncertified.
+    Older reverse fungal-name normalization is historical and does not invalidate
+    the current correct label.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.215290Z'
+  snapshot_sha256: 620064db68aef51520a4502403d98a32f550fecb4e1d09868834455e0732ecf4
+- evidence_id: native-target
+  kind: validation
+  reference: support-audit.json
+  locator: Whole bounded frozen receipt
+  summary: 'The focal graph is COMPLETE: four nodes, zero arrows and nine node-evidence
+    entries. Completeness 25 and capped quality 100 are mechanical scores, not scientific
+    certification.'
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.215334Z'
+  snapshot_sha256: e8d470751761cdf63b58df3191ee95cd8b50dd10d30f1fc782082ae7fa605caf
+- evidence_id: source-scope
+  kind: validation
+  reference: source-audit.json
+  locator: Whole bounded frozen receipt
+  summary: Whole-record assessment finds two major and two minor groups while retaining
+    the four qualified nodes and no arrows. Scientific-main and supplement scope and
+    unresolved source inconsistencies are explicit.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.215607Z'
+  snapshot_sha256: 349f43eb7cef9a0c0a41f477a31b7d6a6c885e22649515a97b9936f757bb3538
+- evidence_id: lead-read
+  kind: validation
+  reference: lead-primary-read-scope.json
+  locator: Whole bounded frozen receipt
+  summary: Whole scientific main, Table 1 and all six main images were read, with
+    all nine scientific supplements and five small workbooks inspected to stated scope.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.215653Z'
+  snapshot_sha256: 6551338be5bcb4745e2f95a936652ae770ca641370262cad7b47e23f58c033d2
+- evidence_id: independent-source
+  kind: validation
+  reference: root-independent-source-audit.json
+  locator: Whole bounded frozen receipt
+  summary: Root independently assessed the primary science, figures, critical tables,
+    authority and resource boundaries and accepted the final grouping.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.215690Z'
+  snapshot_sha256: b5e9df21206d8b47b5f980a9d863e4d81a6513dc6af0c619f1ab964f816c115f
+- evidence_id: auxiliary
+  kind: validation
+  reference: auxiliary-frozen-manifest.json
+  locator: Whole bounded frozen receipt
+  summary: Child-owned native, authority and adapter receipts are frozen; no shared
+    receipt was overwritten.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.216104Z'
+  snapshot_sha256: b8c5d05cf945ca16205896bda4d3586b017ec18b9acc7cc3c744b60bf329426b
+- evidence_id: access-main
+  kind: validation
+  reference: lead-primary-reuse.json
+  locator: Explicit read-only reuse of root-retrieved XML
+  summary: The same-publication direct XML was reused with its exact hash; a separate
+    direct publisher response returned the full article.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.216525Z'
+  snapshot_sha256: 70b23b8845ef97de348395ef76291218c823cdca3a3488708c08154c5ce7096d
+- evidence_id: access-si
+  kind: validation
+  reference: lead-supplement-inventory.json
+  locator: Fourteen source-linked publisher assets
+  summary: Nine PDFs and five XLSX files were successfully retrieved from the links
+    in the publisher HTML and parsed. The Video Abstract is ancillary and was not
+    retrieved or viewed.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.216910Z'
+  snapshot_sha256: ac4efc247e593f44d104b25d6d36afa232b663e8e040b8ae9d2ca6d30cdd7abe
+- evidence_id: adapter
+  kind: validation
+  reference: adapter-check.json
+  locator: Bounded runtime discovery with preserved original timestamps
+  summary: No applicable structured expression-module evidence was established. Optional
+    adapter limitations are not negative biological evidence.
+  support: supports
+  accessed_at: '2026-10-21T15:42:19.217354Z'
+  snapshot_sha256: 2342144c1e7969315568af0df3b666d9f20bc99bce190fd23d0203ffe6423c88
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+  locator: Actual execution 2026-10-21T15:35:11.268659+00:00 to 2026-10-21T15:35:12.106203+00:00
+  summary: Schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T15:35:12.106203Z'
+  snapshot_sha256: 84dec60f849ee71b50325a86443a39ec05449f4856597703554cb884d502debb
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-strict kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+    --out /private/tmp/cm-review-session/batch-09/000248/strict-report.tsv
+  locator: Actual execution 2026-10-21T15:35:11.268877+00:00 to 2026-10-21T15:35:13.469492+00:00
+  summary: Strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T15:35:13.469492Z'
+  snapshot_sha256: ab19ba8676af4d9084ebec39b05c6beb10b66b55ed1eb64bbe0ff33ea066f8d8
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-terms kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+  locator: Actual execution 2026-10-21T15:35:11.268974+00:00 to 2026-10-21T15:35:13.077846+00:00
+  summary: Term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T15:35:13.077846Z'
+  snapshot_sha256: 612ffa383ab47b51349f54a2173f5167709554823bc5d44e7eb02309d4a8222d
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+  locator: Actual execution 2026-10-21T15:35:12.106465+00:00 to 2026-10-21T15:35:12.183601+00:00
+  summary: GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T15:35:12.183601Z'
+  snapshot_sha256: 96a630e7ee39cc3f8f249d9023446039394df7cfb632b488944c8359ccad489f
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+  locator: Actual execution 2026-10-21T15:35:12.183880+00:00 to 2026-10-21T15:35:13.524732+00:00
+  summary: GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T15:35:13.524732Z'
+  snapshot_sha256: fc0678bb82cedfac7dd0bb22e82e0e1c6f18265dbbeb404f1a524fca786a8843
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-history history/records/Candida_Parapsilosis_Hospitalized_Infant_Microbiome
+  locator: Actual execution 2026-10-21T15:35:13.078112+00:00 to 2026-10-21T15:35:13.764005+00:00
+  summary: History validation passed.
+  support: supports
+  accessed_at: '2026-10-21T15:35:13.764005Z'
+  snapshot_sha256: 72fb9629e1c172513d432fe6e5ee39f9b5974c1e578c3af88b29b3391df21d1d
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T15:35:13.764725+00:00 to 2026-10-21T15:35:13.823829+00:00
+  summary: Read-only cache-name preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T15:35:13.823829Z'
+  snapshot_sha256: 5fb6e48e6e05b6f57c87c03b5e600bd3500e322b3939ce37fc8637e18b796c21
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-references-explained kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+  locator: Actual execution 2026-10-21T15:35:13.824081+00:00 to 2026-10-21T15:35:14.874664+00:00
+  summary: Reference validation passed; independent matching verifies all 14 excerpts
+    with explicit title/abstract/body categories.
+  support: supports
+  accessed_at: '2026-10-21T15:35:14.874664Z'
+  snapshot_sha256: ca06cb124419176b2db5657014c860f19b1471c2b71461e692969e49059a8f4b
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T14:53:06.814378+00:00 to 2026-10-21T14:53:14.616064+00:00
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T14:53:14.616064Z'
+  snapshot_sha256: af46c37677bdc80eb1866f799958882492e9f72ed8eff4c304f69cd667f99156
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T14:53:06.817734+00:00 to 2026-10-21T14:53:14.704428+00:00
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T14:53:14.704428Z'
+  snapshot_sha256: 6bf7d1eaf4ddc02de94aaea33610660d4b12689dc78ff47a6e29148baeffdd4f
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Natural infant community and membership
+  outcome: concern
+  summary: The source identity is correct, but structured membership omits two directly
+    recovered infant-06 species.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - membership
+  - genomes
+  - schema
+  - ontology
+  - roster-candidates
+  dimensions:
+  - name: community_scope
+    value: Natural infant-06 gut microbiome within a broader hospital/genome comparison
+    definition: The focal activity time course is one fungal strain in one infant;
+      the genomic analysis includes other sources.
+    evidence_ids:
+    - membership
+    - genomes
+  - name: taxon_rank
+    value: Four source-recovered species; two currently encoded
+    definition: Recover the omitted species without importing the host, reference
+      isolates or the entire wider cohort.
+    evidence_ids:
+    - membership
+    - roster-candidates
+  - name: roles
+    value: No functional_role enums assigned
+    definition: Absence of optional roles is appropriate; transcript associations
+      do not automatically establish metabolite-utilization roles.
+    evidence_ids:
+    - schema
+    - mannitol
+  - name: environment
+    value: Fecal material from hospitalized infant gut
+    definition: Sample material and clinical context are supported; no oxygen setpoint
+      or precise gut compartment is inferred.
+    evidence_ids:
+    - conditions
+    - ontology
+  - name: medium
+    value: No intact-community cultivation medium
+    definition: YPD and 30 °C describe an isolated comparator, not the in situ community.
+    evidence_ids:
+    - conditions
+  - name: evidence_tier
+    value: In situ genome-resolved observational multi-omics
+    definition: No direct donor transfer, fitness, oxygen or biofilm intervention
+      is established.
+    evidence_ids:
+    - mannitol
+    - expression
+- assessment_id: state
+  area: scope
+  topic: ecological_state and natural origin
+  outcome: concern
+  summary: NATURAL and OTHER remain appropriate; unqualified STABLE is not supported
+    as whole-community equilibrium.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - state
+  - schema
+  - figures
+  details: Stable fungal peptide relative abundance is separate from rapid relative
+    DNA/RNA succession and variable transcription. The optional state field may be
+    omitted or given a separately supported developing/transient characterization;
+    no automatic replacement is mandated. Antifungal treatment and isolate comparisons
+    do not convert the naturally occurring community into an engineered assembly.
+- assessment_id: taxonomy
+  area: identity
+  topic: Current names and GTDB grounding
+  outcome: supported
+  summary: Retain the correct current fungal label, source synonym and bacterial mapping.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - ontology
+  - fungal-name
+  - gtdb
+  - roster-gtdb
+  details: Lodderomyces parapsilosis and source Candida parapsilosis refer to the
+    verified species concept. Fungal NO_GTDB_EQUIVALENT follows domain scope, not
+    a failed search. E. faecalis mapping counts are not cohort counts. Added taxa
+    need independent grounding; do not infer a L. gasseri split or use a type/reference
+    strain to fill a missing exact row.
+- assessment_id: node-0
+  area: evidence
+  topic: Repeated Candida-Enterococcus Co-Detection
+  outcome: supported
+  summary: Retain the observational community node. N=7 concerns Candida-positive
+    infants across species and does not demonstrate facilitation or seven C. parapsilosis-specific
+    pairs.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - codetection
+  - schema
+- assessment_id: node-1
+  area: evidence
+  topic: Relative Candida-Enterococcus Succession
+  outcome: supported
+  summary: Retain relative succession with persistence and compositional limits. No
+    reciprocal-negative fitness effect, absolute fungal eradication or causal arrow
+    is inferred.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - state
+  - membership
+  - figures
+- assessment_id: node-2
+  area: evidence
+  topic: Candida-Positive Enterococcus Mannitol-PTS Response
+  outcome: supported
+  summary: Retain HYPOTHESIZED/PARTIAL CROSS_FEEDING and its explicit strain/confounding
+    boundary. Transport-associated transcription supports a proposed relation, not
+    measured transfer or growth-rate change.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - mannitol
+  - tables
+  - semantics
+- assessment_id: node-3
+  area: evidence
+  topic: In Situ Candida Biofilm- and Respiration-Associated Transcripts
+  outcome: supported
+  summary: Retain expression associations and the heterogeneous comparator/ortholog
+    caveats. Do not promote transcript enrichment into phenotype, oxygen, flux, virulence
+    or ecological partitioning.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - expression
+  - tables
+  - figures
+- assessment_id: graph
+  area: scope
+  topic: Every downstream edge
+  outcome: supported
+  summary: There are zero downstream arrows; no workflow or mechanistic link needs
+    to be restored.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - history
+  - source-scope
+  - native-target
+  details: Genome reconstruction is an analysis step, and co-detection, succession
+    and transcript comparisons are not a causal chain. Native COMPLETE does not prove
+    the proposed mannitol mechanism. Broad GO labels do not override explicit observational
+    qualifiers.
+- assessment_id: cohort
+  area: scope
+  topic: taxonomy[0] note and genome evidence
+  outcome: concern
+  summary: Qualify the five-genome note using Table 1 and the source-specific sample
+    origins.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - genomes
+  - history
+  details: Do not silently rewrite the exact abstract quotation. Clarify that the
+    broader comparison contains three infant-fecal, one NICU and one subway C. parapsilosis
+    MAG; only C1_006 is the focal in situ activity strain. Existing species identity
+    remains correct, so this is a bounded provenance correction.
+- assessment_id: conditions
+  area: scope
+  topic: Clinical environment and comparator cultivation
+  outcome: supported
+  summary: Retain in situ fecal/clinical context and the empty community growth-media
+    block.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - conditions
+  - tables
+  - semantics
+  details: Table S2 supplies treatment context, but its fluconazole timing conflicts
+    with S6 and does not isolate treatment causality. No precise chronology is needed
+    for the present record. The isolate comparator culture can be described separately
+    if useful; sample-processing reagents and temperatures must not become community
+    growth conditions.
+- assessment_id: resources
+  area: provenance
+  topic: Public deposits and analysis code
+  outcome: concern
+  summary: Add directly verified resources with focal, prior-study and hospital-environment
+    scopes.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - availability
+  - resources
+  details: Neither the two BioProjects nor the 24 NICU run identifiers certify every
+    omics modality, patient count or strain. Anonymous ggKbase visibility does not
+    establish deletion. Code tree/README verification is not execution or reproducibility
+    certification.
+- assessment_id: history
+  area: provenance
+  topic: Prior repair, snippets and source boundaries
+  outcome: supported
+  summary: Retain the prior graph repair and correct name despite older historical
+    normalization prose.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - history
+  - snippets
+  - source-scope
+  details: The MD cache has appended full text despite its stale header; the TXT supports
+    abstract/title only. All 14 existing excerpts match direct source spans. No excerpt
+    failure or current graph defect is introduced by the broader non-graph review.
+- assessment_id: validation
+  area: schema
+  topic: Native and ontology checks
+  outcome: supported
+  summary: All eight focused native checks pass; source-specific membership, state
+    and provenance concerns remain.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - ontology
+  - check-validate
+  - check-validate-references-explained
+  - native-target
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: supported
+  summary: Low completeness reflects optional rubric fields; no roles or cultivation
+    are invented to improve the score.
+  target_ids:
+  - CommunityMech:000248
+  evidence_ids:
+  - native-target
+  metrics:
+  - name: completeness
+    value: 25
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 'Native rubric: required-field/taxon-role bundle contributes 0 because
+      roles are absent; environment 5, at least three interactions 10, external resources
+      5 and node metabolites 5; fewer than three environmental factors, no medium
+      or dataset bonus. Total 25. This is not a schema requirement to invent roles.'
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      P1=0, P2=2, P3=2, P4=0; nine evidence entries / four nodes gives the maximum
+      20 evidence points; COMPLETE adds 15. Raw 111 is capped at 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: incomplete-roster
+  issue_key: cm-000248-incomplete-roster
+  category: completeness
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: source-resolved membership omission or unsupported whole-community
+    state materially changes the represented biological scope despite valid syntax.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Recover the two omitted infant-06 microbial members
+  description: The source and record overview identify L. gasseri and S. epidermidis
+    alongside the two encoded species. Their omission materially narrows the focal
+    four-member community; it is not a requirement to enumerate every organism from
+    the wider cohort.
+  target_ids:
+  - CommunityMech:000248
+  field_paths:
+  - taxonomy
+  evidence_ids:
+  - membership
+  - figures
+  - roster-candidates
+  - roster-gtdb
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+    role: canonical_record
+- finding_id: unsupported-stable-state
+  issue_key: cm-000248-unsupported-stable-state
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: source-resolved membership omission or unsupported whole-community
+    state materially changes the represented biological scope despite valid syntax.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Do not equate fungal peptide persistence with community equilibrium
+  description: STABLE is an unqualified whole-community equilibrium claim. Relative
+    DNA/RNA succession and variable expression are explicit, while the stable measurement
+    concerns fungal peptide abundance.
+  target_ids:
+  - CommunityMech:000248
+  field_paths:
+  - ecological_state
+  evidence_ids:
+  - state
+  - schema
+  - figures
+  - tables
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+    role: canonical_record
+- finding_id: genome-cohort-scope
+  issue_key: cm-000248-genome-cohort-scope
+  category: scope
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded cohort-provenance or resource-completeness correction;
+    the core natural community identity and qualified graph remain supported.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Separate the five-genome comparison from the focal infant cohort
+  description: The taxonomy note attributes five unique assembled genomes to this
+    infant cohort. Table 1 instead includes three infant-fecal, one NICU and one subway
+    C. parapsilosis genome, and detailed activity data are from one infant strain.
+  target_ids:
+  - CommunityMech:000248
+  field_paths:
+  - taxonomy[0].taxon_term.notes
+  - taxonomy[0].evidence[1].explanation
+  evidence_ids:
+  - genomes
+  - resources
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+    role: canonical_record
+- finding_id: public-resources
+  issue_key: cm-000248-public-resources
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded cohort-provenance or resource-completeness correction;
+    the core natural community identity and qualified graph remain supported.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Link verified study data and analysis resources
+  description: The empty associated_datasets list and publication-only links omit
+    verified focal and comparative sequence resources and analysis provenance. Their
+    material and assay scopes differ.
+  target_ids:
+  - CommunityMech:000248
+  field_paths:
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - availability
+  - resources
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+    role: canonical_record
+actions:
+- action_id: recover-infant-roster
+  description: Represent all four source-recovered infant-06 microbial species with
+    narrow membership evidence.
+  finding_ids:
+  - incomplete-roster
+  target_ids:
+  - CommunityMech:000248
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Add Lactobacillus gasseri NCBITaxon:1596 and Staphylococcus epidermidis NCBITaxon:1282
+    using the direct recovery paragraph and Figure 3/S7 evidence. Keep these additions
+    scoped to infant 06 rather than every Candida-positive infant.
+  - Preserve current Lodderomyces parapsilosis NCBITaxon:5480 with Candida parapsilosis
+    as source/preferred name, fungal NO_GTDB_EQUIVALENT and the valid E. faecalis
+    mapping. Do not revert the current label based on older history prose.
+  - Ground each added bacterial species independently. The pinned S. epidermidis candidate
+    includes GTDB Staphylococcales and 5,694 genomes/fraction 1.0; these are mapping
+    counts, not study abundance. Leave L. gasseri UNRESOLVED unless a supported exact
+    mapping is recovered; do not infer a split, strain equivalence or NO_GTDB_EQUIVALENT
+    from a missing row.
+  - Do not import a human host, culture reference strain, subway strain or the broader
+    cohort as a simultaneous infant-06 community member. Preserve the source C1_006/C1_06
+    notation in its proper scope without inventing a culture alias.
+  - Leave functional roles and abundance enums unset unless claim-specific evidence
+    supports them. Preserve four qualified graph nodes and zero downstream arrows;
+    missing taxa do not justify new causal edges.
+- action_id: repair-stable-state
+  description: Reconcile the optional ecological state with the observed time-series
+    scope.
+  finding_ids:
+  - unsupported-stable-state
+  target_ids:
+  - CommunityMech:000248
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove the unsupported unqualified STABLE assignment, or replace it only with
+    an explicitly source-supported developing/transient characterization and evidence.
+    Ecological_state is optional; no replacement enum is mandatory.
+  - Retain the source observation of relatively persistent fungal peptide abundance
+    as an assay-specific observation alongside changing relative DNA/RNA composition.
+    Do not infer whole-community equilibrium, absolute cell stability or fungal eradication.
+  - Preserve NATURAL origin, OTHER category and the existing qualified succession
+    node. Antimicrobial exposure and culture comparisons are not grounds to relabel
+    the natural community as an engineered assembly.
+- action_id: qualify-genome-origins
+  description: Clarify the fungal genome comparison without altering source quotations.
+  finding_ids:
+  - genome-cohort-scope
+  target_ids:
+  - CommunityMech:000248
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+    role: canonical_record
+  acceptance_checks:
+  - 'Revise taxonomy[0].taxon_term.notes and the five-genome evidence explanation
+    to follow Table 1: C1_006, N3_182 and L2_023 are infant-fecal genomes; S2_005
+    is from the NICU and the NYC-subway genome is environmental. Three were newly
+    reconstructed and two analyzed previously.'
+  - Keep the abstract quotation exact and explicitly distinguish its broad shorthand
+    from the sample-specific Table 1 information. Do not silently repair the paper
+    or call the existing matched excerpt fabricated.
+  - Separate the broad five-genome comparison from C1_006 activity in infant 06 and
+    from the N=7 cross-species Candida co-detection statement. Do not transfer the
+    other strain's mannitol production, reference culture phenotype or genome counts
+    to the focal infant strain.
+- action_id: add-public-resources
+  description: Add the verified sequence/data and code links with their actual scope.
+  finding_ids:
+  - public-resources
+  target_ids:
+  - CommunityMech:000248
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Add PRJNA717139 as the focal Candida/infant-06 genome/read resource with publication
+    attribution. Metadata does not independently certify every reported omics modality
+    or a patient/sample count; preserve this boundary.
+  - Represent PRJNA471744 as the earlier infant-gut/NICU eukaryotic genome reconstruction
+    resource. If adding SRR5420274–SRR5420297, identify the 24 runs as paired NICU
+    surface/sink WGS under PRJNA376580, not infant-06 fecal transcriptomics or proteomics.
+  - Add patrickwest/c_parapsilosis_analysis as code provenance with verified commit
+    49a44a29f99e16fb9f5e14b9f62e450b7a3179ca. The inspected tree contains three notebooks
+    and a minimal README; no code was executed.
+  - Preserve the ggKbase candida_genomes link with its source-reported sign-in requirement
+    and anonymous-access limitation. A zero-project unauthenticated view does not
+    establish absent or deleted genomes. Keep the existing publication links and use
+    valid dataset/resource classifications.
+- action_id: validate-authorized-curation
+  description: Apply any future changes only through a separately authorized curation
+    pass.
+  finding_ids:
+  - incomplete-roster
+  - unsupported-stable-state
+  - genome-cohort-scope
+  - public-resources
+  target_ids:
+  - CommunityMech:000248
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.yaml
+    role: canonical_record
+  acceptance_checks:
+  - After separately authorized canonical curation, append a fresh history event and
+    run focused schema, strict, term, reference, GTDB/domain and history checks, followed
+    by just gen-html and just check-docs-current. No canonical changes or generators
+    are run during this review.
+  - Preserve exact evidence and current graph qualifications, old history and saved
+    review artifacts. Do not add YPD/30 °C as the natural community medium, convert
+    respiratory transcripts into an oxygen setpoint, or resolve the source S6/Table
+    S2 treatment-date conflict without new support.
+limitations:
+- Completed current-claim review covers the full primary scientific main, Table 1,
+  six main figures, all nine scientific SI figures/captions and all cells of five
+  small supplementary workbooks. The ancillary Video Abstract was not viewed.
+- S8 is a dense pathway-map raster; its caption and overview were inspected, but not
+  every tiny pathway label. No conclusion relies on an unread individual label.
+- No raw metagenomic, transcriptomic or proteomic payload, patient-level reanalysis,
+  gene-function experiment, transcript refitting, flux tracing or new significance
+  test was performed.
+- Focal in situ activity is one strain in one infant. Comparison transcriptomes involve
+  other infants, strains and culture conditions. Candida-positive association is not
+  an isolated fungal causal effect.
+- The N=7 co-detection result includes Candida species; it is not seven independent
+  C. parapsilosis-specific interactions. Relative DNA/RNA shifts are not absolute
+  fungal eradication or reciprocal competition.
+- Mannitol transport/dehydrogenase annotations and a different fungal strain's production
+  capacity support a hypothesis, not demonstrated transfer from C1_006. Ribosomal
+  transcripts are not a growth-rate assay.
+- Lower expression of orthologs associated with biofilm and increased respiratory
+  transcript categories do not measure biofilm biomass, gut oxygen tension, respiratory
+  flux, virulence or ecological niche partitioning.
+- Fungal peptide persistence does not prove whole-community equilibrium. Proteins
+  can persist longer than transcripts; source protein-group coverage and host dominance
+  limit interpretation.
+- 'Source-local inconsistencies are preserved: abstract genome-origin shorthand differs
+  from Table 1; source names include C1_006/C1_06 and CBS1954/CBS1984 variants; S6
+  fluconazole DOL 19 differs from Table S2 DOL 21; S8 pathway/protein evidence is
+  not flux. No convenient reconstruction is substituted.'
+- Archive checks verify public metadata, exact identifiers and immutable code tree/README
+  only. The 24 declared SRA runs are NICU surface/sink WGS under PRJNA376580, not
+  infant-06 transcriptomics/proteomics. Anonymous ggKbase visibility does not establish
+  absence of sign-in-restricted genomes.
+- No functional roles or abundance enums are invented to improve the low native completeness
+  score. Added source taxa require their own evidence and grounding; L. gasseri GTDB
+  remains unresolved at the checked local crosswalk scope.
+notes:
+- No canonical, cache, history, generated or saved-review files changed; all 25 inspected
+  inputs remain pinned.
+- 'All 14 existing excerpts match direct sources: two abstract, two title and ten
+  body spans. All match appended MD; four match abstract/title-only TXT. Stale MD
+  frontmatter does not imply an absent main text.'
+- Completeness 25 and quality 100 (raw 111) are native mechanical scores. Missing
+  optional roles are not a scientific defect and should not be invented for points.
+- The Video Abstract was not viewed, S8 tiny pathway labels were not exhaustively
+  legible, and no raw data or new statistical/flux analysis was undertaken. Current-claim
+  scientific review is complete to these stated boundaries.
+- No code execution, paid provider, author contact, canonical mutation or later-target
+  assessment.
+tags:
+- record-review
+- infant-gut-microbiome
+- observational-multiomics
+- main-and-scientific-supplements-assessed
+- batch-09
+```

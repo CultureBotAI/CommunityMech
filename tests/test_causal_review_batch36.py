@@ -10,6 +10,24 @@ ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "reports/causal_graph_review/decisions/20261006-three-records-batch36.yaml"
 
 
+SUCCESSOR = (
+    ROOT
+    / "reports/causal_graph_review/decisions/20261029-host-soil-related-communities-paper-test.yaml"
+)
+
+
+def latest_record_sha256(row):
+    """Follow a non-graph successor review (host/soil/related-communities paper test)."""
+    for successor in yaml.safe_load(SUCCESSOR.read_text())["records"]:
+        if successor["supersedes_review"] == {
+            "review_file": str(LEDGER.relative_to(ROOT)),
+            "record_sha256": row["record_sha256"],
+        }:
+            assert successor["original_sha256"] == row["record_sha256"]
+            return successor["record_sha256"]
+    return row["record_sha256"]
+
+
 def records():
     ledger = yaml.safe_load(LEDGER.read_text())
     return ledger, [yaml.safe_load((ROOT / r["path"]).read_text()) for r in ledger["records"]]
@@ -96,13 +114,29 @@ def test_gl10_specialization_is_overlapping_not_direct_cross_feeding():
     ]
     assert node["evidence"][1]["supports"] == "PARTIAL"
     assert "1.22 g/L at 36 h" in node["evidence"][1]["explanation"]
+    assert all(
+        t["functional_role"] == ["PRIMARY_DEGRADER"] and t["abundance_level"] == "DOMINANT"
+        for t in doc["taxonomy"]
+    )
     assert doc["discussions"][0]["discussion_id"] == "gl10_xl12_direct_cross_feeding"
     assert len(doc["discussions"]) == 2
 
 
 def test_batch36_canonical_participants_anchors_history_and_hashes():
     ledger, docs = records()
+    successor_file = (
+        ROOT / "reports/causal_graph_review/decisions/20261031-c4s5-review-remediation.yaml"
+    )
+    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
     for row, doc in zip(ledger["records"], docs, strict=True):
+        latest = row
+        if row["id"] == "CommunityMech:000357":
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
         canonical = {
             (t["taxon_term"]["term"]["id"], t["taxon_term"]["preferred_term"]): t["taxon_term"]
             for t in doc["taxonomy"]
@@ -125,7 +159,8 @@ def test_batch36_canonical_participants_anchors_history_and_hashes():
             assert set(gap["attaches_to"]) <= {"ecological_interactions#" + n for n in names}
         assert row["curation_events_added"] == 1 and len(row["history_files"]) == 1
         assert doc["curation_history"][-1]["llm_assisted"] is True
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        expected = latest["record_sha256"] if latest is not row else latest_record_sha256(row)
+        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == expected
 
 
 def test_batch36_all_original_nodes_and_arrows_have_dispositions():
