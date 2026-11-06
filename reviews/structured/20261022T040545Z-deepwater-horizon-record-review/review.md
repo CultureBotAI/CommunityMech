@@ -1,0 +1,1716 @@
+# Deepwater Horizon plume succession record review
+
+- Review: 20261022T040545Z-deepwater-horizon-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-22T03:53:38.194981Z
+- Finished UTC: 2026-10-22T04:05:45.744467Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Three major findings address methane-role uncertainty, oxygen/temperature evidence scope and surface/deep pathway interpretation outside the graph. Three minor findings address cultivation detail, GTDB provenance and a descriptive pseudoaccession. The three qualified nodes and two hypothesized arrows remain valid. Eight focused checks pass; one disconnected warning prevents the network bonus. Literal completeness100 and quality84 are separate from the completed source review.
+
+## Scope And Provenance
+
+Whole maintained record and all five primary main texts, ten recovered main figures, full Dombrowski supplementary PDF and Mason quality supplement; bounded workbook and public-resource metadata. Hazen/Baelum separate supplements and Baelum figure pixels remain unread.
+
+Selection: Only released CommunityMech:000166 in owned batch14.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base e117e3d37c65bfad2e04af53ab34e1325d8d7f98.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000166 | kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml | maintained | Deepwater Horizon Deep-Sea Oil Plume Succession |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000166 | Actual native exit0. |
+| validate-strict | passed | True | CommunityMech:000166 | Actual native exit0. |
+| validate-terms | passed | True | CommunityMech:000166 | Actual native exit0. |
+| validate-references-explained | passed | True | CommunityMech:000166 | Actual native exit0. |
+| validate-gtdb | passed | True | CommunityMech:000166 | Actual native exit0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000166 | Actual native exit0. |
+| validate-history | passed | True | CommunityMech:000166 | Actual native exit0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000166 | Actual native exit0. |
+| audit-network corpus context | failed | False | CommunityMech:000166 | Actual corpus exit1 retained. |
+| check-network-quality corpus context | failed | False | CommunityMech:000166 | Actual corpus exit1 retained. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000166 | Unavailable in owned runtime. |
+
+## Scientific And Domain Assessments
+
+### Natural succession and member scope
+
+identity: supported. Targets: CommunityMech:000166.
+
+The five descriptors summarize a natural spill succession across distinct field and enrichment studies.
+
+NATURAL, PERTURBED, BIOREMEDIATION and the broad marine environment term are appropriate. DOMINANT and ABUNDANT are ordinal. Preserve genus/order aggregates without inventing a simultaneous defined five-member culture or source-stock genomes.
+
+### Methane, oxygen and enrichment interpretation
+
+evidence: concern. Targets: CommunityMech:000166.
+
+Several non-graph statements overstate evidence already qualified in the graph.
+
+Restore uncertainty around Methylophaga methane use, oxygen-preserving bioremediation and coordinated community pathways. Distinguish 4.7°C field measurements from 5°C assays, and deep HEX from surface PAH enrichment evidence.
+
+### Source-specific enrichment and isolate procedures
+
+evidence: concern. Targets: CommunityMech:000166.
+
+The current 5°C/20-day culture entry is supported but omits recoverable treatment and vessel details.
+
+Keep five treatment combinations, primary sampling, longer oil-only floc sampling and the separate RC25 assay distinct. Total respirometer headspace is not vessel capacity; no unsupported pH, shaking or field dose is inferred.
+
+### Cold Hydrocarbon Biodegradation and Bioremediation Potential
+
+graph: supported. Targets: CommunityMech:000166.
+
+Retain the Oceanospirillales participant subset and untyped community-level cold biodegradation node. SUPPORT/OTHER covers combined field and laboratory evidence; PARTIAL/OTHER appropriately limits oxygen-preserving bioremediation to potential. It is not a demonstrated oxygen-conservation mechanism.
+
+Exact selector ecological_interactions[0]; scope COMMUNITY_LEVEL; interaction_type untyped. Encoded taxa: {"source": null, "target": null, "participants": [{"preferred_term": "DWH Oceanospirillales-like bacteria", "term": {"id": "NCBITaxon:135619", "label": "Oceanospirillales"}}]}. Canonical excerpt bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet", "sha256": "3ad92d1097d09b52cbb781c8f4e5712f2939c58704c66195aacb8ede75b94c1f", "reference": "PMID:20736401", "supports": "SUPPORT", "evidence_source": "OTHER"}, {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "956479ab757822ad12814ea2385f2c18c9b825dbcf1bdc2468a791fbf68fedfa", "reference": "PMID:20736401", "supports": "PARTIAL", "evidence_source": "OTHER"}]. Snippet audit SHA256 e25263d61482edebb5ee2665fe2c46f64359b396fecb516fc257f617e57bc4a8. Linked source evidence supplies the verified locators and retained tiers.
+
+### Colwellia-Dominated Oil-Associated Flocs
+
+graph: supported. Targets: CommunityMech:000166.
+
+Retain observed Colwellia-dominated flocs and both SUPPORT/IN_VITRO evidence placements. Oil, carbohydrate and biomass are measured in laboratory aggregates; separate isolate degradation does not establish selective floc causality or field attenuation.
+
+Exact selector ecological_interactions[1]; scope COMMUNITY_LEVEL; interaction_type untyped. Encoded taxa: {"source": null, "target": null, "participants": [{"preferred_term": "Colwellia", "term": {"id": "NCBITaxon:28228", "label": "Colwellia"}}]}. Canonical excerpt bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet", "sha256": "1f31418be3b03674c537f550c84eddb214de12315b6975e667f7ca9e8fd9ffaf", "reference": "PMID:22616650", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}, {"selector": "ecological_interactions[1].evidence[1].snippet", "sha256": "92e533015a9272b46d09173ec84c1836f771ac887e3f0369a52afbef8cdb3307", "reference": "PMID:22616650", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 e25263d61482edebb5ee2665fe2c46f64359b396fecb516fc257f617e57bc4a8. Linked source evidence supplies the verified locators and retained tiers.
+
+### Colwellia-Dominated Oil-Associated Flocs → Cold Hydrocarbon Biodegradation and Bioremediation Potential
+
+graph: supported. Targets: CommunityMech:000166.
+
+Retain the explicitly HYPOTHESIZED direction with its source and experimental limits.
+
+Exact selector ecological_interactions[1].downstream[0]; source node Colwellia-Dominated Oil-Associated Flocs; target node Cold Hydrocarbon Biodegradation and Bioremediation Potential. Exact encoded description: HYPOTHESIZED - aggregation with oil droplets could support Colwellia-associated hydrocarbon access and degradation. The enrichment observations and separate isolate assay do not selectively test this route or establish its contribution to in situ plume attenuation.. Description SHA256 a3957e1383cd56ea87448621f5601bacbeaf0d5507b48b1174b9d9b1ee1642e7. Baelum Results floc formation and separate isolate assay, Discussion and Figures 2–7 captions support the proposed access route without a selective perturbation or quantified field contribution.
+
+### Proposed Community Hydrocarbon Pathway Complementarity
+
+graph: supported. Targets: CommunityMech:000166.
+
+Retain the explicitly hypothesized pathway-complementarity node and participant subset. Two PARTIAL/COMPUTATIONAL placements support the model; SUPPORT/IN_VITRO preserves isotope assimilation. Deep HEX and surface PAH enrichments, incomplete assemblies and alternative enzymes preclude resolved exchange or necessity claims.
+
+Exact selector ecological_interactions[2]; scope COMMUNITY_LEVEL; interaction_type untyped. Encoded taxa: {"source": null, "target": null, "participants": [{"preferred_term": "DWH Oceanospirillales-like bacteria", "term": {"id": "NCBITaxon:135619", "label": "Oceanospirillales"}}, {"preferred_term": "Colwellia", "term": {"id": "NCBITaxon:28228", "label": "Colwellia"}}, {"preferred_term": "Cycloclasticus", "term": {"id": "NCBITaxon:34067", "label": "Cycloclasticus"}}, {"preferred_term": "Marinobacter", "term": {"id": "NCBITaxon:2742", "label": "Marinobacter"}}]}. Canonical excerpt bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet", "sha256": "f49b4a55dc3c35d0785006dc42f6db7b8cd28f172e3deb1b6b7643074615511b", "reference": "PMID:27572965", "supports": "PARTIAL", "evidence_source": "COMPUTATIONAL"}, {"selector": "ecological_interactions[2].evidence[1].snippet", "sha256": "fd0b0c30cda7ac264003aa862ba42999057d9b86b4ab4552ee916c5976308059", "reference": "PMID:27572965", "supports": "PARTIAL", "evidence_source": "COMPUTATIONAL"}, {"selector": "ecological_interactions[2].evidence[2].snippet", "sha256": "800935aad2bfc1de771f1ac10fdb26be4ea5fef0e76947e5d4746f915f5829b2", "reference": "PMID:27572965", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 e25263d61482edebb5ee2665fe2c46f64359b396fecb516fc257f617e57bc4a8. Linked source evidence supplies the verified locators and retained tiers.
+
+### Proposed Community Hydrocarbon Pathway Complementarity → Cold Hydrocarbon Biodegradation and Bioremediation Potential
+
+graph: supported. Targets: CommunityMech:000166.
+
+Retain the explicitly HYPOTHESIZED direction with its source and experimental limits.
+
+Exact selector ecological_interactions[2].downstream[0]; source node Proposed Community Hydrocarbon Pathway Complementarity; target node Cold Hydrocarbon Biodegradation and Bioremediation Potential. Exact encoded description: HYPOTHESIZED - complementary pathways could expand community hydrocarbon transformation and contribute to bioremediation. SIP and annotated repertoires support this model but do not establish intertaxon flux, necessity or the contribution of this room-temperature enrichment mechanism in the cold field plume.. Description SHA256 f39be66a8d91afc6ec42014e95235c290c8f91df792c92bc8b827a582509044b. Dombrowski Figures 1–3 and Methods support source-specific SIP and annotated repertoires, without intertaxon flux, necessity or transfer of room-temperature mechanisms to the cold field plume.
+
+### Labels and rank-aware GTDB provenance
+
+grounding: concern. Targets: CommunityMech:000166.
+
+Eleven ontology pairs match and four GTDB cores reproduce, but release/build provenance is overstated.
+
+Keep Oceanospirillales-to-Pseudomonadales order aggregation and the three genus mappings at their actual ranks. Preserve the intentional Colwellia WITHHELD near-tie guard. These reference supports are not community abundances or experimental strain identities.
+
+### Publication versus data accession
+
+provenance: concern. Targets: CommunityMech:000166.
+
+The descriptive dataset label points to a publication; concrete source-declared archive records are now verified.
+
+PRJNA301966 and seven WGS masters describe reconstructed genomes across deep HEX and surface PAH enrichments. Three experiments/six runs are not six independent cultures. Optional Baelum and Mason outputs need their own amplicon, marker or SAG scope.
+
+### Maintained record and prior curation
+
+ownership: supported. Targets: CommunityMech:000166.
+
+The focal YAML owns the proposed repairs; prior graph qualifications remain valid.
+
+Earlier abstract-bounded reading is a dated historical event, not an assertion that full text remains inaccessible. No canonical, cache, history, issue or Git change is part of this review.
+
+### Native checks versus source entailment
+
+schema: supported. Targets: CommunityMech:000166.
+
+All eight focused checks pass. The target has one DISCONNECTED Methylophaga warning.
+
+Three nodes, zero typed nodes, two arrows and seven evidence placements are retained. Do not invent an interaction to clear a diagnostic. Corpus exit1 and optional adapter unavailability remain separate nonrequired contextual checks.
+
+### Literal completeness and quality
+
+completeness: supported. Targets: CommunityMech:000166.
+
+Completeness100 and quality84 measure populated structure and rubric deductions, not scientific certainty.
+
+## Findings
+
+### methane-scope: Qualify the Methylophaga methane and field-role claims
+
+major / open / confirmed; issue key: cm-000166-methane-scope.
+
+The methane fragment drops whether and uncertainty from a contested proposition. Field transcription is not evidence of methane oxidation or a specific petroleum-degradation role. Preserve positive n-hexadecane capability from the separate North Carolina isolate/SIP context and hypothetical DWH substrate use; do not automatically erase all degradative capability.
+
+### oxygen-scope: Restore potential and distinguish field from incubation evidence
+
+major / open / confirmed; issue key: cm-000166-oxygen-scope.
+
+The oxygen relevance and explanation turn potential into observed bioremediation without substantial drawdown. The temperature evidence labels 5°C biodegradation as purely in vivo, although that rate context includes incubation; field mean temperature is 4.7°C. Correct evidence mode and causal scope while retaining cold-environment context and the already qualified graph.
+
+### enrichment-scope: Keep surface/deep and inferred pathway scopes outside the graph
+
+major / open / confirmed; issue key: cm-000166-enrichment-scope.
+
+The unqualified non-redundancy description and plume-wide PAH/genomic explanations collapse source-specific enrichments. Dombrowski separates deep-water hexadecane from surface-water PAHs and retains incomplete genomes or unknown enzymes as alternatives to coordinated metabolism. Positive assimilation and annotations do not establish a simultaneous five-member field consortium or required exchange.
+
+### cultivation: Recover distinct enrichment and isolate protocols
+
+minor / open / confirmed; issue key: cm-000166-cultivation.
+
+The source supports the existing 5°C and 20-day main enrichment, but provides recoverable doses, five separate treatments, vessel/working volume and dark aerobic context. Longer floc sampling and RC25 isolate assays must not be merged into this community protocol.
+
+### gtdb-provenance: Use verifiable GTDB snapshot provenance
+
+minor / open / confirmed; issue key: cm-000166-gtdb-provenance.
+
+Four valid mapping cores reproduce, but latest and built2026-07-25 are not established by filesystem mtime. The current Colwellia WITHHELD status is an intentional near-tie decision and should remain.
+
+### resources: Replace the descriptive pseudoaccession with scoped archive identifiers
+
+minor / open / confirmed; issue key: cm-000166-resources.
+
+NatMicrobiol-2016-DWH-genome-reconstruction is a descriptive publication label rather than a repository accession. Source-declared project, WGS and DOI records are verified and can provide traceability without implying raw-data analysis or field flux.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-methane
+
+Separate demonstrated capability, field activity and unresolved methane use.
+
+- Restore the surrounding uncertainty in the methane excerpt and explanation. Keep methane as a spill constituent without attributing demonstrated methane oxidation to Methylophaga.
+- Qualify the attached PRIMARY_DEGRADER role and notes with claim-local evidence: North Carolina n-hexadecane SIP/SM14 capability differs from DWH OTUs and transcription. Do not assign SM14 to the plume, infer methane use from methylotrophy, or delete positive hydrocarbon capability by a polymer-only role definition.
+
+### repair-oxygen
+
+Correct oxygen and temperature evidence scope.
+
+- Change proceeded/occurred without substantial oxygen drawdown to the source’s bounded potential. Preserve measured field oxygen context (59% versus 67% saturation), without inventing a field oxygen budget or conservation mechanism.
+- Distinguish measured field mean4.7°C from 5°C incubation/rate evidence and correct the current IN_VIVO explanation accordingly. The approximate cold-water descriptor can remain. Preserve node0 and its PARTIAL/OTHER oxygen qualifier.
+
+### repair-enrichment-scope
+
+Apply the graph’s sample and mechanism boundaries to non-graph prose.
+
+- Qualify non-redundant coordinated pathways as a proposed interpretation. Preserve deep HEX versus surface NAP/PHE origins and room-temperature, no-dispersant SIP conditions; do not call surface PAH bins deep-plume measurements.
+- Keep gene annotations and isotope assimilation distinct from resolved metabolite flux. Incomplete genomes or unknown enzymes remain alternatives to missing-pathway dependence. Retain all three untyped nodes, both HYPOTHESIZED arrows and their exact participant subsets and evidence tiers.
+
+### repair-cultivation
+
+Record available protocol details by experimental stage.
+
+- For primary Baelum enrichment, record 100mL uncontaminated Gulf water in125mL serum bottles,5°C,dark,aerobic closed-loop respirometry and sampling0/5/20days. Oil100mg/L, COREXIT60mg/L and FeCl2 0.1mM apply to five separate arms: oil; oil+COREXIT; COREXIT; oil+Fe; oil+COREXIT+Fe. Keep water and sterile controls separate.
+- The reported150mL total headspace includes respirometer tubing; do not encode it as bottle capacity or liquid volume. No shaking or pH setpoint is established by these passages.
+- Separate the longer oil-only floc schedule from the main20-day endpoint and the50mL washed-RC25 isolate experiment from community enrichments. Modified minimal marine medium and the isolate preculture’s peptone are not the Gulf-water community recipe. Preserve source Methods50-day versus displayed40-day floc timing without forced harmonization.
+- Add claim-local Methods/page evidence. Collection coordinates and1100m sample depth may be retained as inoculum provenance, not culture vessel conditions.
+
+### repair-gtdb
+
+Replace unsupported release/build wording with actual snapshot provenance.
+
+- Use the verified mapping snapshot SHA256761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd and an unknown release when no release metadata is established. Filesystem mtime is not the release or build date.
+- Preserve four cores and reference support counts: Oceanospirillales order→Pseudomonadales1617/1660 across3 destinations; Cycloclasticus25/25; Methylophaga45/45; Marinobacter518/532 across2 destinations. These are mapping/reference counts, not organism abundances or experimental strain classifications.
+- Retain Colwellia WITHHELD: the helper explicitly guards the34/62 Cognaticolwellia near-tie across3 destinations. Do not turn a bare majority into a required replacement. Preserve source names and the name-comparison meaning of is_reclassified.
+
+### repair-resources
+
+Replace the pseudoaccession and retain each source output’s identity.
+
+- Use verified PRJNA301966/SRP069344 and WGS masters LSMM00000000.1 through LSMS00000000.1 for the seven reconstructed bins, with exact labels from the archive. H-Mar is deep HEX; the other six derive from surface NAP/PHE. Archive isolate fields here are reconstructed-bin labels, not cultured-stock identities.
+- Retain the three experiment mappings SRX1562986(HEX),SRX1585241(NAP),SRX1586894(PHE), with two paired runs each, and GRIIDC DOI10.7266/N7GH9FZ8. Six runs do not imply six independent cultures or measured intertaxon flux.
+- Optional additional outputs are already verified: Baelum SRA049463→PRJNA167312/SRP010992 and SRR500035 is an amplicon library; JQ627834.1 is the partial16S RC25 marker linked to PMID22616650. Mason’s HTTP DWH_plume/SAG directory exposes Colwellia_HUGN assembly/read links, but no payload was inspected. Do not promote these into additional community strains, complete genomes or new experimental outcomes.
+
+### validate-future-curation
+
+Validate separately authorized source-backed repairs.
+
+- Recheck literal schema, ontology, exact references, GTDB/domain, history and graph scope after curation. Preserve the source-specific evidence tiers and do not add an edge merely to remove the disconnected diagnostic.
+- Run just gen-html and just check-docs-current after authorized curation. Append appropriate provenance while preserving original cache/history/source bytes. This review changes no canonical record, generated page, issue or Git state.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml; Whole maintained YAML | supports | Natural succession synthesis across five publications, with three qualified community-level nodes and two hypothesized arrows. |
+| methane | PMID:24865772; Fresh MED Abstract, second sentence beginning Whereas | supports | Methylophaga hydrocarbon capability and field activity are distinct from unresolved methane oxidation. The current methane fragment omits whether and the surrounding uncertainty. |
+| methylophaga-context | PMID:24865772; Whole letter, discussion preceding Figure 1 and Table 1; Figure 1 and Table 1 | supports | North Carolina n-hexadecane SIP and isolate SM14 provide positive hydrocarbon capability evidence. DWH OTUs and transcription support active methylotrophs; neither exact strain identity nor methane oxidation follows. |
+| oxygen | PMID:20736401; Abstract; UNT author-copy physical pages 1–3, field oxygen/temperature and final biodegradation-rate paragraphs; Figure 1 on physical page 5 | supports | Field mean temperature is 4.7°C and oxygen saturation is 59% in plume versus 67% outside. Separate 5°C laboratory incubations support cold biodegradation. The conclusion is bioremediation potential, not a demonstrated oxygen-preservation mechanism. |
+| culture | PMID:22616650; Experimental procedures, Enrichment setup, physical pages 18–19, extracted lines 351–379; Microbial Isolation and Identification, pages 19–20; Hydrocarbon measurements, pages 21–22, lines 420–427 | supports | Five treatment combinations use 100 mL Gulf water in 125 mL serum bottles, oil 100 mg/L, COREXIT 60 mg/L and FeCl2 0.1 mM as applicable. Dark aerobic incubations at 5°C have a 20-day primary endpoint. Closed-loop headspace including tubing, longer floc sampling and the separate RC25 assay must remain distinct. |
+| culture-tail | PMID:22616650; Experimental procedures, Hydrocarbon measurements, physical pages 21–22, extracted lines 420–427; DNA extraction and sequencing of enrichments and flocs, page 23, lines 451–454 | supports | The RC25 isolate assay uses 50 mL modified minimal marine medium and its own sampling schedule. SRA049463 and RC25 marker JQ627834 are declared source outputs, not additional community members. |
+| flocs | PMID:22616650; Results, Microbial floc formation, physical pages 9–11; Isolation of hydrocarbon degrading Colwellia, pages 11–12; Discussion, pages 13–16 | supports | Oil-associated flocs in enrichments without added FeCl2 contain oil, carbohydrate and biomass and are dominated by Colwellia. Separate isolate degradation is positive evidence; the study does not selectively establish a floc-specific contribution to field attenuation. |
+| floc-captions | PMID:22616650; Figures 2–7 captions, physical pages 31–33 | supports | All captions were read; figure pixels were unavailable. The main enrichment, longer oil-only floc trajectory and isolate degradation trajectory are separate experiments. |
+| colwellia-genome | PMID:25071745; Results and Discussion, Colwellia single-cell genome and hydrocarbon-metabolism discussion; Figures 1–2; supplementary DataSheet1 quality paragraph | supports | The field SAG is about 30% recovered and has 84% ANI to C. psychrerythraea 34H despite similar 16S. bmoR is not diagnostic proof of butane monooxygenase, and absent operons may reflect incomplete recovery. Preserve predictions without assigning the reference species or resolved exchange. |
+| pathways | PMID:27572965; Author proof main printed pages 1–5 and Figures 1–3; Methods, Sampling, DNA extraction and Sequencing, printed page 5 / physical page 6 | supports | Deep-water hexadecane and surface-water naphthalene/phenanthrene enrichments were incubated at room temperature without dispersant. SIP supports assimilation; incomplete genomes and annotation gaps leave alternative enzymes and incomplete recovery alongside the proposed complementary-pathway interpretation. |
+| pathway-supplement | PMID:27572965; Supplementary Tables 1–2 and Figures 1–6; full supplementary PDF text and pixels | supports | Seven reconstructed genomes have unequal, incomplete recovery. Relative read mapping and gene annotations do not demonstrate intertaxon flux or necessity. No complete-genome absence claim is warranted. |
+| pathway-rows | PMID:27572965; Supplementary Data 2, rows 19–23, 70–76 and 381–387; both workbook inventories and first headers | supports | Nineteen selected alkane, catechol and protocatechuate rows were read as annotations, not flux measurements. Neither spreadsheet was wholly reanalyzed. |
+| declared-resources | PMID:27572965; PMID:22616650; PMID:25071745; Dombrowski Accession codes and Acknowledgements, printed page 6 / physical page 7; Baelum page 23, lines 451–454; Mason data-availability statement | supports | The papers declare PRJNA301966, seven WGS masters and GRIIDC DOI10.7266/N7GH9FZ8; Baelum declares SRA049463 and RC25 marker JQ627834; Mason links its public site. These source-local outputs have distinct sample and assay scopes. |
+| ontology | /private/tmp/cm-review-session/batch-14/000166/ontology-authority.json; Eleven exact ID-label pairs and 23 placements | supports | All labels match; matching identifiers do not establish individual strain roles or a defined five-member assembly. |
+| schema | /private/tmp/cm-review-session/batch-14/000166/child-schema-semantics.json; Literal ecological, role, graph and cultivation definitions | supports | PRIMARY_DEGRADER is not restricted to polymers. Unassigned interaction types and participant subsets are permissible; optional fields do not justify fabricated roles or edges. |
+| gtdb | /private/tmp/cm-review-session/batch-14/000166/child-gtdb-crosswalk.json; Four stored cores, rank routes and intentional Colwellia guard | supports | Four mappings reproduce. Filesystem mtime does not establish release/build identity. Colwellia WITHHELD is an explicit near-tie decision, not a missed automatic grounding. |
+| semantics | /private/tmp/cm-review-session/batch-14/000166/ontology-semantic-notes.json; Final role, chemistry, graph and culture assessment | supports | Retain positive source-specific biodegradation and the qualified graph; repair non-graph methane, oxygen and surface/deep interpretations. |
+| resources | /private/tmp/cm-review-session/batch-14/000166/dataset-verification.json; Direct project, seven WGS masters, three experiments/six runs, DOI and additional source outputs | supports | Verified project and genomic identities replace the descriptive pseudoaccession. Deep HEX, surface NAP/PHE, Baelum amplicon libraries and Mason SAG directory links retain separate scopes; no raw sequence payload or flux analysis. |
+| publication-links | /private/tmp/cm-review-session/batch-14/000166/external-resource-verification.json; Four encoded publication identities | supports | All publication identifiers resolve to the intended sources; a publication URL alone is not a genomic accession. |
+| snippets | /private/tmp/cm-review-session/batch-14/000166/snippet-audit.json; All 29 canonical excerpts, source-specific fresh MED fields and selected caches | supports | All placements match: 24 Abstract and five title. Lexical matching does not validate the attached causal, role or experimental-mode interpretation. |
+| provenance | /private/tmp/cm-review-session/batch-14/000166/provenance-audit.json; Sole history, exact batch29 records[1], adversarial report, focal cohort context and current issues | supports | Earlier graph qualifications remain valid. Support read all five caches and selected current issues/comments; lead and root source scopes are separately recorded. |
+| inspection | /private/tmp/cm-review-session/batch-14/000166/inspect-v2.json; Final 34 immutable inputs, ignored-inclusive discovery | supports | Five caches and seven other focal contexts accompany the target and 21 authorities. The original 33-input inspection is preserved; the final inspection adds the fifth source cache. |
+| assets | /private/tmp/cm-review-session/batch-14/000166/lead-source-assets.json; Fresh primary sources, declared assets and preserved failed routes | supports | All five main texts were recovered; three present empty HTTP202 bodies are classified as failed downloads, never read as scientific sources. |
+| lead-read | /private/tmp/cm-review-session/batch-14/000166/lead-primary-read-scope.json; Actual whole-main and bounded supplementary/image reading | supports | Lead read all five main texts, ten available main figures, the complete Dombrowski SI text/six figures/two tables and Mason quality paragraph. Baelum figure pixels and separate Hazen/Baelum supplements remain unread. |
+| baelum-read | /private/tmp/cm-review-session/batch-14/000166/baelum-web-read-scope.json; Complete 664-line public web extraction and exact overlap coverage | supports | The web extraction supplies whole main text and captions despite failed direct downloads. It does not certify the separate supporting material or figure pixels. |
+| locators | /private/tmp/cm-review-session/batch-14/000166/source-locator-verification.json; Direct section, physical/printed page and quote checks | supports | Source locators distinguish the MED Abstract quote, author-copy/proof pages, web-extracted PDF lines and selected workbook rows. |
+| source-scope | /private/tmp/cm-review-session/batch-14/000166/source-audit.json; Final lead scientific judgment | supports | Three major claim-scope findings and three minor culture/provenance/resource findings; current claims are adjudicated with explicit asset limits. |
+| root-source | /private/tmp/cm-review-session/batch-14/000166/root-independent-source-audit.json; Independent source judgment and precise actual read scope | supports | Root agrees the six findings, graph retention, completed review and literal metrics. Root does not claim whole large spreadsheets or the full Colwellia cache. |
+| root-graph | /private/tmp/cm-review-session/batch-14/000166/root-node-edge-audit.json; Independent node/arrow selectors and hashes | supports | Three nodes, seven evidence placements and two actual hypothesized arrows retain their source contexts. |
+| metrics | /private/tmp/cm-review-session/batch-14/000166/support-final-audit.json; Final independent support and rubric | supports | Completeness100; quality100−30−6+20=84. One disconnected Methylophaga warning prevents the COMPLETE bonus without requiring an invented edge. |
+| support-manifest | /private/tmp/cm-review-session/batch-14/000166/support-frozen-manifest.json; Frozen support dependencies | supports | Lead, root, child and supporting source/provenance/resource judgments were reconciled before rendering. |
+| auxiliary | /private/tmp/cm-review-session/batch-14/000166/auxiliary-frozen-manifest.json; Frozen native/ontology artifacts | supports | All 34 official inputs remain unchanged; eight focused native checks pass. |
+| final-native | /private/tmp/cm-review-session/batch-14/000166/final-validator-summary.json; Eight actual command/stdout/stderr outcomes | supports | All focused commands return0; source entailment remains an independent scientific assessment. |
+| corpus-context | /private/tmp/cm-review-session/batch-14/000166/child-current-corpus-context.json; Actual unchanged batch14 corpus baseline | supports | Both contextual corpus commands returned1, with 44 warnings across 16/477 records and zero errors. |
+| adapter | /private/tmp/cm-review-session/batch-14/000166/adapter-check.json; Optional adapter availability | supports | Unavailable in the owned runtime; no adapter from another checkout was executed. |
+| failed-responses | /private/tmp/cm-review-session/batch-14/000166/failed-empty-response-classification.json; Exact three HTTP202 Baelum bodies and paired original retrieval receipts | supports | Only these present zero-byte failed-response artifacts are classified; no other empty, missing or invalid artifact is allowed. |
+| check-validate | /private/tmp/cm-review-session/batch-14/000166/validate.json; Actual current command/stdout/stderr | supports | Native exit0; source entailment assessed separately. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-14/000166/validate-strict.json; Actual current command/stdout/stderr | supports | Native exit0; source entailment assessed separately. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-14/000166/validate-terms.json; Actual current command/stdout/stderr | supports | Native exit0; source entailment assessed separately. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-14/000166/validate-references-explained.json; Actual current command/stdout/stderr | supports | Native exit0; source entailment assessed separately. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-14/000166/validate-gtdb.json; Actual current command/stdout/stderr | supports | Native exit0; source entailment assessed separately. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-14/000166/validate-gtdb-domain.json; Actual current command/stdout/stderr | supports | Native exit0; source entailment assessed separately. |
+| check-validate-history | /private/tmp/cm-review-session/batch-14/000166/validate-history.json; Actual current command/stdout/stderr | supports | Native exit0; source entailment assessed separately. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-14/000166/normalize-cache-names-check.json; Actual current command/stdout/stderr | supports | Native exit0; source entailment assessed separately. |
+| context-audit-network | /private/tmp/cm-review-session/batch-14/audit-network.json; Actual batch14 corpus baseline | supports | Exit1, 44 warnings across 16/477 records and zero errors. |
+| context-check-network-quality | /private/tmp/cm-review-session/batch-14/check-network-quality.json; Actual batch14 corpus baseline | supports | Exit1, 44 warnings across 16/477 records and zero errors. |
+
+## Limits And Additional Notes
+
+- Separate Hazen supporting material, Baelum supporting mass-balance material and Baelum figure pixels were not recovered/read. Whole main text and captions plus the other evidence resolve the current claims; no additional mass-balance or causal result is inferred from unavailable assets.
+- Hazen is a public author copy with a title variant and extraneous embedded PDF metadata; Dombrowski is an author proof. Source identity was reconciled with fresh metadata. Baelum whole text is a complete web extraction, not one of the three empty direct HTTP202 downloads.
+- Dombrowski supplementary matrices received inventory/header and19 selected pathway-row reading, not whole-matrix reanalysis. Genome incompleteness and source sample/treatment differences remain explicit. No raw sequence, annotation-pipeline or flux recomputation was performed.
+- Supporting registry verification does not reconstruct biological replicate design: six reads/run records, amplicon libraries, marker sequences and reconstructed-bin labels have different scopes. Mason directory links were inspected without downloading genome/read payloads.
+- Source Methods and displayed floc timing remain distinct; primary20-day enrichment, longer oil-only follow-up and the RC25 isolate timecourse are not merged. Historical abstract-bounded statements remain accurate as dated prior-review provenance.
+- All34 final official input hashes remain unchanged. Seven canonical snippet hashes and two exact downstream descriptions are bound in the graph assessments.
+- Sole quotation: three words from the fresh PMID24865772 Abstract, second sentence. Candidate validation and root save/post-save checks occur afterward; no future result is asserted.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261022T040545Z-deepwater-horizon-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Deepwater Horizon plume succession record review
+started_at: '2026-10-22T03:53:38.194981Z'
+finished_at: '2026-10-22T04:05:45.744467Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate lead, root, support and auxiliary reviewers; no person-level
+    independence claim.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Three major findings address methane-role uncertainty, oxygen/temperature
+  evidence scope and surface/deep pathway interpretation outside the graph. Three
+  minor findings address cultivation detail, GTDB provenance and a descriptive pseudoaccession.
+  The three qualified nodes and two hypothesized arrows remain valid. Eight focused
+  checks pass; one disconnected warning prevents the network bonus. Literal completeness100
+  and quality84 are separate from the completed source review.
+source:
+  git_revision: e117e3d37c65bfad2e04af53ab34e1325d8d7f98
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession/2026-10-06T052450Z-codex-df845f.yaml
+    sha256: 0f27028782e732e83e85a61d15126caefb63f5ef34988a47fd56087c48a690a5
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    sha256: 7cc349b1d2309b6d071aeaea72234305922c0c76458baab1469ce258142083f7
+    role: target
+  - path: references_cache/PMID_20736401.md
+    sha256: b3d90a098b1146e0c93bf8dcbeae8351d71a84381cd680361533fd8d7cc49cf0
+    role: context
+  - path: references_cache/PMID_22616650.md
+    sha256: 919a63869ad5e55fa8327cb0336c5ec836e2c749fd419bfc4677d3b318990fbf
+    role: context
+  - path: references_cache/PMID_24865772.md
+    sha256: 7c80bb2977b19583a7bfcc904d707d97e0648120ef9439bb54eb91898af22230
+    role: context
+  - path: references_cache/PMID_25071745.md
+    sha256: f32f82c3ce15db7598be5d9081aaa7e0871f7a017131a003fe79da5b43285317
+    role: context
+  - path: references_cache/PMID_27572965.md
+    sha256: 225e74d8a007994ef20698c15a5ef8f961b962924818159751ebdfc834f2064c
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261006-batch29.yaml
+    sha256: 415dcecde7cce6c3c2a1ca637de252b53d6d0d5ce225ef97dc2c0a8336546a5f
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-three-records-batch29.yaml
+    sha256: 6627d37b0aad90ee137572b39e5b4039380bfd01f7e0c16912d7cb10a3c78439
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.md
+    sha256: e432615b147787c8d009d96d2f11e5b78a45927bf9c69e45ec0d31123d1fc2e9
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/frozen_inventory_metrics.tsv
+    sha256: d5a47bbcc3745a489ff507680aa7360a6a65ce070ce4ec88f886b70128791313
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md
+    sha256: 4e7781aa8cdfc4bb42d896ebe75920719d9dcade92ffc4a0ae07af7481cb37b3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000166
+  path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+  label: Deepwater Horizon Deep-Sea Oil Plume Succession
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    role: canonical_record
+scope:
+  description: Whole maintained record and all five primary main texts, ten recovered
+    main figures, full Dombrowski supplementary PDF and Mason quality supplement;
+    bounded workbook and public-resource metadata. Hazen/Baelum separate supplements
+    and Baelum figure pixels remain unread.
+  selection: Only released CommunityMech:000166 in owned batch14.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000166
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000166
+  command: just --no-dotenv validate kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000166
+  command: just --no-dotenv validate-strict kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    --out /private/tmp/cm-review-session/batch-14/000166/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000166
+  command: just --no-dotenv validate-terms kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000166
+  command: just --no-dotenv validate-references-explained kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000166
+  command: just --no-dotenv validate-gtdb kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000166
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000166
+  command: just --no-dotenv validate-history history/records/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000166
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: context-audit-network
+  name: audit-network corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit1 retained.
+  target_ids:
+  - CommunityMech:000166
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-14/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-audit-network
+  - corpus-context
+  scope_note: Nonrequired corpus context, not wholly attributed to this target.
+- check_id: context-check-network-quality
+  name: check-network-quality corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit1 retained.
+  target_ids:
+  - CommunityMech:000166
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-14/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-check-network-quality
+  - corpus-context
+  scope_note: Nonrequired corpus context, not wholly attributed to this target.
+- check_id: optional-structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Unavailable in owned runtime.
+  target_ids:
+  - CommunityMech:000166
+  evidence_ids:
+  - adapter
+  scope_note: No external-checkout adapter execution.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+  locator: Whole maintained YAML
+  summary: Natural succession synthesis across five publications, with three qualified
+    community-level nodes and two hypothesized arrows.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.732301Z'
+- evidence_id: methane
+  kind: primary_source
+  reference: PMID:24865772
+  locator: Fresh MED Abstract, second sentence beginning Whereas
+  summary: Methylophaga hydrocarbon capability and field activity are distinct from
+    unresolved methane oxidation. The current methane fragment omits whether and the
+    surrounding uncertainty.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.732394Z'
+  snapshot_sha256: 3c4995502041c515e47c1e12b5b08232d365c5940879a3ca75f2e8fd356af2fb
+  quote: methanotrophy remains unqualified
+- evidence_id: methylophaga-context
+  kind: primary_source
+  reference: PMID:24865772
+  locator: Whole letter, discussion preceding Figure 1 and Table 1; Figure 1 and Table
+    1
+  summary: North Carolina n-hexadecane SIP and isolate SM14 provide positive hydrocarbon
+    capability evidence. DWH OTUs and transcription support active methylotrophs;
+    neither exact strain identity nor methane oxidation follows.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.732578Z'
+  snapshot_sha256: 374a673f01a6d8d822d74dd824f37e17e1d1f81804aeda31a24b6cc0bf9586e0
+- evidence_id: oxygen
+  kind: primary_source
+  reference: PMID:20736401
+  locator: Abstract; UNT author-copy physical pages 1–3, field oxygen/temperature
+    and final biodegradation-rate paragraphs; Figure 1 on physical page 5
+  summary: Field mean temperature is 4.7°C and oxygen saturation is 59% in plume versus
+    67% outside. Separate 5°C laboratory incubations support cold biodegradation.
+    The conclusion is bioremediation potential, not a demonstrated oxygen-preservation
+    mechanism.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.732895Z'
+  snapshot_sha256: 643a29f323286cb42eabd39c88c0a86a7ca4a4cd02857abe9eed580b6526d5e9
+- evidence_id: culture
+  kind: primary_source
+  reference: PMID:22616650
+  locator: Experimental procedures, Enrichment setup, physical pages 18–19, extracted
+    lines 351–379; Microbial Isolation and Identification, pages 19–20; Hydrocarbon
+    measurements, pages 21–22, lines 420–427
+  summary: Five treatment combinations use 100 mL Gulf water in 125 mL serum bottles,
+    oil 100 mg/L, COREXIT 60 mg/L and FeCl2 0.1 mM as applicable. Dark aerobic incubations
+    at 5°C have a 20-day primary endpoint. Closed-loop headspace including tubing,
+    longer floc sampling and the separate RC25 assay must remain distinct.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.733677Z'
+  snapshot_sha256: 37bdff565809924fcf004f8a3799b50aef1271a2657916ef974d4979e54ba2d7
+- evidence_id: culture-tail
+  kind: primary_source
+  reference: PMID:22616650
+  locator: Experimental procedures, Hydrocarbon measurements, physical pages 21–22,
+    extracted lines 420–427; DNA extraction and sequencing of enrichments and flocs,
+    page 23, lines 451–454
+  summary: The RC25 isolate assay uses 50 mL modified minimal marine medium and its
+    own sampling schedule. SRA049463 and RC25 marker JQ627834 are declared source
+    outputs, not additional community members.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.733922Z'
+  snapshot_sha256: 1f14849fbd86955e4997cb580c4be1f03b5b6c6cf904c85860e2dc30d7264a8c
+- evidence_id: flocs
+  kind: primary_source
+  reference: PMID:22616650
+  locator: Results, Microbial floc formation, physical pages 9–11; Isolation of hydrocarbon
+    degrading Colwellia, pages 11–12; Discussion, pages 13–16
+  summary: Oil-associated flocs in enrichments without added FeCl2 contain oil, carbohydrate
+    and biomass and are dominated by Colwellia. Separate isolate degradation is positive
+    evidence; the study does not selectively establish a floc-specific contribution
+    to field attenuation.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.734128Z'
+  snapshot_sha256: 37bdff565809924fcf004f8a3799b50aef1271a2657916ef974d4979e54ba2d7
+- evidence_id: floc-captions
+  kind: primary_source
+  reference: PMID:22616650
+  locator: Figures 2–7 captions, physical pages 31–33
+  summary: All captions were read; figure pixels were unavailable. The main enrichment,
+    longer oil-only floc trajectory and isolate degradation trajectory are separate
+    experiments.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.734174Z'
+  snapshot_sha256: 1f14849fbd86955e4997cb580c4be1f03b5b6c6cf904c85860e2dc30d7264a8c
+- evidence_id: colwellia-genome
+  kind: primary_source
+  reference: PMID:25071745
+  locator: Results and Discussion, Colwellia single-cell genome and hydrocarbon-metabolism
+    discussion; Figures 1–2; supplementary DataSheet1 quality paragraph
+  summary: The field SAG is about 30% recovered and has 84% ANI to C. psychrerythraea
+    34H despite similar 16S. bmoR is not diagnostic proof of butane monooxygenase,
+    and absent operons may reflect incomplete recovery. Preserve predictions without
+    assigning the reference species or resolved exchange.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.734210Z'
+  snapshot_sha256: a753d69e5cb7f0d5f7ca25be1d4ddbbc5cc0525d85b89bf80457e2833d4ca9b1
+- evidence_id: pathways
+  kind: primary_source
+  reference: PMID:27572965
+  locator: Author proof main printed pages 1–5 and Figures 1–3; Methods, Sampling,
+    DNA extraction and Sequencing, printed page 5 / physical page 6
+  summary: Deep-water hexadecane and surface-water naphthalene/phenanthrene enrichments
+    were incubated at room temperature without dispersant. SIP supports assimilation;
+    incomplete genomes and annotation gaps leave alternative enzymes and incomplete
+    recovery alongside the proposed complementary-pathway interpretation.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.734524Z'
+  snapshot_sha256: a65ebbca2ff84bf06eb6f515ab5832d7033edc0fa916e74a81eaef45cfeee144
+- evidence_id: pathway-supplement
+  kind: primary_source
+  reference: PMID:27572965
+  locator: Supplementary Tables 1–2 and Figures 1–6; full supplementary PDF text and
+    pixels
+  summary: Seven reconstructed genomes have unequal, incomplete recovery. Relative
+    read mapping and gene annotations do not demonstrate intertaxon flux or necessity.
+    No complete-genome absence claim is warranted.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.735270Z'
+  snapshot_sha256: c4959fcccdbb1c46d1ea966d008ae721ef7d7ada6d31aea5362921e1c588cc25
+- evidence_id: pathway-rows
+  kind: primary_source
+  reference: PMID:27572965
+  locator: Supplementary Data 2, rows 19–23, 70–76 and 381–387; both workbook inventories
+    and first headers
+  summary: Nineteen selected alkane, catechol and protocatechuate rows were read as
+    annotations, not flux measurements. Neither spreadsheet was wholly reanalyzed.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.736463Z'
+  snapshot_sha256: eed17ef841e569bacfff1babd81ac8b255e5fc9791ee070b6e5ad3ace1264a0b
+- evidence_id: declared-resources
+  kind: primary_source
+  reference: PMID:27572965; PMID:22616650; PMID:25071745
+  locator: Dombrowski Accession codes and Acknowledgements, printed page 6 / physical
+    page 7; Baelum page 23, lines 451–454; Mason data-availability statement
+  summary: The papers declare PRJNA301966, seven WGS masters and GRIIDC DOI10.7266/N7GH9FZ8;
+    Baelum declares SRA049463 and RC25 marker JQ627834; Mason links its public site.
+    These source-local outputs have distinct sample and assay scopes.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.736706Z'
+  snapshot_sha256: a65ebbca2ff84bf06eb6f515ab5832d7033edc0fa916e74a81eaef45cfeee144
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-14/000166/ontology-authority.json
+  locator: Eleven exact ID-label pairs and 23 placements
+  summary: All labels match; matching identifiers do not establish individual strain
+    roles or a defined five-member assembly.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.736976Z'
+  snapshot_sha256: ab18cbb2e1331900aeb06ed66b92357300772c120644b0ad196c010fd5f3cc18
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-14/000166/child-schema-semantics.json
+  locator: Literal ecological, role, graph and cultivation definitions
+  summary: PRIMARY_DEGRADER is not restricted to polymers. Unassigned interaction
+    types and participant subsets are permissible; optional fields do not justify
+    fabricated roles or edges.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.737200Z'
+  snapshot_sha256: 347efab1cfec63c906eb061b5b1bbfd7a0bff5da43b0d7de5a3ed08feb878e9d
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-14/000166/child-gtdb-crosswalk.json
+  locator: Four stored cores, rank routes and intentional Colwellia guard
+  summary: Four mappings reproduce. Filesystem mtime does not establish release/build
+    identity. Colwellia WITHHELD is an explicit near-tie decision, not a missed automatic
+    grounding.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.737403Z'
+  snapshot_sha256: 905faada534a20f540d2a9a288ba2979206407f0074b9d978d5ce3981e6786ed
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-14/000166/ontology-semantic-notes.json
+  locator: Final role, chemistry, graph and culture assessment
+  summary: Retain positive source-specific biodegradation and the qualified graph;
+    repair non-graph methane, oxygen and surface/deep interpretations.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.737560Z'
+  snapshot_sha256: a75a7e4efca69588877409bb2fd68c2e22d8cb797c5d53ef44dc5dd8eff8e85a
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/dataset-verification.json
+  locator: Direct project, seven WGS masters, three experiments/six runs, DOI and
+    additional source outputs
+  summary: Verified project and genomic identities replace the descriptive pseudoaccession.
+    Deep HEX, surface NAP/PHE, Baelum amplicon libraries and Mason SAG directory links
+    retain separate scopes; no raw sequence payload or flux analysis.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.737729Z'
+  snapshot_sha256: 7c83300aaaab3baba818d0cbdb2a9a78aa148516212daa485228c4734989f479
+  search_scope: Only source-declared projects/accessions, seven WGS masters, three
+    experiments and their six run rows, DataCite DOI, Baelum submission/marker and
+    three Mason directory listings; no global deposit-absence assertion.
+- evidence_id: publication-links
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/external-resource-verification.json
+  locator: Four encoded publication identities
+  summary: All publication identifiers resolve to the intended sources; a publication
+    URL alone is not a genomic accession.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.737908Z'
+  snapshot_sha256: 17f680311da1a130d85507a8943c0f002f316354c678e6b4918f255d5e3b71de
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/snippet-audit.json
+  locator: All 29 canonical excerpts, source-specific fresh MED fields and selected
+    caches
+  summary: 'All placements match: 24 Abstract and five title. Lexical matching does
+    not validate the attached causal, role or experimental-mode interpretation.'
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.738085Z'
+  snapshot_sha256: e25263d61482edebb5ee2665fe2c46f64359b396fecb516fc257f617e57bc4a8
+- evidence_id: provenance
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-14/000166/provenance-audit.json
+  locator: Sole history, exact batch29 records[1], adversarial report, focal cohort
+    context and current issues
+  summary: Earlier graph qualifications remain valid. Support read all five caches
+    and selected current issues/comments; lead and root source scopes are separately
+    recorded.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.738255Z'
+  snapshot_sha256: 45f77f645526cfb4056c094f35c19d238ffb9222d8bb1617143350d4064d0b9d
+- evidence_id: inspection
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/inspect-v2.json
+  locator: Final 34 immutable inputs, ignored-inclusive discovery
+  summary: Five caches and seven other focal contexts accompany the target and 21
+    authorities. The original 33-input inspection is preserved; the final inspection
+    adds the fifth source cache.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.738417Z'
+  snapshot_sha256: fbcce924987d07ee6d309ce30e277c816052714552616d4b0a342f0de3ac8fe8
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/lead-source-assets.json
+  locator: Fresh primary sources, declared assets and preserved failed routes
+  summary: All five main texts were recovered; three present empty HTTP202 bodies
+    are classified as failed downloads, never read as scientific sources.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.738459Z'
+  snapshot_sha256: bf41ced1f2651a325c24e9317877a4d1062be73e8460da2c1103e432c889e0d8
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/lead-primary-read-scope.json
+  locator: Actual whole-main and bounded supplementary/image reading
+  summary: Lead read all five main texts, ten available main figures, the complete
+    Dombrowski SI text/six figures/two tables and Mason quality paragraph. Baelum
+    figure pixels and separate Hazen/Baelum supplements remain unread.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.738665Z'
+  snapshot_sha256: fbe49ab7f8cfb4a972ad4e46cbcb4a4c2ad8b780ed025d8b1a5aeec951ab181b
+- evidence_id: baelum-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/baelum-web-read-scope.json
+  locator: Complete 664-line public web extraction and exact overlap coverage
+  summary: The web extraction supplies whole main text and captions despite failed
+    direct downloads. It does not certify the separate supporting material or figure
+    pixels.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.738789Z'
+  snapshot_sha256: b6ce8912de9221e943ffede65b49dbede0621b375e67cf35cb4dfa9c739da4ea
+- evidence_id: locators
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/source-locator-verification.json
+  locator: Direct section, physical/printed page and quote checks
+  summary: Source locators distinguish the MED Abstract quote, author-copy/proof pages,
+    web-extracted PDF lines and selected workbook rows.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.738952Z'
+  snapshot_sha256: 815378866064a2893324383eff88756ea23caeb26b104dde96371b4df7c3ad29
+- evidence_id: source-scope
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/source-audit.json
+  locator: Final lead scientific judgment
+  summary: Three major claim-scope findings and three minor culture/provenance/resource
+    findings; current claims are adjudicated with explicit asset limits.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.739086Z'
+  snapshot_sha256: 670595ba431da1dccf5d3b9ab6e04c3115869bb2df864fb4f2d3de585236ea1c
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/root-independent-source-audit.json
+  locator: Independent source judgment and precise actual read scope
+  summary: Root agrees the six findings, graph retention, completed review and literal
+    metrics. Root does not claim whole large spreadsheets or the full Colwellia cache.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.739127Z'
+  snapshot_sha256: 2c8b5ab00721ee334d6ba0f611bf4014acf0c67278a1cdb0a9cd20f7b0fac93c
+- evidence_id: root-graph
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/root-node-edge-audit.json
+  locator: Independent node/arrow selectors and hashes
+  summary: Three nodes, seven evidence placements and two actual hypothesized arrows
+    retain their source contexts.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.739292Z'
+  snapshot_sha256: 7897a92d9b1c353cecc8c50b70e859bc117c667b4d722ac55b0d72622c2bd51e
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/support-final-audit.json
+  locator: Final independent support and rubric
+  summary: Completeness100; quality100−30−6+20=84. One disconnected Methylophaga warning
+    prevents the COMPLETE bonus without requiring an invented edge.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.739468Z'
+  snapshot_sha256: ce94ea41f5202beb13b551a08a7cc1fda4a98f590215a6cb1e05b6e11d6f43d9
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/support-frozen-manifest.json
+  locator: Frozen support dependencies
+  summary: Lead, root, child and supporting source/provenance/resource judgments were
+    reconciled before rendering.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.739509Z'
+  snapshot_sha256: 688e29413e364c644c85bae4e90ec562bc01f54d33eaac12c9faf212c806675b
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/auxiliary-frozen-manifest.json
+  locator: Frozen native/ontology artifacts
+  summary: All 34 official inputs remain unchanged; eight focused native checks pass.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.740215Z'
+  snapshot_sha256: f12202912629b3d7089865bf370295c0609a38f24957014f7e8adb21cc1e0cc3
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/final-validator-summary.json
+  locator: Eight actual command/stdout/stderr outcomes
+  summary: All focused commands return0; source entailment remains an independent
+    scientific assessment.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.740458Z'
+  snapshot_sha256: 2ca1f3c490c03073680e29b9416d10551325833c4fef3e02346debe19439796b
+- evidence_id: corpus-context
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/child-current-corpus-context.json
+  locator: Actual unchanged batch14 corpus baseline
+  summary: Both contextual corpus commands returned1, with 44 warnings across 16/477
+    records and zero errors.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.740627Z'
+  snapshot_sha256: 87a1daa724d27c14311fa1e95315f0da1f9e1d0cab11bf0edea33f3e917d31a4
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/adapter-check.json
+  locator: Optional adapter availability
+  summary: Unavailable in the owned runtime; no adapter from another checkout was
+    executed.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.740788Z'
+  snapshot_sha256: 52ed5fadd188d2e90f3ce2a38ca0a744725cc1edd3ac40561b4b7968daea6375
+- evidence_id: failed-responses
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/failed-empty-response-classification.json
+  locator: Exact three HTTP202 Baelum bodies and paired original retrieval receipts
+  summary: Only these present zero-byte failed-response artifacts are classified;
+    no other empty, missing or invalid artifact is allowed.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.740923Z'
+  snapshot_sha256: 516b9f329f00c311c9d49fb8c9419313de993af1324a3cf1bd6173d24307e702
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/validate.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; source entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.741411Z'
+  snapshot_sha256: abbc952c3806ea5a9ae3426698fa9b6464fd2813638e91202c94284d98783c32
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/validate-strict.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; source entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.741617Z'
+  snapshot_sha256: d134e3b1d26db10f13a34772f748ec4e1dc67f7daa3efb7db158c7a2083aafac
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/validate-terms.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; source entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.741785Z'
+  snapshot_sha256: cad2fe5b858d4883bf1a21fdb5b461d7c3f8614f1ddf20cfe8a3769ed0253227
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/validate-references-explained.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; source entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.742841Z'
+  snapshot_sha256: c9969522f7f449a0b5cf023c759fedfbaaa2d5df408974a4a944a1695ea071c2
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/validate-gtdb.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; source entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.743077Z'
+  snapshot_sha256: e13199d2fb9c387b9f65ec6fd72b2601c0b6c025f49b42561d0e77b1aa2a0998
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/validate-gtdb-domain.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; source entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.743369Z'
+  snapshot_sha256: 4d86f384026695cff56851f89193d39919c4a549982f6ce244b7dc354e06c67a
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/validate-history.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; source entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.743694Z'
+  snapshot_sha256: 276cd61f9ad1846aeda614faa01faecc75507d2c6ad38abac174b425a15621f2
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000166/normalize-cache-names-check.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; source entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.743943Z'
+  snapshot_sha256: f0be7658bbb5c97fccfd3ede019dd08c8366988cdb1ce9220164ec4bc5d33b89
+- evidence_id: context-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/audit-network.json
+  locator: Actual batch14 corpus baseline
+  summary: Exit1, 44 warnings across 16/477 records and zero errors.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.744226Z'
+  snapshot_sha256: 3110e0bb1dbe3ea63b81aea82871ac4adb2915c8fce1d15249422d0f5db266c6
+- evidence_id: context-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/check-network-quality.json
+  locator: Actual batch14 corpus baseline
+  summary: Exit1, 44 warnings across 16/477 records and zero errors.
+  support: supports
+  accessed_at: '2026-10-22T04:05:45.744417Z'
+  snapshot_sha256: 18896ef4136601b37550cb5612abc06784abcbf982e4778cbf2b9c10368cb66a
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Natural succession and member scope
+  outcome: supported
+  summary: The five descriptors summarize a natural spill succession across distinct
+    field and enrichment studies.
+  target_ids:
+  - CommunityMech:000166
+  evidence_ids:
+  - record
+  - oxygen
+  - flocs
+  - pathways
+  - methylophaga-context
+  dimensions:
+  - name: experimental_scope
+    value: Field succession plus separate laboratory enrichments
+    definition: Cold deep-water, room-temperature SIP and isolated strains have distinct
+      origins, temperatures and treatment scopes.
+    evidence_ids:
+    - oxygen
+    - culture
+    - pathways
+  - name: strain_scope
+    value: Broad taxa; bounded source-specific isolate and MAG identities
+    definition: Reference genomes, field OTUs, RC25 and reconstructed bins must not
+      be substituted for one another.
+    evidence_ids:
+    - methylophaga-context
+    - colwellia-genome
+    - resources
+  details: NATURAL, PERTURBED, BIOREMEDIATION and the broad marine environment term
+    are appropriate. DOMINANT and ABUNDANT are ordinal. Preserve genus/order aggregates
+    without inventing a simultaneous defined five-member culture or source-stock genomes.
+- assessment_id: non-graph
+  area: evidence
+  topic: Methane, oxygen and enrichment interpretation
+  outcome: concern
+  summary: Several non-graph statements overstate evidence already qualified in the
+    graph.
+  target_ids:
+  - CommunityMech:000166
+  evidence_ids:
+  - methane
+  - methylophaga-context
+  - oxygen
+  - pathways
+  details: Restore uncertainty around Methylophaga methane use, oxygen-preserving
+    bioremediation and coordinated community pathways. Distinguish 4.7°C field measurements
+    from 5°C assays, and deep HEX from surface PAH enrichment evidence.
+- assessment_id: cultivation
+  area: evidence
+  topic: Source-specific enrichment and isolate procedures
+  outcome: concern
+  summary: The current 5°C/20-day culture entry is supported but omits recoverable
+    treatment and vessel details.
+  target_ids:
+  - CommunityMech:000166
+  evidence_ids:
+  - culture
+  - culture-tail
+  - flocs
+  - floc-captions
+  details: Keep five treatment combinations, primary sampling, longer oil-only floc
+    sampling and the separate RC25 assay distinct. Total respirometer headspace is
+    not vessel capacity; no unsupported pH, shaking or field dose is inferred.
+- assessment_id: node-0
+  area: graph
+  topic: Cold Hydrocarbon Biodegradation and Bioremediation Potential
+  outcome: supported
+  summary: Retain the Oceanospirillales participant subset and untyped community-level
+    cold biodegradation node. SUPPORT/OTHER covers combined field and laboratory evidence;
+    PARTIAL/OTHER appropriately limits oxygen-preserving bioremediation to potential.
+    It is not a demonstrated oxygen-conservation mechanism.
+  target_ids:
+  - CommunityMech:000166
+  evidence_ids:
+  - oxygen
+  - snippets
+  - root-graph
+  details: 'Exact selector ecological_interactions[0]; scope COMMUNITY_LEVEL; interaction_type
+    untyped. Encoded taxa: {"source": null, "target": null, "participants": [{"preferred_term":
+    "DWH Oceanospirillales-like bacteria", "term": {"id": "NCBITaxon:135619", "label":
+    "Oceanospirillales"}}]}. Canonical excerpt bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet",
+    "sha256": "3ad92d1097d09b52cbb781c8f4e5712f2939c58704c66195aacb8ede75b94c1f",
+    "reference": "PMID:20736401", "supports": "SUPPORT", "evidence_source": "OTHER"},
+    {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "956479ab757822ad12814ea2385f2c18c9b825dbcf1bdc2468a791fbf68fedfa",
+    "reference": "PMID:20736401", "supports": "PARTIAL", "evidence_source": "OTHER"}].
+    Snippet audit SHA256 e25263d61482edebb5ee2665fe2c46f64359b396fecb516fc257f617e57bc4a8.
+    Linked source evidence supplies the verified locators and retained tiers.'
+- assessment_id: node-1
+  area: graph
+  topic: Colwellia-Dominated Oil-Associated Flocs
+  outcome: supported
+  summary: Retain observed Colwellia-dominated flocs and both SUPPORT/IN_VITRO evidence
+    placements. Oil, carbohydrate and biomass are measured in laboratory aggregates;
+    separate isolate degradation does not establish selective floc causality or field
+    attenuation.
+  target_ids:
+  - CommunityMech:000166
+  evidence_ids:
+  - flocs
+  - floc-captions
+  - culture
+  - snippets
+  - root-graph
+  details: 'Exact selector ecological_interactions[1]; scope COMMUNITY_LEVEL; interaction_type
+    untyped. Encoded taxa: {"source": null, "target": null, "participants": [{"preferred_term":
+    "Colwellia", "term": {"id": "NCBITaxon:28228", "label": "Colwellia"}}]}. Canonical
+    excerpt bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet",
+    "sha256": "1f31418be3b03674c537f550c84eddb214de12315b6975e667f7ca9e8fd9ffaf",
+    "reference": "PMID:22616650", "supports": "SUPPORT", "evidence_source": "IN_VITRO"},
+    {"selector": "ecological_interactions[1].evidence[1].snippet", "sha256": "92e533015a9272b46d09173ec84c1836f771ac887e3f0369a52afbef8cdb3307",
+    "reference": "PMID:22616650", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 e25263d61482edebb5ee2665fe2c46f64359b396fecb516fc257f617e57bc4a8.
+    Linked source evidence supplies the verified locators and retained tiers.'
+- assessment_id: edge-1-0
+  area: graph
+  topic: Colwellia-Dominated Oil-Associated Flocs → Cold Hydrocarbon Biodegradation
+    and Bioremediation Potential
+  outcome: supported
+  summary: Retain the explicitly HYPOTHESIZED direction with its source and experimental
+    limits.
+  target_ids:
+  - CommunityMech:000166
+  evidence_ids:
+  - flocs
+  - floc-captions
+  - root-graph
+  details: 'Exact selector ecological_interactions[1].downstream[0]; source node Colwellia-Dominated
+    Oil-Associated Flocs; target node Cold Hydrocarbon Biodegradation and Bioremediation
+    Potential. Exact encoded description: HYPOTHESIZED - aggregation with oil droplets
+    could support Colwellia-associated hydrocarbon access and degradation. The enrichment
+    observations and separate isolate assay do not selectively test this route or
+    establish its contribution to in situ plume attenuation.. Description SHA256 a3957e1383cd56ea87448621f5601bacbeaf0d5507b48b1174b9d9b1ee1642e7.
+    Baelum Results floc formation and separate isolate assay, Discussion and Figures
+    2–7 captions support the proposed access route without a selective perturbation
+    or quantified field contribution.'
+- assessment_id: node-2
+  area: graph
+  topic: Proposed Community Hydrocarbon Pathway Complementarity
+  outcome: supported
+  summary: Retain the explicitly hypothesized pathway-complementarity node and participant
+    subset. Two PARTIAL/COMPUTATIONAL placements support the model; SUPPORT/IN_VITRO
+    preserves isotope assimilation. Deep HEX and surface PAH enrichments, incomplete
+    assemblies and alternative enzymes preclude resolved exchange or necessity claims.
+  target_ids:
+  - CommunityMech:000166
+  evidence_ids:
+  - pathways
+  - pathway-supplement
+  - pathway-rows
+  - colwellia-genome
+  - snippets
+  - root-graph
+  details: 'Exact selector ecological_interactions[2]; scope COMMUNITY_LEVEL; interaction_type
+    untyped. Encoded taxa: {"source": null, "target": null, "participants": [{"preferred_term":
+    "DWH Oceanospirillales-like bacteria", "term": {"id": "NCBITaxon:135619", "label":
+    "Oceanospirillales"}}, {"preferred_term": "Colwellia", "term": {"id": "NCBITaxon:28228",
+    "label": "Colwellia"}}, {"preferred_term": "Cycloclasticus", "term": {"id": "NCBITaxon:34067",
+    "label": "Cycloclasticus"}}, {"preferred_term": "Marinobacter", "term": {"id":
+    "NCBITaxon:2742", "label": "Marinobacter"}}]}. Canonical excerpt bindings: [{"selector":
+    "ecological_interactions[2].evidence[0].snippet", "sha256": "f49b4a55dc3c35d0785006dc42f6db7b8cd28f172e3deb1b6b7643074615511b",
+    "reference": "PMID:27572965", "supports": "PARTIAL", "evidence_source": "COMPUTATIONAL"},
+    {"selector": "ecological_interactions[2].evidence[1].snippet", "sha256": "fd0b0c30cda7ac264003aa862ba42999057d9b86b4ab4552ee916c5976308059",
+    "reference": "PMID:27572965", "supports": "PARTIAL", "evidence_source": "COMPUTATIONAL"},
+    {"selector": "ecological_interactions[2].evidence[2].snippet", "sha256": "800935aad2bfc1de771f1ac10fdb26be4ea5fef0e76947e5d4746f915f5829b2",
+    "reference": "PMID:27572965", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 e25263d61482edebb5ee2665fe2c46f64359b396fecb516fc257f617e57bc4a8.
+    Linked source evidence supplies the verified locators and retained tiers.'
+- assessment_id: edge-2-0
+  area: graph
+  topic: Proposed Community Hydrocarbon Pathway Complementarity → Cold Hydrocarbon
+    Biodegradation and Bioremediation Potential
+  outcome: supported
+  summary: Retain the explicitly HYPOTHESIZED direction with its source and experimental
+    limits.
+  target_ids:
+  - CommunityMech:000166
+  evidence_ids:
+  - pathways
+  - pathway-supplement
+  - root-graph
+  details: 'Exact selector ecological_interactions[2].downstream[0]; source node Proposed
+    Community Hydrocarbon Pathway Complementarity; target node Cold Hydrocarbon Biodegradation
+    and Bioremediation Potential. Exact encoded description: HYPOTHESIZED - complementary
+    pathways could expand community hydrocarbon transformation and contribute to bioremediation.
+    SIP and annotated repertoires support this model but do not establish intertaxon
+    flux, necessity or the contribution of this room-temperature enrichment mechanism
+    in the cold field plume.. Description SHA256 f39be66a8d91afc6ec42014e95235c290c8f91df792c92bc8b827a582509044b.
+    Dombrowski Figures 1–3 and Methods support source-specific SIP and annotated repertoires,
+    without intertaxon flux, necessity or transfer of room-temperature mechanisms
+    to the cold field plume.'
+- assessment_id: grounding
+  area: grounding
+  topic: Labels and rank-aware GTDB provenance
+  outcome: concern
+  summary: Eleven ontology pairs match and four GTDB cores reproduce, but release/build
+    provenance is overstated.
+  target_ids:
+  - CommunityMech:000166
+  evidence_ids:
+  - ontology
+  - gtdb
+  - schema
+  details: Keep Oceanospirillales-to-Pseudomonadales order aggregation and the three
+    genus mappings at their actual ranks. Preserve the intentional Colwellia WITHHELD
+    near-tie guard. These reference supports are not community abundances or experimental
+    strain identities.
+- assessment_id: resources
+  area: provenance
+  topic: Publication versus data accession
+  outcome: concern
+  summary: The descriptive dataset label points to a publication; concrete source-declared
+    archive records are now verified.
+  target_ids:
+  - CommunityMech:000166
+  evidence_ids:
+  - declared-resources
+  - resources
+  - publication-links
+  details: PRJNA301966 and seven WGS masters describe reconstructed genomes across
+    deep HEX and surface PAH enrichments. Three experiments/six runs are not six independent
+    cultures. Optional Baelum and Mason outputs need their own amplicon, marker or
+    SAG scope.
+- assessment_id: ownership
+  area: ownership
+  topic: Maintained record and prior curation
+  outcome: supported
+  summary: The focal YAML owns the proposed repairs; prior graph qualifications remain
+    valid.
+  target_ids:
+  - CommunityMech:000166
+  evidence_ids:
+  - inspection
+  - provenance
+  details: Earlier abstract-bounded reading is a dated historical event, not an assertion
+    that full text remains inaccessible. No canonical, cache, history, issue or Git
+    change is part of this review.
+- assessment_id: native
+  area: schema
+  topic: Native checks versus source entailment
+  outcome: supported
+  summary: All eight focused checks pass. The target has one DISCONNECTED Methylophaga
+    warning.
+  target_ids:
+  - CommunityMech:000166
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - metrics
+  - corpus-context
+  - adapter
+  details: Three nodes, zero typed nodes, two arrows and seven evidence placements
+    are retained. Do not invent an interaction to clear a diagnostic. Corpus exit1
+    and optional adapter unavailability remain separate nonrequired contextual checks.
+- assessment_id: metrics
+  area: completeness
+  topic: Literal completeness and quality
+  outcome: supported
+  summary: Completeness100 and quality84 measure populated structure and rubric deductions,
+    not scientific certainty.
+  target_ids:
+  - CommunityMech:000166
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 50 required fields/roles +5 environment +10 three factors +10 three
+      nodes +5 external resources +10 growth media +5 dataset +5 node metabolites.
+  - name: validation_quality
+    value: 84
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 100 -3 major*10 -3 minor*2 +20 capped evidence bonus (7/3 mean) +0
+      network bonus =84. One DISCONNECTED warning prevents COMPLETE bonus.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: methane-scope
+  issue_key: cm-000166-methane-scope
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Material evidence-context overstatement changes biological
+    interpretation.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Qualify the Methylophaga methane and field-role claims
+  description: The methane fragment drops whether and uncertainty from a contested
+    proposition. Field transcription is not evidence of methane oxidation or a specific
+    petroleum-degradation role. Preserve positive n-hexadecane capability from the
+    separate North Carolina isolate/SIP context and hypothetical DWH substrate use;
+    do not automatically erase all degradative capability.
+  target_ids:
+  - CommunityMech:000166
+  field_paths:
+  - taxonomy[3].functional_role
+  - taxonomy[3].taxon_term.notes
+  - taxonomy[3].evidence[0]
+  - related_ingredients[2].relevance
+  - related_ingredients[2].evidence[0]
+  evidence_ids:
+  - methane
+  - methylophaga-context
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    role: canonical_record
+  ownership_note: Repair the maintained YAML in a separate curation step; preserve
+    source and historical bytes.
+- finding_id: oxygen-scope
+  issue_key: cm-000166-oxygen-scope
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Material evidence-context overstatement changes biological
+    interpretation.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Restore potential and distinguish field from incubation evidence
+  description: The oxygen relevance and explanation turn potential into observed bioremediation
+    without substantial drawdown. The temperature evidence labels 5°C biodegradation
+    as purely in vivo, although that rate context includes incubation; field mean
+    temperature is 4.7°C. Correct evidence mode and causal scope while retaining cold-environment
+    context and the already qualified graph.
+  target_ids:
+  - CommunityMech:000166
+  field_paths:
+  - related_ingredients[3].relevance
+  - related_ingredients[3].evidence[0]
+  - environmental_factors[1].evidence[0]
+  evidence_ids:
+  - oxygen
+  - snippets
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    role: canonical_record
+  ownership_note: Repair the maintained YAML in a separate curation step; preserve
+    source and historical bytes.
+- finding_id: enrichment-scope
+  issue_key: cm-000166-enrichment-scope
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Material evidence-context overstatement changes biological
+    interpretation.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Keep surface/deep and inferred pathway scopes outside the graph
+  description: The unqualified non-redundancy description and plume-wide PAH/genomic
+    explanations collapse source-specific enrichments. Dombrowski separates deep-water
+    hexadecane from surface-water PAHs and retains incomplete genomes or unknown enzymes
+    as alternatives to coordinated metabolism. Positive assimilation and annotations
+    do not establish a simultaneous five-member field consortium or required exchange.
+  target_ids:
+  - CommunityMech:000166
+  field_paths:
+  - description
+  - taxonomy[2].evidence[0].explanation
+  - related_ingredients[1].relevance
+  - related_ingredients[1].evidence[0].explanation
+  evidence_ids:
+  - pathways
+  - pathway-supplement
+  - pathway-rows
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    role: canonical_record
+  ownership_note: Repair the maintained YAML in a separate curation step; preserve
+    source and historical bytes.
+- finding_id: cultivation
+  issue_key: cm-000166-cultivation
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: Recoverable completeness or provenance gap without invalidating
+    supported source outcomes.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Recover distinct enrichment and isolate protocols
+  description: The source supports the existing 5°C and 20-day main enrichment, but
+    provides recoverable doses, five separate treatments, vessel/working volume and
+    dark aerobic context. Longer floc sampling and RC25 isolate assays must not be
+    merged into this community protocol.
+  target_ids:
+  - CommunityMech:000166
+  field_paths:
+  - growth_media[0]
+  evidence_ids:
+  - culture
+  - culture-tail
+  - flocs
+  - floc-captions
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    role: canonical_record
+  ownership_note: Repair the maintained YAML in a separate curation step; preserve
+    source and historical bytes.
+- finding_id: gtdb-provenance
+  issue_key: cm-000166-gtdb-provenance
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Recoverable completeness or provenance gap without invalidating
+    supported source outcomes.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Use verifiable GTDB snapshot provenance
+  description: Four valid mapping cores reproduce, but latest and built2026-07-25
+    are not established by filesystem mtime. The current Colwellia WITHHELD status
+    is an intentional near-tie decision and should remain.
+  target_ids:
+  - CommunityMech:000166
+  field_paths:
+  - taxonomy[0].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[2].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[3].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[4].taxon_term.gtdb_classification.mapping_source
+  evidence_ids:
+  - gtdb
+  - ontology
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    role: canonical_record
+  ownership_note: Repair the maintained YAML in a separate curation step; preserve
+    source and historical bytes.
+- finding_id: resources
+  issue_key: cm-000166-resources
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Recoverable completeness or provenance gap without invalidating
+    supported source outcomes.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Replace the descriptive pseudoaccession with scoped archive identifiers
+  description: NatMicrobiol-2016-DWH-genome-reconstruction is a descriptive publication
+    label rather than a repository accession. Source-declared project, WGS and DOI
+    records are verified and can provide traceability without implying raw-data analysis
+    or field flux.
+  target_ids:
+  - CommunityMech:000166
+  field_paths:
+  - associated_datasets[0]
+  evidence_ids:
+  - declared-resources
+  - resources
+  - publication-links
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    role: canonical_record
+  ownership_note: Repair the maintained YAML in a separate curation step; preserve
+    source and historical bytes.
+actions:
+- action_id: repair-methane
+  description: Separate demonstrated capability, field activity and unresolved methane
+    use.
+  finding_ids:
+  - methane-scope
+  target_ids:
+  - CommunityMech:000166
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Restore the surrounding uncertainty in the methane excerpt and explanation. Keep
+    methane as a spill constituent without attributing demonstrated methane oxidation
+    to Methylophaga.
+  - 'Qualify the attached PRIMARY_DEGRADER role and notes with claim-local evidence:
+    North Carolina n-hexadecane SIP/SM14 capability differs from DWH OTUs and transcription.
+    Do not assign SM14 to the plume, infer methane use from methylotrophy, or delete
+    positive hydrocarbon capability by a polymer-only role definition.'
+- action_id: repair-oxygen
+  description: Correct oxygen and temperature evidence scope.
+  finding_ids:
+  - oxygen-scope
+  target_ids:
+  - CommunityMech:000166
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Change proceeded/occurred without substantial oxygen drawdown to the source’s
+    bounded potential. Preserve measured field oxygen context (59% versus 67% saturation),
+    without inventing a field oxygen budget or conservation mechanism.
+  - Distinguish measured field mean4.7°C from 5°C incubation/rate evidence and correct
+    the current IN_VIVO explanation accordingly. The approximate cold-water descriptor
+    can remain. Preserve node0 and its PARTIAL/OTHER oxygen qualifier.
+- action_id: repair-enrichment-scope
+  description: Apply the graph’s sample and mechanism boundaries to non-graph prose.
+  finding_ids:
+  - enrichment-scope
+  target_ids:
+  - CommunityMech:000166
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Qualify non-redundant coordinated pathways as a proposed interpretation. Preserve
+    deep HEX versus surface NAP/PHE origins and room-temperature, no-dispersant SIP
+    conditions; do not call surface PAH bins deep-plume measurements.
+  - Keep gene annotations and isotope assimilation distinct from resolved metabolite
+    flux. Incomplete genomes or unknown enzymes remain alternatives to missing-pathway
+    dependence. Retain all three untyped nodes, both HYPOTHESIZED arrows and their
+    exact participant subsets and evidence tiers.
+- action_id: repair-cultivation
+  description: Record available protocol details by experimental stage.
+  finding_ids:
+  - cultivation
+  target_ids:
+  - CommunityMech:000166
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    role: canonical_record
+  acceptance_checks:
+  - 'For primary Baelum enrichment, record 100mL uncontaminated Gulf water in125mL
+    serum bottles,5°C,dark,aerobic closed-loop respirometry and sampling0/5/20days.
+    Oil100mg/L, COREXIT60mg/L and FeCl2 0.1mM apply to five separate arms: oil; oil+COREXIT;
+    COREXIT; oil+Fe; oil+COREXIT+Fe. Keep water and sterile controls separate.'
+  - The reported150mL total headspace includes respirometer tubing; do not encode
+    it as bottle capacity or liquid volume. No shaking or pH setpoint is established
+    by these passages.
+  - Separate the longer oil-only floc schedule from the main20-day endpoint and the50mL
+    washed-RC25 isolate experiment from community enrichments. Modified minimal marine
+    medium and the isolate preculture’s peptone are not the Gulf-water community recipe.
+    Preserve source Methods50-day versus displayed40-day floc timing without forced
+    harmonization.
+  - Add claim-local Methods/page evidence. Collection coordinates and1100m sample
+    depth may be retained as inoculum provenance, not culture vessel conditions.
+- action_id: repair-gtdb
+  description: Replace unsupported release/build wording with actual snapshot provenance.
+  finding_ids:
+  - gtdb-provenance
+  target_ids:
+  - CommunityMech:000166
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Use the verified mapping snapshot SHA256761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    and an unknown release when no release metadata is established. Filesystem mtime
+    is not the release or build date.
+  - 'Preserve four cores and reference support counts: Oceanospirillales order→Pseudomonadales1617/1660
+    across3 destinations; Cycloclasticus25/25; Methylophaga45/45; Marinobacter518/532
+    across2 destinations. These are mapping/reference counts, not organism abundances
+    or experimental strain classifications.'
+  - 'Retain Colwellia WITHHELD: the helper explicitly guards the34/62 Cognaticolwellia
+    near-tie across3 destinations. Do not turn a bare majority into a required replacement.
+    Preserve source names and the name-comparison meaning of is_reclassified.'
+- action_id: repair-resources
+  description: Replace the pseudoaccession and retain each source output’s identity.
+  finding_ids:
+  - resources
+  target_ids:
+  - CommunityMech:000166
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Use verified PRJNA301966/SRP069344 and WGS masters LSMM00000000.1 through LSMS00000000.1
+    for the seven reconstructed bins, with exact labels from the archive. H-Mar is
+    deep HEX; the other six derive from surface NAP/PHE. Archive isolate fields here
+    are reconstructed-bin labels, not cultured-stock identities.
+  - Retain the three experiment mappings SRX1562986(HEX),SRX1585241(NAP),SRX1586894(PHE),
+    with two paired runs each, and GRIIDC DOI10.7266/N7GH9FZ8. Six runs do not imply
+    six independent cultures or measured intertaxon flux.
+  - 'Optional additional outputs are already verified: Baelum SRA049463→PRJNA167312/SRP010992
+    and SRR500035 is an amplicon library; JQ627834.1 is the partial16S RC25 marker
+    linked to PMID22616650. Mason’s HTTP DWH_plume/SAG directory exposes Colwellia_HUGN
+    assembly/read links, but no payload was inspected. Do not promote these into additional
+    community strains, complete genomes or new experimental outcomes.'
+- action_id: validate-future-curation
+  description: Validate separately authorized source-backed repairs.
+  finding_ids:
+  - methane-scope
+  - oxygen-scope
+  - enrichment-scope
+  - cultivation
+  - gtdb-provenance
+  - resources
+  target_ids:
+  - CommunityMech:000166
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Recheck literal schema, ontology, exact references, GTDB/domain, history and graph
+    scope after curation. Preserve the source-specific evidence tiers and do not add
+    an edge merely to remove the disconnected diagnostic.
+  - Run just gen-html and just check-docs-current after authorized curation. Append
+    appropriate provenance while preserving original cache/history/source bytes. This
+    review changes no canonical record, generated page, issue or Git state.
+limitations:
+- Separate Hazen supporting material, Baelum supporting mass-balance material and
+  Baelum figure pixels were not recovered/read. Whole main text and captions plus
+  the other evidence resolve the current claims; no additional mass-balance or causal
+  result is inferred from unavailable assets.
+- Hazen is a public author copy with a title variant and extraneous embedded PDF metadata;
+  Dombrowski is an author proof. Source identity was reconciled with fresh metadata.
+  Baelum whole text is a complete web extraction, not one of the three empty direct
+  HTTP202 downloads.
+- Dombrowski supplementary matrices received inventory/header and19 selected pathway-row
+  reading, not whole-matrix reanalysis. Genome incompleteness and source sample/treatment
+  differences remain explicit. No raw sequence, annotation-pipeline or flux recomputation
+  was performed.
+- 'Supporting registry verification does not reconstruct biological replicate design:
+  six reads/run records, amplicon libraries, marker sequences and reconstructed-bin
+  labels have different scopes. Mason directory links were inspected without downloading
+  genome/read payloads.'
+- Source Methods and displayed floc timing remain distinct; primary20-day enrichment,
+  longer oil-only follow-up and the RC25 isolate timecourse are not merged. Historical
+  abstract-bounded statements remain accurate as dated prior-review provenance.
+notes:
+- All34 final official input hashes remain unchanged. Seven canonical snippet hashes
+  and two exact downstream descriptions are bound in the graph assessments.
+- 'Sole quotation: three words from the fresh PMID24865772 Abstract, second sentence.
+  Candidate validation and root save/post-save checks occur afterward; no future result
+  is asserted.'
+tags:
+- record-review
+- oil-spill
+- marine
+- batch-14
+```
