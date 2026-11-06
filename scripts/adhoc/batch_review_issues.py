@@ -12,6 +12,15 @@ import yaml
 REPOSITORY = "CultureBotAI/CommunityMech"
 
 
+def publication_locator(locator):
+    """Keep human source locations; exact XPath remains in the linked bundle."""
+    locator = re.sub(r"; (?:exact response )?body retained at /private/tmp/.*$", "", locator)
+    # A trailing XPath is redundant with the preceding section/paragraph prose.
+    # Leave a selector-only locator intact so the publication guard rejects it
+    # rather than silently publishing an empty source location.
+    return re.sub(r";?\s+XPath\s+//.*$", "", locator, flags=re.DOTALL).rstrip(" ;")
+
+
 def prepare_staleness(args):
     inventory = json.loads(args.inventory.read_text())
     args.output.mkdir(parents=True, exist_ok=True)
@@ -80,11 +89,7 @@ def prepare(args):
         refs = []
         for evidence_id in finding.get("evidence_ids", []):
             entry = evidence[evidence_id]
-            locator = re.sub(
-                r"; (?:exact response )?body retained at /private/tmp/.*$",
-                "",
-                entry.get("locator", ""),
-            )
+            locator = publication_locator(entry.get("locator", ""))
             refs.append(f"- `{evidence_id}`: {entry.get('reference', '')}; {locator}")
         body.append(
             "Inspected evidence (details and limitations remain in the linked bundle):\n\n"
