@@ -653,10 +653,11 @@ taxonomy:
   abundance_level: RARE
 ecological_interactions:
 - name: Rhodococcus-, Methylobacterium-, and Mycobacterium-Dominated SynCom16 Root Assembly
-  description: In the absence of the fast-growing competitor Paraburkholderia sp. OAS925, SynCom16 assembled a distinct root-associated
-    community on Brachypodium distachyon at 22 days after inoculation across the five ring-trial laboratories, with Rhodococcus
-    sp. OAS809 (68 +- 33% of root reads), Methylobacterium sp. OAE515 (15 +- 20%), and Mycobacterium sp. OAE908 (14 +- 27%)
-    accounting for nearly all root reads.
+  description: In the absence of Paraburkholderia sp. OAS925, the 16-member SynCom16 assembles on Brachypodium distachyon
+    Bd21-3 roots and in EcoFAB 2.0 hydroponic medium at 22 days after inoculation across five international laboratories with
+    dominance by Rhodococcus sp. OAS809 (68 ± 33%, sharing fast liquid growth and high swimming motility traits), Methylobacterium
+    sp. OAE515 (15 ± 20%), and Mycobacterium sp. OAE908 (14 ± 27%), exhibiting consistently higher within-lab coefficient
+    of variation than the Paraburkholderia-dominated SynCom17.
   interaction_type: COMPETITIVE_RELEASE
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -738,10 +739,26 @@ ecological_interactions:
       Methylobacterium sp. OAE515 (15 ± 20%).
     explanation: Quantifies the dominance of Rhodococcus sp. OAS809, Mycobacterium sp. OAE908, and Methylobacterium sp. OAE515
       in SynCom16 root colonization across the five laboratories.
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Interestingly, in SynCom16, Rhodococcus often dominates on roots ( Fig 3 ) and shares fast growth ( S10 Fig )
+      and high motility ( S11a Fig ) with Paraburkholderia.
+    explanation: Identifies fast liquid growth and high swimming motility as traits shared by Rhodococcus sp. OAS809 that
+      parallel its frequent dominance on Brachypodium distachyon roots in SynCom16.
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CV analysis showed consistent trends for both root and media samples, with SynCom16 displaying higher within-lab
+      variability than SynCom17 in all labs ( S6c Fig ).
+    explanation: Confirms across all five participating ring-trial laboratories that SynCom16 root and media communities exhibited
+      higher within-lab coefficient of variation than the Paraburkholderia-dominated SynCom17.
 - name: SynCom16 Shoot Biomass Reduction and Exometabolite Remodeling
-  description: Across participating laboratories in the EcoFAB 2.0 ring trial, SynCom16 inoculation significantly decreased
-    Brachypodium distachyon shoot fresh weight and dry weight relative to axenic controls (Fig 2b) and increased a distinct
-    cluster of nucleoside/nucleotide rhizosphere exometabolites (Cluster 3, Fig 5).
+  description: Inoculation of Brachypodium distachyon Bd21-3 with SynCom16 in EcoFAB 2.0 devices moderately decreases shoot
+    fresh and dry weight relative to axenic plants across five laboratories and enriches a rhizosphere exometabolite cluster
+    (Cluster 3, consisting primarily of nucleosides and nucleotides) with higher within-lab metabolomic coefficient of variation
+    than axenic or SynCom17 treatments; individual strain contributions to metabolite production/uptake and shoot biomass
+    reduction within SynCom16 were not experimentally dissected.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Rhodococcus sp. OAS809
@@ -797,6 +814,14 @@ ecological_interactions:
       treatments.
     explanation: Documents the SynCom16-associated increase in Cluster 3 nucleoside/nucleotide rhizosphere exometabolites
       across the ring-trial laboratories.
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Metabolites in Axenic and SynCom17 treatments had lower CV than SynCom16 in all labs, and the within-lab CV was
+      approximately the same as the between-lab CV ( S7d Fig ).
+    explanation: Demonstrates that rhizosphere exometabolite profiles under SynCom16 inoculation exhibited higher coefficient
+      of variation than axenic and SynCom17 treatments across all five laboratories, paralleling the higher compositional
+      variability of SynCom16.
 environmental_factors:
 - name: Light Regime
   value: 14 h photoperiod (16 h for lab C) / 10 h dark
@@ -985,4 +1010,11 @@ curation_history:
   action: CREATE_COMMUNITY_RECORD
   changes: Created CommunityMech:000513 for EcoFAB Ring Trial SynCom16 (the 16-strain switchgrass rhizosphere synthetic community
     lacking Paraburkholderia sp. OAS925) from PMID:40920748 / doi:10.1371/journal.pbio.3003358, sibling to SynCom17 (CommunityMech:000025).
+  llm_assisted: true
+- timestamp: '2026-11-06T05:15:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: Reviewed and enriched the two COMMUNITY_LEVEL ecological interaction nodes in CommunityMech:000513 against PMID:40920748,
+    adding verbatim evidence for Rhodococcus sp. OAS809 growth/motility traits and five-lab microbiome/metabolome coefficient
+    of variation while documenting why 0 downstream edges are curated.
   llm_assisted: true

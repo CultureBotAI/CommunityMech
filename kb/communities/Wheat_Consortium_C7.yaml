@@ -161,11 +161,11 @@ taxonomy:
     explanation: Table 1 identifies Pseudomonas sp. B11 as one of the four equal-ratio members of SynCom 7 (C7).
 ecological_interactions:
 - name: C7 Dual-Culture and Volatile Inhibition of R. solani AG8
-  description: The assembled four-strain consortium SynCom 7 (C7) significantly inhibited Rhizoctonia solani AG8 radial growth
-    in dual-culture PDA plate assays (25.15 +- 6.80%, p <= 0.05, Dunn test, Table 2) and was one of only four SynComs (C2-C4
-    and C7) whose volatile organic compounds significantly inhibited R. solani AG8 radial growth in divided Petri dish assays
-    (Fig. 4B). By contrast, C7 cell-free supernatant showed no antifungal activity despite individual supernatants of B5,
-    B6, B7, and B11 inhibiting AG8 by 40.62-76.56% (Table 4).
+  description: Four-strain wheat rhizosphere consortium C7 (Pseudomonas sp. B5, Streptomyces sp. B6, Chryseobacterium sp.
+    B7, and Pseudomonas sp. B11) significantly inhibits radial mycelial growth of the soilborne basidiomycete pathogen Rhizoctonia
+    solani AG8 in dual-culture confrontation on 1/2x PDA (25.15 ± 6.80% inhibition, p <= 0.05) and in two-compartment volatile
+    organic compound assays; although each individual constituent strain inhibited AG8 via cell-free supernatant (40.62% to
+    76.56%), the pooled C7 cell-free supernatant showed no antifungal activity.
   scope: COMMUNITY_LEVEL
   participating_taxa: &id001
   - preferred_term: Pseudomonas sp. B5
@@ -209,12 +209,21 @@ ecological_interactions:
     snippet: the cell-free supernatants from the rest of the eight bacteria and 10 SynComs did not show any antifungal activities
     explanation: Documents the absence of antifungal activity in the cell-free supernatant of assembled SynCom 7 (C7) under
       tested conditions.
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas sp. B5 40.62 ± 9.10 * Streptomyces sp. B6 57.53 ± 15.53 * Chryseobacterium sp. B7 76.56 ± 3.60 *
+      Pseudomonas sp. B11 48.45 ± 18.90 *
+    explanation: Quantifies the individual cell-free supernatant radial growth inhibition of R. solani AG8 by each of the
+      four C7 constituent strains (B5, B6, B7, and B11) in Table 4, contrasting with the absence of CFS activity in the pooled
+      C7 consortium.
 - name: C7 Greenhouse Wheat Protection and Salkowski Auxin Output
-  description: In three-week greenhouse pot assays with R. solani AG8-inoculated soil, SynCom 7 (C7) significantly reduced
-    wheat (cv. Alpowa) root rot score (Fig. 2C) and increased wheat fresh root weight compared with controls (Supplementary
-    Fig. 1), and produced 10.87 +- 2.54 ug/mL auxin in Salkowski colorimetric assays (Table 3). Because overall SynComs did
-    not outperform the best single strains and post-inoculation soil persistence was not measured, plate inhibition and auxin
-    production are not linked by directed downstream causal edges to greenhouse disease suppression.
+  description: Seed coating of susceptible wheat cultivar Alpowa with consortium C7 (OD600 = 1.0) significantly reduces Rhizoctonia
+    root rot disease scores and increases fresh root weight in R. solani AG8-infested Lind field soil (100 ppg) after 3 weeks
+    at 16°C, while C7 cultures produce 10.87 ± 2.54 μg/mL Salkowski-reactive indole-3-acetic acid (IAA) in TSB (with individual
+    constituent strains producing 4.40 to 18.04 μg/mL IAA) and reduce primary root length of Arabidopsis thaliana Col-0 seedlings
+    on 1/2x MS agar; because in vitro antagonism, volatile emission, auxin output, and greenhouse suppression were assayed
+    in parallel without isolating a causal chain, 0 downstream edges are asserted.
   scope: COMMUNITY_LEVEL
   participating_taxa: *id001
   metabolites:
@@ -242,6 +251,14 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: SynCom 7(C7) 10.87 ± 2.54
     explanation: Table 3 reports the auxin concentration (10.87 +- 2.54 ug/mL) produced by SynCom 7 (C7) in culture supernatant.
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas sp. B5 12.18 ± 1.48 Chryseobacterium sp. P43 0.05 ± 0.01 Streptomyces sp. B6 4.40 ± 0.80 Pedobacter
+      sp. P44 0.12 ± 0.03 Chryseobacterium sp. B7 11.74 ± 1.90 SynCom 1(C1) 0.20 ± 0.03 Pseudomonas sp. B11 18.04 ± 2.74
+    explanation: 'Documents the individual Salkowski-assay indole-3-acetic acid (IAA) concentrations produced by each of the
+      four C7 constituent strains in TSB culture (B5: 12.18 ± 1.48 μg/mL, B6: 4.40 ± 0.80 μg/mL, B7: 11.74 ± 1.90 μg/mL, B11:
+      18.04 ± 2.74 μg/mL).'
 environmental_factors:
 - name: Host plant
   value: Triticum aestivum
@@ -353,4 +370,11 @@ curation_history:
   changes: 'Created CommunityMech:000514 for Wheat Synthetic Consortium C7 (SynCom 7: Pseudomonas sp. B5, Streptomyces sp.
     B6, Chryseobacterium sp. B7, Pseudomonas sp. B11) from PMID:36118206 / doi:10.3389/fmicb.2022.908981, sibling to C1 (CommunityMech:000076)
     and C6 (CommunityMech:000077).'
+  llm_assisted: true
+- timestamp: '2026-11-06T05:15:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: Reviewed and enriched the two COMMUNITY_LEVEL ecological interaction nodes in CommunityMech:000514 against PMID:36118206,
+    adding verbatim Table 3 and Table 4 evidence for constituent-strain cell-free supernatant inhibition and IAA production
+    while documenting why 0 downstream edges are curated.
   llm_assisted: true

@@ -1,0 +1,605 @@
+reviewer: claude
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: dfb526839a614186998efccc6a490d337994b5f1
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+reviewed_counts:
+  retained_nodes: 8
+  removed_nodes: 0
+  retained_arrows: 1
+  removed_arrows: 0
+  renamed_nodes: 0
+  graph_quotations: 28
+  discussion_quotations: 6
+limitations:
+- Source-based causal-graph and taxon-grounding curation and review for all 5 newly added Cycle 8 Stage
+  1 records (CommunityMech:000510 through CommunityMech:000514).
+- Other 503 MicrobialCommunity records verified via SHA-256 hash census against reports/causal_graph_review/inventory.tsv
+  (449 reviewed, 54 needs_research preserved unchanged) plus 2 CommonTaxon records in kb/taxa/.
+records:
+- path: kb/communities/Syntrophobacter_Desulfovibrio_Propionate_Syntrophy.yaml
+  id: CommunityMech:000510
+  original_sha256: dda800f117ba3d744409c6a8c572cbf9b23a03447ea85501ebbcb8231fb4fad3
+  record_sha256: 73e1d28cfe36c0dcc26d5d96f82403490116210e5d0d519990db596d55e60385
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261105-stage2-five-records-batch140.yaml
+  scope: Whole record read; every graph node, scope, participant, and directed downstream causal edge
+    verified against cached open-access full text and abstract (PMID:29611893, PMC5947623, doi:10.1111/1462-2920.14119)
+    and sibling S. fumaroxidans records CommunityMech:000068 and CommunityMech:000069.
+  summary: Reviewed and enriched the 2-node, 1-edge PAIRWISE causal interaction graph for the Syntrophobacter
+    fumaroxidans MPOB (DSM 10017) + Desulfovibrio desulfuricans G11 (DSM 7057) coculture on 20 mM propionate
+    and 20 mM sulfate in PMID:29611893 by adding verbatim proteomic evidence for S. fumaroxidans simultaneous
+    sulfidogenic (Sat, HppA, AprAB, DsrAB, DsrC, HdrABC/HdrL) and interspecies electron transfer (Fdh1,
+    Fdh2, Hox, Hyn, FrdABEF) metabolism and D. desulfuricans G11 principal component separation (PC1 ~70%
+    variance, 317 core proteins with AprA G11_01440, FDH3 G11_11530-11545, and Hyd-3 G11_06350-06355),
+    while retaining and bounding the single directed downstream edge.
+  node_decisions:
+  - node: Syntrophic Propionate Oxidation with Interspecies Formate and Hydrogen Transfer
+    rationale: Supported by primary source (PMID:29611893, Figs. 1-4) with explicit PAIRWISE SYN_TROPHY
+      scope and taxon grounding (Syntrophobacter fumaroxidans MPOB -> Desulfovibrio desulfuricans G11);
+      captures propionate oxidation via the methylmalonyl-CoA pathway alongside simultaneous expression
+      of dissimilatory sulfate-reduction complexes (Sat, HppA, AprAB, DsrAB, DsrC, HdrABC/HdrL) and RET/IET
+      enzymes (Fdh1, Fdh2, Hox, Hyn, FrdABEF) releasing formate and H2.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:29611893, PMC5947623)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Syntrophobacter fumaroxidans
+        term:
+          id: NCBITaxon:119484
+          label: Syntrophobacter fumaroxidans
+      target_taxon:
+        preferred_term: Desulfovibrio desulfuricans
+        term:
+          id: NCBITaxon:876
+          label: Desulfovibrio desulfuricans
+    evidence:
+    - reference: PMID:29611893
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The proteomic profiles of both bacteria in the coculture of S. fumaroxidans with D. desulfuricans
+        give insight in the metabolic flexibility of S. fumaroxidans. Results showed a proteomic profile
+        of S. fumaroxidans in which sulfate reduction took place, while energy conservation and IET mechanisms
+        were also used similarly as in the syntrophic associations with methanogens. The proteomic analysis
+        of the partner D. desulfuricans confirmed IET via formate and hydrogen carried on by S. fumaroxidans
+        in a sulfate rich environment.
+    - reference: PMID:29611893
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Considering the high levels of Hyn and FrdABEF in the coculture with D. desulfuricans,
+        we suggest that indeed Hyn is involved in RET with FrdABEF, whether reducing fumarate in fumarate
+        conditions or reversibly oxidizing succinate in the coculture with D. desulfuricans (Fig. 4 ).
+    - reference: PMID:29611893
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The abundance of the proteins involved in sulfate reduction confirm that D. desulfuricans
+        was actively reducing sulfate for which it certainly needed electron donors which could only come
+        from S. fumaroxidans in such growth condition.
+    - reference: PMID:29611893
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Results showed a proteomic profile of S. fumaroxidans in which sulfate reduction took place,
+        while energy conservation and IET mechanisms were also used similarly as in the syntrophic associations
+        with methanogens. The proteomic analysis of the partner D. desulfuricans confirmed IET via formate
+        and hydrogen carried on by S. fumaroxidans in a sulfate rich environment.
+  - node: Hydrogen- and Formate-Coupled Dissimilatory Sulfate Reduction
+    rationale: Supported by primary source (PMID:29611893, Supporting Information Figs. S3-S5) with explicit
+      PAIRWISE CROSS_FEEDING scope and taxon grounding (Syntrophobacter fumaroxidans MPOB -> Desulfovibrio
+      desulfuricans G11); captures D. desulfuricans G11 growth at a 1:2 ratio with S. fumaroxidans (317
+      core proteins, separated along PC1 ~70% of variance) coupling periplasmic FDH3 (G11_11530-11545)
+      and Hyd-3 (G11_06350-06355) to sulfate reduction via AprA (G11_01440).
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:29611893, PMC5947623)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Syntrophobacter fumaroxidans
+        term:
+          id: NCBITaxon:119484
+          label: Syntrophobacter fumaroxidans
+      target_taxon:
+        preferred_term: Desulfovibrio desulfuricans
+        term:
+          id: NCBITaxon:876
+          label: Desulfovibrio desulfuricans
+    evidence:
+    - reference: PMID:29611893
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Although fewer D. desulfuricans proteins were detected in cells grown in coculture with
+        S. fumaroxidans, proteins required for sulfate reduction such as AprA (G11_01440) were found among
+        the ten most abundant proteins along with a periplasmic formate dehydrogenase (FDH3; G11_11530–11545)
+    - reference: PMID:29611893
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: D. desulfuricans is a sulfate reducer that utilizes lactate, ethanol, hydrogen and formate
+        in the presence of sulfate, but not acetate, propionate, butyrate or glucose (McInerney et al.,
+        1979 ). Therefore, a syntrophic relationship with S. fumaroxidans, in which hydrogen and formate
+        are produced, would be beneficial for D. desulfuricans.
+    - reference: PMID:29611893
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The first principal component (PC1; ∼ 70% of total variance) clearly separates growth in
+        coculture from axenic growth in formate or hydrogen. However, PC1 did not establish a difference
+        between growth on hydrogen or on formate.
+  edges_before:
+  - source: Syntrophic Propionate Oxidation with Interspecies Formate and Hydrogen Transfer
+    target: Hydrogen- and Formate-Coupled Dissimilatory Sulfate Reduction
+    description: Formate and H2 released by S. fumaroxidans during propionate oxidation serve as the sole
+      electron donors for D. desulfuricans G11 dissimilatory sulfate reduction in the propionate-sulfate
+      coculture.
+  edges_after:
+  - source: Syntrophic Propionate Oxidation with Interspecies Formate and Hydrogen Transfer
+    target: Hydrogen- and Formate-Coupled Dissimilatory Sulfate Reduction
+    description: Interspecies formate and hydrogen released during propionate oxidation by S. fumaroxidans
+      MPOB supply the electron donors required for dissimilatory sulfate reduction by D. desulfuricans
+      G11 in the propionate-plus-sulfate coculture; separate formate versus hydrogen flux partitioning
+      and relative sulfate-reduction rates between the two sulfate reducers were not independently resolved.
+  retained_edge_decisions:
+  - edge: Syntrophic Propionate Oxidation with Interspecies Formate and Hydrogen Transfer -> Hydrogen-
+      and Formate-Coupled Dissimilatory Sulfate Reduction
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:29611893 demonstrates that D. desulfuricans G11 cannot oxidize propionate directly and
+      requires formate and H2 transferred from S. fumaroxidans MPOB propionate oxidation to drive dissimilatory
+      sulfate reduction (confirmed by abundant periplasmic FDH3 G11_11530-11545, Hyd-3 G11_06350-06355,
+      and AprA G11_01440 in the 2:1 coculture); bounded to note that formate versus H2 flux and relative
+      sulfate reduction between the two partners were not quantitatively partitioned.
+    evidence:
+    - reference: PMID:29611893
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Although fewer D. desulfuricans proteins were detected in cells grown in coculture with
+        S. fumaroxidans, proteins required for sulfate reduction such as AprA (G11_01440) were found among
+        the ten most abundant proteins along with a periplasmic formate dehydrogenase (FDH3; G11_11530–11545)
+    - reference: PMID:29611893
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: D. desulfuricans is a sulfate reducer that utilizes lactate, ethanol, hydrogen and formate
+        in the presence of sulfate, but not acetate, propionate, butyrate or glucose (McInerney et al.,
+        1979 ). Therefore, a syntrophic relationship with S. fumaroxidans, in which hydrogen and formate
+        are produced, would be beneficial for D. desulfuricans.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:29611893
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Syntrophobacter_Desulfovibrio_Propionate_Syntrophy/2026-11-06T051500Z-antigravity-c8s201.yaml
+- path: kb/communities/Syntrophomonas_Methanobacterium_Butyrate_Syntrophy.yaml
+  id: CommunityMech:000511
+  original_sha256: cb90444cc2981330951c3437742ebb0b9f3f275279c3491302908c629b3ef76d
+  record_sha256: b52fec1591b3ffbe6a33a11c32ff86d885ed63e7284e8b9f095e087b48b754f2
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261105-stage2-five-records-batch140.yaml
+  scope: Whole record read; every graph node, scope, participant, and zero-edge boundary verified against
+    cached open-access full text and abstract (PMID:35699440, PMC9275234, doi:10.1128/aem.00391-22) and
+    sibling triculture record CommunityMech:000188.
+  summary: 'Reviewed and enriched the 1-node PAIRWISE syntrophic butyrate beta-oxidation representation
+    for the Syntrophomonas wolfei G311 + Methanobacterium formicicum MF (DSM 1535) biculture in PMID:35699440
+    (Table 1: lag phase 5.38 ± 0.43 d, methane production rate 0.15 ± 0.006 mmol/L/day, maximal methane
+    3.92 ± 0.23 mmol/L) by adding verbatim evidence for the absence of extracellular formate accumulation
+    in bicultures without T. flocculiformis ES5, while preserving 0 downstream edges because separate
+    H2/formate fluxes and biculture proteomics were not resolved for the M. formicicum pair.'
+  node_decisions:
+  - node: Syntrophic Butyrate Beta-Oxidation Coupled to Methanogenesis
+    rationale: Supported by primary source (PMID:35699440, Fig. 1, Fig. 2B, Table 1) with explicit PAIRWISE
+      SYN_TROPHY scope and taxon grounding (Syntrophomonas wolfei G311 -> Methanobacterium formicicum
+      MF); documents syntrophic oxidation of 20 mM butyrate to acetate coupled to hydrogenotrophic methanogenesis
+      with zero detectable extracellular formate accumulation and no fabricated sub-process edges.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:35699440, PMC9275234)
+    scope: PAIRWISE
+    participants:
+      source_taxon:
+        preferred_term: Syntrophomonas wolfei
+        term:
+          id: NCBITaxon:863
+          label: Syntrophomonas wolfei
+      target_taxon:
+        preferred_term: Methanobacterium formicicum
+        term:
+          id: NCBITaxon:2162
+          label: Methanobacterium formicicum
+    evidence:
+    - reference: PMID:35699440
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: S. wolfei + M. formicicum 5.38 (0.43) 0.15 (0.006)* 3.92 (0.23)
+    - reference: PMID:35699440
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Notably, the tri-culture with M. formicicum had a significantly higher (~2-fold increase)
+        methane production rate compared to the bi-culture pair.
+    - reference: PMID:35699440
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: A bi-culture of the syntroph with M. formicicum was indeed positively affected (increased
+        methane production) by a slightly elevated starting amount of acetate in the growth media.
+    - reference: PMID:35699440
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Cocultures with M. formicicum had the smallest amounts of formate. In contrast to the tri-cultures,
+        no formate was detected in the bi-cultures without T. flocculiformis ES5.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:35699440
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Syntrophomonas_Methanobacterium_Butyrate_Syntrophy/2026-11-06T051500Z-antigravity-c8s202.yaml
+- path: kb/communities/Trichococcus_Syntrophomonas_Methanobacterium_Butyrate_Coculture.yaml
+  id: CommunityMech:000512
+  original_sha256: 1b14a29a034e33519c603f5ca8eeecb7569b457af15cd2dae9dc73cca7087f53
+  record_sha256: c51b53adc804e4073882001d3627689d519ab8a9971c9573e3e0561874e512d3
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261105-stage2-five-records-batch140.yaml
+  scope: Whole record read; every graph node, scope, participant, and zero-edge boundary verified against
+    cached open-access full text and abstract (PMID:35699440, PMC9275234, doi:10.1128/aem.00391-22) and
+    sibling records CommunityMech:000188 and CommunityMech:000511.
+  summary: 'Reviewed and enriched the 1-node COMMUNITY_LEVEL representation for the three-member Trichococcus
+    flocculiformis ES5 (DSM 23957) + Syntrophomonas wolfei G311 + Methanobacterium formicicum MF (DSM
+    1535) triculture in PMID:35699440 (Table 1: lag phase reduced from 5.38 ± 0.43 d to 3.3 ± 0.55 d,
+    volumetric methane production rate increased from 0.15 ± 0.006 to 0.26 ± 0.02 mmol/L/day, maximal
+    methane 4.1 ± 0.14 mmol/L) by adding verbatim evidence for the biculture kinetic baseline and transient
+    triculture formate detection, while preserving 0 downstream edges because SEM and differential proteomics
+    were performed exclusively on the M. hungatei triculture (CommunityMech:000188).'
+  node_decisions:
+  - node: Trichococcus-Stimulated Syntrophic Butyrate Conversion to Methane
+    rationale: Supported by primary source (PMID:35699440, Fig. 1, Fig. 2B, Table 1) with explicit COMMUNITY_LEVEL
+      scope and participating_taxa covering all 3 triculture members (T. flocculiformis ES5, S. wolfei
+      G311, and M. formicicum MF); captures glycerol-coupled stimulation of syntrophic butyrate conversion
+      to methane (~2-fold Vm increase and shorter lag phase) without transferring M. hungatei-specific
+      proteomic or SEM claims.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:35699440, PMC9275234)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Trichococcus flocculiformis strain ES5
+        term:
+          id: NCBITaxon:82803
+          label: Trichococcus flocculiformis
+      - preferred_term: Syntrophomonas wolfei
+        term:
+          id: NCBITaxon:863
+          label: Syntrophomonas wolfei
+      - preferred_term: Methanobacterium formicicum
+        term:
+          id: NCBITaxon:2162
+          label: Methanobacterium formicicum
+    evidence:
+    - reference: PMID:35699440
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Notably, the tri-culture with M. formicicum had a significantly higher (~2-fold increase)
+        methane production rate compared to the bi-culture pair.
+    - reference: PMID:35699440
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: T. flocculiformis ES5 + S. wolfei + M. formicicum 3.3 (0.55) 0.26 (0.02)* 4.1 (0.14)
+    - reference: PMID:35699440
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: S. wolfei + M. formicicum 5.38 (0.43) 0.15 (0.006)* 3.92 (0.23)
+    - reference: PMID:35699440
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Cocultures with M. formicicum had the smallest amounts of formate. In contrast to the tri-cultures,
+        no formate was detected in the bi-cultures without T. flocculiformis ES5.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:35699440
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Trichococcus_Syntrophomonas_Methanobacterium_Butyrate_Coculture/2026-11-06T051500Z-antigravity-c8s203.yaml
+- path: kb/communities/EcoFAB_Ring_Trial_SynCom16.yaml
+  id: CommunityMech:000513
+  original_sha256: 3df3baa2f02079027a7e2b0aaa0584ca8b5e83e97f05628cc6aee04c0b6dcf9f
+  record_sha256: 05be6ff3f83a28c6195ef5138b60a08fb66732a4fe398738ba572ebe439d0633
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261105-stage2-five-records-batch140.yaml
+  scope: Whole record read; every graph node, scope, participant, and zero-edge boundary verified against
+    cached open-access full text and abstract (PMID:40920748, PMC12416739, doi:10.1371/journal.pbio.3003358)
+    and sibling SynCom17 record CommunityMech:000025.
+  summary: Reviewed and enriched the 2-node, 0-edge COMMUNITY_LEVEL representation for the 16-member Brachypodium
+    distachyon Bd21-3 rhizosphere community SynCom16 (lacking Paraburkholderia sp. OAS925) across five
+    laboratories in PMID:40920748 by adding verbatim evidence for Rhodococcus sp. OAS809 liquid-growth
+    and swimming-motility traits (68 ± 33% root abundance alongside Methylobacterium sp. OAE515 at 15
+    ± 20% and Mycobacterium sp. OAE908 at 14 ± 27%) and higher within-lab microbiome and exometabolome
+    coefficient of variation relative to SynCom17, while preserving 0 downstream edges.
+  node_decisions:
+  - node: Rhodococcus-, Methylobacterium-, and Mycobacterium-Dominated SynCom16 Root Assembly
+    rationale: Supported by primary source (PMID:40920748, Fig. 3, S4 Fig, S6 Fig, S10 Fig, S11 Fig) with
+      explicit COMMUNITY_LEVEL scope and participating_taxa covering all 16 bacterial members; documents
+      root and hydroponic medium assembly dominated by Rhodococcus sp. OAS809 (68 ± 33%), Methylobacterium
+      sp. OAE515 (15 ± 20%), and Mycobacterium sp. OAE908 (14 ± 27%) with higher within-lab CV than SynCom17.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:40920748, PMC12416739)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Rhodococcus sp. OAS809
+        term: &id001
+          id: NCBITaxon:1827
+          label: Rhodococcus <high G+C Gram-positive bacteria>
+      - preferred_term: Mycobacterium sp. OAE908
+        term: &id002
+          id: NCBITaxon:1763
+          label: Mycobacterium
+      - preferred_term: Methylobacterium sp. OAE515
+        term: &id003
+          id: NCBITaxon:407
+          label: Methylobacterium
+      - preferred_term: Variovorax sp. OAS795
+        term: &id004
+          id: NCBITaxon:34072
+          label: Variovorax
+      - preferred_term: Rhizobium sp. OAE497
+        term: &id005
+          id: NCBITaxon:379
+          label: Rhizobium
+      - preferred_term: Bosea sp. OAE506
+        term: &id006
+          id: NCBITaxon:85413
+          label: Allobosea
+      - preferred_term: Bradyrhizobium sp. OAE829
+        term: &id007
+          id: NCBITaxon:374
+          label: Bradyrhizobium
+      - preferred_term: Lysobacter sp. OAE881
+        term: &id008
+          id: NCBITaxon:68
+          label: Lysobacter
+      - preferred_term: Arthrobacter sp. OAP107
+        term: &id009
+          id: NCBITaxon:1667
+          label: Arthrobacter sp.
+      - preferred_term: Marmoricola sp. OAE513
+        term: &id010
+          id: NCBITaxon:86795
+          label: Marmoricola
+      - preferred_term: Chitinophaga sp. OAE865
+        term: &id011
+          id: NCBITaxon:79328
+          label: Chitinophaga
+      - preferred_term: Mucilaginibacter sp. OAE612
+        term: &id012
+          id: NCBITaxon:423349
+          label: Mucilaginibacter
+      - preferred_term: Niastella sp. OAS944
+        term: &id013
+          id: NCBITaxon:354354
+          label: Niastella
+      - preferred_term: Gottfriedia sp. OAE603
+        term: &id014
+          id: NCBITaxon:2837503
+          label: Gottfriedia
+      - preferred_term: Brevibacillus sp. OAP136
+        term: &id015
+          id: NCBITaxon:55080
+          label: Brevibacillus
+      - preferred_term: Paenibacillus sp. OAE614
+        term: &id016
+          id: NCBITaxon:44249
+          label: Paenibacillus
+    evidence:
+    - reference: PMID:40920748
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: In its absence (SynCom16), other isolates showed high relative abundance in the root microbiome
+        with increased variability across laboratories, namely Rhodococcus sp. OAS809 (68 ± 33%), Mycobacterium
+        sp. OAE908 (14 ± 27%), and Methylobacterium sp. OAE515 (15 ± 20%).
+    - reference: PMID:40920748
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Interestingly, in SynCom16, Rhodococcus often dominates on roots ( Fig 3 ) and shares fast
+        growth ( S10 Fig ) and high motility ( S11a Fig ) with Paraburkholderia.
+    - reference: PMID:40920748
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: CV analysis showed consistent trends for both root and media samples, with SynCom16 displaying
+        higher within-lab variability than SynCom17 in all labs ( S6c Fig ).
+  - node: SynCom16 Shoot Biomass Reduction and Exometabolite Remodeling
+    rationale: Supported by primary source (PMID:40920748, Fig. 2b, Fig. 4, S7 Fig) with explicit COMMUNITY_LEVEL
+      scope and participating_taxa covering all 16 bacterial members; documents moderate shoot fresh/dry
+      weight reduction relative to axenic plants and enrichment of Cluster 3 nucleoside/nucleotide exometabolites
+      without fabricated strain-specific causal edges.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:40920748, PMC12416739)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Rhodococcus sp. OAS809
+        term: *id001
+      - preferred_term: Mycobacterium sp. OAE908
+        term: *id002
+      - preferred_term: Methylobacterium sp. OAE515
+        term: *id003
+      - preferred_term: Variovorax sp. OAS795
+        term: *id004
+      - preferred_term: Rhizobium sp. OAE497
+        term: *id005
+      - preferred_term: Bosea sp. OAE506
+        term: *id006
+      - preferred_term: Bradyrhizobium sp. OAE829
+        term: *id007
+      - preferred_term: Lysobacter sp. OAE881
+        term: *id008
+      - preferred_term: Arthrobacter sp. OAP107
+        term: *id009
+      - preferred_term: Marmoricola sp. OAE513
+        term: *id010
+      - preferred_term: Chitinophaga sp. OAE865
+        term: *id011
+      - preferred_term: Mucilaginibacter sp. OAE612
+        term: *id012
+      - preferred_term: Niastella sp. OAS944
+        term: *id013
+      - preferred_term: Gottfriedia sp. OAE603
+        term: *id014
+      - preferred_term: Brevibacillus sp. OAP136
+        term: *id015
+      - preferred_term: Paenibacillus sp. OAE614
+        term: *id016
+    evidence:
+    - reference: PMID:40920748
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: When plant biomass data were combined across laboratories, we observed a significant decrease
+        in shoot fresh weight and dry weight of plants inoculated with SynCom17, and to a lesser extent
+        SynCom16, relative to the axenic treatment ( Fig 2b ).
+    - reference: PMID:40920748
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: A third, much smaller cluster consisting primarily of nucleosides(tides) increased in the
+        SynCom16 or both SynCom treatments.
+    - reference: PMID:40920748
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Metabolites in Axenic and SynCom17 treatments had lower CV than SynCom16 in all labs, and
+        the within-lab CV was approximately the same as the between-lab CV ( S7d Fig ).
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:40920748
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/EcoFAB_Ring_Trial_SynCom16/2026-11-06T051500Z-antigravity-c8s204.yaml
+- path: kb/communities/Wheat_Consortium_C7.yaml
+  id: CommunityMech:000514
+  original_sha256: c773cdfaab7a37ff2e9afc8436291794611ef860e36c315f54e2dbd5d28428e0
+  record_sha256: fa1c93e48c4380cf67a45ce6d6dbd63a0f13f8823057fa3e4a7b8c71ac526f73
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261105-stage2-five-records-batch140.yaml
+  scope: Whole record read; every graph node, scope, participant, and zero-edge boundary verified against
+    cached open-access full text and abstract (PMID:36118206, PMC9473337, doi:10.3389/fmicb.2022.908981)
+    and sibling wheat SynCom records CommunityMech:000076 (C1) and CommunityMech:000077 (C6).
+  summary: Reviewed and enriched the 2-node, 0-edge COMMUNITY_LEVEL representation for four-strain wheat
+    rhizosphere consortium C7 (Pseudomonas sp. B5, Streptomyces sp. B6, Chryseobacterium sp. B7, and Pseudomonas
+    sp. B11) in PMID:36118206 by adding verbatim Table 3 and Table 4 evidence for individual constituent-strain
+    cell-free supernatant radial growth inhibition of Rhizoctonia solani AG8 (40.62% to 76.56%, contrasting
+    with inactive pooled C7 CFS alongside 25.15 ± 6.80% dual-culture and significant volatile inhibition)
+    and Salkowski IAA production (4.40 to 18.04 μg/mL in single strains; 10.87 ± 2.54 μg/mL in C7), while
+    preserving 0 downstream edges.
+  node_decisions:
+  - node: C7 Dual-Culture and Volatile Inhibition of R. solani AG8
+    rationale: Supported by primary source (PMID:36118206, Table 1, Table 2, Table 4, Fig. 1, Fig. 4,
+      Fig. 5) with explicit COMMUNITY_LEVEL scope and participating_taxa covering all 4 C7 strains; captures
+      dual-culture radial growth inhibition (25.15 ± 6.80%) and volatile antagonism of R. solani AG8 alongside
+      single-strain versus pooled CFS behavior.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:36118206, PMC9473337)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa: &id017
+      - preferred_term: Pseudomonas sp. B5
+        term:
+          id: NCBITaxon:286
+          label: Pseudomonas
+      - preferred_term: Streptomyces sp. B6
+        term:
+          id: NCBITaxon:1883
+          label: Streptomyces
+      - preferred_term: Chryseobacterium sp. B7
+        term:
+          id: NCBITaxon:59732
+          label: Chryseobacterium
+      - preferred_term: Pseudomonas sp. B11
+        term:
+          id: NCBITaxon:286
+          label: Pseudomonas
+    evidence:
+    - reference: PMID:36118206
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: SynCom 7(C7) 25.15 ± 6.80 *
+    - reference: PMID:36118206
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: B27, Rhodococcus erythropolis B43, and SynComs C2-4, C7. The inhibition ranged from 49.76 ± 4.95
+        to 82.60% ± 2.95% ( Figure 4B ).
+    - reference: PMID:36118206
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: the cell-free supernatants from the rest of the eight bacteria and 10 SynComs did not show
+        any antifungal activities
+    - reference: PMID:36118206
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Pseudomonas sp. B5 40.62 ± 9.10 * Streptomyces sp. B6 57.53 ± 15.53 * Chryseobacterium
+        sp. B7 76.56 ± 3.60 * Pseudomonas sp. B11 48.45 ± 18.90 *
+  - node: C7 Greenhouse Wheat Protection and Salkowski Auxin Output
+    rationale: Supported by primary source (PMID:36118206, Fig. 2, Fig. 3, Table 3, Supplementary Fig.
+      1) with explicit COMMUNITY_LEVEL scope and participating_taxa covering all 4 C7 strains; captures
+      greenhouse wheat root rot suppression and fresh root weight increase, Salkowski IAA output (10.87
+      ± 2.54 μg/mL), and Arabidopsis primary root length reduction without fabricated inter-assay causal
+      edges.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:36118206, PMC9473337)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa: *id017
+    evidence:
+    - reference: PMID:36118206
+      supports: SUPPORT
+      evidence_source: IN_VIVO
+      snippet: P44) and SynComs (C1, C3, C4, C7, C8, C9, and C10) significantly reduced wheat root rot
+        score, compared with the controls (CK1 and CK2) in AG8 inoculated soil ( Figure 2C ). Further,
+        the fresh root weight of wheat treated with single bacterial strains (Pseudomonas spp. B5 and
+        B11, and Chryseobacterium sp. B7) and SynComs (C1, C4, C7, C8, C9, and C10) were greater than
+        those of the controls in AG8 inoculated soil ( Supplementary Figure 1 ).
+    - reference: PMID:36118206
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: SynCom 7(C7) 10.87 ± 2.54
+    - reference: PMID:36118206
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Pseudomonas sp. B5 12.18 ± 1.48 Chryseobacterium sp. P43 0.05 ± 0.01 Streptomyces sp. B6
+        4.40 ± 0.80 Pedobacter sp. P44 0.12 ± 0.03 Chryseobacterium sp. B7 11.74 ± 1.90 SynCom 1(C1) 0.20
+        ± 0.03 Pseudomonas sp. B11 18.04 ± 2.74
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:36118206
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Wheat_Consortium_C7/2026-11-06T051500Z-antigravity-c8s205.yaml

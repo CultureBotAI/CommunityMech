@@ -133,10 +133,12 @@ taxonomy:
       profiling.
 ecological_interactions:
 - name: Syntrophic Propionate Oxidation with Interspecies Formate and Hydrogen Transfer
-  description: Syntrophobacter fumaroxidans MPOBT oxidizes propionate via the methylmalonyl-CoA pathway in the presence of
-    20 mM propionate and 20 mM sulfate, simultaneously performing sulfidogenic reduction (via AprAB, Sat, DsrMKJOP, Qmo, and
-    Hdr/Flox) and transferring electrons as formate and hydrogen (via cytoplasmic Fdh1, periplasmic Fdh2, periplasmic hydrogenase
-    Hyn coupled with FrdABEF/SdhABC, and confurcating hydrogenase Hox) to Desulfovibrio desulfuricans strain G11.
+  description: Syntrophobacter fumaroxidans MPOB (DSM 10017) oxidizes propionate via the methylmalonyl-CoA pathway in batch
+    coculture with Desulfovibrio desulfuricans G11 (DSM 7057) on 20 mM propionate and 20 mM sulfate, simultaneously expressing
+    its dissimilatory sulfate reduction pathway (Sat, HppA, AprAB, DsrAB, DsrC, QmoABC, DsrMKJOP, and the sulfate-specific
+    confurcating complex HdrABC/HdrL Sfum_0819-0824) together with reverse electron transport and interspecies electron transfer
+    enzymes (confurcating cytoplasmic Fdh1 and Hox, periplasmic Fdh2 and Hyn Sfum_2952-53, and fumarate reductase FrdABEF
+    Sfum_4092-4095) that release formate and H2 to D. desulfuricans G11.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -173,8 +175,10 @@ ecological_interactions:
       label: electron transport chain
   downstream:
   - target: Hydrogen- and Formate-Coupled Dissimilatory Sulfate Reduction
-    description: Formate and H2 released by S. fumaroxidans during propionate oxidation serve as the sole electron donors
-      for D. desulfuricans G11 dissimilatory sulfate reduction in the propionate-sulfate coculture.
+    description: Interspecies formate and hydrogen released during propionate oxidation by S. fumaroxidans MPOB supply the
+      electron donors required for dissimilatory sulfate reduction by D. desulfuricans G11 in the propionate-plus-sulfate
+      coculture; separate formate versus hydrogen flux partitioning and relative sulfate-reduction rates between the two sulfate
+      reducers were not independently resolved.
   evidence:
   - reference: PMID:29611893
     supports: SUPPORT
@@ -201,11 +205,21 @@ ecological_interactions:
       sulfate for which it certainly needed electron donors which could only come from S. fumaroxidans in such growth condition.
     explanation: Directly links electron-donor transfer (formate and hydrogen) from S. fumaroxidans propionate oxidation to
       active sulfate reduction by D. desulfuricans.
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Results showed a proteomic profile of S. fumaroxidans in which sulfate reduction took place, while energy conservation
+      and IET mechanisms were also used similarly as in the syntrophic associations with methanogens. The proteomic analysis
+      of the partner D. desulfuricans confirmed IET via formate and hydrogen carried on by S. fumaroxidans in a sulfate rich
+      environment.
+    explanation: Summarizes the dual sulfidogenic and syntrophic interspecies electron transfer (IET) proteomic signature
+      of S. fumaroxidans MPOB when cocultured with D. desulfuricans G11 on 20 mM propionate and 20 mM sulfate.
 - name: Hydrogen- and Formate-Coupled Dissimilatory Sulfate Reduction
-  description: Desulfovibrio desulfuricans strain G11, which cannot utilize propionate, scavenges interspecies formate and
-    hydrogen transferred from S. fumaroxidans and couples their oxidation (via periplasmic formate dehydrogenase FDH3 [G11_11530]
-    and hydrogenases) to dissimilatory sulfate reduction (with adenylylsulfate reductase alpha subunit AprA [G11_01440] among
-    its ten most abundant proteins in coculture).
+  description: Desulfovibrio desulfuricans G11 (DSM 7057), which cannot oxidize propionate directly, grows in a 1:2 ratio
+    with S. fumaroxidans MPOB (317 core proteins detected in coculture versus >750 in axenic formate or H2 cultures, separated
+    along PC1 explaining ~70% of proteomic variance) by coupling periplasmic formate dehydrogenase FDH3 (G11_11530-11545),
+    periplasmic hydrogenase Hyd-3 (G11_06350-06355), cytoplasmic FDH1 (G11_05250-05260), and cytoplasmic Hyd-1 (G11_01905-01920)
+    to dissimilatory sulfate reduction via highly abundant AprA (G11_01440).
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -253,6 +267,14 @@ ecological_interactions:
       with S. fumaroxidans, in which hydrogen and formate are produced, would be beneficial for D. desulfuricans.
     explanation: Explains why D. desulfuricans depends on S. fumaroxidans for hydrogen and formate electron donors in propionate-sulfate
       medium.
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The first principal component (PC1; ∼ 70% of total variance) clearly separates growth in coculture from axenic
+      growth in formate or hydrogen. However, PC1 did not establish a difference between growth on hydrogen or on formate.
+    explanation: Demonstrates by principal component analysis that the D. desulfuricans G11 proteome in syntrophic coculture
+      with S. fumaroxidans MPOB forms a distinct state separated along PC1 (~70% of variance) from axenic formate- or H2-grown
+      cells.
 environmental_factors:
 - name: Propionate and sulfate concentrations
   value: 20 mM propionate and 20 mM sulfate
@@ -376,4 +398,11 @@ curation_history:
   changes: Created CommunityMech:000510 for the defined Syntrophobacter fumaroxidans MPOBT (DSM 10017) + Desulfovibrio desulfuricans
     G11 (DSM 7057) propionate and sulfate syntrophic coculture from PMID:29611893 / doi:10.1111/1462-2920.14119, sibling to
     CommunityMech:000068 and CommunityMech:000069.
+  llm_assisted: true
+- timestamp: '2026-11-06T05:15:00Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: Reviewed and enriched the 2-node PAIRWISE causal interaction graph for CommunityMech:000510 against PMID:29611893,
+    adding verbatim proteomic evidence for S. fumaroxidans dual sulfidogenic/IET metabolism and D. desulfuricans G11 coculture
+    PCA separation and bounding the single downstream edge description.
   llm_assisted: true
