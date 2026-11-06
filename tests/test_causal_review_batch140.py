@@ -120,6 +120,13 @@ def _check_batch140_invariants(ledger: dict, rows: list[dict], docs: list[dict])
                 assert len(d.get("description", "")) > 20
             ev_list = n.get("evidence") or []
             total_ev += len(ev_list)
+            norm_node_snippets = [" ".join(ev["snippet"].split()) for ev in ev_list]
+            for idx_a, snip_a in enumerate(norm_node_snippets):
+                for idx_b, snip_b in enumerate(norm_node_snippets):
+                    if idx_a != idx_b:
+                        assert (
+                            snip_a not in snip_b
+                        ), f"Redundant substring snippet in {row['id']} node {n['name']}"
             for ev in ev_list:
                 assert "[" not in ev["snippet"]
                 cache_path = _ref_to_cache_path(ev["reference"])
@@ -196,3 +203,11 @@ def test_the_check_can_actually_fail():
     bad_docs_edge[0]["ecological_interactions"][0]["downstream"] = []
     with pytest.raises(AssertionError, match="expected 1 directed causal edges"):
         _check_batch140_invariants(deepcopy(ledger), deepcopy(rows), bad_docs_edge)
+
+    # Mutated arm 4: duplicating a snippet on the same node in CommunityMech:000510 fails
+    bad_docs_dup = deepcopy(docs)
+    bad_docs_dup[0]["ecological_interactions"][0]["evidence"][3]["snippet"] = bad_docs_dup[0][
+        "ecological_interactions"
+    ][0]["evidence"][0]["snippet"]
+    with pytest.raises(AssertionError, match="Redundant substring snippet"):
+        _check_batch140_invariants(deepcopy(ledger), deepcopy(rows), bad_docs_dup)
