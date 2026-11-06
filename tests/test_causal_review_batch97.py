@@ -20,6 +20,13 @@ def test_candida_positive_interactions_and_modality_survive():
     biofilm, eps, outcome = docs[0]["ecological_interactions"]
     assert biofilm["interaction_type"] == "MUTUALISM"
     assert eps["interaction_type"] == "COLONIZATION_FACILITATION"
+    assert [m["term"]["id"] for m in eps["metabolites"]] == ["CHEBI:72813"]
+    assert [t["functional_role"] for t in docs[0]["taxonomy"]] == [
+        ["PRIMARY_DEGRADER", "CROSS_FEEDER"],
+        ["SYNTROPHIC_PARTNER", "CROSS_FEEDER"],
+    ]
+    assert [t["abundance_level"] for t in docs[0]["taxonomy"]] == ["DOMINANT", "ABUNDANT"]
+    assert docs[0]["environmental_factors"][0]["name"] == "Sucrose availability"
     assert eps["evidence"][0]["evidence_source"] == "IN_VITRO"
     assert eps["downstream"][0]["target"] == biofilm["name"]
     assert biofilm["downstream"][0]["target"] == outcome["name"]
@@ -32,6 +39,15 @@ def test_selenomonas_retains_experimental_structure_support():
     assert entrapment["interaction_type"] == "COLONIZATION_FACILITATION"
     assert entrapment["source_taxon"]["term"]["id"] == "NCBITaxon:1309"
     assert entrapment["target_taxon"]["term"]["id"] == "NCBITaxon:69823"
+    assert [t["functional_role"] for t in docs[1]["taxonomy"]] == [
+        ["PRIMARY_DEGRADER", "CROSS_FEEDER"],
+        ["SYNTROPHIC_PARTNER", "CROSS_FEEDER"],
+    ]
+    assert docs[1]["taxonomy"][0]["abundance_level"] == "ABUNDANT"
+    assert (
+        docs[1]["environmental_factors"][0]["name"]
+        == "1% (w/v) sucrose supplementation in BHIS medium"
+    )
     assert all(n["evidence"][0]["evidence_source"] == "IN_VITRO" for n in [entrapment, biofilm])
     assert not entrapment["downstream"][0]["description"].startswith("PARTIAL:")
     assert "matrix-disruption" in biofilm["description"]
@@ -44,6 +60,15 @@ def test_veillonella_expression_is_not_catalytic_activity():
     assert "interaction_type" not in expression
     assert "do not independently measure catalytic enzyme activity" in expression["description"]
     assert len(expression["evidence"]) == 2
+    assert [t["functional_role"] for t in docs[2]["taxonomy"]] == [
+        ["PRIMARY_DEGRADER", "CROSS_FEEDER"],
+        ["SYNTROPHIC_PARTNER", "CROSS_FEEDER"],
+    ]
+    assert [t["abundance_level"] for t in docs[2]["taxonomy"]] == ["ABUNDANT", "DOMINANT"]
+    assert (
+        docs[2]["environmental_factors"][0]["name"]
+        == "1% (w/v) sucrose supplementation in BHI broth"
+    )
     assert biofilm["evidence"][0]["evidence_source"] == "IN_VITRO"
     assert all(
         n["downstream"][0]["description"].startswith("PARTIAL:") for n in [expression, biofilm]
@@ -79,6 +104,10 @@ def test_battery_facilitation_is_not_neutral_fitness():
     assert detox["downstream"][0]["target"] == reduction["name"]
     assert "predecessor" in detox["downstream"][0]["description"]
     assert "not a quantitative partition" in reduction["description"]
+    assert [t["functional_role"] for t in docs[3]["taxonomy"]] == [
+        ["ELECTROGEN", "ELECTRON_DONOR"],
+        ["SYNTROPHIC_PARTNER", "CROSS_FEEDER"],
+    ]
     assert docs[3]["discussions"][0]["discussion_id"] == "SO3_BS3_SCALE_UP_STABILITY"
 
 
@@ -88,9 +117,24 @@ def test_all_nodes_and_directions_have_dispositions():
     assert sum(len(r["renamed_nodes"]) for r in rows) == 5
     assert sum(len(r["edges_before"]) for r in rows) == 7
     assert sum(len(r["retained_edge_decisions"]) for r in rows) == 7
+    successor_files = [
+        ROOT / "reports/causal_graph_review/decisions/20261031-c4s5-review-remediation.yaml",
+        ROOT / "reports/causal_graph_review/decisions/20261104-c5s5-review-remediation.yaml",
+    ]
+    successor_by_id = {
+        r["id"]: r for sf in successor_files for r in yaml.safe_load(sf.read_text())["records"]
+    }
     for row, doc in zip(rows, docs, strict=True):
+        latest = successor_by_id[row["id"]]
+        assert latest["supersedes_review"] == {
+            "review_file": str(LEDGER.relative_to(ROOT)),
+            "record_sha256": row["record_sha256"],
+        }
+        assert latest["original_sha256"] == row["record_sha256"]
         assert row["removed_node_decisions"] == row["removed_edge_decisions"] == []
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )
         assert {r["node"] for r in row["node_decisions"]} == {
             n["name"] for n in doc["ecological_interactions"]
         }

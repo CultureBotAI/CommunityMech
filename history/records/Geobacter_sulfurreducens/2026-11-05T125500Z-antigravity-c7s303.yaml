@@ -1,0 +1,28 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/taxa/Geobacter_sulfurreducens.yaml
+  slug: Geobacter_sulfurreducens
+session:
+  id: 2026-11-05T125500Z-antigravity-c7s303
+  timestamp: '2026-11-05T12:55:00Z'
+  actors:
+  - type: ai_agent
+    name: antigravity
+    model: claude-opus-4-6
+    agent_tool: antigravity
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - genes
+  - curation_history
+  summary: Correct PMID:32265334 CommunityMech ID and author attribution on pilA (GSU1496) and align curator metadata
+  details: 'Remediation for 2026-11-05T122500Z-antigravity-c7s302 (pre_hash 5c732b29b72f3e8e00ed37a7436e755b6db320a356f095a1d90c0db330b3acbf
+    -> post_hash 970ca3a904da541269aa8e7091295f8970cbd77da6957f4d34e43802666844fc):
+    corrected CommunityMech:000032 / Tremblay et al. 2020 attribution for PMID:32265334
+    on pilA (UniProtKB:Q74BW5, GSU1496) in kb/taxa/Geobacter_sulfurreducens.yaml to
+    CommunityMech:000201 (Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.yaml,
+    Semenec et al. 2020, PMID:32265334) and aligned curation_history curator metadata
+    from claude to antigravity. Validated with linkml-validate --target-class CommonTaxon,
+    linkml-term-validator, linkml-reference-validator, and pytest.'

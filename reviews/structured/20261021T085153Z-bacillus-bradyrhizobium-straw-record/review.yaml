@@ -1,0 +1,1176 @@
+schema_version: 1.0.0
+review_id: 20261021T085153Z-bacillus-bradyrhizobium-straw-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Bacillus-Bradyrhizobium straw humification: partial record review'
+started_at: '2026-10-21T08:47:07.209826Z'
+finished_at: '2026-10-21T08:51:53.448398Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Canonical target unchanged; previous codex graph curation prevents
+    person-level independence claims. Separate agents assessed accessible sources,
+    ontology, gates, snippets, history and metrics.
+skill: review-yaml-record
+completion: partial
+verdict: needs_curation
+scientific_review: false
+summary: 'Partial review: critical main Methods remain unavailable. Three minor findings
+  cover strain/role provenance, recoverable cultivation/environment context and lignin-carbon
+  interpretation. All three nodes and both qualified arrows are supported at inspected
+  scope. Seven focused gates and cache preflight pass; required source unavailability
+  and corpus network failures remain explicit.'
+source:
+  git_revision: c6e5a9b9af2d05e12eaafb2555a53f3a079268f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Bacillus_Bradyrhizobium_Straw_Humification_SynCom/2026-10-05T101150Z-codex-6dacd6.yaml
+    sha256: 10c2cff4e92faa2dbbb938f6d58824188bf93d996fea6a71328916dba1e88b4b
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+    sha256: 87666ae88a9867fa73ec5a951ca48330ddbc8844cfd433e384ee3a506397a41d
+    role: target
+  - path: references_cache/PMID_41264879.txt
+    sha256: ddee71f78ff588e9bda4982f0fd7346e8839ca3866e11117b2a8087b668867f9
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-eleven-records-batch5.yaml
+    sha256: 5076ec8295dacfaae0ae1d829836e4380a312a702c4a43df5f604c3b1b1e0ad3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000120
+  path: kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+  label: Bacillus-Bradyrhizobium Straw Humification SynCom
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+    role: canonical_record
+scope:
+  description: 'Whole target and every current node/arrow assessed within fresh abstract
+    and public supplementary evidence: Methods S2-S4, Tables S1-S6, all nineteen captions
+    and visual S6-S8/S10-S11, plus independent table/figure inspection. Main body/figures
+    remain unreviewed; no raw experimental reanalysis.'
+  selection: First assigned path in batch05 after the published batch04 review cohort;
+    one resolved two-isolate SynCom.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000120
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Target schema validation passed.
+  target_ids:
+  - CommunityMech:000120
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight,
+    all in the owned batch05 runtime.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Target strict validation passed.
+  target_ids:
+  - CommunityMech:000120
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-strict kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+    --out /private/tmp/cm-review-session/batch-05/000120/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight,
+    all in the owned batch05 runtime.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Target term validation passed.
+  target_ids:
+  - CommunityMech:000120
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-terms kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight,
+    all in the owned batch05 runtime.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Target GTDB syntax/status validation passed.
+  target_ids:
+  - CommunityMech:000120
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight,
+    all in the owned batch05 runtime.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Target GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000120
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight,
+    all in the owned batch05 runtime.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Target history validation passed.
+  target_ids:
+  - CommunityMech:000120
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-history history/records/Bacillus_Bradyrhizobium_Straw_Humification_SynCom
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight,
+    all in the owned batch05 runtime.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only corpus cache-filename preflight passed.
+  target_ids:
+  - CommunityMech:000120
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight,
+    all in the owned batch05 runtime.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Target reference validation passed; all eleven snippets also match the
+    fresh abstract.
+  target_ids:
+  - CommunityMech:000120
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-references-explained kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Seven focused target/history gates plus one corpus cache-filename preflight,
+    all in the owned batch05 runtime.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  target_ids:
+  - CommunityMech:000120
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - native-target
+  scope_note: Reused fresh full-corpus batch05 execution; neither a target-specific
+    failure nor a pass.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  target_ids:
+  - CommunityMech:000120
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - native-target
+  scope_note: Reused fresh full-corpus batch05 execution; neither a target-specific
+    failure nor a pass.
+- check_id: publication-and-supplement
+  name: Publication identity and accessible supplement
+  status: passed
+  required: true
+  summary: Fresh identifiers/abstract and the complete supplementary methods/tables/captions
+    were checked with selected figure inspection.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - pubmed
+  - crossref
+  - epmc
+  - supplement
+  - supplement-metadata
+  - independent-source
+- check_id: full-primary-source
+  name: Complete critical main Methods and Results
+  status: unavailable
+  required: true
+  summary: Main protocols, rescue/transfer experiments and field design remain unavailable
+    through inspected public routes.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - access-publisher
+  - access-publisher-pdf
+  - epmc
+  - independent-source
+  scope_note: Both direct publisher routes returned 403; accessible abstract and public
+    supplement do not constitute whole-main verification.
+- check_id: source-data
+  name: Encoded source accessions
+  status: not_applicable
+  required: false
+  summary: No source accession is encoded or identified in the bounded accessible
+    material; main data availability remains unreviewed.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - datasets
+- check_id: cross-mech
+  name: Encoded medium and ingredient-Mech links
+  status: not_applicable
+  required: false
+  summary: No CultureMech or MediaIngredientMech ID is encoded or uniquely inferred
+    from the unassigned source recipes.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - record
+  - context
+- check_id: structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Fresh batch05 runtime checks found no callable local adapter; no external
+    runner or strain-module query was executed.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+  locator: 'Entire target: two taxa, three nodes and two downstream arrows'
+  summary: The engineered synthetic pair is distinguished from precursor dilution
+    communities and the field soil microbiome; the graph already preserves source-access
+    and mediation limits.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.446492Z'
+- evidence_id: pubmed
+  kind: database
+  reference: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41264879&retmode=xml
+  locator: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41264879&retmode=xml
+  summary: Fresh article-level PubMed metadata verifies PMID 41264879, DOI 10.1021/acs.est.5c07865,
+    title and abstract.
+  support: supports
+  accessed_at: '2026-10-21T08:47:44.880337Z'
+  snapshot_sha256: 464cf35e8187ea1b3a6a9373ba53b75cd244d000b3973295d4333947c0a68efc
+- evidence_id: crossref
+  kind: database
+  reference: https://api.crossref.org/works/10.1021/acs.est.5c07865
+  locator: https://api.crossref.org/works/10.1021/acs.est.5c07865
+  summary: Fresh Crossref metadata verifies the DOI/title and supplies the same publisher
+    PDF route tested separately.
+  support: supports
+  accessed_at: '2026-10-21T08:47:44.855911Z'
+  snapshot_sha256: 9d420fbd96282b86fe43a9853827a054cec5f163517dd7366dc3e59c51d32dd0
+- evidence_id: epmc
+  kind: database
+  reference: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:41264879&format=json&resultType=core
+  locator: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:41264879&format=json&resultType=core
+  summary: Fresh Europe PMC metadata supplies the matching abstract and marks subscription
+    access, with no PMC full-text record.
+  support: supports
+  accessed_at: '2026-10-21T08:47:45.340925Z'
+  snapshot_sha256: 62c1d17b990c3af4517a5c0ed98048e6e5b03fc1b706589de28b42015ea39d15
+- evidence_id: access-publisher
+  kind: validation
+  reference: https://pubs.acs.org/doi/10.1021/acs.est.5c07865
+  locator: https://pubs.acs.org/doi/10.1021/acs.est.5c07865
+  summary: Current public request returned HTTP 403; its HTML response is not article
+    text.
+  support: context_only
+  accessed_at: '2026-10-21T08:47:44.643638Z'
+  snapshot_sha256: efcabb75951b294bb9b6433894b7b1db3c982855ab3838391911ef2f3590cd78
+- evidence_id: access-publisher-pdf
+  kind: validation
+  reference: https://pubs.acs.org/doi/pdf/10.1021/acs.est.5c07865
+  locator: https://pubs.acs.org/doi/pdf/10.1021/acs.est.5c07865
+  summary: Current public request returned HTTP 403; its HTML response is not article
+    text.
+  support: context_only
+  accessed_at: '2026-10-21T08:47:44.687977Z'
+  snapshot_sha256: c75ebc1c36f7374a1c3dc7fc41f600b9abd1e69139295b93b60f7d8cdc4c208c
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:41264879
+  locator: DOI 10.1021/acs.est.5c07865.s001; Methods S2-S4, Tables S1-S6 and captions
+    S1-S19
+  summary: The complete supplementary methods/tables/captions were read; Figures S6-S8
+    and S10-S11 were visually inspected. The public PDF supplements, but does not
+    replace, the unavailable main article.
+  support: supports
+  accessed_at: '2026-10-21T08:48:18.780549Z'
+  snapshot_sha256: 64e3616788485f7e40d2e6f83fbbcb355eb96b49e3ddd7080bff863a0fd573dc
+- evidence_id: supplement-access
+  kind: validation
+  reference: https://ndownloader.figshare.com/files/59737729
+  locator: root-supplement-fetch-receipt.json; Figshare article 30670681/file 59737729
+  summary: Fresh public download and matching metadata identify the study supplement;
+    the receipt preserves observed HTTP 200, size and hashes.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.446934Z'
+  snapshot_sha256: ce8cce082ff319a4589c6c14450424845fef375f2458a01358f3b84484127154
+- evidence_id: supplement-metadata
+  kind: database
+  reference: https://api.figshare.com/v2/articles/30670681
+  locator: Study title, supplement DOI, public file and main-DOI reference
+  summary: Figshare identifies one supplementary PDF with matching title and main
+    DOI; this is a supplementary resource, not a raw sequence dataset.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.446973Z'
+  snapshot_sha256: feacac6fda2852c221112ca33e24b3950e21758cfdbe4f2ffdbe0041b336ff5e
+- evidence_id: cross-feeding
+  kind: primary_source
+  reference: PMID:41264879
+  locator: Fresh PubMed abstract; supplementary Figures S8, S10-S11
+  summary: The abstract explicitly reports reciprocal growth support. Ammonium profiles
+    and metabolite rankings provide supporting context, while exact exchanged molecules,
+    transfer flux and rescue protocols remain unverified.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447009Z'
+  quote: SynCom members enable each other to grow
+  snapshot_sha256: 464cf35e8187ea1b3a6a9373ba53b75cd244d000b3973295d4333947c0a68efc
+- evidence_id: enzyme
+  kind: primary_source
+  reference: PMID:41264879
+  locator: Supplementary Methods 4, page S3; Figures S6-S7, pages S16-S17
+  summary: Broth activity assays include acetylene reduction; the pair exceeds monocultures
+    in S6, while S7 supports Bacillus substrate degradation. These do not establish
+    selective enzyme necessity.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447121Z'
+  quote: After 30 days of cultivation
+  snapshot_sha256: c6640b4786f28c915a563a192463774324b1d2ec59c487fe9183674cf9c1dd27
+- evidence_id: field
+  kind: primary_source
+  reference: PMID:41264879
+  locator: Fresh abstract; supplementary Tables S5-S6, pages S9-S10
+  summary: Field SOC and bacterial necromass increase, with endpoint-specific differences.
+    Not every fraction or enzyme increases; SynCom and control lignin degradation
+    share the same significance group.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447123Z'
+  quote: improving SOC
+- evidence_id: mediation
+  kind: primary_source
+  reference: PMID:41264879
+  locator: Fresh abstract; supplementary Methods 3-4; Figures S10-S11
+  summary: The authors propose enzyme-linked humification; measured degradation, humic
+    fractions and metabolite associations do not by themselves trace lignin carbon
+    into humus or selectively mediate field SOC.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447124Z'
+  quote: thereby promote maize straw humification
+- evidence_id: strains
+  kind: primary_source
+  reference: PMID:41264879
+  locator: Fresh abstract; supplementary Figures S6-S11 and Tables S3/S5/S6
+  summary: The two source isolates are B. siamensis B and B. japonicum G. Species
+    ontology identifiers do not replace these local strain designations; no culture-collection
+    or genome accession is inferred.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447126Z'
+- evidence_id: context
+  kind: primary_source
+  reference: PMID:41264879
+  locator: Supplementary Methods 1 and 4; Table S1
+  summary: 'Five formulations are reported: CMC, YM, LB, nitrogen-free modified CMC
+    and nitrogen-free maize straw. The broth endpoint is 30 days. Baseline soil pH
+    is 6.62 for microcosms and 5.88 for field soil, not broth setpoints; exact recipe-to-culture
+    assignment remains unresolved.'
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447127Z'
+- evidence_id: ontology
+  kind: authority
+  reference: Local OAK NCBITaxon, ENVO, CHEBI and GO snapshots
+  locator: Eleven unique ID/label pairs at twenty-two occurrences
+  summary: All canonical labels match; enzyme processes and nitrogen fixation are
+    compatible annotations but do not prove partner transfer or traced carbon flow.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447179Z'
+  snapshot_sha256: 29c9bc2f4c159c709f7dfaffb2f8ac979d13f4d2869e8b5abbd6f1f7b478bd69
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: FunctionalRoleEnum.PRIMARY_DEGRADER/CROSS_FEEDER; InteractionTypeEnum.CROSS_FEEDING;
+    strain_designation and cultivation fields
+  summary: The roles denote complex-substrate degradation and recipient metabolite
+    utilization. Neither species rank nor generic membership evidence establishes
+    a particular isolate mechanism.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447180Z'
+- evidence_id: snippets
+  kind: validation
+  reference: kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+  locator: 'snippet-audit.json: eleven snippet occurrences'
+  summary: All eleven snippets match the pinned abstract cache and fresh PubMed abstract;
+    lexical matching does not certify inaccessible main Methods.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447222Z'
+  snapshot_sha256: 049337cdb99b1fef49072f081a5855dbbd47c92d56d975732954997691783c35
+- evidence_id: datasets
+  kind: validation
+  reference: Accessible abstract and public supplement
+  locator: 'dataset-verification.json: bounded resource/accession review'
+  summary: The supplement resource resolves; the inspected materials do not establish
+    a deposited study sequence accession. Main data availability remains inaccessible,
+    so no dataset omission is inferred.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447259Z'
+  snapshot_sha256: 14c3cadd7a60ffd19fb928b9e06ade3d7d4ed28fba96f1c658e4b3805c89f096
+- evidence_id: history
+  kind: record_content
+  reference: Target history sidecar and 20261005-eleven-records-batch5.yaml
+  locator: Target decision lines456-534; one sidecar; linked issue1250
+  summary: The prior target hash matches. Its graph-only repair preserved qualified
+    cross-feeding and mediation; the freshly checked issue is closed, without certifying
+    non-graph metadata.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447293Z'
+  snapshot_sha256: 6e95b8d251c94db60832df24acfbdbc3f02cbbc8e591241a6fe298cdae30d8ad
+- evidence_id: search
+  kind: search
+  reference: Owned maintained community, isolate and reusable-taxon roots
+  locator: Ignored-inclusive bounded species/record/PMID lookup
+  summary: No reusable exact isolate identity was found; other communities sharing
+    species names do not resolve B or G.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447343Z'
+  snapshot_sha256: 1c7a73e03d589024c5afeaf34e690a3dd9a7d6931ac978006c6b9d62b99bc354
+  search_scope: rg --no-ignore --hidden for exact species IDs/names and target/PMID
+    across kb/taxa, data/isolates and kb/communities; bounded, not exhaustive synonym
+    coverage.
+- evidence_id: adapter
+  kind: search
+  reference: Optional kg-microbe-sources runner
+  locator: Fresh batch05 PATH, owned-venv, import and ignored-inclusive file checks
+  summary: No runner is available in the owned runtime. An earlier external candidate
+    path still exists but was not executed; no strain-module coverage was queried.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447406Z'
+  snapshot_sha256: 1e0fe88d51ce1b2f3e60ee825786a55d99c5bb8f1c116f5277bed5f14d5cbfca
+  search_scope: Fresh owned-runtime discovery; earlier bounded external candidate
+    discovery explicitly reused with a fresh path-existence check.
+- evidence_id: native-target
+  kind: validation
+  reference: NetworkIntegrityAuditor().audit_community(target)
+  locator: 'support-audit.json: targeted API and native score components'
+  summary: Native COMPLETE reports no issues; three evidence items across three nodes
+    give mean 1. Structural completeness does not certify scientific mediation.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447460Z'
+  snapshot_sha256: aac91f1e64d58ec2c49fef200521f750b92f7a3b3149e3e8bf354b12c022e034
+- evidence_id: independent-source
+  kind: validation
+  reference: PMID:41264879
+  locator: 'root-independent-source-audit.json: supplementary methods/tables/captions
+    and selected figures'
+  summary: Independent reading agrees with three minor findings and preserves partial
+    completion because critical main Methods remain unavailable.
+  support: supports
+  accessed_at: '2026-10-21T08:51:53.447492Z'
+  snapshot_sha256: 231a5e3acb20913240fcad85742358987cdb2bfbde25c19e1b05e7d1129efdda
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+  locator: Actual execution 2026-10-21T08:47:22.744672+00:00 to 2026-10-21T08:47:24.381591+00:00
+  summary: Target schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T08:47:24.381591Z'
+  snapshot_sha256: 237eec5b8e7c0310e51465da349b4a7eefd2d2091210fb160091782d7907d260
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-strict kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+    --out /private/tmp/cm-review-session/batch-05/000120/strict-report.tsv
+  locator: Actual execution 2026-10-21T08:47:22.746794+00:00 to 2026-10-21T08:47:26.042880+00:00
+  summary: Target strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T08:47:26.042880Z'
+  snapshot_sha256: 3db2cb92fa353423626401be193e9b2e855b2364fb7e8f448b20ea16be6088a4
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-terms kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+  locator: Actual execution 2026-10-21T08:47:22.750522+00:00 to 2026-10-21T08:47:25.576433+00:00
+  summary: Target term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T08:47:25.576433Z'
+  snapshot_sha256: 28dba8b4687940b780fbc38ebf6bd451a8e339ade5501ffac1ff7fd7c34b6ea3
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+  locator: Actual execution 2026-10-21T08:47:24.381967+00:00 to 2026-10-21T08:47:24.481335+00:00
+  summary: Target GTDB syntax/status validation passed.
+  support: supports
+  accessed_at: '2026-10-21T08:47:24.481335Z'
+  snapshot_sha256: 654ea59ba8eafca77dd399bb8d54a4642dd7fa5c9ce8b16d64cd23b16c7fa5e8
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+  locator: Actual execution 2026-10-21T08:47:24.481722+00:00 to 2026-10-21T08:47:26.114739+00:00
+  summary: Target GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T08:47:26.114739Z'
+  snapshot_sha256: 7ad6ac8d989a01bdc524119b2aea0b277f81e5ff6b3c6514049dcc26a7864db6
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-history history/records/Bacillus_Bradyrhizobium_Straw_Humification_SynCom
+  locator: Actual execution 2026-10-21T08:47:25.576685+00:00 to 2026-10-21T08:47:26.454288+00:00
+  summary: Target history validation passed.
+  support: supports
+  accessed_at: '2026-10-21T08:47:26.454288Z'
+  snapshot_sha256: 769640abc8f121c7f68d11fa644916813898b2a06dc24a899936ed5d597aea30
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T08:47:26.455336+00:00 to 2026-10-21T08:47:26.528720+00:00
+  summary: Read-only corpus cache-filename preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T08:47:26.528720Z'
+  snapshot_sha256: d7844638a42e1dca08404df7e5ff747a138f77aa8856d45dc4a7285f8b13390c
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src
+    just --no-dotenv validate-references-explained kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+  locator: Actual execution 2026-10-21T08:47:26.529146+00:00 to 2026-10-21T08:47:27.637122+00:00
+  summary: Target reference validation passed; all eleven snippets also match the
+    fresh abstract.
+  support: supports
+  accessed_at: '2026-10-21T08:47:27.637122Z'
+  snapshot_sha256: 214913845dc25ea4c9d570f490a07bdd294c2f869305f3b0cec8d38b8aa24db2
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T08:44:47.720127+00:00 to 2026-10-21T08:45:04.195128+00:00
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  support: supports
+  accessed_at: '2026-10-21T08:45:04.195128Z'
+  snapshot_sha256: 83a73a6ead4c57534fef4ad456dae148cc75d2127e568a1d0815abaa8cf1b47b
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-05/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T08:44:47.737345+00:00 to 2026-10-21T08:45:04.925187+00:00
+  summary: Fresh batch05 corpus execution returned 57 warnings across 21 of 477 records
+    and exit 1; this target has no native network issue.
+  support: supports
+  accessed_at: '2026-10-21T08:45:04.925187Z'
+  snapshot_sha256: 8128f67a5d762dda726f1e6a0c0775a825d030d316c46765c08a359e6b621edb
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Defined pair and laboratory/field scope
+  outcome: supported
+  summary: The source resolves the two-isolate SynCom and separates its precursor
+    selection, laboratory assays and field application.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - record
+  - strains
+  - context
+  - field
+  - ontology
+  dimensions:
+  - name: community_scope
+    value: Two-member synthetic inoculant, not the entire soil microbiome
+    definition: ENGINEERED, SYNTHETIC and LIGNOCELLULOSE fit the source; functional
+      stability is an objective rather than a certified persistence measurement.
+    evidence_ids:
+    - record
+    - strains
+  - name: source_strain
+    value: B. siamensis B and B. japonicum G
+    definition: The local strain codes are explicit, but absent from structured strain
+      fields; species taxIDs do not authenticate deposited isolate genomes.
+    evidence_ids:
+    - strains
+    - ontology
+    - datasets
+  - name: environment
+    value: Cropland soil with maize straw
+    definition: ENVO soil is compatible; baseline microcosm and field soil chemistry
+      are distinct from broth formulations.
+    evidence_ids:
+    - context
+    - field
+    - ontology
+  - name: medium
+    value: Five source formulations with unresolved experiment assignment
+    definition: Public recipes are available; exact mapping to individual preparation
+      and pair assays, temperature and inoculum are not certified.
+    evidence_ids:
+    - context
+    - access-publisher
+    - supplement
+  - name: experimental_setting
+    value: Dilution microcosms, laboratory pair assays and field straw-return comparisons
+    definition: Thirty-day broth enzyme endpoints and field soil outcomes must remain
+      separate; unavailable main Methods limit design verification.
+    evidence_ids:
+    - enzyme
+    - field
+    - context
+  - name: evidence_tier
+    value: Reported cross-feeding, measured activities/outcomes and proposed mediation
+    definition: Random-forest metabolite rankings are candidate associations; acetylene
+      reduction is not member-resolved nitrogen transfer.
+    evidence_ids:
+    - cross-feeding
+    - enzyme
+    - mediation
+  - name: grounding_status
+    value: Canonical species/chemical/process labels; inherited GTDB mappings
+    definition: Bacillus is stored GROUNDED and Bradyrhizobium AMBIGUOUS; historical
+      mapping counts, release and candidate membership were not recomputed.
+    evidence_ids:
+    - ontology
+    - schema
+    - adapter
+- assessment_id: taxonomy
+  area: grounding
+  topic: Both member identities and functional roles
+  outcome: concern
+  summary: The roles are supported at the inspected scope, but source strain fields
+    and nearest role-specific evidence need improvement.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - strains
+  - enzyme
+  - cross-feeding
+  - ontology
+  - schema
+  details: S6-S7 support Bacillus degradation; explicit reciprocal-growth reporting
+    supports Bradyrhizobium as a recipient. Candidate S10/S11 metabolites are not
+    authenticated transferred molecules. Current taxonomy evidence quotes membership
+    only, while B/G remain buried in design prose.
+- assessment_id: node-0
+  area: graph
+  topic: 'ecological_interactions[0]: Straw Humification Cross-Feeding'
+  outcome: supported
+  summary: Retain reported reciprocal support with the current explicit access and
+    metabolite limits.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - cross-feeding
+  - strains
+  - supplement
+  - ontology
+  details: Participants are B. siamensis B and B. japonicum G, with reciprocal direction
+    in laboratory co-culture. The nitrogen-fixation term is bounded by the activity
+    context; neither N2 fixation nor ammonium accumulation alone proves transfer to
+    Bacillus. Complete main rescue/transfer methods remain unassessed.
+- assessment_id: node-1
+  area: graph
+  topic: 'ecological_interactions[1]: Straw-Degrading Enzyme Stimulation'
+  outcome: supported
+  summary: The node accurately describes measured activity endpoints with its existing
+    necessity and flux caveats.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - enzyme
+  - strains
+  - ontology
+  details: Both source isolates form the tested pair; treatment-to-broth activities
+    are assessed after 30 days against uninoculated and monoculture controls. S6 supports
+    CMC-cellulase, xylanase, lignin-peroxidase and nitrogenase differences. Community-level
+    terms do not attribute every enzyme to both members.
+- assessment_id: node-2
+  area: graph
+  topic: 'ecological_interactions[2]: Maize Straw Humification and Soil Organic Carbon
+    Improvement'
+  outcome: supported
+  summary: Field outcomes are supported and the current description appropriately
+    qualifies carbon-pump interpretation.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - field
+  - strains
+  - mediation
+  details: The intervention is inoculation of the B/G pair into straw-return field
+    soil; the response belongs to the whole soil system. Tables S5-S6 support selected
+    carbon/degradation changes, not uniform improvements or a selectively traced microbial-carbon-pump
+    route.
+- assessment_id: edge-0-1
+  area: graph
+  topic: 'ecological_interactions[0].downstream[0]: cross-feeding -> enzyme stimulation'
+  outcome: supported
+  summary: The PARTIAL designation accurately preserves source attribution without
+    claiming selective mediation.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - cross-feeding
+  - enzyme
+  - mediation
+  details: Direction is reciprocal B/G growth support to measured pair enzyme activities
+    in laboratory culture. Abstract attribution and S6 endpoints support a proposed
+    link, while inaccessible main transfer/rescue methods prevent stronger causal
+    certification.
+- assessment_id: edge-1-2
+  area: graph
+  topic: 'ecological_interactions[1].downstream[0]: enzyme stimulation -> field carbon
+    outcome'
+  outcome: supported
+  summary: The PARTIAL designation correctly separates laboratory activities from
+    field humification/SOC and unresolved mediation.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - enzyme
+  - field
+  - mediation
+  details: The same B/G inoculant is represented, but source and target measurements
+    occur in distinct laboratory and field contexts. The direction follows the authors
+    interpretation, not a verified enzyme-specific field intervention.
+- assessment_id: ingredients
+  area: grounding
+  topic: Four substrate terms and carbon-flow interpretation
+  outcome: concern
+  summary: Chemical mappings and degradation context are compatible; the lignin relevance
+    sentence needs the graph-level interpretation qualifier.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - ontology
+  - enzyme
+  - field
+  - mediation
+  details: S1 confirms straw cellulose/hemicellulose/lignin fractions and S7 supports
+    laboratory degradation; these do not trace lignin-peroxidase-derived carbon into
+    the humic pool. Table S6 does not show significant field lignin degradation above
+    control. No metal phenotype or inferred metal contamination is required.
+- assessment_id: cultivation
+  area: completeness
+  topic: Recoverable cultivation and environmental context
+  outcome: concern
+  summary: Accessible recipes, assay duration and soil baselines can improve context
+    without inventing unavailable main protocols.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - context
+  - supplement
+  - record
+  details: The environmental factor repeats engineering design. Capture actual source
+    contexts separately; do not treat metabolomics extraction temperatures or analytical
+    mobile-phase pH as growth conditions. Trace-metal recipe salts are ingredients,
+    not evidence of a metal-processing function.
+- assessment_id: provenance
+  area: evidence
+  topic: References, exact snippets, history and dataset boundaries
+  outcome: supported
+  summary: Citations and eleven snippets verify; prior graph decisions remain consistent
+    with current limits.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - pubmed
+  - crossref
+  - epmc
+  - snippets
+  - history
+  - datasets
+  - search
+  details: No encoded CultureMech, MediaIngredientMech or sequence accession requires
+    repair. Public supplement linkage is useful enrichment, while unavailable main
+    data availability prevents a whole-study archive-absence claim.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and incomplete source certification
+  outcome: concern
+  summary: Seven focused gates and cache preflight pass; the required full-main check
+    is unavailable and corpus warning failures remain explicit.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - ontology
+  - snippets
+  - check-validate
+  - check-validate-strict
+  - check-audit-network
+  - native-target
+  - independent-source
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and quality within partial review
+  outcome: supported
+  summary: Completeness is 70 and capped quality 100; neither score certifies the
+    unavailable whole-source assessment.
+  target_ids:
+  - CommunityMech:000120
+  evidence_ids:
+  - record
+  - native-target
+  metrics:
+  - name: completeness
+    value: 70
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: min(100, 50 required metadata including all taxon roles  + 5 environment  +
+      10 at least 3 factors  + 10 at least 3 nodes  + 5 resources  + 10 media  + 5
+      datasets  + 5 node metabolites). 50 + 5 + 0 + 10 + 0 + 0 + 0 + 5 = 70.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 - 50P1 - 10P2 - 2P3 + 20 min(mean node evidence / 2, 1)
+      + 15 if native COMPLETE, 0, 100). P1=0, P2=0, P3=3, P4=0; 3 items / 3 nodes
+      = 1; native COMPLETE. 100 - 6 + 10 + 15 = 119 before capping. Observed counts
+      cover assessed material only, not unavailable main sections.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Observed native severity count in this partial record review.
+  - name: P2
+    value: 0
+    unit: findings
+    definition: Observed native severity count in this partial record review.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Observed native severity count in this partial record review.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Observed native severity count in this partial record review.
+findings:
+- finding_id: strain-role-provenance
+  issue_key: cm-000120-strain-role-provenance
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: recoverable provenance/context or interpretation
+    precision is incomplete; the defined pair and qualified graph remain identifiable
+    and source-supported within access limits.'
+  rule_id: review-checklist.source_strain
+  status: open
+  certainty: confirmed
+  title: Source strain codes and role evidence are not attached to taxonomy
+  description: B and G are explicit source isolate codes but absent from structured
+    taxonomy; both role entries cite only the membership sentence.
+  target_ids:
+  - CommunityMech:000120
+  field_paths:
+  - taxonomy[0].strain_designation
+  - taxonomy[1].strain_designation
+  - taxonomy[0].evidence
+  - taxonomy[1].evidence
+  evidence_ids:
+  - strains
+  - enzyme
+  - cross-feeding
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+    role: canonical_record
+- finding_id: cultivation-context
+  issue_key: cm-000120-cultivation-context
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: recoverable provenance/context or interpretation
+    precision is incomplete; the defined pair and qualified graph remain identifiable
+    and source-supported within access limits.'
+  rule_id: review-checklist.cultivation
+  status: open
+  certainty: confirmed
+  title: Accessible cultivation and soil context is unrepresented
+  description: The only environmental factor duplicates engineering design, while
+    public supplementary recipes, 30-day broth assay duration and distinct soil baselines
+    are not represented. Exact recipe-to-experiment assignment remains unknown.
+  target_ids:
+  - CommunityMech:000120
+  field_paths:
+  - environmental_factors[0]
+  - growth_media
+  - cultivation_setup
+  - environment_term.notes
+  evidence_ids:
+  - context
+  - supplement
+  - record
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+    role: canonical_record
+- finding_id: lignin-flow-qualification
+  issue_key: cm-000120-lignin-flow-qualification
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3 minor: recoverable provenance/context or interpretation
+    precision is incomplete; the defined pair and qualified graph remain identifiable
+    and source-supported within access limits.'
+  rule_id: review-checklist.causal_claims
+  status: open
+  certainty: confirmed
+  title: Lignin ingredient prose overstates verified carbon routing
+  description: The lignin relevance sentence asserts carbon contribution from SynCom
+    peroxidase oxidation into humus, while its evidence names enzyme activity and
+    the graph explicitly retains unresolved carbon mediation.
+  target_ids:
+  - CommunityMech:000120
+  field_paths:
+  - related_ingredients[2].relevance
+  - related_ingredients[2].evidence
+  evidence_ids:
+  - mediation
+  - enzyme
+  - field
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+    role: canonical_record
+actions:
+- action_id: fix-strain-role-provenance
+  description: Add B/G strain designations and attach narrow evidence for the existing
+    roles.
+  finding_ids:
+  - strain-role-provenance
+  target_ids:
+  - CommunityMech:000120
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Record B for B. siamensis and G for B. japonicum without inventing accession or
+    strain taxID.
+  - Use S6-S7 for Bacillus degradation and the explicit reciprocal-growth statement
+    for Bradyrhizobium recipient scope.
+  - Keep candidate metabolites, strain-specific GTDB mapping and uninspected transfer
+    methods unresolved.
+  - Run schema, strict, references and history gates after separately authorized curation.
+- action_id: fix-cultivation-context
+  description: Recover supported preparation/assay/environment context and retain
+    explicit protocol gaps.
+  finding_ids:
+  - cultivation-context
+  target_ids:
+  - CommunityMech:000120
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Move duplicated assembly information to engineering_design and use environmental
+    fields for source-backed context.
+  - Preserve the five S2 formulations as source-reported recipes, without assigning
+    them to strains or pair assays until that linkage is verified.
+  - Record the 30-day broth activity endpoint separately from field application and
+    precursor microcosms.
+  - Label pH 6.62 and 5.88 as microcosm and field baseline soil values, not broth
+    setpoints.
+  - Do not infer temperature, vessel, shaking, atmosphere, inoculum ratio or field
+    randomization from analytical methods.
+  - Add precise supplementary citations/resource linkage; verify exact formulation
+    before any CultureMech identifier.
+- action_id: fix-lignin-flow-qualification
+  description: Qualify the proposed lignin-to-humic-carbon route and align its evidence
+    with the measured substrate endpoints.
+  finding_ids:
+  - lignin-flow-qualification
+  target_ids:
+  - CommunityMech:000120
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain lignin as a measured straw component and laboratory degradation substrate.
+  - Describe humic-carbon contribution as a proposed interpretation unless inspected
+    tracing or selective mediation supports it.
+  - Keep laboratory S7 degradation separate from Table S6 field lignin comparisons,
+    whose SynCom/control significance letters overlap.
+  - Attach source-specific activity/degradation evidence and preserve the existing
+    graph/discussion qualifiers.
+- action_id: complete-main-review
+  description: When authorized main text becomes available, assess exact culture assignments,
+    isolate identification, exchange/rescue methods and field design, then create
+    a new immutable review.
+  finding_ids:
+  - strain-role-provenance
+  - cultivation-context
+  - lignin-flow-qualification
+  target_ids:
+  - CommunityMech:000120
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain current graph qualifiers and candidate-metabolite boundaries until direct
+    evidence is inspected.
+  - Check source data availability without inferring absent datasets from this partial
+    review.
+  - No paid access, author contact, canonical change or status promotion is authorized
+    by this review.
+limitations:
+- The required full-main scientific assessment is unavailable. Current public publisher
+  HTML/PDF requests returned 403 and Europe PMC identifies subscription access without
+  PMC full text; no bypass or purchase was attempted.
+- The abstract explicitly reports cross-feeding. Lack of accessible main transfer/rescue
+  Methods is not evidence that those experiments were absent; exact exchanged compounds,
+  flux and selective mediation remain unverified.
+- Five source media formulations are accessible, but their exact strain/assay assignments,
+  temperature, vessel, aeration, shaking, inoculum ratio and field randomization were
+  not recovered. Analytical extraction/MS conditions are not cultivation parameters.
+- Soil baseline pH differs between precursor microcosm and field material. Thirty-day
+  laboratory enzyme assays are not a field trial duration; field improvements are
+  endpoint-specific.
+- Figures S6-S8 and S10-S11 were visually inspected by the lead; the independent reviewer
+  also inspected Tables S5-S6. Remaining supplementary figure pixels and the complete
+  main figures were not independently assessed.
+- B/G are local source strain codes; no unique deposited isolate identity was inferred.
+  Historical GTDB fractions/counts/release and Bradyrhizobium candidate mappings were
+  not recomputed.
+- No deposited sequence accession was identified in the bounded accessible abstract/supplement;
+  unavailable main data availability is not certified. The Figshare resource is a
+  supplement, not raw omics data.
+- Fresh optional-adapter discovery was limited to the owned runtime; the known external-checkout
+  runner was not executed, and no strain-module coverage claim was made.
+notes:
+- Canonical records, caches, history and generated outputs remain unchanged.
+- Direct excerpts total 19 words for this publication and supplement combined.
+- All 23 repository inputs were pinned before assessment and rechecked at construction;
+  quality 100 is capped from 119 and does not replace the unavailable scientific check.
+tags:
+- record-review
+- partial
+- synthetic-community
+- lignocellulose
+- batch-05
