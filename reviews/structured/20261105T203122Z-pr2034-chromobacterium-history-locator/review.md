@@ -1,0 +1,1695 @@
+# Chromobacterium review: external history selectors corrected; science unchanged
+
+- Review: 20261105T203122Z-pr2034-chromobacterium-history-locator
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-11-05T20:31:22.127408Z
+- Finished UTC: 2026-11-05T20:31:22.641478Z
+- Reviewer: codex-pr2034-273-author (unknown)
+- Completion: partial
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Administrative history-selector correction. Helper-only provenance successor. The current record removes the old ore, detoxification, density and operating overclaims while preserving four supported PCB graph nodes and two bounded arrows. Three major findings remain: two source-unverified precision claims, unsupported role enums, and mine-tailing grounding. One new minor finding identifies a wrong-target history event. Two historical finding lineages are explicitly resolved. All eight focused checks pass; corpus network recipes report warnings elsewhere. Full Methods were unavailable, so this is a partial scientific review, not full-paper certification.
+
+## Scope And Provenance
+
+Whole current YAML, all 15 evidence placements, four interaction nodes, two arrows, four environmental factors, two history events and every finding previously assigned to this stable target.
+
+Selection: PR2034 canary stale-review refresh for CommunityMech:000273 only.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base d6e78ff6efcd093855636a721397193f3eceb6b9.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000273 | data/isolates/Chromobacterium_Gold_Biocyanidation.yaml | maintained | Chromobacterium Gold Biocyanidation Platform |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000273 | Focused command completed with exit 0; actual stdout/stderr hashes retained. |
+| validate-strict | passed | True | CommunityMech:000273 | Focused command completed with exit 0; actual stdout/stderr hashes retained. |
+| validate-terms | passed | True | CommunityMech:000273 | Focused command completed with exit 0; actual stdout/stderr hashes retained. |
+| validate-gtdb | passed | True | CommunityMech:000273 | Focused command completed with exit 0; actual stdout/stderr hashes retained. |
+| validate-gtdb-domain | passed | True | CommunityMech:000273 | Focused command completed with exit 0; actual stdout/stderr hashes retained. |
+| validate-history | passed | True | CommunityMech:000273 | Focused command completed with exit 0; actual stdout/stderr hashes retained. |
+| normalize-cache-names | passed | True | CommunityMech:000273 | Read-only repository cache-name diagnostic passed. |
+| validate-references-explained | passed | True | CommunityMech:000273 | No reported reference issues against the selected-excerpts cache; independent publisher replay is separately assessed. |
+| audit-network | failed | True | CommunityMech:000273 | Actual corpus result: 503 records, 44 warnings in 16 records, zero errors. No issue is attributed to this target. |
+| check-network-quality | failed | True | CommunityMech:000273 | Actual corpus result: 503 records, 44 warnings in 16 records, zero errors. No issue is attributed to this target. |
+| Primary Methods access | unavailable | True | CommunityMech:000273 | The public publisher page provides the abstract and identifies subscription content. No Methods support was established for the 45.5% comparator or exact oxygen-start timing. |
+| helper-black-check | passed | True | CommunityMech:000273 | Final helper code passes the repository's formatting/lint gate. |
+| helper-ruff-check | passed | True | CommunityMech:000273 | Final helper code passes the repository's formatting/lint gate. |
+| locator-black-check | passed | True | CommunityMech:000273 | The new locator-correction helper passes the repository formatting/lint gate. |
+| locator-ruff-check | passed | True | CommunityMech:000273 | The new locator-correction helper passes the repository formatting/lint gate. |
+
+## Scientific And Domain Assessments
+
+### Current source, organism and experimental scope
+
+identity: supported. Targets: CommunityMech:000273.
+
+Single-species PCB leaching stage remains distinct from the prior separately applied biooxidation. ENGINEERED describes the process design, not proven genetic engineering. No exact strain has been authenticated.
+
+### Taxonomy, abundance and roles
+
+grounding: concern. Targets: CommunityMech:000273.
+
+Species label and GTDB/domain validators pass. DOMINANT and monoculture wording are retained as the modeled single-member composition, not a viability/purity measurement. Neither declared functional role is established by the cited function.
+
+### Engineering, environmental and snippet scope
+
+evidence: concern. Targets: CommunityMech:000273.
+
+The broad old claims are removed. The remaining 45.5% comparator and the claimed oxygen-addition start after depletion lack support in the inspected abstract. A lowercase source initial was capitalized in the engineering evidence.
+
+### Environment ontology application
+
+grounding: concern. Targets: CommunityMech:000273.
+
+Correctly resolved ENVO label still describes ore-processing residue rather than this PCB assay. Updated notes do not repair the ontology assignment.
+
+### Cultivation and external resources
+
+completeness: supported. Targets: CommunityMech:000273.
+
+Medium constituents are already described in evidence and environmental factors. No growth_media, cultivation_setup, external_resources or associated_datasets block is present. These optional omissions do not justify fabricated recipes, exact medium identifiers or a biological-absence claim. Source strain and protocol details remain limited by access.
+
+### ecological_interactions[0] Biogenic Cyanide Production in Glycine-Supplemented Culture
+
+graph: supported. Targets: CommunityMech:000273.
+
+Retain cyanogenesis and the reported supplemented medium; no traced substrate flux, specific enzyme mechanism or concentration is inferred.
+
+### ecological_interactions[0].downstream[0]
+
+graph: supported. Targets: CommunityMech:000273.
+
+Current arrow target and description retained after independent primary-source reassessment. The model does not assert reciprocal fitness or a separate simultaneous recipient organism.
+
+### ecological_interactions[1] Gold Cyanide Complexation and Dissolution
+
+graph: supported. Targets: CommunityMech:000273.
+
+Retain PCB gold dissolution and combined-treatment endpoint; no specific dissolved complex, ore recovery or purification yield is claimed.
+
+### ecological_interactions[2] Oxygen-Supported PCB Gold Leaching
+
+graph: supported. Targets: CommunityMech:000273.
+
+Retain oxygen-supported leaching and respiration context, without a partner-benefit claim.
+
+### ecological_interactions[3] PCB Pretreatment and Particle Size Effects
+
+graph: supported. Targets: CommunityMech:000273.
+
+Retain separate pretreatment and particle-size context; do not convert it into a coculture or separate the contributions of combined interventions.
+
+### ecological_interactions[3].downstream[0]
+
+graph: supported. Targets: CommunityMech:000273.
+
+Current arrow target and description retained after independent primary-source reassessment. The model does not assert reciprocal fitness or a separate simultaneous recipient organism.
+
+### Exact old/current changes and finding lineages
+
+provenance: concern. Targets: CommunityMech:000273.
+
+The target hash matches the Stage5 remediation result. That change removed the old mechanism and ore prose while leaving graph/roles/ENVO unchanged. The appended history event instead records unrelated identifiers and changes; append a correction rather than rewriting provenance. Every old issue key is explicitly dispositioned.
+
+### Gene/regulatory adapter applicability
+
+evidence: not_applicable. Targets: CommunityMech:000273.
+
+The current record no longer makes gene/regulatory/module claims. No iModulonDB or related-organism module query is needed to reassess the removed mechanism finding; no database-coverage absence claim is made.
+
+### Actual validators and isolated native network
+
+schema: supported. Targets: CommunityMech:000273.
+
+Eight focused commands passed. Independently invoking the native auditor on this record returned no issues; four graph discussion anchors and both targets resolve. Corpus warnings remain actual failures, not target defects.
+
+### Native scores and current unresolved findings
+
+completeness: concern. Targets: CommunityMech:000273.
+
+Completeness 80; raw validation quality 100.5, capped 100. These presence/penalty scores do not certify the science or override the three open major findings.
+
+### Formatting-only input reconciliation
+
+provenance: supported. Targets: CommunityMech:000273.
+
+No new source investigation or record curation. The author rechecked all scientific inputs and retained all prior assessments/dispositions, with exact immediate-predecessor references for every finding.
+
+## Findings
+
+### scope: Residual comparator and oxygen timing remain source-unverified
+
+major / open / confirmed; issue key: cm-000273-pcb-versus-ore-and-operating-claims.
+
+The broad refractory-ore, CFU, safety, cost and operating claims were removed. Description and environmental_factors[3] still assert a 45.5% direct-bioleaching comparator absent from the inspected abstract and cache. environmental_factors[2].value asserts oxygen supplementation after 24 h depletion, whereas the abstract states depletion without supplementation and does not establish the start time. These are unverified claims, not demonstrated false results.
+
+Disposition: Open successor with substantially narrowed scope: most prior defects are repaired, but claim-level numerical/protocol support is still incomplete. No inference that the full paper lacks it.
+
+### organism-mechanism: Unsupported organism-mechanism claims removed
+
+major / resolved / confirmed; issue key: cm-000273-unsubstantiated-genes-and-detoxification.
+
+Current whole-record inspection and exact Git delta confirm removal of hcnABC/enzyme, detoxification guarantee, pigment readout and CFU claims. The qualified graph remains unchanged.
+
+Disposition: Resolved by removal in the October 21 repair, independently confirmed now. This disposition does not claim the biology is impossible or certify the removed claims in another strain.
+
+### roles: Role enums remain unsupported by the source-defined function
+
+major / open / confirmed; issue key: cm-000273-heterotroph-functional-role-mismatch.
+
+The current PRIMARY_PRODUCER and PRIMARY_DEGRADER assignments remain unchanged. The schema requires carbon fixation and complex-substrate degradation respectively; cyanide generation and mobilizing metal from PCB material do not establish those roles.
+
+Disposition: Open: the October repair changed notes, not these role enum assignments.
+
+### envo: Mine-tailing ontology class does not represent the PCB experiment
+
+major / open / confirmed; issue key: cm-000273-pcb-mine-tailing-misgrounding.
+
+ENVO:00000003 still denotes mine tailing. Its current OAK definition is ore/gangue separation residue; updated PCB notes do not make that material class applicable to the laboratory assay.
+
+Disposition: Open: ID and label are unchanged despite the source-bounded note repair.
+
+### ore-lineage: Parallel ore-specific remediation remains resolved
+
+major / resolved / confirmed; issue key: communitymech-stage4-000273-unverified-ore-prose.
+
+The targeted arsenopyrite/pyrite scope and old un-evidenced ore operating ranges are absent from the current record. Retaining this resolution does not endorse the Stage5 report's 45.5% attribution.
+
+Disposition: Independently confirmed removal of the exact old ore-scope defects, reconciling both Stage4 observations and the Stage5 resolved observation. Remaining comparator/timing precision is tracked under the original broader scope issue key.
+
+### history: Per-record history narrates a different target and absent changes
+
+minor / open / confirmed; issue key: cm-000273-history-2050-wrong-record-and-change.
+
+The October 21 event is filed under 273, but its details name CommunityMech:000181 and claim DSM 30191 and SYNTROPHIC_PARTNER additions. Neither appears in 273's current record or actual change. Embedded history describes the PCB prose repair instead. Schema validity does not establish historical truth.
+
+## Recommended Actions And Acceptance Checks
+
+### fix-scope
+
+Verify or qualify the remaining comparator and timing; repair the small engineering-snippet capitalization discrepancy from the publisher.
+
+- Locate exact primary Results/figure/table support for the 45.5% comparison or remove/qualify that number in both current placements.
+- Do not infer supplementation start time from an unsupplemented depletion endpoint.
+- Use the exact lowercase source excerpt at engineering_design.evidence[0] or a different verified contiguous source snippet; rerun strict/reference checks.
+
+### fix-roles
+
+Remove or replace role enums only with a directly supported function and the actual schema meaning.
+
+- No autotrophy inferred from chemical production.
+- No complex-substrate degradation inferred solely from gold dissolution.
+- Rerun strict, term and network validation after separately authorized curation.
+
+### fix-envo
+
+Reconcile environment grounding with the actual PCB experiment.
+
+- Verify any replacement ID, label and definition; do not guess a neighboring term.
+- Align environmental notes and rerun term/strict checks.
+
+### fix-history
+
+Append an explicit correction to the erroneous historical event.
+
+- Preserve the old event bytes; cite its exact filename and explain the wrong ID/strain/role narrative using the actual record delta.
+- State the real 273 PCB prose repair, then validate history.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| current | data/isolates/Chromobacterium_Gold_Biocyanidation.yaml; Whole YAML; current source.inputs digest | supports | Current PCB-specific record; environmental factors reduced from eleven to four. Four nodes and two arrows are byte-equivalent as parsed data to the predecessor. |
+| publisher | https://link.springer.com/article/10.1007/s10163-014-0276-4; Complete Abstract, five displayed text lines 36–40 and article title; local publisher.json contains only this projection | supports | Primary experimental context and intervention direction were reassessed. No full Methods access is claimed. |
+| cache | references_cache/doi_10.1007_s10163-014-0276-4.md; Front matter content_type/source_review_note and complete selected-excerpts body | supports | The cache declares rewording and cannot alone authenticate quotations. |
+| snippet-replay | scripts/adhoc/pr2034_273_audit.py; replay step; all 15 recursive placements; direct-replay.json | supports | 10 raw publisher matches; four further matches after whitespace normalization. The engineering snippet alone changes initial lowercase gold to uppercase Gold. All 15 match the selected-excerpts cache; no Discussion EvidenceItems occur. |
+| schema-roles | src/communitymech/schema/communitymech.yaml; FunctionalRoleEnum and AbundanceEnum; taxonomy descriptor semantics | supports | PRIMARY_PRODUCER requires carbon fixation and PRIMARY_DEGRADER requires complex substrate degradation. DOMINANT is ordinal prominence, not a measured proportion. |
+| envo | sqlite:obo:envo; ENVO:00000003 label and definition, queried using oaklib.get_adapter; envo.json | supports | The class concerns material remaining from separation of ore and gangue, which differs from a PCB laboratory leaching culture. |
+| old-review | reviews/structured/20261019T233358Z-chromobacterium-gold-record/review.yaml; Whole old review, findings scope, organism-mechanism, roles and envo | supports | All four old issue keys retained; current conclusions were reached from present bytes and source inspection. |
+| delta | data/isolates/Chromobacterium_Gold_Biocyanidation.yaml; git show a4611c913c8da9619673df63a0c2cce3aa206a83 target versus current; record-delta.json verifies the predecessor target SHA before comparison | supports | Removed general ore, named gene/enzyme, detoxification, pigment, CFU and unsupported operating prose; retained graph unchanged. |
+| history-event | history/records/Chromobacterium_Gold_Biocyanidation/2026-10-21T190000Z-claude-2050.yaml; Whole event, especially events[0] summary/details and target.path | refutes | Target path names 273, but the event narrates 000181, DSM 30191 and SYNTROPHIC_PARTNER changes absent from the actual record delta and contradictory to embedded curation_history[1]. |
+| stage5 | reviews/structured/20261021T193000Z-stage5-remediation-verification/review.yaml; findings[finding_id=stage4-isolate-000273-unverified-ore-prose] and its two Stage4 previous_occurrences | supports | The separate ore-specific lineage was resolved after the October repair. That bounded resolution is retained, without adopting its unsupported assertion that every current number is source-certified. |
+| discovery | Local owned PR2034 worktree; Exact stable ID, slug, DOI and Chromobacterium search; structured YAML finding selection by target ID | context_only | Found one focal selected-excerpts carrier and four structured reviews containing findings for this stable target. Historical reports are not new primary evidence. |
+| check-validate | just --no-dotenv validate data/isolates/Chromobacterium_Gold_Biocyanidation.yaml; Executed 2026-11-05T20:12:35.487088Z through 2026-11-05T20:12:35.903415Z; stdout SHA256 de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de; stderr SHA256 9e4c3959dc42ea369fd699d4d310627217dcc14e97c7d21b9376d89f6ce12a08 | context_only | Focused command completed with exit 0; actual stdout/stderr hashes retained. |
+| check-validate-strict | just --no-dotenv validate-strict data/isolates/Chromobacterium_Gold_Biocyanidation.yaml --out /Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/pr2034/273/strict.tsv; Executed 2026-11-05T20:12:35.903636Z through 2026-11-05T20:12:37.090426Z; stdout SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr SHA256 10e62111ccd817e22b70e2f48926d176cfda10cb119ec5304456b8761b86ab18 | context_only | Focused command completed with exit 0; actual stdout/stderr hashes retained. |
+| check-validate-terms | just --no-dotenv validate-terms data/isolates/Chromobacterium_Gold_Biocyanidation.yaml; Executed 2026-11-05T20:12:37.090614Z through 2026-11-05T20:12:37.928698Z; stdout SHA256 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018; stderr SHA256 311293d8b80fa2642ab81794d9bf6289767bb0a3d5ab506c1cff958fad6683b2 | context_only | Focused command completed with exit 0; actual stdout/stderr hashes retained. |
+| check-validate-gtdb | just --no-dotenv validate-gtdb data/isolates/Chromobacterium_Gold_Biocyanidation.yaml; Executed 2026-11-05T20:12:37.928906Z through 2026-11-05T20:12:37.980982Z; stdout SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr SHA256 77deda2a0cb03cc8f9325abd9dd2787508d7ee54592235e6184dca67caae1be2 | context_only | Focused command completed with exit 0; actual stdout/stderr hashes retained. |
+| check-validate-gtdb-domain | just --no-dotenv validate-gtdb-domain data/isolates/Chromobacterium_Gold_Biocyanidation.yaml; Executed 2026-11-05T20:12:37.981163Z through 2026-11-05T20:12:38.740939Z; stdout SHA256 ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae; stderr SHA256 3d5c95e29e63d61cc576a9b3849eb6a3879eca37fedc03d6314635820aaa20a9 | context_only | Focused command completed with exit 0; actual stdout/stderr hashes retained. |
+| check-validate-history | just --no-dotenv validate-history history/records/Chromobacterium_Gold_Biocyanidation; Executed 2026-11-05T20:12:38.741141Z through 2026-11-05T20:12:39.216897Z; stdout SHA256 de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de; stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 | context_only | Focused command completed with exit 0; actual stdout/stderr hashes retained. |
+| check-normalize-cache-names | uv run python scripts/normalize_cache_names.py --check; Executed 2026-11-05T20:12:39.217086Z through 2026-11-05T20:12:39.253415Z; stdout SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 | context_only | Read-only repository cache-name diagnostic passed. |
+| check-validate-references-explained | just --no-dotenv validate-references-explained data/isolates/Chromobacterium_Gold_Biocyanidation.yaml; Executed 2026-11-05T20:12:39.253642Z through 2026-11-05T20:12:39.897335Z; stdout SHA256 86c5f751a401d636a7083da860ba5fd347eca6d757b3ef9c8140387ec06f4962; stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 | context_only | No reported reference issues against the selected-excerpts cache; independent publisher replay is separately assessed. |
+| check-audit-network | just --no-dotenv audit-network; Executed 2026-11-05T20:12:39.897529Z through 2026-11-05T20:12:44.102081Z; stdout SHA256 f5dc190f832300fc5a73fcf3e7e8e3cd53d560ba09b17179ce6c7fcc8aa022e8; stderr SHA256 a71fb29e950f3eaf0eb2b834a43c59d4a1b6aa85a2a89473ae99b0e408a27a36 | context_only | Actual corpus result: 503 records, 44 warnings in 16 records, zero errors. No issue is attributed to this target. |
+| check-check-network-quality | just --no-dotenv check-network-quality; Executed 2026-11-05T20:12:44.102271Z through 2026-11-05T20:12:47.979538Z; stdout SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr SHA256 f9a8e9fb5a4e4ea545236a809393dbc1ce4325b14579c65a3130bcfe713e798a | context_only | Actual corpus result: 503 records, 44 warnings in 16 records, zero errors. No issue is attributed to this target. |
+| helper-reconciliation | scripts/adhoc/pr2034_273_reconcile.py; helper-reconciliation-proof.json; AST comparison disregards only top-level import ordering; all other inputs rehashed | supports | All scientific input bytes and old finding dispositions are unchanged. Only three helper files were formatted/reordered. |
+| helper-black-check | .venv/bin/black --check scripts/adhoc/pr2034_273_audit.py scripts/adhoc/pr2034_273_sources.py scripts/adhoc/pr2034_273_build_review.py scripts/adhoc/pr2034_273_reconcile.py; Executed 2026-11-05T20:23:41.612848Z through 2026-11-05T20:23:41.804951Z; stdout SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr SHA256 26a5fd9505f2b5608a20c4fed4b4c4795e0783d03b72ade02a6af34dae8ad086 | context_only | Exit 0. |
+| helper-ruff-check | .venv/bin/ruff check scripts/adhoc/pr2034_273_audit.py scripts/adhoc/pr2034_273_sources.py scripts/adhoc/pr2034_273_build_review.py scripts/adhoc/pr2034_273_reconcile.py; Executed 2026-11-05T20:23:41.805157Z through 2026-11-05T20:23:41.817815Z; stdout SHA256 82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18; stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 | context_only | Exit 0. |
+| history-locator-reconciliation | scripts/adhoc/pr2034_273_locator.py; history-locator-proof.json; exact external event and embedded comparison selectors, unchanged input/corpus hashes, and preserved finding lineage | supports | The erroneous event's two external fields are now selected for append-only correction. Embedded curation_history[1] remains comparison context. All scientific inputs and finding dispositions are unchanged. |
+| locator-black-check | .venv/bin/black --check scripts/adhoc/pr2034_273_locator.py; Executed 2026-11-05T20:31:22.194188Z through 2026-11-05T20:31:22.272256Z; stdout SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr SHA256 1a56c7cd8457fd05d978cfbd139d7bfd86e86acaa9b57668e718ef8bccc0cf48 | context_only | Exit 0. |
+| locator-ruff-check | .venv/bin/ruff check scripts/adhoc/pr2034_273_locator.py; Executed 2026-11-05T20:31:22.272436Z through 2026-11-05T20:31:22.285027Z; stdout SHA256 82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18; stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 | context_only | Exit 0. |
+
+## Limits And Additional Notes
+
+- The complete current publisher abstract and title were read, but Methods, source strain and supplements were not available. Unsupported in this inspected scope does not mean experimentally false. The 45.5% comparator remains unresolved.
+- The tracked cache explicitly contains selected, abbreviated or reworded text. Reference-validator success is not primary-source authenticity.
+- GTDB checks establish internal lineage/domain coherence. The stated 78-genome, 0.97 aggregate was not regenerated from its historical mapping release.
+- The required corpus network commands returned 1 for 44 warnings in 16 of 503 records and zero errors; the selected record has no native network issue.
+- Source inspection used the public web-rendered publisher page; direct urllib returned a challenge page that was not used as scientific content.
+- The initial native inspection rejected the CLAUDE.md symlink. A successful retry captured its regular AGENTS.md target with the same guidance. This was an administrative inspection failure, not a record validator failure.
+- All historical bundles and per-record history are preserved. Proposed actions are not curation already performed. Root owns any issue and Git operations.
+- Scratch receipts are audit artifacts, not committed source caches; their hashes, commands, conclusions and precise locators are recorded here.
+- This observation changes helper formatting/import ordering and captures their final hashes. Every non-helper input, scientific assessment, finding disposition and source limitation was rechecked against the immediately previous saved review and retained. The prior review pair remains immutable. Its actual focused/corpus checks are reused at unchanged Git revision and scientific input bytes; they were not rerun or relabeled as new executions. Helper Black/Ruff checks ran for this successor.
+- This successor corrects the history finding's field_paths to the external event's events[0].summary and events[0].details. The accurate embedded curation_history[1] is comparison context only, not a field requiring repair. All scientific conclusions, finding identities/statuses, actions, source evidence, and prior saved bytes are retained. All prior inputs and all 503 corpus records were rehashed unchanged. Since the prior check revision, Git changes affect only review bundles and PR2034 helper scripts; validator code and scientific data are unchanged. Actual prior focused/corpus checks are reused with their original execution times, commands, and outcomes, not rerun or relabeled as current executions. New helper lint, native inspect, and candidate gates are separate actual executions.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261105T203122Z-pr2034-chromobacterium-history-locator
+kind: record
+repository: CultureBotAI/CommunityMech
+title: 'Chromobacterium review: external history selectors corrected; science unchanged'
+started_at: '2026-11-05T20:31:22.127408Z'
+finished_at: '2026-11-05T20:31:22.641478Z'
+reviewer:
+  identity: codex-pr2034-273-author
+  kind: agent
+  independence: unknown
+  independence_basis: Did not author or modify the target in this canary. Historical
+    curation and the predecessor use Codex identities; person-level independence is
+    not established. Separate adversarial review is coordinated by the parent agent
+    and is not claimed here.
+skill: review-yaml-record
+completion: partial
+verdict: needs_curation
+scientific_review: true
+summary: 'Administrative history-selector correction. Helper-only provenance successor.
+  The current record removes the old ore, detoxification, density and operating overclaims
+  while preserving four supported PCB graph nodes and two bounded arrows. Three major
+  findings remain: two source-unverified precision claims, unsupported role enums,
+  and mine-tailing grounding. One new minor finding identifies a wrong-target history
+  event. Two historical finding lineages are explicitly resolved. All eight focused
+  checks pass; corpus network recipes report warnings elsewhere. Full Methods were
+  unavailable, so this is a partial scientific review, not full-paper certification.'
+source:
+  git_revision: d6e78ff6efcd093855636a721397193f3eceb6b9
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/evidence-curation/SKILL.md
+    sha256: 5c5e3c62dc733c762afbf790b270b978b5c523930dbe6c74a88beda81007f396
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 8f23dcad7ed9c9873f00058995d1219cca8810c27ed5d787cb9b66a8abf96728
+    role: context
+  - path: conf/record_review.yaml
+    sha256: c4ad25505a87a040c57eb93f1ee9673a09389a474c6d4e1136781456ff190fc8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    sha256: 4eb42a867f2b2b1489c4ef4fa95e408d241a54d0e2bfb1cf9474dd407d036b86
+    role: target
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/records/Chromobacterium_Gold_Biocyanidation/2026-10-05T071440Z-codex-ec73a1.yaml
+    sha256: db91cd23a7f6a8e6f63a2a7caa50c0479dc11f90b3db9f938c21b01dce6d7a48
+    role: context
+  - path: history/records/Chromobacterium_Gold_Biocyanidation/2026-10-21T190000Z-claude-2050.yaml
+    sha256: e309b899c90c0ee3a77419f021b8b6f8936ad4db6abc04fd4f6e07a8201fa475
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: references_cache/doi_10.1007_s10163-014-0276-4.md
+    sha256: 930a8b473edaee1cef485145c07831806949a64e453cab1772750ab8db562bba
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-six-records-batch3.yaml
+    sha256: 3e0877c63e94f1c87d6c78b6d5480a0be07d80f1cd18f8db5efda4e8e2ea4d26
+    role: context
+  - path: reports/causal_graph_review/decisions/20261021-stage5-review-remediation.yaml
+    sha256: efe4b6b56ae2ad5cb78452493088e5c046f10602461d581920791b19f9178119
+    role: context
+  - path: reviews/structured/20261019T233358Z-chromobacterium-gold-record/review.yaml
+    sha256: 41a376820c6124f96e175ae52bdfb94111e7155f3096659aa2b8ce3c4f9eeb00
+    role: context
+  - path: reviews/structured/20261021T101000Z-stage4-record-deep-audit/review.yaml
+    sha256: f32db16fda535e46adee4bd7d8d2de5c3f206dc7fdb892d137e1fe00e3346b59
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/structured/20261021T193000Z-stage5-remediation-verification/review.yaml
+    sha256: 8f8f980813203a0336e27f0bc0a3c3b6e68bb68c2f2a7d71460183f4fe3bbc09
+    role: context
+  - path: reviews/structured/20261105T202038Z-pr2034-chromobacterium-gold-successor/review.yaml
+    sha256: 306f1c47c7f0c8c7ea848f9baf1a1502c3b4baf7aa0c22125ec56cb2114aa885
+    role: context
+  - path: reviews/structured/20261105T202342Z-pr2034-chromobacterium-helper-reconciliation/review.yaml
+    sha256: bcb11ee8166111560d471ef3ec3bcd7e0ef3a431f49263ea25c776a61c8c46e1
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/adhoc/pr2034_273_audit.py
+    sha256: d41751ba9cadba597706ac8d799d79524b3ec1a028e6c321cec40fa54012618f
+    role: context
+  - path: scripts/adhoc/pr2034_273_build_review.py
+    sha256: 580575ece24ce3b4b8663e9a0defc274816d031e4dfe1ab5d862e4d24c49d90f
+    role: context
+  - path: scripts/adhoc/pr2034_273_locator.py
+    sha256: 070d4b397ba7ba7b0ae59f31cb67e39dfc811b54d4573e8700de18f82e58331f
+    role: context
+  - path: scripts/adhoc/pr2034_273_reconcile.py
+    sha256: 96eaf41b120c6f2863bded13aa7c96517c33994e4aa1876dbdbd029d48cdc558
+    role: context
+  - path: scripts/adhoc/pr2034_273_sources.py
+    sha256: 6b5f655129a23876976d8bdbce84ec6bf3ac221287e971b1fa9ea67ac52086dd
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: a00434e0d75020b2926c9f755d625c09cc78b6f88135805991fcb0ecd4230c83
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000273
+  path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  label: Chromobacterium Gold Biocyanidation Platform
+  record_class: MicrobialCommunity
+  kind: maintained
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    role: canonical_record
+scope:
+  description: Whole current YAML, all 15 evidence placements, four interaction nodes,
+    two arrows, four environmental factors, two history events and every finding previously
+    assigned to this stable target.
+  selection: PR2034 canary stale-review refresh for CommunityMech:000273 only.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000273
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Focused command completed with exit 0; actual stdout/stderr hashes retained.
+  target_ids:
+  - CommunityMech:000273
+  command: JUST_NO_DOTENV=true PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/src
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.venv
+    just --no-dotenv validate data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Single record or its history directory; cache-name check is repository-wide.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Focused command completed with exit 0; actual stdout/stderr hashes retained.
+  target_ids:
+  - CommunityMech:000273
+  command: JUST_NO_DOTENV=true PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/src
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.venv
+    just --no-dotenv validate-strict data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    --out /Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/pr2034/273/strict.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Single record or its history directory; cache-name check is repository-wide.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Focused command completed with exit 0; actual stdout/stderr hashes retained.
+  target_ids:
+  - CommunityMech:000273
+  command: JUST_NO_DOTENV=true PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/src
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.venv
+    just --no-dotenv validate-terms data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Single record or its history directory; cache-name check is repository-wide.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Focused command completed with exit 0; actual stdout/stderr hashes retained.
+  target_ids:
+  - CommunityMech:000273
+  command: JUST_NO_DOTENV=true PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/src
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.venv
+    just --no-dotenv validate-gtdb data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Single record or its history directory; cache-name check is repository-wide.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Focused command completed with exit 0; actual stdout/stderr hashes retained.
+  target_ids:
+  - CommunityMech:000273
+  command: JUST_NO_DOTENV=true PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/src
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.venv
+    just --no-dotenv validate-gtdb-domain data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Single record or its history directory; cache-name check is repository-wide.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Focused command completed with exit 0; actual stdout/stderr hashes retained.
+  target_ids:
+  - CommunityMech:000273
+  command: JUST_NO_DOTENV=true PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/src
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.venv
+    just --no-dotenv validate-history history/records/Chromobacterium_Gold_Biocyanidation
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Single record or its history directory; cache-name check is repository-wide.
+- check_id: normalize-cache-names
+  name: normalize-cache-names
+  status: passed
+  required: true
+  summary: Read-only repository cache-name diagnostic passed.
+  target_ids:
+  - CommunityMech:000273
+  command: JUST_NO_DOTENV=true PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/src
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.venv
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names
+  scope_note: Single record or its history directory; cache-name check is repository-wide.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: No reported reference issues against the selected-excerpts cache; independent
+    publisher replay is separately assessed.
+  target_ids:
+  - CommunityMech:000273
+  command: JUST_NO_DOTENV=true PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/src
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.venv
+    just --no-dotenv validate-references-explained data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Single record or its history directory; cache-name check is repository-wide.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: 'Actual corpus result: 503 records, 44 warnings in 16 records, zero errors.
+    No issue is attributed to this target.'
+  target_ids:
+  - CommunityMech:000273
+  command: JUST_NO_DOTENV=true PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/src
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.venv
+    just --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  scope_note: Corpus diagnostic; target result isolated separately.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: 'Actual corpus result: 503 records, 44 warnings in 16 records, zero errors.
+    No issue is attributed to this target.'
+  target_ids:
+  - CommunityMech:000273
+  command: JUST_NO_DOTENV=true PYTHONPATH=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/src
+    UV_CACHE_DIR=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/uv-cache
+    UV_NO_SYNC=1 UV_PROJECT_ENVIRONMENT=/Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.venv
+    just --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  scope_note: Corpus diagnostic; target result isolated separately.
+- check_id: primary-methods
+  name: Primary Methods access
+  status: unavailable
+  required: true
+  summary: The public publisher page provides the abstract and identifies subscription
+    content. No Methods support was established for the 45.5% comparator or exact
+    oxygen-start timing.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - publisher
+  scope_note: Partial completion reflects this specific material evidence gap; the
+    DOI itself resolves and is not an invalid-reference finding.
+- check_id: helper-black-check
+  name: helper-black-check
+  status: passed
+  required: true
+  summary: Final helper code passes the repository's formatting/lint gate.
+  target_ids:
+  - CommunityMech:000273
+  command: .venv/bin/black --check scripts/adhoc/pr2034_273_audit.py scripts/adhoc/pr2034_273_sources.py
+    scripts/adhoc/pr2034_273_build_review.py scripts/adhoc/pr2034_273_reconcile.py
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - helper-black-check
+  scope_note: Four PR2034/273 helper scripts; no record mutation.
+- check_id: helper-ruff-check
+  name: helper-ruff-check
+  status: passed
+  required: true
+  summary: Final helper code passes the repository's formatting/lint gate.
+  target_ids:
+  - CommunityMech:000273
+  command: .venv/bin/ruff check scripts/adhoc/pr2034_273_audit.py scripts/adhoc/pr2034_273_sources.py
+    scripts/adhoc/pr2034_273_build_review.py scripts/adhoc/pr2034_273_reconcile.py
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - helper-ruff-check
+  scope_note: Four PR2034/273 helper scripts; no record mutation.
+- check_id: locator-black-check
+  name: locator-black-check
+  status: passed
+  required: true
+  summary: The new locator-correction helper passes the repository formatting/lint
+    gate.
+  target_ids:
+  - CommunityMech:000273
+  command: .venv/bin/black --check scripts/adhoc/pr2034_273_locator.py
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - locator-black-check
+  scope_note: Only scripts/adhoc/pr2034_273_locator.py; no record or history mutation.
+- check_id: locator-ruff-check
+  name: locator-ruff-check
+  status: passed
+  required: true
+  summary: The new locator-correction helper passes the repository formatting/lint
+    gate.
+  target_ids:
+  - CommunityMech:000273
+  command: .venv/bin/ruff check scripts/adhoc/pr2034_273_locator.py
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - locator-ruff-check
+  scope_note: Only scripts/adhoc/pr2034_273_locator.py; no record or history mutation.
+evidence:
+- evidence_id: current
+  kind: record_content
+  reference: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  locator: Whole YAML; current source.inputs digest
+  summary: Current PCB-specific record; environmental factors reduced from eleven
+    to four. Four nodes and two arrows are byte-equivalent as parsed data to the predecessor.
+  support: supports
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+- evidence_id: publisher
+  kind: primary_source
+  reference: https://link.springer.com/article/10.1007/s10163-014-0276-4
+  locator: Complete Abstract, five displayed text lines 36–40 and article title; local
+    publisher.json contains only this projection
+  summary: Primary experimental context and intervention direction were reassessed.
+    No full Methods access is claimed.
+  support: supports
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  snapshot_sha256: 40ca553b452532a53b46788cfab0feadbe872f5eaeb262cb47b6674f133af991
+- evidence_id: cache
+  kind: record_content
+  reference: references_cache/doi_10.1007_s10163-014-0276-4.md
+  locator: Front matter content_type/source_review_note and complete selected-excerpts
+    body
+  summary: The cache declares rewording and cannot alone authenticate quotations.
+  support: supports
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+- evidence_id: snippet-replay
+  kind: validation
+  reference: scripts/adhoc/pr2034_273_audit.py
+  locator: replay step; all 15 recursive placements; direct-replay.json
+  summary: 10 raw publisher matches; four further matches after whitespace normalization.
+    The engineering snippet alone changes initial lowercase gold to uppercase Gold.
+    All 15 match the selected-excerpts cache; no Discussion EvidenceItems occur.
+  support: supports
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  snapshot_sha256: c461b7ecdb6d2c91705471ef111c67990fd15429d6c26fd2bf0e47ae8f933165
+- evidence_id: schema-roles
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: FunctionalRoleEnum and AbundanceEnum; taxonomy descriptor semantics
+  summary: PRIMARY_PRODUCER requires carbon fixation and PRIMARY_DEGRADER requires
+    complex substrate degradation. DOMINANT is ordinal prominence, not a measured
+    proportion.
+  support: supports
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+- evidence_id: envo
+  kind: authority
+  reference: sqlite:obo:envo
+  locator: ENVO:00000003 label and definition, queried using oaklib.get_adapter; envo.json
+  summary: The class concerns material remaining from separation of ore and gangue,
+    which differs from a PCB laboratory leaching culture.
+  support: supports
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  snapshot_sha256: 7a7392711f9328c251e544e26b87b40dde3f015e6dcc12eafcc7d743aa7c3c85
+- evidence_id: old-review
+  kind: record_content
+  reference: reviews/structured/20261019T233358Z-chromobacterium-gold-record/review.yaml
+  locator: Whole old review, findings scope, organism-mechanism, roles and envo
+  summary: All four old issue keys retained; current conclusions were reached from
+    present bytes and source inspection.
+  support: supports
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+- evidence_id: delta
+  kind: record_content
+  reference: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  locator: git show a4611c913c8da9619673df63a0c2cce3aa206a83 target versus current;
+    record-delta.json verifies the predecessor target SHA before comparison
+  summary: Removed general ore, named gene/enzyme, detoxification, pigment, CFU and
+    unsupported operating prose; retained graph unchanged.
+  support: supports
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  snapshot_sha256: f886b78b320758eebdd91541d701d85b20b4f8cbb5dd1520b9ec2d2240ae3c7c
+- evidence_id: history-event
+  kind: record_content
+  reference: history/records/Chromobacterium_Gold_Biocyanidation/2026-10-21T190000Z-claude-2050.yaml
+  locator: Whole event, especially events[0] summary/details and target.path
+  summary: Target path names 273, but the event narrates 000181, DSM 30191 and SYNTROPHIC_PARTNER
+    changes absent from the actual record delta and contradictory to embedded curation_history[1].
+  support: refutes
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+- evidence_id: stage5
+  kind: record_content
+  reference: reviews/structured/20261021T193000Z-stage5-remediation-verification/review.yaml
+  locator: findings[finding_id=stage4-isolate-000273-unverified-ore-prose] and its
+    two Stage4 previous_occurrences
+  summary: The separate ore-specific lineage was resolved after the October repair.
+    That bounded resolution is retained, without adopting its unsupported assertion
+    that every current number is source-certified.
+  support: supports
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+- evidence_id: discovery
+  kind: search
+  reference: Local owned PR2034 worktree
+  locator: Exact stable ID, slug, DOI and Chromobacterium search; structured YAML
+    finding selection by target ID
+  summary: Found one focal selected-excerpts carrier and four structured reviews containing
+    findings for this stable target. Historical reports are not new primary evidence.
+  support: context_only
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  search_scope: rg --no-ignore --hidden over reviews, history, reports, tests, references_cache
+    and scripts in this worktree; exact ID/slug/DOI. All structured review YAMLs were
+    parsed for target findings. No other checkout or old scratch was used.
+- evidence_id: check-validate
+  kind: validation
+  reference: just --no-dotenv validate data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  locator: Executed 2026-11-05T20:12:35.487088Z through 2026-11-05T20:12:35.903415Z;
+    stdout SHA256 de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de;
+    stderr SHA256 9e4c3959dc42ea369fd699d4d310627217dcc14e97c7d21b9376d89f6ce12a08
+  summary: Focused command completed with exit 0; actual stdout/stderr hashes retained.
+  support: context_only
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  snapshot_sha256: d3aabb92f5703a72159eced70cefa3659eac7b838364bfcfc0b2597b382005b1
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: just --no-dotenv validate-strict data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    --out /Users/marcin/Documents/VIMSS/ontology/Mechs/CommunityMech/.temp/pr-2034-canary/.temp/pr2034/273/strict.tsv
+  locator: Executed 2026-11-05T20:12:35.903636Z through 2026-11-05T20:12:37.090426Z;
+    stdout SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855;
+    stderr SHA256 10e62111ccd817e22b70e2f48926d176cfda10cb119ec5304456b8761b86ab18
+  summary: Focused command completed with exit 0; actual stdout/stderr hashes retained.
+  support: context_only
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  snapshot_sha256: 0f16a25a99b584c91d7683c49f8be035759c2ac32d78753a2646d30a904e9223
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: just --no-dotenv validate-terms data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  locator: Executed 2026-11-05T20:12:37.090614Z through 2026-11-05T20:12:37.928698Z;
+    stdout SHA256 23acda1c1d3194d12bc947d897d07de83f4a076a9d93c135148885108530e018;
+    stderr SHA256 311293d8b80fa2642ab81794d9bf6289767bb0a3d5ab506c1cff958fad6683b2
+  summary: Focused command completed with exit 0; actual stdout/stderr hashes retained.
+  support: context_only
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  snapshot_sha256: 939aeb81595401d99a373204571a65aec70a7f80350b3dba7ab3de3cdeba2cf0
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: just --no-dotenv validate-gtdb data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  locator: Executed 2026-11-05T20:12:37.928906Z through 2026-11-05T20:12:37.980982Z;
+    stdout SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855;
+    stderr SHA256 77deda2a0cb03cc8f9325abd9dd2787508d7ee54592235e6184dca67caae1be2
+  summary: Focused command completed with exit 0; actual stdout/stderr hashes retained.
+  support: context_only
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  snapshot_sha256: 5eb7de0c3bafc0126a0f4430b07f4618047c190e403dbfbb366c1c824e4c7254
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: just --no-dotenv validate-gtdb-domain data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  locator: Executed 2026-11-05T20:12:37.981163Z through 2026-11-05T20:12:38.740939Z;
+    stdout SHA256 ede937293c42cad366f434dce49a485a9a0c56fe86620b52ca243ad10e09ecae;
+    stderr SHA256 3d5c95e29e63d61cc576a9b3849eb6a3879eca37fedc03d6314635820aaa20a9
+  summary: Focused command completed with exit 0; actual stdout/stderr hashes retained.
+  support: context_only
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  snapshot_sha256: 690f49ce613fa445349a5f64b1dbeea7e48b861228c031a44c481b567d9299bf
+- evidence_id: check-validate-history
+  kind: validation
+  reference: just --no-dotenv validate-history history/records/Chromobacterium_Gold_Biocyanidation
+  locator: Executed 2026-11-05T20:12:38.741141Z through 2026-11-05T20:12:39.216897Z;
+    stdout SHA256 de6087f4be8c0adc015333597cd864406ad889bbde42d9ee20db0df5932bb2de;
+    stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  summary: Focused command completed with exit 0; actual stdout/stderr hashes retained.
+  support: context_only
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  snapshot_sha256: 6102d08042cb14d4c4107f6a4d5aa86de5bb206d4974afb7b30153db5b09e3b4
+- evidence_id: check-normalize-cache-names
+  kind: validation
+  reference: uv run python scripts/normalize_cache_names.py --check
+  locator: Executed 2026-11-05T20:12:39.217086Z through 2026-11-05T20:12:39.253415Z;
+    stdout SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855;
+    stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  summary: Read-only repository cache-name diagnostic passed.
+  support: context_only
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  snapshot_sha256: cfd1b0ea45c568ebf5db5accc1c5454b22aef0d1c3b30e6c9ac2c45d69c548cc
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: just --no-dotenv validate-references-explained data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+  locator: Executed 2026-11-05T20:12:39.253642Z through 2026-11-05T20:12:39.897335Z;
+    stdout SHA256 86c5f751a401d636a7083da860ba5fd347eca6d757b3ef9c8140387ec06f4962;
+    stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  summary: No reported reference issues against the selected-excerpts cache; independent
+    publisher replay is separately assessed.
+  support: context_only
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  snapshot_sha256: c43f4d855701bc4d625343ac249de30e306305796686b00084107d1ee7bb162b
+- evidence_id: check-audit-network
+  kind: validation
+  reference: just --no-dotenv audit-network
+  locator: Executed 2026-11-05T20:12:39.897529Z through 2026-11-05T20:12:44.102081Z;
+    stdout SHA256 f5dc190f832300fc5a73fcf3e7e8e3cd53d560ba09b17179ce6c7fcc8aa022e8;
+    stderr SHA256 a71fb29e950f3eaf0eb2b834a43c59d4a1b6aa85a2a89473ae99b0e408a27a36
+  summary: 'Actual corpus result: 503 records, 44 warnings in 16 records, zero errors.
+    No issue is attributed to this target.'
+  support: context_only
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  snapshot_sha256: a28133e5b388d1a0594bc58b16fd237618943e054345e296e4ef2737ae6be810
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: just --no-dotenv check-network-quality
+  locator: Executed 2026-11-05T20:12:44.102271Z through 2026-11-05T20:12:47.979538Z;
+    stdout SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855;
+    stderr SHA256 f9a8e9fb5a4e4ea545236a809393dbc1ce4325b14579c65a3130bcfe713e798a
+  summary: 'Actual corpus result: 503 records, 44 warnings in 16 records, zero errors.
+    No issue is attributed to this target.'
+  support: context_only
+  accessed_at: '2026-11-05T20:20:38.639946Z'
+  snapshot_sha256: b9be72f7ae4be274768f3b981005323c04d3397265763147b37e92395aae49e6
+- evidence_id: helper-reconciliation
+  kind: validation
+  reference: scripts/adhoc/pr2034_273_reconcile.py
+  locator: helper-reconciliation-proof.json; AST comparison disregards only top-level
+    import ordering; all other inputs rehashed
+  summary: All scientific input bytes and old finding dispositions are unchanged.
+    Only three helper files were formatted/reordered.
+  support: supports
+  accessed_at: '2026-11-05T20:23:42.198365Z'
+  snapshot_sha256: 60d020a37493a1a940b9afd8203a871769cf2803b164632b17528ba9077c85ff
+- evidence_id: helper-black-check
+  kind: validation
+  reference: .venv/bin/black --check scripts/adhoc/pr2034_273_audit.py scripts/adhoc/pr2034_273_sources.py
+    scripts/adhoc/pr2034_273_build_review.py scripts/adhoc/pr2034_273_reconcile.py
+  locator: Executed 2026-11-05T20:23:41.612848Z through 2026-11-05T20:23:41.804951Z;
+    stdout SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855;
+    stderr SHA256 26a5fd9505f2b5608a20c4fed4b4c4795e0783d03b72ade02a6af34dae8ad086
+  summary: Exit 0.
+  support: context_only
+  accessed_at: '2026-11-05T20:23:42.198365Z'
+  snapshot_sha256: 53095d7c302b5445b665d4fb208b956def17d576ebbf5964c31f210e79abbd7b
+- evidence_id: helper-ruff-check
+  kind: validation
+  reference: .venv/bin/ruff check scripts/adhoc/pr2034_273_audit.py scripts/adhoc/pr2034_273_sources.py
+    scripts/adhoc/pr2034_273_build_review.py scripts/adhoc/pr2034_273_reconcile.py
+  locator: Executed 2026-11-05T20:23:41.805157Z through 2026-11-05T20:23:41.817815Z;
+    stdout SHA256 82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18;
+    stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  summary: Exit 0.
+  support: context_only
+  accessed_at: '2026-11-05T20:23:42.198365Z'
+  snapshot_sha256: 8a425ddc781eb1a1afa23a9011e7499334684a5b0b17af24737fefd191c4a4c7
+- evidence_id: history-locator-reconciliation
+  kind: validation
+  reference: scripts/adhoc/pr2034_273_locator.py
+  locator: history-locator-proof.json; exact external event and embedded comparison
+    selectors, unchanged input/corpus hashes, and preserved finding lineage
+  summary: The erroneous event's two external fields are now selected for append-only
+    correction. Embedded curation_history[1] remains comparison context. All scientific
+    inputs and finding dispositions are unchanged.
+  support: supports
+  accessed_at: '2026-11-05T20:31:22.641478Z'
+  snapshot_sha256: b6bf30e01cc565968bfaf8677894654897659becb05e2ab61006a5d218049c20
+- evidence_id: locator-black-check
+  kind: validation
+  reference: .venv/bin/black --check scripts/adhoc/pr2034_273_locator.py
+  locator: Executed 2026-11-05T20:31:22.194188Z through 2026-11-05T20:31:22.272256Z;
+    stdout SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855;
+    stderr SHA256 1a56c7cd8457fd05d978cfbd139d7bfd86e86acaa9b57668e718ef8bccc0cf48
+  summary: Exit 0.
+  support: context_only
+  accessed_at: '2026-11-05T20:31:22.641478Z'
+  snapshot_sha256: 2e37b7758be527e6a7307ee1851b1f2e5d81875402473e69ae09bc92303c98db
+- evidence_id: locator-ruff-check
+  kind: validation
+  reference: .venv/bin/ruff check scripts/adhoc/pr2034_273_locator.py
+  locator: Executed 2026-11-05T20:31:22.272436Z through 2026-11-05T20:31:22.285027Z;
+    stdout SHA256 82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18;
+    stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  summary: Exit 0.
+  support: context_only
+  accessed_at: '2026-11-05T20:31:22.641478Z'
+  snapshot_sha256: 5a81d99b777969a87234184fd8815cf168b827dc9c14800351ac7c2bc6113d6f
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Current source, organism and experimental scope
+  outcome: supported
+  summary: Single-species PCB leaching stage remains distinct from the prior separately
+    applied biooxidation. ENGINEERED describes the process design, not proven genetic
+    engineering. No exact strain has been authenticated.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - current
+  - publisher
+  dimensions:
+  - name: source_tier
+    value: Primary publisher abstract; selected-excerpts local cache; Methods unavailable
+    definition: Actual access scope of this successor, not inherited full-paper coverage.
+    evidence_ids:
+    - publisher
+    - cache
+  - name: source_strain
+    value: Species-level identification only
+    definition: No strain inferred from a wrong-target history event.
+    evidence_ids:
+    - publisher
+    - history-event
+- assessment_id: taxonomy
+  area: grounding
+  topic: Taxonomy, abundance and roles
+  outcome: concern
+  summary: Species label and GTDB/domain validators pass. DOMINANT and monoculture
+    wording are retained as the modeled single-member composition, not a viability/purity
+    measurement. Neither declared functional role is established by the cited function.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - current
+  - schema-roles
+  - publisher
+  - check-validate-terms
+  - check-validate-gtdb
+  - check-validate-gtdb-domain
+- assessment_id: source-precision
+  area: evidence
+  topic: Engineering, environmental and snippet scope
+  outcome: concern
+  summary: The broad old claims are removed. The remaining 45.5% comparator and the
+    claimed oxygen-addition start after depletion lack support in the inspected abstract.
+    A lowercase source initial was capitalized in the engineering evidence.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - current
+  - publisher
+  - snippet-replay
+  - delta
+- assessment_id: environment
+  area: grounding
+  topic: Environment ontology application
+  outcome: concern
+  summary: Correctly resolved ENVO label still describes ore-processing residue rather
+    than this PCB assay. Updated notes do not repair the ontology assignment.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - current
+  - envo
+  - publisher
+- assessment_id: cultivation
+  area: completeness
+  topic: Cultivation and external resources
+  outcome: supported
+  summary: Medium constituents are already described in evidence and environmental
+    factors. No growth_media, cultivation_setup, external_resources or associated_datasets
+    block is present. These optional omissions do not justify fabricated recipes,
+    exact medium identifiers or a biological-absence claim. Source strain and protocol
+    details remain limited by access.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - current
+  - publisher
+- assessment_id: node-0
+  area: graph
+  topic: ecological_interactions[0] Biogenic Cyanide Production in Glycine-Supplemented
+    Culture
+  outcome: supported
+  summary: Retain cyanogenesis and the reported supplemented medium; no traced substrate
+    flux, specific enzyme mechanism or concentration is inferred.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - current
+  - publisher
+  - snippet-replay
+  dimensions:
+  - name: node-0-evidence-0
+    value: Chromobacterium violaceum, a cyanide-generating bacterium
+    definition: Exact inspected record snippet at ecological_interactions[0].evidence[0];
+      Abstract first paragraph in DOI 10.1007/s10163-014-0276-4. Whitespace normalization
+      is disclosed in snippet-replay.
+    evidence_ids:
+    - current
+    - publisher
+    - snippet-replay
+  - name: node-0-evidence-1
+    value: culture medium with yeast extract, peptone and glycine
+    definition: Exact inspected record snippet at ecological_interactions[0].evidence[1];
+      Abstract first paragraph in DOI 10.1007/s10163-014-0276-4. Whitespace normalization
+      is disclosed in snippet-replay.
+    evidence_ids:
+    - current
+    - publisher
+    - snippet-replay
+- assessment_id: edge-0-0
+  area: graph
+  topic: ecological_interactions[0].downstream[0]
+  outcome: supported
+  summary: Current arrow target and description retained after independent primary-source
+    reassessment. The model does not assert reciprocal fitness or a separate simultaneous
+    recipient organism.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - current
+  - publisher
+  dimensions:
+  - name: target
+    value: Gold Cyanide Complexation and Dissolution
+    definition: Exact current target name resolves to node 1.
+    evidence_ids:
+    - current
+  - name: description
+    value: Biogenic cyanide supplies the gold-cyanide reaction that mobilizes gold
+      from the tested waste PCBs.
+    definition: 'Exact current directed assertion; source context is Abstract first/second
+      paragraphs: cyanogenic culture and gold/cyanide reaction.'
+    evidence_ids:
+    - current
+    - publisher
+- assessment_id: node-1
+  area: graph
+  topic: ecological_interactions[1] Gold Cyanide Complexation and Dissolution
+  outcome: supported
+  summary: Retain PCB gold dissolution and combined-treatment endpoint; no specific
+    dissolved complex, ore recovery or purification yield is claimed.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - current
+  - publisher
+  - snippet-replay
+  dimensions:
+  - name: node-1-evidence-0
+    value: used to leach out gold from the waste printed circuit boards
+    definition: Exact inspected record snippet at ecological_interactions[1].evidence[0];
+      Abstract first paragraph in DOI 10.1007/s10163-014-0276-4. Whitespace normalization
+      is disclosed in snippet-replay.
+    evidence_ids:
+    - current
+    - publisher
+    - snippet-replay
+  - name: node-1-evidence-1
+    value: gold bioleaching efficiency reach 70.6 %
+    definition: Exact inspected record snippet at ecological_interactions[1].evidence[1];
+      Abstract final paragraph in DOI 10.1007/s10163-014-0276-4. Whitespace normalization
+      is disclosed in snippet-replay.
+    evidence_ids:
+    - current
+    - publisher
+    - snippet-replay
+- assessment_id: node-2
+  area: graph
+  topic: ecological_interactions[2] Oxygen-Supported PCB Gold Leaching
+  outcome: supported
+  summary: Retain oxygen-supported leaching and respiration context, without a partner-benefit
+    claim.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - current
+  - publisher
+  - snippet-replay
+  dimensions:
+  - name: node-2-evidence-0
+    value: gold leaching efficiency increased drastically
+    definition: Exact inspected record snippet at ecological_interactions[2].evidence[0];
+      Abstract second paragraph in DOI 10.1007/s10163-014-0276-4. Whitespace normalization
+      is disclosed in snippet-replay.
+    evidence_ids:
+    - current
+    - publisher
+    - snippet-replay
+- assessment_id: node-3
+  area: graph
+  topic: ecological_interactions[3] PCB Pretreatment and Particle Size Effects
+  outcome: supported
+  summary: Retain separate pretreatment and particle-size context; do not convert
+    it into a coculture or separate the contributions of combined interventions.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - current
+  - publisher
+  - snippet-replay
+  dimensions:
+  - name: node-3-evidence-0
+    value: 200 mesh is the optimum particle size
+    definition: Exact inspected record snippet at ecological_interactions[3].evidence[0];
+      Abstract pretreatment/particle-size paragraph in DOI 10.1007/s10163-014-0276-4.
+      Whitespace normalization is disclosed in snippet-replay.
+    evidence_ids:
+    - current
+    - publisher
+    - snippet-replay
+  - name: node-3-evidence-1
+    value: Bioleaching the biooxidized e-waste significantly improved gold leaching
+      efficiency
+    definition: Exact inspected record snippet at ecological_interactions[3].evidence[1];
+      Abstract pretreatment/particle-size paragraph in DOI 10.1007/s10163-014-0276-4.
+      Whitespace normalization is disclosed in snippet-replay.
+    evidence_ids:
+    - current
+    - publisher
+    - snippet-replay
+- assessment_id: edge-3-0
+  area: graph
+  topic: ecological_interactions[3].downstream[0]
+  outcome: supported
+  summary: Current arrow target and description retained after independent primary-source
+    reassessment. The model does not assert reciprocal fitness or a separate simultaneous
+    recipient organism.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - current
+  - publisher
+  dimensions:
+  - name: target
+    value: Gold Cyanide Complexation and Dissolution
+    definition: Exact current target name resolves to node 1.
+    evidence_ids:
+    - current
+  - name: description
+    value: Base-metal removal by the separate pretreatment and particle-size optimization
+      improved subsequent PCB gold leaching; the abstract does not resolve their individual
+      causal contributions.
+    definition: 'Exact current directed assertion; source context is Abstract pretreatment
+      paragraph: separately biooxidized material then improved PCB leaching and particle-size
+      result.'
+    evidence_ids:
+    - current
+    - publisher
+- assessment_id: history
+  area: provenance
+  topic: Exact old/current changes and finding lineages
+  outcome: concern
+  summary: The target hash matches the Stage5 remediation result. That change removed
+    the old mechanism and ore prose while leaving graph/roles/ENVO unchanged. The
+    appended history event instead records unrelated identifiers and changes; append
+    a correction rather than rewriting provenance. Every old issue key is explicitly
+    dispositioned.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - delta
+  - history-event
+  - old-review
+  - stage5
+  dimensions:
+  - name: embedded-history-comparison-only
+    value: Bounded top-level description, engineering_design, environment_term.notes,
+      taxonomy notes/abundance_value, and environmental_factors to the cited waste-PCB
+      study (doi:10.1007/s10163-014-0276-4), removing un-evidenced refractory sulfide
+      ore claims (#2050).
+    definition: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml::curation_history[1].changes
+      is accurate comparison context only. The defect belongs to history/records/Chromobacterium_Gold_Biocyanidation/2026-10-21T190000Z-claude-2050.yaml::events[0].summary
+      and events[0].details; preserve the embedded entry.
+    evidence_ids:
+    - current
+    - history-event
+    - delta
+- assessment_id: adapters
+  area: evidence
+  topic: Gene/regulatory adapter applicability
+  outcome: not_applicable
+  summary: The current record no longer makes gene/regulatory/module claims. No iModulonDB
+    or related-organism module query is needed to reassess the removed mechanism finding;
+    no database-coverage absence claim is made.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - current
+  - delta
+- assessment_id: validation
+  area: schema
+  topic: Actual validators and isolated native network
+  outcome: supported
+  summary: Eight focused commands passed. Independently invoking the native auditor
+    on this record returned no issues; four graph discussion anchors and both targets
+    resolve. Corpus warnings remain actual failures, not target defects.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - snippet-replay
+  - check-validate
+  - check-validate-strict
+  - check-validate-terms
+  - check-validate-gtdb
+  - check-validate-gtdb-domain
+  - check-validate-history
+  - check-normalize-cache-names
+  - check-validate-references-explained
+  - check-audit-network
+  - check-check-network-quality
+- assessment_id: scores
+  area: completeness
+  topic: Native scores and current unresolved findings
+  outcome: concern
+  summary: Completeness 80; raw validation quality 100.5, capped 100. These presence/penalty
+    scores do not certify the science or override the three open major findings.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - current
+  - snippet-replay
+  - schema-roles
+  metrics:
+  - name: completeness
+    value: 80
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 'Native rubric: 50 required +5 environment +10 at least three environmental
+      factors +10 at least three interactions +0 external resources +0 growth media
+      +0 datasets +5 metabolites =80.'
+  - name: validation_quality_raw
+    value: 100.5
+    unit: points
+    definition: 100-50*0 P1-10*3 open P2-2*1 open P3 +17.5 evidence bonus (7 direct
+      items/4 nodes, mean1.75, divided by2 times20) +15 complete native participant/reference
+      network =100.5. Resolved findings are not re-penalized.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Clamp raw 100.5 to [0,100]. This does not override source limitations,
+      ontology meaning or any failing required check.
+  - name: interaction_evidence
+    value: 1.75
+    unit: items per node
+    denominator: 4
+    definition: Seven directly attached evidence items across four nodes, all from
+      one paper; not seven independent experiments.
+- assessment_id: helper-provenance
+  area: provenance
+  topic: Formatting-only input reconciliation
+  outcome: supported
+  summary: No new source investigation or record curation. The author rechecked all
+    scientific inputs and retained all prior assessments/dispositions, with exact
+    immediate-predecessor references for every finding.
+  target_ids:
+  - CommunityMech:000273
+  evidence_ids:
+  - helper-reconciliation
+  - helper-black-check
+  - helper-ruff-check
+findings:
+- finding_id: scope
+  issue_key: cm-000273-pcb-versus-ore-and-operating-claims
+  category: evidence
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Residual comparator and oxygen timing remain source-unverified
+  description: The broad refractory-ore, CFU, safety, cost and operating claims were
+    removed. Description and environmental_factors[3] still assert a 45.5% direct-bioleaching
+    comparator absent from the inspected abstract and cache. environmental_factors[2].value
+    asserts oxygen supplementation after 24 h depletion, whereas the abstract states
+    depletion without supplementation and does not establish the start time. These
+    are unverified claims, not demonstrated false results.
+  target_ids:
+  - CommunityMech:000273
+  field_paths:
+  - description
+  - environmental_factors[3].description
+  - environmental_factors[2].value
+  evidence_ids:
+  - current
+  - old-review
+  - delta
+  - publisher
+  rule_id: CLAUDE.md:claim-level-evidence
+  native_severity: P2
+  normalization_reason: 'P2 major: materially changes the source-supported biological
+    interpretation or grounding.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261019T233358Z-chromobacterium-gold-record
+    finding_id: scope
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T202038Z-pr2034-chromobacterium-gold-successor
+    finding_id: scope
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T202342Z-pr2034-chromobacterium-helper-reconciliation
+    finding_id: scope
+  disposition_reason: 'Open successor with substantially narrowed scope: most prior
+    defects are repaired, but claim-level numerical/protocol support is still incomplete.
+    No inference that the full paper lacks it.'
+- finding_id: organism-mechanism
+  issue_key: cm-000273-unsubstantiated-genes-and-detoxification
+  category: evidence
+  severity: major
+  status: resolved
+  certainty: confirmed
+  title: Unsupported organism-mechanism claims removed
+  description: Current whole-record inspection and exact Git delta confirm removal
+    of hcnABC/enzyme, detoxification guarantee, pigment readout and CFU claims. The
+    qualified graph remains unchanged.
+  target_ids:
+  - CommunityMech:000273
+  field_paths:
+  - taxonomy[0].taxon_term.notes
+  - taxonomy[0].abundance_value
+  - description
+  - environment_term.notes
+  - environmental_factors
+  evidence_ids:
+  - current
+  - old-review
+  - delta
+  - publisher
+  rule_id: CLAUDE.md:claim-level-evidence
+  native_severity: P2
+  normalization_reason: 'P2 major: materially changes the source-supported biological
+    interpretation or grounding.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261019T233358Z-chromobacterium-gold-record
+    finding_id: organism-mechanism
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T202038Z-pr2034-chromobacterium-gold-successor
+    finding_id: organism-mechanism
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T202342Z-pr2034-chromobacterium-helper-reconciliation
+    finding_id: organism-mechanism
+  disposition_reason: Resolved by removal in the October 21 repair, independently
+    confirmed now. This disposition does not claim the biology is impossible or certify
+    the removed claims in another strain.
+- finding_id: roles
+  issue_key: cm-000273-heterotroph-functional-role-mismatch
+  category: grounding
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Role enums remain unsupported by the source-defined function
+  description: The current PRIMARY_PRODUCER and PRIMARY_DEGRADER assignments remain
+    unchanged. The schema requires carbon fixation and complex-substrate degradation
+    respectively; cyanide generation and mobilizing metal from PCB material do not
+    establish those roles.
+  target_ids:
+  - CommunityMech:000273
+  field_paths:
+  - taxonomy[0].functional_role
+  evidence_ids:
+  - current
+  - old-review
+  - delta
+  - publisher
+  - schema-roles
+  rule_id: P2.4
+  native_severity: P2
+  normalization_reason: 'P2 major: materially changes the source-supported biological
+    interpretation or grounding.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261019T233358Z-chromobacterium-gold-record
+    finding_id: roles
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T202038Z-pr2034-chromobacterium-gold-successor
+    finding_id: roles
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T202342Z-pr2034-chromobacterium-helper-reconciliation
+    finding_id: roles
+  disposition_reason: 'Open: the October repair changed notes, not these role enum
+    assignments.'
+- finding_id: envo
+  issue_key: cm-000273-pcb-mine-tailing-misgrounding
+  category: grounding
+  severity: major
+  status: open
+  certainty: confirmed
+  title: Mine-tailing ontology class does not represent the PCB experiment
+  description: ENVO:00000003 still denotes mine tailing. Its current OAK definition
+    is ore/gangue separation residue; updated PCB notes do not make that material
+    class applicable to the laboratory assay.
+  target_ids:
+  - CommunityMech:000273
+  field_paths:
+  - environment_term.term
+  - environment_term.preferred_term
+  - environment_term.notes
+  evidence_ids:
+  - current
+  - old-review
+  - delta
+  - publisher
+  - envo
+  rule_id: docs/record-review-profile.md:grounding
+  native_severity: P2
+  normalization_reason: 'P2 major: materially changes the source-supported biological
+    interpretation or grounding.'
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    role: canonical_record
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261019T233358Z-chromobacterium-gold-record
+    finding_id: envo
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T202038Z-pr2034-chromobacterium-gold-successor
+    finding_id: envo
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T202342Z-pr2034-chromobacterium-helper-reconciliation
+    finding_id: envo
+  disposition_reason: 'Open: ID and label are unchanged despite the source-bounded
+    note repair.'
+- finding_id: ore-lineage
+  issue_key: communitymech-stage4-000273-unverified-ore-prose
+  category: evidence
+  severity: major
+  status: resolved
+  certainty: confirmed
+  title: Parallel ore-specific remediation remains resolved
+  description: The targeted arsenopyrite/pyrite scope and old un-evidenced ore operating
+    ranges are absent from the current record. Retaining this resolution does not
+    endorse the Stage5 report's 45.5% attribution.
+  target_ids:
+  - CommunityMech:000273
+  field_paths:
+  - description
+  - environment_term.notes
+  - taxonomy[0].taxon_term.notes
+  - environmental_factors
+  evidence_ids:
+  - current
+  - delta
+  - stage5
+  rule_id: review-yaml-record:evidence-claim-alignment
+  native_severity: P2
+  normalization_reason: CommunityMech P2 (unverified numeric/substrate prose not supported
+    by cited primary source) maps to major.
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    role: canonical_record
+  tags:
+  - evidence
+  - isolates
+  - stage5-remediation
+  disposition_reason: Independently confirmed removal of the exact old ore-scope defects,
+    reconciling both Stage4 observations and the Stage5 resolved observation. Remaining
+    comparator/timing precision is tracked under the original broader scope issue
+    key.
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101000Z-stage4-record-deep-audit
+    finding_id: stage4-isolate-000273-unverified-ore-prose
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T101100Z-stage4-frozen-cohort-review
+    finding_id: stage4-isolate-000273-unverified-ore-prose
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261021T193000Z-stage5-remediation-verification
+    finding_id: stage4-isolate-000273-unverified-ore-prose
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T202038Z-pr2034-chromobacterium-gold-successor
+    finding_id: ore-lineage
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T202342Z-pr2034-chromobacterium-helper-reconciliation
+    finding_id: ore-lineage
+- finding_id: history
+  issue_key: cm-000273-history-2050-wrong-record-and-change
+  category: provenance
+  severity: minor
+  status: open
+  certainty: confirmed
+  title: Per-record history narrates a different target and absent changes
+  description: The October 21 event is filed under 273, but its details name CommunityMech:000181
+    and claim DSM 30191 and SYNTROPHIC_PARTNER additions. Neither appears in 273's
+    current record or actual change. Embedded history describes the PCB prose repair
+    instead. Schema validity does not establish historical truth.
+  target_ids:
+  - CommunityMech:000273
+  field_paths:
+  - history/records/Chromobacterium_Gold_Biocyanidation/2026-10-21T190000Z-claude-2050.yaml::events[0].summary
+  - history/records/Chromobacterium_Gold_Biocyanidation/2026-10-21T190000Z-claude-2050.yaml::events[0].details
+  evidence_ids:
+  - history-event
+  - delta
+  - current
+  rule_id: review-checklist:audit
+  native_severity: P3
+  normalization_reason: Bounded provenance defect; it does not change the currently
+    modeled organism.
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: history/records/Chromobacterium_Gold_Biocyanidation
+    role: append_only_correction_owner
+  previous_occurrences:
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T202038Z-pr2034-chromobacterium-gold-successor
+    finding_id: history
+  - repository: CultureBotAI/CommunityMech
+    review_id: 20261105T202342Z-pr2034-chromobacterium-helper-reconciliation
+    finding_id: history
+actions:
+- action_id: fix-scope
+  description: Verify or qualify the remaining comparator and timing; repair the small
+    engineering-snippet capitalization discrepancy from the publisher.
+  finding_ids:
+  - scope
+  target_ids:
+  - CommunityMech:000273
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Locate exact primary Results/figure/table support for the 45.5% comparison or
+    remove/qualify that number in both current placements.
+  - Do not infer supplementation start time from an unsupplemented depletion endpoint.
+  - Use the exact lowercase source excerpt at engineering_design.evidence[0] or a
+    different verified contiguous source snippet; rerun strict/reference checks.
+- action_id: fix-roles
+  description: Remove or replace role enums only with a directly supported function
+    and the actual schema meaning.
+  finding_ids:
+  - roles
+  target_ids:
+  - CommunityMech:000273
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    role: canonical_record
+  acceptance_checks:
+  - No autotrophy inferred from chemical production.
+  - No complex-substrate degradation inferred solely from gold dissolution.
+  - Rerun strict, term and network validation after separately authorized curation.
+- action_id: fix-envo
+  description: Reconcile environment grounding with the actual PCB experiment.
+  finding_ids:
+  - envo
+  target_ids:
+  - CommunityMech:000273
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: data/isolates/Chromobacterium_Gold_Biocyanidation.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Verify any replacement ID, label and definition; do not guess a neighboring term.
+  - Align environmental notes and rerun term/strict checks.
+- action_id: fix-history
+  description: Append an explicit correction to the erroneous historical event.
+  finding_ids:
+  - history
+  target_ids:
+  - CommunityMech:000273
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: history/records/Chromobacterium_Gold_Biocyanidation
+    role: append_only_correction_owner
+  acceptance_checks:
+  - Preserve the old event bytes; cite its exact filename and explain the wrong ID/strain/role
+    narrative using the actual record delta.
+  - State the real 273 PCB prose repair, then validate history.
+limitations:
+- The complete current publisher abstract and title were read, but Methods, source
+  strain and supplements were not available. Unsupported in this inspected scope does
+  not mean experimentally false. The 45.5% comparator remains unresolved.
+- The tracked cache explicitly contains selected, abbreviated or reworded text. Reference-validator
+  success is not primary-source authenticity.
+- GTDB checks establish internal lineage/domain coherence. The stated 78-genome, 0.97
+  aggregate was not regenerated from its historical mapping release.
+- The required corpus network commands returned 1 for 44 warnings in 16 of 503 records
+  and zero errors; the selected record has no native network issue.
+- Source inspection used the public web-rendered publisher page; direct urllib returned
+  a challenge page that was not used as scientific content.
+notes:
+- The initial native inspection rejected the CLAUDE.md symlink. A successful retry
+  captured its regular AGENTS.md target with the same guidance. This was an administrative
+  inspection failure, not a record validator failure.
+- All historical bundles and per-record history are preserved. Proposed actions are
+  not curation already performed. Root owns any issue and Git operations.
+- Scratch receipts are audit artifacts, not committed source caches; their hashes,
+  commands, conclusions and precise locators are recorded here.
+- This observation changes helper formatting/import ordering and captures their final
+  hashes. Every non-helper input, scientific assessment, finding disposition and source
+  limitation was rechecked against the immediately previous saved review and retained.
+  The prior review pair remains immutable. Its actual focused/corpus checks are reused
+  at unchanged Git revision and scientific input bytes; they were not rerun or relabeled
+  as new executions. Helper Black/Ruff checks ran for this successor.
+- This successor corrects the history finding's field_paths to the external event's
+  events[0].summary and events[0].details. The accurate embedded curation_history[1]
+  is comparison context only, not a field requiring repair. All scientific conclusions,
+  finding identities/statuses, actions, source evidence, and prior saved bytes are
+  retained. All prior inputs and all 503 corpus records were rehashed unchanged. Since
+  the prior check revision, Git changes affect only review bundles and PR2034 helper
+  scripts; validator code and scientific data are unchanged. Actual prior focused/corpus
+  checks are reused with their original execution times, commands, and outcomes, not
+  rerun or relabeled as current executions. New helper lint, native inspect, and candidate
+  gates are separate actual executions.
+related_reviews:
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261019T233358Z-chromobacterium-gold-record
+  relationship: Current target-specific successor; exact finding lineages are reconciled
+    through previous_occurrences.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T101000Z-stage4-record-deep-audit
+  relationship: Current target-specific successor; exact finding lineages are reconciled
+    through previous_occurrences.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T101100Z-stage4-frozen-cohort-review
+  relationship: Current target-specific successor; exact finding lineages are reconciled
+    through previous_occurrences.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261021T193000Z-stage5-remediation-verification
+  relationship: Current target-specific successor; exact finding lineages are reconciled
+    through previous_occurrences.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261105T202038Z-pr2034-chromobacterium-gold-successor
+  relationship: Immediate successor for helper-input provenance only; all six finding
+    identities and dispositions retained.
+- repository: CultureBotAI/CommunityMech
+  review_id: 20261105T202342Z-pr2034-chromobacterium-helper-reconciliation
+  relationship: Immediate administrative successor correcting external history selectors;
+    all six finding dispositions retained.
+tags:
+- pr2034-canary
+- record-review
+- isolate
+- pcb-bioleaching
+- successor
+```

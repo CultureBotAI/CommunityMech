@@ -1,0 +1,1675 @@
+# Dehalococcoides–Desulfovibrio lactate/TCE coculture review
+
+- Review: 20261022T044407Z-dehalococcoides-desulfovibrio-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-22T04:33:12.158675Z
+- Finished UTC: 2026-10-22T04:44:07.507272Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+The exact two-strain identity and all three scoped interaction nodes/two arrows are supported. Two major findings concern DvH role semantics and the microarray dataset category; three minor findings concern recoverable culture details, experimental omics evidence and GTDB provenance. Eight focused checks pass. Literal completeness is 100; raw quality 109 is capped 100 and does not negate the findings.
+
+## Scope And Provenance
+
+Whole target and three full primary articles, four fresh MED records, all 15 main figures, 2012 supplementary texts / Figure S1 with bounded Table S2 rows, and author 2013 Chapter 5 text; exact authority, resource and prior context.
+
+Selection: Only released CommunityMech:000199 in owned batch 15.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base cb7a782c8ba80299dca8761ad0a2c90bccd8a117.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000199 | kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml | maintained | Dehalococcoides-Desulfovibrio Lactate-Fed TCE Dechlorination Coculture |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000199 | Actual native exit 0. |
+| validate-strict | passed | True | CommunityMech:000199 | Actual native exit 0. |
+| validate-terms | passed | True | CommunityMech:000199 | Actual native exit 0. |
+| validate-references-explained | passed | True | CommunityMech:000199 | Actual native exit 0. |
+| validate-gtdb | passed | True | CommunityMech:000199 | Actual native exit 0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000199 | Actual native exit 0. |
+| validate-history | passed | True | CommunityMech:000199 | Actual native exit 0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000199 | Actual native exit 0. |
+| audit-network corpus context | failed | False | CommunityMech:000199 | Actual corpus exit 1 retained. |
+| check-network-quality corpus context | failed | False | CommunityMech:000199 | Actual corpus exit 1 retained. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000199 | Unavailable in the owned runtime. |
+
+## Scientific And Domain Assessments
+
+### Exact strain pair and experimental scope
+
+identity: supported. Targets: CommunityMech:000199.
+
+Retain the defined DvH/195 laboratory bioremediation model.
+
+Source historical names resolve to NCBITaxon:243164 and NCBITaxon:882. Collection aliases, type-strain designation and two reference assemblies are supported. Methanogen-, Pelosinus- and Syntrophomonas-containing comparisons remain distinct communities.
+
+### Functional labels and abundance
+
+grounding: concern. Targets: CommunityMech:000199.
+
+Two DvH role labels exceed the demonstrated direction of metabolism.
+
+Retain both SYNTROPHIC_PARTNER labels and strain-195 PRIMARY_DEGRADER. DvH consumes supplied lactate and produces hydrogen/acetate; the evidence does not show it consuming strain-195 products. Baseline 5:1 supports ordinal DOMINANT/COMMON without a numerical schema cutoff; initial 10:1 and sulfate-perturbed 1:6 ratios are different contexts.
+
+### Lactate Fermentation Supports Dehalococcoides Growth
+
+graph: supported. Targets: CommunityMech:000199.
+
+Retain DvH-to-195 hydrogen/acetate support and product-removal energetics.
+
+Exact selector ecological_interactions[0]; scope PAIRWISE; interaction_type SYNTROPHY. Actual taxa: {"source": {"preferred_term": "Desulfovibrio vulgaris Hildenborough", "term": {"id": "NCBITaxon:882", "label": "Nitratidesulfovibrio vulgaris str. Hildenborough"}}, "target": {"preferred_term": "Dehalococcoides mccartyi strain 195", "term": {"id": "NCBITaxon:243164", "label": "Dehalococcoides mccartyi 195"}}, "participants": []}. Canonical excerpt bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet", "sha256": "1d9a7317e75b897be7af55c27ea593992aaaf40c284a3ce41e6732811a308ba4", "reference": "PMID:21881617", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}, {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "e1fd29c1c9c4f6cec8c524bdd0bd3789557444951e121adcfc472a00118963f4", "reference": "PMID:21881617", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}, {"selector": "ecological_interactions[0].evidence[2].snippet", "sha256": "75c687ed36de54591adf6524c7927af8d26332848845422c45c556670f242ba2", "reference": "PMID:24463969", "supports": "PARTIAL", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 fb24481a83a7cc17f00978e0372e91bcb1a488b85ac9e6726f19c0fe0158d631. Source locators: PMID:21881617 Results → Syntrophic growth of DE195 in co- and tri-cultures, both paragraphs, Figures 1–3/Table 1; PMID:24463969 Results → Growth of Dhc195 in defined consortia with and without exogenous cobalamin, paragraphs 1–4, and Corrinoid production and modification/Table 2. Retain the listed SUPPORT/PARTIAL and IN_VITRO tiers. The cobalamin-free triculture restriction is PARTIAL support for this node’s cofactor caveat, not evidence that the amended pair cannot grow. Ancillary amino-acid/proton/corrinoid benefits remain unisolated.
+
+### Enhanced TCE Dechlorination By Syntrophic Support
+
+graph: supported. Targets: CommunityMech:000199.
+
+Retain the recipient dechlorination-rate and cell-yield phenotype.
+
+Exact selector ecological_interactions[1]; scope PAIRWISE; interaction_type absent. Actual taxa: {"source": {"preferred_term": "Dehalococcoides mccartyi strain 195", "term": {"id": "NCBITaxon:243164", "label": "Dehalococcoides mccartyi 195"}}, "target": null, "participants": []}. Canonical excerpt bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet", "sha256": "4e6ac342c902cf49a96a0afdb0a5f9bb25976dec899f86019b939467a3a7d78c", "reference": "PMID:21881617", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}, {"selector": "ecological_interactions[1].evidence[1].snippet", "sha256": "49db276662952211f9bd5326cecc42256ee3b6038186251ff50bde24b1fba110", "reference": "PMID:21881617", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 fb24481a83a7cc17f00978e0372e91bcb1a488b85ac9e6726f19c0fe0158d631. Source locators: PMID:21881617 Results → Syntrophic growth of DE195 in co- and tri-cultures, both paragraphs, Figures 1–2. Retain the listed SUPPORT/PARTIAL and IN_VITRO tiers. No target_taxon or interaction_type is encoded; this source-only phenotype is valid. Roughly threefold applies to maximum rate, not cell yield or a second transfer event.
+
+### Sulfide-Associated Inhibition Of Dechlorination
+
+graph: supported. Targets: CommunityMech:000199.
+
+Retain conditional sulfide-associated inhibition in donor-excess cocultures.
+
+Exact selector ecological_interactions[2]; scope PAIRWISE; interaction_type absent. Actual taxa: {"source": {"preferred_term": "Desulfovibrio vulgaris Hildenborough", "term": {"id": "NCBITaxon:882", "label": "Nitratidesulfovibrio vulgaris str. Hildenborough"}}, "target": {"preferred_term": "Dehalococcoides mccartyi strain 195", "term": {"id": "NCBITaxon:243164", "label": "Dehalococcoides mccartyi 195"}}, "participants": []}. Canonical excerpt bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet", "sha256": "ea3fa5ef695b7875c9d54f9cc687976fce3566bf107c799f437036f67f435351", "reference": "PMID:28159790", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}, {"selector": "ecological_interactions[2].evidence[1].snippet", "sha256": "d02cdef7e40cc5ebfca68d774882fd96733a0f12d084251a862d6e84c93511f8", "reference": "PMID:28159790", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 fb24481a83a7cc17f00978e0372e91bcb1a488b85ac9e6726f19c0fe0158d631. Source locators: PMID:28159790 Results → Effect of sulfate reduction on dechlorination under electron acceptor limitation, both paragraphs, Figures 1–3/Table 1; Sulfate and sulfide effects on axenic cultures; Discussion → Inhibition mechanism. Retain the listed SUPPORT/PARTIAL and IN_VITRO tiers. Do not generalize to sulfate toxicity, hydrogen starvation, donor-limited butyrate tricultures or natural systems. Retain the existing Abstract/Results DvH-threshold discrepancy.
+
+### Lactate Fermentation Supports Dehalococcoides Growth → Enhanced TCE Dechlorination By Syntrophic Support
+
+graph: supported. Targets: CommunityMech:000199.
+
+Retain the positive link from fermentation support to the recipient phenotype.
+
+Exact selector ecological_interactions[0].downstream[0]; source node 0 → target node 1. Source taxon NCBITaxon:882; affected recipient NCBITaxon:243164. Exact edge description: DvH-derived hydrogen and acetate support strain-195 growth and reductive dechlorination in the tested coculture. The faster dechlorination comparison does not isolate every proposed ancillary benefit; proton translocation, amino-acid supply and corrinoid-related effects are not separately demonstrated by this arrow. Description SHA256 df990b2e24d13285eecac0ca078657e3013e609ad77e0a8cc0bc413a1f14217b. Source locators: PMID:21881617 Results → Syntrophic growth of DE195 in co- and tri-cultures, both paragraphs, Figures 1–3/Table 1; PMID:24463969 Results → Growth of Dhc195 in defined consortia with and without exogenous cobalamin. These directions are supported at the stated assay scope, without claiming that every ancillary mechanism was individually perturbed.
+
+### Sulfide-Associated Inhibition Of Dechlorination → Enhanced TCE Dechlorination By Syntrophic Support
+
+graph: supported. Targets: CommunityMech:000199.
+
+Retain the conditional negative link that qualifies the recipient phenotype under the sulfate perturbation.
+
+Exact selector ecological_interactions[2].downstream[0]; source node 2 → target node 1. Source taxon NCBITaxon:882; affected recipient NCBITaxon:243164. Exact edge description: Under the tested high-sulfate, electron-donor-excess conditions, accumulated sulfide suppresses strain-195 dechlorination despite available hydrogen. Electron allocation to sulfate reduction is not sufficient evidence that hydrogen competition caused this inhibition. The arrow qualifies the recipient phenotype under this perturbation, not its unperturbed coculture rate. Description SHA256 066fda968391b23274b6992df3128b656ea1f1b7bc1c29a08ac1462ec9e70832. Source locators: PMID:28159790 Results → Effect of sulfate reduction on dechlorination under electron acceptor limitation, both paragraphs, Figures 1–3/Table 1; Discussion → Inhibition mechanism. These directions are supported at the stated assay scope, without claiming that every ancillary mechanism was individually perturbed.
+
+### Source-specific protocol recovery
+
+scope: concern. Targets: CommunityMech:000199.
+
+The existing partial medium is accurate but omits recoverable protocol details.
+
+The preparation note says the record does not assert a full recipe; it does not claim the source lacks one. Enrich separate study arms. The dated 2026-10-06 unavailable-body discussion remains a historical fact, with a new source-access follow-up rather than a rewritten event.
+
+### Chemistry, processes and exact mappings
+
+grounding: supported. Targets: CommunityMech:000199.
+
+All 15 current ontology terms match their labels and relevant scope.
+
+Preserve broad lactate/acetate, TCE/VC/ethene, sulfate, hydrogen and chloride identities. Measured total sulfide includes H2S and other species, not exclusively molecular H2S. Existing GO annotations remain pathway context, not evidence that every fermentative step is respiration. No inferred salt, hydrate or stereoisomer is added.
+
+### Experimental omics evidence
+
+evidence: concern. Targets: CommunityMech:000199.
+
+A title fragment is exact, but COMPUTATIONAL mislabels the measured assay endpoint.
+
+Use claim-local experimental evidence for engineering_design.evidence[1]. Reserve computational attribution for a separately stated prediction; measured expression does not prove ancillary transport, gene necessity or an inhibited enzyme.
+
+### Expression data identity and assay classification
+
+evidence: concern. Targets: CommunityMech:000199.
+
+Correct the dataset category while preserving verified series and project identity.
+
+GSE26815 targets strain-195 genes across pure/co/tri cultures. Multispecies sampling does not make this community RNA sequencing. Preserve source GPL6336 versus registry GPL6116 as an unresolved platform discrepancy. GSE45533 is optional related-study traceability, with separate pair/triculture and cobalamin comparisons.
+
+### Mapping snapshot provenance
+
+provenance: concern. Targets: CommunityMech:000199.
+
+Valid mapping cores carry unsupported latest-release/build wording.
+
+Keep exact strain routes, bacterial domains, fractions and denominators. File mtime is an observed local timestamp, not an upstream GTDB release date or build event.
+
+### Prior review and maintained repair owner
+
+ownership: supported. Targets: CommunityMech:000199.
+
+Repairs belong to the maintained focal record; prior graph corrections remain intact.
+
+The exact batch 30 records[0], sole history and focal cohort context are retained. Shared issue 1385 remains open beyond this target; this review makes no terminal disposition, history edit or status promotion.
+
+### Scientific completion at explicit read scope
+
+scope: supported. Targets: CommunityMech:000199.
+
+Available primary evidence resolves the current record claims despite bounded secondary-asset limits.
+
+Three complete main papers and 15 main figures were assessed. The 2012 supplementary texts/Figure S1 and bounded S2 workbook were inspected; the 2013 author Chapter 5 was read as text. Unavailable ASM SI and ACS publication payloads, unread thesis appendix and unprocessed raw matrices remain explicit limits. No negative biological conclusion depends on their absence.
+
+### Focused and contextual checks
+
+schema: supported. Targets: CommunityMech:000199.
+
+All eight required native checks passed.
+
+The two corpus failures and optional adapter unavailability are explicitly nonrequired. No candidate validation or parent-owned save is asserted in advance.
+
+### Literal native metrics
+
+completeness: supported. Targets: CommunityMech:000199.
+
+Completeness 100; raw validation quality 109, capped 100.
+
+## Findings
+
+### dvh-roles: Qualify DvH secondary-fermenter and recipient roles
+
+major / open / confirmed; issue key: cm-000199-dvh-roles.
+
+Externally supplied lactate does not establish fermentation of primary-degrader products. DvH benefits from hydrogen removal but is not demonstrated here to utilize strain-195 metabolites. Two optional role labels therefore overstate the directed evidence.
+
+### dataset-type: Classify the strain-targeted expression array correctly
+
+major / open / confirmed; issue key: cm-000199-dataset-type.
+
+GSE26815 is expression profiling by array targeting strain 195, whereas METATRANSCRIPTOMICS denotes community RNA sequencing. The accessions are correct; the assay category and repository label need correction.
+
+### cultivation: Recover source-specific culture and transfer details
+
+minor / open / confirmed; issue key: cm-000199-cultivation.
+
+The partial lactate/TCE entry omits available vessel, working volume, gas, cobalamin and transfer information. Add bounded study arms without merging the pair, triculture and bioassay conditions.
+
+### omics-evidence: Attach experimental evidence to the measured omics endpoint
+
+minor / open / confirmed; issue key: cm-000199-omics-evidence.
+
+The exact title fragment establishes a topic, but COMPUTATIONAL misclassifies laboratory microarray and proteomic measurements. Replace it with narrow experimental Methods/Results evidence while preserving the limits on mechanistic interpretation.
+
+### gtdb-provenance: Correct unsupported GTDB release/build provenance
+
+minor / open / confirmed; issue key: cm-000199-gtdb-provenance.
+
+Both mapping cores reproduce; their latest-release and built-date wording is inferred from a filesystem timestamp rather than verified upstream metadata.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-roles
+
+Align DvH optional role labels with the demonstrated direction of metabolism.
+
+- Retain SYNTROPHIC_PARTNER and the existing H2/acetate arrow. Omit SECONDARY_FERMENTER and CROSS_FEEDER unless source-local evidence establishes the corresponding precursor or recipient claim. Do not invent a replacement enum or claim such metabolism is impossible.
+- Keep strain-195 PRIMARY_DEGRADER and contextual abundance; neither a polymer-only definition nor an arbitrary abundance threshold is imposed.
+
+### repair-dataset
+
+Retain verified identifiers and correct the assay representation.
+
+- Use TRANSCRIPTOMICS and NCBI_GEO for GSE26815, explicitly identifying the strain-195 microarray and pure/pair/triculture comparisons. Retain PRJNA136009 and both exact reference assemblies.
+- Keep the article GPL6336 versus registry GPL6116 discrepancy visible until independently resolved. Optional GSE45533 enrichment must distinguish its nine samples and pair/triculture ±cobalamin arms; do not relabel all data as this pair or infer RNA sequencing.
+
+### enrich-cultivation
+
+Add separate source-specific cultivation details and an access follow-up.
+
+- For PMID21881617, cite Materials and methods → Bacterial cultures and growth conditions: 160 mL serum bottle, 100 mL working volume, N2:CO2 90:10, 100 µg/L cyanocobalamin, initial 195:DvH 10:1, 10% transfers every 10 days for 20 passages with 78 µmol TCE; distinguish the 40 µmol lower-TCE arm. Discussion paragraph2 states unshaken conditions. The PMC 5 m rendering is not a direct 5 mM quote; Results 500 µmol/100 mL gives 5 mM only by labeled calculation.
+- For PMID24463969, cite the sole culture Methods paragraph: 160 mL sealed serum bottle, 100 mL basal medium / 60 mL N2:CO2 90:10, about 0.7 mmol lactate / 77 µmol TCE, 74 nM cobalamin, 34°C, dark, no shaking, and six 3% transfers. Keep the cobalamin-free/DMB/PfR7 comparisons distinct. Do not transfer pure-PfR7 pH 7.5 or Lactobacillus bioassay incubation to the pair.
+- Keep PMID28159790 maintenance, acceptor-limited and donor-limited arms separate. Add a dated follow-up that the original main body is now available; preserve the factual historical 2026-10-06 access statement and open ancillary-mechanism uncertainty.
+
+### repair-evidence
+
+Use experimental evidence for measured omics and qualify biological inference.
+
+- Change engineering_design.evidence[1] to IN_VITRO with a short exact Methods/Results excerpt from PMID21881617 Transcriptomic microarray or Proteomic analysis, and a claim-local explanation. Preserve computational attribution only for a separately stated prediction.
+- Revalidate all snippets; gene-expression changes alone do not identify a necessary transport mechanism, ancillary benefit or inhibited enzyme.
+
+### repair-gtdb
+
+Preserve reproduced mappings and cite actual snapshot provenance.
+
+- Retain NCBITaxon:243164→GTDB:s__Dehalococcoides_mccartyi and NCBITaxon:882→GTDB:s__Nitratidesulfovibrio_vulgaris via ncbi_id, fractions 1.0 and genome counts 5/7, with their current lineages. Counts are reference aggregates, not cell abundance.
+- Use mapping SHA256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd. Label the 2026-07-25 filesystem date as mtime if recorded; leave unverified upstream release/build unknown.
+
+### validate-curation
+
+Validate any separately authorized maintained-record repair.
+
+- Recheck exact strain, assay and treatment scope, then focused schema, strict, term, explained-reference, GTDB/domain and history checks. Run just gen-html and just check-docs-current when canonical curation is authorized.
+- Preserve caches, source responses, histories and previous decisions. This review does not authorize record, issue, Git or status mutations.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml; Whole maintained YAML | supports | Exact laboratory pair, three scoped interactions and two directed downstream links; comparison tricultures remain separate. |
+| cultivation | PMID:21881617; DOI:10.1038/ismej.2011.111; Materials and methods → Bacterial cultures and growth conditions, sole direct paragraph (#sec3/p[1], quoted words); Discussion paragraph 2 for unshaken conditions | supports | Defines the 160 mL vessel, 100 mL working volume, N2:CO2 headspace, cobalamin amendment, inoculum and repeated transfers. PMC renders the lactate unit as 5 m; the 5 mM value is not quoted from that rendering. |
+| syntrophy | PMID:21881617; DOI:10.1038/ismej.2011.111; Results → Syntrophic growth of DE195 in co- and tri-cultures, both direct paragraphs (#sec15); Figures 1–3 and Table 1; Discussion paragraphs 1–2 | supports | Supplied lactate supports DvH hydrogen/acetate production and recipient growth; product removal supports fermentation energetics. The roughly threefold result is a maximum dechlorination-rate comparison; cell yield is separate. Baseline 195:DvH is about 5:1 after transfers. |
+| omics | PMID:21881617; DOI:10.1038/ismej.2011.111; Materials and methods → Cell collection for transcriptomic and proteomic analysis; Transcriptomic microarray; Proteomic analysis (each sole paragraph, #sec5/#sec7/#sec10); Results → Transcriptomic microarray validation and analysis (two paragraphs, #sec16) and Proteomic analysis (#sec25) | supports | Strain-targeted microarrays and LC-MS/MS are measurements from laboratory cultures. Functional interpretation of expression changes remains distinct from a demonstrated ancillary mechanism. |
+| corrinoids | PMID:24463969; DOI:10.1128/AEM.03477-13; Materials and methods → Bacterial cultures and growth conditions, sole paragraph (#sec2-1); Results → Growth of Dhc195 in defined consortia with and without exogenous cobalamin, four paragraphs (#sec3-1); Corrinoid production and modification (#sec3-2), Table 2; Discussion paragraph 3 | supports | The cobalamin-amended pair differs from cobalamin-free DMB/triculture arms. Targeted corrinoid results qualify the earlier bioassay interpretation and support the existing graph caveat. This study explicitly states 34°C, darkness and no shaking. |
+| sulfide | PMID:28159790; DOI:10.1128/AEM.03384-16; Results → Sulfate and sulfide effects on axenic cultures (#sec2-1); Effect of sulfate reduction on dechlorination under electron acceptor limitation, both paragraphs (#sec2-2), Figures 1–3 and Table 1; Discussion → Inhibition mechanism (#sec3-1) and Cell ratio effect (#sec3-4) | supports | High-sulfate donor-excess cocultures accumulate inhibitory sulfide despite available hydrogen. Donor-limited butyrate tricultures and ANAS enrichments are separate. The Abstract and Results differ on the DvH sulfide threshold, as already noted in the record. |
+| perturbation-culture | PMID:28159790; DOI:10.1128/AEM.03384-16; Materials and methods → Bacterial cultures and growth conditions, both paragraphs (#sec4-1); Chemical analysis (#sec4-2); RNA preparation and transcriptome analysis (#sec4-4) | supports | Maintenance, sulfate perturbation and donor-limited arms have different amendment schedules. Sulfide-S includes its chemical species; the hydrogen-sulfide term does not mean every reported sulfide concentration is exclusively H2S. |
+| isotope-abstract | PMID:24015929; DOI:10.1021/es402617q; Fresh MED Abstract and exact publication identifiers | supports | Confirms the same pair in the isotope-fractionation study and a separate elevated-vinyl-chloride exposure for Dhc195. It does not make that exposure a two-member treatment. |
+| author-chapter | PMID:24015929; DOI:10.1021/es402617q; author dissertation, eScholarship qt5g9813bv; Chapter 5, printed pages 70–84; Methods 5.2.2–5.2.3 and Results 5.3; Table 5.1 and Figures 5.1–5.3 captions; overlapping web text lines 3510–4114 | supports | The author chapter reproduces the study and distinguishes pure cultures, DvH pairs and other partners. This is an author-version text read, not the blocked journal PDF or an appendix/pixel review. The chapter directly prints 5 mM lactate for its own later experiment. |
+| supplement | PMID:21881617; DOI:10.1038/ismej.2011.111; Supplement Figure S1, Tables S1 and S3–S6, and legends; whole extracted text plus Figure S1 pixels | supports | Primer and expression tables corroborate measured assays. Table S6 and Figure S1 concern a Lactobacillus bioassay calibrated with cyanocobalamin; they do not establish the exact corrinoid species produced by DvH. |
+| proteomic-workbook | PMID:21881617; DOI:10.1038/ismej.2011.111; Supplement Table S2: all six sheet names/dimensions and first five rows; bounded projection receipt | supports | The workbook contains pure/coculture spectral counts, NSAF, sequence metrics and differential-protein sheets. Only the stated inventory/rows were inspected; no matrix reanalysis. |
+| ontology | /private/tmp/cm-review-session/batch-15/000199/ontology-authority.json; 15 distinct terms and 32 placements | supports | All current ID-label pairs match; ionic identity and broad pathway scope are retained. |
+| schema | /private/tmp/cm-review-session/batch-15/000199/child-schema-semantics.json; Literal role, interaction, dataset and evidence definitions, subject to separate correction | supports | Role and evidence labels must match their literal definitions rather than general biological usefulness. |
+| role-clarification | /private/tmp/cm-review-session/batch-15/000199/child-role-semantics-clarification.json; Exact correction to the earlier role interpretation | supports | SECONDARY_FERMENTER requires products from primary degraders; CROSS_FEEDER requires utilization of another taxon’s metabolites. Hydrogen removal benefits the producer but does not establish DvH uptake from strain 195. |
+| stocks | /private/tmp/cm-review-session/batch-15/000199/child-strain-authority.json; Exact strain, collection and type-stock checks | supports | Current NCBI strain IDs and encoded collection descriptors match; no stock-name replacement is required. |
+| gtdb | /private/tmp/cm-review-session/batch-15/000199/child-gtdb-crosswalk.json; Exact strain-ID rows and immutable mapping snapshot | supports | Both cores reproduce: strain 195 fraction 1.0 over 5 genomes; Hildenborough 1.0 over 7. Filesystem mtime is not a GTDB release or build date. |
+| semantics | /private/tmp/cm-review-session/batch-15/000199/ontology-semantic-notes.json; Final auxiliary assessment | supports | Retains the scoped graph and chemistry while confirming the five agreed repair groups. |
+| resources | /private/tmp/cm-review-session/batch-15/000199/dataset-verification.json; Two GEO series, reciprocal BioProject, two assemblies and legacy proteomics route | supports | GSE26815 is a strain-195 expression array. Exact assemblies and publication identities resolve. GSE45533 is a separate source-declared study; old ORNL routes failed DNS. |
+| snippets | /private/tmp/cm-review-session/batch-15/000199/snippet-audit.json; All 30 canonical excerpt placements | supports | 29 placements match fresh Abstracts and one matches a title; all 30 match caches. The title match alone does not establish experimental method. |
+| provenance | /private/tmp/cm-review-session/batch-15/000199/provenance-audit.json; Sole history, batch 30 records[0], adversarial and four cohort contexts; current selected issues | supports | Closed graph issue 1382 remains resolved; open 1385 concerns non-graph evidence and has broader scope. No prior or shared finding is silently closed. |
+| inspection | /private/tmp/cm-review-session/batch-15/000199/inspect.json; 33 official immutable inputs | supports | One target, 21 authorities and 11 focal contexts were inspected after ignored-inclusive discovery excluding environment files and Git/runtime internals. |
+| assets | /private/tmp/cm-review-session/batch-15/000199/lead-source-assets.json; Actual public retrievals, failed payloads and supplementary inventory | supports | Three complete PMC bodies and all 15 main images were recovered. All eight 2012 supplements are available with bounded workbook reading; other SI access limits remain explicit. |
+| empty-responses | /private/tmp/cm-review-session/batch-15/000199/failed-empty-response-classification.json; Exactly two preserved direct thesis HTTP 202 responses | supports | The two zero-byte bodies are failed downloads, distinct from the successful public-web author chapter read. |
+| lead-read | /private/tmp/cm-review-session/batch-15/000199/lead-primary-read-scope.json; Actual lead reading and figure scope | supports | Whole target and three main bodies, four fresh MED records, 15 main images, 2012 supplementary text/Figure S1 and author Chapter 5 text were assessed; no uninspected raw-data claim. |
+| locators | /private/tmp/cm-review-session/batch-15/000199/source-locator-verification.json; Direct section/paragraph inventory and quote origin | supports | All source locators were checked against actual headings; the sole two-word quote is in the 2012 culture Methods paragraph. |
+| source-audit | /private/tmp/cm-review-session/batch-15/000199/source-audit.json; Final source judgment | supports | Two major and three minor findings; completion concerns all current record claims at the explicit source scope. |
+| root-source | /private/tmp/cm-review-session/batch-15/000199/root-independent-source-audit.json; Independent root source assessment and actual reading bounds | supports | Root separately agrees with the five findings, preserving its nine-figure and supplementary reading scope. Its prose completion/verdict map to native completed/needs_curation. |
+| metrics | /private/tmp/cm-review-session/batch-15/000199/support-final-audit.json; Final supporting reconciliation | supports | Completeness 100; base quality 135 minus 20 and 6 yields raw 109, capped 100. |
+| support-manifest | /private/tmp/cm-review-session/batch-15/000199/support-frozen-manifest.json; Frozen final supporting dependencies | supports | Final support follows source, authority and provenance reconciliation. |
+| auxiliary | /private/tmp/cm-review-session/batch-15/000199/auxiliary-frozen-manifest.json; Frozen native and authority artifacts | supports | Eight focused native checks pass, with all 33 inputs unchanged. |
+| final-native | /private/tmp/cm-review-session/batch-15/000199/final-validator-summary.json; Actual eight command receipts | supports | Native success is separate from source entailment and literal metric calculations. |
+| corpus-context | /private/tmp/cm-review-session/batch-15/000199/child-corpus-context.json; Fresh batch 15 baseline | supports | Two nonrequired corpus checks returned exit 1 with 44 warnings across 16 records and zero errors. |
+| adapter | /private/tmp/cm-review-session/batch-15/000199/adapter-check.json; Owned-runtime optional adapter availability | supports | The adapter was unavailable; no external-checkout execution or global absence claim. |
+| check-validate | /private/tmp/cm-review-session/batch-15/000199/validate.json; Actual command/stdout/stderr | supports | Native exit 0; scientific support is assessed separately. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-15/000199/validate-strict.json; Actual command/stdout/stderr | supports | Native exit 0; scientific support is assessed separately. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-15/000199/validate-terms.json; Actual command/stdout/stderr | supports | Native exit 0; scientific support is assessed separately. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-15/000199/validate-references-explained.json; Actual command/stdout/stderr | supports | Native exit 0; scientific support is assessed separately. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-15/000199/validate-gtdb.json; Actual command/stdout/stderr | supports | Native exit 0; scientific support is assessed separately. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-15/000199/validate-gtdb-domain.json; Actual command/stdout/stderr | supports | Native exit 0; scientific support is assessed separately. |
+| check-validate-history | /private/tmp/cm-review-session/batch-15/000199/validate-history.json; Actual command/stdout/stderr | supports | Native exit 0; scientific support is assessed separately. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-15/000199/normalize-cache-names-check.json; Actual command/stdout/stderr | supports | Native exit 0; scientific support is assessed separately. |
+| context-audit-network | /private/tmp/cm-review-session/batch-15/audit-network.json; Fresh batch 15 corpus baseline | supports | Actual exit 1; 44 warnings across 16 of 477 records, zero errors. |
+| context-check-network-quality | /private/tmp/cm-review-session/batch-15/check-network-quality.json; Fresh batch 15 corpus baseline | supports | Actual exit 1; 44 warnings across 16 of 477 records, zero errors. |
+
+## Limits And Additional Notes
+
+- The 2014/2017 ASM supplementary payloads and published 2013 ACS body/SI were not recovered on bounded ordinary routes. The author Chapter 5 text is a separate accessible version, not a journal-PDF or appendix read. Current encoded claims are still adjudicated from the stated sources.
+- Table S2 reading covers its six sheet inventories and first five rows only. Figures were viewed without digitization; no raw microarray/proteomics, isotope, genome or sequence reanalysis was performed.
+- Preserve source typography/platform/threshold discrepancies: 2012 lactate 5 m rendering, article GPL6336 versus GEO GPL6116, and 2017 DvH Abstract/Results sulfide threshold. Do not silently harmonize treatment arms or units.
+- Three node assessments bind seven exact canonical excerpt hashes and actual taxa; two edge assessments preserve direction and contextual limitations.
+- The sole quotation is two words from the 2012 culture Methods paragraph. Other source statements are paraphrased or referred to by exact selector/hash.
+- All 33 inspected inputs remain unchanged. Actual candidate validation and parent-owned saving/post-save gates follow this assessment.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261022T044407Z-dehalococcoides-desulfovibrio-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Dehalococcoides–Desulfovibrio lactate/TCE coculture review
+started_at: '2026-10-22T04:33:12.158675Z'
+finished_at: '2026-10-22T04:44:07.507272Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate lead, root, auxiliary authority and supporting reviewers;
+    no person-level independence claim.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: The exact two-strain identity and all three scoped interaction nodes/two
+  arrows are supported. Two major findings concern DvH role semantics and the microarray
+  dataset category; three minor findings concern recoverable culture details, experimental
+  omics evidence and GTDB provenance. Eight focused checks pass. Literal completeness
+  is 100; raw quality 109 is capped 100 and does not negate the findings.
+source:
+  git_revision: cb7a782c8ba80299dca8761ad0a2c90bccd8a117
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy/2026-10-06T054824Z-codex-33c8ca.yaml
+    sha256: 3a870c60f6e1cbeba74545fd49fc33a6f8a295cb12ce6b63d93ce17c26e3ac89
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+    sha256: bc9eebbdf57b937cc87c72ee439f404bb7ab51b99b2f06e2f11fd240a454c629
+    role: target
+  - path: references_cache/PMID_21881617.md
+    sha256: 249f0e7a6b71343881d648f2f539d8f9096fa2dab0e4f2692e370b47ff3fbae7
+    role: context
+  - path: references_cache/PMID_24015929.md
+    sha256: 5a8edfdf6d765c4eb0e041310e03ca88fb53a96c64f2d36383ed22f773f4ff49
+    role: context
+  - path: references_cache/PMID_24463969.md
+    sha256: 630100bad057e96e0bca2800ca31a2f1eae6ab54bccfb38c03375a70cc116de1
+    role: context
+  - path: references_cache/PMID_28159790.md
+    sha256: 8a89860f58e10545a3986b093decf43cadec8ac10d8c994b815d497d356e819b
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261006-batch30.yaml
+    sha256: 173e2bfe58bed7b38cbf3e535062651728c15533668958b6e56dc8332b5c9e2f
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-three-records-batch30.yaml
+    sha256: cb60e4a113592fd34842090d5f2db473831a31066febb469d2438a8d8b217c3c
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.md
+    sha256: e432615b147787c8d009d96d2f11e5b78a45927bf9c69e45ec0d31123d1fc2e9
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/frozen_inventory_metrics.tsv
+    sha256: d5a47bbcc3745a489ff507680aa7360a6a65ce070ce4ec88f886b70128791313
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md
+    sha256: 4e7781aa8cdfc4bb42d896ebe75920719d9dcade92ffc4a0ae07af7481cb37b3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000199
+  path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+  label: Dehalococcoides-Desulfovibrio Lactate-Fed TCE Dechlorination Coculture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+    role: canonical_record
+scope:
+  description: Whole target and three full primary articles, four fresh MED records,
+    all 15 main figures, 2012 supplementary texts / Figure S1 with bounded Table S2
+    rows, and author 2013 Chapter 5 text; exact authority, resource and prior context.
+  selection: Only released CommunityMech:000199 in owned batch 15.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000199
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000199
+  command: just --no-dotenv validate kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000199
+  command: just --no-dotenv validate-strict kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+    --out /private/tmp/cm-review-session/batch-15/000199/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000199
+  command: just --no-dotenv validate-terms kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000199
+  command: just --no-dotenv validate-references-explained kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000199
+  command: just --no-dotenv validate-gtdb kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000199
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000199
+  command: just --no-dotenv validate-history history/records/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Actual native exit 0.
+  target_ids:
+  - CommunityMech:000199
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: context-audit-network
+  name: audit-network corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit 1 retained.
+  target_ids:
+  - CommunityMech:000199
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-15/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-audit-network
+  - corpus-context
+  scope_note: Nonrequired corpus context, distinct from focused passes.
+- check_id: context-check-network-quality
+  name: check-network-quality corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit 1 retained.
+  target_ids:
+  - CommunityMech:000199
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-15/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-check-network-quality
+  - corpus-context
+  scope_note: Nonrequired corpus context, distinct from focused passes.
+- check_id: optional-structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Unavailable in the owned runtime.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - adapter
+  scope_note: No external adapter execution or absence-based scientific inference.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+  locator: Whole maintained YAML
+  summary: Exact laboratory pair, three scoped interactions and two directed downstream
+    links; comparison tricultures remain separate.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.504652Z'
+- evidence_id: cultivation
+  kind: primary_source
+  reference: PMID:21881617; DOI:10.1038/ismej.2011.111
+  locator: Materials and methods → Bacterial cultures and growth conditions, sole
+    direct paragraph (#sec3/p[1], quoted words); Discussion paragraph 2 for unshaken
+    conditions
+  summary: Defines the 160 mL vessel, 100 mL working volume, N2:CO2 headspace, cobalamin
+    amendment, inoculum and repeated transfers. PMC renders the lactate unit as 5
+    m; the 5 mM value is not quoted from that rendering.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.504707Z'
+  snapshot_sha256: 0a58ce2b1fadbd19a7f98efe6aefdfe13e9587be79183fa1871a72b94d96acce
+  quote: serum bottles
+- evidence_id: syntrophy
+  kind: primary_source
+  reference: PMID:21881617; DOI:10.1038/ismej.2011.111
+  locator: Results → Syntrophic growth of DE195 in co- and tri-cultures, both direct
+    paragraphs (#sec15); Figures 1–3 and Table 1; Discussion paragraphs 1–2
+  summary: Supplied lactate supports DvH hydrogen/acetate production and recipient
+    growth; product removal supports fermentation energetics. The roughly threefold
+    result is a maximum dechlorination-rate comparison; cell yield is separate. Baseline
+    195:DvH is about 5:1 after transfers.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.504812Z'
+  snapshot_sha256: 0a58ce2b1fadbd19a7f98efe6aefdfe13e9587be79183fa1871a72b94d96acce
+- evidence_id: omics
+  kind: primary_source
+  reference: PMID:21881617; DOI:10.1038/ismej.2011.111
+  locator: 'Materials and methods → Cell collection for transcriptomic and proteomic
+    analysis; Transcriptomic microarray; Proteomic analysis (each sole paragraph,
+    #sec5/#sec7/#sec10); Results → Transcriptomic microarray validation and analysis
+    (two paragraphs, #sec16) and Proteomic analysis (#sec25)'
+  summary: Strain-targeted microarrays and LC-MS/MS are measurements from laboratory
+    cultures. Functional interpretation of expression changes remains distinct from
+    a demonstrated ancillary mechanism.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.504900Z'
+  snapshot_sha256: 0a58ce2b1fadbd19a7f98efe6aefdfe13e9587be79183fa1871a72b94d96acce
+- evidence_id: corrinoids
+  kind: primary_source
+  reference: PMID:24463969; DOI:10.1128/AEM.03477-13
+  locator: Materials and methods → Bacterial cultures and growth conditions, sole
+    paragraph (#sec2-1); Results → Growth of Dhc195 in defined consortia with and
+    without exogenous cobalamin, four paragraphs (#sec3-1); Corrinoid production and
+    modification (#sec3-2), Table 2; Discussion paragraph 3
+  summary: The cobalamin-amended pair differs from cobalamin-free DMB/triculture arms.
+    Targeted corrinoid results qualify the earlier bioassay interpretation and support
+    the existing graph caveat. This study explicitly states 34°C, darkness and no
+    shaking.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.504985Z'
+  snapshot_sha256: d8c23d4d53ebac460e7576d25c6adc4cd34de7dfe3dc0cda47034902e6c953ce
+- evidence_id: sulfide
+  kind: primary_source
+  reference: PMID:28159790; DOI:10.1128/AEM.03384-16
+  locator: Results → Sulfate and sulfide effects on axenic cultures (#sec2-1); Effect
+    of sulfate reduction on dechlorination under electron acceptor limitation, both
+    paragraphs (#sec2-2), Figures 1–3 and Table 1; Discussion → Inhibition mechanism
+    (#sec3-1) and Cell ratio effect (#sec3-4)
+  summary: High-sulfate donor-excess cocultures accumulate inhibitory sulfide despite
+    available hydrogen. Donor-limited butyrate tricultures and ANAS enrichments are
+    separate. The Abstract and Results differ on the DvH sulfide threshold, as already
+    noted in the record.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505084Z'
+  snapshot_sha256: 137d8e88e77e768ff4755422dec033c4f25059516a3cb6ff6ba0b3116f9e68dd
+- evidence_id: perturbation-culture
+  kind: primary_source
+  reference: PMID:28159790; DOI:10.1128/AEM.03384-16
+  locator: Materials and methods → Bacterial cultures and growth conditions, both
+    paragraphs (#sec4-1); Chemical analysis (#sec4-2); RNA preparation and transcriptome
+    analysis (#sec4-4)
+  summary: Maintenance, sulfate perturbation and donor-limited arms have different
+    amendment schedules. Sulfide-S includes its chemical species; the hydrogen-sulfide
+    term does not mean every reported sulfide concentration is exclusively H2S.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505192Z'
+  snapshot_sha256: 137d8e88e77e768ff4755422dec033c4f25059516a3cb6ff6ba0b3116f9e68dd
+- evidence_id: isotope-abstract
+  kind: primary_source
+  reference: PMID:24015929; DOI:10.1021/es402617q
+  locator: Fresh MED Abstract and exact publication identifiers
+  summary: Confirms the same pair in the isotope-fractionation study and a separate
+    elevated-vinyl-chloride exposure for Dhc195. It does not make that exposure a
+    two-member treatment.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505284Z'
+  snapshot_sha256: 213dd90e22591aec8612e69f649c85b553b802154d154d2955c078d49c059a86
+- evidence_id: author-chapter
+  kind: primary_source
+  reference: PMID:24015929; DOI:10.1021/es402617q; author dissertation, eScholarship
+    qt5g9813bv
+  locator: Chapter 5, printed pages 70–84; Methods 5.2.2–5.2.3 and Results 5.3; Table
+    5.1 and Figures 5.1–5.3 captions; overlapping web text lines 3510–4114
+  summary: The author chapter reproduces the study and distinguishes pure cultures,
+    DvH pairs and other partners. This is an author-version text read, not the blocked
+    journal PDF or an appendix/pixel review. The chapter directly prints 5 mM lactate
+    for its own later experiment.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505311Z'
+  snapshot_sha256: 92924f478bd8544644a30569a60df8c770e5a263f1f504c5bdc69d29e52b95f2
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:21881617; DOI:10.1038/ismej.2011.111
+  locator: Supplement Figure S1, Tables S1 and S3–S6, and legends; whole extracted
+    text plus Figure S1 pixels
+  summary: Primer and expression tables corroborate measured assays. Table S6 and
+    Figure S1 concern a Lactobacillus bioassay calibrated with cyanocobalamin; they
+    do not establish the exact corrinoid species produced by DvH.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505350Z'
+  snapshot_sha256: 5934c80104ffa4b4c7d35997457d29fe043c2b61f022b4ca87e96a3ad6619e72
+- evidence_id: proteomic-workbook
+  kind: primary_source
+  reference: PMID:21881617; DOI:10.1038/ismej.2011.111
+  locator: 'Supplement Table S2: all six sheet names/dimensions and first five rows;
+    bounded projection receipt'
+  summary: The workbook contains pure/coculture spectral counts, NSAF, sequence metrics
+    and differential-protein sheets. Only the stated inventory/rows were inspected;
+    no matrix reanalysis.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505552Z'
+  snapshot_sha256: e9e14276ecff6d14fe6cfa24e29d54c93a8c52514542f66d7a1c468075f46ff3
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000199/ontology-authority.json
+  locator: 15 distinct terms and 32 placements
+  summary: All current ID-label pairs match; ionic identity and broad pathway scope
+    are retained.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505587Z'
+  snapshot_sha256: c35061d504b50302375fc24b0ec7f7e5cea0b8602b58bd58901e2c7b72ac7c12
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000199/child-schema-semantics.json
+  locator: Literal role, interaction, dataset and evidence definitions, subject to
+    separate correction
+  summary: Role and evidence labels must match their literal definitions rather than
+    general biological usefulness.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505625Z'
+  snapshot_sha256: 016f529923a5e33114983f1ec7e4134d816222f9ab35aeecf387fb8d385d4f5a
+- evidence_id: role-clarification
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000199/child-role-semantics-clarification.json
+  locator: Exact correction to the earlier role interpretation
+  summary: SECONDARY_FERMENTER requires products from primary degraders; CROSS_FEEDER
+    requires utilization of another taxon’s metabolites. Hydrogen removal benefits
+    the producer but does not establish DvH uptake from strain 195.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505661Z'
+  snapshot_sha256: b3458db06fd227f59e5331b70428342563d68714e957aded56e0d59f0a7ed1aa
+- evidence_id: stocks
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000199/child-strain-authority.json
+  locator: Exact strain, collection and type-stock checks
+  summary: Current NCBI strain IDs and encoded collection descriptors match; no stock-name
+    replacement is required.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505688Z'
+  snapshot_sha256: 8e06b3297d1ca23b402d1e8e81e0984e069c56b40e0b5b254ac4b3e461b644a1
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000199/child-gtdb-crosswalk.json
+  locator: Exact strain-ID rows and immutable mapping snapshot
+  summary: 'Both cores reproduce: strain 195 fraction 1.0 over 5 genomes; Hildenborough
+    1.0 over 7. Filesystem mtime is not a GTDB release or build date.'
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505715Z'
+  snapshot_sha256: 69fe90ba0e61215875de4dcb2e4d644c1f7ea56e8243bf8a5a6a93018090aecd
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000199/ontology-semantic-notes.json
+  locator: Final auxiliary assessment
+  summary: Retains the scoped graph and chemistry while confirming the five agreed
+    repair groups.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505749Z'
+  snapshot_sha256: 137c9f2e7b5385bed9ae86c9a6b7a40899ccee9544ee6d14d1b6927b7f83cafa
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/dataset-verification.json
+  locator: Two GEO series, reciprocal BioProject, two assemblies and legacy proteomics
+    route
+  summary: GSE26815 is a strain-195 expression array. Exact assemblies and publication
+    identities resolve. GSE45533 is a separate source-declared study; old ORNL routes
+    failed DNS.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505796Z'
+  snapshot_sha256: 2fe97cf1476c191842c228f48c5b6c1059d5d37be637f6286359ce060eae9e3e
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/snippet-audit.json
+  locator: All 30 canonical excerpt placements
+  summary: 29 placements match fresh Abstracts and one matches a title; all 30 match
+    caches. The title match alone does not establish experimental method.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505827Z'
+  snapshot_sha256: fb24481a83a7cc17f00978e0372e91bcb1a488b85ac9e6726f19c0fe0158d631
+- evidence_id: provenance
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-15/000199/provenance-audit.json
+  locator: Sole history, batch 30 records[0], adversarial and four cohort contexts;
+    current selected issues
+  summary: Closed graph issue 1382 remains resolved; open 1385 concerns non-graph
+    evidence and has broader scope. No prior or shared finding is silently closed.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505860Z'
+  snapshot_sha256: 8e8dd06030849bce63cc3792f68a1e0ba032e2cf122618c2643974c8a8add571
+- evidence_id: inspection
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/inspect.json
+  locator: 33 official immutable inputs
+  summary: One target, 21 authorities and 11 focal contexts were inspected after ignored-inclusive
+    discovery excluding environment files and Git/runtime internals.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505891Z'
+  snapshot_sha256: ea6181cee59e51e37ed9a2396cb7d0e00934a074090328509dfa0fae7a105302
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/lead-source-assets.json
+  locator: Actual public retrievals, failed payloads and supplementary inventory
+  summary: Three complete PMC bodies and all 15 main images were recovered. All eight
+    2012 supplements are available with bounded workbook reading; other SI access
+    limits remain explicit.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505912Z'
+  snapshot_sha256: c56202857eff87bd5a82b1296614bebd211bf24d6b83ba67f4fdf441cf649fce
+- evidence_id: empty-responses
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/failed-empty-response-classification.json
+  locator: Exactly two preserved direct thesis HTTP 202 responses
+  summary: The two zero-byte bodies are failed downloads, distinct from the successful
+    public-web author chapter read.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505956Z'
+  snapshot_sha256: a9b225f0ebb31f143d25ade58dcb27533d4c58173e0978561069219e6be79e2b
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/lead-primary-read-scope.json
+  locator: Actual lead reading and figure scope
+  summary: Whole target and three main bodies, four fresh MED records, 15 main images,
+    2012 supplementary text/Figure S1 and author Chapter 5 text were assessed; no
+    uninspected raw-data claim.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.505982Z'
+  snapshot_sha256: 0c5122d181884eeaae50099128ff9a16180d49f7a7b2c34c4305c15d3e32b7d3
+- evidence_id: locators
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/source-locator-verification.json
+  locator: Direct section/paragraph inventory and quote origin
+  summary: All source locators were checked against actual headings; the sole two-word
+    quote is in the 2012 culture Methods paragraph.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506008Z'
+  snapshot_sha256: ffe33477f0d294ec82c197eda991d28763bdb293da13e12aed04eb4721461131
+- evidence_id: source-audit
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/source-audit.json
+  locator: Final source judgment
+  summary: Two major and three minor findings; completion concerns all current record
+    claims at the explicit source scope.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506056Z'
+  snapshot_sha256: cb2697a9314d880f2425cf296dd49212585e2c5c2811d45a79a1c18a88a5075b
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/root-independent-source-audit.json
+  locator: Independent root source assessment and actual reading bounds
+  summary: Root separately agrees with the five findings, preserving its nine-figure
+    and supplementary reading scope. Its prose completion/verdict map to native completed/needs_curation.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506081Z'
+  snapshot_sha256: 1396bcebdcfd0946afd46e802dce55d296fa4e75e655cef4a369f294495adee0
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/support-final-audit.json
+  locator: Final supporting reconciliation
+  summary: Completeness 100; base quality 135 minus 20 and 6 yields raw 109, capped
+    100.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506113Z'
+  snapshot_sha256: bc4d8df9e171bd00b48bae15cf9908a34635fe55f49697adab44abe03dcd514c
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/support-frozen-manifest.json
+  locator: Frozen final supporting dependencies
+  summary: Final support follows source, authority and provenance reconciliation.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506142Z'
+  snapshot_sha256: d3682687ecb991183081ef28d0df5382bf08f324708979627f6aef477bbfd80a
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/auxiliary-frozen-manifest.json
+  locator: Frozen native and authority artifacts
+  summary: Eight focused native checks pass, with all 33 inputs unchanged.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506168Z'
+  snapshot_sha256: 9f6afba243cef8a5ce3f3309216a32315a1325053231ea327befef06a9859975
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/final-validator-summary.json
+  locator: Actual eight command receipts
+  summary: Native success is separate from source entailment and literal metric calculations.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506194Z'
+  snapshot_sha256: 41472a60dcaaa785922377991aec5f504697b9f553ca520388b035aed9ca0145
+- evidence_id: corpus-context
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/child-corpus-context.json
+  locator: Fresh batch 15 baseline
+  summary: Two nonrequired corpus checks returned exit 1 with 44 warnings across 16
+    records and zero errors.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506219Z'
+  snapshot_sha256: bdee6ecfea9e8d06217329bf2908f19daf0ee9f35bfbe05e6caf49e5224265d2
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/adapter-check.json
+  locator: Owned-runtime optional adapter availability
+  summary: The adapter was unavailable; no external-checkout execution or global absence
+    claim.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506242Z'
+  snapshot_sha256: 7c8f4aef4c4d9e711a51aeda660f6a14029586f230ff932b75a1d47215be608b
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/validate.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific support is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506447Z'
+  snapshot_sha256: 124e50078912c4d077d9b2607308b8dfa314ce628ef24bdf77e901193f87b31a
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/validate-strict.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific support is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506499Z'
+  snapshot_sha256: 02df337e66918f64b8dcad40e83ac25db38f0c499f376358dd1dce291872c1ca
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/validate-terms.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific support is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506547Z'
+  snapshot_sha256: 253715fb4c307fb464ac287e8c28d7104ade30d3a9eb2d5a0a0814aece53b9d8
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/validate-references-explained.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific support is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506593Z'
+  snapshot_sha256: b25e3bfc416d2608481ad181881e25ad084eae8e2247848dd1a45b647252bddb
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/validate-gtdb.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific support is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506638Z'
+  snapshot_sha256: 2c61682c59287ae19adcf689f345463b46cfffd74f8f7329f56a6e23eb03ae11
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/validate-gtdb-domain.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific support is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506686Z'
+  snapshot_sha256: 3ffd06cd18bcc7cd5f51ab7ce281f295c0e28f1022e0645dc58a49550874db17
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/validate-history.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific support is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506730Z'
+  snapshot_sha256: 81df1f4104d922b53210ffea8590c7b177f747712ce2aadf2eb9137c830e1f30
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000199/normalize-cache-names-check.json
+  locator: Actual command/stdout/stderr
+  summary: Native exit 0; scientific support is assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.506771Z'
+  snapshot_sha256: 94e4b2d05e228447599c7f0da8fd0dd2f52edc52cc4b6c0c9db0b4a0598e3b5b
+- evidence_id: context-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/audit-network.json
+  locator: Fresh batch 15 corpus baseline
+  summary: Actual exit 1; 44 warnings across 16 of 477 records, zero errors.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.507041Z'
+  snapshot_sha256: b92af84b02acf105f8dc7c3625cc2a7e52a436b24a8243fe7e1d53012c9be1d9
+- evidence_id: context-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/check-network-quality.json
+  locator: Fresh batch 15 corpus baseline
+  summary: Actual exit 1; 44 warnings across 16 of 477 records, zero errors.
+  support: supports
+  accessed_at: '2026-10-22T04:44:07.507233Z'
+  snapshot_sha256: 10b4cbb4180b20137e22c994ff8cd71d5ca52ab6ac3ef21fef5580eb4c9200fc
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Exact strain pair and experimental scope
+  outcome: supported
+  summary: Retain the defined DvH/195 laboratory bioremediation model.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - record
+  - stocks
+  - syntrophy
+  - corrinoids
+  - resources
+  dimensions:
+  - name: taxon_scope
+    value: Two exact experimental strains
+    definition: D. mccartyi 195 and Nitratidesulfovibrio vulgaris str. Hildenborough;
+      current names retain source synonyms.
+    evidence_ids:
+    - stocks
+    - gtdb
+  - name: experimental_setting
+    value: Engineered anaerobic laboratory coculture
+    definition: Synthetic bioremediation model, not a sampled natural groundwater
+      community.
+    evidence_ids:
+    - record
+    - cultivation
+    - ontology
+  details: Source historical names resolve to NCBITaxon:243164 and NCBITaxon:882.
+    Collection aliases, type-strain designation and two reference assemblies are supported.
+    Methanogen-, Pelosinus- and Syntrophomonas-containing comparisons remain distinct
+    communities.
+- assessment_id: roles
+  area: grounding
+  topic: Functional labels and abundance
+  outcome: concern
+  summary: Two DvH role labels exceed the demonstrated direction of metabolism.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - schema
+  - role-clarification
+  - syntrophy
+  - semantics
+  details: Retain both SYNTROPHIC_PARTNER labels and strain-195 PRIMARY_DEGRADER.
+    DvH consumes supplied lactate and produces hydrogen/acetate; the evidence does
+    not show it consuming strain-195 products. Baseline 5:1 supports ordinal DOMINANT/COMMON
+    without a numerical schema cutoff; initial 10:1 and sulfate-perturbed 1:6 ratios
+    are different contexts.
+- assessment_id: node-0
+  area: graph
+  topic: Lactate Fermentation Supports Dehalococcoides Growth
+  outcome: supported
+  summary: Retain DvH-to-195 hydrogen/acetate support and product-removal energetics.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - syntrophy
+  - corrinoids
+  - snippets
+  - schema
+  details: 'Exact selector ecological_interactions[0]; scope PAIRWISE; interaction_type
+    SYNTROPHY. Actual taxa: {"source": {"preferred_term": "Desulfovibrio vulgaris
+    Hildenborough", "term": {"id": "NCBITaxon:882", "label": "Nitratidesulfovibrio
+    vulgaris str. Hildenborough"}}, "target": {"preferred_term": "Dehalococcoides
+    mccartyi strain 195", "term": {"id": "NCBITaxon:243164", "label": "Dehalococcoides
+    mccartyi 195"}}, "participants": []}. Canonical excerpt bindings: [{"selector":
+    "ecological_interactions[0].evidence[0].snippet", "sha256": "1d9a7317e75b897be7af55c27ea593992aaaf40c284a3ce41e6732811a308ba4",
+    "reference": "PMID:21881617", "supports": "SUPPORT", "evidence_source": "IN_VITRO"},
+    {"selector": "ecological_interactions[0].evidence[1].snippet", "sha256": "e1fd29c1c9c4f6cec8c524bdd0bd3789557444951e121adcfc472a00118963f4",
+    "reference": "PMID:21881617", "supports": "SUPPORT", "evidence_source": "IN_VITRO"},
+    {"selector": "ecological_interactions[0].evidence[2].snippet", "sha256": "75c687ed36de54591adf6524c7927af8d26332848845422c45c556670f242ba2",
+    "reference": "PMID:24463969", "supports": "PARTIAL", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 fb24481a83a7cc17f00978e0372e91bcb1a488b85ac9e6726f19c0fe0158d631.
+    Source locators: PMID:21881617 Results → Syntrophic growth of DE195 in co- and
+    tri-cultures, both paragraphs, Figures 1–3/Table 1; PMID:24463969 Results → Growth
+    of Dhc195 in defined consortia with and without exogenous cobalamin, paragraphs
+    1–4, and Corrinoid production and modification/Table 2. Retain the listed SUPPORT/PARTIAL
+    and IN_VITRO tiers. The cobalamin-free triculture restriction is PARTIAL support
+    for this node’s cofactor caveat, not evidence that the amended pair cannot grow.
+    Ancillary amino-acid/proton/corrinoid benefits remain unisolated.'
+- assessment_id: node-1
+  area: graph
+  topic: Enhanced TCE Dechlorination By Syntrophic Support
+  outcome: supported
+  summary: Retain the recipient dechlorination-rate and cell-yield phenotype.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - syntrophy
+  - snippets
+  - schema
+  details: 'Exact selector ecological_interactions[1]; scope PAIRWISE; interaction_type
+    absent. Actual taxa: {"source": {"preferred_term": "Dehalococcoides mccartyi strain
+    195", "term": {"id": "NCBITaxon:243164", "label": "Dehalococcoides mccartyi 195"}},
+    "target": null, "participants": []}. Canonical excerpt bindings: [{"selector":
+    "ecological_interactions[1].evidence[0].snippet", "sha256": "4e6ac342c902cf49a96a0afdb0a5f9bb25976dec899f86019b939467a3a7d78c",
+    "reference": "PMID:21881617", "supports": "SUPPORT", "evidence_source": "IN_VITRO"},
+    {"selector": "ecological_interactions[1].evidence[1].snippet", "sha256": "49db276662952211f9bd5326cecc42256ee3b6038186251ff50bde24b1fba110",
+    "reference": "PMID:21881617", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 fb24481a83a7cc17f00978e0372e91bcb1a488b85ac9e6726f19c0fe0158d631.
+    Source locators: PMID:21881617 Results → Syntrophic growth of DE195 in co- and
+    tri-cultures, both paragraphs, Figures 1–2. Retain the listed SUPPORT/PARTIAL
+    and IN_VITRO tiers. No target_taxon or interaction_type is encoded; this source-only
+    phenotype is valid. Roughly threefold applies to maximum rate, not cell yield
+    or a second transfer event.'
+- assessment_id: node-2
+  area: graph
+  topic: Sulfide-Associated Inhibition Of Dechlorination
+  outcome: supported
+  summary: Retain conditional sulfide-associated inhibition in donor-excess cocultures.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - sulfide
+  - perturbation-culture
+  - snippets
+  - schema
+  details: 'Exact selector ecological_interactions[2]; scope PAIRWISE; interaction_type
+    absent. Actual taxa: {"source": {"preferred_term": "Desulfovibrio vulgaris Hildenborough",
+    "term": {"id": "NCBITaxon:882", "label": "Nitratidesulfovibrio vulgaris str. Hildenborough"}},
+    "target": {"preferred_term": "Dehalococcoides mccartyi strain 195", "term": {"id":
+    "NCBITaxon:243164", "label": "Dehalococcoides mccartyi 195"}}, "participants":
+    []}. Canonical excerpt bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet",
+    "sha256": "ea3fa5ef695b7875c9d54f9cc687976fce3566bf107c799f437036f67f435351",
+    "reference": "PMID:28159790", "supports": "SUPPORT", "evidence_source": "IN_VITRO"},
+    {"selector": "ecological_interactions[2].evidence[1].snippet", "sha256": "d02cdef7e40cc5ebfca68d774882fd96733a0f12d084251a862d6e84c93511f8",
+    "reference": "PMID:28159790", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 fb24481a83a7cc17f00978e0372e91bcb1a488b85ac9e6726f19c0fe0158d631.
+    Source locators: PMID:28159790 Results → Effect of sulfate reduction on dechlorination
+    under electron acceptor limitation, both paragraphs, Figures 1–3/Table 1; Sulfate
+    and sulfide effects on axenic cultures; Discussion → Inhibition mechanism. Retain
+    the listed SUPPORT/PARTIAL and IN_VITRO tiers. Do not generalize to sulfate toxicity,
+    hydrogen starvation, donor-limited butyrate tricultures or natural systems. Retain
+    the existing Abstract/Results DvH-threshold discrepancy.'
+- assessment_id: edge-0-0
+  area: graph
+  topic: Lactate Fermentation Supports Dehalococcoides Growth → Enhanced TCE Dechlorination
+    By Syntrophic Support
+  outcome: supported
+  summary: Retain the positive link from fermentation support to the recipient phenotype.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - syntrophy
+  - corrinoids
+  - snippets
+  details: 'Exact selector ecological_interactions[0].downstream[0]; source node 0
+    → target node 1. Source taxon NCBITaxon:882; affected recipient NCBITaxon:243164.
+    Exact edge description: DvH-derived hydrogen and acetate support strain-195 growth
+    and reductive dechlorination in the tested coculture. The faster dechlorination
+    comparison does not isolate every proposed ancillary benefit; proton translocation,
+    amino-acid supply and corrinoid-related effects are not separately demonstrated
+    by this arrow. Description SHA256 df990b2e24d13285eecac0ca078657e3013e609ad77e0a8cc0bc413a1f14217b.
+    Source locators: PMID:21881617 Results → Syntrophic growth of DE195 in co- and
+    tri-cultures, both paragraphs, Figures 1–3/Table 1; PMID:24463969 Results → Growth
+    of Dhc195 in defined consortia with and without exogenous cobalamin. These directions
+    are supported at the stated assay scope, without claiming that every ancillary
+    mechanism was individually perturbed.'
+- assessment_id: edge-2-0
+  area: graph
+  topic: Sulfide-Associated Inhibition Of Dechlorination → Enhanced TCE Dechlorination
+    By Syntrophic Support
+  outcome: supported
+  summary: Retain the conditional negative link that qualifies the recipient phenotype
+    under the sulfate perturbation.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - sulfide
+  - snippets
+  details: 'Exact selector ecological_interactions[2].downstream[0]; source node 2
+    → target node 1. Source taxon NCBITaxon:882; affected recipient NCBITaxon:243164.
+    Exact edge description: Under the tested high-sulfate, electron-donor-excess conditions,
+    accumulated sulfide suppresses strain-195 dechlorination despite available hydrogen.
+    Electron allocation to sulfate reduction is not sufficient evidence that hydrogen
+    competition caused this inhibition. The arrow qualifies the recipient phenotype
+    under this perturbation, not its unperturbed coculture rate. Description SHA256
+    066fda968391b23274b6992df3128b656ea1f1b7bc1c29a08ac1462ec9e70832. Source locators:
+    PMID:28159790 Results → Effect of sulfate reduction on dechlorination under electron
+    acceptor limitation, both paragraphs, Figures 1–3/Table 1; Discussion → Inhibition
+    mechanism. These directions are supported at the stated assay scope, without claiming
+    that every ancillary mechanism was individually perturbed.'
+- assessment_id: cultivation
+  area: scope
+  topic: Source-specific protocol recovery
+  outcome: concern
+  summary: The existing partial medium is accurate but omits recoverable protocol
+    details.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - cultivation
+  - corrinoids
+  - perturbation-culture
+  - author-chapter
+  dimensions:
+  - name: medium
+    value: Defined anaerobic lactate/TCE medium with source-specific cobalamin and
+      perturbation amendments
+    definition: 2012/2014/2017 recipes and transfers are not a universal combined
+      protocol.
+    evidence_ids:
+    - cultivation
+    - corrinoids
+    - perturbation-culture
+  - name: environmental_context
+    value: Laboratory anaerobic culture
+    definition: Groundwater remediation is the modeled application; catalogue media
+      and bioassay conditions are separate.
+    evidence_ids:
+    - cultivation
+    - ontology
+  details: The preparation note says the record does not assert a full recipe; it
+    does not claim the source lacks one. Enrich separate study arms. The dated 2026-10-06
+    unavailable-body discussion remains a historical fact, with a new source-access
+    follow-up rather than a rewritten event.
+- assessment_id: grounding
+  area: grounding
+  topic: Chemistry, processes and exact mappings
+  outcome: supported
+  summary: All 15 current ontology terms match their labels and relevant scope.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - ontology
+  - stocks
+  - gtdb
+  - semantics
+  details: Preserve broad lactate/acetate, TCE/VC/ethene, sulfate, hydrogen and chloride
+    identities. Measured total sulfide includes H2S and other species, not exclusively
+    molecular H2S. Existing GO annotations remain pathway context, not evidence that
+    every fermentative step is respiration. No inferred salt, hydrate or stereoisomer
+    is added.
+- assessment_id: evidence-mode
+  area: evidence
+  topic: Experimental omics evidence
+  outcome: concern
+  summary: A title fragment is exact, but COMPUTATIONAL mislabels the measured assay
+    endpoint.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - omics
+  - supplement
+  - proteomic-workbook
+  - snippets
+  - schema
+  details: Use claim-local experimental evidence for engineering_design.evidence[1].
+    Reserve computational attribution for a separately stated prediction; measured
+    expression does not prove ancillary transport, gene necessity or an inhibited
+    enzyme.
+- assessment_id: dataset
+  area: evidence
+  topic: Expression data identity and assay classification
+  outcome: concern
+  summary: Correct the dataset category while preserving verified series and project
+    identity.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - omics
+  - resources
+  - schema
+  details: GSE26815 targets strain-195 genes across pure/co/tri cultures. Multispecies
+    sampling does not make this community RNA sequencing. Preserve source GPL6336
+    versus registry GPL6116 as an unresolved platform discrepancy. GSE45533 is optional
+    related-study traceability, with separate pair/triculture and cobalamin comparisons.
+- assessment_id: gtdb-provenance
+  area: provenance
+  topic: Mapping snapshot provenance
+  outcome: concern
+  summary: Valid mapping cores carry unsupported latest-release/build wording.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - gtdb
+  - semantics
+  details: Keep exact strain routes, bacterial domains, fractions and denominators.
+    File mtime is an observed local timestamp, not an upstream GTDB release date or
+    build event.
+- assessment_id: ownership
+  area: ownership
+  topic: Prior review and maintained repair owner
+  outcome: supported
+  summary: Repairs belong to the maintained focal record; prior graph corrections
+    remain intact.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - inspection
+  - provenance
+  details: The exact batch 30 records[0], sole history and focal cohort context are
+    retained. Shared issue 1385 remains open beyond this target; this review makes
+    no terminal disposition, history edit or status promotion.
+- assessment_id: source-scope
+  area: scope
+  topic: Scientific completion at explicit read scope
+  outcome: supported
+  summary: Available primary evidence resolves the current record claims despite bounded
+    secondary-asset limits.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - assets
+  - lead-read
+  - locators
+  - source-audit
+  - root-source
+  - empty-responses
+  details: Three complete main papers and 15 main figures were assessed. The 2012
+    supplementary texts/Figure S1 and bounded S2 workbook were inspected; the 2013
+    author Chapter 5 was read as text. Unavailable ASM SI and ACS publication payloads,
+    unread thesis appendix and unprocessed raw matrices remain explicit limits. No
+    negative biological conclusion depends on their absence.
+- assessment_id: native
+  area: schema
+  topic: Focused and contextual checks
+  outcome: supported
+  summary: All eight required native checks passed.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - corpus-context
+  - adapter
+  details: The two corpus failures and optional adapter unavailability are explicitly
+    nonrequired. No candidate validation or parent-owned save is asserted in advance.
+- assessment_id: metrics
+  area: completeness
+  topic: Literal native metrics
+  outcome: supported
+  summary: Completeness 100; raw validation quality 109, capped 100.
+  target_ids:
+  - CommunityMech:000199
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 50 required fields/roles +5 environment +10 three factors +10 three
+      nodes +5 external resources +10 medium +5 datasets +5 node metabolites =100.
+      Populated slots do not establish role accuracy or protocol completeness.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 100 -2 major*10 -3 minor*2 +20*min((7 evidence/3 nodes)/2,1)  +15
+      COMPLETE =109 raw, capped 100. One typed node, two arrows; structural COMPLETE
+      is not scientific proof.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: dvh-roles
+  issue_key: cm-000199-dvh-roles
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Material biological/assay classification exceeds the evidence.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Qualify DvH secondary-fermenter and recipient roles
+  description: Externally supplied lactate does not establish fermentation of primary-degrader
+    products. DvH benefits from hydrogen removal but is not demonstrated here to utilize
+    strain-195 metabolites. Two optional role labels therefore overstate the directed
+    evidence.
+  target_ids:
+  - CommunityMech:000199
+  field_paths:
+  - taxonomy[1].functional_role
+  evidence_ids:
+  - syntrophy
+  - role-clarification
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+    role: canonical_record
+  ownership_note: Maintained focal YAML owns future authorized repairs; no shared
+    issue or historical finding is closed.
+- finding_id: dataset-type
+  issue_key: cm-000199-dataset-type
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Material biological/assay classification exceeds the evidence.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Classify the strain-targeted expression array correctly
+  description: GSE26815 is expression profiling by array targeting strain 195, whereas
+    METATRANSCRIPTOMICS denotes community RNA sequencing. The accessions are correct;
+    the assay category and repository label need correction.
+  target_ids:
+  - CommunityMech:000199
+  field_paths:
+  - associated_datasets[0].dataset_type
+  - associated_datasets[0].repository
+  - associated_datasets[0].description
+  evidence_ids:
+  - omics
+  - resources
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+    role: canonical_record
+  ownership_note: Maintained focal YAML owns future authorized repairs; no shared
+    issue or historical finding is closed.
+- finding_id: cultivation
+  issue_key: cm-000199-cultivation
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded recoverable protocol, evidence placement or provenance;
+    core community and qualified graph remain supported.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Recover source-specific culture and transfer details
+  description: The partial lactate/TCE entry omits available vessel, working volume,
+    gas, cobalamin and transfer information. Add bounded study arms without merging
+    the pair, triculture and bioassay conditions.
+  target_ids:
+  - CommunityMech:000199
+  field_paths:
+  - growth_media[0]
+  - cultivation_setup
+  - discussions[0].rationale
+  evidence_ids:
+  - cultivation
+  - corrinoids
+  - perturbation-culture
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+    role: canonical_record
+  ownership_note: Maintained focal YAML owns future authorized repairs; no shared
+    issue or historical finding is closed.
+- finding_id: omics-evidence
+  issue_key: cm-000199-omics-evidence
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded recoverable protocol, evidence placement or provenance;
+    core community and qualified graph remain supported.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Attach experimental evidence to the measured omics endpoint
+  description: The exact title fragment establishes a topic, but COMPUTATIONAL misclassifies
+    laboratory microarray and proteomic measurements. Replace it with narrow experimental
+    Methods/Results evidence while preserving the limits on mechanistic interpretation.
+  target_ids:
+  - CommunityMech:000199
+  field_paths:
+  - engineering_design.evidence[1]
+  evidence_ids:
+  - omics
+  - snippets
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+    role: canonical_record
+  ownership_note: Maintained focal YAML owns future authorized repairs; no shared
+    issue or historical finding is closed.
+- finding_id: gtdb-provenance
+  issue_key: cm-000199-gtdb-provenance
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded recoverable protocol, evidence placement or provenance;
+    core community and qualified graph remain supported.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Correct unsupported GTDB release/build provenance
+  description: Both mapping cores reproduce; their latest-release and built-date wording
+    is inferred from a filesystem timestamp rather than verified upstream metadata.
+  target_ids:
+  - CommunityMech:000199
+  field_paths:
+  - taxonomy[0].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[1].taxon_term.gtdb_classification.mapping_source
+  evidence_ids:
+  - gtdb
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+    role: canonical_record
+  ownership_note: Maintained focal YAML owns future authorized repairs; no shared
+    issue or historical finding is closed.
+actions:
+- action_id: repair-roles
+  description: Align DvH optional role labels with the demonstrated direction of metabolism.
+  finding_ids:
+  - dvh-roles
+  target_ids:
+  - CommunityMech:000199
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain SYNTROPHIC_PARTNER and the existing H2/acetate arrow. Omit SECONDARY_FERMENTER
+    and CROSS_FEEDER unless source-local evidence establishes the corresponding precursor
+    or recipient claim. Do not invent a replacement enum or claim such metabolism
+    is impossible.
+  - Keep strain-195 PRIMARY_DEGRADER and contextual abundance; neither a polymer-only
+    definition nor an arbitrary abundance threshold is imposed.
+- action_id: repair-dataset
+  description: Retain verified identifiers and correct the assay representation.
+  finding_ids:
+  - dataset-type
+  target_ids:
+  - CommunityMech:000199
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Use TRANSCRIPTOMICS and NCBI_GEO for GSE26815, explicitly identifying the strain-195
+    microarray and pure/pair/triculture comparisons. Retain PRJNA136009 and both exact
+    reference assemblies.
+  - Keep the article GPL6336 versus registry GPL6116 discrepancy visible until independently
+    resolved. Optional GSE45533 enrichment must distinguish its nine samples and pair/triculture
+    ±cobalamin arms; do not relabel all data as this pair or infer RNA sequencing.
+- action_id: enrich-cultivation
+  description: Add separate source-specific cultivation details and an access follow-up.
+  finding_ids:
+  - cultivation
+  target_ids:
+  - CommunityMech:000199
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+    role: canonical_record
+  acceptance_checks:
+  - 'For PMID21881617, cite Materials and methods → Bacterial cultures and growth
+    conditions: 160 mL serum bottle, 100 mL working volume, N2:CO2 90:10, 100 µg/L
+    cyanocobalamin, initial 195:DvH 10:1, 10% transfers every 10 days for 20 passages
+    with 78 µmol TCE; distinguish the 40 µmol lower-TCE arm. Discussion paragraph2
+    states unshaken conditions. The PMC 5 m rendering is not a direct 5 mM quote;
+    Results 500 µmol/100 mL gives 5 mM only by labeled calculation.'
+  - 'For PMID24463969, cite the sole culture Methods paragraph: 160 mL sealed serum
+    bottle, 100 mL basal medium / 60 mL N2:CO2 90:10, about 0.7 mmol lactate / 77
+    µmol TCE, 74 nM cobalamin, 34°C, dark, no shaking, and six 3% transfers. Keep
+    the cobalamin-free/DMB/PfR7 comparisons distinct. Do not transfer pure-PfR7 pH
+    7.5 or Lactobacillus bioassay incubation to the pair.'
+  - Keep PMID28159790 maintenance, acceptor-limited and donor-limited arms separate.
+    Add a dated follow-up that the original main body is now available; preserve the
+    factual historical 2026-10-06 access statement and open ancillary-mechanism uncertainty.
+- action_id: repair-evidence
+  description: Use experimental evidence for measured omics and qualify biological
+    inference.
+  finding_ids:
+  - omics-evidence
+  target_ids:
+  - CommunityMech:000199
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Change engineering_design.evidence[1] to IN_VITRO with a short exact Methods/Results
+    excerpt from PMID21881617 Transcriptomic microarray or Proteomic analysis, and
+    a claim-local explanation. Preserve computational attribution only for a separately
+    stated prediction.
+  - Revalidate all snippets; gene-expression changes alone do not identify a necessary
+    transport mechanism, ancillary benefit or inhibited enzyme.
+- action_id: repair-gtdb
+  description: Preserve reproduced mappings and cite actual snapshot provenance.
+  finding_ids:
+  - gtdb-provenance
+  target_ids:
+  - CommunityMech:000199
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain NCBITaxon:243164→GTDB:s__Dehalococcoides_mccartyi and NCBITaxon:882→GTDB:s__Nitratidesulfovibrio_vulgaris
+    via ncbi_id, fractions 1.0 and genome counts 5/7, with their current lineages.
+    Counts are reference aggregates, not cell abundance.
+  - Use mapping SHA256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd.
+    Label the 2026-07-25 filesystem date as mtime if recorded; leave unverified upstream
+    release/build unknown.
+- action_id: validate-curation
+  description: Validate any separately authorized maintained-record repair.
+  finding_ids:
+  - dvh-roles
+  - dataset-type
+  - cultivation
+  - omics-evidence
+  - gtdb-provenance
+  target_ids:
+  - CommunityMech:000199
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Recheck exact strain, assay and treatment scope, then focused schema, strict,
+    term, explained-reference, GTDB/domain and history checks. Run just gen-html and
+    just check-docs-current when canonical curation is authorized.
+  - Preserve caches, source responses, histories and previous decisions. This review
+    does not authorize record, issue, Git or status mutations.
+limitations:
+- The 2014/2017 ASM supplementary payloads and published 2013 ACS body/SI were not
+  recovered on bounded ordinary routes. The author Chapter 5 text is a separate accessible
+  version, not a journal-PDF or appendix read. Current encoded claims are still adjudicated
+  from the stated sources.
+- Table S2 reading covers its six sheet inventories and first five rows only. Figures
+  were viewed without digitization; no raw microarray/proteomics, isotope, genome
+  or sequence reanalysis was performed.
+- 'Preserve source typography/platform/threshold discrepancies: 2012 lactate 5 m rendering,
+  article GPL6336 versus GEO GPL6116, and 2017 DvH Abstract/Results sulfide threshold.
+  Do not silently harmonize treatment arms or units.'
+notes:
+- Three node assessments bind seven exact canonical excerpt hashes and actual taxa;
+  two edge assessments preserve direction and contextual limitations.
+- The sole quotation is two words from the 2012 culture Methods paragraph. Other source
+  statements are paraphrased or referred to by exact selector/hash.
+- All 33 inspected inputs remain unchanged. Actual candidate validation and parent-owned
+  saving/post-save gates follow this assessment.
+tags:
+- record-review
+- syntrophy
+- dechlorination
+- batch-15
+```

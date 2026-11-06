@@ -1,0 +1,1687 @@
+# Caragana-Wheat Drought SynCom15 record review
+
+- Review: 20261021T161103Z-caragana-wheat-drought-syncom15-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T15:58:56.741468Z
+- Finished UTC: 2026-10-21T16:11:03.978146Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+The complete source supports the 15-member genus/strain-code roster and the qualified two-node, zero-arrow graph. Four minor findings concern assay conditions/context, member codes stored as abundance, explicit supplementary reference routing and a resolved derivative-membership availability gap. Seven native checks pass; the reference check fails on 15 directly verified S7 quotations and remains visibly failed.
+
+## Scope And Provenance
+
+Whole canonical record, every member/node and source scope assessed against complete scientific main, figures, scientific SI, native/ontology and bounded public resource evidence.
+
+Selection: Only released CommunityMech:000456 in the owned batch 09 checkout.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base f491097e6f3cd52baf6c2e89b3e614756ebce558.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000456 | kb/communities/Caragana_Wheat_Drought_SynCom15.yaml | maintained | Caragana-Wheat Drought SynCom15 |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000456 | Schema validation passed. |
+| validate-strict | passed | True | CommunityMech:000456 | Strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000456 | Term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000456 | GTDB validation passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000456 | GTDB domain validation passed. |
+| validate-history | passed | True | CommunityMech:000456 | History validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000456 | Read-only cache-name preflight passed. |
+| validate-references-explained | failed | True | CommunityMech:000456 | Reference validation failed with 15 taxonomy excerpt mismatches against the article cache; each is independently supported by the separate S7 source. |
+| audit-network | failed | True | CommunityMech:000456 | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal two-node graph separately reports COMPLETE. |
+| check-network-quality | failed | True | CommunityMech:000456 | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal two-node graph separately reports COMPLETE. |
+| Whole scientific source review | passed | True | CommunityMech:000456 | Lead assessed the whole scientific main, all eight main figures, full SI Methods, all 24 SI figures/captions and all eight tables. Root independently read the same text/tables and main images, plus six critical SI images. |
+| Direct supplementary roster verification | passed | True | CommunityMech:000456 | All 15 S7 quotations and genus/code mappings directly verified; this does not override the failed native reference route. |
+| Public project and code metadata | passed | True | CommunityMech:000456 | Exact project/publication and immutable repository identities verified; protected collection pages are explicitly bounded. |
+| Raw-data or experimental reproduction | skipped | False | CommunityMech:000456 | No raw sequence analysis, model/code execution, new significance test, image quantification or field experiment. |
+| Ancillary video abstract | skipped | False | CommunityMech:000456 | Ancillary video abstract not viewed; scientific claims assessed through the complete main and scientific SI. |
+| Optional structured expression adapter | unavailable | False | CommunityMech:000456 | No applicable expression-module evidence established through bounded discovery. |
+
+## Scientific And Domain Assessments
+
+### Original SynCom15, host and derivative boundaries
+
+identity: supported. Targets: CommunityMech:000456.
+
+Retain the 15 laboratory-coded genus-level isolates as the original engineered inoculum.
+
+### State, origin and category
+
+scope: supported. Targets: CommunityMech:000456.
+
+Retain ENGINEERED, SYNTHETIC and RHIZOSPHERE for the deliberately assembled inoculum and its wheat application.
+
+No genetic engineering, ecological equilibrium or durable field persistence is inferred. Caragana and wheat are source/recipient hosts, not missing microbial taxonomy entries.
+
+### All fifteen genus/code mappings
+
+identity: supported. Targets: CommunityMech:000456.
+
+Fresh S7 supports every member and the existing genus resolution.
+
+Retain CM-9 dual-ASV mapping and source-reported dash entries. Do not promote genus identities to species, assign new functional roles merely for completeness, or infer strain-level GTDB classifications from global reference rows. Main Chryseomicrobium and primer-code inconsistencies remain source limitations.
+
+### Member aliases versus abundance
+
+scope: concern. Targets: CommunityMech:000456.
+
+All 15 abundance_value entries contain CM identifiers and membership prose rather than abundance.
+
+Relocate CM aliases to strain/source notes while retaining laboratory strain_name. Equal-volume preparation, sequence similarity and one-of-fifteen membership do not justify an in situ 1/15 abundance or ordinal dominance label.
+
+### Activation, inoculation and host assay conditions
+
+completeness: concern. Targets: CommunityMech:000456.
+
+Recover reported cultivation/setup and correct living-host evidence classification.
+
+Keep 28 °C SynCom15 activation separate from 30 °C derivative assays; seedling 22 °C and plate pH are stage-specific. Potting-soil pH is characterized rather than controlled. Do not invent pot mass, fill volume, a complete TSB recipe or an exact CultureMech identifier.
+
+### ecological_interactions[0]: SynCom15 wheat drought growth promotion
+
+evidence: concern. Targets: CommunityMech:000456.
+
+Retain the host phenotype but separate the single-member comparison from explicitly nonsterile Figure 4 experiments.
+
+S10 supports the displayed treatment-versus-control tests; the stronger every-single-member statement remains author-attributed. Its soil sterilization is not specified in the caption. No long-term field effect or SynCom5 mechanism is implied.
+
+### ecological_interactions[1]: metagenomic biofilm/quorum association
+
+evidence: supported. Targets: CommunityMech:000456.
+
+Retain the PARTIAL computational association and explicit DNA-versus-expression limit.
+
+Clarify pathway-specific limits in the explanation: S16C quorum correlation is not significant at 0.05, and its taxonomic Sankey differs from the main biofilm attribution. Do not generalize dominant Pseudomonas contribution or significant correlation to every pathway, or infer strain-resolved causal transfer.
+
+### Zero downstream arrows
+
+evidence: supported. Targets: CommunityMech:000456.
+
+Preserve zero arrows; the current source does not justify transferring SynCom5 perturbation mechanisms to SynCom15.
+
+The two community-level nodes describe a plant outcome and associated functional composition. Their coexistence is not a mechanistic edge.
+
+### SynCom5 membership availability
+
+completeness: concern. Targets: CommunityMech:000456.
+
+Current Figure 6 and S7 resolve the five member codes and strains; the text/OCR availability premise is stale.
+
+Document CM-3, CM-4, CM-9, CM-10 and CM-14 with their S7 names. This does not authorize a separate record or importing five-member AI-2/EPS/host-RNA mechanisms. The independent SynCom15 mediation knowledge gap remains open.
+
+### Fifteen supplement-only native failures
+
+provenance: concern. Targets: CommunityMech:000456.
+
+Preserve the failed reference check and its direct separate-source support, following existing issue 1996.
+
+The article-only validator correctly does not silently validate against SI. Repair requires explicit source-specific routing and wrong/missing-source tests; do not append SI, weaken matching, substitute quotations or declare a clean CLI result. This is a bounded process finding, not a claim that the roster is fabricated.
+
+### Study project and author code
+
+provenance: supported. Targets: CommunityMech:000456.
+
+The encoded publication, PRJCA045628 and author repository are independently verified within metadata scope.
+
+Project-level metadata spans Caragana, wheat rhizosphere and host transcriptome studies. Collection titles alone do not map every run to a treatment or authenticate individual isolate genomes. The project navigation route may be improved without treating browser protection as an invalid accession.
+
+### Prior graph review and cache versions
+
+provenance: supported. Targets: CommunityMech:000456.
+
+Preserve the previous graph repair and distinguish historical source-cache versions from the current frozen inspection.
+
+The context PMID42602126 only cross-cites this paper and supplies no focal claim. All 26 official inputs remain unchanged; additional validator policy/installed-code context is separately pinned, not substituted into a frozen inspection.
+
+### Native checks and semantic interpretation
+
+schema: concern. Targets: CommunityMech:000456.
+
+Seven focused checks pass; the reference check fails on 15 source-backed supplement excerpts.
+
+All required checks ran. Completed scientific review does not mean clean native validation; the verdict remains needs_curation and no canonical repair is performed.
+
+### Native completeness and quality scores
+
+completeness: supported. Targets: CommunityMech:000456.
+
+Mechanical scoring does not justify invented roles, conditions or source-routing exceptions.
+
+## Findings
+
+### assay-context: Recover cultivation and distinguish the host assay contexts
+
+minor / open / confirmed; issue key: cm-000456-assay-context.
+
+Reported activation/inoculum/pot conditions are missing; the design labels a living-plant phenotype IN_VITRO and node 0 combines the single-member comparison with nonsterile conditions without adequate source scope.
+
+### member-code-abundance: Move member codes out of quantitative abundance
+
+minor / open / confirmed; issue key: cm-000456-member-code-abundance.
+
+All 15 abundance_value strings contain CM aliases and membership prose, not abundance measurements.
+
+### supplement-reference-routing: Preserve and resolve the supplement-specific native failures
+
+minor / open / confirmed; issue key: cm-000456-supplement-reference-routing.
+
+The native reference gate fails 15 valid S7 quotations because its selected article source excludes separate supplementary text. Existing issue 1996 owns explicit source-specific routing; direct table matches do not make the CLI pass.
+
+### resolved-derivative-gap: Update the resolved SynCom5 membership availability gap
+
+minor / open / confirmed; issue key: cm-000456-resolved-derivative-gap.
+
+Figure 6 and S7 resolve the five derivative members, making the text/OCR availability premise obsolete. The SynCom15 mechanism gap remains distinct.
+
+## Recommended Actions And Acceptance Checks
+
+### recover-assay-context
+
+Add scoped activation and host-assay information without merging distinct experiments.
+
+- Represent SynCom15 TSB activation at 28 °C, 180 rpm for 12 hours, pellet/wash/resuspension preparation and equal-volume final OD600 0.8 inoculum. Keep source-reported approximate CFU conversion distinct from a measured per-member dose or in situ abundance. Do not borrow 30 °C derivative biofilm conditions.
+- Describe 5 cm diameter pots, 30 mL root-interface inoculation one week after transplanting and four-week harvest. Record WW/LD/MD/HD as 70–80/50–60/30–40/20–30% field capacity. Separate sterile cross-host substrates from the explicitly nonsterile wheat experiment. Do not infer fill volume or soil mass from diameter.
+- Change engineering_design.evidence[1].evidence_source to IN_VIVO for the living-host phenotype. Keep microbial activation/plate assays separate from host pot evidence; do not globally relabel all experimental evidence.
+- Rewrite node 0 so Figure 4 nonsterile SynCom-versus-control outcomes are separate from the author-reported single-member comparison associated with S10. State that S10 supplies no explicit soil qualifier and shows tests versus control, not independently documented pairwise significance against every strain. Preserve its exact quotation with explanatory scope.
+- If recording soil pH, use the S1 potting-soil characterization 8.45 ± 0.04 without converting it to a controlled culture setpoint. Keep seedling 22 °C/16:8 light:dark and screening-medium pH stage-specific. Do not invent a complete TSB recipe, exact CultureMech mapping or unreported universal pot-incubation temperature.
+- Retain two nodes and zero arrows. Clarify the existing metagenomic explanation with pathway-specific S16C P=0.08036 and distinct quorum/biofilm taxonomic assignments; no universal significant association or dominant Pseudomonas contribution to every pathway. Keep SynCom5 mechanisms excluded.
+
+### preserve-member-aliases
+
+Relocate CM identifiers while retaining every source strain mapping.
+
+- Remove CM-1 through CM-15 identifiers and one-of-fifteen text from deprecated quantitative abundance_value and preserve them in the corresponding strain_designation.notes or source notes, retaining strain_name and genus mappings.
+- Do not replace the strings with 1/15, equal measured abundance, DOMINANT or another inferred measurement. S7 similarity percentages, equal-volume inoculum and ASV relative-read profiles are different quantities.
+- Keep all 15 members, including CM-9 ASV26/ASV58 and dash entries for CM-12/13/15. Genus-level identity and existing GTDB uncertainty do not authorize species or genome assignments.
+
+### route-supplement-evidence
+
+Follow existing issue 1996 for explicit supplementary source selection; keep current failures visible until implemented.
+
+- Retain exact S7 quotations and explicit source/table locations; all 15 are directly supported. Cite existing https://github.com/CultureBotAI/CommunityMech/issues/1996 rather than create a duplicate issue or call the roster fabricated.
+- Implement any routing change only through separately authorized maintained schema/validator integration, coordinated with the upstream loader as needed. Select the specific supplementary source and locator; never concatenate SI into article text, use a union/fallback matcher, waive failures or weaken the matching rule.
+- Require end-to-end CLI positive tests and wrong/missing-supplement mutation/restoration tests through the supported route. Until then report validate-references-explained exit 1 with 15 failures and separate direct-source support; a diagnostic match is not a normal native pass.
+- Keep original article/supplement caches, failed logs and current review bytes unchanged. The standalone README/loader context receipt is additional provenance, not a replacement for the official 26-input inspection.
+
+### resolve-derivative-membership-note
+
+Replace the stale availability premise while preserving the original-community boundary.
+
+- Document the Figure 6 plus S7 mapping: CM-3 Pseudomonas WSL11; CM-4 Microbacterium HSG14-2; CM-9 Pseudomonas HST18; CM-10 Pantoea SMR5; CM-14 Bacillus WSG6. Preserve source figure/table locators and the S2 first-two-code inconsistency instead of copying its misnumbering.
+- Update engineering_design.notes and the membership discussion to say that the five-member roster is now recoverable. Update the mediation discussion only to remove reliance on that obsolete availability premise; leave the actual SynCom15 mechanism knowledge gap open.
+- Do not create another record during this review or move SynCom5 AI-2, EPS, root-biofilm, persistence, plant RNA or MAPK/JA results into SynCom15. Any separate derivative record requires its own authorized curation and source-scoped review.
+
+### validate-authorized-curation
+
+Apply future canonical changes only in a separately authorized curation pass.
+
+- Append fresh history, run focused schema, strict, term, reference, GTDB/domain and history checks, then just gen-html and just check-docs-current after separately authorized canonical changes. No canonical edit or generator is run now.
+- Preserve all previous review/source bytes and actual native failures. Reassess changed fields against their exact article or supplementary source rather than refreshing hashes to hide an input change.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Caragana_Wheat_Drought_SynCom15.yaml; Entire canonical record, all 15 members, two interaction nodes and zero arrows | supports | The record denotes the original 15-member Caragana-derived inoculum tested on wheat. Source-backed membership and qualified mechanisms remain sound; four bounded representation/provenance groups need curation. |
+| identity | https://doi.org/10.1186/s40168-026-02350-8; Fresh article front matter: PMID 41634815, PMC12955139 and DOI | supports | The open primary article concerns a Caragana-derived microbial inoculum and wheat drought tolerance. Its publication identifiers agree with the encoded citation. |
+| assembly | PMID:41634815; Materials and methods: Root endophytic bacteria isolation and identification; Synthetic microbial suspension preparation and plant experiment; Results: SynCom enhanced plant drought tolerance; Figure 4 | supports | Eleven core strains representing 12 candidate ASVs were combined with four functionally selected strains. The field root source, Arabidopsis mannitol screen and wheat pot applications are distinct. Cultured-representative matching at least 97% does not independently resolve species or genomes. |
+| roster | PMID:41634815; Supplementary Table S7, complete table including CM-9 continuation; Figure S8 | supports | All 15 genus/strain-code rows are supported. CM-9 HST18 maps to both ASV_26 and ASV_58. ASV percentages denote sequence similarity; a dash is the source table entry, not evidence of absent membership. Main prose Chryseomicrobium differs from S7/S8 Chryseobacterium; retain the directly cited S7 genus. |
+| phenotype | PMID:41634815; Results: SynCom enhanced plant drought tolerance; Figure 4C–E; supplementary Figures S9–S10 | supports | The main authors report greater wheat growth for SynCom15 than individual members. Figure 4 explicitly establishes nonsterile wheat assays, while S9 describes sterile cross-host assays and S10 provides no soil qualifier. S10 significance is shown against uninoculated control, not every member pairwise. Do not combine all these comparisons into one nonsterile experiment. |
+| metagenome | PMID:41634815; Results: SynCom modulates wheat rhizosphere microbial structure to enhance drought tolerance; Figure 5E–G; Discussion | supports | The original SynCom15 experiment uses rhizosphere DNA functional abundance and genus-level assignments. These are associations, not measured expression, pathway flux or causal mediation by inoculated strains. The paper explicitly separates this profiling from later SynCom5 experiments. |
+| pathway-limits | PMID:41634815; Figure S16A–D and caption; main Figure 5F–G | supports | S16C plots quorum sensing versus fresh weight with P=0.08036, despite broader main significance wording. Its quorum-sensing taxonomic Sankey differs from the main biofilm panel; neither a universal significant association nor predominant Pseudomonas attribution to every pathway is established. Preserve the source quotation with a pathway-specific explanatory limitation. |
+| preparation | PMID:41634815; Materials and methods: Synthetic microbial suspension preparation and plant experiment | supports | SynCom15 strains were activated in TSB at 28 °C and 180 rpm for 12 hours, pelleted at 4,500 rpm for 10 minutes, washed three times with sterile water, resuspended to OD600 1 and combined in equal volumes to final OD600 0.8. The approximately 1e9 CFU/mL estimate is source-reported; do not derive individual viable fractions or root abundance from equal-volume assembly. |
+| pots | PMID:41634815; Materials and methods: Synthetic microbial suspension preparation and plant experiment; Results: SynCom enhanced plant drought tolerance; Figure 1B–C and Figure 4C–E | supports | The source reports 5 cm diameter pots, 30 mL root-interface inoculation one week after transplanting and a four-week endpoint. WW/LD/MD/HD are 70–80/50–60/30–40/20–30% field capacity. Sterile cross-host substrates and nonsterile wheat field-soil assays are separate. Seedling 22 °C and 16:8 light:dark conditions are not universal bacterial culture conditions; pot diameter is not working volume. |
+| soil | PMID:41634815; Supplementary Table S1, potting-soil row | supports | Potting soil is characterized at pH 8.45 ± 0.04 with other soil properties. This is not a controlled microbial medium pH or a universal pH for every field collection and assay. |
+| derivative | PMID:41634815; Results: Simplification of a functional SynCom guided by biofilm formation capacity; Figure 6C–G; Functional validation and molecular mechanism of the SynCom5 | supports | Figure 6 labels CM-3, CM-4, CM-9, CM-10 and CM-14 as the derivative. Together with S7 these identify Pseudomonas WSL11, Microbacterium HSG14-2, Pseudomonas HST18, Pantoea SMR5 and Bacillus WSG6. This resolves the membership availability premise without creating a new record. SynCom5 AI-2, EPS, root biofilm, persistence and host transcriptomic results must remain separate from SynCom15. |
+| derivative-si | PMID:41634815; Supplementary Methods: Core Strain Interaction Analysis, Biofilm Formation and EPS Quantification, In vitro AI-2 assay, SynCom5 quantification; Figures S18–S24; Table S2 | supports | Derivative assays use their own 30 °C culture conditions, reporter and host-RNA methods. S2 lists the five matching strain names but misnumbers WSL11 and HSG14-2 as SC-2/SC-3; Figure 6 plus S7 establish the correct CM-3/CM-4 mapping. SI references Table S12 although the linked primer table is S2. These source inconsistencies do not change the 15-member roster. |
+| data-statement | PMID:41634815; Data availability; Acknowledgements: Code availability; Materials and methods: Metagenomic taxonomic and functional annotation; RNA sequencing and qPCR validation | supports | The paper names PRJCA045628 and hxwwx/Caragana2025. Caragana discovery amplicon profiling, original SynCom15 wheat-rhizosphere metagenomics and derivative SynCom5 host-root RNA are distinct studies within the broader project and analysis resources. |
+| schema | src/communitymech/schema/communitymech.yaml; TaxonomicComposition.abundance_value; StrainDesignation; EvidenceSourceEnum; MicrobialCommunity.taxonomy; GrowthMedia and CultivationSetup | supports | abundance_value is deprecated free-text quantitative abundance, not a membership-code slot. Living-host pot phenotypes are IN_VIVO. Optional role/abundance fields need not be filled for score gains; host plants are not microbial members. |
+| ontology | ontology-authority.json; Whole bounded frozen receipt | supports | All 11 distinct encoded ID-label pairs match across 17 occurrences; nine microbial terms are genus rank. |
+| semantics | ontology-semantic-notes.json; Whole bounded frozen receipt | supports | The whole-record semantic audit distinguishes CM identifiers, quantitative abundance, living-host evidence, assay contexts and genus/ASV scope. |
+| gtdb | child-gtdb-mapping-check.json; Whole bounded frozen receipt | supports | Encoded genus mappings and unresolved genera were checked against a pinned local crosswalk. Reference-genome name rows do not classify experimental isolates or force a GTDB split; UNRESOLVED is not biological absence. |
+| native-si | child-roster-cache-check.json; Whole bounded frozen receipt | supports | All 15 taxonomy excerpts occur verbatim in the separate supplementary cache and not the article cache. Native reference failure is real despite direct scientific support. |
+| routing | supplement-validator-context.json; Whole bounded frozen receipt | supports | Additional repository README, installed loader and current issue 1996 are separately SHA-pinned without rewriting the 26-input inspection. The loader lacks explicit supplement selection; no source union, fallback or cache concatenation is authorized. |
+| resources | dataset-verification.json; Whole bounded frozen receipt | supports | The real BioProject landing page directly links the focal publication and lists four CRA collections plus 352 BioSample links. Individual GSA collection routes return browser challenges, so run-level metadata and sample completeness are not certified. The encoded project is valid; no data-absence claim follows. |
+| repository | repository-verification.json; Whole bounded frozen receipt | supports | Immutable author commit af4fb129bbae371d9619d3c28553e067fe29f6a1, 56-entry tree and minimal README inspected. No analysis code was executed or treated as independently reproduced results. |
+| snippets | snippet-audit.json; Whole bounded frozen receipt | supports | Twenty-four scientific excerpts are independently supported: nine main-body passages and 15 S7 table rows. One additional DOI display is bibliographic metadata. These categories are distinct from the failed native article-only matcher. |
+| history | provenance-audit.json; Whole bounded frozen receipt | supports | Both histories and exact prior batch10 row were read. The current record and supplementary cache match earlier hashes; the article cache has a later version. That historical difference is not a current-input mutation. Earlier graph repairs remain preserved. |
+| metrics | support-audit.json; Whole bounded frozen receipt | supports | Native graph COMPLETE: two nodes, zero arrows, three node-evidence entries. Completeness 15 and quality 100 capped from 122 are mechanical scores at zero major and four minor findings. |
+| lead-read | lead-primary-read-scope.json; Whole bounded frozen receipt | supports | Entire scientific main, all eight main images, complete SI Methods/captions, all 24 SI images and all cells of all eight tables were read. Raw omics and statistical reproduction were outside scope. |
+| source-scope | source-audit.json; Whole bounded frozen receipt | supports | The source-backed assessment retains membership and qualified graph while identifying four bounded minor groups and explicit source discrepancies. |
+| root-source | root-independent-source-audit.json; Whole bounded frozen receipt | supports | Root independently read the main and all eight main figures, full SI Methods, all 24 captions and all eight tables; root viewed SI Figures S9, S10, S12, S16, S19 and S20. Root accepted completed review with four minor findings. |
+| read-scope-clarification | support-read-scope-clarification.json; Whole bounded frozen receipt | supports | The frozen support sentence overstates shared SI image scope: the lead viewed all 24 SI images and root viewed six identified figures. Both read full SI Methods, all 24 captions and all eight tables. This immutable clarification preserves the original support bytes. |
+| auxiliary | auxiliary-frozen-manifest.json; Whole bounded frozen receipt | supports | Child-owned native/OAK/GTDB/adapter receipts are frozen. Seven native checks pass; the reference check fails with 15 separately supported SI excerpts. |
+| adapter | adapter-check.json; Whole bounded frozen receipt | supports | Bounded structured-adapter discovery uses a verified same-batch runtime receipt. No applicable expression module establishes these host/consortium claims; absence is not negative biological evidence. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate kb/communities/Caragana_Wheat_Drought_SynCom15.yaml; Actual execution 2026-10-21T16:01:10.099863+00:00 to 2026-10-21T16:01:10.909381+00:00 | supports | Schema validation passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-strict kb/communities/Caragana_Wheat_Drought_SynCom15.yaml --out /private/tmp/cm-review-session/batch-09/000456/strict-report.tsv; Actual execution 2026-10-21T16:01:10.100013+00:00 to 2026-10-21T16:01:22.034453+00:00 | supports | Strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-terms kb/communities/Caragana_Wheat_Drought_SynCom15.yaml; Actual execution 2026-10-21T16:01:10.100069+00:00 to 2026-10-21T16:01:11.883123+00:00 | supports | Term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-gtdb kb/communities/Caragana_Wheat_Drought_SynCom15.yaml; Actual execution 2026-10-21T16:01:10.909715+00:00 to 2026-10-21T16:01:11.000231+00:00 | supports | GTDB validation passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-gtdb-domain kb/communities/Caragana_Wheat_Drought_SynCom15.yaml; Actual execution 2026-10-21T16:01:11.000587+00:00 to 2026-10-21T16:01:12.381150+00:00 | supports | GTDB domain validation passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-history history/records/Caragana_Wheat_Drought_SynCom15; Actual execution 2026-10-21T16:01:11.883565+00:00 to 2026-10-21T16:01:12.645918+00:00 | supports | History validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T16:01:22.037783+00:00 to 2026-10-21T16:01:22.223152+00:00 | supports | Read-only cache-name preflight passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src just --no-dotenv validate-references-explained kb/communities/Caragana_Wheat_Drought_SynCom15.yaml; Actual execution 2026-10-21T16:01:22.223988+00:00 to 2026-10-21T16:01:24.809346+00:00 | supports | Reference validation failed with 15 taxonomy excerpt mismatches against the article cache; each is independently supported by the separate S7 source. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T14:53:06.814378+00:00 to 2026-10-21T14:53:14.616064+00:00 | supports | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal two-node graph separately reports COMPLETE. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T14:53:06.817734+00:00 to 2026-10-21T14:53:14.704428+00:00 | supports | Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities; the focal two-node graph separately reports COMPLETE. |
+
+## Limits And Additional Notes
+
+- Completed scientific review of current claims covers the entire scientific main, all eight main figures, full supplementary Methods, all 24 SI figures/captions and all cells of eight supplementary tables. This is not an independent reproduction of the paper.
+- No raw sequencing, species reassignment, isolate genome classification, code execution, new statistical test, image quantification, plant physiological reanalysis or field persistence experiment was performed. Ancillary video abstract was not viewed.
+- ASV matching and laboratory codes preserve genus-level isolates; 97% cultured-representative thresholds and S7 percentages are not whole-genome species identity or measured abundance. S7 is preferred for explicit member mappings; source prose Chryseomicrobium differs from S7/S8 Chryseobacterium.
+- Cultivation stages are distinct: initial isolation/screening, SynCom15 activation/inoculation, sterile cross-host pots, nonsterile wheat drought pots and separate SynCom5 in-vitro/host assays. Source TSB at 28 °C activation differs from 30 °C derivative biofilm assays. Seedling temperature, plate pH and pot-soil characterization are not universal microbial setpoints.
+- S10 caption tests single-member and SynCom15 bars against uninoculated control and supplies no soil sterilization label. Main authors report superiority to each member, but displayed statistics do not independently establish every pairwise comparison. Do not combine this claim with Figure 4 nonsterile assay scope.
+- S16C shows quorum-sensing correlation P = 0.08036 despite broader main positive-significance prose. Its quorum-sensing Sankey does not establish the same genus contribution as Figure 5 biofilm panel. Keep pathway-specific evidence and do not infer universal significant correlation or predominant Pseudomonas contribution to every pathway.
+- Metagenomic DNA functional abundance is not expression, metabolite flux or causal mediation. SynCom5 AI-2/EPS/biofilm/host-RNA perturbations and four-week persistence remain separate from SynCom15 functional associations.
+- Figure 6 plus S7 resolve the five derivative members. S2 lists corresponding strain names but misnumbers the first two SC codes; no automatic copying of those codes, new record creation or derivative mechanism transfer is authorized.
+- Native reference validation fails fifteen roster excerpts because the installed loader selects article caches rather than separate SI. Direct S7 and sidecar matches establish scientific support without converting the native result to a pass. Existing issue 1996 requires explicit source routing, not union/fallback or merged caches.
+- PRJCA045628 identity/publication and four linked collection titles are verified through BioProject metadata; individual GSA collection pages return browser challenges. No collection-level payload/treatment completeness is certified. GitHub commit/tree/README inspected without running code.
+- Existing 26 official input pins are unchanged. Additional README and installed-loader context was inspected later and separately hash-pinned in supplement-validator-context.json without replacing inspect or child receipts. Historical article-cache hash differs from the old decision row, not from the current official inspection.
+- No canonical, cache, history, generated or saved-review files changed. All 26 official input hashes remain intact; additional validator-policy/installed-loader context is separately pinned.
+- All 25 excerpt occurrences have verified source locations: nine main-body passages, 15 S7 rows and one DOI-display metadata item. These direct matches do not override native article-cache failures.
+- Completeness 15 and quality 100 (raw 122) are mechanical scores, not scientific certification. Optional roles and abundance measurements were not invented to improve scoring.
+- Source-specific limitations include S10 comparator/soil ambiguity, S16 quorum-correlation and taxonomic scope, S2 code misnumbering, and separation of SynCom15 from SynCom5.
+- No paid provider, author contact, raw reanalysis, later-target assessment or canonical mutation.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T161103Z-caragana-wheat-drought-syncom15-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Caragana-Wheat Drought SynCom15 record review
+started_at: '2026-10-21T15:58:56.741468Z'
+finished_at: '2026-10-21T16:11:03.978146Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary science, auxiliary native/ontology
+    checks and supporting provenance; no person-level independence is asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: The complete source supports the 15-member genus/strain-code roster and the
+  qualified two-node, zero-arrow graph. Four minor findings concern assay conditions/context,
+  member codes stored as abundance, explicit supplementary reference routing and a
+  resolved derivative-membership availability gap. Seven native checks pass; the reference
+  check fails on 15 directly verified S7 quotations and remains visibly failed.
+source:
+  git_revision: f491097e6f3cd52baf6c2e89b3e614756ebce558
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Caragana_Wheat_Drought_SynCom15/2026-09-27T234618Z-claude-code-25ca30.yaml
+    sha256: adbaa44ad21fdd357b0f55f90abf1f2ac0ed91f606455cbfd84732b56c71141f
+    role: context
+  - path: history/records/Caragana_Wheat_Drought_SynCom15/2026-10-05T173107Z-codex-171563.yaml
+    sha256: 37af14ae8fde9a6b6c857e056c28df9680cfbe3d061aab8287737a068d26cb5e
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+    sha256: 5fe2262acd9eb4de81a2f454ac2954ab5d347a1ce7915d1cdcaf73fc584ff678
+    role: target
+  - path: references_cache/PMID_41634815.supplement.md
+    sha256: 99cbaf310c20323f40cf7005ad997da21098e7ef867c86336a2f0affd8e929a9
+    role: context
+  - path: references_cache/PMID_41634815.txt
+    sha256: 0dc288d29a3f599742315a0034ddf4aad7c0f6523c898bd0e7f54091f5131037
+    role: context
+  - path: references_cache/PMID_42602126.txt
+    sha256: b6524569419d9d0679f8917a8362a6afa8979713fef2de4c9b0ba1e39f913ab5
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-ten-records-batch10.yaml
+    sha256: 7149a6a81f091ff27d40deaf5bf99cb0a9b6486344db20009517f48652fe855d
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000456
+  path: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+  label: Caragana-Wheat Drought SynCom15
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+    role: canonical_record
+scope:
+  description: Whole canonical record, every member/node and source scope assessed
+    against complete scientific main, figures, scientific SI, native/ontology and
+    bounded public resource evidence.
+  selection: Only released CommunityMech:000456 in the owned batch 09 checkout.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000456
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema validation passed.
+  target_ids:
+  - CommunityMech:000456
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Fresh focused native execution; actual failures are retained independently
+    of scientific source assessment.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict validation passed.
+  target_ids:
+  - CommunityMech:000456
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-strict kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+    --out /private/tmp/cm-review-session/batch-09/000456/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Fresh focused native execution; actual failures are retained independently
+    of scientific source assessment.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Term validation passed.
+  target_ids:
+  - CommunityMech:000456
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-terms kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Fresh focused native execution; actual failures are retained independently
+    of scientific source assessment.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB validation passed.
+  target_ids:
+  - CommunityMech:000456
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Fresh focused native execution; actual failures are retained independently
+    of scientific source assessment.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: GTDB domain validation passed.
+  target_ids:
+  - CommunityMech:000456
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Fresh focused native execution; actual failures are retained independently
+    of scientific source assessment.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: History validation passed.
+  target_ids:
+  - CommunityMech:000456
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-history history/records/Caragana_Wheat_Drought_SynCom15
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Fresh focused native execution; actual failures are retained independently
+    of scientific source assessment.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only cache-name preflight passed.
+  target_ids:
+  - CommunityMech:000456
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Fresh focused native execution; actual failures are retained independently
+    of scientific source assessment.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: failed
+  required: true
+  summary: Reference validation failed with 15 taxonomy excerpt mismatches against
+    the article cache; each is independently supported by the separate S7 source.
+  target_ids:
+  - CommunityMech:000456
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-references-explained kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  - routing
+  - native-si
+  scope_note: Fresh focused native execution; actual failures are retained independently
+    of scientific source assessment.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal two-node graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000456
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - metrics
+  scope_note: Explicit same-batch corpus reuse with original timestamps; existing
+    unrelated warnings are not assigned to this target.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal two-node graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000456
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - metrics
+  scope_note: Explicit same-batch corpus reuse with original timestamps; existing
+    unrelated warnings are not assigned to this target.
+- check_id: scientific-source
+  name: Whole scientific source review
+  status: passed
+  required: true
+  summary: Lead assessed the whole scientific main, all eight main figures, full SI
+    Methods, all 24 SI figures/captions and all eight tables. Root independently read
+    the same text/tables and main images, plus six critical SI images.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - source-scope
+  - lead-read
+  - root-source
+  - read-scope-clarification
+- check_id: direct-roster
+  name: Direct supplementary roster verification
+  status: passed
+  required: true
+  summary: All 15 S7 quotations and genus/code mappings directly verified; this does
+    not override the failed native reference route.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - roster
+  - snippets
+  - routing
+- check_id: public-resources
+  name: Public project and code metadata
+  status: passed
+  required: true
+  summary: Exact project/publication and immutable repository identities verified;
+    protected collection pages are explicitly bounded.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - resources
+  - repository
+- check_id: raw-reanalysis
+  name: Raw-data or experimental reproduction
+  status: skipped
+  required: false
+  summary: No raw sequence analysis, model/code execution, new significance test,
+    image quantification or field experiment.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - source-scope
+- check_id: video-abstract
+  name: Ancillary video abstract
+  status: skipped
+  required: false
+  summary: Ancillary video abstract not viewed; scientific claims assessed through
+    the complete main and scientific SI.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - lead-read
+- check_id: structured-adapter
+  name: Optional structured expression adapter
+  status: unavailable
+  required: false
+  summary: No applicable expression-module evidence established through bounded discovery.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+  locator: Entire canonical record, all 15 members, two interaction nodes and zero
+    arrows
+  summary: The record denotes the original 15-member Caragana-derived inoculum tested
+    on wheat. Source-backed membership and qualified mechanisms remain sound; four
+    bounded representation/provenance groups need curation.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.943907Z'
+- evidence_id: identity
+  kind: primary_source
+  reference: https://doi.org/10.1186/s40168-026-02350-8
+  locator: 'Fresh article front matter: PMID 41634815, PMC12955139 and DOI'
+  summary: The open primary article concerns a Caragana-derived microbial inoculum
+    and wheat drought tolerance. Its publication identifiers agree with the encoded
+    citation.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.944221Z'
+  snapshot_sha256: 95c8788abf6e2a3200694ec0ad192f860ecae5bf766249da14fb89d89923ced3
+- evidence_id: assembly
+  kind: primary_source
+  reference: PMID:41634815
+  locator: 'Materials and methods: Root endophytic bacteria isolation and identification;
+    Synthetic microbial suspension preparation and plant experiment; Results: SynCom
+    enhanced plant drought tolerance; Figure 4'
+  summary: Eleven core strains representing 12 candidate ASVs were combined with four
+    functionally selected strains. The field root source, Arabidopsis mannitol screen
+    and wheat pot applications are distinct. Cultured-representative matching at least
+    97% does not independently resolve species or genomes.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.944304Z'
+  snapshot_sha256: 95c8788abf6e2a3200694ec0ad192f860ecae5bf766249da14fb89d89923ced3
+- evidence_id: roster
+  kind: primary_source
+  reference: PMID:41634815
+  locator: Supplementary Table S7, complete table including CM-9 continuation; Figure
+    S8
+  summary: All 15 genus/strain-code rows are supported. CM-9 HST18 maps to both ASV_26
+    and ASV_58. ASV percentages denote sequence similarity; a dash is the source table
+    entry, not evidence of absent membership. Main prose Chryseomicrobium differs
+    from S7/S8 Chryseobacterium; retain the directly cited S7 genus.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.944527Z'
+  snapshot_sha256: 91f4d5d07d51552ad1c3c99009e8f76f78e8c57af5dffbc70f5795a49025c28f
+- evidence_id: phenotype
+  kind: primary_source
+  reference: PMID:41634815
+  locator: 'Results: SynCom enhanced plant drought tolerance; Figure 4C–E; supplementary
+    Figures S9–S10'
+  summary: The main authors report greater wheat growth for SynCom15 than individual
+    members. Figure 4 explicitly establishes nonsterile wheat assays, while S9 describes
+    sterile cross-host assays and S10 provides no soil qualifier. S10 significance
+    is shown against uninoculated control, not every member pairwise. Do not combine
+    all these comparisons into one nonsterile experiment.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.944605Z'
+  snapshot_sha256: 95c8788abf6e2a3200694ec0ad192f860ecae5bf766249da14fb89d89923ced3
+  quote: inoculation with the complete SynCom15 consortium
+- evidence_id: metagenome
+  kind: primary_source
+  reference: PMID:41634815
+  locator: 'Results: SynCom modulates wheat rhizosphere microbial structure to enhance
+    drought tolerance; Figure 5E–G; Discussion'
+  summary: The original SynCom15 experiment uses rhizosphere DNA functional abundance
+    and genus-level assignments. These are associations, not measured expression,
+    pathway flux or causal mediation by inoculated strains. The paper explicitly separates
+    this profiling from later SynCom5 experiments.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.944674Z'
+  snapshot_sha256: 95c8788abf6e2a3200694ec0ad192f860ecae5bf766249da14fb89d89923ced3
+  quote: enriched genes were predominantly of Pseudomonas origin
+- evidence_id: pathway-limits
+  kind: primary_source
+  reference: PMID:41634815
+  locator: Figure S16A–D and caption; main Figure 5F–G
+  summary: S16C plots quorum sensing versus fresh weight with P=0.08036, despite broader
+    main significance wording. Its quorum-sensing taxonomic Sankey differs from the
+    main biofilm panel; neither a universal significant association nor predominant
+    Pseudomonas attribution to every pathway is established. Preserve the source quotation
+    with a pathway-specific explanatory limitation.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.945129Z'
+  snapshot_sha256: 3a1eef4d6558428defd0ce328857d342cf18949ae95928348d2f35fde905d6d9
+- evidence_id: preparation
+  kind: primary_source
+  reference: PMID:41634815
+  locator: 'Materials and methods: Synthetic microbial suspension preparation and
+    plant experiment'
+  summary: SynCom15 strains were activated in TSB at 28 °C and 180 rpm for 12 hours,
+    pelleted at 4,500 rpm for 10 minutes, washed three times with sterile water, resuspended
+    to OD600 1 and combined in equal volumes to final OD600 0.8. The approximately
+    1e9 CFU/mL estimate is source-reported; do not derive individual viable fractions
+    or root abundance from equal-volume assembly.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.945227Z'
+  snapshot_sha256: 95c8788abf6e2a3200694ec0ad192f860ecae5bf766249da14fb89d89923ced3
+- evidence_id: pots
+  kind: primary_source
+  reference: PMID:41634815
+  locator: 'Materials and methods: Synthetic microbial suspension preparation and
+    plant experiment; Results: SynCom enhanced plant drought tolerance; Figure 1B–C
+    and Figure 4C–E'
+  summary: The source reports 5 cm diameter pots, 30 mL root-interface inoculation
+    one week after transplanting and a four-week endpoint. WW/LD/MD/HD are 70–80/50–60/30–40/20–30%
+    field capacity. Sterile cross-host substrates and nonsterile wheat field-soil
+    assays are separate. Seedling 22 °C and 16:8 light:dark conditions are not universal
+    bacterial culture conditions; pot diameter is not working volume.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.945293Z'
+  snapshot_sha256: 95c8788abf6e2a3200694ec0ad192f860ecae5bf766249da14fb89d89923ced3
+- evidence_id: soil
+  kind: primary_source
+  reference: PMID:41634815
+  locator: Supplementary Table S1, potting-soil row
+  summary: Potting soil is characterized at pH 8.45 ± 0.04 with other soil properties.
+    This is not a controlled microbial medium pH or a universal pH for every field
+    collection and assay.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.945423Z'
+  snapshot_sha256: 3d72323ce1a2675f3d5659dd0c4db5b322f8b7b4d056a7064f6be1de03148820
+- evidence_id: derivative
+  kind: primary_source
+  reference: PMID:41634815
+  locator: 'Results: Simplification of a functional SynCom guided by biofilm formation
+    capacity; Figure 6C–G; Functional validation and molecular mechanism of the SynCom5'
+  summary: Figure 6 labels CM-3, CM-4, CM-9, CM-10 and CM-14 as the derivative. Together
+    with S7 these identify Pseudomonas WSL11, Microbacterium HSG14-2, Pseudomonas
+    HST18, Pantoea SMR5 and Bacillus WSG6. This resolves the membership availability
+    premise without creating a new record. SynCom5 AI-2, EPS, root biofilm, persistence
+    and host transcriptomic results must remain separate from SynCom15.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.945504Z'
+  snapshot_sha256: 95c8788abf6e2a3200694ec0ad192f860ecae5bf766249da14fb89d89923ced3
+- evidence_id: derivative-si
+  kind: primary_source
+  reference: PMID:41634815
+  locator: 'Supplementary Methods: Core Strain Interaction Analysis, Biofilm Formation
+    and EPS Quantification, In vitro AI-2 assay, SynCom5 quantification; Figures S18–S24;
+    Table S2'
+  summary: Derivative assays use their own 30 °C culture conditions, reporter and
+    host-RNA methods. S2 lists the five matching strain names but misnumbers WSL11
+    and HSG14-2 as SC-2/SC-3; Figure 6 plus S7 establish the correct CM-3/CM-4 mapping.
+    SI references Table S12 although the linked primer table is S2. These source inconsistencies
+    do not change the 15-member roster.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.972664Z'
+  snapshot_sha256: 8e717766ff885cd27bc655c9d9e9d221abae2b4abc2445e49969de7b9fea997a
+- evidence_id: data-statement
+  kind: primary_source
+  reference: PMID:41634815
+  locator: 'Data availability; Acknowledgements: Code availability; Materials and
+    methods: Metagenomic taxonomic and functional annotation; RNA sequencing and qPCR
+    validation'
+  summary: The paper names PRJCA045628 and hxwwx/Caragana2025. Caragana discovery
+    amplicon profiling, original SynCom15 wheat-rhizosphere metagenomics and derivative
+    SynCom5 host-root RNA are distinct studies within the broader project and analysis
+    resources.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.972826Z'
+  snapshot_sha256: 95c8788abf6e2a3200694ec0ad192f860ecae5bf766249da14fb89d89923ced3
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: TaxonomicComposition.abundance_value; StrainDesignation; EvidenceSourceEnum;
+    MicrobialCommunity.taxonomy; GrowthMedia and CultivationSetup
+  summary: abundance_value is deprecated free-text quantitative abundance, not a membership-code
+    slot. Living-host pot phenotypes are IN_VIVO. Optional role/abundance fields need
+    not be filled for score gains; host plants are not microbial members.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.972911Z'
+  snapshot_sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+- evidence_id: ontology
+  kind: authority
+  reference: ontology-authority.json
+  locator: Whole bounded frozen receipt
+  summary: All 11 distinct encoded ID-label pairs match across 17 occurrences; nine
+    microbial terms are genus rank.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.973087Z'
+  snapshot_sha256: 327f83c4147010b9b847d8de963dfe9d46611cb81198af3d1a613f014e03a2ca
+- evidence_id: semantics
+  kind: authority
+  reference: ontology-semantic-notes.json
+  locator: Whole bounded frozen receipt
+  summary: The whole-record semantic audit distinguishes CM identifiers, quantitative
+    abundance, living-host evidence, assay contexts and genus/ASV scope.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.973256Z'
+  snapshot_sha256: ac62cb62e215e4fdd68d03985ec15d4db6aaaba419ddb80fd49ca6c08cf463d5
+- evidence_id: gtdb
+  kind: authority
+  reference: child-gtdb-mapping-check.json
+  locator: Whole bounded frozen receipt
+  summary: Encoded genus mappings and unresolved genera were checked against a pinned
+    local crosswalk. Reference-genome name rows do not classify experimental isolates
+    or force a GTDB split; UNRESOLVED is not biological absence.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.973436Z'
+  snapshot_sha256: b6daabbbe59545da5cd587222aa661a2a3aeca53fc78f685c6ec906d0de4beb7
+- evidence_id: native-si
+  kind: validation
+  reference: child-roster-cache-check.json
+  locator: Whole bounded frozen receipt
+  summary: All 15 taxonomy excerpts occur verbatim in the separate supplementary cache
+    and not the article cache. Native reference failure is real despite direct scientific
+    support.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.973703Z'
+  snapshot_sha256: 6730a4bf6fbf5c71d05b1d6b89abb39693612891b553de55637fb416c89ac0ca
+- evidence_id: routing
+  kind: authority
+  reference: supplement-validator-context.json
+  locator: Whole bounded frozen receipt
+  summary: Additional repository README, installed loader and current issue 1996 are
+    separately SHA-pinned without rewriting the 26-input inspection. The loader lacks
+    explicit supplement selection; no source union, fallback or cache concatenation
+    is authorized.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.973864Z'
+  snapshot_sha256: 3dfdc985c61aa7db5f1fa1367a5360d28a00c4c47dce185129b7387bc508c99f
+- evidence_id: resources
+  kind: database
+  reference: dataset-verification.json
+  locator: Whole bounded frozen receipt
+  summary: The real BioProject landing page directly links the focal publication and
+    lists four CRA collections plus 352 BioSample links. Individual GSA collection
+    routes return browser challenges, so run-level metadata and sample completeness
+    are not certified. The encoded project is valid; no data-absence claim follows.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.974024Z'
+  snapshot_sha256: 245bd089a6b4875afbae49c3f1e45a69ca586bc3496f96047abdce3824f15d7b
+- evidence_id: repository
+  kind: database
+  reference: repository-verification.json
+  locator: Whole bounded frozen receipt
+  summary: Immutable author commit af4fb129bbae371d9619d3c28553e067fe29f6a1, 56-entry
+    tree and minimal README inspected. No analysis code was executed or treated as
+    independently reproduced results.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.974152Z'
+  snapshot_sha256: 916e72c66e0f25eedc54fa723c51de1c8b10eff6c4ff4efcc6a1038b5246cc72
+- evidence_id: snippets
+  kind: validation
+  reference: snippet-audit.json
+  locator: Whole bounded frozen receipt
+  summary: 'Twenty-four scientific excerpts are independently supported: nine main-body
+    passages and 15 S7 table rows. One additional DOI display is bibliographic metadata.
+    These categories are distinct from the failed native article-only matcher.'
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.974289Z'
+  snapshot_sha256: 59f3b745333b2169d409c57e886a03897898e936c554a619dcba2fa652e27486
+- evidence_id: history
+  kind: record_content
+  reference: provenance-audit.json
+  locator: Whole bounded frozen receipt
+  summary: Both histories and exact prior batch10 row were read. The current record
+    and supplementary cache match earlier hashes; the article cache has a later version.
+    That historical difference is not a current-input mutation. Earlier graph repairs
+    remain preserved.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.974433Z'
+  snapshot_sha256: 90a1c14b656dccba667c33ba63661ca427323a1fac1cf0a5d03e55f74f787a61
+- evidence_id: metrics
+  kind: validation
+  reference: support-audit.json
+  locator: Whole bounded frozen receipt
+  summary: 'Native graph COMPLETE: two nodes, zero arrows, three node-evidence entries.
+    Completeness 15 and quality 100 capped from 122 are mechanical scores at zero
+    major and four minor findings.'
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.974466Z'
+  snapshot_sha256: 23133d0886af55eadb5a193a4011bdd7a36a30c6713bd58586df3fe534d0d019
+- evidence_id: lead-read
+  kind: validation
+  reference: lead-primary-read-scope.json
+  locator: Whole bounded frozen receipt
+  summary: Entire scientific main, all eight main images, complete SI Methods/captions,
+    all 24 SI images and all cells of all eight tables were read. Raw omics and statistical
+    reproduction were outside scope.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.974617Z'
+  snapshot_sha256: 2265f6553306278a192eb2a0fdb37b4d3bf692c42c7e76549405cb3c13006f05
+- evidence_id: source-scope
+  kind: validation
+  reference: source-audit.json
+  locator: Whole bounded frozen receipt
+  summary: The source-backed assessment retains membership and qualified graph while
+    identifying four bounded minor groups and explicit source discrepancies.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.974659Z'
+  snapshot_sha256: 8eaa94011e25fb5d72b15035b110900222a8fb83eba5dc808986419a44262da6
+- evidence_id: root-source
+  kind: validation
+  reference: root-independent-source-audit.json
+  locator: Whole bounded frozen receipt
+  summary: Root independently read the main and all eight main figures, full SI Methods,
+    all 24 captions and all eight tables; root viewed SI Figures S9, S10, S12, S16,
+    S19 and S20. Root accepted completed review with four minor findings.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.974801Z'
+  snapshot_sha256: 88a16f79b049746ff7e98280f77daa7d0ba4cded1438bf59de1dd9e87e0fcf44
+- evidence_id: read-scope-clarification
+  kind: validation
+  reference: support-read-scope-clarification.json
+  locator: Whole bounded frozen receipt
+  summary: 'The frozen support sentence overstates shared SI image scope: the lead
+    viewed all 24 SI images and root viewed six identified figures. Both read full
+    SI Methods, all 24 captions and all eight tables. This immutable clarification
+    preserves the original support bytes.'
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.974943Z'
+  snapshot_sha256: 9e606f96812f9bc1aebc9cc197b83232405d59248c46710b940042ee631a483b
+- evidence_id: auxiliary
+  kind: validation
+  reference: auxiliary-frozen-manifest.json
+  locator: Whole bounded frozen receipt
+  summary: Child-owned native/OAK/GTDB/adapter receipts are frozen. Seven native checks
+    pass; the reference check fails with 15 separately supported SI excerpts.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.975070Z'
+  snapshot_sha256: 7c8f737ec18a8a2cb3fcb48a58bc4d559d0c488bd96eee5c6fbefe81f4e58492
+- evidence_id: adapter
+  kind: validation
+  reference: adapter-check.json
+  locator: Whole bounded frozen receipt
+  summary: Bounded structured-adapter discovery uses a verified same-batch runtime
+    receipt. No applicable expression module establishes these host/consortium claims;
+    absence is not negative biological evidence.
+  support: supports
+  accessed_at: '2026-10-21T16:11:03.975275Z'
+  snapshot_sha256: f447d136ad178efa09855b0b73746d7cb8dba49d5d1bf7d47edba9d4910f07aa
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+  locator: Actual execution 2026-10-21T16:01:10.099863+00:00 to 2026-10-21T16:01:10.909381+00:00
+  summary: Schema validation passed.
+  support: supports
+  accessed_at: '2026-10-21T16:01:10.909381Z'
+  snapshot_sha256: 535124d4d89713f84d470f898a72f7af21fdd1e94797071150bf3709ded556f4
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-strict kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+    --out /private/tmp/cm-review-session/batch-09/000456/strict-report.tsv
+  locator: Actual execution 2026-10-21T16:01:10.100013+00:00 to 2026-10-21T16:01:22.034453+00:00
+  summary: Strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T16:01:22.034453Z'
+  snapshot_sha256: 3d024db3a0a07fc3fb2b7e0ed17753cf831353c026ebd9b7e595676a7ffaa81e
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-terms kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+  locator: Actual execution 2026-10-21T16:01:10.100069+00:00 to 2026-10-21T16:01:11.883123+00:00
+  summary: Term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T16:01:11.883123Z'
+  snapshot_sha256: e94be923caa327440645274607013d3a5c72640d5fb7ef8bc9348cb588fc3f58
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+  locator: Actual execution 2026-10-21T16:01:10.909715+00:00 to 2026-10-21T16:01:11.000231+00:00
+  summary: GTDB validation passed.
+  support: supports
+  accessed_at: '2026-10-21T16:01:11.000231Z'
+  snapshot_sha256: 7034076794f32f624b4eddcc049f850d4c190dd39ff5f185488cfea1baf9a6a0
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+  locator: Actual execution 2026-10-21T16:01:11.000587+00:00 to 2026-10-21T16:01:12.381150+00:00
+  summary: GTDB domain validation passed.
+  support: supports
+  accessed_at: '2026-10-21T16:01:12.381150Z'
+  snapshot_sha256: 23e0eb743603f0b5f7e004f16b80c0e7ad30b8eff01f4e95915e96aacdd0b55b
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-history history/records/Caragana_Wheat_Drought_SynCom15
+  locator: Actual execution 2026-10-21T16:01:11.883565+00:00 to 2026-10-21T16:01:12.645918+00:00
+  summary: History validation passed.
+  support: supports
+  accessed_at: '2026-10-21T16:01:12.645918Z'
+  snapshot_sha256: 9c2018677cc925ace9ca1ab23c299ebc7fe3dc7d41361e0268a78d8457299a68
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T16:01:22.037783+00:00 to 2026-10-21T16:01:22.223152+00:00
+  summary: Read-only cache-name preflight passed.
+  support: supports
+  accessed_at: '2026-10-21T16:01:22.223152Z'
+  snapshot_sha256: ee899b496f442a3669efe8ffc4ba6dce270d6d4b60e243c837d9cada56dd99fd
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src
+    just --no-dotenv validate-references-explained kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+  locator: Actual execution 2026-10-21T16:01:22.223988+00:00 to 2026-10-21T16:01:24.809346+00:00
+  summary: Reference validation failed with 15 taxonomy excerpt mismatches against
+    the article cache; each is independently supported by the separate S7 source.
+  support: supports
+  accessed_at: '2026-10-21T16:01:24.809346Z'
+  snapshot_sha256: 4b7aae99e8fe79dda29ade257a0522fda59390648125e2d9828f87de34611455
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T14:53:06.814378+00:00 to 2026-10-21T14:53:14.616064+00:00
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal two-node graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T14:53:14.616064Z'
+  snapshot_sha256: af46c37677bdc80eb1866f799958882492e9f72ed8eff4c304f69cd667f99156
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-09/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T14:53:06.817734+00:00 to 2026-10-21T14:53:14.704428+00:00
+  summary: Fresh batch 09 corpus diagnostics report 57 warnings across 21 of 477 communities;
+    the focal two-node graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T14:53:14.704428Z'
+  snapshot_sha256: 6bf7d1eaf4ddc02de94aaea33610660d4b12689dc78ff47a6e29148baeffdd4f
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Original SynCom15, host and derivative boundaries
+  outcome: supported
+  summary: Retain the 15 laboratory-coded genus-level isolates as the original engineered
+    inoculum.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - assembly
+  - roster
+  - identity
+  dimensions:
+  - name: community_scope
+    value: Original 15-member inoculum
+    definition: SynCom5 is a distinct derivative; native soil microbes and host plants
+      are not additional designed members.
+    evidence_ids:
+    - assembly
+    - derivative
+  - name: strain_scope
+    value: Fifteen laboratory strain codes at genus rank
+    definition: S7 names and ASV similarity do not establish whole-genome species
+      identity.
+    evidence_ids:
+    - roster
+    - ontology
+  - name: environment
+    value: Wheat rhizosphere; Caragana root source
+    definition: Source isolation environment and physical recipient-host assay are
+      distinct.
+    evidence_ids:
+    - assembly
+    - pots
+  - name: medium
+    value: TSB activation; separate soil/plate assays
+    definition: One recipe or incubation regime cannot be generalized across all experimental
+      stages.
+    evidence_ids:
+    - preparation
+    - pots
+    - derivative-si
+  - name: evidence_tier
+    value: Living-host phenotype plus computational DNA associations
+    definition: No SynCom15 causal mediation follows from metagenomic annotation or
+      derivative perturbations.
+    evidence_ids:
+    - phenotype
+    - metagenome
+    - pathway-limits
+- assessment_id: state
+  area: scope
+  topic: State, origin and category
+  outcome: supported
+  summary: Retain ENGINEERED, SYNTHETIC and RHIZOSPHERE for the deliberately assembled
+    inoculum and its wheat application.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - assembly
+  - pots
+  - schema
+  details: No genetic engineering, ecological equilibrium or durable field persistence
+    is inferred. Caragana and wheat are source/recipient hosts, not missing microbial
+    taxonomy entries.
+- assessment_id: taxonomy
+  area: identity
+  topic: All fifteen genus/code mappings
+  outcome: supported
+  summary: Fresh S7 supports every member and the existing genus resolution.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - roster
+  - ontology
+  - gtdb
+  details: Retain CM-9 dual-ASV mapping and source-reported dash entries. Do not promote
+    genus identities to species, assign new functional roles merely for completeness,
+    or infer strain-level GTDB classifications from global reference rows. Main Chryseomicrobium
+    and primer-code inconsistencies remain source limitations.
+- assessment_id: abundance
+  area: scope
+  topic: Member aliases versus abundance
+  outcome: concern
+  summary: All 15 abundance_value entries contain CM identifiers and membership prose
+    rather than abundance.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - roster
+  - schema
+  - semantics
+  details: Relocate CM aliases to strain/source notes while retaining laboratory strain_name.
+    Equal-volume preparation, sequence similarity and one-of-fifteen membership do
+    not justify an in situ 1/15 abundance or ordinal dominance label.
+- assessment_id: conditions
+  area: completeness
+  topic: Activation, inoculation and host assay conditions
+  outcome: concern
+  summary: Recover reported cultivation/setup and correct living-host evidence classification.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - preparation
+  - pots
+  - soil
+  - schema
+  details: Keep 28 °C SynCom15 activation separate from 30 °C derivative assays; seedling
+    22 °C and plate pH are stage-specific. Potting-soil pH is characterized rather
+    than controlled. Do not invent pot mass, fill volume, a complete TSB recipe or
+    an exact CultureMech identifier.
+- assessment_id: node-0
+  area: evidence
+  topic: 'ecological_interactions[0]: SynCom15 wheat drought growth promotion'
+  outcome: concern
+  summary: Retain the host phenotype but separate the single-member comparison from
+    explicitly nonsterile Figure 4 experiments.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - phenotype
+  - pots
+  - lead-read
+  details: S10 supports the displayed treatment-versus-control tests; the stronger
+    every-single-member statement remains author-attributed. Its soil sterilization
+    is not specified in the caption. No long-term field effect or SynCom5 mechanism
+    is implied.
+- assessment_id: node-1
+  area: evidence
+  topic: 'ecological_interactions[1]: metagenomic biofilm/quorum association'
+  outcome: supported
+  summary: Retain the PARTIAL computational association and explicit DNA-versus-expression
+    limit.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - metagenome
+  - pathway-limits
+  - derivative
+  details: 'Clarify pathway-specific limits in the explanation: S16C quorum correlation
+    is not significant at 0.05, and its taxonomic Sankey differs from the main biofilm
+    attribution. Do not generalize dominant Pseudomonas contribution or significant
+    correlation to every pathway, or infer strain-resolved causal transfer.'
+- assessment_id: arrows
+  area: evidence
+  topic: Zero downstream arrows
+  outcome: supported
+  summary: Preserve zero arrows; the current source does not justify transferring
+    SynCom5 perturbation mechanisms to SynCom15.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - metagenome
+  - derivative
+  - derivative-si
+  details: The two community-level nodes describe a plant outcome and associated functional
+    composition. Their coexistence is not a mechanistic edge.
+- assessment_id: derivative-gap
+  area: completeness
+  topic: SynCom5 membership availability
+  outcome: concern
+  summary: Current Figure 6 and S7 resolve the five member codes and strains; the
+    text/OCR availability premise is stale.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - derivative
+  - roster
+  - derivative-si
+  details: Document CM-3, CM-4, CM-9, CM-10 and CM-14 with their S7 names. This does
+    not authorize a separate record or importing five-member AI-2/EPS/host-RNA mechanisms.
+    The independent SynCom15 mediation knowledge gap remains open.
+- assessment_id: references
+  area: provenance
+  topic: Fifteen supplement-only native failures
+  outcome: concern
+  summary: Preserve the failed reference check and its direct separate-source support,
+    following existing issue 1996.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - routing
+  - native-si
+  - snippets
+  details: The article-only validator correctly does not silently validate against
+    SI. Repair requires explicit source-specific routing and wrong/missing-source
+    tests; do not append SI, weaken matching, substitute quotations or declare a clean
+    CLI result. This is a bounded process finding, not a claim that the roster is
+    fabricated.
+- assessment_id: resources
+  area: provenance
+  topic: Study project and author code
+  outcome: supported
+  summary: The encoded publication, PRJCA045628 and author repository are independently
+    verified within metadata scope.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - data-statement
+  - resources
+  - repository
+  details: Project-level metadata spans Caragana, wheat rhizosphere and host transcriptome
+    studies. Collection titles alone do not map every run to a treatment or authenticate
+    individual isolate genomes. The project navigation route may be improved without
+    treating browser protection as an invalid accession.
+- assessment_id: history
+  area: provenance
+  topic: Prior graph review and cache versions
+  outcome: supported
+  summary: Preserve the previous graph repair and distinguish historical source-cache
+    versions from the current frozen inspection.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - history
+  - snippets
+  - routing
+  details: The context PMID42602126 only cross-cites this paper and supplies no focal
+    claim. All 26 official inputs remain unchanged; additional validator policy/installed-code
+    context is separately pinned, not substituted into a frozen inspection.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and semantic interpretation
+  outcome: concern
+  summary: Seven focused checks pass; the reference check fails on 15 source-backed
+    supplement excerpts.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - auxiliary
+  - ontology
+  - routing
+  - snippets
+  details: All required checks ran. Completed scientific review does not mean clean
+    native validation; the verdict remains needs_curation and no canonical repair
+    is performed.
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and quality scores
+  outcome: supported
+  summary: Mechanical scoring does not justify invented roles, conditions or source-routing
+    exceptions.
+  target_ids:
+  - CommunityMech:000456
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 15
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Native rubric gives environment 5, external resources 5 and associated
+      datasets 5. The 50-point required-field/taxon-role bundle is not awarded because
+      optional member roles are absent; two interactions do not meet the three-interaction
+      bonus. Total 15; no role invention is warranted.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      P1=0,P2=0,P3=4,P4=0; three evidence entries/two nodes gives 15 evidence points;
+      COMPLETE adds 15. Raw 122 is capped at 100. The failed native reference route
+      remains explicitly reported.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 4
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: assay-context
+  issue_key: cm-000456-assay-context
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded representation, assay-context or provenance repair;
+    the directly verified community identity and qualified biological claims remain
+    reviewable.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Recover cultivation and distinguish the host assay contexts
+  description: Reported activation/inoculum/pot conditions are missing; the design
+    labels a living-plant phenotype IN_VITRO and node 0 combines the single-member
+    comparison with nonsterile conditions without adequate source scope.
+  target_ids:
+  - CommunityMech:000456
+  field_paths:
+  - growth_media
+  - cultivation_setup
+  - environmental_factors
+  - engineering_design.evidence[1].evidence_source
+  - ecological_interactions[0].description
+  evidence_ids:
+  - preparation
+  - pots
+  - phenotype
+  - soil
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+    role: canonical_record
+- finding_id: member-code-abundance
+  issue_key: cm-000456-member-code-abundance
+  category: scope
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded representation, assay-context or provenance repair;
+    the directly verified community identity and qualified biological claims remain
+    reviewable.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Move member codes out of quantitative abundance
+  description: All 15 abundance_value strings contain CM aliases and membership prose,
+    not abundance measurements.
+  target_ids:
+  - CommunityMech:000456
+  field_paths:
+  - taxonomy[*].abundance_value
+  - taxonomy[*].strain_designation.notes
+  evidence_ids:
+  - roster
+  - schema
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+    role: canonical_record
+- finding_id: supplement-reference-routing
+  issue_key: cm-000456-supplement-reference-routing
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded representation, assay-context or provenance repair;
+    the directly verified community identity and qualified biological claims remain
+    reviewable.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Preserve and resolve the supplement-specific native failures
+  description: The native reference gate fails 15 valid S7 quotations because its
+    selected article source excludes separate supplementary text. Existing issue 1996
+    owns explicit source-specific routing; direct table matches do not make the CLI
+    pass.
+  target_ids:
+  - CommunityMech:000456
+  field_paths:
+  - taxonomy[*].evidence[0]
+  evidence_ids:
+  - routing
+  - native-si
+  - snippets
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+    role: canonical_record
+- finding_id: resolved-derivative-gap
+  issue_key: cm-000456-resolved-derivative-gap
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded representation, assay-context or provenance repair;
+    the directly verified community identity and qualified biological claims remain
+    reviewable.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Update the resolved SynCom5 membership availability gap
+  description: Figure 6 and S7 resolve the five derivative members, making the text/OCR
+    availability premise obsolete. The SynCom15 mechanism gap remains distinct.
+  target_ids:
+  - CommunityMech:000456
+  field_paths:
+  - engineering_design.notes
+  - discussions[0]
+  - discussions[1].rationale
+  evidence_ids:
+  - derivative
+  - roster
+  - derivative-si
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+    role: canonical_record
+actions:
+- action_id: recover-assay-context
+  description: Add scoped activation and host-assay information without merging distinct
+    experiments.
+  finding_ids:
+  - assay-context
+  target_ids:
+  - CommunityMech:000456
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Represent SynCom15 TSB activation at 28 °C, 180 rpm for 12 hours, pellet/wash/resuspension
+    preparation and equal-volume final OD600 0.8 inoculum. Keep source-reported approximate
+    CFU conversion distinct from a measured per-member dose or in situ abundance.
+    Do not borrow 30 °C derivative biofilm conditions.
+  - Describe 5 cm diameter pots, 30 mL root-interface inoculation one week after transplanting
+    and four-week harvest. Record WW/LD/MD/HD as 70–80/50–60/30–40/20–30% field capacity.
+    Separate sterile cross-host substrates from the explicitly nonsterile wheat experiment.
+    Do not infer fill volume or soil mass from diameter.
+  - Change engineering_design.evidence[1].evidence_source to IN_VIVO for the living-host
+    phenotype. Keep microbial activation/plate assays separate from host pot evidence;
+    do not globally relabel all experimental evidence.
+  - Rewrite node 0 so Figure 4 nonsterile SynCom-versus-control outcomes are separate
+    from the author-reported single-member comparison associated with S10. State that
+    S10 supplies no explicit soil qualifier and shows tests versus control, not independently
+    documented pairwise significance against every strain. Preserve its exact quotation
+    with explanatory scope.
+  - If recording soil pH, use the S1 potting-soil characterization 8.45 ± 0.04 without
+    converting it to a controlled culture setpoint. Keep seedling 22 °C/16:8 light:dark
+    and screening-medium pH stage-specific. Do not invent a complete TSB recipe, exact
+    CultureMech mapping or unreported universal pot-incubation temperature.
+  - Retain two nodes and zero arrows. Clarify the existing metagenomic explanation
+    with pathway-specific S16C P=0.08036 and distinct quorum/biofilm taxonomic assignments;
+    no universal significant association or dominant Pseudomonas contribution to every
+    pathway. Keep SynCom5 mechanisms excluded.
+- action_id: preserve-member-aliases
+  description: Relocate CM identifiers while retaining every source strain mapping.
+  finding_ids:
+  - member-code-abundance
+  target_ids:
+  - CommunityMech:000456
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove CM-1 through CM-15 identifiers and one-of-fifteen text from deprecated
+    quantitative abundance_value and preserve them in the corresponding strain_designation.notes
+    or source notes, retaining strain_name and genus mappings.
+  - Do not replace the strings with 1/15, equal measured abundance, DOMINANT or another
+    inferred measurement. S7 similarity percentages, equal-volume inoculum and ASV
+    relative-read profiles are different quantities.
+  - Keep all 15 members, including CM-9 ASV26/ASV58 and dash entries for CM-12/13/15.
+    Genus-level identity and existing GTDB uncertainty do not authorize species or
+    genome assignments.
+- action_id: route-supplement-evidence
+  description: Follow existing issue 1996 for explicit supplementary source selection;
+    keep current failures visible until implemented.
+  finding_ids:
+  - supplement-reference-routing
+  target_ids:
+  - CommunityMech:000456
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Retain exact S7 quotations and explicit source/table locations; all 15 are directly
+    supported. Cite existing https://github.com/CultureBotAI/CommunityMech/issues/1996
+    rather than create a duplicate issue or call the roster fabricated.
+  - Implement any routing change only through separately authorized maintained schema/validator
+    integration, coordinated with the upstream loader as needed. Select the specific
+    supplementary source and locator; never concatenate SI into article text, use
+    a union/fallback matcher, waive failures or weaken the matching rule.
+  - Require end-to-end CLI positive tests and wrong/missing-supplement mutation/restoration
+    tests through the supported route. Until then report validate-references-explained
+    exit 1 with 15 failures and separate direct-source support; a diagnostic match
+    is not a normal native pass.
+  - Keep original article/supplement caches, failed logs and current review bytes
+    unchanged. The standalone README/loader context receipt is additional provenance,
+    not a replacement for the official 26-input inspection.
+- action_id: resolve-derivative-membership-note
+  description: Replace the stale availability premise while preserving the original-community
+    boundary.
+  finding_ids:
+  - resolved-derivative-gap
+  target_ids:
+  - CommunityMech:000456
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+    role: canonical_record
+  acceptance_checks:
+  - 'Document the Figure 6 plus S7 mapping: CM-3 Pseudomonas WSL11; CM-4 Microbacterium
+    HSG14-2; CM-9 Pseudomonas HST18; CM-10 Pantoea SMR5; CM-14 Bacillus WSG6. Preserve
+    source figure/table locators and the S2 first-two-code inconsistency instead of
+    copying its misnumbering.'
+  - Update engineering_design.notes and the membership discussion to say that the
+    five-member roster is now recoverable. Update the mediation discussion only to
+    remove reliance on that obsolete availability premise; leave the actual SynCom15
+    mechanism knowledge gap open.
+  - Do not create another record during this review or move SynCom5 AI-2, EPS, root-biofilm,
+    persistence, plant RNA or MAPK/JA results into SynCom15. Any separate derivative
+    record requires its own authorized curation and source-scoped review.
+- action_id: validate-authorized-curation
+  description: Apply future canonical changes only in a separately authorized curation
+    pass.
+  finding_ids:
+  - assay-context
+  - member-code-abundance
+  - supplement-reference-routing
+  - resolved-derivative-gap
+  target_ids:
+  - CommunityMech:000456
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Caragana_Wheat_Drought_SynCom15.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Append fresh history, run focused schema, strict, term, reference, GTDB/domain
+    and history checks, then just gen-html and just check-docs-current after separately
+    authorized canonical changes. No canonical edit or generator is run now.
+  - Preserve all previous review/source bytes and actual native failures. Reassess
+    changed fields against their exact article or supplementary source rather than
+    refreshing hashes to hide an input change.
+limitations:
+- Completed scientific review of current claims covers the entire scientific main,
+  all eight main figures, full supplementary Methods, all 24 SI figures/captions and
+  all cells of eight supplementary tables. This is not an independent reproduction
+  of the paper.
+- No raw sequencing, species reassignment, isolate genome classification, code execution,
+  new statistical test, image quantification, plant physiological reanalysis or field
+  persistence experiment was performed. Ancillary video abstract was not viewed.
+- ASV matching and laboratory codes preserve genus-level isolates; 97% cultured-representative
+  thresholds and S7 percentages are not whole-genome species identity or measured
+  abundance. S7 is preferred for explicit member mappings; source prose Chryseomicrobium
+  differs from S7/S8 Chryseobacterium.
+- 'Cultivation stages are distinct: initial isolation/screening, SynCom15 activation/inoculation,
+  sterile cross-host pots, nonsterile wheat drought pots and separate SynCom5 in-vitro/host
+  assays. Source TSB at 28 °C activation differs from 30 °C derivative biofilm assays.
+  Seedling temperature, plate pH and pot-soil characterization are not universal microbial
+  setpoints.'
+- S10 caption tests single-member and SynCom15 bars against uninoculated control and
+  supplies no soil sterilization label. Main authors report superiority to each member,
+  but displayed statistics do not independently establish every pairwise comparison.
+  Do not combine this claim with Figure 4 nonsterile assay scope.
+- S16C shows quorum-sensing correlation P = 0.08036 despite broader main positive-significance
+  prose. Its quorum-sensing Sankey does not establish the same genus contribution
+  as Figure 5 biofilm panel. Keep pathway-specific evidence and do not infer universal
+  significant correlation or predominant Pseudomonas contribution to every pathway.
+- Metagenomic DNA functional abundance is not expression, metabolite flux or causal
+  mediation. SynCom5 AI-2/EPS/biofilm/host-RNA perturbations and four-week persistence
+  remain separate from SynCom15 functional associations.
+- Figure 6 plus S7 resolve the five derivative members. S2 lists corresponding strain
+  names but misnumbers the first two SC codes; no automatic copying of those codes,
+  new record creation or derivative mechanism transfer is authorized.
+- Native reference validation fails fifteen roster excerpts because the installed
+  loader selects article caches rather than separate SI. Direct S7 and sidecar matches
+  establish scientific support without converting the native result to a pass. Existing
+  issue 1996 requires explicit source routing, not union/fallback or merged caches.
+- PRJCA045628 identity/publication and four linked collection titles are verified
+  through BioProject metadata; individual GSA collection pages return browser challenges.
+  No collection-level payload/treatment completeness is certified. GitHub commit/tree/README
+  inspected without running code.
+- Existing 26 official input pins are unchanged. Additional README and installed-loader
+  context was inspected later and separately hash-pinned in supplement-validator-context.json
+  without replacing inspect or child receipts. Historical article-cache hash differs
+  from the old decision row, not from the current official inspection.
+notes:
+- No canonical, cache, history, generated or saved-review files changed. All 26 official
+  input hashes remain intact; additional validator-policy/installed-loader context
+  is separately pinned.
+- 'All 25 excerpt occurrences have verified source locations: nine main-body passages,
+  15 S7 rows and one DOI-display metadata item. These direct matches do not override
+  native article-cache failures.'
+- Completeness 15 and quality 100 (raw 122) are mechanical scores, not scientific
+  certification. Optional roles and abundance measurements were not invented to improve
+  scoring.
+- Source-specific limitations include S10 comparator/soil ambiguity, S16 quorum-correlation
+  and taxonomic scope, S2 code misnumbering, and separation of SynCom15 from SynCom5.
+- No paid provider, author contact, raw reanalysis, later-target assessment or canonical
+  mutation.
+tags:
+- record-review
+- caragana-wheat-syncom15
+- supplement-source-routing
+- main-and-scientific-supplement-assessed
+- batch-09
+```

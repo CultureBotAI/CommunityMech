@@ -498,8 +498,16 @@
                         </td>
                         <td>
 
+                            <div class="roles-list">
+
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+
+                                <span class="role-badge">CROSS_FEEDER</span>
+
+                            </div>
+
                         </td>
-                        <td>N/A</td>
+                        <td>ABUNDANT</td>
                     </tr>
 
                     <tr class="evidence-row-container">
@@ -514,6 +522,17 @@
                                     - SUPPORT (IN_VIVO)
 
                                     <div class="snippet">"Streptococcus mutans has been implicated as the primary pathogen in childhood caries (tooth decay)."</div>
+
+                                </li>
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37217495/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37217495</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"We found that the core near the centroid consisted predominantly of S. mutans, whereas the periphery harbored predominantly S. sputigena"</div>
 
                                 </li>
 
@@ -538,6 +557,14 @@
                         </td>
                         <td>
 
+                            <div class="roles-list">
+
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+
+                                <span class="role-badge">CROSS_FEEDER</span>
+
+                            </div>
+
                         </td>
                         <td>N/A</td>
                     </tr>
@@ -554,6 +581,17 @@
                                     - SUPPORT (IN_VIVO)
 
                                     <div class="snippet">"We show that S. sputigena, a flagellated anaerobe with previously unknown role in supragingival biofilm, becomes trapped in streptococcal exoglucans"</div>
+
+                                </li>
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37217495/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37217495</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Intriguingly, the combination of S. mutans and S. sputigena resulted in the highest average acid production rate, significantly higher than that of S. mutans alone (Fig. 4A2 ) and the most rapid pH drop. These findings are suggestive of a possible co-metabolic relationship between S. mutans and S. sputigena."</div>
 
                                 </li>
 
@@ -874,6 +912,50 @@
 
 
 
+        <section>
+            <h2>Environmental Factors</h2>
+            <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>1% (w/v) sucrose supplementation in BHIS medium</strong></td>
+                        <td>1% (w/v)</td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37217495/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37217495</a>
+
+                                    - SUPPORT (IN_VITRO)
+
+                                    <div class="snippet">"Single or mixed biofilms were grown on the apatitic surfaces in BHIS medium (107 CFU/mL for the new species and/or 105 CFU/mL S. mutans) supplemented with 1% sucrose, the primary dietary sugar associated with tooth decay, to simulate cariogenic conditions relevant to children with ECC."</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+            </div>
+        </section>
+
 
         <!-- Growth Media -->
 
@@ -1051,15 +1133,15 @@
         taxonData["Streptococcus mutans"] = {
             id: "NCBITaxon:1309",
             label: "Streptococcus mutans",
-            abundance: "UNKNOWN",
-            roles: []
+            abundance: "ABUNDANT",
+            roles: ["PRIMARY_DEGRADER", "CROSS_FEEDER"]
         };
 
         taxonData["Selenomonas sputigena"] = {
             id: "NCBITaxon:69823",
             label: "Selenomonas sputigena",
             abundance: "UNKNOWN",
-            roles: []
+            roles: ["SYNTROPHIC_PARTNER", "CROSS_FEEDER"]
         };
 
 

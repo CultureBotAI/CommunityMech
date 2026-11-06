@@ -1,0 +1,1394 @@
+schema_version: 1.0.0
+review_id: 20261021T195212Z-clostridial-isodca-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Clostridial isoDCA consortium source and metadata review
+started_at: '2026-10-21T19:40:32.654574Z'
+finished_at: '2026-10-21T19:52:12.956519Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed source science, native/authority checks
+    and support; no person-level independence asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: The recovered full preprint and supplements support the WT two-member target,
+  matched KO control and single sequential bile-acid conversion interaction. Four
+  minor follow-ups concern cultivation stages/equipment, local role and abundance
+  evidence, GTDB mapping provenance and the verified study 16S dataset. No major finding;
+  eight focused checks pass.
+source:
+  git_revision: 95812d3412d5aab41fd03422340cf736ac7b56f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Clostridial_isoDCA_Mini_Consortium/2026-09-20T171158Z-claude-code-151814.yaml
+    sha256: b7d9568ce8c2fb99541b9b8e95f317ae49a608dbdbbae4eee59984fa43a69603
+    role: context
+  - path: history/records/Clostridial_isoDCA_Mini_Consortium/2026-09-20T174509Z-claude-code-bbd098.yaml
+    sha256: 0c37cc085c4351ed5992a1ed0b4a42dd16537399776a9a8bbe0005a6e681334f
+    role: context
+  - path: history/records/Clostridial_isoDCA_Mini_Consortium/2026-09-20T174942Z-claude-code-c979ce.yaml
+    sha256: 89cbed142769277da5ef4a5bb51bfc0bacc0150c70f4211a91b43afd01f79859
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+    sha256: bb785ba51ceecbd2b3eccdee982413f11baf5df7f5f33f180dc9a9a49ef4363d
+    role: target
+  - path: references_cache/doi_10.64898_2026.08.11.743107.md
+    sha256: f1965bd991762f8051a1012dee3556636b3fc7cc27fe49136b23499380ff87a8
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-two-records-batch16.yaml
+    sha256: 9464758270eae2862581ce2f8bcb12f1568047795bef3bd76468e0c02b6d7114
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000396
+  path: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+  label: Clostridial isoDCA Mini Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+    role: canonical_record
+scope:
+  description: Whole maintained record assessed against complete main and SI, source-specific
+    figures, current authorities and bounded public resource/provenance checks.
+  selection: Only released CommunityMech:000396 in owned batch 11.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000396
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: validate passed on this record; scientific support is separately assessed.
+  target_ids:
+  - CommunityMech:000396
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused batch 11 execution; selected-cache matching is not whole-source
+    certification.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: validate-strict passed on this record; scientific support is separately
+    assessed.
+  target_ids:
+  - CommunityMech:000396
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-strict kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+    --out /private/tmp/cm-review-session/batch-11/000396/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused batch 11 execution; selected-cache matching is not whole-source
+    certification.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: validate-terms passed on this record; scientific support is separately
+    assessed.
+  target_ids:
+  - CommunityMech:000396
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-terms kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused batch 11 execution; selected-cache matching is not whole-source
+    certification.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: validate-references-explained passed on this record; scientific support
+    is separately assessed.
+  target_ids:
+  - CommunityMech:000396
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-references-explained kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused batch 11 execution; selected-cache matching is not whole-source
+    certification.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: validate-gtdb passed on this record; scientific support is separately assessed.
+  target_ids:
+  - CommunityMech:000396
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-gtdb kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused batch 11 execution; selected-cache matching is not whole-source
+    certification.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: validate-gtdb-domain passed on this record; scientific support is separately
+    assessed.
+  target_ids:
+  - CommunityMech:000396
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused batch 11 execution; selected-cache matching is not whole-source
+    certification.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: validate-history passed on this record; scientific support is separately
+    assessed.
+  target_ids:
+  - CommunityMech:000396
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-history history/records/Clostridial_isoDCA_Mini_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused batch 11 execution; selected-cache matching is not whole-source
+    certification.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: normalize-cache-names-check passed on this record; scientific support is
+    separately assessed.
+  target_ids:
+  - CommunityMech:000396
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused batch 11 execution; selected-cache matching is not whole-source
+    certification.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Existing batch 11 corpus diagnostic retains its actual nonzero result;
+    focal network separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000396
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - metrics
+  scope_note: Explicit same-batch corpus reuse; unrelated records not newly assessed.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Existing batch 11 corpus diagnostic retains its actual nonzero result;
+    focal network separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000396
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - metrics
+  scope_note: Explicit same-batch corpus reuse; unrelated records not newly assessed.
+- check_id: scientific-source
+  name: Whole current-claim source review
+  status: passed
+  required: true
+  summary: Complete main, four main figures, entire supplementary information and
+    graphical abstract assessed; preprint and measured-outcome limits retained.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - lead-read
+  - source-scope
+  - root-source
+  - root-si
+- check_id: direct-excerpts
+  name: Reference-specific excerpt verification
+  status: passed
+  required: true
+  summary: '22 supported occurrences: 18 strict PDF, one additional strict abstract
+    and three explicit typography projections; all 22 selected-cache matches.'
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - snippets
+- check_id: authority-review
+  name: Ontology, schema and strain authority
+  status: passed
+  required: true
+  summary: Four ID-label pairs/six occurrences match; role definitions, exact species/strain
+    mappings and stage semantics assessed.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - ontology
+  - schema
+  - gtdb
+  - strain
+- check_id: adapter
+  name: Optional structured expression-source adapter
+  status: unavailable
+  required: false
+  summary: Explicit 403 same-batch discovery reuse with fresh runtime compatibility;
+    no adapter claim used to support the locus or phenotype.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - adapter
+- check_id: raw-reproduction
+  name: Experimental and raw-data reproduction
+  status: skipped
+  required: false
+  summary: No new culture, raw-read processing, statistical recalculation or external-code
+    execution.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - lead-read
+  - resources
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+  locator: Entire maintained YAML
+  summary: Two microbial members, one pairwise interaction without downstream arrows,
+    two media, a matched KO perturbation, five endpoint categories and one unresolved
+    P. hiranonis strain discussion were read. The preprint is correctly an external
+    bibliographic resource.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.883260Z'
+- evidence_id: identity
+  kind: primary_source
+  reference: doi:10.64898/2026.08.11.743107; PMID:42845388; bioRxiv version 1
+  locator: 'Abstract p1; Introduction p3; Results: Engineering isogenic consortia
+    to interrogate the immunomodulatory effects of isoDCA, pp4–5'
+  summary: The record denotes P. hiranonis plus R. gnavus VPI C7-9 WT, the isoDCA-positive
+    pair. The rumgna_00694-disrupted R. gnavus derivative replaces WT in the negative-control
+    pair. It is not a third member. ENGINEERED and SYNTHETIC describe the deliberate
+    assembly; mice and their background microbiota are context rather than members
+    of this defined pair.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.883336Z'
+  snapshot_sha256: 3a7dc17b0163da654e408569cb30eea9d688d4357ddd1f59dcda2738da099f27
+- evidence_id: genetic-control
+  kind: primary_source
+  reference: doi:10.64898/2026.08.11.743107; PMID:42845388; bioRxiv version 1
+  locator: 'Methods: Clostridial engineering, pp16–17; Bacterial complementation,
+    pp20–21; Figure 1B–D'
+  summary: A group II intron disrupts rumgna_00694, encoding the terminal 3β-HSDH
+    activity, in the VPI C7-9 parent originally acquired as ATCC 29149. PCR and TLC
+    distinguish WT and functional KO. The source uses reference WGS AAYG00000000.2.
+    The mutation is not inferred from a catalogue product, and its source locus spelling
+    should remain intact.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.889814Z'
+  snapshot_sha256: 3a7dc17b0163da654e408569cb30eea9d688d4357ddd1f59dcda2738da099f27
+- evidence_id: conversion
+  kind: primary_source
+  reference: doi:10.64898/2026.08.11.743107; PMID:42845388; bioRxiv version 1
+  locator: 'Results: Engineering isogenic consortia to interrogate the immunomodulatory
+    effects of isoDCA, p5; Methods: Bacterial culture, pp19–20; Figure 1E–F, caption
+    p28 and image p36'
+  summary: P. hiranonis converts TCA to CA and DCA; R. gnavus WT converts partner-derived
+    products to isoDCA, unlike KO. The experimental test uses centrifuged, sterile-filtered
+    P. hiranonis spent medium followed by R. gnavus incubation. This supports the
+    directed conversion node without demonstrating direct contact or simultaneous
+    live coculture.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.895321Z'
+  snapshot_sha256: 3a7dc17b0163da654e408569cb30eea9d688d4357ddd1f59dcda2738da099f27
+  quote: 0.22 μm sterile filtered
+- evidence_id: provider-roles
+  kind: primary_source
+  reference: doi:10.64898/2026.08.11.743107; PMID:42845388; bioRxiv version 1
+  locator: 'Introduction p3; Results: Engineering isogenic consortia to interrogate
+    the immunomodulatory effects of isoDCA, p5; Discussion p13; Figure 1E'
+  summary: Host-derived TCA is the input for P. hiranonis; its products supply R.
+    gnavus. These source passages support both broad CROSS_FEEDER roles when their
+    different providers are stated locally. The Discussion also calls P. hiranonis
+    a primary degrader of TCA, but adding that optional role is not required. Membership-only
+    taxonomy excerpts do not explain either utilization relation.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.900721Z'
+  snapshot_sha256: 3a7dc17b0163da654e408569cb30eea9d688d4357ddd1f59dcda2738da099f27
+- evidence_id: culture
+  kind: primary_source
+  reference: doi:10.64898/2026.08.11.743107; PMID:42845388; bioRxiv version 1
+  locator: 'Methods: Bacterial culture, p19'
+  summary: The source reports 37°C incubation inside a flexible vinyl anaerobic chamber
+    with H2 2.5–3.0%, O2 below 50 ppm and an H2S scrubber. These are chamber conditions.
+    BHI-S contains 37 g/L BHI powder, 5 g/L yeast extract and 1% v/v of a 10% w/v
+    L-cysteine stock. Plates add 15 g/L agar; liquid media and plates reduce overnight.
+    The chamber is not the culture vessel and does not identify a sealed-vessel headspace.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.906294Z'
+  snapshot_sha256: 3a7dc17b0163da654e408569cb30eea9d688d4357ddd1f59dcda2738da099f27
+- evidence_id: stock
+  kind: primary_source
+  reference: doi:10.64898/2026.08.11.743107; PMID:42845388; bioRxiv version 1
+  locator: 'Methods: Bacterial culture, p19'
+  summary: Individual colonies grow on BHI-S agar for 48–96 hours, then in 7 mL primary
+    broth overnight or until turbid; secondary cultures grow 12–16 hours to OD600
+    about 0.800. Dilution plating calibrated that OD to approximately 2×10^8 CFU/mL
+    for each strain. Equal 10 mL member cultures are mixed, pelleted at 2500×g for
+    10 minutes, resuspended in 1 mL BHI-S with 15% v/v glycerol and stored at −80°C.
+    These are preparation quantities, not measured endpoint fractions.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.911907Z'
+  snapshot_sha256: 3a7dc17b0163da654e408569cb30eea9d688d4357ddd1f59dcda2738da099f27
+- evidence_id: assay
+  kind: primary_source
+  reference: doi:10.64898/2026.08.11.743107; PMID:42845388; bioRxiv version 1
+  locator: 'Methods: Bacterial culture, pp19–20; Liquid-liquid extraction and thin
+    layer chromatography of bile acids, p20'
+  summary: Commercial YCFAC avoids BHI-S sterols. Approximately 7 mL refers to primary
+    culture, not a documented final secondary fill volume. Secondary cultures receive
+    8 μL of 100 mM bile acid and 50 μL primary inoculum before overnight growth at
+    37°C. In the sequential test, P. hiranonis culture is centrifuged and filtered
+    before a second 50 μL R. gnavus WT/KO inoculation and overnight incubation. Do
+    not infer final substrate molarity, actual vessel type, or treat extraction/TLC
+    reagents as microbial medium ingredients.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.917539Z'
+  snapshot_sha256: 3a7dc17b0163da654e408569cb30eea9d688d4357ddd1f59dcda2738da099f27
+- evidence_id: host-protocol
+  kind: primary_source
+  reference: doi:10.64898/2026.08.11.743107; PMID:42845388; bioRxiv version 1
+  locator: 'Methods: Colonization of mice with Clostridial consortia, p21; CD45RBhi
+    transfer model of murine colitis, pp24–25; Figures 2A, 3A and 4A'
+  summary: Antibiotic depletion precedes daily 200 μL mixed-stock gavage for seven
+    days, with cage changes during the first three days. Figure 2/3 day zero is weaning;
+    Figure 4 uses a later T-cell-transfer timeline. Culture incubation, stock storage,
+    colonization and host sampling must remain separate stages. The mice were not
+    a two-species-only microbiome.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.923458Z'
+  snapshot_sha256: 3a7dc17b0163da654e408569cb30eea9d688d4357ddd1f59dcda2738da099f27
+- evidence_id: abundance
+  kind: primary_source
+  reference: doi:10.64898/2026.08.11.743107; PMID:42845388; bioRxiv version 1
+  locator: 'Methods: PCR and qPCR of bacteria, pp17–18; Bacterial culture, p19; Figures
+    2B–D, 3B/D and 4C–E'
+  summary: Species qPCR is normalized to fecal mass with the stated scaling; total
+    bacterial load uses a standard curve. Input CFU calibration was measured by dilution
+    plating. Neither procedure makes the literal string Defined isoDCA-positive consortium
+    member a quantitative abundance, nor establishes a fixed 50:50 endpoint ratio
+    in mice.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.929252Z'
+  snapshot_sha256: 3a7dc17b0163da654e408569cb30eea9d688d4357ddd1f59dcda2738da099f27
+- evidence_id: host-outcomes
+  kind: primary_source
+  reference: doi:10.64898/2026.08.11.743107; PMID:42845388; bioRxiv version 1
+  locator: 'Results: IsoDCA regulates intestinal lamina propria Treg populations,
+    pp5–7; IsoDCA-mediated Treg induction is dependent on TGR5, pp7–9; IsoDCA+ consortium
+    attenuates intestinal inflammation, pp9–12; Figures 2–4'
+  summary: 'The listed fecal metabolomics, qPCR, pTreg and colitis endpoints were
+    measured. Keep panel and time scope: colonic pTreg proportions in Figure 2H differ
+    while its cell count does not; Figure 3E shows weaker FXR evidence than TGR5;
+    Figure 4 includes nonsignificant standard-transfer comparisons for colon weight/length,
+    histological score and CXCL10. The record need not assert every endpoint significant
+    or persistent pTreg induction as the proved mediator of late protection.'
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.935086Z'
+  snapshot_sha256: 3a7dc17b0163da654e408569cb30eea9d688d4357ddd1f59dcda2738da099f27
+- evidence_id: supplement
+  kind: primary_source
+  reference: doi:10.64898/2026.08.11.743107; PMID:42845388; bioRxiv version 1
+  locator: Supplementary Information, Tables S1–S3; Figures S1–S4, all nine pages
+  summary: All three tables, four figures and captions were read. S1 supports complementation
+    of the KO; S2–S4 report mouse microbiota, metabolites and immune readouts. S4G
+    shows no late standard-transfer pTreg difference. Tables contain murine primers,
+    bacterial primers and histological scoring, not an exact experimental P. hiranonis
+    strain identifier. No primer-reference strain was transferred to membership.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.940739Z'
+  snapshot_sha256: f3b853deab7ed02025cecc0ba05912b649eba6131360f14c56e541ba1ded365c
+- evidence_id: data-statement
+  kind: primary_source
+  reference: doi:10.64898/2026.08.11.743107; PMID:42845388; bioRxiv version 1
+  locator: 'Data Availability p27; Methods: 16S rRNA sequencing and analysis, pp21–22;
+    Clostridial engineering, p16'
+  summary: The source declares PRJNA1503769 for study 16S sequencing and AAYG00000000.2
+    as an earlier R. gnavus reference used in engineering. It also mentions Source
+    Data and strain availability on request. The directly inspected supplementary
+    listing links a nine-page supplement and a graphical abstract; no separate Source
+    Data payload was verified, and no author was contacted.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.944244Z'
+  snapshot_sha256: 3a7dc17b0163da654e408569cb30eea9d688d4357ddd1f59dcda2738da099f27
+- evidence_id: access
+  kind: validation
+  reference: lead-source-access.json
+  locator: Initial failed routes, one ordinary cooled PDF retry and exact supplementary
+    links
+  summary: Initial main/SI requests returned 429 and advertised XML returned 404.
+    A single later ordinary PDF request returned a valid complete 39-page v1 PDF;
+    both linked supplementary PDFs then succeeded. The current PDF differs in bytes
+    from the unavailable historical snapshot. No access-control bypass or whole-paper
+    inference from abstract-only PMC metadata.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.950646Z'
+  snapshot_sha256: 00853f05c73582aab48adf39ebc1faaa3c3eaa79e5f6592db5c7aff78bfdafce
+- evidence_id: ontology
+  kind: authority
+  reference: ontology-authority.json
+  locator: All four ID-label pairs across six occurrences
+  summary: Both bacterial species and both environmental terms match local OAK authority.
+    Laboratory environment describes controlled cultivation; intestine environment
+    describes the modeled host setting. No CHEBI or GO identifier is encoded. Label
+    correspondence is distinct from biological support.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.950921Z'
+  snapshot_sha256: adc2ad78e6cb54c31e02cefdfc797a12ea47a697885529e72385031f281598c0
+- evidence_id: schema
+  kind: authority
+  reference: child-schema-authority.json
+  locator: Literal functional roles, interaction type, abundance_value, vessel_type
+    and headspace_gas definitions
+  summary: CROSS_FEEDER utilizes metabolites from other taxa; CROSS_FEEDING is metabolite
+    exchange between organisms. Neither requires nutrient assimilation or reciprocal
+    growth benefit. abundance_value is deprecated quantitative free text. vessel_type
+    means the culture container; headspace_gas is vessel headspace. A host can supply
+    a metabolite without becoming a microbial member.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.951258Z'
+  snapshot_sha256: d38af841e44ece837f20de74ba0b49ec981fef7b4ddae599f9e288663973f4c8
+- evidence_id: strain
+  kind: authority
+  reference: child-strain-authority.json
+  locator: Direct JCM 6515 aliases; exact local NCBI strain and parent; optional GTDB
+    candidate
+  summary: JCM equates VPI C7-9, ATCC 29149, JCM 6515 and DSM 114966. NCBITaxon:411470
+    is a strain under valid species 33038. Direct ATCC pages timed out; indexed ATCC
+    evidence is separately identified. Retain the source Ruminococcus alias and WT-versus-KO
+    distinction. No catalogue protocol or exact P. hiranonis strain is inferred.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.951617Z'
+  snapshot_sha256: 258f73ee8c11a0fbeb3f173d3db32220ebd4e42e8f7f13e5818b47194ebc1f20
+- evidence_id: gtdb
+  kind: authority
+  reference: child-gtdb-crosswalk.json
+  locator: Exact species 89152 and 33038 rows; optional strain 411470; mapping provenance
+    assessment
+  summary: Both P. hiranonis UNRESOLVED descriptors have exact GTDB:s__Peptacetobacter_hiranonis
+    mapping 1.0/82 genomes. Existing gnavus species mapping reproduces Ruminococcus_B
+    gnavus 0.99/311. Optional strain 411470 gives 1.0/2940, a separate denominator.
+    Replace legacy latest/built wording with the actual crosswalk hash and labeled
+    file mtime, not an invented release or study abundance.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.951770Z'
+  snapshot_sha256: c1af7f889d6ee5f829ab7d059a23422a40a426b3bffb75b97867318a6a77ec08
+- evidence_id: semantics
+  kind: authority
+  reference: ontology-semantic-notes.json
+  locator: Whole-record auxiliary semantic assessment and explicit delegated source
+    scope
+  summary: Retain both provider-qualified recipient roles, the WT pair and the single
+    directed conversion node. Separate chamber atmosphere, culture stages, filtered-medium
+    transfer and mixed gavage stock. Unknown P. hiranonis strain does not prevent
+    species-level GTDB mapping. No required chemical/gene expansion was invented.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.951909Z'
+  snapshot_sha256: b0c8a50649dccce7588a3297c58bca014608b54590d0ac30f4709517ddbde462
+- evidence_id: resources
+  kind: database
+  reference: dataset-verification.json
+  locator: Exact PRJNA1503769 project metadata and 59 run summaries; AAYG00000000.2
+    reference master
+  summary: The source-named project matches the study and contains 59 paired Illumina
+    MiSeq AMPLICON/PCR mouse-gut runs with 59 archive samples/experiments. This does
+    not prove 59 animals or resolve every treatment assignment. The WGS master is
+    the earlier ATCC 29149 reference, not a new study genome or metabolomics deposit.
+    No raw payloads were analyzed.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.952069Z'
+  snapshot_sha256: e31532056a84abba05fd643f7fb8998676b93e95cacd27f64f5d31abb9b6f1aa
+- evidence_id: snippets
+  kind: validation
+  reference: snippet-source-audit.json
+  locator: All 22 excerpt occurrences, each exact source field and PDF page
+  summary: Eighteen occurrences strictly match fresh PDF text and one additional membership
+    excerpt strictly matches fresh abstract. Three documented PDF typography projections
+    preserve positive-marker, line-wrap/superscript and OD-subscript notation. All
+    22 match the selected cache. This is not 22 strict PDF matches, and lexical agreement
+    alone does not validate surrounding interpretation.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.952352Z'
+  snapshot_sha256: 7c4fbb91b6c48b985791c0c1a7dd3a27362bf01374a85a8bc812b4dec4e6dd3f
+- evidence_id: history
+  kind: prior_review
+  reference: provenance-audit.json
+  locator: Three histories, exact focal batch 16 row and current issues 974/975 plus
+    PR 973 with comments
+  summary: Current target/cache hashes match the earlier graph review. That historical
+    source read was bounded; the present whole-paper/SI read is independently recorded.
+    Issues 974/975 are closed/completed and PR 973 is closed/merged. Their resolved
+    evidence repairs are retained; no linked open owner is asserted or repository-wide
+    absence inferred.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.952521Z'
+  snapshot_sha256: 9153d088015735dc9219126bb9aeaaca31b2da598cf68465fb43679a6aec6b5d
+- evidence_id: inspect
+  kind: validation
+  reference: inspect.json
+  locator: Fresh official inspect in owned batch 11; 27 exact inputs
+  summary: The maintained MicrobialCommunity target, source/base revision and 27 local
+    input hashes were recorded before assessment and remain unchanged.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.952679Z'
+  snapshot_sha256: a29b150ec56bdd303bdb2a074f2d00e6d785553b19ca7ec30e996f9a114e033a
+- evidence_id: metrics
+  kind: validation
+  reference: support-final-audit.json
+  locator: Final native completeness and quality arithmetic
+  summary: Completeness 70; one node, zero arrows and two node-evidence occurrences
+    give mean 2; native network COMPLETE. Zero major and four minors yield raw quality
+    127, capped at 100. Mechanical presence/connectivity scores do not certify biology.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.952713Z'
+  snapshot_sha256: 8206efae41db56a65085d96b247fcb1a5e6093cc83071d7bdc64b7859ab21f5c
+- evidence_id: support-manifest
+  kind: validation
+  reference: supporting-artifact-manifest.json
+  locator: Distinct finalized support and immutable supporting receipts
+  summary: Final support is separate from the preliminary abstract-era receipt. Earlier
+    access and lexical diagnostics remain preserved alongside the recovered full-source
+    assessment.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.952742Z'
+  snapshot_sha256: a24e5bab350956c9b4e491e3910a1b4f6b9df6061b33a0aa6c195e94e4d91d77
+- evidence_id: lead-read
+  kind: validation
+  reference: lead-primary-read-scope.json
+  locator: Whole main, all four main figures, all nine SI pages and graphical abstract
+  summary: Lead read all 39 main pages in layout text including references/captions,
+    visually inspected four main figures, read all SI table cells/captions and viewed
+    all nine SI pages plus graphical abstract. No raw-data or statistical reproduction.
+    Authority projection and resource-read limits are explicit.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.952881Z'
+  snapshot_sha256: cc4c8a93990ba5ade0bc9f856c245a06b1979ae76bf8ccf47b68a096a26a76a1
+- evidence_id: source-scope
+  kind: validation
+  reference: source-audit.json
+  locator: Frozen current-claim assessment and four precise minor groups
+  summary: Completed scientific review of current claims after full-source recovery.
+    Four minor groups cover cultivation stages, role/abundance evidence placement,
+    GTDB recovery/provenance and the study dataset. Preserve the source preprint status
+    and unknown P. hiranonis strain.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.953021Z'
+  snapshot_sha256: d0ab6f38bc21bc2fc9d874d2cb5260f54a8b69b4cbe2d8f23e6b7f32b6ec32d4
+- evidence_id: root-source
+  kind: validation
+  reference: root-independent-source-audit.json
+  locator: Independent parent source assessment
+  summary: Root independently agrees completed true, zero major/four minor, 70/raw127/cap100
+    after reading complete main and SI text plus all main/SI figures at its pinned
+    scope. No host mechanism expansion or blanket significance claim.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.953190Z'
+  snapshot_sha256: 87e3f6d43da185e4c4c16322b3eb44f36bffc587bda152043def1306e2d7bd16
+- evidence_id: root-read
+  kind: validation
+  reference: root-primary-read.json
+  locator: Independent root main and primary authority reading scope
+  summary: Root read the entire 39-page main text and all four main figures. Initial
+    failed access and later recovery are explicit; this is distinct from historical
+    partial reading.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.953334Z'
+  snapshot_sha256: c1a85b13daf5f16184a6cb4f16b0abc897a9d9fe509c68551931e9d2b8f4441a
+- evidence_id: root-si
+  kind: validation
+  reference: root-supplement-resource-read.json
+  locator: Independent root SI and resource scope
+  summary: Root read complete SI text and all four SI figure composites on pages 3,
+    4, 6 and 8 plus graphical abstract. It read project identity/aggregate metadata
+    and reference-genome summary, without claiming all 59 detailed run rows or raw
+    sequences.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.953567Z'
+  snapshot_sha256: f6f37d798ddcc5432fe8c0c1ffb29a4b25431b20f5f16ea7eee460ebe270506a
+- evidence_id: auxiliary
+  kind: validation
+  reference: auxiliary-frozen-manifest.json
+  locator: Frozen child authority, native and semantic receipts
+  summary: Eight focused native checks pass; four OAK pairs/six occurrences match
+    and all 27 inputs are unchanged. Child source-specific claims are explicitly delegated
+    to lead/root full reading.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.953717Z'
+  snapshot_sha256: 14e7b4e25d54c8082629ca8a6e8993e43c5543f4e01f49172d5ec549f4b8a0a0
+- evidence_id: final-native
+  kind: validation
+  reference: final-validator-summary.json
+  locator: Separate final native metadata
+  summary: Initial validator-summary remains immutable. The separate final summary
+    preserves actual eight-command results and input integrity.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.953862Z'
+  snapshot_sha256: 0d43a9163c336d45081f0e8b4d11093b66956741e3faf60b6670564ef8e4743a
+- evidence_id: adapter
+  kind: validation
+  reference: adapter-check.json
+  locator: Explicit same-batch 403 discovery reuse and fresh runtime compatibility
+  summary: Discovery timestamp 2026-10-21T19:20:45.556660+00:00 is reused, not a new
+    396 ignored-inclusive search. Current runtime still lacks the optional installed
+    module/console script. The known other-checkout executable was not run. No applicable
+    expression-module result or negative gene evidence is inferred.
+  support: supports
+  accessed_at: '2026-10-21T19:52:12.954097Z'
+  snapshot_sha256: 7829440eaf0b4fed6686e91128fe368051bb0ae46d5d9563cd1ad47640c77afc
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+  locator: Actual execution 2026-10-21T19:41:29.188264+00:00 to 2026-10-21T19:41:30.346002+00:00
+  summary: validate passed on this record; scientific support is separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T19:41:30.346002Z'
+  snapshot_sha256: 9aff562fb9aca43a5fcc5ea214dd7fbc81beb6e76a00198d20dd2a80084c9bea
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-strict kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+    --out /private/tmp/cm-review-session/batch-11/000396/strict-report.tsv
+  locator: Actual execution 2026-10-21T19:41:29.188965+00:00 to 2026-10-21T19:41:32.347706+00:00
+  summary: validate-strict passed on this record; scientific support is separately
+    assessed.
+  support: supports
+  accessed_at: '2026-10-21T19:41:32.347706Z'
+  snapshot_sha256: af49d2c6181a4c05905108279c94f31552fea2d098971085b427e5624c67858f
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-terms kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+  locator: Actual execution 2026-10-21T19:41:29.195086+00:00 to 2026-10-21T19:41:31.771113+00:00
+  summary: validate-terms passed on this record; scientific support is separately
+    assessed.
+  support: supports
+  accessed_at: '2026-10-21T19:41:31.771113Z'
+  snapshot_sha256: a08127ac529fb4a8d1e2400f167b7cf127ca4908c2241beaa785f0687677af61
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-references-explained kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+  locator: Actual execution 2026-10-21T19:41:33.072425+00:00 to 2026-10-21T19:41:35.377445+00:00
+  summary: validate-references-explained passed on this record; scientific support
+    is separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T19:41:35.377445Z'
+  snapshot_sha256: 90d0cc32fca61c14a66ca5d62f392db6f144ca7b242e98c83766c593976359e8
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-gtdb kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+  locator: Actual execution 2026-10-21T19:41:30.346536+00:00 to 2026-10-21T19:41:30.464407+00:00
+  summary: validate-gtdb passed on this record; scientific support is separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T19:41:30.464407Z'
+  snapshot_sha256: d80d682821dbe951a148b8232f8c029a2ab8a9ec158a8cfe269c13eb84fb6396
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+  locator: Actual execution 2026-10-21T19:41:30.464819+00:00 to 2026-10-21T19:41:32.469947+00:00
+  summary: validate-gtdb-domain passed on this record; scientific support is separately
+    assessed.
+  support: supports
+  accessed_at: '2026-10-21T19:41:32.469947Z'
+  snapshot_sha256: af5e6ee05000dda7a93cd74e6fe7e34b6ebc0ca09e78efda98511785b06beffe
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    just --no-dotenv validate-history history/records/Clostridial_isoDCA_Mini_Consortium
+  locator: Actual execution 2026-10-21T19:41:31.771648+00:00 to 2026-10-21T19:41:32.899906+00:00
+  summary: validate-history passed on this record; scientific support is separately
+    assessed.
+  support: supports
+  accessed_at: '2026-10-21T19:41:32.899906Z'
+  snapshot_sha256: 7fa41a4194afb18b1dd24b0bd7fba81e306a326f7f1bf433d8d0d5e4c07b27c0
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T19:41:32.901557+00:00 to 2026-10-21T19:41:33.071989+00:00
+  summary: normalize-cache-names-check passed on this record; scientific support is
+    separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T19:41:33.071989Z'
+  snapshot_sha256: 7bb9e5915c190dfb2cce6cf64ddefb02dbfa0906decb695a9fa0ae0af2d66ca3
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T19:18:40.531566+00:00 to 2026-10-21T19:18:48.865608+00:00
+  summary: Existing batch 11 corpus diagnostic retains its actual nonzero result;
+    focal network separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T19:18:48.865608Z'
+  snapshot_sha256: 5c91360a50ff296c596ef7b3fa3ca70cfa3f0423923df3104fa1aafcfcd96b61
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-11/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T19:18:40.534157+00:00 to 2026-10-21T19:18:48.224265+00:00
+  summary: Existing batch 11 corpus diagnostic retains its actual nonzero result;
+    focal network separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T19:18:48.224265Z'
+  snapshot_sha256: 5052a95a78eea50710110e7c8d5488631b3eb5df1705369d5ba42b9c3c0ee9f7
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Defined positive pair and negative-control scope
+  outcome: supported
+  summary: Retain the two-member WT target and the isogenic KO comparison.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - identity
+  - genetic-control
+  - strain
+  details: Current species labels are valid. The WT collection alias is independently
+    supported; KO is its study derivative. P. hiranonis exact strain remains unresolved
+    after the full main/SI read. ENGINEERED/SYNTHETIC fits deliberate assembly; the
+    host and background microbiota are not added to taxonomy.
+- assessment_id: grounding
+  area: grounding
+  topic: NCBI, GTDB and environment
+  outcome: concern
+  summary: Retain correct identities and environment terms; recover P. hiranonis GTDB
+    and exact provenance.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - ontology
+  - strain
+  - gtdb
+  details: Species 89152 mapping is available at both UNRESOLVED locations despite
+    unknown study strain. Preserve gnavus species 33038 and its 0.99/311 classification;
+    optional strain 411470 has distinct mapping counts. The legacy latest/build string
+    is not verified release information. Laboratory and intestine terms describe different
+    physical/modeled stages.
+- assessment_id: roles
+  area: evidence
+  topic: Provider-specific roles and abundance fields
+  outcome: concern
+  summary: Both recipient roles can remain with local pathway evidence; member prose
+    is not quantitative abundance.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - provider-roles
+  - abundance
+  - schema
+  details: Host-derived TCA supports the P. hiranonis recipient context, and P. hiranonis
+    products support R. gnavus. Neither requires reciprocal microbial benefit or a
+    carbon/energy-growth test. Keep the host outside membership. Move Defined isoDCA-positive
+    consortium member from both abundance_value fields into notes; preserve measured
+    stock calibration without inventing endpoint fractions.
+- assessment_id: conversion-node
+  area: graph
+  topic: ecological_interactions[0]
+  outcome: supported
+  summary: Keep the single PAIRWISE CROSS_FEEDING conversion node and zero downstream
+    arrows.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - conversion
+  - provider-roles
+  - supplement
+  - schema
+  details: The source/target direction follows P. hiranonis-derived CA/DCA products
+    to R. gnavus WT isoDCA conversion. Figure 1F and filtered spent-medium Methods
+    support that connection. The schematic alone is not the assay, and the assay does
+    not establish direct contact, simultaneous live coculture, reciprocal fitness
+    or a host-response causal graph. Existing SUPPORTED conversion and KO context
+    remain appropriate.
+- assessment_id: engineering
+  area: evidence
+  topic: Assembly, genetic perturbation and measured endpoints
+  outcome: supported
+  summary: Retain WT/KO construction and the current endpoint list with assay and
+    time scope.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - genetic-control
+  - stock
+  - host-protocol
+  - host-outcomes
+  - supplement
+  details: Group II intron disruption, loss of isoDCA and complementation support
+    the control design. Equal-volume stocks and mouse engraftment are separate from
+    sequential in vitro transfer. Fecal metabolomics/qPCR, ileal/colonic pTregs and
+    colitis outcomes were measured. Do not promote all comparisons to significance
+    or attribute late protection solely to persistent pTregs.
+- assessment_id: cultivation
+  area: completeness
+  topic: Media, chamber, vessel and staged use
+  outcome: concern
+  summary: Correct equipment placement and preserve BHI-S propagation, YCFAC assay
+    and gavage stages.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - culture
+  - stock
+  - assay
+  - host-protocol
+  - schema
+  details: 37°C, anaerobiosis and BHI-S formulation are supported. Chamber H2/O2 belongs
+    in chamber/preparation context, not an undocumented vessel headspace. The chamber
+    is not a flask/tube. Preserve plate/primary/secondary timings, actual dilution-plating
+    calibration, storage and host dose. YCFAC is source-named commercial medium; the
+    main does not state its full recipe or the secondary culture fill volume. No catalogue
+    recipe or final bile-acid molarity is inferred.
+- assessment_id: resources
+  area: provenance
+  topic: Publication, sequencing deposit and reference genome
+  outcome: concern
+  summary: Retain the bibliographic preprint and add the verified study 16S resource.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - data-statement
+  - resources
+  details: PRJNA1503769 is the mouse fecal-community amplicon dataset, not a pair
+    genome or metabolomics archive. AAYG00000000.2 is a prior WT reference used for
+    engineering. Keep 59 runs/archive samples distinct from animals and treatment
+    assignments. No separate Source Data payload or cross-Mech medium equivalence
+    was certified.
+- assessment_id: source-evidence
+  area: evidence
+  topic: Exact excerpts and current full-source support
+  outcome: supported
+  summary: All 22 excerpt occurrences are source-supported, with three explicit typography
+    projections.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - snippets
+  - access
+  - lead-read
+  - root-source
+  details: The selected cache remains selected_full_text, not a full-paper archive.
+    Initial access failures do not make the final review partial after actual complete
+    main/SI reading. Source conclusions remain preprint findings; no peer-review certification,
+    hidden statistical reanalysis or automatic gene/protein expansion.
+- assessment_id: provenance
+  area: provenance
+  topic: Current linked issues and immutable review history
+  outcome: supported
+  summary: Retain resolved historical repairs and the open in-record strain question.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - history
+  - inspect
+  - support-manifest
+  details: Issues 974/975 and PR 973 are closed/merged; they are not designated open
+    owners for the present minor findings. This bounded issue check does not establish
+    that no other issue exists. No prior review is overwritten, no history event appended
+    and no canonical/source cache changed.
+- assessment_id: validation
+  area: schema
+  topic: Validation and scientific completion
+  outcome: supported
+  summary: Eight focused checks pass and current-claim scientific review is complete.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - auxiliary
+  - final-native
+  - inspect
+  - source-scope
+  details: Corpus diagnostic failures remain explicit and do not substitute for focal
+    judgment. Only review artifacts are written; canonical, cache, history and generated
+    products remain unchanged. Parent persistence may create the new immutable review
+    bundle after independent audit.
+- assessment_id: metrics
+  area: completeness
+  topic: Native completeness and validation quality
+  outcome: supported
+  summary: Completeness 70; quality raw 127 caps at 100.
+  target_ids:
+  - CommunityMech:000396
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 70
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required fields and taxon roles 50 + environment term 5 + external
+      resources 5 + growth media 10. At least three interaction nodes, at least three
+      environmental factors, associated datasets and node metabolites each contribute
+      0. Presence is not proof of support.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100 − 50P1 − 10P2 − 2P3 + 20min(mean node evidence/2,1) + 15
+      if COMPLETE,0,100). P1=0, P2=0, P3=4, P4=0. Two node-evidence occurrences/one
+      node give mean 2 and evidence bonus 20; COMPLETE adds 15. Raw 127 caps at 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 4
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: clarify-cultivation-stages
+  issue_key: cm-000396-clarify-cultivation-stages
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: The core medium, temperature and conversion are supported;
+    this is a bounded protocol/stage representation correction rather than a wrong
+    community or failed conversion claim.
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Separate chamber conditions and culture stages
+  description: Both vessel_type fields name a chamber, and BHI-S headspace_gas presents
+    chamber composition as vessel headspace. The environment note also compresses
+    the sequential sterile-medium assay and combined gavage stock into cocultivation.
+    Correct placement and recover scoped preparation/assay details.
+  target_ids:
+  - CommunityMech:000396
+  field_paths:
+  - environment_term.notes
+  - engineering_design.inoculation_strategy
+  - engineering_design.evidence[2].explanation
+  - engineering_design.evidence[4].explanation
+  - growth_media[0].headspace_gas
+  - growth_media[0].vessel_type
+  - growth_media[0].preparation_notes
+  - growth_media[0].evidence[1].explanation
+  - growth_media[1].vessel_type
+  - growth_media[1].preparation_notes
+  - ecological_interactions[0].evidence[1].explanation
+  evidence_ids:
+  - culture
+  - stock
+  - assay
+  - host-protocol
+  - conversion
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+    role: canonical_record
+  ownership_note: Maintained record follow-up. Linked issues 974/975 and PR 973 are
+    historical closed repairs; no current open owner is assigned from those links.
+- finding_id: attach-provider-evidence
+  issue_key: cm-000396-attach-provider-evidence
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: The full source supports the broad roles; the defect is local
+    evidence and field placement. It does not justify forced role removal, fabricated
+    abundance or a nutrient-only requirement.
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Attach utilization evidence and relocate member prose
+  description: Both abundance_value fields contain membership prose rather than a
+    quantity. Local taxonomy evidence names members but does not explain the host-to-P.
+    hiranonis and P. hiranonis-to-R. gnavus utilization relations supporting their
+    roles.
+  target_ids:
+  - CommunityMech:000396
+  field_paths:
+  - taxonomy[0].abundance_value
+  - taxonomy[1].abundance_value
+  - taxonomy[0].functional_role
+  - taxonomy[1].functional_role
+  - taxonomy[0].evidence
+  - taxonomy[1].evidence
+  evidence_ids:
+  - provider-roles
+  - abundance
+  - schema
+  - identity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+    role: canonical_record
+  ownership_note: Maintained record follow-up. Linked issues 974/975 and PR 973 are
+    historical closed repairs; no current open owner is assigned from those links.
+- finding_id: recover-gtdb-provenance
+  issue_key: cm-000396-recover-gtdb-provenance
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Nonblocking grounding completeness and provenance; current
+    species identities remain valid and unknown experimental strain identity stays
+    explicit.
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Recover exact species mapping and repair release provenance
+  description: Both P. hiranonis descriptors remain UNRESOLVED despite an exact current
+    species mapping. Both gnavus blocks reproduce their stored core classification
+    but use legacy latest/build-date provenance.
+  target_ids:
+  - CommunityMech:000396
+  field_paths:
+  - taxonomy[0].taxon_term.gtdb_grounding_status
+  - taxonomy[0].taxon_term.gtdb_classification
+  - ecological_interactions[0].source_taxon.gtdb_grounding_status
+  - ecological_interactions[0].source_taxon.gtdb_classification
+  - taxonomy[1].taxon_term.gtdb_classification.mapping_source
+  - ecological_interactions[0].target_taxon.gtdb_classification.mapping_source
+  evidence_ids:
+  - gtdb
+  - strain
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+    role: canonical_record
+  ownership_note: Maintained record follow-up. Linked issues 974/975 and PR 973 are
+    historical closed repairs; no current open owner is assigned from those links.
+- finding_id: link-study-dataset
+  issue_key: cm-000396-link-study-dataset
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: Recoverable public dataset provenance improves traceability;
+    it does not invalidate the reported assay or require raw-data reanalysis.
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Link the source-declared mouse 16S dataset
+  description: PRJNA1503769 is directly declared and independently verified but is
+    absent from associated_datasets and external resource links. Preserve its mouse
+    fecal-community assay scope separately from the bibliographic preprint and historical
+    WT reference genome.
+  target_ids:
+  - CommunityMech:000396
+  field_paths:
+  - associated_datasets
+  - external_resources
+  evidence_ids:
+  - data-statement
+  - resources
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+    role: canonical_record
+  ownership_note: Maintained record follow-up. Linked issues 974/975 and PR 973 are
+    historical closed repairs; no current open owner is assigned from those links.
+actions:
+- action_id: scope-cultivation
+  description: Correct culture equipment and distinguish preparation, conversion and
+    host stages.
+  finding_ids:
+  - clarify-cultivation-stages
+  target_ids:
+  - CommunityMech:000396
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Move flexible vinyl anaerobic chamber from both vessel_type fields into preparation/cultivation
+    notes. Scope H2 2.5–3.0% and O2 below 50 ppm to chamber atmosphere and retain
+    37°C/ANAEROBIC; leave actual vessel and sealed-vessel headspace unresolved unless
+    source evidence is found.
+  - Preserve the BHI-S recipe and its stock-concentration notation. Distinguish 48–96-hour
+    plates, 7 mL primary overnight growth, 12–16-hour secondary growth, and the mixed
+    glycerol stock. State the measured dilution-plating calibration of OD600 about
+    0.800 to approximately 2×10^8 CFU/mL per strain, without implying persistent equal
+    member fractions.
+  - 'Clarify environment_term.notes and assay evidence: P. hiranonis supernatant was
+    centrifuged and 0.22 μm filtered before R. gnavus WT/KO inoculation. Keep this
+    sequential assay separate from the combined 10 mL + 10 mL stock, 1 mL resuspension
+    with 15% glycerol, −80°C storage and 200 μL daily seven-day gavage.'
+  - For YCFAC retain the commercial identity, sterol-avoidance rationale, 8 μL of
+    100 mM bile-acid spike, 50 μL primary inoculum and overnight 37°C stages. Do not
+    transfer the primary volume to secondary culture or infer final molarity, complete
+    recipe, pH, agitation, container or catalogue conditions. Keep extraction/TLC
+    chemicals outside microbial medium.
+  - Attach narrow page/section evidence for added details. Preserve the measured endpoint
+    list and actual mouse/model/time comparisons; do not imply all panels significant
+    or persistent pTreg induction as the proven cause of late colitis protection.
+- action_id: scope-provider-roles
+  description: Retain source-supported roles with their providers and move membership
+    text.
+  finding_ids:
+  - attach-provider-evidence
+  target_ids:
+  - CommunityMech:000396
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Relocate both Defined isoDCA-positive consortium member values into appropriate
+    notes and remove them from quantitative abundance_value. Do not replace them with
+    invented fractions or counts. If calibration is recorded, label it input-stock
+    preparation and preserve its measured approximate basis.
+  - 'Attach Introduction/Results/Discussion or Figure 1 pathway evidence locally:
+    host-derived TCA is utilized by P. hiranonis, whose bile-acid products are utilized
+    by R. gnavus WT. Keep both CROSS_FEEDER roles if this scope is explicit; neither
+    requires a nutrient-growth or reciprocal-benefit test. Do not add the host to
+    microbial taxonomy.'
+  - Retain the single pairwise conversion node, source-to-target direction and zero
+    arrows. Distinguish WT, functional KO and complemented KO contexts. PRIMARY_DEGRADER
+    is an optional source-supported description for P. hiranonis, not a mandatory
+    replacement role.
+- action_id: record-gtdb-mapping
+  description: Update mapping status and provenance without changing study-strain
+    scope.
+  finding_ids:
+  - recover-gtdb-provenance
+  target_ids:
+  - CommunityMech:000396
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Ground both taxonomy[0].taxon_term and ecological_interactions[0].source_taxon
+    through exact NCBITaxon:89152 to GTDB:s__Peptacetobacter_hiranonis, majority_fraction
+    1.0 and total_genomes 82, with the verified lineage and current snapshot method.
+  - Keep gnavus species 33038 mapped to GTDB:s__Ruminococcus_B_gnavus at 0.99/311.
+    Replace both legacy mapping_source strings with crosswalk SHA256 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    and explicitly labeled file mtime 2026-07-25; do not invent a GTDB release.
+  - Preserve source Ruminococcus names and the unresolved P. hiranonis strain discussion.
+    Optional strain 411470 requires deliberate species-versus-strain representation
+    and its own 1.0/2940 mapping denominator, not silent count substitution or inference
+    of a sequenced experimental isolate.
+- action_id: link-sequencing-resource
+  description: Represent the verified study sequencing project with the correct assay
+    scope.
+  finding_ids:
+  - link-study-dataset
+  target_ids:
+  - CommunityMech:000396
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Add PRJNA1503769 with a direct BioProject/SRA link and Data Availability p27 plus
+    16S Methods pp21–22 evidence. Describe mouse fecal V4–V5 16S amplicon community
+    profiling in the WT/KO consortium colonization study; do not label it isolate
+    whole-genome sequencing or metabolomics.
+  - Keep 59 public runs/archive samples/experiments distinct from 59 animals and from
+    treatment assignments not established by generic metadata. No raw reads need to
+    be downloaded to represent this verified provenance.
+  - Retain the preprint as a bibliographic resource. If AAYG00000000.2 is linked,
+    mark it as the prior ATCC 29149 reference WGS used for genetic engineering. Do
+    not invent a new KO genome accession, Source Data locator, unverified protein
+    ID or CultureMech equivalence.
+- action_id: validate-authorized-curation
+  description: Validate separately authorized curation and preserve all review/source
+    history.
+  finding_ids:
+  - clarify-cultivation-stages
+  - attach-provider-evidence
+  - recover-gtdb-provenance
+  - link-study-dataset
+  target_ids:
+  - CommunityMech:000396
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridial_isoDCA_Mini_Consortium.yaml
+    role: canonical_record
+  - repository: CultureBotAI/CommunityMech
+    path: references_cache/doi_10.64898_2026.08.11.743107.md
+    role: source_cache
+  acceptance_checks:
+  - Future new excerpts must be exact and source-specific with main page/section or
+    SI locator. Extend selected cache content only when needed for those excerpts;
+    preserve selected_full_text scope and all existing quotations/typography provenance
+    rather than silently relabeling it full text.
+  - After separately authorized canonical changes, append fresh history, run focused
+    schema/strict/term/reference/GTDB/domain/history checks, then just gen-html and
+    just check-docs-current. Preserve every actual failed or unavailable check.
+  - This review changes no canonical, cache, history or generated product. Only a
+    new immutable review bundle may be persisted after independent audit. Keep original
+    initial/final summaries, access failures, source receipts and historical reviews
+    unchanged.
+limitations:
+- The focal source remains bioRxiv version 1, not peer reviewed. Whole main/SI assessment
+  completes current-claim review, not experimental reproduction or certification of
+  every author interpretation.
+- Initial 429 and XML404 responses are preserved. The successful fresh 39-page PDF
+  has the correct title/DOI/version but a different hash from the unavailable historical
+  file; byte identity is not asserted. Abstract-only PMC/OpenAlex flags did not supply
+  the full text.
+- 'All 22 encoded occurrences are supported: 18 strict PDF, one additional strict
+  abstract and three explicit typography projections. The 2,413-byte selected cache
+  is not a whole-paper archive and remains unchanged.'
+- The in vitro transfer is cell-free P. hiranonis spent medium followed by R. gnavus,
+  while the gavage stock combines live cultures. Neither establishes direct contact,
+  reciprocal fitness or a fixed endpoint population ratio.
+- Stock CFU calibration was measured. The source does not specify the secondary culture
+  final volume, full commercial YCFAC recipe or actual culture vessel in the cited
+  passage; no final bile-acid molarity or catalogue protocol is inferred.
+- Host results retain model, tissue, time and panel scope. Colonic pTreg proportions
+  and counts differ in significance; FXR evidence is weaker than TGR5. Several Figure
+  4 standard-transfer comparisons are nonsignificant, and SI reports no late standard-transfer
+  pTreg difference. No blanket significance or fully mediated persistent-pTreg mechanism
+  is added.
+- P. hiranonis exact strain remains unknown in the inspected complete main/SI. Primer
+  citations do not identify it. WT catalogue aliases do not identify the engineered
+  KO as a catalogue product.
+- GTDB counts describe exact reference-ID mapping support, not study cells or sequenced
+  consortium members. Species and optional strain denominators remain separate; file
+  mtime is not a release identifier.
+- PRJNA1503769 metadata was verified without raw-read analysis; 59 archive samples
+  are not certified as 59 animals. The listed supplements were read, but a separate
+  accompanying Source Data payload was not located in that bounded listing or analyzed.
+  No global data-absence claim or author contact.
+- Eight focused checks pass; same-batch corpus diagnostics retain nonzero outcomes.
+  Optional adapter discovery is explicitly reused from 403 with fresh runtime compatibility.
+  No later record, external code or paid provider was used.
+notes:
+- All 27 inspected inputs remain unchanged. Initial validator and preliminary support
+  receipts are immutable; final summaries are separate.
+- Current linked 974/975 are closed and PR 973 is merged; no new issue or comment
+  was created. The in-record P. hiranonis strain question remains open.
+- Zero major and four minor findings; completeness 70, quality 100/raw127. Parent
+  and sibling whole-candidate audits precede any save.
+tags:
+- record-review
+- bile-acid-conversion
+- synthetic-consortium
+- full-source-reviewed
+- batch-11

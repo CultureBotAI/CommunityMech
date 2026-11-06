@@ -1,0 +1,157 @@
+reviewer: antigravity
+review_mode: stage5_review_remediation
+base_commit: d057d639b9cf66a8147b8f620749566046fc2f01
+issues:
+- 2120
+records:
+- path: kb/communities/Anammox_Granule_Metabolic_Interaction_Community.yaml
+  id: CommunityMech:000146
+  original_sha256: cfe33d321709ed3f502b1e4740464b352dbfe08fa226fe2b4c6a79f9c78d9f8a
+  record_sha256: f28da9a5d2087b5d6d329f9dfd746d6e9efa24238d4c47475734392f9c3ec538
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261105-c7s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+    record_sha256: cfe33d321709ed3f502b1e4740464b352dbfe08fa226fe2b4c6a79f9c78d9f8a
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy abundance_level remediation preserves all batch4 causal graph decisions.
+  summary: Add DOMINANT, ABUNDANT, and COMMON abundance_level annotations and verbatim doi:10.1038/ncomms15416 evidence to the three anammox-granule taxonomy entries while preserving batch4 causal graph decisions.
+  node_decisions:
+  - node: Anammox Ammonium-Nitrite Conversion
+    rationale: Retain anammox function and qualify all three outgoing exchange arrows.
+  - node: Heterotrophic Nitrite Loop
+    rationale: Use same-study nitrate-reductase expression and remove a full-denitrification annotation from a partial reduction node.
+  - node: EPS Peptide Scavenging by Chlorobi
+    rationale: Retain inferred peptide scavenging, not directly established EPS transfer.
+  - node: Detritus and Small-Donor Scavenging
+    rationale: Preserve candidate donor use with unresolved acetate direction and carbon provenance.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before:
+  - source: Anammox Ammonium-Nitrite Conversion
+    target: Heterotrophic Nitrite Loop
+    description: HYPOTHESIZED - anammox-derived nitrate could supply heterotrophic nitrate reduction and a nitrite-return
+      loop; expression supports potential but not the exchanged flux.
+  - source: Anammox Ammonium-Nitrite Conversion
+    target: EPS Peptide Scavenging by Chlorobi
+    description: HYPOTHESIZED - anammox-associated extracellular material could feed heterotrophic proteolysis; the source
+      of consumed protein and the transfer were not traced in this study.
+  - source: Anammox Ammonium-Nitrite Conversion
+    target: Detritus and Small-Donor Scavenging
+    description: HYPOTHESIZED - biomass turnover or released small substrates could feed heterotrophs; wastewater-derived
+      organic carbon and unresolved pathway directions prevent exclusive attribution to AMX1.
+  edges_after:
+  - source: Anammox Ammonium-Nitrite Conversion
+    target: Heterotrophic Nitrite Loop
+    description: HYPOTHESIZED - anammox-derived nitrate could supply heterotrophic nitrate reduction and a nitrite-return
+      loop; expression supports potential but not the exchanged flux.
+  - source: Anammox Ammonium-Nitrite Conversion
+    target: EPS Peptide Scavenging by Chlorobi
+    description: HYPOTHESIZED - anammox-associated extracellular material could feed heterotrophic proteolysis; the source
+      of consumed protein and the transfer were not traced in this study.
+  - source: Anammox Ammonium-Nitrite Conversion
+    target: Detritus and Small-Donor Scavenging
+    description: HYPOTHESIZED - biomass turnover or released small substrates could feed heterotrophs; wastewater-derived
+      organic carbon and unresolved pathway directions prevent exclusive attribution to AMX1.
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - doi:10.1038/ncomms15416
+  issues:
+  - 2120
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Anammox_Granule_Metabolic_Interaction_Community/2026-11-05T165000Z-antigravity-2120a1.yaml
+- path: kb/communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.yaml
+  id: CommunityMech:000190
+  original_sha256: bb9483d04163c1df53929e60873f075a00e66d1364f8cf5779248da608b1054c
+  record_sha256: 62dde593f8674013de73491af90069bfc2bb4f89eba24d798813df8faa551ef2
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261105-c7s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261004-four-records.yaml
+    record_sha256: bb9483d04163c1df53929e60873f075a00e66d1364f8cf5779248da608b1054c
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy abundance_level remediation preserves all four-records causal graph decisions.
+  summary: Add DOMINANT abundance_level and verbatim PMID:30038609 transcriptomic evidence to Pelotomaculum thermopropionicum SI and Methanocella conradii HZ254 while preserving four-records causal graph decisions.
+  node_decisions:
+  - node: Propionate Oxidation Coupled to Methanogenesis
+    rationale: Retain exact-system syntrophy, but qualify the transcript comparison for substrate and growth-rate confounding.
+  - node: Catabolism and Methanogenesis Upregulation in Coculture
+    rationale: Retain measured expression differences; remove two part-of/parallel-response arcs to formate and signaling.
+  - node: Formate and Electron Bifurcation Strategy
+    rationale: Combine duplicate pair as a conditional link preserving formate-transfer inference, 20 mM formate inhibition, 5 mM BES inhibition and H2 contrast.
+  - node: Signal Transduction and Amino Acid Exchange
+    rationale: Mark exchange/signaling mechanisms hypothesized; remove the unsupported single bacteria-to-archaea direction using community scope and both participants.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before:
+  - source: Propionate Oxidation Coupled to Methanogenesis
+    target: Catabolism and Methanogenesis Upregulation in Coculture
+    description: PARTIAL - the propionate-fed coculture showed increased catabolic and methanogenesis transcripts relative
+      to the monocultures. The source warns that substrate, hydrogen availability and growth rate differ, so this comparison
+      does not isolate the effect of the partner interaction alone.
+  - source: Formate and Electron Bifurcation Strategy
+    target: Propionate Oxidation Coupled to Methanogenesis
+    description: 'PARTIAL - formate turnover is inferred to support syntrophic electron transfer. Its effect depends on conditions:
+      adding 20 mM formate immediately halted propionate oxidation, which resumed after formate consumption; adding 5 mM 2-BES
+      abolished propionate oxidation and methane production. The source did not find comparable inhibition after H2/CO2 addition,
+      so this edge does not assert a measured low-H2 requirement in that experiment.'
+  edges_after:
+  - source: Propionate Oxidation Coupled to Methanogenesis
+    target: Catabolism and Methanogenesis Upregulation in Coculture
+    description: PARTIAL - the propionate-fed coculture showed increased catabolic and methanogenesis transcripts relative
+      to the monocultures. The source warns that substrate, hydrogen availability and growth rate differ, so this comparison
+      does not isolate the effect of the partner interaction alone.
+  - source: Formate and Electron Bifurcation Strategy
+    target: Propionate Oxidation Coupled to Methanogenesis
+    description: 'PARTIAL - formate turnover is inferred to support syntrophic electron transfer. Its effect depends on conditions:
+      adding 20 mM formate immediately halted propionate oxidation, which resumed after formate consumption; adding 5 mM 2-BES
+      abolished propionate oxidation and methane production. The source did not find comparable inhibition after H2/CO2 addition,
+      so this edge does not assert a measured low-H2 requirement in that experiment.'
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:30038609
+  issues:
+  - 2120
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture/2026-11-05T165000Z-antigravity-2120a2.yaml
+- path: kb/communities/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture.yaml
+  id: CommunityMech:000451
+  original_sha256: eba49bde93c713de3dfa096126b3067db05aedae5399c9003a0b2843c58eaeae
+  record_sha256: 46b0aef3dfa908dafade954d7aecef895465874f2121772e7e3f6cf1982fdcb1
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261105-c7s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261005-twelve-records-batch4.yaml
+    record_sha256: eba49bde93c713de3dfa096126b3067db05aedae5399c9003a0b2843c58eaeae
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy abundance_level remediation preserves all batch4 causal graph decisions.
+  summary: Add DOMINANT abundance_level and verbatim PMID:41724996 evidence to Pseudomonas sp. Pseudomonas_sp1 while preserving batch4 causal graph decisions.
+  node_decisions:
+  - node: Pseudomonas Pyridoxal Support Under Florfenicol Stress
+    rationale: Retain qualified cross-feeding as a source-proposed mechanism with experimentally supported growth and supplementation, but unresolved necessity and transfer.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:41724996
+  issues:
+  - 2120
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Auxenochlorella_Pseudomonas_Florfenicol_Phycosphere_Coculture/2026-11-05T165000Z-antigravity-2120a3.yaml

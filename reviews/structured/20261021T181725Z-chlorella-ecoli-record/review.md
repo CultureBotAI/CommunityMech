@@ -1,0 +1,1684 @@
+# UTEX 2341–E. coli source, identity and assay-scope review
+
+- Review: 20261021T181725Z-chlorella-ecoli-record
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-21T18:07:49.253911Z
+- Finished UTC: 2026-10-21T18:17:25.665996Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+Full-source review retains the condition-specific three-node/two-arrow graph. Two major findings concern later stock-specific algal reidentification and an unqualified bacterial recipient role. Two minor findings recover cultivation/outcome context and correct publication-versus-dataset classification. Exact stock-link inference and the unverified mineral recipe remain explicit.
+
+## Scope And Provenance
+
+Entire maintained record assessed against the full focal main, all main and supplementary figures/tables, later stock-reidentification primary text, current authorities and exact provenance.
+
+Selection: Only released CommunityMech:000269 in the owned batch 10 checkout.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base 95812d3412d5aab41fd03422340cf736ac7b56f3.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000269 | kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml | maintained | Chlorella-Ecoli Mixotrophic Biofuel Precursor Coculture |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000269 | Schema passed. |
+| validate-strict | passed | True | CommunityMech:000269 | Strict validation passed. |
+| validate-terms | passed | True | CommunityMech:000269 | Term validation passed. |
+| validate-gtdb | passed | True | CommunityMech:000269 | GTDB structure/coherence passed. |
+| validate-gtdb-domain | passed | True | CommunityMech:000269 | Algal and bacterial GTDB applicability passed. |
+| validate-history | passed | True | CommunityMech:000269 | History validation passed. |
+| normalize-cache-names-check | passed | True | CommunityMech:000269 | Read-only cache filename check passed. |
+| validate-references-explained | passed | True | CommunityMech:000269 | Native references pass against unchanged source-specific caches; fresh scientific checks separately verify excerpt context. |
+| audit-network | failed | True | CommunityMech:000269 | Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal graph separately reports COMPLETE. |
+| check-network-quality | failed | True | CommunityMech:000269 | Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal graph separately reports COMPLETE. |
+| Full focal source and current-claim-critical assets | passed | True | CommunityMech:000269 | Entire focal main, all six tables, four main figures, eleven SI figures and equations assessed; later stock-specific primary text assessed with its explicit limitations. |
+| Fresh reference-specific excerpts | passed | True | CommunityMech:000269 | All 25 excerpts strictly match their appropriate fresh source and cache: 22 abstract, two body and one title. Scientific support is assessed separately. |
+| Source-referenced N8-NH4 mineral formulation | unavailable | False | CommunityMech:000269 | The inspected publisher inventory and complete EPMC supplemental archive contain figure/table/equation assets but no distinct medium recipe. Named medium and main-text assay conditions are verified; exact unverified formulation is not certified. |
+| Stock-specific reidentification and current authority | passed | True | CommunityMech:000269 | Later primary text, exact UTEX/ATCC catalogue scope and local candidate taxon IDs were verified. Stock linkage is explicitly inferred from the same-laboratory account and focal Methods citation, not an independently documented chain of custody. |
+| Raw data, sequence and experimental reproduction | skipped | False | CommunityMech:000269 | No sequence alignment, phylogenetic reconstruction, statistical retest, raw-data analysis or experimental reproduction was performed. The later phylogeny image was not independently inspected. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000269 | Availability is bounded to frozen runtime discovery. Public primary sources and local authorities supplied the review evidence. |
+
+## Scientific And Domain Assessments
+
+### Experimental members and stock-specific current grounding
+
+identity: concern. Targets: CommunityMech:000269.
+
+Reconcile the algal genus using the exact stock reidentification while preserving historical nomenclature.
+
+The intended two-member experiment remains identifiable. The later study links its 2006 laboratory stock and contemporary UTEX culture to Auxenochlorella protothecoides, whereas the record uses genus Chlorella as a fallback. Applicability is source-linked rather than a documented batch chain of custody. Current candidate IDs must be applied consistently to the actual algal occurrences after this explicit assessment; no universal historical synonymy or automatic replacement of unrelated records follows.
+
+### Taxonomy functional roles and narrow supporting evidence
+
+evidence: concern. Targets: CommunityMech:000269.
+
+Keep algal primary production; qualify or omit the unproven bacterial recipient role.
+
+The paper proposes exchange alternatives but does not identify an algal metabolite used by E. coli. The existing membership and suggested-symbiosis snippets do not establish CROSS_FEEDER. Preserve observed bacterial viable-count benefit and the authors’ candidate mechanisms without substituting another unsupported enum or adding a stricter role definition.
+
+### ecological_interactions[0] and its downstream link
+
+evidence: supported. Targets: CommunityMech:000269.
+
+Retain the condition-specific mutualism interpretation and PARTIAL biomass-to-product support.
+
+The 10 g/L algal productivity comparison and 96-hour bacterial viable counts support reciprocal benefit in their stated contexts. Total bacterial dry biomass is not uniformly increased. Bulk product assays and the glucose antibiotic control limit attribution to a particular partner or mediator. Correct algal taxon occurrences without changing the experimentally supported direction or adding a new edge.
+
+### ecological_interactions[1] and its downstream link
+
+evidence: supported. Targets: CommunityMech:000269.
+
+Retain community-level substrate disappearance and the HYPOTHESIZED contribution to product formation.
+
+The comparison is to summed monoculture uptake at high substrate concentration. Lower-dose depletion, externally supplied carbon and untraced carbon allocation prevent interpreting this as a donor-recipient flux. Scope GO carbohydrate metabolism to its relevant component when refining the assay description.
+
+### ecological_interactions[2]
+
+evidence: supported. Targets: CommunityMech:000269.
+
+Keep bulk lipid/starch production and the explicit kanamycin starch confound.
+
+Productivity is not the same as product content, reciprocal fitness or pathway flux. Matched antibiotic testing is glucose-specific. Current qualifiers preserve these boundaries; no product-to-growth edge or universal co-culture benefit is added.
+
+### growth_media, environmental factors and non-graph condition scope
+
+completeness: concern. Targets: CommunityMech:000269.
+
+Recover actual assay context without inventing the unverified mineral recipe.
+
+Separate precursor and experimental cultures, the three substrate alternatives, concentration arms, pH interventions and antibiotic controls. Scope broad top-level/ingredient outcomes to their concentration and combined-biomass readout. ABUNDANT can remain an ordinal description with condition-specific evidence; reactor biofouling and acid formation are outcomes/constraints, not imposed inputs.
+
+### State, origin, category, laboratory environment and metals
+
+identity: supported. Targets: CommunityMech:000269.
+
+Retain engineered synthetic laboratory biotechnology identity.
+
+The experiment is a defined laboratory production pair. Wastewater motivation does not establish an environmental consortium, and catalogue isolation history is not assay salinity. Metal/REE NOT_APPLICABLE is coherent with the encoded scope; possible medium trace salts do not establish a biological metal-processing role.
+
+### Article versus separately identified phenotype data
+
+provenance: concern. Targets: CommunityMech:000269.
+
+Move the bibliographic item to external_resources.
+
+The PMID landing page identifies the article. Remove its misclassified associated_datasets entry when preserving the publication link; replacement data are optional and require an exact collection/table/asset identity. Six tables and eleven SI figures are verified, while the source-referenced mineral formulation remains unavailable in the inspected inventory.
+
+### Excerpt scope, current issues and immutable input lineage
+
+provenance: supported. Targets: CommunityMech:000269.
+
+Use current issue 1300 and preserve prior graph-repair context.
+
+All 25 reference-specific excerpts match, but full-source interpretation adds identity and role findings. Closed issue 1299 and the previous decision retain their narrower historical scope. The current cache label is correct; no duplicate issue, source-cache mutation or general no-data claim is warranted.
+
+### Native checks and immutable review workflow
+
+schema: supported. Targets: CommunityMech:000269.
+
+Eight focused native checks pass; the four scientific curation findings remain.
+
+All maintained canonical, cache, history and generated inputs remain unchanged. Persistence is limited to a new immutable review bundle. Current-claim scientific completion does not imply an independently reanalyzed sequence identity, an available complete mineral formula or causal proof of a proposed exchange mediator.
+
+### Native mechanical completeness and quality
+
+completeness: supported. Targets: CommunityMech:000269.
+
+Completeness 95 and capped quality 100/raw 111 are mechanical metrics.
+
+## Findings
+
+### algal-stock-grounding: Reconcile the UTEX 2341 stock with later Auxenochlorella reidentification
+
+major / open / confirmed; issue key: cm-000269-algal-stock-grounding.
+
+The record uses Chlorella genus grounding as a conservative fallback for its historical C. minutissima name. The later same-laboratory primary study identifies its 2006 stock and then-current UTEX stock as A. protothecoides; the current catalogue also disclaims the old identification. A valid Chlorella label does not resolve this conflicting stock evidence. Reconcile all three algal taxon occurrences with explicit stock linkage, preserving the original paper wording and pre-2006 uncertainty.
+
+### bacterial-role-support: Bound the bacterial CROSS_FEEDER role to actual evidence
+
+major / open / confirmed; issue key: cm-000269-bacterial-role-support.
+
+The flat E. coli CROSS_FEEDER assignment is stronger than membership, a suggested symbiotic relationship and higher viable counts. The Discussion proposes exchange alternatives without identifying an algal-derived resource used by E. coli. Qualify the role as a supported hypothesis only if that uncertainty is representable; otherwise omit the optional enum while retaining the measured response and proposed mechanisms.
+
+### cultivation-and-condition-scope: Recover separate assay conditions and qualify broader outcome summaries
+
+minor / open / confirmed; issue key: cm-000269-cultivation-and-condition-scope.
+
+The generic medium lists three substrates together and lacks available main-text cultivation detail. The description and lipid/starch relevance should retain high-substrate and combined-biomass context already preserved in the graph. Separate precursor and final cultures, substrate arms, pH intervention, antibiotic controls and assay-specific abundance evidence; do not invent the unverified mineral formula.
+
+### publication-resource: Classify the primary article as a publication resource
+
+minor / open / confirmed; issue key: cm-000269-publication-resource.
+
+The PHENOTYPE dataset entry identifies the PMID landing page and publication title. Preserve the literature link in external_resources and remove the misclassified bibliographic dataset entry. A replacement data entry is optional and requires a separately scoped actual table, collection or archive asset.
+
+## Recommended Actions And Acceptance Checks
+
+### reconcile-algal-stock
+
+Correct source-linked algal grounding consistently while preserving historical identity.
+
+- Assess and document the linkage between focal UTEX 2341 and the later study’s laboratory stock acquired in 2006, using the same-laboratory account and explicit reference to the focal 2014 Methods. State that this is a source-linked inference rather than a separately documented batch chain of custody.
+- Reconcile taxonomy[0].taxon_term, ecological_interactions[0].target_taxon and ecological_interactions[1].participating_taxa[0] together. The verified current candidates are NCBITaxon:3075 Auxenochlorella protothecoides and NCBITaxon:191392 Auxenochlorella. Do not retain Chlorella merely because it is a broader rank; if residual stock uncertainty prevents a precise assignment, describe that uncertainty explicitly rather than silently choosing a conflicting genus.
+- Preserve C. minutissima as the 2014 publication’s historical designation and UTEX 2341 as the exact stock identifier. Update preferred-name and general description/design prose consistently while retaining original evidence snippets verbatim. Cite the 2015 reidentification and its stock-date limits as new primary evidence.
+- Do not declare a universal synonym for every historical C. minutissima or every pre-2006 UTEX 2341 culture. The proposed earlier stock switch is not established for each historic experiment. Keep algal NO_GTDB_EQUIVALENT and the independently verified E. coli species-level GTDB mapping; no exact-strain genome assignment is inferred.
+- Retain E. coli ATCC 25922 as the bacterial member. If adding catalogue aliases, use only verified FDA strain Seattle 1946, DSM 1103 and NCIB 12210 context; do not import the rejected NCTC 10418 equivalence or catalogue maintenance conditions. Use existing open issue 1300 for this follow-up.
+
+### qualify-bacterial-recipient-role
+
+Align the optional bacterial role and its evidence with unresolved exchange mechanisms.
+
+- Remove the unqualified E. coli CROSS_FEEDER assignment unless a source-specific hypothesis can be clearly represented without implying demonstrated utilization. Any retained hypothesis must point to the actual Discussion and distinguish possible gases, cofactors or organic metabolites from a measured donor-derived substrate.
+- Do not use higher viable CFU, membership, a suggested symbiosis or bulk externally supplied substrate consumption as sufficient proof of metabolite utilization. The proposed disappearance of bacterially produced acetate concerns a possible algal recipient route and does not establish the encoded bacterial recipient direction.
+- Preserve observed condition-specific viable-cell benefit and the qualified mutualism node. Retain algal PRIMARY_PRODUCER in the illuminated system, all three nodes and both PARTIAL/HYPOTHESIZED arrows. Do not force a substitute functional-role enum, an obligacy test, a narrower nutrition-only definition or a new mechanistic edge.
+- Attach narrow evidence to any retained role and clearly separate measured growth outcomes from candidate mediators. Existing issue 1300 owns the non-graph role follow-up; closed issue 1299 remains prior graph-repair provenance.
+
+### recover-assay-context
+
+Represent the actual substrate and cultivation stages without merging distinct controls.
+
+- Name N8-NH4 as the experimental medium and explicitly represent separate glucose, glycerol or sodium-acetate arms at 0, 0.5, 2 and 10 g/L. Do not express all three as a shared mixture. Preserve acetate as substrate chemistry and sodium acetate as the reported reagent; do not fabricate its complete mineral formulation from a catalogue or another study.
+- Separate algal preculture from the assay: ATCC No. 5 agar followed by N8-NH4 at pH 7.2, approximately 7–8 days, 800 mL in 1 L bottles, about 28 C and 300 rpm, 10000 lux with a 16:8 light:dark cycle, and 2% CO2 in air at 400 mL/min. Keep E. coli LB plus 1% glucose for about 24 hours as its own preparation step.
+- Record final five-day assays as 200 mL in 250 mL hybridization tubes, 28 C, about 100 rpm, 10000 lux with a 16:8 light:dark cycle and ambient air at 125 mL/min without supplemental CO2. Initial algae are about 1e7 cells/mL and bacteria about 1e4 CFU/mL. Do not convert gas flow into liquid feed/dilution or infer a different cultivation mode from aeration alone.
+- Distinguish initial stock pH 7.2 from daily approximate neutral restoration: NaOH for glucose/glycerol acidification and HCl to pH 7 for acetate. Do not claim constant pH control, transfer analytical buffer conditions or convert lux into a photon flux without source support. Scope kanamycin 20 mg/L to axenic algal controls.
+- Qualify top-level and related lipid/starch summaries with the 10 g/L and combined-biomass context and the glucose-specific antibiotic-control limitation. Keep biofouling and acid formation as observed process outcomes/constraints. Preserve the existing graph’s concentration, viability-versus-biomass, bulk-uptake and matched-control qualifications.
+- Retain ABUNDANT only with an explicit ordinal interpretation and actual assay-specific abundance/CFU context, without assigning a fabricated percentage band. Table 3 qPCR mass fractions are condition-specific estimates, not proof of environmental dominance or a fixed partner ratio.
+- Scope GO carbohydrate metabolism to the relevant glucose-related component rather than treating it as a synonym for all three substrate chemistries. Lipid/starch product accumulation does not establish measured pathway flux. Add precise Methods, table and figure locators to each recovered claim; do not claim the missing mineral-recipe asset was inspected.
+
+### reclassify-publication
+
+Preserve literature provenance while correcting the dataset type.
+
+- Move the PMID:24805253 publication title and URL to external_resources with an accurate literature description. Remove that bibliographic entry from associated_datasets when moving it, regardless of whether another data resource is identified.
+- Add a replacement dataset only if a specific data collection, table or archive asset is independently identified with accurate scope. Six main tables and eleven DOI-addressed SI figures are verified article assets, not a reason to invent a standalone repository accession or a sequence dataset.
+- Preserve the bounded supplemental-inventory result and unverified N8-NH4 formulation. Do not turn the absence of a named archive in inspected sections into a global no-data claim or a new data-omission finding.
+
+### validate-authorized-curation
+
+After separately authorized curation, preserve provenance and run the documented completion gates.
+
+- Apply only separately authorized canonical corrections, append a fresh curation-history entry, and retain exact source/version/locator and issue 1300 ownership. Check each changed interpretation against the primary source, not merely against a matching snippet.
+- Run focused schema, strict, term, GTDB/domain, reference, cache-name and history checks. Verify that all three algal occurrences are consistent and that the three-node/two-arrow graph retains its evidence-support qualifiers. Report any unresolved stock-link or unavailable recipe limitation.
+- After canonical changes run just gen-html and just check-docs-current in the required environment and inspect generated changes for the intended record. This review performs no canonical, source-cache, history or generator mutation; persistence is limited to its new immutable review bundle.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml; Whole maintained YAML: two taxa, three nodes, two arrows and all non-graph fields | supports | The graph already distinguishes concentration-specific biomass benefit, bulk substrate disappearance and antibiotic-confounded combined product endpoints. The algal genus, bacterial recipient role, generic cultivation block and article-as-dataset classification require four separate curation follow-ups. |
+| identity | PMID:24805253; doi:10.1371/journal.pone.0096807; Methods and Materials: Algae cultivation; Introduction | supports | The experiment deliberately pairs the alga reported as C. minutissima UTEX 2341 with E. coli ATCC 25922. This supports the two experimental members and engineered, synthetic laboratory biotechnology identity, not a naturally coisolated wastewater community. The historical algal name must be distinguished from later stock-specific reidentification. |
+| reidentification | doi:10.1016/j.algal.2015.10.016; Author-uploaded primary text: genetic classification discussion, Methods, Tables 1–2 and Figure 1 caption; focal 2014 study cited as reference 29 | supports | The 2015 study identifies its laboratory stock acquired in 2006 and the then-current UTEX stock as Auxenochlorella protothecoides. It reports identical 18S sequences between those stocks, a 1668 bp partial sequence with a 1257 bp exact match to UTEX 250, and supporting ITS2 KT368819. The same-laboratory stock account and explicit Methods citation link the finding to the focal research; they are not an independently documented chain of custody for each 2014 batch. A possible earlier stock switch is proposed. Do not apply this identity to all pre-2006 cultures or all historical C. minutissima names. The phylogeny image and sequence payloads were not reanalyzed. |
+| role-hypotheses | PMID:24805253; doi:10.1371/journal.pone.0096807; Discussion: The effects of bacterial contamination; Effects of substrate on biomass growth | supports | The authors discuss gas exchange, cofactors, hormones and organic metabolites as alternative mechanisms. The bacterial viable-count benefit and both partners consuming supplied substrates do not establish algal-resource utilization by E. coli. Acetate observed in bacterial monoculture but absent in coculture motivates a proposed algal consumption route, not proof of a bacterial recipient role. The actual exchanged mediators remain unresolved. |
+| biomass | PMID:24805253; doi:10.1371/journal.pone.0096807; Results: Biomass productivity; Bacteria and algae levels in co-cultures; Tables 1–4 and Figure 1 | supports | At 10 g/L initial substrate, qPCR-partitioned algal productivity is higher in the cocultures, while lower concentrations do not give a uniform advantage. Table 2 and SI Figures S5–S7 support increased viable bacterial counts at 96 hours. Table 4 shows that total bacterial dry biomass is not uniformly increased. Retain the current condition-specific mutualism interpretation rather than equating CFU with total biomass or all conditions with reciprocal benefit. |
+| abundance | PMID:24805253; doi:10.1371/journal.pone.0096807; Results: Bacteria and algae levels in co-cultures; Tables 2–4 | supports | The source measures viable bacterial counts and estimates bacterial versus algal dry mass using qPCR. Fractions vary by substrate and concentration; at 10 g/L the bacterial mass estimates are 6.2%, 11.5% and 4.7% for glucose, glycerol and acetate. These are assay- and method-specific estimates, not a universal ecological rank. ABUNDANT is ordinal and does not require a fabricated threshold; attach the appropriate evidence and scope when retaining it. |
+| uptake | PMID:24805253; doi:10.1371/journal.pone.0096807; Results: Substrate consumption; Table 6; Discussion: Effects of substrate on biomass growth | supports | At 10 g/L, community substrate disappearance is reported as 23%, 59% and 737% above the summed monocultures for glucose, glycerol and acetate. Lower doses approach depletion, limiting the same comparison. These bulk measurements neither trace carbon into either partner nor identify a donor-derived metabolite. Preserve the HYPOTHESIZED uptake-to-product arrow and its distinction from cross-feeding. |
+| products | PMID:24805253; doi:10.1371/journal.pone.0096807; Results: Lipid and starch content; Effect of kanamycin on biomass composition; Tables 1 and 5 | supports | Lipid and starch measurements are combined-biomass endpoints. The separate glucose factorial finds that kanamycin suppresses starch in axenic algae at 10 g/L; untreated axenic starch content is comparable to coculture content. That control does not extend to every glycerol or acetate comparison. Biomass enhancement can contribute to volumetric productivity, but it does not prove that every product-content difference is bacterial mediation. The current PARTIAL biomass-to-product arrow already captures this. |
+| efficiency | PMID:24805253; doi:10.1371/journal.pone.0096807; Methods and Materials: Substrate conversion efficiency; Data analysis; Results: Substrate conversion efficiency; Figure 4 and displayed equations | supports | The reported efficiency is potential combustion enthalpy stored in lipid/starch relative to consumed substrate, treating light-driven production as free. It is not carbon tracing or a pathway-flux measurement. The data-analysis transformation and statistical model were read but not rerun. No new efficiency number, significance test, optimized substrate ranking or zero-substrate ratio is inferred. |
+| preculture | PMID:24805253; doi:10.1371/journal.pone.0096807; Methods and Materials: Algae cultivation, initial culture paragraphs | supports | Algal colonies on ATCC No. 5 agar are transferred to N8-NH4 at pH 7.2 for about 7–8 days. The preculture uses 800 mL in 1 L bottles, approximately 28 C, 300 rpm, 10000 lux with a 16:8 light:dark cycle, and 2% CO2 in air at 400 mL/min. E. coli is separately grown in LB with 1% glucose for about 24 hours. These preparation conditions must not be copied onto the final coculture assay or inferred from catalogue maintenance recipes. |
+| cultivation | PMID:24805253; doi:10.1371/journal.pone.0096807; Methods and Materials: Algae cultivation, experimental culture paragraphs | supports | The final assays use 200 mL in 250 mL hybridization tubes for five days at 28 C, about 100 rpm, 10000 lux and 16:8 light:dark, with ambient air at 125 mL/min and no supplemental CO2. Algal inoculum is about 1e7 cells/mL and bacterial inoculum about 1e4 CFU/mL. Separate glucose, glycerol or sodium-acetate arms receive 0, 0.5, 2 or 10 g/L. Initial stocks are adjusted to pH 7.2. Kanamycin 20 mg/L is applied to axenic algal controls, not every coculture. |
+| ph-controls | PMID:24805253; doi:10.1371/journal.pone.0096807; Methods and Materials: Algae cultivation; Results: pH fluctuations in mixotrophic cultures; Figures S3–S4 | supports | pH is checked and restored approximately daily: NaOH counters acidification in glucose/glycerol cultures, while HCl returns acetate cultures to pH 7. This is not continuously maintained pH, and gas flow is not liquid feed or dilution. Analytical buffer pH and enzyme-assay conditions are unrelated to cultivation. No lux-to-photon conversion, salinity value or complete mineral formulation is inferred. |
+| supplements | PMID:24805253 supplementary assets, doi:10.1371/journal.pone.0096807.s001 through .s011; All eleven actual TIFF figure images and captions; EPMC supplemental package inventory | supports | Figures S1–S2 show axenic algal glucose/glycerol growth, S3–S4 pH trajectories, S5–S7 viable E. coli counts in cocultures, and S8–S11 bacterial monoculture growth/pH behavior. Lead and root viewed all eleven. The 34-member EPMC archive contains those figures plus main figure/table/equation representations; no distinct medium-recipe asset appears in this bounded inventory. The N8-NH4 name and main-text conditions are verified, but the mineral recipe referenced by the source remains unverified. |
+| supplement-package | Europe PMC supplementaryFiles for PMC4013066; Downloaded ZIP and complete 34-member extraction inventory | supports | The archive supplies independent asset inventory confirmation. It does not establish global absence of additional data or authorize a reconstructed N8-NH4 recipe. Figures are source assets, not sequence datasets. |
+| schema | src/communitymech/schema/communitymech.yaml; FunctionalRoleEnum; abundance_level; composition; community state/origin; dataset and resource fields | supports | CROSS_FEEDER means utilization of metabolites from other taxa; membership and growth alone are insufficient, while no stricter nutrition-only or obligacy test is imposed. PRIMARY_PRODUCER fits photosynthetic capability despite mixotrophy. Abundance is ordinal. Structured composition denotes the ingredients of its scoped medium, requiring separate substrate-arm representation. A publication identifier alone does not establish a phenotype dataset. |
+| ontology | ontology-authority.json; Whole frozen receipt and its stated read scope | supports | All 11 encoded ID-label pairs match across 26 occurrences. Correct label correspondence does not establish that Chlorella applies to the relevant UTEX stock. Broad lipid/starch terms do not measure pathway flux. |
+| semantics | ontology-semantic-notes.json; Whole frozen receipt and its stated read scope | supports | The exact schema supports the retained state/origin, ordinal abundance and qualified graph. GO carbohydrate metabolism fits the glucose-related component, not the entire glycerol/acetate set. Source sodium acetate and the acetate-anion concept require separate recipe versus metabolite context. |
+| gtdb | child-gtdb-crosswalk.json; Whole frozen receipt and its stated read scope | supports | The exact E. coli species 562 row matches the current GTDB lineage, 166397 genomes and majority fraction 1.0. This is species-concept mapping, not exact ATCC 25922 genome placement. Algal NO_GTDB_EQUIVALENT remains appropriate under reidentification. |
+| catalogues | child-strain-catalogue-authority.json; Whole frozen receipt and its stated read scope | supports | ATCC 25922 is FDA strain Seattle 1946, with DSM 1103 and NCIB 12210 aliases; the catalogue rejects the old NCTC 10418 equivalence. UTEX retains a historical C. minutissima heading but explicitly disclaims that identification. Catalogue maintenance conditions do not define this experiment. |
+| stock-authority | child-utex-reidentification-authority.json; Whole frozen receipt and its stated read scope | supports | Independent primary-text assessment links the 2015 reidentification to the relevant laboratory stock with explicit chain-of-custody limitations. Preserve historical source nomenclature while reconciling present machine-readable genus/species grounding. |
+| taxon-candidates | child-reidentification-oak-candidates.json; Whole frozen receipt and its stated read scope | supports | Current local NCBI authority verifies Auxenochlorella protothecoides, NCBITaxon:3075, and its genus Auxenochlorella, NCBITaxon:191392. These are source-grounded curation candidates, not automatic substitution for every historical culture with the legacy name. |
+| resources | dataset-verification.json; Whole frozen receipt and its stated read scope | supports | The encoded PMID/title/landing page identify the publication. Six main tables and eleven DOI-addressed TIFF supplements are actual article assets. The resource search is bounded to source declarations and listed assets; no global data absence or unrelated sequence accession is inferred. |
+| snippets | snippet-audit.json; Whole frozen receipt and its stated read scope | supports | All 25 excerpts strictly match the appropriate fresh source and cache: 22 abstract, two body and one title. Their surrounding interpretations still require scientific assessment; literal matching does not establish recipient function or modern stock identity. |
+| history | provenance-audit.json; Whole frozen receipt and its stated read scope | supports | The sole history and exact prior decision document graph repair, not full non-graph certification. Current issue 1299 is closed/completed with one comment; issue 1300 is open with no comments and owns identity, role, abundance and protocol follow-up. The cache scope is already correctly described. |
+| metrics | support-audit.json; Whole frozen receipt and its stated read scope | supports | Native COMPLETE covers three nodes, two arrows and eight node-evidence entries. Completeness is 95. Two major and two minor findings give raw quality 111, capped at 100. Optional fields are not invented for metric credit. |
+| lead-read | lead-primary-read-scope.json; Whole frozen receipt and its stated read scope | supports | Lead read the complete focal scientific main, six tables, four main figures, eleven SI figures and relevant equations. Later reidentification text, Methods and source linkage were read, with no independent phylogeny-image or sequence reanalysis. |
+| source-scope | source-audit.json; Whole frozen receipt and its stated read scope | supports | Frozen current-claim assessment records two major and two minor findings, retained graph/assay boundaries, exact-stock reidentification limits and the unverified mineral recipe. |
+| locator-clarification | source-field-locator-clarification.json; Whole frozen receipt and its stated read scope | supports | A standalone erratum preserves frozen source bytes while correcting three selectors: the third algal occurrence is ecological_interactions[1].participating_taxa[0], and both abundance fields are abundance_level. Candidate findings use the actual maintained paths. |
+| root-source | root-independent-source-audit.json; Whole frozen receipt and its stated read scope | supports | Root independently read the focal main, six tables, four main figures, eleven SI figures and equations, plus later primary genetic discussion/Methods and exact catalogue context. It agrees with completed current-claim review and the four findings. |
+| auxiliary | auxiliary-frozen-manifest.json; Whole frozen receipt and its stated read scope | supports | Eight focused native checks pass and all 24 inspected repository inputs are unchanged. Initial native summary and final metadata are separate immutable files; each authority read has its own bounded scope. |
+| adapter | adapter-check.json; Whole frozen receipt and its stated read scope | supports | Optional structured-adapter availability is bounded to the recorded runtime discovery. Public sources and local authorities supplied the review evidence without paid providers, credentials or author contact. |
+| check-validate | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml; Actual execution 2026-10-21T18:08:41.997679+00:00 to 2026-10-21T18:08:43.474416+00:00 | supports | Schema passed. |
+| check-validate-strict | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-strict kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml --out /private/tmp/cm-review-session/batch-10/000269/strict-report.tsv; Actual execution 2026-10-21T18:08:41.998241+00:00 to 2026-10-21T18:08:44.956254+00:00 | supports | Strict validation passed. |
+| check-validate-terms | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-terms kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml; Actual execution 2026-10-21T18:08:42.004511+00:00 to 2026-10-21T18:08:44.482462+00:00 | supports | Term validation passed. |
+| check-validate-gtdb | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-gtdb kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml; Actual execution 2026-10-21T18:08:43.474795+00:00 to 2026-10-21T18:08:43.562291+00:00 | supports | GTDB structure/coherence passed. |
+| check-validate-gtdb-domain | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-gtdb-domain kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml; Actual execution 2026-10-21T18:08:43.562551+00:00 to 2026-10-21T18:08:44.998947+00:00 | supports | Algal and bacterial GTDB applicability passed. |
+| check-validate-history | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-history history/records/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture; Actual execution 2026-10-21T18:08:44.482732+00:00 to 2026-10-21T18:08:45.237303+00:00 | supports | History validation passed. |
+| check-normalize-cache-names-check | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src uv run python scripts/normalize_cache_names.py --check; Actual execution 2026-10-21T18:08:45.238111+00:00 to 2026-10-21T18:08:45.291968+00:00 | supports | Read-only cache filename check passed. |
+| check-validate-references-explained | JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src just --no-dotenv validate-references-explained kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml; Actual execution 2026-10-21T18:08:45.292204+00:00 to 2026-10-21T18:08:46.245389+00:00 | supports | Native references pass against unchanged source-specific caches; fresh scientific checks separately verify excerpt context. |
+| check-audit-network | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv audit-network; Actual execution 2026-10-21T17:04:17.819938+00:00 to 2026-10-21T17:04:25.370848+00:00 | supports | Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal graph separately reports COMPLETE. |
+| check-check-network-quality | PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just --no-dotenv check-network-quality; Actual execution 2026-10-21T17:04:17.819995+00:00 to 2026-10-21T17:04:26.163649+00:00 | supports | Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal graph separately reports COMPLETE. |
+
+## Limits And Additional Notes
+
+- Completed scientific review covers the current encoded claims. Lead and root inspected the full focal main, six tables, four main figures, all eleven SI figures and the relevant equations. The source-referenced N8-NH4 formulation was not identified in the inspected publisher inventory or complete 34-member EPMC package; this is not proof of global absence.
+- Later UTEX 2341 reidentification is based on primary author text and current catalogue/ontology context. The same-laboratory 2006 stock account and explicit focal-study citation provide a source-linked inference of applicability, not independently documented chain of custody for every focal batch. The possible pre-2006 switch remains a hypothesis. No universal historical synonymy is asserted.
+- The 2015 phylogeny image and raw sequences were not independently inspected or recomputed. The reported 18S/ITS2 results and stock comparison are attributed to that primary source. Verified taxon IDs are curation candidates, not automatic replacement of every record using the old name.
+- Growth benefit, bacterial CFU, dry biomass, qPCR mass fraction, bulk substrate disappearance and combined lipid/starch production are distinct measurements. No mediator tracing, partner-specific pathway flux, new significance test or mechanistic necessity is inferred from their association.
+- The glucose antibiotic factorial identifies a starch-control confound and does not supply matched factorial evidence for glycerol or acetate. Some lower-dose cultures deplete substrate, and separate substrate batches have control batch effects. No uniform coculture benefit or cross-substrate optimum is inferred.
+- Most treatment arms have three biological replicates, while the 10 g/L glycerol coculture has two. Source prose includes some rounded or differing percentage descriptions; the review preserves the structured condition-specific comparisons without recalculating significance or silently correcting the paper.
+- Algal preculture and final assay differ in vessel, agitation and gas supply. Substrate arms are alternatives. pH is adjusted daily rather than held continuously, and gas sparging is not liquid feed. Kanamycin belongs to axenic controls. Catalogue culture recipes and analytical buffers are not assay conditions.
+- All 25 excerpts strictly match the appropriate fresh source and cache: 22 abstract, two body and one title. Excerpt agreement does not validate an unqualified role or current stock identity. The cache already contains correctly labeled full text; the previous graph repair is not a blanket source certification.
+- The E. coli GTDB block is an exact species-row mapping and does not classify ATCC 25922 genomically. UTEX’s historical heading must be read together with its explicit identity disclaimer and later primary evidence. ABUNDANT remains ordinal, with no invented percentage or persistence threshold.
+- The source-audit field-selector clarification is standalone and preserves its frozen original. The actual third algal occurrence is ecological_interactions[1].participating_taxa[0], and the actual abundance fields are abundance_level. No scientific finding or score changed.
+- All eight focused native checks pass and all 24 official inputs remain unchanged. Corpus-wide nonzero diagnostics keep their wider scope. Completeness 95 and quality 100/raw 111 do not erase the two major and two minor findings. No canonical, cache, history, generated or previously saved artifact was edited; no paid provider, author contact or later-record assessment was used.
+- All 24 official inspected inputs remain unchanged. No canonical, cache, history, generated or previously saved artifact was edited.
+- Lead and root independently assessed the focal main and all current scientific assets. Auxiliary stock/ontology review and sibling provenance/resource/snippet audits have their own explicit reading scopes. The later phylogeny image and sequence payloads were not reanalyzed.
+- Two major and two minor findings give raw quality 111/capped 100; completeness is 95. Existing open issue 1300 owns the non-graph follow-up. The three-node/two-arrow graph remains qualified.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261021T181725Z-chlorella-ecoli-record
+kind: record
+repository: CultureBotAI/CommunityMech
+title: UTEX 2341–E. coli source, identity and assay-scope review
+started_at: '2026-10-21T18:07:49.253911Z'
+finished_at: '2026-10-21T18:17:25.665996Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate agents assessed primary science, auxiliary authorities
+    and provenance; no person-level independence is asserted.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: Full-source review retains the condition-specific three-node/two-arrow graph.
+  Two major findings concern later stock-specific algal reidentification and an unqualified
+  bacterial recipient role. Two minor findings recover cultivation/outcome context
+  and correct publication-versus-dataset classification. Exact stock-link inference
+  and the unverified mineral recipe remain explicit.
+source:
+  git_revision: 95812d3412d5aab41fd03422340cf736ac7b56f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture/2026-10-05T204705Z-codex-b2f2e2.yaml
+    sha256: 9cc0d1c0d8501ba62afd31176870e61170d4aec23199e1fef20841d5200b1371
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+    sha256: d090cf0ae12560991a83e3656b8a1a2b7fac06347933dc869aa1b1bf4ce02bf2
+    role: target
+  - path: references_cache/PMID_24805253.md
+    sha256: 80deb0c6b9435e22f9753903089723a85f18988b9651ffcfd84fb780d72b2699
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-two-records-batch13.yaml
+    sha256: 3a67653fd9c38b7df2fb08988dee48c4b0166cd1fab67d65cf7441e34d6e2739
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000269
+  path: kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+  label: Chlorella-Ecoli Mixotrophic Biofuel Precursor Coculture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+    role: canonical_record
+scope:
+  description: Entire maintained record assessed against the full focal main, all
+    main and supplementary figures/tables, later stock-reidentification primary text,
+    current authorities and exact provenance.
+  selection: Only released CommunityMech:000269 in the owned batch 10 checkout.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000269
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Schema passed.
+  target_ids:
+  - CommunityMech:000269
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Strict validation passed.
+  target_ids:
+  - CommunityMech:000269
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-strict kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-10/000269/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Term validation passed.
+  target_ids:
+  - CommunityMech:000269
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-terms kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: GTDB structure/coherence passed.
+  target_ids:
+  - CommunityMech:000269
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Algal and bacterial GTDB applicability passed.
+  target_ids:
+  - CommunityMech:000269
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: History validation passed.
+  target_ids:
+  - CommunityMech:000269
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-history history/records/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Read-only cache filename check passed.
+  target_ids:
+  - CommunityMech:000269
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Native references pass against unchanged source-specific caches; fresh
+    scientific checks separately verify excerpt context.
+  target_ids:
+  - CommunityMech:000269
+  command: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-references-explained kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Fresh execution in the owned batch 10 checkout. Mechanical success does
+    not establish source-specific biological mechanisms or recipe equivalence.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal
+    graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000269
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - metrics
+  scope_note: Explicit same-batch corpus reuse. Nonzero corpus status is not assigned
+    as a new defect to this target.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal
+    graph separately reports COMPLETE.
+  target_ids:
+  - CommunityMech:000269
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - metrics
+  scope_note: Explicit same-batch corpus reuse. Nonzero corpus status is not assigned
+    as a new defect to this target.
+- check_id: scientific-source
+  name: Full focal source and current-claim-critical assets
+  status: passed
+  required: true
+  summary: Entire focal main, all six tables, four main figures, eleven SI figures
+    and equations assessed; later stock-specific primary text assessed with its explicit
+    limitations.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - lead-read
+  - root-source
+  - source-scope
+- check_id: direct-snippets
+  name: Fresh reference-specific excerpts
+  status: passed
+  required: true
+  summary: 'All 25 excerpts strictly match their appropriate fresh source and cache:
+    22 abstract, two body and one title. Scientific support is assessed separately.'
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - snippets
+- check_id: mineral-recipe
+  name: Source-referenced N8-NH4 mineral formulation
+  status: unavailable
+  required: false
+  summary: The inspected publisher inventory and complete EPMC supplemental archive
+    contain figure/table/equation assets but no distinct medium recipe. Named medium
+    and main-text assay conditions are verified; exact unverified formulation is not
+    certified.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - supplements
+  - supplement-package
+  - resources
+- check_id: taxon-stock
+  name: Stock-specific reidentification and current authority
+  status: passed
+  required: true
+  summary: Later primary text, exact UTEX/ATCC catalogue scope and local candidate
+    taxon IDs were verified. Stock linkage is explicitly inferred from the same-laboratory
+    account and focal Methods citation, not an independently documented chain of custody.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - reidentification
+  - stock-authority
+  - taxon-candidates
+  - catalogues
+- check_id: reanalysis
+  name: Raw data, sequence and experimental reproduction
+  status: skipped
+  required: false
+  summary: No sequence alignment, phylogenetic reconstruction, statistical retest,
+    raw-data analysis or experimental reproduction was performed. The later phylogeny
+    image was not independently inspected.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - lead-read
+  - stock-authority
+- check_id: adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Availability is bounded to frozen runtime discovery. Public primary sources
+    and local authorities supplied the review evidence.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - adapter
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+  locator: 'Whole maintained YAML: two taxa, three nodes, two arrows and all non-graph
+    fields'
+  summary: The graph already distinguishes concentration-specific biomass benefit,
+    bulk substrate disappearance and antibiotic-confounded combined product endpoints.
+    The algal genus, bacterial recipient role, generic cultivation block and article-as-dataset
+    classification require four separate curation follow-ups.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.660224Z'
+- evidence_id: identity
+  kind: primary_source
+  reference: PMID:24805253; doi:10.1371/journal.pone.0096807
+  locator: 'Methods and Materials: Algae cultivation; Introduction'
+  summary: The experiment deliberately pairs the alga reported as C. minutissima UTEX
+    2341 with E. coli ATCC 25922. This supports the two experimental members and engineered,
+    synthetic laboratory biotechnology identity, not a naturally coisolated wastewater
+    community. The historical algal name must be distinguished from later stock-specific
+    reidentification.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.660293Z'
+  snapshot_sha256: b8b75501ff7fc23f555bf09cfb9d6b46eb0b635a355db59a6c560d43160a9681
+- evidence_id: reidentification
+  kind: primary_source
+  reference: doi:10.1016/j.algal.2015.10.016
+  locator: 'Author-uploaded primary text: genetic classification discussion, Methods,
+    Tables 1–2 and Figure 1 caption; focal 2014 study cited as reference 29'
+  summary: The 2015 study identifies its laboratory stock acquired in 2006 and the
+    then-current UTEX stock as Auxenochlorella protothecoides. It reports identical
+    18S sequences between those stocks, a 1668 bp partial sequence with a 1257 bp
+    exact match to UTEX 250, and supporting ITS2 KT368819. The same-laboratory stock
+    account and explicit Methods citation link the finding to the focal research;
+    they are not an independently documented chain of custody for each 2014 batch.
+    A possible earlier stock switch is proposed. Do not apply this identity to all
+    pre-2006 cultures or all historical C. minutissima names. The phylogeny image
+    and sequence payloads were not reanalyzed.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.660632Z'
+  snapshot_sha256: f6b502895991e82200176d123f02f5743cbb4ec7b1e7d51a2658627a65716d5e
+- evidence_id: role-hypotheses
+  kind: primary_source
+  reference: PMID:24805253; doi:10.1371/journal.pone.0096807
+  locator: 'Discussion: The effects of bacterial contamination; Effects of substrate
+    on biomass growth'
+  summary: The authors discuss gas exchange, cofactors, hormones and organic metabolites
+    as alternative mechanisms. The bacterial viable-count benefit and both partners
+    consuming supplied substrates do not establish algal-resource utilization by E.
+    coli. Acetate observed in bacterial monoculture but absent in coculture motivates
+    a proposed algal consumption route, not proof of a bacterial recipient role. The
+    actual exchanged mediators remain unresolved.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.660825Z'
+  snapshot_sha256: b8b75501ff7fc23f555bf09cfb9d6b46eb0b635a355db59a6c560d43160a9681
+  quote: subject of ongoing investigation
+- evidence_id: biomass
+  kind: primary_source
+  reference: PMID:24805253; doi:10.1371/journal.pone.0096807
+  locator: 'Results: Biomass productivity; Bacteria and algae levels in co-cultures;
+    Tables 1–4 and Figure 1'
+  summary: At 10 g/L initial substrate, qPCR-partitioned algal productivity is higher
+    in the cocultures, while lower concentrations do not give a uniform advantage.
+    Table 2 and SI Figures S5–S7 support increased viable bacterial counts at 96 hours.
+    Table 4 shows that total bacterial dry biomass is not uniformly increased. Retain
+    the current condition-specific mutualism interpretation rather than equating CFU
+    with total biomass or all conditions with reciprocal benefit.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.660903Z'
+  snapshot_sha256: b8b75501ff7fc23f555bf09cfb9d6b46eb0b635a355db59a6c560d43160a9681
+- evidence_id: abundance
+  kind: primary_source
+  reference: PMID:24805253; doi:10.1371/journal.pone.0096807
+  locator: 'Results: Bacteria and algae levels in co-cultures; Tables 2–4'
+  summary: The source measures viable bacterial counts and estimates bacterial versus
+    algal dry mass using qPCR. Fractions vary by substrate and concentration; at 10
+    g/L the bacterial mass estimates are 6.2%, 11.5% and 4.7% for glucose, glycerol
+    and acetate. These are assay- and method-specific estimates, not a universal ecological
+    rank. ABUNDANT is ordinal and does not require a fabricated threshold; attach
+    the appropriate evidence and scope when retaining it.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.660968Z'
+  snapshot_sha256: b8b75501ff7fc23f555bf09cfb9d6b46eb0b635a355db59a6c560d43160a9681
+- evidence_id: uptake
+  kind: primary_source
+  reference: PMID:24805253; doi:10.1371/journal.pone.0096807
+  locator: 'Results: Substrate consumption; Table 6; Discussion: Effects of substrate
+    on biomass growth'
+  summary: At 10 g/L, community substrate disappearance is reported as 23%, 59% and
+    737% above the summed monocultures for glucose, glycerol and acetate. Lower doses
+    approach depletion, limiting the same comparison. These bulk measurements neither
+    trace carbon into either partner nor identify a donor-derived metabolite. Preserve
+    the HYPOTHESIZED uptake-to-product arrow and its distinction from cross-feeding.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.661032Z'
+  snapshot_sha256: b8b75501ff7fc23f555bf09cfb9d6b46eb0b635a355db59a6c560d43160a9681
+- evidence_id: products
+  kind: primary_source
+  reference: PMID:24805253; doi:10.1371/journal.pone.0096807
+  locator: 'Results: Lipid and starch content; Effect of kanamycin on biomass composition;
+    Tables 1 and 5'
+  summary: Lipid and starch measurements are combined-biomass endpoints. The separate
+    glucose factorial finds that kanamycin suppresses starch in axenic algae at 10
+    g/L; untreated axenic starch content is comparable to coculture content. That
+    control does not extend to every glycerol or acetate comparison. Biomass enhancement
+    can contribute to volumetric productivity, but it does not prove that every product-content
+    difference is bacterial mediation. The current PARTIAL biomass-to-product arrow
+    already captures this.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.661094Z'
+  snapshot_sha256: b8b75501ff7fc23f555bf09cfb9d6b46eb0b635a355db59a6c560d43160a9681
+- evidence_id: efficiency
+  kind: primary_source
+  reference: PMID:24805253; doi:10.1371/journal.pone.0096807
+  locator: 'Methods and Materials: Substrate conversion efficiency; Data analysis;
+    Results: Substrate conversion efficiency; Figure 4 and displayed equations'
+  summary: The reported efficiency is potential combustion enthalpy stored in lipid/starch
+    relative to consumed substrate, treating light-driven production as free. It is
+    not carbon tracing or a pathway-flux measurement. The data-analysis transformation
+    and statistical model were read but not rerun. No new efficiency number, significance
+    test, optimized substrate ranking or zero-substrate ratio is inferred.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.661155Z'
+  snapshot_sha256: b8b75501ff7fc23f555bf09cfb9d6b46eb0b635a355db59a6c560d43160a9681
+- evidence_id: preculture
+  kind: primary_source
+  reference: PMID:24805253; doi:10.1371/journal.pone.0096807
+  locator: 'Methods and Materials: Algae cultivation, initial culture paragraphs'
+  summary: Algal colonies on ATCC No. 5 agar are transferred to N8-NH4 at pH 7.2 for
+    about 7–8 days. The preculture uses 800 mL in 1 L bottles, approximately 28 C,
+    300 rpm, 10000 lux with a 16:8 light:dark cycle, and 2% CO2 in air at 400 mL/min.
+    E. coli is separately grown in LB with 1% glucose for about 24 hours. These preparation
+    conditions must not be copied onto the final coculture assay or inferred from
+    catalogue maintenance recipes.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.661217Z'
+  snapshot_sha256: b8b75501ff7fc23f555bf09cfb9d6b46eb0b635a355db59a6c560d43160a9681
+- evidence_id: cultivation
+  kind: primary_source
+  reference: PMID:24805253; doi:10.1371/journal.pone.0096807
+  locator: 'Methods and Materials: Algae cultivation, experimental culture paragraphs'
+  summary: The final assays use 200 mL in 250 mL hybridization tubes for five days
+    at 28 C, about 100 rpm, 10000 lux and 16:8 light:dark, with ambient air at 125
+    mL/min and no supplemental CO2. Algal inoculum is about 1e7 cells/mL and bacterial
+    inoculum about 1e4 CFU/mL. Separate glucose, glycerol or sodium-acetate arms receive
+    0, 0.5, 2 or 10 g/L. Initial stocks are adjusted to pH 7.2. Kanamycin 20 mg/L
+    is applied to axenic algal controls, not every coculture.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.661280Z'
+  snapshot_sha256: b8b75501ff7fc23f555bf09cfb9d6b46eb0b635a355db59a6c560d43160a9681
+- evidence_id: ph-controls
+  kind: primary_source
+  reference: PMID:24805253; doi:10.1371/journal.pone.0096807
+  locator: 'Methods and Materials: Algae cultivation; Results: pH fluctuations in
+    mixotrophic cultures; Figures S3–S4'
+  summary: 'pH is checked and restored approximately daily: NaOH counters acidification
+    in glucose/glycerol cultures, while HCl returns acetate cultures to pH 7. This
+    is not continuously maintained pH, and gas flow is not liquid feed or dilution.
+    Analytical buffer pH and enzyme-assay conditions are unrelated to cultivation.
+    No lux-to-photon conversion, salinity value or complete mineral formulation is
+    inferred.'
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.661342Z'
+  snapshot_sha256: b8b75501ff7fc23f555bf09cfb9d6b46eb0b635a355db59a6c560d43160a9681
+- evidence_id: supplements
+  kind: primary_source
+  reference: PMID:24805253 supplementary assets, doi:10.1371/journal.pone.0096807.s001
+    through .s011
+  locator: All eleven actual TIFF figure images and captions; EPMC supplemental package
+    inventory
+  summary: Figures S1–S2 show axenic algal glucose/glycerol growth, S3–S4 pH trajectories,
+    S5–S7 viable E. coli counts in cocultures, and S8–S11 bacterial monoculture growth/pH
+    behavior. Lead and root viewed all eleven. The 34-member EPMC archive contains
+    those figures plus main figure/table/equation representations; no distinct medium-recipe
+    asset appears in this bounded inventory. The N8-NH4 name and main-text conditions
+    are verified, but the mineral recipe referenced by the source remains unverified.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.661404Z'
+  snapshot_sha256: f9fdfaf14d17a0b17ef82050c17d8d6f1e8c936767f24dc2946cff160ac6c5c1
+- evidence_id: supplement-package
+  kind: database
+  reference: Europe PMC supplementaryFiles for PMC4013066
+  locator: Downloaded ZIP and complete 34-member extraction inventory
+  summary: The archive supplies independent asset inventory confirmation. It does
+    not establish global absence of additional data or authorize a reconstructed N8-NH4
+    recipe. Figures are source assets, not sequence datasets.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.661773Z'
+  snapshot_sha256: 4fc3c63ea736b6c8569a2c32eb1ba29c93226e8b65860e02dfcf0fb9054d442f
+- evidence_id: schema
+  kind: authority
+  reference: src/communitymech/schema/communitymech.yaml
+  locator: FunctionalRoleEnum; abundance_level; composition; community state/origin;
+    dataset and resource fields
+  summary: CROSS_FEEDER means utilization of metabolites from other taxa; membership
+    and growth alone are insufficient, while no stricter nutrition-only or obligacy
+    test is imposed. PRIMARY_PRODUCER fits photosynthetic capability despite mixotrophy.
+    Abundance is ordinal. Structured composition denotes the ingredients of its scoped
+    medium, requiring separate substrate-arm representation. A publication identifier
+    alone does not establish a phenotype dataset.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.661996Z'
+  snapshot_sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+- evidence_id: ontology
+  kind: authority
+  reference: ontology-authority.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: All 11 encoded ID-label pairs match across 26 occurrences. Correct label
+    correspondence does not establish that Chlorella applies to the relevant UTEX
+    stock. Broad lipid/starch terms do not measure pathway flux.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.662056Z'
+  snapshot_sha256: bca5132959551a5393e363600d058e5c689870c175b091d806d25b1366d71d2f
+- evidence_id: semantics
+  kind: authority
+  reference: ontology-semantic-notes.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: The exact schema supports the retained state/origin, ordinal abundance
+    and qualified graph. GO carbohydrate metabolism fits the glucose-related component,
+    not the entire glycerol/acetate set. Source sodium acetate and the acetate-anion
+    concept require separate recipe versus metabolite context.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.662193Z'
+  snapshot_sha256: e397d8d23741a7ed38147a81c8e6ebea1c99a0087580bddae51f1702fc414edc
+- evidence_id: gtdb
+  kind: authority
+  reference: child-gtdb-crosswalk.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: The exact E. coli species 562 row matches the current GTDB lineage, 166397
+    genomes and majority fraction 1.0. This is species-concept mapping, not exact
+    ATCC 25922 genome placement. Algal NO_GTDB_EQUIVALENT remains appropriate under
+    reidentification.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.662313Z'
+  snapshot_sha256: 6b760d2d07daef78ddc9e25e712c19861d735c8397c26d0f970e82961f222e39
+- evidence_id: catalogues
+  kind: authority
+  reference: child-strain-catalogue-authority.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: ATCC 25922 is FDA strain Seattle 1946, with DSM 1103 and NCIB 12210 aliases;
+    the catalogue rejects the old NCTC 10418 equivalence. UTEX retains a historical
+    C. minutissima heading but explicitly disclaims that identification. Catalogue
+    maintenance conditions do not define this experiment.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.662447Z'
+  snapshot_sha256: 2500d2a1b51d00c97161650cb8a8fefc4167a1338e82afde1720b6ac46825e86
+- evidence_id: stock-authority
+  kind: authority
+  reference: child-utex-reidentification-authority.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Independent primary-text assessment links the 2015 reidentification to
+    the relevant laboratory stock with explicit chain-of-custody limitations. Preserve
+    historical source nomenclature while reconciling present machine-readable genus/species
+    grounding.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.662586Z'
+  snapshot_sha256: c498383298cd5b7b9080cd318ecf7f426620ef568ed2ac987735092a997b8e79
+- evidence_id: taxon-candidates
+  kind: authority
+  reference: child-reidentification-oak-candidates.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Current local NCBI authority verifies Auxenochlorella protothecoides, NCBITaxon:3075,
+    and its genus Auxenochlorella, NCBITaxon:191392. These are source-grounded curation
+    candidates, not automatic substitution for every historical culture with the legacy
+    name.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.662706Z'
+  snapshot_sha256: 146d3f58334f2109af4193fae0a714618e71e4af98f7ac0924403fef3b80f8f0
+- evidence_id: resources
+  kind: database
+  reference: dataset-verification.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: The encoded PMID/title/landing page identify the publication. Six main
+    tables and eleven DOI-addressed TIFF supplements are actual article assets. The
+    resource search is bounded to source declarations and listed assets; no global
+    data absence or unrelated sequence accession is inferred.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.662846Z'
+  snapshot_sha256: 151b449ab440f85e16fd2537859cb3dd47f22203ea661f2ad5eb10a2a6106b21
+- evidence_id: snippets
+  kind: validation
+  reference: snippet-audit.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: 'All 25 excerpts strictly match the appropriate fresh source and cache:
+    22 abstract, two body and one title. Their surrounding interpretations still require
+    scientific assessment; literal matching does not establish recipient function
+    or modern stock identity.'
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.662974Z'
+  snapshot_sha256: 75332e8e209ce877c43b15b35eb6a98cb1d33da675788309720497ffb709c877
+- evidence_id: history
+  kind: record_content
+  reference: provenance-audit.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: The sole history and exact prior decision document graph repair, not full
+    non-graph certification. Current issue 1299 is closed/completed with one comment;
+    issue 1300 is open with no comments and owns identity, role, abundance and protocol
+    follow-up. The cache scope is already correctly described.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.663165Z'
+  snapshot_sha256: f99b3ea5c1cf12a63b6b690eaec1b747332be8560e28367e336a9ad98e5a445a
+- evidence_id: metrics
+  kind: validation
+  reference: support-audit.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Native COMPLETE covers three nodes, two arrows and eight node-evidence
+    entries. Completeness is 95. Two major and two minor findings give raw quality
+    111, capped at 100. Optional fields are not invented for metric credit.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.663311Z'
+  snapshot_sha256: 9f9ce529234aadf06cba8b6019299263ce8818b00d2c09d23e3a7d5d56c56fa4
+- evidence_id: lead-read
+  kind: validation
+  reference: lead-primary-read-scope.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Lead read the complete focal scientific main, six tables, four main figures,
+    eleven SI figures and relevant equations. Later reidentification text, Methods
+    and source linkage were read, with no independent phylogeny-image or sequence
+    reanalysis.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.663365Z'
+  snapshot_sha256: 9dae87c8d112c54266efc444f1ba057cb9023530b79086de58692abd8e3ace0d
+- evidence_id: source-scope
+  kind: validation
+  reference: source-audit.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Frozen current-claim assessment records two major and two minor findings,
+    retained graph/assay boundaries, exact-stock reidentification limits and the unverified
+    mineral recipe.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.663503Z'
+  snapshot_sha256: 188f20485ed5df323548dbbf092807aed4b1cab58741b51c0f304450fc80cef2
+- evidence_id: locator-clarification
+  kind: validation
+  reference: source-field-locator-clarification.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: 'A standalone erratum preserves frozen source bytes while correcting three
+    selectors: the third algal occurrence is ecological_interactions[1].participating_taxa[0],
+    and both abundance fields are abundance_level. Candidate findings use the actual
+    maintained paths.'
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.663621Z'
+  snapshot_sha256: afc2400e88f0327d3eaab91d552473b78f04dc76d689b158c7bbffecd7b7dcc9
+- evidence_id: root-source
+  kind: validation
+  reference: root-independent-source-audit.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Root independently read the focal main, six tables, four main figures,
+    eleven SI figures and equations, plus later primary genetic discussion/Methods
+    and exact catalogue context. It agrees with completed current-claim review and
+    the four findings.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.663740Z'
+  snapshot_sha256: 590b14c30f1278420f3ab1521e2cc52b711f77f0c0dafbf7ea649fe8e4f33c71
+- evidence_id: auxiliary
+  kind: validation
+  reference: auxiliary-frozen-manifest.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Eight focused native checks pass and all 24 inspected repository inputs
+    are unchanged. Initial native summary and final metadata are separate immutable
+    files; each authority read has its own bounded scope.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.663874Z'
+  snapshot_sha256: b6fa3dda2e1cf046f8f8792b30ff55021cb08d8e0bab27b013fd73f60a9b4bfd
+- evidence_id: adapter
+  kind: validation
+  reference: adapter-check.json
+  locator: Whole frozen receipt and its stated read scope
+  summary: Optional structured-adapter availability is bounded to the recorded runtime
+    discovery. Public sources and local authorities supplied the review evidence without
+    paid providers, credentials or author contact.
+  support: supports
+  accessed_at: '2026-10-21T18:17:25.663981Z'
+  snapshot_sha256: 869d4a9fa96609c29ff8aa0fdb76b0463714b22dea2a240b07e418ab11a310ca
+- evidence_id: check-validate
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+  locator: Actual execution 2026-10-21T18:08:41.997679+00:00 to 2026-10-21T18:08:43.474416+00:00
+  summary: Schema passed.
+  support: supports
+  accessed_at: '2026-10-21T18:08:43.474416Z'
+  snapshot_sha256: 795b615a3740d7f23b9f1faac9f3c2f4d3987173186a1fb6abe3b91d7406b31c
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-strict kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-10/000269/strict-report.tsv
+  locator: Actual execution 2026-10-21T18:08:41.998241+00:00 to 2026-10-21T18:08:44.956254+00:00
+  summary: Strict validation passed.
+  support: supports
+  accessed_at: '2026-10-21T18:08:44.956254Z'
+  snapshot_sha256: dad15ee0d131fc86d6dba53498f13a16c96969ee5d9164716ce19980e189950e
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-terms kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+  locator: Actual execution 2026-10-21T18:08:42.004511+00:00 to 2026-10-21T18:08:44.482462+00:00
+  summary: Term validation passed.
+  support: supports
+  accessed_at: '2026-10-21T18:08:44.482462Z'
+  snapshot_sha256: de62ba96f815029a69775f60af531fbf1e478625828b852e5e7eed66d21951f3
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+  locator: Actual execution 2026-10-21T18:08:43.474795+00:00 to 2026-10-21T18:08:43.562291+00:00
+  summary: GTDB structure/coherence passed.
+  support: supports
+  accessed_at: '2026-10-21T18:08:43.562291Z'
+  snapshot_sha256: b34075e79919ebb503ffac524e31dccdafce409e95489dfd66242fbe81378570
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-gtdb-domain kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+  locator: Actual execution 2026-10-21T18:08:43.562551+00:00 to 2026-10-21T18:08:44.998947+00:00
+  summary: Algal and bacterial GTDB applicability passed.
+  support: supports
+  accessed_at: '2026-10-21T18:08:44.998947Z'
+  snapshot_sha256: 8cf2a3254c65d2693c739e08680836caf345d965c0d6a7644c622726de6bc1be
+- evidence_id: check-validate-history
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-history history/records/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture
+  locator: Actual execution 2026-10-21T18:08:44.482732+00:00 to 2026-10-21T18:08:45.237303+00:00
+  summary: History validation passed.
+  support: supports
+  accessed_at: '2026-10-21T18:08:45.237303Z'
+  snapshot_sha256: b1ec87c2d99ec10e8da03a18dc945d44d2754485b9df6ffca1ed56d15c950da1
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    uv run python scripts/normalize_cache_names.py --check
+  locator: Actual execution 2026-10-21T18:08:45.238111+00:00 to 2026-10-21T18:08:45.291968+00:00
+  summary: Read-only cache filename check passed.
+  support: supports
+  accessed_at: '2026-10-21T18:08:45.291968Z'
+  snapshot_sha256: 7f517267d22de55ba8e0ab1d7bcd81dac01e2afdc52ba4929653c0642908785d
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: JUST_NO_DOTENV=true UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1
+    UV_OFFLINE=true PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src
+    just --no-dotenv validate-references-explained kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+  locator: Actual execution 2026-10-21T18:08:45.292204+00:00 to 2026-10-21T18:08:46.245389+00:00
+  summary: Native references pass against unchanged source-specific caches; fresh
+    scientific checks separately verify excerpt context.
+  support: supports
+  accessed_at: '2026-10-21T18:08:46.245389Z'
+  snapshot_sha256: f1f6b59bc13110a93acc94096f343872e9b18e17f6a019671cda1b21c46b7d66
+- evidence_id: check-audit-network
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  locator: Actual execution 2026-10-21T17:04:17.819938+00:00 to 2026-10-21T17:04:25.370848+00:00
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal
+    graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T17:04:25.370848Z'
+  snapshot_sha256: 301cbda477198c0cff0f38601fdb49af8d805cafa7da106733150d64786d987d
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-10/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  locator: Actual execution 2026-10-21T17:04:17.819995+00:00 to 2026-10-21T17:04:26.163649+00:00
+  summary: Fresh batch 10 corpus diagnostic retains unrelated warnings; this focal
+    graph separately reports COMPLETE.
+  support: supports
+  accessed_at: '2026-10-21T17:04:26.163649Z'
+  snapshot_sha256: f8dae0e292e8e2f8c221450aacc2bb120abe0e3f32c16ed59f8406e8b859a895
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Experimental members and stock-specific current grounding
+  outcome: concern
+  summary: Reconcile the algal genus using the exact stock reidentification while
+    preserving historical nomenclature.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - identity
+  - reidentification
+  - catalogues
+  - stock-authority
+  - taxon-candidates
+  details: The intended two-member experiment remains identifiable. The later study
+    links its 2006 laboratory stock and contemporary UTEX culture to Auxenochlorella
+    protothecoides, whereas the record uses genus Chlorella as a fallback. Applicability
+    is source-linked rather than a documented batch chain of custody. Current candidate
+    IDs must be applied consistently to the actual algal occurrences after this explicit
+    assessment; no universal historical synonymy or automatic replacement of unrelated
+    records follows.
+- assessment_id: roles
+  area: evidence
+  topic: Taxonomy functional roles and narrow supporting evidence
+  outcome: concern
+  summary: Keep algal primary production; qualify or omit the unproven bacterial recipient
+    role.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - role-hypotheses
+  - schema
+  - semantics
+  - biomass
+  details: The paper proposes exchange alternatives but does not identify an algal
+    metabolite used by E. coli. The existing membership and suggested-symbiosis snippets
+    do not establish CROSS_FEEDER. Preserve observed bacterial viable-count benefit
+    and the authors’ candidate mechanisms without substituting another unsupported
+    enum or adding a stricter role definition.
+- assessment_id: node-biomass
+  area: evidence
+  topic: ecological_interactions[0] and its downstream link
+  outcome: supported
+  summary: Retain the condition-specific mutualism interpretation and PARTIAL biomass-to-product
+    support.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - biomass
+  - abundance
+  - products
+  details: The 10 g/L algal productivity comparison and 96-hour bacterial viable counts
+    support reciprocal benefit in their stated contexts. Total bacterial dry biomass
+    is not uniformly increased. Bulk product assays and the glucose antibiotic control
+    limit attribution to a particular partner or mediator. Correct algal taxon occurrences
+    without changing the experimentally supported direction or adding a new edge.
+- assessment_id: node-uptake
+  area: evidence
+  topic: ecological_interactions[1] and its downstream link
+  outcome: supported
+  summary: Retain community-level substrate disappearance and the HYPOTHESIZED contribution
+    to product formation.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - uptake
+  - semantics
+  details: The comparison is to summed monoculture uptake at high substrate concentration.
+    Lower-dose depletion, externally supplied carbon and untraced carbon allocation
+    prevent interpreting this as a donor-recipient flux. Scope GO carbohydrate metabolism
+    to its relevant component when refining the assay description.
+- assessment_id: node-products
+  area: evidence
+  topic: ecological_interactions[2]
+  outcome: supported
+  summary: Keep bulk lipid/starch production and the explicit kanamycin starch confound.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - products
+  - efficiency
+  details: Productivity is not the same as product content, reciprocal fitness or
+    pathway flux. Matched antibiotic testing is glucose-specific. Current qualifiers
+    preserve these boundaries; no product-to-growth edge or universal co-culture benefit
+    is added.
+- assessment_id: cultivation
+  area: completeness
+  topic: growth_media, environmental factors and non-graph condition scope
+  outcome: concern
+  summary: Recover actual assay context without inventing the unverified mineral recipe.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - preculture
+  - cultivation
+  - ph-controls
+  - supplements
+  - abundance
+  details: Separate precursor and experimental cultures, the three substrate alternatives,
+    concentration arms, pH interventions and antibiotic controls. Scope broad top-level/ingredient
+    outcomes to their concentration and combined-biomass readout. ABUNDANT can remain
+    an ordinal description with condition-specific evidence; reactor biofouling and
+    acid formation are outcomes/constraints, not imposed inputs.
+- assessment_id: environment
+  area: identity
+  topic: State, origin, category, laboratory environment and metals
+  outcome: supported
+  summary: Retain engineered synthetic laboratory biotechnology identity.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - identity
+  - schema
+  - semantics
+  details: The experiment is a defined laboratory production pair. Wastewater motivation
+    does not establish an environmental consortium, and catalogue isolation history
+    is not assay salinity. Metal/REE NOT_APPLICABLE is coherent with the encoded scope;
+    possible medium trace salts do not establish a biological metal-processing role.
+- assessment_id: resources
+  area: provenance
+  topic: Article versus separately identified phenotype data
+  outcome: concern
+  summary: Move the bibliographic item to external_resources.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - resources
+  - supplement-package
+  details: The PMID landing page identifies the article. Remove its misclassified
+    associated_datasets entry when preserving the publication link; replacement data
+    are optional and require an exact collection/table/asset identity. Six tables
+    and eleven SI figures are verified, while the source-referenced mineral formulation
+    remains unavailable in the inspected inventory.
+- assessment_id: provenance
+  area: provenance
+  topic: Excerpt scope, current issues and immutable input lineage
+  outcome: supported
+  summary: Use current issue 1300 and preserve prior graph-repair context.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - snippets
+  - history
+  - locator-clarification
+  details: All 25 reference-specific excerpts match, but full-source interpretation
+    adds identity and role findings. Closed issue 1299 and the previous decision retain
+    their narrower historical scope. The current cache label is correct; no duplicate
+    issue, source-cache mutation or general no-data claim is warranted.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and immutable review workflow
+  outcome: supported
+  summary: Eight focused native checks pass; the four scientific curation findings
+    remain.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - auxiliary
+  - ontology
+  - snippets
+  details: All maintained canonical, cache, history and generated inputs remain unchanged.
+    Persistence is limited to a new immutable review bundle. Current-claim scientific
+    completion does not imply an independently reanalyzed sequence identity, an available
+    complete mineral formula or causal proof of a proposed exchange mediator.
+- assessment_id: metrics
+  area: completeness
+  topic: Native mechanical completeness and quality
+  outcome: supported
+  summary: Completeness 95 and capped quality 100/raw 111 are mechanical metrics.
+  target_ids:
+  - CommunityMech:000269
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 95
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 'Native rubric: required fields with roles 50 + environment 5 + at
+      least three environmental factors 10 + at least three interaction nodes 10 +
+      associated dataset 5 + growth media 10 + any node metabolites 5. No external-resource
+      bonus. This measures present structure, not the correctness of the role or dataset;
+      no field is invented for credit.'
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      P1=0, P2=2, P3=2, P4=0. Eight node-evidence entries over three nodes give the
+      capped 20-point evidence bonus; COMPLETE adds 15. Raw 111 is capped at 100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: algal-stock-grounding
+  issue_key: cm-000269-algal-stock-grounding
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: substantive taxonomic applicability or unsupported functional
+    assignment changes the biological interpretation of a maintained claim.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Reconcile the UTEX 2341 stock with later Auxenochlorella reidentification
+  description: The record uses Chlorella genus grounding as a conservative fallback
+    for its historical C. minutissima name. The later same-laboratory primary study
+    identifies its 2006 stock and then-current UTEX stock as A. protothecoides; the
+    current catalogue also disclaims the old identification. A valid Chlorella label
+    does not resolve this conflicting stock evidence. Reconcile all three algal taxon
+    occurrences with explicit stock linkage, preserving the original paper wording
+    and pre-2006 uncertainty.
+  target_ids:
+  - CommunityMech:000269
+  field_paths:
+  - taxonomy[0].taxon_term
+  - ecological_interactions[0].target_taxon
+  - ecological_interactions[1].participating_taxa[0]
+  - description
+  - engineering_design.objective
+  - engineering_design.assembly_strategy
+  evidence_ids:
+  - identity
+  - reidentification
+  - catalogues
+  - stock-authority
+  - taxon-candidates
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+    role: canonical_record
+- finding_id: bacterial-role-support
+  issue_key: cm-000269-bacterial-role-support
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: 'P2: substantive taxonomic applicability or unsupported functional
+    assignment changes the biological interpretation of a maintained claim.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Bound the bacterial CROSS_FEEDER role to actual evidence
+  description: The flat E. coli CROSS_FEEDER assignment is stronger than membership,
+    a suggested symbiotic relationship and higher viable counts. The Discussion proposes
+    exchange alternatives without identifying an algal-derived resource used by E.
+    coli. Qualify the role as a supported hypothesis only if that uncertainty is representable;
+    otherwise omit the optional enum while retaining the measured response and proposed
+    mechanisms.
+  target_ids:
+  - CommunityMech:000269
+  field_paths:
+  - taxonomy[1].functional_role
+  - taxonomy[1].evidence
+  evidence_ids:
+  - role-hypotheses
+  - biomass
+  - uptake
+  - schema
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+    role: canonical_record
+- finding_id: cultivation-and-condition-scope
+  issue_key: cm-000269-cultivation-and-condition-scope
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded cultivation context or bibliographic classification
+    repair preserves the supported experimental graph.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Recover separate assay conditions and qualify broader outcome summaries
+  description: The generic medium lists three substrates together and lacks available
+    main-text cultivation detail. The description and lipid/starch relevance should
+    retain high-substrate and combined-biomass context already preserved in the graph.
+    Separate precursor and final cultures, substrate arms, pH intervention, antibiotic
+    controls and assay-specific abundance evidence; do not invent the unverified mineral
+    formula.
+  target_ids:
+  - CommunityMech:000269
+  field_paths:
+  - growth_media[0]
+  - environmental_factors
+  - description
+  - related_ingredients
+  - taxonomy[0].abundance_level
+  - taxonomy[1].abundance_level
+  - ecological_interactions[1].biological_processes
+  evidence_ids:
+  - preculture
+  - cultivation
+  - ph-controls
+  - abundance
+  - products
+  - semantics
+  - supplements
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+    role: canonical_record
+- finding_id: publication-resource
+  issue_key: cm-000269-publication-resource
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: 'P3: bounded cultivation context or bibliographic classification
+    repair preserves the supported experimental graph.'
+  rule_id: review-checklist.claim-specific-scope-and-evidence
+  status: open
+  certainty: confirmed
+  title: Classify the primary article as a publication resource
+  description: The PHENOTYPE dataset entry identifies the PMID landing page and publication
+    title. Preserve the literature link in external_resources and remove the misclassified
+    bibliographic dataset entry. A replacement data entry is optional and requires
+    a separately scoped actual table, collection or archive asset.
+  target_ids:
+  - CommunityMech:000269
+  field_paths:
+  - associated_datasets[0]
+  - external_resources
+  evidence_ids:
+  - resources
+  - supplement-package
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+    role: canonical_record
+actions:
+- action_id: reconcile-algal-stock
+  description: Correct source-linked algal grounding consistently while preserving
+    historical identity.
+  finding_ids:
+  - algal-stock-grounding
+  target_ids:
+  - CommunityMech:000269
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Assess and document the linkage between focal UTEX 2341 and the later study’s
+    laboratory stock acquired in 2006, using the same-laboratory account and explicit
+    reference to the focal 2014 Methods. State that this is a source-linked inference
+    rather than a separately documented batch chain of custody.
+  - Reconcile taxonomy[0].taxon_term, ecological_interactions[0].target_taxon and
+    ecological_interactions[1].participating_taxa[0] together. The verified current
+    candidates are NCBITaxon:3075 Auxenochlorella protothecoides and NCBITaxon:191392
+    Auxenochlorella. Do not retain Chlorella merely because it is a broader rank;
+    if residual stock uncertainty prevents a precise assignment, describe that uncertainty
+    explicitly rather than silently choosing a conflicting genus.
+  - Preserve C. minutissima as the 2014 publication’s historical designation and UTEX
+    2341 as the exact stock identifier. Update preferred-name and general description/design
+    prose consistently while retaining original evidence snippets verbatim. Cite the
+    2015 reidentification and its stock-date limits as new primary evidence.
+  - Do not declare a universal synonym for every historical C. minutissima or every
+    pre-2006 UTEX 2341 culture. The proposed earlier stock switch is not established
+    for each historic experiment. Keep algal NO_GTDB_EQUIVALENT and the independently
+    verified E. coli species-level GTDB mapping; no exact-strain genome assignment
+    is inferred.
+  - Retain E. coli ATCC 25922 as the bacterial member. If adding catalogue aliases,
+    use only verified FDA strain Seattle 1946, DSM 1103 and NCIB 12210 context; do
+    not import the rejected NCTC 10418 equivalence or catalogue maintenance conditions.
+    Use existing open issue 1300 for this follow-up.
+- action_id: qualify-bacterial-recipient-role
+  description: Align the optional bacterial role and its evidence with unresolved
+    exchange mechanisms.
+  finding_ids:
+  - bacterial-role-support
+  target_ids:
+  - CommunityMech:000269
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Remove the unqualified E. coli CROSS_FEEDER assignment unless a source-specific
+    hypothesis can be clearly represented without implying demonstrated utilization.
+    Any retained hypothesis must point to the actual Discussion and distinguish possible
+    gases, cofactors or organic metabolites from a measured donor-derived substrate.
+  - Do not use higher viable CFU, membership, a suggested symbiosis or bulk externally
+    supplied substrate consumption as sufficient proof of metabolite utilization.
+    The proposed disappearance of bacterially produced acetate concerns a possible
+    algal recipient route and does not establish the encoded bacterial recipient direction.
+  - Preserve observed condition-specific viable-cell benefit and the qualified mutualism
+    node. Retain algal PRIMARY_PRODUCER in the illuminated system, all three nodes
+    and both PARTIAL/HYPOTHESIZED arrows. Do not force a substitute functional-role
+    enum, an obligacy test, a narrower nutrition-only definition or a new mechanistic
+    edge.
+  - Attach narrow evidence to any retained role and clearly separate measured growth
+    outcomes from candidate mediators. Existing issue 1300 owns the non-graph role
+    follow-up; closed issue 1299 remains prior graph-repair provenance.
+- action_id: recover-assay-context
+  description: Represent the actual substrate and cultivation stages without merging
+    distinct controls.
+  finding_ids:
+  - cultivation-and-condition-scope
+  target_ids:
+  - CommunityMech:000269
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Name N8-NH4 as the experimental medium and explicitly represent separate glucose,
+    glycerol or sodium-acetate arms at 0, 0.5, 2 and 10 g/L. Do not express all three
+    as a shared mixture. Preserve acetate as substrate chemistry and sodium acetate
+    as the reported reagent; do not fabricate its complete mineral formulation from
+    a catalogue or another study.
+  - 'Separate algal preculture from the assay: ATCC No. 5 agar followed by N8-NH4
+    at pH 7.2, approximately 7–8 days, 800 mL in 1 L bottles, about 28 C and 300 rpm,
+    10000 lux with a 16:8 light:dark cycle, and 2% CO2 in air at 400 mL/min. Keep
+    E. coli LB plus 1% glucose for about 24 hours as its own preparation step.'
+  - Record final five-day assays as 200 mL in 250 mL hybridization tubes, 28 C, about
+    100 rpm, 10000 lux with a 16:8 light:dark cycle and ambient air at 125 mL/min
+    without supplemental CO2. Initial algae are about 1e7 cells/mL and bacteria about
+    1e4 CFU/mL. Do not convert gas flow into liquid feed/dilution or infer a different
+    cultivation mode from aeration alone.
+  - 'Distinguish initial stock pH 7.2 from daily approximate neutral restoration:
+    NaOH for glucose/glycerol acidification and HCl to pH 7 for acetate. Do not claim
+    constant pH control, transfer analytical buffer conditions or convert lux into
+    a photon flux without source support. Scope kanamycin 20 mg/L to axenic algal
+    controls.'
+  - Qualify top-level and related lipid/starch summaries with the 10 g/L and combined-biomass
+    context and the glucose-specific antibiotic-control limitation. Keep biofouling
+    and acid formation as observed process outcomes/constraints. Preserve the existing
+    graph’s concentration, viability-versus-biomass, bulk-uptake and matched-control
+    qualifications.
+  - Retain ABUNDANT only with an explicit ordinal interpretation and actual assay-specific
+    abundance/CFU context, without assigning a fabricated percentage band. Table 3
+    qPCR mass fractions are condition-specific estimates, not proof of environmental
+    dominance or a fixed partner ratio.
+  - Scope GO carbohydrate metabolism to the relevant glucose-related component rather
+    than treating it as a synonym for all three substrate chemistries. Lipid/starch
+    product accumulation does not establish measured pathway flux. Add precise Methods,
+    table and figure locators to each recovered claim; do not claim the missing mineral-recipe
+    asset was inspected.
+- action_id: reclassify-publication
+  description: Preserve literature provenance while correcting the dataset type.
+  finding_ids:
+  - publication-resource
+  target_ids:
+  - CommunityMech:000269
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Move the PMID:24805253 publication title and URL to external_resources with an
+    accurate literature description. Remove that bibliographic entry from associated_datasets
+    when moving it, regardless of whether another data resource is identified.
+  - Add a replacement dataset only if a specific data collection, table or archive
+    asset is independently identified with accurate scope. Six main tables and eleven
+    DOI-addressed SI figures are verified article assets, not a reason to invent a
+    standalone repository accession or a sequence dataset.
+  - Preserve the bounded supplemental-inventory result and unverified N8-NH4 formulation.
+    Do not turn the absence of a named archive in inspected sections into a global
+    no-data claim or a new data-omission finding.
+- action_id: validate-authorized-curation
+  description: After separately authorized curation, preserve provenance and run the
+    documented completion gates.
+  finding_ids:
+  - algal-stock-grounding
+  - bacterial-role-support
+  - cultivation-and-condition-scope
+  - publication-resource
+  target_ids:
+  - CommunityMech:000269
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Apply only separately authorized canonical corrections, append a fresh curation-history
+    entry, and retain exact source/version/locator and issue 1300 ownership. Check
+    each changed interpretation against the primary source, not merely against a matching
+    snippet.
+  - Run focused schema, strict, term, GTDB/domain, reference, cache-name and history
+    checks. Verify that all three algal occurrences are consistent and that the three-node/two-arrow
+    graph retains its evidence-support qualifiers. Report any unresolved stock-link
+    or unavailable recipe limitation.
+  - After canonical changes run just gen-html and just check-docs-current in the required
+    environment and inspect generated changes for the intended record. This review
+    performs no canonical, source-cache, history or generator mutation; persistence
+    is limited to its new immutable review bundle.
+limitations:
+- Completed scientific review covers the current encoded claims. Lead and root inspected
+  the full focal main, six tables, four main figures, all eleven SI figures and the
+  relevant equations. The source-referenced N8-NH4 formulation was not identified
+  in the inspected publisher inventory or complete 34-member EPMC package; this is
+  not proof of global absence.
+- Later UTEX 2341 reidentification is based on primary author text and current catalogue/ontology
+  context. The same-laboratory 2006 stock account and explicit focal-study citation
+  provide a source-linked inference of applicability, not independently documented
+  chain of custody for every focal batch. The possible pre-2006 switch remains a hypothesis.
+  No universal historical synonymy is asserted.
+- The 2015 phylogeny image and raw sequences were not independently inspected or recomputed.
+  The reported 18S/ITS2 results and stock comparison are attributed to that primary
+  source. Verified taxon IDs are curation candidates, not automatic replacement of
+  every record using the old name.
+- Growth benefit, bacterial CFU, dry biomass, qPCR mass fraction, bulk substrate disappearance
+  and combined lipid/starch production are distinct measurements. No mediator tracing,
+  partner-specific pathway flux, new significance test or mechanistic necessity is
+  inferred from their association.
+- The glucose antibiotic factorial identifies a starch-control confound and does not
+  supply matched factorial evidence for glycerol or acetate. Some lower-dose cultures
+  deplete substrate, and separate substrate batches have control batch effects. No
+  uniform coculture benefit or cross-substrate optimum is inferred.
+- Most treatment arms have three biological replicates, while the 10 g/L glycerol
+  coculture has two. Source prose includes some rounded or differing percentage descriptions;
+  the review preserves the structured condition-specific comparisons without recalculating
+  significance or silently correcting the paper.
+- Algal preculture and final assay differ in vessel, agitation and gas supply. Substrate
+  arms are alternatives. pH is adjusted daily rather than held continuously, and gas
+  sparging is not liquid feed. Kanamycin belongs to axenic controls. Catalogue culture
+  recipes and analytical buffers are not assay conditions.
+- 'All 25 excerpts strictly match the appropriate fresh source and cache: 22 abstract,
+  two body and one title. Excerpt agreement does not validate an unqualified role
+  or current stock identity. The cache already contains correctly labeled full text;
+  the previous graph repair is not a blanket source certification.'
+- The E. coli GTDB block is an exact species-row mapping and does not classify ATCC
+  25922 genomically. UTEX’s historical heading must be read together with its explicit
+  identity disclaimer and later primary evidence. ABUNDANT remains ordinal, with no
+  invented percentage or persistence threshold.
+- The source-audit field-selector clarification is standalone and preserves its frozen
+  original. The actual third algal occurrence is ecological_interactions[1].participating_taxa[0],
+  and the actual abundance fields are abundance_level. No scientific finding or score
+  changed.
+- All eight focused native checks pass and all 24 official inputs remain unchanged.
+  Corpus-wide nonzero diagnostics keep their wider scope. Completeness 95 and quality
+  100/raw 111 do not erase the two major and two minor findings. No canonical, cache,
+  history, generated or previously saved artifact was edited; no paid provider, author
+  contact or later-record assessment was used.
+notes:
+- All 24 official inspected inputs remain unchanged. No canonical, cache, history,
+  generated or previously saved artifact was edited.
+- Lead and root independently assessed the focal main and all current scientific assets.
+  Auxiliary stock/ontology review and sibling provenance/resource/snippet audits have
+  their own explicit reading scopes. The later phylogeny image and sequence payloads
+  were not reanalyzed.
+- Two major and two minor findings give raw quality 111/capped 100; completeness is
+  95. Existing open issue 1300 owns the non-graph follow-up. The three-node/two-arrow
+  graph remains qualified.
+tags:
+- record-review
+- algal-bacterial-coculture
+- main-and-critical-si-assessed
+- batch-10
+```

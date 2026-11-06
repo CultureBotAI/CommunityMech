@@ -1,0 +1,1187 @@
+schema_version: 1.0.0
+review_id: 20261021T222000Z-syngas-alcohol-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Syngas alcohol coculture chemical identity and cultivation review
+started_at: '2026-10-21T22:12:46.713908Z'
+finished_at: '2026-10-21T22:20:00.473162Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate scientific, authority and support agents; no person-level
+    independence claim.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: One major finding aligns three named carboxylates with their chemical forms.
+  Two minor findings recover source-specific cultivation and strain/mapping provenance.
+  Preserve the four-node/two-arrow graph, qualified roles and ordinal abundances.
+  All eight native checks pass; completeness 95, raw quality 121/capped 100.
+source:
+  git_revision: 95812d3412d5aab41fd03422340cf736ac7b56f3
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture/2026-10-06T002339Z-codex-426420.yaml
+    sha256: d1f1d73ca09d1de8c6aa66a2e3aa90c6ebe192a9c6e588b78878e23db9ee2dfa
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+    sha256: 20f83f2018d5e58a63e1886835d1b4728359a8bbc1f3ed5b1f14bf2e828bd217
+    role: target
+  - path: references_cache/PMID_27877166.md
+    sha256: f5d58eeda0793d84acbba058a501c80b29ecdce8deffb164183367c3c8f7ed3c
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261005-batch20.yaml
+    sha256: a75fc7a6bce8c3b04e20b5a5b9e061b503e803bc312fbf6c5dcb49e6cfc3032b
+    role: context
+  - path: reports/causal_graph_review/decisions/20261005-three-records-batch20.yaml
+    sha256: febd25cb92f04767991d8f3e54abf8e636a17c04b2cf97d5bd61ba9b6b400a45
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000202
+  path: kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+  label: Clostridium ljungdahlii-Clostridium kluyveri Syngas Alcohol Coculture
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+    role: canonical_record
+scope:
+  description: Whole current record, complete fresh primary main/tables/references,
+    all five figures, current authorities and exact focal provenance.
+  selection: Only released CommunityMech:000202 in owned batch 12.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000202
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000202
+  command: just --no-dotenv validate kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000202
+  command: just --no-dotenv validate-strict kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+    --out /private/tmp/cm-review-session/batch-12/000202/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000202
+  command: just --no-dotenv validate-terms kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000202
+  command: just --no-dotenv validate-references-explained kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000202
+  command: just --no-dotenv validate-gtdb kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000202
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000202
+  command: just --no-dotenv validate-history history/records/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Native command exit 0.
+  target_ids:
+  - CommunityMech:000202
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history checks in owned batch 12; cache-name check has
+    corpus scope.
+- check_id: audit-network
+  name: audit-network
+  status: failed
+  required: true
+  summary: Same-batch corpus diagnostic.
+  target_ids:
+  - CommunityMech:000202
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-12/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-audit-network
+  - metrics
+  scope_note: Explicit batch 12 reuse; focused current target checks retained separately.
+- check_id: check-network-quality
+  name: check-network-quality
+  status: failed
+  required: true
+  summary: Same-batch corpus diagnostic.
+  target_ids:
+  - CommunityMech:000202
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-12/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - check-check-network-quality
+  - metrics
+  scope_note: Explicit batch 12 reuse; focused current target checks retained separately.
+- check_id: scientific-source
+  name: Whole source scientific assessment
+  status: passed
+  required: true
+  summary: Complete main/tables/references and all five figures assessed.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - lead-read
+  - source-scope
+  - root-source
+- check_id: direct-excerpts
+  name: Reference-specific literal support
+  status: passed
+  required: true
+  summary: '36 matches: 34 fresh XML and 2 exact fresh MED abstract pH-range versions;
+    all 36 cache.'
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - snippets
+- check_id: authority-review
+  name: Ontology and native semantic review
+  status: passed
+  required: true
+  summary: 18 pairs/44 placements match; claim-specific chemical forms independently
+    assessed.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - ontology
+  - chemical-forms
+  - schema
+  - gtdb
+  - strain
+- check_id: adapter
+  name: Optional structured adapter
+  status: unavailable
+  required: false
+  summary: Current runtime check plus explicitly reused filename discovery; no external
+    runner execution.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - adapter
+- check_id: reanalysis
+  name: Numerical reproduction
+  status: skipped
+  required: false
+  summary: No raw assay, statistical or image reanalysis.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - lead-read
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+  locator: Whole maintained record
+  summary: The two-member continuous syngas system has four nodes and two qualified
+    arrows. Current graph wording separates measured products, inferred intermediate
+    flux, proposed reduction and phase-dependent performance.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.466286Z'
+- evidence_id: identity
+  kind: primary_source
+  reference: PMID:27877166; DOI:10.3389/fmicb.2016.01773
+  locator: Materials and methods → Microbial strains and medium composition
+  summary: The source identifies C. ljungdahlii PETC and C. kluyveri DSM 555, obtained
+    from ATCC. Their separate 35 °C precultures are distinct from the 37 °C continuous
+    coculture. Species-level identities remain valid; source strain descriptors can
+    be added without forcing a rank change.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.466341Z'
+  snapshot_sha256: 1cf9e4323868798a2f4540ed7e4ceea943bd657965ebef33fe0ee3e24687d582
+- evidence_id: recipe
+  kind: primary_source
+  reference: PMID:27877166; DOI:10.3389/fmicb.2016.01773
+  locator: Materials and methods → Microbial strains and medium composition
+  summary: The paper gives the full mineral, vitamin and trace-element stock formulations
+    and their 60/20/20 mL additions, variable antifoam, final 1 mM cysteine after
+    N2 sparging, and continuous sodium-sulfide addition. Published stock concentrations
+    must remain distinct from final-medium concentrations; the stated formulation
+    should not be doubled again.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.466435Z'
+  snapshot_sha256: 1cf9e4323868798a2f4540ed7e4ceea943bd657965ebef33fe0ee3e24687d582
+- evidence_id: operation
+  kind: primary_source
+  reference: PMID:27877166; DOI:10.3389/fmicb.2016.01773
+  locator: Materials and methods → Reactor and condenser setup; Figure 1
+  summary: The 2 L Biostat M uses a 1 L working volume at 37 °C. Agitation changes
+    from 200 to 400 rpm at hour 475; 2 M KOH initially controls pH, with 2 M acetic
+    acid added after hour 1510. The missing acid identity is directly recoverable.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.466511Z'
+  snapshot_sha256: 1cf9e4323868798a2f4540ed7e4ceea943bd657965ebef33fe0ee3e24687d582
+  quote: 2 M acetic acid
+- evidence_id: flows
+  kind: primary_source
+  reference: PMID:27877166; DOI:10.3389/fmicb.2016.01773
+  locator: Materials and methods → Reactor and condenser setup; Figure 1
+  summary: Fresh 60/35/5 CO/H2/CO2 enters the headspace at 30–80 mL/min. Gas recycles
+    through the broth at 1.6 L/min and the condenser is held at 1 °C. Broth recycles
+    at 180 mL/min; 75% of effluent is cell-free and 25% contains cells. Medium flow
+    changes from 80 to 40 mL/h at hour 1150. Preserve CONTINUOUS operation and separate
+    gas, liquid and cell-bleed quantities.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.466583Z'
+  snapshot_sha256: 1cf9e4323868798a2f4540ed7e4ceea943bd657965ebef33fe0ee3e24687d582
+- evidence_id: stages
+  kind: primary_source
+  reference: PMID:27877166; DOI:10.3389/fmicb.2016.01773
+  locator: Results → A narrow, but not ideal, pH spectrum available for the production
+    of longer-chain alcohols, paragraphs 2–5; Figure 4
+  summary: C. ljungdahlii was established before C. kluyveri inoculation at hour 670.
+    Pump failures, pH excursions and temporary batch/fed-batch episodes interrupt
+    the overall continuous run. Five phases vary pH and medium flow; they are not
+    independent replicated pH experiments.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.466652Z'
+  snapshot_sha256: 1cf9e4323868798a2f4540ed7e4ceea943bd657965ebef33fe0ee3e24687d582
+- evidence_id: speciation
+  kind: primary_source
+  reference: PMID:27877166; DOI:10.3389/fmicb.2016.01773
+  locator: Introduction, paragraph 4; Results → A narrow, but not ideal, pH spectrum
+    available for the production of longer-chain alcohols, paragraphs 5–6
+  summary: The paper distinguishes named carboxylates from pH-dependent undissociated
+    acids proposed as reduction substrates. It calls the C6 and C8 products medium-chain
+    carboxylates, separately from C4 butyrate. A measured analytical pool is not proof
+    that all molecules share one protonation state.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.466721Z'
+  snapshot_sha256: 1cf9e4323868798a2f4540ed7e4ceea943bd657965ebef33fe0ee3e24687d582
+- evidence_id: products
+  kind: primary_source
+  reference: PMID:27877166; DOI:10.3389/fmicb.2016.01773
+  locator: Results → n-octanol (C8) observed for first time in a syngas fermentation
+    system, paragraphs 3–5; Table 1; Figures 4–5
+  summary: Butanol, hexanol and trace octanol are community products. Caprylate remains
+    below the reported detection limit. Abstract/results phase-2 octanol rate differs
+    from Table 1; no numeric octanol rate is encoded in the current record, and no
+    correction is guessed. Reactor and condensate concentrations/rates have separate
+    scopes.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.466789Z'
+  snapshot_sha256: 1cf9e4323868798a2f4540ed7e4ceea943bd657965ebef33fe0ee3e24687d582
+- evidence_id: flux
+  kind: primary_source
+  reference: PMID:27877166; DOI:10.3389/fmicb.2016.01773
+  locator: Introduction, paragraphs 5 and 7; Results → A narrow, but not ideal, pH
+    spectrum available for the production of longer-chain alcohols, paragraph 1; Table
+    2
+  summary: C2 supply and chain elongation support the two retained arrows. Total intermediate
+    production and approximately two-thirds ethanol use are stoichiometric estimates.
+    Reduction by C. ljungdahlii is the proposed likely mechanism; the paper does not
+    exclude C. kluyveri contribution or trace partner-resolved carbon flux.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.466857Z'
+  snapshot_sha256: 1cf9e4323868798a2f4540ed7e4ceea943bd657965ebef33fe0ee3e24687d582
+- evidence_id: abundance
+  kind: primary_source
+  reference: PMID:27877166; DOI:10.3389/fmicb.2016.01773
+  locator: Materials and methods → Analysis, paragraph 3; Results → n-octanol (C8)
+    observed for first time in a syngas fermentation system, paragraph 1; Figures
+    2–3
+  summary: PCR is qualitative and the morphologies do not reliably identify species.
+    Both partners nevertheless show sustained functional activity in this two-member
+    process. Native ABUNDANT can remain an ordinal designation; neither a fixed percentage
+    nor quantitative PCR is required.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.466927Z'
+  snapshot_sha256: 1cf9e4323868798a2f4540ed7e4ceea943bd657965ebef33fe0ee3e24687d582
+- evidence_id: analysis
+  kind: primary_source
+  reference: PMID:27877166; DOI:10.3389/fmicb.2016.01773
+  locator: Materials and methods → Analysis; Table 1 notes and Table 2 formulas
+  summary: Daily reactor and condensate samples come from one reactor. Table 1 separates
+    concentrations, carbon-normalized rates, selectivities and specificities; Table
+    2 reconstructs precursor totals with explicit assumptions. HPLC/GC temperatures
+    and acid eluents are analytical conditions, not growth settings.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.466996Z'
+  snapshot_sha256: 1cf9e4323868798a2f4540ed7e4ceea943bd657965ebef33fe0ee3e24687d582
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000202/ontology-authority.json
+  locator: 18 exact ID-label/definition pairs across 44 occurrences
+  summary: Labels match, but three related-ingredient claims name anions while their
+    IDs identify neutral acids. Exact label matching does not resolve that semantic
+    mismatch.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467069Z'
+  snapshot_sha256: 3cefd9e564dbcf5d8b3f780ed2649e796862ec291f4d3276f77bd68d8cab3527
+- evidence_id: chemical-forms
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000202/child-chemical-form-candidates.json
+  locator: Current neutral acids and verified conjugate anions
+  summary: Butyrate CHEBI:17968, hexanoate CHEBI:17120 and octanoate CHEBI:25646 have
+    charge −1. Existing CHEBI:30772/30776/28837 are neutral acids. Either align the
+    named anions or explicitly describe an undissociated-acid claim; do not erase
+    the source speciation distinction.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467115Z'
+  snapshot_sha256: 769801dc5be0920a66aa509991e4a9ac72ae95f4e05fc33a4fcf27bf4b17c7c7
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000202/child-schema-semantics.json
+  locator: Role, abundance, interaction and cultivation definitions
+  summary: ABUNDANT admits co-equal major partners in a small community. CROSS_FEEDER
+    is recipient use of partner metabolites, not necessarily reciprocal fitness. Current
+    carbon fixation and source-attributed carboxylate uptake/reduction support qualified
+    roles. CONTINUOUS is supported; retention alone neither requires nor excludes
+    CHEMOSTAT.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467146Z'
+  snapshot_sha256: 25f4879c0861047780d23005b02525d16fc620eb767af0deb3e1e961e6cfefef
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000202/child-gtdb-crosswalk.json
+  locator: Current species IDs 1538/1534 and ncbi_name fallback
+  summary: Both core mappings reproduce with majority 1.0 and four/five genomes through
+    the already disclosed name fallback. No exact species-ID rows exist in this snapshot.
+    Only latest/build assertions require repair; local mtime is not release provenance.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467182Z'
+  snapshot_sha256: 1f4bbd937eb2a08801e2022a68e0dd612011c5daad72496a455d55faa625491d
+- evidence_id: strain
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000202/child-strain-candidates.json
+  locator: Fresh source stocks, direct collection aliases and optional exact strain
+    mappings
+  summary: PETC corresponds to DSM 13528/ATCC 55383 and DSM 555 to K1/ATCC 12489/8527.
+    Optional strain IDs 748727/431943 map to four/three genomes; these must not silently
+    replace the species aggregate four/five. Catalogue cultivation recipes are not
+    transferred.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467207Z'
+  snapshot_sha256: edbef99e1ecb259b53e4b9644527f80a028ad6d7f5aa4524138403cb0c27849f
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-12/000202/ontology-semantic-notes.json
+  locator: Final claim-level chemistry, GO and role interpretation
+  summary: Preserve the graph, carbon-fixing producer, qualified recipient roles and
+    ordinal abundances. GO:0006113 has restrictive definition wording and an explicit
+    exceptions comment; the contextual fermentation annotation does not prove RNF-independent
+    ATP generation or require automatic removal.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467233Z'
+  snapshot_sha256: 1b5e741a3bdee93471173fca5bff880efe361d6df8d9ef088948d170f84ae731
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/dataset-verification.json
+  locator: Publication and bounded declared-asset inventory
+  summary: The publication and five figure assets are verified. No separate supplement
+    or named data repository is declared in the inspected source/package. This bounded
+    inventory does not establish global data absence or a mandatory dataset finding.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467267Z'
+  snapshot_sha256: b718937b96ea7144f84520556ebfef960b1fd8dc7b7961ced46efb7865b63335
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/snippet-audit.json
+  locator: Thirty-six reference-specific excerpt occurrences
+  summary: All 36 match fresh source and cache. Thirty-four match the fresh XML; two
+    pH-range occurrences match the fresh MED abstract exactly, whose hyphen differs
+    from the XML en dash. No undocumented punctuation projection or all-XML match
+    is claimed.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467295Z'
+  snapshot_sha256: 907ee17d1de2e279c7c6c20f156a3e0aeaebabb4c790695f3739a89fb254f7f0
+- evidence_id: history
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-12/000202/provenance-audit.json
+  locator: Whole history, exact batch20 row/adversarial and current focal issue context
+  summary: 1332 and 529 are closed; shared 1333 and 746 are open. Exact bodies/comments
+    were read. Preserve the completed graph repair and restrict any follow-up to the
+    current non-graph chemical/culture/provenance scope; no shared issue closure.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467373Z'
+  snapshot_sha256: 299c8d192a5afc5128459f0a8dddaff9cbc62a6f7bba1cc273b6a4560723aa86
+- evidence_id: historical-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/historical-source-byte-comparison.json
+  locator: Historical digest compared with fresh main
+  summary: Fresh XML is byte-identical to the prior source; the old scratch path remains
+    inert historical metadata, without active missing-path exceptions.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467401Z'
+  snapshot_sha256: 89bfc0f44498ca615b64adc8800c1c688eb084552a830044585e9a15b84065bc
+- evidence_id: inspect
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/inspect.json
+  locator: Fresh official 26-input inspection
+  summary: Whole target, sole cache/history, exact batch20 decision/adversarial and
+    21 authorities bound before assessment. Ignored-inclusive focal discovery found
+    no additional focal prior review in its declared directories.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467425Z'
+  snapshot_sha256: 369b6d8cfe11a50e27675352ac422db93cff556d336b37a6d66725a4834dfbb1
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/lead-source-assets.json
+  locator: Five original main figures and package inventory
+  summary: All five main JPEGs were visually reviewed. The package contains those
+    figures and five thumbnails only; fresh XML declares no separate supplementary
+    material/media.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467445Z'
+  snapshot_sha256: 54e20687726a5967e9d36bf28c73e015f262833ada70d680cbb2a9717e95da9d
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/lead-primary-read-scope.json
+  locator: Whole main, two tables, five figures and 46 references
+  summary: Lead read all 67,310 scientific-projection characters, both tables including
+    assumptions/formulas and 46 references, and viewed all five figures. No numerical
+    reanalysis or independent replicate claim; source/access and delegated scopes
+    are explicit.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467471Z'
+  snapshot_sha256: f870eec98c71d1ab0570de57326782cbf8fbfc9d711066dbbc971ecde3df8cc2
+- evidence_id: source-scope
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/source-audit.json
+  locator: Final three groups and exact canonical selectors
+  summary: Completed scientific review finds one major chemical-identity issue and
+    two minor cultivation/taxonomy-provenance issues. No abundance, GO or dataset
+    finding is added.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467496Z'
+  snapshot_sha256: daa27dfd3406b93b5d28bae884f8bb6391d8d93c0f6586e372357bd60983e6ec
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/root-independent-source-audit.json
+  locator: Independent whole primary, figure and authority audit
+  summary: Root independently read the complete main/tables/references and all five
+    figures, and agrees with the final scoped assessment.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467522Z'
+  snapshot_sha256: b94edce43b07f65f38c9a69f453952ae9822ec671e0be38aab58964c0ddfc22f
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/support-final-audit.json
+  locator: Distinct final support and native arithmetic
+  summary: Completeness 95; four nodes/eight evidence occurrences give mean 2 and
+    evidence bonus 20; COMPLETE adds 15. One major/two minor yields raw 121 and capped
+    100. Nodes, not typed nodes, determine the node-count bonus.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467545Z'
+  snapshot_sha256: 3ba1aa72cb253e404d93db580e997e217a9b730b2cbb90dcf41ecc19d5e3c5cd
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/supporting-artifact-manifest.json
+  locator: Immutable final supporting artifacts
+  summary: Final support and all underlying receipt hashes are frozen; initial support
+    remains unchanged.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467566Z'
+  snapshot_sha256: c3e0195d5211b716bbcf3c6b6d3a3f619e0ed95260861d2663dc381b654c4cc6
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/auxiliary-frozen-manifest.json
+  locator: Final child native/authority artifacts
+  summary: Eight native checks pass, 18 pairs/44 occurrences match and 26 official
+    inputs remain unchanged; initial validator summary is preserved.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467592Z'
+  snapshot_sha256: bf46b226535a0fbe5470eafdda687a0204fd1ec2d260338f76021c17e10a49a9
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/final-validator-summary.json
+  locator: Actual native check results
+  summary: Schema, strict, term, reference, GTDB, domain, history and cache-name checks
+    pass. Their success is separate from scientific entailment.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467620Z'
+  snapshot_sha256: 95f8fa608e74903eccfbb3a5465fa6f42ed0b353d0748a0a0eaf99f4b38f2b3d
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/adapter-check.json
+  locator: Current owned-runtime availability and explicitly reused discovery
+  summary: Fresh batch 12 PATH/module/venv checks reuse batch 11 record 403 filename
+    discovery from 2026-10-21T19:20:45.556660+00:00. No new worktree filename search
+    or other-checkout runner is claimed.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467646Z'
+  snapshot_sha256: 0d6de48af140bc018a23b09d14de28be583258faeaba8e77ff8819d44245975a
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/validate.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467708Z'
+  snapshot_sha256: 1f0c36f9e23e5cc718965fc156fe56d2195aad854d2597b2d699422a0168b2da
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/validate-strict.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467766Z'
+  snapshot_sha256: 692ab76fecd305d509f782c0696e405eecb33afacccbf3746ad1a1ef90601c02
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/validate-terms.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467813Z'
+  snapshot_sha256: a18d8ea742ffc4332509612f530846721189b8a29e0cc7f1b114f1c498de04a4
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/validate-references-explained.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467858Z'
+  snapshot_sha256: 3e4f58ee3d84f142b28027e358882e1db840bc915bbf969d1f8b8a97e8afb7ef
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/validate-gtdb.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467900Z'
+  snapshot_sha256: 5d22d7aec1a867f66c64430ddbdee6c201f6d31eaff1eec753616848d297d121
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/validate-gtdb-domain.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467942Z'
+  snapshot_sha256: 144181d54b564482adcb8bce02aa0a3f8ddbd2772c3ff6121b85678eb2cab41d
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/validate-history.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.467987Z'
+  snapshot_sha256: c1b089a7ec05892a3c30a588dfd9140b715566044611531501dc7929ce8eb839
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/000202/normalize-cache-names-check.json
+  locator: Actual command and recorded output
+  summary: Native result; scientific source entailment separately assessed.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.468029Z'
+  snapshot_sha256: cac790f1ffea3165550220544192b59cf9610c9defa90b804fe0bb3e327421b7
+- evidence_id: check-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/audit-network.json
+  locator: Same-batch corpus diagnostic
+  summary: Actual corpus result reused without assessment of later records.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.472839Z'
+  snapshot_sha256: 1621a1dd35060a1052cf4669f27e9a936a82f4759be38e4f39a9a4a1a73a14b8
+- evidence_id: check-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-12/check-network-quality.json
+  locator: Same-batch corpus diagnostic
+  summary: Actual corpus result reused without assessment of later records.
+  support: supports
+  accessed_at: '2026-10-21T22:20:00.473068Z'
+  snapshot_sha256: 34467f31f8dad2a00579e8350771795ee0f769be41af2e9435c88b603ec9fa1e
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Two-member identity and source stocks
+  outcome: concern
+  summary: Species identities are valid; exact published strain descriptors are recoverable.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - identity
+  - strain
+  details: Preserve species cores, laboratory origin and engineered synthetic community.
+    Add PETC/DSM 555 source precision without forcing rank substitution or importing
+    catalogue culture protocols.
+- assessment_id: taxonomy
+  area: grounding
+  topic: GTDB mapping and snapshot provenance
+  outcome: concern
+  summary: Valid name-fallback mappings need truthful release/build provenance.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - gtdb
+  - strain
+  details: Retain majority 1.0 and species counts 4/5. Optional strain counts 4/3
+    are a different resolution, not corrected species totals. The disclosed name route
+    is accurate; mtime alone does not establish latest release.
+- assessment_id: roles
+  area: scope
+  topic: Functional roles and ordinal abundance
+  outcome: supported
+  summary: Current source-qualified roles and ABUNDANT designations remain reasonable.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - flux
+  - abundance
+  - schema
+  details: Carbon fixation supports PRIMARY_PRODUCER. Proposed recipient carboxylate
+    reduction can support a qualified CROSS_FEEDER interpretation. Qualitative PCR
+    does not quantify fractions, but native ordinal abundance does not require percentages
+    or a new assay.
+- assessment_id: graph
+  area: graph
+  topic: All four nodes and two arrows
+  outcome: supported
+  summary: Retain supported supply/elongation links and qualified reduction/performance
+    nodes.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - flux
+  - products
+  - stages
+  details: No extra alcohol-donation arrow, obligatory coupling, selectively established
+    reducing partner or reciprocal COMPETITION is inferred. Process allocation and
+    one-reactor phase comparisons remain distinct from organismal fitness.
+- assessment_id: chemistry
+  area: grounding
+  topic: Related ingredient acid/base identities
+  outcome: concern
+  summary: Three named anions currently point to neutral acids.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - speciation
+  - chemical-forms
+  - ontology
+  details: Repair only exact ingredient identities or scope. Retain the graph anions
+    and proposed undissociated substrates, with analytical pools not assigned wholly
+    to one ionic form. C4 wording should follow this paper without declaring a universal
+    MCC boundary.
+- assessment_id: go-context
+  area: scope
+  topic: GO fermentation annotations
+  outcome: supported
+  summary: Contextual process annotations do not certify a specific ATP mechanism.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - ontology
+  - semantics
+  details: Read both the GO definition and its explicit organic-compound/electron-transport
+    exceptions comment. The source discusses RNF/ATP synthase; no annotation is interpreted
+    as proof that all ATP production excludes electron transport, and no separate
+    GO finding is made.
+- assessment_id: culture
+  area: scope
+  topic: Medium, operation and preculture boundaries
+  outcome: concern
+  summary: The core setup is correct; Methods can supply missing recipe/control detail.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - recipe
+  - operation
+  - flows
+  - stages
+  details: Add the actual stock recipe and post-1510 h acetic-acid control, keeping
+    phase-specific gas/liquid flows and sequential inoculation. Maintain 37 °C reactor
+    versus 35 °C member precultures, cell retention and CONTINUOUS mode. Replace issue/other-record
+    housekeeping prose with biological setup notes.
+- assessment_id: assays
+  area: evidence
+  topic: Measured products and calculated totals
+  outcome: supported
+  summary: Source measurements and inferred fluxes retain appropriate scope.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - analysis
+  - products
+  - flux
+  - abundance
+  details: One reactor and daily samples are not independent pH replicates. Table
+    1 net outputs and Table 2 reconstructed totals differ. The source octanol rate
+    conflict is not silently resolved or copied as a new record value.
+- assessment_id: snippets
+  area: evidence
+  topic: Literal excerpts and biological entailment
+  outcome: supported
+  summary: Thirty-six excerpts match the appropriate fresh source/cache.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - snippets
+  details: Thirty-four match XML and two exact pH-range versions match MED abstract;
+    tiny product fragments identify compounds but full source context is needed for
+    role or mechanism support.
+- assessment_id: resources
+  area: representation
+  topic: Publication and data scope
+  outcome: supported
+  summary: No separate resource defect is established.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - resources
+  - assets
+  details: Empty associated_datasets is not an absence finding. Source figures/table
+    values are article resources, not an inferred independent deposit. No unrelated
+    archive or medium identifier is added.
+- assessment_id: provenance
+  area: provenance
+  topic: Historical repairs and current issues
+  outcome: supported
+  summary: Prior graph repair and bounded open follow-ups are retained.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - history
+  - historical-source
+  - inspect
+  details: Current 1333 abundance wording is interpreted under the literal ordinal
+    enum. Closed 529 is contextual provenance, not evidence that the focal reactor
+    settings are wrong. Shared issue closure is outside this review.
+- assessment_id: validation
+  area: schema
+  topic: Native checks and completion
+  outcome: supported
+  summary: All eight focused checks pass; scientific review is complete.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - source-scope
+  - root-source
+  details: Native validity and literal excerpt matching are separate from chemical
+    identity and scientific entailment.
+- assessment_id: metrics
+  area: completeness
+  topic: Native rubric scores
+  outcome: supported
+  summary: Completeness 95; raw quality 121, capped 100.
+  target_ids:
+  - CommunityMech:000202
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 95
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Required fields/taxon roles 50 + environment 5 + at least three environmental
+      factors 10 + at least three interaction nodes 10 + external resources 5 + growth
+      media 10 + datasets 0 + node metabolites 5 = 95. Node count is not typed-node
+      count.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: clamp(100−50P1−10P2−2P3+20min(mean node evidence/2,1)+15 if COMPLETE,0,100).
+      Four nodes/eight evidence give mean 2 and bonus 20; network bonus 15; one P2/two
+      P3 gives raw 121/cap100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 2
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: align-carboxylate-identities
+  issue_key: cm-000202-align-carboxylate-identities
+  category: grounding
+  severity: major
+  native_severity: P2
+  normalization_reason: Neutral and anionic forms are distinct chemical identities.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Align named carboxylates with chemical forms
+  description: Three related ingredients name carboxylate anions while their ontology
+    terms identify neutral acids. The C4 butyrate entry also uses medium-chain terminology
+    contrary to this paper's explicit C6/C8 convention. For retained anion claims
+    use verified butyrate CHEBI:17968, hexanoate CHEBI:17120 and octanoate CHEBI:25646,
+    or explicitly rename and scope a neutral-acid entry to the source's undissociated
+    reduction-substrate context. Do not equate whole analytical pools with one protonation
+    state, alter the already qualified graph, or infer detected octanoate. Use C4
+    butyrate wording without imposing a universal chain-length taxonomy.
+  target_ids:
+  - CommunityMech:000202
+  field_paths:
+  - related_ingredients[5].preferred_term
+  - related_ingredients[5].chebi_term
+  - related_ingredients[5].relevance
+  - related_ingredients[6].preferred_term
+  - related_ingredients[6].chebi_term
+  - related_ingredients[11].preferred_term
+  - related_ingredients[11].chebi_term
+  evidence_ids:
+  - speciation
+  - chemical-forms
+  - ontology
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained canonical YAML owns future repair. Coordinate existing
+    1333/746 as applicable; do not close their broader scope.
+- finding_id: complete-study-cultivation-context
+  issue_key: cm-000202-complete-study-cultivation-context
+  category: scope
+  severity: minor
+  native_severity: P3
+  normalization_reason: Existing core settings are correct; recoverable context and
+    naming gaps are bounded.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Complete source-specific cultivation context
+  description: The core continuous reactor settings are correct, but the sparse gas-only
+    medium and unnamed second pH-control addition omit directly recoverable recipe
+    and stage-specific operations. Record the published mineral/vitamin/trace stock
+    formulations and additions, 1 mM cysteine, continuous sulfide delivery, gas supply/recycle
+    and liquid-flow phases, and 2 M acetic acid after hour 1510. Distinguish 35 °C
+    member precultures from the 37 °C, 1 L focal reactor; C. kluyveri was introduced
+    at hour 670 after C. ljungdahlii establishment. Preserve cell retention and CONTINUOUS
+    mode, phase-specific flow values and operational disruptions. Retention alone
+    neither excludes nor requires CHEMOSTAT; replace the current absolute inference
+    with source-specific operating conditions without forcing a new mode. Replace
+    unrelated issue/other-record housekeeping prose with source-specific notes; do
+    not double the already stated stock recipe or invent a single steady-state flow.
+  target_ids:
+  - CommunityMech:000202
+  field_paths:
+  - growth_media[0].composition
+  - growth_media[0].preparation_notes
+  - growth_media[0].evidence
+  - cultivation_setup[0].controls_notes
+  - cultivation_setup[0].instrument_detail
+  - cultivation_setup[0].notes
+  - engineering_design.assembly_strategy
+  evidence_ids:
+  - identity
+  - recipe
+  - operation
+  - flows
+  - stages
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained canonical YAML owns future repair. Coordinate existing
+    1333/746 as applicable; do not close their broader scope.
+- finding_id: document-strains-and-mapping
+  issue_key: cm-000202-document-strains-and-mapping
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Species cores reproduce; strain precision and unsupported
+    release wording are provenance gaps.
+  rule_id: review-checklist.claim-specific-scope-and-grounding
+  status: open
+  certainty: confirmed
+  title: Document strain identity and mapping provenance
+  description: The source identifies PETC and DSM 555 stocks, while the record remains
+    species-level and describes the GTDB snapshot as latest/built using only local
+    mtime. Add source-backed strain descriptors or notes without forcing a CURIE-rank
+    change. Retain valid species mappings obtained by the disclosed ncbi_name fallback,
+    majority 1.0 and counts 4/5; keep optional exact-strain rows/counts separate.
+    Replace unsupported release/build language with crosswalk digest, actual lookup
+    route and bounded local snapshot metadata. Retain ABUNDANT and source-qualified
+    roles; no abundance percentage or additional role assay is required.
+  target_ids:
+  - CommunityMech:000202
+  field_paths:
+  - taxonomy[0].taxon_term
+  - taxonomy[1].taxon_term
+  evidence_ids:
+  - identity
+  - strain
+  - gtdb
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+    role: canonical_record
+  ownership_note: Maintained canonical YAML owns future repair. Coordinate existing
+    1333/746 as applicable; do not close their broader scope.
+actions:
+- action_id: align-forms
+  description: Align the three named pools with verified chemical forms.
+  finding_ids:
+  - align-carboxylate-identities
+  target_ids:
+  - CommunityMech:000202
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - For related_ingredients[5], [6] and [11], retain named anion claims with butyrate
+    CHEBI:17968, hexanoate CHEBI:17120 and octanoate CHEBI:25646, or explicitly rename/scope
+    the existing neutral-acid terms to undissociated substrates. Validate exact IDs
+    and labels for the chosen claim.
+  - Keep existing graph anions and pH-dependent acid/base coexistence. Do not convert
+    analytical totals into pure anion concentrations, infer a measured reduction flux
+    or claim caprylate detection; it remains below detection.
+  - Describe butyrate as C4 and preserve the focal paper's C6/C8 MCC convention where
+    relevant. Do not impose a universal chemical chain-length taxonomy.
+- action_id: complete-protocol
+  description: Record recoverable medium and phase-specific operating details.
+  finding_ids:
+  - complete-study-cultivation-context
+  target_ids:
+  - CommunityMech:000202
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Use Microbial strains and medium composition for the explicit mineral/vitamin/trace
+    stock recipes and 60/20/20 mL additions, antifoam and 1 mM final cysteine. Keep
+    stock concentration versus final concentration clear and do not double the recipe
+    already printed as the modified formulation.
+  - Record continuous 0.8 mL/h sulfide delivery from 100 mM stock and its source-reported
+    apparent 1/2 mM conditions as medium flow changes 80→40 mL/h at 1150 h; do not
+    replace continuous supplementation with an unqualified single bolus concentration.
+  - Identify the additional pH-control reagent as 2 M acetic acid after 1510 h, alongside
+    2 M KOH. Preserve 200→400 rpm at 475 h, 37 °C, 2 L vessel/1 L working volume,
+    1 °C condenser, fresh gas 30–80 mL/min, recycle 1.6 L/min and broth recycle 180
+    mL/min, each with its own scope.
+  - Describe sequential C. kluyveri inoculation at 670 h after C. ljungdahlii establishment.
+    Keep PETC modified P7 and DSM 555 DSMZ52 member precultures at 35 °C distinct
+    from the focal reactor. Do not import their serum-bottle volumes as reactor working
+    volume.
+  - Retain CONTINUOUS with cell retention and 25% cell-containing versus 75% cell-free
+    effluent. Preserve five phase conditions and transient batch/fed-batch disruptions
+    rather than asserting one steady-state flow or independent pH replicates. Replace
+    unrelated issue/other-record process commentary with source-specific notes.
+- action_id: document-taxonomy
+  description: Add source strain precision and truthful crosswalk provenance.
+  finding_ids:
+  - document-strains-and-mapping
+  target_ids:
+  - CommunityMech:000202
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Add PETC and DSM 555 as source-backed strain descriptors/notes. Direct aliases
+    may be included with authority evidence; no forced species-to-strain CURIE replacement.
+  - Retain current 1538/1534 mappings via ncbi_name, majority 1.0 and counts 4/5.
+    If strain-level representation is separately chosen, explicitly distinguish optional
+    748727/431943 counts 4/3 and rerun all affected occurrences; never silently reuse
+    species counts.
+  - Record mapping SHA 761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    and actual name-fallback route. Label July 25 mtime as local file metadata, not
+    proof of latest release/build date. Preserve ordinal ABUNDANT and source-qualified
+    roles.
+- action_id: validate-future-curation
+  description: Validate any separately authorized canonical repair.
+  finding_ids:
+  - align-carboxylate-identities
+  - complete-study-cultivation-context
+  - document-strains-and-mapping
+  target_ids:
+  - CommunityMech:000202
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Preserve four nodes/two arrows and the open mechanistic discussion; no unique
+    reducing partner, reciprocal ecological competition or new direct-flux claim is
+    introduced.
+  - Use exact source-local excerpts with accurate XML/MED version scope. Keep actual
+    code/ontology labels distinct from the scientific meanings they support, and preserve
+    source conflicts rather than resolving them silently.
+  - After authorized changes, append history and run required schema, strict, terms,
+    references, GTDB/domain and history checks plus generated-page gates. This review
+    changes no canonical, cache, history, generated output or issue.
+limitations:
+- Whole 67,310-character main projection, 46 references, both main tables/formulas
+  and all five original figures assessed. No independent source supplement is declared
+  in the inspected XML/package; this is not a global data-absence claim.
+- One continuous reactor underwent sequential phases, feed changes and disturbances.
+  Daily samples and calculated standard deviations do not establish independent replicated
+  pH treatments or donor-resolved flux.
+- The source phase-2 octanol rate differs between abstract/results and Table 1. The
+  current record contains no numeric octanol rate; no value is silently selected or
+  recalculated.
+- Both species mappings are valid name fallbacks. Exact source-strain mappings are
+  a different scope. Qualitative PCR/morphology do not quantify fractions, but native
+  ABUNDANT remains appropriate for sustained major partners.
+- 'Thirty-six excerpts match fresh source/cache: 34 XML plus 2 exact MED abstract
+  pH-range versions. Lead science uses fresh full main; sibling whole-cache reading
+  remains separately scoped.'
+- Optional structured-adapter availability was checked in the owned runtime with explicitly
+  reused prior filename discovery. No paid source, author contact, other-checkout
+  execution or canonical modification.
+notes:
+- 'Completed scientific review: 1 major / 2 minor; completeness 95/raw quality 121/cap100.'
+- All original inspection, source, authority and preliminary-support bytes remain
+  immutable. Parent alone saves after whole candidate acceptance.
+tags:
+- record-review
+- syngas
+- chain-elongation
+- batch-12

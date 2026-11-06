@@ -1,0 +1,1552 @@
+# CWV2-containing groundwater consortium and BC600 review
+
+- Review: 20261022T054056Z-cwv2-biochar-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-22T05:32:58.424604Z
+- Finished UTC: 2026-10-22T05:40:56.632066Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+One major finding concerns unqualified mechanism and stability assertions. Three minor findings concern consortium/member metadata, recoverable cultivation details and the declared amplicon resource. All five graph nodes and two qualified arrows remain supported. All eight required native checks passed. Literal completeness80 and capped quality100 (raw111) do not negate these findings.
+
+## Scope And Provenance
+
+Whole released record and every encoded claim; complete author-uploaded principal proof, published Abstract, all seven publisher main figures and complete supplement text/six images, plus bounded ancillary identity Methods and verified resource metadata.
+
+Selection: Only released CommunityMech:000301 in owned batch15.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base cb7a782c8ba80299dca8761ad0a2c90bccd8a117.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000301 | kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml | maintained | Dehalococcoides mccartyi CWV2 Dechlorinating Consortium |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000301 | Actual native exit0. |
+| validate-strict | passed | True | CommunityMech:000301 | Actual native exit0. |
+| validate-terms | passed | True | CommunityMech:000301 | Actual native exit0. |
+| validate-references-explained | passed | True | CommunityMech:000301 | Actual native exit0. |
+| validate-gtdb | passed | True | CommunityMech:000301 | Actual native exit0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000301 | Actual native exit0. |
+| validate-history | passed | True | CommunityMech:000301 | Actual native exit0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000301 | Actual native exit0. |
+| audit-network corpus context | failed | False | CommunityMech:000301 | Actual corpus exit1 retained. |
+| check-network-quality corpus context | failed | False | CommunityMech:000301 | Actual corpus exit1 retained. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000301 | Unavailable in owned runtime. |
+
+## Scientific And Domain Assessments
+
+### D345 enrichment and CWV2 isolate
+
+identity: concern. Targets: CommunityMech:000301.
+
+The current title is usable, but the metadata should explicitly name the consortium and correct the unnamed-member claim.
+
+The principal Methods distinguishes D345 from isolated CWV2; supplementary and archive aliases use D0345. Preserve those source forms with provenance. Named genera are observed community-profile categories, not isolated partners or measured donors. The existing graph already keeps the community/isolate distinction.
+
+### Inferred cooperation and stability
+
+evidence: concern. Targets: CommunityMech:000301.
+
+The summary and state assignment exceed the measured evidence.
+
+Qualify reducing-equivalent supply and sustained community function as author interpretations. The assays do not isolate hydrogen/electron transfer or establish equilibrium under the STABLE definition. The broad SYNTROPHIC_PARTNER role can be source-attributed as inferred; no obligacy or narrower interaction criterion is imposed. Preserve PRIMARY_DEGRADER and measured dechlorination.
+
+### BC600 Biochar-Consortium Coupling
+
+graph: supported. Targets: CommunityMech:000301.
+
+Retain BC600 amendment of the native consortium.
+
+Exact selector ecological_interactions[0]; scope COMMUNITY_LEVEL; interaction_type absent. Actual taxa: {"source": null, "target": null, "participants": []}. Canonical snippet bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet", "sha256": "6f51bfac8f43b508c7bfe203493b1fc9677041282d761d68ed37633c8712c115", "reference": "PMID:41442978", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 a4076ff272890a73e2fc24a673313337309730f5734cd3566ef985464b7667d3. Source locators: Methods2.1–2.3; Results3.1; Fig4 caption. No source or target taxon is encoded. Amendment is a community-level intervention; D345 is distinct from CWV2.
+
+### BC600 Colonization and Activity Enhancement
+
+graph: supported. Targets: CommunityMech:000301.
+
+Retain qualified colonization/activity enhancement.
+
+Exact selector ecological_interactions[1]; scope COMMUNITY_LEVEL; interaction_type absent. Actual taxa: {"source": null, "target": null, "participants": []}. Canonical snippet bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet", "sha256": "623a730573c116ce1b2e483c122cb98383bcdfb6efccc50c7e331ab9f5229067", "reference": "PMID:41442978", "supports": "PARTIAL", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 a4076ff272890a73e2fc24a673313337309730f5734cd3566ef985464b7667d3. Source locators: Results3.1–3.2; Table1; Figures1–3; S1–S2. BC700 has slightly greater sorption; BC600 is selected partly for practical cost. SEM supports surface colonization without species-specific identity or selective mediator isolation.
+
+### Biochar-Accelerated TCE Degradation
+
+graph: supported. Targets: CommunityMech:000301.
+
+Retain condition-specific accelerated TCE transformation.
+
+Exact selector ecological_interactions[2]; scope COMMUNITY_LEVEL; interaction_type absent. Actual taxa: {"source": null, "target": {"preferred_term": "Dehalococcoides mccartyi strain CWV2", "term": {"id": "NCBITaxon:61435", "label": "Dehalococcoides mccartyi"}}, "participants": []}. Canonical snippet bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet", "sha256": "613eae1f7903dcd517f1bc78d08175b6a6e1e2c2387ce726cd8715960ed00c36", "reference": "PMID:41442978", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 a4076ff272890a73e2fc24a673313337309730f5734cd3566ef985464b7667d3. Source locators: Results3.2–3.3; Figures2,4; S1–S2. The recipient descriptor is CWV2 under species61435. Removal has an adsorption contribution; chemical products support transformation. Faster TCE loss does not universally lower VC.
+
+### Vinyl Chloride Accumulation Mitigation
+
+graph: supported. Targets: CommunityMech:000301.
+
+Retain the separate high-inoculum lower-VC outcome.
+
+Exact selector ecological_interactions[3]; scope COMMUNITY_LEVEL; interaction_type absent. Actual taxa: {"source": null, "target": {"preferred_term": "Dehalococcoides mccartyi strain CWV2", "term": {"id": "NCBITaxon:61435", "label": "Dehalococcoides mccartyi"}}, "participants": []}. Canonical snippet bindings: [{"selector": "ecological_interactions[3].evidence[0].snippet", "sha256": "8ed2f06aa4e603d734072cf5ef0369479b7a647f05f62534d70045d700f3c747", "reference": "PMID:41442978", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}, {"selector": "ecological_interactions[3].evidence[1].snippet", "sha256": "b50ac9e9571d30955d50f171fb6b6cef7f30e981fd18e88258310b3c8d063285", "reference": "PMID:41442978", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 a4076ff272890a73e2fc24a673313337309730f5734cd3566ef985464b7667d3. Source locators: Results3.3–3.4; Figures4–5 and their captions. The CWV2 capability excerpt and amendment outcome are separate evidence objects. Low-inoculum amended cultures can contain more VC than unamended cultures stalled at TCE; preserve the current distinction.
+
+### Hydrogen- and Electroactive-Guild Dechlorination Stability
+
+graph: supported. Targets: CommunityMech:000301.
+
+Retain the hypothesized guild contribution and PARTIAL support.
+
+Exact selector ecological_interactions[4]; scope COMMUNITY_LEVEL; interaction_type absent. Actual taxa: {"source": null, "target": {"preferred_term": "Dehalococcoides mccartyi strain CWV2", "term": {"id": "NCBITaxon:61435", "label": "Dehalococcoides mccartyi"}}, "participants": []}. Canonical snippet bindings: [{"selector": "ecological_interactions[4].evidence[0].snippet", "sha256": "e06bb494aa698b9140b3e117a39d88a451b2aea9adec8dd58f9c2d39365ac3d7", "reference": "PMID:41442978", "supports": "PARTIAL", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 a4076ff272890a73e2fc24a673313337309730f5734cd3566ef985464b7667d3. Source locators: Methods2.5; Results3.5; Figures6–7; S3a–d; Conclusion. Relative profiles are observed, whereas reducing-equivalent supply and long-term persistence are inferred. No measured flux, DIET, selective guild necessity or field persistence is encoded as demonstrated.
+
+### BC600 Biochar-Consortium Coupling → BC600 Colonization and Activity Enhancement
+
+graph: supported. Targets: CommunityMech:000301.
+
+Retain the amendment-to-colonization association with its dose and sorption limits.
+
+Exact selector ecological_interactions[0].downstream[0]; source node0 → node1. Upstream is a community-level amendment/process, not an inferred named donor. Downstream has no taxon descriptor. Exact description: BC600 amendment supplies sorptive surfaces and is associated with enhanced microbial colonization and activity in the tested consortium. Amendment effects depend on dose and inoculum conditions; this does not establish that adsorption itself is biological dechlorination. Description SHA256 6a0a79250e572595dd2ce2e70532e703a5e5236ddf1775b8f7a2a545c9a77099. Source locator: Methods2.3; Results3.1–3.2; Figures1–3. Preserve the current direction and qualification; no new endpoint-to-guild or TCE-to-VC arrow.
+
+### BC600 Colonization and Activity Enhancement → Biochar-Accelerated TCE Degradation
+
+graph: supported. Targets: CommunityMech:000301.
+
+Retain the PARTIAL colonization/activity contribution to faster TCE transformation.
+
+Exact selector ecological_interactions[1].downstream[0]; source node1 → node2. Upstream is a community-level amendment/process, not an inferred named donor. Downstream targets CWV2 at species61435. Exact description: PARTIAL - biochar-associated microbial colonization and activity could contribute to faster TCE transformation, alongside sorption and bioavailability effects. The amendment comparison does not selectively isolate colonization as the causal mediator, and TCE disappearance through adsorption is not itself degradation. Description SHA256 09040fc7f9f0f7e85db2434c446ac936a100bafda69c20b26c50915305544fcf. Source locator: Results3.2–3.3; Figures3–4; supplementS1–S2. Preserve the current direction and qualification; no new endpoint-to-guild or TCE-to-VC arrow.
+
+### Recoverable medium and assay context
+
+completeness: concern. Targets: CommunityMech:000301.
+
+The unspecified-medium entry omits bounded source-reported details.
+
+Recover DCB-1 components and30°C/static treatment conditions, with claim-local evidence. Distinguish lactate-fed enrichment from H2-supplemented isolate maintenance. Stock additions lack a complete focal final-volume basis; assay concentration and cell/copy denominators conflict. Do not import ancillary160mL bottles or infer a vessel volume from plotted amount.
+
+### Species, chemical and environmental terms
+
+grounding: supported. Targets: CommunityMech:000301.
+
+Retain all encoded ontology labels and GTDB ambiguity.
+
+The groundwater term matches provenance; IN_VITRO tiers match cultured assays. Species61435 and its three GTDB candidates do not resolve exact CWV2 membership to a genome. Four optional genus candidates may document profiles without inventing species, strains or functional transfer. No mapping_source value is encoded.
+
+### Declared community-profile resource
+
+representation: concern. Targets: CommunityMech:000301.
+
+The source-declared public amplicon study is not linked.
+
+PRJNA1262105/SRP608939 resolves twenty exact SRR runs: control/biochar × days0,10,20,30,40 × two replicates. MinION, AMPLICON/PCR and SINGLE metadata agree. Broad METAGENOMIC library-source wording does not make the assay shotgun metagenomics or a CWV2 isolate genome.
+
+### Excerpt and source-version fidelity
+
+evidence: supported. Targets: CommunityMech:000301.
+
+All eight excerpts match the published Abstract and cache.
+
+Preserve SUPPORT/PARTIAL and the explicit proof version. An exact Abstract phrase can still overstate the underlying mechanism outside the already-qualified graph. The prior discussion is historical evidence scope; a future curator can append the newly inspected figures/SI and resource context without rewriting history.
+
+### Maintained record and prior scope
+
+ownership: supported. Targets: CommunityMech:000301.
+
+Any future repair belongs to the maintained YAML.
+
+Ignored-inclusive discovery identifies nine focal contexts. Current1390 is closed and1391 open; no issue status or historical entry changes. No generated record owner or compulsory external provider job is inferred.
+
+### Whole proof and public publisher assets
+
+scope: supported. Targets: CommunityMech:000301.
+
+Current claims were fully assessed with explicit version limits.
+
+Lead and root read the complete53,556-character author-proof projection and all seven main/six SI image objects. Publisher final main text was unavailable; the source body remains an uncorrected proof. Ancillary corrected-proof Methods2.1–2.3 supports identity only, without transferring its protocols or omics. No raw sequence analysis or independent significance calculation is claimed.
+
+### Actual validation outcomes
+
+schema: supported. Targets: CommunityMech:000301.
+
+All eight required native checks passed.
+
+Two nonrequired corpus failures and the unavailable optional adapter remain explicit. Native validation does not establish mechanistic support.
+
+### Literal metrics
+
+completeness: supported. Targets: CommunityMech:000301.
+
+Completeness80; raw quality111, capped100.
+
+## Findings
+
+### inferred-mechanism: Qualify reducing-equivalent supply and stability
+
+major / open / confirmed; issue key: cm-000301-inferred-mechanism.
+
+The description says guilds supply reducing equivalents and ensure long-term stability; STABLE asserts equilibrium. Profiles and treatment outcomes support an author interpretation, without direct flux, selective necessity or long-term validation. The broad syntrophic-partner role also needs that inference scope.
+
+### community-identity: Make consortium and named-member metadata traceable
+
+minor / open / confirmed; issue key: cm-000301-community-identity.
+
+The graph correctly distinguishes D345 from CWV2, but taxonomy notes incorrectly say all other organisms are unnamed. The proof and SI identify several genera; D345/D0345 names and isolate provenance can be recorded without an exhaustive roster or wrong strain assignment.
+
+### cultivation: Recover bounded culture and assay details
+
+minor / open / confirmed; issue key: cm-000301-cultivation.
+
+The unspecified-medium block omits source-reported DCB-1 and static30°C assay conditions. Enrichment, isolate maintenance, dose and inoculum arms must remain separate; conflicting units prevent a single normalized recipe.
+
+### sequence-resource: Link the public community-profile experiment
+
+minor / open / confirmed; issue key: cm-000301-sequence-resource.
+
+The principal source declares PRJNA1262105 and twenty exact runs; neither dataset nor external-resource slot links them. Public metadata validates the experiment scope.
+
+## Recommended Actions And Acceptance Checks
+
+### qualify-mechanism
+
+Align the summary, role and state with actual evidence.
+
+- Describe reducing-equivalent supply and sustained function as inferred from relative community profiles and treatment outcomes. Do not imply measured H2/electron flux, DIET or selective guild necessity.
+- Remove or explicitly qualify STABLE unless equilibrium evidence is provided; do not force a different state. Retain SYNTROPHIC_PARTNER only with claim-local inferred scope, or omit the optional tag. Preserve supported PRIMARY_DEGRADER and chemical outcomes.
+- Retain all five current nodes and both arrows, including PARTIAL mediation, sorption/degradation separation and high-versus-low-inoculum VC distinctions.
+
+### recover-identity
+
+Document source names without inventing a defined roster.
+
+- Identify the enrichment as D345, with supplementary/archive D0345 spelling traceable; keep CWV2 as a subsequently isolated strain within species61435. Preserve the record ID and usable title; do not equate community and isolate.
+- Replace unnamed-only notes with source-attributed genus profiles. Optional verified candidates are Geobacter28231, Clostridium1485, Peptoclostridium1481960 and Desulfovibrio872; the last is discussed as data not shown. No species, strains, exact interactions or measured functional roles follow from those names.
+- Retain the current three GTDB candidates and valid species grounding unless an exact CWV2 resource resolves them. Append current source scope to discussion without rewriting earlier curation history.
+
+### recover-culture
+
+Add source-local cultivation details and explicit unresolved quantities.
+
+- Use principal Methods2.2 for DCB-1 and Tainan groundwater provenance: enrichment includes500µM TCE,30mM bicarbonate,1mM lactate and listed stock additions. Do not infer their final dilution basis or a complete standardized basal recipe.
+- Use Methods2.3 for30°C and no shaking in biochar assays. Keep1g/L BC600 treatment context, tested dose ranges and separate inoculum arms explicit. H2 at0.66atm is isolate maintenance, not automatically the consortium feed.
+- Preserve proof400µmol/L versus Fig2caption2000µmol/L, SI400mmol/L and plottedµmol/bottle; preserve cells/µL, copies/mL and separate high-inoculum Fig5 labels. Resolve with final source evidence before converting or asserting one recipe. Do not infer vessel capacity, liquid volume or pH from ancillary methods or graph axes.
+
+### link-resource
+
+Add the verified amplicon deposit with its actual scope.
+
+- Record PRJNA1262105/SRP608939 and SRR34990364–SRR34990383, with source Methods2.5 and registry evidence. Use the schema amplicon representation, not isolate genome or transcriptomics.
+- Keep control/biochar, days0/10/20/30/40 and two replicates; preserve D0345 aliases and MinION/AMPLICON/PCR/SINGLE metadata. Full-length16S V1–V9 comes from source Methods. No raw sequence reanalysis is required to establish this resource identity.
+
+### validate-curation
+
+Validate any separately authorized canonical repair.
+
+- Recheck exact source/assay/taxon scope, then focused schema, strict, term, reference, GTDB, domain and history gates. Run just gen-html and just check-docs-current if canonical curation is authorized.
+- Preserve source/cache/history/prior-review bytes and issue status. This review performs no canonical, scientific-status, provider, contact or Git mutation.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml; Whole maintained YAML | supports | The record describes a native groundwater-derived enrichment with CWV2 and a BC600 amendment; five qualified nodes and two arrows are encoded. |
+| abstract | PMID:41442978; DOI:10.1016/j.jenvman.2025.128362; Fresh MED resultList.result[0].abstractText | supports | The published Abstract supports all eight excerpts, with laboratory treatment and inferred-mechanism scope assessed separately. |
+| cultivation | PMID:41442978; DOI:10.1016/j.jenvman.2025.128362; Author proof: Methods 2.2 Cultivation and dechlorination analysis of Dhc, first paragraph; Methods 2.3 Biochar adsorption and biodegradation test, sole paragraph, web lines399–418 (quoted words at407). | supports | DCB-1 enrichment, isolate maintenance and biochar assays are distinct. The assay temperature and lack of shaking are recoverable; concentration and inoculum units conflict elsewhere. |
+| treatment | PMID:41442978; DOI:10.1016/j.jenvman.2025.128362; Author proof: Results 3.1–3.4; Table 1; Figures 1–5 and captions; supplement Figures S1–S2. | supports | BC600 selection includes cost considerations. TCE loss includes sorption, while chemical products support transformation. Lower VC is a separate high-inoculum result. |
+| community-profiles | PMID:41442978; DOI:10.1016/j.jenvman.2025.128362; Author proof: Methods 2.5 16 S rRNA gene amplicon sequencing analysis; Results 3.5 Impact of biochar on microbial community dynamics during TCE dechlorination; Figures 6–7; supplement S3a–d; Conclusion. | supports | Community profiles and endpoint chemistry support hypotheses about guild function; they do not demonstrate donor flux, selective necessity or equilibrium/long-term field persistence. |
+| supplement | PMID:41442978; DOI:10.1016/j.jenvman.2025.128362 supplementary information; Complete DOCX text and six embedded TIFFs: S1, S2 and S3a–d. | supports | Publisher supplementary figures confirm dose/inoculum and genus-profile boundaries. Caption mmol/L units conflict with the proof; bars do not independently establish statistical significance. |
+| identity-source | PMID:40020353; DOI:10.1016/j.watres.2025.123347; Author-uploaded corrected proof, Methods 2.1–2.3; directly read web lines310–461, especially2.1. | supports | D345 enrichment and its subsequently isolated CWV2 strain are distinct entities sharing provenance. Ancillary culture and omics protocols are not imported. |
+| ontology | /private/tmp/cm-review-session/batch-15/000301/ontology-authority.json; Six ID-label/definition pairs and eleven placements | supports | All encoded labels and applicable chemical/environment meanings match. |
+| schema | /private/tmp/cm-review-session/batch-15/000301/child-schema-semantics.json; FunctionalRoleEnum and EcologicalStateEnum | supports | The syntrophic-partner role is broader than the SYNTROPHY interaction definition; STABLE means equilibrium. |
+| gtdb | /private/tmp/cm-review-session/batch-15/000301/child-gtdb-crosswalk.json; Species61435 name route, twelve reference rows | supports | Three-way GTDB ambiguity is valid; no exact CWV2 mapping or encoded mapping-source defect is established. |
+| strain-scope | /private/tmp/cm-review-session/batch-15/000301/child-strain-identity-scope.json; D345/CWV2 identity and bounded local exact-name searches | supports | Species61435 is not a strain node; no collection alias is invented. |
+| genus-candidates | /private/tmp/cm-review-session/batch-15/000301/child-supplementary-taxonomy.json; Four source-named genus labels and local NCBI ranks | supports | Optional genus-level candidates correct the false unnamed-only note without identifying exact partner strains. |
+| semantics | /private/tmp/cm-review-session/batch-15/000301/ontology-semantic-notes.json; Final source-local semantic assessment | supports | Qualify non-graph mechanism/stability claims; retain the already bounded graph and valid groundings. |
+| resources | /private/tmp/cm-review-session/batch-15/000301/dataset-verification.json; PRJNA1262105/SRP608939 and all twenty SRR metadata rows | supports | The declared MinION amplicon experiment has two treatments, five days and two replicates; no raw reads were downloaded. |
+| external | /private/tmp/cm-review-session/batch-15/000301/external-resource-verification.json; Publication identities and missing encoded resource slots | supports | The source declares a verified community-profile project; no isolate genome or omics deposit is inferred. |
+| snippets | /private/tmp/cm-review-session/batch-15/000301/snippet-audit.json; All eight canonical evidence placements | supports | All eight match the fresh published Abstract and selected cache strictly after declared typography normalization. |
+| provenance | /private/tmp/cm-review-session/batch-15/000301/provenance-audit.json; Two histories, batch31 records[2], cohort and current1390/1391 | supports | The previous graph repair is preserved; open metadata work remains actionable without issue mutation. |
+| inspection | /private/tmp/cm-review-session/batch-15/000301/inspect.json; Thirty-one immutable official inputs | supports | Target, twenty-one authorities and nine focal contexts were pinned before assessment. |
+| assets | /private/tmp/cm-review-session/batch-15/000301/lead-source-assets.json; Actual successful and failed retrievals, all figure/SI objects | supports | The author proof is separated from publisher metadata, figures, supplement and failed access bodies. |
+| lead-read | /private/tmp/cm-review-session/batch-15/000301/lead-primary-read-scope.json; Actual complete and bounded reading scopes | supports | Whole proof, all seven main and six supplementary image objects read; ancillary reading is limited to identity context. |
+| locators | /private/tmp/cm-review-session/batch-15/000301/source-locator-verification.json; Exact heading and numbered-line inventory | supports | All proof lines74–1558 are present; the two-word quote belongs to Methods2.3 sole paragraph. |
+| source-audit | /private/tmp/cm-review-session/batch-15/000301/source-audit.json; Final lead scientific judgment | supports | One major and three minor findings; source conflicts and proof version retained. |
+| root-source | /private/tmp/cm-review-session/batch-15/000301/root-independent-source-audit.json; Independent root source judgment | supports | Independent whole proof, source images, authorities and current contexts support the same findings. |
+| metrics | /private/tmp/cm-review-session/batch-15/000301/support-final-audit.json; Final supporting reconciliation | supports | Literal completeness80; base127 minus10 minus6 gives raw111, capped100. |
+| support-manifest | /private/tmp/cm-review-session/batch-15/000301/support-frozen-manifest.json; Frozen supporting dependencies | supports | Exact input and supporting hashes verified. |
+| auxiliary | /private/tmp/cm-review-session/batch-15/000301/auxiliary-frozen-manifest.json; Frozen native and authority dependencies | supports | Eight required native checks passed; source-local semantics remain separate. |
+| final-native | /private/tmp/cm-review-session/batch-15/000301/final-validator-summary.json; Actual native command logs and integrity | supports | All focused checks passed; this does not validate biological entailment. |
+| corpus-context | /private/tmp/cm-review-session/batch-15/000301/child-corpus-context.json; Batch15 corpus baseline | supports | Both nonrequired corpus commands returned1 with44 warnings across16/477 records, zero errors. |
+| adapter | /private/tmp/cm-review-session/batch-15/000301/adapter-check.json; Optional structured adapter availability | supports | Unavailable in the owned runtime; no biological absence inference. |
+| check-validate | /private/tmp/cm-review-session/batch-15/000301/validate.json; Actual command/stdout/stderr | supports | Actual native exit0; scientific entailment assessed separately. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-15/000301/validate-strict.json; Actual command/stdout/stderr | supports | Actual native exit0; scientific entailment assessed separately. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-15/000301/validate-terms.json; Actual command/stdout/stderr | supports | Actual native exit0; scientific entailment assessed separately. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-15/000301/validate-references-explained.json; Actual command/stdout/stderr | supports | Actual native exit0; scientific entailment assessed separately. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-15/000301/validate-gtdb.json; Actual command/stdout/stderr | supports | Actual native exit0; scientific entailment assessed separately. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-15/000301/validate-gtdb-domain.json; Actual command/stdout/stderr | supports | Actual native exit0; scientific entailment assessed separately. |
+| check-validate-history | /private/tmp/cm-review-session/batch-15/000301/validate-history.json; Actual command/stdout/stderr | supports | Actual native exit0; scientific entailment assessed separately. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-15/000301/normalize-cache-names-check.json; Actual command/stdout/stderr | supports | Actual native exit0; scientific entailment assessed separately. |
+| context-audit-network | /private/tmp/cm-review-session/batch-15/audit-network.json; Fresh batch15 corpus baseline | supports | Actual exit1;44 warnings across16/477 records, zero errors. |
+| context-check-network-quality | /private/tmp/cm-review-session/batch-15/check-network-quality.json; Fresh batch15 corpus baseline | supports | Actual exit1;44 warnings across16/477 records, zero errors. |
+
+## Limits And Additional Notes
+
+- The principal body is the author-uploaded UNCORRECTED PROOF, not the final publisher main text. The published Abstract, public publisher figures and complete supplementary DOCX were inspected. Failed DOI/publisher/PDF routes and the interrupted first DOCX remain preserved separately.
+- Source concentration and inoculum units conflict across Methods, Results, captions and axes. No silent conversions, inferred bottle volume or universal recipe are supplied. SI title/count/spelling inconsistencies are retained with exact PII provenance.
+- Relative abundance and SEM do not establish metabolic flux, species identity from morphology, selective mediation or long-term field equilibrium. Supplementary bars do not independently demonstrate statistical significance.
+- The ancillary corrected proof was read only through Methods2.1–2.3 for identity context; no whole ancillary main/SI or transferred culture/omics protocol is claimed.
+- Only metadata were checked for the twenty public runs; no raw read download, taxonomic reanalysis, figure digitization, provider research or contact occurred.
+- Five node assessments bind six exact canonical excerpts; two edge assessments bind exact descriptions, hashes and directions.
+- Eight total excerpts match the published Abstract/cache. The sole direct primary quote is two words in Methods2.3 sole paragraph. All31 official inputs remain unchanged.
+- Scientific completion refers to current-claim assessment at the explicit source scope; it does not resolve all final-version or future field-validation questions. Root owns saving and post-save gates.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261022T054056Z-cwv2-biochar-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: CWV2-containing groundwater consortium and BC600 review
+started_at: '2026-10-22T05:32:58.424604Z'
+finished_at: '2026-10-22T05:40:56.632066Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate lead, root, auxiliary and supporting reviewers; no
+    person-level independence claim.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: One major finding concerns unqualified mechanism and stability assertions.
+  Three minor findings concern consortium/member metadata, recoverable cultivation
+  details and the declared amplicon resource. All five graph nodes and two qualified
+  arrows remain supported. All eight required native checks passed. Literal completeness80
+  and capped quality100 (raw111) do not negate these findings.
+source:
+  git_revision: cb7a782c8ba80299dca8761ad0a2c90bccd8a117
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium/2026-10-02T061513Z-codex-dhc301.yaml
+    sha256: 6ae4c39e55fcd7fe15478abb81b920c7866005595f40446f8b6277d9a9a0140f
+    role: context
+  - path: history/records/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium/2026-10-06T061824Z-codex-ea8b4f.yaml
+    sha256: ba5abe9ee20284797ddc4c31c57ecb2a204d1eb07697d88b7dd4b180eb885b61
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+    sha256: 252f1bd100591910deeb53b0de75130e7f38995f3de7a10aca6466f3f16e2c66
+    role: target
+  - path: references_cache/PMID_41442978.md
+    sha256: 76ca3d2056b40c34172ddda2b46e4106a9115f3a9a187b5520e6911239e67e38
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261006-batch31.yaml
+    sha256: 2c1e54bb636d8534313e280c6a19fdee4bedaa235c76d0e5ff5a17f71d573541
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-three-records-batch31.yaml
+    sha256: 3ae6fd42367e69f8ffe653271b91ef4cabc271b302f7f729d6d1204a1d7e7b88
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.md
+    sha256: e432615b147787c8d009d96d2f11e5b78a45927bf9c69e45ec0d31123d1fc2e9
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/frozen_inventory_metrics.tsv
+    sha256: d5a47bbcc3745a489ff507680aa7360a6a65ce070ce4ec88f886b70128791313
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md
+    sha256: 4e7781aa8cdfc4bb42d896ebe75920719d9dcade92ffc4a0ae07af7481cb37b3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000301
+  path: kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+  label: Dehalococcoides mccartyi CWV2 Dechlorinating Consortium
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+    role: canonical_record
+scope:
+  description: Whole released record and every encoded claim; complete author-uploaded
+    principal proof, published Abstract, all seven publisher main figures and complete
+    supplement text/six images, plus bounded ancillary identity Methods and verified
+    resource metadata.
+  selection: Only released CommunityMech:000301 in owned batch15.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000301
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000301
+  command: just --no-dotenv validate kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000301
+  command: just --no-dotenv validate-strict kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+    --out /private/tmp/cm-review-session/batch-15/000301/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000301
+  command: just --no-dotenv validate-terms kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000301
+  command: just --no-dotenv validate-references-explained kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000301
+  command: just --no-dotenv validate-gtdb kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000301
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000301
+  command: just --no-dotenv validate-history history/records/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000301
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: context-audit-network
+  name: audit-network corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit1 retained.
+  target_ids:
+  - CommunityMech:000301
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-15/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-audit-network
+  - corpus-context
+  scope_note: Nonrequired corpus context; not a target or candidate failure.
+- check_id: context-check-network-quality
+  name: check-network-quality corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit1 retained.
+  target_ids:
+  - CommunityMech:000301
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-15/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-check-network-quality
+  - corpus-context
+  scope_note: Nonrequired corpus context; not a target or candidate failure.
+- check_id: optional-structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Unavailable in owned runtime.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - adapter
+  scope_note: No adapter execution or biological absence inference.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+  locator: Whole maintained YAML
+  summary: The record describes a native groundwater-derived enrichment with CWV2
+    and a BC600 amendment; five qualified nodes and two arrows are encoded.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.621526Z'
+- evidence_id: abstract
+  kind: primary_source
+  reference: PMID:41442978; DOI:10.1016/j.jenvman.2025.128362
+  locator: Fresh MED resultList.result[0].abstractText
+  summary: The published Abstract supports all eight excerpts, with laboratory treatment
+    and inferred-mechanism scope assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.621615Z'
+  snapshot_sha256: 9e96a8b6207873e5b8e46d765f133ae54aa8c0aa2a1aab0b746bdb19f6b4e540
+- evidence_id: cultivation
+  kind: primary_source
+  reference: PMID:41442978; DOI:10.1016/j.jenvman.2025.128362
+  locator: 'Author proof: Methods 2.2 Cultivation and dechlorination analysis of Dhc,
+    first paragraph; Methods 2.3 Biochar adsorption and biodegradation test, sole
+    paragraph, web lines399–418 (quoted words at407).'
+  summary: DCB-1 enrichment, isolate maintenance and biochar assays are distinct.
+    The assay temperature and lack of shaking are recoverable; concentration and inoculum
+    units conflict elsewhere.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.621750Z'
+  snapshot_sha256: e6e88bd02c08cb291b0f44e04596fa3ba08cbdd38ab9abb332d1de5ee2e75307
+  quote: without shaking
+- evidence_id: treatment
+  kind: primary_source
+  reference: PMID:41442978; DOI:10.1016/j.jenvman.2025.128362
+  locator: 'Author proof: Results 3.1–3.4; Table 1; Figures 1–5 and captions; supplement
+    Figures S1–S2.'
+  summary: BC600 selection includes cost considerations. TCE loss includes sorption,
+    while chemical products support transformation. Lower VC is a separate high-inoculum
+    result.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.621963Z'
+  snapshot_sha256: e6e88bd02c08cb291b0f44e04596fa3ba08cbdd38ab9abb332d1de5ee2e75307
+- evidence_id: community-profiles
+  kind: primary_source
+  reference: PMID:41442978; DOI:10.1016/j.jenvman.2025.128362
+  locator: 'Author proof: Methods 2.5 16 S rRNA gene amplicon sequencing analysis;
+    Results 3.5 Impact of biochar on microbial community dynamics during TCE dechlorination;
+    Figures 6–7; supplement S3a–d; Conclusion.'
+  summary: Community profiles and endpoint chemistry support hypotheses about guild
+    function; they do not demonstrate donor flux, selective necessity or equilibrium/long-term
+    field persistence.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.622010Z'
+  snapshot_sha256: e6e88bd02c08cb291b0f44e04596fa3ba08cbdd38ab9abb332d1de5ee2e75307
+- evidence_id: supplement
+  kind: primary_source
+  reference: PMID:41442978; DOI:10.1016/j.jenvman.2025.128362 supplementary information
+  locator: 'Complete DOCX text and six embedded TIFFs: S1, S2 and S3a–d.'
+  summary: Publisher supplementary figures confirm dose/inoculum and genus-profile
+    boundaries. Caption mmol/L units conflict with the proof; bars do not independently
+    establish statistical significance.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.622055Z'
+  snapshot_sha256: a0052c88b32908ae3956cdb78abfd1ee7f0c687f8b9f76d50a7376deb9837ac1
+- evidence_id: identity-source
+  kind: primary_source
+  reference: PMID:40020353; DOI:10.1016/j.watres.2025.123347
+  locator: Author-uploaded corrected proof, Methods 2.1–2.3; directly read web lines310–461,
+    especially2.1.
+  summary: D345 enrichment and its subsequently isolated CWV2 strain are distinct
+    entities sharing provenance. Ancillary culture and omics protocols are not imported.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.626814Z'
+  snapshot_sha256: 9fe341897a33055b2d7303f3fe7f557b9cee5fddf49aa6cc8da64a7619a39f46
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000301/ontology-authority.json
+  locator: Six ID-label/definition pairs and eleven placements
+  summary: All encoded labels and applicable chemical/environment meanings match.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.627137Z'
+  snapshot_sha256: 722df6097ba4959ed4494a27082dc61d807a65a007f9e892b7d2c2ae6dfe3acb
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000301/child-schema-semantics.json
+  locator: FunctionalRoleEnum and EcologicalStateEnum
+  summary: The syntrophic-partner role is broader than the SYNTROPHY interaction definition;
+    STABLE means equilibrium.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.627331Z'
+  snapshot_sha256: 01916c7d83e21097f36995cfa861115726fb886be6e847a55c9bce83a3bb9ef4
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000301/child-gtdb-crosswalk.json
+  locator: Species61435 name route, twelve reference rows
+  summary: Three-way GTDB ambiguity is valid; no exact CWV2 mapping or encoded mapping-source
+    defect is established.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.627551Z'
+  snapshot_sha256: 4a30b41f3312fdd108b66aaeaaa3fcfaa7af46bf85f484b92a3da3d1e7f04377
+- evidence_id: strain-scope
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000301/child-strain-identity-scope.json
+  locator: D345/CWV2 identity and bounded local exact-name searches
+  summary: Species61435 is not a strain node; no collection alias is invented.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.627680Z'
+  snapshot_sha256: 624e5956b0817067a5cfa4d0435807b9475d92534b3184139290085ff5098288
+- evidence_id: genus-candidates
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000301/child-supplementary-taxonomy.json
+  locator: Four source-named genus labels and local NCBI ranks
+  summary: Optional genus-level candidates correct the false unnamed-only note without
+    identifying exact partner strains.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.627827Z'
+  snapshot_sha256: 51a0fda3e79c18a989755fdeb11505c69610c1f63917dd2bc0b6f390f84dcf2c
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-15/000301/ontology-semantic-notes.json
+  locator: Final source-local semantic assessment
+  summary: Qualify non-graph mechanism/stability claims; retain the already bounded
+    graph and valid groundings.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.627969Z'
+  snapshot_sha256: 7101ce50296d61d3b14fae3104d19f1636687fa43e258b112853c51d4821921b
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/dataset-verification.json
+  locator: PRJNA1262105/SRP608939 and all twenty SRR metadata rows
+  summary: The declared MinION amplicon experiment has two treatments, five days and
+    two replicates; no raw reads were downloaded.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.628125Z'
+  snapshot_sha256: ebf9a7ab70a06548f97f677348b4396b6fb51f2ded69fa7ad40f2a90819fac56
+- evidence_id: external
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/external-resource-verification.json
+  locator: Publication identities and missing encoded resource slots
+  summary: The source declares a verified community-profile project; no isolate genome
+    or omics deposit is inferred.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.628261Z'
+  snapshot_sha256: c30ba1e449fb6d15edb778832bd836dddd9e0a866d5fff889fef0e47c19d8f2f
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/snippet-audit.json
+  locator: All eight canonical evidence placements
+  summary: All eight match the fresh published Abstract and selected cache strictly
+    after declared typography normalization.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.628398Z'
+  snapshot_sha256: a4076ff272890a73e2fc24a673313337309730f5734cd3566ef985464b7667d3
+- evidence_id: provenance
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-15/000301/provenance-audit.json
+  locator: Two histories, batch31 records[2], cohort and current1390/1391
+  summary: The previous graph repair is preserved; open metadata work remains actionable
+    without issue mutation.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.628537Z'
+  snapshot_sha256: 0c2d4e2483165ef18fead0d3296d67cccabbcc03e3e0bea1fab95d0bf66eee39
+- evidence_id: inspection
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/inspect.json
+  locator: Thirty-one immutable official inputs
+  summary: Target, twenty-one authorities and nine focal contexts were pinned before
+    assessment.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.628706Z'
+  snapshot_sha256: fbc4b8df0970df463060506730c5d7abaf4120fe89b875a2b0874b5a606ccd3e
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/lead-source-assets.json
+  locator: Actual successful and failed retrievals, all figure/SI objects
+  summary: The author proof is separated from publisher metadata, figures, supplement
+    and failed access bodies.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.628748Z'
+  snapshot_sha256: 779c4bd0281f49cb8720c6fad5f01e0a43739fc55df579f9d540c10231c29083
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/lead-primary-read-scope.json
+  locator: Actual complete and bounded reading scopes
+  summary: Whole proof, all seven main and six supplementary image objects read; ancillary
+    reading is limited to identity context.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.628893Z'
+  snapshot_sha256: 64889b6b3be8c8fa1a71604cf4e8631066bf5bc7f64fd2d888283e340a928e40
+- evidence_id: locators
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/source-locator-verification.json
+  locator: Exact heading and numbered-line inventory
+  summary: All proof lines74–1558 are present; the two-word quote belongs to Methods2.3
+    sole paragraph.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.628984Z'
+  snapshot_sha256: 7622411099cd4e852bdf919f8a94b1f3b9ef34e6d17a404d646ae1bde6754784
+- evidence_id: source-audit
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/source-audit.json
+  locator: Final lead scientific judgment
+  summary: One major and three minor findings; source conflicts and proof version
+    retained.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.629077Z'
+  snapshot_sha256: 9acdc334102ceba078f1b6495aac709c24ca8e5de2d9c79d9c413744859640ed
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/root-independent-source-audit.json
+  locator: Independent root source judgment
+  summary: Independent whole proof, source images, authorities and current contexts
+    support the same findings.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.629204Z'
+  snapshot_sha256: b853cc1480535403b630e59cbbfc5716a9839bfe1bf1af4eb3227a29bdb2fab1
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/support-final-audit.json
+  locator: Final supporting reconciliation
+  summary: Literal completeness80; base127 minus10 minus6 gives raw111, capped100.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.629350Z'
+  snapshot_sha256: e6b9f4c85573b59509094727000eaf876e1a9dc0a9b4d20fadb0fe9c2653cbf2
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/support-frozen-manifest.json
+  locator: Frozen supporting dependencies
+  summary: Exact input and supporting hashes verified.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.629396Z'
+  snapshot_sha256: 4cd6960dafd29a66f48fda4d835c82f1672aad260de990d4d36f806ea813ea7e
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/auxiliary-frozen-manifest.json
+  locator: Frozen native and authority dependencies
+  summary: Eight required native checks passed; source-local semantics remain separate.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.629527Z'
+  snapshot_sha256: 0550544657e1e8862c1a3d81571abf49a3d5a79a529404411156dc2067081bd4
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/final-validator-summary.json
+  locator: Actual native command logs and integrity
+  summary: All focused checks passed; this does not validate biological entailment.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.629628Z'
+  snapshot_sha256: 38d2a52fb7cd56d2c615c574cf81c71328884b648d3f40d073399e98594a1bab
+- evidence_id: corpus-context
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/child-corpus-context.json
+  locator: Batch15 corpus baseline
+  summary: Both nonrequired corpus commands returned1 with44 warnings across16/477
+    records, zero errors.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.629768Z'
+  snapshot_sha256: 3dde6c558fe0485e5ad5228074e7ebf8c7e503d36942fb5794a385b51611ed89
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/adapter-check.json
+  locator: Optional structured adapter availability
+  summary: Unavailable in the owned runtime; no biological absence inference.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.629917Z'
+  snapshot_sha256: 4c56af425c4ebcd01fb2a6cb3df0284454cdf1e0e0ccda3c3770811899679340
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/validate.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.630476Z'
+  snapshot_sha256: 8f80aa1d305bdd8eb5d69cf9827b3ef723fcad4d87da3dacd836970b4f6ecfc7
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/validate-strict.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.630697Z'
+  snapshot_sha256: 1a3f5fc45c5cece8e6160be647639aeff717a995e137f9509b37e78bbb07491e
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/validate-terms.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.630879Z'
+  snapshot_sha256: 90f324c5caa47ff7cc2fb93680297204348f4c622e74a0d7acc6092ab5cad8c0
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/validate-references-explained.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.631058Z'
+  snapshot_sha256: f1894bfe72e3591d0a1f31a043a3bc7daf9e407e5d8890a686b0ae974bfc2297
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/validate-gtdb.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.631189Z'
+  snapshot_sha256: 86cc9c4ca7515dfa072c165dafceaac1ad3058cce8a55037a22dfdab9574952f
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/validate-gtdb-domain.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.631341Z'
+  snapshot_sha256: 92d5303c3bf994f009d18eddbd4c53b8d0ac1b3eec0548e9b6c0e34b88f6510b
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/validate-history.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.631498Z'
+  snapshot_sha256: 4c29aa9dddfddc6fd25781130187043b7befe4400108ddb230026a7cdf22c82b
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/000301/normalize-cache-names-check.json
+  locator: Actual command/stdout/stderr
+  summary: Actual native exit0; scientific entailment assessed separately.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.631633Z'
+  snapshot_sha256: e08f5668c79f6e59c5bb9668ffaaa1408dcf8f3c8b2de5cfdaeaff0af0cd94c7
+- evidence_id: context-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/audit-network.json
+  locator: Fresh batch15 corpus baseline
+  summary: Actual exit1;44 warnings across16/477 records, zero errors.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.631842Z'
+  snapshot_sha256: b92af84b02acf105f8dc7c3625cc2a7e52a436b24a8243fe7e1d53012c9be1d9
+- evidence_id: context-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-15/check-network-quality.json
+  locator: Fresh batch15 corpus baseline
+  summary: Actual exit1;44 warnings across16/477 records, zero errors.
+  support: supports
+  accessed_at: '2026-10-22T05:40:56.631991Z'
+  snapshot_sha256: 10b4cbb4180b20137e22c994ff8cd71d5ca52ab6ac3ef21fef5580eb4c9200fc
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: D345 enrichment and CWV2 isolate
+  outcome: concern
+  summary: The current title is usable, but the metadata should explicitly name the
+    consortium and correct the unnamed-member claim.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - cultivation
+  - identity-source
+  - genus-candidates
+  - strain-scope
+  dimensions:
+  - name: community
+    value: Groundwater-derived D345 enrichment with BC600 comparison
+    definition: Naturally sourced mixed community subsequently cultivated; not a defined
+      single-strain culture.
+    evidence_ids:
+    - cultivation
+    - community-profiles
+  - name: named_isolate
+    value: D. mccartyi CWV2
+    definition: Source-derived isolate within species61435; no exact strain CURIE
+      or culture-collection accession is established.
+    evidence_ids:
+    - identity-source
+    - strain-scope
+  details: The principal Methods distinguishes D345 from isolated CWV2; supplementary
+    and archive aliases use D0345. Preserve those source forms with provenance. Named
+    genera are observed community-profile categories, not isolated partners or measured
+    donors. The existing graph already keeps the community/isolate distinction.
+- assessment_id: mechanism
+  area: evidence
+  topic: Inferred cooperation and stability
+  outcome: concern
+  summary: The summary and state assignment exceed the measured evidence.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - community-profiles
+  - supplement
+  - schema
+  details: Qualify reducing-equivalent supply and sustained community function as
+    author interpretations. The assays do not isolate hydrogen/electron transfer or
+    establish equilibrium under the STABLE definition. The broad SYNTROPHIC_PARTNER
+    role can be source-attributed as inferred; no obligacy or narrower interaction
+    criterion is imposed. Preserve PRIMARY_DEGRADER and measured dechlorination.
+- assessment_id: node-0
+  area: graph
+  topic: BC600 Biochar-Consortium Coupling
+  outcome: supported
+  summary: Retain BC600 amendment of the native consortium.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - cultivation
+  - treatment
+  - snippets
+  details: 'Exact selector ecological_interactions[0]; scope COMMUNITY_LEVEL; interaction_type
+    absent. Actual taxa: {"source": null, "target": null, "participants": []}. Canonical
+    snippet bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet",
+    "sha256": "6f51bfac8f43b508c7bfe203493b1fc9677041282d761d68ed37633c8712c115",
+    "reference": "PMID:41442978", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 a4076ff272890a73e2fc24a673313337309730f5734cd3566ef985464b7667d3.
+    Source locators: Methods2.1–2.3; Results3.1; Fig4 caption. No source or target
+    taxon is encoded. Amendment is a community-level intervention; D345 is distinct
+    from CWV2.'
+- assessment_id: node-1
+  area: graph
+  topic: BC600 Colonization and Activity Enhancement
+  outcome: supported
+  summary: Retain qualified colonization/activity enhancement.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - treatment
+  - supplement
+  - snippets
+  details: 'Exact selector ecological_interactions[1]; scope COMMUNITY_LEVEL; interaction_type
+    absent. Actual taxa: {"source": null, "target": null, "participants": []}. Canonical
+    snippet bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet",
+    "sha256": "623a730573c116ce1b2e483c122cb98383bcdfb6efccc50c7e331ab9f5229067",
+    "reference": "PMID:41442978", "supports": "PARTIAL", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 a4076ff272890a73e2fc24a673313337309730f5734cd3566ef985464b7667d3.
+    Source locators: Results3.1–3.2; Table1; Figures1–3; S1–S2. BC700 has slightly
+    greater sorption; BC600 is selected partly for practical cost. SEM supports surface
+    colonization without species-specific identity or selective mediator isolation.'
+- assessment_id: node-2
+  area: graph
+  topic: Biochar-Accelerated TCE Degradation
+  outcome: supported
+  summary: Retain condition-specific accelerated TCE transformation.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - treatment
+  - supplement
+  - snippets
+  details: 'Exact selector ecological_interactions[2]; scope COMMUNITY_LEVEL; interaction_type
+    absent. Actual taxa: {"source": null, "target": {"preferred_term": "Dehalococcoides
+    mccartyi strain CWV2", "term": {"id": "NCBITaxon:61435", "label": "Dehalococcoides
+    mccartyi"}}, "participants": []}. Canonical snippet bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet",
+    "sha256": "613eae1f7903dcd517f1bc78d08175b6a6e1e2c2387ce726cd8715960ed00c36",
+    "reference": "PMID:41442978", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 a4076ff272890a73e2fc24a673313337309730f5734cd3566ef985464b7667d3.
+    Source locators: Results3.2–3.3; Figures2,4; S1–S2. The recipient descriptor is
+    CWV2 under species61435. Removal has an adsorption contribution; chemical products
+    support transformation. Faster TCE loss does not universally lower VC.'
+- assessment_id: node-3
+  area: graph
+  topic: Vinyl Chloride Accumulation Mitigation
+  outcome: supported
+  summary: Retain the separate high-inoculum lower-VC outcome.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - abstract
+  - treatment
+  - snippets
+  details: 'Exact selector ecological_interactions[3]; scope COMMUNITY_LEVEL; interaction_type
+    absent. Actual taxa: {"source": null, "target": {"preferred_term": "Dehalococcoides
+    mccartyi strain CWV2", "term": {"id": "NCBITaxon:61435", "label": "Dehalococcoides
+    mccartyi"}}, "participants": []}. Canonical snippet bindings: [{"selector": "ecological_interactions[3].evidence[0].snippet",
+    "sha256": "8ed2f06aa4e603d734072cf5ef0369479b7a647f05f62534d70045d700f3c747",
+    "reference": "PMID:41442978", "supports": "SUPPORT", "evidence_source": "IN_VITRO"},
+    {"selector": "ecological_interactions[3].evidence[1].snippet", "sha256": "b50ac9e9571d30955d50f171fb6b6cef7f30e981fd18e88258310b3c8d063285",
+    "reference": "PMID:41442978", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 a4076ff272890a73e2fc24a673313337309730f5734cd3566ef985464b7667d3.
+    Source locators: Results3.3–3.4; Figures4–5 and their captions. The CWV2 capability
+    excerpt and amendment outcome are separate evidence objects. Low-inoculum amended
+    cultures can contain more VC than unamended cultures stalled at TCE; preserve
+    the current distinction.'
+- assessment_id: node-4
+  area: graph
+  topic: Hydrogen- and Electroactive-Guild Dechlorination Stability
+  outcome: supported
+  summary: Retain the hypothesized guild contribution and PARTIAL support.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - community-profiles
+  - supplement
+  - snippets
+  details: 'Exact selector ecological_interactions[4]; scope COMMUNITY_LEVEL; interaction_type
+    absent. Actual taxa: {"source": null, "target": {"preferred_term": "Dehalococcoides
+    mccartyi strain CWV2", "term": {"id": "NCBITaxon:61435", "label": "Dehalococcoides
+    mccartyi"}}, "participants": []}. Canonical snippet bindings: [{"selector": "ecological_interactions[4].evidence[0].snippet",
+    "sha256": "e06bb494aa698b9140b3e117a39d88a451b2aea9adec8dd58f9c2d39365ac3d7",
+    "reference": "PMID:41442978", "supports": "PARTIAL", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 a4076ff272890a73e2fc24a673313337309730f5734cd3566ef985464b7667d3.
+    Source locators: Methods2.5; Results3.5; Figures6–7; S3a–d; Conclusion. Relative
+    profiles are observed, whereas reducing-equivalent supply and long-term persistence
+    are inferred. No measured flux, DIET, selective guild necessity or field persistence
+    is encoded as demonstrated.'
+- assessment_id: edge-0-0
+  area: graph
+  topic: BC600 Biochar-Consortium Coupling → BC600 Colonization and Activity Enhancement
+  outcome: supported
+  summary: Retain the amendment-to-colonization association with its dose and sorption
+    limits.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - treatment
+  - supplement
+  details: 'Exact selector ecological_interactions[0].downstream[0]; source node0
+    → node1. Upstream is a community-level amendment/process, not an inferred named
+    donor. Downstream has no taxon descriptor. Exact description: BC600 amendment
+    supplies sorptive surfaces and is associated with enhanced microbial colonization
+    and activity in the tested consortium. Amendment effects depend on dose and inoculum
+    conditions; this does not establish that adsorption itself is biological dechlorination.
+    Description SHA256 6a0a79250e572595dd2ce2e70532e703a5e5236ddf1775b8f7a2a545c9a77099.
+    Source locator: Methods2.3; Results3.1–3.2; Figures1–3. Preserve the current direction
+    and qualification; no new endpoint-to-guild or TCE-to-VC arrow.'
+- assessment_id: edge-1-0
+  area: graph
+  topic: BC600 Colonization and Activity Enhancement → Biochar-Accelerated TCE Degradation
+  outcome: supported
+  summary: Retain the PARTIAL colonization/activity contribution to faster TCE transformation.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - treatment
+  - supplement
+  details: 'Exact selector ecological_interactions[1].downstream[0]; source node1
+    → node2. Upstream is a community-level amendment/process, not an inferred named
+    donor. Downstream targets CWV2 at species61435. Exact description: PARTIAL - biochar-associated
+    microbial colonization and activity could contribute to faster TCE transformation,
+    alongside sorption and bioavailability effects. The amendment comparison does
+    not selectively isolate colonization as the causal mediator, and TCE disappearance
+    through adsorption is not itself degradation. Description SHA256 09040fc7f9f0f7e85db2434c446ac936a100bafda69c20b26c50915305544fcf.
+    Source locator: Results3.2–3.3; Figures3–4; supplementS1–S2. Preserve the current
+    direction and qualification; no new endpoint-to-guild or TCE-to-VC arrow.'
+- assessment_id: cultivation
+  area: completeness
+  topic: Recoverable medium and assay context
+  outcome: concern
+  summary: The unspecified-medium entry omits bounded source-reported details.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - cultivation
+  - treatment
+  - supplement
+  dimensions:
+  - name: medium
+    value: DCB-1 groundwater medium
+    definition: The principal Methods gives bicarbonate/lactate and stock additions;
+      not a complete normalized recipe for every assay.
+    evidence_ids:
+    - cultivation
+  - name: assay_conditions
+    value: 30°C; without shaking
+    definition: Methods2.3 biochar adsorption/biodegradation experiments, separated
+      from isolate maintenance.
+    evidence_ids:
+    - cultivation
+  details: Recover DCB-1 components and30°C/static treatment conditions, with claim-local
+    evidence. Distinguish lactate-fed enrichment from H2-supplemented isolate maintenance.
+    Stock additions lack a complete focal final-volume basis; assay concentration
+    and cell/copy denominators conflict. Do not import ancillary160mL bottles or infer
+    a vessel volume from plotted amount.
+- assessment_id: grounding
+  area: grounding
+  topic: Species, chemical and environmental terms
+  outcome: supported
+  summary: Retain all encoded ontology labels and GTDB ambiguity.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - ontology
+  - gtdb
+  - strain-scope
+  details: The groundwater term matches provenance; IN_VITRO tiers match cultured
+    assays. Species61435 and its three GTDB candidates do not resolve exact CWV2 membership
+    to a genome. Four optional genus candidates may document profiles without inventing
+    species, strains or functional transfer. No mapping_source value is encoded.
+- assessment_id: dataset
+  area: representation
+  topic: Declared community-profile resource
+  outcome: concern
+  summary: The source-declared public amplicon study is not linked.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - resources
+  - community-profiles
+  - external
+  details: 'PRJNA1262105/SRP608939 resolves twenty exact SRR runs: control/biochar
+    × days0,10,20,30,40 × two replicates. MinION, AMPLICON/PCR and SINGLE metadata
+    agree. Broad METAGENOMIC library-source wording does not make the assay shotgun
+    metagenomics or a CWV2 isolate genome.'
+- assessment_id: evidence
+  area: evidence
+  topic: Excerpt and source-version fidelity
+  outcome: supported
+  summary: All eight excerpts match the published Abstract and cache.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - snippets
+  - abstract
+  - assets
+  - locators
+  details: Preserve SUPPORT/PARTIAL and the explicit proof version. An exact Abstract
+    phrase can still overstate the underlying mechanism outside the already-qualified
+    graph. The prior discussion is historical evidence scope; a future curator can
+    append the newly inspected figures/SI and resource context without rewriting history.
+- assessment_id: ownership
+  area: ownership
+  topic: Maintained record and prior scope
+  outcome: supported
+  summary: Any future repair belongs to the maintained YAML.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - inspection
+  - provenance
+  details: Ignored-inclusive discovery identifies nine focal contexts. Current1390
+    is closed and1391 open; no issue status or historical entry changes. No generated
+    record owner or compulsory external provider job is inferred.
+- assessment_id: source-scope
+  area: scope
+  topic: Whole proof and public publisher assets
+  outcome: supported
+  summary: Current claims were fully assessed with explicit version limits.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - assets
+  - lead-read
+  - root-source
+  - identity-source
+  details: Lead and root read the complete53,556-character author-proof projection
+    and all seven main/six SI image objects. Publisher final main text was unavailable;
+    the source body remains an uncorrected proof. Ancillary corrected-proof Methods2.1–2.3
+    supports identity only, without transferring its protocols or omics. No raw sequence
+    analysis or independent significance calculation is claimed.
+- assessment_id: native
+  area: schema
+  topic: Actual validation outcomes
+  outcome: supported
+  summary: All eight required native checks passed.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - corpus-context
+  - adapter
+  details: Two nonrequired corpus failures and the unavailable optional adapter remain
+    explicit. Native validation does not establish mechanistic support.
+- assessment_id: metrics
+  area: completeness
+  topic: Literal metrics
+  outcome: supported
+  summary: Completeness80; raw quality111, capped100.
+  target_ids:
+  - CommunityMech:000301
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 80
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 50 required/roles +5 environment +10 nodes +10 medium +5 metabolites.
+      No points for three factors, external resources or datasets; field population
+      is not evidence quality.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 100 -1 major*10 -3 minor*2 +20*min((6 evidence/5 nodes)/2,1) +15 COMPLETE
+      =111 raw, capped100. Five untyped nodes and two arrows; structural completeness
+      is not proof of biology.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: inferred-mechanism
+  issue_key: cm-000301-inferred-mechanism
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Unqualified mechanism and equilibrium claims exceed the measured
+    community and phenotype evidence.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Qualify reducing-equivalent supply and stability
+  description: The description says guilds supply reducing equivalents and ensure
+    long-term stability; STABLE asserts equilibrium. Profiles and treatment outcomes
+    support an author interpretation, without direct flux, selective necessity or
+    long-term validation. The broad syntrophic-partner role also needs that inference
+    scope.
+  target_ids:
+  - CommunityMech:000301
+  field_paths:
+  - description
+  - ecological_state
+  - taxonomy[0].functional_role
+  evidence_ids:
+  - community-profiles
+  - supplement
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+    role: canonical_record
+  ownership_note: Future authorized curation belongs to the maintained YAML; historical
+    evidence and issues remain immutable.
+- finding_id: community-identity
+  issue_key: cm-000301-community-identity
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded source metadata, cultivation or resource enrichment;
+    the qualified graph remains sound.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Make consortium and named-member metadata traceable
+  description: The graph correctly distinguishes D345 from CWV2, but taxonomy notes
+    incorrectly say all other organisms are unnamed. The proof and SI identify several
+    genera; D345/D0345 names and isolate provenance can be recorded without an exhaustive
+    roster or wrong strain assignment.
+  target_ids:
+  - CommunityMech:000301
+  field_paths:
+  - name
+  - taxonomy[0].taxon_term.notes
+  - taxonomy[0].strain_designation
+  - growth_media[0].inoculum_source
+  - discussions[0].rationale
+  evidence_ids:
+  - cultivation
+  - identity-source
+  - genus-candidates
+  - strain-scope
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+    role: canonical_record
+  ownership_note: Future authorized curation belongs to the maintained YAML; historical
+    evidence and issues remain immutable.
+- finding_id: cultivation
+  issue_key: cm-000301-cultivation
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded source metadata, cultivation or resource enrichment;
+    the qualified graph remains sound.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Recover bounded culture and assay details
+  description: The unspecified-medium block omits source-reported DCB-1 and static30°C
+    assay conditions. Enrichment, isolate maintenance, dose and inoculum arms must
+    remain separate; conflicting units prevent a single normalized recipe.
+  target_ids:
+  - CommunityMech:000301
+  field_paths:
+  - growth_media[0]
+  - cultivation_setup
+  - discussions[0].rationale
+  evidence_ids:
+  - cultivation
+  - treatment
+  - supplement
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+    role: canonical_record
+  ownership_note: Future authorized curation belongs to the maintained YAML; historical
+    evidence and issues remain immutable.
+- finding_id: sequence-resource
+  issue_key: cm-000301-sequence-resource
+  category: completeness
+  severity: minor
+  native_severity: P3
+  normalization_reason: Bounded source metadata, cultivation or resource enrichment;
+    the qualified graph remains sound.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Link the public community-profile experiment
+  description: The principal source declares PRJNA1262105 and twenty exact runs; neither
+    dataset nor external-resource slot links them. Public metadata validates the experiment
+    scope.
+  target_ids:
+  - CommunityMech:000301
+  field_paths:
+  - associated_datasets
+  - external_resources
+  - discussions[0].rationale
+  evidence_ids:
+  - resources
+  - external
+  - community-profiles
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+    role: canonical_record
+  ownership_note: Future authorized curation belongs to the maintained YAML; historical
+    evidence and issues remain immutable.
+actions:
+- action_id: qualify-mechanism
+  description: Align the summary, role and state with actual evidence.
+  finding_ids:
+  - inferred-mechanism
+  target_ids:
+  - CommunityMech:000301
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Describe reducing-equivalent supply and sustained function as inferred from relative
+    community profiles and treatment outcomes. Do not imply measured H2/electron flux,
+    DIET or selective guild necessity.
+  - Remove or explicitly qualify STABLE unless equilibrium evidence is provided; do
+    not force a different state. Retain SYNTROPHIC_PARTNER only with claim-local inferred
+    scope, or omit the optional tag. Preserve supported PRIMARY_DEGRADER and chemical
+    outcomes.
+  - Retain all five current nodes and both arrows, including PARTIAL mediation, sorption/degradation
+    separation and high-versus-low-inoculum VC distinctions.
+- action_id: recover-identity
+  description: Document source names without inventing a defined roster.
+  finding_ids:
+  - community-identity
+  target_ids:
+  - CommunityMech:000301
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Identify the enrichment as D345, with supplementary/archive D0345 spelling traceable;
+    keep CWV2 as a subsequently isolated strain within species61435. Preserve the
+    record ID and usable title; do not equate community and isolate.
+  - Replace unnamed-only notes with source-attributed genus profiles. Optional verified
+    candidates are Geobacter28231, Clostridium1485, Peptoclostridium1481960 and Desulfovibrio872;
+    the last is discussed as data not shown. No species, strains, exact interactions
+    or measured functional roles follow from those names.
+  - Retain the current three GTDB candidates and valid species grounding unless an
+    exact CWV2 resource resolves them. Append current source scope to discussion without
+    rewriting earlier curation history.
+- action_id: recover-culture
+  description: Add source-local cultivation details and explicit unresolved quantities.
+  finding_ids:
+  - cultivation
+  target_ids:
+  - CommunityMech:000301
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - 'Use principal Methods2.2 for DCB-1 and Tainan groundwater provenance: enrichment
+    includes500µM TCE,30mM bicarbonate,1mM lactate and listed stock additions. Do
+    not infer their final dilution basis or a complete standardized basal recipe.'
+  - Use Methods2.3 for30°C and no shaking in biochar assays. Keep1g/L BC600 treatment
+    context, tested dose ranges and separate inoculum arms explicit. H2 at0.66atm
+    is isolate maintenance, not automatically the consortium feed.
+  - Preserve proof400µmol/L versus Fig2caption2000µmol/L, SI400mmol/L and plottedµmol/bottle;
+    preserve cells/µL, copies/mL and separate high-inoculum Fig5 labels. Resolve with
+    final source evidence before converting or asserting one recipe. Do not infer
+    vessel capacity, liquid volume or pH from ancillary methods or graph axes.
+- action_id: link-resource
+  description: Add the verified amplicon deposit with its actual scope.
+  finding_ids:
+  - sequence-resource
+  target_ids:
+  - CommunityMech:000301
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Record PRJNA1262105/SRP608939 and SRR34990364–SRR34990383, with source Methods2.5
+    and registry evidence. Use the schema amplicon representation, not isolate genome
+    or transcriptomics.
+  - Keep control/biochar, days0/10/20/30/40 and two replicates; preserve D0345 aliases
+    and MinION/AMPLICON/PCR/SINGLE metadata. Full-length16S V1–V9 comes from source
+    Methods. No raw sequence reanalysis is required to establish this resource identity.
+- action_id: validate-curation
+  description: Validate any separately authorized canonical repair.
+  finding_ids:
+  - inferred-mechanism
+  - community-identity
+  - cultivation
+  - sequence-resource
+  target_ids:
+  - CommunityMech:000301
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Recheck exact source/assay/taxon scope, then focused schema, strict, term, reference,
+    GTDB, domain and history gates. Run just gen-html and just check-docs-current
+    if canonical curation is authorized.
+  - Preserve source/cache/history/prior-review bytes and issue status. This review
+    performs no canonical, scientific-status, provider, contact or Git mutation.
+limitations:
+- The principal body is the author-uploaded UNCORRECTED PROOF, not the final publisher
+  main text. The published Abstract, public publisher figures and complete supplementary
+  DOCX were inspected. Failed DOI/publisher/PDF routes and the interrupted first DOCX
+  remain preserved separately.
+- Source concentration and inoculum units conflict across Methods, Results, captions
+  and axes. No silent conversions, inferred bottle volume or universal recipe are
+  supplied. SI title/count/spelling inconsistencies are retained with exact PII provenance.
+- Relative abundance and SEM do not establish metabolic flux, species identity from
+  morphology, selective mediation or long-term field equilibrium. Supplementary bars
+  do not independently demonstrate statistical significance.
+- The ancillary corrected proof was read only through Methods2.1–2.3 for identity
+  context; no whole ancillary main/SI or transferred culture/omics protocol is claimed.
+- Only metadata were checked for the twenty public runs; no raw read download, taxonomic
+  reanalysis, figure digitization, provider research or contact occurred.
+notes:
+- Five node assessments bind six exact canonical excerpts; two edge assessments bind
+  exact descriptions, hashes and directions.
+- Eight total excerpts match the published Abstract/cache. The sole direct primary
+  quote is two words in Methods2.3 sole paragraph. All31 official inputs remain unchanged.
+- Scientific completion refers to current-claim assessment at the explicit source
+  scope; it does not resolve all final-version or future field-validation questions.
+  Root owns saving and post-save gates.
+tags:
+- record-review
+- biochar
+- dechlorination
+- batch-15
+```

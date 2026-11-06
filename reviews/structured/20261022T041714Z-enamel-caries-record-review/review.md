@@ -1,0 +1,1423 @@
+# Defined multispecies enamel caries model review
+
+- Review: 20261022T041714Z-enamel-caries-record-review
+- Repository: CultureBotAI/CommunityMech
+- Started UTC: 2026-10-22T04:09:32.117364Z
+- Finished UTC: 2026-10-22T04:17:14.924842Z
+- Reviewer: codex (unknown)
+- Completion: completed
+- Verdict: needs_curation
+- Scientific review: true
+
+## Summary
+
+One major finding restores omitted basal treatment arms and distinct study matrices. Three minor findings recover culture conditions, experimental stock metadata and verifiable GTDB provenance. The three qualified nodes and zero arrows remain valid. Eight focused native checks pass. Literal completeness40 and capped quality100 are structural scores, not a clean scientific verdict.
+
+## Scope And Provenance
+
+Whole maintained record, whole accessible seven-page primary paper and both table pixels, fresh metadata, exact ontology/GTDB and bounded stock authority, prior/source/resource reconciliation.
+
+Selection: Only released CommunityMech:000082 in owned batch14.
+Coverage: full; 1 reviewed / 1 in the declared population.
+Source: working_tree at Git base e117e3d37c65bfad2e04af53ab34e1325d8d7f98.
+Working-tree hashes do not imply those bytes were committed.
+
+| Target | Path / selector | Kind | Label |
+| --- | --- | --- | --- |
+| CommunityMech:000082 | kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml | maintained | Defined Multispecies Enamel Caries Model |
+
+## Validation
+
+| Check | Status | Required | Targets | Result |
+| --- | --- | --- | --- | --- |
+| validate | passed | True | CommunityMech:000082 | Actual native exit0. |
+| validate-strict | passed | True | CommunityMech:000082 | Actual native exit0. |
+| validate-terms | passed | True | CommunityMech:000082 | Actual native exit0. |
+| validate-references-explained | passed | True | CommunityMech:000082 | Actual native exit0. |
+| validate-gtdb | passed | True | CommunityMech:000082 | Actual native exit0. |
+| validate-gtdb-domain | passed | True | CommunityMech:000082 | Actual native exit0. |
+| validate-history | passed | True | CommunityMech:000082 | Actual native exit0. |
+| normalize-cache-names-check | passed | True | CommunityMech:000082 | Actual native exit0. |
+| audit-network corpus context | failed | False | CommunityMech:000082 | Actual corpus exit1 retained. |
+| check-network-quality corpus context | failed | False | CommunityMech:000082 | Actual corpus exit1 retained. |
+| Optional structured source adapter | unavailable | False | CommunityMech:000082 | Unavailable in owned runtime. |
+
+## Scientific And Domain Assessments
+
+### Defined inoculum and source-specific stocks
+
+identity: concern. Targets: CommunityMech:000082.
+
+The four species and oral enamel model are correct; full Methods provide omitted stock identifiers.
+
+Retain ENGINEERED state, SYNTHETIC origin and ORAL category. Starting membership does not assert survival in every arm. Catalogue names and generic GTDB mappings must not substitute an experimental stock.
+
+### Treatment ranges and fixed background
+
+evidence: concern. Targets: CommunityMech:000082.
+
+The record omits basal0.2 ppm fluoride and0.2 mM calcium comparison arms.
+
+Restore the two matrices rather than extending a single pooled range. Sucrose affects surface-hardness change chiefly at the lowest fluoride arm; this comparison requires the omitted baseline.
+
+### Preparation, vessel and incubation
+
+evidence: concern. Targets: CommunityMech:000082.
+
+TSB, temperature, atmosphere and the actual vessel/wash schedule are recoverable from full Methods.
+
+The four-day endpoint and daily refresh remain correct. Separate inoculum, pellicle and culture quantities; retain unknown total well volume and avoid a controlled-pH or agitation claim for the biofilm itself.
+
+### Four-Species Enamel Biofilm Formation
+
+graph: supported. Targets: CommunityMech:000082.
+
+Retain the defined inoculum and enamel biofilm platform. SUPPORT/IN_VITRO covers this setup, not interspecies facilitation or persistence in every treatment; S. sanguinis was undetected in calcium arms.
+
+Exact selector ecological_interactions[0]; scope COMMUNITY_LEVEL; interaction_type untyped; zero downstream arrows. Encoded taxa: {"source": null, "target": null, "participants": [{"preferred_term": "Lactobacillus casei", "term": {"id": "NCBITaxon:1582", "label": "Lacticaseibacillus casei"}}, {"preferred_term": "Streptococcus mutans", "term": {"id": "NCBITaxon:1309", "label": "Streptococcus mutans"}}, {"preferred_term": "Streptococcus salivarius", "term": {"id": "NCBITaxon:1304", "label": "Streptococcus salivarius"}}, {"preferred_term": "Streptococcus sanguinis", "term": {"id": "NCBITaxon:1305", "label": "Streptococcus sanguinis"}}]}. Canonical excerpt bindings: [{"selector": "ecological_interactions[0].evidence[0].snippet", "sha256": "368286391f5f5d02e223dc48d12e91ebc0aa9d9f11be4f79d28ad42ec4294e86", "reference": "PMID:23446436", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 80e07392055e5bfd1c4ef00735f891039b9dac16141ea7789ceb6e3880465d5a. Linked evidence gives direct paper locators and retained tiers.
+
+### Treatment-Dependent Viable Biofilm Counts
+
+graph: supported. Targets: CommunityMech:000082.
+
+Retain treatment- and species-specific viable counts with SUPPORT/IN_VITRO. Calcium total and S. mutans counts are unchanged; no uniform increase, cross-feeding or selectively tested acid-selection mechanism follows.
+
+Exact selector ecological_interactions[1]; scope COMMUNITY_LEVEL; interaction_type untyped; zero downstream arrows. Encoded taxa: {"source": null, "target": null, "participants": [{"preferred_term": "Lactobacillus casei", "term": {"id": "NCBITaxon:1582", "label": "Lacticaseibacillus casei"}}, {"preferred_term": "Streptococcus mutans", "term": {"id": "NCBITaxon:1309", "label": "Streptococcus mutans"}}, {"preferred_term": "Streptococcus salivarius", "term": {"id": "NCBITaxon:1304", "label": "Streptococcus salivarius"}}, {"preferred_term": "Streptococcus sanguinis", "term": {"id": "NCBITaxon:1305", "label": "Streptococcus sanguinis"}}]}. Canonical excerpt bindings: [{"selector": "ecological_interactions[1].evidence[0].snippet", "sha256": "32092208f57d3a7f19398eb0dd824b088cb24f610a93e9fb672811ae34de5889", "reference": "PMID:23446436", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 80e07392055e5bfd1c4ef00735f891039b9dac16141ea7789ceb6e3880465d5a. Linked evidence gives direct paper locators and retained tiers.
+
+### Mineral-Dependent Demineralization Restraint
+
+graph: supported. Targets: CommunityMech:000082.
+
+Retain both SUPPORT/IN_VITRO placements for endpoint-specific enamel outcomes. Fluoride affects hardness, lesion depth and mineral loss; calcium 2 mM supports reduced surface-hardness change only. Cell-count mediation, competition and calcium/EPS mechanism are not demonstrated.
+
+Exact selector ecological_interactions[2]; scope COMMUNITY_LEVEL; interaction_type untyped; zero downstream arrows. Encoded taxa: {"source": null, "target": null, "participants": [{"preferred_term": "Lactobacillus casei", "term": {"id": "NCBITaxon:1582", "label": "Lacticaseibacillus casei"}}, {"preferred_term": "Streptococcus mutans", "term": {"id": "NCBITaxon:1309", "label": "Streptococcus mutans"}}, {"preferred_term": "Streptococcus salivarius", "term": {"id": "NCBITaxon:1304", "label": "Streptococcus salivarius"}}, {"preferred_term": "Streptococcus sanguinis", "term": {"id": "NCBITaxon:1305", "label": "Streptococcus sanguinis"}}]}. Canonical excerpt bindings: [{"selector": "ecological_interactions[2].evidence[0].snippet", "sha256": "bde6469093e0a4f4dc68604712928f9716456463689e16d859a191f7f9d2d961", "reference": "PMID:23446436", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}, {"selector": "ecological_interactions[2].evidence[1].snippet", "sha256": "f0da79f089a150afa831edfe191e4038a0d46a2f4b8df8467d02cdb034345328", "reference": "PMID:23446436", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}]. Snippet audit SHA256 80e07392055e5bfd1c4ef00735f891039b9dac16141ea7789ceb6e3880465d5a. Linked evidence gives direct paper locators and retained tiers.
+
+### Chemical, habitat and taxonomic authority
+
+grounding: concern. Targets: CommunityMech:000082.
+
+Nine ontology pairs match; GTDB release/build wording is unsupported by snapshot mtime.
+
+Sucrose, fluoride and calcium(2+) match the measured amendments; the mineral salt and source-unit qualifications remain explicit. Do not replace source L. casei stock identity with paracasei based on species-name fallback. Current salivarius/sanguinis ambiguity is valid at species scope.
+
+### Maintained record and prior scope
+
+ownership: supported. Targets: CommunityMech:000082.
+
+The focal YAML owns the proposed repairs; existing graph qualifications and historical bytes remain intact.
+
+No canonical, cache, history, issue or Git mutation is part of this review. Recovery of full Methods updates present source access without rewriting the earlier event.
+
+### Native results and scientific coverage
+
+schema: supported. Targets: CommunityMech:000082.
+
+All eight focused native checks pass; target network COMPLETE has no diagnostics.
+
+Three untyped nodes, four evidence placements and zero arrows are valid. COMPLETE does not establish microbial mediation or require new edges. Corpus exit1 and optional adapter unavailability remain nonrequired contextual checks.
+
+### Literal structural scores
+
+completeness: supported. Targets: CommunityMech:000082.
+
+Completeness40 and capped quality100 are distinct from the completed scientific review and four findings.
+
+## Findings
+
+### treatment-design: Restore basal comparison arms and the separate study matrices
+
+major / open / confirmed; issue key: cm-000082-treatment-design.
+
+The encoded fluoride0.4–1.0 ppm and calcium1–2 mM ranges omit their basal0.2 comparison arms. Full Methods and Tables 1–2 also distinguish Study 1 sucrose×fluoride from Study 2 calcium at fixed0.5% sucrose/0.4 ppm fluoride. The omitted controls materially change interpretation of dose and sucrose effects.
+
+### cultivation: Recover source-specific culture stages and conditions
+
+minor / open / confirmed; issue key: cm-000082-cultivation.
+
+Full Methods specify the medium, temperature, atmosphere,24-well apparatus and staged handling. The current unspecified medium and no-temperature/atmosphere note reflect an outdated abstract-only boundary. Preserve the correct four-day endpoint and periodic medium exchange while replacing unsupported pellicle necessity and incomplete vessel rationale.
+
+### strain-metadata: Record the four experimental stock identities
+
+minor / open / confirmed; issue key: cm-000082-strain-metadata.
+
+The record names species but omits the four stock identifiers explicitly supplied in Inoculum Preparation. Source-specific strain metadata would make the defined inoculum reproducible without forcing a new species or genome identity.
+
+### gtdb-provenance: Replace unsupported GTDB release/build wording
+
+minor / open / confirmed; issue key: cm-000082-gtdb-provenance.
+
+The two stored cores reproduce, but latest and built2026-07-25 are not established by filesystem mtime. The casei name-fallback reference mapping is not proof that the experimental ATCC 4646 stock is paracasei.
+
+## Recommended Actions And Acceptance Checks
+
+### repair-design
+
+Represent the full treatment matrices.
+
+- Encode Study 1: sucrose0.5/1.0% crossed with fluoride0.2/0.4/0.8/1.0 ppm. Encode Study 2: calcium0.2/1.0/2.0 mM at fixed0.5% sucrose and0.4 ppm fluoride. Identify0.2 ppm F and0.2 mM Ca as basal TSB levels, not no-amendment zero controls.
+- Harmonize engineering_design, environmental factors, setup and medium notes with claim-local Methods/Tables evidence. Preserve discrete arms and the study distinction rather than asserting all combinations of three pooled ranges.
+- Keep positive endpoint-specific results and all three qualified nodes. Do not assert universal fluoride growth inhibition, monotonic calcium responses, calcium lesion-depth/mineral-loss results or count-mediated protection. Do not copy the source fluoride molarity unit typo.
+
+### repair-cultivation
+
+Add measured protocol details at their actual stages.
+
+- Name TSB as the culture medium without inventing its full commercial composition. Record37 °C and5% CO2 for biofilm incubation, four days, about16hours overnight, daily transfer to fresh TSB, and saline dip-washes at morning and4/8 hours later; later washes return slabs to that morning medium.
+- Describe bovine enamel blocks mounted on24-well plate lids and the salivary pellicle.500 µL is added inoculum containing10^7 CFU/mL of each species, not total working volume or confirmed final well density. Keep total well volume unknown.
+- Separate18-hour TSB+1% sucrose preculture, growth to OD5501.0 ± 0.1 and combined aliquots from the assay. Do not infer equal mixing volumes. Keep pellicle coating in2.5 mL filtered saliva for2 hours at37 °C with agitation separate from biofilm culture.
+- Retain a qualified SEMI_CONTINUOUS/OTHER description for periodic medium exchange with retained attached biomass; identify the actual vessel rather than treating the substrate as a container. Replace the claim that biomass retention itself excludes continuous operation. Pellicle necessity was not selectively tested.
+- Replace the current obsolete source-access explanation with full Methods evidence. Observed overnight pH4.0–4.2 is not a controlled setpoint, and pellicle-stage agitation is not assay shaking.
+
+### repair-strains
+
+Add source stock metadata without overextending authority matches.
+
+- Use taxonomy[i].strain_designation, a sibling of taxon_term: source L. casei ATCC 4646; S. mutans UA159; S. salivarius ATCC 25975; S. sanguinis BAA-1455. Preserve historical source names and current NCBI species labels with explicit catalogue provenance.
+- Direct catalogue identity sections corroborate ATCC 4646=C3, UA159=ATCC 700610[UAB 577], and BAA-1455=SK36. The ATCC 25975 direct-page attempts timed out; its paper stock identity and local strain authority are available, while indexed catalogue content remains a separate access tier.
+- Optional exact strain refinements are NCBITaxon:210007 UA159,388919 SK36 and1420586 ATCC 25975. Their local reference mappings may refine the strain blocks to S. mutans,S. sanguinis_H and S. salivarius_D respectively; do not silently replace species-level ambiguity or claim an experimental stock genome was sequenced.
+- Do not relabel ATCC 4646 as paracasei from generic casei name fallback. Add claim-local source/catalogue evidence and keep aggregate species descriptions separate from exact strain descriptors. No unsupported functional role, abundance fraction or genome accession is required.
+
+### repair-gtdb
+
+State verifiable snapshot provenance at the correct rank.
+
+- Replace latest/build-date claims with the actual local mapping snapshot SHA256761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd and unknown release unless release metadata is separately established. File mtime is not a release/build timestamp.
+- Preserve reproducible reference cores at their proper scope: casei name fallback 11/11 maps to paracasei, and mutans species 512/512 maps to mutans. These are reference mapping counts, not community abundance or stock sequencing results.
+- Retain the current four salivarius and six sanguinis species candidate lists unless explicit source-strain descriptors are separately introduced and grounded. Name-comparison is_reclassified does not establish who reclassified a strain.
+
+### validate-future-curation
+
+Validate separately authorized source-backed repairs.
+
+- Rerun focused schema, ontology, references, GTDB/domain, history and graph checks after curation. Preserve exact source tiers, endpoint distinctions and zero arrows; add no mechanism merely to increase scores.
+- Run just gen-html and just check-docs-current after authorized curation and append appropriate provenance. This review changes no canonical record, cache, history, issue or Git state.
+
+## Category Boundaries
+
+
+## Evidence
+
+| Evidence | Reference / locator | Support | Observation |
+| --- | --- | --- | --- |
+| record | kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml; Whole maintained YAML | supports | Defined four-species inoculum on enamel; three qualified community-level outcome nodes and no arrows. |
+| design | PMID:23446436; Materials and Methods → Experimental Design, sole paragraph, printed page 319 / physical page 2; Study 1 and Study 2, sole paragraph each, printed320 / physical 3; Tables 1–2, printed321 / physical 4 | supports | Study 1 crosses0.5/1.0% sucrose with0.2/0.4/0.8/1.0 ppm fluoride. Study 2 varies0.2/1.0/2.0 mM calcium at fixed0.5% sucrose and0.4 ppm fluoride. Basal arms are missing from the encoded design. |
+| strain-source | PMID:23446436; Materials and Methods → In vitro Defined-Multispecies Biofilm Model → Inoculum Preparation, sole paragraph, printed319 / physical 2 | supports | The paper identifies L. casei ATCC 4646, S. mutans UA159, S. salivarius ATCC 25975 and S. sanguinis BAA-1455. Those stock identities are more specific than the current four species descriptors. |
+| cultivation | PMID:23446436; Materials and Methods → Study 1, sole paragraph, printed page 320 / physical PDF page 3; In vitro Microbial Demineralization and Study 2 on the same page | supports | Biofilms use TSB,37 °C and5% CO2, with an approximately16-hour overnight interval, daily transfer to fresh medium and saline washes at the start and4/8 hours later. The later washes return specimens to the same morning medium. |
+| preparation | PMID:23446436; Materials and Methods → Specimen Preparation, Inoculum Preparation and Salivary Pellicle Coating, sole paragraph each, printed319 / physical 2; In vitro Microbial Demineralization, printed320 / physical 3 | supports | Bovine enamel blocks attach to24-well plate lids. Preculture in TSB plus1% sucrose, pellicle coating in2.5 mL saliva for2 hours with agitation, and500 µL inoculum addition at10^7 CFU/mL per species are distinct stages. The latter is not total well volume. |
+| outcomes | PMID:23446436; Results → Study 1, printed320–321 / physical 3–4; Results → Study 2 and Tables 1–2 including footnotes, printed321 / physical 4 | supports | Counts respond by species and treatment. Calcium does not significantly alter total or S. mutans counts; S. sanguinis is undetected in calcium arms. Higher fluoride improves enamel endpoints;2 mM calcium reduces surface-hardness change, with no calcium TMR endpoint established. |
+| table-pixels | PMID:23446436; Tables 1–2, complete printed321 / physical 4 page image | supports | Both tables, values, superscripts and footnotes were visually read. The L. casei1-versus2 mM calcium prose/table discrepancy remains unresolved and is already explicitly excluded by the record. |
+| limits | PMID:23446436; Discussion, printed321–323 / physical 4–6; Experimental Design, printed319 / physical 2; Surface Microhardness Change, printed320 / physical 3 | supports | Acid selection and calcium/EPS mechanisms are proposed. Observed overnight pH4.0–4.2 is not a controlled setting. Fluoride molar-conversion units and the hardness-formula sign/display contain source inconsistencies that must not be silently propagated. |
+| ontology | /private/tmp/cm-review-session/batch-14/000082/ontology-authority.json; Nine exact terms and22 placements | supports | All ontology IDs/labels match; four bacterial species, three chemicals, the animal-surface biofilm term and biofilm process retain appropriate scope. |
+| schema | /private/tmp/cm-review-session/batch-14/000082/child-schema-semantics.json; Actual cultivation, ecological, role and graph definitions | supports | Periodic medium refresh with attached biomass supports a qualified SEMI_CONTINUOUS description; OTHER can describe the24-well/slab system. Optional roles need evidence. |
+| lineage | /private/tmp/cm-review-session/batch-14/000082/child-taxon-lineage.json; All four species labels, synonyms, ranks and ancestry | supports | Historical Lactobacillus casei is a synonym of current NCBI Lacticaseibacillus casei. Species identity, exact stock and GTDB correspondence are distinct. |
+| gtdb | /private/tmp/cm-review-session/batch-14/000082/child-gtdb-crosswalk.json; Two stored mapping cores and two candidate lists | supports | The two cores reproduce. Casei uses a name fallback; four salivarius and six sanguinis species-level destinations remain ambiguous. Snapshot mtime does not establish release/build identity. |
+| strain-authority | /private/tmp/cm-review-session/batch-14/000082/child-strain-authority.json; Four source stocks, bounded catalogue identity sections and exact local strain candidates | supports | Three direct catalogue identities and one indexed/timeout tier; optional exact strain NCBI/GTDB matches remain distinct from species mappings and experimental sequencing. |
+| semantics | /private/tmp/cm-review-session/batch-14/000082/ontology-semantic-notes.json; Final source, strain and cultivation semantics | supports | Preserve the qualified graph and species context; recover stock metadata, culture stages and baseline arms without inferred mechanisms. |
+| resources | /private/tmp/cm-review-session/batch-14/000082/dataset-verification.json; Bounded publication and source-stock context | supports | No concrete archive accession is declared in the whole inspected seven-page paper. Stock catalogue and local strain checks are separately bounded; no deposit absence is inferred globally. |
+| snippets | /private/tmp/cm-review-session/batch-14/000082/snippet-audit.json; All16 canonical placements | supports | All16 excerpts match fresh MED Abstract and the cached TXT. Lexical matches do not establish complete treatment ranges or source access. |
+| provenance | /private/tmp/cm-review-session/batch-14/000082/provenance-audit.json; Sole history, exact batch29 records[2], adversarial and cohort context, current issues | supports | The previous graph repair is retained. The earlier abstract-bounded cultivation note is historical provenance, not evidence that full Methods remain unavailable. |
+| inspection | /private/tmp/cm-review-session/batch-14/000082/inspect.json; Thirty immutable inputs after ignored-inclusive discovery | supports | Target,21 authorities and8 focal contexts were bound before scientific assessment; generic corpus/build matches were discovery-only. |
+| assets | /private/tmp/cm-review-session/batch-14/000082/lead-source-assets.json; Fresh public metadata/PDF and declared-asset inventory | supports | Both public downloads succeeded. The whole seven-page paper declares two tables and no separate figure, supplement link or archive identifier. |
+| lead-read | /private/tmp/cm-review-session/batch-14/000082/lead-primary-read-scope.json; Whole main and complete table-page reading | supports | Lead read all47,657 extracted characters and both table pixels; no raw-data reanalysis or external supplement content is claimed. |
+| locators | /private/tmp/cm-review-session/batch-14/000082/source-locator-verification.json; Direct paper heading/page/quote checks | supports | Printed and physical pages, exact Methods headings, both table locations and the two-word quote were checked before rendering. |
+| source-audit | /private/tmp/cm-review-session/batch-14/000082/source-audit.json; Final lead judgment | supports | One major treatment-design finding and three minor culture, stock and GTDB-provenance findings; completed source review. |
+| root-source | /private/tmp/cm-review-session/batch-14/000082/root-independent-source-audit.json; Independent source review and explicit actual scope | supports | Root agrees the findings, graph retention and metrics after whole primary reading, table viewing and authority review. |
+| root-graph | /private/tmp/cm-review-session/batch-14/000082/root-node-edge-audit.json; All three nodes/four evidence placements/zero arrows | supports | Independent source-specific node scopes and exact snippet bindings agree. |
+| metrics | /private/tmp/cm-review-session/batch-14/000082/support-final-audit.json; Final independent support and literal rubric | supports | Completeness40; quality100−10−6+13.333333333333332+15=112.33333333333331, capped100. Structure is not scientific certainty. |
+| support-manifest | /private/tmp/cm-review-session/batch-14/000082/support-frozen-manifest.json; Frozen support dependencies | supports | Source, child, root, provenance and resource scopes were reconciled before candidate rendering. |
+| auxiliary | /private/tmp/cm-review-session/batch-14/000082/auxiliary-frozen-manifest.json; Frozen native and ontology artifacts | supports | All30 inspected inputs remain unchanged; focused native checks pass. |
+| final-native | /private/tmp/cm-review-session/batch-14/000082/final-validator-summary.json; Eight actual command/stdout/stderr receipts | supports | Eight focused commands pass; these do not replace claim-level source review. |
+| corpus-context | /private/tmp/cm-review-session/batch-14/000082/child-corpus-context.json; Actual unchanged batch14 corpus baseline | supports | Both contextual commands returned1 with44 warnings across16/477 records and zero errors. |
+| adapter | /private/tmp/cm-review-session/batch-14/000082/adapter-check.json; Optional adapter availability | supports | Unavailable in the owned runtime; no adapter was executed from another checkout. |
+| check-validate | /private/tmp/cm-review-session/batch-14/000082/validate.json; Actual current command/stdout/stderr | supports | Native exit0; scientific entailment checked independently. |
+| check-validate-strict | /private/tmp/cm-review-session/batch-14/000082/validate-strict.json; Actual current command/stdout/stderr | supports | Native exit0; scientific entailment checked independently. |
+| check-validate-terms | /private/tmp/cm-review-session/batch-14/000082/validate-terms.json; Actual current command/stdout/stderr | supports | Native exit0; scientific entailment checked independently. |
+| check-validate-references-explained | /private/tmp/cm-review-session/batch-14/000082/validate-references-explained.json; Actual current command/stdout/stderr | supports | Native exit0; scientific entailment checked independently. |
+| check-validate-gtdb | /private/tmp/cm-review-session/batch-14/000082/validate-gtdb.json; Actual current command/stdout/stderr | supports | Native exit0; scientific entailment checked independently. |
+| check-validate-gtdb-domain | /private/tmp/cm-review-session/batch-14/000082/validate-gtdb-domain.json; Actual current command/stdout/stderr | supports | Native exit0; scientific entailment checked independently. |
+| check-validate-history | /private/tmp/cm-review-session/batch-14/000082/validate-history.json; Actual current command/stdout/stderr | supports | Native exit0; scientific entailment checked independently. |
+| check-normalize-cache-names-check | /private/tmp/cm-review-session/batch-14/000082/normalize-cache-names-check.json; Actual current command/stdout/stderr | supports | Native exit0; scientific entailment checked independently. |
+| context-audit-network | /private/tmp/cm-review-session/batch-14/audit-network.json; Actual batch14 corpus baseline | supports | Exit1,44 warnings across16/477 records and zero errors. |
+| context-check-network-quality | /private/tmp/cm-review-session/batch-14/check-network-quality.json; Actual batch14 corpus baseline | supports | Exit1,44 warnings across16/477 records and zero errors. |
+
+## Limits And Additional Notes
+
+- The paper’s L. casei calcium Results prose and Table 2 superscripts disagree on the1-versus2 mM comparison. The record already excludes this disputed comparison; no forced reconciliation or additional statistical result is introduced.
+- Printed fluoride molar-conversion units and surface-hardness formula/display have internal inconsistencies. Use reported ppm treatment identities and bounded endpoint conclusions without fabricating corrected raw data.
+- The whole inspected seven-page article declares no separate figure, supplementary link or archive accession. This is a bounded source inventory, not a global absence claim; no raw data or statistical reanalysis was performed.
+- Three catalogue identity sections were directly accessible; ATCC 25975 direct-page attempts timed out and indexed content is a separate tier. Source and local strain authority support its stock label without claiming a complete current catalogue page or sequenced experimental genome.
+- Total well working volume, an exact full TSB recipe and controlled pH are not supplied by the passages used. Inoculum volume, pellicle volume and stage-specific agitation must not fill those gaps.
+- All30 official input hashes remain unchanged. Three exact node assessments bind four canonical snippet hashes and all participant descriptors; no downstream arrows are encoded.
+- Sole quotation is two words from Study 1, printed320 / physicalPDFpage 3. Actual candidate validation and root save/post-save gates occur afterward; no future result is asserted.
+
+## Complete Structured Record
+
+The sibling review.yaml is authoritative.
+
+```yaml
+schema_version: 1.0.0
+review_id: 20261022T041714Z-enamel-caries-record-review
+kind: record
+repository: CultureBotAI/CommunityMech
+title: Defined multispecies enamel caries model review
+started_at: '2026-10-22T04:09:32.117364Z'
+finished_at: '2026-10-22T04:17:14.924842Z'
+reviewer:
+  identity: codex
+  kind: agent
+  independence: unknown
+  independence_basis: Separate lead, root, support and auxiliary reviewers; no person-level
+    independence claim.
+skill: review-yaml-record
+completion: completed
+verdict: needs_curation
+scientific_review: true
+summary: One major finding restores omitted basal treatment arms and distinct study
+  matrices. Three minor findings recover culture conditions, experimental stock metadata
+  and verifiable GTDB provenance. The three qualified nodes and zero arrows remain
+  valid. Eight focused native checks pass. Literal completeness40 and capped quality100
+  are structural scores, not a clean scientific verdict.
+source:
+  git_revision: e117e3d37c65bfad2e04af53ab34e1325d8d7f98
+  state: working_tree
+  inputs:
+  - path: .claude/skills/curate-yaml-record/references/review-checklist.md
+    sha256: d2f94c87b82f59663bc2b0c91ac04a245e56fab52d8c11e6bddb559eb9237c84
+    role: context
+  - path: .claude/skills/ground-taxa-gtdb/SKILL.md
+    sha256: 6358a4324781ce2598554dca18ef952ec03c9d4a9df33f82f5db8ea5e986969b
+    role: context
+  - path: .claude/skills/review-communities/reference/execution-protocol.md
+    sha256: 0d4448074611c020c54b6b20c478b24e2cf2a195f7fc4f7dbcfac19134f731c4
+    role: context
+  - path: .claude/skills/review-communities/reference/metrics-and-reports.md
+    sha256: 2647416ac98a8f9569e0afbd826a0d1229bb4262639934848639ce536b0974fc
+    role: context
+  - path: .claude/skills/review-communities/reference/validation-rules.md
+    sha256: 3860e91a64f7c1f55f80e3d7a361d0798bbd00cbaf5cb7720a7533673e5afe2e
+    role: context
+  - path: .claude/skills/review-yaml-record/SKILL.md
+    sha256: 1005e1b9eb7f83306a1f88a6d22ec7954a54c2bf2e2fc15923fdaaa1111a3d2b
+    role: context
+  - path: AGENTS.md
+    sha256: 4a3fccdfa03ff1f7f6ecd68465064bfaba97a0efbc1efd4f7809c3ca0529a557
+    role: context
+  - path: CLAUDE.md
+    sha256: 8458fc2ca6663fea0e94c8e5b79730aafe6f4b3ac2c0f1079a3b64a2bb4d3d98
+    role: context
+  - path: conf/record_review.yaml
+    sha256: 8cbd8f9d209f78de47a8c35091e43bf1dadbe41ee07492c7860b6d4be30112a8
+    role: context
+  - path: conf/reference_validator.yaml
+    sha256: 5cd4781c7e15b7c5472f0b008e41764842cc023a7ba99f4273298f421be36652
+    role: context
+  - path: docs/record-review-profile.md
+    sha256: 285f79747999f83edbe63e5efde349a5cc063e9e486ce1a748b47b76c6631f31
+    role: context
+  - path: docs/record-reviews.md
+    sha256: 452a19ab688276747b7c4308523a14d4d99c1c39ef6909ae8a90b85b7a9b3e9b
+    role: context
+  - path: history/README.md
+    sha256: 86c0347d77402bcecdec466b01974ad53beddb9cf1bd17cf085674970542a101
+    role: context
+  - path: history/records/Defined_Multispecies_Enamel_Caries_Model/2026-10-06T052450Z-codex-bf5211.yaml
+    sha256: 79c7f977e1aaeb27c397bf359075517e810c37aaf30d068758b40a11622284c6
+    role: context
+  - path: justfile
+    sha256: 4c8551e51dbc69a0331c0c8461414ea710275d43cc83b86e07e00b3749081453
+    role: context
+  - path: kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+    sha256: 320691301cf3e2d94ca9bf69873471e12309ce32271eecc02c3b222a08e6b9d6
+    role: target
+  - path: references_cache/PMID_23446436.txt
+    sha256: c3bd06dfad668238c55075e60ba96e9baecfc5c7cbfc4615506224326f5dda2a
+    role: context
+  - path: reports/causal_graph_review/adversarial-review-20261006-batch29.yaml
+    sha256: 415dcecde7cce6c3c2a1ca637de252b53d6d0d5ce225ef97dc2c0a8336546a5f
+    role: context
+  - path: reports/causal_graph_review/decisions/20261006-three-records-batch29.yaml
+    sha256: 6627d37b0aad90ee137572b39e5b4039380bfd01f7e0c16912d7cb10a3c78439
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.md
+    sha256: e432615b147787c8d009d96d2f11e5b78a45927bf9c69e45ec0d31123d1fc2e9
+    role: context
+  - path: reviews/structured/20261021T101100Z-stage4-frozen-cohort-review/review.yaml
+    sha256: 37d089fd55c077793dd20d868b50c47cb1cceab6dae6a82887cc938bee05fa6d
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/frozen_inventory_metrics.tsv
+    sha256: d5a47bbcc3745a489ff507680aa7360a6a65ce070ce4ec88f886b70128791313
+    role: context
+  - path: reviews/workflow/mech-goal-sequence-20261019/cycle-000001/stage-04/revision-0001/review_report.md
+    sha256: 4e7781aa8cdfc4bb42d896ebe75920719d9dcade92ffc4a0ae07af7481cb37b3
+    role: context
+  - path: schema/record_review.yaml
+    sha256: 229baf9b69118a1fe318e4c31085c0820e4e3d1365e7b04d6ace451b7c35f9bb
+    role: context
+  - path: scripts/gtdb_ground.py
+    sha256: 0fc1ba926a56e5be85cdf064db0cf56452aeeee93f15b0ced98e8f11b5296175
+    role: context
+  - path: scripts/record_review.py
+    sha256: 95a4ec41e38ec47ba3578e76838c46a0adbf47e49ad3636524735d08cfcb1c4d
+    role: context
+  - path: src/communitymech/network/auditor.py
+    sha256: fe32aa2eddf9e09c153c47576f943bf08a6019f650bf2575e3ddc8e14675049b
+    role: context
+  - path: src/communitymech/schema/communitymech.yaml
+    sha256: c41630d09def826256ddb6678c1ce31fa71e3b074219bb9d217d98035a5324ee
+    role: context
+  - path: src/communitymech/schema/history.yaml
+    sha256: b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d
+    role: context
+  - path: src/communitymech/schema/mech_shared.yaml
+    sha256: c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895
+    role: context
+targets:
+- target_id: CommunityMech:000082
+  path: kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+  label: Defined Multispecies Enamel Caries Model
+  kind: maintained
+  record_class: MicrobialCommunity
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+    role: canonical_record
+scope:
+  description: Whole maintained record, whole accessible seven-page primary paper
+    and both table pixels, fresh metadata, exact ontology/GTDB and bounded stock authority,
+    prior/source/resource reconciliation.
+  selection: Only released CommunityMech:000082 in owned batch14.
+  coverage: full
+  population_size: 1
+  reviewed_target_ids:
+  - CommunityMech:000082
+checks:
+- check_id: validate
+  name: validate
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000082
+  command: just --no-dotenv validate kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-strict
+  name: validate-strict
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000082
+  command: just --no-dotenv validate-strict kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+    --out /private/tmp/cm-review-session/batch-14/000082/strict-report.tsv
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-strict
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-terms
+  name: validate-terms
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000082
+  command: just --no-dotenv validate-terms kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-terms
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-references-explained
+  name: validate-references-explained
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000082
+  command: just --no-dotenv validate-references-explained kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-references-explained
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb
+  name: validate-gtdb
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000082
+  command: just --no-dotenv validate-gtdb kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-gtdb-domain
+  name: validate-gtdb-domain
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000082
+  command: just --no-dotenv validate-gtdb-domain kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-gtdb-domain
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: validate-history
+  name: validate-history
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000082
+  command: just --no-dotenv validate-history history/records/Defined_Multispecies_Enamel_Caries_Model
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-validate-history
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: normalize-cache-names-check
+  name: normalize-cache-names-check
+  status: passed
+  required: true
+  summary: Actual native exit0.
+  target_ids:
+  - CommunityMech:000082
+  command: uv run python scripts/normalize_cache_names.py --check
+  exit_code: 0
+  expected_exit_code: 0
+  evidence_ids:
+  - check-normalize-cache-names-check
+  scope_note: Focused target/history check; cache-name preflight is corpus-wide.
+- check_id: context-audit-network
+  name: audit-network corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit1 retained.
+  target_ids:
+  - CommunityMech:000082
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-14/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv audit-network
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-audit-network
+  - corpus-context
+  scope_note: Nonrequired corpus context, not attributed wholly to this target.
+- check_id: context-check-network-quality
+  name: check-network-quality corpus context
+  status: failed
+  required: false
+  summary: Actual corpus exit1 retained.
+  target_ids:
+  - CommunityMech:000082
+  command: PYTHONPATH=/private/tmp/communitymech-record-reviews-batch-14/src JUST_NO_DOTENV=true
+    UV_CACHE_DIR=/private/tmp/cm-review-uv-cache UV_NO_SYNC=1 UV_OFFLINE=true just
+    --no-dotenv check-network-quality
+  exit_code: 1
+  expected_exit_code: 0
+  evidence_ids:
+  - context-check-network-quality
+  - corpus-context
+  scope_note: Nonrequired corpus context, not attributed wholly to this target.
+- check_id: optional-structured-adapter
+  name: Optional structured source adapter
+  status: unavailable
+  required: false
+  summary: Unavailable in owned runtime.
+  target_ids:
+  - CommunityMech:000082
+  evidence_ids:
+  - adapter
+  scope_note: No external-checkout adapter execution.
+evidence:
+- evidence_id: record
+  kind: record_content
+  reference: kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+  locator: Whole maintained YAML
+  summary: Defined four-species inoculum on enamel; three qualified community-level
+    outcome nodes and no arrows.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.246908Z'
+- evidence_id: design
+  kind: primary_source
+  reference: PMID:23446436
+  locator: Materials and Methods → Experimental Design, sole paragraph, printed page
+    319 / physical page 2; Study 1 and Study 2, sole paragraph each, printed320 /
+    physical 3; Tables 1–2, printed321 / physical 4
+  summary: Study 1 crosses0.5/1.0% sucrose with0.2/0.4/0.8/1.0 ppm fluoride. Study
+    2 varies0.2/1.0/2.0 mM calcium at fixed0.5% sucrose and0.4 ppm fluoride. Basal
+    arms are missing from the encoded design.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.246978Z'
+  snapshot_sha256: 5eb573e0d081a382fb35a21ef7c90c6e245d6de22f711ee5cd81fd8d80af2d76
+- evidence_id: strain-source
+  kind: primary_source
+  reference: PMID:23446436
+  locator: Materials and Methods → In vitro Defined-Multispecies Biofilm Model → Inoculum
+    Preparation, sole paragraph, printed319 / physical 2
+  summary: The paper identifies L. casei ATCC 4646, S. mutans UA159, S. salivarius
+    ATCC 25975 and S. sanguinis BAA-1455. Those stock identities are more specific
+    than the current four species descriptors.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.247064Z'
+  snapshot_sha256: 5eb573e0d081a382fb35a21ef7c90c6e245d6de22f711ee5cd81fd8d80af2d76
+- evidence_id: cultivation
+  kind: primary_source
+  reference: PMID:23446436
+  locator: Materials and Methods → Study 1, sole paragraph, printed page 320 / physical
+    PDF page 3; In vitro Microbial Demineralization and Study 2 on the same page
+  summary: Biofilms use TSB,37 °C and5% CO2, with an approximately16-hour overnight
+    interval, daily transfer to fresh medium and saline washes at the start and4/8
+    hours later. The later washes return specimens to the same morning medium.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.247136Z'
+  snapshot_sha256: 5eb573e0d081a382fb35a21ef7c90c6e245d6de22f711ee5cd81fd8d80af2d76
+  quote: physiological saline
+- evidence_id: preparation
+  kind: primary_source
+  reference: PMID:23446436
+  locator: Materials and Methods → Specimen Preparation, Inoculum Preparation and
+    Salivary Pellicle Coating, sole paragraph each, printed319 / physical 2; In vitro
+    Microbial Demineralization, printed320 / physical 3
+  summary: Bovine enamel blocks attach to24-well plate lids. Preculture in TSB plus1%
+    sucrose, pellicle coating in2.5 mL saliva for2 hours with agitation, and500 µL
+    inoculum addition at10^7 CFU/mL per species are distinct stages. The latter is
+    not total well volume.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.247205Z'
+  snapshot_sha256: 5eb573e0d081a382fb35a21ef7c90c6e245d6de22f711ee5cd81fd8d80af2d76
+- evidence_id: outcomes
+  kind: primary_source
+  reference: PMID:23446436
+  locator: Results → Study 1, printed320–321 / physical 3–4; Results → Study 2 and
+    Tables 1–2 including footnotes, printed321 / physical 4
+  summary: Counts respond by species and treatment. Calcium does not significantly
+    alter total or S. mutans counts; S. sanguinis is undetected in calcium arms. Higher
+    fluoride improves enamel endpoints;2 mM calcium reduces surface-hardness change,
+    with no calcium TMR endpoint established.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.247272Z'
+  snapshot_sha256: 5eb573e0d081a382fb35a21ef7c90c6e245d6de22f711ee5cd81fd8d80af2d76
+- evidence_id: table-pixels
+  kind: primary_source
+  reference: PMID:23446436
+  locator: Tables 1–2, complete printed321 / physical 4 page image
+  summary: Both tables, values, superscripts and footnotes were visually read. The
+    L. casei1-versus2 mM calcium prose/table discrepancy remains unresolved and is
+    already explicitly excluded by the record.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.247340Z'
+  snapshot_sha256: 0a026393572269a1b148c3c46e6afcced0069c464412691c783648736d5fa1d3
+- evidence_id: limits
+  kind: primary_source
+  reference: PMID:23446436
+  locator: Discussion, printed321–323 / physical 4–6; Experimental Design, printed319
+    / physical 2; Surface Microhardness Change, printed320 / physical 3
+  summary: Acid selection and calcium/EPS mechanisms are proposed. Observed overnight
+    pH4.0–4.2 is not a controlled setting. Fluoride molar-conversion units and the
+    hardness-formula sign/display contain source inconsistencies that must not be
+    silently propagated.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.248069Z'
+  snapshot_sha256: 5eb573e0d081a382fb35a21ef7c90c6e245d6de22f711ee5cd81fd8d80af2d76
+- evidence_id: ontology
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-14/000082/ontology-authority.json
+  locator: Nine exact terms and22 placements
+  summary: All ontology IDs/labels match; four bacterial species, three chemicals,
+    the animal-surface biofilm term and biofilm process retain appropriate scope.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.248177Z'
+  snapshot_sha256: 31d701ee13abc070054c7ead28f5836db5e43955dbe6798d6dcc4acfa711dd21
+- evidence_id: schema
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-14/000082/child-schema-semantics.json
+  locator: Actual cultivation, ecological, role and graph definitions
+  summary: Periodic medium refresh with attached biomass supports a qualified SEMI_CONTINUOUS
+    description; OTHER can describe the24-well/slab system. Optional roles need evidence.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.248331Z'
+  snapshot_sha256: 79b0ea782ffc2393377507edd7c4bb7430e917560987f121227c781ad2184f5e
+- evidence_id: lineage
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-14/000082/child-taxon-lineage.json
+  locator: All four species labels, synonyms, ranks and ancestry
+  summary: Historical Lactobacillus casei is a synonym of current NCBI Lacticaseibacillus
+    casei. Species identity, exact stock and GTDB correspondence are distinct.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.248459Z'
+  snapshot_sha256: 3055de7fc867f5a9ae1ae12634ae20837fdf424ed4f3a5b52ed5d3bfd8fa3ba9
+- evidence_id: gtdb
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-14/000082/child-gtdb-crosswalk.json
+  locator: Two stored mapping cores and two candidate lists
+  summary: The two cores reproduce. Casei uses a name fallback; four salivarius and
+    six sanguinis species-level destinations remain ambiguous. Snapshot mtime does
+    not establish release/build identity.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.248544Z'
+  snapshot_sha256: 0e93c4edb93e1d1e13713809050f8c73b777887fc6775795eb8801328ec73b20
+- evidence_id: strain-authority
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-14/000082/child-strain-authority.json
+  locator: Four source stocks, bounded catalogue identity sections and exact local
+    strain candidates
+  summary: Three direct catalogue identities and one indexed/timeout tier; optional
+    exact strain NCBI/GTDB matches remain distinct from species mappings and experimental
+    sequencing.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.248668Z'
+  snapshot_sha256: f9a7e8ffec101958ef988ed2ef2ac826c143a47eaac68d8a0f0974c9b3b1ecd8
+- evidence_id: semantics
+  kind: authority
+  reference: /private/tmp/cm-review-session/batch-14/000082/ontology-semantic-notes.json
+  locator: Final source, strain and cultivation semantics
+  summary: Preserve the qualified graph and species context; recover stock metadata,
+    culture stages and baseline arms without inferred mechanisms.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.248801Z'
+  snapshot_sha256: 7c2eb09d664d09d909ab4bda73f883137793913fd47a7c9b3886a9f95831051a
+- evidence_id: resources
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/dataset-verification.json
+  locator: Bounded publication and source-stock context
+  summary: No concrete archive accession is declared in the whole inspected seven-page
+    paper. Stock catalogue and local strain checks are separately bounded; no deposit
+    absence is inferred globally.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.248916Z'
+  snapshot_sha256: dde708a1e46605fe91c83e99561296bf140ab98ae11882670c75a8cf5b3ffd9d
+  search_scope: Whole focal paper, fresh MED and bounded child source-stock/catalogue
+    evidence only; no global archive search or absence claim.
+- evidence_id: snippets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/snippet-audit.json
+  locator: All16 canonical placements
+  summary: All16 excerpts match fresh MED Abstract and the cached TXT. Lexical matches
+    do not establish complete treatment ranges or source access.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.248947Z'
+  snapshot_sha256: 80e07392055e5bfd1c4ef00735f891039b9dac16141ea7789ceb6e3880465d5a
+- evidence_id: provenance
+  kind: prior_review
+  reference: /private/tmp/cm-review-session/batch-14/000082/provenance-audit.json
+  locator: Sole history, exact batch29 records[2], adversarial and cohort context,
+    current issues
+  summary: The previous graph repair is retained. The earlier abstract-bounded cultivation
+    note is historical provenance, not evidence that full Methods remain unavailable.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.249070Z'
+  snapshot_sha256: 686bed68f51f0d14ba211498d5faef5d91bf36427f8ed499b078fa1da6f5e61a
+- evidence_id: inspection
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/inspect.json
+  locator: Thirty immutable inputs after ignored-inclusive discovery
+  summary: Target,21 authorities and8 focal contexts were bound before scientific
+    assessment; generic corpus/build matches were discovery-only.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.249197Z'
+  snapshot_sha256: 5913efacb7c1e9578979152c3a19f8b527ea87b823d9f6ef12e4bcd9855daafd
+- evidence_id: assets
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/lead-source-assets.json
+  locator: Fresh public metadata/PDF and declared-asset inventory
+  summary: Both public downloads succeeded. The whole seven-page paper declares two
+    tables and no separate figure, supplement link or archive identifier.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.249225Z'
+  snapshot_sha256: 1fdfe9929dcdf79085a84714c00753c69c2ad7a147923db17a37a1106f4be6ac
+- evidence_id: lead-read
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/lead-primary-read-scope.json
+  locator: Whole main and complete table-page reading
+  summary: Lead read all47,657 extracted characters and both table pixels; no raw-data
+    reanalysis or external supplement content is claimed.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.249351Z'
+  snapshot_sha256: 8ad0dcac217118dcafac378830be0c580494101eafec4583c4efc2529c85d94f
+- evidence_id: locators
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/source-locator-verification.json
+  locator: Direct paper heading/page/quote checks
+  summary: Printed and physical pages, exact Methods headings, both table locations
+    and the two-word quote were checked before rendering.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.249474Z'
+  snapshot_sha256: 62c779dea2e1a10fe12634f742ad9e10cc23a8533c6fc3d81dda5d3886b4f9fa
+- evidence_id: source-audit
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/source-audit.json
+  locator: Final lead judgment
+  summary: One major treatment-design finding and three minor culture, stock and GTDB-provenance
+    findings; completed source review.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.249572Z'
+  snapshot_sha256: 26395e1837d60d31a4768cf82bdd349563f02876cd586427c66a0eb4c572db5a
+- evidence_id: root-source
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/root-independent-source-audit.json
+  locator: Independent source review and explicit actual scope
+  summary: Root agrees the findings, graph retention and metrics after whole primary
+    reading, table viewing and authority review.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.249596Z'
+  snapshot_sha256: e2a2fb4014457779fd9502def034a325f7dc05b1841c87b52a4bc0eafc88ee3a
+- evidence_id: root-graph
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/root-node-edge-audit.json
+  locator: All three nodes/four evidence placements/zero arrows
+  summary: Independent source-specific node scopes and exact snippet bindings agree.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.249632Z'
+  snapshot_sha256: 22805abc0c28bb9c3f0752c463109dad82beadee9614722add2c74f353bb842b
+- evidence_id: metrics
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/support-final-audit.json
+  locator: Final independent support and literal rubric
+  summary: Completeness40; quality100−10−6+13.333333333333332+15=112.33333333333331,
+    capped100. Structure is not scientific certainty.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.249741Z'
+  snapshot_sha256: 6bbefaab8d28909533ed31234f0c62f142882f546cab42599501f8981a1c14fb
+- evidence_id: support-manifest
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/support-frozen-manifest.json
+  locator: Frozen support dependencies
+  summary: Source, child, root, provenance and resource scopes were reconciled before
+    candidate rendering.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.249773Z'
+  snapshot_sha256: d1e3c3e0f5eca5480818f0a891cac7c9559187e8a0ad853f182cdc0413569b96
+- evidence_id: auxiliary
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/auxiliary-frozen-manifest.json
+  locator: Frozen native and ontology artifacts
+  summary: All30 inspected inputs remain unchanged; focused native checks pass.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.249910Z'
+  snapshot_sha256: 06697563defe582da6fc5e5e58a0bc488cfe132b94d2962d6efb4fcf39dd2430
+- evidence_id: final-native
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/final-validator-summary.json
+  locator: Eight actual command/stdout/stderr receipts
+  summary: Eight focused commands pass; these do not replace claim-level source review.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.250025Z'
+  snapshot_sha256: 8733397b6e6eb6db459074b4ca65e35467e8fd275c6f1dd7ee4116f14a20ebf6
+- evidence_id: corpus-context
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/child-corpus-context.json
+  locator: Actual unchanged batch14 corpus baseline
+  summary: Both contextual commands returned1 with44 warnings across16/477 records
+    and zero errors.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.250161Z'
+  snapshot_sha256: e9edae2938cd7106c0f6410b22ebc261c0adbf1e73129135f814ecb83b00e663
+- evidence_id: adapter
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/adapter-check.json
+  locator: Optional adapter availability
+  summary: Unavailable in the owned runtime; no adapter was executed from another
+    checkout.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.250194Z'
+  snapshot_sha256: a6a553339f2bc7777fc7c01a0eb45ed1a237533f1ca53c193304d84084dd6899
+- evidence_id: check-validate
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/validate.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; scientific entailment checked independently.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.250570Z'
+  snapshot_sha256: 4526e0f190772dd7c1b0dcf493dfc6951aac282df01f6066b4a42aa5c1edddd4
+- evidence_id: check-validate-strict
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/validate-strict.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; scientific entailment checked independently.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.250741Z'
+  snapshot_sha256: 9265a9e148a9a1e018eb0107c29068257951eb72e8e5c00e59b856d9aabd780b
+- evidence_id: check-validate-terms
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/validate-terms.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; scientific entailment checked independently.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.250900Z'
+  snapshot_sha256: 7ceb531b6601894dd02551ce3903523acbaef7de015e06065ddf92693f8bbdfc
+- evidence_id: check-validate-references-explained
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/validate-references-explained.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; scientific entailment checked independently.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.251070Z'
+  snapshot_sha256: 580390508263e509046bd1fd699137f1a5d9dff55f4fe5e4c7055aaee5df652e
+- evidence_id: check-validate-gtdb
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/validate-gtdb.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; scientific entailment checked independently.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.251222Z'
+  snapshot_sha256: e8bafcff8098168394f680d3d5fb282552c1d2f2cb941131112c5a040679545f
+- evidence_id: check-validate-gtdb-domain
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/validate-gtdb-domain.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; scientific entailment checked independently.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.251388Z'
+  snapshot_sha256: 7ea9433bdf1d0c239f447dd8dcdec0d0c649914c0623cdd13c95c8ccac918d4c
+- evidence_id: check-validate-history
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/validate-history.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; scientific entailment checked independently.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.251541Z'
+  snapshot_sha256: 1db57f97b3985d2c0d8a9d603db731f2fcb805c1cd854e66d484b75cdf5da1b9
+- evidence_id: check-normalize-cache-names-check
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/000082/normalize-cache-names-check.json
+  locator: Actual current command/stdout/stderr
+  summary: Native exit0; scientific entailment checked independently.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.251639Z'
+  snapshot_sha256: f2348d49fdbbe66d30d4cff2ccb4b1c23e32d26b9dc43c59742cc52d2a5e9070
+- evidence_id: context-audit-network
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/audit-network.json
+  locator: Actual batch14 corpus baseline
+  summary: Exit1,44 warnings across16/477 records and zero errors.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.251825Z'
+  snapshot_sha256: 3110e0bb1dbe3ea63b81aea82871ac4adb2915c8fce1d15249422d0f5db266c6
+- evidence_id: context-check-network-quality
+  kind: validation
+  reference: /private/tmp/cm-review-session/batch-14/check-network-quality.json
+  locator: Actual batch14 corpus baseline
+  summary: Exit1,44 warnings across16/477 records and zero errors.
+  support: supports
+  accessed_at: '2026-10-22T04:16:18.251976Z'
+  snapshot_sha256: 18896ef4136601b37550cb5612abc06784abcbf982e4778cbf2b9c10368cb66a
+assessments:
+- assessment_id: identity
+  area: identity
+  topic: Defined inoculum and source-specific stocks
+  outcome: concern
+  summary: The four species and oral enamel model are correct; full Methods provide
+    omitted stock identifiers.
+  target_ids:
+  - CommunityMech:000082
+  evidence_ids:
+  - strain-source
+  - lineage
+  - semantics
+  - resources
+  dimensions:
+  - name: experimental_scope
+    value: Two four-day in vitro treatment studies
+    definition: Study 1 sucrose×fluoride and Study 2 calcium at fixed sucrose/fluoride;
+      selected outcomes differ by arm.
+    evidence_ids:
+    - design
+    - outcomes
+  - name: strain_scope
+    value: Four source-named stocks, currently represented at species level
+    definition: ATCC 4646, UA159, ATCC 25975 and BAA-1455 are identified in Inoculum
+      Preparation; detailed catalogue/authority corroboration is bounded separately.
+    evidence_ids:
+    - strain-source
+    - strain-authority
+    - semantics
+    - resources
+  details: Retain ENGINEERED state, SYNTHETIC origin and ORAL category. Starting membership
+    does not assert survival in every arm. Catalogue names and generic GTDB mappings
+    must not substitute an experimental stock.
+- assessment_id: design
+  area: evidence
+  topic: Treatment ranges and fixed background
+  outcome: concern
+  summary: The record omits basal0.2 ppm fluoride and0.2 mM calcium comparison arms.
+  target_ids:
+  - CommunityMech:000082
+  evidence_ids:
+  - design
+  - outcomes
+  details: Restore the two matrices rather than extending a single pooled range. Sucrose
+    affects surface-hardness change chiefly at the lowest fluoride arm; this comparison
+    requires the omitted baseline.
+- assessment_id: culture
+  area: evidence
+  topic: Preparation, vessel and incubation
+  outcome: concern
+  summary: TSB, temperature, atmosphere and the actual vessel/wash schedule are recoverable
+    from full Methods.
+  target_ids:
+  - CommunityMech:000082
+  evidence_ids:
+  - cultivation
+  - preparation
+  - schema
+  details: The four-day endpoint and daily refresh remain correct. Separate inoculum,
+    pellicle and culture quantities; retain unknown total well volume and avoid a
+    controlled-pH or agitation claim for the biofilm itself.
+- assessment_id: node-0
+  area: graph
+  topic: Four-Species Enamel Biofilm Formation
+  outcome: supported
+  summary: Retain the defined inoculum and enamel biofilm platform. SUPPORT/IN_VITRO
+    covers this setup, not interspecies facilitation or persistence in every treatment;
+    S. sanguinis was undetected in calcium arms.
+  target_ids:
+  - CommunityMech:000082
+  evidence_ids:
+  - strain-source
+  - preparation
+  - cultivation
+  - outcomes
+  - snippets
+  - root-graph
+  details: 'Exact selector ecological_interactions[0]; scope COMMUNITY_LEVEL; interaction_type
+    untyped; zero downstream arrows. Encoded taxa: {"source": null, "target": null,
+    "participants": [{"preferred_term": "Lactobacillus casei", "term": {"id": "NCBITaxon:1582",
+    "label": "Lacticaseibacillus casei"}}, {"preferred_term": "Streptococcus mutans",
+    "term": {"id": "NCBITaxon:1309", "label": "Streptococcus mutans"}}, {"preferred_term":
+    "Streptococcus salivarius", "term": {"id": "NCBITaxon:1304", "label": "Streptococcus
+    salivarius"}}, {"preferred_term": "Streptococcus sanguinis", "term": {"id": "NCBITaxon:1305",
+    "label": "Streptococcus sanguinis"}}]}. Canonical excerpt bindings: [{"selector":
+    "ecological_interactions[0].evidence[0].snippet", "sha256": "368286391f5f5d02e223dc48d12e91ebc0aa9d9f11be4f79d28ad42ec4294e86",
+    "reference": "PMID:23446436", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 80e07392055e5bfd1c4ef00735f891039b9dac16141ea7789ceb6e3880465d5a.
+    Linked evidence gives direct paper locators and retained tiers.'
+- assessment_id: node-1
+  area: graph
+  topic: Treatment-Dependent Viable Biofilm Counts
+  outcome: supported
+  summary: Retain treatment- and species-specific viable counts with SUPPORT/IN_VITRO.
+    Calcium total and S. mutans counts are unchanged; no uniform increase, cross-feeding
+    or selectively tested acid-selection mechanism follows.
+  target_ids:
+  - CommunityMech:000082
+  evidence_ids:
+  - outcomes
+  - table-pixels
+  - limits
+  - snippets
+  - root-graph
+  details: 'Exact selector ecological_interactions[1]; scope COMMUNITY_LEVEL; interaction_type
+    untyped; zero downstream arrows. Encoded taxa: {"source": null, "target": null,
+    "participants": [{"preferred_term": "Lactobacillus casei", "term": {"id": "NCBITaxon:1582",
+    "label": "Lacticaseibacillus casei"}}, {"preferred_term": "Streptococcus mutans",
+    "term": {"id": "NCBITaxon:1309", "label": "Streptococcus mutans"}}, {"preferred_term":
+    "Streptococcus salivarius", "term": {"id": "NCBITaxon:1304", "label": "Streptococcus
+    salivarius"}}, {"preferred_term": "Streptococcus sanguinis", "term": {"id": "NCBITaxon:1305",
+    "label": "Streptococcus sanguinis"}}]}. Canonical excerpt bindings: [{"selector":
+    "ecological_interactions[1].evidence[0].snippet", "sha256": "32092208f57d3a7f19398eb0dd824b088cb24f610a93e9fb672811ae34de5889",
+    "reference": "PMID:23446436", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 80e07392055e5bfd1c4ef00735f891039b9dac16141ea7789ceb6e3880465d5a.
+    Linked evidence gives direct paper locators and retained tiers.'
+- assessment_id: node-2
+  area: graph
+  topic: Mineral-Dependent Demineralization Restraint
+  outcome: supported
+  summary: Retain both SUPPORT/IN_VITRO placements for endpoint-specific enamel outcomes.
+    Fluoride affects hardness, lesion depth and mineral loss; calcium 2 mM supports
+    reduced surface-hardness change only. Cell-count mediation, competition and calcium/EPS
+    mechanism are not demonstrated.
+  target_ids:
+  - CommunityMech:000082
+  evidence_ids:
+  - design
+  - outcomes
+  - table-pixels
+  - limits
+  - snippets
+  - root-graph
+  details: 'Exact selector ecological_interactions[2]; scope COMMUNITY_LEVEL; interaction_type
+    untyped; zero downstream arrows. Encoded taxa: {"source": null, "target": null,
+    "participants": [{"preferred_term": "Lactobacillus casei", "term": {"id": "NCBITaxon:1582",
+    "label": "Lacticaseibacillus casei"}}, {"preferred_term": "Streptococcus mutans",
+    "term": {"id": "NCBITaxon:1309", "label": "Streptococcus mutans"}}, {"preferred_term":
+    "Streptococcus salivarius", "term": {"id": "NCBITaxon:1304", "label": "Streptococcus
+    salivarius"}}, {"preferred_term": "Streptococcus sanguinis", "term": {"id": "NCBITaxon:1305",
+    "label": "Streptococcus sanguinis"}}]}. Canonical excerpt bindings: [{"selector":
+    "ecological_interactions[2].evidence[0].snippet", "sha256": "bde6469093e0a4f4dc68604712928f9716456463689e16d859a191f7f9d2d961",
+    "reference": "PMID:23446436", "supports": "SUPPORT", "evidence_source": "IN_VITRO"},
+    {"selector": "ecological_interactions[2].evidence[1].snippet", "sha256": "f0da79f089a150afa831edfe191e4038a0d46a2f4b8df8467d02cdb034345328",
+    "reference": "PMID:23446436", "supports": "SUPPORT", "evidence_source": "IN_VITRO"}].
+    Snippet audit SHA256 80e07392055e5bfd1c4ef00735f891039b9dac16141ea7789ceb6e3880465d5a.
+    Linked evidence gives direct paper locators and retained tiers.'
+- assessment_id: grounding
+  area: grounding
+  topic: Chemical, habitat and taxonomic authority
+  outcome: concern
+  summary: Nine ontology pairs match; GTDB release/build wording is unsupported by
+    snapshot mtime.
+  target_ids:
+  - CommunityMech:000082
+  evidence_ids:
+  - ontology
+  - lineage
+  - gtdb
+  - schema
+  details: Sucrose, fluoride and calcium(2+) match the measured amendments; the mineral
+    salt and source-unit qualifications remain explicit. Do not replace source L.
+    casei stock identity with paracasei based on species-name fallback. Current salivarius/sanguinis
+    ambiguity is valid at species scope.
+- assessment_id: ownership
+  area: ownership
+  topic: Maintained record and prior scope
+  outcome: supported
+  summary: The focal YAML owns the proposed repairs; existing graph qualifications
+    and historical bytes remain intact.
+  target_ids:
+  - CommunityMech:000082
+  evidence_ids:
+  - inspection
+  - provenance
+  details: No canonical, cache, history, issue or Git mutation is part of this review.
+    Recovery of full Methods updates present source access without rewriting the earlier
+    event.
+- assessment_id: native
+  area: schema
+  topic: Native results and scientific coverage
+  outcome: supported
+  summary: All eight focused native checks pass; target network COMPLETE has no diagnostics.
+  target_ids:
+  - CommunityMech:000082
+  evidence_ids:
+  - final-native
+  - auxiliary
+  - metrics
+  - corpus-context
+  - adapter
+  details: Three untyped nodes, four evidence placements and zero arrows are valid.
+    COMPLETE does not establish microbial mediation or require new edges. Corpus exit1
+    and optional adapter unavailability remain nonrequired contextual checks.
+- assessment_id: metrics
+  area: completeness
+  topic: Literal structural scores
+  outcome: supported
+  summary: Completeness40 and capped quality100 are distinct from the completed scientific
+    review and four findings.
+  target_ids:
+  - CommunityMech:000082
+  evidence_ids:
+  - metrics
+  metrics:
+  - name: completeness
+    value: 40
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: 0 required/roles block +5 environment +10 three factors +10 three
+      nodes +0 external +10 growth +0 datasets +5 node metabolites. The50-point block
+      is unmet because optional taxon roles are absent; this alone is not a finding.
+  - name: validation_quality
+    value: 100
+    unit: points
+    minimum: 0
+    maximum: 100
+    definition: Raw100−1 major×10−3 minor×2+13.333333333333332 evidence bonus (4/3
+      mean)+15 COMPLETE=112.33333333333331; capped100.
+  - name: P1
+    value: 0
+    unit: findings
+    definition: Native severity count.
+  - name: P2
+    value: 1
+    unit: findings
+    definition: Native severity count.
+  - name: P3
+    value: 3
+    unit: findings
+    definition: Native severity count.
+  - name: P4
+    value: 0
+    unit: findings
+    definition: Native severity count.
+findings:
+- finding_id: treatment-design
+  issue_key: cm-000082-treatment-design
+  category: evidence
+  severity: major
+  native_severity: P2
+  normalization_reason: Omitted comparison arms materially alter experimental interpretation.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Restore basal comparison arms and the separate study matrices
+  description: The encoded fluoride0.4–1.0 ppm and calcium1–2 mM ranges omit their
+    basal0.2 comparison arms. Full Methods and Tables 1–2 also distinguish Study 1
+    sucrose×fluoride from Study 2 calcium at fixed0.5% sucrose/0.4 ppm fluoride. The
+    omitted controls materially change interpretation of dose and sucrose effects.
+  target_ids:
+  - CommunityMech:000082
+  field_paths:
+  - engineering_design.perturbation_design
+  - cultivation_setup[0].instrument_detail
+  - environmental_factors[1].value
+  - environmental_factors[2].value
+  - growth_media[0].preparation_notes
+  evidence_ids:
+  - design
+  - outcomes
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+    role: canonical_record
+  ownership_note: Separate future curation of the maintained YAML; preserve original
+    sources and history.
+- finding_id: cultivation
+  issue_key: cm-000082-cultivation
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: Recoverable source-specific completeness or provenance without
+    invalidating supported measured outcomes.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Recover source-specific culture stages and conditions
+  description: Full Methods specify the medium, temperature, atmosphere,24-well apparatus
+    and staged handling. The current unspecified medium and no-temperature/atmosphere
+    note reflect an outdated abstract-only boundary. Preserve the correct four-day
+    endpoint and periodic medium exchange while replacing unsupported pellicle necessity
+    and incomplete vessel rationale.
+  target_ids:
+  - CommunityMech:000082
+  field_paths:
+  - growth_media[0]
+  - cultivation_setup[0].instrument_detail
+  - cultivation_setup[0].notes
+  evidence_ids:
+  - cultivation
+  - preparation
+  - schema
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+    role: canonical_record
+  ownership_note: Separate future curation of the maintained YAML; preserve original
+    sources and history.
+- finding_id: strain-metadata
+  issue_key: cm-000082-strain-metadata
+  category: evidence
+  severity: minor
+  native_severity: P3
+  normalization_reason: Recoverable source-specific completeness or provenance without
+    invalidating supported measured outcomes.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Record the four experimental stock identities
+  description: The record names species but omits the four stock identifiers explicitly
+    supplied in Inoculum Preparation. Source-specific strain metadata would make the
+    defined inoculum reproducible without forcing a new species or genome identity.
+  target_ids:
+  - CommunityMech:000082
+  field_paths:
+  - taxonomy[0].taxon_term
+  - taxonomy[1].taxon_term
+  - taxonomy[2].taxon_term
+  - taxonomy[3].taxon_term
+  evidence_ids:
+  - strain-source
+  - strain-authority
+  - semantics
+  - resources
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+    role: canonical_record
+  ownership_note: Separate future curation of the maintained YAML; preserve original
+    sources and history.
+- finding_id: gtdb-provenance
+  issue_key: cm-000082-gtdb-provenance
+  category: provenance
+  severity: minor
+  native_severity: P3
+  normalization_reason: Recoverable source-specific completeness or provenance without
+    invalidating supported measured outcomes.
+  rule_id: review-checklist.claim-specific-support-and-context
+  status: open
+  certainty: confirmed
+  title: Replace unsupported GTDB release/build wording
+  description: The two stored cores reproduce, but latest and built2026-07-25 are
+    not established by filesystem mtime. The casei name-fallback reference mapping
+    is not proof that the experimental ATCC 4646 stock is paracasei.
+  target_ids:
+  - CommunityMech:000082
+  field_paths:
+  - taxonomy[0].taxon_term.gtdb_classification.mapping_source
+  - taxonomy[1].taxon_term.gtdb_classification.mapping_source
+  evidence_ids:
+  - gtdb
+  - lineage
+  - semantics
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+    role: canonical_record
+  ownership_note: Separate future curation of the maintained YAML; preserve original
+    sources and history.
+actions:
+- action_id: repair-design
+  description: Represent the full treatment matrices.
+  finding_ids:
+  - treatment-design
+  target_ids:
+  - CommunityMech:000082
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - 'Encode Study 1: sucrose0.5/1.0% crossed with fluoride0.2/0.4/0.8/1.0 ppm. Encode
+    Study 2: calcium0.2/1.0/2.0 mM at fixed0.5% sucrose and0.4 ppm fluoride. Identify0.2
+    ppm F and0.2 mM Ca as basal TSB levels, not no-amendment zero controls.'
+  - Harmonize engineering_design, environmental factors, setup and medium notes with
+    claim-local Methods/Tables evidence. Preserve discrete arms and the study distinction
+    rather than asserting all combinations of three pooled ranges.
+  - Keep positive endpoint-specific results and all three qualified nodes. Do not
+    assert universal fluoride growth inhibition, monotonic calcium responses, calcium
+    lesion-depth/mineral-loss results or count-mediated protection. Do not copy the
+    source fluoride molarity unit typo.
+- action_id: repair-cultivation
+  description: Add measured protocol details at their actual stages.
+  finding_ids:
+  - cultivation
+  target_ids:
+  - CommunityMech:000082
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Name TSB as the culture medium without inventing its full commercial composition.
+    Record37 °C and5% CO2 for biofilm incubation, four days, about16hours overnight,
+    daily transfer to fresh TSB, and saline dip-washes at morning and4/8 hours later;
+    later washes return slabs to that morning medium.
+  - Describe bovine enamel blocks mounted on24-well plate lids and the salivary pellicle.500
+    µL is added inoculum containing10^7 CFU/mL of each species, not total working
+    volume or confirmed final well density. Keep total well volume unknown.
+  - Separate18-hour TSB+1% sucrose preculture, growth to OD5501.0 ± 0.1 and combined
+    aliquots from the assay. Do not infer equal mixing volumes. Keep pellicle coating
+    in2.5 mL filtered saliva for2 hours at37 °C with agitation separate from biofilm
+    culture.
+  - Retain a qualified SEMI_CONTINUOUS/OTHER description for periodic medium exchange
+    with retained attached biomass; identify the actual vessel rather than treating
+    the substrate as a container. Replace the claim that biomass retention itself
+    excludes continuous operation. Pellicle necessity was not selectively tested.
+  - Replace the current obsolete source-access explanation with full Methods evidence.
+    Observed overnight pH4.0–4.2 is not a controlled setpoint, and pellicle-stage
+    agitation is not assay shaking.
+- action_id: repair-strains
+  description: Add source stock metadata without overextending authority matches.
+  finding_ids:
+  - strain-metadata
+  target_ids:
+  - CommunityMech:000082
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - 'Use taxonomy[i].strain_designation, a sibling of taxon_term: source L. casei
+    ATCC 4646; S. mutans UA159; S. salivarius ATCC 25975; S. sanguinis BAA-1455. Preserve
+    historical source names and current NCBI species labels with explicit catalogue
+    provenance.'
+  - Direct catalogue identity sections corroborate ATCC 4646=C3, UA159=ATCC 700610[UAB
+    577], and BAA-1455=SK36. The ATCC 25975 direct-page attempts timed out; its paper
+    stock identity and local strain authority are available, while indexed catalogue
+    content remains a separate access tier.
+  - Optional exact strain refinements are NCBITaxon:210007 UA159,388919 SK36 and1420586
+    ATCC 25975. Their local reference mappings may refine the strain blocks to S.
+    mutans,S. sanguinis_H and S. salivarius_D respectively; do not silently replace
+    species-level ambiguity or claim an experimental stock genome was sequenced.
+  - Do not relabel ATCC 4646 as paracasei from generic casei name fallback. Add claim-local
+    source/catalogue evidence and keep aggregate species descriptions separate from
+    exact strain descriptors. No unsupported functional role, abundance fraction or
+    genome accession is required.
+- action_id: repair-gtdb
+  description: State verifiable snapshot provenance at the correct rank.
+  finding_ids:
+  - gtdb-provenance
+  target_ids:
+  - CommunityMech:000082
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Replace latest/build-date claims with the actual local mapping snapshot SHA256761d5537a7edb4b0133e88e7bbc85570cf3cb6f2555b9f9ce6cca3e1056a0ddd
+    and unknown release unless release metadata is separately established. File mtime
+    is not a release/build timestamp.
+  - 'Preserve reproducible reference cores at their proper scope: casei name fallback
+    11/11 maps to paracasei, and mutans species 512/512 maps to mutans. These are
+    reference mapping counts, not community abundance or stock sequencing results.'
+  - Retain the current four salivarius and six sanguinis species candidate lists unless
+    explicit source-strain descriptors are separately introduced and grounded. Name-comparison
+    is_reclassified does not establish who reclassified a strain.
+- action_id: validate-future-curation
+  description: Validate separately authorized source-backed repairs.
+  finding_ids:
+  - treatment-design
+  - cultivation
+  - strain-metadata
+  - gtdb-provenance
+  target_ids:
+  - CommunityMech:000082
+  owner_paths:
+  - repository: CultureBotAI/CommunityMech
+    path: kb/communities/Defined_Multispecies_Enamel_Caries_Model.yaml
+    role: canonical_record
+  acceptance_checks:
+  - Rerun focused schema, ontology, references, GTDB/domain, history and graph checks
+    after curation. Preserve exact source tiers, endpoint distinctions and zero arrows;
+    add no mechanism merely to increase scores.
+  - Run just gen-html and just check-docs-current after authorized curation and append
+    appropriate provenance. This review changes no canonical record, cache, history,
+    issue or Git state.
+limitations:
+- The paper’s L. casei calcium Results prose and Table 2 superscripts disagree on
+  the1-versus2 mM comparison. The record already excludes this disputed comparison;
+  no forced reconciliation or additional statistical result is introduced.
+- Printed fluoride molar-conversion units and surface-hardness formula/display have
+  internal inconsistencies. Use reported ppm treatment identities and bounded endpoint
+  conclusions without fabricating corrected raw data.
+- The whole inspected seven-page article declares no separate figure, supplementary
+  link or archive accession. This is a bounded source inventory, not a global absence
+  claim; no raw data or statistical reanalysis was performed.
+- Three catalogue identity sections were directly accessible; ATCC 25975 direct-page
+  attempts timed out and indexed content is a separate tier. Source and local strain
+  authority support its stock label without claiming a complete current catalogue
+  page or sequenced experimental genome.
+- Total well working volume, an exact full TSB recipe and controlled pH are not supplied
+  by the passages used. Inoculum volume, pellicle volume and stage-specific agitation
+  must not fill those gaps.
+notes:
+- All30 official input hashes remain unchanged. Three exact node assessments bind
+  four canonical snippet hashes and all participant descriptors; no downstream arrows
+  are encoded.
+- Sole quotation is two words from Study 1, printed320 / physicalPDFpage 3. Actual
+  candidate validation and root save/post-save gates occur afterward; no future result
+  is asserted.
+tags:
+- record-review
+- oral
+- enamel-caries
+- batch-14
+```

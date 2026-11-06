@@ -658,7 +658,9 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>{{ interaction.name }}</h3>{% if interaction.interaction_type %}
-                    <span class="interaction-type">{{ interaction.interaction_type }}</span>{% endif %}
+                    <span class="interaction-type">{{ interaction.interaction_type }}</span>{% endif %}{% if interaction.host_participation %}
+                    <span class="interaction-type">{{ interaction.host_participation }}</span>{% endif %}{% if interaction.effect_direction %}
+                    <span class="interaction-type">{{ interaction.effect_direction }}</span>{% endif %}
                 </div>{% set participating_taxa = interaction.participating_taxa | default([], true) %}
                 {%- if interaction.description %}
                 <p class="prewrap interaction-description">{{ interaction.description }}</p>
@@ -910,7 +912,7 @@
         </section>
         {% endif %}
 
-        {% if community.environmental_factors %}
+        {% include "_partials/host_soil_related.html" %}{% if community.environmental_factors %}
         <section>
             <h2>Environmental Factors</h2>
             <div class="table-scroll" role="region" tabindex="0" aria-label="Environmental Factors">

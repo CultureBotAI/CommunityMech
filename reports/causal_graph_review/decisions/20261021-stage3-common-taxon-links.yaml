@@ -3,7 +3,8 @@ review_mode: source_based_self_adversarial_review
 independent_approval: false
 recorded_at: '2026-10-21T06:36:00Z'
 scope: Stage 3 protein_examples linkage of strain-verified Shewanella oneidensis MR-1
-  taxonomy entries to reusable CommonTaxon record CommunityMech:taxon:000001; ecological_interactions
+  and Geobacter sulfurreducens PCA/DL-1 taxonomy entries to reusable CommonTaxon records
+  CommunityMech:taxon:000001 and CommunityMech:taxon:000002; ecological_interactions
   causal graph nodes and edges unchanged.
 records:
 - path: kb/communities/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.yaml
@@ -344,3 +345,99 @@ records:
   supersedes_review:
     review_file: reports/causal_graph_review/decisions/20261008-three-records-batch110.yaml
     record_sha256: 826172b3e4ec14cb21b506f830175d55dc982b3ee809bc7811e9a29cb67e231c
+- path: kb/communities/Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.yaml
+  id: CommunityMech:000201
+  original_sha256: 23bc65dd7bc600d926ad4f080c7f5af377da12558d2602e08f8c77324bab6fe1
+  record_sha256: 36c0ea58af1a8cd8d96ccf3bf7d3909176613b4be114cf4f8c7e24d6cea246bd
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261021-stage3-common-taxon-links.yaml
+  scope: Whole record and all original nodes/arrows; measured phenotypes separated from proposed causal mechanisms.
+  summary: Correct Pseudomonas-to-Geobacter electron direction; retain positive mutant/growth evidence; remove the
+    chronology arrow; separate population adaptation and added-PHZ-1-CA response from unproven competition.
+  renamed_nodes:
+    Direct Interspecies Electron Transfer Establishment: Cytochrome-Associated Interspecies Electron Transfer
+    Adaptation Toward Geobacter-Dominated Competition: Geobacter-Dominated Coculture Adaptation
+    Phenazine-Associated Inhibition Pressure: Inhibitory Response to Added Phenazine-1-Carboxylic Acid
+  node_decisions:
+  - node: Restricted-Medium Cooperative Growth
+    rationale: Retain the measured initial coculture growth contrast with both canonical participants; no all-stage
+      dependence or chronology-causation claim.
+  - node: Cytochrome-Associated Interspecies Electron Transfer
+    rationale: Correct donor/recipient using canonical endpoints and primary direction; retain positive cytochrome-mutant
+      evidence and SYNTROPHY while bounding DIET route exclusivity.
+  - node: Geobacter-Dominated Coculture Adaptation
+    rationale: Retain community dominance, variant/protein observations and bounded HybA/FdnG interpretations; remove
+      categorical competition and irrelevant PHZ-1-CA assignment.
+  - node: Inhibitory Response to Added Phenazine-1-Carboxylic Acid
+    rationale: Retain measured added-compound response as Geobacter intrinsic capacity, not demonstrated endogenous
+      Pseudomonas antagonism; preserve compound-specific negative selection evidence.
+  removed_node_decisions: []
+  edges_before:
+  - source: Restricted-Medium Cooperative Growth
+    target: Adaptation Toward Geobacter-Dominated Competition
+    description: 'The restricted formate-fumarate coculture established Geobacter-Pseudomonas syntrophy as the starting
+      state for serial transfers that later selected Geobacter dominance and a shift toward competition.
+
+      '
+  - source: Direct Interspecies Electron Transfer Establishment
+    target: Restricted-Medium Cooperative Growth
+    description: 'Upregulation of DIET-associated cytochromes in the initial cocultures helps establish the syntrophic
+      electron transfer needed for growth in restricted formate-fumarate medium.
+
+      '
+  edges_after:
+  - source: Cytochrome-Associated Interspecies Electron Transfer
+    target: Restricted-Medium Cooperative Growth
+    description: 'PARTIAL: Pseudomonas-to-Geobacter electron transfer could couple Pseudomonas formate use to Geobacter
+      fumarate respiration and thereby support initial cooperative growth. Cytochrome-deficient cocultures showed
+      impaired growth and initial cytochrome abundance was elevated, supporting this direction; the accessible evidence
+      does not selectively establish an exclusive DIET route or exclude pleiotropic mutant effects. This is not
+      a causal claim that protein upregulation itself creates electron transfer.'
+  retained_edge_decisions:
+  - source: Cytochrome-Associated Interspecies Electron Transfer
+    target: Restricted-Medium Cooperative Growth
+    description: 'PARTIAL: Pseudomonas-to-Geobacter electron transfer could couple Pseudomonas formate use to Geobacter
+      fumarate respiration and thereby support initial cooperative growth. Cytochrome-deficient cocultures showed
+      impaired growth and initial cytochrome abundance was elevated, supporting this direction; the accessible evidence
+      does not selectively establish an exclusive DIET route or exclude pleiotropic mutant effects. This is not
+      a causal claim that protein upregulation itself creates electron transfer.'
+    rationale: Positive growth perturbation plus abundance evidence supports electron supply enabling growth; precise
+      route mediation remains PARTIAL.
+  removed_edge_decisions:
+  - source: Restricted-Medium Cooperative Growth
+    target: Adaptation Toward Geobacter-Dominated Competition
+    description: 'The restricted formate-fumarate coculture established Geobacter-Pseudomonas syntrophy as the starting
+      state for serial transfers that later selected Geobacter dominance and a shift toward competition.
+
+      '
+    rationale: Serially transferring an initially growing culture before observing dominance is experimental chronology,
+      not a demonstrated growth-to-competition causal mechanism.
+  references:
+  - PMID:28992596
+  - PMID:32265334
+  issues:
+  - 1485
+  allowed_changed_fields:
+  - curation_history
+  - discussions
+  - ecological_interactions
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture/2026-10-25T092000Z-claude-stage3.yaml
+  source_review:
+    PMID:28992596:
+      cache: references_cache/PMID_28992596.md
+      url: https://pubmed.ncbi.nlm.nih.gov/28992596/
+      scope: Complete primary abstract only; full text unavailable.
+      sha256: 4fc74157445742ab973ced9ea9805ec9bd316ffd0a7656f6eb09fdf100ea04fb
+    PMID:32265334:
+      cache: references_cache/PMID_32265334.md
+      url: https://doi.org/10.1128/mBio.02875-19
+      scope: Complete appended primary main body, Methods, Tables 1-2 and embedded captions; no figure images or
+        separate supplements.
+      sha256: bf684a78b6f55a6436232d82760087d53595ee82d23d122d3b079ab4852a2286
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261006-geobacter-pseudomonas-batch47.yaml
+    record_sha256: 23bc65dd7bc600d926ad4f080c7f5af377da12558d2602e08f8c77324bab6fe1
