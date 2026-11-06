@@ -32,9 +32,26 @@ MEMBERSHIP_RELATIONS = frozenset(
     {"SAME_MEMBERSHIP_AS", "MEMBER_SUBSET_OF", "MEMBER_SUPERSET_OF", "OVERLAPPING_MEMBERSHIP"}
 )
 
+INVERSE_RELATIONS = {
+    "SAME_MEMBERSHIP_AS": "SAME_MEMBERSHIP_AS",
+    "MEMBER_SUBSET_OF": "MEMBER_SUPERSET_OF",
+    "MEMBER_SUPERSET_OF": "MEMBER_SUBSET_OF",
+    "OVERLAPPING_MEMBERSHIP": "OVERLAPPING_MEMBERSHIP",
+    "SAME_STUDY_AS": "SAME_STUDY_AS",
+}
+
 
 def _strain_key(name: str) -> str:
     return "".join(name.split()).upper()
+
+
+def record_links(instance: dict) -> frozenset[tuple[str, str]]:
+    """The (identifier, relation) pairs stated in `related_communities`."""
+    return frozenset(
+        (str(link.get("identifier", "")), str(link.get("relation", "")))
+        for link in (instance.get("related_communities") or [])
+        if isinstance(link, dict)
+    )
 
 
 def strain_roster(instance: dict) -> frozenset[str] | None:
@@ -69,32 +86,53 @@ def compute_relation(mine: frozenset[str], theirs: frozenset[str]) -> str | None
 
 
 @functools.lru_cache(maxsize=1)
-def _corpus_index() -> dict[str, tuple[Path, frozenset[str] | None]]:
-    index: dict[str, tuple[Path, frozenset[str] | None]] = {}
+def _corpus_index_and_duplicates() -> tuple[
+    dict[str, tuple[Path, frozenset[str] | None, frozenset[tuple[str, str]]]],
+    dict[str, tuple[Path, ...]],
+]:
+    index: dict[str, tuple[Path, frozenset[str] | None, frozenset[tuple[str, str]]]] = {}
+    paths_by_id: dict[str, list[Path]] = {}
     for path in record_files():
         try:
             doc = yaml.safe_load(path.read_text(encoding="utf-8"))
         except yaml.YAMLError:
             continue
         if isinstance(doc, dict) and doc.get("id"):
-            index[str(doc["id"])] = (path, strain_roster(doc))
-    return index
+            rid = str(doc["id"])
+            paths_by_id.setdefault(rid, []).append(path)
+            index[rid] = (path, strain_roster(doc), record_links(doc))
+    duplicates = {rid: tuple(paths) for rid, paths in paths_by_id.items() if len(paths) > 1}
+    return index, duplicates
+
+
+def _corpus_index() -> dict[str, tuple[Path, frozenset[str] | None, frozenset[tuple[str, str]]]]:
+    return _corpus_index_and_duplicates()[0]
+
+
+def _duplicate_ids() -> dict[str, tuple[Path, ...]]:
+    return _corpus_index_and_duplicates()[1]
 
 
 def check_record(
     instance: dict,
-    index: dict[str, tuple[Path, frozenset[str] | None]] | None = None,
+    index: dict[str, tuple] | None = None,
+    duplicate_ids: dict[str, tuple[Path, ...]] | None = None,
 ) -> Iterator[tuple[str, str]]:
     """Yield (category, message) for each problem in one record.
 
-    `index` maps record id to (path, roster); it defaults to the whole corpus
-    and is a parameter so tests can supply a small one.
+    `index` maps record id to (path, roster[, links]); it defaults to the whole
+    corpus and is a parameter so tests can supply a small one.
     """
     if not isinstance(instance, dict):
         return
     if index is None:
-        index = _corpus_index()
+        index, default_duplicates = _corpus_index_and_duplicates()
+        if duplicate_ids is None:
+            duplicate_ids = default_duplicates
     own_id = str(instance.get("id", ""))
+    if duplicate_ids and own_id in duplicate_ids:
+        names = ", ".join(p.name for p in duplicate_ids[own_id])
+        yield "duplicate_record_id", f"{own_id}: shared by multiple records ({names})"
     own_roster = strain_roster(instance)
 
     seen: set[tuple[str, str]] = set()
@@ -112,11 +150,16 @@ def check_record(
         if target not in index:
             yield "related_community_unknown_target", f"{label}: no record has this id"
             continue
-        if basis == "SOURCE_STATEMENT" and not link.get("evidence"):
+        needs_evidence = basis == "SOURCE_STATEMENT" and not link.get("evidence")
+        if needs_evidence:
             yield (
                 "related_community_needs_evidence",
                 f"{label}: basis SOURCE_STATEMENT needs evidence quoting the source",
             )
+        target_entry = index[target]
+        target_roster = target_entry[1]
+        target_links = target_entry[2] if len(target_entry) >= 3 else None
+        expected_inverse = INVERSE_RELATIONS.get(relation)
         if relation not in MEMBERSHIP_RELATIONS:
             if basis == "SHARED_STRAIN_DESIGNATIONS":
                 yield (
@@ -124,8 +167,18 @@ def check_record(
                     f"{label}: {relation} is not a membership relation, so it cannot rest on "
                     "SHARED_STRAIN_DESIGNATIONS",
                 )
+                continue
+            if (
+                not needs_evidence
+                and expected_inverse
+                and target_links is not None
+                and (own_id, expected_inverse) not in target_links
+            ):
+                yield (
+                    "related_community_missing_inverse",
+                    f"{label}: {target} does not state inverse link {own_id} {expected_inverse}",
+                )
             continue
-        target_roster = index[target][1]
         if own_roster is None or target_roster is None:
             if basis == "SHARED_STRAIN_DESIGNATIONS":
                 side = "this record" if own_roster is None else target
@@ -134,12 +187,34 @@ def check_record(
                     f"{label}: {side} does not name a strain for every member, so the relation "
                     "cannot be computed; use basis SOURCE_STATEMENT with evidence",
                 )
+                continue
+            if (
+                not needs_evidence
+                and expected_inverse
+                and target_links is not None
+                and (own_id, expected_inverse) not in target_links
+            ):
+                yield (
+                    "related_community_missing_inverse",
+                    f"{label}: {target} does not state inverse link {own_id} {expected_inverse}",
+                )
             continue
         computed = compute_relation(own_roster, target_roster)
         if computed != relation:
             yield (
                 "related_community_membership_contradiction",
                 f"{label}: the strain designations give {computed or 'no shared strains'}",
+            )
+            continue
+        if (
+            not needs_evidence
+            and expected_inverse
+            and target_links is not None
+            and (own_id, expected_inverse) not in target_links
+        ):
+            yield (
+                "related_community_missing_inverse",
+                f"{label}: {target} does not state inverse link {own_id} {expected_inverse}",
             )
 
     host = instance.get("host") or {}

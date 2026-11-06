@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-10-29T14:27:56
+# Generation date: 2026-11-05T22:49:55
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -3581,7 +3581,7 @@ A fitted dynamic model is evidence about the model, and the fit can fail informa
 class CommunityRelationEnum(EnumDefinitionImpl):
     """
     Directed relation from the containing community record to another CommunityMech record, named in
-    `related_communities`. The three membership values are decided by comparing strain designations and are checked by
+    `related_communities`. The four membership values are decided by comparing strain designations and are checked by
     `communitymech.validators.related_communities`; the other values are claims a source must state.
     """
 
@@ -3612,7 +3612,7 @@ class CommunityRelationEnum(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="CommunityRelationEnum",
-        description="""Directed relation from the containing community record to another CommunityMech record, named in `related_communities`. The three membership values are decided by comparing strain designations and are checked by `communitymech.validators.related_communities`; the other values are claims a source must state.""",
+        description="""Directed relation from the containing community record to another CommunityMech record, named in `related_communities`. The four membership values are decided by comparing strain designations and are checked by `communitymech.validators.related_communities`; the other values are claims a source must state.""",
     )
 
 

@@ -18,6 +18,7 @@ from communitymech.paths import REPO_ROOT, record_files, record_path
 from communitymech.validators.related_communities import (
     check_record,
     compute_relation,
+    record_links,
     strain_roster,
 )
 
@@ -40,7 +41,7 @@ def _record(rid: str, strains: list[str | None], links: list[dict] | None = None
 
 
 def _index(*docs: dict) -> dict:
-    return {d["id"]: (Path(f"{d['id']}.yaml"), strain_roster(d)) for d in docs}
+    return {d["id"]: (Path(f"{d['id']}.yaml"), strain_roster(d), record_links(d)) for d in docs}
 
 
 def _categories(doc: dict, index: dict) -> list[str]:
@@ -76,13 +77,93 @@ def test_a_roster_with_a_gap_is_no_roster():
 
 
 def test_a_true_computed_relation_passes():
-    target = _record(B, ["X", "Y"])
+    target = _record(
+        B,
+        ["X", "Y"],
+        [
+            {
+                "identifier": A,
+                "relation": "MEMBER_SUPERSET_OF",
+                "basis": "SHARED_STRAIN_DESIGNATIONS",
+            }
+        ],
+    )
     doc = _record(
         A,
         ["X"],
         [{"identifier": B, "relation": "MEMBER_SUBSET_OF", "basis": "SHARED_STRAIN_DESIGNATIONS"}],
     )
     assert _categories(doc, _index(doc, target)) == []
+
+
+def test_missing_inverse_link_fails():
+    target = _record(B, ["X", "Y"])
+    doc = _record(
+        A,
+        ["X"],
+        [{"identifier": B, "relation": "MEMBER_SUBSET_OF", "basis": "SHARED_STRAIN_DESIGNATIONS"}],
+    )
+    assert _categories(doc, _index(doc, target)) == ["related_community_missing_inverse"]
+    same_study = _record(
+        A,
+        ["X"],
+        [
+            {
+                "identifier": B,
+                "relation": "SAME_STUDY_AS",
+                "basis": "SOURCE_STATEMENT",
+                "evidence": EVIDENCE,
+            }
+        ],
+    )
+    assert _categories(same_study, _index(same_study, target)) == [
+        "related_community_missing_inverse"
+    ]
+    asymmetric = _record(
+        A,
+        ["X"],
+        [
+            {
+                "identifier": B,
+                "relation": "DERIVED_FROM",
+                "basis": "SOURCE_STATEMENT",
+                "evidence": EVIDENCE,
+            }
+        ],
+    )
+    assert _categories(asymmetric, _index(asymmetric, target)) == []
+
+
+def test_duplicate_record_id_fails():
+    doc = _record(A, ["X"])
+    duplicates = {A: (Path("first.yaml"), Path("second.yaml"))}
+    assert [c for c, _ in check_record(doc, _index(doc), duplicate_ids=duplicates)] == [
+        "duplicate_record_id"
+    ]
+
+
+def test_host_template_omits_empty_parentheses_when_optional_term_missing():
+    from communitymech.render import CommunityRenderer
+
+    template = CommunityRenderer().env.get_template("community.html")
+    rendered = template.render(
+        community={
+            "name": "Synthetic Test Community",
+            "id": "CommunityMech:999999",
+            "host": {
+                "preferred_term": "Brachypodium distachyon",
+                "term": {"id": "NCBITaxon:15368", "label": "Brachypodium distachyon"},
+                "anatomical_sites": [{"preferred_term": "root"}],
+                "developmental_stage": {"preferred_term": "seedling"},
+            },
+        },
+        source_file="synthetic.yaml",
+        related_pages={},
+    )
+    assert "root ()" not in rendered
+    assert "seedling ()" not in rendered
+    assert "root" in rendered
+    assert "seedling" in rendered
 
 
 def test_a_contradicted_relation_fails_whatever_its_basis():

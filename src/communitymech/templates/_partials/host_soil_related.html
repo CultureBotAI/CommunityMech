@@ -30,10 +30,10 @@
                 <p><strong>Genotypes:</strong> {% for g in host.genotypes %}{{ g.name }}{% if g.description %} ({{ g.description }}){% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</p>
                 {% endif %}
                 {% if host.anatomical_sites %}
-                <p><strong>Anatomical sites:</strong> {% for s in host.anatomical_sites %}{{ s.preferred_term }} ({{ term_ref(s.term) }}){% if s.description %} <span class="muted">{{ s.description }}</span>{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}</p>
+                <p><strong>Anatomical sites:</strong> {% for s in host.anatomical_sites %}{{ s.preferred_term }}{% if s.term and s.term.id %} ({{ term_ref(s.term) }}){% endif %}{% if s.description %} <span class="muted">{{ s.description }}</span>{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}</p>
                 {% endif %}
                 {% if host.developmental_stage %}
-                <p><strong>Developmental stage:</strong> {{ host.developmental_stage.preferred_term }} ({{ term_ref(host.developmental_stage.term) }})</p>
+                <p><strong>Developmental stage:</strong> {{ host.developmental_stage.preferred_term }}{% if host.developmental_stage.term and host.developmental_stage.term.id %} ({{ term_ref(host.developmental_stage.term) }}){% endif %}</p>
                 {% endif %}
                 {% if host.description %}<p class="prewrap">{{ host.description }}</p>{% endif %}
                 {{ evidence_block(host.evidence) }}
