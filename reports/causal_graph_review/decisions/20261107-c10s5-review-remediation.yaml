@@ -22,36 +22,46 @@ records:
     thermautotrophicus while preserving batch83 causal graph decisions and needs_research
     status.
   node_decisions:
-  - node: Syntrophic Propionate and Alcohol Co-Culture Growth
-    rationale: Preserve the abstract-supported syntrophic co-culture growth observation
-      on propionate and alcohols while qualifying thermodynamically obligatory H2-removal
-      and product claims that are not stated in the cached abstract.
-  - node: Interspecies Hydrogen Transfer
-    rationale: Preserve the hydrogenotrophic co-culture context while narrowing thermodynamic
-      pull and methane-production claims to the abstract-supported co-culture substrate
-      statement.
+  - node: Propionate Oxidation and H2 Production
+    rationale: Preserve propionate syntrophy and correct universal dependence and
+      evidence attribution.
+  - node: Alternative Alcohol and Diol Oxidation
+    rationale: Preserve alternative-substrate coculture growth without universal product
+      stoichiometry.
+  - node: Interspecies Hydrogen Transfer and Thermophilic Methanogenesis
+    rationale: Preserve the hydrogen sink and source-bound coaggregation evidence
+      while separating observations and diffusion modeling.
   removed_node_decisions: []
   renamed_nodes: {}
   edges_before:
-  - source: Syntrophic Propionate and Alcohol Co-Culture Growth
-    target: Interspecies Hydrogen Transfer
-    description: 'H2 transfer to the hydrogenotrophic methanogen Methanothermobacter
-      thermautotrophicus deltaH(T) is the syntrophic mechanism supporting strain SI(T)
-      growth in the co-culture reported by PMID:12361280; the cached abstract states
-      co-culture growth with the hydrogenotrophic methanogen rather than direct H2
-      flux kinetics.'
+  - source: Propionate Oxidation and H2 Production
+    target: Interspecies Hydrogen Transfer and Thermophilic Methanogenesis
+    description: 'H2 supplied during syntrophic propionate oxidation fuels the hydrogenotrophic
+      partner. Preserve this directly implied donor-to-methanogen direction; the species-description
+      abstract does not quantify the exchanged flux or its stoichiometry.'
+  - source: Alternative Alcohol and Diol Oxidation
+    target: Interspecies Hydrogen Transfer and Thermophilic Methanogenesis
+    description: 'PARTIAL - The reported growth of SI with a hydrogenotrophic partner
+      on these alternative substrates supports H2-linked syntrophy. Substrate-resolved
+      H2 yields and carbon-product balances are not exposed in the cited species-description
+      abstract; do not assume every substrate supplies the same acetate/CO2 products.'
   edges_after:
-  - source: Syntrophic Propionate and Alcohol Co-Culture Growth
-    target: Interspecies Hydrogen Transfer
-    description: 'H2 transfer to the hydrogenotrophic methanogen Methanothermobacter
-      thermautotrophicus deltaH(T) is the syntrophic mechanism supporting strain SI(T)
-      growth in the co-culture reported by PMID:12361280; the cached abstract states
-      co-culture growth with the hydrogenotrophic methanogen rather than direct H2
-      flux kinetics.'
+  - source: Propionate Oxidation and H2 Production
+    target: Interspecies Hydrogen Transfer and Thermophilic Methanogenesis
+    description: 'H2 supplied during syntrophic propionate oxidation fuels the hydrogenotrophic
+      partner. Preserve this directly implied donor-to-methanogen direction; the species-description
+      abstract does not quantify the exchanged flux or its stoichiometry.'
+  - source: Alternative Alcohol and Diol Oxidation
+    target: Interspecies Hydrogen Transfer and Thermophilic Methanogenesis
+    description: 'PARTIAL - The reported growth of SI with a hydrogenotrophic partner
+      on these alternative substrates supports H2-linked syntrophy. Substrate-resolved
+      H2 yields and carbon-product balances are not exposed in the cited species-description
+      abstract; do not assume every substrate supplies the same acetate/CO2 products.'
   retained_edge_decisions: []
   removed_edge_decisions: []
   references:
   - PMID:12361280
+  - PMID:16332758
   issues:
   - 2723
   - 1686
@@ -66,7 +76,7 @@ records:
 - path: kb/communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.yaml
   id: CommunityMech:000092
   original_sha256: 4c797dbaa4c2fe4d6627839b90da2a1b4adb5e0185bec3606120860268913ad3
-  record_sha256: c66e2578914428d0b659d0b4cc12c72c86feadc2f0eaa1b9f787f30e7ec9c7f7
+  record_sha256: 27e659408e018cf4b52ed18250fda7f7f0322a9a21c3d4a22991b2aebb43a103
   status: reviewed
   outcome: changed
   review_file: reports/causal_graph_review/decisions/20261107-c10s5-review-remediation.yaml

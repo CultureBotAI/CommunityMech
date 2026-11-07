@@ -5,7 +5,7 @@
 - **Stage**: `5` (`resolve_review_findings`, `revision-0001`)
 - **Repository**: `CultureBotAI/CommunityMech`
 - **Consumed Stage 4 Evidence**: `reviews/workflow/mech-goal-sequence-20261019/cycle-000010/stage-04/revision-0001/evidence.yaml` (`ab829e0e09a5703f823bb8629e8073d53e0d3cddc90ef92134668a70148289c3`)
-- **Successor Structured Review**: `reviews/structured/20261107T193500Z-c10s5-remediation-verification/review.yaml` (`d561625be081b1800cc76229761cd83bd6ff9a1c18c582127acf703fe2cb23fc`)
+- **Successor Structured Review**: `reviews/structured/20261107T202000Z-c10s5-remediation-verification-r2/review.yaml` (`f388e7743bbde0e5954ea32d4a0a9956d3f030d79371ab985e374fe7d8e936f2`)
 
 ## 1. Issue Grouping and Deduplication Summary
 
