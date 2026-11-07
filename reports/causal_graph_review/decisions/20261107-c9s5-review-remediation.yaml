@@ -1,0 +1,148 @@
+reviewer: antigravity
+review_mode: stage5_review_remediation
+base_commit: fc0c501b9dea3fc24eb9eb60fa4bacd6f1521446
+issues:
+- 2713
+records:
+- path: kb/communities/Pseudomonas_Paracoccus_Bifenthrin_Degradation_Consortium.yaml
+  id: CommunityMech:000331
+  original_sha256: 84251088dd9fe5c30bdab428f7edf3bba20a00b5433b232ac867658eb189d9ce
+  record_sha256: f3ac3ff51d02bb342a6f48d80fa4549b22ef17b3ee7052d4694a44e84dd159f5
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261107-c9s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch89.yaml
+    record_sha256: 84251088dd9fe5c30bdab428f7edf3bba20a00b5433b232ac867658eb189d9ce
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy
+    abundance_level remediation preserves all batch89 causal graph decisions.
+  summary: Add DOMINANT abundance_level and verbatim PMID:42269294 two-strain synthetic
+    consortium evidence to Pseudomonas aeruginosa PA and Paracoccus pantotrophus PP
+    while preserving batch89 causal graph decisions.
+  node_decisions:
+  - node: Hydrolyzer-oxidizer division of labor
+    rationale: Preserve complementary transformations and qualify hydrolase-specific
+      mediation.
+  - node: Bifenthrin-intermediate cross-feeding
+    rationale: Preserve directed intermediate coupling without asserting growth dependence
+      or traced assimilation.
+  - node: Accelerated Bifenthrin Removal
+    rationale: Preserve superior removal without equating the endpoint with cross-feeding
+      or fitness.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before:
+  - source: Hydrolyzer-oxidizer division of labor
+    target: Accelerated Bifenthrin Removal
+    description: 'The reported sequential transformations couple substrate breakdown
+      to intermediate removal and are offered as the explanation for faster consortium
+      removal. PARTIAL: hydrolase-specific mediation is not independently resolved
+      by the accessible abstract.'
+  - source: Bifenthrin-intermediate cross-feeding
+    target: Accelerated Bifenthrin Removal
+    description: 'Reported downstream transformation of the intermediate couples the
+      two degradation steps and contributes to the consortium removal advantage. PARTIAL:
+      the accessible abstract does not separate that contribution from other concurrent
+      processes.'
+  edges_after:
+  - source: Hydrolyzer-oxidizer division of labor
+    target: Accelerated Bifenthrin Removal
+    description: 'The reported sequential transformations couple substrate breakdown
+      to intermediate removal and are offered as the explanation for faster consortium
+      removal. PARTIAL: hydrolase-specific mediation is not independently resolved
+      by the accessible abstract.'
+  - source: Bifenthrin-intermediate cross-feeding
+    target: Accelerated Bifenthrin Removal
+    description: 'Reported downstream transformation of the intermediate couples the
+      two degradation steps and contributes to the consortium removal advantage. PARTIAL:
+      the accessible abstract does not separate that contribution from other concurrent
+      processes.'
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42269294
+  issues:
+  - 2713
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Pseudomonas_Paracoccus_Bifenthrin_Degradation_Consortium/2026-11-07T051500Z-antigravity-2713a1.yaml
+- path: kb/communities/Ecoli_K12_MG1655_Arg_Met_CrossFeeding_Coculture.yaml
+  id: CommunityMech:000455
+  original_sha256: 2a72a54518f0a8635f1d599a91b7f750f94349c2f1c7a002159170a8f5be9c4c
+  record_sha256: 4c357c327788607d585f301bc5fc4ac8b5cba747d75f59783ea60c027f991ac1
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261107-c9s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261006-three-records-batch37.yaml
+    record_sha256: 2a72a54518f0a8635f1d599a91b7f750f94349c2f1c7a002159170a8f5be9c4c
+  scope: 'Whole record and every existing node/arrow assessed at recorded primary
+    access scope; Stage 5 taxonomy abundance_level remediation preserves all batch37
+    causal graph decisions and pending #1436 mechanism-expansion status.'
+  summary: Add DOMINANT abundance_level and verbatim PMID:42592155 two-strain obligate
+    mutualistic coculture evidence to E. coli K-12 MG1655 ΔargA-ΔmetJ and ΔmetA-ΔargR
+    while preserving batch37 causal graph decisions and needs_research status (#1436).
+  node_decisions:
+  - node: ΔargA-ΔmetJ methionine cross-feeding
+    rationale: Retain genotype-specific methionine support under tested nutrient limitation.
+  - node: ΔmetA-ΔargR arginine cross-feeding
+    rationale: Retain reverse arginine support without collapsing same-species engineered
+      strains.
+  - node: Arg-Met obligate mutualism increases cell noise
+    rationale: Qualify the fluorescence CV endpoint and remove interspecies GO grounding;
+      mechanism expansion remains pending.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:42592155
+  issues:
+  - 2713
+  - 1436
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Ecoli_K12_MG1655_Arg_Met_CrossFeeding_Coculture/2026-11-07T051500Z-antigravity-2713a2.yaml
+- path: kb/communities/Pseudomonas_Acidovorax_Aniline_Degradation_SynCom.yaml
+  id: CommunityMech:000461
+  original_sha256: a7a32d2a84066629338c1735cea5104beac14a152498c123567349b8cbf7be34
+  record_sha256: 1b43d889efac75c21e02af27ab2f1c94979448a7cc4c2e15cbff1ad1f6f71b68
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261107-c9s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch88.yaml
+    record_sha256: a7a32d2a84066629338c1735cea5104beac14a152498c123567349b8cbf7be34
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy
+    abundance_level remediation preserves all batch88 causal graph decisions.
+  summary: Add DOMINANT abundance_level on Pseudomonas sp. RF and ABUNDANT abundance_level
+    on Acidovorax sp. PH with verbatim PMID:41900437 3:1 inoculation-ratio evidence
+    while preserving batch88 causal graph decisions.
+  node_decisions:
+  - node: RF-PH enhanced aniline degradation
+    rationale: Preserve enhanced aniline removal without certifying mineralization
+      or exchange.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:41900437
+  issues:
+  - 2713
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Pseudomonas_Acidovorax_Aniline_Degradation_SynCom/2026-11-07T051500Z-antigravity-2713a3.yaml
