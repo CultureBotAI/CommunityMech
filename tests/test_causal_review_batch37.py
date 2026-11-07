@@ -120,7 +120,23 @@ def test_batch37_canonical_participants_history_and_hashes():
             )
         assert row["curation_events_added"] == 1 and len(row["history_files"]) == 1
         assert doc["curation_history"][-1]["llm_assisted"] is True
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        latest = row
+        if row["id"] == "CommunityMech:000455":
+            successor_file = (
+                ROOT / "reports/causal_graph_review/decisions/20261107-c9s5-review-remediation.yaml"
+            )
+            successor_by_id = {
+                r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]
+            }
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )
 
 
 def test_batch37_all_existing_nodes_and_arrows_have_dispositions():

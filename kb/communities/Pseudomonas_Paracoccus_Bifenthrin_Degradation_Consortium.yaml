@@ -1,17 +1,18 @@
 id: CommunityMech:000331
 name: Pseudomonas-Paracoccus Bifenthrin-Degrading Consortium
-description: >
-  A defined two-strain consortium of Pseudomonas aeruginosa PA and Paracoccus
-  pantotrophus PP assembled from contaminated-soil isolates for bifenthrin
-  biodegradation. P. aeruginosa PA hydrolyzes bifenthrin, while P. pantotrophus
-  PP oxidizes the resulting bifenthrin-alcohol intermediate; PA extracellular
-  polymeric substances also modify the local chemical microenvironment.
+description: 'A defined two-strain consortium of Pseudomonas aeruginosa PA and Paracoccus pantotrophus PP assembled from contaminated-soil
+  isolates for bifenthrin biodegradation. P. aeruginosa PA hydrolyzes bifenthrin, while P. pantotrophus PP oxidizes the resulting
+  bifenthrin-alcohol intermediate; PA extracellular polymeric substances also modify the local chemical microenvironment.
+
+  '
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: BIOREMEDIATION
 engineering_design:
-  objective: Improve bifenthrin biodegradation by combining a bifenthrin hydrolyzer with a strain that removes the inhibitory bifenthrin-alcohol intermediate.
-  assembly_strategy: Construct a two-strain synthetic consortium from contaminated-soil isolates Pseudomonas aeruginosa PA and Paracoccus pantotrophus PP.
+  objective: Improve bifenthrin biodegradation by combining a bifenthrin hydrolyzer with a strain that removes the inhibitory
+    bifenthrin-alcohol intermediate.
+  assembly_strategy: Construct a two-strain synthetic consortium from contaminated-soil isolates Pseudomonas aeruginosa PA
+    and Paracoccus pantotrophus PP.
   measurement_endpoints:
   - bifenthrin removal
   - degradation rate constant
@@ -21,7 +22,8 @@ engineering_design:
   - reference: PMID:42269294
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Pseudomonas aeruginosa strain PA (PA) and Paracoccus pantotrophus strain PP (PP) were isolated from contaminated soil and constructed into a synthetic consortium (PA+PP)
+    snippet: Pseudomonas aeruginosa strain PA (PA) and Paracoccus pantotrophus strain PP (PP) were isolated from contaminated
+      soil and constructed into a synthetic consortium (PA+PP)
     explanation: Supports the exact strain composition, isolate origin, and synthetic assembly.
 environment_term:
   preferred_term: aqueous bifenthrin-degradation laboratory assay
@@ -45,7 +47,8 @@ taxonomy:
     gtdb_classification:
       gtdb_id: GTDB:s__Pseudomonas_aeruginosa
       gtdb_taxon: Pseudomonas aeruginosa
-      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas aeruginosa
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas
+        aeruginosa
       ncbi_source_id: NCBITaxon:287
       majority_fraction: 0.99
       total_genomes: 17191
@@ -53,6 +56,7 @@ taxonomy:
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
   strain_designation:
     strain_name: PA
+  abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
   evidence:
@@ -66,6 +70,13 @@ taxonomy:
     evidence_source: IN_VITRO
     snippet: PA served as the hydrolyzer, cleaving the ester bond of bifenthrin
     explanation: Supports PA's primary bifenthrin-degradation role.
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas aeruginosa strain PA (PA) and Paracoccus pantotrophus strain PP (PP) were isolated from contaminated
+      soil and constructed into a synthetic consortium (PA+PP), which synergistically enhanced bifenthrin degradation.
+    explanation: Supports DOMINANT abundance_level for Pseudomonas aeruginosa PA as one of two co-dominant members of the
+      defined two-strain PA+PP synthetic consortium.
 - taxon_term:
     preferred_term: Paracoccus pantotrophus PP
     term:
@@ -75,7 +86,8 @@ taxonomy:
     gtdb_classification:
       gtdb_id: GTDB:s__Paracoccus_pantotrophus
       gtdb_taxon: Paracoccus pantotrophus
-      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhodobacterales;f__Rhodobacteraceae;g__Paracoccus;s__Paracoccus pantotrophus
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhodobacterales;f__Rhodobacteraceae;g__Paracoccus;s__Paracoccus
+        pantotrophus
       ncbi_source_id: NCBITaxon:82367
       majority_fraction: 0.88
       total_genomes: 26
@@ -83,6 +95,7 @@ taxonomy:
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
   strain_designation:
     strain_name: PP
+  abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
   - CROSS_FEEDER
@@ -97,11 +110,18 @@ taxonomy:
     evidence_source: IN_VITRO
     snippet: PP, as the oxidizer, efficiently degraded bifenthrin alcohol
     explanation: Supports PP's intermediate-degradation and cross-feeding roles.
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas aeruginosa strain PA (PA) and Paracoccus pantotrophus strain PP (PP) were isolated from contaminated
+      soil and constructed into a synthetic consortium (PA+PP), which synergistically enhanced bifenthrin degradation.
+    explanation: Supports DOMINANT abundance_level for Paracoccus pantotrophus PP as one of two co-dominant members of the
+      defined two-strain PA+PP synthetic consortium.
 ecological_interactions:
 - name: Hydrolyzer-oxidizer division of labor
-  description: 'The source reports complementary hydrolysis and oxidation steps in the two-member consortium. PARTIAL:
-    removal of the intermediate is proposed to relieve hydrolase inhibition, but the accessible abstract does not
-    isolate that mediator or demonstrate ecological niche partitioning.'
+  description: 'The source reports complementary hydrolysis and oxidation steps in the two-member consortium. PARTIAL: removal
+    of the intermediate is proposed to relieve hydrolase inhibition, but the accessible abstract does not isolate that mediator
+    or demonstrate ecological niche partitioning.'
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: xenobiotic metabolic process
@@ -110,22 +130,22 @@ ecological_interactions:
       label: xenobiotic metabolic process
   downstream:
   - target: Accelerated Bifenthrin Removal
-    description: 'The reported sequential transformations couple substrate breakdown to intermediate removal and
-      are offered as the explanation for faster consortium removal. PARTIAL: hydrolase-specific mediation is not
-      independently resolved by the accessible abstract.'
+    description: 'The reported sequential transformations couple substrate breakdown to intermediate removal and are offered
+      as the explanation for faster consortium removal. PARTIAL: hydrolase-specific mediation is not independently resolved
+      by the accessible abstract.'
   evidence:
   - reference: PMID:42269294
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: PA served as the hydrolyzer, cleaving the ester bond of bifenthrin to generate bifenthrin alcohol and
-      trifluorochloro-chrysanthemic acid, while PP, as the oxidizer, efficiently degraded bifenthrin alcohol
+    snippet: PA served as the hydrolyzer, cleaving the ester bond of bifenthrin to generate bifenthrin alcohol and trifluorochloro-chrysanthemic
+      acid, while PP, as the oxidizer, efficiently degraded bifenthrin alcohol
     explanation: Supports the strain-specific hydrolysis and oxidation steps.
   - reference: PMID:42269294
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: relieving steric hindrance on PA hydrolases and establishing an essential cooperative degradation partnership
-    explanation: Supports the authors explanation for the benefit of intermediate removal, not independently verified
-      steric mediation.
+    explanation: Supports the authors explanation for the benefit of intermediate removal, not independently verified steric
+      mediation.
   participating_taxa:
   - preferred_term: Pseudomonas aeruginosa PA
     term:
@@ -137,8 +157,8 @@ ecological_interactions:
       label: Paracoccus pantotrophus
 - name: Bifenthrin-intermediate cross-feeding
   description: 'The source reports directed coupling between production and downstream transformation of the bifenthrin-alcohol
-    intermediate. PARTIAL: this cross-feeding interpretation concerns sequential biotransformation; the abstract
-    does not establish recipient growth dependence or directly traced carbon assimilation.'
+    intermediate. PARTIAL: this cross-feeding interpretation concerns sequential biotransformation; the abstract does not
+    establish recipient growth dependence or directly traced carbon assimilation.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -159,20 +179,20 @@ ecological_interactions:
   downstream:
   - target: Accelerated Bifenthrin Removal
     description: 'Reported downstream transformation of the intermediate couples the two degradation steps and contributes
-      to the consortium removal advantage. PARTIAL: the accessible abstract does not separate that contribution
-      from other concurrent processes.'
+      to the consortium removal advantage. PARTIAL: the accessible abstract does not separate that contribution from other
+      concurrent processes.'
   evidence:
   - reference: PMID:42269294
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: PA served as the hydrolyzer, cleaving the ester bond of bifenthrin to generate bifenthrin alcohol and
-      trifluorochloro-chrysanthemic acid, while PP, as the oxidizer, efficiently degraded bifenthrin alcohol
-    explanation: Supports reported sequential production and transformation, not direct carbon tracing or recipient
-      growth dependence.
+    snippet: PA served as the hydrolyzer, cleaving the ester bond of bifenthrin to generate bifenthrin alcohol and trifluorochloro-chrysanthemic
+      acid, while PP, as the oxidizer, efficiently degraded bifenthrin alcohol
+    explanation: Supports reported sequential production and transformation, not direct carbon tracing or recipient growth
+      dependence.
 - name: Accelerated Bifenthrin Removal
-  description: The consortium showed a higher bifenthrin-removal rate and greater final removal than either monoculture
-    under the reported assay comparison. Preserve this measured advantage separately from the proposed transfer
-    mechanism; it does not itself demonstrate complete mineralization or reciprocal partner fitness.
+  description: The consortium showed a higher bifenthrin-removal rate and greater final removal than either monoculture under
+    the reported assay comparison. Preserve this measured advantage separately from the proposed transfer mechanism; it does
+    not itself demonstrate complete mineralization or reciprocal partner fitness.
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: xenobiotic metabolic process
@@ -207,8 +227,10 @@ environmental_factors:
   - reference: PMID:42269294
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: PA-secreted extracellular polymeric substances (EPS), which are rich in polysaccharides, proteins, and humic-like components, promoted bifenthrin adsorption and electron transfer
-    explanation: Supports PA-mediated physical and chemical modification of the consortium microenvironment without assigning an unsupported ecological-interaction class.
+    snippet: PA-secreted extracellular polymeric substances (EPS), which are rich in polysaccharides, proteins, and humic-like
+      components, promoted bifenthrin adsorption and electron transfer
+    explanation: Supports PA-mediated physical and chemical modification of the consortium microenvironment without assigning
+      an unsupported ecological-interaction class.
 - name: Initial bifenthrin concentration
   value: '100'
   unit: mg/L
@@ -217,7 +239,8 @@ environmental_factors:
   - reference: PMID:42269294
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: bifenthrin was introduced into the aqueous MSM system at a nominal initial concentration of 100 mg/L using an acetone stock solution
+    snippet: bifenthrin was introduced into the aqueous MSM system at a nominal initial concentration of 100 mg/L using an
+      acetone stock solution
     explanation: Supports the nominal bifenthrin concentration, aqueous matrix, and stock solvent.
 - name: Tween 80 dispersant
   value: '0.1'
@@ -261,12 +284,14 @@ growth_media:
     unit: percent
   incubation_time: '7'
   incubation_time_unit: days
-  preparation_notes: Bifenthrin was added from an acetone stock. The abstract does not report the mineral salts medium formulation, inoculum ratio, temperature, pH, or agitation.
+  preparation_notes: Bifenthrin was added from an acetone stock. The abstract does not report the mineral salts medium formulation,
+    inoculum ratio, temperature, pH, or agitation.
   evidence:
   - reference: PMID:42269294
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: aqueous MSM system at a nominal initial concentration of 100 mg/L using an acetone stock solution and dispersed with 0.1% Tween 80
+    snippet: aqueous MSM system at a nominal initial concentration of 100 mg/L using an acetone stock solution and dispersed
+      with 0.1% Tween 80
     explanation: Supports the assay matrix and reported additions.
 external_resources:
 - name: Primary publication - PA+PP bifenthrin consortium
@@ -288,10 +313,10 @@ discussions:
   kind: KNOWLEDGE_GAP
   status: OPEN
   posed_by: codex
-  rationale: All three nodes and both existing directions are retained. The primary abstract supports sequential
-    transformations and the positive consortium comparison. It does not independently resolve recipient growth dependence,
-    carbon assimilation or the hydrolase-specific mediator; unavailable methods are not proof those tests were absent.
-    No new biological mechanisms, growth-optimization details or experimental designs were added.
+  rationale: All three nodes and both existing directions are retained. The primary abstract supports sequential transformations
+    and the positive consortium comparison. It does not independently resolve recipient growth dependence, carbon assimilation
+    or the hydrolase-specific mediator; unavailable methods are not proof those tests were absent. No new biological mechanisms,
+    growth-optimization details or experimental designs were added.
   attaches_to:
   - ecological_interactions#Hydrolyzer-oxidizer division of labor
   - ecological_interactions#Bifenthrin-intermediate cross-feeding
@@ -301,8 +326,8 @@ discussions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: relieving steric hindrance on PA hydrolases and establishing an essential cooperative degradation partnership
-    explanation: Supports the authors explanation for the benefit of intermediate removal, not independently verified
-      steric mediation.
+    explanation: Supports the authors explanation for the benefit of intermediate removal, not independently verified steric
+      mediation.
   - reference: PMID:42269294
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -312,7 +337,14 @@ curation_history:
 - timestamp: '2026-10-07T12:23:49Z'
   curator: codex
   action: REVIEW_CAUSAL_GRAPH
-  changes: 'Preserve complementary transformations and qualify hydrolase-specific mediation.; Preserve directed
-    intermediate coupling without asserting growth dependence or traced assimilation.; Preserve superior removal
-    without equating the endpoint with cross-feeding or fitness. Issue #1734; reports/causal_graph_review/decisions/20261007-four-records-batch89.yaml'
+  changes: 'Preserve complementary transformations and qualify hydrolase-specific mediation.; Preserve directed intermediate
+    coupling without asserting growth dependence or traced assimilation.; Preserve superior removal without equating the endpoint
+    with cross-feeding or fitness. Issue #1734; reports/causal_graph_review/decisions/20261007-four-records-batch89.yaml'
+  llm_assisted: true
+- timestamp: '2026-11-07T05:15:00Z'
+  curator: antigravity
+  action: CURATE_ABUNDANCE_LEVEL
+  changes: 'Populated abundance_level: DOMINANT with verbatim PMID:42269294 two-strain synthetic consortium evidence on Pseudomonas
+    aeruginosa PA (taxonomy[0], NCBITaxon:287) and Paracoccus pantotrophus PP (taxonomy[1], NCBITaxon:82367) while preserving
+    discussions[0] (#2713).'
   llm_assisted: true
