@@ -1,0 +1,183 @@
+reviewer: antigravity
+review_mode: stage5_review_remediation
+base_commit: 1ad70e7835570d2c74df4cfa2717e585a4e03493
+issues:
+- 2723
+records:
+- path: kb/communities/Pelotomaculum_Methanothermobacter_Syntrophy.yaml
+  id: CommunityMech:000052
+  original_sha256: 360878e4212242ce0caf07938081bf46502f977747343a560d00684f3b725609
+  record_sha256: e3b010c4546be0c4d6fe2387bb2dc157ec3deac29acf2f2f717c561065bfadc4
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261107-c10s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch83.yaml
+    record_sha256: 360878e4212242ce0caf07938081bf46502f977747343a560d00684f3b725609
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy
+    abundance_level remediation preserves all batch83 causal graph decisions and needs_research
+    status (#1686, #1689, #1691).
+  summary: Add DOMINANT abundance_level and verbatim PMID:12361280 two-member syntrophic
+    co-culture evidence to Pelotomaculum thermopropionicum and Methanothermobacter
+    thermautotrophicus while preserving batch83 causal graph decisions and needs_research
+    status.
+  node_decisions:
+  - node: Propionate Oxidation and H2 Production
+    rationale: Preserve propionate syntrophy and correct universal dependence and
+      evidence attribution.
+  - node: Alternative Alcohol and Diol Oxidation
+    rationale: Preserve alternative-substrate coculture growth without universal product
+      stoichiometry.
+  - node: Interspecies Hydrogen Transfer and Thermophilic Methanogenesis
+    rationale: Preserve the hydrogen sink and source-bound coaggregation evidence
+      while separating observations and diffusion modeling.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before:
+  - source: Propionate Oxidation and H2 Production
+    target: Interspecies Hydrogen Transfer and Thermophilic Methanogenesis
+    description: 'H2 supplied during syntrophic propionate oxidation fuels the hydrogenotrophic
+      partner. Preserve this directly implied donor-to-methanogen direction; the species-description
+      abstract does not quantify the exchanged flux or its stoichiometry.'
+  - source: Alternative Alcohol and Diol Oxidation
+    target: Interspecies Hydrogen Transfer and Thermophilic Methanogenesis
+    description: 'PARTIAL - The reported growth of SI with a hydrogenotrophic partner
+      on these alternative substrates supports H2-linked syntrophy. Substrate-resolved
+      H2 yields and carbon-product balances are not exposed in the cited species-description
+      abstract; do not assume every substrate supplies the same acetate/CO2 products.'
+  edges_after:
+  - source: Propionate Oxidation and H2 Production
+    target: Interspecies Hydrogen Transfer and Thermophilic Methanogenesis
+    description: 'H2 supplied during syntrophic propionate oxidation fuels the hydrogenotrophic
+      partner. Preserve this directly implied donor-to-methanogen direction; the species-description
+      abstract does not quantify the exchanged flux or its stoichiometry.'
+  - source: Alternative Alcohol and Diol Oxidation
+    target: Interspecies Hydrogen Transfer and Thermophilic Methanogenesis
+    description: 'PARTIAL - The reported growth of SI with a hydrogenotrophic partner
+      on these alternative substrates supports H2-linked syntrophy. Substrate-resolved
+      H2 yields and carbon-product balances are not exposed in the cited species-description
+      abstract; do not assume every substrate supplies the same acetate/CO2 products.'
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:12361280
+  - PMID:16332758
+  issues:
+  - 2723
+  - 1686
+  - 1689
+  - 1691
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Pelotomaculum_Methanothermobacter_Syntrophy/2026-11-07T193300Z-antigravity-2723a1.yaml
+- path: kb/communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.yaml
+  id: CommunityMech:000092
+  original_sha256: 4c797dbaa4c2fe4d6627839b90da2a1b4adb5e0185bec3606120860268913ad3
+  record_sha256: 27e659408e018cf4b52ed18250fda7f7f0322a9a21c3d4a22991b2aebb43a103
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261107-c10s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261007-four-records-batch94.yaml
+    record_sha256: 4c797dbaa4c2fe4d6627839b90da2a1b4adb5e0185bec3606120860268913ad3
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy
+    abundance_level remediation preserves all batch94 causal graph decisions.
+  summary: Add DOMINANT abundance_level and verbatim PMID:32788711 two-member reciprocal
+    cross-feeding coculture evidence to Rhodopseudomonas palustris and Escherichia
+    coli while preserving batch94 causal graph decisions.
+  node_decisions:
+  - node: Ammonium Cross-Feeding By Nitrogen-Fixing R. palustris
+    rationale: Retain positive ammonium CROSS_FEEDING and its existing arrow with
+      donor/recipient scope.
+  - node: E. coli Fermentation Product Cross-Feeding
+    rationale: Retain positive organic-acid CROSS_FEEDING and its arrow, excluding
+      unsupported ethanol/formate carbon transfer.
+  - node: Reciprocal Carbon-Nitrogen Cross-Feeding
+    rationale: Retain reciprocal exchange, distinguishing engineered donor and adapted
+      recipient contexts.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before:
+  - source: Ammonium Cross-Feeding By Nitrogen-Fixing R. palustris
+    target: Reciprocal Carbon-Nitrogen Cross-Feeding
+    description: 'Ammonium transfer supports E. coli nitrogen acquisition and thereby
+      its contribution to reciprocal coculture growth in the tested donor/recipient
+      contexts; the rate and emergence of this exchange are strain dependent.'
+  - source: E. coli Fermentation Product Cross-Feeding
+    target: Reciprocal Carbon-Nitrogen Cross-Feeding
+    description: 'The usable organic-acid products of E. coli fermentation supply
+      carbon to R. palustris, enabling the carbon-transfer arm of the reciprocal carbon/nitrogen
+      exchange; not every excreted fermentation product is a partner carbon source.'
+  edges_after:
+  - source: Ammonium Cross-Feeding By Nitrogen-Fixing R. palustris
+    target: Reciprocal Carbon-Nitrogen Cross-Feeding
+    description: 'Ammonium transfer supports E. coli nitrogen acquisition and thereby
+      its contribution to reciprocal coculture growth in the tested donor/recipient
+      contexts; the rate and emergence of this exchange are strain dependent.'
+  - source: E. coli Fermentation Product Cross-Feeding
+    target: Reciprocal Carbon-Nitrogen Cross-Feeding
+    description: 'The usable organic-acid products of E. coli fermentation supply
+      carbon to R. palustris, enabling the carbon-transfer arm of the reciprocal carbon/nitrogen
+      exchange; not every excreted fermentation product is a partner carbon source.'
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:32788711
+  issues:
+  - 2723
+  - 1755
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture/2026-11-07T193310Z-antigravity-2723a2.yaml
+- path: kb/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml
+  id: CommunityMech:000162
+  original_sha256: f1e51614a8c4a7856a2669afe12574d1c982f12dcebf9f53f49c65d470f747d6
+  record_sha256: c7fc5d3ab85057261c78e16263db859d035dfc3aa4abaaae67fbec3d6e53c1d4
+  status: needs_research
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261107-c10s5-review-remediation.yaml
+  supersedes_review:
+    review_file: reports/causal_graph_review/decisions/20261008-three-records-batch113.yaml
+    record_sha256: f1e51614a8c4a7856a2669afe12574d1c982f12dcebf9f53f49c65d470f747d6
+  scope: Whole record and every existing node/direction reviewed; Stage 5 taxonomy
+    abundance_level remediation preserves all batch113 causal graph decisions and
+    needs_research status (#1881, #1883, #1885).
+  summary: Add DOMINANT abundance_level and verbatim PMID:28631440 two-member phytoplankton-bacterium
+    model coculture evidence to Thalassiosira pseudonana CCMP1335 and Ruegeria pomeroyi
+    DSS-3 while preserving batch113 causal graph decisions and needs_research status.
+  node_decisions:
+  - node: Putative Diatom Recognition Response to Ruegeria
+    rationale: Retain a putative recognition response without colonization typing or
+      a restatement arrow to other transcript changes.
+  - node: Phytoplankton Metabolite Transfer to Ruegeria
+    rationale: Preserve supported organic-carbon feeding, grade metabolite evidence
+      and remove the shared-substrate-to-transcript arrow.
+  - node: Diatom Chitin and Lipid Response During Coculture
+    rationale: Retain the chitin/lipid response as transcription, not reverse cross-feeding;
+      preserve the separate B12 growth-benefit boundary.
+  removed_node_decisions: []
+  renamed_nodes: {}
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  references:
+  - PMID:28631440
+  - PMID:33097854
+  issues:
+  - 2723
+  - 1881
+  - 1885
+  - 1883
+  allowed_changed_fields:
+  - curation_history
+  - taxonomy
+  curation_events_added: 1
+  history_files:
+  - history/records/Thalassiosira_Ruegeria_Phycosphere_Coculture/2026-11-07T193320Z-antigravity-2723a3.yaml

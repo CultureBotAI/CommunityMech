@@ -1,28 +1,26 @@
 id: CommunityMech:000092
 name: Rhodopseudomonas-E. coli Cross-Feeding Coculture
-description: A reciprocal cross-feeding coculture pairing N2-fixing Rhodopseudomonas palustris with fermentative
-  Escherichia coli.
+description: A reciprocal cross-feeding coculture pairing N2-fixing Rhodopseudomonas palustris with fermentative Escherichia
+  coli.
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: BIOTECHNOLOGY
 engineering_design:
   objective: Test whether nutrient uptake adaptation can drive emergence of reciprocal cross-feeding.
-  assembly_strategy: Two-member coculture based on nitrogen transfer from R. palustris and carbon-rich
-    fermentation product transfer from E. coli.
-  perturbation_design: Wild-type and engineered cross-feeding contexts were compared during coculture
-    evolution.
+  assembly_strategy: Two-member coculture based on nitrogen transfer from R. palustris and carbon-rich fermentation product
+    transfer from E. coli.
+  perturbation_design: Wild-type and engineered cross-feeding contexts were compared during coculture evolution.
   measurement_endpoints:
   - ammonium uptake
   - fermentation product exchange
   - recipient adaptation
   - coculture growth
   evidence:
-  - &id001
-    reference: PMID:32788711
+  - reference: PMID:32788711
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Previously we engineered a cross-feeding coculture between N2-fixing Rhodopseudomonas palustris
-      and fermentative Escherichia coli.
+    snippet: Previously we engineered a cross-feeding coculture between N2-fixing Rhodopseudomonas palustris and fermentative
+      Escherichia coli.
     explanation: Supports the defined synthetic community design and represented community context.
 environment_term:
   preferred_term: laboratory bioreactor
@@ -46,7 +44,15 @@ taxonomy:
   functional_role:
   - PRIMARY_PRODUCER
   evidence:
-  - *id001
+  - reference: PMID:32788711
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Previously we engineered a cross-feeding coculture between N2-fixing Rhodopseudomonas palustris and fermentative
+      Escherichia coli. Engineered R. palustris excretes essential nitrogen as NH4+ to E. coli, while E. coli excretes essential
+      carbon as fermentation products to R. palustris.
+    explanation: Demonstrates that engineered N2-fixing Rhodopseudomonas palustris is one of the two dominant obligate cross-feeding
+      partners in the defined coculture with fermentative Escherichia coli.
+  abundance_level: DOMINANT
 - taxon_term:
     preferred_term: Escherichia coli
     term:
@@ -56,7 +62,8 @@ taxonomy:
     gtdb_classification:
       gtdb_id: GTDB:s__Escherichia_coli
       gtdb_taxon: Escherichia coli
-      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
       ncbi_source_id: NCBITaxon:562
       majority_fraction: 1.0
       total_genomes: 166397
@@ -65,13 +72,21 @@ taxonomy:
   functional_role:
   - CROSS_FEEDER
   evidence:
-  - *id001
+  - reference: PMID:32788711
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Previously we engineered a cross-feeding coculture between N2-fixing Rhodopseudomonas palustris and fermentative
+      Escherichia coli. Engineered R. palustris excretes essential nitrogen as NH4+ to E. coli, while E. coli excretes essential
+      carbon as fermentation products to R. palustris.
+    explanation: Demonstrates that fermentative Escherichia coli is one of the two dominant obligate cross-feeding partners
+      in the defined coculture with N2-fixing Rhodopseudomonas palustris.
+  abundance_level: DOMINANT
 ecological_interactions:
 - name: Ammonium Cross-Feeding By Nitrogen-Fixing R. palustris
-  description: 'In the tested anaerobic cocultures, nitrogen-fixing R. palustris supplies ammonium required by E.
-    coli. Effective exchange depends on the donor and recipient context: engineered ammonium-excreting partners
-    support growth, whereas WT-based emergence depends on recipient adaptation. This is not a claim that every wild-type
-    pairing readily supports the same exchange.'
+  description: 'In the tested anaerobic cocultures, nitrogen-fixing R. palustris supplies ammonium required by E. coli. Effective
+    exchange depends on the donor and recipient context: engineered ammonium-excreting partners support growth, whereas WT-based
+    emergence depends on recipient adaptation. This is not a claim that every wild-type pairing readily supports the same
+    exchange.'
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -100,21 +115,19 @@ ecological_interactions:
       label: nitrogen fixation
   downstream:
   - target: Reciprocal Carbon-Nitrogen Cross-Feeding
-    description: Ammonium transfer supports E. coli nitrogen acquisition and thereby its contribution to reciprocal
-      coculture growth in the tested donor/recipient contexts; the rate and emergence of this exchange are strain
-      dependent.
+    description: Ammonium transfer supports E. coli nitrogen acquisition and thereby its contribution to reciprocal coculture
+      growth in the tested donor/recipient contexts; the rate and emergence of this exchange are strain dependent.
   evidence:
   - reference: PMID:32788711
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: R. palustris fixes dinitrogen gas (N2) via the enzyme nitrogenase and excretes ammonium (NH4+)
-    explanation: Supports the ammonium-transfer direction; donor and recipient context is qualified from the primary
-      Results and Discussion.
+    explanation: Supports the ammonium-transfer direction; donor and recipient context is qualified from the primary Results
+      and Discussion.
 - name: E. coli Fermentation Product Cross-Feeding
-  description: E. coli fermentation supplies acetate, lactate and succinate that R. palustris can use as carbon
-    sources in the studied cocultures. The paper excludes formate from these consumed organic-acid carbon sources;
-    ethanol excretion is not evidence that ethanol supplies the partner. This is the carbon-transfer half of the
-    demonstrated reciprocal exchange.
+  description: E. coli fermentation supplies acetate, lactate and succinate that R. palustris can use as carbon sources in
+    the studied cocultures. The paper excludes formate from these consumed organic-acid carbon sources; ethanol excretion
+    is not evidence that ethanol supplies the partner. This is the carbon-transfer half of the demonstrated reciprocal exchange.
   interaction_type: CROSS_FEEDING
   scope: PAIRWISE
   source_taxon:
@@ -134,21 +147,20 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Reciprocal Carbon-Nitrogen Cross-Feeding
-    description: The usable organic-acid products of E. coli fermentation supply carbon to R. palustris, enabling
-      the carbon-transfer arm of the reciprocal carbon/nitrogen exchange; not every excreted fermentation product
-      is a partner carbon source.
+    description: The usable organic-acid products of E. coli fermentation supply carbon to R. palustris, enabling the carbon-transfer
+      arm of the reciprocal carbon/nitrogen exchange; not every excreted fermentation product is a partner carbon source.
   evidence:
   - reference: PMID:32788711
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: The organic acids, with the exception of formate, serve as the sole carbon sources for R. palustris
-    explanation: The primary passage directly specifies organic-acid carbon use and excludes formate. Ethanol excretion
-      alone does not establish ethanol transfer.
+    explanation: The primary passage directly specifies organic-acid carbon use and excludes formate. Ethanol excretion alone
+      does not establish ethanol transfer.
 - name: Reciprocal Carbon-Nitrogen Cross-Feeding
-  description: Reciprocal exchange of ammonium and usable organic-acid carbon supports the tested R. palustris-E.
-    coli cocultures. Engineered donor contexts and adapted recipient contexts are distinct routes to coexistence,
-    not a universal wild-type phenotype. Enhanced recipient uptake is the authors mechanistic interpretation of
-    emergence; no new gene-design or feedback node is added here.
+  description: Reciprocal exchange of ammonium and usable organic-acid carbon supports the tested R. palustris-E. coli cocultures.
+    Engineered donor contexts and adapted recipient contexts are distinct routes to coexistence, not a universal wild-type
+    phenotype. Enhanced recipient uptake is the authors mechanistic interpretation of emergence; no new gene-design or feedback
+    node is added here.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   metabolites:
@@ -165,31 +177,37 @@ ecological_interactions:
   - reference: PMID:32788711
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Previously we engineered a cross-feeding coculture between N2-fixing Rhodopseudomonas palustris and
-      fermentative Escherichia coli.
+    snippet: Previously we engineered a cross-feeding coculture between N2-fixing Rhodopseudomonas palustris and fermentative
+      Escherichia coli.
     explanation: Supports the defined synthetic community design and represented community context.
   - reference: PMID:32788711
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Engineered R. palustris excretes essential nitrogen as NH4+ to E. coli, while E. coli excretes essential
-      carbon as fermentation products to R. palustris.
-    explanation: Supports ammonium transfer from the nitrogen-fixing R. palustris partner as one leg of the reciprocal
-      cross-feeding interaction.
+    snippet: Engineered R. palustris excretes essential nitrogen as NH4+ to E. coli, while E. coli excretes essential carbon
+      as fermentation products to R. palustris.
+    explanation: Supports ammonium transfer from the nitrogen-fixing R. palustris partner as one leg of the reciprocal cross-feeding
+      interaction.
 environmental_factors:
 - name: defined synthetic community design
-  value: Two-member coculture based on nitrogen transfer from R. palustris and carbon-rich fermentation
-    product transfer from E. coli.
+  value: Two-member coculture based on nitrogen transfer from R. palustris and carbon-rich fermentation product transfer from
+    E. coli.
   description: Wild-type and engineered cross-feeding contexts were compared during coculture evolution.
   evidence:
-  - *id001
+  - reference: PMID:32788711
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Previously we engineered a cross-feeding coculture between N2-fixing Rhodopseudomonas palustris and fermentative
+      Escherichia coli.
+    explanation: Supports the defined synthetic community design and represented community context.
 related_ingredients:
 - preferred_term: ammonium
   chebi_term:
     id: CHEBI:28938
     label: ammonium
-  relevance: >
-    Ammonium (NH4+) is the nitrogen currency of the cross-feeding interaction: R. palustris excretes
-    essential nitrogen as NH4+ to E. coli, and emergent NH4+ cross-feeding is the central phenotype studied.
+  relevance: 'Ammonium (NH4+) is the nitrogen currency of the cross-feeding interaction: R. palustris excretes essential nitrogen
+    as NH4+ to E. coli, and emergent NH4+ cross-feeding is the central phenotype studied.
+
+    '
   evidence:
   - reference: PMID:32788711
     supports: SUPPORT
@@ -200,9 +218,10 @@ related_ingredients:
   chebi_term:
     id: CHEBI:17997
     label: dinitrogen
-  relevance: >
-    R. palustris is the N2-fixing partner, reducing atmospheric dinitrogen to supply fixed nitrogen that
-    is excreted as ammonium to E. coli in the coculture.
+  relevance: 'R. palustris is the N2-fixing partner, reducing atmospheric dinitrogen to supply fixed nitrogen that is excreted
+    as ammonium to E. coli in the coculture.
+
+    '
   evidence:
   - reference: PMID:32788711
     supports: SUPPORT
@@ -220,9 +239,8 @@ growth_media:
   light_regime: continuous (60 W incandescent bulb)
   inoculum_size: 2% v/v
   vessel_type: sealed anaerobic tube
-  preparation_notes: Mono- and cocultures grown in 10 ml MDC in tubes made anaerobic under 100% N2 at
-    30 °C, shaken at 150 rpm beside a 60 W incandescent bulb; serially passaged at 2% v/v of stationary-phase
-    coculture.
+  preparation_notes: Mono- and cocultures grown in 10 ml MDC in tubes made anaerobic under 100% N2 at 30 °C, shaken at 150
+    rpm beside a 60 W incandescent bulb; serially passaged at 2% v/v of stationary-phase coculture.
   evidence:
   - reference: PMID:32788711
     supports: SUPPORT
@@ -248,11 +266,10 @@ discussions:
   - ecological_interactions#Ammonium Cross-Feeding By Nitrogen-Fixing R. palustris
   - ecological_interactions#E. coli Fermentation Product Cross-Feeding
   - ecological_interactions#Reciprocal Carbon-Nitrogen Cross-Feeding
-  rationale: The complete primary manuscript distinguishes engineered ammonium donors from WT-based emergence and
-    shows that recipient adaptation can enable coculture growth without increased donor ammonium excretion. Retain
-    both observed transfer directions, but do not generalize growth rates, readiness of exchange or inferred uptake
-    feedback to arbitrary wild-type pairings. Species-level canonical taxonomy is unchanged. No new genetic design
-    or experimental protocol is curated.
+  rationale: The complete primary manuscript distinguishes engineered ammonium donors from WT-based emergence and shows that
+    recipient adaptation can enable coculture growth without increased donor ammonium excretion. Retain both observed transfer
+    directions, but do not generalize growth rates, readiness of exchange or inferred uptake feedback to arbitrary wild-type
+    pairings. Species-level canonical taxonomy is unchanged. No new genetic design or experimental protocol is curated.
   evidence:
   - reference: PMID:32788711
     supports: SUPPORT
@@ -263,7 +280,14 @@ curation_history:
 - timestamp: '2026-10-07T16:17:08Z'
   curator: codex
   action: REVIEW_CAUSAL_GRAPH
-  changes: Retain positive ammonium CROSS_FEEDING and its existing arrow with donor/recipient scope.; Retain positive
-    organic-acid CROSS_FEEDING and its arrow, excluding unsupported ethanol/formate carbon transfer.; Retain reciprocal
-    exchange, distinguishing engineered donor and adapted recipient contexts. Issue#1755; reports/causal_graph_review/decisions/20261007-four-records-batch94.yaml
+  changes: Retain positive ammonium CROSS_FEEDING and its existing arrow with donor/recipient scope.; Retain positive organic-acid
+    CROSS_FEEDING and its arrow, excluding unsupported ethanol/formate carbon transfer.; Retain reciprocal exchange, distinguishing
+    engineered donor and adapted recipient contexts. Issue#1755; reports/causal_graph_review/decisions/20261007-four-records-batch94.yaml
+  llm_assisted: true
+- timestamp: '2026-11-07T19:33:10Z'
+  curator: antigravity-c10s5
+  action: CURATE_ABUNDANCE_LEVEL
+  changes: 'Curate source-backed abundance_level: DOMINANT on Rhodopseudomonas palustris (NCBITaxon:1076) and Escherichia
+    coli (NCBITaxon:562) in the defined two-member reciprocal cross-feeding coculture with verbatim PMID:32788711 evidence
+    (#2723).'
   llm_assisted: true

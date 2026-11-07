@@ -128,8 +128,22 @@ def test_dispositions_and_unfinished_extension_are_honest():
 def test_hashes_history_and_canonical_participants_are_guarded():
     ledger, rows, docs = records()
     assert ledger["independent_approval"] is False
+    successor_file = (
+        ROOT / "reports/causal_graph_review/decisions/20261107-c10s5-review-remediation.yaml"
+    )
+    successor_by_id = {r["id"]: r for r in yaml.safe_load(successor_file.read_text())["records"]}
     for row, doc in zip(rows, docs, strict=True):
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["record_sha256"]
+        latest = row
+        if row["id"] == "CommunityMech:000162":
+            latest = successor_by_id[row["id"]]
+            assert latest["supersedes_review"] == {
+                "review_file": str(LEDGER.relative_to(ROOT)),
+                "record_sha256": row["record_sha256"],
+            }
+            assert latest["original_sha256"] == row["record_sha256"]
+        assert (
+            hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == latest["record_sha256"]
+        )
         assert row["curation_events_added"] == len(row["history_files"]) == 1
         assert (ROOT / row["history_files"][0]).exists()
         assert doc["curation_history"][-1]["llm_assisted"] is True
