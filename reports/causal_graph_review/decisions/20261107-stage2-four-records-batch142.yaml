@@ -1,0 +1,700 @@
+reviewer: antigravity
+review_mode: source_based_self_adversarial_review
+independent_approval: false
+base_commit: 7be226bc89c074c3697efa78344f2180067f53d8
+edison:
+  required: false
+  provider_submissions: 0
+  credits_spent: 0
+reviewed_counts:
+  retained_nodes: 10
+  removed_nodes: 0
+  retained_arrows: 1
+  removed_arrows: 0
+  renamed_nodes: 0
+  graph_quotations: 33
+  discussion_quotations: 4
+limitations:
+- 'Source-based causal-graph and taxon-grounding curation and review for all 4 newly
+  added Cycle 10 Stage 1 MicrobialCommunity records (CommunityMech:000522 through
+  CommunityMech:000525 from PR #2718).'
+- Other 515 MicrobialCommunity records verified via SHA-256 hash census against reports/causal_graph_review/inventory.tsv
+  (461 reviewed, 54 needs_research preserved unchanged) plus 2 CommonTaxon records
+  in kb/taxa/.
+records:
+- path: kb/communities/Parmigiano_NWS_Set3_LAB_Triculture.yaml
+  id: CommunityMech:000522
+  original_sha256: dcf0f2e6fa847d81087feaa1fc8a9a41afcc025aba724cc917f92700713419aa
+  record_sha256: 178f803afb7a8bef72f1f34a3eabefc751cc4095c11b6b28d1bf736ee7af6749
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261107-stage2-four-records-batch142.yaml
+  scope: Whole record read; every graph node, COMMUNITY_LEVEL scope, participating_taxa,
+    and zero-edge boundary verified against cached open-access full text and abstract
+    (PMID:41859451, PMC12996222, doi:10.3389/fmicb.2026.1755652) and sibling Set 1
+    and Set 2 records CommunityMech:000517 and CommunityMech:000508.
+  summary: Reviewed and enriched the 4-node, 0-edge COMMUNITY_LEVEL representation
+    for Parmigiano Reggiano NWS Set 3 LAB triculture (L. helveticus C001.15, S. thermophilus
+    RBC06, L. delbrueckii subsp. lactis C5I3) in PMID:41859451 with 4 additional non-overlapping
+    verbatim snippets (9 -> 13 interaction EvidenceItems) while preserving 0 unsupported
+    downstream edges.
+  node_decisions:
+  - node: Set 3 triculture milk acidification and total lactate enhancement
+    rationale: Supported by primary source (PMID:41859451, Fig. 1, Fig. 7A-B, Fig.
+      8, Section 3.7-3.8) with COMMUNITY_LEVEL scope covering all 3 Set 3 triculture
+      members.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:41859451, PMC12996222)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Lactobacillus helveticus C001.15
+        term:
+          id: NCBITaxon:1587
+          label: Lactobacillus helveticus
+      - preferred_term: Streptococcus thermophilus RBC06
+        term:
+          id: NCBITaxon:1308
+          label: Streptococcus thermophilus
+      - preferred_term: Lactobacillus delbrueckii subsp. lactis C5I3
+        term:
+          id: NCBITaxon:29397
+          label: Lactobacillus delbrueckii subsp. lactis
+    evidence:
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Across all inoculation sets, tri-cultures consistently displayed the
+        highest μmax values (p < 0.05), followed by the co-cultures St + Lh and St
+        + Ld.
+      explanation: Supports the highest maximum milk acidification rate in the set
+        3 C001.15/RBC06/C5I3 triculture.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Across all three strain combinations, total lactic acid production
+        was highest in tri-cultures, followed by St + Lh and St + Ld co-cultures (p
+        < 0.05)
+      explanation: Supports the highest total lactic acid production in the set 3
+        triculture relative to monocultures and 1:1 co-cultures.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Statistical analysis of the maximum acidification efficiency (ΔpHmax)
+        largely confirmed the trends described for μmax, with the exception of Ld
+        strain T1104 in inoculation set 1 ( Figure 7B ).
+      explanation: Confirms that maximum fermentative efficiency (Delta pHmax) in
+        set 3 followed the same superior trend as umax without the T1104 set 1 exception.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: 'Specifically, L. helveticus (Lh) strains C001.15 and LBB04, L. delbrueckii
+        subsp. lactis (Ld) strains T1104 and C5I3, and S. thermophilus strains (St)
+        RBC06 and C001.27 were combined into three inoculation sets: set 1 (C001.15,
+        RBC06, and T1104), set 2 (LBB04, C001.27, and C5I3), and set 3 (C001.15, RBC06,
+        and C5I3) ( Figure 1 ).'
+      explanation: Defines the exact three-strain composition of inoculation Set 3
+        (L. helveticus C001.15, S. thermophilus RBC06, and L. delbrueckii subsp. lactis
+        C5I3).
+  - node: RBC06-containing pairwise acidification and lactate stimulation in Set 3
+    rationale: Supported by primary source (PMID:41859451, Fig. 7A, Fig. 8, Section
+      3.7-3.8) with COMMUNITY_LEVEL scope covering S. thermophilus RBC06 and its pairwise
+      partners C001.15 and C5I3.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:41859451, PMC12996222)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Lactobacillus helveticus C001.15
+        term:
+          id: NCBITaxon:1587
+          label: Lactobacillus helveticus
+      - preferred_term: Streptococcus thermophilus RBC06
+        term:
+          id: NCBITaxon:1308
+          label: Streptococcus thermophilus
+      - preferred_term: Lactobacillus delbrueckii subsp. lactis C5I3
+        term:
+          id: NCBITaxon:29397
+          label: Lactobacillus delbrueckii subsp. lactis
+    evidence:
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: By contrast, in St + Ld co-cultures, μmax values were significantly
+        higher than those observed in the corresponding Ld and St monocultures (p
+        < 0.05) ( Figure 7A ), indicating a mutual benefit from co-cultivation. A
+        similar enhancement was observed in Lh + St co-cultures, where all strain
+        combinations exhibited significantly higher acidification rates than their
+        respective monocultures (p < 0.05)
+      explanation: Supports higher maximum acidification rates in both St + Ld (RBC06
+        + C5I3) and Lh + St (C001.15 + RBC06) co-cultures relative to monocultures.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Under St + Lh conditions, L-lactate predominates, accounting for 86.73%
+        of total lactate in the co-culture of strains RBC06 and C001.5 and 74.08%
+        in the co-culture of strains C001.27 and LBB04. Similarly, in St + Ld co-cultures,
+        total lactate concentrations also exceeded those of the respective monocultures,
+        with production dominated by D-lactate
+      explanation: Quantifies the 86.73% L-lactate share in the RBC06 + C001.15 co-culture
+        and D-lactate predominance in the RBC06 + C5I3 co-culture.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In milk fermented with St and Lh, total lactate production increased
+        relative to monocultures ( Figure 8 ).
+      explanation: Directly supports increased total lactate production in S. thermophilus
+        + L. helveticus co-culture relative to monocultures.
+  - node: C001.15-C5I3 reduced acidification and D-lactate-majority pairwise subset
+    rationale: Supported by primary source (PMID:41859451, Fig. 7A, Fig. 8, Section
+      3.7-3.8) with COMMUNITY_LEVEL scope covering L. helveticus C001.15 and L. delbrueckii
+      subsp. lactis C5I3.
+    field_path: ecological_interactions[2]
+    source_locator: Cached full text and abstract (PMID:41859451, PMC12996222)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Lactobacillus helveticus C001.15
+        term:
+          id: NCBITaxon:1587
+          label: Lactobacillus helveticus
+      - preferred_term: Lactobacillus delbrueckii subsp. lactis C5I3
+        term:
+          id: NCBITaxon:29397
+          label: Lactobacillus delbrueckii subsp. lactis
+    evidence:
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Remarkably, in all strain combinations tested, co-inoculation of milk
+        with Lh and Ld resulted in reduced acidification rates compared with the corresponding
+        monocultures, regardless of the specific Ld and Lh strains used
+      explanation: Supports the lower maximum acidification rate (umax) of the set
+        3 C001.15 + C5I3 co-culture relative to monocultures.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In inoculation sets 2 and 3, Lh + Ld co-cultures yielded significantly
+        lower total lactic acid than tri-cultures and the St + Lh and St + Ld co-cultures
+        ( Figure 8 ). In both cases, D-lactate accounted for the majority of lactate
+        produced (75.95% in set 2 and 56.63% in set 3, respectively), indicating that
+        Ld was metabolically active.
+      explanation: Quantifies the lower total lactic acid production and 56.63% D-lactate
+        share of the set 3 C001.15 + C5I3 co-culture.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Overall, the findings support the presence of negative interactions
+        between L. helveticus and L. delbrueckii subsp. lactis and positive interactions
+        between L. delbrueckii subsp. lactis and S. thermophilus, as well as between
+        S. thermophilus and L. helveticus.
+      explanation: Summarizes the negative interaction between L. helveticus and L.
+        delbrueckii subsp. lactis alongside the two positive S. thermophilus co-culture
+        interactions.
+  - node: Set 3 triculture balanced D-/L-lactate accumulation relative to C5I3 monoculture
+    rationale: Supported by primary source (PMID:41859451, Fig. 8, Section 3.8) with
+      COMMUNITY_LEVEL scope covering all 3 Set 3 triculture members.
+    field_path: ecological_interactions[3]
+    source_locator: Cached full text and abstract (PMID:41859451, PMC12996222)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Lactobacillus helveticus C001.15
+        term:
+          id: NCBITaxon:1587
+          label: Lactobacillus helveticus
+      - preferred_term: Streptococcus thermophilus RBC06
+        term:
+          id: NCBITaxon:1308
+          label: Streptococcus thermophilus
+      - preferred_term: Lactobacillus delbrueckii subsp. lactis C5I3
+        term:
+          id: NCBITaxon:29397
+          label: Lactobacillus delbrueckii subsp. lactis
+    evidence:
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Although absolute lactate concentrations varied among inoculation sets,
+        D-lactate and L-lactate were produced in comparable amounts in all tri-cultures,
+        indicating that Ld strains remained viable and metabolically active.
+      explanation: Documents comparable D- and L-lactate production in the set 3 triculture
+        at 160 h.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In two of the three sets (sets 1 and 2), D-lactate levels in tri-cultures
+        were significantly higher than those detected in the corresponding Ld monocultures
+        (p < 0.05)
+      explanation: Distinguishes set 3 from sets 1 and 2 regarding whether triculture
+        D-lactate significantly exceeded the corresponding Ld monoculture.
+    - reference: PMID:41859451
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In monoculture, Lh strains produced a racemic mixture of lactic acid,
+        whereas Ld strains produced exclusively D-lactate, as expected ( Figure 8
+        ). However, the limited growth of Ld strain T1104 resulted in a very low level
+        of D-lactate. St strains RBC06 and C001.27 predominately produced L-lactate,
+        which accounted for 67.2 and 83% of total lactate, respectively.
+      explanation: Establishes the single-strain D- and L-lactate enantiomer baselines
+        (racemic Lh C001.15, D-lactate-exclusive Ld C5I3, and 67.2% L-lactate St RBC06).
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:41859451
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Parmigiano_NWS_Set3_LAB_Triculture/2026-11-07T133501Z-antigravity-c10s201.yaml
+- path: kb/communities/SO2_BS1_Lithium_Battery_Bioleaching_Consortium.yaml
+  id: CommunityMech:000523
+  original_sha256: 1f735d624a000f65d1d5b63d8259522e4570e927f1fcafc5943163402aecf370
+  record_sha256: 6e09328a97a58487fe879282ebc174db8c5990a6db79a35e2f96dafffc5d1c93
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261107-stage2-four-records-batch142.yaml
+  scope: Whole record read; every graph node, COMMUNITY_LEVEL scope, participating_taxa,
+    and directed downstream causal edge verified against cached open-access full text
+    and abstract (PMID:42733304, PMC13572860, doi:10.1002/advs.77699) and sibling
+    consortium records CommunityMech:000519, CommunityMech:000520, and CommunityMech:000511.
+  summary: Reviewed and enriched the 2-node, 1-edge COMMUNITY_LEVEL causal interaction
+    graph for the engineered S. oneidensis SO2 + B. subtilis BS1 brewing-wastewater
+    NCM bioleaching consortium in PMID:42733304 with 2 additional non-overlapping
+    verbatim snippets (5 -> 7 interaction EvidenceItems) while retaining the directed
+    downstream edge.
+  node_decisions:
+  - node: SO2 Ptac::ribADEHC Riboflavin Overproduction and BS1 Ethanol Detoxification
+    rationale: Supported by primary source (PMID:42733304, Fig. 3a-c, Table 1, Section
+      2.3) with COMMUNITY_LEVEL scope covering S. oneidensis SO2 and B. subtilis BS1.
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Shewanella oneidensis MR-1 SO2
+        term:
+          id: NCBITaxon:70863
+          label: Shewanella oneidensis
+      - preferred_term: Bacillus subtilis 168 BS1
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: When fed with the brewing wastewater, riboflavin synthesized by the
+        SO2‐BS1 consortium reached 3.65 µm, 13.22‐fold higher than that synthesized
+        by the SO1‐BS1 consortium (0.276 µm, Figure 3b ). Correspondingly, the maximum
+        power density achieved by the SO2‐BS1 consortium rose to 243.71 mW m−2, 2.10‐fold
+        increase relative to the SO1‐BS1 consortium (116.15 mW m− 2, Figure 3c ),
+        demonstrating an improved EET rate of the SO1‐BS1 consortium via enhanced
+        riboflavin synthesis.
+      explanation: Demonstrates the 13.22-fold increase in riboflavin (3.65 uM) and
+        2.10-fold increase in EET power density (243.71 mW m^-2) in SO2-BS1.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Using this engineered B. subtilis strain BS1, the residual ethanol
+        in the brewing wastewater was oxidized to acetaldehyde by alcohol dehydrogenase
+        (Adh), which was subsequently converted into acetate catalyzed by aldehyde
+        dehydrogenase (AldH), constituting a dual‐enzyme cascade reaction that efficiently
+        removed ethanol, thus eliminating ethanol inhibition on the EET efficiency
+        of S. oneidensis.
+      explanation: Documents the Adh-AldH ethanol-to-acetate detoxification function
+        contributed by B. subtilis BS1.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: To this end, a riboflavin biosynthesis pathway containing GTP cyclohydrolase
+        II/ 3,4‐dihydroxy‐2‐butanone 4‐phosphate synthase (RibA), pyrimidine deaminase/reductase
+        (RibD), riboflavin synthase (RibE), 6,7‐dimethyl‐8‐ribityllumazine synthase
+        (RibH), and riboflavin kinase (RibC) was first overexpressed in SO1 driven
+        by the promotor of Ptac, resulting in the recombinant strain SO2 (Ptac‐ribA‐ribD‐ribE‐ribH‐ribC)
+        (Figure  3a and Table  1 ).
+      explanation: Documents the construction of recombinant S. oneidensis SO2 overexpressing
+        the Ptac-driven ribADEHC riboflavin biosynthesis operon to boost EET in SO2-BS1.
+  - node: SO2-BS1 Riboflavin-Accelerated NCM Metal Oxide Leaching and Late-Stage Rate
+      Decline
+    rationale: Supported by primary source (PMID:42733304, Fig. 3d-h, Fig. 4a, Fig.
+      S2, Section 2.3-2.4) with COMMUNITY_LEVEL scope covering S. oneidensis SO2 and
+      B. subtilis BS1.
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Shewanella oneidensis MR-1 SO2
+        term:
+          id: NCBITaxon:70863
+          label: Shewanella oneidensis
+      - preferred_term: Bacillus subtilis 168 BS1
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results showed 64.1 mg L−1 of the metal ions were leached when
+        catalyzed by the SO2‐BS1 consortium, representing a 1.26‐fold increase compared
+        to that catalyzed by the SO1‐BS1 consortium (50.7 mg L−1, Figure 3d ). Furthermore,
+        the maximal metal oxide leaching rate was 16.4 mg L−1·day−1 (the SO2‐BS1 consortium),
+        1.33 times higher than that catalyzed by SO1‐BS1 biocatalyst (12.3 mg L−1·day−1,
+        Figure S2 ).
+      explanation: Quantifies the 64.1 mg L^-1 total metal leaching and 16.4 mg L^-1
+        day^-1 maximal leaching rate of the SO2-BS1 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Specifically, the leached concentrations of Li, Ni, Co, and Mn catalyzed
+        by the SO2‐BS1 consortium reached 53.1, 4.7, 1.9, and 4.4 mg L−1, respectively,
+        achieving leaching efficiencies of 66.5%, 18.6%, 20.2%, and 33.3% (Figure
+        3e–h ).
+      explanation: Quantifies element-resolved Li, Ni, Co, and Mn concentrations and
+        leaching efficiencies for SO2-BS1.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Specifically, the average leaching rates decreased from 7.222 mg L−1·day−1
+        to 0.921 mg L−1·day−1 for the SO1‐BS1 consortium, from 9.867 to 0.617 mg L−1·day−1
+        for the SO2‐BS1 biocatalyst, and from 10.033 to 1.171 mg L−1·day−1 for the
+        SO2‐BS2 consortium, as shown in Figure 4a .
+      explanation: Quantifies the drop in SO2-BS1 average metal leaching rate from
+        9.867 mg L^-1 day^-1 (days 1-6) to 0.617 mg L^-1 day^-1 (days 7-14).
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: These findings indicated that the improvement of EET in the dual‐species
+        microbial consortium through the promotion of riboflavin synthesis enhanced
+        its performance in catalyzing the brewing wastewater‐mediated reduction of
+        NCM, thereby further facilitating metal oxide leaching.
+      explanation: Directly supports the causal relationship from riboflavin-boosted
+        EET in SO2-BS1 to enhanced brewing-wastewater-mediated NCM reduction and metal
+        oxide leaching.
+  edges_before: &id001
+  - source: SO2 Ptac::ribADEHC Riboflavin Overproduction and BS1 Ethanol Detoxification
+    target: SO2-BS1 Riboflavin-Accelerated NCM Metal Oxide Leaching and Late-Stage
+      Rate Decline
+    description: Elevating secreted riboflavin 13.22-fold (to 3.65 uM) and EET power
+      density 2.10-fold (to 243.71 mW m^-2) in SO2-BS1 increased 14-day NCM metal
+      oxide leaching 1.26-fold to 64.1 mg L^-1 (53.1 mg L^-1 Li, 4.7 mg L^-1 Ni, 1.9
+      mg L^-1 Co, 4.4 mg L^-1 Mn) and maximal leaching rate 1.33-fold to 16.4 mg L^-1
+      day^-1 relative to SO1-BS1 (50.7 mg L^-1, 12.3 mg L^-1 day^-1), before accumulated
+      dissolved Ni2+ and Co2+ depressed the day 7-14 average leaching rate from 9.867
+      to 0.617 mg L^-1 day^-1.
+  edges_after: *id001
+  retained_edge_decisions:
+  - edge: SO2 Ptac::ribADEHC Riboflavin Overproduction and BS1 Ethanol Detoxification
+      -> SO2-BS1 Riboflavin-Accelerated NCM Metal Oxide Leaching and Late-Stage Rate
+      Decline
+    action: keep_edge
+    support_status: DIRECTLY_SUPPORTED
+    reason: PMID:42733304 Section 2.3 demonstrates across the SO1-BS1 -> SO2-BS1 comparison
+      that overexpressing Ptac::ribADEHC in S. oneidensis SO2 elevates extracellular
+      riboflavin 13.22-fold (0.276 -> 3.65 uM) and EET power density 2.10-fold (116.15
+      -> 243.71 mW m^-2), directly increasing NCM metal oxide leaching from 50.7 to
+      64.1 mg L^-1 (maximal rate 12.3 -> 16.4 mg L^-1 day^-1).
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: When fed with the brewing wastewater, riboflavin synthesized by the
+        SO2‐BS1 consortium reached 3.65 µm, 13.22‐fold higher than that synthesized
+        by the SO1‐BS1 consortium (0.276 µm, Figure 3b ). Correspondingly, the maximum
+        power density achieved by the SO2‐BS1 consortium rose to 243.71 mW m−2, 2.10‐fold
+        increase relative to the SO1‐BS1 consortium (116.15 mW m− 2, Figure 3c ),
+        demonstrating an improved EET rate of the SO1‐BS1 consortium via enhanced
+        riboflavin synthesis.
+      explanation: Demonstrates the 13.22-fold increase in riboflavin (3.65 uM) and
+        2.10-fold increase in EET power density (243.71 mW m^-2) in SO2-BS1.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results showed 64.1 mg L−1 of the metal ions were leached when
+        catalyzed by the SO2‐BS1 consortium, representing a 1.26‐fold increase compared
+        to that catalyzed by the SO1‐BS1 consortium (50.7 mg L−1, Figure 3d ). Furthermore,
+        the maximal metal oxide leaching rate was 16.4 mg L−1·day−1 (the SO2‐BS1 consortium),
+        1.33 times higher than that catalyzed by SO1‐BS1 biocatalyst (12.3 mg L−1·day−1,
+        Figure S2 ).
+      explanation: Quantifies the 64.1 mg L^-1 total metal leaching and 16.4 mg L^-1
+        day^-1 maximal leaching rate of the SO2-BS1 consortium.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: These findings indicated that the improvement of EET in the dual‐species
+        microbial consortium through the promotion of riboflavin synthesis enhanced
+        its performance in catalyzing the brewing wastewater‐mediated reduction of
+        NCM, thereby further facilitating metal oxide leaching.
+      explanation: Directly supports the causal relationship from riboflavin-boosted
+        EET in SO2-BS1 to enhanced brewing-wastewater-mediated NCM reduction and metal
+        oxide leaching.
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42733304
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/SO2_BS1_Lithium_Battery_Bioleaching_Consortium/2026-11-07T133502Z-antigravity-c10s202.yaml
+- path: data/isolates/Shewanella_Oneidensis_SO1_NCM_Bioleaching_Isolate_Baseline.yaml
+  id: CommunityMech:000524
+  original_sha256: ec17e90c148403022202771f3d7ed933ef82714145b76b2c909f39e4ace4aa7e
+  record_sha256: 671bdcdf702788c7280e49be29c0e95455be1ca1ded72119ede0b0da864154f1
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261107-stage2-four-records-batch142.yaml
+  scope: Whole record read; every graph node, COMMUNITY_LEVEL scope, participating_taxa,
+    and zero-edge boundary verified against cached open-access full text and abstract
+    (PMID:42733304, PMC13572860, doi:10.1002/advs.77699) and sibling consortium record
+    CommunityMech:000519.
+  summary: Reviewed and enriched the 2-node, 0-edge COMMUNITY_LEVEL isolate-baseline
+    representation for Shewanella oneidensis MR-1 SO1 monoculture NCM bioleaching
+    in PMID:42733304 with 3 additional non-overlapping verbatim snippets (3 -> 6 interaction
+    EvidenceItems) while preserving 0 unsupported downstream edges.
+  node_decisions:
+  - node: Ethanol-Inhibited Extracellular Electron Transfer of S. oneidensis SO1 in
+      Brewing Wastewater
+    rationale: Supported by primary source (PMID:42733304, Fig. 1b, Fig. 2c, Section
+      2.1-2.2) with COMMUNITY_LEVEL scope for the single-strain isolate baseline (S.
+      oneidensis MR-1 SO1).
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Shewanella oneidensis MR-1 SO1
+        term:
+          id: NCBITaxon:70863
+          label: Shewanella oneidensis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The results revealed that the EET rate, as measured by the maximum
+        power density of a microbial fuel cell, was only 2.08 mW m−2 in the presence
+        of ethanol (1.8% v/v) (Figure 1b ). In contrast, in the absence of ethanol,
+        the maximum power density of S. oneidensis was 128.20 mW m−2 (Figure 1b ),
+        which was 61.62‐fold higher than the maximum power density observed in the
+        presence of ethanol.
+      explanation: Quantifies the 61.62-fold inhibition of S. oneidensis EET maximum
+        power density by 1.8% (v/v) ethanol (2.08 vs 128.20 mW m^-2).
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Moreover, the maximum power density of the SO1‐BS1 consortium reached
+        116.15 mW m−2, representing 34.47‐ and 92.92‐fold increases compared to that
+        observed in strain SO1 (3.10 mW m−2) and BS1 (1.25 mW m−2), respectively (Figure
+        2c )
+      explanation: Quantifies the 3.10 mW m^-2 maximum power density of strain SO1
+        monoculture in Moutai brewing wastewater.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: These findings clearly demonstrated that the residual ethanol in the
+        brewing wastewater dramatically hindered EET of S. oneidensis, which would
+        constrain its capacity to catalyze the brewing wastewater‐mediated reduction
+        of NCM for the purpose of metal oxide leaching.
+      explanation: Directly links residual ethanol inhibition of S. oneidensis EET
+        to its constrained monoculture NCM bioleaching capacity.
+  - node: Baseline Brewing-Wastewater NCM Cathode Metal Oxide Leaching by SO1 Monoculture
+    rationale: Supported by primary source (PMID:42733304, Fig. 1a, Fig. 2d, Section
+      2.1-2.2) with COMMUNITY_LEVEL scope for the single-strain isolate baseline (S.
+      oneidensis MR-1 SO1).
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Shewanella oneidensis MR-1 SO1
+        term:
+          id: NCBITaxon:70863
+          label: Shewanella oneidensis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In comparison to the other groups, including treating NCM using the
+        brewing wastewater only (3.4 mg L−1 total leached metal ion), the brewing
+        wastewater‐mediated reduction of NCM catalyzed by strain SO1 alone (15.4 mg
+        L−1 total leached metal ion), and the brewing wastewater‐mediated reduction
+        of NCM catalyzed by strain BS1 alone (3.8 mg L−1 total leached metal ion)
+        (Figure 2d ), the total leached metal ions by the SO1‐BS1 consortium increased
+        by 14.91‐, 3.29‐, and 13.34‐fold, respectively.
+      explanation: Quantifies the 15.4 mg L^-1 total leached metal ion yield of strain
+        SO1 alone relative to cell-free brewing wastewater (3.4 mg L^-1), BS1 alone
+        (3.8 mg L^-1), and SO1-BS1 (50.7 mg L^-1).
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: The presence of S. oneidensis resulted in an increase in the concentration
+        of total leached metal ions to 15.4 mg L−1 (Figure  1a ), a 4.53‐fold increase
+        compared to the control group, which involved metal oxide leaching from NCM
+        using only the brewing wastewater (3.4 mg L−1).
+      explanation: Quantifies the 4.53-fold increase in total leached metal ions (15.4
+        vs 3.4 mg L^-1) achieved by S. oneidensis SO1 monoculture over abiotic brewing
+        wastewater.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: These findings revealed that S. oneidensis overcame reaction barriers
+        and thus initiated and enhanced the reduction of NCM by the brewing wastewater,
+        facilitating metal oxide leaching.
+      explanation: Confirms that S. oneidensis SO1 monoculture overcomes reaction
+        barriers to initiate and enhance brewing-wastewater-mediated reduction of
+        NCM.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42733304
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Shewanella_Oneidensis_SO1_NCM_Bioleaching_Isolate_Baseline/2026-11-07T133503Z-antigravity-c10s203.yaml
+- path: data/isolates/Bacillus_Subtilis_BS1_Brewing_Wastewater_Isolate_Baseline.yaml
+  id: CommunityMech:000525
+  original_sha256: 6fc667594cd8748bc8b6cdc554dc00bbba4bc117e6015e65429ec7fb1b5b9e35
+  record_sha256: 165451ae89b467384dae87f9e5ef00d4b68fc7823037b3b96226e632bf186947
+  status: reviewed
+  outcome: changed
+  review_file: reports/causal_graph_review/decisions/20261107-stage2-four-records-batch142.yaml
+  scope: Whole record read; every graph node, COMMUNITY_LEVEL scope, participating_taxa,
+    and zero-edge boundary verified against cached open-access full text and abstract
+    (PMID:42733304, PMC13572860, doi:10.1002/advs.77699) and sibling consortium record
+    CommunityMech:000519.
+  summary: Reviewed and enriched the 2-node, 0-edge COMMUNITY_LEVEL isolate-baseline
+    representation for Bacillus subtilis 168 BS1 monoculture ethanol oxidation and
+    NCM bioleaching baseline in PMID:42733304 with 3 additional non-overlapping verbatim
+    snippets (4 -> 7 interaction EvidenceItems) while preserving 0 unsupported downstream
+    edges.
+  node_decisions:
+  - node: Heterologous Adh-AldH Dual-Enzyme Oxidation of Brewing-Wastewater Ethanol
+      by BS1
+    rationale: Supported by primary source (PMID:42733304, Fig. 2a-b, Table 1, Section
+      2.1-2.2) with COMMUNITY_LEVEL scope for the single-strain isolate baseline (B.
+      subtilis 168 BS1).
+    field_path: ecological_interactions[0]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Bacillus subtilis 168 BS1
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Using this engineered B. subtilis strain BS1, the residual ethanol
+        in the brewing wastewater was oxidized to acetaldehyde by alcohol dehydrogenase
+        (Adh), which was subsequently converted into acetate catalyzed by aldehyde
+        dehydrogenase (AldH), constituting a dual‐enzyme cascade reaction that efficiently
+        removed ethanol, thus eliminating ethanol inhibition on the EET efficiency
+        of S. oneidensis.
+      explanation: Describes the heterologous Adh-AldH dual-enzyme ethanol-to-acetate
+        oxidation cascade in engineered B. subtilis BS1.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In contrast, the wild‐type strain BS0 removed only approximately 35.6%
+        of ethanol within 48 h, lowering the ethanol concentration from 1.8% to 1.16%
+        (v/v) (Figure 2b ).
+      explanation: Establishes the wild-type B. subtilis BS0 ethanol removal baseline
+        (~35.6% removal over 48 h) against which engineered BS1 is compared.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: When cultivated with the brewing wastewater, strain BS1 achieved a
+        higher maximum cell density (OD600, max of 0.884), while the wild‐type B.
+        subtilis (BS0, Table  1 ) exhibited OD600, max of 0.641 (Figure  2a ). Following
+        48‐h fermentation, ethanol in the brewing wastewater was effectively consumed
+        by strain BS1, with the ethanol concentration dropping from 1.8% to 0.01%
+        (v/v), corresponding to an ethanol removal efficiency of 99.4% (Figure  2b
+        ).
+      explanation: Quantifies BS1 maximum cell density (OD600,max 0.884 vs 0.641 in
+        BS0) and 99.4% ethanol removal efficiency (1.8% to 0.01% v/v in 48 h) in brewing
+        wastewater.
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: These findings demonstrated that the Adh‐AldH dual‐enzyme cascade reaction
+        conferred on strain BS1 with an outstanding ethanol catabolic capacity, enabling
+        strain BS1 to rapidly proliferate in the ethanol‐containing brewing wastewater
+        and to efficiently remove the residual ethanol.
+      explanation: Confirms that the P43::adh-aldH dual-enzyme cascade drives rapid
+        BS1 proliferation and 99.4% ethanol removal in brewing wastewater.
+  - node: Minimal Standalone Electrogenic Power Density and NCM Metal Leaching by
+      BS1 Monoculture
+    rationale: Supported by primary source (PMID:42733304, Fig. 1a, Fig. 2c-d, Section
+      2.1-2.2) with COMMUNITY_LEVEL scope for the single-strain isolate baseline (B.
+      subtilis 168 BS1).
+    field_path: ecological_interactions[1]
+    source_locator: Cached full text and abstract (PMID:42733304, PMC13572860)
+    scope: COMMUNITY_LEVEL
+    participants:
+      participating_taxa:
+      - preferred_term: Bacillus subtilis 168 BS1
+        term:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+    evidence:
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Moreover, the maximum power density of the SO1‐BS1 consortium reached
+        116.15 mW m−2, representing 34.47‐ and 92.92‐fold increases compared to that
+        observed in strain SO1 (3.10 mW m−2) and BS1 (1.25 mW m−2), respectively (Figure
+        2c )
+      explanation: Quantifies the 1.25 mW m^-2 maximum power density of strain BS1
+        monoculture (92.92-fold lower than SO1-BS1).
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: In comparison to the other groups, including treating NCM using the
+        brewing wastewater only (3.4 mg L−1 total leached metal ion), the brewing
+        wastewater‐mediated reduction of NCM catalyzed by strain SO1 alone (15.4 mg
+        L−1 total leached metal ion), and the brewing wastewater‐mediated reduction
+        of NCM catalyzed by strain BS1 alone (3.8 mg L−1 total leached metal ion)
+        (Figure 2d ), the total leached metal ions by the SO1‐BS1 consortium increased
+        by 14.91‐, 3.29‐, and 13.34‐fold, respectively.
+      explanation: Quantifies the 3.8 mg L^-1 total leached metal ion yield of strain
+        BS1 alone (13.34-fold lower than SO1-BS1 at 50.7 mg L^-1).
+    - reference: PMID:42733304
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: However, when immersing the cathode material of black mass (the cathode
+        material of spent LIBs, primarily composed of NCM, of which composition was
+        shown in Table S1 ) into the brewing wastewater collected from a brewing factory
+        in Moutai Town (Guizhou Province, China), only a very small amount of metal
+        ions (3.4 mg L−1) was leached from 0.2 g L−1 black mass over 2 week period
+        (Figure  1a ).
+      explanation: Establishes the 3.4 mg L^-1 abiotic brewing-wastewater leaching
+        control against which BS1 monoculture (3.8 mg L^-1) shows negligible standalone
+        NCM reduction.
+  edges_before: []
+  edges_after: []
+  retained_edge_decisions: []
+  removed_edge_decisions: []
+  removed_node_decisions: []
+  references:
+  - PMID:42733304
+  allowed_changed_fields:
+  - ecological_interactions
+  - curation_history
+  curation_events_added: 1
+  history_files:
+  - history/records/Bacillus_Subtilis_BS1_Brewing_Wastewater_Isolate_Baseline/2026-11-07T133504Z-antigravity-c10s204.yaml

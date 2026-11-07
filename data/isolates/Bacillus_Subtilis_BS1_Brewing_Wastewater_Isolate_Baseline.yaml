@@ -124,6 +124,23 @@ ecological_interactions:
       concentration from 1.8% to 1.16% (v/v) (Figure 2b ).
     explanation: Establishes the wild-type B. subtilis BS0 ethanol removal baseline (~35.6% removal over 48 h) against which
       engineered BS1 is compared.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When cultivated with the brewing wastewater, strain BS1 achieved a higher maximum cell density (OD600, max of
+      0.884), while the wild‐type B. subtilis (BS0, Table  1 ) exhibited OD600, max of 0.641 (Figure  2a ). Following 48‐h
+      fermentation, ethanol in the brewing wastewater was effectively consumed by strain BS1, with the ethanol concentration
+      dropping from 1.8% to 0.01% (v/v), corresponding to an ethanol removal efficiency of 99.4% (Figure  2b ).
+    explanation: Quantifies BS1 maximum cell density (OD600,max 0.884 vs 0.641 in BS0) and 99.4% ethanol removal efficiency
+      (1.8% to 0.01% v/v in 48 h) in brewing wastewater.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These findings demonstrated that the Adh‐AldH dual‐enzyme cascade reaction conferred on strain BS1 with an outstanding
+      ethanol catabolic capacity, enabling strain BS1 to rapidly proliferate in the ethanol‐containing brewing wastewater
+      and to efficiently remove the residual ethanol.
+    explanation: Confirms that the P43::adh-aldH dual-enzyme cascade drives rapid BS1 proliferation and 99.4% ethanol removal
+      in brewing wastewater.
 - name: Minimal Standalone Electrogenic Power Density and NCM Metal Leaching by BS1 Monoculture
   description: When evaluated alone in Moutai brewing wastewater without Shewanella oneidensis, B. subtilis BS1 monoculture
     generated a microbial fuel cell maximum power density of only 1.25 mW m^-2 (92.92-fold lower than the SO1-BS1 consortium
@@ -172,6 +189,15 @@ ecological_interactions:
       and 13.34‐fold, respectively.
     explanation: Quantifies the 3.8 mg L^-1 total leached metal ion yield of strain BS1 alone (13.34-fold lower than SO1-BS1
       at 50.7 mg L^-1).
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: However, when immersing the cathode material of black mass (the cathode material of spent LIBs, primarily composed
+      of NCM, of which composition was shown in Table S1 ) into the brewing wastewater collected from a brewing factory in
+      Moutai Town (Guizhou Province, China), only a very small amount of metal ions (3.4 mg L−1) was leached from 0.2 g L−1
+      black mass over 2 week period (Figure  1a ).
+    explanation: Establishes the 3.4 mg L^-1 abiotic brewing-wastewater leaching control against which BS1 monoculture (3.8
+      mg L^-1) shows negligible standalone NCM reduction.
 environmental_factors:
 - name: BS1 monoculture NCM leaching yield and MFC power density
   value: 3.8 mg L^-1 total leached metal ions and 1.25 mW m^-2 maximum power density
@@ -264,4 +290,11 @@ curation_history:
     in data/isolates/ from PMID:42733304 / doi:10.1002/advs.77699 for the single-strain engineered P43::adh-aldH partner control
     (1.25 mW m^-2 power density, 3.8 mg L^-1 NCM metal leaching) linked via MEMBER_SUBSET_OF and SAME_STUDY_AS to CommunityMech:000523
     and via SAME_STUDY_AS to CommunityMech:000524.
+  llm_assisted: true
+- timestamp: '2026-11-07T13:35:04Z'
+  curator: antigravity
+  action: CURATE_CAUSAL_GRAPH
+  changes: Reviewed both COMMUNITY_LEVEL isolate baseline interaction nodes and 1 KNOWLEDGE_GAP discussion against PMID:42733304
+    (PMC13572860); enriched interaction evidence from 4 to 7 non-overlapping, bracket-free verbatim snippets while preserving
+    0 unsupported downstream edges.
   llm_assisted: true
