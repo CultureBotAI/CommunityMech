@@ -1,0 +1,121 @@
+schema_version: 1.0.0
+repository_key: communitymech
+github_repository: CultureBotAI/CommunityMech
+run_id: mech-goal-sequence-20261019
+cycle: 10
+stage: 4
+revision: 1
+outcome: completed
+summary: Reviewed all 521 eligible records in the frozen CommunityMech inventory at
+  commit c253d3d0ca073e3ed71447d0e184439b7fd9485c across all 3 declared record roots
+  (507 kb/communities/*.yaml, 12 data/isolates/*.yaml, 2 kb/taxa/*.yaml) and 22 domain
+  cohorts using review-yaml-record and review-yaml-category. Saved immutable structured
+  review bundles (20261107T174400Z-c10s4-record-deep-audit and 20261107T174500Z-c10s4-frozen-cohort-review)
+  and preserved 3 new actionable open findings across 3 records (CommunityMech:000052,
+  000092, 000162) plus 7 carried-forward source-limited deferred findings (10 total
+  carry_forward_ids) for Cycle 10 Stage 5 grouped remediation.
+source_revision: c253d3d0ca073e3ed71447d0e184439b7fd9485c
+previous_evidence:
+  path: reviews/workflow/mech-goal-sequence-20261019/cycle-000009/stage-05/revision-0001/evidence.yaml
+  sha256: 383bbd787ac9294b14fb7357bf034cdd078a524b01cbe2eb0be04f27a4605423
+artifacts:
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000010/stage-04/revision-0001/review_report.md
+  sha256: 3708cd441e9331686f89c120db9907cdba2f9f0258cdbbdebd1cd560405b78e4
+  kind: review_report
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000010/stage-04/revision-0001/review_findings.yaml
+  sha256: a867bae29426e19b039a43df9998363d77b2fca3c45fbad685c709b20e91c87a
+  kind: review_findings
+- path: reviews/workflow/mech-goal-sequence-20261019/cycle-000010/stage-04/revision-0001/frozen_inventory_metrics.tsv
+  sha256: aced174b3c1bf8869bc0f56aca5dba08923c72eec7d6911701ce3c21f94378da
+  kind: supporting
+findings:
+- finding_id: c10s4-000052-pelotomaculum-methanothermobacter-abundance-levels
+  status: open
+  summary: 'CommunityMech:000052 (kb/communities/Pelotomaculum_Methanothermobacter_Syntrophy.yaml)
+    omits abundance_level: DOMINANT on both Pelotomaculum thermopropionicum (taxonomy[0],
+    NCBITaxon:110500) and Methanothermobacter thermautotrophicus (taxonomy[1], NCBITaxon:145262)
+    despite verbatim defined two-member syntrophic coculture support in PMID:12361280
+    (doi:10.1099/00207713-52-5-1729); preserve discussions[0] (si-deltah-fulltext-and-feedback).'
+- finding_id: c10s4-000092-rhodopseudomonas-ecoli-abundance-levels
+  status: open
+  summary: 'CommunityMech:000092 (kb/communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.yaml)
+    omits abundance_level: DOMINANT on both Rhodopseudomonas palustris (taxonomy[0],
+    NCBITaxon:1076) and Escherichia coli (taxonomy[1], NCBITaxon:562) despite verbatim
+    defined two-member reciprocal cross-feeding coculture support in PMID:32788711
+    (PMC7784955, doi:10.1038/s41396-020-00737-5); preserve discussions[0] (reciprocal_exchange_strain_context).'
+- finding_id: c10s4-000162-thalassiosira-ruegeria-abundance-levels
+  status: open
+  summary: 'CommunityMech:000162 (kb/communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.yaml)
+    omits abundance_level: DOMINANT on both Thalassiosira pseudonana CCMP1335 (taxonomy[0],
+    NCBITaxon:296543) and Ruegeria pomeroyi DSS-3 (taxonomy[1], NCBITaxon:246200)
+    despite verbatim defined two-member marine phytoplankton-bacterium model coculture
+    support in PMID:28631440 (doi:10.1111/1462-2920.13834); preserve discussions[0]
+    (ruegeria-recognition-mediation-and-b12-extension).'
+- finding_id: cheese-assay-evidence-gap
+  status: deferred
+  carried_from: cheese-assay-evidence-gap
+  summary: CommunityMech:000153 (kb/communities/Cheese_Rind_InSitu_InVitro_Model_Community.yaml)
+    pairwise assay specifics in PMID:25043025 require full-text tables beyond the
+    cached abstract (#765).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/765
+  disposition: 'Deferred: source-limited until full-text assay tables for PMID:25043025
+    are ingested (#765).'
+- finding_id: communitymech-1467-source-discrepancy-and-extension
+  status: deferred
+  carried_from: communitymech-1467-source-discrepancy-and-extension
+  summary: CommunityMech:000091 (kb/communities/GLBRC_Exometabolite_Transwell_SynCom.yaml)
+    broader 18-species Transwell campaign and strain table reconciliation require
+    full-text tables (#1467).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1467
+  disposition: 'Deferred: tracked in GitHub issue #1467 pending full-text table reconciliation.'
+- finding_id: communitymech-1699-coverage
+  status: deferred
+  carried_from: communitymech-1699-coverage
+  summary: CommunityMech:000054 (kb/communities/Phormidium_Alkaline_Consortium.yaml)
+    additional heterotrophic co-isolates require full-text table verification (#1699).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1699
+  disposition: 'Deferred: tracked in GitHub issue #1699 pending full-text isolate
+    table verification.'
+- finding_id: communitymech-1841
+  status: deferred
+  carried_from: communitymech-1841
+  summary: CommunityMech:000222 (kb/communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml)
+    lower-rank isolate resolution requires full-text supplementary strain tables (#1841).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1841
+  disposition: 'Deferred: tracked in GitHub issue #1841 pending full-text supplementary
+    strain table inspection.'
+- finding_id: communitymech-1847-metg2-membership
+  status: deferred
+  carried_from: communitymech-1847-metg2-membership
+  summary: CommunityMech:000302 (kb/communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.yaml)
+    full 18-isolate membership and media composition require full-text tables (#1847).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1847
+  disposition: 'Deferred: tracked in GitHub issue #1847 pending full-text membership
+    and media table inspection.'
+- finding_id: okeke-fulltext-assay-gap
+  status: deferred
+  carried_from: okeke-fulltext-assay-gap
+  summary: CommunityMech:000048 (kb/communities/Okeke_Lu_Cellulolytic_Consortium.yaml)
+    kinetic and co-culture assay parameters require paywalled full text (#1657).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1657
+  disposition: 'Deferred: source-limited because primary full text is paywalled (#1657).'
+- finding_id: parachlorella-remaining-research
+  status: deferred
+  carried_from: parachlorella-remaining-research
+  summary: CommunityMech:000295 (kb/communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.yaml)
+    secondary bacterial satellite interactions require full-text data (#1681).
+  issue_url: https://github.com/CultureBotAI/CommunityMech/issues/1681
+  disposition: 'Deferred: source-limited pending full-text interaction data (#1681).'
+groups: []
+carry_forward_ids:
+- c10s4-000052-pelotomaculum-methanothermobacter-abundance-levels
+- c10s4-000092-rhodopseudomonas-ecoli-abundance-levels
+- c10s4-000162-thalassiosira-ruegeria-abundance-levels
+- cheese-assay-evidence-gap
+- communitymech-1467-source-discrepancy-and-extension
+- communitymech-1699-coverage
+- communitymech-1841
+- communitymech-1847-metg2-membership
+- okeke-fulltext-assay-gap
+- parachlorella-remaining-research
+infra_tasks: []
