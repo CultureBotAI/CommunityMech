@@ -16,6 +16,7 @@ DECISION_FILE = (
 )
 SUMMARY_FILE = REPO / "reports/causal_graph_review/summary.json"
 INVENTORY_FILE = REPO / "reports/causal_graph_review/inventory.tsv"
+REPORT_FILE = REPO / "reports/c10s2_causal_graph_corpus_review_20261107.md"
 
 
 def _sha256(path: Path) -> str:
@@ -31,6 +32,7 @@ def verify_batch142_contract(
     records_by_id: dict[str, dict],
     record_hashes: dict[str, str],
     ref_caches: dict[str, str],
+    report_text: str,
 ) -> None:
     """Validate Batch 142 causal-graph decision ledger and record invariants."""
     expected_ids = [
@@ -117,6 +119,12 @@ def verify_batch142_contract(
             raise AssertionError(
                 f"{rec_id} last curation_history action must be CURATE_CAUSAL_GRAPH"
             )
+        if entry["original_sha256"] not in report_text or entry["record_sha256"] not in report_text:
+            raise AssertionError(f"{rec_id} SHA-256 hashes missing from report_text")
+        for disc in record.get("discussions") or []:
+            disc_id = disc.get("discussion_id", "")
+            if disc_id and disc_id not in report_text:
+                raise AssertionError(f"{rec_id} discussion_id {disc_id} missing from report_text")
 
     counts = decision_data.get("reviewed_counts") or {}
     if counts.get("retained_nodes") != total_nodes:
@@ -129,7 +137,7 @@ def verify_batch142_contract(
         )
 
 
-def _load_real_inputs() -> tuple[dict, dict[str, dict], dict[str, str], dict[str, str]]:
+def _load_real_inputs() -> tuple[dict, dict[str, dict], dict[str, str], dict[str, str], str]:
     decision_data = yaml.safe_load(DECISION_FILE.read_text())
     records_by_id: dict[str, dict] = {}
     record_hashes: dict[str, str] = {}
@@ -141,12 +149,13 @@ def _load_real_inputs() -> tuple[dict, dict[str, dict], dict[str, str], dict[str
         "PMID:41859451": (REPO / "references_cache/PMID_41859451.txt").read_text(),
         "PMID:42733304": (REPO / "references_cache/PMID_42733304.txt").read_text(),
     }
-    return decision_data, records_by_id, record_hashes, ref_caches
+    report_text = REPORT_FILE.read_text()
+    return decision_data, records_by_id, record_hashes, ref_caches, report_text
 
 
 def test_causal_review_batch142_contract_and_inventory() -> None:
-    decision_data, records_by_id, record_hashes, ref_caches = _load_real_inputs()
-    verify_batch142_contract(decision_data, records_by_id, record_hashes, ref_caches)
+    decision_data, records_by_id, record_hashes, ref_caches, report_text = _load_real_inputs()
+    verify_batch142_contract(decision_data, records_by_id, record_hashes, ref_caches, report_text)
 
     for entry in decision_data["records"]:
         for hfile in entry["history_files"]:
@@ -172,7 +181,7 @@ def test_causal_review_batch142_contract_and_inventory() -> None:
 
 
 def test_the_check_can_actually_fail() -> None:
-    decision_data, records_by_id, record_hashes, ref_caches = _load_real_inputs()
+    decision_data, records_by_id, record_hashes, ref_caches, report_text = _load_real_inputs()
 
     # 1. Control arm: unmutated copy passes
     verify_batch142_contract(
@@ -180,13 +189,14 @@ def test_the_check_can_actually_fail() -> None:
         copy.deepcopy(records_by_id),
         copy.deepcopy(record_hashes),
         copy.deepcopy(ref_caches),
+        report_text,
     )
 
     # 2. Mutated arm A: corrupted SHA-256 hash in decision ledger fails
     mut_hashes = copy.deepcopy(record_hashes)
     mut_hashes["CommunityMech:000522"] = "0" * 64
     with pytest.raises(AssertionError, match="record_sha256 mismatch"):
-        verify_batch142_contract(decision_data, records_by_id, mut_hashes, ref_caches)
+        verify_batch142_contract(decision_data, records_by_id, mut_hashes, ref_caches, report_text)
 
     # 3. Mutated arm B: bracketed ellipsis in snippet fails
     mut_records_b = copy.deepcopy(records_by_id)
@@ -194,7 +204,9 @@ def test_the_check_can_actually_fail() -> None:
         "snippet"
     ] += " [...]"
     with pytest.raises(AssertionError, match="Bracketed text"):
-        verify_batch142_contract(decision_data, mut_records_b, record_hashes, ref_caches)
+        verify_batch142_contract(
+            decision_data, mut_records_b, record_hashes, ref_caches, report_text
+        )
 
     # 4. Mutated arm C: overlapping duplicate snippet on same node fails
     mut_records_c = copy.deepcopy(records_by_id)
@@ -205,10 +217,21 @@ def test_the_check_can_actually_fail() -> None:
         "snippet"
     ] = dup_snip
     with pytest.raises(AssertionError, match="Overlapping snippets"):
-        verify_batch142_contract(decision_data, mut_records_c, record_hashes, ref_caches)
+        verify_batch142_contract(
+            decision_data, mut_records_c, record_hashes, ref_caches, report_text
+        )
 
     # 5. Mutated arm D: missing CURATE_CAUSAL_GRAPH history action fails
     mut_records_d = copy.deepcopy(records_by_id)
     mut_records_d["CommunityMech:000525"]["curation_history"][-1]["action"] = "CREATED"
     with pytest.raises(AssertionError, match="CURATE_CAUSAL_GRAPH"):
-        verify_batch142_contract(decision_data, mut_records_d, record_hashes, ref_caches)
+        verify_batch142_contract(
+            decision_data, mut_records_d, record_hashes, ref_caches, report_text
+        )
+
+    # 6. Mutated arm E: stale SHA-256 hash in report_text fails
+    mut_report = report_text.replace(record_hashes["CommunityMech:000523"], "f" * 64)
+    with pytest.raises(AssertionError, match="SHA-256 hashes missing from report_text"):
+        verify_batch142_contract(
+            decision_data, records_by_id, record_hashes, ref_caches, mut_report
+        )
