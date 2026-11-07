@@ -63,8 +63,8 @@ def test_taxa_record_structure():
             "PMID:39504696",
             "PMID:31537786",
         } == refs
-        assert len(genes[sym]["evidence"]) == 7
-        assert sum(1 for ev in genes[sym]["evidence"] if ev["reference"] == "PMID:42733304") == 4
+        assert len(genes[sym]["evidence"]) == 8
+        assert sum(1 for ev in genes[sym]["evidence"] if ev["reference"] == "PMID:42733304") == 5
     for sym in ("mtrB", "mtrA"):
         refs = {ev["reference"] for ev in genes[sym]["evidence"]}
         assert {"PMID:42733304", "PMID:41210787", "PMID:31537786", "PMID:32849356"} == refs
@@ -93,8 +93,9 @@ def test_taxa_record_structure():
         "PMID:41236292",
         "PMID:28287150",
         "PMID:32265334",
+        "PMID:41876513",
     } == {ev["reference"] for ev in geo_genes["pilA"]["evidence"]}
-    assert len(geo_genes["pilA"]["evidence"]) == 6
+    assert len(geo_genes["pilA"]["evidence"]) == 7
     assert {
         "PMID:41210787",
         "PMID:37650614",
@@ -115,7 +116,8 @@ def test_taxa_record_structure():
     assert {"PMID:41876513", "PMID:37650614", "PMID:37747940"} == {
         ev["reference"] for ev in geo_genes["omcB"]["evidence"]
     }
-    assert len(geo_genes["omcB"]["evidence"]) == 3
+    assert len(geo_genes["omcB"]["evidence"]) == 4
+    assert sum(1 for ev in geo_genes["omcB"]["evidence"] if ev["reference"] == "PMID:41876513") == 2
 
 
 def test_taxa_genes_have_verified_uniprot_and_cached_evidence():
@@ -181,11 +183,13 @@ def test_community_links_common_taxon():
         "kb/communities/Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.yaml",
         "kb/communities/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.yaml",
         "kb/communities/SO1_BS1_Lithium_Battery_Bioleaching_Consortium.yaml",
+        "kb/communities/SO2_BS1_Lithium_Battery_Bioleaching_Consortium.yaml",
         "kb/communities/SO2_BS2_Lithium_Battery_Bioleaching_Consortium.yaml",
         "kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
         "kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml",
         "kb/communities/Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml",
         "kb/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml",
+        "data/isolates/Shewanella_Oneidensis_SO1_NCM_Bioleaching_Isolate_Baseline.yaml",
     ]
     for rel_path in expected_mr1_files:
         doc = yaml.safe_load(Path(rel_path).read_text())
