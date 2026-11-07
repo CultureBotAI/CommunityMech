@@ -1,0 +1,267 @@
+id: CommunityMech:000525
+name: Bacillus subtilis 168 BS1 Brewing-Wastewater Ethanol-Detoxifying Isolate Baseline
+description: Single-strain engineered bacterial isolate baseline Bacillus subtilis 168 BS1 (BS0 carrying P43::adh from Saccharomyces
+  cerevisiae BY4341 and aldH from Issatchenkia terricola XJ-2 integrated on pCE2, Cmr) evaluated as the monoculture ethanol-detoxifying
+  partner control alongside wild-type B. subtilis BS0, Shewanella oneidensis SO1 monoculture (CommunityMech:000524), and the
+  SO1-BS1 (CommunityMech:000519) and SO2-BS1 (CommunityMech:000523) consortia in Moutai brewing wastewater by Zhang et al.
+  2026 (PMID:42733304). Whereas wild-type BS0 removed only ~35.6% of residual ethanol over 48 h (lowering ethanol from 1.8%
+  to 1.16% v/v), engineered BS1 oxidized ethanol via acetaldehyde to acetate through the heterologous Adh-AldH cascade. In
+  monoculture without S. oneidensis, however, strain BS1 generated only 1.25 mW m^-2 maximum microbial fuel cell power density
+  (92.92-fold lower than SO1-BS1 at 116.15 mW m^-2) and leached only 3.8 mg L^-1 total dissolved Li, Ni, Co, and Mn from 0.2
+  g L^-1 spent NCM cathode black mass over 14 days (nearly identical to cell-free brewing wastewater at 3.4 mg L^-1 and 13.34-fold
+  lower than SO1-BS1 at 50.7 mg L^-1), demonstrating that BS1 functions as the ethanol-detoxifying syntrophic partner rather
+  than an independent electrogenic NCM reducer.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOMINING
+environment_term:
+  preferred_term: anaerobic brewing-wastewater NCM bioleaching culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled anaerobic bottle monoculture fed with Moutai brewing wastewater (containing 1.8% v/v residual ethanol
+    and lactate electron donor) and 0.2 g L^-1 spent NCM cathode black mass at 30 degrees C.
+related_communities:
+- identifier: CommunityMech:000523
+  relation: MEMBER_SUBSET_OF
+  basis: SHARED_STRAIN_DESIGNATIONS
+  description: The single-strain Bacillus subtilis 168 BS1 isolate baseline is a member subset of the two-strain SO2-BS1 consortium
+    (SO2, BS1; CommunityMech:000523).
+- identifier: CommunityMech:000523
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Strain BS1 monoculture and the SO2-BS1 consortium (CommunityMech:000523) were evaluated in the same Moutai
+    brewing-wastewater NCM bioleaching study (PMID:42733304).
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When fed with the brewing wastewater, riboflavin synthesized by the SO2‐BS1 consortium reached 3.65 µm, 13.22‐fold
+      higher than that synthesized by the SO1‐BS1 consortium (0.276 µm, Figure 3b ).
+    explanation: Establishes that strain BS1 is the B. subtilis partner used to construct the SO2-BS1 consortium in PMID:42733304.
+- identifier: CommunityMech:000524
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: Strain BS1 monoculture and strain SO1 monoculture (CommunityMech:000524) were evaluated side-by-side as the
+    two single-strain partner controls in PMID:42733304.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Moreover, the maximum power density of the SO1‐BS1 consortium reached 116.15 mW m−2, representing 34.47‐ and
+      92.92‐fold increases compared to that observed in strain SO1 (3.10 mW m−2) and BS1 (1.25 mW m−2), respectively (Figure
+      2c )
+    explanation: Benchmarks strain BS1 (1.25 mW m^-2) and strain SO1 (3.10 mW m^-2) side-by-side in the same study.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus subtilis 168 BS1
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_subtilis
+      gtdb_taxon: Bacillus subtilis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis
+      ncbi_source_id: NCBITaxon:1423
+      majority_fraction: 0.91
+      total_genomes: 1256
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Engineered Bacillus subtilis 168 strain BS1 carrying P43::adh from Saccharomyces cerevisiae BY4341 and aldH from
+      Issatchenkia terricola XJ-2 on pCE2 (Cmr); evaluated as the single-strain ethanol-detoxifying partner baseline in Moutai
+      brewing wastewater.
+  strain_designation:
+    strain_name: BS1
+    genetic_modification: BS0 (wild-type Bacillus subtilis 168 containing pCE2) with P43::adh from Saccharomyces cerevisiae
+      BY4341 and aldH from Issatchenkia terricola XJ-2 integrated at pCE2, Cmr.
+  abundance_level: DOMINANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'BS1 BS0 with the P43:: adh gene from Saccharomyces cerevisiae BY4341 and aldH gene from Issatchenkia terricola
+      XJ‐2 integrated at pCE2, Cmr. This study'
+    explanation: Defines the genotype of engineered B. subtilis 168 strain BS1 in Table 1.
+ecological_interactions:
+- name: Heterologous Adh-AldH Dual-Enzyme Oxidation of Brewing-Wastewater Ethanol by BS1
+  description: To overcome the incomplete ethanol removal of wild-type B. subtilis 168 BS0 (which removed only ~35.6% of residual
+    ethanol within 48 h in Moutai brewing wastewater, lowering ethanol from 1.8% to 1.16% v/v, Figure 2b), engineered B. subtilis
+    BS1 expresses P43-driven alcohol dehydrogenase (adh from Saccharomyces cerevisiae BY4341) and aldehyde dehydrogenase (aldH
+    from Issatchenkia terricola XJ-2) on plasmid pCE2, oxidizing residual ethanol to acetaldehyde and acetate.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus subtilis 168 BS1
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  metabolites:
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Using this engineered B. subtilis strain BS1, the residual ethanol in the brewing wastewater was oxidized to
+      acetaldehyde by alcohol dehydrogenase (Adh), which was subsequently converted into acetate catalyzed by aldehyde dehydrogenase
+      (AldH), constituting a dual‐enzyme cascade reaction that efficiently removed ethanol, thus eliminating ethanol inhibition
+      on the EET efficiency of S. oneidensis.
+    explanation: Describes the heterologous Adh-AldH dual-enzyme ethanol-to-acetate oxidation cascade in engineered B. subtilis
+      BS1.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In contrast, the wild‐type strain BS0 removed only approximately 35.6% of ethanol within 48 h, lowering the ethanol
+      concentration from 1.8% to 1.16% (v/v) (Figure 2b ).
+    explanation: Establishes the wild-type B. subtilis BS0 ethanol removal baseline (~35.6% removal over 48 h) against which
+      engineered BS1 is compared.
+- name: Minimal Standalone Electrogenic Power Density and NCM Metal Leaching by BS1 Monoculture
+  description: When evaluated alone in Moutai brewing wastewater without Shewanella oneidensis, B. subtilis BS1 monoculture
+    generated a microbial fuel cell maximum power density of only 1.25 mW m^-2 (92.92-fold lower than the SO1-BS1 consortium
+    at 116.15 mW m^-2, Figure 2c) and catalyzed only 3.8 mg L^-1 total dissolved Li, Ni, Co, and Mn leaching from 0.2 g L^-1
+    spent NCM cathode black mass over 14 days (compared with 3.4 mg L^-1 for cell-free brewing wastewater, 15.4 mg L^-1 for
+    SO1 alone, and 50.7 mg L^-1 [13.34-fold higher] for SO1-BS1, Figure 2d), confirming that BS1 alone cannot effectively
+    reduce NCM metal oxides without its electrogenic S. oneidensis partner.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus subtilis 168 BS1
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  metabolites:
+  - preferred_term: lithium(1+)
+    term:
+      id: CHEBI:49713
+      label: lithium(1+)
+  - preferred_term: nickel(2+)
+    term:
+      id: CHEBI:49786
+      label: nickel(2+)
+  - preferred_term: cobalt(2+)
+    term:
+      id: CHEBI:48828
+      label: cobalt(2+)
+  - preferred_term: manganese(2+)
+    term:
+      id: CHEBI:29035
+      label: manganese(2+)
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Moreover, the maximum power density of the SO1‐BS1 consortium reached 116.15 mW m−2, representing 34.47‐ and
+      92.92‐fold increases compared to that observed in strain SO1 (3.10 mW m−2) and BS1 (1.25 mW m−2), respectively (Figure
+      2c )
+    explanation: Quantifies the 1.25 mW m^-2 maximum power density of strain BS1 monoculture (92.92-fold lower than SO1-BS1).
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In comparison to the other groups, including treating NCM using the brewing wastewater only (3.4 mg L−1 total
+      leached metal ion), the brewing wastewater‐mediated reduction of NCM catalyzed by strain SO1 alone (15.4 mg L−1 total
+      leached metal ion), and the brewing wastewater‐mediated reduction of NCM catalyzed by strain BS1 alone (3.8 mg L−1 total
+      leached metal ion) (Figure 2d ), the total leached metal ions by the SO1‐BS1 consortium increased by 14.91‐, 3.29‐,
+      and 13.34‐fold, respectively.
+    explanation: Quantifies the 3.8 mg L^-1 total leached metal ion yield of strain BS1 alone (13.34-fold lower than SO1-BS1
+      at 50.7 mg L^-1).
+environmental_factors:
+- name: BS1 monoculture NCM leaching yield and MFC power density
+  value: 3.8 mg L^-1 total leached metal ions and 1.25 mW m^-2 maximum power density
+  description: Over 14 days with 0.2 g L^-1 spent NCM cathode black mass in Moutai brewing wastewater, B. subtilis BS1 monoculture
+    leached 3.8 mg L^-1 total metal ions (vs 3.4 mg L^-1 in abiotic brewing wastewater and 50.7 mg L^-1 in SO1-BS1) and generated
+    1.25 mW m^-2 maximum MFC power density.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In comparison to the other groups, including treating NCM using the brewing wastewater only (3.4 mg L−1 total
+      leached metal ion), the brewing wastewater‐mediated reduction of NCM catalyzed by strain SO1 alone (15.4 mg L−1 total
+      leached metal ion), and the brewing wastewater‐mediated reduction of NCM catalyzed by strain BS1 alone (3.8 mg L−1 total
+      leached metal ion) (Figure 2d ), the total leached metal ions by the SO1‐BS1 consortium increased by 14.91‐, 3.29‐,
+      and 13.34‐fold, respectively.
+    explanation: Documents the 3.8 mg L^-1 NCM metal leaching yield of strain BS1 alone.
+growth_media:
+- name: Moutai brewing wastewater with spent NCM black mass (BS1 monoculture)
+  composition:
+  - name: brewing wastewater
+  - name: LiNixCoyMn1-x-yO2 black mass
+    concentration: '0.2'
+    unit: g/L
+  - name: isopropyl beta-D-thiogalactopyranoside
+    concentration: '0.5'
+    unit: mM
+  temperature: '30'
+  temperature_unit: degrees Celsius
+  atmosphere: ANAEROBIC
+  inoculum_size: '1'
+  inoculum_unit: '% v/v overnight culture'
+  incubation_time: '14'
+  incubation_time_unit: d
+  vessel_type: anaerobic bottle
+  preparation_notes: Strain BS1 was precultured overnight in LB medium with 0.2 g L^-1 chloramphenicol, inoculated at 1% (v/v)
+    into Moutai brewing wastewater with 0.5 mM IPTG, transferred to anaerobic bottles with 0.2 g L^-1 spent NCM black mass,
+    and incubated anaerobically at 30 degrees C for 14 days.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Overnight cultures of each strain were subsequently inoculated into a medium formulated with brewing water collected
+      from a brewing factory in Moutai Town (Guizhou) at a 1% (v/v) ratio, induced by the isopropyl‐β‐d‐thiogalactoside (IPTG,
+      0.5 mm, Heowns, Tianjin) for gene expression. Following a brief period of subculturing, the culture was transferred
+      into anaerobic bottles, supplemented with 0.2 g L−1 of black mass
+    explanation: Supports the 1% v/v inoculation into Moutai brewing wastewater, 0.5 mM IPTG addition, and 0.2 g L^-1 NCM
+      black-mass loading.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Anaerobic fermentation was then conducted at 30°C for a period of 14 days to facilitate the dissolution of LIBs.
+    explanation: Supports the anaerobic 30 degrees C, 14-day bioleaching incubation.
+metals_present:
+- LITHIUM
+- NICKEL
+- COBALT
+metal_relevance: PRIMARY
+metal_notes: Evaluated as the single-strain B. subtilis BS1 monoculture control against 0.2 g L^-1 spent NCM cathode black
+  mass in Moutai brewing wastewater, yielding 3.8 mg L^-1 total dissolved Li, Ni, Co, and Mn over 14 days (PMID:42733304).
+discussions:
+- discussion_id: bs1_acetate_cross_feeding_versus_ethanol_detoxification
+  prompt: In the SO1-BS1 and SO2-BS1 consortia, does the acetate generated from 1.8% (v/v) ethanol by B. subtilis BS1 P43::adh-aldH
+    serve purely as a detoxification product or also as a secondary carbon/electron donor alongside the native lactate in
+    Moutai brewing wastewater?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Heterologous Adh-AldH Dual-Enzyme Oxidation of Brewing-Wastewater Ethanol by BS1
+  - ecological_interactions#Minimal Standalone Electrogenic Power Density and NCM Metal Leaching by BS1 Monoculture
+  rationale: PMID:42733304 showed that BS1 monoculture had negligible standalone EET (1.25 mW m^-2) and NCM metal leaching
+    (3.8 mg L^-1 vs 3.4 mg L^-1 abiotic control) while removing 97.6% of ethanol in SO1-BS1 via Adh-AldH oxidation to acetate,
+    but did not isotopically trace whether BS1-derived acetate is co-respired by S. oneidensis alongside the native lactate
+    in Moutai brewing wastewater.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Using this engineered B. subtilis strain BS1, the residual ethanol in the brewing wastewater was oxidized to
+      acetaldehyde by alcohol dehydrogenase (Adh), which was subsequently converted into acetate catalyzed by aldehyde dehydrogenase
+      (AldH)
+    explanation: Documents the conversion of ethanol to acetate by BS1 without quantifying downstream acetate consumption
+      by S. oneidensis.
+  posed_by: antigravity
+  posed_date: '2026-11-07'
+curation_history:
+- timestamp: '2026-11-07T10:35:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000525 (Bacillus subtilis 168 BS1 Brewing-Wastewater Ethanol-Detoxifying Isolate Baseline)
+    in data/isolates/ from PMID:42733304 / doi:10.1002/advs.77699 for the single-strain engineered P43::adh-aldH partner control
+    (1.25 mW m^-2 power density, 3.8 mg L^-1 NCM metal leaching) linked via MEMBER_SUBSET_OF and SAME_STUDY_AS to CommunityMech:000523
+    and via SAME_STUDY_AS to CommunityMech:000524.
+  llm_assisted: true
