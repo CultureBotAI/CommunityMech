@@ -63,8 +63,8 @@ def test_taxa_record_structure():
             "PMID:39504696",
             "PMID:31537786",
         } == refs
-        assert len(genes[sym]["evidence"]) == 8
-        assert sum(1 for ev in genes[sym]["evidence"] if ev["reference"] == "PMID:42733304") == 5
+        assert len(genes[sym]["evidence"]) == 10
+        assert sum(1 for ev in genes[sym]["evidence"] if ev["reference"] == "PMID:42733304") == 7
     for sym in ("mtrB", "mtrA"):
         refs = {ev["reference"] for ev in genes[sym]["evidence"]}
         assert {"PMID:42733304", "PMID:41210787", "PMID:31537786", "PMID:32849356"} == refs
@@ -95,7 +95,8 @@ def test_taxa_record_structure():
         "PMID:32265334",
         "PMID:41876513",
     } == {ev["reference"] for ev in geo_genes["pilA"]["evidence"]}
-    assert len(geo_genes["pilA"]["evidence"]) == 7
+    assert len(geo_genes["pilA"]["evidence"]) == 8
+    assert sum(1 for ev in geo_genes["pilA"]["evidence"] if ev["reference"] == "PMID:41876513") == 2
     assert {
         "PMID:41210787",
         "PMID:37650614",
@@ -116,8 +117,8 @@ def test_taxa_record_structure():
     assert {"PMID:41876513", "PMID:37650614", "PMID:37747940"} == {
         ev["reference"] for ev in geo_genes["omcB"]["evidence"]
     }
-    assert len(geo_genes["omcB"]["evidence"]) == 4
-    assert sum(1 for ev in geo_genes["omcB"]["evidence"] if ev["reference"] == "PMID:41876513") == 2
+    assert len(geo_genes["omcB"]["evidence"]) == 5
+    assert sum(1 for ev in geo_genes["omcB"]["evidence"] if ev["reference"] == "PMID:41876513") == 3
 
 
 def test_taxa_genes_have_verified_uniprot_and_cached_evidence():
@@ -186,6 +187,9 @@ def test_community_links_common_taxon():
         "kb/communities/SO2_BS1_Lithium_Battery_Bioleaching_Consortium.yaml",
         "kb/communities/SO2_BS2_Lithium_Battery_Bioleaching_Consortium.yaml",
         "kb/communities/SO3_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
+        "kb/communities/SO3_DeltaMtrC_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
+        "kb/communities/SO3_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
+        "kb/communities/SO3_DeltaMtrC_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
         "kb/communities/Shewanella_Anammox_Delta_nrfA_Nitrite_Coupled_Consortium.yaml",
         "kb/communities/Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml",
         "kb/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml",

@@ -99,6 +99,15 @@ genes:
       uses the canonical Geobacter sulfurreducens PCA conductive e-pilin protein sequence (GenBank AAR34870.1, corresponding
       to locus GSU1496 / UniProtKB:Q74BW5 in reference assembly GCF_000007985.2) as the reference sequence to identify putative
       electrically conductive e-pili.
+  - reference: PMID:41876513
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Also, deletion of the pilA gene abolished DIET between Geobacter and a type II Methanosarcina (M. acetivorans)
+      and GAC could compensate for this loss suggesting that the role of pili in the interaction with GAC and the methanogenic
+      partner is not crucial
+    explanation: PARTIAL - comparative DIET discussion in PMID:41876513 (CommunityMech:000462) notes that deletion of pilA
+      (GSU1496, UniProtKB:Q74BW5, GCF_000007985.2) abolishes unamended direct interspecies electron transfer between Geobacter
+      and Methanosarcina acetivorans while granular activated carbon (GAC) can compensate for e-pili loss.
 - gene_id: UniProtKB:Q749X9
   gene_symbol: omcS
   locus_tag: GSU2504
@@ -296,6 +305,13 @@ genes:
     explanation: Comparative genomic analysis in PMID:41876513 (CommunityMech:000462, Figure 4) benchmarks the conserved Geobacter
       sulfurreducens PCA porin-cytochrome-cytochrome (PCC, OmbB-OmaB-OmcB) gene cluster architecture culminating in the outer-membrane
       dodecaheme c-type cytochrome OmcB (GSU2737, UniProtKB:Q74A86, GCF_000007985.2).
+  - reference: PMID:41876513
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Top OmcB hits were collected and used to assemble a dedicated Geobacteraceae OmcB reference database.
+    explanation: Methods and phylogenetic benchmarking in PMID:41876513 (CommunityMech:000462) assemble a dedicated Geobacteraceae
+      OmcB reference protein sequence database including canonical Geobacter sulfurreducens PCA OmcB (GSU2737, UniProtKB:Q74A86,
+      GCF_000007985.2) for MAFFT/RAxML maximum-likelihood phylogeny of porin-cytochrome-cytochrome (PCC) conduits.
 notes: 'Reusable taxon record capturing the verified UniProtKB protein accessions for the conductive-pili and multiheme-cytochrome
   genes (pilA/Q74BW5, omcS/Q749X9, omcZ/Q74A90, omcB/Q74A86) in the Geobacter sulfurreducens PCA reference assembly (GCF_000007985.2)
   that underpin G. sulfurreducens'' electron-transfer and syntrophic-partner roles in DIET cocultures, Fe(III)-reduction,
@@ -386,4 +402,11 @@ curation_history:
   changes: Added verified full-text COMPUTATIONAL EvidenceItem entries from PMID:41876513 (CommunityMech:000462) to pilA (UniProtKB:Q74BW5,
     GSU1496; reference Geobacter sulfurreducens PCA e-pilin sequence GenBank AAR34870.1) and omcB (UniProtKB:Q74A86, GSU2737;
     reference G. sulfurreducens PCC outer-membrane dodecaheme MHC gene organization).
+  llm_assisted: true
+- timestamp: '2026-11-08T08:32:00Z'
+  curator: antigravity
+  action: ADD_UNIPROT_PROTEIN_EXAMPLES
+  changes: Added verified full-text COMPUTATIONAL EvidenceItem entries from PMID:41876513 (CommunityMech:000462) to pilA (UniProtKB:Q74BW5,
+    GSU1496; PARTIAL for pilA deletion abolishing unamended DIET with Methanosarcina acetivorans and GAC compensation) and
+    omcB (UniProtKB:Q74A86, GSU2737; SUPPORT for Geobacteraceae OmcB reference protein sequence database assembly).
   llm_assisted: true
