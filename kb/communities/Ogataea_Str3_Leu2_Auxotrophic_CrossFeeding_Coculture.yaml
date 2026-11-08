@@ -1,0 +1,298 @@
+id: CommunityMech:000535
+name: Ogataea Str3-Leu2 Auxotrophic Cross-Feeding Coculture
+description: A defined two-member Ogataea polymorpha synthetic yeast coculture pairing a sulfur assimilation cystathionine
+  beta-lyase auxotroph (str3Δ) with a leucine biosynthesis auxotroph (leu2Δ) constructed in the JQcr03L laboratory background
+  by Fan et al. 2026 (PMID:42318495). Alongside the met10Δ-str3Δ pair (CommunityMech:000450), str3Δ-leu2Δ was identified in
+  systematic pairwise auxotroph screening and shake-flask validation (1:1 strain ratio, initial total OD600 = 0.2, Delft minimal
+  medium containing 20 g/L glucose, 37 degrees C, 220 rpm, n = 4) as one of the two strongly complementary pairs exhibiting
+  the most reproducible and robust growth complementation, reaching maximum OD600 values of 27.3–28.5 (comparable to the prototrophic
+  control strain FY00 at OD600 = 26.8, p > 0.1) after a prolonged lag phase (p < 10^-4) required for cross-pathway metabolic
+  exchange between sulfur assimilation and leucine biosynthesis.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Evaluate pairwise auxotrophic cross-feeding between distinct amino acid biosynthetic pathways (sulfur assimilation
+    STR3 deletion and leucine biosynthesis LEU2 deletion) to establish stable synthetic consortia in Ogataea polymorpha.
+  assembly_strategy: Construct single-gene auxotrophic mutants in the O. polymorpha JQcr03L background via CRISPR/Cas9 followed
+    by URA3 restoration, screen pairwise combinations at a 1:1 ratio in Delft minimal medium with 20 g/L glucose using Recovery
+    Index (RI = co-culture maximum OD600 / FY00 maximum OD600), and validate top-performing pairs in 100 mL shake flasks (n
+    = 4 biological replicates).
+  inoculation_strategy: Pre-culture single colonies in liquid YPD overnight (15–18 h) at 37 degrees C and 220 rpm, wash twice
+    with Delft minimal medium, and inoculate at a 1:1 str3Δ:leu2Δ ratio to an initial total OD600 of 0.2 in 20 mL Delft minimal
+    medium (20 g/L glucose) in 100 mL shake flasks.
+  perturbation_design: Compare str3Δ-leu2Δ against prototrophic control FY00, single-mutant monocultures (OD600 < 1.2 without
+    supplementation), sulfur-pathway pairs (met10Δ-str3Δ, met14Δ-str3Δ, met3Δ-str3Δ), and moderately complementary pairs (met10Δ-leu2Δ,
+    met10Δ-met14Δ, ura3Δ-leu2Δ, met10Δ-met3Δ).
+  measurement_endpoints:
+  - Recovery Index (RI) in multi-well plate screening
+  - shake-flask growth curves (OD600)
+  - maximum OD600 in stationary phase
+  - lag phase duration relative to prototrophic FY00
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Among all tested pairs, met10Δ-str3Δ and str3Δ-leu2Δ exhibited the most reproducible and robust complementation.
+    explanation: Identifies str3Δ-leu2Δ alongside met10Δ-str3Δ as the two most reproducible and robust complementary auxotrophic
+      pairs in the study.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The strongly complementary pairs (met10Δ-str3Δ and str3Δ-leu2Δ) reached maximum OD600 values of 27.3–28.5, slightly
+      higher than that of the FY00 control (OD600 = 26.8, p > 0.1).
+    explanation: Quantifies the shake-flask maximum OD600 (27.3–28.5) of the strongly complementary str3Δ-leu2Δ and met10Δ-str3Δ
+      pairs relative to FY00.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For screening under glucose conditions, co-cultures were initiated in Delft medium containing 20 g/L glucose
+      at an initial total OD600 of 0.2 with a 1:1 strain ratio. Single-strain controls were inoculated at the same OD600.
+    explanation: Specifies the 1:1 inoculation ratio, initial total OD600 of 0.2, and 20 g/L glucose Delft minimal medium
+      condition.
+environment_term:
+  preferred_term: engineered methylotrophic yeast auxotroph coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Shaken 100 mL flask batch coculture (20 mL working volume) in Delft minimal medium with 20 g/L glucose at 37 degrees
+    C and 220 rpm.
+related_communities:
+- identifier: CommunityMech:000450
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: The Ogataea polymorpha str3Δ-leu2Δ coculture and the met10Δ-str3Δ coculture (CommunityMech:000450) were identified
+    and shake-flask validated side-by-side in Section 3.2 (Figure 2b–d) of PMID:42318495 as the two strongly complementary
+    pairs exhibiting the most reproducible and robust growth restoration on glucose.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Among all tested pairs, met10Δ-str3Δ and str3Δ-leu2Δ exhibited the most reproducible and robust complementation.
+    explanation: Directly pairs met10Δ-str3Δ and str3Δ-leu2Δ in the same screening and shake-flask validation experiments
+      of PMID:42318495.
+taxonomy:
+- taxon_term:
+    preferred_term: Ogataea polymorpha str3Δ
+    term:
+      id: NCBITaxon:460523
+      label: Ogataea polymorpha
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Engineered Ogataea polymorpha cystathionine beta-lyase (STR3) deletion auxotroph in the JQcr03L background requiring
+      homocysteine for growth.
+  strain_designation:
+    strain_name: JQcr03L str3Δ
+    genetic_modification: CRISPR/Cas9 deletion of STR3 (encoding cystathionine beta-lyase in the sulfur assimilation pathway)
+      in the O. polymorpha JQcr03L background followed by URA3 restoration.
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Auxotrophic single mutants were constructed in the JQcr03L background using a CRISPR/Cas9-based method
+    explanation: Supports the CRISPR/Cas9 construction and URA3 restoration of the auxotrophic single mutants in the JQcr03L
+      background.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this pathway, MET10 encodes a sulfite reductase that catalyzes the reduction of sulfite to sulfide, while
+      STR3 encodes a cystathionine β-lyase that cleaves cystathionine to homocysteine
+    explanation: Defines the enzymatic defect (STR3 cystathionine beta-lyase) in the str3Δ auxotroph.
+- taxon_term:
+    preferred_term: Ogataea polymorpha leu2Δ
+    term:
+      id: NCBITaxon:460523
+      label: Ogataea polymorpha
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Engineered Ogataea polymorpha leucine biosynthesis (LEU2) deletion auxotroph with URA3 restored.
+  strain_designation:
+    strain_name: JQcr03L leu2Δ
+    genetic_modification: LEU2 deletion auxotroph with URA3 restored in the O. polymorpha JQcr03/JQcr03L laboratory background.
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The parental strain used in this study was O. polymorpha JQcr03, a uracil and leucine auxotroph (ura3Δ leu2Δ)
+      previously constructed in our laboratory
+    explanation: Documents the leu2Δ auxotrophic allele in the parental O. polymorpha JQcr03 lineage.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Auxotrophic single mutants were constructed in the JQcr03L background using a CRISPR/Cas9-based method
+    explanation: Supports the URA3-restored single-auxotroph construction used for pairwise complementation screening.
+ecological_interactions:
+- name: STR3-LEU2 Cross-Pathway Auxotrophic Complementation and Biomass Restoration on Glucose
+  description: While individual O. polymorpha auxotrophic single mutants failed to grow in unsupplemented Delft minimal glucose
+    medium (OD600 remaining below 1.2), 1:1 co-cultivation of str3Δ and leu2Δ at initial total OD600 = 0.2 in shake flasks
+    (20 g/L glucose, 37 degrees C, 220 rpm, n = 4) resulted in reproducible and robust growth complementation. Along with
+    met10Δ-str3Δ, str3Δ-leu2Δ reached a maximum OD600 of 27.3–28.5 (comparable to the prototrophic control strain FY00 at
+    OD600 = 26.8, p > 0.1) and outperformed moderately complementary pairs such as met10Δ-leu2Δ and ura3Δ-leu2Δ (maximum OD600
+    = 24–26, lag phases 70–144 h), while exhibiting a significantly longer lag phase than FY00 (p < 10^-4) reflecting the
+    time required to establish reciprocal amino acid/intermediate exchange.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Ogataea polymorpha str3Δ
+    term:
+      id: NCBITaxon:460523
+      label: Ogataea polymorpha
+  - preferred_term: Ogataea polymorpha leu2Δ
+    term:
+      id: NCBITaxon:460523
+      label: Ogataea polymorpha
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The strongly complementary pairs (met10Δ-str3Δ and str3Δ-leu2Δ) reached maximum OD600 values of 27.3–28.5, slightly
+      higher than that of the FY00 control (OD600 = 26.8, p > 0.1). However, their lag phases were obviously longer than that
+      of FY00 (p < 10−4), reflecting the time required for metabolic exchange and population establishment.
+    explanation: Quantifies the shake-flask maximum OD600 (27.3–28.5) and extended lag phase (p < 10^-4) of the strongly complementary
+      str3Δ-leu2Δ and met10Δ-str3Δ cocultures relative to FY00.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Among all tested pairs, met10Δ-str3Δ and str3Δ-leu2Δ exhibited the most reproducible and robust complementation.
+    explanation: Highlights str3Δ-leu2Δ and met10Δ-str3Δ as the two most reproducible and robust auxotrophic cocultures on
+      glucose.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In contrast, most auxotrophic strains failed to grow without exogenous supplementation, with OD600 remaining
+      below 1.2 throughout cultivation ( Fig. S1b and c ).
+    explanation: Establishes the single-strain auxotroph baseline (OD600 < 1.2) against which str3Δ-leu2Δ coculture rescue
+      (OD600 27.3–28.5) was measured.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In comparison, moderately complementary pairs (met10Δ-leu2Δ, met10Δ-met14Δ, ura3Δ-leu2Δ, and met10Δ-met3Δ) exhibited
+      lower maximum OD600 (24-26) and extremely extended lag phases (70-144 h).
+    explanation: Contrasts the superior maximum OD600 and shorter lag phase of str3Δ-leu2Δ against moderately complementary
+      pairs such as met10Δ-leu2Δ and ura3Δ-leu2Δ.
+environmental_factors:
+- name: Shake-flask maximum OD600 of strongly complementary str3Δ-leu2Δ and met10Δ-str3Δ pairs on glucose
+  value: 27.3–28.5 (vs 26.8 for prototrophic FY00 control, p > 0.1)
+  unit: OD600
+  description: Maximum stationary-phase cell density reached by the strongly complementary str3Δ-leu2Δ and met10Δ-str3Δ cocultures
+    in Delft minimal medium containing 20 g/L glucose (initial total OD600 = 0.2, 1:1 ratio, n = 4).
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The strongly complementary pairs (met10Δ-str3Δ and str3Δ-leu2Δ) reached maximum OD600 values of 27.3–28.5, slightly
+      higher than that of the FY00 control (OD600 = 26.8, p > 0.1).
+    explanation: Reports the 27.3–28.5 maximum OD600 range for str3Δ-leu2Δ and met10Δ-str3Δ compared with 26.8 for FY00.
+growth_media:
+- name: Delft minimal glucose medium (str3Δ-leu2Δ shake-flask coculture)
+  temperature: '37'
+  temperature_unit: °C
+  shaking_speed: '220'
+  shaking_speed_unit: rpm
+  vessel_type: 100 mL flask
+  inoculum_size: '0.2'
+  inoculum_unit: initial total OD600 (1:1 strain ratio)
+  composition:
+  - name: glucose
+    concentration: '20'
+    unit: g/L
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+  preparation_notes: Single colonies were grown overnight (15–18 h) in liquid YPD at 37 °C and 220 rpm, washed twice with
+    Delft minimal medium, and inoculated at a 1:1 str3Δ:leu2Δ ratio with total initial OD600 = 0.2 into 20 mL Delft minimal
+    medium containing 20 g/L glucose in 100 mL flasks (n = 4 biological replicates).
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: O. polymorpha strains were routinely cultivated in Delft minimal medium at 37 °C with shaking at 220 rpm in 100
+      mL flasks containing 20 mL medium. Unless otherwise specified, glucose (20 g/L) was used as the carbon source.
+    explanation: Specifies the Delft minimal medium, 20 g/L glucose carbon source, 37 °C temperature, 220 rpm shaking speed,
+      and 20 mL in 100 mL flask setup.
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All co-cultures were initiated at a 1:1 ratio with total initial OD600 = 0.2 in Delft minimal medium containing
+      20 g/L glucose at 37 °C. Data are mean ± SD from four biological replicates.
+    explanation: Specifies the 1:1 ratio, total initial OD600 = 0.2, and four biological replicates for the Figure 2c–d shake-flask
+      validation.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  working_volume: 20.0
+  working_volume_unit: mL
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  notes: Shaken 100 mL flasks containing 20 mL Delft minimal glucose medium operated at 37 °C and 220 rpm.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: O. polymorpha strains were routinely cultivated in Delft minimal medium at 37 °C with shaking at 220 rpm in 100
+      mL flasks containing 20 mL medium.
+    explanation: Supports the batch shake-flask cultivation setup.
+external_resources:
+- name: Primary publication - Ogataea polymorpha auxotrophic cross-feeding consortia
+  repository: OTHER
+  resource_id: PMID:42318495
+  url: https://pubmed.ncbi.nlm.nih.gov/42318495/
+  description: Synthetic and Systems Biotechnology article reporting systematic screening and shake-flask validation of Ogataea
+    polymorpha auxotrophic cocultures including str3Δ-leu2Δ and met10Δ-str3Δ.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Engineering an asymmetric cross-feeding consortium in Ogataea polymorpha driven by sulfur metabolism
+    explanation: Identifies the primary publication title.
+- name: DOI for the Ogataea auxotrophic cross-feeding article
+  repository: OTHER
+  resource_id: doi:10.1016/j.synbio.2026.05.008
+  url: https://doi.org/10.1016/j.synbio.2026.05.008
+  description: Version-of-record DOI for the 2026 Synthetic and Systems Biotechnology Ogataea cross-feeding article.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1016/j.synbio.2026.05.008'
+    explanation: Supports the article DOI.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth biogeochemical transformation is involved in the engineered Ogataea polymorpha str3Δ-leu2Δ
+  auxotrophic coculture.
+discussions:
+- discussion_id: str3_leu2_methanol_and_ratio_stability_untested
+  prompt: Why did str3Δ-leu2Δ outperform met10Δ-leu2Δ in glucose shake-flask complementation (maximum OD600 27.3–28.5 vs 24–26
+    and shorter lag phase), and how does str3Δ-leu2Δ perform on methanol as sole carbon source?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#STR3-LEU2 Cross-Pathway Auxotrophic Complementation and Biomass Restoration on Glucose
+  rationale: Section 3.2 of PMID:42318495 identified met10Δ-str3Δ and str3Δ-leu2Δ as the two most reproducible and robust
+    complementary pairs on glucose (Figure 2b–d), whereas Section 3.3 and Section 3.4 focused downstream methanol growth curves
+    (Figure 3) and fluorescence ratio tracking (Figure 4) on met10Δ-str3Δ and other pairs without directly quantifying str3Δ-leu2Δ
+    exchange fluxes.
+  evidence:
+  - reference: PMID:42318495
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Among all tested pairs, met10Δ-str3Δ and str3Δ-leu2Δ exhibited the most reproducible and robust complementation.
+    explanation: Establishes str3Δ-leu2Δ as one of the two top-performing glucose complementation pairs prior to the study's
+      downstream focus on met10Δ-str3Δ.
+  posed_by: antigravity
+  posed_date: '2026-11-08'
+curation_history:
+- timestamp: '2026-11-08T19:40:00Z'
+  curator: antigravity
+  action: CREATED
+  changes: Created CommunityMech:000535 (Ogataea Str3-Leu2 Auxotrophic Cross-Feeding Coculture) in kb/communities/ from PMID:42318495
+    / doi:10.1016/j.synbio.2026.05.008 for the strongly complementary O. polymorpha str3Δ-leu2Δ cross-pathway auxotrophic
+    coculture (maximum OD600 27.3–28.5 on 20 g/L glucose in Delft minimal medium) linked via SAME_STUDY_AS to CommunityMech:000450.
+  llm_assisted: true

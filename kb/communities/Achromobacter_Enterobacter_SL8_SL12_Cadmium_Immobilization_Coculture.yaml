@@ -4,9 +4,8 @@ description: A defined two-member bacterial coculture assembled from the Cd-cont
   sp. SL8 and Enterobacter sp. SL12 to immobilize cadmium. In 100 mg/L Cd2+ LB assays the SL8-SL12 coculture removed 80.9%
   of dissolved Cd after 7 days, exceeding both monocultures at the same Cd dose; Cd partitioning, microscopy, and spectroscopy
   associated this performance with CdS bioprecipitation, intracellular Cd accumulation, surface aggregation with possible
-  EPS involvement, and phosphate-, amino-, and hydroxyl-bearing surface groups. In greenhouse Chinese-cabbage pots the
-  inoculated coculture decreased bioavailable soil Cd fractions and lowered Cd in aboveground cabbage tissue under high
-  Cd stress.
+  EPS involvement, and phosphate-, amino-, and hydroxyl-bearing surface groups. In greenhouse Chinese-cabbage pots the inoculated
+  coculture decreased bioavailable soil Cd fractions and lowered Cd in aboveground cabbage tissue under high Cd stress.
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: BIOREMEDIATION
@@ -143,8 +142,8 @@ taxonomy:
 ecological_interactions:
 - name: SL8-SL12 cooperative cadmium immobilization
   description: The SL8-SL12 coculture combined alkalinization, increased intracellular Cd accumulation, CdS bioprecipitation,
-    and surface aggregation with possible EPS involvement under 100 mg/L Cd2+, removing 80.9% of Cd after 7 days and
-    outperforming both monocultures at the high Cd dose.
+    and surface aggregation with possible EPS involvement under 100 mg/L Cd2+, removing 80.9% of Cd after 7 days and outperforming
+    both monocultures at the high Cd dose.
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cadmium(2+)
@@ -347,9 +346,8 @@ external_resources:
   - reference: PMID:42307251
     supports: SUPPORT
     evidence_source: OTHER
-    snippet: This study employed an integrated approach combining spectroscopy, metabolomics, and proteomics to elucidate the
-      molecular mechanisms underlying Cd detoxification in Achromobacter insuavis SL8 and Enterobacter cancerogenus
-      SL12.
+    snippet: This study employed an integrated approach combining spectroscopy, metabolomics, and proteomics to elucidate
+      the molecular mechanisms underlying Cd detoxification in Achromobacter insuavis SL8 and Enterobacter cancerogenus SL12.
     explanation: Identifies the primary publication.
 - name: DOI for the SL8-SL12 cadmium-immobilization article
   repository: OTHER
@@ -361,8 +359,8 @@ external_resources:
     supports: SUPPORT
     evidence_source: OTHER
     snippet: This multi-omics investigation not only deepens the understanding of microbial adaptive responses to Cd stress,
-      but also provides insights for developing novel microbial consortia for efficient and eco-friendly bioremediation
-      of Cd-contaminated environments.
+      but also provides insights for developing novel microbial consortia for efficient and eco-friendly bioremediation of
+      Cd-contaminated environments.
     explanation: Links the DOI resource to the primary SL8-SL12 cadmium-immobilization publication.
 - name: PubMed Central full text for the SL8-SL12 cadmium-immobilization article
   repository: OTHER
@@ -437,27 +435,67 @@ curation_history:
 - timestamp: '2026-09-14T06:39:44Z'
   curator: codex
   action: ADDRESS_ADVERSARIAL_REVIEW
-  changes: >
-    Addressed PR #882 adversarial-review issues #883 and #884 by qualifying
-    possible EPS involvement in SL8-SL12 cell aggregation and removing the
-    unsupported NICHE_PARTITIONING type from the community-level Cd
-    immobilization summary.
+  changes: 'Addressed PR #882 adversarial-review issues #883 and #884 by qualifying possible EPS involvement in SL8-SL12 cell
+    aggregation and removing the unsupported NICHE_PARTITIONING type from the community-level Cd immobilization summary.
+
+    '
   llm_assisted: true
 - timestamp: '2026-09-14T06:43:54Z'
   curator: codex
   action: ADDRESS_NETWORK_AUDIT
-  changes: >
-    Addressed CI network-audit issue #885 on PR #882 by removing two dangling
-    downstream entries that named measured outcomes rather than
-    ecological_interactions targets.
+  changes: 'Addressed CI network-audit issue #885 on PR #882 by removing two dangling downstream entries that named measured
+    outcomes rather than ecological_interactions targets.
+
+    '
   llm_assisted: true
 - timestamp: '2026-09-14T15:42:55Z'
   curator: codex
   action: ADDRESS_PARTICIPATING_TAXA_AUDIT
-  changes: >
-    Addressed CI issue #886 on PR #882 by removing a redundant
-    participating_taxa block from the community-level SL8-SL12 Cd
-    immobilization interaction; the record has only the two listed members, so
-    the absent slot already credits Achromobacter sp. SL8 and Enterobacter sp.
-    SL12 without expanding the corpus of narrowed community-level interactions.
+  changes: 'Addressed CI issue #886 on PR #882 by removing a redundant participating_taxa block from the community-level SL8-SL12
+    Cd immobilization interaction; the record has only the two listed members, so the absent slot already credits Achromobacter
+    sp. SL8 and Enterobacter sp. SL12 without expanding the corpus of narrowed community-level interactions.
+
+    '
   llm_assisted: true
+- timestamp: '2026-11-08T19:38:00Z'
+  curator: antigravity
+  action: LINK_RELATED_COMMUNITIES
+  changes: 'Added reciprocal MEMBER_SUPERSET_OF (basis: SHARED_STRAIN_DESIGNATIONS) and SAME_STUDY_AS (basis: SOURCE_STATEMENT)
+    related_communities links to the newly curated single-strain isolate baselines CommunityMech:000533 (Achromobacter sp.
+    SL8) and CommunityMech:000534 (Enterobacter sp. SL12) from PMID:42307251.'
+  llm_assisted: true
+related_communities:
+- identifier: CommunityMech:000533
+  relation: MEMBER_SUPERSET_OF
+  basis: SHARED_STRAIN_DESIGNATIONS
+  description: The two-strain Achromobacter sp. SL8 + Enterobacter sp. SL12 coculture is a member superset of the single-strain
+    Achromobacter sp. SL8 isolate baseline (CommunityMech:000533).
+- identifier: CommunityMech:000533
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: The SL8-SL12 coculture and single-strain Achromobacter sp. SL8 monoculture (CommunityMech:000533) were evaluated
+    in parallel for 7-day Cd2+ removal, spectroscopy, and multi-omics profiling in PMID:42307251.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After a 7-day incubation period, RE-Cd values reached 82.6% and 69.55% for SL8, 63.4% and 70.8% for SL12, and
+      82.6% and 80.9% for the co-cultured strains at initial Cd concentrations of 50 mg/L and 100 mg/L, respectively.
+    explanation: Links the SL8-SL12 coculture and Achromobacter sp. SL8 monoculture in the same study.
+- identifier: CommunityMech:000534
+  relation: MEMBER_SUPERSET_OF
+  basis: SHARED_STRAIN_DESIGNATIONS
+  description: The two-strain Achromobacter sp. SL8 + Enterobacter sp. SL12 coculture is a member superset of the single-strain
+    Enterobacter sp. SL12 isolate baseline (CommunityMech:000534).
+- identifier: CommunityMech:000534
+  relation: SAME_STUDY_AS
+  basis: SOURCE_STATEMENT
+  description: The SL8-SL12 coculture and single-strain Enterobacter sp. SL12 monoculture (CommunityMech:000534) were evaluated
+    in parallel for 7-day Cd2+ removal, spectroscopy, and multi-omics profiling in PMID:42307251.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After a 7-day incubation period, RE-Cd values reached 82.6% and 69.55% for SL8, 63.4% and 70.8% for SL12, and
+      82.6% and 80.9% for the co-cultured strains at initial Cd concentrations of 50 mg/L and 100 mg/L, respectively.
+    explanation: Links the SL8-SL12 coculture and Enterobacter sp. SL12 monoculture in the same study.
